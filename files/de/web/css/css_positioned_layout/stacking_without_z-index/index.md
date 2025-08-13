@@ -1,24 +1,24 @@
 ---
-title: Stapeln ohne die `z-index`-Eigenschaft
+title: Stapeln ohne die z-index-Eigenschaft
 short-title: Stapeln ohne z-index
 slug: Web/CSS/CSS_positioned_layout/Stacking_without_z-index
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Wenn die {{cssxref("z-index")}}-Eigenschaft bei keinem Element angegeben ist, werden Elemente in folgender Reihenfolge gestapelt (von unten nach oben):
+Wenn die {{cssxref("z-index")}}-Eigenschaft bei keinem Element angegeben ist, werden die Elemente in der folgenden Reihenfolge gestapelt (von unten nach oben):
 
-1. Der Hintergrund und die Ränder des Root-Elements.
-2. Nachkommende, nicht positionierte Elemente in der Reihenfolge ihres Erscheinens im HTML.
-3. Nachkommende, positionierte Elemente in der Reihenfolge ihres Erscheinens im HTML.
+1. Der Hintergrund und die Rahmen des Wurzelelements.
+2. Nachfahrende, nicht positionierte Elemente in der Reihenfolge ihrer Erscheinung im HTML.
+3. Nachfahrende, positionierte Elemente in der Reihenfolge ihrer Erscheinung im HTML.
 
 Siehe [Arten der Positionierung](/de/docs/Web/CSS/position#types_of_positioning) für eine Erklärung zu positionierten und nicht positionierten Elementen.
 
-Beachten Sie, wenn die {{cssxref("order")}}-Eigenschaft die Darstellung von der _Reihenfolge des Erscheinens im HTML_ innerhalb von {{cssxref("flex")}}-Controllern verändert, wirkt sich dies ähnlich auf die Reihenfolge im Stapelkontext aus.
+Beachten Sie, wenn die {{cssxref("order")}}-Eigenschaft die Darstellung in {{cssxref("flex")}}-Containern aus der _Reihenfolge des Erscheinens im HTML_ verändert, wirkt sich dies auch auf die Reihenfolge im Stapelkontext aus.
 
 ## Beispiel
 
-In diesem Beispiel sind DIV #1 bis DIV #4 positionierte Elemente. DIV #5 ist statisch und wird daher unter den anderen vier Elementen gezeichnet, obwohl es später in der HTML-Auszeichnung erscheint.
+In diesem Beispiel sind DIV #1 bis DIV #4 positionierte Elemente. DIV #5 ist statisch und wird daher unterhalb der anderen vier Elemente gezeichnet, obwohl es später im HTML-Markup erscheint.
 
 ### HTML
 
@@ -56,24 +56,24 @@ div {
 .static {
   position: static;
   height: 80px;
-  background-color: #ffc;
-  border-color: #996;
+  background-color: #ffffcc;
+  border-color: #999966;
 }
 
 .absolute {
   position: absolute;
   width: 150px;
   height: 350px;
-  background-color: #fdd;
-  border-color: #900;
+  background-color: #ffdddd;
+  border-color: #990000;
   opacity: 0.7;
 }
 
 .relative {
   position: relative;
   height: 80px;
-  background-color: #cfc;
-  border-color: #696;
+  background-color: #ccffcc;
+  border-color: #669966;
   opacity: 0.7;
 }
 
@@ -99,7 +99,7 @@ div {
 }
 
 #sta1 {
-  background-color: #ffc;
+  background-color: #ffffcc;
   margin: 0px 50px 0px 50px;
 }
 ```
@@ -110,8 +110,8 @@ div {
 
 ## Siehe auch
 
-- [Verstehen der z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
-- [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index)
-- [Stapeln von Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- [Stapeln schwebender Elemente](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
-- Modul [CSS-positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout)
+- [Understanding z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
+- [Using z-index](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index)
+- [Stacking context](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
+- [Stacking floating elements](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
+- [CSS positioned layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul

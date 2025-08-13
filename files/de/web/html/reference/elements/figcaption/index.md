@@ -1,11 +1,11 @@
 ---
-title: "<figcaption>: Das Figure Caption-Element"
+title: "<figcaption>: Das Figure Caption Element"
 slug: Web/HTML/Reference/Elements/figcaption
 l10n:
-  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
+  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
 ---
 
-Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschriftung oder Legende, die den restlichen Inhalt des übergeordneten {{HTMLElement("figure")}}-Elements beschreibt und dem `<figure>` eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} bietet.
+Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschriftung oder Legende, die den Rest der Inhalte des übergeordneten {{HTMLElement("figure")}}-Elements beschreibt und dem `<figure>` eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} bietet.
 
 {{InteractiveExample("HTML Demo: &lt;figcaption&gt;", "tabbed-shorter")}}
 
@@ -34,7 +34,7 @@ img {
 }
 
 figcaption {
-  background-color: #222;
+  background-color: #222222;
   color: white;
   font: italic smaller sans-serif;
   padding: 3px;
@@ -44,11 +44,11 @@ figcaption {
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
-Bitte besuchen Sie die Seite von {{HTMLElement("figure")}}, um Beispiele für `<figcaption>` zu sehen.
+Bitte sehen Sie sich die {{HTMLElement("figure")}}-Seite für Beispiele zu `<figcaption>` an.
 
 ## Technische Zusammenfassung
 
@@ -63,22 +63,22 @@ Bitte besuchen Sie die Seite von {{HTMLElement("figure")}}, um Beispiele für `<
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Zugelassene Inhalte</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Flow-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Anfangs- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Ein {{HTMLElement("figure")}}-Element; das
-        <code>&#x3C;figcaption></code>-Element muss das erste oder letzte Kind sein.
+        <code>&#x3C;figcaption></code>-Element muss sein erstes oder letztes Kind sein.
       </td>
     </tr>
     <tr>
@@ -90,7 +90,7 @@ Bitte besuchen Sie die Seite von {{HTMLElement("figure")}}, um Beispiele für `<
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role"><code>group</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>,
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a>

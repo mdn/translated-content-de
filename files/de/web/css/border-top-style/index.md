@@ -2,10 +2,10 @@
 title: border-top-style
 slug: Web/CSS/border-top-style
 l10n:
-  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`border-top-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil des oberen {{CSSxRef("border")}} eines Elements fest.
+Die **`border-top-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Linienstil des oberen {{CSSxRef("border")}} eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-top-style")}}
 
@@ -43,7 +43,7 @@ border-top-style: inset;
 
 ```css interactive-example
 #example-element {
-  background-color: #eee;
+  background-color: #eeeeee;
   color: black;
   border: 0.75em solid;
   padding: 0.75em;
@@ -57,7 +57,7 @@ body {
 ```
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie sich Ränder unterschiedlicher Stile in den Ecken verbinden.
+> Die Spezifikation definiert nicht, wie sich Rahmen mit unterschiedlichen Stilen in den Ecken verbinden.
 
 ## Syntax
 
@@ -82,7 +82,7 @@ border-top-style: revert-layer;
 border-top-style: unset;
 ```
 
-Die `border-top-style` Eigenschaft wird als ein einzelner {{cssxref("line-style")}} Schlüsselwortwert spezifiziert.
+Die `border-top-style`-Eigenschaft wird als einzelnes {{cssxref("line-style")}}-Schlüsselwort angegeben.
 
 ## Formale Definition
 
@@ -179,5 +179,5 @@ td {
 
 ## Siehe auch
 
-- Die anderen stilbezogenen Eigenschaften der Ränder: {{CSSxRef("border-left-style")}}, {{CSSxRef("border-right-style")}}, {{CSSxRef("border-bottom-style")}}, und {{CSSxRef("border-style")}}.
-- Die anderen Eigenschaften im Zusammenhang mit dem oberen Rand: {{CSSxRef("border-top")}}, {{CSSxRef("border-top-color")}}, und {{CSSxRef("border-top-width")}}.
+- Die anderen stilbezogenen Rahmen-Eigenschaften: {{CSSxRef("border-left-style")}}, {{CSSxRef("border-right-style")}}, {{CSSxRef("border-bottom-style")}}, und {{CSSxRef("border-style")}}.
+- Die anderen oberen Rahmen-bezogenen Eigenschaften: {{CSSxRef("border-top")}}, {{CSSxRef("border-top-color")}}, und {{CSSxRef("border-top-width")}}.

@@ -2,10 +2,10 @@
 title: :enabled
 slug: Web/CSS/:enabled
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`:enabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes aktivierte Element. Ein Element ist aktiviert, wenn es aktiviert werden kann (ausgewählt, angeklickt, eingegeben, etc.) oder den Fokus akzeptieren kann. Das Element hat auch einen deaktivierten Zustand, in dem es nicht aktiviert werden kann oder den Fokus nicht akzeptieren kann.
+Die **`:enabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes aktivierte Element. Ein Element ist aktiviert, wenn es aktiviert werden kann (ausgewählt, darauf geklickt, hineingetippt usw.) oder den Fokus akzeptieren kann. Das Element hat auch einen deaktivierten Zustand, in dem es nicht aktiviert werden kann oder den Fokus nicht akzeptieren kann.
 
 {{InteractiveExample("CSS Demo: :enabled", "tabbed-standard")}}
 
@@ -49,7 +49,7 @@ label {
 
 ## Beispiele
 
-Das folgende Beispiel macht die Farbe von Text und Button-{{htmlElement("input")}}s grün, wenn sie aktiviert sind, und grau, wenn sie deaktiviert sind. Dies hilft dem Benutzer, zu verstehen, mit welchen Elementen interagiert werden kann.
+Das folgende Beispiel färbt den Text und die Schaltfläche {{htmlElement("input")}}s grün, wenn sie aktiviert sind, und grau, wenn sie deaktiviert sind. Dies hilft dem Benutzer zu verstehen, mit welchen Elementen interagiert werden kann.
 
 ### HTML
 
@@ -69,11 +69,11 @@ Das folgende Beispiel macht die Farbe von Text und Button-{{htmlElement("input")
 
 ```css
 input:enabled {
-  color: #2b2;
+  color: #22bb22;
 }
 
 input:disabled {
-  color: #aaa;
+  color: #aaaaaa;
 }
 ```
 

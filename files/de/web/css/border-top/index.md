@@ -2,10 +2,10 @@
 title: border-top
 slug: Web/CSS/border-top
 l10n:
-  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`border-top`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) der [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des oberen [Randes](/de/docs/Web/CSS/border) eines Elements.
+Die **`border-top`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften eines Elements oberen [Rands](/de/docs/Web/CSS/border).
 
 {{InteractiveExample("CSS Demo: border-top")}}
 
@@ -39,7 +39,7 @@ border-top: 4mm ridge rgb(211 220 50 / 0.6);
 
 ```css interactive-example
 #example-element {
-  background-color: #eee;
+  background-color: #eeeeee;
   color: darkmagenta;
   padding: 0.75em;
   width: 80%;
@@ -47,25 +47,25 @@ border-top: 4mm ridge rgb(211 220 50 / 0.6);
 }
 ```
 
-Wie bei allen Kurzschreibweisen legt `border-top` immer die Werte aller Eigenschaften fest, die es setzen kann, auch wenn sie nicht spezifiziert sind. Es setzt diejenigen, die nicht spezifiziert sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie bei allen Shorthand-Eigenschaften setzt `border-top` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht spezifiziert sind. Es setzt diejenigen, die nicht spezifiziert sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
 
 ```css
 border-top-style: dotted;
 border-top: thick green;
 ```
 
-Er ist tatsächlich derselbe wie dieser:
+Er ist tatsächlich dasselbe wie dieser:
 
 ```css
 border-top-style: dotted;
 border-top: none thick green;
 ```
 
-Der Wert von {{cssxref("border-top-style")}}, der vor `border-top` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Nicht-Spezifizieren des `border-style` Teils zu keinem Rand.
+Der vor `border-top` angegebene Wert von {{cssxref("border-top-style")}} wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Nichtangeben des `border-style`-Teils zu keinem Rand.
 
-## Einzelne Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
 
 - [`border-top-color`](/de/docs/Web/CSS/border-top-color)
 - [`border-top-style`](/de/docs/Web/CSS/border-top-style)
@@ -86,7 +86,7 @@ border-top: revert-layer;
 border-top: unset;
 ```
 
-Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben werden, und ein oder zwei davon können weggelassen werden.
+Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -107,7 +107,7 @@ Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben 
 
 ## Beispiele
 
-### Anwenden eines oberen Randes
+### Einen oberen Rand anwenden
 
 #### HTML
 

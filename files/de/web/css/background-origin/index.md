@@ -2,10 +2,10 @@
 title: background-origin
 slug: Web/CSS/background-origin
 l10n:
-  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`background-origin`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Ursprung des Hintergrunds fest: vom Randstart, innerhalb des Randes oder innerhalb des Abstands.
+Die **`background-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung des Hintergrunds fest: vom Beginn des Rands, innerhalb des Rands oder innerhalb des Paddings.
 
 {{InteractiveExample("CSS Demo: background-origin")}}
 
@@ -36,7 +36,7 @@ background-repeat: no-repeat;
   color: #d73611;
   text-shadow: 2px 2px black;
   padding: 20px;
-  border: 10px dashed #333;
+  border: 10px dashed #333333;
   font-size: 2em;
   font-weight: bold;
 }
@@ -60,16 +60,16 @@ background-origin: revert-layer;
 background-origin: unset;
 ```
 
-Die Eigenschaft `background-origin` wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `background-origin` Eigenschaft wird als eines der unten aufgeführten Schlüsselwörter angegeben.
 
 ### Werte
 
 - `border-box`
-  - : Der Hintergrund wird relativ zur Randbox positioniert.
+  - : Der Hintergrund wird relativ zur border-box positioniert.
 - `padding-box`
-  - : Der Hintergrund wird relativ zur Auffüllbox positioniert. Standardwert.
+  - : Der Hintergrund wird relativ zur padding-box positioniert. Standardwert.
 - `content-box`
-  - : Der Hintergrund wird relativ zur Inhaltsbox positioniert.
+  - : Der Hintergrund wird relativ zur content-box positioniert.
 
 ## Formale Definition
 
@@ -81,7 +81,7 @@ Die Eigenschaft `background-origin` wird als eines der unten aufgeführten Schl�
 
 ## Beispiele
 
-### Festlegen von Hintergrundursprüngen
+### Setzen von Hintergrundursprüngen
 
 ```css
 .example {
@@ -114,9 +114,9 @@ div {
 }
 ```
 
-### Verwendung von zwei Verläufen
+### Verwenden von zwei Verläufen
 
-In diesem Beispiel hat die Box einen dicken gepunkteten Rand. Der erste Verlauf verwendet die `padding-box` als `background-origin` und daher befindet sich der Hintergrund innerhalb des Randes. Der zweite verwendet die `content-box` und wird somit nur hinter dem Inhalt angezeigt.
+In diesem Beispiel hat der Kasten einen dicken gepunkteten Rand. Der erste Verlauf verwendet die `padding-box` als `background-origin` und daher sitzt der Hintergrund innerhalb des Rands. Der zweite verwendet die `content-box` und wird daher nur hinter dem Inhalt angezeigt.
 
 ```css
 .box {

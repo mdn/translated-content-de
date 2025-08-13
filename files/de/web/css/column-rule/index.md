@@ -2,10 +2,10 @@
 title: column-rule
 slug: Web/CSS/column-rule
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`column-rule`** [Kurzform](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite, den Stil und die Farbe der Linie fest, die zwischen Spalten in einem Mehrspaltenlayout gezogen wird.
+Die **`column-rule`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft setzt die Breite, den Stil und die Farbe der Linie, die zwischen Spalten in einem Mehrspalten-Layout gezogen wird.
 
 {{InteractiveExample("CSS Demo: column-rule")}}
 
@@ -45,7 +45,7 @@ column-rule: thick inset blue;
 }
 ```
 
-## Zusammengesetzte Eigenschaften
+## Zuordnende Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -71,14 +71,14 @@ column-rule: unset;
 
 ### Werte
 
-Die `column-rule` Eigenschaft wird als einer, zwei oder drei der unten aufgeführten Werte angegeben, in beliebiger Reihenfolge.
+Die `column-rule`-Eigenschaft wird als eine, zwei oder drei der unten aufgeführten Werte angegeben, in beliebiger Reihenfolge.
 
 - `<'column-rule-width'>`
-  - : Ist eine {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter, `thin`, `medium`, oder `thick`. Siehe {{cssxref("border-width")}} für Details.
+  - : Ist eine {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter `thin`, `medium` oder `thick`. Einzelheiten finden Sie unter {{cssxref("border-width")}}.
 - `<'column-rule-style'>`
   - : Siehe {{cssxref("border-style")}} für mögliche Werte und Details.
 - `<'column-rule-color'>`
-  - : Ist ein {{cssxref("&lt;color&gt;")}} Wert.
+  - : Ist ein {{cssxref("&lt;color&gt;")}}-Wert.
 
 ## Formale Definition
 
@@ -130,9 +130,9 @@ p.abc {
 ```css
 .content-box {
   padding: 0.3em;
-  background: #ff7;
+  background: #ffff77;
   column-count: 3;
-  column-rule: inset 2px #33f;
+  column-rule: inset 2px #3333ff;
 }
 ```
 
@@ -150,7 +150,7 @@ p.abc {
 
 ## Siehe auch
 
-- [Lernen: Mehrspaltenlayout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-rule-style")}}
 - {{CSSXref("column-rule-width")}}
 - {{CSSXref("column-rule-color")}}

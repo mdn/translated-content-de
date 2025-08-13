@@ -2,10 +2,10 @@
 title: animation-fill-mode
 slug: Web/CSS/animation-fill-mode
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`animation-fill-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie eine CSS-Animation vor und nach ihrer Ausführung Stile auf ihr Ziel anwendet.
+Die **`animation-fill-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie eine CSS-Animation Stile auf ihr Ziel vor und nach ihrer Ausführung anwendet.
 
 {{InteractiveExample("CSS Demo: animation-fill-mode")}}
 
@@ -42,7 +42,7 @@ animation-delay: 1s;
   color: white;
   margin: auto;
   margin-left: 0;
-  border: 5px solid #333;
+  border: 5px solid #333333;
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -113,7 +113,7 @@ window.addEventListener("load", () => {
 });
 ```
 
-Es ist oft praktisch, die Kurzschreibweise {{cssxref("animation")}} zu verwenden, um alle Animationseigenschaften auf einmal festzulegen.
+Es ist oft praktisch, die Kurzschreibweiseigenschaft {{cssxref("animation")}} zu verwenden, um alle Animationseigenschaften auf einmal festzulegen.
 
 ## Syntax
 
@@ -139,37 +139,37 @@ animation-fill-mode: unset;
 ### Werte
 
 - `none`
-  - : Die Animation wird keine Stile auf das Ziel anwenden, wenn sie nicht ausgeführt wird. Das Element wird stattdessen mit den anderen angewendeten CSS-Regeln dargestellt. Dies ist der Standardwert.
+  - : Die Animation wird keine Stile auf das Ziel anwenden, wenn sie nicht ausgeführt wird. Das Element wird stattdessen mit allen anderen darauf angewendeten CSS-Regeln angezeigt. Dies ist der Standardwert.
 - `forwards`
-  - : Das Ziel behält die berechneten Werte, die vom letzten während der Ausführung angetroffenen [keyframe](/de/docs/Web/CSS/@keyframes) festgelegt wurden. Der letzte Keyframe hängt vom Wert von {{cssxref("animation-direction")}} und {{cssxref("animation-iteration-count")}} ab:
+  - : Das Ziel behält die berechneten Werte, die durch das letzte im Verlauf der Ausführung betrachtete [keyframe](/de/docs/Web/CSS/@keyframes) gesetzt wurden. Das letzte Keyframe hängt von dem Wert von {{cssxref("animation-direction")}} und {{cssxref("animation-iteration-count")}} ab:
 
-    | `animation-direction` | `animation-iteration-count` | letzter angetroffener Keyframe |
-    | --------------------- | --------------------------- | ------------------------------ |
-    | `normal`              | gerade oder ungerade        | `100%` oder `to`               |
-    | `reverse`             | gerade oder ungerade        | `0%` oder `from`               |
-    | `alternate`           | gerade                      | `0%` oder `from`               |
-    | `alternate`           | ungerade                    | `100%` oder `to`               |
-    | `alternate-reverse`   | gerade                      | `100%` oder `to`               |
-    | `alternate-reverse`   | ungerade                    | `0%` oder `from`               |
+    | `animation-direction` | `animation-iteration-count` | letztes betrachtetes Keyframe |
+    | --------------------- | --------------------------- | ----------------------------- |
+    | `normal`              | gerade oder ungerade        | `100%` oder `to`              |
+    | `reverse`             | gerade oder ungerade        | `0%` oder `from`              |
+    | `alternate`           | gerade                      | `0%` oder `from`              |
+    | `alternate`           | ungerade                    | `100%` oder `to`              |
+    | `alternate-reverse`   | gerade                      | `100%` oder `to`              |
+    | `alternate-reverse`   | ungerade                    | `0%` oder `from`              |
 
-    Animierte Eigenschaften verhalten sich, als wären sie in einem Set [`will-change`](/de/docs/Web/CSS/will-change) Eigenschaftswert enthalten. Wenn während der Animation ein neuer Stapelkontext erstellt wurde, behält das Zielelement den Stapelkontext bei, nachdem die Animation abgeschlossen ist.
+    Animierte Eigenschaften verhalten sich, als ob sie in einem Satz [`will-change`](/de/docs/Web/CSS/will-change) Eigenschaftswerten enthalten wären. Wenn ein neuer Stacking-Kontext während der Animation erstellt wurde, behält das Zielelement den Stacking-Kontext bei, nachdem die Animation abgeschlossen ist.
 
 - `backwards`
-  - : Die Animation wendet die im ersten relevanten [keyframe](/de/docs/Web/CSS/@keyframes) definierten Werte an, sobald sie auf das Ziel angewendet wird, und behält diese während des {{cssxref("animation-delay")}} Zeitraums bei. Der erste relevante Keyframe hängt vom Wert von {{cssxref("animation-direction")}} ab:
+  - : Die Animation wird die in dem ersten relevanten [keyframe](/de/docs/Web/CSS/@keyframes) definierten Werte anwenden, sobald sie auf das Ziel angewandt wird, und diese während der {{cssxref("animation-delay")}} Periode beibehalten. Das erste relevante Keyframe hängt von dem Wert von {{cssxref("animation-direction")}} ab:
 
-    | `animation-direction`              | erster relevanter Keyframe |
+    | `animation-direction`              | erstes relevantes Keyframe |
     | ---------------------------------- | -------------------------- |
     | `normal` oder `alternate`          | `0%` oder `from`           |
     | `reverse` oder `alternate-reverse` | `100%` oder `to`           |
 
 - `both`
-  - : Die Animation folgt den Regeln für sowohl forwards als auch backwards, wodurch die Animationseigenschaften in beide Richtungen erweitert werden.
+  - : Die Animation folgt den Regeln sowohl für _forwards_ als auch _backwards_ und dehnt somit die Animationseigenschaften in beide Richtungen aus.
 
 > [!NOTE]
-> Wenn Sie mehrere durch Komma getrennte Werte auf einer `animation-*` Eigenschaft angeben, werden diese in der Reihenfolge auf die Animationen angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere durch Kommas getrennte Werte bei einer `animation-*` Eigenschaft angeben, werden diese in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Fälle, in denen die Anzahl der Animationen und der `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 > [!NOTE]
-> `animation-fill-mode` hat denselben Effekt bei der Erstellung von [CSS scroll-getriebenen Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations), wie bei regulären zeitbasierten Animationen.
+> `animation-fill-mode` hat die gleiche Wirkung beim Erstellen von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) wie bei regulären, zeitbasierten Animationen.
 
 ## Formale Definition
 
@@ -181,9 +181,9 @@ animation-fill-mode: unset;
 
 ## Beispiele
 
-### Festlegen des Fill-Modus
+### Fill-Modus einstellen
 
-Sie können den Effekt von `animation-fill-mode` im folgenden Beispiel sehen. Es zeigt, wie Sie bewirken können, dass die Animation in ihrem Endzustand bleibt, anstatt zum ursprünglichen Zustand (was der Standard ist) zurückzukehren.
+Im folgenden Beispiel können Sie den Effekt von `animation-fill-mode` sehen. Es zeigt, wie Sie die Animation im Endzustand verbleiben lassen können, anstatt zum Originalzustand zurückzukehren (was der Standard ist).
 
 #### HTML
 
@@ -199,7 +199,7 @@ Sie können den Effekt von `animation-fill-mode` im folgenden Beispiel sehen. Es
 
 ```css
 .demo {
-  border-top: 100px solid #ccc;
+  border-top: 100px solid #cccccc;
   height: 300px;
 }
 
@@ -228,7 +228,7 @@ Sie können den Effekt von `animation-fill-mode` im folgenden Beispiel sehen. Es
 
 {{EmbedLiveSample('Setting fill mode',700,300)}}
 
-Siehe [CSS Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) für weitere Beispiele.
+Sehen Sie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) für weitere Beispiele.
 
 ## Spezifikationen
 

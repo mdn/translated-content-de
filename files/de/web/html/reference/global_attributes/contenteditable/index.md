@@ -1,12 +1,12 @@
 ---
-title: HTML `contenteditable` globales Attribut
+title: HTML contenteditable globales Attribut
 short-title: contenteditable
 slug: Web/HTML/Reference/Global_attributes/contenteditable
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
 ---
 
-Das **`contenteditable`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein aufgezähltes Attribut, das angibt, ob das Element vom Benutzer bearbeitbar sein soll. Falls dies der Fall ist, ändert der Browser sein Widget, um die Bearbeitung zu ermöglichen.
+Das **`contenteditable`**- [globales Attribut](/de/docs/Web/HTML/Reference/Global_attributes) ist ein aufgezähltes Attribut, das angibt, ob das Element vom Benutzer bearbeitet werden kann. Wenn ja, ändert der Browser sein Widget, um die Bearbeitung zu ermöglichen.
 
 {{InteractiveExample("HTML Demo: contenteditable", "tabbed-shorter")}}
 
@@ -20,7 +20,7 @@ Das **`contenteditable`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_
 
 ```css interactive-example
 blockquote {
-  background: #eee;
+  background: #eeeeee;
   border-radius: 5px;
   margin: 16px 0;
 }
@@ -51,27 +51,27 @@ blockquote p::after {
 
 Das Attribut muss einen der folgenden Werte annehmen:
 
-- `true` oder ein _leerer String_, was darauf hinweist, dass das Element bearbeitbar ist.
-- `false`, was darauf hinweist, dass das Element nicht bearbeitbar ist.
-- `plaintext-only`, was darauf hinweist, dass der rohe Text des Elements bearbeitbar ist, jedoch die Formatierung von Rich-Text deaktiviert ist.
+- `true` oder ein _leerer String_, was bedeutet, dass das Element bearbeitbar ist.
+- `false`, was bedeutet, dass das Element nicht bearbeitbar ist.
+- `plaintext-only`, was bedeutet, dass der Rohtext des Elements bearbeitbar ist, aber die Formatierung von Richtext deaktiviert ist.
 
-Wird das Attribut ohne Wert angegeben, wie `<label contenteditable>Beispiel Beschriftung</label>`, wird sein Wert als leerer String behandelt.
+Wenn das Attribut ohne Wert angegeben wird, wie in `<label contenteditable>Example Label</label>`, wird sein Wert als leerer String behandelt.
 
-Fehlt dieses Attribut oder ist sein Wert ungültig, wird sein Wert vom Elternelement geerbt: Das Element ist also bearbeitbar, wenn sein Elternelement bearbeitbar ist.
+Wenn dieses Attribut fehlt oder sein Wert ungültig ist, wird sein Wert vom Elternelement _geerbt_: Das Element ist also bearbeitbar, wenn sein Elternelement bearbeitbar ist.
 
-Beachten Sie, dass obwohl die erlaubten Werte `true` und `false` beinhalten, dieses Attribut ein _{{Glossary("Enumerated", "aufgezähltes")}}_ und kein _Boolesches_ Attribut ist.
+Obwohl seine erlaubten Werte `true` und `false` umfassen, ist dieses Attribut ein _{{Glossary("Enumerated", "aufgezähltes")}}_ und kein _Boolean_-Attribut.
 
-Sie können die Farbe, die zum Zeichnen des Texteingabe-{{Glossary("caret", "Cursors")}} verwendet wird, mit der CSS-Eigenschaft {{cssxref("caret-color")}} festlegen.
+Sie können die Farbe, die zum Zeichnen des Texteinfüge-{{Glossary("caret", "Cursors")}} verwendet wird, mit der CSS {{cssxref("caret-color")}}-Eigenschaft festlegen.
 
-Elemente, die mit dem `contenteditable`-Attribut bearbeitbar und somit interaktiv gemacht werden, können fokussiert werden. Sie nehmen an der sequentiellen Tastaturnavigation teil. Elemente mit dem `contenteditable`-Attribut, die innerhalb anderer `contenteditable`-Elemente verschachtelt sind, werden jedoch standardmäßig nicht in die Tabulatorreihenfolge aufgenommen. Sie können die verschachtelten `contenteditable`-Elemente zur Tastaturnavigationsreihenfolge hinzufügen, indem Sie den `tabindex`-Wert angeben ([`tabindex="0"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)).
+Elemente, die mit dem `contenteditable`-Attribut bearbeitbar und somit interaktiv gemacht werden, können fokussiert werden. Sie nehmen an der sequentiellen Tastaturnavigation teil. Allerdings werden Elemente mit dem `contenteditable`-Attribut, die innerhalb anderer `contenteditable`-Elemente verschachtelt sind, standardmäßig nicht zur Tabulatorsequenz hinzugefügt. Sie können die verschachtelten `contenteditable`-Elemente zur Tastaturnavigationssequenz hinzufügen, indem Sie den `tabindex`-Wert angeben ([`tabindex="0"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)).
 
-Wenn Inhalt in ein Element mit `contenteditable="true"` eingefügt wird, wird die gesamte Formatierung beibehalten. Wird Inhalt in ein Element mit `contenteditable="plaintext-only"` eingefügt, wird die gesamte Formatierung entfernt.
+Wenn Inhalte in ein Element mit `contenteditable="true"` eingefügt werden, bleibt die gesamte Formatierung erhalten. Wenn Inhalte in ein Element mit `contenteditable="plaintext-only"` eingefügt werden, wird die gesamte Formatierung entfernt.
 
 ## Beispiele
 
-### Inhalte in `contenteditable` einfügen
+### Einfügen von Inhalten in contenteditable
 
-Dieses Beispiel zeigt zwei {{HTMLElement("div")}}-Elemente mit `contenteditable`, das erste mit dem Wert `true` und das zweite mit dem Wert `plaintext-only`. Kopieren Sie den untenstehenden Inhalt und fügen Sie ihn in jedes `div` ein, um ihre Effekte zu sehen.
+Dieses Beispiel hat zwei {{HTMLElement("div")}}-Elemente mit `contenteditable`, das erste mit dem Wert `true` und das zweite mit dem Wert `plaintext-only`. Kopieren Sie den untenstehenden Inhalt und fügen Sie ihn in jedes `div`-Element ein, um deren Effekte zu sehen.
 
 #### HTML
 
@@ -165,5 +165,5 @@ h2 {
 
 - Alle [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes)
 - [`HTMLElement.contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable) und [`HTMLElement.isContentEditable`](/de/docs/Web/API/HTMLElement/isContentEditable)
-- Die CSS-Eigenschaft {{cssxref("caret-color")}}
+- Die CSS {{cssxref("caret-color")}}-Eigenschaft
 - [HTMLElement `input`-Ereignis](/de/docs/Web/API/Element/input_event)

@@ -2,10 +2,10 @@
 title: border-block-end-color
 slug: Web/CSS/border-block-end-color
 l10n:
-  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`border-block-end-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe des logischen Block-End-Borderrandes eines Elements, die sich abhängig vom Schreibmodus, der Richtung und der Textausrichtung des Elements auf eine physische Randfarbe abbildet. Sie entspricht der Eigenschaft {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}} oder {{cssxref("border-left-color")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`border-block-end-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Farbe des logischen Block-End-Rands eines Elements, die abhängig vom Schreibmodus, der Ausrichtung und der Textorientierung des Elements einer physischen Randfarbe zugeordnet wird. Sie entspricht der Eigenschaft {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}} oder {{cssxref("border-left-color")}}, je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} festgelegten Werten.
 
 {{InteractiveExample("CSS Demo: border-block-end-color")}}
 
@@ -39,7 +39,7 @@ writing-mode: vertical-lr;
 
 ```css interactive-example
 #example-element {
-  background-color: #eee;
+  background-color: #eeeeee;
   color: black;
   border: 0.75em solid;
   padding: 0.75em;
@@ -63,12 +63,12 @@ border-block-end-color: revert-layer;
 border-block-end-color: unset;
 ```
 
-Verwandte Eigenschaften sind {{cssxref("border-block-start-color")}}, {{cssxref("border-inline-start-color")}}, und {{cssxref("border-inline-end-color")}}, die die anderen Randfarben des Elements definieren.
+Verwandte Eigenschaften sind {{cssxref("border-block-start-color")}}, {{cssxref("border-inline-start-color")}} und {{cssxref("border-inline-end-color")}}, die die anderen Randfarben des Elements definieren.
 
 ### Werte
 
 - {{CSSXref("&lt;color&gt;")}}
-  - : Die Farbe des Randes.
+  - : Die Farbe des Rands.
 
 ## Formale Definition
 
@@ -121,5 +121,5 @@ div {
 ## Siehe auch
 
 - [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird auf eine der physischen Rand-Eigenschaften abgebildet: {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}}.
+- Diese Eigenschaft wird einer der physischen Randeigenschaften zugeordnet: {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}} oder {{cssxref("border-left-color")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

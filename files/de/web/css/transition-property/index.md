@@ -2,10 +2,10 @@
 title: transition-property
 slug: Web/CSS/transition-property
 l10n:
-  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Die **`transition-property`**-Eigenschaft in [CSS](/de/docs/Web/CSS) legt die CSS-Eigenschaften fest, auf die ein [Übergangseffekt](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) angewendet werden soll.
+Die **`transition-property`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, auf welche CSS-Eigenschaften ein [Übergangseffekt](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) angewendet werden soll.
 
 {{InteractiveExample("CSS Demo: transition-property")}}
 
@@ -43,13 +43,13 @@ transition-property: none;
 }
 
 #default-example:hover > #example-element {
-  background-color: #909;
+  background-color: #990099;
   color: white;
   margin-right: 40%;
 }
 ```
 
-Wenn Sie eine Kurzschreibweise angeben (z.B. {{cssxref("background")}}), werden alle animierbaren Langschreibweisen der Untereigenschaften berücksichtigt.
+Wenn Sie eine Kurzform-Eigenschaft angeben (z. B. {{cssxref("background")}}), werden alle ihre Langform-Untereigenschaften, die animiert werden können, ebenfalls einbezogen.
 
 ## Syntax
 
@@ -82,9 +82,9 @@ transition-property: unset;
 ### Werte
 
 - `none`
-  - : Keine Eigenschaften werden im Übergang verwendet.
+  - : Keine Eigenschaften werden übergehen.
 - `all`
-  - : Alle Eigenschaften, die übergehen können, werden verwendet.
+  - : Alle Eigenschaften, die übergehen können, werden es tun.
 - {{cssxref("&lt;custom-ident&gt;")}}
   - : Ein String, der die Eigenschaft identifiziert, auf die ein Übergangseffekt angewendet werden soll, wenn sich ihr Wert ändert.
 
@@ -100,7 +100,7 @@ transition-property: unset;
 
 ### Einfaches Beispiel
 
-Wenn der Button fokussiert oder überfahren wird, erfolgt ein einsekündiger Farbwechsel; die `transition-property` ist [`background-color`](/de/docs/Web/CSS/background-color).
+Wenn der Button fokussiert oder darübergefahren wird, durchläuft er einen einsekündigen Farbwechsel-Übergang; die `transition-property` ist [`background-color`](/de/docs/Web/CSS/background-color).
 
 #### HTML
 
@@ -118,7 +118,7 @@ html {
 button {
   font-size: 1.4rem;
   padding: 10px 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-radius: 10px;
   outline: none;
 }
@@ -128,18 +128,18 @@ button {
 .target {
   transition-property: background-color;
   transition-duration: 1s;
-  background-color: #ccc;
+  background-color: #cccccc;
 }
 
 .target:hover,
 .target:focus {
-  background-color: #eee;
+  background-color: #eeeeee;
 }
 ```
 
 {{EmbedLiveSample('Basic_example', 600, 100)}}
 
-Sehen Sie sich unseren [Leitfaden zu CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) für weitere Beispiele zu `transition-property` an.
+Sehen Sie sich unseren [Leitfaden zur Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) an für weitere Beispiele zu `transition-property`.
 
 ## Spezifikationen
 
@@ -151,7 +151,7 @@ Sehen Sie sich unseren [Leitfaden zu CSS-Übergängen](/de/docs/Web/CSS/CSS_tran
 
 ## Siehe auch
 
-- [Leitfaden zu CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
 - {{cssxref('transition')}}
 - {{cssxref('transition-duration')}}
 - {{cssxref('transition-timing-function')}}

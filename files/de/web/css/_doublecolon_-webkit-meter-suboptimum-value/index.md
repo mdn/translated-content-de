@@ -2,12 +2,12 @@
 title: ::-webkit-meter-suboptimum-value
 slug: Web/CSS/::-webkit-meter-suboptimum-value
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
 {{Non-standard_header}}
 
-Das **`::-webkit-meter-suboptimum-value`** {{Glossary("Pseudo-element", "Pseudoelement")}} gestaltet das {{htmlelement("meter")}}-Element, wenn das `value`-Attribut außerhalb des `low-high`-Bereichs liegt und nicht dem optimalen Wert entspricht.
+Das **`::-webkit-meter-suboptimum-value`** {{Glossary("Pseudo-element", "Pseudo-Element")}} stylt das {{htmlelement("meter")}}-Element, wenn das Attribut `value` außerhalb des Bereichs von `low-high` liegt und nicht dem optimalen Wert entspricht.
 
 Gelb ist die Standardfarbe.
 
@@ -51,7 +51,13 @@ body {
 }
 
 #styled::-webkit-meter-suboptimum-value {
-  background: linear-gradient(to bottom, #ff7, #990 45%, #990 55%, #ff7);
+  background: linear-gradient(
+    to bottom,
+    #ffff77,
+    #999900 45%,
+    #999900 55%,
+    #ffff77
+  );
   height: 100%;
   box-sizing: border-box;
 }
@@ -79,7 +85,7 @@ if (is_safari) {
 
 ## Spezifikationen
 
-Kein Bestandteil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -87,7 +93,7 @@ Kein Bestandteil eines Standards.
 
 ## Siehe auch
 
-Die Pseudoelemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{htmlelement("meter")}}-Elements zu gestalten, sind wie folgt:
+Die Pseudo-Elemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{htmlelement("meter")}}-Elements zu stylen, sind wie folgt:
 
 - {{cssxref("::-webkit-meter-inner-element")}}
 - {{cssxref("::-webkit-meter-bar")}}

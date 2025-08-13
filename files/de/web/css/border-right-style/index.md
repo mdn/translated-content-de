@@ -2,10 +2,10 @@
 title: border-right-style
 slug: Web/CSS/border-right-style
 l10n:
-  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`border-right-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil des rechten {{cssxref("border")}} eines Elements fest.
+Die **`border-right-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Linienstil des rechten {{cssxref("border")}} eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-right-style")}}
 
@@ -43,7 +43,7 @@ border-right-style: inset;
 
 ```css interactive-example
 #example-element {
-  background-color: #eee;
+  background-color: #eeeeee;
   color: black;
   border: 0.75em solid;
   padding: 0.75em;
@@ -57,7 +57,7 @@ body {
 ```
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie sich Rahmen mit unterschiedlichen Stilen in den Ecken verbinden.
+> Die Spezifikation definiert nicht, wie Ränder mit unterschiedlichen Stilen in den Ecken verbunden werden.
 
 ## Syntax
 
@@ -82,7 +82,7 @@ border-right-style: revert-layer;
 border-right-style: unset;
 ```
 
-Die `border-right-style` Eigenschaft wird als ein einzelnes {{cssxref("line-style")}} Schlüsselwort-Wert angegeben.
+Die `border-right-style`-Eigenschaft wird als einzelnes {{cssxref("line-style")}} Schlüsselwort angegeben.
 
 ## Formale Definition
 
@@ -179,5 +179,5 @@ td {
 
 ## Siehe auch
 
-- Die anderen stilbezogenen Rand-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-left-style")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-style")}}.
-- Die anderen rechten Rand-Eigenschaften: {{Cssxref("border-right")}}, {{Cssxref("border-right-color")}}, und {{Cssxref("border-right-width")}}.
+- Die anderen stilbezogenen Rahmen-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-left-style")}}, {{Cssxref("border-top-style")}} und {{Cssxref("border-style")}}.
+- Die anderen rechtsrahmenbezogenen Eigenschaften: {{Cssxref("border-right")}}, {{Cssxref("border-right-color")}} und {{Cssxref("border-right-width")}}.

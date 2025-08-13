@@ -2,12 +2,12 @@
 title: ::checkmark
 slug: Web/CSS/::checkmark
 l10n:
-  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
 {{SeeCompatTable}}
 
-Der **`::checkmark`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) zielt auf das Häkchen innerhalb des derzeit ausgewählten {{htmlelement("option")}}-Elements eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) ab. Es kann verwendet werden, um eine visuelle Anzeige dafür zu bieten, welche Option ausgewählt ist.
+Das **`::checkmark`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) zielt auf das Häkchen ab, das innerhalb des aktuell ausgewählten {{htmlelement("option")}}-Elements eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) platziert ist. Es kann verwendet werden, um eine visuelle Anzeige zu geben, welche Option ausgewählt ist.
 
 {{InteractiveExample("CSS Demo: ::checkmark")}}
 
@@ -38,8 +38,8 @@ select,
 }
 
 select {
-  border: 2px solid #ddd;
-  background: #eee;
+  border: 2px solid #dddddd;
+  background: #eeeeee;
   padding: 10px;
 }
 
@@ -48,8 +48,8 @@ select {
 }
 
 option {
-  border: 2px solid #ddd;
-  background: #eee;
+  border: 2px solid #dddddd;
+  background: #eeeeee;
   padding: 10px;
 }
 
@@ -80,20 +80,20 @@ option:not(option:last-of-type) {
 
 ## Beschreibung
 
-Das `::checkmark`-Pseudoelement zielt auf das Häkchen innerhalb des derzeit ausgewählten `<option>` eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) ab.
+Das `::checkmark` Pseudoelement zielt auf das Häkchen ab, das innerhalb eines aktuell ausgewählten `<option>` eines [anpassbaren Auswahl-Elements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) platziert ist.
 
-Es kann nur dann angesprochen werden, wenn das Ausgangselement einen Picker hat und das Aussehen über die {{cssxref("appearance")}}-Eigenschaft mit dem Wert `base-select` festgelegt wurde. Sein generierter Rahmen erscheint vor allen Rahmen, die durch das {{cssxref("::before")}}-Pseudoelement erzeugt werden. Das Symbol kann mit der {{cssxref("content")}}-Eigenschaft angepasst werden.
+Es kann nur gezielt werden, wenn das Ausgangselement einen Picker hat und mit dem `base-select`-Wert der {{cssxref("appearance")}}-Eigenschaft versehen ist. Sein generiertes Box erscheint vor allen von dem {{cssxref("::before")}} Pseudoelement generierten Boxen. Das Icon kann mit der {{cssxref("content")}}-Eigenschaft angepasst werden.
 
-Der `::checkmark`-Selektor ist nützlich, wenn Sie beispielsweise das Häkchen ausblenden, ein benutzerdefiniertes Symbol verwenden oder die Darstellung des Häkchens innerhalb von `<option>`-Elementen anpassen möchten.
+Der `::checkmark`-Selektor ist nützlich, wenn Sie z. B. das Häkchen verbergen, ein benutzerdefiniertes Symbol verwenden oder die Darstellungsposition des Häkchens innerhalb von `<option>`-Elementen anpassen möchten.
 
 > [!NOTE]
-> Das `::checkmark`-Pseudoelement ist nicht im Accessibility Tree enthalten, sodass jeglicher generierter {{cssxref("content")}}, der darauf gesetzt wird, nicht von unterstützenden Technologien angekündigt wird. Sie sollten dennoch sicherstellen, dass jedes neue von Ihnen gesetzte Symbol visuell für den beabsichtigten Zweck sinnvoll ist.
+> Das `::checkmark` Pseudoelement ist nicht im Barrierefreiheitsbaum enthalten, sodass alle auf ihm gesetzten generierten {{cssxref("content")}}-Inhalte nicht von unterstützenden Technologien angekündigt werden. Sie sollten dennoch sicherstellen, dass jedes neue von Ihnen gesetzte Icon visuell für seinen beabsichtigten Zweck sinnvoll ist.
 
 ## Beispiele
 
 ### Anpassung des Häkchens
 
-Um die Funktionalität eines anpassbaren Auswahl-Elements zu aktivieren, müssen sowohl das `<select>`-Element als auch sein Picker einen {{cssxref("appearance")}}-Wert von `base-select` gesetzt haben:
+Um die anpassbare Auswahlfunktionalität zu aktivieren, müssen sowohl das `<select>`-Element als auch sein Picker einen {{cssxref("appearance")}}-Wert von `base-select` gesetzt haben:
 
 ```css
 select,
@@ -102,7 +102,7 @@ select,
 }
 ```
 
-Angenommen, [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) wird verwendet, um die `<option>`-Elemente anzuordnen (was in den **aktuellen Implementierungen** von anpassbaren Auswahl-Elementen der Fall ist), könnte das Häkchen vom Anfang der Zeile an das Ende verschoben werden, indem ein {{cssxref("order")}}-Wert größer als `0` darauf gesetzt wird und es mit einem `auto`-Wert bei {{cssxref("margin-left")}} am Ende der Zeile ausgerichtet wird (siehe [Ausrichtung und automatische Ränder](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox#alignment_and_auto_margins)).
+Angenommen, [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) wird verwendet, um die `<option>`-Elemente zu layouten (was bei **aktuellen Implementierungen** von anpassbaren Auswahlen der Fall ist), könnten Sie das Häkchen dann vom Anfang der Zeile an das Ende verschieben, indem Sie einen {{cssxref("order")}}-Wert darauf größer als `0` setzen und es mit einem `auto` {{cssxref("margin-left")}}-Wert an das Ende der Zeile ausrichten (siehe [Ausrichtung und automatische Ränder](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox#alignment_and_auto_margins)).
 
 Der Wert der {{cssxref("content")}}-Eigenschaft könnte auch auf ein anderes Emoji gesetzt werden, um das angezeigte Symbol zu ändern.
 
@@ -114,7 +114,7 @@ option::checkmark {
 }
 ```
 
-Siehe [Stil des aktuellen Auswahl-Häkchens](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select#styling_the_current_selection_checkmark) für ein vollständiges Beispiel, das diesen Code verwendet, zusammen mit einer Live-Beispieldarstellung.
+Sehen Sie sich [Styling des derzeit ausgewählten Häkchens](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select#styling_the_current_selection_checkmark) für ein vollständiges Beispiel an, das diesen Code verwendet, zusammen mit einem Live-Beispiel-Rendering.
 
 ## Spezifikationen
 

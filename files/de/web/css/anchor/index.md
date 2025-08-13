@@ -2,10 +2,10 @@
 title: anchor()
 slug: Web/CSS/anchor
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`anchor()`**-[CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) kann innerhalb eines **anchor-positioned**-Elements in den Werten der [inset-Eigenschaft](#properties_that_accept_anchor_function_values) verwendet werden und liefert einen Längenwert relativ zur Position der Ränder des zugehörigen Anker-Elements.
+Die **`anchor()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) kann innerhalb von **ankerpositionierten** Elementwerten der [Einfügungseigenschaft](#properties_that_accept_anchor_function_values) verwendet werden und gibt einen Längenwert relativ zur Position der Kanten des zugehörigen Ankerelements zurück.
 
 ## Syntax
 
@@ -37,104 +37,104 @@ anchor(<anchor-name> <anchor-side>, <length-percentage>)
 Die Parameter sind:
 
 - `<anchor-name>` {{optional_inline}}
-  - : Der [`anchor-name`](/de/docs/Web/CSS/anchor-name)-Eigenschaftswert eines Ankerelements, zu dem Sie die Seite des Elements relativ positionieren möchten. Dies ist ein `<dashed-ident>`-Wert. Wenn dieser Wert weggelassen wird, wird der **Standardanker** des Elements verwendet, der in seiner [`position-anchor`](/de/docs/Web/CSS/position-anchor)-Eigenschaft referenziert oder dem Element über das [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor)-HTML-Attribut zugeordnet ist.
+  - : Der Wert der [`anchor-name`](/de/docs/Web/CSS/anchor-name) Eigenschaft eines Ankerelements, zu dem Sie die Seite des Elements positionieren möchten. Dies ist ein `<dashed-ident>` Wert. Wenn weggelassen, wird der **Standardanker** des Elements verwendet, auf den in seiner [`position-anchor`](/de/docs/Web/CSS/position-anchor) Eigenschaft verwiesen wird oder der dem Element über das [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor) HTML-Attribut zugeordnet ist.
 
     > [!NOTE]
-    > Die Angabe eines `<anchor-name>` innerhalb einer `anchor()`-Funktion verknüpft ein Element nicht mit einem Anker; es positioniert das Element nur relativ zu diesem Anker. Die Verwendung der [`position-anchor`](/de/docs/Web/CSS/position-anchor)-CSS-Eigenschaft oder des [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor)-HTML-Attributs ist weiterhin erforderlich, um die Zuordnung zu erstellen.
+    > Die Angabe eines `<anchor-name>` innerhalb einer `anchor()`-Funktion ordnet ein Element nicht einem Anker zu; es positioniert lediglich das Element im Verhältnis zu diesem Anker. Die [`position-anchor`](/de/docs/Web/CSS/position-anchor) CSS-Eigenschaft oder das [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor) HTML-Attribut wird weiterhin benötigt, um die Zuordnung zu erstellen.
 
 - `<anchor-side>`
-  - : Gibt die Seite des Ankers oder den relativen Abstand von der `start`-Seite an, zu dem das Element positioniert wird. Wenn ein physischer oder logischer Wert verwendet wird, der nicht [kompatibel](#compatibility_of_inset_properties_and_anchor-side_values) mit der Inset-Eigenschaft ist, auf der `anchor()` gesetzt ist, wird der Fallbackwert verwendet. Gültige Werte sind:
+  - : Gibt die Seite des Ankers oder die relative Entfernung von der `start`-Seite an, zu der das Element positioniert ist. Wenn ein physischer oder logischer Wert verwendet wird, der nicht [kompatibel](#compatibility_of_inset_properties_and_anchor-side_values) mit der Einfügungseigenschaft ist, auf die `anchor()` angewendet wird, wird der Fallback-Wert verwendet. Gültige Werte umfassen:
     - `top`
-      - : Der obere Rand des Ankerelements.
+      - : Die Oberseite des Ankerelements.
     - `right`
-      - : Der rechte Rand des Ankerelements.
+      - : Die rechte Seite des Ankerelements.
     - `bottom`
-      - : Der untere Rand des Ankerelements.
+      - : Die Unterseite des Ankerelements.
     - `left`
-      - : Der linke Rand des Ankerelements.
+      - : Die linke Seite des Ankerelements.
     - `inside`
-      - : Die gleiche Seite wie die Inset-Eigenschaft.
+      - : Dieselbe Seite wie die Einfügungseigenschaft.
     - `outside`
-      - : Die gegenüberliegende Seite der Inset-Eigenschaft.
+      - : Die gegenüberliegende Seite der Einfügungseigenschaft.
     - `start`
-      - : Der logische Anfang des [enthältenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block) des Ankerelements entlang der Achse der Inset-Eigenschaft, auf der die `anchor()`-Funktion gesetzt ist.
+      - : Der logische Anfang des enthaltenden Blocks des Ankerelements entlang der Achse der Einfügungseigenschaft, auf die die `anchor()`-Funktion angewendet wird.
     - `end`
-      - : Das logische Ende des enthaltenden Blocks des Ankerelements entlang der Achse der Inset-Eigenschaft, auf der die `anchor()`-Funktion gesetzt ist.
+      - : Das logische Ende des enthaltenden Blocks des Ankerelements entlang der Achse der Einfügungseigenschaft, auf die die `anchor()`-Funktion angewendet wird.
     - `self-start`
-      - : Der logische Anfang des Inhalts des Ankerelements entlang der Achse der Inset-Eigenschaft, auf der die `anchor()`-Funktion gesetzt ist.
+      - : Der logische Anfang des Inhalts des Ankerelements entlang der Achse der Einfügungseigenschaft, auf die die `anchor()`-Funktion angewendet wird.
     - `self-end`
-      - : Das logische Ende des Inhalts des Ankerelements entlang der Achse der Inset-Eigenschaft, auf der die `anchor()`-Funktion gesetzt ist.
+      - : Das logische Ende des Inhalts des Ankerelements entlang der Achse der Einfügungseigenschaft, auf die die `anchor()`-Funktion angewendet wird.
     - `center`
-      - : Das Zentrum der Achse der Inset-Eigenschaft, auf der die `anchor()`-Funktion gesetzt ist.
+      - : Das Zentrum der Achse der Einfügungseigenschaft, auf die die `anchor()`-Funktion angewendet wird.
     - {{cssxref("percentage")}}
-      - : Gibt den Abstand in Prozent vom Anfang des Inhalts des Elements entlang der Achse der Inset-Eigenschaft an, auf der die `anchor()`-Funktion gesetzt ist.
+      - : Gibt die Entfernung als Prozentsatz vom Anfang des Inhalts des Elements entlang der Achse der Einfügungseigenschaft an, auf die die `anchor()`-Funktion angewendet wird.
 
 - {{cssxref("length-percentage")}} {{optional_inline}}
-  - : Gibt einen Fallback-Wert an, zu dem die Funktion aufgelöst werden sollte, wenn die `anchor()`-Funktion ansonsten nicht gültig wäre.
+  - : Gibt einen Fallback-Wert an, zu dem die Funktion aufgelöst werden sollte, wenn die `anchor()`-Funktion sonst nicht gültig wäre.
 
 ### Rückgabewert
 
-Gibt einen {{cssxref("length")}}-Wert zurück.
+Gibt einen {{cssxref("length")}} Wert zurück.
 
 ## Beschreibung
 
-Die `anchor()`-Funktion ermöglicht die Positionierung eines Elements relativ zu den Rändern eines Ankerelements. Sie ist nur innerhalb der auf absolut oder fest positionierten Elemente eingestellten {{Glossary("inset_properties", "Inset-Eigenschaftswerten")}} gültig.
+Die `anchor()`-Funktion ermöglicht es, ein Element relativ zu den Kanten eines Ankerelements zu positionieren. Sie ist nur innerhalb von {{Glossary("inset_properties", "Einfügungseigenschaft")}} Werten gültig, die auf absolut oder fest positionierten Elementen festgelegt sind.
 
-Sie liefert einen `<length>`-Wert, der den Abstand zwischen der durch den Inset-Wert angegebenen Ankerelementseite und der durch den gewählten `<anchor-side>`-Wert spezifizierten Ankerelementseite angibt. Da sie einen `<length>` zurückgibt, kann sie innerhalb [anderer CSS-Funktionen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions), die Längenwerte akzeptieren, wie {{cssxref("calc()")}}, {{cssxref("clamp()")}} usw. verwendet werden.
+Sie gibt einen `<length>`-Wert zurück, der den Abstand zwischen der durch den Einfügungswert angegebenen ankerpositionierten Elementseite und der durch den gewählten `<anchor-side>`-Wert angegebenen Seite des Ankerelements angibt. Da sie einen `<length>`-Wert zurückgibt, kann sie innerhalb [anderer CSS-Funktionen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) verwendet werden, die Längenwerte akzeptieren, einschließlich {{cssxref("calc()")}}, {{cssxref("clamp()")}} usw.
 
-Existiert kein Anker mit dem durch `<anchor-name>` angegebenen Namen oder hat das positionierte Element keinen Anker zugeordnet (d.h. über die {{cssxref("position-anchor")}}-Eigenschaft), wird der erste Parameter als ungültig betrachtet und der Fallback-`<length-percentage>`-Wert wird verwendet, falls einer verfügbar ist. Wenn zum Beispiel `top: anchor(bottom, 50px)` auf dem positionierten Element angegeben wurde, aber kein Anker ihm zugeordnet war, würde der Fallbackwert verwendet werden, sodass `top` einen berechneten Wert von `50px` erhält.
+Wenn kein Anker mit dem durch `<anchor-name>` angegebenen Namen existiert oder wenn dem positionierten Element kein Anker zugeordnet ist (z.B. über die {{cssxref("position-anchor")}} Eigenschaft), wird der erste Parameter als ungültig angesehen und der Fallback-`<length-percentage>`-Wert verwendet, falls vorhanden. Zum Beispiel, wenn `top: anchor(bottom, 50px)` auf dem positionierten Element angegeben wurde, aber kein Anker damit assoziiert war, würde der Fallback-Wert verwendet, sodass `top` einen berechneten Wert von `50px` erhalten würde.
 
-Für detaillierte Informationen zu Ankereigenschaften und -verwendungen siehe die [CSS Ankerpositionierungs-](/de/docs/Web/CSS/CSS_anchor_positioning) Modul-Übersichtsseite und die [Verwendung von CSS Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Anleitung.
+Für detaillierte Informationen zu Ankerfunktionen und deren Verwendung, siehe die [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul-Startseite und den [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Leitfaden.
 
-### Eigenschaften, die `anchor()`-Funktionswerte akzeptieren
+### Eigenschaften, die `anchor()` Funktionswerte akzeptieren
 
-Die CSS-{{Glossary("inset_properties", "Inset-Eigenschaften")}}, die eine `anchor()`-Funktion als Wertkomponente akzeptieren, umfassen:
+Die CSS {{Glossary("inset_properties", "Einfügungseigenschaften")}}, die eine `anchor()`-Funktion als Wertkomponente akzeptieren, umfassen:
 
 - {{cssxref("top")}}
 - {{cssxref("left")}}
 - {{cssxref("bottom")}}
 - {{cssxref("right")}}
-- {{cssxref("inset")}} Kurzschreibweise
+- {{cssxref("inset")}} Kurzform
 - {{cssxref("inset-block-start")}}
 - {{cssxref("inset-block-end")}}
-- {{cssxref("inset-block")}} Kurzschreibweise
+- {{cssxref("inset-block")}} Kurzform
 - {{cssxref("inset-inline-start")}}
 - {{cssxref("inset-inline-end")}}
-- {{cssxref("inset-inline")}} Kurzschreibweise
+- {{cssxref("inset-inline")}} Kurzform
 
-### Kompatibilität von Inset-Eigenschaften und `<anchor-side>`-Werten
+### Kompatibilität von Einfügungseigenschaften und `<anchor-side>` Werten
 
-Bei der Verwendung einer `anchor()`-Funktion innerhalb eines Inset-Eigenschaftswerts muss der innerhalb der `anchor()`-Funktion angegebene `<anchor-side>`-Parameter mit der Achse, auf der sich die Inset-Eigenschaft befindet, kompatibel sein.
+Bei Verwendung einer `anchor()`-Funktion innerhalb eines Einfügungswertes muss der im `anchor()`-Funktion angegebene `<anchor-side>`-Parameter mit der Achse kompatibel sein, auf der die Einfügungseigenschaft liegt.
 
-Das bedeutet, dass physische `<anchor-side>`-Werte innerhalb der Werte physischer Inset-Eigenschaften verwendet werden können, wenn die Eigenschaft dieselbe Achsenrichtung wie der `<anchor-side>` hat. Mit anderen Worten, die `top`- und `bottom`-Seiten sind nicht innerhalb der `left`- und `right`-Eigenschaftswerte gültig, und die `left`- und `right`-Seiten sind nicht innerhalb der `top`- und `bottom`-Eigenschaftswerte gültig. Zum Beispiel ist `top: anchor(bottom)` in Ordnung, da sie beide vertikale Werte sind, aber `top: anchor(left)` ist nicht gültig, da `left` ein horizontaler Wert ist. Wenn `top: anchor(left, 50px)` angegeben ist, würde der Fallbackwert verwendet werden, sodass `top` einen berechneten Wert von `50px` erhält. Wenn kein Fallback vorhanden ist, verhält sich die Inset-Eigenschaft, als wäre sie auf `auto` gesetzt.
+Das bedeutet, dass physische `<anchor-side>`-Werte innerhalb der Werte physischer Einfügungseigenschaften verwendet werden können, wenn die Eigenschaft dieselbe Achsenrichtung wie der `<anchor-side>` hat. Mit anderen Worten sind die Seiten `top` und `bottom` innerhalb der Eigenschaftswerte `left` und `right` nicht zulässig, und die Seiten `left` und `right` sind innerhalb der Eigenschaftswerte `top` und `bottom` nicht zulässig. Zum Beispiel ist `top: anchor(bottom)` in Ordnung, da sie beide vertikale Werte sind, aber `top: anchor(left)` ist nicht gültig, da `left` ein horizontaler Wert ist. Wenn `top: anchor(left, 50px)` angegeben wäre, würde der Fallback-Wert verwendet, sodass `top` einen berechneten Wert von `50px` erhalten würde. Wenn kein Fallback vorhanden ist, verhält sich die Einfügungseigenschaft so, als wäre sie auf `auto` gesetzt.
 
-Sie können logische `<anchor-side>`-Werte sowohl innerhalb logischer als auch physischer Inset-Eigenschaften verwenden, da logische `<anchor-side>`-Werte relativ zur relevanten Achse der Inset-Eigenschaft sind, unabhängig davon, ob die Eigenschaft logisch oder relativ ist. Zum Beispiel funktionieren `top: anchor(start)`, `top: anchor(self-end)`, `inset-block-start: anchor(end)` und `inset-inline-end: anchor(self-start)` alle einwandfrei.
+Sie können logische `<anchor-side>` Werte sowohl innerhalb logischer als auch physischer Einfügungseigenschaften verwenden, da logische `<anchor-side>` Werte relativ zu der relevanten Achse der Einfügungseigenschaft sind, unabhängig davon, ob die Eigenschaft logisch oder relativ ist. Zum Beispiel funktionieren `top: anchor(start)`, `top: anchor(self-end)`, `inset-block-start: anchor(end)` und `inset-inline-end: anchor(self-start)` alle einwandfrei.
 
-Die Geschichte wird komplizierter, wenn physische `<anchor-side>`-Parameter innerhalb logischer Inset-Eigenschaftswerte verwendet werden, da die physische Seite mit der Achse übereinstimmen muss, für die die Inset-Eigenschaft relevant ist, innerhalb des aktuellen Schreibmodus. Zum Beispiel:
+Die Situation wird komplizierter, wenn physische `<anchor-side>` Parameter innerhalb von logischen Einfügungseigenschaftswerten verwendet werden, da die physische Seite mit der Achse übereinstimmen muss, auf die die Einfügungseigenschaft im aktuellen Schreibmodus relevant ist. Zum Beispiel:
 
-- In einem horizontalen Schreibmodus ist die Blockrichtung von oben nach unten, daher funktioniert `inset-block-end: anchor(bottom)`, aber `inset-block-end: anchor(left)` ist nicht kompatibel. Wenn `inset-block-end: anchor(left, 50px)` gesetzt wäre, würde der berechnete Wert `50px` betragen, und das positionierte Element würde `50px` vom Blockende (unten) seines nächstgelegenen positionierten Vorfahren oder des Viewports entfernt positioniert, abhängig vom gesetzten `position`-Wert.
-- In einem vertikalen Schreibmodus ist die Blockrichtung von rechts nach links oder von links nach rechts, daher funktioniert `inset-block-end: anchor(left)`, aber `inset-block-end: anchor(top)` ist nicht kompatibel. Wenn `inset-block-end: anchor(top, 50px)` gesetzt wäre, würde der berechnete Wert `50px` betragen, und das positionierte Element würde `50px` vom Blockende (links oder rechts, abhängig vom Schreibmodus) seines nächstgelegenen positionierten Vorfahren oder des Viewports entfernt positioniert, abhängig vom gesetzten `position`-Wert.
+- In einem horizontalen Schreibmodus ist die Blockrichtung von oben nach unten, daher funktioniert `inset-block-end: anchor(bottom)` , aber `inset-block-end: anchor(left)` ist inkompatibel. Wenn `inset-block-end: anchor(left, 50px)` eingestellt wäre, würde der berechnete Wert `50px` betragen, und das positionierte Element würde `50px` vom Blockende (unten) des nächstgelegenen positionierten Vorfahren oder des Ansichtsfensters positioniert, abhängig vom festgelegten `position`-Wert.
+- In einem vertikalen Schreibmodus ist die Blockrichtung von rechts nach links oder links nach rechts, daher funktioniert `inset-block-end: anchor(left)` , aber `inset-block-end: anchor(top)` ist inkompatibel. Wenn `inset-block-end: anchor(top, 50px)` eingestellt wäre, würde der berechnete Wert `50px` betragen, und das positionierte Element würde `50px` vom Blockende (links oder rechts je nach Schreibrichtung) des nächstgelegenen positionierten Vorfahren oder des Ansichtsfensters positioniert, abhängig vom festgelegten `position`-Wert.
 
-Um die Möglichkeit von Verwirrung mit diesen Werten zu minimieren, wird geraten, logische Inset-Eigenschaften mit logischen `<anchor-side>`-Werten zu verwenden und physische Inset-Eigenschaften mit physischen `<anchor-side>`-Werten. Sie sollten wann immer möglich die Verwendung logischer Werte bevorzugen, da sie besser für die {{Glossary("Internationalization", "Internationalisierung")}} geeignet sind.
+Um Verwirrung mit diesen Werten zu vermeiden, wird empfohlen, logische Einfügungseigenschaften mit logischen `<anchor-side>` Werten und physische Einfügungseigenschaften mit physischen `<anchor-side>` Werten zu verwenden. Sie sollten den Gebrauch logischer Werte wann immer möglich bevorzugen, da diese besser für die {{Glossary("Internationalization", "Internationalisierung")}} geeignet sind.
 
-Die `center`- und `<percentage>`-Werte sind innerhalb der `anchor()`-Funktion bei allen logischen und physischen Inset-Eigenschaften gültig.
+Die `center` und `<percentage>` Werte sind innerhalb der `anchor()` Funktion innerhalb aller logischen und physischen Einfügungseigenschaften gültig.
 
-Die folgende Tabelle listet die Inset-Eigenschaften auf und die `<anchor-side>`-Parameterwerte, die mit ihnen kompatibel sind. Wir haben nur die Langversionen der Inset-Eigenschaften aufgelistet; diese bestehen aus den Kurzschreibweise-Werten der Inset-Eigenschaften.
+Die unten stehende Tabelle listet die Einfügungseigenschaften und die `<anchor-side>` Parameterwerte auf, die mit ihnen kompatibel sind. Wir haben nur die Langform der Einfügungseigenschaften aufgelistet; diese umfassen die Kurzform der Einfügungseigenschaftswerte.
 
-| Inset-Eigenschaft                           | Kompatibler `<anchor-side>`-Wert                                                                                                              |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Alle                                        | `center`                                                                                                                                      |
-| Alle                                        | `<percentage>`                                                                                                                                |
-| `top` und `bottom`                          | `top`, `bottom`, `start`, `end`, `self-start`, `self-end`                                                                                     |
-| `left` und `right`                          | `left`, `right`, `start`, `end`, `self-start`, `self-end`                                                                                     |
-| `inset-block-start` und `inset-block-end`   | `start`, `end`, `self-start` und `self-end`<br>`top` und `bottom` in horizontalen Schreibmodi<br>`left` und `right` in vertikalen Schreibmodi |
-| `inset-inline-start` und `inset-inline-end` | `start`, `end`, `self-start` und `self-end`<br>`left` und `right` in horizontalen Schreibmodi<br>`top` und `bottom` in vertikalen Schreibmodi |
+| Einfügungseigenschaft                       | Kompatibler `<anchor-side>` Wert                                                                                                               |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Alle                                        | `center`                                                                                                                                       |
+| Alle                                        | `<percentage>`                                                                                                                                 |
+| `top` und `bottom`                          | `top`, `bottom`, `start`, `end`, `self-start`, `self-end`                                                                                      |
+| `left` und `right`                          | `left`, `right`, `start`, `end`, `self-start`, `self-end`                                                                                      |
+| `inset-block-start` und `inset-block-end`   | `start`, `end`, `self-start`, und `self-end`<br>`top` und `bottom` in horizontalen Schreibmodi<br>`left` und `right` in vertikalen Schreibmodi |
+| `inset-inline-start` und `inset-inline-end` | `start`, `end`, `self-start`, und `self-end`<br>`left` und `right` in horizontalen Schreibmodi<br>`top` und `bottom` in vertikalen Schreibmodi |
 
 ### Verwendung von `anchor()` innerhalb von `calc()`
 
-Wenn sich die `anchor()`-Funktion auf eine Seite des Standardankers bezieht, können Sie eine {{cssxref("margin")}} hinzufügen, um bei Bedarf Platz zwischen den Rändern des Ankers und des positionierten Elements zu schaffen. Alternativ können Sie die `anchor()`-Funktion innerhalb einer {{cssxref("calc")}}-Funktion verwenden, um Platz hinzuzufügen.
+Wenn die `anchor()`-Funktion auf eine Seite des Standardankers verweist, können Sie einen {{cssxref("margin")}} einschließen, um bei Bedarf Abstand zwischen den Kanten des Ankers und des positionierten Elements zu schaffen. Alternativ können Sie die `anchor()`-Funktion in eine {{cssxref("calc()")}}-Funktion einfügen, um Abstand hinzuzufügen.
 
-Dieses Beispiel positioniert den rechten Rand des positionierten Elements bündig mit dem linken Rand des Ankerelements und fügt dann einen Rand hinzu, um etwas Platz zwischen den Rändern zu schaffen:
+In diesem Beispiel wird die rechte Kante des positionierten Elements bündig zur linken Kante des Ankerelements positioniert und dann wird ein Rand hinzugefügt, um etwas Platz zwischen den Kanten zu schaffen:
 
 ```css
 .positionedElement {
@@ -143,7 +143,7 @@ Dieses Beispiel positioniert den rechten Rand des positionierten Elements bündi
 }
 ```
 
-Dieses Beispiel positioniert den logischen Block-Endrand des positionierten Elements `10px` vom logischen Block-Anfang der Ankerelemente entfernt:
+In diesem Beispiel wird die logische Block-End-Kante des positionierten Elements `10px` von der logischen Block-Start-Kante des Ankerelements positioniert:
 
 ```css
 .positionedElement {
@@ -151,11 +151,11 @@ Dieses Beispiel positioniert den logischen Block-Endrand des positionierten Elem
 }
 ```
 
-### Positionieren eines Elements relativ zu mehreren Ankern
+### Positionierung eines Elements relativ zu mehreren Ankern
 
-Sie können ein Element relativ zu mehreren Ankern positionieren, indem Sie unterschiedliche `<anchor-name>`-Werte innerhalb der `anchor()`-Funktion verschiedener Inset-Eigenschaften auf demselben Element angeben (siehe [Element positioniert relativ zu mehreren Ankern](#element_positioniert_relativ_zu_mehreren_ankern) unten). Dies kann verwendet werden, um nützliche Funktionen zu erstellen, wie z.B. Ziehhände an den Ecken eines positionierten Elements, die zur Größenanpassung verwendet werden können.
+Sie können ein Element relativ zu mehreren Ankern positionieren, indem Sie unterschiedliche `<anchor-name>` Werte innerhalb der `anchor()`-Funktion für verschiedene Einfügungseigenschaften auf demselben Element angeben (siehe [Element positioniert relativ zu mehreren Ankern](#element_positioniert_relativ_zu_mehreren_ankern) unten). Dies kann verwendet werden, um nützliche Funktionen zu erstellen, wie z.B. Ziehpunkte an den Ecken eines positionierten Elements, die verwendet werden können, um dessen Größe zu ändern.
 
-Während ein positioniertes Element relativ zu mehr als einem Ankerelement positioniert werden kann, ist es immer nur mit dem einzelnen Anker verbunden, der über seine [`position-anchor`](/de/docs/Web/CSS/position-anchor)-Eigenschaft (oder das [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor)-HTML-Attribut) definiert ist. Dies ist der Anker, mit dem das Element scrollt, wenn die Seite scrollt; er kann auch verwendet werden, um zu steuern, wann das Element [bedingt versteckt](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding#conditionally_hiding_anchor-positioned_elements) wird.
+Obwohl ein positioniertes Element relativ zu mehr als einem Ankerelement positioniert werden kann, ist es immer nur mit einem einzigen Anker über seine [`position-anchor`](/de/docs/Web/CSS/position-anchor) Eigenschaft (oder das [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor) HTML-Attribut) assoziiert. Dies ist der Anker, mit dem das Element scrollt, wenn die Seite scrollt; er kann auch verwendet werden, um zu steuern, wann das Element [bedingt ausgeblendet](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding#conditionally_hiding_anchor-positioned_elements) wird.
 
 ## Formale Syntax
 
@@ -163,13 +163,13 @@ Während ein positioniertes Element relativ zu mehr als einem Ankerelement posit
 
 ## Beispiele
 
-### Gewöhnliche Verwendung
+### Allgemeine Verwendung
 
-In diesem Beispiel wird die `anchor()`-Funktion verwendet, um die Höhe eines anchor-positionierten Elements auf die Höhe seines Ankers einzustellen, indem die unteren und oberen Ränder auf die unteren und oberen Ränder des Ankers gesetzt werden. Die `anchor()`-Funktion innerhalb einer `calc()`-Funktion wird dann verwendet, um das anchor-positionierte Element von seinem Anker abzusetzen.
+In diesem Beispiel wird die `anchor()`-Funktion verwendet, um die Höhe eines ankerpositionierten Elements auf die Höhe seines Ankers einzustellen, indem die unteren und oberen Kanten auf die unteren und oberen Kanten des Ankers eingestellt werden. Die `anchor()`-Funktion innerhalb einer `calc()`-Funktion wird dann verwendet, um das ankerpositionierte Element von seinem Anker zu versetzen.
 
 #### HTML
 
-Wir fügen ein {{htmlelement("div")}}-Element hinzu, das wir als unseren Anker festlegen werden, und ein {{htmlelement("p")}}-Element, das wir relativ zu diesem Anker positionieren werden:
+Wir fügen ein {{htmlelement("div")}} Element ein, das wir als unseren Anker festlegen, und ein {{htmlelement("p")}} Element, das wir relativ zu diesem Anker positionieren werden:
 
 ```html
 <div class="anchor">⚓︎</div>
@@ -179,7 +179,7 @@ Wir fügen ein {{htmlelement("div")}}-Element hinzu, das wir als unseren Anker f
 
 #### CSS
 
-Wir setzen den `anchor-name`-Wert des Ankerelements als Wert der `position-anchor`-Eigenschaft des positionierten Elements, um die Elemente zu verknüpfen, und setzen dann drei Inset-Eigenschaften auf dem anchor-positionierten Element. Die ersten beiden positionieren den oberen Rand des Elements bündig mit dem oberen Rand des Ankers und den unteren Rand bündig mit dem unteren Rand des Ankers. In der dritten Inset-Eigenschaft wird die `anchor()`-Funktion innerhalb einer `calc()`-Funktion verwendet, um den linken Rand des Elements `10px` rechts vom Rand des Ankers zu positionieren.
+Wir setzen den `anchor-name` Wert des Ankerelements als Wert der `position-anchor` Eigenschaft des positionierten Elements, um die Elemente zuzuordnen, und setzen dann drei Einfügungseigenschaften auf das ankerpositionierte Element. Die ersten zwei positionieren die obere Kante des Elements bündig mit der oberen Kante des Ankers und die untere Kante bündig mit der unteren Kante des Ankers. In der dritten Einfügungseigenschaft wird die `anchor()`-Funktion innerhalb einer `calc()`-Funktion verwendet, um die linke Kante des Elements `10px` von der rechten Kante des Ankers zu positionieren.
 
 ```css
 .anchor {
@@ -206,15 +206,15 @@ Wir setzen den `anchor-name`-Wert des Ankerelements als Wert der `position-ancho
 
 {{EmbedLiveSample("common_usage", "100%", '240')}}
 
-### Vergleich unterschiedlicher anchor-side Werte
+### Vergleich verschiedener Ankerseitenwerte
 
-Dieses Beispiel zeigt ein Element, das relativ zu einem Anker über seine {{cssxref("top")}}- und {{cssxref("left")}}-Eigenschaften positioniert ist, die mit `anchor()`-Funktionen definiert sind. Es enthält auch zwei Dropdown-Menüs, die es Ihnen ermöglichen, die `<anchor-side>`-Werte innerhalb dieser `anchor()`-Funktionen zu ändern, sodass Sie sehen können, welchen Effekt sie haben.
+Dieses Beispiel zeigt ein Element, das relativ zu einem Anker über seine {{cssxref("top")}} und {{cssxref("left")}} Eigenschaften positioniert ist, die mit `anchor()`-Funktionen definiert sind. Dazu gehören auch zwei Dropdown-Menüs, mit denen Sie die `<anchor-side>` Werte innerhalb dieser `anchor()`-Funktionen variieren können, um zu sehen, welche Wirkung sie haben.
 
 #### HTML
 
-Wir spezifizieren zwei {{htmlelement("div")}}-Elemente, eines mit einer Klasse von `anchor` und eines mit einer Klasse von `infobox`. Diese sind als Ankerelement und als das zu positionierende Element, das wir damit verknüpfen werden, gedacht.
+Wir spezifizieren zwei {{htmlelement("div")}} Elemente, eines mit der Klasse `anchor` und eines mit der Klasse `infobox`. Diese sind als Ankerelement und als positioniertes Element, das wir damit assoziieren werden, vorgesehen.
 
-Wir fügen auch etwas Fülltext um die beiden `<div>`-Elemente herum hinzu, um das {{htmlelement("body")}}-Element größer zu machen, sodass es scrollt. Dieses Beispiel enthält auch zwei {{htmlelement("select")}}-Elemente, um die Dropdown-Menüs zu erstellen, mit denen die verschiedenen `<anchor-side>`-Werte ausgewählt werden können, um sie zu platzieren. Wir haben den Fülltext und die `<select>`-Elemente der Kürze halber ausgeblendet.
+Wir fügen auch einige Fülltexte um die beiden `<div>` Elemente hinzu, um den {{htmlelement("body")}} größer zu machen, damit es scrollt. Dieses Beispiel enthält auch zwei {{htmlelement("select")}} Elemente, um die Dropdown-Menüs zu schaffen, die die Auswahl verschiedener `<anchor-side>` Werte ermöglichen, mit denen das positionierte Element platziert werden soll. Wir haben den Fülltext und die `<select>` Elemente der Kürze halber versteckt.
 
 ```html hidden
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -284,7 +284,7 @@ Wir fügen auch etwas Fülltext um die beiden `<div>`-Elemente herum hinzu, um d
 
 #### CSS
 
-Wir deklarieren das `anchor`-`<div>`-Element als Ankerelement, indem wir einen Ankernamen darauf über die {{cssxref("anchor-name")}}-Eigenschaft setzen. Wir verknüpfen es dann mit dem positionierten Element, indem wir denselben Wert für seine {{cssxref("position-anchor")}}-Eigenschaft setzen. `top: anchor(--my-anchor bottom)` positioniert den oberen Rand der Infobox bündig mit dem unteren Rand ihres Ankers, während `left: anchor(right)` den linken Rand der Infobox bündig mit dem rechten Rand ihres Ankers positioniert. Dies stellt eine Anfangsposition bereit, die beim Auswählen verschiedener Werte aus den Dropdown-Boxen überschrieben wird.
+Wir deklarieren das `anchor` `<div>` als Ankerelement, indem wir ihm einen Ankernamen über die {{cssxref("anchor-name")}} Eigenschaft zuweisen. Anschließend ordnen wir es dem positionierten Element zu, indem wir denselben Wert für seine {{cssxref("position-anchor")}} Eigenschaft setzen. `top: anchor(--my-anchor bottom)` positioniert die Oberkante der Infobox bündig zur Unterkante ihres Ankers, während `left: anchor(right)` die linke Kante der Infobox bündig zur rechten Kante ihres Ankers positioniert. Dies bietet eine Anfangsposition, die überschrieben wird, wenn verschiedene Werte aus den Dropdown-Menüs ausgewählt werden.
 
 ```css hidden
 .anchor {
@@ -327,7 +327,7 @@ form div:last-child {
 .infobox {
   color: darkblue;
   background-color: azure;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   padding: 10px;
   border-radius: 10px;
   font-size: 1rem;
@@ -349,7 +349,7 @@ form div:last-child {
 
 #### JavaScript
 
-Wir lauschen dem `change`-Ereignis, das beim Auswählen eines neuen `<anchor-side>`-Wertes auftritt, und setzen den ausgewählten Wert als `<anchor-side>` in der `anchor()`-Funktion innerhalb des relevanten Inset-Eigenschaftswerts (`top` oder `left`) der Infobox.
+Wir hören auf das `change` Ereignis, das auftritt, wenn ein neuer `<anchor-side>` Wert ausgewählt wird, und setzen den ausgewählten Wert als `<anchor-side>` in der `anchor()`-Funktion innerhalb des entsprechenden Einfügungswertes der Infobox (`top` oder `left`).
 
 ```js
 const infobox = document.querySelector(".infobox");
@@ -369,17 +369,17 @@ leftSelect.addEventListener("change", (e) => {
 
 #### Ergebnis
 
-Wählen Sie unterschiedliche Werte aus den Dropdown-Boxen aus, um zu sehen, wie sie sich auf die Positionierung der Infobox auswirken.
+Wählen Sie verschiedene Werte aus den Dropdown-Menüs aus, um zu sehen, wie sie die Positionierung der Infobox beeinflussen.
 
 {{EmbedLiveSample("Comparison of different anchor-side values", "100%", '240')}}
 
 ### Element positioniert relativ zu mehreren Ankern
 
-Dieses Beispiel positioniert ein Element relativ zu zwei verschiedenen Ankern, die verwendet werden, um die Position der oberen linken und unteren rechten Ecken des anchor-positionierten Elements einzustellen. Die Anker können über Tastatursteuerungen oder durch Ziehen bewegt werden, was die Größe des positionierten Elements ändert.
+In diesem Beispiel wird ein Element relativ zu zwei verschiedenen Ankern positioniert, die verwendet werden, um die Position der oberen linken und unteren rechten Ecken des ankerpositionierten Elements festzulegen. Die Anker können über Tastatursteuerungen oder durch Ziehen verschoben werden, um die Größe des positionierten Elements anzupassen.
 
 #### HTML
 
-Wir spezifizieren insgesamt drei {{htmlelement("div")}}-Elemente. Die ersten beiden haben eine Klasse von `anchor` und werden als Anker definiert; jedes hat eine individuelle `id`, die verwendet wird, um ihnen unterschiedliche Positionierungsinformationen zu geben. Das letzte `<div>` hat eine Klasse von `infobox` und wird als das positionierte Element definiert. Wir fügen das [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attribut hinzu, um ihnen Tastaturfokus zu ermöglichen.
+Wir spezifizieren insgesamt drei {{htmlelement("div")}} Elemente. Die ersten beiden haben eine Klasse von `anchor` und werden als Anker definiert; jedes hat eine individuelle `id`, die verwendet wird, um ihnen unterschiedliche Positionierungsinformationen bereitzustellen. Das letzte `<div>` hat eine Klasse von `infobox` und wird als das positionierte Element definiert. Wir fügen das [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) Attribut hinzu, um ihnen die Tastaturfokussierung zu ermöglichen.
 
 ```html
 <div id="anchor1" class="anchor" tabindex="0">⚓︎1</div>
@@ -416,14 +416,14 @@ body {
 .infobox {
   color: darkblue;
   background-color: azure;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   padding: 10px;
   border-radius: 10px;
   font-size: 1rem;
 }
 ```
 
-Die Anker erhalten einen anderen {{cssxref("anchor-name")}}-Wert, einen {{cssxref("position")}}-Wert von `absolute` und unterschiedliche Inset-Werte, um die Anker in einer rechteckigen Formation zu positionieren.
+Die Anker erhalten jeweils einen anderen {{cssxref("anchor-name")}} Wert, einen {{cssxref("position")}} Wert von `absolut` und unterschiedliche Einfügewertpositionen, um die Anker in einer rechteckigen Formation zu platzieren.
 
 ```css
 .anchor {
@@ -443,7 +443,7 @@ Die Anker erhalten einen anderen {{cssxref("anchor-name")}}-Wert, einen {{cssxre
 }
 ```
 
-Das anchor-positionierte Element wird mit seinem auf `fixed` gesetzten `position` über seine {{cssxref("position-anchor")}}-Eigenschaft mit einem Anker verknüpft. Es wird relativ zu zwei Ankerschalter positioniert, indem zwei verschiedene `<anchor-name>`-Werte mit den in `anchor()`-Funktionen gesetzten Inset-Eigenschaften verwendet werden. In diesem Fall haben wir {{cssxref("percentage")}}-Werte für den `<anchor-side>`-Parameter verwendet, um die Entfernung vom Anfang der Achse der Inset-Eigenschaft, auf der die Funktion gesetzt ist, anzugeben.
+Das ankerpositionierte Element, dessen `position` auf `fixed` gesetzt ist, wird über seine {{cssxref("position-anchor")}} Eigenschaft mit einem Anker assoziiert. Es wird relativ zu zwei Ankern positioniert, indem zwei verschiedene `<anchor-name>` Werte mit den `anchor()` Funktionen eingestellt auf seinen Einfügungseigenschaften verwendet werden. In diesem Fall haben wir {{cssxref("percentage")}} Werte für den `<anchor-side>` Parameter verwendet, um den Abstand vom Anfang der Achse der Einfügungseigenschaft anzugeben, auf der die Funktion eingestellt ist.
 
 ```css
 .infobox {
@@ -525,12 +525,12 @@ function makeDraggable(elem) {
 
 #### Ergebnis
 
-Das positionierte Element wird relativ zu beiden Ankerelementen positioniert. Ziehen Sie sie mit der Maus oder tabben Sie zu ihnen und verwenden Sie die Tasten <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, und <kbd>D</kbd>, um sie nach oben, unten, links und rechts zu bewegen. Beobachten Sie, wie sich ihre Position ändert und infolgedessen die Fläche des positionierten Elements. Scrollen Sie, um zu sehen, wie die Positionen aller Elemente beibehalten werden.
+Das positionierte Element wird relativ zu beiden Ankerelementen positioniert. Ziehen Sie sie mit der Maus oder Tab zu ihnen und verwenden Sie die <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd> und <kbd>D</kbd> Tasten, um sie nach oben, unten, links und rechts zu bewegen. Sehen Sie, wie sich dies auf ihre Position auswirkt, und damit die Fläche des positionierten Elements. Scrollen Sie, um zu sehen, wie die Positionen aller Elemente erhalten bleiben.
 
 {{EmbedLiveSample("Element positioned relative to multiple anchors", "100%", '350')}}
 
 > [!NOTE]
-> Dieses Beispiel ist ein Konzeptnachweis und nicht zur Verwendung in Produktionscode gedacht. Zu seinen Mängeln gehört die Tatsache, dass das Beispiel abbricht, wenn Sie versuchen, die Anker horizontal oder vertikal aneinander vorbei zu bewegen.
+> Dieses Beispiel ist ein Konzeptnachweis und nicht zur Verwendung in Produktivcode gedacht. Zu den Mängeln gehört, dass das Beispiel auseinanderbricht, wenn Sie versuchen, die Anker horizontal oder vertikal aneinander vorbeizubewegen.
 
 ## Spezifikationen
 
@@ -544,7 +544,7 @@ Das positionierte Element wird relativ zu beiden Ankerelementen positioniert. Zi
 
 - {{cssxref("position-anchor")}}
 - {{cssxref("position-area")}}
-- {{cssxref("anchor-size()")}}-Funktion
-- [Verwendung von CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Anleitung
-- [Fallback-Optionen und bedingtes Verbergen bei Überlauf](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) Anleitung
-- [CSS-Anker-Positionierungsmodul](/de/docs/Web/CSS/CSS_anchor_positioning)
+- {{cssxref("anchor-size()")}} Funktion
+- [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Leitfaden
+- [Fallback Optionen und bedingtes Ausblenden für Überlauf](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) Leitfaden
+- [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul

@@ -2,10 +2,10 @@
 title: outline
 slug: Web/CSS/outline
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Die **`outline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt die meisten Outline-Eigenschaften in einer einzigen Deklaration.
+Die **`outline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt die meisten der Outline-Eigenschaften in einer einzigen Deklaration.
 
 {{InteractiveExample("CSS Demo: outline")}}
 
@@ -46,7 +46,7 @@ border-radius: 2rem;
 }
 ```
 
-## Bestandteile
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -61,7 +61,7 @@ Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften
 outline: solid;
 
 /* style | color */
-outline: dashed #f66;
+outline: dashed #ff6666;
 
 /* width | style */
 outline: thick inset;
@@ -77,34 +77,34 @@ outline: revert-layer;
 outline: unset;
 ```
 
-Die `outline`-Eigenschaft kann mit einem, zwei oder drei der unten aufgeführten Werte angegeben werden. Die Reihenfolge der Werte spielt keine Rolle. Wie bei allen Kurzschreibweisen werden alle ausgelassenen Teilwerte auf ihren [Standardwert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value) gesetzt.
+Die `outline`-Eigenschaft kann mithilfe eines, zweier oder dreier der unten aufgeführten Werte angegeben werden. Die Reihenfolge der Werte ist dabei unerheblich. Wie bei allen Kurzschreibweisen werden alle ausgelassenen Unterwerte auf ihren [Anfangswert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value) gesetzt.
 
 > [!NOTE]
-> Die Kontur wird für viele Elemente unsichtbar sein, wenn ihr Stil nicht definiert ist. Dies liegt daran, dass der Stil standardmäßig auf `none` gesetzt ist. Eine bemerkenswerte Ausnahme sind `input`-Elemente, denen von Browsern eine Standardstilierung zugewiesen wird.
+> Das Outline wird für viele Elemente unsichtbar sein, wenn sein Stil nicht definiert ist. Der Grund dafür ist, dass der Stil standardmäßig auf `none` gesetzt ist. Eine bemerkenswerte Ausnahme bilden `input`-Elemente, die von den Browsern mit einem Standardstil versehen werden.
 
 ### Werte
 
 - `<'outline-width'>`
-  - : Bestimmt die Dicke der Kontur. Standardmäßig `medium`, wenn nicht angegeben. Siehe {{cssxref("outline-width")}}.
+  - : Legt die Dicke des Outlines fest. Standard ist `medium`, wenn nicht angegeben. Siehe {{cssxref("outline-width")}}.
 - `<'outline-style'>`
-  - : Bestimmt den Stil der Kontur. Standardwert ist `none`, wenn nicht angegeben. Siehe {{cssxref("outline-style")}}.
+  - : Legt den Stil des Outlines fest. Standard ist `none`, wenn nicht angegeben. Siehe {{cssxref("outline-style")}}.
 - `<'outline-color'>`
-  - : Bestimmt die Farbe der Kontur. Standardmäßig `invert` für unterstützende Browser, `currentColor` für andere. Siehe {{cssxref("outline-color")}}.
+  - : Legt die Farbe des Outlines fest. Standard ist `invert` für unterstützende Browser, `currentColor` für die anderen. Siehe {{cssxref("outline-color")}}.
 
 ## Beschreibung
 
-Eine Kontur ist eine Linie außerhalb des [Rahmens](/de/docs/Web/CSS/border) eines Elements. Im Gegensatz zu anderen Bereichen der Box nehmen Konturen keinen Platz ein und beeinflussen somit das Layout des Dokuments in keiner Weise.
+Ein Outline ist eine Linie außerhalb der [border](/de/docs/Web/CSS/border) eines Elements. Im Gegensatz zu anderen Bereichen der Box nimmt das Outline keinen Platz ein und beeinflusst das Layout des Dokuments in keiner Weise.
 
-Es gibt einige Eigenschaften, die das Erscheinungsbild einer Kontur beeinflussen. Es ist möglich, den Stil, die Farbe und die Breite mit der `outline`-Eigenschaft zu ändern, den Abstand zum Rahmen mit der {{cssxref("outline-offset")}}-Eigenschaft und die Eckenwinkel mit der {{cssxref("border-radius")}}-Eigenschaft.
+Es gibt einige Eigenschaften, die das Erscheinungsbild eines Outlines beeinflussen. Es ist möglich, den Stil, die Farbe und die Breite mit der `outline`-Eigenschaft zu ändern, den Abstand von der Grenze mit der {{cssxref("outline-offset")}}-Eigenschaft und die Eckwinkel mit der {{cssxref("border-radius")}}-Eigenschaft.
 
-Eine Kontur muss nicht rechteckig sein: Bei mehrzeiligem Text zeichnen einige Browser eine Kontur für jede Zeilenbox separat, während andere den gesamten Text mit einer einzigen Kontur umhüllen.
+Ein Outline muss nicht rechteckig sein: Bei mehrzeiligem Text zeichnen einige Browser für jede Zeilenbox ein eigenes Outline, während andere den gesamten Text mit einem einzigen Outline umhüllen.
 
 ## Barrierefreiheit
 
-Das Zuweisen des Werts `0` oder `none` an `outline` entfernt den Standard-Fokusstil des Browsers. Wenn ein Element interaktiv ist, muss es einen sichtbaren Fokusindikator haben. Sorgen Sie für einen deutlichen Fokusstil, wenn der Standardfokusstil entfernt wird.
+Die Zuweisung des Wertes `0` oder `none` für `outline` entfernt den Standardfokus-Stil des Browsers. Wenn ein Element interaktiv ist, muss es einen sichtbaren Fokusindikator haben. Stellen Sie einen offensichtlichen Fokus-Stil bereit, wenn der Standardfokus-Stil entfernt wird.
 
-- [Wie man nützliche und benutzbare Fokusindikatoren entwirft](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/)
-- WCAG 2.1: [Erklärung zum Erfolgskriterium 2.4.7: Fokus sichtbar](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html)
+- [Nützliche und benutzbare Fokus-Indikatoren gestalten](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/)
+- WCAG 2.1: [Erfolgskriterium 2.4.7: Fokus sichtbar verstehen](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html)
 
 ## Formale Definition
 
@@ -116,7 +116,7 @@ Das Zuweisen des Werts `0` oder `none` an `outline` entfernt den Standard-Fokuss
 
 ## Beispiele
 
-### Verwendung von outline für einen Fokus-Stil
+### Verwendung von outline, um einen Fokus-Stil festzulegen
 
 #### HTML
 
@@ -136,9 +136,9 @@ a {
 }
 
 a:focus {
-  outline: 4px dotted #e73;
+  outline: 4px dotted #ee7733;
   outline-offset: 4px;
-  background: #ffa;
+  background: #ffffaa;
 }
 ```
 

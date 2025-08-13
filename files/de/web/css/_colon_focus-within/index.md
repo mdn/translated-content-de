@@ -2,10 +2,10 @@
 title: :focus-within
 slug: Web/CSS/:focus-within
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`:focus-within`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) trifft zu, wenn ein Element oder eines seiner Nachkommen fokussiert ist. Mit anderen Worten, es repräsentiert ein Element, das entweder selbst durch die {{CSSxRef(":focus")}}-Pseudoklasse getroffen wird oder einen Nachfahren hat, der durch `:focus` getroffen wird. (Dies schließt Nachfahren in [Shadow Trees](/de/docs/Web/API/Web_components/Using_shadow_DOM) ein.)
+Die **`:focus-within`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) trifft auf ein Element zu, wenn das Element selbst oder eines seiner Nachkommen den Fokus hat. Anders ausgedrückt, sie repräsentiert ein Element, das selbst von der {{CSSxRef(":focus")}} Pseudoklasse getroffen wird oder einen Nachkommen hat, der von `:focus` getroffen wird. (Dies schließt Nachkommen in [Shadow Trees](/de/docs/Web/API/Web_components/Using_shadow_DOM) ein.)
 
 {{InteractiveExample("CSS Demo: :focus-within", "tabbed-shorter")}}
 
@@ -36,7 +36,7 @@ label:focus-within {
 </form>
 ```
 
-Dieser Selektor ist nützlich, um beispielsweise einen gesamten {{HTMLElement("form")}}-Container hervorzuheben, wenn der Benutzer eines seiner {{HTMLElement("input")}}-Felder fokussiert.
+Dieser Selektor ist nützlich, um ein gängiges Beispiel zu nennen, um einen gesamten {{HTMLElement("form")}} Container hervorzuheben, wenn der Benutzer eines seiner {{HTMLElement("input")}} Felder fokussiert.
 
 ## Syntax
 
@@ -48,7 +48,7 @@ Dieser Selektor ist nützlich, um beispielsweise einen gesamten {{HTMLElement("f
 
 ## Beispiele
 
-In diesem Beispiel erhält das Formular spezielle Farbgebungsstile, wenn einer der Texteingaben fokussiert wird.
+In diesem Beispiel erhält das Formular spezielle Farbgebungsstile, wenn eines der Texteingabefelder den Fokus erhält.
 
 ### HTML
 
@@ -74,7 +74,7 @@ form {
 }
 
 form:focus-within {
-  background: #ff8;
+  background: #ffff88;
   color: black;
 }
 
@@ -99,4 +99,4 @@ input {
 
 - {{CSSxRef(":focus")}}
 - {{CSSxRef(":focus-visible")}}
-- [Großen Sie die Aufmerksamkeit Ihres Benutzers mit dem focus-within Selektor](https://dev.to/vtrpldn/grab-your-user-s-attention-with-the-focus-within-css-selector-4d4)
+- [Ergreifen Sie die Aufmerksamkeit Ihrer Benutzer mit dem focus-within Selektor](https://dev.to/vtrpldn/grab-your-user-s-attention-with-the-focus-within-css-selector-4d4)

@@ -1,21 +1,21 @@
 ---
-title: Listengruppe mit Badges
+title: Listengruppe mit Abzeichen
 slug: Web/CSS/Layout_cookbook/List_group_with_badges
 l10n:
-  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-In diesem Rezept erstellen wir ein Listengruppenmuster mit Badges, die eine Anzahl anzeigen.
+In diesem Beispiel erstellen wir ein Listengruppenmuster mit Abzeichen, die eine Anzahl angeben.
 
-![Eine Liste von Elementen mit einem Badge, das eine Anzahl rechts vom Text anzeigt.](list-group-badges.png)
+![Eine Liste von Elementen mit einem Abzeichen, das eine Anzahl anzeigt, rechts neben dem Text.](list-group-badges.png)
 
 ## Anforderungen
 
-Die Listenelemente sollten mit den Badges angezeigt werden. Das Badge sollte rechts ausgerichtet und vertikal zentriert sein. Das Badge muss vertikal zentriert sein, unabhängig davon, ob es eine einzelne oder mehrere Zeilen Text gibt.
+Die Listenelemente sollen mit den Abzeichen angezeigt werden. Das Abzeichen sollte rechtsbündig und vertikal zentriert sein. Das Abzeichen muss vertikal zentriert sein, egal ob es sich um eine einzelne Textzeile oder mehrere Textzeilen handelt.
 
 ## Rezept
 
-Klicken Sie auf "Abspielen" in den untenstehenden Codeblöcken, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie auf "Wiedergabe" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___list-group-badges-example
 <ul class="list-group">
@@ -48,13 +48,13 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-radius: 0.5em;
   width: 20em;
 }
 
 .list-group li {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #cccccc;
   padding: 0.5em;
   display: flex;
   justify-content: space-between;
@@ -79,16 +79,16 @@ body {
 
 {{EmbedLiveSample("list-group-badges-example", "", "250px")}}
 
-## Entscheidungen getroffen
+## Getroffene Entscheidungen
 
-Flexbox macht dieses spezielle Muster einfach und erleichtert auch Änderungen am Layout.
+Flexbox macht dieses spezielle Muster einfach und erleichtert Änderungen am Layout.
 
-Um sicherzustellen, dass der Text und das Badge korrekt ausgerichtet sind, verwende ich die {{cssxref("justify-content")}}-Eigenschaft mit dem Wert `space-between`. Dies platziert jeden zusätzlichen Raum zwischen den Elementen. Im Live-Beispiel, wenn Sie diese Eigenschaft entfernen, sehen Sie, dass das Badge an das Ende des Textes bei Elementen mit kürzerem Text als eine Zeile verschoben wird.
+Um sicherzustellen, dass der Text und das Abzeichen korrekt ausgerichtet sind, verwende ich die {{cssxref("justify-content")}}-Eigenschaft mit dem Wert `space-between`. Dies platziert jeden zusätzlichen Raum zwischen den Elementen. Im Live-Beispiel, wenn Sie diese Eigenschaft entfernen, werden Sie sehen, dass das Abzeichen an das Ende des Textes bei Elementen mit kürzerem Text als eine Zeile verschoben wird.
 
-Um den Inhalt horizontal auszurichten, verwende ich die {{cssxref("align-items")}}-Eigenschaft, um den Text und das Badge auf der Querachse auszurichten. Wenn Sie möchten, dass sich das Badge am oberen Rand des Inhalts ausrichtet, ändern Sie dies in `align-items: flex-start`.
+Um den Inhalt horizontal auszurichten, verwende ich die {{cssxref("align-items")}}-Eigenschaft, um Text und Abzeichen auf der Querachse auszurichten. Wenn Sie möchten, dass das Abzeichen am oberen Inhalt ausgerichtet wird, ändern Sie dies in `align-items: flex-start`.
 
 ## Siehe auch
 
-- [Box-Ausrichtung in Flexbox](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox)
+- [Ausrichtung von Boxen in Flexbox](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox)
 - [Ausrichtung von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-- [CSS Flexibles Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- Modul [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout)

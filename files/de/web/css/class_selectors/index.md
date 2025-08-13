@@ -2,10 +2,10 @@
 title: Klassenselektoren
 slug: Web/CSS/Class_selectors
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Der [CSS](/de/docs/Web/CSS) **Klassenselektor** wählt Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attributs aus.
+Der [CSS](/de/docs/Web/CSS) **Klassenselektor** selektiert Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attributs.
 
 ```css
 /* All elements with class="spacious" */
@@ -41,7 +41,7 @@ Beachten Sie, dass dies dem folgenden [Attributselektor](/de/docs/Web/CSS/Attrib
 }
 ```
 
-Der Wert `class_name` muss ein gültiger [CSS-Identifikator](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Identifikatoren sind, müssen [escaped](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
+Der `class_name`-Wert muss ein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Bezeichner sind, müssen [escaped](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
 
 ## Beispiele
 
@@ -70,16 +70,16 @@ that contain characters which must be escaped in CSS -->
 
 ```css
 .red {
-  color: #f33;
+  color: #ff3333;
 }
 
 .yellow-bg {
-  background: #ffa;
+  background: #ffffaa;
 }
 
 .fancy {
   font-weight: bold;
-  text-shadow: 4px 4px 3px #77f;
+  text-shadow: 4px 4px 3px #7777ff;
 }
 ```
 
@@ -101,7 +101,7 @@ that contain characters which must be escaped in CSS -->
 
 ### Ungültige Klassenselektoren
 
-Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Identifikatoren und werden ignoriert.
+Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichner und werden ignoriert.
 
 ```css example-bad
 .item?one {

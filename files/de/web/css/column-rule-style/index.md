@@ -2,10 +2,10 @@
 title: column-rule-style
 slug: Web/CSS/column-rule-style
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`column-rule-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezogen wird.
+Die **`column-rule-style`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt den Stil der Linie fest, die zwischen Spalten in einem mehrspaltigen Layout gezeichnet wird.
 
 {{InteractiveExample("CSS Demo: column-rule-style")}}
 
@@ -27,7 +27,7 @@ column-rule-style: double;
 
 ```css interactive-example-choice
 column-rule-style: ridge;
-column-rule-color: #88f;
+column-rule-color: #8888ff;
 ```
 
 ```html interactive-example
@@ -73,12 +73,12 @@ column-rule-style: revert-layer;
 column-rule-style: unset;
 ```
 
-Die `column-rule-style` Eigenschaft wird als ein einzelner `<'border-style'>` Wert angegeben.
+Die Eigenschaft `column-rule-style` wird als einzelner `<'border-style'>`-Wert angegeben.
 
 ### Werte
 
 - `<'border-style'>`
-  - : Ist ein durch {{ cssxref("border-style") }} definierter Schlüsselwortwert, der den Stil der Linie beschreibt. Der Stil muss wie im Modell der kollabierenden Ränder interpretiert werden.
+  - : Ist ein Schlüsselwort, das durch {{ cssxref("border-style") }} definiert ist und den Stil der Regel beschreibt. Die Gestaltung muss wie im kollabierenden Randmodell interpretiert werden.
 
 ## Formale Definition
 
@@ -90,7 +90,7 @@ Die `column-rule-style` Eigenschaft wird als ein einzelner `<'border-style'>` We
 
 ## Beispiele
 
-### Eine gestrichelte Spaltentrennlinie setzen
+### Eine gestrichelte Spaltenregel festlegen
 
 #### HTML
 
@@ -125,7 +125,7 @@ p {
 
 ## Siehe auch
 
-- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- [Lernen: Mehrspaltiges Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-rule")}}
 - {{CSSXref("column-rule-width")}}
 - {{CSSXref("column-rule-color")}}

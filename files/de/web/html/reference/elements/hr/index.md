@@ -1,11 +1,11 @@
 ---
-title: "<hr>: Das Element für thematische Unterbrechungen (Horizontale Linie)"
+title: "<hr>: Das Thematische Trennelement (Horizontale Linie)"
 slug: Web/HTML/Reference/Elements/hr
 l10n:
-  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
+  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
 ---
 
-Das **`<hr>`** [HTML](/de/docs/Web/HTML) Element stellt eine thematische Unterbrechung zwischen Elemente auf Absatzebene dar: zum Beispiel ein Szenenwechsel in einer Geschichte oder ein Themenwechsel innerhalb eines Abschnitts.
+Das **`<hr>`** [HTML](/de/docs/Web/HTML)-Element stellt einen thematischen Wechsel zwischen absatzbezogenen Elementen dar: zum Beispiel ein Szenenwechsel in einer Geschichte oder ein Themenwechsel innerhalb eines Abschnitts.
 
 {{InteractiveExample("HTML Demo: &lt;hr&gt;", "tabbed-shorter")}}
 
@@ -20,8 +20,8 @@ Das **`<hr>`** [HTML](/de/docs/Web/HTML) Element stellt eine thematische Unterbr
 ```css interactive-example
 hr {
   border: none;
-  border-top: 3px double #333;
-  color: #333;
+  border-top: 3px double #333333;
+  color: #333333;
   overflow: visible;
   text-align: center;
   height: 5px;
@@ -36,22 +36,22 @@ hr::after {
 }
 ```
 
-Historisch wurde dies als eine horizontale Linie dargestellt. Während es in visuellen Browsern immer noch als horizontale Linie angezeigt werden kann, wird dieses Element jetzt in semantischen, anstatt in präsentativen Begriffen definiert. Wenn Sie also eine horizontale Linie zeichnen möchten, sollten Sie dies mit geeignetem CSS tun.
+Historisch gesehen wurde dies als horizontale Trennlinie oder Linie dargestellt. Während es in visuellen Browsern weiterhin als horizontale Trennlinie angezeigt werden kann, ist dieses Element jetzt in semantischen Begriffen definiert, anstatt in präsentativen Begriffen. Wenn Sie eine horizontale Linie zeichnen möchten, sollten Sie dies mit geeignetem CSS tun.
 
 ## Attribute
 
-Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `align` {{deprecated_inline}} {{Non-standard_Inline}}
   - : Bestimmt die Ausrichtung der Linie auf der Seite. Wenn kein Wert angegeben ist, ist der Standardwert `left`.
 - `color` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Setzt die Farbe der Linie mittels eines Farbnamen oder eines hexadezimalen Werts.
+  - : Bestimmt die Farbe der Linie durch Farbnamen oder hexadezimalen Wert.
 - `noshade` {{deprecated_inline}} {{Non-standard_Inline}}
   - : Bestimmt, dass die Linie keinen Schatten haben soll.
 - `size` {{deprecated_inline}} {{Non-standard_Inline}}
   - : Bestimmt die Höhe der Linie in Pixeln.
 - `width` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Bestimmt die Länge der Linie auf der Seite in Pixeln oder Prozentwerten.
+  - : Bestimmt die Länge der Linie auf der Seite durch einen Pixel- oder Prozentwert.
 
 ## Beispiel
 
@@ -84,11 +84,11 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
         <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließende Inhalte</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flow-Inhalt</a>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
     </tr>
     <tr>
@@ -96,11 +96,11 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
       <td>Muss ein Start-Tag haben und darf kein End-Tag haben.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         <ul>
-          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">fließende Inhalte</a> akzeptiert</li>
-          <li><a href="/de/docs/Web/HTML/Reference/Elements/select"><code>&lt;select></code></a> Element</li>
+          <li>Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flow-Inhalt</a> akzeptiert</li>
+          <li><a href="/de/docs/Web/HTML/Reference/Elements/select"><code>&lt;select></code></a>-Element</li>
         </ul>
       </td>
     </tr>
@@ -109,7 +109,7 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
       <td><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role"><code>separator</code></a></td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role"><code>presentation</code></a> oder <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role"><code>none</code></a>
       </td>

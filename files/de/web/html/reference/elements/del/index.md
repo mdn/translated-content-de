@@ -1,11 +1,11 @@
 ---
-title: "<del>: Das gelöschte Textelement"
+title: "<del>: Das Deleted Text-Element"
 slug: Web/HTML/Reference/Elements/del
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
 ---
 
-Das **`<del>`**-Element [HTML](/de/docs/Web/HTML) repräsentiert einen Textbereich, der aus einem Dokument entfernt wurde. Dies kann verwendet werden, um beispielsweise "Änderungen nachverfolgen" oder Quellcode-Differenzen darzustellen. Das {{HTMLElement("ins")}}-Element kann für den gegenteiligen Zweck verwendet werden: um anzugeben, dass Text zum Dokument hinzugefügt wurde.
+Das **`<del>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert einen Textbereich, der aus einem Dokument gelöscht wurde. Dies kann beispielsweise bei der Wiedergabe von "Änderungen nachverfolgen" oder Quellcode-Differenzinformationen verwendet werden. Das {{HTMLElement("ins")}}-Element kann für den gegenteiligen Zweck verwendet werden: um Text anzuzeigen, der dem Dokument hinzugefügt wurde.
 
 {{InteractiveExample("HTML Demo: &lt;del&gt;", "tabbed-standard")}}
 
@@ -19,8 +19,8 @@ Das **`<del>`**-Element [HTML](/de/docs/Web/HTML) repräsentiert einen Textberei
 ```css interactive-example
 del {
   text-decoration: line-through;
-  background-color: #fbb;
-  color: #555;
+  background-color: #ffbbbb;
+  color: #555555;
 }
 
 ins {
@@ -35,20 +35,20 @@ blockquote {
 }
 ```
 
-Dieses Element wird oft (aber nicht unbedingt) durch die Anwendung eines Durchstreichstils auf den Text dargestellt.
+Dieses Element wird oft (aber nicht zwingend) durch Anwenden eines Durchstreichstils auf den Text angezeigt.
 
 ## Attribute
 
-Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `cite`
-  - : Ein URI zu einer Ressource, die die Änderung erklärt (zum Beispiel Sitzungsprotokolle).
+  - : Eine URI für eine Ressource, die die Änderung erklärt (zum Beispiel Sitzungsprotokolle).
 - `datetime`
-  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss eine gültige Datumszeichenkette mit einer optionalen Zeit sein. Wenn der Wert nicht als Datum mit einer optionalen Zeitzeichenkette geparst werden kann, hat das Element keinen zugehörigen Zeitstempel. Für das Format der Zeichenkette ohne Zeit siehe [Datumszeichenketten](/de/docs/Web/HTML/Guides/Date_and_time_formats#date_strings). Das Format der Zeichenkette, falls sie sowohl Datum als auch Zeit enthält, wird in [Lokale Datums- und Zeitzeichenketten](/de/docs/Web/HTML/Guides/Date_and_time_formats#local_date_and_time_strings) behandelt.
+  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiger Datumsstring mit einer optionalen Uhrzeit sein. Wenn der Wert nicht als Datum mit optionalem Zeitstring geparst werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format des Strings ohne Zeitangabe siehe [Datums-Strings](/de/docs/Web/HTML/Guides/Date_and_time_formats#date_strings). Das Format des Strings, wenn er sowohl Datum als auch Zeit enthält, wird in [Lokale Datums- und Zeit-Strings](/de/docs/Web/HTML/Guides/Date_and_time_formats#local_date_and_time_strings) behandelt.
 
 ## Barrierefreiheit
 
-Die Existenz des `del`-Elements wird von den meisten Screenreader-Technologien in ihrer Standardeinstellung nicht angesagt. Es kann angesagt werden, indem die CSS-Eigenschaft {{cssxref("content")}} zusammen mit den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}} verwendet wird.
+Die Anwesenheit des `del`-Elements wird in den Standardeinstellungen von den meisten Screenreader-Technologien nicht angekündigt. Es kann angekündigt werden, indem die CSS-Eigenschaft {{cssxref("content")}} zusammen mit den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}} verwendet wird.
 
 ```css
 del::before,
@@ -71,10 +71,10 @@ del::after {
 }
 ```
 
-Einige Menschen, die Screenreader verwenden, deaktivieren das Ansagen von Inhalten, die zusätzliche Wortfülle erzeugen. Deshalb ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtkennen gelöschter Inhalte das Verständnis beeinträchtigen würde.
+Einige Menschen, die Screenreader verwenden, deaktivieren bewusst die Ankündigung von Inhalten, die zusätzliche Ausführlichkeit erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen um den gelöschten Inhalt das Verständnis beeinträchtigen würde.
 
-- [Kurzer Hinweis zur besseren Zugänglichkeit Ihrer Markierungen | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
-- [Anpassung von Textebenenstilen | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
+- [Short note on making your mark (more accessible) | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
+- [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
 
 ## Beispiele
 
@@ -99,10 +99,10 @@ Einige Menschen, die Screenreader verwenden, deaktivieren das Ansagen von Inhalt
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasing Content</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Flow Content</a
         >.
       </td>
     </tr>
@@ -116,15 +116,15 @@ Einige Menschen, die Screenreader verwenden, deaktivieren das Ansagen von Inhalt
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind zwingend erforderlich.</td>
+      <th scope="row">Tag-Ausschluss</th>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasing Content</a
         > akzeptiert.
       </td>
     </tr>
@@ -159,4 +159,4 @@ Einige Menschen, die Screenreader verwenden, deaktivieren das Ansagen von Inhalt
 ## Siehe auch
 
 - {{HTMLElement("ins")}}-Element für Einfügungen in einen Text
-- {{HTMLElement("s")}}-Element für Durchstreichungen, die von der Darstellung gelöschten Texts getrennt sind
+- {{HTMLElement("s")}}-Element für Durchstreichungen, die getrennt von der Darstellung der Textlöschung sind

@@ -2,10 +2,10 @@
 title: border-inline-start-color
 slug: Web/CSS/border-inline-start-color
 l10n:
-  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`border-inline-start-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe des logischen Inline-Start-Randes eines Elements, die je nach Schreibmodus, Richtung und Textausrichtung des Elements einer physischen Randfarbe zugeordnet wird. Sie entspricht der {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}} Eigenschaft, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
+Die **`border-inline-start-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Farbe des logischen Inline-Start-Randes eines Elements, die je nach Schreibmodus des Elements, Richtung und Textausrichtung zu einer physischen Randfarbe wird. Sie entspricht der Eigenschaft {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}} oder {{cssxref("border-left-color")}}, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definiert sind.
 
 {{InteractiveExample("CSS Demo: border-inline-start-color")}}
 
@@ -35,7 +35,7 @@ direction: rtl;
 
 ```css interactive-example
 #example-element {
-  background-color: #eee;
+  background-color: #eeeeee;
   color: black;
   border: 0.75em solid;
   padding: 0.75em;
@@ -59,7 +59,7 @@ border-inline-start-color: revert-layer;
 border-inline-start-color: unset;
 ```
 
-Verwandte Eigenschaften sind {{cssxref("border-block-start-color")}}, {{cssxref("border-block-end-color")}}, und {{cssxref("border-inline-end-color")}}, welche die anderen Randfarben des Elements definieren.
+Verwandte Eigenschaften sind {{cssxref("border-block-start-color")}}, {{cssxref("border-block-end-color")}} und {{cssxref("border-inline-end-color")}}, die die anderen Randfarben des Elements definieren.
 
 ### Werte
 

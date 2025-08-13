@@ -2,16 +2,16 @@
 title: scrollbar-color
 slug: Web/CSS/scrollbar-color
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Die **`scrollbar-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des Scrollbalken-Hintergrunds und des Scrollbalken-Schiebers fest.
+Die **`scrollbar-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Scrollbar-Leiste und des Schiebers fest.
 
-Der **Hintergrund** bezieht sich auf den Hintergrund des Scrollbalkens, der im Allgemeinen unabhängig von der Scrollposition fest ist.
+Die **Leiste** bezieht sich auf den Hintergrund der Scrollbar, der im Allgemeinen unabhängig von der Scrollposition festgelegt ist.
 
-Der **Schieber** bezieht sich auf den beweglichen Teil des Scrollbalkens, der normalerweise über dem Hintergrund schwebt.
+Der **Schieber** bezieht sich auf den beweglichen Teil der Scrollbar, der normalerweise über der Leiste schwebt.
 
-Wenn der Wert von `scrollbar-color` am Wurzelelement des Dokuments festgelegt wird, werden die Werte auf die Ansicht-Scrollbalken angewendet.
+Wenn der `scrollbar-color` Wert auf das Wurzelelement des Dokuments gesetzt wird, werden die Werte auf die Viewport-Scrollbars angewendet.
 
 ## Syntax
 
@@ -34,20 +34,22 @@ scrollbar-color: unset;
 ### Werte
 
 - `<scrollbar-color>`
-  - : Definiert die Farbe des Scrollbalkens.
+  - : Definiert die Farbe der Scrollbar.
 
     <table class="standard-table">
       <tbody>
         <tr>
           <td><code>auto</code></td>
           <td>
-            Standard-Plattformdarstellung für den Hintergrundanteil des Scrollbalkens, falls keine anderen scrollbar-bezogenen Farbeigenschaften vorhanden sind.
+            Standard-Plattformdarstellung für den Leistenabschnitt der Scrollbar, in
+            Ermangelung anderer verwandter Scrollbar-Farbeigenschaften.
           </td>
         </tr>
         <tr>
           <td><code>&#x3C;color> &#x3C;color></code></td>
           <td>
-            Wendet die erste Farbe auf den Schieber des Scrollbalkens an, die zweite auf den Hintergrund des Scrollbalkens.
+            Wendet die erste Farbe auf den Schieber der Scrollbar an, die zweite auf die
+            Scrollbar-Leiste.
           </td>
         </tr>
       </tbody>
@@ -56,9 +58,9 @@ scrollbar-color: unset;
 > [!NOTE]
 > [`@media (forced-colors: active)`](/de/docs/Web/CSS/@media/forced-colors) setzt `scrollbar-color` auf `auto`.
 
-## Barrierefreiheit
+## Zugänglichkeit
 
-Bei der Verwendung der `scrollbar-color` Eigenschaft mit bestimmten Farbwerten sollten Autoren sicherstellen, dass die angegebenen Farben ausreichend Kontrast zueinander haben. Bei Schlüsselwortwerten sollten Benutzeragenten sicherstellen, dass die von ihnen verwendeten Farben ausreichend Kontrast haben. Siehe [Techniken für WCAG 2.0: G183: Verwendung eines Kontrastverhältnisses von 3:1](https://www.w3.org/TR/WCAG20-TECHS/G183.html).
+Bei der Verwendung der `scrollbar-color` Eigenschaft mit bestimmten Farbwerten sollten Autoren sicherstellen, dass die angegebenen Farben genügend Kontrast zueinander haben. Bei Schlüsselwort-Werten sollten UAs sicherstellen, dass die von ihnen verwendeten Farben genügend Kontrast aufweisen. Siehe [Techniken für WCAG 2.0: G183: Verwendung eines Kontrastverhältnisses von 3:1](https://www.w3.org/TR/WCAG20-TECHS/G183.html).
 
 ## Formale Definition
 
@@ -70,7 +72,7 @@ Bei der Verwendung der `scrollbar-color` Eigenschaft mit bestimmten Farbwerten s
 
 ## Beispiele
 
-### Farbige Überlauf-Scrollbalken
+### Färben von Überlauf-Scrollbars
 
 #### CSS
 
@@ -79,7 +81,7 @@ Bei der Verwendung der `scrollbar-color` Eigenschaft mit bestimmten Farbwerten s
   width: 300px;
   height: 100px;
   overflow-y: scroll;
-  scrollbar-color: #007 #bada55;
+  scrollbar-color: #000077 #bada55;
 }
 ```
 

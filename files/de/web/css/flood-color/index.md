@@ -2,13 +2,13 @@
 title: flood-color
 slug: Web/CSS/flood-color
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Die Eigenschaft **`flood-color`** [CSS](/de/docs/Web/CSS) definiert die Farbe der aktuellen Filter-Primitiv-Subregion in den {{SVGElement("feFlood")}}- und {{SVGElement("feDropShadow")}}-Elementen innerhalb eines {{SVGElement("filter")}}. Wenn vorhanden, überschreibt sie das Attribut {{SVGAttr("flood-color")}} des Elements.
+Die **`flood-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe der aktuellen Filter-Primitive-Subregion in {{SVGElement("feFlood")}} und {{SVGElement("feDropShadow")}} Elementen innerhalb eines {{SVGElement("filter")}}. Falls vorhanden, überschreibt sie das {{SVGAttr("flood-color")}} Attribut des Elements.
 
 > [!NOTE]
-> Die `flood-color`-Eigenschaft gilt nur für {{SVGElement("feFlood")}}- und {{SVGElement("feDropShadow")}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudoelemente.
+> Die Eigenschaft `flood-color` gilt nur für {{SVGElement("feFlood")}} und {{SVGElement("feDropShadow")}} Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG, HTML oder Pseudo-Elemente.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ flood-color: unset;
 ### Werte
 
 - {{cssxref("color_value", "&lt;color>")}}
-  - : Die Farbe der Flutung. Dies kann jeder gültige CSS-{{cssxref("color_value", "&lt;color>")}}-Wert sein.
+  - : Die Farbe der Flut. Dies kann ein beliebiger gültiger CSS {{cssxref("color_value", "&lt;color>")}} Wert sein.
 
 ## Formale Definition
 
@@ -41,13 +41,13 @@ flood-color: unset;
 
 ## Beispiele
 
-### Die Farbe einer Filterflutung definieren
+### Festlegen der Farbe einer Filterflut
 
-Dieses Beispiel zeigt die grundlegende Verwendung von `flood-color` und wie die CSS-`flood-color`-Eigenschaft Vorrang vor dem `flood-color`-Attribut hat.
+Dieses Beispiel zeigt die grundlegende Verwendung von `flood-color` und wie die CSS-Eigenschaft `flood-color` Vorrang vor dem `flood-color` Attribut hat.
 
 #### HTML
 
-Wir haben ein SVG mit zwei {{SVGElement("filter")}}-Elementen, die jeweils ein {{SVGElement("feFlood")}}-Kind enthalten. Jedes `<feFlood>`-Element enthält das SVG-`flood-color`-Attribut, das die Flutfarbe als `seagreen` definiert. Wir haben zwei {{SVGElement("rect")}}-Elemente mit einem Filter-Attribut eingefügt; hier werden die Filter angezeigt.
+Wir haben ein SVG mit zwei {{SVGElement("filter")}} Elementen, jeweils mit einem {{SVGElement("feFlood")}} Kind. Jedes `<feFlood>` Element enthält das SVG-Attribut `flood-color`, das die Flutfarbe als `seagreen` definiert. Wir haben zwei {{SVGElement("rect")}} Elemente mit einem Filterattribut eingefügt; hier werden die Filter angezeigt.
 
 ```html
 <svg viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +65,7 @@ Wir haben ein SVG mit zwei {{SVGElement("filter")}}-Elementen, die jeweils ein {
 
 #### CSS
 
-Wir definieren die Größe und Position unseres `<rect>` mithilfe der CSS-Eigenschaften {{cssxref("height")}}, {{cssxref("width")}}, {{cssxref("x")}} und {{cssxref("y")}}:
+Wir definieren die Größe und Position unseres `<rect>` mit den CSS-Eigenschaften {{cssxref("height")}}, {{cssxref("width")}}, {{cssxref("x")}} und {{cssxref("y")}}:
 
 ```css
 rect {
@@ -79,22 +79,22 @@ rect {
 }
 ```
 
-Anschließend wenden wir verschiedene Flutfarbwerte auf die `<feFlood>`-Elemente an, indem wir die CSS-`flood-color`-Eigenschaft verwenden. Wir nutzen eine benannte Farbe und einen 3-stelligen hexadezimalen Farbwert, können jedoch jede gültige CSS-Farbsyntax verwenden:
+Wir wenden dann unterschiedliche Flutfarbwerte auf die `<feFlood>` Elemente unter Verwendung der CSS-Eigenschaft `flood-color` an. Wir verwenden eine benannte Farbe und eine 3-stellige Hexadezimalfarbe, aber wir können jede gültige CSS-Farbschreibweise verwenden:
 
 ```css
 #flood1 feFlood {
   flood-color: rebeccapurple;
 }
 #flood2 feFlood {
-  flood-color: #f36;
+  flood-color: #ff3366;
 }
 ```
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Defining the color of a filters flood", "300", "220")}}
+{{EmbedLiveSample("Festlegen der Farbe einer Filterflut", "300", "220")}}
 
-Die Attribute definierten die Quadrate als „seagreen“, aber diese Werte wurden durch die CSS-`flood-color`-Werte überschrieben.
+Die Attribute definierten die Quadrate als Seagreen, aber diese Werte wurden durch die CSS `flood-color` Werte überschrieben.
 
 ## Spezifikationen
 
@@ -117,4 +117,4 @@ Die Attribute definierten die Quadrate als „seagreen“, aber diese Werte wurd
 - {{cssxref("background-color")}}
 - {{cssxref("color_value", "&lt;color>")}}
 - {{cssxref("filter-function")}}
-- SVG-Attribut {{SVGAttr("flood-color")}}
+- SVG {{SVGAttr("flood-color")}} Attribut

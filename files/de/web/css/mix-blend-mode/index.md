@@ -2,10 +2,10 @@
 title: mix-blend-mode
 slug: Web/CSS/mix-blend-mode
 l10n:
-  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements vermischt werden soll.
+Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements gemischt werden soll.
 
 {{InteractiveExample("CSS Demo: mix-blend-mode")}}
 
@@ -76,11 +76,11 @@ mix-blend-mode: unset;
 ### Werte
 
 - {{cssxref("&lt;blend-mode&gt;")}}
-  - : Der anzuwendende Mischmodus.
+  - : Der Mischmodus, der angewendet werden soll.
 - `plus-darker`
   - : Mischung unter Verwendung des [_plus-darker_ Kompositionsoperators](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
 - `plus-lighter`
-  - : Mischung unter Verwendung des [_plus-lighter_ Kompositionsoperators](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Überblendungseffekte (verhindert unerwünschtes Blinken, wenn zwei überlappende Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
+  - : Mischung unter Verwendung des [_plus-lighter_ Kompositionsoperators](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Cross-Fade-Effekte (verhindert unerwünschtes Blinken, wenn zwei überlagernde Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
 
 ## Formale Definition
 
@@ -597,7 +597,7 @@ html,
 body {
   height: 100%;
   box-sizing: border-box;
-  background: #eee;
+  background: #eeeeee;
 }
 
 .grid {
@@ -811,7 +811,7 @@ circle {
 
 ### Verwendung von mix-blend-mode mit Text
 
-Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrundfarbe des übergeordneten Elements zu vermischen.
+Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrundfarbe des übergeordneten Elements zu mischen.
 
 #### HTML
 

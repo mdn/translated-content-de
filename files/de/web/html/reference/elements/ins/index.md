@@ -1,11 +1,11 @@
 ---
-title: "<ins>: Das Inserted Text-Element"
+title: "<ins>: Das eingefügte Textelement"
 slug: Web/HTML/Reference/Elements/ins
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
 ---
 
-Das **`<ins>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Textbereich, der in ein Dokument eingefügt wurde. Sie können das {{HTMLElement("del")}}-Element verwenden, um ähnlich einen Textbereich zu repräsentieren, der aus dem Dokument gelöscht wurde.
+Das **`<ins>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einen Textbereich, der einem Dokument hinzugefügt wurde. Sie können das {{HTMLElement("del")}} Element verwenden, um ähnlich einen Textbereich zu kennzeichnen, der aus dem Dokument gelöscht wurde.
 
 {{InteractiveExample("HTML Demo: &lt;ins&gt;", "tabbed-standard")}}
 
@@ -28,7 +28,7 @@ ins {
 }
 
 del {
-  background-color: #fbb;
+  background-color: #ffbbbb;
 }
 
 ins {
@@ -59,16 +59,16 @@ p {
 
 ## Attribute
 
-Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `cite`
-  - : Dieses Attribut definiert die URI einer Ressource, die die Änderung erklärt, wie ein Link zu Sitzungsprotokollen oder einem Ticket in einem Fehlersystem.
+  - : Dieses Attribut definiert die URI einer Ressource, die die Änderung erklärt, wie z.B. ein Link zu Besprechungsprotokollen oder ein Ticket in einem Problemlösungssystem.
 - `datetime`
-  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit optionalem Zeitstring sein. Wenn der Wert nicht als Datum mit optionalem Zeitstring geparst werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format des Strings ohne Zeit, siehe [Format eines gültigen Datumsstrings](/de/docs/Web/HTML/Guides/Date_and_time_formats#date_strings). Das Format des Strings, wenn es sowohl Datum als auch Zeit einschließt, wird in [Format eines gültigen lokalen Datums- und Zeitstrings](/de/docs/Web/HTML/Guides/Date_and_time_formats#local_date_and_time_strings) behandelt.
+  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit optionalem Zeitstring sein. Wenn der Wert nicht als Datum mit optionalem Zeitstring analysiert werden kann, hat das Element keinen zugeordneten Zeitstempel. Informationen zum Format des Strings ohne Zeit finden Sie unter [Format of a valid date string](/de/docs/Web/HTML/Guides/Date_and_time_formats#date_strings). Das Format des Strings, wenn es sowohl Datum als auch Zeit beinhaltet, wird in [Format of a valid local date and time string](/de/docs/Web/HTML/Guides/Date_and_time_formats#local_date_and_time_strings) behandelt.
 
-## Barrierefreiheit
+## Zugänglichkeit
 
-Die Anwesenheit des `<ins>`-Elements wird von den meisten Bildschirmlesetechnologien in ihrer Standardeinstellung nicht angekündigt. Es kann angekündigt werden, indem die CSS-Eigenschaft {{cssxref("content")}} zusammen mit den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}} verwendet wird.
+Das Vorhandensein des `<ins>` Elements wird von den meisten Bildschirmlesetechnologien in ihrer Standardkonfiguration nicht angekündigt. Es kann angekündigt werden, indem man die CSS {{cssxref("content")}} Eigenschaft zusammen mit den {{cssxref("::before")}} und {{cssxref("::after")}} Pseudoelementen verwendet.
 
 ```css
 ins::before,
@@ -91,7 +91,7 @@ ins::after {
 }
 ```
 
-Einige Personen, die Bildschirmlesegeräte verwenden, deaktivieren bewusst das Ankündigen von Inhalten, die zusätzliche Wortfülle schaffen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen über eingefügten Inhalt das Verständnis negativ beeinflussen würde.
+Einige Personen, die Bildschirmleser verwenden, deaktivieren absichtlich die Ankündigung von Inhalten, die zusätzliche Wortvielfalt erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen von eingefügtem Inhalt das Verständnis negativ beeinflussen würde.
 
 - [Short note on making your mark (more accessible) | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
 - [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
@@ -118,10 +118,10 @@ Einige Personen, die Bildschirmlesegeräte verwenden, deaktivieren bewusst das A
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing content</a
+          >Phrasierungsinhalte</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >flow content</a
+          >Flussinhalte</a
         >.
       </td>
     </tr>
@@ -136,19 +136,19 @@ Einige Personen, die Bildschirmlesegeräte verwenden, deaktivieren bewusst das A
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasing content</a
+          >Phrasierungsinhalte</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">insertion</a
@@ -158,7 +158,7 @@ Einige Personen, die Bildschirmlesegeräte verwenden, deaktivieren bewusst das A
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Jede</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -177,4 +177,4 @@ Einige Personen, die Bildschirmlesegeräte verwenden, deaktivieren bewusst das A
 
 ## Siehe auch
 
-- {{HTMLElement("del")}}-Element zur Markierung der Löschung in ein Dokument
+- {{HTMLElement("del")}} Element zur Markierung der Löschung in einem Dokument

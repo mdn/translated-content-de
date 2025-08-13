@@ -2,7 +2,7 @@
 title: animation-iteration-count
 slug: Web/CSS/animation-iteration-count
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
 Die **`animation-iteration-count`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie oft eine Animationssequenz abgespielt werden soll, bevor sie stoppt.
@@ -33,7 +33,7 @@ animation-iteration-count: 1.5;
   align-items: center;
   background-color: #1766aa;
   border-radius: 50%;
-  border: 5px solid #333;
+  border: 5px solid #333333;
   color: white;
   display: flex;
   flex-direction: column;
@@ -134,15 +134,15 @@ Die **`animation-iteration-count`** Eigenschaft wird als ein oder mehrere durch 
 ### Werte
 
 - `infinite`
-  - : Die Animation wird für immer wiederholt.
+  - : Die Animation wird unendlich oft wiederholt.
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Anzahl der Wiederholungen der Animation; standardmäßig ist dies `1`. Sie können nicht-ganzzahlige Werte angeben, um einen Teil eines Animationszyklus abzuspielen: Zum Beispiel spielt `0.5` die Hälfte des Animationszyklus ab. Negative Werte sind ungültig.
+  - : Die Anzahl der Wiederholungen der Animation; der Standardwert ist `1`. Sie können nicht-ganzzahlige Werte angeben, um einen Teil eines Animationszyklus abzuspielen: beispielsweise wird mit `0.5` die Hälfte des Animationszyklus abgespielt. Negative Werte sind ungültig.
 
 > [!NOTE]
-> Wenn Sie mehrere durch Kommas getrennte Werte für eine `animation-*` Eigenschaft angeben, werden sie in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere durch Komma getrennte Werte bei einer `animation-*` Eigenschaft angeben, werden diese in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Fälle, in denen die Anzahl der Animationen und die `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 > [!NOTE]
-> Bei der Erstellung von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) bewirkt das Festlegen eines `animation-iteration-count`, dass die Animation so oft wiederholt wird, wie es im Verlauf des Zeitachsenfortschritts angegeben ist. Wenn kein `animation-iteration-count` angegeben ist, tritt die Animation nur einmal auf. `infinite` ist ein gültiger Wert für scroll-gesteuerte Animationen, führt jedoch zu einer Animation, die nicht funktioniert.
+> Beim Erstellen von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) bewirkt die Angabe einer `animation-iteration-count`, dass die Animation in der Anzahl der angegebenen Male im Verlauf der Zeitachsenfortschreitung wiederholt wird. Wenn keine `animation-iteration-count` angegeben ist, erfolgt die Animation nur einmal. `infinite` ist ein gültiger Wert für scroll-gesteuerte Animationen, aber es führt zu einer Animation, die nicht funktioniert.
 
 ## Formale Definition
 
@@ -208,6 +208,6 @@ Siehe [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) f�
 
 ## Siehe auch
 
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [Verwenden von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
 - JavaScript [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) API
 - Andere verwandte Animations-Eigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-name")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}

@@ -2,10 +2,10 @@
 title: border-left
 slug: Web/CSS/border-left
 l10n:
-  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`border-left`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des linken [Rahmens](/de/docs/Web/CSS/border) eines Elements.
+Die **`border-left`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des linken [Randes](/de/docs/Web/CSS/border) eines Elements.
 
 {{InteractiveExample("CSS Demo: border-left")}}
 
@@ -39,7 +39,7 @@ border-left: 4mm ridge rgb(211 220 50 / 0.6);
 
 ```css interactive-example
 #example-element {
-  background-color: #eee;
+  background-color: #eeeeee;
   color: darkmagenta;
   padding: 0.75em;
   width: 80%;
@@ -47,25 +47,25 @@ border-left: 4mm ridge rgb(211 220 50 / 0.6);
 }
 ```
 
-Wie bei allen Shorthand-Eigenschaften setzt `border-left` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn diese nicht spezifiziert sind. Es setzt diejenigen, die nicht spezifiziert sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie bei allen Shorthand-Eigenschaften setzt `border-left` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht spezifiziert sind. Es setzt diejenigen, die nicht spezifiziert sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
 
 ```css
 border-left-style: dotted;
 border-left: thick green;
 ```
 
-Dieser entspricht tatsächlich dem folgenden:
+Er ist tatsächlich derselbe wie dieser:
 
 ```css
 border-left-style: dotted;
 border-left: none thick green;
 ```
 
-Der Wert von {{cssxref("border-left-style")}}, der vor `border-left` angegeben wird, wird ignoriert. Da der Standardwert von {{cssxref("border-left-style")}} `none` ist, führt das Weglassen des `border-style`-Teils zu keinem Rahmen.
+Der Wert von {{cssxref("border-left-style")}}, der vor `border-left` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-left-style")}} `none` ist, führt das Nicht-Angeben des `border-style`-Teils zu keinem Rand.
 
-## Einzelkomponenten
+## Bestandteilseigenschaften
 
-Diese Eigenschaft ist ein Shorthand für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("border-left-color")}}
 - {{cssxref("border-left-style")}}
@@ -86,7 +86,7 @@ border-left: revert-layer;
 border-left: unset;
 ```
 
-Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und ein oder zwei davon können weggelassen werden.
 
 ### Werte
 
@@ -107,7 +107,7 @@ Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angeg
 
 ## Beispiele
 
-### Anbringen eines linken Rahmens
+### Anwenden eines linken Randes
 
 #### HTML
 

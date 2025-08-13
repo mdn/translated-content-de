@@ -2,10 +2,10 @@
 title: transition-delay
 slug: Web/CSS/transition-delay
 l10n:
-  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Die **`transition-delay`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Dauer fest, die gewartet werden soll, bevor der Übergangseffekt einer Eigenschaft beginnt, wenn sich ihr Wert ändert.
+Die **`transition-delay`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt die Wartezeit an, bevor der Übergangseffekt einer Eigenschaft beginnt, wenn sich ihr Wert ändert.
 
 {{InteractiveExample("CSS Demo: transition-delay")}}
 
@@ -47,7 +47,7 @@ transition-property: margin-right, color;
 }
 
 #default-example:hover > #example-element {
-  background-color: #909;
+  background-color: #990099;
   color: white;
   margin-right: 40%;
 }
@@ -55,11 +55,11 @@ transition-property: margin-right, color;
 
 Die Verzögerung kann null, positiv oder negativ sein:
 
-- Ein Wert von `0s` (oder `0ms`) wird den Übergangseffekt sofort beginnen.
-- Ein positiver Wert verzögert den Start des Übergangseffekts um die angegebene Zeitspanne.
-- Ein negativer Wert beginnt den Übergangseffekt sofort und teils während des Effekts. Mit anderen Worten, der Effekt wird animiert, als ob er bereits für die angegebene Zeitdauer läuft.
+- Ein Wert von `0s` (oder `0ms`) lässt den Übergangseffekt sofort beginnen.
+- Ein positiver Wert verzögert den Beginn des Übergangseffekts um die angegebene Zeitspanne.
+- Ein negativer Wert bewirkt, dass der Übergangseffekt sofort beginnt und bereits teilweise abgelaufen ist. Mit anderen Worten, der Effekt wird so animiert, als ob er bereits für die angegebene Zeitspanne gelaufen wäre.
 
-Es ist möglich, mehrere Verzögerungen anzugeben, was nützlich ist, wenn mehrere Eigenschaften übergehen sollen. Jede Verzögerung wird auf die entsprechende Eigenschaft angewendet, wie durch die {{cssxref("transition-property")}} Eigenschaft angegeben, die als Masterliste dient. Wenn weniger Verzögerungen angegeben sind als in der Masterliste, wird die Liste der Verzögerungswerte wiederholt, bis ausreichend vorhanden sind. Wenn mehr Verzögerungen vorhanden sind, wird die Liste der Verzögerungswerte gekürzt, um zur Anzahl der Eigenschaften zu passen. In beiden Fällen bleibt die CSS-Deklaration gültig.
+Es ist möglich, mehrere Verzögerungen anzugeben, was nützlich ist, wenn mehrere Eigenschaften übergehen sollen. Jede Verzögerung wird auf die entsprechende Eigenschaft angewendet, wie sie durch die {{cssxref("transition-property")}}-Eigenschaft spezifiziert ist, die als Hauptliste fungiert. Wenn weniger Verzögerungen als in der Hauptliste angegeben sind, wird die Liste der Verzögerungswerte wiederholt, bis genug vorhanden sind. Wenn es mehr Verzögerungen gibt, wird die Liste der Verzögerungswerte gekürzt, um die Anzahl der Eigenschaften anzupassen. In beiden Fällen bleibt die CSS-Deklaration gültig.
 
 ## Syntax
 
@@ -79,7 +79,7 @@ transition-delay: unset;
 ### Werte
 
 - {{cssxref("&lt;time&gt;")}}
-  - : Bezeichnet die Zeitspanne, die zwischen der Änderung des Wertes einer Eigenschaft und dem Beginn des Übergangseffekts gewartet werden soll.
+  - : Gibt die Zeitspanne an, die gewartet werden soll, zwischen dem Ändern des Werts einer Eigenschaft und dem Beginn des Übergangseffekts.
 
 ## Formale Definition
 
@@ -91,7 +91,7 @@ transition-delay: unset;
 
 ## Beispiele
 
-### Beispiel, das unterschiedliche Verzögerungen zeigt
+### Beispiel zeigt unterschiedliche Verzögerungen
 
 #### HTML
 
@@ -172,5 +172,5 @@ changeButton.addEventListener("click", change);
 
 ## Siehe auch
 
-- [CSS-Übergänge verwenden](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
 - [`TransitionEvent`](/de/docs/Web/API/TransitionEvent) API

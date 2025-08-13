@@ -2,12 +2,12 @@
 title: ::-webkit-meter-optimum-value
 slug: Web/CSS/::-webkit-meter-optimum-value
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
 {{Non-standard_header}}
 
-Das **`::-webkit-meter-optimum-value`** CSS-{{Glossary("Pseudo-element", "Pseudo-Element")}} gestaltet das {{htmlelement("meter")}}-Element, wenn dessen Wert innerhalb des Bereichs niedrig-hoch liegt oder wenn der Wert dem optimalen Wert entspricht.
+Das **`::-webkit-meter-optimum-value`** CSS-{{Glossary("Pseudo-element", "Pseudoelement")}} stylt das {{htmlelement("meter")}}-Element, wenn sein Wert innerhalb des Niedrig-Hoch-Bereichs liegt oder wenn der Wert dem optimalen Wert entspricht.
 
 Grün ist die Standardfarbe.
 
@@ -51,7 +51,13 @@ body {
 }
 
 #styled::-webkit-meter-optimum-value {
-  background: linear-gradient(to bottom, #7f7, #090 45%, #090 55%, #7f7);
+  background: linear-gradient(
+    to bottom,
+    #77ff77,
+    #009900 45%,
+    #009900 55%,
+    #77ff77
+  );
   height: 100%;
   box-sizing: border-box;
 }
@@ -87,7 +93,7 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-Die Pseudo-Elemente, die von WebKit/Blink zur Gestaltung anderer Teile eines {{htmlelement("meter")}}-Elements verwendet werden, sind wie folgt:
+Die von WebKit/Blink verwendeten Pseudoelemente zum Stylen anderer Teile eines {{htmlelement("meter")}}-Elements sind wie folgt:
 
 - {{cssxref("::-webkit-meter-inner-element")}}
 - {{cssxref("::-webkit-meter-bar")}}

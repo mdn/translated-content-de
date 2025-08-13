@@ -2,15 +2,15 @@
 title: paint-order
 slug: Web/SVG/Reference/Attribute/paint-order
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
 ---
 
-Das **`paint-order`** Attribut legt die Reihenfolge fest, in der die Füllung (fill), der Strich (stroke) und die Markierungen (markers) eines bestimmten Form- oder Textelements gezeichnet werden.
+Das **`paint-order`** Attribut gibt die Reihenfolge an, in der die Füllung, der Umriss und die Markierungen eines bestimmten Form- oder Textelements gezeichnet werden.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `paint-order` auch ein entsprechendes CSS-Attribut: {{cssxref("paint-order")}}. Wenn beide angegeben sind, hat das CSS-Attribut Vorrang.
+> Als Präsentationsattribut hat `paint-order` auch ein entsprechendes CSS-Eigenschaft: {{cssxref("paint-order")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("circle")}}
 - {{SVGElement("ellipse")}}
@@ -23,7 +23,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - {{SVGElement("textPath")}}
 - {{SVGElement("tspan")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -46,17 +46,17 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - normal
-  - : Dieser Wert gibt an, dass zuerst die Füllung, dann der Strich und schließlich die Markierungen gezeichnet werden.
+  - : Dieser Wert gibt an, dass zuerst die Füllung, dann der Umriss und zuletzt die Markierungen gezeichnet werden.
 - \[ fill || stroke || markers ]
-  - : Die Reihenfolge dieser drei Schlüsselwörter gibt die Reihenfolge an, in der gezeichnet wird, von links nach rechts. Wenn eine der drei Zeichenkomponenten weggelassen wird, werden sie in ihrer Standardreihenfolge nach den angegebenen Komponenten gezeichnet. Zum Beispiel ist `stroke` äquivalent zu `stroke fill markers`.
+  - : Die Reihenfolge dieser drei Schlüsselwörter gibt die Reihenfolge an, in der das Zeichnen erfolgt, von links nach rechts. Wenn eines der drei Zeichnungskomponenten weggelassen wird, werden sie in der Standardreihenfolge nach den angegebenen Komponenten gezeichnet. Zum Beispiel entspricht die Verwendung von `stroke` der Reihenfolge `stroke fill markers`.
 
 ## Beispiel
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="200">
   <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-    <stop stop-color="#888" />
-    <stop stop-color="#ccc" offset="1" />
+    <stop stop-color="#888888" />
+    <stop stop-color="#cccccc" offset="1" />
   </linearGradient>
   <rect width="400" height="200" fill="url(#g)" />
   <g
@@ -76,11 +76,11 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </svg>
 ```
 
-Das Beispiel würde wie folgt gerendert:
+Das Beispiel würde folgendermaßen gerendert werden:
 
-![Ein Bild, das zeigt, wie das paint-order-Beispiel in einem UA aussieht, der die paint-order-Eigenschaft unterstützt.](paint-order-2.png)
+![Ein Bild, das zeigt, wie das paint-order Beispiel in einer Benutzerumgebung aussieht, die die paint-order Eigenschaft unterstützt.](paint-order-2.png)
 
-Der Effekt des darunterliegenden Strichs könnte durch die folgende CSS-Eigenschaft erreicht werden:
+Der Effekt von einem Umriss unter der Füllung könnte durch die folgende CSS-Eigenschaft erzielt werden:
 
 ```css
 #stroke-under {

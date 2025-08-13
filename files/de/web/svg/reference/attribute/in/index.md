@@ -2,16 +2,16 @@
 title: in
 slug: Web/SVG/Reference/Attribute/in
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
 ---
 
-Das **`in`** Attribut identifiziert die Eingabe für die gegebene Filterprimitive.
+Das Attribut **`in`** identifiziert die Eingabe für das angegebene Filter-Primitive.
 
-Der Wert kann entweder eines der sechs unten definierten Schlüsselwörter sein oder ein String, der mit einem vorherigen {{SVGAttr("result")}} Attributwert innerhalb desselben {{SVGElement("filter")}} Element übereinstimmt. Wenn kein Wert angegeben ist und dies die erste Filterprimitive ist, dann wird diese Filterprimitive `SourceGraphic` als Eingabe verwenden. Wenn kein Wert angegeben ist und es sich um eine nachfolgende Filterprimitive handelt, verwendet diese Filterprimitive das Ergebnis der vorherigen Filterprimitive als Eingabe.
+Der Wert kann entweder eines der sechs unten definierten Schlüsselwörter sein oder ein String, der mit einem vorherigen Wert des Attributs {{SVGAttr("result")}} innerhalb desselben {{SVGElement("filter")}}-Elements übereinstimmt. Wenn kein Wert angegeben wird und dies das erste Filter-Primitive ist, dann wird dieses Filter-Primitive `SourceGraphic` als seine Eingabe verwenden. Wird kein Wert angegeben und handelt es sich um ein nachfolgendes Filter-Primitive, dann wird dieses Filter-Primitive das Ergebnis des vorherigen Filter-Primitives als Eingabe verwenden.
 
-Erscheint der Wert für {{SVGAttr("result")}} mehrmals innerhalb eines gegebenen {{SVGElement("filter")}} Elements, dann wird ein Verweis auf dieses Ergebnis die nächstgelegene vorhergehende Filterprimitive mit dem gegebenen Wert für das Attribut {{SVGAttr("result")}} verwenden.
+Wenn der Wert für {{SVGAttr("result")}} mehrfach innerhalb eines gegebenen {{SVGElement("filter")}}-Elements auftritt, dann wird ein Verweis auf dieses Ergebnis das nächstvorhergehende Filter-Primitive mit dem gegebenen Wert für das Attribut {{SVGAttr("result")}} verwenden.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}
@@ -28,7 +28,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -44,8 +44,8 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <code>SourceGraphic</code> für die erste Filterprimitive, ansonsten das Ergebnis
-        der vorherigen Filterprimitive
+        <code>SourceGraphic</code> für das erste Filter-Primitive, ansonsten Ergebnis
+        des vorherigen Filter-Primitives
       </td>
     </tr>
     <tr>
@@ -56,26 +56,26 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `SourceGraphic`
-  - : Dieses Schlüsselwort steht für die Grafikelemente, die ursprünglich in das {{SVGElement("filter")}} Element eingegeben wurden.
+  - : Dieses Schlüsselwort repräsentiert die Grafikelemente, die die ursprüngliche Eingabe in das {{SVGElement("filter")}}-Element waren.
 - `SourceAlpha`
-  - : Dieses Schlüsselwort steht für die Grafikelemente, die ursprünglich in das `<filter>` Element eingegeben wurden. `SourceAlpha` hat alle dieselben Regeln wie `SourceGraphic`, außer dass nur der Alphakanal verwendet wird.
+  - : Dieses Schlüsselwort repräsentiert die Grafikelemente, die die ursprüngliche Eingabe in das `<filter>`-Element waren. `SourceAlpha` hat alle dieselben Regeln wie `SourceGraphic`, außer dass nur der Alpha-Kanal verwendet wird.
 - `BackgroundImage`
-  - : Dieses Schlüsselwort repräsentiert ein Bild-Snapshot des SVG-Dokuments unter der Filterregion zu dem Zeitpunkt, an dem das `<filter>` Element aufgerufen wurde.
+  - : Dieses Schlüsselwort repräsentiert eine Bildaufnahme des SVG-Dokuments unterhalb der Filterregion zu dem Zeitpunkt, an dem das `<filter>`-Element aufgerufen wurde.
 - `BackgroundAlpha`
-  - : Gleich wie `BackgroundImage`, außer dass nur der Alphakanal genutzt wird.
+  - : Gleich wie `BackgroundImage`, außer dass nur der Alpha-Kanal verwendet wird.
 - `FillPaint`
-  - : Dieses Schlüsselwort steht für den Wert der {{SVGAttr("fill")}} Eigenschaft auf dem Ziel-Element für den Filtereffekt. In vielen Fällen ist das `FillPaint` überall undurchsichtig, aber das könnte sich ändern, wenn eine Form mit einem Verlauf oder Muster gemalt wird, das selbst transparente oder halbtransparente Teile enthält.
+  - : Dieses Schlüsselwort repräsentiert den Wert der {{SVGAttr("fill")}}-Eigenschaft auf dem Ziel-Element für den Filtereffekt. In vielen Fällen ist das `FillPaint` überall opak, aber das könnte nicht der Fall sein, wenn eine Form mit einem Verlauf oder Muster gefüllt ist, welches selbst transparente oder halbtransparente Teile enthält.
 - `StrokePaint`
-  - : Dieses Schlüsselwort steht für den Wert der {{SVGAttr("stroke")}} Eigenschaft auf dem Ziel-Element für den Filtereffekt. In vielen Fällen ist das `StrokePaint` überall undurchsichtig, aber das könnte sich ändern, wenn eine Form mit einem Verlauf oder Muster gemalt wird, das selbst transparente oder halbtransparente Teile enthält.
+  - : Dieses Schlüsselwort repräsentiert den Wert der {{SVGAttr("stroke")}}-Eigenschaft auf dem Ziel-Element für den Filtereffekt. In vielen Fällen ist das `StrokePaint` überall opak, aber das könnte nicht der Fall sein, wenn eine Form mit einem Verlauf oder Muster gestrichen ist, welches selbst transparente oder halbtransparente Teile enthält.
 - `<filter-primitive-reference>`
-  - : Dieser Wert ist ein zugewiesener Name für die Filterprimitive in Form eines {{cssxref("custom-ident")}}. Wenn angegeben, können Grafiken, die aus der Verarbeitung dieser Filterprimitive resultieren, durch ein in-Attribut auf eine nachfolgende Filterprimitive innerhalb desselben Filterelements referenziert werden. Wenn kein Wert angegeben wird, steht die Ausgabe nur für die Wiederverwendung als implizite Eingabe für die nächste Filterprimitive zur Verfügung, wenn diese Filterprimitive keinen Wert für ihr in-Attribut angibt.
+  - : Dieser Wert ist ein zugewiesener Name für das Filter-Primitive in Form eines {{cssxref("custom-ident")}}. Wenn angegeben, können die Grafiken, die aus der Verarbeitung dieses Filter-Primitives resultieren, durch ein in-Attribut auf einem nachfolgenden Filter-Primitive innerhalb desselben Filter-Elements referenziert werden. Wird kein Wert angegeben, steht die Ausgabe nur zur Wiederverwendung als implizite Eingabe in das nächste Filter-Primitive zur Verfügung, wenn dieses Filter-Primitive keinen Wert für sein in-Attribut bereitstellt.
 
 ## Workaround für BackgroundImage
 
-`BackgroundImage` wird als Filterquelle in modernen Browsern nicht unterstützt (siehe die [feComposite-Kompatibilitätstabelle](/de/docs/Web/SVG/Reference/Element/feComposite#browser_compatibility)). Daher müssen wir eines der Bilder importieren, um es innerhalb des Filters selbst zu mischen, indem wir ein `<feImage>` Element verwenden.
+`BackgroundImage` wird als Filterquelle in modernen Browsern nicht unterstützt (siehe die [Kompatibilitätstabelle zu feComposite](/de/docs/Web/SVG/Reference/Element/feComposite#browser_compatibility)). Daher müssen wir eines der Bilder innerhalb des Filters selbst mit einem `<feImage>`-Element importieren.
 
 > [!NOTE]
-> Firefox [Bug 455986](https://bugzil.la/455986) bedeutet, dass `feImage` keine partiellen Bilder laden kann, einschließlich Kreise, Rechtecke, Pfade oder andere im Dokument definierte Fragmente. Damit dieses Beispiel in mehr Browsern funktioniert, wird ein vollständiges externes Bild des Logos geladen.
+> Firefox [Bug 455986](https://bugzil.la/455986) bedeutet, dass `feImage` keine Teilbilder laden kann, einschließlich Kreise, Rechtecke, Pfade oder andere im Dokument definierte Fragmente. Damit dieses Beispiel in mehr Browsern funktioniert, wird ein vollständiges externes Bild des Logos geladen.
 
 ### HTML
 
@@ -99,7 +99,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
     cx="50%"
     cy="40%"
     r="40%"
-    fill="#c00"
+    fill="#cc0000"
     filter="url(#backgroundMultiply)" />
 </svg>
 
@@ -118,7 +118,12 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
       <feBlend in2="SourceGraphic" mode="multiply" />
     </filter>
   </defs>
-  <circle cx="50%" cy="40%" r="40%" fill="#c00" filter="url(#imageMultiply)" />
+  <circle
+    cx="50%"
+    cy="40%"
+    r="40%"
+    fill="#cc0000"
+    filter="url(#imageMultiply)" />
 </svg>
 ```
 

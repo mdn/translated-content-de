@@ -2,13 +2,13 @@
 title: stop-color
 slug: Web/CSS/stop-color
 l10n:
-  sourceCommit: 4ec412012be0b083ebcae4a56b425f49901143f2
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Die **`stop-color`**-Eigenschaft [CSS](/de/docs/Web/CSS) definiert die Farbe, die für ein SVG-{{SVGElement("stop")}}-Element innerhalb eines Verlaufs verwendet wird. Wenn vorhanden, überschreibt sie das {{SVGAttr("stop-color")}}-Attribut des Elements.
+Die **`stop-color`**-Eigenschaft [CSS](/de/docs/Web/CSS) definiert die Farbe, die für ein SVG-{{SVGElement("stop")}}-Element innerhalb eines Gradienten verwendet wird. Wenn vorhanden, überschreibt es das {{SVGAttr("stop-color")}}-Attribut des Elements.
 
 > [!NOTE]
-> Die `stop-color`-Eigenschaft gilt nur für {{SVGElement('stop')}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
+> Die `stop-color`-Eigenschaft gilt nur für in einem {{SVGElement("svg")}} verschachtelte {{SVGElement('stop')}}-Elemente. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ stop-color: unset;
 ### Werte
 
 - {{cssxref("color_value", "&lt;color>")}}
-  - : Die Farbe der Füllung. Dies kann ein beliebiger gültiger CSS-{{cssxref("color_value", "&lt;color>")}}-Wert sein.
+  - : Die Farbe der Füllung. Dies kann jeder gültige CSS-Wert für {{cssxref("color_value", "&lt;color>")}} sein.
 
 ## Formale Definition
 
@@ -41,13 +41,13 @@ stop-color: unset;
 
 ## Beispiele
 
-### Definition der Farbstopps von SVG-Verläufen
+### Definieren der Farbverläufe von SVG-Gradienten
 
-Dieses Beispiel zeigt die grundlegende Verwendung von `stop-color` und wie die CSS-`stop-color`-Eigenschaft Vorrang vor dem `stop-color`-Attribut hat.
+Dieses Beispiel zeigt den grundlegenden Anwendungsfall von `stop-color` und wie die CSS-Eigenschaft `stop-color` gegenüber dem `stop-color`-Attribut vorrangig ist.
 
 #### HTML
 
-Wir haben ein SVG mit drei {{SVGElement("rect")}}-Quadraten und drei {{SVGElement("linearGradient")}}-Elementen. Jeder Verlauf hat vier {{SVGElement("stop")}}-Elemente, die Verläufe von schwarz zu weiß und dann von weiß zu grau erzeugen; der einzige Unterschied zwischen ihnen ist der `id`-Wert.
+Wir haben ein SVG mit drei {{SVGElement("rect")}}-Quadraten und drei {{SVGElement("linearGradient")}}-Elementen. Jeder Gradiente hat vier {{SVGElement("stop")}}-Elemente, die Verläufe erzeugen, die von Schwarz zu Weiß und dann von Weiß zu Grau gehen; der einzige Unterschied zwischen ihnen ist der `id`-Wert.
 
 ```html
 <svg viewBox="0 0 264 100" xmlns="http://www.w3.org/2000/svg">
@@ -56,19 +56,19 @@ Wir haben ein SVG mit drei {{SVGElement("rect")}}-Quadraten und drei {{SVGElemen
       <stop offset="25%" stop-color="black" />
       <stop offset="40%" stop-color="white" />
       <stop offset="60%" stop-color="white" />
-      <stop offset="75%" stop-color="#333" />
+      <stop offset="75%" stop-color="#333333" />
     </linearGradient>
     <linearGradient id="myGradient2">
       <stop offset="25%" stop-color="black" />
       <stop offset="40%" stop-color="white" />
       <stop offset="60%" stop-color="white" />
-      <stop offset="75%" stop-color="#333" />
+      <stop offset="75%" stop-color="#333333" />
     </linearGradient>
     <linearGradient id="myGradient3">
       <stop offset="25%" stop-color="black" />
       <stop offset="40%" stop-color="white" />
       <stop offset="60%" stop-color="white" />
-      <stop offset="75%" stop-color="#333" />
+      <stop offset="75%" stop-color="#333333" />
     </linearGradient>
   </defs>
   <rect x="2" y="10" width="80" height="80" fill="url('#myGradient1')" />
@@ -79,7 +79,7 @@ Wir haben ein SVG mit drei {{SVGElement("rect")}}-Quadraten und drei {{SVGElemen
 
 #### CSS
 
-Wir fügen einen {{cssxref("stroke")}} und eine {{cssxref("stroke-width")}} hinzu, um das Rechteck zu umranden. Wir definieren die Farben der ersten und letzten Stopps in jedem Verlauf und überschreiben ihre `stop-color`-Attributwerte unter Verwendung der `stop-color`-Eigenschaft. Verschiedene CSS-{{cssxref("color_value", "&lt;color>")}}-Syntaxen werden gezeigt.
+Wir fügen eine {{cssxref("stroke")}} und eine {{cssxref("stroke-width")}} hinzu, um das Rechteck zu umranden. Wir definieren die Farben der ersten und letzten Stopps in jedem Gradienten und überschreiben ihre `stop-color`-Attributwerte mit der `stop-color`-Eigenschaft. Verschiedene CSS-Syntaxen für {{cssxref("color_value", "&lt;color>")}} werden gezeigt.
 
 ```css hidden
 svg {
@@ -91,7 +91,7 @@ svg {
 
 ```css
 rect {
-  stroke: #333;
+  stroke: #333333;
   stroke-width: 1px;
 }
 
@@ -140,4 +140,4 @@ rect {
 - {{cssxref("opacity")}}
 - {{cssxref("background-color")}}
 - {{cssxref("color_value", "&lt;color>")}}
-- {{cssxref("basic-shape")}} Datentyp
+- {{cssxref("basic-shape")}}-Datentyp

@@ -2,24 +2,24 @@
 title: Karte
 slug: Web/CSS/Layout_cookbook/Card
 l10n:
-  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Dieses Muster ist eine Liste von "Karten"-Komponenten mit optionalen Fußzeilen. Eine Karte enthält einen Titel, ein Bild, eine Beschreibung oder andere Inhalte, sowie eine Quellenangabe oder Fußzeile. Karten werden in der Regel innerhalb einer Gruppe oder Sammlung angezeigt.
+Dieses Muster ist eine Liste von "Karten"-Komponenten mit optionalen Fußzeilen. Eine Karte enthält einen Titel, ein Bild, eine Beschreibung oder andere Inhalte sowie eine Zuschreibung oder Fußzeile. Karten werden in der Regel innerhalb einer Gruppe oder Sammlung angezeigt.
 
 ![Drei Kartenkomponenten in einer Reihe](cards.png)
 
 ## Anforderungen
 
-Erstellen Sie eine Gruppe von Karten, wobei jede Kartenkomponente eine Überschrift, ein Bild, Inhalte und optional eine Fußzeile enthält.
+Erstellen Sie eine Gruppe von Karten, wobei jede Kartenkomponente eine Überschrift, ein Bild, Inhalt und optional eine Fußzeile enthält.
 
 Jede Karte in der Gruppe sollte die gleiche Höhe haben. Die optionale Kartenfußzeile sollte am unteren Rand der Karte haften.
 
-Die Karten in der Gruppe sollten sich sowohl vertikal als auch horizontal ausrichten.
+Die Karten in der Gruppe sollten sich in zwei Dimensionen ausrichten — sowohl vertikal als auch horizontal.
 
 ## Rezept
 
-Klicken Sie auf "Play" in den untenstehenden Codeblöcken, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie auf "Play" in den folgenden Code-Blöcken, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___card-example
 <div class="cards">
@@ -106,7 +106,7 @@ img {
 }
 
 .card {
-  border: 1px solid #999;
+  border: 1px solid #999999;
   border-radius: 3px;
 
   display: grid;
@@ -129,7 +129,7 @@ img {
 }
 
 .card footer {
-  background-color: #333;
+  background-color: #333333;
   color: white;
   padding: 0.5rem;
 }
@@ -139,7 +139,7 @@ img {
 
 ## Getroffene Entscheidungen
 
-Jede Karte wird mit [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) ausgelegt, obwohl das Layout eindimensional ist. Dies ermöglicht die Verwendung von Inhaltsgrößen für die Grid-Tracks. Um ein Grid mit einer einzigen Spalte einzurichten, können wir folgendes verwenden:
+Jede Karte wird mithilfe des [CSS-Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout) gestaltet, obwohl das Layout eindimensional ist. Dies ermöglicht die Verwendung von Inhaltsgrößen für die Rasterspuren. Um ein einspaltiges Raster einzurichten, können wir Folgendes verwenden:
 
 ```css
 .card {
@@ -148,15 +148,15 @@ Jede Karte wird mit [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) ausgeleg
 }
 ```
 
-{{cssxref("display", "display: grid")}} verwandelt das Element in einen Grid-Container. Die drei Werte der Eigenschaft {{cssxref("grid-template-rows")}} teilen das Grid in mindestens drei Zeilen und definieren die Höhe der ersten drei Kinder der Karte in dieser Reihenfolge.
+{{cssxref("display", "display: grid")}} verwandelt das Element in einen Raster-Container. Die drei Werte der Eigenschaft {{cssxref("grid-template-rows")}} teilen das Raster in mindestens drei Zeilen und definieren die Höhe der ersten drei Kinder der Karte in der Reihenfolge.
 
-Jede `card` enthält ein {{HTMLElement("header")}}, ein {{HTMLElement("img")}}und ein {{HTMLElement("div")}}, in dieser Reihenfolge, wobei einige auch ein {{HTMLElement("footer")}}enthalten.
+Jede `card` enthält ein {{HTMLElement("header")}}, {{HTMLElement("img")}} und {{HTMLElement("div")}} in dieser Reihenfolge, wobei einige auch ein {{HTMLElement("footer")}} enthalten.
 
-Die Überschriftenreihe oder die Spur ist auf {{cssxref("max-content")}} eingestellt, was verhindert, dass sie sich streckt. Die Bildspur ist auf eine Höhe von 200 Pixeln eingestellt. Die dritte Spur, in der der Inhalt enthalten ist, ist auf `1fr` eingestellt. Dies bedeutet, dass sie jeden zusätzlichen Raum ausfüllen wird.
+Die Überschriftenzeile oder -spur ist auf {{cssxref("max-content")}} gesetzt, was verhindert, dass sie sich ausdehnt. Die Bilder-Spur ist auf 200 Pixel Höhe eingestellt. Die dritte Spur, in der sich die Inhalte befinden, ist auf `1fr` eingestellt. Das bedeutet, dass sie jeden zusätzlichen Raum ausfüllt.
 
-Jede darüber hinausgehende Kinder mit explizit definierten Größen erstellen Reihen im impliziten Grid, die den hinzugefügten Inhalten passen. Diese sind standardmäßig automatisch dimensioniert. Wenn eine Karte eine Fußzeile enthält, wird sie automatisch dimensioniert. Die Fußzeile, wenn vorhanden, haftet am unteren Rand des Grids. Die Fußzeile wird so dimensioniert, dass sie zu ihrem Inhalt passt; der Inhalts-`<div>` dehnt sich dann aus, um allen zusätzlichen Raum auszufüllen.
+Alle Kinder, die über die drei mit explizit definierten Größen hinausgehen, erstellen Zeilen im impliziten Raster, die den hinzugefügten Inhalt aufnehmen. Diese werden standardmäßig automatisch dimensioniert. Wenn eine Karte eine Fußzeile enthält, wird diese automatisch dimensioniert. Die Fußzeile, sofern vorhanden, bleibt am unteren Rand des Rasters haften. Die Fußzeile ist automatisch dimensioniert, um ihren Inhalt zu fassen; der Inhalt `<div>` dehnt sich dann aus, um zusätzlichen Platz einzunehmen.
 
-Der folgende Regelsatz erstellt das Grid der Karten:
+Der folgende Regelsatz erstellt das Raster der Karten:
 
 ```css
 .cards {
@@ -166,22 +166,22 @@ Der folgende Regelsatz erstellt das Grid der Karten:
 }
 ```
 
-Die Eigenschaft {{cssxref("grid-template-columns")}} definiert die Breiten der Grid-Spalten. In diesem Fall haben wir das Grid so eingestellt, dass es sich automatisch füllt, mit wiederholten Spalten, die mindestens `230px` sind, aber wachsen dürfen, um den verfügbaren Raum zu füllen. Die Eigenschaft {{cssxref("gap")}} setzt einen Abstand von `20px` zwischen angrenzenden Reihen und Spalten.
+Die Eigenschaft {{cssxref("grid-template-columns")}} definiert die Breiten der Rasterspalten. In diesem Fall setzen wir das Raster so, dass es sich automatisch füllt, mit wiederkehrenden Spalten, die mindestens `230px` breit sind, aber wachsen dürfen, um den verfügbaren Platz auszufüllen. Die Eigenschaft {{cssxref("gap")}} setzt einen Abstand von `20px` zwischen benachbarten Zeilen und benachbarten Spalten.
 
 > [!NOTE]
-> Die verschiedenen Elemente in separaten Karten richten sich nicht miteinander aus, da jede Karte ein unabhängiges Grid ist. Das Ausrichten der Komponenten in jeder Karte mit den gleichen Komponenten in angrenzenden Karten kann mit [subgrid](/de/docs/Web/CSS/CSS_grid_layout/Subgrid) erreicht werden.
+> Die verschiedenen Elemente in separaten Karten sind nicht aufeinander ausgerichtet, da jede Karte ein unabhängiges Raster darstellt. Die Ausrichtung der Komponenten in jeder Karte mit den gleichen Komponenten in benachbarten Karten kann mit [subgrid](/de/docs/Web/CSS/CSS_grid_layout/Subgrid) erreicht werden.
 
 ## Alternative Methoden
 
-[Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) kann ebenfalls verwendet werden, um jede Karte zu layouten. Mit Flexbox werden die Dimensionen jeder Kartenzeile mit der Eigenschaft {{cssxref("flex")}} auf jeder Zeile und nicht im Kartencontainer gesetzt.
+[Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) kann ebenfalls zur Gestaltung jeder Karte verwendet werden. Mit Flexbox werden die Abmessungen der einzelnen Kartenreihen mit der Eigenschaft {{cssxref("flex")}} auf jeder Reihe festgelegt, anstatt auf dem Karten-Container.
 
-Bei Flexbox werden die Dimensionen der Flex-Elemente an den Kindern und nicht an den Eltern definiert. Ob Sie Grid oder Flexbox verwenden, hängt von Ihren Vorlieben ab, ob Sie die Strecken vom Container aus steuern oder lieber Regeln zu den Elementen hinzufügen.
+Mit Flexbox werden die Dimensionen der Flex-Elemente auf den Kindern anstatt auf dem übergeordneten Element definiert. Ob Sie sich für die Verwendung von Grid oder Flexbox entscheiden, hängt von Ihrer Präferenz ab, ob Sie die Spuren vom Container aus kontrollieren oder Regeln zu den Elementen hinzufügen möchten.
 
-Wir haben uns für das Grid für die Karten entschieden, da Sie im Allgemeinen möchten, dass Karten sowohl vertikal als auch horizontal ausgerichtet sind. Darüber hinaus kann das Ausrichten der Komponenten innerhalb jeder Karte zu den Komponenten angrenzender Karten mit Subgrid durchgeführt werden. Flex hat kein hackfreies Äquivalent zu Subgrid.
+Wir haben Grid für die Karten gewählt, da man im Allgemeinen möchte, dass Karten sowohl vertikal als auch horizontal ausgerichtet sind. Außerdem kann die Ausrichtung der Komponenten innerhalb jeder Karte zu den Komponenten benachbarter Karten mit Subgrid erfolgen. Flex hat kein gleichwertiges, hackfreies Subgrid.
 
-## Barrierefreiheitsbedenken
+## Barrierefreiheitserwägungen
 
-Je nach Inhalt Ihrer Karte gibt es möglicherweise Dinge, die Sie tun könnten oder sollten, um die Barrierefreiheit zu verbessern. Siehe [Inclusive components: Card](https://inclusive-components.design/cards/) von Heydon Pickering für eine sehr detaillierte Erklärung dieser Probleme.
+Abhängig vom Inhalt Ihrer Karte gibt es möglicherweise Dinge, die Sie tun könnten oder sollten, um die Zugänglichkeit zu verbessern. Siehe [Inclusive components: Card](https://inclusive-components.design/cards/) von Heydon Pickering für eine sehr ausführliche Erklärung dieser Themen.
 
 ## Siehe auch
 
@@ -189,4 +189,4 @@ Je nach Inhalt Ihrer Karte gibt es möglicherweise Dinge, die Sie tun könnten o
 - {{Cssxref("grid-template-rows")}}
 - {{Cssxref("gap")}}
 - [Inclusive components: Card](https://inclusive-components.design/cards/)
-- [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+- Modul [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout)

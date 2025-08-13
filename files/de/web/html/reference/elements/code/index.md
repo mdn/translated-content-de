@@ -2,10 +2,10 @@
 title: "<code>: Das Inline-Code-Element"
 slug: Web/HTML/Reference/Elements/code
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
 ---
 
-Das **`<code>`** [HTML](/de/docs/Web/HTML)-Element zeigt seinen Inhalt in einem Stil an, der darauf hinweist, dass der Text ein kurzes Fragment von Computercode ist. Standardmäßig wird der Inhaltstext in der Standard-Schriftart mit fester Breite des {{Glossary("user_agent", "User-Agents")}} angezeigt.
+Das **`<code>`** [HTML](/de/docs/Web/HTML)-Element zeigt seinen Inhalt in einem Stil an, der darauf hinweist, dass der Text ein kurzes Fragment von Computercode ist. Standardmäßig wird der Textinhalt mit der Standard-Schriftart des {{Glossary("user_agent", "User Agents")}} im Monospace angezeigt.
 
 {{InteractiveExample("HTML Demo: &lt;code&gt;", "tabbed-shorter")}}
 
@@ -18,7 +18,7 @@ Das **`<code>`** [HTML](/de/docs/Web/HTML)-Element zeigt seinen Inhalt in einem 
 
 ```css interactive-example
 code {
-  background-color: #eee;
+  background-color: #eeeeee;
   border-radius: 3px;
   font-family: courier, monospace;
   padding: 0 3px;
@@ -27,11 +27,11 @@ code {
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ## Beispiele
 
-Ein Absatz von Text, der `<code>` enthält:
+Ein Absatz mit Text, der `<code>` enthält:
 
 ```html
 <p>
@@ -44,11 +44,11 @@ Ein Absatz von Text, der `<code>` enthält:
 
 {{EmbedLiveSample("Example", 640, 70)}}
 
-## Anmerkungen
+## Hinweise
 
-Um mehrere Codezeilen darzustellen, umschließen Sie das `<code>`-Element mit einem {{HTMLElement("pre")}}-Element. Das `<code>`-Element allein stellt nur eine einzelne Codephrase oder eine einzelne Codezeile dar.
+Um mehrere Zeilen von Code darzustellen, umschließen Sie das `<code>`-Element mit einem {{HTMLElement("pre")}}-Element. Das `<code>`-Element allein stellt nur eine einzelne Code-Phrase oder Code-Zeile dar.
 
-Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die Standardschriftart des Browsers zu überschreiben. Benutzereinstellungen können die festgelegten CSS-Einstellungen überwiegen.
+Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die standardmäßig vom Browser verwendete Schriftart zu überschreiben. Vom Benutzer festgelegte Präferenzen können gegenüber der angegebenen CSS Vorrang haben.
 
 ## Technische Zusammenfassung
 
@@ -57,15 +57,15 @@ Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die Standardsc
     <tr>
       <th scope="row">
         <a href="/de/docs/Web/HTML/Guides/Content_categories"
-          >Inhaltskategorien</a
+          >Content-Kategorien</a
         >
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierung-Inhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -73,25 +73,25 @@ Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die Standardsc
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierung-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierung-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">code</a

@@ -2,13 +2,13 @@
 title: white-space-collapse
 slug: Web/CSS/white-space-collapse
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Die **`white-space-collapse`**-Eigenschaft von [CSS](/de/docs/Web/CSS) steuert, wie {{Glossary("whitespace", "Leerraum")}} innerhalb eines Elements zusammengefasst wird.
+Die **`white-space-collapse`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie {{Glossary("whitespace", "Leerraum")}} innerhalb eines Elements reduziert wird.
 
 > [!NOTE]
-> Die Eigenschaften `white-space-collapse` und {{CSSxRef("text-wrap-mode")}} können zusammen mit der Abkürzungseigenschaft {{CSSxRef("white-space")}} erklärt werden.
+> Die Eigenschaften `white-space-collapse` und {{CSSxRef("text-wrap-mode")}} können gemeinsam mit der {{CSSxRef("white-space")}} Kurzform-Eigenschaft deklariert werden.
 
 ## Syntax
 
@@ -28,42 +28,42 @@ white-space-collapse: revert-layer;
 white-space-collapse: unset;
 ```
 
-Die `white-space-collapse`-Eigenschaft wird als ein einzelnes Stichwort aus der untenstehenden Werteliste angegeben.
+Die Eigenschaft `white-space-collapse` wird als einzelnes Schlüsselwort aus der untenstehenden Werteliste angegeben.
 
 ### Werte
 
 - `collapse`
-  - : Leerraumsequenzen werden [zusammengefasst](#zusammenfassen_von_leerraum).
+  - : Leerraumsequenzen werden [zusammengefasst](#reduzierung_von_leerraum).
 - `preserve`
-  - : Leerraumsequenzen und Segmentumbruchzeichen werden beibehalten.
+  - : Leerraumsequenzen und Segmentumbruchzeichen bleiben erhalten.
 - `preserve-breaks`
-  - : Leerraumsequenzen werden zusammengefasst, während Segmentumbruchzeichen beibehalten werden.
+  - : Leerraumsequenzen werden reduziert, während Segmentumbruchzeichen erhalten bleiben.
 - `preserve-spaces`
-  - : Leerraumsequenzen werden beibehalten, während Tabulatoren und Segmentumbruchzeichen in Leerzeichen umgewandelt werden.
+  - : Leerraumsequenzen bleiben erhalten, während Tabs und Segmentumbruchzeichen in Leerzeichen umgewandelt werden.
 - `break-spaces`
-  - : Das Verhalten ist identisch zu `preserve`, außer dass:
-    - Jede Sequenz von beibehaltenem Leerraum nimmt immer Platz ein, auch am Ende der Zeile.
-    - Eine Umbruchsmöglichkeit besteht nach jedem beibehaltenen Leerraumzeichen, auch zwischen Leerraumzeichen.
-    - Beibehaltene Leerzeichen nehmen Platz ein und hängen nicht, was die intrinsischen Größen der Box beeinflusst ({{cssxref("min-content")}}-Größe und {{cssxref("max-content")}}-Größe).
+  - : Das Verhalten ist identisch mit `preserve`, außer dass:
+    - Jede Sequenz von erhaltenem Leerraum immer Platz einnimmt, auch am Ende der Zeile.
+    - Eine Zeilenumbruchmöglichkeit nach jedem erhaltenen Leerraumzeichen besteht, auch zwischen Leerraumzeichen.
+    - Erhaltene Leerzeichen nehmen Platz ein und hängen nicht, was somit die intrinsischen Größen der Box beeinflusst ({{cssxref("min-content")}} Größe und {{cssxref("max-content")}} Größe).
 
 > [!NOTE]
-> _Segmentumbruchzeichen_ sind Zeichen wie Zeilenumbrüche, die dazu führen, dass der Text auf neue Zeilen umbricht.
+> _Segmentumbruchzeichen_ sind Zeichen wie Zeilenumbrüche, die den Text auf neue Zeilen brechen lassen.
 
 > [!NOTE]
-> Das [CSS-Text](/de/docs/Web/CSS/CSS_text)-Modul definiert einen `discard`-Wert für die `white-space-collapse`-Eigenschaft, welcher allen Leerraum im Element verwirft, allerdings wird dies von keinem Browser unterstützt.
+> Das [CSS text](/de/docs/Web/CSS/CSS_text) Modul definiert einen `discard` Wert für die Eigenschaft `white-space-collapse`, um allen Leerraum im Element zu verwerfen. Dies wird jedoch von keinem Browser unterstützt.
 
-## Zusammenfassen von Leerraum
+## Reduzierung von Leerraum
 
-Benutzeragenten handhaben das Zusammenfassen von Leerraum wie folgt:
+Benutzeragenten behandeln die Reduzierung von Leerraum wie folgt:
 
-- Tabulatoren werden im Allgemeinen in Leerzeichen umgewandelt.
-- Wenn Segmentumbrüche zusammengefasst werden sollen:
-  - Sequenzen von Segmentumbrüchen werden zu einem einzigen Segmentumbruch zusammengefasst.
-  - Sie werden in Sprachen, die Wörter mit Leerzeichen trennen (wie Englisch), in Leerzeichen umgewandelt oder in Sprachen, die Wörter nicht mit Leerzeichen trennen (wie Chinesisch), komplett entfernt.
-- Wenn Leerzeichen zusammengefasst werden sollen:
-  - Leerzeichen oder Tabulatoren vor oder nach Segmentumbrüchen werden entfernt.
-  - Sequenzen von Leerzeichen werden in ein einziges Leerzeichen "zusammengefasst".
-- Wenn Leerzeichen beibehalten werden, werden Sequenzen von Leerzeichen als nicht-umbruchend behandelt, außer dass sie am Ende jeder Sequenz weich umgebrochen werden — d.h. die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichen-Zeichen. Im Fall des `break-spaces`-Werts könnte jedoch ein weicher Umbruch nach jedem Leerzeichen auftreten, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnen kann.
+- Tabs werden im Allgemeinen in Leerzeichen umgewandelt.
+- Wenn Segmentumbrüche reduziert werden sollen:
+  - Sequenzen von Segmentumbrüchen werden auf einen einzigen Segmentumbruch reduziert.
+  - Sie werden in Leerzeichen umgewandelt im Fall von Sprachen, die Wörter mit Leerzeichen trennen (wie Englisch), oder ganz entfernt im Fall von Sprachen, die Wörter nicht mit Leerzeichen trennen (wie Chinesisch).
+- Wenn Leerzeichen reduziert werden sollen:
+  - Leerzeichen oder Tabs vor oder nach Segmentumbrüchen werden entfernt.
+  - Sequenzen von Leerzeichen werden in ein einzelnes Leerzeichen umgewandelt oder "reduziert".
+- Wenn Leerzeichen erhalten bleiben, werden Leerraumsequenzen als nicht umbrechend behandelt, außer dass sie am Ende jeder Sequenz weich umbrochen werden können — d.h. die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichen-Zeichen. Im Fall des Wertes `break-spaces` könnte ein weicher Umbruch jedoch nach jedem Leerzeichen auftreten, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnen kann.
 
 ## Formale Definition
 
@@ -119,7 +119,7 @@ Benutzeragenten handhaben das Zusammenfassen von Leerraum wie folgt:
 h2 {
   font-size: 1.6rem;
   font-family: monospace;
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px dotted #cccccc;
 }
 ```
 
@@ -137,5 +137,5 @@ h2 {
 
 ## Siehe auch
 
-- Abkürzung für `white-space-collapse` und {{CSSxRef("text-wrap-mode")}}: Die {{CSSxRef("white-space")}}-Eigenschaft.
+- Kurzform für `white-space-collapse` und {{CSSxRef("text-wrap-mode")}}: Die {{CSSxRef("white-space")}} Eigenschaft.
 - [CSS-Textmodul](/de/docs/Web/CSS/CSS_text)

@@ -1,17 +1,17 @@
 ---
-title: Medienpufferung, Suchvorgänge und Zeitbereiche
+title: Medienpufferung, -suche und -zeitbereiche
 slug: Web/Media/Guides/Audio_and_video_delivery/buffering_seeking_time_ranges
 l10n:
-  sourceCommit: a318c45b5f0b4b8448d9c6b857206552e0e82980
+  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
 ---
 
-Manchmal ist es nützlich zu wissen, wie viel {{htmlelement("audio") }} oder {{htmlelement("video") }} heruntergeladen oder ohne Verzögerung abspielbar ist — ein gutes Beispiel dafür ist die gepufferte Fortschrittsleiste eines Audio- oder Videoplayers. Dieser Artikel behandelt, wie man eine Puffer-/Suchleiste unter Verwendung von [TimeRanges](/de/docs/Web/API/TimeRanges) und anderen Funktionen der Media-API erstellt.
+Manchmal ist es nützlich zu wissen, wie viel {{htmlelement("audio") }} oder {{htmlelement("video") }} heruntergeladen oder ohne Verzögerung abspielbar ist – ein gutes Beispiel dafür ist die fortschreitende Pufferleiste eines Audio- oder Videoplayers. Dieser Artikel behandelt, wie man eine Puffer-/Suchleiste mit [TimeRanges](/de/docs/Web/API/TimeRanges) und anderen Funktionen der Medien-API erstellt.
 
 ## Gepuffert
 
-Das `buffered`-Attribut zeigt an, welche Teile des Mediums heruntergeladen wurden. Es gibt ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurück, das uns mitteilt, welche Medienabschnitte heruntergeladen wurden. Normalerweise sind diese zusammenhängend, aber wenn der Benutzer hin und her springt, während das Medium gepuffert wird, können Lücken entstehen.
+Das `buffered`-Attribut teilt uns mit, welche Teile der Medien heruntergeladen wurden. Es gibt ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurück, das uns mitteilt, welche Teile der Medien heruntergeladen wurden. Dies ist normalerweise zusammenhängend, aber wenn der Benutzer während des Pufferings im Medium herum springt, kann es Lücken geben.
 
-Dies funktioniert mit {{htmlelement("audio") }} oder {{htmlelement("video") }}; betrachten wir zunächst ein Audio-Beispiel:
+Dies funktioniert sowohl mit {{htmlelement("audio") }} als auch mit {{htmlelement("video") }}; betrachten wir zunächst ein Audio-Beispiel:
 
 ```html
 <audio id="my-audio" controls src="music.mp3"></audio>
@@ -26,15 +26,15 @@ const bufferedTimeRanges = audio.buffered;
 
 ## TimeRanges-Objekt
 
-TimeRanges sind eine Serie nicht überlappender Zeitbereiche mit Start- und Stoppzeiten. ([Erfahren Sie mehr über TimeRanges](/de/docs/Web/API/TimeRanges)).
+TimeRanges sind eine Serie von nicht überlappenden Zeitbereichen mit Start- und Stoppzeiten. ([Erfahren Sie mehr über TimeRanges](/de/docs/Web/API/TimeRanges)).
 
 Ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt besteht aus den folgenden Eigenschaften:
 
 - `length`: Die Anzahl der Zeitbereiche im Objekt.
-- `start(index)`: Die Startzeit eines Zeitbereichs in Sekunden.
-- `end(index)`: Die Endzeit eines Zeitbereichs in Sekunden.
+- `start(index)`: Die Startzeit, in Sekunden, eines Zeitbereichs.
+- `end(index)`: Die Endzeit, in Sekunden, eines Zeitbereichs.
 
-Ohne Benutzereingriff gibt es normalerweise nur einen Zeitbereich, aber wenn Sie im Medium hin und her springen, können mehrere Zeitbereiche erscheinen, wie in der folgenden Visualisierung dargestellt. Diese zeigt zwei gepufferte Zeitbereiche — einer von 0 bis 5 Sekunden und ein zweiter von 15 bis 19 Sekunden.
+Ohne Benutzerinteraktion gibt es normalerweise nur einen Zeitbereich, aber wenn Sie im Medium herumspringen, können mehrere Zeitbereiche erscheinen, wie die folgende Visualisierung zeigt. Dies stellt zwei gepufferte Zeitbereiche dar – einen von 0 bis 5 Sekunden und den zweiten von 15 bis 19 Sekunden.
 
 ```plain
 ------------------------------------------------------
@@ -43,7 +43,7 @@ Ohne Benutzereingriff gibt es normalerweise nur einen Zeitbereich, aber wenn Sie
 0             5                    15          19    21
 ```
 
-Für diese Audioinstanz hätte das zugehörige [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt die folgenden verfügbaren Eigenschaften:
+Für dieses Audio-Beispiel hätte das zugehörige [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt die folgenden verfügbaren Eigenschaften:
 
 ```js
 audio.buffered.length; // returns 2
@@ -53,7 +53,7 @@ audio.buffered.start(1); // returns 15
 audio.buffered.end(1); // returns 19
 ```
 
-Um gepufferte Zeitbereiche auszuprobieren und zu visualisieren, können wir ein bisschen HTML schreiben:
+Um gepufferte Zeitbereiche auszuprobieren und zu visualisieren, können wir ein wenig HTML schreiben:
 
 ```html live-sample___timeranges
 <p>
@@ -75,7 +75,7 @@ Um gepufferte Zeitbereiche auszuprobieren und zu visualisieren, können wir ein 
 }
 ```
 
-und ein bisschen JavaScript:
+und ein wenig JavaScript:
 
 ```js live-sample___timeranges
 const audio = document.getElementById("my-audio");
@@ -102,33 +102,32 @@ audio.addEventListener("seeked", () => {
 });
 ```
 
-Dies funktioniert besser mit längeren Audio- oder Videostücken, aber drücken Sie auf Wiedergabe und klicken Sie auf die Player-Fortschrittsleiste, und Sie sollten Segmente in Rot sehen. Jedes rot gefüllte weiße Rechteck stellt einen Zeitbereich dar.
+Dies funktioniert besser mit längeren Audio- oder Videostücken, aber drücken Sie die Wiedergabetaste und klicken Sie in der Player-Fortschrittsleiste herum, und Sie sollten Segmente von Rot sehen. Jedes rot gefüllte weiße Rechteck stellt einen Zeitbereich dar.
 
 {{EmbedLiveSample("timeranges", "", 200)}}
 
 ## Suchbar
 
-Das `seekable`-Attribut gibt ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurück und zeigt an, welche Teile des Mediums ohne Verzögerung abgespielt werden können; dies unabhängig davon, ob dieser Teil heruntergeladen wurde oder nicht. Einige Teile des Mediums können suchbar, aber nicht gepuffert sein, wenn auf dem Server Bytebereich-Anfragen aktiviert sind. Bytebereich-Anfragen ermöglichen es, Teile der Mediendatei vom Server zu liefern und können somit fast sofort abspielbar sein — daher sind sie suchbar.
-Für weitere Informationen zu Bytebereich-Anfragen siehe [HTTP-Bereichsanfragen](/de/docs/Web/HTTP/Guides/Range_requests).
+Das `seekable`-Attribut gibt ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurück und zeigt uns, welche Teile des Mediums ohne Verzögerung abgespielt werden können, unabhängig davon, ob dieser Teil heruntergeladen wurde oder nicht. Einige Teile des Mediums können suchbar, aber nicht gepuffert sein, wenn auf dem Server Byterange-Anfragen aktiviert sind. Byterange-Anfragen erlauben es, Teile der Mediendatei vom Server zu liefern, und können daher fast sofort spielbereit sein – daher sind sie suchbar. Weitere Informationen zu Byterange-Anfragen finden Sie unter [HTTP-Range-Anfragen](/de/docs/Web/HTTP/Guides/Range_requests).
 
 ```js
 const seekableTimeRanges = audio.seekable;
 ```
 
-## Eigene Pufferanzeige erstellen
+## Unser eigenes Pufferfeedback erstellen
 
-Wenn wir unseren eigenen benutzerdefinierten Player erstellen möchten, könnten wir Feedback darüber geben wollen, wie viel des Mediums abspielbereit ist. Praktisch ist es eine gute Möglichkeit, das `seekable`-Attribut zu verwenden, obwohl, wie wir oben gesehen haben, die suchbaren Teile des Mediums nicht unbedingt zusammenhängend sind — sie sind es jedoch oft und wir können diese Information sicher approximieren, um dem Benutzer einen Hinweis darauf zu geben, welche Teile des Mediums direkt abgespielt werden können. Wir können diesen Punkt im Medium mit der folgenden Codezeile finden:
+Wenn wir unseren eigenen benutzerdefinierten Player erstellen möchten, möchten wir möglicherweise Feedback dazu geben, wie viel von den Medien abspielbereit ist. In der Praxis ist es eine gute Möglichkeit, dazu das `seekable`-Attribut zu verwenden, obwohl, wie wir oben gesehen haben, suchbare Teile des Mediums nicht notwendigerweise zusammenhängend sind – oft sind sie es jedoch, und wir können diese Information sicher als Annäherung verwenden, um dem Benutzer anzuzeigen, welche Teile der Medien direkt abgespielt werden können. Wir finden diesen Punkt im Medium mit folgendem Code:
 
 ```js
 const seekableEnd = audio.seekable.end(audio.seekable.length - 1);
 ```
 
 > [!NOTE]
-> `audio.seekable.end(audio.seekable.length - 1)` gibt tatsächlich den Endpunkt des letzten suchbaren Zeitbereichs an (nicht aller suchbaren Medien). Praktisch ist das gut genug, da der Browser entweder Bereichsanfragen ermöglicht oder nicht. Wenn nicht, dann entspricht `audio.seekable` `audio.buffered`, was einen gültigen Hinweis auf das Ende der suchbaren Medien liefert. Wenn Bereichsanfragen aktiviert sind, wird dieser Wert normalerweise fast sofort zur Dauer des Mediums.
+> `audio.seekable.end(audio.seekable.length - 1)` sagt uns tatsächlich den Endpunkt des letzten Zeitbereichs, der suchbar ist (nicht aller suchbaren Medien). In der Praxis reicht dies aus, da der Browser entweder Range-Anfragen aktiviert oder nicht. Wenn nicht, wird `audio.seekable` gleich `audio.buffered`, was einen gültigen Hinweis auf das Ende der suchbaren Medien gibt. Wenn Range-Anfragen aktiviert sind, wird dieser Wert normalerweise fast sofort zur Dauer des Mediums.
 
-Es ist vielleicht besser, einen Hinweis darauf zu geben, wie viel Medium tatsächlich heruntergeladen wurde — das scheint es, was die nativen Player der Browser anzeigen.
+Es ist vielleicht besser, einen Hinweis darauf zu geben, wie viel Medien tatsächlich heruntergeladen wurden – dies ist das, was die nativen Player des Browsers anzuzeigen scheinen.
 
-Beginnen wir also damit. Das HTML für unseren Player sieht folgendermaßen aus:
+Also bauen wir das. Das HTML für unseren Player sieht so aus:
 
 ```html live-sample___buffered-progress
 <audio id="my-audio" preload controls>
@@ -144,20 +143,20 @@ Beginnen wir also damit. Das HTML für unseren Player sieht folgendermaßen aus:
 </div>
 ```
 
-Wir verwenden das folgende CSS, um die Pufferanzeige zu gestalten:
+Wir verwenden das folgende CSS, um das Puffe-Darstellungs-Display zu stylen:
 
 ```css live-sample___buffered-progress
 .buffered {
   height: 20px;
   position: relative;
-  background: #555;
+  background: #555555;
   width: 300px;
 }
 
 #buffered-amount {
   display: block;
   height: 100%;
-  background-color: #777;
+  background-color: #777777;
   width: 0;
 }
 
@@ -171,12 +170,12 @@ Wir verwenden das folgende CSS, um die Pufferanzeige zu gestalten:
 #progress-amount {
   display: block;
   height: 100%;
-  background-color: #595;
+  background-color: #559955;
   width: 0;
 }
 ```
 
-Und das folgende JavaScript stellt unsere Funktionalität bereit:
+Und das folgende JavaScript bietet unsere Funktionalität:
 
 ```js live-sample___buffered-progress
 const audio = document.getElementById("my-audio");
@@ -207,20 +206,20 @@ audio.addEventListener("timeupdate", () => {
 });
 ```
 
-Das Progress-Event wird ausgelöst, wenn Daten heruntergeladen werden, dies ist ein gutes Event, um darauf zu reagieren, wenn wir den Download- oder Pufferungsfortschritt anzeigen möchten.
+Das Fortschrittsereignis wird ausgelöst, während Daten heruntergeladen werden; dies ist ein gutes Ereignis, um darauf zu reagieren, wenn wir den Download- oder Puffervorgang anzeigen möchten.
 
-Das Timeupdate-Event wird 4 mal pro Sekunde ausgelöst, während das Medium abgespielt wird, und dort wird unsere Abspielfortschrittsanzeige inkrementiert.
+Das Zeitaktualisierungsereignis wird viermal pro Sekunde ausgelöst, während die Medien abgespielt werden, und hier erhöhen wir unsere Abspiel-Fortschrittsleiste.
 
-Dieses Mal sollten Sie zwei Arten von Segmenten sehen. Die hellgraue Leiste stellt den gepufferten Fortschritt dar und die grüne Leiste den gespielten Fortschritt.
+Dieses Mal sollten Sie zwei Arten von Segmenten sehen. Der hellgraue Balken stellt den gepufferten Fortschritt dar und der grüne Balken den abgespielten Fortschritt.
 
 {{EmbedLiveSample("buffered-progress", "", 200)}}
 
-## Ein kurzes Wort zu Gespielt
+## Ein kurzes Wort über Abgespieltes
 
-Es lohnt sich, die `played`-Eigenschaft zu erwähnen — diese gibt an, welche Zeitbereiche innerhalb des Mediums abgespielt wurden. Zum Beispiel:
+Es lohnt sich, die `played`-Eigenschaft zu erwähnen — diese sagt uns, welche Zeitbereiche innerhalb der Medien abgespielt wurden. Zum Beispiel:
 
 ```js
 const played = audio.played; // returns a TimeRanges object
 ```
 
-Dies könnte nützlich sein, um festzustellen, welche Teile Ihres Mediums am meisten gehört oder angesehen wurden.
+Dies könnte nützlich sein, um festzustellen, welche Teile Ihrer Medien am meisten gehört oder angesehen werden.

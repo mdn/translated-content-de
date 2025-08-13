@@ -2,10 +2,10 @@
 title: border-left-style
 slug: Web/CSS/border-left-style
 l10n:
-  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`border-left-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Linienstil des linken {{cssxref("border")}} eines Elements fest.
+Die **`border-left-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil des linken {{cssxref("border")}} eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-left-style")}}
 
@@ -43,7 +43,7 @@ border-left-style: inset;
 
 ```css interactive-example
 #example-element {
-  background-color: #eee;
+  background-color: #eeeeee;
   color: black;
   border: 0.75em solid;
   padding: 0.75em;
@@ -57,7 +57,7 @@ body {
 ```
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie sich Grenzen unterschiedlicher Stile an den Ecken verbinden.
+> Die Spezifikation definiert nicht, wie sich Rahmen unterschiedlicher Stile in den Ecken verbinden.
 
 ## Syntax
 
@@ -82,7 +82,7 @@ border-left-style: revert-layer;
 border-left-style: unset;
 ```
 
-Die `border-left-style`-Eigenschaft wird als einzelner {{cssxref("line-style")}}-Schlüsselwortwert angegeben.
+Die `border-left-style` Eigenschaft wird als ein einzelnes {{cssxref("line-style")}} Schlüsselwortwert spezifiziert.
 
 ## Formale Definition
 
@@ -179,5 +179,5 @@ td {
 
 ## Siehe auch
 
-- Die anderen stilbezogenen Border-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-right-style")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-style")}}.
-- Die anderen linken Border-bezogenen Eigenschaften: {{Cssxref("border-left")}}, {{Cssxref("border-left-color")}}, und {{Cssxref("border-left-width")}}.
+- Die anderen stilbezogenen Rahmen-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-right-style")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-style")}}.
+- Die anderen linksrahmenbezogenen Eigenschaften: {{Cssxref("border-left")}}, {{Cssxref("border-left-color")}}, und {{Cssxref("border-left-width")}}.

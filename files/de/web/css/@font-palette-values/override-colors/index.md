@@ -2,10 +2,10 @@
 title: override-colors
 slug: Web/CSS/@font-palette-values/override-colors
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Der **`override-colors`** CSS-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird verwendet, um die Farben in der gewählten [base-palette](/de/docs/Web/CSS/@font-palette-values/base-palette) für eine Farbschriftart zu überschreiben.
+Der **`override-colors`** CSS-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird verwendet, um Farben in der gewählten [base-palette](/de/docs/Web/CSS/@font-palette-values/base-palette) für eine Farbenschriftart zu überschreiben.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ override-colors: <index of color> <color>;
 override-colors: 0 red;
 
 /* using hex-color */
-override-colors: 0 #f00;
+override-colors: 0 #ff0000;
 
 /* using rgb */
 override-colors: 0 rgb(255 0 0);
@@ -29,11 +29,11 @@ override-colors:
   2 blue;
 ```
 
-Der `override-colors`-{{Glossary("CSS_Descriptor", "Deskriptor")}} nimmt eine durch Kommas getrennte Liste des Farbindex und neuen Farbwerts an.
+Der `override-colors` {{Glossary("CSS_Descriptor", "Deskriptor")}} nimmt eine durch Kommas getrennte Liste des Farbindex und des neuen Farbwertes an.
 
 Der Farbindex ist nullbasiert und es kann jeder [Farbwert](/de/docs/Web/CSS/color_value) verwendet werden.
 
-Für jedes Schlüssel-Wert-Paar von Index und Farbe wird die Farbe mit dem Index in der angegebenen [base-palette](/de/docs/Web/CSS/@font-palette-values/base-palette) überschrieben. Wenn die Farbschriftart keine Farbe an dem angegebenen Index hat, wird sie ignoriert.
+Für jedes Schlüssel-Wert-Paar aus Index und Farbe wird die Farbe mit dem Index in der angegebenen [base-palette](/de/docs/Web/CSS/@font-palette-values/base-palette) überschrieben. Wenn die Farbenschriftart an dem angegebenen Index keine Farbe hat, wird sie ignoriert.
 
 ### Werte
 
@@ -50,9 +50,9 @@ Für jedes Schlüssel-Wert-Paar von Index und Farbe wird die Farbe mit dem Index
 
 ## Beispiele
 
-### Ändern der Farben von Emojis
+### Farben von Emojis ändern
 
-Dieses Beispiel zeigt, wie man die Farben in der [Noto Color Emoji](https://fonts.google.com/noto/specimen/Noto+Color+Emoji) Farbschriftart überschreibt, um sie der Markenfarbe Ihrer Website anzupassen.
+Dieses Beispiel zeigt, wie Sie Farben in der [Noto Color Emoji](https://fonts.google.com/noto/specimen/Noto+Color+Emoji) Farbenschriftart überschreiben, um sie an die Marke Ihrer Website anzupassen.
 
 #### HTML
 
@@ -110,9 +110,9 @@ Dieses Beispiel zeigt, wie man die Farben in der [Noto Color Emoji](https://font
 
 {{EmbedLiveSample("Changing colors of emojis")}}
 
-### Ändern einer Farbe in einer alternativen base-palette
+### Eine Farbe in einer alternativen base-palette ändern
 
-Mit der Verwendung der [Rocher Color Font](https://www.harbortype.com/fonts/rocher-color/) zeigt dieses Beispiel, wie man eine Farbe in der Schriftart überschreibt.
+Mit der [Rocher Color Font](https://www.harbortype.com/fonts/rocher-color/) zeigt dieses Beispiel, wie man eine Farbe in der Schriftart überschreiben kann.
 
 #### HTML
 
@@ -152,7 +152,7 @@ h2 {
 
 Dieses Beispiel zeigt, dass in `base-palette` `3` die Farbe bei Index 0 mit `rebeccapurple` überschrieben wird.
 
-![Beispiel, das base-palette und base-palette mit einer überschriebenen Farbe anzeigt](override-base-palette-color.jpg)
+![Beispiel zeigt base-palette und base-palette mit 1 überschriebenen Farbe](override-base-palette-color.jpg)
 
 ## Spezifikationen
 

@@ -2,16 +2,16 @@
 title: requiredFeatures
 slug: Web/SVG/Reference/Attribute/requiredFeatures
 l10n:
-  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
+  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
 ---
 
 {{Deprecated_Header}}
 
-Das **`requiredFeatures`** Attribut nimmt eine Liste von Feature-Strings auf, wobei die einzelnen Strings durch Leerzeichen getrennt sind. Es bestimmt, ob alle benannten Features vom Browser unterstützt werden; wenn alle unterstützt werden, bewertet sich das Attribut zu `true` und das Element wird gerendert; andernfalls bewertet sich das Attribut zu `false` und das aktuelle Element sowie seine Kinder werden übersprungen und somit nicht gerendert. Dies bietet eine Möglichkeit, SVG so zu gestalten, dass es bei fehlenden Features elegant zurückfällt.
+Das Attribut **`requiredFeatures`** nimmt eine Liste von Feature-Strings, wobei die einzelnen Strings durch Leerzeichen getrennt sind. Es bestimmt, ob alle der benannten Features vom Browser unterstützt werden; wenn alle unterstützt werden, wird das Attribut als `true` bewertet und das Element wird gerendert. Andernfalls wird das Attribut als `false` bewertet und das aktuelle Element und seine Kinder werden übersprungen und somit nicht gerendert. Dies bietet eine Möglichkeit, SVGs so zu gestalten, dass sie sich anpassen, wenn Funktionen nicht verfügbar sind.
 
-Wenn das Attribut nicht vorhanden ist, ist sein implizit bewerteter Wert `true`. Wenn dem Attribut `requiredFeatures` ein Null- oder ein leerer String als Wert gegeben wird, bewertet sich das Attribut zu `false`.
+Wenn das Attribut nicht vorhanden ist, ist dessen implizit bewerteter Wert `true`. Wenn dem Attribut `requiredFeatures` ein Null-String oder leerer String-Wert zugewiesen wird, wird das Attribut als `false` bewertet.
 
-`requiredFeatures` wird häufig in Verbindung mit dem {{SVGElement("switch")}} Element verwendet. Wenn `requiredFeatures` in anderen Situationen verwendet wird, stellt es einen einfachen Schalter dar, der entscheidet, ob das gegebene Element gerendert werden soll oder nicht.
+`requiredFeatures` wird häufig in Verbindung mit dem {{SVGElement("switch")}}-Element verwendet. Wenn `requiredFeatures` in anderen Situationen verwendet wird, stellt es einen einfachen Schalter auf dem gegebenen Element dar, ob das Element gerendert werden soll oder nicht.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -70,7 +70,7 @@ text {
 
 {{EmbedLiveSample("Example", "250", "100")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -87,7 +87,8 @@ text {
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <code>true</code> wenn nicht definiert, <code>false</code> wenn ein Null- oder leerer String als Wert
+        <code>true</code> wenn nicht definiert, <code>false</code> wenn Null oder
+        ein leerer String als Wert angegeben ist
       </td>
     </tr>
     <tr>
@@ -98,140 +99,140 @@ text {
 </table>
 
 - `<list-of-features>`
-  - : Dies ist eine Liste von Feature-Strings, die durch Leerzeichen getrennt sind. Es bestimmt, ob alle benannten _Features_ vom Browser unterstützt werden. Siehe unten [Feature-Strings](#feature-strings) für eine Liste der erlaubten Werte.
+  -: Dies ist eine Liste von Feature-Strings, die durch Leerzeichen getrennt sind. Bestimmt, ob alle der benannten _Features_ vom Browser unterstützt werden. Weitere Informationen finden Sie unter [Feature-Strings](#feature-strings) unten für eine Liste der zulässigen Werte.
 
 ## Feature-Strings
 
-Die folgenden sind die Feature-Strings für das `requiredFeatures` Attribut. Dieselben Feature-Strings gelten auch für den [`hasFeature`](/de/docs/Web/API/DOMImplementation/hasFeature) Methodenaufruf, der Teil der SVG DOM-Unterstützung für das [`DOMImplementation`](/de/docs/Web/API/DOMImplementation) Interface ist. In einigen Fällen entsprechen die Feature-Strings direkt einem Satz von Attributen, Eigenschaften oder Elementen, in anderen Fällen repräsentieren sie eine Funktionalität des Browsers. Beachten Sie, dass sich das Format und die Benennung der Feature-Strings von SVG 1.0 zu SVG 1.1 geändert haben. Die SVG 1.0 Feature-Strings werden hier nicht aufgeführt; einige Browser unterstützen SVG 1.0 Feature-Strings aus Kompatibilitätsgründen. Allerdings werden die SVG 1.0 Feature-Strings als veraltet betrachtet.
+Die folgenden sind die Feature-Strings für das `requiredFeatures`-Attribut. Diese gleichen Feature-Strings gelten auch für den [`hasFeature`](/de/docs/Web/API/DOMImplementation/hasFeature) Methodenaufruf, der Teil der SVG-DOM-Unterstützung für die [`DOMImplementation`](/de/docs/Web/API/DOMImplementation) Schnittstelle ist. In einigen Fällen spiegeln die Feature-Strings direkt eine Reihe von Attributen, Eigenschaften oder Elementen wider, in anderen repräsentieren sie eine spezifische Browserfunktionalität. Beachten Sie, dass sich das Format und die Benennung der Feature-Strings von SVG 1.0 zu SVG 1.1 geändert haben. Die SVG 1.0 Feature-Strings sind hier nicht gelistet; einige Browser unterstützen jedoch SVG 1.0 Feature-Strings aus Kompatibilitätsgründen. Die SVG 1.0 Feature-Strings gelten jedoch als veraltet.
 
 - `http://www.w3.org/TR/SVG11/feature#SVG`
-  - : Mindestens eines der folgenden Features wird unterstützt:
-    - `http://www.w3.org/TR/SVG11/feature#SVG-static`
-    - `http://www.w3.org/TR/SVG11/feature#SVG-animation`
-    - `http://www.w3.org/TR/SVG11/feature#SVG-dynamic`
-    - `http://www.w3.org/TR/SVG11/feature#SVGDOM`
+  -: Mindestens eines der folgenden Features wird unterstützt:
+  - `http://www.w3.org/TR/SVG11/feature#SVG-static`
+  - `http://www.w3.org/TR/SVG11/feature#SVG-animation`
+  - `http://www.w3.org/TR/SVG11/feature#SVG-dynamic`
+  - `http://www.w3.org/TR/SVG11/feature#SVGDOM`
 
 - `http://www.w3.org/TR/SVG11/feature#SVGDOM`
-  - : Mindestens eines der folgenden Features wird unterstützt:
-    - `http://www.w3.org/TR/SVG11/feature#SVGDOM-static`
-    - `http://www.w3.org/TR/SVG11/feature#SVGDOM-animation`
-    - `http://www.w3.org/TR/SVG11/feature#SVGDOM-dynamic`
+  -: Mindestens eines der folgenden Features wird unterstützt:
+  - `http://www.w3.org/TR/SVG11/feature#SVGDOM-static`
+  - `http://www.w3.org/TR/SVG11/feature#SVGDOM-animation`
+  - `http://www.w3.org/TR/SVG11/feature#SVGDOM-dynamic`
 
 - `http://www.w3.org/TR/SVG11/feature#SVG-static`
-  - : Der Browser unterstützt alle folgenden Features:
-    - `http://www.w3.org/TR/SVG11/feature#CoreAttribute`
-    - `http://www.w3.org/TR/SVG11/feature#Structure`
-    - `http://www.w3.org/TR/SVG11/feature#ContainerAttribute`
-    - `http://www.w3.org/TR/SVG11/feature#ConditionalProcessing`
-    - `http://www.w3.org/TR/SVG11/feature#Image`
-    - `http://www.w3.org/TR/SVG11/feature#Style`
-    - `http://www.w3.org/TR/SVG11/feature#ViewportAttribute`
-    - `http://www.w3.org/TR/SVG11/feature#Shape`
-    - `http://www.w3.org/TR/SVG11/feature#Text`
-    - `http://www.w3.org/TR/SVG11/feature#PaintAttribute`
-    - `http://www.w3.org/TR/SVG11/feature#OpacityAttribute`
-    - `http://www.w3.org/TR/SVG11/feature#GraphicsAttribute`
-    - `http://www.w3.org/TR/SVG11/feature#Marker`
-    - `http://www.w3.org/TR/SVG11/feature#ColorProfile`
-    - `http://www.w3.org/TR/SVG11/feature#Gradient`
-    - `http://www.w3.org/TR/SVG11/feature#Pattern`
-    - `http://www.w3.org/TR/SVG11/feature#Clip`
-    - `http://www.w3.org/TR/SVG11/feature#Mask`
-    - `http://www.w3.org/TR/SVG11/feature#Filter`
-    - `http://www.w3.org/TR/SVG11/feature#XlinkAttribute`
-    - `http://www.w3.org/TR/SVG11/feature#Font`
-    - `http://www.w3.org/TR/SVG11/feature#Extensibility`
+  -: Der Browser unterstützt die folgenden Features:
+  - `http://www.w3.org/TR/SVG11/feature#CoreAttribute`
+  - `http://www.w3.org/TR/SVG11/feature#Structure`
+  - `http://www.w3.org/TR/SVG11/feature#ContainerAttribute`
+  - `http://www.w3.org/TR/SVG11/feature#ConditionalProcessing`
+  - `http://www.w3.org/TR/SVG11/feature#Image`
+  - `http://www.w3.org/TR/SVG11/feature#Style`
+  - `http://www.w3.org/TR/SVG11/feature#ViewportAttribute`
+  - `http://www.w3.org/TR/SVG11/feature#Shape`
+  - `http://www.w3.org/TR/SVG11/feature#Text`
+  - `http://www.w3.org/TR/SVG11/feature#PaintAttribute`
+  - `http://www.w3.org/TR/SVG11/feature#OpacityAttribute`
+  - `http://www.w3.org/TR/SVG11/feature#GraphicsAttribute`
+  - `http://www.w3.org/TR/SVG11/feature#Marker`
+  - `http://www.w3.org/TR/SVG11/feature#ColorProfile`
+  - `http://www.w3.org/TR/SVG11/feature#Gradient`
+  - `http://www.w3.org/TR/SVG11/feature#Pattern`
+  - `http://www.w3.org/TR/SVG11/feature#Clip`
+  - `http://www.w3.org/TR/SVG11/feature#Mask`
+  - `http://www.w3.org/TR/SVG11/feature#Filter`
+  - `http://www.w3.org/TR/SVG11/feature#XlinkAttribute`
+  - `http://www.w3.org/TR/SVG11/feature#Font`
+  - `http://www.w3.org/TR/SVG11/feature#Extensibility`
 
 - `http://www.w3.org/TR/SVG11/feature#SVGDOM-static`
-  - : Der Browser unterstützt alle DOM-Interfaces und -Methoden zu den Sprach-Features für `http://www.w3.org/TR/SVG11/feature#SVG-static`.
+  -: Der Browser unterstützt alle DOM-Schnittstellen und Methoden zu den Sprachfeatures für `http://www.w3.org/TR/SVG11/feature#SVG-static`.
 - `http://www.w3.org/TR/SVG11/feature#SVG-animation`
-  - : Der Browser unterstützt alle Sprach-Features von `http://www.w3.org/TR/SVG11/feature#SVG-static` plus das Feature `http://www.w3.org/TR/SVG11/feature#Animation`.
+  -: Der Browser unterstützt alle der Sprachfeatures aus `http://www.w3.org/TR/SVG11/feature#SVG-static` zusätzlich zum Feature `http://www.w3.org/TR/SVG11/feature#Animation`.
 - `http://www.w3.org/TR/SVG11/feature#SVGDOM-animation`
-  - : Der Browser unterstützt alle DOM-Interfaces und -Methoden, die den Sprach-Features für `http://www.w3.org/TR/SVG11/feature#SVG-animation` entsprechen.
+  -: Der Browser unterstützt alle DOM-Schnittstellen und Methoden für die Sprachfeatures für `http://www.w3.org/TR/SVG11/feature#SVG-animation`.
 - `http://www.w3.org/TR/SVG11/feature#SVG-dynamic`
-  - : Der Browser unterstützt alle Sprach-Features von `http://www.w3.org/TR/SVG11/feature#SVG-animation` plus die folgenden Features:
-    - `http://www.w3.org/TR/SVG11/feature#Hyperlinking`
-    - `http://www.w3.org/TR/SVG11/feature#Scripting`
-    - `http://www.w3.org/TR/SVG11/feature#View`
-    - `http://www.w3.org/TR/SVG11/feature#Cursor`
-    - `http://www.w3.org/TR/SVG11/feature#GraphicalEventsAttribute`
-    - `http://www.w3.org/TR/SVG11/feature#DocumentEventsAttribute`
-    - `http://www.w3.org/TR/SVG11/feature#AnimationEventsAttribute`
+  -: Der Browser unterstützt alle der Sprachfeatures aus `http://www.w3.org/TR/SVG11/feature#SVG-animation` zusätzlich zu den folgenden Features:
+  - `http://www.w3.org/TR/SVG11/feature#Hyperlinking`
+  - `http://www.w3.org/TR/SVG11/feature#Scripting`
+  - `http://www.w3.org/TR/SVG11/feature#View`
+  - `http://www.w3.org/TR/SVG11/feature#Cursor`
+  - `http://www.w3.org/TR/SVG11/feature#GraphicalEventsAttribute`
+  - `http://www.w3.org/TR/SVG11/feature#DocumentEventsAttribute`
+  - `http://www.w3.org/TR/SVG11/feature#AnimationEventsAttribute`
 
 - `http://www.w3.org/TR/SVG11/feature#SVGDOM-dynamic`
-  - : Der Browser unterstützt alle DOM-Interfaces und -Methoden zu den Sprach-Features für `http://www.w3.org/TR/SVG11/feature#SVG-dynamic`.
+  -: Der Browser unterstützt alle DOM-Schnittstellen und Methoden zu den Sprachfeatures für `http://www.w3.org/TR/SVG11/feature#SVG-dynamic`.
 - `http://www.w3.org/TR/SVG11/feature#CoreAttribute`
-  - : Der Browser unterstützt die {{SVGAttr("id")}}, {{SVGAttr("xml:lang")}} und {{SVGAttr("xml:space")}} Attribute
+  -: Der Browser unterstützt die {{SVGAttr("id")}}, {{SVGAttr("xml:lang")}} und {{SVGAttr("xml:space")}} Attribute
 - `http://www.w3.org/TR/SVG11/feature#Structure`
-  - : Der Browser unterstützt die {{SVGElement("svg")}}, {{SVGElement("g")}}, {{SVGElement("defs")}}, {{SVGElement("desc")}}, {{SVGElement("title")}}, {{SVGElement("metadata")}}, {{SVGElement("symbol")}} und {{SVGElement("use")}} Elemente.
+  -: Der Browser unterstützt die {{SVGElement("svg")}}, {{SVGElement("g")}}, {{SVGElement("defs")}}, {{SVGElement("desc")}}, {{SVGElement("title")}}, {{SVGElement("metadata")}}, {{SVGElement("symbol")}} und {{SVGElement("use")}} Elemente.
 - `http://www.w3.org/TR/SVG11/feature#BasicStructure`
-  - : Der Browser unterstützt die {{SVGElement("svg")}}, {{SVGElement("g")}}, {{SVGElement("defs")}}, {{SVGElement("desc")}}, {{SVGElement("title")}}, {{SVGElement("metadata")}} und {{SVGElement("use")}} Elemente.
+  -: Der Browser unterstützt die {{SVGElement("svg")}}, {{SVGElement("g")}}, {{SVGElement("defs")}}, {{SVGElement("desc")}}, {{SVGElement("title")}}, {{SVGElement("metadata")}} und {{SVGElement("use")}} Elemente.
 - `http://www.w3.org/TR/SVG11/feature#ContainerAttribute`
-  - : Der Browser unterstützt das Attribut `enable-background`
+  -: Der Browser unterstützt das `enable-background` Attribut
 - `http://www.w3.org/TR/SVG11/feature#ConditionalProcessing`
-  - : Der Browser unterstützt das {{SVGElement("switch")}} Element und die `requiredFeatures`, {{SVGAttr("requiredExtensions")}}, {{SVGAttr("systemLanguage")}} Attribute
+  -: Der Browser unterstützt das {{SVGElement("switch")}} Element, und die `requiredFeatures`, {{SVGAttr("requiredExtensions")}}, {{SVGAttr("systemLanguage")}} Attribute
 - `http://www.w3.org/TR/SVG11/feature#Image`
-  - : Der Browser unterstützt das {{SVGElement("image")}} Element.
+  -: Der Browser unterstützt das {{SVGElement("image")}} Element.
 - `http://www.w3.org/TR/SVG11/feature#Style`
-  - : Der Browser unterstützt das {{SVGElement("style")}} Element.
+  -: Der Browser unterstützt das {{SVGElement("style")}} Element.
 - `http://www.w3.org/TR/SVG11/feature#ViewportAttribute`
-  - : Der Browser unterstützt die {{SVGAttr("clip")}} und {{SVGAttr("overflow")}} Attribute.
+  -: Der Browser unterstützt die {{SVGAttr("clip")}} und {{SVGAttr("overflow")}} Attribute.
 - `http://www.w3.org/TR/SVG11/feature#Shape`
-  - : Der Browser unterstützt die {{SVGElement("rect")}}, {{SVGElement("circle")}}, {{SVGElement("line")}}, {{SVGElement("polyline")}}, {{SVGElement("polygon")}}, {{SVGElement("ellipse")}} und {{SVGElement("path")}} Elemente.
+  -: Der Browser unterstützt die {{SVGElement("rect")}}, {{SVGElement("circle")}}, {{SVGElement("line")}}, {{SVGElement("polyline")}}, {{SVGElement("polygon")}}, {{SVGElement("ellipse")}} und {{SVGElement("path")}} Elemente.
 - `http://www.w3.org/TR/SVG11/feature#Text`
-  - : Der Browser unterstützt die {{SVGElement("text")}}, {{SVGElement("tspan")}}, `<tref>`, {{SVGElement("textPath")}}, und `<glyphRef>` Elemente.
+  -: Der Browser unterstützt die {{SVGElement("text")}}, {{SVGElement("tspan")}}, `<tref>`, {{SVGElement("textPath")}}, und `<glyphRef>` Elemente.
 - `http://www.w3.org/TR/SVG11/feature#BasicText`
-  - : Der Browser unterstützt das {{SVGElement("text")}} Element
+  -: Der Browser unterstützt das {{SVGElement("text")}} Element
 - `http://www.w3.org/TR/SVG11/feature#PaintAttribute`
-  - : Der Browser unterstützt die {{SVGAttr("color")}}, {{SVGAttr("fill")}}, {{SVGAttr("fill-rule")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stroke-dasharray")}}, {{SVGAttr("stroke-dashoffset")}}, {{SVGAttr("stroke-linecap")}}, {{SVGAttr("stroke-linejoin")}}, {{SVGAttr("stroke-miterlimit")}}, {{SVGAttr("stroke-width")}}, {{SVGAttr("color-interpolation")}} und `color-rendering` Attribute
+  -: Der Browser unterstützt die {{SVGAttr("color")}}, {{SVGAttr("fill")}}, {{SVGAttr("fill-rule")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stroke-dasharray")}}, {{SVGAttr("stroke-dashoffset")}}, {{SVGAttr("stroke-linecap")}}, {{SVGAttr("stroke-linejoin")}}, {{SVGAttr("stroke-miterlimit")}}, {{SVGAttr("stroke-width")}}, {{SVGAttr("color-interpolation")}} und `color-rendering` Attribute
 - `http://www.w3.org/TR/SVG11/feature#BasicPaintAttribute`
-  - : Der Browser unterstützt die {{SVGAttr("color")}}, {{SVGAttr("fill")}}, {{SVGAttr("fill-rule")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stroke-dasharray")}}, {{SVGAttr("stroke-dashoffset")}}, {{SVGAttr("stroke-linecap")}}, {{SVGAttr("stroke-linejoin")}}, {{SVGAttr("stroke-miterlimit")}}, {{SVGAttr("stroke-width")}} und `color-rendering` Attribute
+  -: Der Browser unterstützt die {{SVGAttr("color")}}, {{SVGAttr("fill")}}, {{SVGAttr("fill-rule")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stroke-dasharray")}}, {{SVGAttr("stroke-dashoffset")}}, {{SVGAttr("stroke-linecap")}}, {{SVGAttr("stroke-linejoin")}}, {{SVGAttr("stroke-miterlimit")}}, {{SVGAttr("stroke-width")}} und `color-rendering` Attribute
 - `http://www.w3.org/TR/SVG11/feature#OpacityAttribute`
-  - : Der Browser unterstützt die {{SVGAttr("opacity")}}, {{SVGAttr("stroke-opacity")}} und {{SVGAttr("fill-opacity")}} Attribute
+  -: Der Browser unterstützt die {{SVGAttr("opacity")}}, {{SVGAttr("stroke-opacity")}} und {{SVGAttr("fill-opacity")}} Attribute
 - `http://www.w3.org/TR/SVG11/feature#GraphicsAttribute`
-  - : Der Browser unterstützt die {{SVGAttr("display")}}, {{SVGAttr("image-rendering")}}, {{SVGAttr("pointer-events")}}, {{SVGAttr("shape-rendering")}}, {{SVGAttr("text-rendering")}} und {{SVGAttr("visibility")}} Attribute
+  -: Der Browser unterstützt die {{SVGAttr("display")}}, {{SVGAttr("image-rendering")}}, {{SVGAttr("pointer-events")}}, {{SVGAttr("shape-rendering")}}, {{SVGAttr("text-rendering")}} und {{SVGAttr("visibility")}} Attribute
 - `http://www.w3.org/TR/SVG11/feature#BasicGraphicsAttribute`
-  - : Der Browser unterstützt die {{SVGAttr("display")}} und {{SVGAttr("visibility")}} Attribute
+  -: Der Browser unterstützt die {{SVGAttr("display")}} und {{SVGAttr("visibility")}} Attribute
 - `http://www.w3.org/TR/SVG11/feature#Marker`
-  - : Der Browser unterstützt das {{SVGElement("marker")}} Element
+  -: Der Browser unterstützt das {{SVGElement("marker")}} Element
 - `http://www.w3.org/TR/SVG11/feature#Gradient`
-  - : Der Browser unterstützt die {{SVGElement("linearGradient")}}, {{SVGElement("radialGradient")}} und {{SVGElement("stop")}} Elemente
+  -: Der Browser unterstützt die {{SVGElement("linearGradient")}}, {{SVGElement("radialGradient")}} und {{SVGElement("stop")}} Elemente
 - `http://www.w3.org/TR/SVG11/feature#Pattern`
-  - : Der Browser unterstützt das {{SVGElement("pattern")}} Element
+  -: Der Browser unterstützt das {{SVGElement("pattern")}} Element
 - `http://www.w3.org/TR/SVG11/feature#Clip`
-  - : Der Browser unterstützt das {{SVGElement("clipPath")}} Element und die {{SVGAttr("clip-path")}}, {{SVGAttr("clip-rule")}} Attribute
+  -: Der Browser unterstützt das {{SVGElement("clipPath")}} Element und die {{SVGAttr("clip-path")}}, {{SVGAttr("clip-rule")}} Attribute
 - `http://www.w3.org/TR/SVG11/feature#BasicClip`
-  - : Der Browser unterstützt das {{SVGElement("clipPath")}} Element und das {{SVGAttr("clip-path")}} Attribut
+  -: Der Browser unterstützt das {{SVGElement("clipPath")}} Element und das {{SVGAttr("clip-path")}} Attribut
 - `http://www.w3.org/TR/SVG11/feature#Mask`
-  - : Der Browser unterstützt das {{SVGElement("mask")}} Element
+  -: Der Browser unterstützt das {{SVGElement("mask")}} Element
 - `http://www.w3.org/TR/SVG11/feature#Filter`
-  - : Der Browser unterstützt die {{SVGElement("filter")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMergeNode")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feDistantLight")}}, {{SVGElement("fePointLight")}}, {{SVGElement("feSpotLight")}}, {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement("feFuncB")}} und {{SVGElement("feFuncA")}} Elemente
+  -: Der Browser unterstützt die {{SVGElement("filter")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMergeNode")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feDistantLight")}}, {{SVGElement("fePointLight")}}, {{SVGElement("feSpotLight")}}, {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement("feFuncB")}} und {{SVGElement("feFuncA")}} Elemente
 - `http://www.w3.org/TR/SVG11/feature#BasicFilter`
-  - : Der Browser unterstützt die {{SVGElement("filter")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMergeNode")}}, {{SVGElement("feOffset")}}, {{SVGElement("feTile")}}, {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement("feFuncB")}} und {{SVGElement("feFuncA")}} Elemente
+  -: Der Browser unterstützt die {{SVGElement("filter")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMergeNode")}}, {{SVGElement("feOffset")}}, {{SVGElement("feTile")}}, {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement("feFuncB")}} und {{SVGElement("feFuncA")}} Elemente
 - `http://www.w3.org/TR/SVG11/feature#DocumentEventsAttribute`
-  - : Der Browser unterstützt die `onunload`, `onabort`, `onerror`, `onresize`, `onscroll` und `onzoom` [Ereignisattribute](/de/docs/Web/SVG/Reference/Attribute#event_attributes)
+  -: Der Browser unterstützt die `onunload`, `onabort`, `onerror`, `onresize`, `onscroll` und `onzoom` [Ereignisattribute](/de/docs/Web/SVG/Reference/Attribute#event_attributes)
 - `http://www.w3.org/TR/SVG11/feature#GraphicalEventsAttribute`
-  - : Der Browser unterstützt die `onfocusin`, `onfocusout`, `onactivate`, `onclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` und `onload` [Ereignisattribute](/de/docs/Web/SVG/Reference/Attribute#event_attributes)
+  -: Der Browser unterstützt die `onfocusin`, `onfocusout`, `onactivate`, `onclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` und `onload` [Ereignisattribute](/de/docs/Web/SVG/Reference/Attribute#event_attributes)
 - `http://www.w3.org/TR/SVG11/feature#AnimationEventsAttribute`
-  - : Der Browser unterstützt die `onbegin`, `onend`, `onrepeat` und `onload` [Ereignisattribute](/de/docs/Web/SVG/Reference/Attribute#event_attributes)
+  -: Der Browser unterstützt die `onbegin`, `onend`, `onrepeat` und `onload` [Ereignisattribute](/de/docs/Web/SVG/Reference/Attribute#event_attributes)
 - `http://www.w3.org/TR/SVG11/feature#Cursor`
-  - : Der Browser unterstützt das `<cursor>` Element
+  -: Der Browser unterstützt das `<cursor>` Element
 - `http://www.w3.org/TR/SVG11/feature#Hyperlinking`
-  - : Der Browser unterstützt das {{SVGElement("a")}} Element
+  -: Der Browser unterstützt das {{SVGElement("a")}} Element
 - `http://www.w3.org/TR/SVG11/feature#XlinkAttribute`
-  - : Der Browser unterstützt die {{SVGAttr("xlink:type")}}, {{SVGAttr("xlink:href")}}, {{SVGAttr("xlink:role")}}, {{SVGAttr("xlink:arcrole")}}, {{SVGAttr("xlink:title")}}, {{SVGAttr("xlink:show")}} und {{SVGAttr("xlink:actuate")}} Attribute
+  -: Der Browser unterstützt die {{SVGAttr("xlink:type")}}, {{SVGAttr("xlink:href")}}, {{SVGAttr("xlink:role")}}, {{SVGAttr("xlink:arcrole")}}, {{SVGAttr("xlink:title")}}, {{SVGAttr("xlink:show")}} und {{SVGAttr("xlink:actuate")}} Attribute
 - `http://www.w3.org/TR/SVG11/feature#View`
-  - : Der Browser unterstützt das {{SVGElement("view")}} Element
+  -: Der Browser unterstützt das {{SVGElement("view")}} Element
 - `http://www.w3.org/TR/SVG11/feature#Script`
-  - : Der Browser unterstützt das {{SVGElement("script")}} Element
+  -: Der Browser unterstützt das {{SVGElement("script")}} Element
 - `http://www.w3.org/TR/SVG11/feature#Animation`
-  - : Der Browser unterstützt die {{SVGElement("animate")}}, {{SVGElement("set")}}, {{SVGElement("animateMotion")}}, {{SVGElement("animateTransform")}}, und {{SVGElement("mpath")}} Elemente
+  -: Der Browser unterstützt die {{SVGElement("animate")}}, {{SVGElement("set")}}, {{SVGElement("animateMotion")}}, {{SVGElement("animateTransform")}}, und {{SVGElement("mpath")}} Elemente
 - `http://www.w3.org/TR/SVG11/feature#Font`
-  - : Der Browser unterstützt die `<font>`, `<font-face>`, `<glyph>`, `<missing-glyph>`, `<hkern>`, `<vkern>`, `<font-face-src>`, `<font-face-uri>`, `<font-face-format>` und `<font-face-name>` Elemente
+  -: Der Browser unterstützt die `<font>`, `<font-face>`, `<glyph>`, `<missing-glyph>`, `<hkern>`, `<vkern>`, `<font-face-src>`, `<font-face-uri>`, `<font-face-format>` und `<font-face-name>` Elemente
 - `http://www.w3.org/TR/SVG11/feature#BasicFont`
-  - : Der Browser unterstützt die `<font>`, `<font-face>`, `<glyph>`, `<missing-glyph>`, `<hkern>`, `<font-face-src>` und `<font-face-name>` Elemente
+  -: Der Browser unterstützt die `<font>`, `<font-face>`, `<glyph>`, `<missing-glyph>`, `<hkern>`, `<font-face-src>` und `<font-face-name>` Elemente
 - `http://www.w3.org/TR/SVG11/feature#Extensibility`
-  - : Der Browser unterstützt das {{SVGElement("foreignObject")}} Element
+  -: Der Browser unterstützt das {{SVGElement("foreignObject")}} Element
 
 ## Testen der Feature-Unterstützung
 
@@ -762,11 +763,11 @@ Die folgenden sind die Feature-Strings für das `requiredFeatures` Attribut. Die
 
 ```css
 .ko {
-  fill: #900;
+  fill: #990000;
 }
 
 .ok {
-  fill: #060;
+  fill: #006600;
 }
 
 rect {

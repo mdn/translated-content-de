@@ -1,28 +1,28 @@
 ---
-title: Umgang mit Inhaltsunterbrechungen im Mehrspalten-Layout
-short-title: Umgang mit Inhaltsunterbrechungen
+title: Umgang mit Inhaltsumbrüchen im Mehrspaltenlayout
+short-title: Umgang mit Inhaltsumbrüchen
 slug: Web/CSS/CSS_multicol_layout/Handling_content_breaks_in_multicol_layout
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Inhalte zwischen Spaltenboxen in einem Mehrspalten-Layout werden ähnlich unterbrochen wie zwischen Seiten in paginierten Medien. In beiden Fällen können Sie steuern, wo und wie Inhalte unterbrochen werden, indem Sie Eigenschaften des [CSS-Fragmentierungsmoduls](/de/docs/Web/CSS/CSS_fragmentation) verwenden. In diesem Leitfaden sehen wir, wie Fragmentierung in einem _Mehrspalten-Container_ oder kurz _Multicol-Container_ funktioniert.
+Inhalte zwischen Spaltenkästen in einem Mehrspaltenlayout brechen auf die gleiche Weise, wie sie zwischen Seiten in Medien mit Seitenumbruch brechen. In beiden Kontexten können Sie steuern, wo und wie Inhalte mit den Eigenschaften des [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Moduls brechen. In diesem Leitfaden sehen wir, wie Fragmentierung in einem _Mehrspalten-Container_ oder einfach _multicol-Container_ funktioniert.
 
 ## Grundlagen der Fragmentierung
 
-Das CSS-Fragmentierungsmodul liefert Details darüber, wie Inhalte zwischen den Fragmentierungscontainern oder _Fragmentainern_ unterbrochen werden. Das [Mehrspalten-Layoutmodul](/de/docs/Web/CSS/CSS_multicol_layout) hingegen definiert die Eigenschaften {{cssxref("break-after")}}, {{cssxref("break-before")}} und {{cssxref("break-inside")}}, die innerhalb und zwischen Spalten Kontrolle bieten. In einem Mehrspalten-Layout ist eine Spaltenbox ein Fragment-Container.
+Das CSS-Fragmentierungsmodul liefert Details darüber, wie Inhalte zwischen den Fragmentierungscontainenern oder _Fragmentaineren_ brechen. Das [Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout) Modul definiert hingegen die {{cssxref("break-after")}}, {{cssxref("break-before")}} und {{cssxref("break-inside")}} Eigenschaften, die eine gewisse Kontrolle innerhalb und zwischen den Spalten bieten. In einem Mehrspaltenlayout ist ein Spaltenkasten ein Fragmentierungscontainer.
 
-Eine Spaltenbox kann andere Markup-Elemente enthalten, und es gibt viele Stellen, an denen eine Unterbrechung nicht ideal wäre. Zum Beispiel möchten wir im Allgemeinen, dass die Bildunterschrift eines Bildes nicht in eine neue Spalte getrennt wird, weit weg von dem zugehörigen Bild. Auch sieht es merkwürdig aus, eine Spalte mit einer Überschrift enden zu lassen. Die Fragmentierungseigenschaften für Mehrspalten bieten uns Möglichkeiten, hierüber ein gewisses Maß an Kontrolle auszuüben.
+Ein Spaltenkasten kann andere Markups enthalten, und es gibt viele Stellen, an denen ein Umbruch nicht ideal wäre. Beispielsweise würden wir im Allgemeinen bevorzugen, dass die Bildunterschrift eines Bildes nicht in eine neue Spalte von dem Bild, auf das sie sich bezieht, verschoben wird. Auch das Beenden einer Spalte mit einer Überschrift sieht merkwürdig aus. Die Multicol-Fragmentierungseigenschaften bieten uns Möglichkeiten, um dies zu steuern.
 
-Es gibt verschiedene Orte, an denen wir unsere Unterbrechungen kontrollieren möchten:
+Es gibt verschiedene Orte, an denen wir unsere Umbrüche kontrollieren möchten:
 
-- Unterbrechungen innerhalb von Boxen, zum Beispiel innerhalb eines `figure` Elements.
-- Unterbrechungen vor und nach Boxen, was unser obiges Beispiel mit der Überschrift einschließen würde.
-- Unterbrechungen zwischen Zeilen.
+- Umbrüche in Boxen, beispielsweise innerhalb eines figure-Elements.
+- Umbrüche vor und nach Boxen, was unser Beispiel mit der Überschrift oben einschließen würde.
+- Umbrüche zwischen Zeilen.
 
-## Unterbrechungen innerhalb von Boxen
+## Umbrüche in Boxen
 
-Um Unterbrechungen innerhalb von Boxen zu kontrollieren, verwenden Sie die Eigenschaft {{cssxref("break-inside")}}. Diese Eigenschaft nimmt folgende Werte an:
+Um Umbrüche in Boxen zu steuern, verwenden Sie die {{cssxref("break-inside")}} Eigenschaft. Diese Eigenschaft nimmt die Werte an:
 
 - `auto`
 - `avoid`
@@ -30,7 +30,7 @@ Um Unterbrechungen innerhalb von Boxen zu kontrollieren, verwenden Sie die Eigen
 - `avoid-column`
 - `avoid-region`
 
-Im folgenden Beispiel haben wir `break-inside` auf das `figure` Element angewendet, um zu verhindern, dass die Bildunterschrift vom Bild getrennt wird.
+Im folgenden Beispiel haben wir break-inside auf das figure-Element angewendet, um zu verhindern, dass die Bildunterschrift von dem Bild getrennt wird.
 
 ```html live-sample___break-inside
 <div class="container">
@@ -65,7 +65,7 @@ figure {
 }
 figcaption {
   font-weight: bold;
-  border-bottom: 2px solid #999;
+  border-bottom: 2px solid #999999;
 }
 .container {
   column-width: 200px;
@@ -74,16 +74,16 @@ figcaption {
 
 {{EmbedLiveSample("break-inside", "", "230px")}}
 
-## Unterbrechungen vor und nach Boxen
+## Umbrüche vor und nach Boxen
 
-Die Eigenschaften {{cssxref("break-before")}} und {{cssxref("break-after")}} werden verwendet, um Unterbrechungen vor und nach Elementen zu steuern. Sie nehmen in einem Mehrspaltenkontext folgende Werte an:
+Die Eigenschaften {{cssxref("break-before")}} und {{cssxref("break-after")}} werden verwendet, um Umbrüche vor und nach Elementen zu steuern. Sie nehmen im Mehrspaltenkontext die folgenden Werte an:
 
 - auto
 - avoid
 - avoid-column
 - column
 
-Im nächsten Beispiel erzwingen wir einen Spaltenumbruch vor einem `h2` Element.
+Im nächsten Beispiel erzwingen wir einen Spaltenumbruch vor einem `h2`-Element.
 
 ```html live-sample___break-before
 <div class="container">
@@ -117,13 +117,13 @@ h2 {
 
 {{EmbedLiveSample("break-before", "", "250px")}}
 
-## Unterbrechungen zwischen Zeilen
+## Umbrüche zwischen Zeilen
 
-Die Eigenschaften {{cssxref("orphans")}} und {{cssxref("widows")}}, Teil des CSS-Fragmentierungsmoduls, sind ebenfalls nützlich und erwähnenswert. Die Eigenschaft `orphans` steuert die Anzahl der Zeilen, die am Ende eines Fragments alleine gelassen werden. Die Eigenschaft `widows` steuert die Anzahl, die am Anfang eines Fragments alleine gelassen wird.
+Die zum CSS-Fragmentierungsmodul gehörenden Eigenschaften {{cssxref("orphans")}} und {{cssxref("widows")}} sind ebenfalls nützlich und erwähnenswert. Die Eigenschaft `orphans` steuert die Anzahl der Zeilen, die am Ende eines Fragments alleine stehen. Die Eigenschaft `widows` steuert die Anzahl, die zu Beginn eines Fragments alleine stehen.
 
-Die Eigenschaften `orphans` und `widows` nehmen einen {{CSSXref("integer")}} als Wert, der die Anzahl der Zeilen darstellt, die am Ende und Anfang eines Fragments zusammengehalten werden sollen. Beachten Sie, dass diese Eigenschaften nur innerhalb eines Block-Containers funktionieren, wie einem Absatz. Wenn der Block weniger Zeilen enthält als die Anzahl, die Sie als Wert angeben, werden alle Zeilen zusammengehalten.
+Die Eigenschaften `orphans` und `widows` nehmen einen {{CSSXref("integer")}} als Wert, der die Anzahl der Zeilen darstellt, die am Ende bzw. am Anfang eines Fragments zusammengehalten werden sollen. Beachten Sie, dass diese Eigenschaften nur innerhalb eines Blockcontainers wie einem Absatz funktionieren. Wenn der Block weniger Zeilen enthält als die Zahl, die Sie als Wert angeben, werden alle Zeilen zusammengehalten.
 
-Im folgenden Beispiel verwenden wir die Eigenschaft `orphans`, um die Anzahl der Zeilen zu steuern, die am unteren Rand einer Spalte verbleiben. Sie können diesen Wert ändern, um die Auswirkungen auf die Unterbrechung des Inhalts zu sehen.
+Im folgenden Beispiel verwenden wir die `orphans`-Eigenschaft, um die Anzahl der Zeilen zu steuern, die am unteren Rand einer Spalte verbleiben. Sie können diesen Wert ändern, um die Wirkung auf den Umbruch des Inhalts zu sehen.
 
 ```html live-sample___orphans
 <div class="container">
@@ -153,6 +153,6 @@ body {
 
 {{EmbedLiveSample("orphans", "", "240px")}}
 
-## Wenn etwas nicht wie erwartet funktioniert
+## Wenn Dinge nicht wie erwartet funktionieren
 
-Wenn Sie kleine Mengen an Inhalt haben und versuchen, Unterbrechungen bei mehreren Elementen zu steuern, muss Ihr Inhalt irgendwo unterbrochen werden, sodass Sie möglicherweise nicht immer das gewünschte Ergebnis erhalten. Ihr Einsatz von Fragmentierung ist bis zu einem gewissen Grad immer ein Vorschlag an den Browser, die Unterbrechungen auf diese Weise zu steuern, wenn es möglich ist. Wenn der Inhalt nicht dort unterbrochen wird, wo Sie es beabsichtigt hatten, könnte das Ergebnis unordentlich sein, aber der Inhalt steht Ihren Benutzern dennoch zur Verfügung.
+Wenn Sie kleine Mengen von Inhalten haben und versuchen, Umbrüche auf mehreren Elementen zu steuern, muss Ihr Inhalt irgendwo brechen, sodass Sie möglicherweise nicht immer das gewünschte Ergebnis erzielen. In gewissem Maße ist Ihre Nutzung der Fragmentierung immer ein Vorschlag an den Browser, Umbrüche auf diese Weise zu steuern, wenn es möglich ist. Wenn der Inhalt nicht dort bricht, wo Sie es beabsichtigten, könnte das Ergebnis unordentlich sein, aber der Inhalt bleibt Ihren Nutzern dennoch zugänglich.

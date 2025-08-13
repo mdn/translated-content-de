@@ -2,10 +2,10 @@
 title: column-fill
 slug: Web/CSS/column-fill
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`column-fill`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie der Inhalt eines Elements ausgeglichen wird, wenn er in Spalten aufgeteilt wird.
+Die **`column-fill`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie der Inhalt eines Elements ausbalanciert wird, wenn er in Spalten aufgeteilt wird.
 
 {{InteractiveExample("CSS Demo: column-fill")}}
 
@@ -50,28 +50,28 @@ column-fill: revert-layer;
 column-fill: unset;
 ```
 
-Die `column-fill` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben. Der Anfangswert ist `balance`, sodass der Inhalt gleichmäßig auf die Spalten verteilt wird.
+Die `column-fill` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben. Der anfängliche Wert ist `balance`, sodass der Inhalt über die Spalten hinweg ausbalanciert wird.
 
 ### Werte
 
 - `auto`
-  - : Die Spalten werden der Reihe nach gefüllt. Der Inhalt nimmt nur den Platz ein, den er benötigt, was möglicherweise dazu führt, dass einige Spalten leer bleiben.
+  - : Spalten werden nacheinander gefüllt. Der Inhalt nimmt nur den Platz ein, den er benötigt, was möglicherweise dazu führt, dass einige Spalten leer bleiben.
 - `balance`
-  - : Der Inhalt wird gleichmäßig auf die Spalten verteilt. In fragmentierten Kontexten, wie z.B. [seitengesteuerten Medien](/de/docs/Web/CSS/CSS_paged_media), wird nur das letzte Fragment ausgeglichen. Daher wird in seitengesteuerten Medien nur die letzte Seite ausgeglichen.
+  - : Der Inhalt wird gleichmäßig auf die Spalten verteilt. In fragmentierten Kontexten, wie z.B. [Seitenmedien](/de/docs/Web/CSS/CSS_paged_media), wird nur das letzte Fragment ausbalanciert. Daher würde in Seitenmedien nur die letzte Seite ausbalanciert.
 
-Die Spezifikation definiert einen `balance-all` Wert, bei dem der Inhalt in fragmentierten Kontexten, wie z.B. [seitengesteuerten Medien](/de/docs/Web/CSS/CSS_paged_media), gleichmäßig auf die Spalten verteilt wird. Dieser Wert wird noch von keinem Browser unterstützt.
+Die Spezifikation definiert einen Wert `balance-all`, bei dem der Inhalt in fragmentierten Kontexten, wie z.B. [Seitenmedien](/de/docs/Web/CSS/CSS_paged_media), gleichmäßig auf die Spalten verteilt wird. Dieser Wert wird noch von keinem Browser unterstützt.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Ausgleichen von Spalteninhalten
+### Ausbalancieren von Spalteninhalten
 
 #### HTML
 
@@ -91,7 +91,7 @@ Die Spezifikation definiert einen `balance-all` Wert, bei dem der Inhalt in frag
 ```css
 p {
   height: 7em;
-  background: #ff9;
+  background: #ffff99;
   columns: 3;
   column-rule: 1px solid;
 }
@@ -118,9 +118,9 @@ p.fill-balance {
 {{Compat}}
 
 > [!WARNING]
-> Es gibt einige Interoperabilitätsprobleme und Fehler bei `column-fill` über verschiedene Browser hinweg, aufgrund ungelöster Probleme in der Spezifikation.
+> Es gibt einige Interoperabilitätsprobleme und Bugs mit `column-fill` in verschiedenen Browsern, aufgrund ungelöster Probleme in der Spezifikation.
 >
-> Insbesondere bei Verwendung von `column-fill: auto` zum sequentiellen Füllen von Spalten wird Chrome diese Eigenschaft nur berücksichtigen, wenn der Multicol-Container eine Größe in der Blockdimension hat (z.B. Höhe im horizontalen Schreibmodus). Firefox wird diese Eigenschaft immer berücksichtigen und daher die erste Spalte mit dem gesamten Inhalt füllen, wenn keine Größe vorhanden ist.
+> Insbesondere bei der Verwendung von `column-fill: auto` zum sequentiellen Füllen der Spalten wird Chrome diese Eigenschaft nur berücksichtigen, wenn das Multicol-Container eine Größe in der Block-Dimension hat (z.B. Höhe in einem horizontalen Schreibrichtungmodus). Firefox wird diese Eigenschaft immer berücksichtigen, wodurch in Fällen, in denen keine Größe vorliegt, die erste Spalte mit dem gesamten Inhalt gefüllt wird.
 
 ## Siehe auch
 

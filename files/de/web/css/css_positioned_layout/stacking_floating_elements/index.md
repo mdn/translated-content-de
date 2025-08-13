@@ -1,31 +1,31 @@
 ---
-title: Stapelung von schwebenden Elementen
+title: Stapeln von schwebenden Elementen
 slug: Web/CSS/CSS_positioned_layout/Stacking_floating_elements
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Bei schwebenden Elementen ist die Stapelungsreihenfolge etwas anders. Schwebende Elemente werden zwischen nicht positionierten Elementen und positionierten Elementen platziert:
+Bei schwebenden Elementen ist die Stapelreihenfolge etwas anders. Schwebende Elemente werden zwischen nicht positionierten Elementen und positionierten Elementen platziert:
 
-1. Der Hintergrund und die Ränder des Wurzelelements.
-2. Nachkommende nicht positionierte Elemente, in der Reihenfolge ihres Erscheinens im HTML.
+1. Der Hintergrund und die Rahmen des Wurzelelements.
+2. Nachkommende nicht positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
 3. _Schwebende Elemente_.
-4. Nachkommende positionierte Elemente, in der Reihenfolge ihres Erscheinens im HTML.
+4. Nachkommende positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
 
-Siehe [Arten der Positionierung](/de/docs/Web/CSS/position#types_of_positioning) für eine Erklärung von positionierten und nicht positionierten Elementen.
+Sehen Sie sich [Arten der Positionierung](/de/docs/Web/CSS/position#types_of_positioning) an, um eine Erklärung von positionierten und nicht positionierten Elementen zu erhalten.
 
 > [!NOTE]
-> Wenn ein `opacity`-Wert auf ein nicht positioniertes Element angewendet wird (d.h. DIV #4 im unten stehenden Beispiel), passiert etwas Merkwürdiges: Der Hintergrund und die Grenze dieses Blocks erscheinen über den schwebenden Blöcken und den positionierten Blöcken. Dies liegt an einem besonderen Teil der Spezifikation: Das Anwenden eines `opacity`-Werts erzeugt einen neuen Stapelkontext (siehe [What No One Told You About Z-Index](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/)).
+> Wenn ein `opacity`-Wert auf ein nicht positioniertes Element angewendet wird (d.h. DIV #4 im untenstehenden Beispiel), passiert etwas Merkwürdiges: Der Hintergrund und der Rahmen dieses Blocks erscheinen über den schwebenden und den positionierten Blöcken. Dies liegt an einem eigenartigen Teil der Spezifikation: Die Anwendung eines `opacity`-Wertes erstellt einen neuen Stapelkontext (siehe [What No One Told You About Z-Index](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/)).
 
 ## Beispiel
 
-In diesem Beispiel können Sie sehen, dass der Hintergrund und die Grenze des nicht positionierten Elements (DIV #4) völlig unberührt von schwebenden Elementen bleiben, aber der Inhalt ist betroffen. Dies geschieht gemäß dem Standardverhalten von schwebenden Elementen, was durch eine zur obigen Liste hinzugefügte Regel gezeigt werden kann:
+In diesem Beispiel können Sie sehen, dass der Hintergrund und der Rahmen des nicht positionierten Elements (DIV #4) völlig unbeeinflusst von den schwebenden Elementen sind, aber der Inhalt ist betroffen. Dies geschieht gemäß dem Standardverhalten von Floats, was mit einer zur obigen Liste hinzugefügten Regel gezeigt werden kann:
 
-1. Der Hintergrund und die Ränder des Wurzelelements.
-2. Nachkommende nicht positionierte Elemente, in der Reihenfolge ihres Erscheinens im HTML.
+1. Der Hintergrund und die Rahmen des Wurzelelements.
+2. Nachkommende nicht positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
 3. Schwebende Elemente.
 4. _Nachkommende nicht positionierte Inline-Elemente_.
-5. Nachkommende positionierte Elemente, in der Reihenfolge ihres Erscheinens im HTML.
+5. Nachkommende positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
 
 ### HTML
 
@@ -63,14 +63,14 @@ strong {
   height: 200px;
   top: 10px;
   right: 140px;
-  border: 1px dashed #900;
-  background-color: #fdd;
+  border: 1px dashed #990000;
+  background-color: #ffdddd;
 }
 
 #sta1 {
   height: 100px;
-  border: 1px dashed #996;
-  background-color: #ffc;
+  border: 1px dashed #999966;
+  background-color: #ffffcc;
   margin: 0px 10px 0px 10px;
   text-align: left;
 }
@@ -80,8 +80,8 @@ strong {
   float: left;
   width: 150px;
   height: 200px;
-  border: 1px dashed #090;
-  background-color: #cfc;
+  border: 1px dashed #009900;
+  background-color: #ccffcc;
 }
 
 #flo2 {
@@ -89,8 +89,8 @@ strong {
   float: right;
   width: 150px;
   height: 200px;
-  border: 1px dashed #090;
-  background-color: #cfc;
+  border: 1px dashed #009900;
+  background-color: #ccffcc;
 }
 
 #abs2 {
@@ -99,14 +99,14 @@ strong {
   height: 100px;
   top: 80px;
   left: 100px;
-  border: 1px dashed #990;
-  background-color: #fdd;
+  border: 1px dashed #999900;
+  background-color: #ffdddd;
 }
 
 #rel1 {
   position: relative;
-  border: 1px dashed #996;
-  background-color: #cff;
+  border: 1px dashed #999966;
+  background-color: #ccffff;
   margin: 0px 10px 0px 10px;
   text-align: left;
 }
@@ -122,4 +122,4 @@ strong {
 - [Stapelung ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
 - [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index)
 - [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- [CSS Positionierungs-Layouts](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- Modul [CSS-positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout)

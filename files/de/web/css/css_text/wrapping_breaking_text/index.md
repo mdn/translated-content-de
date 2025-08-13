@@ -2,14 +2,14 @@
 title: Umbruch und Trennung von Text
 slug: Web/CSS/CSS_text/Wrapping_breaking_text
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Dieser Leitfaden erklärt die verschiedenen Möglichkeiten, wie überlaufender Text in CSS verwaltet werden kann.
+Dieser Leitfaden erklärt die verschiedenen Möglichkeiten, wie überlaufender Text mit CSS verwaltet werden kann.
 
 ## Was ist überlaufender Text?
 
-In CSS, wenn Sie eine nicht trennbare Zeichenfolge wie ein sehr langes Wort haben, wird es standardmäßig in der Inline-Richtung jeden Container überfluten, der zu klein dafür ist. Wir können dies im folgenden Beispiel sehen: Das lange Wort überschreitet die Begrenzung des Kastens, in dem es enthalten ist.
+In CSS, wenn Sie eine unteilbare Zeichenfolge haben, wie z. B. ein sehr langes Wort, wird es standardmäßig in einer zu kleinen Containerbox in der Inline-Richtung überlaufen. Wir können dies im folgenden Beispiel sehen: Das lange Wort erstreckt sich über die Grenzen des Containers hinaus.
 
 ```html live-sample___inline-overflow
 <div class="box">
@@ -28,9 +28,9 @@ In CSS, wenn Sie eine nicht trennbare Zeichenfolge wie ein sehr langes Wort habe
 
 {{EmbedLiveSample("inline-overflow")}}
 
-CSS zeigt den Überlauf auf diese Weise an, weil eine alternative Behandlung zu Datenverlust führen könnte. In CSS bedeutet Datenverlust, dass ein Teil Ihres Inhalts verschwindet. Der Anfangswert von {{cssxref("overflow")}} ist `visible`, und wir können den überlaufenden Text sehen. Es ist generell besser, den Überlauf sehen zu können, auch wenn es unordentlich ist. Wenn Dinge verschwinden oder beschnitten werden würden, wie es der Fall wäre, wenn `overflow` auf `hidden` gesetzt wäre, könnten Sie dies beim Vorschau Ihrer Seite übersehen. Unordentlicher Überlauf ist zumindest leicht zu erkennen, und im schlimmsten Fall kann Ihr Besucher den Inhalt sehen und lesen, selbst wenn es etwas seltsam aussieht.
+CSS zeigt den Überlauf auf diese Weise an, da etwas anderes zu einem Datenverlust führen könnte. In CSS bedeutet Datenverlust, dass ein Teil Ihres Inhalts verschwindet. Daher ist der Anfangswert von {{cssxref("overflow")}} `visible`, und wir können den überlaufenden Text sehen. Es ist im Allgemeinen besser, den Überlauf zu sehen, auch wenn er unordentlich ist. Wenn Dinge verschwänden oder abgeschnitten würden, wie es der Fall wäre, wenn `overflow` auf `hidden` gesetzt wäre, könnten Sie es beim Vorschau Ihrer Website nicht bemerken. Unordentlicher Überlauf ist zumindest gut zu erkennen, und im schlimmsten Fall kann Ihr Besucher den Inhalt sehen und lesen, auch wenn er etwas seltsam aussieht.
 
-Im nächsten Beispiel können Sie sehen, was passiert, wenn `overflow` auf `hidden` gesetzt ist.
+Im nächsten Beispiel sehen Sie, was passiert, wenn `overflow` auf `hidden` gesetzt ist.
 
 ```html live-sample___inline-overflow-hidden
 <div class="box">
@@ -50,9 +50,9 @@ Im nächsten Beispiel können Sie sehen, was passiert, wenn `overflow` auf `hidd
 
 {{EmbedLiveSample("inline-overflow-hidden")}}
 
-## Finden der Min-Content-Größe
+## Ermittlung der min-content Größe
 
-Um die minimale Größe eines Kastens zu finden, der seinen Inhalt ohne Überlauf enthält, setzen Sie die {{cssxref("width")}} oder {{cssxref("inline-size")}} Eigenschaft des Kastens auf {{cssxref("min-content")}}.
+Um die Mindestgröße der Box zu finden, die ihren Inhalt ohne Überläufe enthält, setzen Sie die Eigenschaft {{cssxref("width")}} oder {{cssxref("inline-size")}} der Box auf {{cssxref("min-content")}}.
 
 ```html live-sample___min-content
 <div class="box">
@@ -71,11 +71,11 @@ Um die minimale Größe eines Kastens zu finden, der seinen Inhalt ohne Überlau
 
 {{EmbedLiveSample("min-content")}}
 
-Die Verwendung von `min-content` ist daher eine Möglichkeit für überlaufende Kästen. Wenn es möglich ist, dem Kasten zu erlauben, auf die minimale Größe zu wachsen, die für den Inhalt erforderlich ist, aber nicht größer, gibt Ihnen dieses Schlüsselwort diese Größe.
+Die Verwendung von `min-content` ist daher eine Möglichkeit für überlaufende Boxen. Wenn es möglich ist, dass die Box auf die für den Inhalt erforderliche Mindestgröße wächst, aber nicht größer wird, erhalten Sie mit diesem Schlüsselwort diese Größe.
 
 ## Lange Wörter trennen
 
-Wenn der Kasten eine feste Größe haben muss, oder Sie sicherstellen möchten, dass lange Wörter nicht überlaufen können, kann die {{cssxref("overflow-wrap")}} Eigenschaft helfen. Diese Eigenschaft wird ein Wort brechen, sobald es zu lang ist, um alleine in eine Zeile zu passen.
+Wenn die Box eine feste Größe haben muss oder Sie sicherstellen möchten, dass lange Wörter nicht überlaufen können, dann kann die Eigenschaft {{cssxref("overflow-wrap")}} helfen. Diese Eigenschaft trennt ein Wort, sobald es zu lang ist, um alleine in eine Zeile zu passen.
 
 ```html live-sample___overflow-wrap
 <div class="box">
@@ -96,11 +96,11 @@ Wenn der Kasten eine feste Größe haben muss, oder Sie sicherstellen möchten, 
 {{EmbedLiveSample("overflow-wrap")}}
 
 > [!NOTE]
-> Die `overflow-wrap`-Eigenschaft wirkt genauso wie die nicht standardisierte Eigenschaft `word-wrap`. Die `word-wrap`-Eigenschaft wird von Browsern jetzt als Alias der Standard-Eigenschaft behandelt.
+> Die Eigenschaft `overflow-wrap` funktioniert auf die gleiche Weise wie die nicht standardisierte Eigenschaft `word-wrap`. Die `word-wrap`-Eigenschaft wird nun von Browsern als Alias der Standard-Eigenschaft angesehen.
 
-Eine alternative Eigenschaft, die Sie ausprobieren können, ist {{cssxref("word-break")}}. Diese Eigenschaft wird das Wort an dem Punkt brechen, an dem es überläuft. Es wird einen Umbruch erzwingen, selbst wenn das Platzieren des Wortes in eine neue Zeile es erlauben würde, ohne Umbruch angezeigt zu werden.
+Eine alternative Eigenschaft, die Sie ausprobieren können, ist {{cssxref("word-break")}}. Diese Eigenschaft bricht das Wort an der Stelle, an der es überläuft. Sie wird einen Umbruch bewirken, selbst wenn das Platzieren des Wortes in einer neuen Zeile es ermöglichen würde, ohne Umbruch angezeigt zu werden.
 
-Im nächsten Beispiel können Sie den Unterschied zwischen den beiden Eigenschaften an derselben Textzeichenfolge vergleichen.
+Im nächsten Beispiel können Sie den Unterschied zwischen den beiden Eigenschaften an derselben Zeichenfolge vergleichen.
 
 ```html live-sample___word-break
 <div class="box box1">A Very LongWordThatHasNoBreakingPossibilities</div>
@@ -127,9 +127,9 @@ Im nächsten Beispiel können Sie den Unterschied zwischen den beiden Eigenschaf
 
 {{EmbedLiveSample("word-break", "", "210px")}}
 
-Dies könnte nützlich sein, wenn Sie verhindern möchten, dass ein großer Abstand entsteht, wenn gerade genug Platz für die Zeichenfolge vorhanden ist. Oder wenn es ein anderes Element gibt, nach dem Sie nicht wollen, dass der Umbruch sofort erfolgt.
+Dies könnte nützlich sein, wenn Sie verhindern möchten, dass eine große Lücke erscheint, wenn gerade genug Platz für die Zeichenfolge vorhanden ist. Oder, wenn es ein anderes Element gibt, bei dem Sie nicht möchten, dass der Umbruch direkt danach erfolgt.
 
-Im untenstehenden Beispiel gibt es ein Kontrollkästchen und ein Label. Angenommen, Sie möchten, dass das Label umbricht, sollte es zu lang für den Kasten sein. Sie möchten jedoch nicht, dass es direkt nach dem Kontrollkästchen umbricht.
+Im folgenden Beispiel gibt es ein Kontrollkästchen und eine Beschriftung. Angenommen, Sie möchten, dass die Beschriftung umbricht, sollte sie zu lang für die Box sein. Sie möchten jedoch nicht, dass sie direkt nach dem Kontrollkästchen umbricht.
 
 ```html live-sample___word-break-checkbox
 <div class="field">
@@ -148,7 +148,7 @@ Im untenstehenden Beispiel gibt es ein Kontrollkästchen und ein Label. Angenomm
 ```css live-sample___word-break-checkbox
 .field {
   inline-size: 150px;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   margin-block-end: 1em;
   padding: 10px;
 }
@@ -160,9 +160,9 @@ Im untenstehenden Beispiel gibt es ein Kontrollkästchen und ein Label. Angenomm
 
 {{EmbedLiveSample("word-break-checkbox", "", "210px")}}
 
-## Hinzufügen von Bindestrichen
+## Hinzufügen von Trennstrichen
 
-Um Bindestriche hinzuzufügen, wenn Wörter gebrochen werden, verwenden Sie die CSS-{{cssxref("hyphens")}}-Eigenschaft. Mit einem Wert von `auto` kann der Browser automatisch Wörter an geeigneten Trennstellen brechen, indem er den von ihm gewählten Regeln folgt. Um ein gewisses Maß an Kontrolle über den Prozess zu haben, verwenden Sie den Wert `manual` und fügen dann ein hartes (U+2010) oder weiches Trennzeichen (U+00AD) in die Zeichenfolge ein. Ein hartes Trennzeichen kann mit `‐` oder `&#x2010;` hinzugefügt werden, und ein weiches Trennzeichen kann mit den HTML-Zeichenkodierungen `&shy;`, `&#173;` oder `&#xad;` hinzugefügt werden. Ein hartes Trennzeichen wird immer brechen, selbst wenn es nicht notwendig ist. Ein weiches Trennzeichen bricht nur, wenn ein Bruch erforderlich ist.
+Um Trennstriche hinzuzufügen, wenn Wörter getrennt werden, verwenden Sie die CSS-Eigenschaft {{cssxref("hyphens")}}. Bei Verwendung des Werts `auto` kann der Browser automatisch Wörter an geeigneten Trennstellen brechen, basierend auf den Regeln, die er auswählt. Um etwas Kontrolle über den Prozess zu haben, verwenden Sie den Wert `manual`, und fügen Sie ein hartes (U+2010) oder weiches Trennzeichen (U+00AD) in die Zeichenfolge ein. Ein hartes Trennzeichen kann mit `‐` oder `&#x2010;` hinzugefügt werden, und ein weiches Trennzeichen kann mit den HTML-Zeichenkodierungen `&shy;`, `&#173;` oder `&#xad;` hinzugefügt werden. Ein hartes Trennzeichen wird immer brechen, selbst wenn es nicht notwendig ist. Ein weiches Trennzeichen bricht nur, wenn es erforderlich ist.
 
 ```html live-sample___hyphens
 <div class="box">
@@ -183,15 +183,15 @@ Um Bindestriche hinzuzufügen, wenn Wörter gebrochen werden, verwenden Sie die 
 
 {{EmbedLiveSample("hyphens")}}
 
-Sie können auch die {{cssxref("hyphenate-character")}} Eigenschaft verwenden, um das Zeichen Ihrer Wahl anstelle des Standard-Trennzeichens am Ende der Zeile (vor dem Trennumbruch) für die Sprache zu verwenden. Der `auto`-Wert wählt den richtigen Wert, um einen Wortmittenumbruch entsprechend den typografischen Konventionen der aktuellen Inhaltssprache zu markieren.
+Sie können auch die Eigenschaft {{cssxref("hyphenate-character")}} verwenden, um anstelle des standardmäßigen Trennzeichens am Zeilenende (vor dem Trennstellenumbruch) für die Sprache eine Zeichenfolge Ihrer Wahl zu verwenden. Der `auto`-Wert wählt den richtigen Wert, um einen Zeilenumbruch in der Mitte eines Wortes entsprechend den typografischen Konventionen der aktuellen Inhaltssprache zu markieren.
 
-CSS bietet zusätzliche Trennkontrolle: Mit der {{cssxref("hyphenate-limit-chars")}} Eigenschaft kann die Mindestwortlänge, die Trennung erlaubt, sowie die Mindestanzahl von Zeichen vor und nach dem Bindestrich festgelegt werden.
+CSS bietet zusätzliche Trennsteuerung: Die Eigenschaft {{cssxref("hyphenate-limit-chars")}} kann verwendet werden, um die Mindestwortlänge festzulegen, die eine Trennung zulässt, sowie die Mindestanzahl von Zeichen vor und nach dem Trennzeichen.
 
-## Das `<wbr>`-Element
+## Das `<wbr>` Element
 
-Wenn Sie wissen, wo Sie möchten, dass eine lange Zeichenfolge umgebrochen werden soll, können Sie das HTML-Element {{HTMLElement("wbr")}} einsetzen. Dies kann in Fällen nützlich sein, wie das Anzeigen einer langen URL auf einer Seite. Sie können dann die Eigenschaft hinzufügen, um die Zeichenfolge an sinnvollen Stellen umzubrechen, die das Lesen erleichtern.
+Wenn Sie wissen, wo Sie eine lange Zeichenfolge trennen möchten, ist es auch möglich, das HTML-Element {{HTMLElement("wbr")}} einzufügen. Dies kann nützlich sein in Fällen wie der Anzeige einer langen URL auf einer Seite. Sie können dann die Eigenschaft hinzufügen, um die Zeichenfolge an sinnvollen Stellen zu unterbrechen, die es einfacher zu lesen machen.
 
-Im untenstehenden Beispiel bricht der Text an der Position des {{HTMLElement("wbr")}}.
+Im untenstehenden Beispiel bricht der Text an der Stelle des {{HTMLElement("wbr")}}.
 
 ```html live-sample___wbr
 <div class="box">
@@ -212,12 +212,12 @@ Im untenstehenden Beispiel bricht der Text an der Position des {{HTMLElement("wb
 
 ## Siehe auch
 
-- Das HTML-Element {{HTMLElement("wbr")}}
-- Die CSS-Eigenschaft {{cssxref("word-break")}}
-- Die CSS-Eigenschaft {{cssxref("overflow-wrap")}}
-- Die CSS-Eigenschaft {{cssxref("white-space")}}
-- Die CSS-Eigenschaft {{cssxref("text-wrap")}}
-- Die CSS-Eigenschaft {{cssxref("hyphens")}}
-- Die CSS-Eigenschaft {{cssxref("hyphenate-character")}}
-- Die CSS-Eigenschaft {{cssxref("hyphenate-limit-chars")}}
-- [Overflow und Datenverlust in CSS](https://www.smashingmagazine.com/2019/09/overflow-data-loss-css/)
+- Das HTML {{HTMLElement("wbr")}} Element
+- Die CSS {{cssxref("word-break")}} Eigenschaft
+- Die CSS {{cssxref("overflow-wrap")}} Eigenschaft
+- Die CSS {{cssxref("white-space")}} Eigenschaft
+- Die CSS {{cssxref("text-wrap")}} Eigenschaft
+- Die CSS {{cssxref("hyphens")}} Eigenschaft
+- Die CSS {{cssxref("hyphenate-character")}} Eigenschaft
+- Die CSS {{cssxref("hyphenate-limit-chars")}} Eigenschaft
+- [Overflow and Data Loss in CSS](https://www.smashingmagazine.com/2019/09/overflow-data-loss-css/)

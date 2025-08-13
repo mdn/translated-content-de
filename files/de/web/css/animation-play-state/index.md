@@ -2,10 +2,10 @@
 title: animation-play-state
 slug: Web/CSS/animation-play-state
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`animation-play-state`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob eine Animation läuft oder pausiert ist.
+Die **`animation-play-state`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob eine Animation läuft oder angehalten ist.
 
 {{InteractiveExample("CSS Demo: animation-play-state")}}
 
@@ -29,7 +29,7 @@ animation-play-state: running;
   color: white;
   margin: auto;
   margin-left: 0;
-  border: 5px solid #333;
+  border: 5px solid #333333;
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -57,7 +57,7 @@ animation-play-state: running;
 }
 ```
 
-Wird eine pausierte Animation fortgesetzt, so startet sie an der Stelle, an der sie pausiert wurde, und nicht von Anfang der Animationssequenz.
+Das Fortsetzen einer angehaltenen Animation führt dazu, dass die Animation an der Stelle fortgesetzt wird, an der sie angehalten wurde, anstatt von Anfang der Animationssequenz neu zu starten.
 
 ## Syntax
 
@@ -80,12 +80,12 @@ animation-play-state: unset;
 ### Werte
 
 - `running`
-  - : Die **Animation** läuft **derzeit**.
+  - : Die **Animation** wird momentan **abgespielt**.
 - `paused`
-  - : Die **Animation** ist **derzeit pausiert**.
+  - : Die **Animation** ist momentan **angehalten**.
 
 > [!NOTE]
-> Wenn Sie mehrere durch Kommas getrennte Werte in einer `animation-*` Eigenschaft angeben, werden diese in der Reihenfolge der {{cssxref("animation-name")}}s auf die Animationen angewendet. Für Situationen, in denen die Anzahl der Animationen und die `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animationswerten](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere durch Kommas getrennte Werte in einer `animation-*` Eigenschaft angeben, werden diese auf die Animationen in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und die `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 ## Formale Definition
 
@@ -97,9 +97,9 @@ animation-play-state: unset;
 
 ## Beispiele
 
-### Eine Animation pausieren
+### Anhalten einer Animation
 
-Diese Animation ist pausiert, läuft aber, wenn Sie mit der Maus darüber fahren.
+Diese Animation ist angehalten, läuft jedoch, wenn Sie mit der Maus darüber fahren.
 
 #### HTML
 
@@ -141,7 +141,7 @@ Fahren Sie mit der Maus über das Rechteck, um die Animation abzuspielen.
 
 {{EmbedLiveSample("Pausing an animation","100%","250")}}
 
-Siehe [CSS Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) für Beispiele.
+Siehe [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) für Beispiele.
 
 ## Spezifikationen
 

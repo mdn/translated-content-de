@@ -2,14 +2,14 @@
 title: monochrome
 slug: Web/CSS/@media/monochrome
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Die **`monochrome`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Anzahl der Bits pro Pixel im monochromen Frame-Buffer des Ausgabegeräts zu testen.
+Die **`monochrome`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Anzahl der Bits pro Pixel im monochromen Rahmenpuffer des Ausgabegeräts zu testen.
 
 ## Syntax
 
-Das `monochrome`-Feature wird als eine {{cssxref("&lt;integer&gt;")}} angegeben, die die Anzahl der Bits pro Pixel im monochromen Frame-Buffer darstellt. Wenn das Gerät kein monochromes Gerät ist, ist der Wert null. Es handelt sich um ein Bereichs-Feature, was bedeutet, dass Sie auch die mit Präfix versehenen Varianten **`min-monochrome`** und **`max-monochrome`** verwenden können, um entsprechend Mindest- und Höchstwerte abzufragen.
+Die `monochrome`-Funktion wird als ein {{cssxref("&lt;integer&gt;")}} angegeben, der die Anzahl der Bits pro Pixel im monochromen Rahmenpuffer repräsentiert. Wenn das Gerät kein monochromes Gerät ist, beträgt der Wert Null. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die vorangestellten Varianten **`min-monochrome`** und **`max-monochrome`** verwenden können, um minimale bzw. maximale Werte abzufragen.
 
 ## Beispiele
 
@@ -31,7 +31,7 @@ p {
 @media (monochrome) {
   p.mono {
     display: block;
-    color: #333;
+    color: #333333;
   }
 }
 

@@ -2,7 +2,7 @@
 title: :read-write
 slug: Web/CSS/:read-write
 l10n:
-  sourceCommit: 99d723c4f77d7f537292a07dd7b5e5c13cb610da
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
 Die **`:read-write`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element (wie `input` oder `textarea`), das vom Benutzer bearbeitet werden kann.
@@ -50,9 +50,10 @@ input[type="submit"] {
 
 ## Beispiele
 
-### Bestätigen von Formulardetails mit schreibgeschützten Steuerelementen
+### Bestätigen von Formulardetails mittels schreibgeschützter Steuerungen
 
-Sie können [`readonly`](/de/docs/Web/HTML/Reference/Attributes/readonly) Formularsteuerelemente verwenden, wenn Sie möchten, dass ein Benutzer Informationen überprüft, die er zuvor eingegeben hat und die zusammen mit neuen Daten in schreibbaren Steuerelementen gesendet werden sollen. Im folgenden Beispiel wird die {{cssxref(":read-only")}} Pseudoklasse verwendet, um das {{htmlelement("textarea")}} (die Adresse eines Benutzers) wie einen normalen Absatz aussehen zu lassen. Die `:read-write` Pseudoklasse bietet eine Möglichkeit, das editierbare `<textarea>` (die Lieferanweisungen) hervorzuheben:
+Sie können [`readonly`](/de/docs/Web/HTML/Reference/Attributes/readonly) Formularsteuerungen verwenden, wenn ein Benutzer Informationen überprüfen soll, die er zuvor eingegeben hat und die zusammen mit neuen Daten in `:read-write`-Steuerungen übermittelt werden sollen.
+Im untenstehenden Beispiel wird die {{cssxref(":read-only")}} Pseudoklasse verwendet, damit das {{htmlelement("textarea")}} (die Adresse eines Benutzers) wie ein normaler Absatz aussieht. Die `:read-write` Pseudoklasse bietet eine Möglichkeit, das bearbeitbare `<textarea>` (die Lieferanweisungen) hervorzuheben:
 
 ```css hidden
 body {
@@ -104,7 +105,7 @@ textarea:read-only {
 }
 
 textarea:read-write {
-  box-shadow: inset 1px 1px 3px #ccc;
+  box-shadow: inset 1px 1px 3px #cccccc;
   border-radius: 5px;
 }
 ```
@@ -132,9 +133,9 @@ CA</textarea
 
 {{embedlivesample("confirming_form_details_using_read-only_controls", , "300")}}
 
-### Styling von nicht-formulargestützten read-write Steuerelementen
+### Stilierung von schreibbaren Nicht-Formular-Steuerungen
 
-Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}} Elemente aus — er wählt _jedes_ Element aus, das vom Benutzer bearbeitet werden kann, wie ein {{htmlelement("p")}} Element, das mit [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) versehen ist.
+Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}}-Elemente aus - er wird _jedes_ Element auswählen, das vom Benutzer bearbeitet werden kann, wie etwa ein {{htmlelement("p")}}-Element mit der [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Eigenschaft.
 
 ```html
 <p contenteditable>This paragraph is editable; it is read-write.</p>

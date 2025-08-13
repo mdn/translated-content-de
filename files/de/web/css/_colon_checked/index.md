@@ -2,10 +2,10 @@
 title: :checked
 slug: Web/CSS/:checked
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
 ---
 
-Der **`:checked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes **Radio** ([`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)), **Checkbox** ([`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)) oder **Option** ({{HTMLElement("option")}} in einem {{HTMLElement("select")}}-Element), das aktiviert oder auf einen `on`-Zustand umgeschaltet ist.
+Der **`:checked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes **Radio** ([`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio)), **Checkbox** ([`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox)) oder **Option** ({{HTMLElement("option")}} in einem {{HTMLElement("select")}} Element), das ausgewählt oder in einen `on`-Zustand versetzt ist.
 
 {{InteractiveExample("CSS Demo: :checked", "tabbed-shorter")}}
 
@@ -45,10 +45,10 @@ input:checked {
 </form>
 ```
 
-Der Benutzer kann diesen Zustand aktivieren, indem er ein Element aktiviert/auswählt, oder ihn deaktivieren, indem er das Element deaktiviert/abwählt.
+Der Benutzer kann diesen Zustand aktivieren, indem er ein Element auswählt/ankreuzt, oder deaktivieren, indem er das Element deselektiert/abwählt.
 
 > [!NOTE]
-> Da Browser `<option>`s oft als {{Glossary("replaced_elements", "ersetzte Elemente")}} behandeln, variiert das Ausmaß, in dem sie mit der `:checked` Pseudoklasse gestylt werden können, von Browser zu Browser. Die [anpassbare Select-Element](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) Funktionalität kann verwendet werden, um eine vollständige Anpassung von `<option>`-Elementen wie bei einem regulären DOM-Element in unterstützenden Browsern zu ermöglichen.
+> Da Browser `<option>`s häufig als {{Glossary("replaced_elements", "ersetzte Elemente")}} behandeln, variiert der Umfang, in dem sie mit der `:checked` Pseudoklasse gestylt werden können, von Browser zu Browser. Die Funktionalität des [anpassbaren Auswahlelements](/de/docs/Learn_web_development/Extensions/Forms/Customizable_select) kann verwendet werden, um in unterstützenden Browsern eine vollständige Anpassung von `<option>`-Elementen wie bei jedem regulären DOM-Element zu ermöglichen.
 
 ## Syntax
 
@@ -60,7 +60,7 @@ Der Benutzer kann diesen Zustand aktivieren, indem er ein Element aktiviert/ausw
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
 #### HTML
 
@@ -179,7 +179,7 @@ Dieses Beispiel verwendet die `:checked` Pseudoklasse, um dem Benutzer zu ermög
 /* Hide expandable content by default */
 .expandable {
   visibility: collapse;
-  background: #ddd;
+  background: #dddddd;
 }
 
 /* Style the button */
@@ -187,7 +187,7 @@ Dieses Beispiel verwendet die `:checked` Pseudoklasse, um dem Benutzer zu ermög
   display: inline-block;
   margin-top: 12px;
   padding: 5px 11px;
-  background-color: #ff7;
+  background-color: #ffff77;
   border: 1px solid;
   border-radius: 3px;
 }
@@ -199,7 +199,7 @@ Dieses Beispiel verwendet die `:checked` Pseudoklasse, um dem Benutzer zu ermög
 
 /* Style the button when the checkbox is checked */
 #expand-toggle:checked ~ #expand-btn {
-  background-color: #ccc;
+  background-color: #cccccc;
 }
 ```
 
@@ -220,4 +220,4 @@ Dieses Beispiel verwendet die `:checked` Pseudoklasse, um dem Benutzer zu ermög
 - [Webformulare — Arbeiten mit Benutzerdaten](/de/docs/Learn_web_development/Extensions/Forms)
 - [Styling von Webformularen](/de/docs/Learn_web_development/Extensions/Forms/Styling_web_forms)
 - Verwandte HTML-Elemente: [`<input type="checkbox">`](/de/docs/Web/HTML/Reference/Elements/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio), {{HTMLElement("select")}}, und {{HTMLElement("option")}}
-- {{Glossary("Replaced_elements", "Ersetzte Elemente")}}
+- {{Glossary("Replaced_elements", "Ersatz-Elemente")}}
