@@ -2,21 +2,21 @@
 title: shape
 slug: Web/CSS/@media/shape
 l10n:
-  sourceCommit: bc761c19c07b875eb889d4aad87b18d8443da339
+  sourceCommit: e85be070cbdbfd0ad1aad7b93b8d9752fef2df98
 ---
 
 {{SeeCompatTable}}
 
-Das `shape`-[CSS](/de/docs/Web/CSS)-[Medienmerkmal](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Form des Geräts zu testen, um rechteckige und runde Displays zu unterscheiden.
+Die `shape` [CSS](/de/docs/Web/CSS) [Medienabfrage-Funktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Form des Geräts zu testen und zwischen rechteckigen und runden Anzeigen zu unterscheiden.
 
 ## Syntax
 
-Das diskrete `shape`-Merkmal wird als einer von zwei akzeptablen Strings angegeben, entweder `rect`, das einen rechteckigen Bildschirm darstellt, oder `round`, das einen kreisförmigen, ovalen oder elliptischen Bildschirm darstellt.
+Die diskrete `shape`-Funktion wird als einer von zwei zulässigen Zeichenfolgen angegeben, entweder `rect`, was einen rechteckigen Bildschirm darstellt, oder `round`, was einen kreisförmigen, ovalen oder elliptischen Bildschirm darstellt.
 
 - `rect`
-  - : Die Form ist ein achsenausgerichtetes Rechteck oder Quadrat oder eine ähnliche Form wie ein abgerundetes Rechteck, für die traditionelle Designs geeignet sind.
+  - : Die Form ist ein achsenparalleles Rechteck oder Quadrat, oder eine ähnliche Form wie ein abgerundetes Rechteck, für die traditionelle Designs angemessen sind.
 - `round`
-  - : Die Form ist rund oder eine dem Kreis ähnliche Form wie ein Oval, eine Ellipse, für die eindeutig abgerundete Designs geeignet sind.
+  - : Die Form ist gerundet oder einer ähnlichen Form wie ein Kreis, wie ein Oval oder eine Ellipse, für die speziell gerundete Designs angemessen sind.
 
 ## Beispiele
 
@@ -50,7 +50,7 @@ h1 {
 
 ### Benutzerdefiniertes Stylesheet
 
-Dieses HTML wird ein spezielles Stylesheet für Geräte mit runden Bildschirmen anwenden.
+Dieses HTML wendet ein spezielles Stylesheet für Geräte mit runden Bildschirmen an.
 
 ```html
 <head>
@@ -69,9 +69,10 @@ Dieses HTML wird ein spezielles Stylesheet für Geräte mit runden Bildschirmen 
 
 ## Browser-Kompatibilität
 
-Derzeit unterstützen keine Browser dieses Feature.
+Derzeit unterstützen keine Browser diese Funktion.
 
 ## Siehe auch
 
 - [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [@media](/de/docs/Web/CSS/@media)
+- [CSS rundes Display](/de/docs/Web/CSS/CSS_round_display) Modul
