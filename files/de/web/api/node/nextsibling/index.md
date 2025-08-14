@@ -3,35 +3,34 @@ title: "Node: nextSibling-Eigenschaft"
 short-title: nextSibling
 slug: Web/API/Node/nextSibling
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: d4a50b63d9afd826e61eb8833e8e6337b5059e8a
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`nextSibling`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces
-gibt den Knoten zurück, der unmittelbar auf den angegebenen Knoten im
-[`childNodes`](/de/docs/Web/API/Node/childNodes) des Elternteils folgt, oder gibt `null` zurück,
+Die schreibgeschützte **`nextSibling`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node) Schnittstelle
+gibt den Knoten zurück, der im Elternelement direkt auf den angegebenen Knoten
+in deren [`childNodes`](/de/docs/Web/API/Node/childNodes) folgt, oder gibt `null` zurück,
 wenn der angegebene Knoten das letzte Kind im Elternelement ist.
 
 > [!NOTE]
-> Browser fügen [`Text`](/de/docs/Web/API/Text)-Knoten in ein Dokument ein, um Leerzeichen im Quellcode darzustellen.
-> Daher kann ein Knoten, der beispielsweise mit [`Node.firstChild`](/de/docs/Web/API/Node/firstChild)
-> oder [`Node.previousSibling`](/de/docs/Web/API/Node/previousSibling) abgerufen wird,
-> auf einen Leerzeichen-Textknoten verweisen, anstatt auf das eigentliche Element, das der Autor
-> abrufen wollte.
+> Browser fügen [`Text`](/de/docs/Web/API/Text)-Knoten in ein Dokument ein, um Leerzeichen im Quelltext darzustellen.
+> Daher kann ein Knoten, der z.B. mit [`Node.firstChild`](/de/docs/Web/API/Node/firstChild)
+> oder [`Node.previousSibling`](/de/docs/Web/API/Node/previousSibling) erhalten wird,
+> einem Leerzeichen-Textknoten entsprechen anstatt dem tatsächlich vom Autor beabsichtigten Element.
 >
-> Der Artikel [Whitespace in the DOM](/de/docs/Web/API/Document_Object_Model/Whitespace)
+> Der Abschnitt [Arbeiten mit Leerzeichen im DOM](/de/docs/Web/CSS/CSS_text/Whitespace#working_with_whitespace_in_the_dom)
 > enthält weitere Informationen zu diesem Verhalten.
 >
 > Sie können [`Element.nextElementSibling`](/de/docs/Web/API/Element/nextElementSibling) verwenden, um das nächste Element
-> zu erhalten und dabei jegliche Leerzeichenknoten, zwischen den Elementen liegende Textknoten oder Kommentare zu überspringen.
+> zu erhalten, wobei Leerzeichenknoten, andere zwischen Elementen stehende Texte oder Kommentare übersprungen werden.
 >
-> Um in umgekehrter Richtung durch die Liste der Kindknoten zu navigieren, verwenden Sie [Node.previousSibling](/de/docs/Web/API/Node/previousSibling).
+> Um in der Liste der Kindknoten in die entgegengesetzte Richtung zu navigieren, verwenden Sie [Node.previousSibling](/de/docs/Web/API/Node/previousSibling).
 
 ## Wert
 
-Ein [`Node`](/de/docs/Web/API/Node), der das nächste Geschwisterknoten des aktuellen Knotens darstellt,
-oder `null`, wenn kein Knoten vorhanden ist.
+Ein [`Node`](/de/docs/Web/API/Node), der das nächste Geschwisterchen des aktuellen Knotens repräsentiert,
+oder `null`, wenn es keine gibt.
 
 ## Beispiel
 

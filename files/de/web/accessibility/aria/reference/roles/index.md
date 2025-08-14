@@ -1,28 +1,28 @@
 ---
-title: WAI-ARIA-Rollen
+title: WAI-ARIA Rollen
 short-title: Roles
 slug: Web/Accessibility/ARIA/Reference/Roles
 l10n:
-  sourceCommit: e488eba036b2fee56444fd579c3759ef45ff2ca8
+  sourceCommit: 4a39dedf2c57c6947339a63a8de0e18a7abe8e2c
 ---
 
-ARIA-Rollen liefern semantische Bedeutung für Inhalte und ermöglichen es Screenreadern und anderen Tools, mit einem Objekt in einer Weise zu interagieren, die den Erwartungen der Benutzer an diesen Objekttyp entspricht. <abbr>ARIA</abbr>-Rollen können verwendet werden, um Elemente zu beschreiben, die nicht nativ in HTML existieren oder existieren, aber noch keine vollständige Browser-Unterstützung haben.
+ARIA-Rollen verleihen Inhalten eine semantische Bedeutung, sodass Screenreader und andere Tools ein Objekt auf eine Weise präsentieren und die Interaktion damit unterstützen können, die den Erwartungen der Nutzer an diesen Objekttyp entspricht. <abbr>ARIA</abbr>-Rollen können verwendet werden, um Elemente zu beschreiben, die nicht nativ in HTML existieren oder existieren, aber noch keine vollständige Browser-Unterstützung haben.
 
-Standardmäßig haben viele semantische Elemente in HTML eine Rolle; zum Beispiel hat `<input type="radio">` die Rolle "radio". Nicht-semantische Elemente in HTML haben keine Rolle; `<div>` und `<span>` ohne zusätzliche Semantik geben `null` zurück. Das `role`-Attribut kann Semantik bereitstellen.
+Standardmäßig haben viele semantische Elemente in HTML eine Rolle; zum Beispiel hat `<input type="radio">` die Rolle "radio". Nicht-semantische Elemente in HTML haben keine Rolle; `<div>` und `<span>` ohne hinzugefügte Semantik geben `null` zurück. Das `role`-Attribut kann Semantik bereitstellen.
 
-ARIA-Rollen werden HTML-Elementen hinzugefügt, indem `role="role type"` verwendet wird, wobei _role type_ der Name einer Rolle in der ARIA-Spezifikation ist. Einige Rollen erfordern die Einbeziehung zugehöriger ARIA-Zustände oder -Eigenschaften; andere sind nur in Verbindung mit anderen Rollen gültig.
+ARIA-Rollen werden HTML-Elementen mit `role="role type"` hinzugefügt, wobei _role type_ der Name einer Rolle in der ARIA-Spezifikation ist. Einige Rollen erfordern die Einbeziehung von zugehörigen ARIA-Zuständen oder -Eigenschaften; andere sind nur in Verbindung mit anderen Rollen gültig.
 
-Zum Beispiel wird `<ul role="tabpanel">` von Screenreadern als 'Tab-Panel' angekündigt. Wenn das Tab-Panel jedoch keine verschachtelten Tabs hat, ist das Element mit der Tab-Panel-Rolle tatsächlich kein Tab-Panel und die Zugänglichkeit wurde negativ beeinflusst.
+Zum Beispiel wird `<ul role="tabpanel">` von Screenreadern als 'Tab-Panel' angekündigt. Wenn das Tab-Panel jedoch keine verschachtelten Tabs hat, ist das Element mit der Tabpanel-Rolle tatsächlich kein Tab-Panel, und die Barrierefreiheit wurde tatsächlich negativ beeinflusst.
 
-Die [ARIA-Zustände und -Eigenschaften](/de/docs/Web/Accessibility/ARIA/Reference/Attributes), die mit jeder Rolle verbunden sind, sind auf den Seiten der Rollen aufgeführt, wobei jedes Attribut auch eine eigene Seite hat.
+Die [ARIA-Zustände und -Eigenschaften](/de/docs/Web/Accessibility/ARIA/Reference/Attributes), die mit jeder Rolle verbunden sind, sind auf den Seiten der Rolle enthalten, wobei jedes Attribut auch eine eigene Seite hat.
 
-## ARIA-Rollen-Typen
+## ARIA-Rollentypen
 
 Es gibt 6 Kategorien von ARIA-Rollen:
 
-### 1. Dokumentstrukturrollen
+### 1. Dokumentstrukturrrollen
 
-Dokumentstrukturrollen werden verwendet, um eine strukturelle Beschreibung für einen Abschnitt von Inhalten bereitzustellen. Die meisten dieser Rollen sollten nicht mehr verwendet werden, da Browser jetzt semantische HTML-Elemente mit der gleichen Bedeutung unterstützen. Die Rollen ohne HTML-Äquivalente, wie Präsentation, Werkzeugleiste und Tooltip-Rollen, bieten Informationen über die Dokumentstruktur für unterstützende Technologien wie Screenreader, da gleichwertige native HTML-Tags nicht verfügbar sind.
+Dokumentstrukturrrollen werden verwendet, um eine strukturelle Beschreibung für einen Abschnitt von Inhalten bereitzustellen. Die meisten dieser Rollen sollten nicht mehr verwendet werden, da Browser jetzt semantische HTML-Elemente mit derselben Bedeutung unterstützen. Die Rollen ohne HTML-Äquivalente, wie Präsentation, Toolbar und Tooltip-Rollen, liefern Assistenztechnologien wie Screenreadern Informationen über die Dokumentstruktur, da äquivalente native HTML-Tags nicht verfügbar sind.
 
 - [`toolbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/toolbar_role)
 - [`tooltip`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tooltip_role)
@@ -31,7 +31,7 @@ Dokumentstrukturrollen werden verwendet, um eine strukturelle Beschreibung für 
 - [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) / [`none`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/none_role)
 - [`note`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/note_role)
 
-Für die meisten Dokumentstrukturrollen sind semantische HTML-Äquivalente verfügbar und unterstützt. Vermeiden Sie die Nutzung von:
+Für die meisten Dokumentstrukturrrollen sind semantische HTML-äquivalente Elemente verfügbar und werden unterstützt. Vermeiden Sie die Verwendung von:
 
 - [`application`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/application_role)
 - [`article`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/article_role) (verwenden Sie {{HTMLElement('article')}})
@@ -40,21 +40,21 @@ Für die meisten Dokumentstrukturrollen sind semantische HTML-Äquivalente verf�
 - [`definition`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/definition_role) (verwenden Sie {{HTMLElement('dfn')}})
 - [`directory`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/directory_role)
 - [`document`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/document_role)
-- [`figure`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/figure_role) (verwenden Sie stattdessen {{HTMLElement('figure')}})
+- [`figure`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/figure_role) (verwenden Sie {{HTMLElement('figure')}} stattdessen)
 - [`group`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/group_role)
 - [`heading`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/heading_role) (verwenden Sie {{HTMLElement("Heading_Elements", "h1")}} bis {{HTMLElement("Heading_Elements", "h6")}})
-- [`img`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/img_role) (verwenden Sie stattdessen {{HTMLElement('img')}} oder {{HTMLElement('picture')}})
-- [`list`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role) (verwenden Sie entweder {{HTMLElement('ul')}} oder {{HTMLElement('ol')}})
-- [`listitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listitem_role) (verwenden Sie stattdessen {{HTMLElement('li')}})
-- [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role) (verwenden Sie stattdessen {{HTMLElement('meter')}})
-- [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) (verwenden Sie {{HTMLElement('tr')}} mit {{HTMLElement('table')}})
+- [`img`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/img_role) (verwenden Sie {{HTMLElement('img')}} oder {{HTMLElement('picture')}} stattdessen)
+- [`list`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role) (verwenden Sie entweder {{HTMLElement('ul')}} oder {{HTMLElement('ol')}} stattdessen)
+- [`listitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listitem_role) (verwenden Sie {{HTMLElement('li')}} stattdessen)
+- [`meter`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/meter_role) (verwenden Sie {{HTMLElement('meter')}} stattdessen)
+- [`row`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/row_role) (verwenden Sie das {{HTMLElement('tr')}} mit {{HTMLElement('table')}})
 - [`rowgroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role) (verwenden Sie {{HTMLElement('thead')}}, {{HTMLElement('tfoot')}} und {{HTMLElement('tbody')}})
 - [`rowheader`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowheader_role) (verwenden Sie `{{HTMLElement('th','&lt;th scope="row">')}}`)
-- [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role) (verwenden Sie {{HTMLElement('hr')}} wenn es nicht fokussiert ist)
+- [`separator`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/separator_role) (verwenden Sie {{HTMLElement('hr')}} falls es keinen Fokus hat)
 - [`table`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/table_role) (verwenden Sie {{HTMLElement('table')}})
 - [`term`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/term_role) (verwenden Sie {{HTMLElement('dfn')}})
 
-Diese sind der Vollständigkeit halber enthalten, aber in den meisten Fällen selten, wenn überhaupt, nützlich:
+Diese sind zur Vollständigkeit enthalten, aber in den meisten Fällen selten bis nie nützlich:
 
 - [`associationlist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles)
 - [`associationlistitemkey`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles)
@@ -73,7 +73,7 @@ Diese sind der Vollständigkeit halber enthalten, aber in den meisten Fällen se
 
 ### 2. Widget-Rollen
 
-Widget-Rollen werden verwendet, um gängige interaktive Muster zu definieren. Wie Dokumentstrukturrollen haben einige Widget-Rollen die gleichen Semantiken wie gut unterstützte native HTML-Elemente und sollten daher vermieden werden. Der Hauptunterschied besteht darin, dass Widget-Rollen typischerweise JavaScript für die Interaktion erfordern, während Dokumentstrukturrollen dies oft nicht tun.
+Widget-Rollen werden verwendet, um häufige interaktive Muster zu definieren. Ähnlich wie bei Dokumentstrukturrrollen haben einige Widget-Rollen dieselbe Semantik wie gut unterstützte native HTML-Elemente und sollten daher vermieden werden. Der wesentliche Unterschied besteht darin, dass Widget-Rollen normalerweise JavaScript für die Interaktion erfordern, während Dokumentstrukturrrollen dies oft nicht tun.
 
 - [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role)
 - [`searchbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/searchbox_role)
@@ -85,7 +85,7 @@ Widget-Rollen werden verwendet, um gängige interaktive Muster zu definieren. Wi
 - [`tabpanel`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role)
 - [`treeitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treeitem_role)
 
-Vermeiden Sie die Nutzung von [`button`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role), [`checkbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role), [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role), [`link`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/link_role), [`menuitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role), [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemcheckbox_role), [`menuitemradio`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemradio_role), [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role), [`progressbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role), [`radio`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role), und [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role), die wir der Vollständigkeit halber aufgenommen haben. Für die meisten sind semantische Äquivalente mit zugänglicher Interaktivität verfügbar und unterstützt. Weitere Informationen finden Sie in der individuellen Rollendokumentation.
+Vermeiden Sie die Verwendung von [`button`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/button_role), [`checkbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role), [`gridcell`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/gridcell_role), [`link`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/link_role), [`menuitem`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitem_role), [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemcheckbox_role), [`menuitemradio`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/menuitemradio_role), [`option`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/option_role), [`progressbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role), [`radio`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role) und [`textbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/textbox_role), die wir zur Vollständigkeit aufgenommen haben. Für die meisten sind semantische Äquivalente mit zugänglicher Interaktivität verfügbar und unterstützt. Weitere Informationen finden Sie in der Dokumentation der einzelnen Rollen.
 
 #### Zusammengesetzte Widget-Rollen
 
@@ -96,17 +96,17 @@ Vermeiden Sie die Nutzung von [`button`](/de/docs/Web/Accessibility/ARIA/Referen
 - [`tree`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tree_role)
 - [`treegrid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/treegrid_role)
 
-Vermeiden Sie die Nutzung von [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role), [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role), und [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role), die wir der Vollständigkeit halber aufgenommen haben. Weitere Informationen finden Sie in der individuellen Rollendokumentation.
+Vermeiden Sie die Verwendung von [`grid`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/grid_role), [`listbox`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/listbox_role) und [`radiogroup`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role), die wir zur Vollständigkeit aufgenommen haben. Weitere Informationen finden Sie in der Dokumentation der einzelnen Rollen.
 
-Beachten Sie, dass es auch eine Widget-Rolle (`role="widget"`) gibt, die eine abstrakte Rolle ist und nicht zur Widget-Rollenkategorie gehört.
+Beachten Sie, dass es auch eine Widget-Rolle (`role="widget"`) gibt, die eine abstrakte Rolle ist und nicht in die Kategorie der Widget-Rollen fällt.
 
 ### 3. Landmark-Rollen
 
-Landmark-Rollen bieten eine Möglichkeit, die Organisation und Struktur einer Webseite zu identifizieren. Durch das Klassifizieren und Labeln von Abschnitten einer Seite wird strukturelle Information, die visuell durch Layout vermittelt wird, programmatisch repräsentiert. Screenreader verwenden Landmark-Rollen, um eine Tastaturnavigation zu wichtigen Abschnitten einer Seite zu ermöglichen. Verwenden Sie diese sparsam. Zu viele Landmark-Rollen erzeugen "Rauschen" in Screenreadern, was es schwierig macht, das Gesamtlayout der Seite zu verstehen.
+Landmark-Rollen bieten eine Möglichkeit, die Organisation und Struktur einer Webseite zu identifizieren. Durch das Klassifizieren und Beschriften von Seitensektionen wird die visuell durch das Layout vermittelte Strukturinformation programmatisch dargestellt. Screenreader verwenden Landmark-Rollen, um die Tastaturnavigation zu wichtigen Seitensektionen zu ermöglichen. Verwenden Sie diese sparsam. Zu viele Landmark-Rollen erzeugen "Rauschen" in Screenreadern, was das Verständnis des gesamten Seitenlayouts erschwert.
 
-- [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role) (Dokument {{HTMLElement('header')}})
+- [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role) (dokumentiert {{HTMLElement('header')}})
 - [`complementary`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/complementary_role) ({{HTMLElement('aside')}})
-- [`contentinfo`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/contentinfo_role) (Dokument {{HTMLElement('footer')}})
+- [`contentinfo`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/contentinfo_role) (dokumentiert {{HTMLElement('footer')}})
 - [`form`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/form_role) ({{HTMLElement('form')}})
 - [`main`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/main_role) ({{HTMLElement('main')}})
 - [`navigation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/navigation_role) ({{HTMLElement('nav')}})
@@ -115,7 +115,7 @@ Landmark-Rollen bieten eine Möglichkeit, die Organisation und Struktur einer We
 
 ### 4. Live-Region-Rollen
 
-Live-Region-Rollen werden verwendet, um Elemente mit Inhalten zu definieren, die dynamisch verändert werden. Sehende Benutzer können dynamische Änderungen sehen, wenn sie visuell erkennbar sind. Diese Rollen helfen sehbehinderten und blinden Benutzern zu wissen, ob Inhalte aktualisiert wurden. Unterstützende Technologien wie Screenreader können genutzt werden, um dynamische Inhaltsänderungen anzukündigen:
+Live-Region-Rollen werden verwendet, um Elemente mit Inhalten zu definieren, die dynamisch geändert werden. Benutzer, die sehen können, können dynamische Änderungen erkennen, wenn sie visuell bemerkbar sind. Diese Rollen helfen Benutzern mit Sehbehinderungen und Blinden zu erfahren, ob Inhalte aktualisiert wurden. Assistive Technologien wie Screenreader können angewiesen werden, dynamische Inhaltsänderungen bekanntzugeben:
 
 - [`alert`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alert_role)
 - [`log`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/log_role)
@@ -125,26 +125,26 @@ Live-Region-Rollen werden verwendet, um Elemente mit Inhalten zu definieren, die
 
 ### 5. Fensterrollen
 
-Fensterrollen definieren Unterfenster innerhalb des Hauptfensterdokuments, wie Pop-up-Modaldialoge:
+Fensterrollen definieren Unterfenster des Hauptdokumentfensters innerhalb desselben Fensters, wie z.B. Popup-Modaldialoge:
 
 - [`alertdialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role)
 - [`dialog`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)
 
 ### 6. Abstrakte Rollen
 
-Abstrakte Rollen sind nur für die Nutzung durch Browser gedacht, um ein Dokument zu organisieren und zu vereinfachen. Sie sollten nicht von Entwicklern, die HTML-Markup schreiben, verwendet werden. Tun Sie dies nicht, führt es zu keiner aussagekräftigen Information, die unterstützenden Technologien oder Benutzern übermittelt wird.
+Abstrakte Rollen sind nur für die Verwendung durch Browser gedacht, um ein Dokument zu organisieren und zu straffen. Sie sollten nicht von Entwicklern verwendet werden, die HTML-Markup schreiben. Ihre Verwendung führt nicht dazu, dass assistive Technologien oder Benutzer sinnvolle Informationen erhalten.
 
-Vermeiden Sie die Nutzung von [`command`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/command_role), [`composite`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/composite_role), [`input`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/input_role), [`landmark`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/landmark_role), [`range`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/range_role), [`roletype`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/roletype_role), [`section`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/section_role), [`sectionhead`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/sectionhead_role), [`select`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/select_role), [`structure`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/structure_role), [`widget`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/widget_role), und [`window`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/window_role).
+Vermeiden Sie die Verwendung von [`command`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/command_role), [`composite`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/composite_role), [`input`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/input_role), [`landmark`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/landmark_role), [`range`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/range_role), [`roletype`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/roletype_role), [`section`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/section_role), [`sectionhead`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/sectionhead_role), [`select`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/select_role), [`structure`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/structure_role), [`widget`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/widget_role) und [`window`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/window_role).
 
 > [!NOTE]
-> Verwenden Sie keine abstrakten Rollen auf Ihren Webseiten und in Ihren Anwendungen. Sie sind für den Einsatz durch Browser bestimmt. Sie sind nur zur Referenz enthalten.
+> Verwenden Sie keine abstrakten Rollen auf Ihren Websites und in Ihren Anwendungen. Sie sind für die Verwendung durch Browser vorgesehen. Sie sind nur als Referenz enthalten.
 
 > [!WARNING]
-> "Abstrakte Rollen werden für die Ontologie verwendet. Autoren **DÜRFEN KEINE** abstrakten Rollen in Inhalten verwenden." - Die <abbr>WAI-ARIA</abbr>-Spezifikation
+> "Abstrakte Rollen werden für die Ontologie verwendet. Autoren **DÜRFEN NICHT** abstrakte Rollen im Inhalt verwenden." - Die <abbr>WAI-ARIA</abbr>-Spezifikation
 
 ## Auf MDN definierte Rollen
 
-Die folgenden sind die Referenzseiten, die die auf <abbr>MDN</abbr> diskutierten WAI-ARIA-Rollen abdecken.
+Im Folgenden sind die Referenzseiten aufgeführt, die die auf <abbr>MDN</abbr> besprochenen WAI-ARIA-Rollen abdecken.
 
 {{SubpagesWithSummaries}}
 

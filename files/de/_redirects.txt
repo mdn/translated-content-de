@@ -8528,7 +8528,8 @@
 /de/docs/Web/API/Document_Object_Model/Using_the_Document_Object_Model/Example	/de/docs/Web/API/Document_Object_Model/Using_the_Document_Object_Model
 /de/docs/Web/API/Document_Object_Model/Using_the_W3C_DOM_Level_1_Core	/de/docs/Web/API/Document_Object_Model/Using_the_Document_Object_Model
 /de/docs/Web/API/Document_Object_Model/Using_the_W3C_DOM_Level_1_Core/Example	/de/docs/Web/API/Document_Object_Model/Using_the_Document_Object_Model
-/de/docs/Web/API/Document_Object_Model/Whitespace_in_the_DOM	/de/docs/Web/API/Document_Object_Model/Whitespace
+/de/docs/Web/API/Document_Object_Model/Whitespace	/de/docs/Web/CSS/CSS_text/Whitespace
+/de/docs/Web/API/Document_Object_Model/Whitespace_in_the_DOM	/de/docs/Web/CSS/CSS_text/Whitespace
 /de/docs/Web/API/DoubleRange	/de/docs/Web/API/MediaTrackConstraints
 /de/docs/Web/API/DynamicsCompressorNode.attack	/de/docs/Web/API/DynamicsCompressorNode/attack
 /de/docs/Web/API/DynamicsCompressorNode.knee	/de/docs/Web/API/DynamicsCompressorNode/knee
@@ -12811,7 +12812,7 @@
 /de/docs/Web/Guide/API/DOM/The_structured_clone_algorithm	/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 /de/docs/Web/Guide/API/DOM/Using_dynamic_styling_information	/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information
 /de/docs/Web/Guide/API/DOM/Using_full_screen_mode	/de/docs/Web/API/Fullscreen_API
-/de/docs/Web/Guide/API/DOM/Whitespace_in_the_DOM	/de/docs/Web/API/Document_Object_Model/Whitespace
+/de/docs/Web/Guide/API/DOM/Whitespace_in_the_DOM	/de/docs/Web/CSS/CSS_text/Whitespace
 /de/docs/Web/Guide/API/File System	/de/docs/Web/API/File_System_API
 /de/docs/Web/Guide/API/File System/Introduction	/de/docs/Web/API/File_System_API
 /de/docs/Web/Guide/API/Gamepad	/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API
@@ -12892,7 +12893,7 @@
 /de/docs/Web/Guide/DOM/The_structured_clone_algorithm	/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 /de/docs/Web/Guide/DOM/Using_dynamic_styling_information	/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information
 /de/docs/Web/Guide/DOM/Using_full_screen_mode	/de/docs/Web/API/Fullscreen_API
-/de/docs/Web/Guide/DOM/Whitespace_in_the_DOM	/de/docs/Web/API/Document_Object_Model/Whitespace
+/de/docs/Web/Guide/DOM/Whitespace_in_the_DOM	/de/docs/Web/CSS/CSS_text/Whitespace
 /de/docs/Web/Guide/Events	/de/docs/Web/API/Document_Object_Model/Events
 /de/docs/Web/Guide/Events/Creating_and_triggering_events	/de/docs/Web/API/Document_Object_Model/Events
 /de/docs/Web/Guide/Events/Event_dispatching_example	/de/docs/Web/API/Document_Object_Model/Events
@@ -15523,7 +15524,7 @@
 /de/docs/Web_development/Writing_forward-compatible_websites	/de/docs/Learn_web_development/Core/Scripting/Debugging_JavaScript
 /de/docs/What's_New_in_Deer_Park_Alpha	/de/docs/Mozilla/Firefox/Releases/1.5/What_s_new_in_1.5_alpha
 /de/docs/What_does_tracking_mean	/de/docs/Web/HTTP/Reference/Headers/DNT
-/de/docs/Whitespace_in_the_DOM	/de/docs/Web/API/Document_Object_Model/Whitespace
+/de/docs/Whitespace_in_the_DOM	/de/docs/Web/CSS/CSS_text/Whitespace
 /de/docs/WindowEventHandlers.onbeforeprint	/de/docs/Web/API/Window/beforeprint_event
 /de/docs/WindowEventHandlers.onbeforeunload	/de/docs/Web/API/Window/beforeunload_event
 /de/docs/WindowEventHandlers.onhashchange	/de/docs/Web/API/Window/hashchange_event
