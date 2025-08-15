@@ -9981,9 +9981,15 @@
 /de/docs/Web/API/RTCIceTransport/onselectedcandidatepairchange	/de/docs/Web/API/RTCIceTransport/selectedcandidatepairchange_event
 /de/docs/Web/API/RTCIceTransport/onstatechange	/de/docs/Web/API/RTCIceTransport/statechange_event
 /de/docs/Web/API/RTCIceTransportState	/de/docs/Web/API/RTCIceTransport/state
+/de/docs/Web/API/RTCInboundRtpStreamStats/averageRtcpInterval	/de/docs/Web/API/RTCInboundRtpStreamStats
 /de/docs/Web/API/RTCInboundRtpStreamStats/firCount	/de/docs/Web/API/RTCInboundRtpStreamStats
 /de/docs/Web/API/RTCInboundRtpStreamStats/lastPacketReceivedTimesta	/de/docs/Web/API/RTCInboundRtpStreamStats/lastPacketReceivedTimestamp
+/de/docs/Web/API/RTCInboundRtpStreamStats/packetsDuplicated	/de/docs/Web/API/RTCInboundRtpStreamStats
+/de/docs/Web/API/RTCInboundRtpStreamStats/packetsFailedDecryption	/de/docs/Web/API/RTCInboundRtpStreamStats
+/de/docs/Web/API/RTCInboundRtpStreamStats/perDscpPacketsReceived	/de/docs/Web/API/RTCInboundRtpStreamStats
 /de/docs/Web/API/RTCInboundRtpStreamStats/pliCount	/de/docs/Web/API/RTCInboundRtpStreamStats
+/de/docs/Web/API/RTCInboundRtpStreamStats/receiverId	/de/docs/Web/API/RTCInboundRtpStreamStats
+/de/docs/Web/API/RTCInboundRtpStreamStats/sliCount	/de/docs/Web/API/RTCInboundRtpStreamStats
 /de/docs/Web/API/RTCInboundRtpStreamStats/trackId	/de/docs/Web/API/RTCInboundRtpStreamStats
 /de/docs/Web/API/RTCOfferAnswerOptions	/de/docs/Web/API/RTCPeerConnection/createAnswer
 /de/docs/Web/API/RTCOfferAnswerOptions/voiceActivityDetection	/de/docs/Web/API/RTCPeerConnection/createAnswer

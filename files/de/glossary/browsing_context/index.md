@@ -2,22 +2,22 @@
 title: Browsing-Kontext
 slug: Glossary/Browsing_context
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 8b67ae9ed4fb1b14e4d596c6bbcb4e08a9af2964
 ---
 
-Ein **Browsing-Kontext** ist eine Umgebung, in der ein Browser ein [`Document`](/de/docs/Web/API/Document) anzeigt.
-In modernen Browsern ist dies in der Regel ein _Tab_, aber es kann auch ein _Fenster_, ein _Popup_, eine [Webanwendung](/de/docs/Web/Progressive_web_apps) oder sogar ein Teil einer Seite wie ein _Frame_ oder ein _iframe_ sein.
+Ein **Browsing-Kontext** ist eine Umgebung, in der ein Browser ein [`Dokument`](/de/docs/Web/API/Document) anzeigt.
+In modernen Browsern ist dies normalerweise ein _Tab_, kann aber auch ein _Fenster_, ein _Popup_, eine [Webanwendung](/de/docs/Web/Progressive_web_apps) oder sogar ein Teil einer Seite wie ein _Frame_ oder ein _iframe_ sein.
 
-Jeder Browsing-Kontext hat einen Ursprung (der des aktiven Dokuments) und eine geordnete Historie von zuvor angezeigten Dokumenten.
-Die Kommunikation und Ressourcennutzung zwischen Browsing-Kontexten ist eingeschränkt, insbesondere zwischen Kontexten mit unterschiedlichem Ursprung.
-Zum Beispiel kann ein [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) nur geöffnet und verwendet werden, um zwischen Kontexten mit demselben Ursprung zu kommunizieren.
+Jeder Browsing-Kontext hat einen Ursprung (der des aktiven Dokuments) und eine geordnete Historie zuvor angezeigter Dokumente.
+Die Kommunikation und Ressourcenteilung zwischen Browsing-Kontexten ist eingeschränkt, insbesondere zwischen kontextübergreifenden Ursprüngen.
+Zum Beispiel kann ein [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) nur geöffnet und zur Kommunikation zwischen kontextgleichen Ursprüngen verwendet werden.
 
-Ein Browsing-Kontext kann Teil einer **Browsing-Kontext-Gruppe** sein, die eine Menge von **Browsing-Kontexten** ist, die gemeinsame Kontexte wie Verlauf, Cookies, Speichermethoden usw. teilen.
-Die Browsing-Kontexte innerhalb einer Gruppe behalten Verweise aufeinander und können daher die globalen Objekte des jeweils anderen inspizieren und sich gegenseitig Nachrichten senden.
+Ein Browsing-Kontext kann Teil einer **Browsing-Kontext-Gruppe** sein, welche eine Gruppe von **Browsing-Kontexten** ist, die gemeinsame Kontexte wie Historie, Cookies, Speichermechanismen usw. teilen.
+Die Browsing-Kontexte innerhalb einer Gruppe behalten Verweise zueinander und können daher die globalen Objekte der anderen inspizieren und Nachrichten miteinander austauschen.
 
-Standardmäßig wird ein Dokument, das aus einer Browsing-Kontext-Gruppe geöffnet wird, in derselben Gruppe geöffnet, unabhängig davon, ob es aus demselben oder einem anderen Ursprung stammt.
-Der {{httpheader("Cross-Origin-Opener-Policy")}} kann verwendet werden, um zu steuern, ob das Dokument stattdessen in der eigenen neuen Browsing-Kontext-Gruppe geöffnet wird und [cross-origin isolated](/de/docs/Web/API/Window/crossOriginIsolated) von anderen Kontexten ist (insbesondere Kontexten mit unterschiedlichem Ursprung).
-Dies kann das Risiko von Cross-Origin-Angriffen und von Seitenkanalangriffen, die als [XS-Leaks](https://xsleaks.dev/) bezeichnet werden, mindern.
+Standardmäßig wird ein in einer Browser-Kontextgruppe geöffnetes Dokument in derselben Gruppe geöffnet, unabhängig davon, ob es kontextübergreifend oder kontextgleich ist.
+Der {{httpheader("Cross-Origin-Opener-Policy")}} kann verwendet werden, um zu steuern, ob das Dokument stattdessen in seiner eigenen neuen Browsing-Kontext-Gruppe geöffnet und von anderen Kontexten [kontextübergreifend isoliert](/de/docs/Web/API/Window/crossOriginIsolated) wird (insbesondere kontextübergreifende Kontexte).
+Dies kann das Risiko von kontextübergreifenden Angriffen und den Seitenkanalangriffen, die als [XS-Leaks](https://xsleaks.dev/) bezeichnet werden, mindern.
 
 ## Siehe auch
 
