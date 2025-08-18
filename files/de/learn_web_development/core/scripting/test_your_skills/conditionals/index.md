@@ -1,27 +1,29 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Bedingte Anweisungen"
-short-title: Conditionals
+title: "Testen Sie Ihre Fähigkeiten: Bedingungen"
+short-title: "Test: Bedingungen"
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Conditionals
 l10n:
-  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
+  sourceCommit: 9d3d642daf9df9ece138fa39972edc5f7d6dcd6b
 ---
 
-Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen zu beurteilen, ob Sie unseren [Entscheidungen in Ihrem Code treffen — bedingte Anweisungen](/de/docs/Learn_web_development/Core/Scripting/Conditionals) Artikel verstanden haben.
+{{PreviousMenuNext("Learn_web_development/Core/Scripting/Conditionals", "Learn_web_development/Core/Scripting/Loops", "Learn_web_development/Core/Scripting")}}
+
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren Artikel [Entscheidungen in Ihrem Code treffen — Bedingungen](/de/docs/Learn_web_development/Core/Scripting/Conditionals) verstanden haben.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Nutzungsleitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zum Testen Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) mit uns in Kontakt treten.
 
-## Bedingte Anweisungen 1
+## Bedingungen 1
 
-In dieser Aufgabe werden Ihnen zwei Variablen zur Verfügung gestellt:
+In dieser Aufgabe erhalten Sie zwei Variablen:
 
-- `season` — enthält einen String, der aussagt, welche Jahreszeit aktuell ist.
-- `response` — beginnt nicht initialisiert, wird aber später verwendet, um eine Antwort zu speichern, die im Ausgabebereich angezeigt wird.
+- `season` — enthält eine Zeichenkette, die angibt, welche Jahreszeit aktuell ist.
+- `response` — wird zunächst nicht initialisiert, aber später verwendet, um eine Antwort zu speichern, die im Ausgabepanel angezeigt wird.
 
-Um die Aufgabe zu erfüllen:
+Um die Aufgabe abzuschließen:
 
-1. Erstellen Sie eine Bedingung, die überprüft, ob `season` den String "summer" enthält. Wenn ja, weist sie `response` einen String zu, der dem Benutzer eine passende Nachricht über die Jahreszeit gibt. Falls nicht, sollte `response` einen allgemeinen String zugewiesen bekommen, der dem Benutzer mitteilt, dass wir nicht wissen, welche Jahreszeit es ist.
-2. Fügen Sie eine weitere Bedingung hinzu, die überprüft, ob `season` den String "winter" enthält, und weist wiederum einen passenden String dem `response` zu.
+1. Erstellen Sie eine Bedingung, die überprüft, ob `season` die Zeichenkette "summer" enthält, und wenn ja, weist sie `response` eine Zeichenkette zu, die dem Benutzer eine passende Nachricht über die Jahreszeit gibt. Falls nicht, sollte `response` eine allgemeine Zeichenkette zugewiesen werden, die dem Benutzer mitteilt, dass wir nicht wissen, welche Jahreszeit es ist.
+2. Fügen Sie eine weitere Bedingung hinzu, die überprüft, ob `season` die Zeichenkette "winter" enthält und erneut eine passende Zeichenkette zu `response` zuweist.
 
 <!-- Code shared across examples -->
 
@@ -61,7 +63,7 @@ section.appendChild(para1);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte in etwa so aussehen:
+Ihr fertiges JavaScript sollte ungefähr so aussehen:
 
 ```js
 let season = "summer";
@@ -82,27 +84,27 @@ if (season === "summer") {
 
 </details>
 
-## Bedingte Anweisungen 2
+## Bedingungen 2
 
 Für diese Aufgabe werden Ihnen drei Variablen gegeben:
 
-- `machineActive`: Enthält einen Indikator dafür, ob der Anrufbeantworter ein- oder ausgeschaltet ist (`true`/`false`).
-- `score`: Enthält Ihren Punktestand in einem imaginären Spiel. Dieser Punktestand wird in den Anrufbeantworter eingespeist, der eine Antwort gibt, um anzuzeigen, wie gut Sie abgeschnitten haben.
-- `response`: Beginnt nicht initialisiert, wird aber später verwendet, um eine Antwort zu speichern, die im Ausgabebereich angezeigt wird.
+- `machineActive`: Enthält einen Indikator dafür, ob der Anrufbeantworter eingeschaltet ist oder nicht (`true`/`false`).
+- `score`: Enthält Ihre Punktzahl in einem imaginären Spiel. Diese Punktzahl wird in den Anrufbeantworter eingegeben, der eine Antwort gibt, um zu zeigen, wie gut Sie abgeschnitten haben.
+- `response`: Wird zunächst nicht initialisiert, aber später verwendet, um eine Antwort zu speichern, die im Ausgabepanel angezeigt wird.
 
-Um die Aufgabe zu erfüllen:
+Um die Aufgabe abzuschließen:
 
-1. Erstellen Sie eine `if...else` Struktur, die überprüft, ob die Maschine eingeschaltet ist und eine Nachricht in die `response` Variable setzt, wenn sie es nicht ist, und den Benutzer darauf hinweist, die Maschine einzuschalten.
-2. Innerhalb des ersten `if...else` verschachteln Sie ein weiteres `if...else`, das je nach Wert des `score` passende Nachrichten in die `response` Variable setzt — wenn die Maschine eingeschaltet ist. Die verschiedenen Tests (und entsprechenden Antworten) sind wie folgt:
-   - Punktestand von weniger als 0 oder mehr als 100 — "Dies ist nicht möglich, ein Fehler ist aufgetreten."
-   - Punktestand von 0 bis 19 — "Das war ein schrecklicher Punktestand — totaler Verlust!"
-   - Punktestand von 20 bis 39 — "Sie wissen einige Dinge, aber es ist ein ziemlich schlechter Punktestand. Verbesserung nötig."
-   - Punktestand von 40 bis 69 — "Sie haben einen passablen Job gemacht, nicht schlecht!"
-   - Punktestand von 70 bis 89 — "Das ist ein großartiger Punktestand, Sie kennen sich wirklich aus."
-   - Punktestand von 90 bis 100 — "Was für ein erstaunlicher Punktestand! Haben Sie betrogen? Ist das echt?"
+1. Erstellen Sie eine `if...else`-Struktur, die überprüft, ob die Maschine eingeschaltet ist, und eine Nachricht in die Variable `response` einfügt, wenn sie nicht eingeschaltet ist, die dem Benutzer mitteilt, die Maschine einzuschalten.
+2. Innerhalb des ersten `if...else` schachteln Sie ein weiteres `if...else`, das je nach Wert der `score` passende Nachrichten in die Variable `response` einfügt — falls die Maschine eingeschaltet ist. Die verschiedenen Bedingungstests (und die resultierenden Antworten) sind wie folgt:
+   - Punktzahl kleiner als 0 oder größer als 100 — "Das ist nicht möglich, ein Fehler ist aufgetreten."
+   - Punktzahl von 0 bis 19 — "Das war eine schreckliche Punktzahl — totaler Fehlschlag!"
+   - Punktzahl von 20 bis 39 — "Sie wissen einiges, aber die Punktzahl ist ziemlich schlecht. Verbesserungsbedarf."
+   - Punktzahl von 40 bis 69 — "Sie haben eine akzeptable Leistung erbracht, nicht schlecht!"
+   - Punktzahl von 70 bis 89 — "Das ist eine großartige Punktzahl, Sie wissen wirklich Bescheid."
+   - Punktzahl von 90 bis 100 — "Was für eine erstaunliche Punktzahl! Haben Sie betrogen? Ist das echt?"
 
-Nachdem Sie Ihren Code eingegeben haben, versuchen Sie `machineActive` auf `true` zu ändern und `score` auf einige verschiedene Werte zu setzen, um zu sehen, ob es funktioniert.
-Bitte beachten Sie, dass für den Umfang dieser Übung der String `Your score is __` unabhängig vom Wert der `machineActive` Variable auf dem Bildschirm bleibt.
+Nachdem Sie Ihren Code eingegeben haben, versuchen Sie, `machineActive` auf `true` zu ändern und `score` auf einige verschiedene Werte zu setzen, um zu sehen, ob es funktioniert.
+Bitte beachten Sie, dass für den Umfang dieser Übung der String `Your score is __` auf dem Bildschirm bleibt, unabhängig vom Wert der Variablen `machineActive`.
 
 ```js live-sample___conditionals-2
 let response;
@@ -127,7 +129,7 @@ section.appendChild(para2);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte in etwa so aussehen:
+Ihr fertiges JavaScript sollte ungefähr so aussehen:
 
 ```js
 let response;
@@ -159,19 +161,19 @@ if (machineActive) {
 
 </details>
 
-## Bedingte Anweisungen 3
+## Bedingungen 3
 
-Für die letzte Aufgabe werden Ihnen vier Variablen gegeben:
+Für die letzte Aufgabe erhalten Sie vier Variablen:
 
-- `machineActive`: Enthält einen Indikator dafür, ob die Login-Maschine ein- oder ausgeschaltet ist (`true`/`false`).
+- `machineActive`: Enthält einen Indikator dafür, ob die Anmeldemaschine eingeschaltet ist oder nicht (`true`/`false`).
 - `pwd`: Enthält das Login-Passwort des Benutzers.
-- `machineResult`: Beginnt nicht initialisiert, wird aber später verwendet, um eine Antwort zu speichern, die im Ausgabebereich angezeigt wird und den Benutzer darüber informiert, ob die Maschine eingeschaltet ist.
-- `pwdResult`: Beginnt nicht initialisiert, wird aber später verwendet, um eine Antwort zu speichern, die im Ausgabebereich angezeigt wird und den Benutzer darüber informiert, ob sein Login-Versuch erfolgreich war.
+- `machineResult`: Wird zunächst nicht initialisiert, aber später verwendet, um eine Antwort zu speichern, die im Ausgabepanel angezeigt wird, um dem Benutzer mitzuteilen, ob die Maschine eingeschaltet ist.
+- `pwdResult`: Wird zunächst nicht initialisiert, aber später verwendet, um eine Antwort zu speichern, die im Ausgabepanel angezeigt wird, um dem Benutzer mitzuteilen, ob sein Anmeldeversuch erfolgreich war.
 
-Um die Aufgabe zu erfüllen:
+Um die Aufgabe abzuschließen:
 
-1. Erstellen Sie eine `if...else` Struktur, die überprüft, ob die Maschine eingeschaltet ist und eine Nachricht in die `machineResult` Variable setzt, die den Benutzer darüber informiert, ob sie ein- oder ausgeschaltet ist.
-2. Wenn die Maschine eingeschaltet ist, möchten wir auch eine zweite Bedingung ausführen, die überprüft, ob das `pwd` gleich `cheese` ist. Wenn ja, sollte sie einen String an `pwdResult` zuweisen, der dem Benutzer mitteilt, dass der Login erfolgreich war. Wenn nicht, sollte sie einen anderen String an `pwdResult` zuweisen, der dem Benutzer mitteilt, dass der Login nicht erfolgreich war. Wir möchten, dass Sie dies in einer einzigen Zeile tun, und zwar ohne eine `if...else` Struktur zu verwenden.
+1. Erstellen Sie eine `if...else`-Struktur, die überprüft, ob die Maschine eingeschaltet ist, und eine Nachricht in die Variable `machineResult` einfügt, die dem Benutzer mitteilt, ob sie ein- oder ausgeschaltet ist.
+2. Wenn die Maschine eingeschaltet ist, möchten wir, dass auch eine zweite Bedingung ausgeführt wird, die überprüft, ob `pwd` gleich `cheese` ist. Wenn ja, sollte `pwdResult` eine Zeichenkette zugewiesen werden, die dem Benutzer mitteilt, dass er sich erfolgreich angemeldet hat. Falls nicht, sollte `pwdResult` eine andere Zeichenkette zugewiesen werden, die dem Benutzer mitteilt, dass sein Anmeldeversuch nicht erfolgreich war. Wir möchten, dass Sie dies in einer einzigen Zeile tun, unter Verwendung von etwas, das keine `if...else`-Struktur ist.
 
 ```js live-sample___conditionals-3
 let machineActive = true;
@@ -198,7 +200,7 @@ section.appendChild(para2);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte in etwa so aussehen:
+Ihr fertiges JavaScript sollte ungefähr so aussehen:
 
 ```js
 let machineActive = true;
@@ -222,3 +224,5 @@ if (machineActive) {
 ```
 
 </details>
+
+{{PreviousMenuNext("Learn_web_development/Core/Scripting/Conditionals", "Learn_web_development/Core/Scripting/Loops", "Learn_web_development/Core/Scripting")}}

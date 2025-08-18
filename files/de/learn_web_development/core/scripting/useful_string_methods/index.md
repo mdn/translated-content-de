@@ -3,23 +3,23 @@ title: Nützliche String-Methoden
 short-title: String methods
 slug: Learn_web_development/Core/Scripting/Useful_string_methods
 l10n:
-  sourceCommit: d0ed4906719465102739e604bdb35213fb19f251
+  sourceCommit: 9d3d642daf9df9ece138fa39972edc5f7d6dcd6b
 ---
 
-{{PreviousMenuNext("Learn_web_development/Core/Scripting/Strings", "Learn_web_development/Core/Scripting/Arrays", "Learn_web_development/Core/Scripting")}}
+{{PreviousMenuNext("Learn_web_development/Core/Scripting/Strings", "Learn_web_development/Core/Scripting/Test_your_skills/Strings", "Learn_web_development/Core/Scripting")}}
 
-Jetzt, da wir uns die Grundlagen von Strings angesehen haben, lassen Sie uns einen Gang höher schalten und darüber nachdenken, welche nützlichen Operationen wir mit eingebauten Methoden an Strings durchführen können, wie zum Beispiel die Länge einer Textzeichenfolge zu finden, Strings zu verbinden und zu trennen, ein Zeichen in einer Zeichenkette durch ein anderes zu ersetzen und mehr.
+Nachdem wir uns die Grundlagen von Strings angesehen haben, wollen wir nun einen Gang höher schalten und darüber nachdenken, welche nützlichen Operationen wir mit eingebauten Methoden an Strings durchführen können, wie z.B. die Länge einer Textzeichenkette ermitteln, Strings verbinden und trennen, ein Zeichen in einer Zeichenkette durch ein anderes ersetzen und mehr.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>. Kenntnis der <a href="/de/docs/Learn_web_development/Core/Scripting/Strings">String-Grundlagen</a>.</td>
+      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>. Kenntnisse der <a href="/de/docs/Learn_web_development/Core/Scripting/Strings">String-Grundlagen</a>.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
-          String-Manipulation mit gängigen Eigenschaften und Methoden, die in JavaScript eingebaut sind.
+          Manipulation von Strings mit gängigen Eigenschaften und Methoden, die in JavaScript eingebaut sind.
       </td>
     </tr>
   </tbody>
@@ -27,19 +27,19 @@ Jetzt, da wir uns die Grundlagen von Strings angesehen haben, lassen Sie uns ein
 
 ## Strings als Objekte
 
-Die meisten Werte können in JavaScript so verwendet werden, als ob sie Objekte wären. Wenn Sie beispielsweise einen String erstellen, indem Sie
+Die meisten Werte können in JavaScript so verwendet werden, als ob sie Objekte wären. Wenn Sie einen String erstellen, zum Beispiel durch die Verwendung von
 
 ```js
 const string = "This is my string";
 ```
 
-verwenden, ist die Variable selbst zwar kein Objekt, aber sie hat dennoch eine große Anzahl von Eigenschaften und Methoden zur Verfügung, da sie als Objekt verwendet werden kann, wenn man auf Eigenschaften zugreift. Sie können dies sehen, wenn Sie auf die {{jsxref("String")}}-Objektseite gehen und die Liste an der Seite der Seite nach unten schauen!
+obwohl die Variable selbst kein Objekt ist, sind dennoch viele Eigenschaften und Methoden verfügbar, da sie beim Zugriff auf Eigenschaften als Objekt nutzbar ist. Sie können dies sehen, wenn Sie die Seite des {{jsxref("String")}}-Objekts besuchen und sich die Liste an der Seite der Seite ansehen!
 
-**Keine Sorge, bevor Ihr Gehirn anfängt zu rauchen!** Sie müssen wirklich nicht über die meisten dieser Dinge früh in Ihrem Lernprozess Bescheid wissen. Aber es gibt einige, die Sie möglicherweise ziemlich oft verwenden werden, die wir uns hier ansehen werden.
+**Bevor Ihr Kopf zu schmelzen beginnt, keine Sorge!** Sie müssen zu Beginn Ihrer Lernreise nicht über die meisten dieser Dinge Bescheid wissen. Aber es gibt einige, die Sie potenziell häufig verwenden werden, auf die wir hier eingehen.
 
 Lassen Sie uns einige Beispiele in die [Entwicklertools des Browsers](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) eingeben.
 
-## Die Länge eines Strings finden
+## Die Länge eines Strings ermitteln
 
 Das ist einfach — Sie verwenden die {{jsxref("String.prototype.length", "length")}}-Eigenschaft. Versuchen Sie, die folgenden Zeilen einzugeben:
 
@@ -48,11 +48,11 @@ const browserType = "mozilla";
 browserType.length;
 ```
 
-Dies sollte die Zahl 7 zurückgeben, weil "mozilla" 7 Zeichen lang ist. Dies ist aus vielen Gründen nützlich; beispielsweise möchten Sie die Längen einer Reihe von Namen herausfinden, damit Sie sie der Länge nach anzeigen oder dem Benutzer mitteilen können, dass ein Benutzername, den er in ein Formularfeld eingegeben hat, zu lang ist, wenn er eine bestimmte Länge überschreitet.
+Dies sollte die Zahl 7 zurückgeben, da "mozilla" 7 Zeichen lang ist. Dies ist aus vielen Gründen nützlich; zum Beispiel könnten Sie die Längen einer Reihe von Namen ermitteln, um sie der Länge nach anzuzeigen, oder einem Benutzer mitteilen, dass ein eingegebener Benutzername in einem Formularfeld zu lang ist, wenn er eine bestimmte Länge überschreitet.
 
-## Abrufen eines bestimmten String-Zeichens
+## Ein bestimmtes Zeichen eines Strings abrufen
 
-In ähnlicher Weise können Sie jedes Zeichen in einer Zeichenkette zurückgeben, indem Sie die **eckige Klammernotation** verwenden — das bedeutet, dass Sie eckige Klammern (`[]`) am Ende Ihres Variablennamens einschließen. Innerhalb der eckigen Klammern geben Sie die Zahl des Zeichens an, das Sie zurückgeben möchten, sodass Sie beispielsweise, um den ersten Buchstaben abzurufen, dies tun würden:
+In einem verwandten Punkt können Sie jedes Zeichen innerhalb eines Strings mit der **eckigen Klammernotation** zurückgeben — das bedeutet, dass Sie eckige Klammern (`[]`) am Ende Ihres Variablennamens einfügen. In die eckigen Klammern fügen Sie die Nummer des Zeichens ein, das Sie zurückgeben möchten, sodass Sie beispielsweise den ersten Buchstaben so abrufen würden:
 
 ```js
 browserType[0];
@@ -60,19 +60,19 @@ browserType[0];
 
 Denken Sie daran: Computer zählen ab 0, nicht ab 1!
 
-Um das letzte Zeichen _einer beliebigen_ Zeichenfolge abzurufen, könnten wir die folgende Zeile verwenden, indem wir diese Technik mit der oben betrachteten `length`-Eigenschaft kombinieren:
+Um das letzte Zeichen eines _beliebigen_ Strings zurückzugeben, könnten wir die folgende Zeile verwenden, indem wir diese Technik mit der oben betrachteten `length`-Eigenschaft kombinieren:
 
 ```js
 browserType[browserType.length - 1];
 ```
 
-Die Länge der Zeichenkette "mozilla" ist 7, aber da die Zählung bei 0 beginnt, befindet sich das letzte Zeichen an Position 6; die Verwendung von `length-1` liefert uns das letzte Zeichen.
+Die Länge des Strings "mozilla" ist 7, aber da das Zählen bei 0 beginnt, befindet sich das letzte Zeichen an Position 6; mit `length-1` erhalten wir das letzte Zeichen.
 
-## Überprüfen, ob ein String ein Substring enthält
+## Testen, ob ein String eine Teilzeichenkette enthält
 
-Manchmal möchten Sie herausfinden, ob ein kleinerer String in einem größeren vorhanden ist (wir sagen im Allgemeinen, ob ein Substring in einem String vorhanden ist). Dies kann mit der {{jsxref("String.prototype.includes()", "includes()")}}-Methode erfolgen, die ein einzelnes {{Glossary("parameter", "Parameter")}} — den Substring, den Sie durchsuchen möchten, entgegennimmt.
+Manchmal möchten Sie herausfinden, ob eine kleinere Zeichenkette innerhalb einer größeren vorhanden ist (wir sagen allgemein, _ob eine Teilzeichenkette innerhalb eines Strings vorhanden ist_). Dies kann mit der Methode {{jsxref("String.prototype.includes()", "includes()")}} erreicht werden, die einen einzelnen {{Glossary("parameter", "Parameter")}} nimmt — die Teilzeichenkette, nach der Sie suchen möchten.
 
-Sie gibt `true` zurück, wenn die Zeichenkette den Substring enthält, und `false`, wenn dies nicht der Fall ist.
+Sie gibt `true` zurück, wenn der String die Teilzeichenkette enthält, und `false` andernfalls.
 
 ```js
 const browserType = "mozilla";
@@ -84,7 +84,7 @@ if (browserType.includes("zilla")) {
 }
 ```
 
-Oft möchten Sie wissen, ob eine Zeichenkette mit einem bestimmten Substring beginnt oder endet. Dies ist ein ausreichendes Bedürfnis, dass es zwei spezielle Methoden dafür gibt: {{jsxref("String.prototype.startsWith()", "startsWith()")}} und {{jsxref("String.prototype.endsWith()", "endsWith()")}}:
+Oft möchten Sie wissen, ob ein String mit einer bestimmten Teilzeichenkette beginnt oder endet. Dies ist ein häufiges Bedürfnis, sodass es dafür zwei spezielle Methoden gibt: {{jsxref("String.prototype.startsWith()", "startsWith()")}} und {{jsxref("String.prototype.endsWith()", "endsWith()")}}:
 
 ```js
 const browserType = "mozilla";
@@ -106,26 +106,26 @@ if (browserType.endsWith("zilla")) {
 }
 ```
 
-## Die Position eines Substrings in einem String finden
+## Die Position einer Teilzeichenkette in einem String finden
 
-Sie können die Position eines Substrings in einer größeren Zeichenkette mit der {{jsxref("String.prototype.indexOf()", "indexOf()")}}-Methode finden. Diese Methode nimmt zwei {{Glossary("parameter", "Parameter")}} – den Substring, den Sie durchsuchen möchten, und einen optionalen Parameter, der den Startpunkt der Suche angibt.
+Sie können die Position einer Teilzeichenkette innerhalb eines größeren Strings mit der Methode {{jsxref("String.prototype.indexOf()", "indexOf()")}} finden. Diese Methode nimmt zwei {{Glossary("parameter", "Parameter")}} – die Teilzeichenkette, nach der Sie suchen möchten, und ein optionaler Parameter, der den Startpunkt der Suche angibt.
 
-Wenn der String den Substring enthält, gibt `indexOf()` den Index des ersten Vorkommens des Substrings zurück. Wenn der String den Substring nicht enthält, gibt `indexOf()` `-1` zurück.
+Wenn der String die Teilzeichenkette enthält, gibt `indexOf()` den Index des ersten Vorkommens der Teilzeichenkette zurück. Wenn der String die Teilzeichenkette nicht enthält, gibt `indexOf()` `-1` zurück.
 
 ```js
 const tagline = "MDN - Resources for developers, by developers";
 console.log(tagline.indexOf("developers")); // 20
 ```
 
-Beginnend bei `0`, wenn Sie die Anzahl der Zeichen (einschließlich des Leerzeichens) ab dem Anfang der Zeichenkette zählen, befindet sich das erste Vorkommen des Substrings `"developers"` an Index `20`.
+Beginnend bei `0`, wenn Sie die Anzahl der Zeichen (einschließlich der Leerzeichen) vom Anfang des Strings zählen, befindet sich das erste Vorkommen der Teilzeichenkette `"developers"` an Index `20`.
 
 ```js
 console.log(tagline.indexOf("x")); // -1
 ```
 
-Dies hingegen gibt `-1` zurück, da der Buchstabe `x` nicht in der Zeichenkette vorhanden ist.
+Dies hingegen gibt `-1` zurück, weil das Zeichen `x` nicht im String vorhanden ist.
 
-Wenn Sie nun wissen, wie Sie das erste Vorkommen eines Substrings finden, wie gehen Sie vor, um nachfolgende Vorkommen zu finden? Sie können dies tun, indem Sie einen Wert übergeben, der größer als der Index des vorherigen Vorkommens ist, als zweiten Parameter für die Methode.
+Jetzt, da Sie wissen, wie Sie das erste Vorkommen einer Teilzeichenkette finden, wie gehen Sie vor, um nachfolgende Vorkommen zu finden? Das können Sie tun, indem Sie einen Wert übergeben, der größer als der Index des vorherigen Vorkommens ist, als zweiten Parameter der Methode.
 
 ```js
 const firstOccurrence = tagline.indexOf("developers");
@@ -135,14 +135,14 @@ console.log(firstOccurrence); // 20
 console.log(secondOccurrence); // 35
 ```
 
-Hier sagen wir der Methode, dass sie den Substring `"developers"` ab Index `21` (`erstes Vorkommen + 1`) durchsuchen soll, und sie gibt den Index `35` zurück.
+Hier sagen wir der Methode, sie soll nach der Teilzeichenkette `"developers"` ab Index `21` (`firstOccurrence + 1`) suchen, und sie gibt den Index `35` zurück.
 
-## Einen Substring aus einem String extrahieren
+## Eine Teilzeichenkette aus einem String extrahieren
 
-Sie können einen Substring aus einem String mithilfe der {{jsxref("String.prototype.slice()", "slice()")}}-Methode extrahieren. Sie übergeben:
+Sie können eine Teilzeichenkette aus einem String mit der Methode {{jsxref("String.prototype.slice()", "slice()")}} extrahieren. Sie übergeben:
 
-- den Index, bei dem das Extrahieren beginnen soll
-- den Index, bei dem das Extrahieren enden soll. Dieser ist exklusiv, was bedeutet, dass das Zeichen an diesem Index nicht im extrahierten Substring enthalten ist.
+- den Index, ab dem extrahiert werden soll
+- den Index, an dem das Extrahieren gestoppt werden soll. Dies ist exklusiv, was bedeutet, dass das Zeichen an diesem Index nicht in die extrahierte Teilzeichenkette aufgenommen wird.
 
 Zum Beispiel:
 
@@ -151,21 +151,22 @@ const browserType = "mozilla";
 console.log(browserType.slice(1, 4)); // "ozi"
 ```
 
-Das Zeichen an Index `1` ist `"o"`, und das Zeichen an Index 4 ist `"l"`. Also extrahieren wir alle Zeichen, die bei `"o"` beginnen und direkt vor `"l"` enden, was uns `"ozi"` ergibt.
+Das Zeichen an Index `1` ist `"o"`, und das Zeichen an Index 4 ist `"l"`. Also extrahieren wir alle Zeichen beginnend mit `"o"` und endend direkt vor `"l"`, was uns `"ozi"` gibt.
 
-Wenn Sie wissen, dass Sie alle verbleibenden Zeichen in einer Zeichenkette nach einem bestimmten Zeichen extrahieren möchten, müssen Sie den zweiten Parameter nicht angeben. Stattdessen müssen Sie nur die Zeichenposition angeben, von der aus Sie die verbleibenden Zeichen in einer Zeichenkette extrahieren möchten. Versuchen Sie das Folgende:
+Wenn Sie wissen, dass Sie alle verbleibenden Zeichen in einem String nach einem bestimmten Zeichen extrahieren möchten, müssen Sie den zweiten Parameter nicht angeben. Stattdessen müssen Sie nur die Zeichenposition angeben, ab der Sie die verbleibenden Zeichen in einem String extrahieren möchten. Versuchen Sie Folgendes:
 
 ```js
 browserType.slice(2); // "zilla"
 ```
 
-Dies gibt `"zilla"` zurück — dies liegt daran, dass sich die Zeichenposition von 2 auf den Buchstaben `"z"` bezieht, und da Sie keinen zweiten Parameter angegeben haben, war der zurückgegebene Substring alle verbleibenden Zeichen in der Zeichenkette.
+Dies gibt `"zilla"` zurück — das liegt daran, dass die Zeichenposition von 2 der Buchstabe `"z"` ist, und da Sie keinen zweiten Parameter angegeben haben, war die zurückgegebene Teilzeichenkette alle verbleibenden Zeichen im String.
 
-> [!NOTE] > `slice()` hat auch andere Optionen; studieren Sie die {{jsxref("String.prototype.slice()", "slice()")}}-Seite, um zu sehen, was Sie noch herausfinden können.
+> [!NOTE]
+> `slice()` hat auch andere Optionen; studieren Sie die {{jsxref("String.prototype.slice()", "slice()")}}-Seite, um zu sehen, was Sie noch herausfinden können.
 
-## Ändern der Groß-/Kleinschreibung
+## Groß- und Kleinschreibung ändern
 
-Die String-Methoden {{jsxref("String.prototype.toLowerCase()", "toLowerCase()")}} und {{jsxref("String.prototype.toUpperCase()", "toUpperCase()")}} nehmen eine Zeichenkette und konvertieren alle Zeichen in Klein- bzw. Großbuchstaben. Dies kann nützlich sein, wenn Sie beispielsweise alle vom Benutzer eingegebenen Daten normalisieren möchten, bevor Sie sie in einer Datenbank speichern.
+Die String-Methoden {{jsxref("String.prototype.toLowerCase()", "toLowerCase()")}} und {{jsxref("String.prototype.toUpperCase()", "toUpperCase()")}} nehmen einen String und konvertieren alle Zeichen in Klein- bzw. Großbuchstaben. Dies kann nützlich sein, wenn Sie beispielsweise alle vom Benutzer eingegebenen Daten normalisieren möchten, bevor sie in einer Datenbank gespeichert werden.
 
 Lassen Sie uns die folgenden Zeilen eingeben, um zu sehen, was passiert:
 
@@ -175,11 +176,11 @@ console.log(radData.toLowerCase());
 console.log(radData.toUpperCase());
 ```
 
-## Aktualisieren von Teilen eines Strings
+## Teile eines Strings aktualisieren
 
-Sie können einen Substring in einem String durch einen anderen Substring mit der {{jsxref("String.prototype.replace()", "replace()")}}-Methode ersetzen.
+Sie können eine Teilzeichenkette innerhalb eines Strings durch eine andere Teilzeichenkette mit der Methode {{jsxref("String.prototype.replace()", "replace()")}} ersetzen.
 
-In diesem Beispiel geben wir zwei Parameter an — den String, den wir ersetzen möchten, und den String, durch den wir ihn ersetzen möchten:
+In diesem Beispiel übergeben wir zwei Parameter — den String, den wir ersetzen möchten, und den String, durch den wir ihn ersetzen möchten:
 
 ```js
 const browserType = "mozilla";
@@ -189,7 +190,7 @@ console.log(updated); // "vanilla"
 console.log(browserType); // "mozilla"
 ```
 
-Beachten Sie, dass `replace()`, wie viele String-Methoden, nicht den String ändert, auf den es aufgerufen wurde, sondern einen neuen String zurückgibt. Wenn Sie die ursprüngliche Variable `browserType` aktualisieren möchten, müssten Sie so etwas tun:
+Beachten Sie, dass `replace()`, wie viele String-Methoden, den String, auf den es angewendet wurde, nicht ändert, sondern einen neuen String zurückgibt. Wenn Sie die ursprüngliche Variable `browserType` aktualisieren möchten, müssten Sie etwas wie dies tun:
 
 ```js
 let browserType = "mozilla";
@@ -198,9 +199,9 @@ browserType = browserType.replace("moz", "van");
 console.log(browserType); // "vanilla"
 ```
 
-Beachten Sie auch, dass wir nun `browserType` mit `let` und nicht mit `const` deklarieren müssen, da wir es neu zuweisen.
+Achten Sie auch darauf, dass wir jetzt `browserType` mit `let` und nicht mit `const` deklarieren müssen, weil wir es neu zuweisen.
 
-Seien Sie sich bewusst, dass `replace()` in dieser Form nur das erste Vorkommen des Substrings ändert. Wenn Sie alle Vorkommen ändern möchten, können Sie {{jsxref("String.prototype.replaceAll()", "replaceAll()")}} verwenden:
+Seien Sie sich bewusst, dass `replace()` in dieser Form nur das erste Vorkommen der Teilzeichenkette ändert. Wenn Sie alle Vorkommen ändern möchten, können Sie {{jsxref("String.prototype.replaceAll()", "replaceAll()")}} verwenden:
 
 ```js
 let quote = "To be or not to be";
@@ -211,17 +212,17 @@ console.log(quote); // "To code or not to code"
 
 ## Lernherausforderungen
 
-In diesem Abschnitt lassen wir Sie einige Übungen zur String-Manipulation ausprobieren. In jedem der unten stehenden Übungen haben wir ein Array von Strings und eine Schleife, die jeden Wert im Array verarbeitet und ihn in einer Aufzählungsliste anzeigt. Sie müssen Arrays oder Schleifen jetzt nicht verstehen — diese werden in zukünftigen Artikeln erklärt. Alles, was Sie in jedem Fall tun müssen, ist, den Code zu schreiben, der die Strings in dem gewünschten Format ausgibt.
+In diesem Abschnitt werden wir Sie einige Codezeilen zur String-Manipulation schreiben lassen. In jeder der folgenden Übungen haben wir ein Array von Strings und eine Schleife, die jeden Wert im Array verarbeitet und ihn in einer Aufzählung auflistet. Sie müssen zu diesem Zeitpunkt noch nichts über Arrays oder Schleifen verstehen — diese werden in zukünftigen Artikeln erklärt. Alles, was Sie tun müssen, ist in jedem Fall den Code zu schreiben, der die Strings in dem Format ausgibt, das wir wünschen.
 
-Öffnen Sie jedes Beispiel im MDN Playground mit dem **"Play"**-Button oben im Live-Beispiel und befolgen Sie die Anweisungen, um das Problem zu lösen. Wenn Sie stecken bleiben, können Sie die Lösungen unter dem Live-Beispiel in jedem Fall anzeigen.
+Öffnen Sie jedes Beispiel im MDN Playground mit der **"Play"**-Schaltfläche oben im Live-Beispiel und befolgen Sie dann die Anweisungen, um das Problem zu lösen. Wenn Sie nicht weiterkommen, können Sie die Lösungen unter dem Live-Beispiel in jedem Fall ansehen.
 
-Sie können den „Zurücksetzen“-Button im MDN Playground verwenden, um den Code zurückzusetzen, falls Sie einen Fehler machen und ihn nicht mehr zum Laufen bringen können.
+Sie können die "Reset"-Schaltfläche im MDN Playground verwenden, um den Code zurückzusetzen, falls Sie einen Fehler machen und ihn nicht mehr zum Laufen bringen können.
 
-### Filterung von Grußnachrichten
+### Grußnachrichten filtern
 
-Im ersten Übungsteil beginnen wir einfach — wir haben ein Array von Grußkartenbotschaften, aber wir möchten sie sortieren, um nur die Weihnachtsnachrichten aufzulisten. Wir möchten, dass Sie einen Bedingungstest innerhalb der `if ()`-Struktur ausfüllen, um jede Zeichenkette zu testen und sie nur in der Liste auszugeben, wenn sie eine Weihnachtsnachricht ist.
+In der ersten Übung beginnen wir einfach — wir haben ein Array mit Grußkarten-Nachrichten, aber wir möchten sie so sortieren, dass nur die Weihnachtsnachrichten aufgelistet werden. Füllen Sie dazu einen Konditionstest innerhalb der `if ()`-Struktur aus, um jeden String zu testen und ihn nur dann in die Liste aufzunehmen, wenn es sich um eine Weihnachtsnachricht handelt.
 
-Überlegen Sie, wie Sie testen könnten, ob die Nachricht in jedem Fall eine Weihnachtsnachricht ist. Welche Zeichenkette ist in all diesen Nachrichten vorhanden, und welche Methode könnten Sie verwenden, um zu testen, ob sie vorhanden ist?
+Denken Sie darüber nach, wie Sie testen könnten, ob die Nachricht in jedem Fall eine Weihnachtsnachricht ist. Welcher String ist in all diesen Nachrichten enthalten, und welche Methode könnten Sie verwenden, um zu testen, ob er vorhanden ist?
 
 ```html hidden live-sample___string-methods-1
 <ul></ul>
@@ -253,7 +254,7 @@ for (const greeting of greetings) {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiggestellter JavaScript-Code sollte wie folgt aussehen:
+Ihr fertiger JavaScript-Code sollte so aussehen:
 
 ```js
 const list = document.querySelector("ul");
@@ -276,14 +277,14 @@ for (const greeting of greetings) {
 
 </details>
 
-### Korrektur der Großschreibung
+### Groß- und Kleinschreibung korrigieren
 
-Diese Übung enthält die Namen von Städten im Vereinigten Königreich, aber die Groß-/Kleinschreibung ist völlig durcheinander. Wir möchten, dass Sie sie so ändern, dass sie alle klein geschrieben sind, außer dem ersten Buchstaben, der groß geschrieben sein soll. Eine gute Möglichkeit, dies zu tun, besteht darin:
+Diese Übung enthält die Namen von Städten im Vereinigten Königreich, aber die Groß- und Kleinschreibung ist völlig durcheinander. Wir möchten, dass Sie sie so ändern, dass sie alle klein geschrieben sind, mit Ausnahme eines großen ersten Buchstabens. Eine gute Möglichkeit, dies zu tun, ist:
 
-1. Konvertieren Sie die gesamte Zeichenkette, die in der Variablen `city` enthalten ist, in Kleinbuchstaben und speichern Sie sie in einer neuen Variablen.
-2. Holen Sie sich den ersten Buchstaben der Zeichenkette in dieser neuen Variablen und speichern Sie ihn in einer anderen Variablen.
-3. Verwenden Sie diese letzte Variable als Substring, um den ersten Buchstaben der Kleinbuchstabenzeichenfolge durch den ersten Buchstaben der Kleinbuchstabenzeichenfolge zu ersetzen, der in Großbuchstaben geändert wurde. Speichern Sie das Ergebnis dieses Ersetzungsverfahrens in einer weiteren neuen Variablen.
-4. Ändern Sie den Wert der Variablen `result` so, dass er dem Endergebnis entspricht, nicht dem `city`.
+1. Konvertieren Sie den gesamten String, der in der Variablen `city` enthalten ist, in Kleinbuchstaben und speichern Sie ihn in einer neuen Variablen.
+2. Greifen Sie auf den ersten Buchstaben des Strings in dieser neuen Variablen zu und speichern Sie ihn in einer weiteren Variablen.
+3. Verwenden Sie diese letzte Variable als Teilzeichenkette, um den ersten Buchstaben des Kleinbuchstaben-Strings durch den ersten Buchstaben des Kleinbuchstaben-Strings, geändert in Großbuchstaben, zu ersetzen. Speichern Sie das Ergebnis dieses Ersetzungsprozesses in einer weiteren neuen Variablen.
+4. Ändern Sie den Wert der Variablen `result`, damit sie dem Endergebnis entspricht, nicht der `city`.
 
 > [!NOTE]
 > Ein Hinweis — die Parameter der String-Methoden müssen keine String-Literale sein; sie können auch Variablen oder sogar Variablen mit einer Methode, die darauf aufgerufen wird, sein.
@@ -311,7 +312,7 @@ for (const city of cities) {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiger JavaScript-Code sollte wie folgt aussehen:
+Ihr fertiger JavaScript-Code sollte so aussehen:
 
 ```js
 const list = document.querySelector("ul");
@@ -330,27 +331,27 @@ for (const city of cities) {
 
 </details>
 
-### Neue Zeichenketten aus alten Teilen erstellen
+### Neue Strings aus alten Teilen erstellen
 
-In dieser letzten Übung enthält das Array Zeichenfolgen mit Informationen über Zugstationen im Norden Englands. Die Zeichenfolgen sind Datenelemente, die den dreistelligen Stationscode enthalten, gefolgt von einigen maschinenlesbaren Daten, gefolgt von einem Semikolon und dann dem menschenlesbaren Stationsnamen. Zum Beispiel:
+In dieser letzten Übung enthält das Array Strings mit Informationen über Bahnhöfe im Norden Englands. Die Strings sind Datenposten, die den dreibuchstabigen Bahnhofscode, gefolgt von einigen maschinenlesbaren Daten, gefolgt von einem Semikolon, gefolgt vom menschenlesbaren Stationsnamen enthalten. Zum Beispiel:
 
 ```plain
 MAN675847583748sjt567654;Manchester Piccadilly
 ```
 
-Wir möchten den Stationscode und den Namen extrahieren und sie zusammen in einer Zeichenkette mit der folgenden Struktur zusammenfügen:
+Wir möchten den Bahnhofscode und den Namen extrahieren und sie in einem String mit der folgenden Struktur zusammenfügen:
 
 ```plain
 MAN: Manchester Piccadilly
 ```
 
-Wir empfehlen, es so zu machen:
+Wir empfehlen Ihnen, es so zu tun:
 
-1. Extrahieren Sie den dreistelligen Stationscode und speichern Sie ihn in einer neuen Variablen.
-2. Finden Sie die Zeichenindexnummer des Semikolons.
-3. Extrahieren Sie den menschenlesbaren Stationsnamen unter Verwendung der Zeichenindexnummer des Semikolons als Referenzpunkt und speichern Sie ihn in einer neuen Variablen.
-4. Verbinden Sie die beiden neuen Variablen und einen Zeichenfolgenliteralen, um die endgültige Zeichenkette zu erstellen.
-5. Ändern Sie den Wert der Variable `result` so, dass sie der endgültigen Zeichenkette entspricht, nicht der `station`.
+1. Extrahieren Sie den dreibuchstabigen Bahnhofscode und speichern Sie ihn in einer neuen Variablen.
+2. Finden Sie die Zeichenindexnummer des Semikolons heraus.
+3. Extrahieren Sie den menschenlesbaren Stationsnamen anhand der Semikolon-Zeichenindexnummer als Referenzpunkt und speichern Sie ihn in einer neuen Variablen.
+4. Verkettung der beiden neuen Variablen und eines String-Literals, um den finalen String zu erzeugen.
+5. Ändern Sie den Wert der Variablen `result` auf den finalen String, nicht den `station`.
 
 ```html hidden live-sample___string-methods-3
 <ul></ul>
@@ -381,7 +382,7 @@ for (const station of stations) {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiger JavaScript-Code sollte wie folgt aussehen:
+Ihr fertiger JavaScript-Code sollte so aussehen:
 
 ```js
 const list = document.querySelector("ul");
@@ -406,12 +407,10 @@ for (const station of stations) {
 
 </details>
 
-## Testen Sie Ihre Fähigkeiten!
+## Zusammenfassung
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Strings](/de/docs/Learn_web_development/Core/Scripting/Test_your_skills/Strings).
+Sie können nicht leugnen, dass es sehr wichtig ist, in der Lage zu sein, Worte und Sätze in der Programmierung zu handhaben — insbesondere in JavaScript, da Websites sich darum drehen, mit Menschen zu kommunizieren. Dieser Artikel hat Ihnen die Grundlagen vermittelt, die Sie zum aktuellen Zeitpunkt über das Manipulieren von Strings wissen müssen. Dies sollte Ihnen gute Dienste leisten, während Sie in komplexere Themen eintauchen.
 
-## Schlussfolgerung
+Im nächsten Artikel werden wir Ihnen einige Tests geben, die Sie verwenden können, um zu überprüfen, wie gut Sie die Informationen, die wir Ihnen über Strings und String-Methoden bereitgestellt haben, verstanden und behalten haben.
 
-Sie können der Tatsache nicht entkommen, dass es sehr wichtig ist, in der Programmierung mit Worten und Sätzen umzugehen — insbesondere in JavaScript, da es bei Websites darum geht, mit Menschen zu kommunizieren. Dieser Artikel hat Ihnen die Grundlagen vermittelt, die Sie über die Manipulation von Strings momentan wissen müssen. Dies sollte Ihnen gut dienen, wenn Sie in Zukunft komplexere Themen angehen. Als nächstes werden wir uns den letzten großen Datentyp ansehen, auf den wir uns kurzfristig konzentrieren müssen — Arrays.
-
-{{PreviousMenuNext("Learn_web_development/Core/Scripting/Strings", "Learn_web_development/Core/Scripting/Arrays", "Learn_web_development/Core/Scripting")}}
+{{PreviousMenuNext("Learn_web_development/Core/Scripting/Strings", "Learn_web_development/Core/Scripting/Test_your_skills/Strings", "Learn_web_development/Core/Scripting")}}

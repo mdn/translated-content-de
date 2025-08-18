@@ -3,22 +3,22 @@ title: "RTCInboundRtpStreamStats: freezeCount-Eigenschaft"
 short-title: freezeCount
 slug: Web/API/RTCInboundRtpStreamStats/freezeCount
 l10n:
-  sourceCommit: 9dd28ca3964213e0564c80db0a7c39d8ad73ed72
+  sourceCommit: 5f8f306587fbe25beac0d0e9c9fbda366e372f14
 ---
 
-{{APIRef("WebRTC")}}
+{{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`freezeCount`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats) Wörterbuchs gibt die Gesamtanzahl der Video-Freezes an, die von diesem Empfänger erlebt wurden.
+Die **`freezeCount`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Dictionaries gibt die Gesamtzahl der von diesem Empfänger erlebten Video-Freezes an.
 
-Ein Freeze wird gezählt, wenn das Intervall zwischen zwei gerenderten Frames gleich oder größer ist als das größere von "dreimal die durchschnittliche Dauer" oder "der Durchschnitt + 150ms".
-Dies stellt sicher, dass die Verzögerung, die erforderlich ist, um die Freeze-Zahl zu erhöhen, sich angemessen mit der Bildrate skaliert.
+Ein Freeze wird gezählt, wenn das Intervall zwischen zwei gerenderten Frames gleich oder größer ist als das Größere von "drei Mal die durchschnittliche Dauer" oder "der Durchschnitt + 150 ms".
+Dies stellt sicher, dass sich die Verzögerung, die erforderlich ist, um die Freeze-Anzahl zu erhöhen, angemessen mit der Bildrate skaliert.
 
 > [!NOTE]
-> Der Wert ist für Audiostreams nicht definiert.
+> Der Wert ist für Audiostreams undefiniert.
 
 ## Wert
 
-Eine positive Ganzzahl.
+Eine positive ganze Zahl.
 
 ## Spezifikationen
 

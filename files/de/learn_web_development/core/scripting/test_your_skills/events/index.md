@@ -1,27 +1,29 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Events"
-short-title: Events
+title: "Testen Sie Ihre Fähigkeiten: Ereignisse"
+short-title: "Test: Ereignisse"
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Events
 l10n:
-  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
+  sourceCommit: 9d3d642daf9df9ece138fa39972edc5f7d6dcd6b
 ---
 
-Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren Artikel [Einführung in Events](/de/docs/Learn_web_development/Core/Scripting/Events) verstanden haben.
+{{PreviousMenuNext("Learn_web_development/Core/Scripting/Event_bubbling","Learn_web_development/Core/Scripting/Image_gallery", "Learn_web_development/Core/Scripting")}}
+
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren [Einführung in Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events) Artikel verstanden haben.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Nutzungsleitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unser [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Verwendungshandbuch. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## DOM-Manipulation: als nützlich erachtet
 
-Einige der unten stehenden Fragen erfordern, dass Sie ein wenig {{Glossary("DOM", "DOM")}}-Manipulationscode schreiben, um sie zu beantworten – zum Beispiel das Erstellen neuer HTML-Elemente, das Setzen ihrer Textinhalte auf bestimmte Zeichenfolgen und das Verschachteln dieser innerhalb bestehender Elemente auf der Seite – alles über JavaScript.
+Einige der folgenden Fragen erfordern, dass Sie etwas {{Glossary("DOM", "DOM")}} Manipulationscode schreiben, um sie zu vervollständigen — wie das Erstellen neuer HTML-Elemente, das Setzen ihrer Textinhalte auf bestimmte Zeichenfolgenwerte und das Einfügen in vorhandene Elemente auf der Seite — alles über JavaScript.
 
-Wir haben dies im Kurs noch nicht explizit gelehrt, aber Sie haben einige Beispiele gesehen, die davon Gebrauch machen, und wir möchten, dass Sie ein wenig recherchieren, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser [Einführung in DOM-Scripting](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting) Tutorial.
+Wir haben dies noch nicht explizit in dem Kurs unterrichtet, aber Sie werden einige Beispiele gesehen haben, die davon Gebrauch machen, und wir möchten, dass Sie etwas Forschung darüber betreiben, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser [DOM-Scripting-Einführung](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting) Tutorial.
 
-## Events 1
+## Ereignisse 1
 
-Unsere erste auf Events bezogene Aufgabe beinhaltet einen {{htmlelement("button")}}, der, wenn er angeklickt wird, sein Textlabel aktualisiert. Das HTML sollte nicht geändert werden; nur das JavaScript.
+Unsere erste auf Ereignissen basierende Aufgabe beinhaltet einen {{htmlelement("button")}}, der, wenn er angeklickt wird, sein Textlabel aktualisiert. Das HTML sollte nicht geändert werden; nur das JavaScript.
 
-Um die Aufgabe abzuschließen, erstellen Sie einen Event-Listener, der verursacht, dass der Text innerhalb des Buttons (`btn`) sich ändert, wenn er angeklickt wird, und wieder zurückwechselt, wenn er nochmals angeklickt wird.
+Um die Aufgabe zu vervollständigen, erstellen Sie einen Ereignis-Listener, der bewirkt, dass sich der Text innerhalb des Buttons (`btn`) ändert, wenn darauf geklickt wird, und erneut ändert, wenn erneut darauf geklickt wird.
 
 ```css hidden live-sample___events-1
 p {
@@ -56,7 +58,7 @@ const btn = document.querySelector("button");
 {{ EmbedLiveSample("events-1", "100%", 80) }}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung zu zeigen</summary>
 
 Ihr fertiges JavaScript sollte in etwa so aussehen:
 
@@ -76,18 +78,18 @@ btn.addEventListener("click", () => {
 
 </details>
 
-## Events 2
+## Ereignisse 2
 
-Nun betrachten wir Tastatur-Events.
+Nun wollen wir uns Tastaturereignisse ansehen.
 
-Um diese Aufgabe zu erfüllen, erstellen Sie einen Event-Listener, der den Kreis auf der bereitgestellten Leinwand bewegt, wenn die WASD-Tasten auf der Tastatur gedrückt werden. Der Kreis wird mit der Funktion `drawCircle()` gezeichnet, die folgende Parameter als Eingaben nimmt:
+Um diese Aufgabe zu vervollständigen, erstellen Sie einen Ereignis-Listener, der den Kreis auf der bereitgestellten Leinwand bewegt, wenn die WASD-Tasten auf der Tastatur gedrückt werden. Der Kreis wird mit der Funktion `drawCircle()` gezeichnet, die die folgenden Parameter als Eingaben nimmt:
 
 - `x` — die x-Koordinate des Kreises.
 - `y` — die y-Koordinate des Kreises.
 - `size` — der Radius des Kreises.
 
 > [!WARNING]
-> Beim Testen Ihres Codes müssen Sie sich zuerst auf die Leinwand fokussieren, bevor Sie Ihre Tastaturbefehle testen (beispielsweise durch Klicken darauf oder Heraustaben zur Leinwand mit der Tastatur). Andernfalls funktionieren sie nicht.
+> Beim Testen Ihres Codes müssen Sie sich auf die Leinwand fokussieren, bevor Sie Ihre Tastaturbefehle ausprobieren (zum Beispiel darauf klicken oder mit der Tastatur dorthin wechseln). Andernfalls funktionieren sie nicht.
 
 ```html hidden live-sample___events-2
 <canvas width="480" height="320" tabindex="0"> </canvas>
@@ -130,7 +132,7 @@ drawCircle(x, y, size);
 {{ EmbedLiveSample("events-2", "100%", 350) }}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung zu zeigen</summary>
 
 Ihr fertiges JavaScript sollte in etwa so aussehen:
 
@@ -160,11 +162,11 @@ window.addEventListener("keydown", (e) => {
 
 </details>
 
-## Events 3
+## Ereignisse 3
 
-Die nächste auf Events bezogene Aufgabe testet Ihr Wissen über Event-Bubbling. Wir möchten, dass Sie einen Event-Listener auf dem Eltern-Element der `<button>`s (`<div class="button-bar"> … </div>`) setzen, der, wenn durch Klicken auf einen der Buttons ausgelöst, den Hintergrund der `button-bar` auf die Farbe setzt, die im `data-color` Attribut des Buttons enthalten ist.
+In der nächsten auf Ereignissen basierenden Aufgabe wird Ihr Wissen über das Ereignis-Bubbling getestet. Wir möchten, dass Sie einen Ereignis-Listener auf dem Eltern-Element der `<button>`s (`<div class="button-bar"> … </div>`) setzen, der, wenn er durch Klicken auf einen der Buttons aufgerufen wird, den Hintergrund der `button-bar` auf die Farbe setzt, die im `data-color` Attribut des Buttons enthalten ist.
 
-Wir möchten, dass Sie dies lösen, ohne durch alle Buttons zu schleifen und jedem seinen eigenen Event-Listener zu geben.
+Wir möchten, dass Sie dies lösen, ohne alle Buttons zu durchlaufen und jedem seine eigenen Ereignis-Listener zu geben.
 
 ```html hidden live-sample___events-3
 <div class="button-bar">
@@ -206,7 +208,7 @@ const buttonBar = document.querySelector(".button-bar");
 {{ EmbedLiveSample("events-3", "100%", 80) }}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung zu zeigen</summary>
 
 Ihr fertiges JavaScript sollte in etwa so aussehen:
 
@@ -221,3 +223,5 @@ buttonBar.addEventListener("click", setColor);
 ```
 
 </details>
+
+{{PreviousMenuNext("Learn_web_development/Core/Scripting/Event_bubbling","Learn_web_development/Core/Scripting/Image_gallery", "Learn_web_development/Core/Scripting")}}

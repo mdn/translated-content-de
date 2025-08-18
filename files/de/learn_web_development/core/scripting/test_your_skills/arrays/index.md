@@ -1,33 +1,35 @@
 ---
 title: "Testen Sie Ihre Fähigkeiten: Arrays"
-short-title: Arrays
+short-title: "Test: Arrays"
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Arrays
 l10n:
-  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
+  sourceCommit: 9d3d642daf9df9ece138fa39972edc5f7d6dcd6b
 ---
 
-Ziel dieses Tests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren [Arrays](/de/docs/Learn_web_development/Core/Scripting/Arrays)-Artikel verstanden haben.
+{{PreviousMenuNext("Learn_web_development/Core/Scripting/Arrays", "Learn_web_development/Core/Scripting/Silly_story_generator", "Learn_web_development/Core/Scripting")}}
+
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren Artikel zu [Arrays](/de/docs/Learn_web_development/Core/Scripting/Arrays) verstanden haben.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Nutzungshinweis. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung von Fähigkeiten-Tests](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Interaktive Herausforderung
 
-Zuerst bieten wir Ihnen eine unterhaltsame, interaktive Arrays-Herausforderung, erstellt von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home).
+Zuerst präsentieren wir Ihnen eine unterhaltsame, interaktive Herausforderung zu Arrays, erstellt von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home).
 
-Sehen Sie sich das eingebettete Scrim an und vervollständigen Sie die Aufgabe auf dem Zeitstrahl (das kleine Geister-Symbol), indem Sie den Anweisungen folgen und den Code bearbeiten. Sobald Sie fertig sind, können Sie das Scrim weiter ansehen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
+Schauen Sie sich das eingebettete "Scrim" an und führen Sie die Aufgabe in der Zeitleiste (das kleine Geistersymbol) aus, indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie das "Scrim" weiter ansehen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
 
 <scrim-inline url="https://scrimba.com/learn-javascript-c0v/~05e" scrimtitle="Render images from an array" survey="true"></scrim-inline>
 
 > [!NOTE]
-> Diese Aufgabe ist ein etwas anspruchsvolles Ziel, da sie sich auf JavaScript-Funktionen stützt, die im Kurs noch nicht explizit behandelt wurden. Geben Sie Ihr Bestes und suchen Sie online nach Informationen zu allem, bei dem Sie sich nicht sicher sind.
+> Diese Aufgabe ist in gewisser Weise ein ehrgeiziges Ziel, da sie JavaScript-Funktionen erfordert, die Sie im Kurs noch nicht ausdrücklich behandelt haben. Geben Sie Ihr Bestes und suchen Sie online nach Informationen zu allem, worüber Sie nicht sicher sind.
 
 ## Aufgabe 1
 
-Diese Aufgabe bietet Ihnen einige grundlegende Array-Übungen:
+Diese Aufgabe bietet Ihnen grundlegende Übungen mit Arrays:
 
-1. Erstellen Sie ein Array mit drei Elementen und speichern Sie es in einer Variablen namens `myArray`. Die Elemente können beliebig sein - wie wäre es mit Ihren Lieblingsspeisen oder Bands?
-2. Ändern Sie anschließend die ersten beiden Elemente im Array mit Hilfe der Klammernotation und der Zuweisung.
+1. Erstellen Sie ein Array mit drei Elementen und speichern Sie es in einer Variablen namens `myArray`. Die Elemente können beliebig sein - wie wäre es mit Ihren Lieblingsessen oder -bands?
+2. Ändern Sie als Nächstes die ersten beiden Elemente im Array mithilfe der Klammernotation und Zuweisung.
 3. Fügen Sie schließlich ein neues Element am Anfang des Arrays hinzu.
 
 <!-- Code shared across examples -->
@@ -83,11 +85,11 @@ myArray.unshift("crocodiles");
 
 ## Aufgabe 2
 
-Kommen wir nun zu einer weiteren Aufgabe. Hier erhalten Sie einen String, mit dem Sie arbeiten sollen.
+Kommen wir nun zu einer anderen Aufgabe. Hier erhalten Sie einen String, mit dem Sie arbeiten müssen.
 
-Um die Aufgabe abzuschließen:
+Um die Aufgabe zu vervollständigen:
 
-1. Wandeln Sie den String in ein Array um, indem Sie die `+` Zeichen entfernen. Speichern Sie das Ergebnis in einer Variablen namens `myArray`.
+1. Konvertieren Sie den String in ein Array, indem Sie die `+` Zeichen dabei entfernen. Speichern Sie das Ergebnis in einer Variablen namens `myArray`.
 2. Speichern Sie die Länge des Arrays in einer Variablen namens `arrayLength`.
 3. Speichern Sie das letzte Element im Array in einer Variablen namens `lastItem`.
 
@@ -136,10 +138,10 @@ let lastItem = myArray[arrayLength - 1];
 
 Für diese Array-Aufgabe stellen wir Ihnen ein Start-Array zur Verfügung, und Sie arbeiten in gewisser Weise in die entgegengesetzte Richtung. Sie müssen:
 
-1. Entfernen Sie das letzte Element im Array.
-2. Fügen Sie zwei neue Namen am Ende des Arrays hinzu.
-3. Iterieren Sie über jedes Element im Array und fügen Sie die Indexnummer nach dem Namen in Klammern hinzu, zum Beispiel `Ryu (0)`. Beachten Sie, dass wir dies im Arrays-Artikel nicht lehren, daher müssen Sie einige Recherchen durchführen.
-4. Verbinden Sie schließlich die Array-Elemente zu einem einzelnen String namens `myString`, mit einem Trennzeichen von `"-"`.
+1. Das letzte Element im Array entfernen.
+2. Zwei neue Namen am Ende des Arrays hinzufügen.
+3. Über jedes Element im Array iterieren und seine Indexnummer in Klammern nach dem Namen hinzufügen, zum Beispiel `Ryu (0)`. Beachten Sie, dass wir im Arrays-Artikel nicht lehren, wie man dies macht, also müssen Sie etwas recherchieren.
+4. Schließlich die Array-Elemente in einem einzigen String mit dem Namen `myString` zusammenführen, mit einem Trennzeichen von `"-"`.
 
 ```js live-sample___arrays-3
 const myArray = [
@@ -202,12 +204,12 @@ const myString = myArray.join(" - ");
 
 ## Aufgabe 4
 
-Für diese Array-Aufgabe stellen wir Ihnen ein Start-Array zur Verfügung, das die Namen einiger Vögel auflistet.
+Für diese Array-Aufgabe stellen wir Ihnen ein Start-Array mit den Namen einiger Vögel zur Verfügung.
 
-Um die Aufgabe abzuschließen:
+Um die Aufgabe zu vervollständigen:
 
-1. Finden Sie den Index des Elements `"Eagles"` und verwenden Sie diesen, um das Element `"Eagles"` zu entfernen.
-2. Erstellen Sie ein neues Array aus diesem, genannt `eBirds`, das nur Vögel aus dem Original-Array enthält, deren Namen mit dem Buchstaben "E" beginnen. Beachten Sie, dass {{jsxref("String.prototype.startsWith()", "startsWith()")}} eine großartige Möglichkeit ist, zu überprüfen, ob ein String mit einem bestimmten Zeichen beginnt.
+1. Finden Sie den Index des Elements `"Eagles"` und verwenden Sie ihn, um das Element `"Eagles"` zu entfernen.
+2. Erstellen Sie aus diesem Array ein neues Array namens `eBirds`, das nur die Vögel aus dem Original-Array enthält, deren Namen mit dem Buchstaben „E“ beginnen. Beachten Sie, dass {{jsxref("String.prototype.startsWith()", "startsWith()")}} eine großartige Methode ist, um zu überprüfen, ob ein String mit einem bestimmten Zeichen beginnt.
 
 Wenn es funktioniert, sollten Sie `"Emus,Egrets"` auf der Seite sehen.
 
@@ -247,3 +249,5 @@ const eBirds = birds.filter(startsWithE);
 ```
 
 </details>
+
+{{PreviousMenuNext("Learn_web_development/Core/Scripting/Arrays", "Learn_web_development/Core/Scripting/Silly_story_generator", "Learn_web_development/Core/Scripting")}}

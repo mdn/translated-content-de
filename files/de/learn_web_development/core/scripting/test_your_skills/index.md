@@ -1,9 +1,9 @@
 ---
 title: "Testen Sie Ihre Fähigkeiten: JavaScript"
-short-title: Testen Sie Ihre Fähigkeiten
+short-title: "Test: JavaScript-Testindex"
 slug: Learn_web_development/Core/Scripting/Test_your_skills
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 9d3d642daf9df9ece138fa39972edc5f7d6dcd6b
 ---
 
 Diese Seite listet JavaScript-Tests auf, die Sie ausprobieren können, um zu überprüfen, ob Sie den Inhalt dieses Moduls verstanden haben.
@@ -14,4 +14,4 @@ Diese Seite listet JavaScript-Tests auf, die Sie ausprobieren können, um zu üb
 
 ## Siehe auch
 
-- [Dynamisches Skripting mit JavaScript](/de/docs/Learn_web_development/Core/Scripting)
+- [Dynamische Skripterstellung mit JavaScript](/de/docs/Learn_web_development/Core/Scripting)

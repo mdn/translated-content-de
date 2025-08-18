@@ -2,10 +2,10 @@
 title: "<label>: Das Label-Element"
 slug: Web/HTML/Reference/Elements/label
 l10n:
-  sourceCommit: aacd6e50f2e3d5c311d69649d9f2723577a464ec
+  sourceCommit: 7b8768d410a281446b0b95627c531d852e624353
 ---
 
-Das **`<label>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschriftung für ein Element in einer Benutzeroberfläche.
+Das **`<label>`** [HTML](/de/docs/Web/HTML) Element repräsentiert eine Beschriftung für ein Element in einer Benutzeroberfläche.
 
 {{InteractiveExample("HTML Demo: &lt;label&gt;", "tabbed-shorter")}}
 
@@ -32,34 +32,34 @@ Das **`<label>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Beschrif
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - [`for`](/de/docs/Web/HTML/Reference/Attributes/for)
-  - : Der Wert ist die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) des [beschriftbaren](/de/docs/Web/HTML/Guides/Content_categories#labelable) Formularfelds im selben Dokument, [die das `<label>` mit diesem Formularfeld verknüpft](#verknüpfung_eines_labels_mit_einem_formularfeld). Beachten Sie, dass die JavaScript-Reflexionseigenschaft [`htmlFor`](/de/docs/Web/API/HTMLLabelElement/htmlFor) ist.
+  - : Der Wert ist die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) des [labelbaren](/de/docs/Web/HTML/Guides/Content_categories#labelable) Formularsteuerungselements im selben Dokument, das [die `<label>` mit dieser Formularsteuerung verbindet](#verknüpfung_eines_labels_mit_einem_formularsteuerelement). Beachten Sie, dass die JavaScript-Reflexionseigenschaft [`htmlFor`](/de/docs/Web/API/HTMLLabelElement/htmlFor) ist.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-### Verknüpfung eines Labels mit einem Formularfeld
+### Verknüpfung eines Labels mit einem Formularsteuerelement
 
-Das erste Element im Dokument mit einem `id`-Attribut, das mit dem Wert des `for`-Attributs übereinstimmt, ist das _beschriftete Kontrollfeld_ für dieses `label`-Element — falls das Element mit dieser `id` tatsächlich ein [beschriftbares Element](/de/docs/Web/HTML/Guides/Content_categories#labelable) ist. Falls es _kein_ beschriftbares Element ist, hat das `for`-Attribut keine Wirkung. Falls es andere Elemente gibt, die ebenfalls dem `id`-Wert entsprechen, die später im Dokument vorhanden sind, werden sie nicht berücksichtigt.
+Das erste Element im Dokument mit einem `id`-Attribut, das mit dem Wert des `for`-Attributs übereinstimmt, ist das _beschriftete Steuerelement_ für dieses `label`-Element – wenn das Element mit dieser `id` tatsächlich ein [labelbares Element](/de/docs/Web/HTML/Guides/Content_categories#labelable) ist. Wenn es _kein_ labelbares Element ist, hat das `for`-Attribut keine Wirkung. Wenn es weitere Elemente gibt, die ebenfalls den `id`-Wert haben, werden diese später im Dokument nicht berücksichtigt.
 
-Mehrere `<label>`-Elemente können mit demselben Formularfeld verknüpft werden, indem mehrere `<label>`-Elemente mit demselben `for`-Attributwert verwendet werden, was dem Formularfeld mehrere Beschriftungen gibt.
+Mehrere `<label>`-Elemente können mit demselben Formularsteuerelement assoziiert werden, indem mehrere `<label>`-Elemente denselben `for`-Attributwert haben, was dem Formularsteuerelement mehrere Beschriftungen gibt.
 
-Die Verknüpfung eines `<label>` mit einem Formularfeld, wie z.B. {{htmlelement("input")}} oder {{htmlelement("textarea")}}, bietet einige wesentliche Vorteile:
+Die Verknüpfung eines `<label>` mit einem Formularsteuerelement, wie zum Beispiel {{htmlelement("input")}} oder {{htmlelement("textarea")}} bietet einige große Vorteile:
 
-- Der Beschriftungstext ist nicht nur visuell mit seinem entsprechenden Texteingabe verbunden; er ist auch programmatisch damit verknüpft. Das bedeutet zum Beispiel, dass ein Screenreader die Beschriftung vorliest, wenn der Benutzer auf das Formulareingabe fokussiert ist, was es einem Benutzer unterstützender Technologien erleichtert zu verstehen, welche Daten eingegeben werden sollen.
-- Wenn ein Benutzer auf eine Beschriftung klickt oder diese berührt/antippt, überträgt der Browser den Fokus auf die zugehörige Eingabe (das resultierende Ereignis wird auch für die Eingabe ausgelöst). Diese vergrößerte Trefferfläche zum Fokussieren der Eingabe bietet einen Vorteil für jeden, der versucht, diese zu aktivieren — einschließlich denen, die ein Touchscreen-Gerät verwenden.
+- Der Beschriftungstext ist nicht nur visuell mit seinem entsprechenden Texteingabe verbunden; es ist auch programmatisch damit verknüpft. Das bedeutet zum Beispiel, dass ein Screenreader die Beschriftung vorliest, wenn der Benutzer auf den Formulareingaben fokusiert ist, was es einem Benutzer mit unterstützender Technologie erleichtert, die einzugebenden Daten zu verstehen.
+- Wenn ein Benutzer auf eine Beschriftung klickt oder tippt, übergibt der Browser den Fokus auf die zugehörige Eingabe (das resultierende Ereignis wird auch für die Eingabe ausgelöst). Dieser erweiterte Berührungsbereich zum Fokussieren der Eingabe bietet jedem, der versucht sie zu aktivieren, einen Vorteil - einschließlich derjenigen, die ein Touchscreen-Gerät verwenden.
 
-Es gibt zwei Möglichkeiten, ein `<label>` mit einem Formularfeld zu verknüpfen, die üblicherweise als _explizite_ und _implizite_ Verknüpfung bezeichnet werden.
+Es gibt zwei Möglichkeiten, ein `<label>` mit einem Formularsteuerelement zu verknüpfen, allgemein auch als _explizite_ und _implizite_ Verknüpfung bezeichnet.
 
-Um ein `<label>`-Element explizit mit einem `<input>`-Element zu verknüpfen, müssen Sie zuerst das `id`-Attribut zum `<input>`-Element hinzufügen. Danach fügen Sie das `for`-Attribut zum `<label>`-Element hinzu, wobei der Wert von `for` derselbe ist wie die `id` im `<input>`-Element.
+Um ein `<label>`-Element explizit mit einem `<input>`-Element zu verknüpfen, müssen Sie zuerst das `id`-Attribut zum `<input>`-Element hinzufügen. Fügen Sie anschließend das `for`-Attribut zum `<label>`-Element hinzu, wobei der Wert von `for` derselbe wie die `id` im `<input>`-Element ist.
 
 ```html
 <label for="peas">I like peas.</label>
 <input type="checkbox" name="peas" id="peas" />
 ```
 
-Alternativ können Sie das `<input>` direkt innerhalb des `<label>` einfügen, in diesem Fall sind die `for`- und `id`-Attribute nicht erforderlich, da die Verknüpfung implizit erfolgt:
+Alternativ können Sie das `<input>` direkt innerhalb des `<label>` verschachteln, in diesem Fall sind die Attribute `for` und `id` nicht erforderlich, da die Verknüpfung implizit ist:
 
 ```html
 <label>
@@ -69,17 +69,17 @@ Alternativ können Sie das `<input>` direkt innerhalb des `<label>` einfügen, i
 ```
 
 > [!NOTE]
-> Ein `<label>`-Element kann sowohl ein `for`-Attribut als auch ein enthaltenes Kontrollelement haben, solange das `for`-Attribut auf das enthaltene Kontrollelement verweist.
+> Ein `<label>`-Element kann sowohl ein `for`-Attribut als auch ein enthaltenes Steuerelement haben, solange das `for`-Attribut auf das enthaltene Steuerelement verweist.
 
-Diese beiden Methoden sind gleichwertig, aber es gibt einige Überlegungen:
+Diese beiden Methoden sind gleichwertig, jedoch gibt es einige Überlegungen:
 
-- Während gängige Browser- und {{Glossary("screen_reader", "Screenreader")}}-Kombinationen implizite Verknüpfung unterstützen, tun dies nicht alle assistierenden Technologien.
-- Je nach Ihrem Design kann der Verknüpfungstyp die Stilbarkeit beeinflussen. Indem die `<label>`- und Formularsteuerelement-Geschwisterelemente anstelle von Eltern-Kind-Elementen sind, bedeutet dies, dass sie separate, benachbarte Boxen sind, die ein anpassbareres Layout ermöglichen, wie das Ausrichten mit Grid- oder Flexlayout-Methoden.
-- Die explizite Verknüpfung erfordert, dass das Formularfeld eine `id` hat, die im gesamten Dokument eindeutig sein muss. Dies ist besonders in einer komponentenbasierten Anwendung schwierig. Frameworks bieten oft ihre eigenen Lösungen an, wie Reacts [`useId()`](https://react.dev/reference/react/useId), aber es erfordert immer noch zusätzliche Koordination, um es richtig zu machen.
+- Während gängige Browser- und {{Glossary("screen_reader", "Screenreader")}}-Kombinationen die implizite Verknüpfung unterstützen, tun dies nicht alle unterstützenden Technologien.
+- Abhängig von Ihrem Design kann die Art der Verknüpfung die Stilbarkeit beeinflussen. Indem das `<label>` und das Formularsteuerelement als Geschwisterelemente und nicht als Eltern-Kind beibehalten werden, sind sie separate, benachbarte Boxen, die ein anpassungsfähigeres Layout ermöglichen, wie das Ausrichten mit Grid- oder Flex-Layout-Methoden.
+- Die explizite Verknüpfung erfordert, dass das Formularsteuerelement eine `id` hat, die im gesamten Dokument eindeutig sein muss. Dies ist vor allem in einer komponentisierten Anwendung schwierig. Frameworks bieten oft ihre eigenen Lösungen, wie React's [`useId()`](https://react.dev/reference/react/useId), es erfordert jedoch immer noch zusätzliche Orchestrierung, um es richtig zu machen.
 
-Im Allgemeinen empfehlen wir die Verwendung der expliziten Verknüpfung mit dem `for`-Attribut, um die Kompatibilität mit externen Werkzeugen und assistierenden Technologien sicherzustellen. Tatsächlich können Sie _und_ gleichzeitig `id`/`for` bereitstellen, um maximale Kompatibilität zu erreichen.
+Generell empfehlen wir, die explizite Verknüpfung mit dem `for`-Attribut zu verwenden, um die Kompatibilität mit externen Werkzeugen und unterstützenden Technologien sicherzustellen. Tatsächlich können Sie gleichzeitig verschachteln _und_ `id`/`for` für maximale Kompatibilität bereitstellen.
 
-Das Formularfeld, das ein Label beschriftet, wird das _beschriftete Kontrollfeld_ des Label-Elements genannt. Mehrere Labels können mit demselben Formularfeld verknüpft werden:
+Das Formularsteuerelement, für das ein Label eine Beschriftung ist, wird als _beschriftetes Steuerelement_ des Labelelements bezeichnet. Mehrere Beschriftungen können mit demselben Formularsteuerelement assoziiert werden:
 
 ```html
 <label for="username">Enter your username:</label>
@@ -93,7 +93,7 @@ Elemente, die mit einem `<label>`-Element verknüpft werden können, umfassen {{
 
 ### Interaktive Inhalte
 
-Außer dem [implizit verknüpften](#verknüpfung_eines_labels_mit_einem_formularfeld) Formularfeld sollten keine zusätzlichen interaktiven Elemente wie {{HTMLElement("a", "Anker")}} oder {{HTMLElement("button", "Schaltflächen")}} innerhalb eines `<label>` platziert werden. Andernfalls wird es für Menschen schwierig, das dem `label` zugeordnete Formulareingabefeld zu aktivieren.
+Abgesehen von der [implizit verknüpften](#verknüpfung_eines_labels_mit_einem_formularsteuerelement) Formularsteuerung sollten keine zusätzlichen interaktiven Elemente wie {{HTMLElement("a", "Anker")}} oder {{HTMLElement("button", "Schaltflächen")}} innerhalb eines `<label>` platziert werden. Dies erschwert es den Benutzern, das Formularfeld zu aktivieren, das mit dem `label` verknüpft ist.
 
 **Nicht so machen:**
 
@@ -104,7 +104,7 @@ Außer dem [implizit verknüpften](#verknüpfung_eines_labels_mit_einem_formular
 </label>
 ```
 
-**Bevorzugen Sie dies:**
+**So bevorzugen:**
 
 ```html example-good
 <p>
@@ -117,13 +117,13 @@ Außer dem [implizit verknüpften](#verknüpfung_eines_labels_mit_einem_formular
 ```
 
 > [!NOTE]
-> Es ist eine gute Praxis, alle erforderlichen Kontexte, wie den Link zu den Bedingungen und Konditionen, vor dem Formularelement zu platzieren, damit der Benutzer diese lesen kann, bevor er mit dem Kontrollfeld interagiert.
+> Es ist eine gute Praxis, jeglichen notwendigen Kontext, wie den Link zu den Geschäftsbedingungen, vor dem Formularsteuerelement zu platzieren, damit der Benutzer es lesen kann, bevor er mit dem Steuerelement interagiert.
 
 ### Überschriften
 
-Das Platzieren von [Überschriftselementen](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) innerhalb eines `<label>` beeinträchtigt viele Arten von assistiver Technologie, da Überschriften üblicherweise als [Navigationshilfe](/de/docs/Web/HTML/Reference/Elements/Heading_Elements#navigation) verwendet werden. Wenn der Text der Beschriftung visuell angepasst werden muss, sollten stattdessen CSS-Klassen auf das `<label>`-Element angewendet werden.
+Das Platzieren von [Überschriftselementen](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) innerhalb eines `<label>` beeinträchtigt viele Arten von unterstützender Technologie, da Überschriften oft als [Navigationselement](/de/docs/Web/HTML/Reference/Elements/Heading_Elements#navigation) verwendet werden. Wenn der Text des Labels visuell angepasst werden muss, verwenden Sie stattdessen CSS-Klassen, die auf das `<label>`-Element angewendet werden.
 
-Wenn ein [Formular](/de/docs/Web/HTML/Reference/Elements/form) oder ein Abschnitt eines Formulars einen Titel benötigt, verwenden Sie das {{HTMLElement("legend")}}-Element innerhalb eines {{HTMLElement("fieldset")}}.
+Wenn ein [Formular](/de/docs/Web/HTML/Reference/Elements/form) oder ein Abschnitt eines Formulars einen Titel benötigt, verwenden Sie das {{HTMLElement("legend")}}-Element, das innerhalb eines {{HTMLElement("fieldset")}} platziert wird.
 
 **Nicht so machen:**
 
@@ -134,7 +134,7 @@ Wenn ein [Formular](/de/docs/Web/HTML/Reference/Elements/form) oder ein Abschnit
 </label>
 ```
 
-**Bevorzugen Sie dies:**
+**So bevorzugen:**
 
 ```html example-good
 <label class="large-label" for="your-name">
@@ -145,11 +145,11 @@ Wenn ein [Formular](/de/docs/Web/HTML/Reference/Elements/form) oder ein Abschnit
 
 ### Schaltflächen
 
-Ein {{HTMLElement("input")}}-Element mit einer `type="button"`-Deklaration und einem gültigen `value`-Attribut benötigt keine damit verbundene Beschriftung. Andernfalls kann es tatsächlich die Art und Weise, wie assistive Technologie den Schaltflächeneingang analysiert, beeinträchtigen. Dasselbe gilt für das {{HTMLElement("button")}}-Element.
+Ein {{HTMLElement("input")}}-Element mit einer `type="button"`-Deklaration und einem gültigen `value`-Attribut benötigt kein zugehöriges Label. Dies könnte tatsächlich die Art und Weise beeinträchtigen, wie unterstützende Technologien die Schaltflächeneingabe analysieren. Dasselbe gilt für das {{HTMLElement("button")}}-Element.
 
 ## Beispiele
 
-### Definition eines impliziten Labels
+### Implizites Label definieren
 
 ```html
 <label>Click me <input type="text" /></label>
@@ -157,7 +157,7 @@ Ein {{HTMLElement("input")}}-Element mit einer `type="button"`-Deklaration und e
 
 {{EmbedLiveSample('Defining an implicit label', '200', '50')}}
 
-### Definition einer expliziten Beschriftung mit dem "for"-Attribut
+### Explizites Label mit dem "for"-Attribut definieren
 
 ```html
 <label for="username">Click me to focus on the input field</label>
@@ -178,7 +178,7 @@ Ein {{HTMLElement("input")}}-Element mit einer `type="button"`-Deklaration und e
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow-Inhalt</a
+          >Fließinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Phrasing-Inhalt</a
@@ -189,8 +189,8 @@ Ein {{HTMLElement("input")}}-Element mit einer `type="button"`-Deklaration und e
         >,
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#form-associated_content"
-          >mit Formular verknüpftes Element</a
-        >, fühlbarer Inhalt.
+          >form-assoziiertes Element</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
@@ -198,16 +198,16 @@ Ein {{HTMLElement("input")}}-Element mit einer `type="button"`-Deklaration und e
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
           >Phrasing-Inhalt</a
-        >, aber keine Nachkommen-<code>label</code>-Elemente. Keine
+        >, aber keine nachgeordneten <code>label</code>-Elemente. Keine
         <a href="/de/docs/Web/HTML/Guides/Content_categories#labelable"
-          >beschriftbaren</a
+          >labelbaren</a
         >
-        Elemente außer dem beschrifteten Kontrollfeld sind erlaubt.
+        Elemente außer dem beschrifteten Steuerelement sind erlaubt.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das öffnende als auch das schließende Tag sind obligatorisch.</td>
+      <td>Keine, sowohl Anfangs- als auch End-Tags sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>

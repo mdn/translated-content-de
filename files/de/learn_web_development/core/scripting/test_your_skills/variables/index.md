@@ -1,27 +1,29 @@
 ---
 title: "Testen Sie Ihre Fähigkeiten: Variablen"
-short-title: Variables
+short-title: "Test: Variablen"
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Variables
 l10n:
-  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
+  sourceCommit: 9d3d642daf9df9ece138fa39972edc5f7d6dcd6b
 ---
 
-Ziel dieses Fertigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie unseren Artikel [Informationen, die Sie benötigen, speichern — Variablen](/de/docs/Learn_web_development/Core/Scripting/Variables) verstanden haben.
+{{PreviousMenuNext("Learn_web_development/Core/Scripting/Variables", "Learn_web_development/Core/Scripting/Math", "Learn_web_development/Core/Scripting")}}
+
+Das Ziel dieses Fähigkeitentests ist es, Ihnen zu helfen, einzuschätzen, ob Sie unseren Artikel [Speichern der benötigten Informationen — Variablen](/de/docs/Learn_web_development/Core/Scripting/Variables) verstanden haben.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung von Fertigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Verwendung von Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Interaktive Herausforderung
 
-Zunächst bieten wir Ihnen eine unterhaltsame, interaktive Herausforderung zu Variablen an, die von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home), erstellt wurde.
+Zuerst bieten wir Ihnen eine unterhaltsame, interaktive Variablen-Herausforderung, die von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home), erstellt wurde.
 
-Sehen Sie sich den eingebetteten Scrim an und führen Sie die Aufgabe auf der Timeline (das kleine Geistersymbol) durch, indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie den Scrim weiter ansehen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
+Sehen Sie sich die eingebettete Scrim an und erledigen Sie die Aufgabe auf der Zeitleiste (das kleine Geister-Icon), indem Sie den Anweisungen folgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie die Scrim fortsetzen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
 
-<scrim-inline url="https://scrimba.com/learn-javascript-c0v/~011" scrimtitle="Variablen üben" survey="true"></scrim-inline>
+<scrim-inline url="https://scrimba.com/learn-javascript-c0v/~011" scrimtitle="Variables practice" survey="true"></scrim-inline>
 
 ## Aufgabe 1
 
-Um diese Aufgabe abzuschließen, fügen Sie eine neue Zeile hinzu, um den in der vorhandenen Variablen `myName` gespeicherten Wert auf Ihren eigenen Namen zu korrigieren.
+Um diese Aufgabe abzuschließen, fügen Sie eine neue Zeile hinzu, um den Wert, der in der bestehenden Variablen `myName` gespeichert ist, durch Ihren eigenen Namen zu korrigieren.
 
 <!-- Code shared across examples -->
 
@@ -62,7 +64,7 @@ section.appendChild(para);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte etwa so aussehen:
+Ihr fertiges JavaScript sollte in etwa so aussehen:
 
 ```js
 // ...
@@ -78,7 +80,7 @@ myName = "Chris";
 
 ## Aufgabe 2
 
-Die letzte Aufgabe für den Moment — in diesem Fall wird Ihnen ein vorhandener Code bereitgestellt, der zwei Fehler enthält. Das Ergebnispanel sollte den Namen `Chris` und eine Aussage darüber ausgeben, wie alt Chris in 20 Jahren sein wird. Wir möchten, dass Sie das Problem beheben und die Ausgabe korrigieren.
+Die letzte Aufgabe für jetzt — in diesem Fall wird Ihnen etwas vorhandener Code bereitgestellt, der zwei Fehler enthält. Das Ergebnisfenster sollte den Namen `Chris` und eine Aussage darüber ausgeben, wie alt Chris in 20 Jahren sein wird. Wir möchten, dass Sie das Problem beheben und die Ausgabe korrigieren.
 
 ```js live-sample___variables-2
 // Fix the following code
@@ -104,7 +106,7 @@ section.appendChild(para2);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte etwa so aussehen:
+Ihr fertiges JavaScript sollte in etwa so aussehen:
 
 ```js
 // Turn the const into a let, so the value can be changed
@@ -119,3 +121,9 @@ let myAge = 42;
 ```
 
 </details>
+
+## Siehe auch
+
+Schauen Sie sich auch [Übungszeit - Teil 3: let und const](https://scrimba.com/learn-javascript-c0v/~059?via=mdn) <sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> von Scrimba an: Eine interaktive Herausforderung, die mehrere Tests zu `let` und `const` bietet.
+
+{{PreviousMenuNext("Learn_web_development/Core/Scripting/Variables", "Learn_web_development/Core/Scripting/Math", "Learn_web_development/Core/Scripting")}}

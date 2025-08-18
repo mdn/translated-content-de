@@ -1,17 +1,17 @@
 ---
-title: "RTCInboundRtpStreamStats: playoutId-Eigenschaft"
+title: "RTCInboundRtpStreamStats: Eigenschaft playoutId"
 short-title: playoutId
 slug: Web/API/RTCInboundRtpStreamStats/playoutId
 l10n:
-  sourceCommit: 9dd28ca3964213e0564c80db0a7c39d8ad73ed72
+  sourceCommit: 5f8f306587fbe25beac0d0e9c9fbda366e372f14
 ---
 
-{{APIRef("WebRTC")}}
+{{APIRef("WebRTC")}}{{SeeCompatTable}}
 
 Die **`playoutId`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs gibt die [`id`](/de/docs/Web/API/RTCAudioPlayoutStats/id) des [`RTCAudioPlayoutStats`](/de/docs/Web/API/RTCAudioPlayoutStats)-Objekts an, das diesem Stream entspricht.
 
 > [!NOTE]
-> Der Wert ist für Videostreams undefiniert.
+> Der Wert ist für Videostreams nicht definiert.
 
 ## Wert
 

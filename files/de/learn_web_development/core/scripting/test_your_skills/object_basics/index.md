@@ -1,27 +1,29 @@
 ---
-title: "Testen Sie Ihr Wissen: Grundlagen der Objekte"
-short-title: Objects
+title: "Testen Sie Ihr Wissen: Objektgrundlagen"
+short-title: "Test: Objekte"
 slug: Learn_web_development/Core/Scripting/Test_your_skills/Object_basics
 l10n:
-  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
+  sourceCommit: 9d3d642daf9df9ece138fa39972edc5f7d6dcd6b
 ---
 
-Ziel dieses Kompetenztests ist es, Ihnen zu helfen, zu beurteilen, ob Sie unseren Artikel zu den [Grundlagen der JavaScript-Objekte](/de/docs/Learn_web_development/Core/Scripting/Object_basics) verstanden haben.
+{{PreviousMenuNext("Learn_web_development/Core/Scripting/Object_basics","Learn_web_development/Core/Scripting/DOM_scripting", "Learn_web_development/Core/Scripting")}}
+
+Ziel dieses Tests ist es, Ihnen zu helfen, einzuschätzen, ob Sie unseren Artikel über die [JavaScript-Objektgrundlagen](/de/docs/Learn_web_development/Core/Scripting/Object_basics) verstanden haben.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie bitte unser [Testen Sie Ihr Wissen](/de/docs/Learn_web_development#test_your_skills) Leitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zu Testen Sie Ihr Wissen](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
-## Grundlagen der Objekte 1
+## Objektgrundlagen 1
 
-In dieser Aufgabe wird Ihnen ein Objektliteral bereitgestellt, und wir möchten, dass Sie daran arbeiten.
+In dieser Aufgabe wird Ihnen ein Objektliteral zur Verfügung gestellt, und wir möchten, dass Sie einige Arbeiten daran durchführen.
 
 Um die Aufgabe abzuschließen:
 
-1. Speichern Sie den Wert der `name`-Eigenschaft in der Variable `catName`, unter Verwendung von Klammernotation.
-2. Führen Sie die `greeting()`-Methode unter Verwendung der Punktnotation aus (es wird die Begrüßung in der Konsole protokollieren).
+1. Speichern Sie den Wert der `name`-Eigenschaft in der Variablen `catName`, indem Sie die Klammernotation verwenden.
+2. Führen Sie die Methode `greeting()` mit Punktnotation aus (sie wird die Begrüßung in die Konsole loggen).
 3. Aktualisieren Sie den Wert der `color`-Eigenschaft auf `black`.
 
-<!-- Code shared across examples -->
+<!-- Code wird über Beispiele hinweg geteilt -->
 
 ```html hidden live-sample___objects-1 live-sample___objects-2 live-sample___objects-3 live-sample___objects-4
 <section></section>
@@ -38,7 +40,7 @@ p {
 }
 ```
 
-<!-- Example-specific code -->
+<!-- Beispiel-spezifischer Code -->
 
 ```js live-sample___objects-1
 const cat = {
@@ -70,7 +72,7 @@ section.appendChild(para2);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte ungefähr so aussehen:
+Ihr fertiges JavaScript sollte in etwa so aussehen:
 
 ```js
 // ...
@@ -86,25 +88,25 @@ cat.color = "black";
 
 </details>
 
-## Grundlagen der Objekte 2
+## Objektgrundlagen 2
 
-In unserer nächsten Aufgabe möchten wir, dass Sie versuchen, Ihr eigenes Objektliteral zu erstellen, das eine Ihrer Lieblingsbands repräsentiert.
+In unserer nächsten Aufgabe möchten wir, dass Sie versuchen, ein eigenes Objektliteral zu erstellen, um eine Ihrer Lieblingsbands darzustellen.
 
 Um die Aufgabe abzuschließen:
 
-1. Erstellen Sie ein Objektliteral namens `band`, das die folgenden Eigenschaften enthält:
+1. Erstellen Sie ein Objektliteral mit dem Namen `band`, das die folgenden Eigenschaften enthält:
    - `name`: Ein String, der den Namen der Band repräsentiert.
-   - `nationality`: Ein String, der das Land repräsentiert, aus dem die Band stammt.
+   - `nationality`: Ein String, der das Land angibt, aus dem die Band stammt.
    - `genre`: Welche Art von Musik die Band spielt.
-   - `members`: Eine Zahl, die die Anzahl der Mitglieder der Band darstellt.
-   - `formed`: Eine Zahl, die das Jahr darstellt, in dem die Band gegründet wurde.
-   - `split`: Eine Zahl, die das Jahr darstellt, in dem die Band sich aufgelöst hat, oder `false`, wenn sie noch zusammen sind.
-   - `albums`: Ein Array, das die von der Band veröffentlichten Alben darstellt. Jedes Array-Element sollte ein Objekt mit den folgenden Mitgliedern enthalten:
+   - `members`: Eine Zahl, die die Anzahl der Mitglieder der Band repräsentiert.
+   - `formed`: Eine Zahl, die das Jahr repräsentiert, in dem die Band gegründet wurde.
+   - `split`: Eine Zahl, die das Jahr repräsentiert, in dem sich die Band auflöste, oder `false`, wenn sie noch zusammen sind.
+   - `albums`: Ein Array, das die von der Band veröffentlichten Alben repräsentiert. Jedes Array-Element sollte ein Objekt enthalten, das die folgenden Mitglieder enthält:
      - `name`: Ein String, der den Namen des Albums repräsentiert.
-     - `released`: Eine Zahl, die das Jahr darstellt, in dem das Album veröffentlicht wurde.
+     - `released`: Eine Zahl, die das Jahr repräsentiert, in dem das Album veröffentlicht wurde.
        > [!NOTE]
-       > Fügen Sie mindestens zwei Alben in das `albums`-Array ein.
-2. Schreiben Sie einen String in die Variable `bandInfo`, der eine kurze Biografie enthält, in der ihr Name, ihre Nationalität, die aktiven Jahre, ihr Stil und der Titel sowie das Veröffentlichungsdatum ihres ersten Albums enthalten sind.
+       > Fügen Sie mindestens zwei Alben im `albums`-Array ein.
+2. Schreiben Sie einen String in die Variable `bandInfo`, der eine kurze Biografie mit ihrem Namen, ihrer Nationalität, der aktiven Zeit und dem Stil sowie dem Titel und dem Veröffentlichungsdatum ihres ersten Albums enthält.
 
 ```js live-sample___objects-2
 let bandInfo;
@@ -126,7 +128,7 @@ section.appendChild(para1);
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte ungefähr so aussehen:
+Ihr fertiges JavaScript sollte in etwa so aussehen:
 
 ```js
 // ...
@@ -167,15 +169,15 @@ bandInfo = `The ${band.nationality} ${band.genre} band ${band.name} were active 
 
 </details>
 
-## Grundlagen der Objekte 3
+## Objektgrundlagen 3
 
-In dieser Aufgabe möchten wir, dass Sie zum `cat`-Objektliteral aus den Grundlagen der Objekte 1 zurückkehren.
+In dieser Aufgabe möchten wir, dass Sie zum Objektliteral `cat` aus Objektgrundlagen 1 zurückkehren.
 
 Um die Aufgabe abzuschließen:
 
-1. Schreiben Sie die `greeting()`-Methode so um, dass sie `"Hello, said Bertie the Cymric."` in der Konsole des Browsers protokolliert, jedoch so, dass sie bei _jedem_ Katzenobjekt derselben Struktur funktioniert, unabhängig von seinem Namen oder seiner Rasse.
-2. Schreiben Sie Ihr eigenes Objekt namens `cat2`, das dieselbe Struktur und `greeting()`-Methode hat, jedoch einen anderen `name`, `breed` und `color`.
-3. Rufen Sie beide `greeting()`-Methoden auf, um zu überprüfen, ob sie passende Grüße in der Konsole protokollieren.
+1. Schreiben Sie die Methode `greeting()` um, damit sie `"Hello, said Bertie the Cymric."` in die Konsole des Browsers schreibt, jedoch auf eine Weise, die für _jede_ Katze mit derselben Struktur funktioniert, unabhängig von ihrem Namen oder ihrer Rasse.
+2. Schreiben Sie ein eigenes Objekt mit dem Namen `cat2`, das dieselbe Struktur und Methode `greeting()` hat, aber einen anderen `name`, `breed` und `color`.
+3. Rufen Sie beide `greeting()`-Methoden auf, um zu prüfen, ob sie geeignete Grüße in die Konsole schreiben.
 
 ```js live-sample___objects-3
 const cat = {
@@ -197,7 +199,7 @@ const cat = {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte ungefähr so aussehen:
+Ihr fertiges JavaScript sollte in etwa so aussehen:
 
 ```js
 // ...
@@ -218,14 +220,14 @@ cat2.greeting();
 
 </details>
 
-## Grundlagen der Objekte 4
+## Objektgrundlagen 4
 
-In dem Code, den Sie für Aufgabe 3 geschrieben haben, sind die `greeting()`-Methode und die Eigenschaften zweimal definiert, einmal für jede Katze. Dies ist nicht ideal: insbesondere verstößt es gegen ein Prinzip in der Programmierung namens [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) oder "Don't Repeat Yourself". In dieser Aufgabe möchten wir, dass Sie den Code verbessern, sodass die Objektelemente nur einmal definiert werden.
+In dem von Ihnen für Aufgabe 3 geschriebenen Code sind die Methode `greeting()` und die Eigenschaften zweimal definiert, einmal für jede Katze. Das ist nicht ideal: Speziell verletzt es ein Prinzip in der Programmierung, genannt [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) oder "Don't Repeat Yourself". In dieser Aufgabe möchten wir, dass Sie den Code verbessern, sodass die Objekteigenschaften nur einmal definiert sind.
 
 Um die Aufgabe abzuschließen:
 
 1. Erstellen Sie eine JavaScript-Klasse, die Katzeninstanzen definiert.
-2. Verwenden Sie Ihre Klasse zusammen mit dem `new` Schlüsselwort, um die Instanzen `cat` und `cat2` zu erstellen.
+2. Verwenden Sie Ihre Klasse zusammen mit dem `new`-Schlüsselwort, um die `cat`- und `cat2`-Instanzen zu erstellen.
 
 ```js live-sample___objects-4
 const cat = {
@@ -257,7 +259,7 @@ cat2.greeting();
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges JavaScript sollte ungefähr so aussehen:
+Ihr fertiges JavaScript sollte in etwa so aussehen:
 
 ```js
 class Cat {
@@ -279,3 +281,5 @@ const cat2 = new Cat("Elfie", "Aphrodite Giant", "ginger");
 ```
 
 </details>
+
+{{PreviousMenuNext("Learn_web_development/Core/Scripting/Object_basics","Learn_web_development/Core/Scripting/DOM_scripting", "Learn_web_development/Core/Scripting")}}
