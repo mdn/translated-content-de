@@ -3,29 +3,27 @@ title: Integrity-Policy header
 short-title: Integrity-Policy
 slug: Web/HTTP/Reference/Headers/Integrity-Policy
 l10n:
-  sourceCommit: 32f4ac98e57f420470176f2468f514d959600471
+  sourceCommit: 74e7902b0875b6378d77df6d2d925a2d09d19f5d
 ---
 
 {{SeeCompatTable}}
 
-Der HTTP-**`Integrity-Policy`**-Antwort-Header ermöglicht es Website-Administratoren sicherzustellen, dass alle Ressourcen, die vom Benutzeragenten geladen werden (eines bestimmten Typs), [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Garantien haben.
+Der HTTP **`Integrity-Policy`**-Antwortheader ermöglicht es Website-Administratoren sicherzustellen, dass alle Ressourcen, die das Benutzerprogramm lädt (eines bestimmten Typs), über [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Garantien verfügen.
 
-Wenn der Header gesetzt ist, blockiert der Benutzeragent Anfragen an spezifische [Anfrageziele](#blocked-destinations), die keine Integritätsmetadaten enthalten, und blockiert außerdem Anfragen im [no-cors](/de/docs/Web/API/Request/mode#no-cors)-Modus, bevor sie überhaupt gestellt werden.
+Wenn gesetzt, blockiert das Benutzerprogramm Anfragen an die angegebenen [Request Destinations](#blocked-destinations), die die Integritätsmetadaten weglassen, und wird auch Anfragen im [no-cors](/de/docs/Web/API/Request/mode#no-cors)-Modus davon abhalten, jemals gestellt zu werden.
 
-Verstoßberichte können ebenfalls gesendet werden, wenn der Header einen Berichtsendpunktnamen enthält, der mit einem über den {{HTTPHeader("Reporting-Endpoints")}}-Header deklarierten Endpunkt übereinstimmt.
-Berichte werden mit der [Reporting API](/de/docs/Web/API/Reporting_API) generiert und können auch auf der Seite beobachtet werden, für die die Integritätsrichtlinie durchgesetzt wird, unter Verwendung eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
-Das Format des Berichts ist durch das [`IntegrityViolationReportBody`](/de/docs/Web/API/IntegrityViolationReportBody)-Wörterbuch vorgegeben (eine JSON-serialisierte Form dieses Körpers wird in POSTs an die Berichtsendpunkte gesendet).
+Verletzungsberichte können ebenfalls gesendet werden, wenn der Header einen Meldeendpunktnamen enthält, der mit einem über den {{HTTPHeader("Reporting-Endpoints")}}-Header deklarierten Endpunkt übereinstimmt. Berichte werden unter Verwendung der [Reporting API](/de/docs/Web/API/Reporting_API) erstellt und können auch in der Seite, für die die Integritätsrichtlinie durchgesetzt wird, mittels eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) beobachtet werden. Das Format des Berichtsinhalt wird durch das [`IntegrityViolationReportBody`](/de/docs/Web/API/IntegrityViolationReportBody)-Wörterbuch angegeben (eine JSON-serialisierte Form dieses Inhalts wird in POST-Anfragen an Melde-Server-Endpunkte gesendet).
 
-Dies hilft beim Schutz gegen Manipulationen von geladenen Subressourcen.
+Dies hilft, Manipulationen von Inhalten der abgerufenen Subressourcen zu verhindern.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anfrage-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungsheader")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -37,13 +35,13 @@ Dies hilft beim Schutz gegen Manipulationen von geladenen Subressourcen.
 Integrity-Policy: blocked-destinations=(<destination>),sources=(<source>),endpoints=(<endpoint>)
 ```
 
-Die Header-Werte sind als strukturierte Felder mit den folgenden Schlüsseln definiert:
+Die Header-Werte sind als strukturierte Feld-Wörterbücher mit den folgenden Schlüsseln definiert:
 
 - `blocked-destinations`
-  - : Eine Liste von [Anfragezielen](/de/docs/Web/API/Request/destination), die gültige Integritätsmetadaten enthalten müssen.
+  - : Eine Liste von [Request Destinations](/de/docs/Web/API/Request/destination), die gültige Integritätsmetadaten enthalten müssen.
     Zulässige Werte sind:
     - `script`
-      - : Skript-Ressourcen.
+      - : Skriptressourcen.
     - `style`
       - : Stylesheet-Ressourcen.
 
@@ -51,29 +49,29 @@ Die Header-Werte sind als strukturierte Felder mit den folgenden Schlüsseln def
   - : Eine Liste von Integritätsquellen, die Integritätsmetadaten enthalten müssen.
     Zulässige Werte sind:
     - `inline`
-      - : Die Integritätsmetadatenquelle ist inline im Inhalt, wie das [integrity-Attribut](/de/docs/Web/API/HTMLScriptElement/integrity).
-        Dies ist der Standard.
+      - : Die Integritätsmetadatenquelle ist inline im Inhalt enthalten, wie das [integrity-Attribut](/de/docs/Web/API/HTMLScriptElement/integrity).
+        Dies ist der Standardwert.
 
-        Da dies der Standard und der einzige Wert ist, ist das Weglassen von `sources` gleichbedeutend mit der Angabe von `sources=(inline)`.
+        Da dies der Standard und einzige Wert ist, entspricht das Weglassen von `sources` der Angabe von `sources=(inline)`.
 
 - `endpoints` {{optional_inline}}
-  - : Eine Liste von [Berichtsendpunktnamen](/de/docs/Web/HTTP/Reference/Headers/Reporting-Endpoints#endpoint), die angeben, wohin Berichte gesendet werden sollen.
-    Die Berichtsendpunkte müssen in einem {{httpheader("Reporting-Endpoints")}}-Header definiert werden.
+  - : Eine Liste von [Meldeendpunktnamen](/de/docs/Web/HTTP/Reference/Headers/Reporting-Endpoints#endpoint), die angeben, wohin Berichte gesendet werden.
+    Die Meldeendpunkte müssen in einem {{httpheader("Reporting-Endpoints")}}-Header definiert sein.
 
 ## Beispiele
 
-### Blockieren und Berichten, wenn Skripte keine Integritätsmetadaten haben
+### Blockieren und Berichten, wenn Skripts keine Integritätsmetadaten enthalten
 
 Dieses Beispiel zeigt ein Dokument, das blockiert und berichtet, wenn ein {{htmlelement("script")}} (oder `HTMLScriptElement`) kein `integrity`-Attribut angibt oder wenn eine Skriptressource im [no-cors](/de/docs/Web/API/Request/mode#no-cors)-Modus angefordert wird.
 
-Beachten Sie, dass der `integrity-endpoint`, der in `Integrity-Policy` verwendet wird, im {{httpheader("Reporting-Endpoints")}}-Header definiert ist.
+Beachten Sie, dass der in `Integrity-Policy` verwendete `integrity-endpoint` im {{httpheader("Reporting-Endpoints")}}-Header definiert ist.
 
 ```http
 Reporting-Endpoints: integrity-endpoint=https://example.com/integrity, backup-integrity-endpoint=https://report-provider.example/integrity
 Integrity-Policy: blocked-destinations=(script), endpoints=(integrity-endpoint, backup-integrity-endpoint)
 ```
 
-Das [Berichtspayload](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) könnte folgendermaßen aussehen.
+Die [Berichtdaten](/de/docs/Web/API/Reporting_API#reporting_server_endpoints) könnten so aussehen.
 
 ```json
 {
@@ -99,5 +97,5 @@ Das [Berichtspayload](/de/docs/Web/API/Reporting_API#reporting_server_endpoints)
 ## Siehe auch
 
 - {{HTTPHeader("Integrity-Policy-Report-Only")}}
-- [Integrity-Policy](/de/docs/Web/Security/Subresource_Integrity#integrity_policy)
+- [Integritätsrichtlinie](/de/docs/Web/Security/Subresource_Integrity#integrity_policy)
 - [Reporting API](/de/docs/Web/API/Reporting_API)
