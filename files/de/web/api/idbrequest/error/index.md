@@ -1,58 +1,62 @@
 ---
-title: "IDBRequest: error-Eigenschaft"
+title: "IDBRequest: error Eigenschaft"
 short-title: error
 slug: Web/API/IDBRequest/error
 l10n:
-  sourceCommit: 515d03ad8572b96e88916888156444626dcba193
+  sourceCommit: 7cac5cc51350b7688903656bb36d79152f82d01f
 ---
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`error`** Nur-Lese-Eigenschaft des
-[`IDBRequest`](/de/docs/Web/API/IDBRequest)-Interfaces gibt den Fehler zurück, wenn eine Anfrage nicht erfolgreich war.
+Die schreibgeschützte **`error`**-Eigenschaft des
+[`IDBRequest`](/de/docs/Web/API/IDBRequest)-Interfaces gibt den Fehler im Falle einer fehlgeschlagenen Anfrage zurück.
 
 ## Wert
 
-Ein [`DOMException`](/de/docs/Web/API/DOMException) oder `null`, wenn kein Fehler vorliegt. Das Ausnahmeobjekt wird je nach Fehlerursache einen der folgenden Namen haben.
+Ein [`DOMException`](/de/docs/Web/API/DOMException) oder `null`, wenn kein Fehler vorliegt. Das Ausnahmeobjekt hat je nach dem verursachenden Fehler einen der folgenden Namen.
 
-Diese Fehler sind asynchron, was bedeutet, dass sie nicht über [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) behandelt werden können. Wenn jedoch ein `IDBRequest` einen zugewiesenen [`error`](/de/docs/Web/API/IDBRequest/error_event)-Ereignishandler hat, können Sie solche Fehler dennoch überprüfen, indem Sie die `error`-Eigenschaft der Anfrage über das Ereignisobjekt abfragen, zum Beispiel [`event.target.error.name`](/de/docs/Web/API/DOMException/name) oder [`event.target.error.message`](/de/docs/Web/API/DOMException/message).
+Diese Fehler sind asynchron und können daher nicht über [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) behandelt werden. Wenn jedoch einem `IDBRequest` ein [`error`](/de/docs/Web/API/IDBRequest/error_event)-Ereignishandler zugewiesen ist, können Sie solche Fehler dennoch inspizieren, indem Sie die `error`-Eigenschaft der Anfrage über das Ereignisobjekt abfragen, zum Beispiel [`event.target.error.name`](/de/docs/Web/API/DOMException/name) oder [`event.target.error.message`](/de/docs/Web/API/DOMException/message).
 
 - `AbortError`
-  - : Wenn Sie die Transaktion abbrechen, erhalten alle noch ausstehenden Anfragen diesen Fehler.
+  - : Wenn Sie die Transaktion abbrechen, erhalten alle noch laufenden Anfragen diesen Fehler.
 - `ConstraintError`
-  - : Erhalten, wenn Sie Daten einfügen, die nicht mit einer Einschränkung übereinstimmen, während Sie Speicher populieren. Zum Beispiel erhalten Sie diesen Fehler, wenn Sie versuchen, einen neuen Schlüssel hinzuzufügen, der bereits im Speicher existiert.
+  - : Tritt auf, wenn Sie Daten einfügen, die nicht einer Einschränkung entsprechen, wenn Sie Stores befüllen. Beispielsweise erhalten Sie diesen Fehler, wenn Sie versuchen, einen neuen Schlüssel hinzuzufügen, der bereits im Store existiert.
 - `NotReadableError`
-  - : Erhalten für nicht wiederherstellbare Leseausfallfehler. Insbesondere signalisiert dieser Fehler, dass der Datensatz in der Datenbank vorhanden ist, der Wert jedoch nicht abgerufen werden konnte. Weitere Einzelheiten finden Sie unten unter [Vorübergehende und nicht wiederherstellbare Lesefehler](#vorübergehende_und_nicht_wiederherstellbare_lesefehler).
-- `QuotaExceededError`
-  - : Erhalten, wenn die Anwendung den Festplattenkontingent überschreitet. In einigen Fällen bitten Browser den Benutzer um mehr Speicherplatz, und der Fehler wird empfangen, wenn die Anfrage abgelehnt wird. In anderen Fällen verwenden die Browser Heuristiken, um zu bestimmen, ob mehr Speicherplatz zugewiesen werden kann.
+  - : Wird bei nicht behebbaren Lesefehlern empfangen. Insbesondere signalisiert dieser Fehler, dass sich der Datensatz in der Datenbank befindet, der Wert jedoch nicht abgerufen werden konnte. Weitere Details finden Sie unten unter [Vorübergehende und nicht behebbare Lesefehler](#vorübergehende_und_nicht_behebbare_lesefehler).
+- [`QuotaExceededError`](/de/docs/Web/API/QuotaExceededError)
+  - : Wird empfangen, wenn der Anwendung der Speicherplatz ausgeht. In einigen Fällen fordert der Browser den Benutzer auf, mehr Speicherplatz bereitzustellen. Der Fehler tritt auf, wenn die Anfrage abgelehnt wird. In anderen Fällen verwendet der Browser Heuristiken, um zu bestimmen, ob mehr Speicherplatz zugewiesen werden kann.
 - `UnknownError`
-  - : Erhalten für vorübergehende Leseausfallfehler, einschließlich allgemeiner Disk-IO-Fehler. Weitere Einzelheiten finden Sie unten unter [Vorübergehende und nicht wiederherstellbare Lesefehler](#vorübergehende_und_nicht_wiederherstellbare_lesefehler).
+  - : Wird für vorübergehende Lesefehler empfangen, einschließlich allgemeiner Festplatten-IO-Fehler. Weitere Details finden Sie unten unter [Vorübergehende und nicht behebbare Lesefehler](#vorübergehende_und_nicht_behebbare_lesefehler).
 - `VersionError`
-  - : Erhalten, wenn Sie versuchen, eine Datenbank mit einer niedrigeren Version zu öffnen als der, die sie bereits hat.
+  - : Wird empfangen, wenn Sie versuchen, eine Datenbank mit einer niedrigeren Version zu öffnen als der, die bereits vorhanden ist.
 
-### Vorübergehende und nicht wiederherstellbare Lesefehler
+### Vorübergehende und nicht behebbare Lesefehler
 
-Lesefehler treten auf, wenn ein IndexedDB Werte speichert und anschließend beim Abrufen dieser Werte scheitert, obwohl die zugehörigen Datensätze noch in der Datenbank vorhanden sind.
+Lesefehler treten auf, wenn eine IndexedDB Werte speichert und anschließend das Lesen dieser Werte fehlschlägt, obwohl die zugehörigen Datensätze noch in der Datenbank vorhanden sind.
 
-Lesefehler können zwei Typen sein — **vorübergehend** oder **nicht wiederherstellbar**:
+Lesefehler können zwei Arten aufweisen — **vorübergehend** oder **nicht behebbar**:
 
-Vorübergehende Lesefehler werden durch einen `UnknownError`-Typ signalisiert und werden normalerweise durch niedrigen Speicher verursacht. Dies sollte kein Problem für kleine Datenbanken darstellen. Um Situationen mit niedrigem Speicher in großen Datenbanken zu vermeiden, versuchen Sie den Datenbankzugriff so aufzuteilen, dass nur die benötigten Datensätze geladen werden, zum Beispiel durch die Verwendung bestimmter [Schlüsselbereiche](/de/docs/Web/API/IDBKeyRange), die sich auf die Suchanfrage eines Benutzers oder einen Paginierungsmechanismus beziehen. Wenn ein Fehler wegen niedrigem Speicher auftritt, kann der Benutzer aufgefordert werden, andere Anwendungen zu schließen, um auf Betriebssystemebene Speicher freizugeben.
+Vorübergehende Lesefehler werden durch einen `UnknownError`-Typ angezeigt und werden normalerweise durch wenig Speicher verursacht. Für kleine Datenbanken sollte dies kein Problem sein. Um Situationen mit wenig Speicher in großen Datenbanken zu vermeiden, versuchen Sie, den Datenbankzugriff so zu unterteilen, dass nur die Datensätze geladen werden, die Sie zu einem bestimmten Zeitpunkt benötigen, z. B. mithilfe spezifischer [Schlüsselbereiche](/de/docs/Web/API/IDBKeyRange), die sich auf die Suchanfrage eines Benutzers oder einen Mechanismus zur Seitennummerierung beziehen. Wenn ein Fehler aufgrund von zu wenig Speicher auftritt, kann der Benutzer aufgefordert werden, andere Anwendungen zu schließen, um Platz auf Betriebssystemebene freizugeben.
 
-Nicht wiederherstellbare Lesefehler werden durch einen `NotReadableError`-Typ signalisiert und werden durch das Löschen von Quelldateien verursacht.
+Nicht behebbare Lesefehler werden durch einen `NotReadableError`-Typ angezeigt und entstehen durch das Löschen von Quelldateien.
 
-Einige Browser speichern große Werte (zum Beispiel Audioblobs für eine Offline-Podcast-App) als separate Dateien, auf die über eine in der Datenbank gespeicherte Referenz zugegriffen wird. Es wurde beobachtet, dass diese separaten Dateien gelöscht werden können, da sie Benutzern als opake Dateien erscheinen, wenn sie Programme zur Wiederherstellung von Speicherplatz verwenden, was zu nicht wiederherstellbaren Lesefehlern führt, wenn das nächste Mal auf die IndexedDB zugegriffen wird.
+Ein Beispiel: Einige Browser speichern große Werte (z.B. Audio-Dateiblobs für eine Offline-Podcast-App) als separate Dateien, auf die über einen in der Datenbank gespeicherten Verweis zugegriffen wird. Es wurde beobachtet, dass diese separaten Dateien gelöscht werden können, da sie als undurchsichtige Dateien erscheinen, wenn Benutzer Programme zur Speicherplatzrückgewinnung verwenden, was zu nicht behebbaren Lesefehlern führt, wenn anschließend auf die IndexedDB zugegriffen wird.
 
-Mögliche Korrekturmaßnahmen für nicht wiederherstellbare Lesefehler könnten die Benachrichtigung des Benutzers, das Löschen des Eintrags aus der Datenbank und danach der Versuch, die Daten vom Server erneut abzurufen, umfassen.
+Mögliche Korrekturmaßnahmen für nicht behebbare Lesefehler könnten beinhalten, den Benutzer zu benachrichtigen, den Eintrag aus der Datenbank zu löschen und dann zu versuchen, die Daten vom Server erneut abzurufen.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn versucht wird, auf die Eigenschaft zuzugreifen, während die Anfrage nicht abgeschlossen ist und der Fehler daher nicht verfügbar ist.
+  - : Wird ausgelöst, wenn versucht wird, auf die Eigenschaft zuzugreifen, wenn die Anfrage nicht abgeschlossen ist und der Fehler daher nicht verfügbar ist.
 
 ## Beispiele
 
-Das folgende Beispiel fordert einen bestimmten Datensatz-Titel an, bei `onsuccess` wird der zugehörige Datensatz aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) abgerufen (verfügbar gemacht als `objectStoreTitleRequest.result`), eine Eigenschaft des Datensatzes wird aktualisiert und dann wird der aktualisierte Datensatz wieder in den Objektspeicher gestellt. Am Ende ist auch eine `onerror`-Funktion enthalten, die darüber berichtet, was der Fehler war, wenn die Anfrage fehlschlägt.
-Für ein vollständig funktionierendes Beispiel siehe unsere [Aufgaben-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Das folgende Beispiel fordert einen bestimmten Datensatz-Titel an, `onsuccess` ruft den
+zugehörigen Datensatz aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) ab (verfügbar als
+`objectStoreTitleRequest.result`), aktualisiert eine Eigenschaft des Datensatzes und legt den
+aktualisierten Datensatz wieder im Object Store ab. Am Ende ist auch eine
+`onerror`-Funktion enthalten, die meldet, was der Fehler war, falls die Anfrage fehlschlägt.
+Ein vollständiges funktionierendes Beispiel finden Sie in unserer [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const title = "Walk dog";
@@ -103,9 +107,9 @@ objectStoreTitleRequest.onerror = () => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
-- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einstellen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegung eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwenden von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [Aufgaben-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

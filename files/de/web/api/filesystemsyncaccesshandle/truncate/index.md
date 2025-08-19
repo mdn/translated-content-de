@@ -1,14 +1,14 @@
 ---
-title: "FileSystemSyncAccessHandle: truncate() Methode"
+title: "FileSystemSyncAccessHandle: truncate()-Methode"
 short-title: truncate()
 slug: Web/API/FileSystemSyncAccessHandle/truncate
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: 7cac5cc51350b7688903656bb36d79152f82d01f
 ---
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`truncate()`**-Methode der [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Schnittstelle ändert die Größe der mit dem Handle verbundenen Datei auf eine angegebene Anzahl von Bytes.
+Die **`truncate()`**-Methode der Schnittstelle [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) ändert die Größe der Datei, die mit dem Handle verknüpft ist, auf eine bestimmte Anzahl von Bytes.
 
 > [!NOTE]
 > In früheren Versionen der Spezifikation wurden [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und `truncate()` fälschlicherweise als asynchrone Methoden angegeben, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Alle aktuellen Browser, die diese Methoden unterstützen, implementieren sie jedoch als synchrone Methoden.
@@ -22,7 +22,7 @@ truncate(newSize)
 ### Parameter
 
 - `newSize`
-  - : Die Anzahl an Bytes, auf die die Datei geändert werden soll.
+  - : Die Anzahl der Bytes, auf die die Datei geändert werden soll.
 
 ### Rückgabewert
 
@@ -31,11 +31,11 @@ Keiner ({{jsxref('undefined')}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das zugehörige Zugriffs-Handle bereits geschlossen ist oder wenn die Änderung der Binärdaten der Datei aus anderen Gründen fehlschlägt.
-- `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die `newSize` größer als die ursprüngliche Größe der Datei ist und das Speicherlimit des Browsers übersteigt. [Speicherquote](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria).
+  - : Wird ausgelöst, wenn das zugehörige Zugriffshandle bereits geschlossen ist oder wenn die Änderung der binären Daten der Datei auf andere Weise fehlschlägt.
+- [`QuotaExceededError`](/de/docs/Web/API/QuotaExceededError)
+  - : Wird ausgelöst, wenn `newSize` größer ist als die ursprüngliche Dateigröße und das [Speicherkontingent](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria) des Browsers überschreitet.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das zugrunde liegende Dateisystem die Einstellung der Dateigröße auf die neue Größe nicht unterstützt.
+  - : Wird ausgelöst, wenn das zugrunde liegende Dateisystem das Setzen der Dateigröße auf die neue Größe nicht unterstützt.
 
 ## Beispiele
 
@@ -69,4 +69,4 @@ async function truncateFile() {
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [Das File System Access API: Vereinfachung des Zugriffs auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

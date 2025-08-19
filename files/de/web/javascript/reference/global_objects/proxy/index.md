@@ -2,19 +2,19 @@
 title: Proxy
 slug: Web/JavaScript/Reference/Global_Objects/Proxy
 l10n:
-  sourceCommit: 30c9f71e6a6cac4d894688cabf7e4b50af87cfe5
+  sourceCommit: 79fdc26fea835d65c9361541bb8ab1896f307475
 ---
 
-Das **`Proxy`**-Objekt ermöglicht es Ihnen, ein Proxy für ein anderes Objekt zu erstellen, das grundlegende Operationen für dieses Objekt abfangen und neu definieren kann.
+Das **`Proxy`**-Objekt ermöglicht Ihnen, einen Proxy für ein anderes Objekt zu erstellen, der die grundlegenden Operationen für dieses Objekt abfangen und neu definieren kann.
 
 ## Beschreibung
 
-Das `Proxy`-Objekt erlaubt es Ihnen, ein Objekt zu erstellen, das anstelle des Originalobjekts verwendet werden kann, aber grundlegende `Object`-Operationen wie das Abrufen, Festlegen und Definieren von Eigenschaften neu definieren kann. Proxy-Objekte werden häufig verwendet, um Zugriffe auf Eigenschaften zu protokollieren, Eingaben zu validieren, zu formatieren oder zu bereinigen und so weiter.
+Das `Proxy`-Objekt ermöglicht Ihnen, ein Objekt zu erstellen, das anstelle des Originalobjekts verwendet werden kann, aber grundlegende `Object`-Operationen wie das Lesen, Setzen und Definieren von Eigenschaften neu definieren kann. Proxy-Objekte werden häufig verwendet, um den Zugriff auf Eigenschaften zu protokollieren, Eingaben zu validieren, zu formatieren oder zu bereinigen und vieles mehr.
 
 Sie erstellen einen `Proxy` mit zwei Parametern:
 
-- `target`: Das originale Objekt, das Sie proxen möchten
-- `handler`: Ein Objekt, das definiert, welche Operationen abgefangen und wie diese abgefangenen Operationen neu definiert werden sollen.
+- `target`: das Originalobjekt, das Sie proxyen möchten
+- `handler`: ein Objekt, das definiert, welche Operationen abgefangen und wie die abgefangenen Operationen neu definiert werden sollen
 
 Zum Beispiel erstellt dieser Code einen Proxy für das `target`-Objekt.
 
@@ -29,7 +29,7 @@ const handler1 = {};
 const proxy1 = new Proxy(target, handler1);
 ```
 
-Da der Handler leer ist, verhält sich dieser Proxy genau wie das ursprüngliche Zielobjekt:
+Da der Handler leer ist, verhält sich dieser Proxy genauso wie das ursprüngliche Ziel:
 
 ```js
 console.log(proxy1.message1); // hello
@@ -53,16 +53,16 @@ const handler2 = {
 const proxy2 = new Proxy(target, handler2);
 ```
 
-Hier haben wir eine Implementierung des {{jsxref("Proxy/Proxy/get", "get()")}}-Handlers bereitgestellt, der Versuche abfängt, auf Eigenschaften im Ziel zuzugreifen.
+Hier haben wir eine Implementierung des {{jsxref("Proxy/Proxy/get", "get()")}} Handlers bereitgestellt, der Zugriffsversuche auf Eigenschaften im Ziel abfängt.
 
-Handler-Funktionen werden manchmal _Traps_ genannt, vermutlich weil sie Aufrufe an das Zielobjekt abfangen. Der Trap in `handler2` oben definiert alle Eigenschaftszugriffe neu:
+Handler-Funktionen werden manchmal als _Traps_ bezeichnet, vermutlich weil sie Aufrufe an das Zielobjekt abfangen. Der Trap im obigen `handler2` definiert alle Eigenschafts-Accessoren neu:
 
 ```js
 console.log(proxy2.message1); // world
 console.log(proxy2.message2); // world
 ```
 
-Proxies werden oft mit dem {{jsxref("Reflect")}}-Objekt verwendet, das einige Methoden mit denselben Namen wie die `Proxy`-Traps bereitstellt. Die `Reflect`-Methoden bieten die reflektierende Semantik für den Aufruf der entsprechenden [objektinternen Methoden](#objektinterne_methoden). Zum Beispiel können wir `Reflect.get` aufrufen, wenn wir das Verhalten des Objekts nicht neu definieren möchten:
+Proxys werden oft mit dem {{jsxref("Reflect")}}-Objekt verwendet, das einige Methoden mit denselben Namen wie die `Proxy`-Traps bereitstellt. Die `Reflect`-Methoden bieten die reflexiven Semantiken für das Aufrufen der entsprechenden [objektinternen Methoden](#objektinterne_methoden). Zum Beispiel können wir `Reflect.get` aufrufen, wenn wir das Verhalten des Objekts nicht neu definieren möchten:
 
 ```js
 const target = {
@@ -85,32 +85,32 @@ console.log(proxy3.message1); // hello
 console.log(proxy3.message2); // world
 ```
 
-Die `Reflect`-Methode interagiert immer noch mit dem Objekt durch objektinterne Methoden - sie "entproxifiziert" den Proxy nicht, wenn sie auf einem Proxy aufgerufen wird. Wenn Sie `Reflect`-Methoden innerhalb eines Proxy-Traps verwenden und der `Reflect`-Methodenaufruf erneut vom Trap abgefangen wird, kann es zu einer Endlosschleife kommen.
+Die `Reflect`-Methode interagiert immer noch mit dem Objekt durch objektinterne Methoden — sie „deproxifiziert“ den Proxy nicht, wenn sie auf einem Proxy aufgerufen wird. Wenn Sie `Reflect`-Methoden innerhalb eines Proxy-Traps verwenden und der `Reflect`-Methodenaufruf erneut vom Trap abgefangen wird, kann es zu einer Endlosschleife kommen.
 
 ### Terminologie
 
-Die folgenden Begriffe werden verwendet, wenn über die Funktionalität von Proxies gesprochen wird.
+Die folgenden Begriffe werden verwendet, wenn über die Funktionalität von Proxys gesprochen wird.
 
 - [handler](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy#handler_functions)
-  - : Das Objekt, das als zweites Argument an den `Proxy`-Konstruktor übergeben wird. Es enthält die Traps, welche das Verhalten des Proxys definieren.
+  - : Das Objekt, das als zweites Argument an den `Proxy`-Konstruktor übergeben wird. Es enthält die Traps, die das Verhalten des Proxys definieren.
 - trap
-  - : Die Funktion, die das Verhalten für die entsprechende [objektinterne Methode](#objektinterne_methoden) definiert. (Das ist analog zum Konzept der _Traps_ in Betriebssystemen.)
+  - : Die Funktion, die das Verhalten für die entsprechende [objektinterne Methode](#objektinterne_methoden) definiert. (Dies ist analog zum Konzept der _Traps_ in Betriebssystemen.)
 - target
-  - : Objekt, das der Proxy virtualisiert. Es wird oft als Speicher-Backend für den Proxy verwendet. Invarianten (Semantik, die unverändert bleibt) in Bezug auf die Nicht-Erweiterbarkeit oder nicht konfigurierbare Eigenschaften von Objekten werden am Ziel verifiziert.
+  - : Objekt, das der Proxy virtualisiert. Es wird oft als Speicher-Backend für den Proxy verwendet. Invarianten (Semantiken, die unverändert bleiben) in Bezug auf die Nichterweiterbarkeit des Objekts oder nicht konfigurierbare Eigenschaften werden gegen das Ziel überprüft.
 - {{Glossary("invariant", "invariants")}}
-  - : Semantik, die unverändert bleibt, wenn benutzerdefinierte Operationen implementiert werden. Wenn Ihre Trap-Implementierung die Invarianten eines Handlers verletzt, wird ein {{jsxref("TypeError")}} ausgelöst.
+  - : Semantiken, die unverändert bleiben, wenn benutzerdefinierte Operationen implementiert werden. Wenn Ihre Trap-Implementierung die Invarianten eines Handlers verletzt, wird ein {{jsxref("TypeError")}} ausgelöst.
 
 ### Objektinterne Methoden
 
-[Objekte](/de/docs/Web/JavaScript/Guide/Data_structures#objects) sind Sammlungen von Eigenschaften. Allerdings bietet die Sprache keine Mechanismen, um _direkt_ auf die im Objekt gespeicherten Daten zuzugreifen - stattdessen definiert das Objekt einige interne Methoden, die angeben, wie mit ihm interagiert werden kann. Zum Beispiel, wenn Sie `obj.x` lesen, können Sie erwarten, dass Folgendes geschieht:
+[Objekte](/de/docs/Web/JavaScript/Guide/Data_structures#objects) sind Sammlungen von Eigenschaften. Die Sprache bietet jedoch keine Mechanismen, um die im Objekt gespeicherten Daten _direkt_ zu manipulieren — stattdessen definiert das Objekt einige interne Methoden, die spezifizieren, wie mit ihm interagiert werden kann. Zum Beispiel, wenn Sie `obj.x` lesen, erwarten Sie vielleicht, dass Folgendes passiert:
 
-- Die Eigenschaft `x` wird entlang der [Prototypenkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) gesucht, bis sie gefunden wird.
+- Die `x`-Eigenschaft wird im [Prototypen-Verkettung](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) gesucht, bis sie gefunden wird.
 - Wenn `x` eine Dateneigenschaft ist, wird das `value`-Attribut des Eigenschaftsdeskriptors zurückgegeben.
-- Wenn `x` eine Zugriffseigenschaft ist, wird der Getter aufgerufen und der Rückgabewert des Getters wird zurückgegeben.
+- Wenn `x` eine Accessor-Eigenschaft ist, wird der Getter aufgerufen und der Rückgabewert des Getters zurückgegeben.
 
-Es gibt nichts Besonderes an diesem Prozess in der Sprache - es liegt daran, dass gewöhnliche Objekte standardmäßig eine `[[Get]]`-interne Methode haben, die mit diesem Verhalten definiert ist. Die `obj.x`-Eigenschaftszugriffssyntax ruft einfach die `[[Get]]`-Methode auf dem Objekt auf, und das Objekt verwendet seine eigene Implementierung der internen Methode, um zu bestimmen, was zurückgegeben werden soll.
+Es gibt nichts Besonderes an diesem Prozess in der Sprache — es liegt daran, dass gewöhnliche Objekte standardmäßig eine `[[Get]]`-interne Methode haben, die mit diesem Verhalten definiert ist. Die `obj.x`-Eigenschaftsabzugssyntax ruft einfach die `[[Get]]`-Methode des Objekts auf und das Objekt verwendet seine eigene interne Methodenumsetzung, um zu bestimmen, was zurückgegeben werden soll.
 
-Ein weiteres Beispiel ist, dass [Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) sich von normalen Objekten unterscheiden, da sie über eine magische [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/length)-Eigenschaft verfügen, die bei der Veränderung automatisch leere Slots zuweist oder Elemente aus dem Array entfernt. Ähnlich verändert das Hinzufügen von Array-Elementen automatisch die `length`-Eigenschaft. Das liegt daran, dass Arrays eine `[[DefineOwnProperty]]`-interne Methode haben, die weiß, dass `length` aktualisiert werden muss, wenn ein ganzzahliger Index geschrieben wird, oder die Array-Inhalte aktualisiert werden müssen, wenn `length` geschrieben wird. Solche Objekte, deren interne Methoden sich von gewöhnlichen Objekten unterscheiden, werden _exotische Objekte_ genannt. `Proxy` ermöglicht es Entwicklern, ihre eigenen exotischen Objekte mit voller Kapazität zu definieren.
+Ein anderes Beispiel: [Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) unterscheiden sich von normalen Objekten, da sie eine magische [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/length)-Eigenschaft haben, die, wenn modifiziert, automatisch leere Slots zuordnet oder Elemente aus dem Array entfernt. Ebenso ändert das Hinzufügen von Array-Elementen automatisch die `length`-Eigenschaft. Dies liegt daran, dass Arrays eine `[[DefineOwnProperty]]`-interne Methode haben, die weiß, `length` zu aktualisieren, wenn ein ganzzahliger Index geschrieben wird, oder die Array-Inhalte zu aktualisieren, wenn `length` geschrieben wird. Solche Objekte, deren interne Methoden unterschiedliche Implementierungen als gewöhnliche Objekte haben, werden als _exotische Objekte_ bezeichnet. `Proxy` ermöglicht es Entwicklern, ihre eigenen exotischen Objekte mit voller Kapazität zu definieren.
 
 Alle Objekte haben die folgenden internen Methoden:
 
@@ -135,11 +135,11 @@ Funktionsobjekte haben auch die folgenden internen Methoden:
 | `[[Call]]`      | {{jsxref("Proxy/Proxy/apply", "apply()")}}         |
 | `[[Construct]]` | {{jsxref("Proxy/Proxy/construct", "construct()")}} |
 
-Es ist wichtig zu verstehen, dass alle Interaktionen mit einem Objekt letztendlich auf den Aufruf einer dieser internen Methoden hinauslaufen und dass sie alle durch Proxies anpassbar sind. Das bedeutet, dass fast kein Verhalten (außer bestimmte kritische Invarianten) in der Sprache garantiert ist - alles wird durch das Objekt selbst definiert. Wenn Sie [`delete obj.x`](/de/docs/Web/JavaScript/Reference/Operators/delete) ausführen, gibt es keine Garantie dafür, dass [`"x" in obj`](/de/docs/Web/JavaScript/Reference/Operators/in) danach `false` zurückgibt - es hängt von den Implementierungen des Objekts von `[[Delete]]` und `[[HasProperty]]` ab. Ein `delete obj.x` kann Dinge in die Konsole protokollieren, globalen Zustand ändern oder sogar eine neue Eigenschaft definieren, anstatt die bestehende zu löschen, obwohl diese Semantik in Ihrem eigenen Code vermieden werden sollte.
+Es ist wichtig zu erkennen, dass alle Interaktionen mit einem Objekt letztendlich auf die Aufrufung einer dieser internen Methoden hinauslaufen und dass sie alle durch Proxys anpassbar sind. Das bedeutet, dass fast kein Verhalten (außer bestimmte kritische Invarianten) in der Sprache garantiert ist — alles wird durch das Objekt selbst definiert. Wenn Sie [`delete obj.x`](/de/docs/Web/JavaScript/Reference/Operators/delete) ausführen, gibt es keine Garantie dafür, dass [`"x" in obj`](/de/docs/Web/JavaScript/Reference/Operators/in) danach `false` zurückgibt — es hängt von den Implementierungen des Objekts von `[[Delete]]` und `[[HasProperty]]` ab. Ein `delete obj.x` kann Dinge in die Konsole protokollieren, einen globalen Status ändern oder sogar eine neue Eigenschaft definieren, anstatt die bestehende zu löschen, obwohl diese Semantiken in Ihrem eigenen Code vermieden werden sollten.
 
-Alle internen Methoden werden von der Sprache selbst aufgerufen und sind im JavaScript-Code nicht direkt zugänglich. Der {{jsxref("Reflect")}}-Namensraum bietet Methoden, die wenig mehr tun, als die internen Methoden aufzurufen, abgesehen von ein wenig Eingabenormalisierung/-validierung. Auf jeder Trap-Seite listen wir mehrere typische Situationen auf, wenn der Trap aufgerufen wird, aber diese internen Methoden werden _in vielen_ Fällen aufgerufen. Zum Beispiel lesen und schreiben Array-Methoden auf das Array durch diese internen Methoden, sodass Methoden wie [`push()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/push) auch die `get()`- und `set()`-Traps aufrufen würden.
+Alle internen Methoden werden von der Sprache selbst aufgerufen und sind in JavaScript-Code nicht direkt zugänglich. Der {{jsxref("Reflect")}}-Namensraum bietet Methoden, die wenig mehr tun, als die internen Methoden aufzurufen, außer einigen Eingabenormalisierungen und -validierungen. Auf jeder Trap-Seite listen wir mehrere typische Situationen auf, wann der Trap aufgerufen wird, aber diese internen Methoden werden an _sehr vielen_ Stellen aufgerufen. Zum Beispiel lesen und schreiben Array-Methoden auf Array durch diese internen Methoden, sodass Methoden wie [`push()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/push) auch `get()`- und `set()`-Traps aufrufen würden.
 
-Die meisten der internen Methoden sind auf das, was sie tun, recht direkt. Die einzigen zwei, die eventuell verwechselt werden könnten, sind `[[Set]]` und `[[DefineOwnProperty]]`. Bei normalen Objekten ruft ersteres Setter auf; letzteres nicht. (Und `[[Set]]` ruft `[[DefineOwnProperty]]` intern auf, wenn keine existierende Eigenschaft oder die Eigenschaft eine Dateneigenschaft ist.) Während Sie wissen mögen, dass die `obj.x = 1`-Syntax `[[Set]]` verwendet und {{jsxref("Object.defineProperty()")}} `[[DefineOwnProperty]]` verwendet, ist nicht sofort ersichtlich, welche Semantik andere eingebaute Methoden und Syntaxen verwenden. Zum Beispiel verwenden [Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) die `[[DefineOwnProperty]]`-Semantik, weshalb Setter, die in der Superklasse definiert sind, nicht aufgerufen werden, wenn ein Feld in der abgeleiteten Klasse deklariert wird.
+Die meisten internen Methoden sind in ihrem Zweck klar. Die einzigen beiden, die verwirrt werden könnten, sind `[[Set]]` und `[[DefineOwnProperty]]`. Für normale Objekte ruft erstere Setter auf; letztere nicht. (Und `[[Set]]` ruft `[[DefineOwnProperty]]` intern auf, wenn keine bestehende Eigenschaft vorhanden ist oder die Eigenschaft eine Dateneigenschaft ist.) Während Sie vielleicht wissen, dass die `obj.x = 1`-Syntax `[[Set]]` verwendet und {{jsxref("Object.defineProperty()")}} `[[DefineOwnProperty]]` verwendet, ist es nicht sofort ersichtlich, welche Semantiken andere eingebaute Methoden und Syntaxen verwenden. Zum Beispiel verwenden [Klassenfelder](/de/docs/Web/JavaScript/Reference/Classes/Public_class_fields) die `[[DefineOwnProperty]]`-Semantik, weshalb Setter, die in der Superklasse definiert sind, nicht aufgerufen werden, wenn ein Feld in der abgeleiteten Klasse deklariert wird.
 
 ## Konstruktor
 
@@ -158,7 +158,7 @@ Die meisten der internen Methoden sind auf das, was sie tun, recht direkt. Die e
 
 ### Einfaches Beispiel
 
-In diesem Beispiel wird die Zahl `37` als Standardwert zurückgegeben, wenn der Eigenschaftsname nicht im Objekt enthalten ist. Hierbei wird der {{jsxref("Proxy/Proxy/get", "get()")}}-Handler verwendet.
+In diesem Beispiel wird die Zahl `37` als Standardwert zurückgegeben, wenn der Eigenschaftsname nicht im Objekt vorhanden ist. Es wird der {{jsxref("Proxy/Proxy/get", "get()")}} Handler verwendet.
 
 ```js
 const handler = {
@@ -178,7 +178,7 @@ console.log("c" in p, p.c); // false, 37
 
 ### No-op-Weiterleitungsproxy
 
-In diesem Beispiel verwenden wir ein natives JavaScript-Objekt, an das unser Proxy alle Operationen weiterleitet, die auf es angewendet werden.
+In diesem Beispiel verwenden wir ein natives JavaScript-Objekt, an das unser Proxy alle Operationen weiterleiten wird, die darauf angewendet werden.
 
 ```js
 const target = {};
@@ -189,11 +189,11 @@ p.a = 37; // Operation forwarded to the target
 console.log(target.a); // 37 (The operation has been properly forwarded!)
 ```
 
-Beachten Sie, dass dieser "No-op" für normale JavaScript-Objekte funktioniert, nicht jedoch für native Objekte, wie DOM-Elemente, [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map)-Objekte oder alles, was interne Slots hat. Siehe [keine Weiterleitung von privaten Feldern](#keine_weiterleitung_von_privaten_feldern) für weitere Informationen.
+Beachten Sie, dass dieses "No-op" für einfache JavaScript-Objekte funktioniert, aber nicht für native Objekte wie DOM-Elemente, [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map)-Objekte oder alles, was interne Slots hat. Siehe [keine Weiterleitung privater Felder](#keine_weiterleitung_privater_felder) für weitere Informationen.
 
-### Keine Weiterleitung von privaten Feldern
+### Keine Weiterleitung privater Felder
 
-Ein Proxy ist dennoch ein anderes Objekt mit einer anderen Identität - er ist ein _Proxy_, der zwischen dem umschlossenen Objekt und dem Äußeren agiert. Als solcher hat der Proxy keinen direkten Zugriff auf die [privaten Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) des ursprünglichen Objekts.
+Ein Proxy ist weiterhin ein anderes Objekt mit einer anderen Identität — er ist ein _Proxy_, der zwischen dem umhüllten Objekt und der Außenwelt operiert. Daher hat der Proxy keinen direkten Zugriff auf die [privaten Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) des Originalobjekts.
 
 ```js
 class Secret {
@@ -206,17 +206,17 @@ class Secret {
   }
 }
 
-const aSecret = new Secret("123456");
-console.log(aSecret.secret); // [REDACTED]
+const secret = new Secret("123456");
+console.log(secret.secret); // [REDACTED]
 // Looks like a no-op forwarding...
-const proxy = new Proxy(aSecret, {});
+const proxy = new Proxy(secret, {});
 console.log(proxy.secret); // TypeError: Cannot read private member #secret from an object whose class did not declare it
 ```
 
-Das liegt daran, dass beim Aufrufen des `get`-Traps des Proxys der `this`-Wert der `proxy` anstelle des ursprünglichen `secret` ist, sodass `#secret` nicht zugänglich ist. Um dies zu beheben, verwenden Sie das ursprüngliche `secret` als `this`:
+Dies liegt daran, dass, wenn der `get`-Trap des Proxys aufgerufen wird, `this`-Wert der `proxy` anstelle des ursprünglichen `secret` ist, sodass `#secret` nicht zugänglich ist. Um dies zu beheben, verwenden Sie das ursprüngliche `secret` als `this`:
 
 ```js
-const proxy = new Proxy(aSecret, {
+const proxy = new Proxy(secret, {
   get(target, prop, receiver) {
     // By default, it looks like Reflect.get(target, prop, receiver)
     // which has a different value of `this`
@@ -226,7 +226,7 @@ const proxy = new Proxy(aSecret, {
 console.log(proxy.secret);
 ```
 
-Für Methoden bedeutet dies, dass Sie den `this`-Wert der Methode ebenfalls auf das ursprüngliche Objekt umleiten müssen:
+Für Methoden bedeutet dies, dass Sie den `this`-Wert der Methode auf das ursprüngliche Objekt ebenfalls umleiten müssen:
 
 ```js
 class Secret {
@@ -236,8 +236,8 @@ class Secret {
   }
 }
 
-const aSecret = new Secret();
-const proxy = new Proxy(aSecret, {
+const secret = new Secret();
+const proxy = new Proxy(secret, {
   get(target, prop, receiver) {
     const value = target[prop];
     if (value instanceof Function) {
@@ -251,18 +251,18 @@ const proxy = new Proxy(aSecret, {
 console.log(proxy.x());
 ```
 
-Einige native JavaScript-Objekte haben Eigenschaften, die _[innere Slots](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-object-internal-methods-and-internal-slots)_ genannt werden, die nicht aus JavaScript-Code zugänglich sind. Zum Beispiel haben [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map)-Objekte einen inneren Slot namens `[[MapData]]`, der die Schlüssel-Werte-Paare der Map speichert. Daher können Sie nicht einfach einen Weiterleitungsproxy für eine Map erstellen:
+Einige native JavaScript-Objekte haben Eigenschaften, die als _[interne Slots](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-object-internal-methods-and-internal-slots)_ bezeichnet werden und die vom JavaScript-Code nicht zugänglich sind. Zum Beispiel haben [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map)-Objekte einen internen Slot namens `[[MapData]]`, der die Schlüssel-Wert-Paare der Karte speichert. Daher können Sie nicht trivial einen Weiterleitungsproxy für eine Karte erstellen:
 
 ```js
 const proxy = new Proxy(new Map(), {});
 console.log(proxy.size); // TypeError: get size method called on incompatible Proxy
 ```
 
-Sie müssen den oben illustrierten "`this`-wiederherstellenden" Proxy verwenden, um dies zu umgehen.
+Sie müssen den oben illustrierten „`this`-Wiederherstellungs“-Proxy verwenden, um dies zu umgehen.
 
 ### Validierung
 
-Mit einem `Proxy` können Sie den übergebenen Wert für ein Objekt einfach validieren. Dieses Beispiel verwendet den {{jsxref("Proxy/Proxy/set", "set()")}}-Handler.
+Mit einem `Proxy` können Sie leicht den übergebenen Wert für ein Objekt validieren. Dieses Beispiel verwendet den {{jsxref("Proxy/Proxy/set", "set()")}} Handler.
 
 ```js
 const validator = {
@@ -294,11 +294,11 @@ person.age = 300; // Throws an exception
 
 ### Manipulation von DOM-Knoten
 
-In diesem Beispiel verwenden wir `Proxy`, um ein Attribut von zwei verschiedenen Elementen umzuschalten: Wenn wir das Attribut auf einem Element festlegen, wird es auf dem anderen automatisch deaktiviert.
+In diesem Beispiel verwenden wir `Proxy`, um ein Attribut von zwei verschiedenen Elementen umzuschalten: Wenn wir das Attribut an einem Element setzen, wird das Attribut am anderen automatisch gelöscht.
 
-Wir erstellen ein `view`-Objekt, das ein Proxy für ein Objekt mit einer `selected`-Eigenschaft ist. Der Proxy-Handler definiert den {{jsxref("Proxy/Proxy/set", "set()")}}-Handler.
+Wir erstellen ein `view`-Objekt, das ein Proxy für ein Objekt mit einer `selected`-Eigenschaft ist. Der Proxy-Handler definiert den {{jsxref("Proxy/Proxy/set", "set()")}} Handler.
 
-Wenn wir ein HTML-Element `view.selected` zuweisen, wird das `'aria-selected'`-Attribut des Elements auf `true` gesetzt. Wenn wir dann ein anderes Element `view.selected` zuweisen, wird das `'aria-selected'`-Attribut dieses Elements auf `true` gesetzt und das vorherige Element hat das `'aria-selected'`-Attribut automatisch auf `false` gesetzt.
+Wenn wir ein HTML-Element `view.selected` zuweisen, wird das `'aria-selected'`-Attribut des Elements auf `true` gesetzt. Wenn wir dann ein anderes Element `view.selected` zuweisen, wird das `'aria-selected'`-Attribut dieses Elements auf `true` gesetzt und das vorherige Element's `'aria-selected'`-Attribut wird automatisch auf `false` gesetzt.
 
 ```js
 const view = new Proxy(
@@ -348,7 +348,7 @@ console.log(`item2: ${item2.getAttribute("aria-selected")}`);
 
 ### Wertkorrektur und eine zusätzliche Eigenschaft
 
-Das `products` Proxy-Objekt bewertet den übergebenen Wert und konvertiert ihn bei Bedarf in ein Array. Das Objekt unterstützt auch eine zusätzliche Eigenschaft namens `latestBrowser`, sowohl als Getter als auch als Setter.
+Das `products`-Proxy-Objekt bewertet den übergebenen Wert und konvertiert ihn bei Bedarf in ein Array. Das Objekt unterstützt auch eine zusätzliche Eigenschaft namens `latestBrowser` sowohl als Getter als auch als Setter.
 
 ```js
 const products = new Proxy(
@@ -414,4 +414,4 @@ console.log(products.latestBrowser);
 
 ## Siehe auch
 
-- [Proxies are awesome](https://youtu.be/sClk6aB_CPk) Präsentation von Brendan Eich bei JSConf (2014)
+- [Proxies are awesome](https://youtu.be/sClk6aB_CPk) Präsentation von Brendan Eich auf der JSConf (2014)

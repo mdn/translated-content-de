@@ -3,19 +3,19 @@ title: "CanvasRenderingContext2D: getImageData() Methode"
 short-title: getImageData()
 slug: Web/API/CanvasRenderingContext2D/getImageData
 l10n:
-  sourceCommit: 7ed95bd9e3e72ec095fd2dc9bc0deab0801b2e6e
+  sourceCommit: eba7ce08cf50c5d9e344652748f6bcfb19f3a396
 ---
 
 {{APIRef("Canvas API")}}
 
-Die Methode **`getImageData()`** des [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) aus der Canvas 2D-API gibt ein [`ImageData`](/de/docs/Web/API/ImageData)-Objekt zurück, das die zugrunde liegenden Pixeldaten für einen angegebenen Bereich des Canvas darstellt.
+Die **`getImageData()`**-Methode der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) im Canvas 2D API gibt ein [`ImageData`](/de/docs/Web/API/ImageData)-Objekt zurück, das die zugrunde liegenden Pixeldaten für einen angegebenen Bereich des Canvas darstellt.
 
 Diese Methode wird nicht von der Transformationsmatrix des Canvas beeinflusst. Wenn das angegebene Rechteck über die Grenzen des Canvas hinausgeht, sind die Pixel außerhalb des Canvas im zurückgegebenen `ImageData`-Objekt transparent schwarz.
 
 > [!NOTE]
-> Bilddaten können mit der [`putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData)-Methode auf ein Canvas gemalt werden.
+> Bilddaten können mithilfe der [`putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData)-Methode auf ein Canvas gemalt werden.
 
-Weitere Informationen über `getImageData()` und die allgemeine Manipulation von Canvas-Inhalten finden Sie unter [Pixel-Manipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas).
+Weitere Informationen über `getImageData()` und die allgemeine Manipulation von Canvas-Inhalten finden Sie unter [Pixelmanipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas).
 
 ## Syntax
 
@@ -27,23 +27,21 @@ getImageData(sx, sy, sw, sh, settings)
 ### Parameter
 
 - `sx`
-  - : Die x-Achsen-Koordinate der oberen linken Ecke des Rechtecks, von dem das
-    `ImageData` extrahiert wird.
+  - : Die x-Koordinate der oberen linken Ecke des Rechtecks, aus dem die `ImageData` extrahiert werden.
 - `sy`
-  - : Die y-Achsen-Koordinate der oberen linken Ecke des Rechtecks, von dem das
-    `ImageData` extrahiert wird.
+  - : Die y-Koordinate der oberen linken Ecke des Rechtecks, aus dem die `ImageData` extrahiert werden.
 - `sw`
-  - : Die Breite des Rechtecks, von dem das `ImageData` extrahiert wird.
-    Positive Werte sind nach rechts, und negative nach links.
+  - : Die Breite des Rechtecks, aus dem die `ImageData` extrahiert werden. Positive Werte gehen nach rechts, negative nach links.
 - `sh`
-  - : Die Höhe des Rechtecks, von dem das `ImageData` extrahiert wird.
-    Positive Werte sind nach unten, und negative nach oben.
+  - : Die Höhe des Rechtecks, aus dem die `ImageData` extrahiert werden. Positive Werte zeigen nach unten, und negative nach oben.
 - `settings` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
-    - `colorSpace`: Gibt den Farbraum der Bilddaten an. Kann auf `"srgb"` für den [sRGB Farbraum](https://en.wikipedia.org/wiki/SRGB) oder `"display-p3"` für den [display-p3 Farbraum](https://en.wikipedia.org/wiki/DCI-P3) gesetzt werden.
-    - `pixelFormat`: Gibt das Pixelformat an. Mögliche Werte:
-      - `"rgba-unorm8"`, für RGBA mit 8 Bit pro Komponente im unbeschnittenen normalisierten Format, mit einer {{jsxref("Uint8ClampedArray")}}.
-      - `"rgba-float16"`, für RGBA mit 16 Bit pro Komponente, mit einer {{jsxref("Float16Array")}}. Gleitkomma-Pixelwerte ermöglichen die Darstellung von Farben in beliebig breiten Farbumfängen und hohem Dynamikbereich (HDR).
+    - `colorSpace`
+      - : Gibt den Farbraum der Bilddaten an. Kann auf `"srgb"` für den [sRGB-Farbraum](https://en.wikipedia.org/wiki/SRGB) oder `"display-p3"` für den [display-p3-Farbraum](https://en.wikipedia.org/wiki/DCI-P3) gesetzt werden.
+    - `pixelFormat`
+      - : Gibt das Pixelformat an. Mögliche Werte:
+        - `"rgba-unorm8"` für RGBA mit 8 Bit pro Komponente im unsignierten normalisierten Format, verwendet ein {{jsxref("Uint8ClampedArray")}}.
+        - `"rgba-float16"` für RGBA mit 16 Bit pro Komponente, verwendet ein {{jsxref("Float16Array")}}. Gleitkomma-Pixelwerte ermöglichen die Darstellung von Farben in beliebig breiten Gamut-Bereichen und hohem dynamischen Bereich (HDR).
 
 ### Rückgabewert
 
@@ -52,19 +50,18 @@ Ein [`ImageData`](/de/docs/Web/API/ImageData)-Objekt, das die Bilddaten für das
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn entweder `sw` oder `sh` null sind.
+  - : Wird ausgelöst, wenn entweder `sw` oder `sh` gleich null sind.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Das Canvas enthält oder könnte Pixel enthalten, die von einem anderen Ursprung geladen wurden als dem, von dem das Dokument selbst geladen wurde.
-    Um zu vermeiden, dass ein `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) in dieser Situation ausgelöst wird, konfigurieren Sie CORS, um die Verwendung des Quellbildes auf diese Weise zu ermöglichen.
-    Siehe [Verwendung von CORS-fähigen Bildern und Canvas erlauben](/de/docs/Web/HTML/How_to/CORS_enabled_image).
+  - : Das Canvas enthält oder könnte Pixel enthalten, die von einer anderen Ursprungsadresse geladen wurden als die, von der das Dokument selbst geladen wurde. Um zu verhindern, dass in diesem Fall eine `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst wird, konfigurieren Sie CORS so, dass die Quellbilder auf diese Weise verwendet werden können.
+    Siehe [Erlauben der plattformübergreifenden Verwendung von Bildern und Canvas](/de/docs/Web/HTML/How_to/CORS_enabled_image).
 
 ## Beispiele
 
-### Abrufen von Bilddaten aus einem Canvas
+### Bilddaten von einem Canvas abrufen
 
 Dieses Beispiel zeichnet ein Bild und verwendet dann `getImageData()`, um einen Teil des Canvas zu erfassen.
 
-Wir verwenden `getImageData()`, um einen Ausschnitt des Bildes zu extrahieren, beginnend bei `(10, 20)`, mit einer Breite von `80` und einer Höhe von `230`. Wir zeichnen diesen Ausschnitt dann dreimal und positionieren die Ausschnitte schrittweise unter und rechts von dem letzten Ausschnitt.
+Wir verwenden `getImageData()`, um einen Abschnitt des Bildes, beginnend bei `(10, 20)`, mit einer Breite von `80` und einer Höhe von `230`, zu extrahieren. Wir zeichnen dann diesen Abschnitt dreimal und positionieren die Abschnitte jeweils unterhalb und rechts vom vorherigen.
 
 #### HTML
 
@@ -94,9 +91,9 @@ image.addEventListener("load", () => {
 
 {{EmbedLiveSample("Getting_image_data_from_a_canvas", "", 420)}}
 
-### Farbraumkonvertierung
+### Farbkonvertierung
 
-Die optionale `colorSpace`-Einstellung ermöglicht es Ihnen, Bilddaten im gewünschten Format zu erhalten.
+Die optionale `colorSpace`-Einstellung erlaubt es, Bilddaten im gewünschten Format zu erhalten.
 
 ```js
 const context = canvas.getContext("2d", { colorSpace: "display-p3" });
@@ -108,9 +105,9 @@ const imageData = context.getImageData(0, 0, 1, 1, { colorSpace: "srgb" });
 console.log(imageData.colorSpace); // "srgb"
 ```
 
-### Abrufen von Daten in verschiedenen Pixelformaten
+### Daten in verschiedenen Pixelformaten abrufen
 
-Die optionale `pixelFormat`-Einstellung ermöglicht es Ihnen, Bilddaten im gewünschten Pixelformat zu erhalten.
+Die optionale `pixelFormat`-Einstellung ermöglicht es, Bilddaten im gewünschten Pixelformat zu erhalten.
 
 ```js
 const context = canvas.getContext("2d");
@@ -135,6 +132,6 @@ console.log(imageData.pixelFormat); // "rgba-float16"
 ## Siehe auch
 
 - Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
-- [`ImageData`](/de/docs/Web/API/ImageData) Objekt
+- [`ImageData`](/de/docs/Web/API/ImageData)-Objekt
 - [`CanvasRenderingContext2D.putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData)
-- [Pixel-Manipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)
+- [Pixelmanipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)

@@ -3,12 +3,12 @@ title: Object.freeze()
 short-title: freeze()
 slug: Web/JavaScript/Reference/Global_Objects/Object/freeze
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 79fdc26fea835d65c9361541bb8ab1896f307475
 ---
 
-Die statische Methode **`Object.freeze()`** _friert_ ein Objekt ein. Das Einfrieren eines Objekts [verhindert Erweiterungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions) und macht bestehende Eigenschaften nicht beschreibbar und nicht konfigurierbar. Ein eingefrorenes Objekt kann nicht mehr verändert werden: Neue Eigenschaften können nicht hinzugefügt, bestehende Eigenschaften nicht entfernt werden, ihre Enumerierbarkeit, Konfigurierbarkeit, Beschreibbarkeit oder ihr Wert können nicht geändert werden und das Prototyp des Objekts kann nicht neu zugeordnet werden. `freeze()` gibt dasselbe Objekt zurück, das übergeben wurde.
+Die statische Methode **`Object.freeze()`** _friert_ ein Objekt ein. Das Einfrieren eines Objekts [verhindert Erweiterungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions) und macht bestehende Eigenschaften nicht beschreibbar und nicht konfigurierbar. Ein eingefrorenes Objekt kann nicht mehr verändert werden: Neue Eigenschaften können nicht hinzugefügt werden, bestehende Eigenschaften können nicht entfernt werden, ihre Aufzählbarkeit, Konfigurierbarkeit, Schreibbarkeit oder Werte können nicht geändert werden, und das Prototyp-Objekt kann nicht neu zugewiesen werden. `freeze()` gibt dasselbe Objekt zurück, das übergeben wurde.
 
-Das Einfrieren eines Objekts ist der höchste Integritätslevel, den JavaScript bietet.
+Das Einfrieren eines Objekts ist das höchste Integritätsniveau, das JavaScript bereitstellt.
 
 {{InteractiveExample("JavaScript Demo: Object.freeze()")}}
 
@@ -39,19 +39,19 @@ Object.freeze(obj)
 
 ### Rückgabewert
 
-Das Objekt, das der Funktion übergeben wurde.
+Das Objekt, das an die Funktion übergeben wurde.
 
 ## Beschreibung
 
-Das Einfrieren eines Objekts entspricht dem [Verhindern von Erweiterungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions) und dem Ändern aller bestehenden [Eigenschaftsdeskriptoren](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) von `configurable` zu `false` — und für Dateneigenschaften auch `writable` zu `false`. Nichts kann dem Eigenschaften-Set eines eingefrorenen Objekts hinzugefügt oder daraus entfernt werden. Jeder Versuch dies zu tun, wird entweder stillschweigend fehlschlagen oder eine {{jsxref("TypeError")}}-Ausnahme auslösen (meistens, aber nicht ausschließlich im {{jsxref("Strict_mode", "Strict-Modus", "", 1)}}).
+Das Einfrieren eines Objekts entspricht dem [Verhindern von Erweiterungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions) und dann dem Ändern aller bestehenden [Eigenschaftsbeschreibungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) `configurable` auf `false` — und für Dateneigenschaften `writable` ebenfalls auf `false`. Nichts kann zur Eigenschaftsmenge eines eingefrorenen Objekts hinzugefügt oder daraus entfernt werden. Jeder Versuch, dies zu tun, wird scheitern, entweder lautlos oder indem eine {{jsxref("TypeError")}}-Ausnahme ausgelöst wird (am häufigsten, aber nicht ausschließlich, im {{jsxref("Strict_mode", "strict mode", "", 1)}}).
 
-Für Dateneigenschaften eines eingefrorenen Objekts können ihre Werte nicht geändert werden, da die Attribute `writable` und `configurable` auf `false` gesetzt sind. Zugriffseigenschaften (Getter und Setter) funktionieren genauso — der von den Gettern zurückgegebene Eigenschaftswert kann sich weiterhin ändern und der Setter kann aufgerufen werden, ohne beim Setzen der Eigenschaft Fehler auszulösen. Beachten Sie, dass Werte, die Objekte sind, weiterhin modifiziert werden können, es sei denn, sie sind ebenfalls eingefroren. Als Objekt kann ein Array eingefroren werden; nach dem Einfrieren können seine Elemente nicht verändert werden und es können keine Elemente hinzugefügt oder daraus entfernt werden.
+Für die Dateneigenschaften eines eingefrorenen Objekts können ihre Werte nicht geändert werden, da die Attribute `writable` und `configurable` auf `false` gesetzt sind. Zugreifende Eigenschaften (Getters und Setters) funktionieren ebenso — der von der Getter-Funktion zurückgegebene Eigenschaftswert kann sich weiterhin ändern, und es können Setzer aufgerufen werden, ohne dass Fehler beim Setzen der Eigenschaft ausgelöst werden. Beachten Sie, dass Werte, die Objekte sind, immer noch geändert werden können, es sei denn, sie sind ebenfalls eingefroren. Als ein Objekt kann auch ein Array eingefroren werden; danach können seine Elemente nicht mehr geändert und keine weiteren Elemente hinzugefügt oder entfernt werden.
 
-[Private Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) sind keine Eigenschaften und haben nicht das Konzept von Eigenschaftsdeskriptoren. Das Einfrieren eines Objekts mit privaten Elementen verhindert nicht, dass die Werte dieser privaten Elemente geändert werden. (Das Einfrieren von Objekten soll in der Regel als Sicherheitsmaßnahme gegen externen Code dienen, aber externer Code kann sowieso nicht auf private Elemente zugreifen.) Private Elemente können weder hinzugefügt noch vom Objekt entfernt werden, unabhängig davon, ob das Objekt eingefroren ist oder nicht.
+[Private Elemente](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) sind keine Eigenschaften und haben kein Konzept von Eigenschaftsbeschreibungen. Das Einfrieren eines Objekts mit privaten Elementen verhindert nicht, dass die Werte dieser privaten Elemente geändert werden. (Objekte einzufrieren, wird normalerweise als Sicherheitsmaßnahme gegen externen Code verwendet, aber externer Code kann private Elemente ohnehin nicht zugreifen.) Private Elemente können nicht hinzugefügt oder entfernt werden, egal ob das Objekt eingefroren ist oder nicht.
 
-`freeze()` gibt dasselbe Objekt zurück, das der Funktion übergeben wurde. Es _erstellt keine_ eingefrorene Kopie.
+`freeze()` gibt dasselbe Objekt zurück, das an die Funktion übergeben wurde. Es _erzeugt keinen_ eingefrorenen Klon.
 
-Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}} mit Elementen wird eine {{jsxref("TypeError")}} verursachen, da sie Ansichten über den Speicher sind und definitiv andere mögliche Probleme verursachen werden:
+Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}} mit Elementen führt zu einem {{jsxref("TypeError")}}, da sie Ansichten über dem Speicher darstellen und definitiv andere mögliche Probleme verursachen können:
 
 ```js
 Object.freeze(new Uint8Array(0)); // No elements
@@ -70,9 +70,9 @@ Object.freeze(new Float64Array(new ArrayBuffer(64), 32, 2)); // Has elements
 // TypeError: Cannot freeze array buffer views with elements
 ```
 
-Beachten Sie, dass, da die Standard-Drei-Eigenschaften (`buf.byteLength`, `buf.byteOffset` und `buf.buffer`) schreibgeschützt sind (wie die eines {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}), es keinen Grund gibt, zu versuchen, diese Eigenschaften einzufrieren.
+Beachten Sie, dass die Standard-Drei-Eigenschaften (`buf.byteLength`, `buf.byteOffset` und `buf.buffer`) schreibgeschützt sind (ebenso wie die von {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}), und es daher keinen Grund gibt, zu versuchen, diese Eigenschaften einzufrieren.
 
-Im Gegensatz zu {{jsxref("Object.seal()")}}, werden bei Objekten, die mit `Object.freeze()` eingefroren werden, bestehende Eigenschaften unveränderlich gemacht und Dateneigenschaften können nicht neu zugewiesen werden.
+Im Gegensatz zu {{jsxref("Object.seal()")}} werden die bestehenden Eigenschaften in Objekten, die mit `Object.freeze()` eingefroren wurden, unveränderlich gemacht, und Dateneigenschaften können nicht neu zugewiesen werden.
 
 ## Beispiele
 
@@ -146,7 +146,7 @@ fail();
 a.push(2); // throws a TypeError
 ```
 
-Das eingefrorene Objekt ist _unveränderlich_. Es ist jedoch nicht zwangsläufig _konstant_. Das folgende Beispiel zeigt, dass ein eingefrorenes Objekt nicht konstant ist (das Einfrieren ist oberflächlich).
+Das Objekt, das eingefroren wird, ist _unveränderlich_. Jedoch ist es nicht unbedingt _konstant_. Das folgende Beispiel zeigt, dass ein eingefrorenes Objekt nicht konstant ist (Einfrieren ist oberflächlich).
 
 ```js
 const obj1 = {
@@ -154,16 +154,16 @@ const obj1 = {
 };
 
 Object.freeze(obj1);
-obj1.internal.a = "aValue";
+obj1.internal.a = "value";
 
-obj1.internal.a; // 'aValue'
+obj1.internal.a; // 'value'
 ```
 
-Um ein konstantes Objekt zu erhalten, muss der gesamte Referenzgraph (direkte und indirekte Verweise auf andere Objekte) nur unveränderliche eingefrorene Objekte referenzieren. Das zugefrierende Objekt ist deshalb als unveränderlich zu bezeichnen, weil der gesamte Objektzustand (Werte und Verweise auf andere Objekte) innerhalb des gesamten Objekts festgelegt ist. Beachten Sie, dass Strings, Zahlen und Booleans immer unveränderlich sind und dass Funktionen und Arrays Objekte sind.
+Um ein konstantes Objekt zu sein, muss der gesamte Referenzgraph (direkte und indirekte Referenzen zu anderen Objekten) ausschließlich auf unveränderliche eingefrorene Objekte verweisen. Das Objekt, das eingefroren wird, gilt als unveränderlich, weil der gesamte Objektzustand (Werte und Referenzen zu anderen Objekten) innerhalb des gesamten Objekts festgelegt ist. Beachten Sie, dass Strings, Zahlen und Booleans immer unveränderlich sind und dass Funktionen und Arrays Objekte sind.
 
 ### Tiefes Einfrieren
 
-Das Ergebnis des Aufrufs von `Object.freeze(object)` gilt nur für die unmittelbaren Eigenschaften des Objekts selbst und verhindert zukünftige Hinzufügungs-, Entfernungs- oder Wertneuheitsoperationen _nur_ auf `object`. Wenn die Werte dieser Eigenschaften selbst Objekte sind, sind diese Objekte nicht eingefroren und können Ziel für Eigenschaftshinzufügungs-, Entfernungs- oder Wertneuheitsoperationen sein.
+Das Ergebnis des Aufrufs von `Object.freeze(object)` gilt nur für die unmittelbaren Eigenschaften des `object` selbst und verhindert zukünftige Eigenschaftshinzufügungen, Entfernungen oder Neuzuweisungsoperationen _nur_ auf `object`. Wenn der Wert dieser Eigenschaften selbst Objekte sind, sind diese Objekte nicht eingefroren und können Ziel von Eigenschaftshinzufügungen, Entfernungen oder Neuzuweisungsoperationen sein.
 
 ```js
 const employee = {
@@ -183,9 +183,9 @@ employee.address.city = "Noida"; // attributes of child object can be modified
 console.log(employee.address.city); // "Noida"
 ```
 
-Um ein Objekt unveränderlich zu machen, frieren Sie rekursiv jede nicht primitive Eigenschaft ein (tiefes Einfrieren). Verwenden Sie das Muster fallweise basierend auf Ihrem Design, wenn Sie wissen, dass das Objekt keine [Zyklen](<https://en.wikipedia.org/wiki/Cycle_(graph_theory)>) im Referenzgraphen enthält, da sonst eine Endlosschleife ausgelöst wird. Beispielsweise haben Funktionen, die mit der [`function`](/de/docs/Web/JavaScript/Reference/Statements/function)-Syntax erstellt wurden, eine [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft mit einer `constructor`-Eigenschaft, die auf die Funktion selbst verweist, sodass sie standardmäßig Zyklen haben. Andere Funktionen, wie [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), können dennoch eingefroren werden.
+Um ein Objekt unveränderlich zu machen, frieren Sie rekursiv jede nicht primitive Eigenschaft ein (tiefes Einfrieren). Verwenden Sie das Muster von Fall zu Fall basierend auf Ihrem Design, wenn Sie wissen, dass das Objekt keine [Zyklen](<https://en.wikipedia.org/wiki/Cycle_(graph_theory)>) im Referenzgraphen enthält, sonst wird eine Endlosschleife ausgelöst. Zum Beispiel haben Funktionen, die mit der [`function`](/de/docs/Web/JavaScript/Reference/Statements/function)-Syntax erstellt wurden, eine [`prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)-Eigenschaft, deren `constructor`-Eigenschaft auf die Funktion selbst zeigt, sodass sie standardmäßig Zyklen haben. Andere Funktionen, wie [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), können trotzdem eingefroren werden.
 
-Eine Verbesserung an `deepFreeze()` wäre es, die Objekte zu speichern, die bereits besucht wurden, so dass Sie beim Prozess der Unveränderlichen-Machung eines Objekts den rekursiven Aufruf von `deepFreeze()` unterdrücken können. Für ein Beispiel siehe [Verwendung von `WeakSet` zur Erkennung von zyklischen Referenzen](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakSet#use_case_detecting_circular_references). Sie laufen immer noch Gefahr, ein Objekt einzufrieren, das nicht eingefroren werden sollte, wie z. B. [`window`](/de/docs/Web/API/Window).
+Eine Verbesserung für `deepFreeze()` wäre, die Objekte zu speichern, die bereits besucht wurden, damit Sie vermeiden können, `deepFreeze()` rekursiv aufzurufen, wenn ein Objekt gerade unveränderlich gemacht wird. Ein Beispiel hierfür ist [die Verwendung von `WeakSet`, um zirkuläre Referenzen zu erkennen](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakSet#use_case_detecting_circular_references). Sie laufen dennoch Gefahr, ein Objekt einzufrieren, das nicht eingefroren werden sollte, wie z.B. [`window`](/de/docs/Web/API/Window).
 
 ```js
 function deepFreeze(object) {

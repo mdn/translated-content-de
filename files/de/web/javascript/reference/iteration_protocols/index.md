@@ -2,64 +2,64 @@
 title: Iterationsprotokolle
 slug: Web/JavaScript/Reference/Iteration_protocols
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 79fdc26fea835d65c9361541bb8ab1896f307475
 ---
 
-**Iterationsprotokolle** sind keine neuen eingebauten Funktionen oder Syntaxen, sondern _Protokolle_. Diese Protokolle können von jedem Objekt durch Befolgung bestimmter Konventionen implementiert werden.
+**Iterationsprotokolle** sind keine neuen eingebauten Funktionen oder Syntax, sondern _Protokolle_. Diese Protokolle können von jedem Objekt implementiert werden, indem bestimmte Konventionen befolgt werden.
 
-Es gibt zwei Protokolle: Das [iterable Protokoll](#das_iterable_protokoll) und das [Iterator-Protokoll](#das_iterator-protokoll).
+Es gibt zwei Protokolle: Das [iterable Protokoll](#das_iterable_protokoll) und das [iterator Protokoll](#das_iterator_protokoll).
 
 ## Das iterable Protokoll
 
-**Das iterable Protokoll** ermöglicht es JavaScript-Objekten, ihr Iterationsverhalten zu definieren oder anzupassen, wie zum Beispiel welche Werte in einer {{jsxref("Statements/for...of", "for...of")}}-Konstruktion durchlaufen werden. Einige eingebaute Typen sind [eingebaute Iterables](#eingebaute_iterables) mit einem Standard-Iterationsverhalten, wie {{jsxref("Array")}} oder {{jsxref("Map")}}, während andere Typen (wie {{jsxref("Object")}}) dies nicht sind.
+**Das iterable Protokoll** ermöglicht es JavaScript-Objekten, ihr Iterationsverhalten zu definieren oder zu individualisieren, zum Beispiel, welche Werte in einer {{jsxref("Statements/for...of", "for...of")}}-Schleife durchlaufen werden. Einige eingebaute Typen sind [eingebaute Iterables](#eingebaute_iterables) mit einem Standard-Iterationsverhalten, wie etwa {{jsxref("Array")}} oder {{jsxref("Map")}}, während andere Typen (wie {{jsxref("Object")}}) dies nicht sind.
 
-Um **iterierbar** zu sein, muss ein Objekt die Methode **`[Symbol.iterator]()`** implementieren. Das bedeutet, dass das Objekt (oder eines der Objekte in seiner [Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)) eine Eigenschaft mit einem `[Symbol.iterator]`-Schlüssel haben muss, welcher über die Konstante {{jsxref("Symbol.iterator")}} verfügbar ist:
+Um **iterable** zu sein, muss ein Objekt die Methode **`[Symbol.iterator]()`** implementieren, was bedeutet, dass das Objekt (oder eines der Objekte in seiner [Prototypen-Kette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)) eine Eigenschaft mit einem `[Symbol.iterator]` Schlüssel haben muss, die über die Konstante {{jsxref("Symbol.iterator")}} verfügbar ist:
 
 - `[Symbol.iterator]()`
-  - : Eine Funktion ohne Argumente, die ein Objekt zurückgibt, das dem [Iterator-Protokoll](#das_iterator-protokoll) entspricht.
+  - : Eine Funktion ohne Argumente, die ein Objekt zurückgibt, das dem [iterator Protokoll](#das_iterator_protokoll) entspricht.
 
-Wann immer ein Objekt iteriert werden muss (wie z.B. am Anfang einer {{jsxref("Statements/for...of", "for...of")}}-Schleife), wird seine Methode `[Symbol.iterator]()` ohne Argumente aufgerufen, und der zurückgegebene **Iterator** wird verwendet, um die zu iterierenden Werte zu erhalten.
+Wann immer ein Objekt iteriert werden muss (z.B. zu Beginn einer {{jsxref("Statements/for...of", "for...of")}}-Schleife), wird seine Methode `[Symbol.iterator]()` ohne Argumente aufgerufen und der zurückgegebene **Iterator** wird verwendet, um die zu iterierenden Werte zu erhalten.
 
-Beachten Sie, dass, wenn diese Funktion ohne Argumente aufgerufen wird, sie als Methode des iterierbaren Objekts aufgerufen wird. Daher kann innerhalb der Funktion das `this`-Schlüsselwort verwendet werden, um auf die Eigenschaften des iterierbaren Objekts zuzugreifen, um zu entscheiden, was während der Iteration bereitgestellt werden soll.
+Beachten Sie, dass, wenn diese Funktion ohne Argumente aufgerufen wird, sie als Methode auf dem iterierbaren Objekt aufgerufen wird. Daher kann innerhalb der Funktion das `this`-Schlüsselwort verwendet werden, um auf die Eigenschaften des iterierbaren Objekts zuzugreifen und zu entscheiden, was während der Iteration bereitgestellt wird.
 
-Diese Funktion kann eine gewöhnliche Funktion oder eine Generatorfunktion sein, so dass beim Aufruf ein Iterator-Objekt zurückgegeben wird. Innerhalb dieser Generatorfunktion kann jeder Eintrag mit `yield` bereitgestellt werden.
+Diese Funktion kann eine gewöhnliche Funktion sein oder sie kann eine Generatorfunktion sein, so dass beim Aufrufen ein Iterator-Objekt zurückgegeben wird. Innerhalb dieser Generatorfunktion kann jeder Eintrag durch die Verwendung von `yield` bereitgestellt werden.
 
-## Das Iterator-Protokoll
+## Das iterator Protokoll
 
-**Das Iterator-Protokoll** definiert eine standardisierte Methode, um eine Sequenz von Werten (entweder endlich oder unendlich) zu erzeugen und möglicherweise einen Rückgabewert anzugeben, wenn alle Werte erzeugt wurden.
+**Das iterator Protokoll** definiert eine Standardmethode zur Erzeugung einer Sequenz von Werten (entweder endlich oder unendlich) und potenziell eines Rückgabewerts, wenn alle Werte erzeugt wurden.
 
-Ein Objekt ist ein Iterator, wenn es eine `next()`-Methode mit den folgenden Semantiken implementiert:
+Ein Objekt ist ein Iterator, wenn es eine **`next()`**-Methode mit den folgenden Semantiken implementiert:
 
 - `next()`
-  - : Eine Funktion, die null oder ein Argument akzeptiert und ein Objekt zurückgibt, das der `IteratorResult`-Schnittstelle entspricht (siehe unten). Wenn ein Nicht-Objekt-Wert zurückgegeben wird (wie `false` oder `undefined`), während ein eingebautes Sprachfeature (wie `for...of`) den Iterator verwendet, wird ein {{jsxref("TypeError")}} (`"iterator.next() returned a non-object value"`) ausgelöst.
+  - : Eine Funktion, die null oder ein Argument akzeptiert und ein Objekt zurückgibt, das der `IteratorResult`-Schnittstelle entspricht (siehe unten). Wenn ein Nicht-Objektwert zurückgegeben wird (wie `false` oder `undefined`), wenn ein eingebautes Sprachfeature (wie `for...of`) den Iterator verwendet, wird eine {{jsxref("TypeError")}} (`"iterator.next() returned a non-object value"`) ausgelöst.
 
-Alle Methoden des Iterator-Protokolls (`next()`, `return()`, und `throw()`) werden erwartet, dass sie ein Objekt zurückgeben, das die `IteratorResult`-Schnittstelle implementiert. Es muss die folgenden Eigenschaften haben:
+Alle Methoden des iterator Protokolls (`next()`, `return()`, und `throw()`) sollten ein Objekt zurückgeben, das die `IteratorResult`-Schnittstelle implementiert. Dieses muss die folgenden Eigenschaften haben:
 
 - `done` {{optional_inline}}
-  - : Ein boolescher Wert, der `false` ist, wenn der Iterator in der Lage war, den nächsten Wert in der Sequenz zu erzeugen. (Dies entspricht dem Nicht-Spezifizieren der `done`-Eigenschaft überhaupt.)
+  - : Ein Boolean, der `false` ist, wenn der Iterator in der Lage war, den nächsten Wert der Sequenz zu erzeugen. (Dies entspricht dem vollständigen Weglassen der `done`-Eigenschaft.)
 
     Hat den Wert `true`, wenn der Iterator seine Sequenz abgeschlossen hat. In diesem Fall gibt `value` optional den Rückgabewert des Iterators an.
 
 - `value` {{optional_inline}}
-  - : Ein beliebiger JavaScript-Wert, der vom Iterator zurückgegeben wird. Kann weggelassen werden, wenn `done` `true` ist.
+  - : Jeder JavaScript-Wert, der vom Iterator zurückgegeben wird. Kann weggelassen werden, wenn `done` `true` ist.
 
-In der Praxis ist keine der Eigenschaften strikt erforderlich; wenn ein Objekt ohne eine der Eigenschaften zurückgegeben wird, ist es effektiv gleichbedeutend mit `{ done: false, value: undefined }`.
+In der Praxis ist keine der Eigenschaften strikt erforderlich; wenn ein Objekt ohne diese Eigenschaften zurückgegeben wird, entspricht es effektiv `{ done: false, value: undefined }`.
 
-Wenn ein Iterator ein Ergebnis mit `done: true` zurückgibt, wird erwartet, dass alle nachfolgenden Aufrufe von `next()` ebenfalls `done: true` zurückgeben, obwohl dies auf der Sprachebene nicht erzwungen wird.
+Wenn ein Iterator ein Ergebnis mit `done: true` zurückgibt, wird erwartet, dass alle nachfolgenden Aufrufe von `next()` auch `done: true` zurückgeben, obwohl dies auf Sprachebene nicht erzwungen wird.
 
-Die `next`-Methode kann einen Wert empfangen, der dem Methodenkörper zur Verfügung gestellt wird. Kein eingebautes Sprachfeature wird irgendeinen Wert übergeben. Der an die `next`-Methode von [Generatoren](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator) übergebene Wert wird zum Wert des korrespondierenden `yield`-Ausdrucks.
+Die `next`-Methode kann einen Wert empfangen, der der Methodenkörper verfügbar gemacht wird. Kein eingebautes Sprachfeature wird einen Wert übergeben. Der an die `next`-Methode von [Generatoren](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator) übergebene Wert wird zum Wert des entsprechenden `yield`-Ausdrucks.
 
-Optional kann der Iterator auch die Methoden **`return(value)`** und **`throw(exception)`** implementieren, die, wenn sie aufgerufen werden, dem Iterator mitteilen, dass der Aufrufer mit der Iteration fertig ist und etwaige notwendige Aufräumarbeiten (wie das Schließen der Datenbankverbindung) ausgeführt werden können.
+Optional kann der Iterator auch die Methoden **`return(value)`** und **`throw(exception)`** implementieren, die bei Aufruf dem Iterator mitteilen, dass der Aufrufer mit der Iteration fertig ist und notwendiges Aufräumen durchgeführt werden kann (z. B. Schließen einer Datenbankverbindung).
 
 - `return(value)` {{optional_inline}}
-  - : Eine Funktion, die null oder ein Argument akzeptiert und ein Objekt zurückgibt, das der `IteratorResult`-Schnittstelle entspricht, typischerweise mit `value` gleich dem übergebenen `value`-Wert und `done` gleich `true`. Der Aufruf dieser Methode teilt dem Iterator mit, dass der Aufrufer nicht mehr die Absicht hat, `next()`-Aufrufe durchzuführen, und Aufräumaktionen durchgeführt werden können. Wenn eingebaute Sprachfeatures `return()` für Aufräumarbeiten aufrufen, ist `value` immer `undefined`.
+  - : Eine Funktion, die null oder ein Argument akzeptiert und ein Objekt zurückgibt, das der `IteratorResult`-Schnittstelle entspricht, typischerweise mit `value` gleich dem übergebenen `value` und `done` gleich `true`. Der Aufruf dieser Methode signalisiert dem Iterator, dass der Aufrufer nicht beabsichtigt, weitere `next()`-Aufrufe zu tätigen und Aufräumaktionen durchführen kann. Wenn eingebaute Sprachfeatures `return()` zum Aufräumen aufrufen, ist `value` immer `undefined`.
 - `throw(exception)` {{optional_inline}}
-  - : Eine Funktion, die null oder ein Argument akzeptiert und ein Objekt zurückgibt, das der `IteratorResult`-Schnittstelle entspricht, typischerweise mit `done` gleich `true`. Der Aufruf dieser Methode teilt dem Iterator mit, dass der Aufrufer eine Fehlersituation erkennt, und `exception` ist typischerweise eine {{jsxref("Error")}}-Instanz. Kein eingebautes Sprachfeature ruft `throw()` für Aufräumzwecke auf – es ist eine Spezialität von Generatoren zur Symmetrie von `return`/`throw`.
+  - : Eine Funktion, die null oder ein Argument akzeptiert und ein Objekt zurückgibt, das der `IteratorResult`-Schnittstelle entspricht, typischerweise mit `done` gleich `true`. Der Aufruf dieser Methode signalisiert dem Iterator, dass der Aufrufer einen Fehlerzustand erkennt, und `exception` ist typischerweise eine {{jsxref("Error")}} Instanz. Kein eingebautes Sprachfeature ruft `throw()` für Aufräumzwecke auf — es ist ein spezielles Feature von Generatoren für die Symmetrie von `return`/`throw`.
 
 > [!NOTE]
-> Es ist nicht möglich, reflexiv (d.h. ohne tatsächlich `next()` aufzurufen und das zurückgegebene Ergebnis zu validieren) festzustellen, ob ein bestimmtes Objekt das Iterator-Protokoll implementiert.
+> Es ist nicht möglich, reflektierend (d.h. ohne tatsächlich `next()` aufzurufen und das zurückgegebene Ergebnis zu validieren) zu wissen, ob ein bestimmtes Objekt das iterator Protokoll implementiert.
 
-Es ist sehr einfach, einen Iterator auch iterierbar zu machen: Implementieren Sie einfach eine `[Symbol.iterator]()`-Methode, die `this` zurückgibt.
+Es ist sehr einfach, einen Iterator auch iterable zu machen: Einfach eine `[Symbol.iterator]()`-Methode implementieren, die `this` zurückgibt.
 
 ```js
 // Satisfies both the Iterator Protocol and Iterable
@@ -73,58 +73,59 @@ const myIterator = {
 };
 ```
 
-Ein solches Objekt wird als _iterierbarer Iterator_ bezeichnet. Dadurch kann ein Iterator von den verschiedenen Syntaxen, die Iterables erwarten, konsumiert werden – daher ist es selten nützlich, das Iterator-Protokoll zu implementieren, ohne auch Iterable zu implementieren. (Tatsächlich erwarten fast alle Syntaxen und APIs _Iterables_, keine _Iterators_.) Das [Generatorobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator) ist ein Beispiel:
+Ein solches Objekt wird als ein _iterable Iterator_ bezeichnet. Auf diese Weise kann ein Iterator von den verschiedenen Syntaxen konsumiert werden, die Iterables erwarten — daher ist es selten nützlich, das Iterator-Protokoll zu implementieren, ohne auch Iterable zu implementieren. (Tatsächlich erwarten fast alle Syntaxen und APIs _Iterables_, keine _Iteratoren_.) Das [Generator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator) ist ein Beispiel:
 
 ```js
-const aGeneratorObject = (function* () {
+const generatorObject = (function* () {
   yield 1;
   yield 2;
   yield 3;
 })();
 
-console.log(typeof aGeneratorObject.next);
+console.log(typeof generatorObject.next);
 // "function" — it has a next method (which returns the right result), so it's an iterator
 
-console.log(typeof aGeneratorObject[Symbol.iterator]);
+console.log(typeof generatorObject[Symbol.iterator]);
 // "function" — it has an [Symbol.iterator] method (which returns the right iterator), so it's an iterable
 
-console.log(aGeneratorObject[Symbol.iterator]() === aGeneratorObject);
+console.log(generatorObject[Symbol.iterator]() === generatorObject);
 // true — its [Symbol.iterator] method returns itself (an iterator), so it's an iterable iterator
 ```
 
-Alle eingebauten Iterators erben von {{jsxref("Iterator", "Iterator.prototype")}}, das die `[Symbol.iterator]()`-Methode so implementiert, dass `this` zurückgegeben wird, so dass eingebauten Iterators auch iterierbar sind.
+Alle eingebauten Iteratoren erben von {{jsxref("Iterator", "Iterator.prototype")}}, das die `[Symbol.iterator]()`-Methode implementiert, indem es `this` zurückgibt, sodass eingebaute Iteratoren ebenfalls iterable sind.
 
-Es ist jedoch besser, wenn möglich, dass `iterable[Symbol.iterator]()` verschiedene Iterators zurückgibt, die immer vom Anfang starten, wie [`Set.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/Symbol.iterator) es tut.
+Wenn möglich, ist es jedoch besser, dass `iterable[Symbol.iterator]()` unterschiedliche Iteratoren zurückgibt, die immer von Anfang an starten, wie es [`Set.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/Symbol.iterator) tut.
 
-## Das asynchrone Iterator- und asynchrone Iterable-Protokoll
+## Die async Iterator und async Iterable Protokolle
 
-Es gibt ein weiteres Paar von Protokollen, die für asynchrone Iteration verwendet werden, die **asynchrones Iterator**- und **asynchrones Iterable**-Protokoll genannt werden. Sie haben sehr ähnliche Schnittstellen im Vergleich zu den Iterable- und Iterator-Protokollen, außer dass jeder Rückgabewert aus den Aufrufen der Iteratormethoden in einem Promise verpackt ist.
+Es gibt ein weiteres Paar von Protokollen für asynchrone Iteration, die als **async Iterator** und **async Iterable** Protokolle bezeichnet werden. Sie haben sehr ähnliche Schnittstellen im Vergleich zu den iterable und iterator Protokollen, außer dass jeder Rückgabewert der Aufrufe der Iterator-Methoden in ein Versprechen eingebunden ist.
 
-Ein Objekt implementiert das asynchrone Iterable-Protokoll, wenn es die folgenden Methoden implementiert:
+Ein Objekt implementiert das async iterable Protokoll, wenn es die folgenden Methoden implementiert:
 
 - [`[Symbol.asyncIterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator)
-  - : Eine Funktion ohne Argumente, die ein Objekt zurückgibt, das dem asynchronen Iterator-Protokoll entspricht.
+  - : Eine Funktion ohne Argumente, die ein Objekt zurückgibt, das dem async iterator Protokoll entspricht.
 
-Ein Objekt implementiert das asynchrone Iterator-Protokoll, wenn es die folgenden Methoden implementiert:
+Ein Objekt implementiert das async iterator Protokoll, wenn es die folgenden Methoden implementiert:
 
 - `next()`
-  - : Eine Funktion, die null oder ein Argument akzeptiert und ein Promise zurückgibt. Das Promise erfüllt ein Objekt, das der `IteratorResult`-Schnittstelle entspricht, und die Eigenschaften haben die gleichen Semantiken wie die des synchronen Iterators.
+  - : Eine Funktion, die null oder ein Argument akzeptiert und ein Versprechen zurückgibt. Das Versprechen erfüllt ein Objekt, das der `IteratorResult`-Schnittstelle entspricht, und die Eigenschaften haben die gleiche Semantik wie die des synchronen Iterators.
 - `return(value)` {{optional_inline}}
-  - : Eine Funktion, die null oder ein Argument akzeptiert und ein Promise zurückgibt. Das Promise erfüllt ein Objekt, das der `IteratorResult`-Schnittstelle entspricht, und die Eigenschaften haben die gleichen Semantiken wie die des synchronen Iterators.
+  - : Eine Funktion, die null oder ein Argument akzeptiert und ein Versprechen zurückgibt. Das Versprechen erfüllt ein Objekt, das der `IteratorResult`-Schnittstelle entspricht, und die Eigenschaften haben die gleiche Semantik wie die des synchronen Iterators.
 - `throw(exception)` {{optional_inline}}
-  - : Eine Funktion, die null oder ein Argument akzeptiert und ein Promise zurückgibt. Das Promise erfüllt ein Objekt, das der `IteratorResult`-Schnittstelle entspricht, und die Eigenschaften haben die gleichen Semantiken wie die des synchronen Iterators.
+  - : Eine Funktion, die null oder ein Argument akzeptiert und ein Versprechen zurückgibt. Das Versprechen erfüllt ein Objekt, das der `IteratorResult`-Schnittstelle entspricht, und die Eigenschaften haben die gleiche Semantik wie die des synchronen Iterators.
 
 ## Interaktionen zwischen der Sprache und den Iterationsprotokollen
 
-Die Sprache spezifiziert APIs, die entweder Iterables oder Iterators erzeugen oder konsumieren.
+Die Sprache gibt APIs an, die entweder Iterables erzeugen oder konsumieren.
 
 ### Eingebaute Iterables
 
-{{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("TypedArray")}}, {{jsxref("Map")}}, {{jsxref("Set")}}, und [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments) (zurückgegeben von [`Intl.Segmenter.prototype.segment()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment)) sind alle eingebaute Iterables, weil jedes ihrer `prototype`-Objekte eine `[Symbol.iterator]()`-Methode implementiert. Zusätzlich sind das [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)-Objekt und einige DOM-Sammlungstypen wie [`NodeList`](/de/docs/Web/API/NodeList) ebenfalls Iterables. Im Kern der JavaScript-Sprache gibt es kein Objekt, das asynchron iterierbar ist. Einige Web-APIs, wie [`ReadableStream`](/de/docs/Web/API/ReadableStream), haben die `Symbol.asyncIterator`-Methode standardmäßig gesetzt.
+{{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("TypedArray")}}, {{jsxref("Map")}}, {{jsxref("Set")}} und [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments) (zurückgegeben durch [`Intl.Segmenter.prototype.segment()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment)) sind alle eingebaute Iterables, weil jedes ihrer `prototype`-Objekte eine `[Symbol.iterator]()`-Methode implementiert. Darüber hinaus sind das [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) Objekt und einige DOM-Sammlungstypen wie [`NodeList`](/de/docs/Web/API/NodeList) auch Iterables.
+Es gibt kein Objekt in der Kern-JavaScript-Sprache, das async iterable ist. Einige Web-APIs, wie zum Beispiel [`ReadableStream`](/de/docs/Web/API/ReadableStream), haben standardmäßig die Methode `Symbol.asyncIterator`.
 
-[Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*) geben [Generatorobjekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator) zurück, die iterierbare Iteratoren sind. [Asynchrone Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function*) geben [asynchrone Generatorobjekte](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator) zurück, die asynchrone iterierbare Iteratoren sind.
+[Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*) geben [Generatorobjekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator) zurück, die iterable Iteratoren sind. [Async Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function*) geben [async Generatorobjekte](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncGenerator) zurück, die async iterable Iteratoren sind.
 
-Die von eingebauten Iterables zurückgegebenen Iterators erben tatsächlich alle von einer gemeinsamen Klasse {{jsxref("Iterator")}}, die die zuvor erwähnte `[Symbol.iterator]() { return this; }`-Methode implementiert, wodurch sie alle iterierbare Iteratoren sind. Die `Iterator`-Klasse bietet auch zusätzliche [Hilfsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_methods) zusätzlich zur `next()`-Methode, die vom Iterator-Protokoll gefordert wird. Sie können die Prototypkette eines Iterators inspizieren, indem Sie ihn in einer grafischen Konsole protokollieren.
+Die Iteratoren, die von eingebauten Iterables zurückgegeben werden, erben tatsächlich alle von einer gemeinsamen Klasse {{jsxref("Iterator")}}, die die erwähnte `[Symbol.iterator]() { return this; }`-Methode implementiert und sie dadurch zu iterable Iteratoren macht. Die `Iterator`-Klasse bietet zusätzlich [Hilfsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_methods) zusätzlich zur `next()`-Methode, die vom Iterator-Protokoll gefordert wird. Sie können die Prototypenkette eines Iterators inspizieren, indem Sie ihn in einer grafischen Konsole protokollieren.
 
 ```plain
 console.log([][Symbol.iterator]());
@@ -168,7 +169,7 @@ new WeakSet(
 
 ### Syntaxen, die Iterables erwarten
 
-Einige Anweisungen und Ausdrücke erwarten Iterables, z.B. die {{jsxref("Statements/for...of", "for...of")}}-Schleifen, [Array- und Parameter-Spreading](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), {{jsxref("Operators/yield*", "yield*")}}, und [Array-Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring):
+Einige Anweisungen und Ausdrücke erwarten Iterables, zum Beispiel die {{jsxref("Statements/for...of", "for...of")}}-Schleifen, [Array- und Parameterausbreitung](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), {{jsxref("Operators/yield*", "yield*")}}, und [Array-Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring):
 
 ```js
 for (const value of ["a", "b", "c"]) {
@@ -190,7 +191,7 @@ console.log(gen().next()); // { value: "a", done: false }
 console.log(a); // "a"
 ```
 
-Wenn eingebaute Syntaxen einen Iterator durchlaufen und das letzte Ergebnis `done` als `false` ist (d.h. der Iterator kann mehr Werte erzeugen), aber keine weiteren Werte benötigt werden, wird die `return`-Methode, falls vorhanden, aufgerufen. Dies kann passieren, zum Beispiel wenn ein `break` oder `return` in einer `for...of`-Schleife auftritt oder wenn alle Bezeichner bereits in einer Array-Destrukturierung gebunden sind.
+Wenn eingebaute Syntaxen einen Iterator iterieren und das letzte Ergebnis `done` `false` ist (d.h. der Iterator ist in der Lage, mehr Werte zu erzeugen), aber keine weiteren Werte benötigt werden, wird die `return`-Methode aufgerufen, falls vorhanden. Dies kann passieren, zum Beispiel, wenn ein `break` oder `return` in einer `for...of`-Schleife getroffen wird oder wenn alle Bezeichner in einer Array-Destrukturierung bereits gebunden sind.
 
 ```js
 const obj = {
@@ -230,21 +231,21 @@ for (const b of obj) {
 // Closing
 ```
 
-Die [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of)-Schleife und [`yield*`](/de/docs/Web/JavaScript/Reference/Operators/yield*) in [asynchronen Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function*) (aber nicht in [synchronen Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*)) sind die einzigen Möglichkeiten, mit asynchronen Iterables zu interagieren. Die Verwendung von `for...of`, Array-Spreading, usw. auf einem asynchronen Iterable, das nicht auch synchron iterierbar ist (d.h. es hat `[Symbol.asyncIterator]()` aber kein `[Symbol.iterator]()`), wird einen TypeError: x is not iterable werfen.
+Die [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of) Schleife und [`yield*`](/de/docs/Web/JavaScript/Reference/Operators/yield*) in [async Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function*) (aber nicht [synchronen Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*)) sind die einzigen Möglichkeiten, async Iterables zu verwenden. Die Verwendung von `for...of`, Array-Ausbreitung, etc. bei einem async Iterable, das nicht auch synchron iterable ist (d.h. es hat `[Symbol.asyncIterator]()` aber kein `[Symbol.iterator]()`) wird einen TypeError werfen: x is not iterable.
 
 ## Fehlerbehandlung
 
-Da beim Iterieren die Kontrolle hin- und her zwischen dem Iterator und dem Konsumenten übertragen wird, erfolgt die Fehlerbehandlung auf beiderlei Weise: wie der Konsument Fehler behandelt, die vom Iterator geworfen werden, und wie der Iterator Fehler behandelt, die vom Konsumenten geworfen werden. Wenn Sie eine der eingebauten Methoden zur Iteration verwenden, kann die Sprache auch Fehler werfen, weil das Iterable bestimmte {{Glossary("invariant", "Invarianten")}} verletzt. Wir werden beschreiben, wie eingebaute Syntaxen Fehler erzeugen und behandeln, die als Leitfaden für Ihren eigenen Code verwendet werden können, wenn Sie den Iterator manuell steuern.
+Da bei der Iteration die Kontrolle zwischen dem Iterator und dem Verbraucher hin und her übertragen wird, findet die Fehlerbehandlung in beide Richtungen statt: wie der Verbraucher Fehler behandelt, die vom Iterator geworfen werden, und wie der Iterator Fehler behandelt, die vom Verbraucher geworfen werden. Wenn Sie eine der eingebauten Iterationsmethoden verwenden, kann die Sprache auch Fehler auslösen, weil das Iterable bestimmte {{Glossary("invariant", "Invarianten")}} verletzt. Wir werden beschreiben, wie eingebaute Syntaxen Fehler generieren und behandeln, was als Leitfaden für Ihren eigenen Code verwendet werden kann, wenn Sie den Iterator manuell schrittweise aufrufen.
 
 ### Nicht wohlgeformte Iterables
 
-Fehler können auftreten, wenn der Iterator aus dem Iterable erworben wird. Die hier durchgesetzte Sprachinvariante ist, dass das Iterable einen gültigen Iterator erzeugen muss:
+Fehler können auftreten, wenn der Iterator vom Iterable erworben wird. Die Sprache-Invariante, die hier durchgesetzt wird, ist, dass das Iterable einen gültigen Iterator erzeugen muss:
 
 - Es hat eine aufrufbare `[Symbol.iterator]()`-Methode.
 - Die `[Symbol.iterator]()`-Methode gibt ein Objekt zurück.
-- Das von `[Symbol.iterator]()` zurückgegebene Objekt hat eine aufrufbare `next()`-Methode.
+- Das durch `[Symbol.iterator]()` zurückgegebene Objekt hat eine aufrufbare `next()`-Methode.
 
-Wenn Sie eine eingebaute Syntax verwenden, um mit der Iteration eines nicht wohlgeformten Iterables zu beginnen, wird ein TypeError geworfen.
+Wenn die eingebaute Syntax verwendet wird, um die Iteration bei einem nicht wohlgeformten Iterable zu initiieren, wird ein TypeError ausgelöst.
 
 ```js example-bad
 const nonWellFormedIterable = { [Symbol.iterator]: 1 };
@@ -255,21 +256,21 @@ nonWellFormedIterable[Symbol.iterator] = () => ({});
 [...nonWellFormedIterable]; // TypeError: nonWellFormedIterable[Symbol.iterator]().next is not a function
 ```
 
-Für asynchrone Iterables, wenn seine `[Symbol.asyncIterator]()`-Eigenschaft den Wert `undefined` oder `null` hat, greift JavaScript auf die Verwendung der `[Symbol.iterator]`-Eigenschaft zurück (und umhüllt den resultierenden Iterator in einen asynchronen Iterator, indem es die Methoden [weiterleitet](#fehler_weiterleiten)). Andernfalls muss die `[Symbol.asyncIterator]`-Eigenschaft ebenfalls den oben genannten Invarianten entsprechen.
+Für async Iterables, wenn sein `[Symbol.asyncIterator]()`-Eigenschaft den Wert `undefined` oder `null` hat, fällt JavaScript zurück, um die `[Symbol.iterator]`-Eigenschaft stattdessen zu verwenden (und den resultierenden Iterator in einen async Iterator zu verwandeln, indem es die Methoden [weiterleitet](#weiterleitung_von_fehlern)). Andernfalls muss die `[Symbol.asyncIterator]`-Eigenschaft auch die oben genannten Invarianten erfüllen.
 
-Diese Art von Fehlern kann verhindert werden, indem das Iterable zunächst validiert wird, bevor versucht wird, es zu iterieren. Es ist jedoch ziemlich selten, da Sie normalerweise den Typ des Objekts kennen, über das Sie iterieren. Wenn Sie dieses Iterable von einem anderen Code erhalten, sollten Sie den Fehler einfach an den Aufrufer propagieren lassen, so dass er weiß, dass eine ungültige Eingabe bereitgestellt wurde.
+Diese Art von Fehlern kann vermieden werden, indem das Iterable zunächst validiert wird, bevor versucht wird, es zu iterieren. Allerdings ist es ziemlich selten, da Sie normalerweise den Typ des Objekts kennen, über das Sie iterieren. Wenn Sie dieses Iterable aus einem anderen Code erhalten, sollten Sie einfach den Fehler an den Aufrufer weiterleiten, damit er weiß, dass eine ungültige Eingabe bereitgestellt wurde.
 
 ### Fehler während der Iteration
 
-Die meisten Fehler treten auf, wenn der Iterator fortschreitet (Aufruf von `next()`). Die hier durchgesetzte Sprachinvariante ist, dass die `next()`-Methode ein Objekt zurückgeben muss (für asynchrone Iteratoren ein Objekt nach dem Warten). Andernfalls wird ein TypeError geworfen.
+Die meisten Fehler treten auf, wenn der Iterator fortschreitet (nächsten `next()`-Aufruf). Die Sprache-Invariante, die hier durchgesetzt wird, ist, dass die `next()`-Methode ein Objekt zurückgeben muss (für async Iteratoren ein Objekt nach dem Ausharren). Andernfalls wird ein TypeError ausgelöst.
 
-Wenn die Invariante verletzt wird oder die `next()`-Methode einen Fehler wirft (für asynchrone Iteratoren kann sie auch ein abgelehntes Promise zurückgeben), wird der Fehler an den Aufrufer weitergegeben. Bei eingebauten Syntaxen wird die in Bearbeitung befindliche Iteration abgebrochen, ohne einen Wiederholungsversuch oder eine Aufräumbemühung (angenommen, dass die `next()`-Methode den Fehler wirft, dann hat sie bereits aufgeräumt). Wenn Sie `next()` manuell aufrufen, können Sie den Fehler abfangen und `next()` erneut versuchen, aber allgemein sollten Sie davon ausgehen, dass der Iterator bereits geschlossen ist.
+Wenn die Invariante verletzt wird oder die `next()`-Methode einen Fehler auslöst (für async Iteratoren kann sie auch ein abgelehntes Versprechen zurückgeben), wird der Fehler an den Aufrufer weitergegeben. Bei eingebauten Syntaxen wird die laufende Iteration ohne erneutes Versuchen oder Aufräumen abgebrochen (in der Annahme, dass, wenn die `next()`-Methode den Fehler ausgelöst hat, sie bereits aufgeräumt hat). Wenn Sie `next()` manuell aufrufen, können Sie den Fehler abfangen und versuchen, `next()` erneut aufzurufen, aber im Allgemeinen sollten Sie davon ausgehen, dass der Iterator bereits geschlossen ist.
 
-Wenn der Aufrufer beschließt, die Iteration aus einem anderen Grund als den Fehlern im vorherigen Absatz zu beenden, wie wenn er einen Fehlerzustand in seinem eigenen Code eingeht (zum Beispiel, während er einen ungültigen Wert bearbeitet, den der Iterator erzeugt hat), sollte er die `return()`-Methode am Iterator aufrufen, falls eine existiert. Dies ermöglicht dem Iterator, etwaige Aufräumarbeiten durchzuführen. Die `return()`-Methode wird nur für vorzeitige Beendigungen aufgerufen – wenn `next()` `done: true` zurückgibt, wird die `return()`-Methode nicht aufgerufen, unter der Annahme, dass der Iterator bereits aufgeräumt hat.
+Wenn der Aufrufer beschließt, die Iteration aus einem anderen Grund als den in den vorherigen Absätzen genannten Fehlern zu beenden, z. B. wenn er in seinem eigenen Code in einen Fehlerstatus gerät (zum Beispiel, während er einen ungültigen Wert verarbeitet, der vom Iterator erzeugt wurde), sollte er die `return()`-Methode auf dem Iterator aufrufen, falls vorhanden. Dies ermöglicht es dem Iterator, alle Aufräumarbeiten durchzuführen. Die `return()`-Methode wird nur für vorzeitige Beendigungen aufgerufen — wenn `next()` `done: true` zurückgibt, wird die `return()`-Methode nicht aufgerufen, unter der Annahme, dass der Iterator bereits aufgeräumt hat.
 
-Die `return()`-Methode könnte ebenfalls ungültig sein! Die Sprache erzwingt auch, dass die `return()`-Methode ein Objekt zurückgeben muss und wirft einen TypeError sonst. Wenn die `return()`-Methode einen Fehler wirft, wird der Fehler an den Aufrufer weitergegeben. Wenn die `return()`-Methode jedoch aufgerufen wird, weil der Aufrufer einen Fehler in seinem eigenen Code festgestellt hat, dann überschreibt dieser Fehler den von der `return()`-Methode geworfenen Fehler.
+Die `return()`-Methode könnte auch ungültig sein! Die Sprache fordert auch, dass die `return()`-Methode ein Objekt zurückgibt und wirft einen TypeError, wenn dies nicht der Fall ist. Wenn die `return()`-Methode einen Fehler auslöst, wird der Fehler an den Aufrufer weitergegeben. Wenn jedoch die `return()`-Methode aufgerufen wird, weil der Aufrufer einen Fehler in seinem eigenen Code festgestellt hat, überschreibt dieser Fehler den von der `return()`-Methode ausgelösten Fehler.
 
-Normalerweise implementiert der Aufrufer die Fehlerbehandlung wie folgt:
+Üblicherweise implementiert der Aufrufer die Fehlerbehandlung wie folgt:
 
 ```js
 try {
@@ -281,9 +282,9 @@ try {
 }
 ```
 
-Der `catch` kann Fehler abfangen, die geworfen werden, wenn `iterable` kein gültiges Iterable ist, wenn `next()` einen Fehler wirft, wenn `return()` einen Fehler wirft (wenn die `for`-Schleife frühzeitig beendet wird), und wenn der Körper der `for`-Schleife einen Fehler wirft.
+Der `catch` kann Fehler abfangen, die ausgelöst werden, wenn `iterable` kein gültiges Iterable ist, wenn `next()` einen Fehler auslöst, wenn `return()` einen Fehler auslöst (wenn die `for`-Schleife vorzeitig beendet wird), und wenn der `for`-Schleifenkörper einen Fehler auslöst.
 
-Die meisten Iteratoren werden mit Generatorfunktionen implementiert, daher demonstrieren wir, wie Generatorfunktionen typischerweise Fehler behandeln:
+Die meisten Iteratoren werden mit Generatorfunktionen implementiert, daher werden wir zeigen, wie Generatorfunktionen typischerweise Fehler behandeln:
 
 ```js
 function* gen() {
@@ -296,15 +297,15 @@ function* gen() {
 }
 ```
 
-Das Fehlen von `catch` hier führt dazu, dass Fehler, die von `doSomething()` oder `doSomethingElse()` geworfen werden, an den Aufrufer von `gen` weitergegeben werden. Wenn diese Fehler innerhalb der Generatorfunktion abgefangen werden (was gleichermaßen ratsam ist), kann die Generatorfunktion entscheiden, weiterhin Werte zu produzieren oder frühzeitig zu beenden. Jedoch ist der `finally`-Block notwendig für Generatoren, die Ressourcen offen halten. Der `finally`-Block wird garantiert ausgeführt, wenn die letzte `next()` aufgerufen wird oder wenn `return()` aufgerufen wird.
+Das Fehlen von `catch` hier führt dazu, dass Fehler, die von `doSomething()` oder `doSomethingElse()` erzeugt werden, an den Aufrufer von `gen` weitergegeben werden. Wenn diese Fehler innerhalb der Generatorfunktion abgefangen werden (was gleichermaßen ratsam ist), kann die Generatorfunktion entscheiden, ob sie weiterhin Werte erzeugt oder vorzeitig beendet wird. Der `finally`-Block ist jedoch notwendig für Generatoren, die offene Ressourcen beibehalten. Der `finally`-Block wird garantiert ausgeführt, entweder wenn der letzte `next()`-Aufruf erfolgt oder wenn `return()` aufgerufen wird.
 
-### Fehler weiterleiten
+### Weiterleitung von Fehlern
 
-Einige eingebaute Syntaxen umhüllen einen Iterator in einen anderen Iterator. Dazu gehören der von {{jsxref("Iterator.from()")}} erzeugte Iterator, [Iterator-Hilfsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_methods) (`map()`, `filter()`, `take()`, `drop()`, und `flatMap()`), [`yield*`](/de/docs/Web/JavaScript/Reference/Operators/yield*), und ein versteckter Wrapper, wenn Sie die asynchrone Iteration (`for await...of`, `Array.fromAsync`) auf synchronen Iteratoren verwenden. Der umhüllte Iterator ist dann dafür verantwortlich, Fehler zwischen dem inneren Iterator und dem Aufrufer weiterzuleiten.
+Einige eingebaute Syntaxen wickeln einen Iterator in einen anderen ein. Dazu gehören der von {{jsxref("Iterator.from()")}} erzeugte Iterator, [Iterator-Hilfsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helper_methods) (`map()`, `filter()`, `take()`, `drop()`, und `flatMap()`), [`yield*`](/de/docs/Web/JavaScript/Reference/Operators/yield*), und ein versteckter Wrapper, wenn Sie async Iteration (`for await...of`, `Array.fromAsync`) auf synchronen Iteratoren verwenden. Der umwickelte Iterator ist dann verantwortlich für die Weiterleitung von Fehlern zwischen dem inneren Iterator und dem Aufrufer.
 
-- Alle Wrapper-Iterators leiten die `next()`-Methode des inneren Iterators direkt weiter, einschließlich ihres Rückgabe- und Fehlerwurfwerts.
-- Wrapper-Iterators leiten im Allgemeinen die `return()`-Methode des inneren Iterators direkt weiter. Wenn die `return()`-Methode beim inneren Iterator nicht existiert, gibt sie stattdessen `{ done: true, value: undefined }` zurück. Im Fall von Iterator-Hilfsmethoden: Wenn die `next()`-Methode des Iterator-Helfers noch nicht aufgerufen wurde, gibt der aktuelle Iterator nach dem Versuch, `return()` am inneren Iterator zu rufen, immer `{ done: true, value: undefined }` zurück. Dies ist konsistent mit Generatorfunktionen, bei denen die Ausführung noch nicht in den `yield*`-Ausdruck eingetreten ist.
-- `yield*` ist die einzige eingebaute Syntax, die die `throw()`-Methode des inneren Iterators weiterleitet. Für Informationen darüber, wie [`yield*`](/de/docs/Web/JavaScript/Reference/Operators/yield*) die `return()`- und `throw()`-Methoden weiterleitet, sehen Sie sich die eigene Referenz an.
+- Alle Wrapper-Iteratoren leiten die `next()`-Methode des inneren Iterators direkt weiter, einschließlich ihres Rückgabewerts und der ausgelösten Fehler.
+- Wrapper-Iteratoren leiten im Allgemeinen die `return()`-Methode des inneren Iterators direkt weiter. Wenn die `return()`-Methode auf dem inneren Iterator nicht existiert, gibt sie stattdessen `{ done: true, value: undefined }` zurück. Im Fall von Iterator-Hilfsmethoden: Wenn die `next()`-Methode des Iterator-Helfers nicht aufgerufen wurde, gibt der aktuelle Iterator nach dem Versuch, `return()` auf dem inneren Iterator aufzurufen, immer `{ done: true, value: undefined }` zurück. Dies ist konsistent mit Generatorfunktionen, bei denen die Ausführung den `yield*`-Ausdruck noch nicht betreten hat.
+- `yield*` ist die einzige eingebaute Syntax, die die `throw()`-Methode des inneren Iterators weiterleitet. Informationen darüber, wie [`yield*`](/de/docs/Web/JavaScript/Reference/Operators/yield*) die `return()` und `throw()`-Methoden weiterleitet, finden Sie in dessen eigener Referenz.
 
 ## Beispiele
 
@@ -324,9 +325,9 @@ const myIterable = {
 console.log([...myIterable]); // [1, 2, 3]
 ```
 
-### Einfacher Iterator
+### Grundlegender Iterator
 
-Iteratoren sind von Natur aus zustandsbehaftet. Wenn Sie ihn nicht als [Generatorfunktion](/de/docs/Web/JavaScript/Reference/Statements/function*) definieren (wie das obige Beispiel zeigt), möchten Sie den Zustand wahrscheinlich in einer Closure kapseln.
+Iteratoren sind von Natur aus zustandsbehaftet. Wenn Sie ihn nicht als [Generatorfunktion](/de/docs/Web/JavaScript/Reference/Statements/function*) definieren (wie das obige Beispiel zeigt), würden Sie wahrscheinlich den Zustand in einer Closure kapseln wollen.
 
 ```js
 function makeIterator(array) {
@@ -375,7 +376,7 @@ console.log(it.next().value); // 2
 // …
 ```
 
-### Definieren eines Iterables mit einem Generator
+### Definition eines Iterables mit einem Generator
 
 ```js
 function* makeGenerator(array) {
@@ -406,9 +407,9 @@ console.log(it.next().value); // 2
 // …
 ```
 
-### Definieren eines Iterables mit einer Klasse
+### Definition eines Iterables mit einer Klasse
 
-Die Kapselung des Zustands kann mit [privaten Feldern](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) ebenfalls durchgeführt werden.
+Zustandskapselung kann auch mit [privaten Feldern](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) erfolgen.
 
 ```js
 class SimpleClass {
@@ -444,16 +445,16 @@ for (const val of simple) {
 }
 ```
 
-### Überschreiben von eingebauten Iterables
+### Überschreibung von eingebauten Iterables
 
-Zum Beispiel ist ein {{jsxref("String")}} ein eingebautes iterierbares Objekt:
+Zum Beispiel ist ein {{jsxref("String")}} ein eingebautes Iterable-Objekt:
 
 ```js
 const someString = "hi";
 console.log(typeof someString[Symbol.iterator]); // "function"
 ```
 
-`String`'s [Standard-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) gibt die Codepunkte des Strings nacheinander zurück:
+Der [Standard-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) von `String` gibt die Codepunkte der Zeichenkette nacheinander zurück:
 
 ```js
 const iterator = someString[Symbol.iterator]();
@@ -464,7 +465,7 @@ console.log(iterator.next()); // { value: "i", done: false }
 console.log(iterator.next()); // { value: undefined, done: true }
 ```
 
-Sie können das Iterationsverhalten neu definieren, indem Sie unser eigenes `[Symbol.iterator]()` bereitstellen:
+Sie können das Iterationsverhalten neu definieren, indem Sie Ihren eigenen `[Symbol.iterator]()` bereitstellen:
 
 ```js
 // need to construct a String object explicitly to avoid auto-boxing
@@ -490,11 +491,11 @@ console.log([...someString]); // ["bye"]
 console.log(`${someString}`); // "hi"
 ```
 
-### Gleichzeitige Modifikationen beim Iterieren
+### Gleichzeitige Änderungen beim Iterieren
 
-Fast alle Iterables haben das gleiche zugrunde liegende Semantik: Sie kopieren die Daten nicht zu dem Zeitpunkt, an dem die Iteration beginnt. Vielmehr behalten sie einen Zeiger und bewegen ihn herum. Daher, wenn Sie Elemente in der Sammlung hinzufügen, löschen oder ändern, während Sie über die Sammlung iterieren, können Sie unbeabsichtigt ändern, ob andere _unveränderte_ Elemente in der Sammlung besucht werden. Dies ist sehr ähnlich zu den [iterativen Array-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#mutating_initial_array_in_iterative_methods).
+Fast alle Iterables haben dieselbe zugrunde liegende Semantik: Sie kopieren die Daten nicht zu dem Zeitpunkt, an dem die Iteration beginnt. Vielmehr behalten sie einen Zeiger bei und bewegen ihn herum. Daher, wenn Sie Elemente in der Sammlung während der Iteration hinzufügen, löschen oder ändern, können Sie unbeabsichtigt ändern, ob andere _unveränderte_ Elemente in der Sammlung besucht werden. Dies ähnelt sehr der Funktionsweise von [iterativen Array-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#mutating_initial_array_in_iterative_methods).
 
-Betrachten Sie den folgenden Fall mit einem [`URLSearchParams`](/de/docs/Web/API/URLSearchParams):
+Betrachten Sie den folgenden Fall, der die Verwendung von [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) zeigt:
 
 ```js
 const searchParams = new URLSearchParams(
@@ -514,9 +515,9 @@ for (const [key, value] of searchParams) {
 // key3
 ```
 
-Beachten Sie, wie `key2` niemals protokolliert wird. Das liegt daran, dass `URLSearchParams` grundlegend eine Liste von Schlüssel-Wert-Paaren ist. Wenn `deleteme1` besucht und gelöscht wird, werden alle anderen Einträge um eins nach links verschoben, so dass `key2` die Position einnimmt, die zuvor `deleteme1` hatte, und wenn der Zeiger zum nächsten Schlüssel bewegt wird, landet er auf `key3`.
+Beachten Sie, wie es `key2` nie protokolliert. Dies liegt daran, dass ein `URLSearchParams` zugrunde liegend eine Liste von Schlüssel-Wert-Paaren ist. Wenn `deleteme1` besucht und gelöscht wird, werden alle anderen Einträge um eins nach links verschoben, sodass `key2` die Position einnimmt, die `deleteme1` früher hatte, und wenn der Zeiger zum nächsten Schlüssel bewegt wird, landet er auf `key3`.
 
-Gewisse Iterables-Implementierungen vermeiden dieses Problem, indem sie "Grabstein"–Werte setzen, um das Verschieben der verbleibenden Werte zu vermeiden. Betrachten Sie den ähnlichen Code mit einer `Map`:
+Bestimmte Iterable-Implementierungen vermeiden dieses Problem, indem sie "Grabsteine" setzen, um ein Verschieben der verbleibenden Werte zu verhindern. Betrachten Sie den ähnlichen Code, der eine `Map` verwendet:
 
 ```js
 const myMap = new Map([
@@ -538,7 +539,7 @@ for (const [key, value] of myMap) {
 // key3
 ```
 
-Beachten Sie, wie alle Schlüssel protokolliert werden. Das liegt daran, dass `Map` die verbleibenden Schlüssel nicht verschiebt, wenn einer gelöscht wird. Wenn Sie etwas ähnliches implementieren möchten, kann es so aussehen:
+Beachten Sie, wie es alle Schlüssel protokolliert. Dies liegt daran, dass `Map` die verbleibenden Schlüssel nicht verschiebt, wenn einer gelöscht wird. Wenn Sie etwas Ähnliches implementieren möchten, könnte es so aussehen:
 
 ```js
 const tombstone = Symbol("tombstone");
@@ -580,7 +581,7 @@ for (const [key, value] of myIterable) {
 ```
 
 > [!WARNING]
-> Gleichzeitige Modifikationen sind im Allgemeinen sehr fehleranfällig und verwirrend. Es sei denn, Sie wissen genau, wie das Iterable implementiert ist, ist es am besten, die Sammlung während des Iterierens nicht zu modifizieren.
+> Gleichzeitige Änderungen sind im Allgemeinen sehr fehleranfällig und verwirrend. Es ist am besten, zu vermeiden, die Sammlung während des Iterierens zu ändern, es sei denn, Sie wissen genau, wie das Iterable implementiert ist.
 
 ## Spezifikationen
 
@@ -588,7 +589,7 @@ for (const [key, value] of myIterable) {
 
 ## Siehe auch
 
-- [Iterators und Generators](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden
+- [Iterators and generators](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden
 - {{jsxref("Statements/function*", "function*")}}
 - {{jsxref("Symbol.iterator")}}
 - {{jsxref("Iterator")}}

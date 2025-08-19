@@ -1,105 +1,106 @@
 ---
-title: Richtlinien zur Durchsetzung des Verhaltenskodexes
-short-title: Richtlinien zur Teilnahme an der Community
+title: Richtlinien zur Durchsetzung des Verhaltenskodex
+short-title: Richtlinien zum Verhaltenskodex
 slug: MDN/Community/Community_Participation_Guidelines
 l10n:
-  sourceCommit: a90c5bb64149b34db5a004b479d3195490d1c5f5
+  sourceCommit: f639d51530714ff4e6afe60124a831edfea2e4e8
 ---
 
-Die Teilnahme an den Projekten der MDN Web Docs bedeutet die Einhaltung der [Mozilla Community-Teilnahmerichtlinien (CPG)](https://www.mozilla.org/en-US/about/governance/policies/participation/). Diese Richtlinien existieren, um eine einladende, integrative und sichere Umgebung zu fördern und sicherzustellen, dass sich jedes Community-Mitglied wertgeschätzt, gehört und geschützt fühlt.
+Die Teilnahme an MDN Web Docs-Projekten bedeutet, dass Sie sich an die [Mozilla Community Participation Guidelines (CPG)](https://www.mozilla.org/en-US/about/governance/policies/participation/) halten müssen. Diese Richtlinien existieren, um ein einladendes, integratives und sicheres Umfeld zu fördern und sicherzustellen, dass sich jedes Community-Mitglied geschätzt, gehört und geschützt fühlt.
 
-Dieses Dokument beschreibt, wie Verstöße gemeldet werden können und was abhängig von der Schwere eines Verstoßes passiert.
+Dieses Dokument beschreibt, wie Verstöße gemeldet werden und was in Abhängigkeit von der Schwere des Verstoßes passiert.
 
 ## Leitprinzipien
 
-- **Transparenz:** Bearbeitung jedes Berichts klar und konsequent.
-- **Vertraulichkeit:** Schutz der Privatsphäre des Meldenden, es sei denn, es wird ausdrücklich zugestimmt, Informationen zu teilen.
-- **Verhältnismäßigkeit:** Reaktionen auf Verstöße sind verhältnismäßig zum verursachten Schaden.
-- **Restorative Gerechtigkeit:** Schaden beheben und Lernen fördern.
+- **Transparenz:** Jeder Bericht wird klar und konsequent behandelt.
+- **Vertraulichkeit:** Der Schutz der Privatsphäre des Berichtenden wird gewahrt, es sei denn, es wird ausdrücklich zugestimmt, Informationen zu teilen.
+- **Verhältnismäßigkeit:** Reaktionen auf Verstöße sind im Verhältnis zum verursachten Schaden angemessen.
+- **Restorative Gerechtigkeit:** Schadenswiedergutmachung und Förderung des Lernens.
 
-## Verstöße gegen den Verhaltenskodex und Durchsetzungsleiter
+## Verstöße gegen den Verhaltenskodex und Durchsetzungsstufen
 
-Das MDN Community Management Team ([`@mdn/community`](https://github.com/orgs/mdn/teams/community) auf GitHub) untersucht die Schwere des Verhaltens auf Basis eines Berichts und entscheidet dann über entsprechende Maßnahmen. Verstöße folgen einem stufenweisen Eskalationsprozess, und der Berichtsempfänger wird über die Konsequenzen auf jeder Ebene informiert. In ernsten Fällen kann die Durchsetzung Ebenen überspringen bis hin zu einem sofortigen, dauerhaften Verbot.
+Das Management-Team der MDN-Community ([`@mdn/community`](https://github.com/orgs/mdn/teams/community) auf GitHub) untersucht die Schwere eines Verhaltens basierend auf einem Bericht, entscheidet dann und führt gegebenenfalls Maßnahmen durch. Verstöße folgen einem Schritt-für-Schritt-Eskalationsprozess, und der Berichtete wird auf jeder Ebene über die Konsequenzen informiert. In schweren Fällen kann die Durchsetzung Stufen überspringen bis hin zu einem sofortigen, dauerhaften Bann.
 
-Nachfolgend ist eine Zusammenfassung der Schweregrade und Durchsetzungsmaßnahmen.
+Im Folgenden finden Sie eine Zusammenfassung der Schweregrade und Durchsetzungsmaßnahmen.
 
-### Stufe 0: Keine Aktion
+### Stufe 0: Keine Maßnahmen
 
-- **Schweregrad:** Es gibt keinen klaren Hinweis auf einen Verstoß gegen die CPG.
-- **Maßnahmen:** Keine formelle Maßnahme erforderlich. Feedback wird dem Meldenden, dem Berichtsempfänger oder beiden gegeben, um gutes Verhalten und positive Interaktionen zu fördern.
+- **Schweregrad:** Es gibt keinen klaren Hinweis auf einen Verstoß gegen den CPG.
+- **Maßnahmen:** Es werden keine formellen Maßnahmen ergriffen. Feedback wird dem Berichtenden, dem Berichteten oder beiden gegeben, um gutes Verhalten und positive Interaktionen zu fördern.
 
-### Stufe 1: Einfache Warnung
+### Stufe 1: Einfache Verwarnung ausgesprochen
 
-- **Schweregrad:** Geringfügige Verstöße gegen die CPG.
-- **Maßnahmen:** Eine private, schriftliche Warnung von der Projektleitung, mit Klarheit über den Verstoß und den Konsequenzen bei fortgesetztem Verhalten.
+- **Schweregrad:** Geringfügige Verstöße gegen den CPG.
+- **Maßnahmen:** Eine private, schriftliche Verwarnung von der Projektleitung mit Klarheit über den Verstoß und die Konsequenzen bei fortgesetztem Verhalten.
 
-### Stufe 2: Warnung
+### Stufe 2: Formelle Verwarnung ausgesprochen
 
-- **Schweregrad:** Moderater Verstoß gegen die CPG oder wiederholte geringfügige Verstöße.
+- **Schweregrad:** Mäßiger Verstoß gegen den CPG oder wiederholte geringfügige Verstöße.
 - **Maßnahmen:**
-  - Eine private, schriftliche Warnung mit Klarheit über den Verstoß und den Konsequenzen bei fortgesetztem Verhalten.
-  - Anleitung zur Behebung der Situation, wenn möglich.
-  - Mitteilung der Konsequenzen der nächsten Stufe bei wiederholtem Verhalten.
+  - Eine private, schriftliche Verwarnung mit Klarheit über den Verstoß und die Konsequenzen bei fortgesetztem Verhalten.
+  - Anleitung zur Behebung der Situation, falls möglich.
+  - Kommunikation der Konsequenzen der nächsten Stufe, falls das Verhalten wiederholt wird.
 
-### Stufe 3: Warnung + Obligatorische Auszeit (Tool-Zugriff deaktiviert - GH & Discord)
+### Stufe 3: Verwarnung und verpflichtende Abkühlungsphase
 
-- **Schweregrad:** Fortgesetzte Verstöße oder Eskalation in der Schwere.
+- **Schweregrad:** Fortgesetzte Verstöße oder Eskalation der Schwere.
 - **Maßnahmen:**
-  - Eine private Warnung mit Klarheit über den Verstoß und den Konsequenzen bei fortgesetztem Verhalten.
-  - Kein Interagieren auf Community-Messaging-Plattformen wie öffentlichen Foren, Kommentieren von Bugs.
-  - Kein Interagieren mit an dem Bericht beteiligten Personen oder anderen verdächtigten Personen.
-  - Vermeidung von Interaktionen in Mozilla-Kanälen, physischen Räumen und Büros sowie Online-Kanälen wie sozialen Medien (z. B. Folgen/Liken/Teilen).
-  - Der Berichtsempfänger hat die Möglichkeit, nach einer Einführung, die das erwartete Verhalten klärt, wieder am Projekt teilzunehmen.
+  - Eine private Verwarnung mit Klarheit über den Verstoß und die Konsequenzen bei fortgesetztem Verhalten.
+  - Keine Interaktion auf Community-Nachrichtenplattformen, wie öffentliche Foren, Kommentare zu Bugs.
+  - Keine Interaktion mit Personen, die an dem Bericht beteiligt sind oder verdächtigt werden, beteiligt zu sein.
+  - Temporäre Entziehung des Zugriffs auf GitHub und Discord.
+  - Vermeidung von Interaktionen in Mozilla-Kanälen, physischen Räumen und Büros sowie Online-Kanälen wie sozialen Medien (z.B. Folgen/Liken/Teilen).
+  - Der Berichtete hat die Möglichkeit, erneut am Projekt teilzunehmen, nachdem das erwartete Verhalten klargestellt wurde.
 
-### Stufe 4: Verbot in allen Bereichen der MDN und Mozilla-Bereiche, dauerhaftes Verbot
+### Stufe 4: Dauerhafter Bann in allen MDN- und Mozilla-Bereichen
 
-- **Schweregrad:** Schwere Verstöße gegen die [Mozilla Community-Teilnahmerichtlinien (CPG)](https://www.mozilla.org/en-US/about/governance/policies/participation/).
+- **Schweregrad:** Schwerwiegende Verstöße gegen die [Mozilla Community Participation Guidelines (CPG)](https://www.mozilla.org/en-US/about/governance/policies/participation/).
 - **Maßnahmen:**
-  - Private Mitteilung des Verbots von der Projektleitung, mit Klarheit über den Verstoß und Warnung vor den Konsequenzen. Sollte das Verhalten anhalten, würde dies zu einem Verbot aller Mozilla-Community-Bereiche führen.
-  - Verpflichtung zur Vermeidung von Interaktionen auf Community-Messaging-Plattformen und externen Kanälen.
+  - Private Mitteilung über einen Bann von der Projektleitung mit Klarheit über den Verstoß und Warnung vor den Konsequenzen. Sollte das Verhalten andauern, führt dies zu einem Bann von allen Mozilla-Community-Bereichen.
+  - Verpflichtung, Interaktionen auf Community-Nachrichtenplattformen und externen Kanälen zu vermeiden.
   - Deaktivierung aller Mozilla-Konten.
-  - Dauerhaftes Verbot des Zutritts zu digitalen und Veranstaltungsbereichen von Mozilla.
-  - Dauerhafte Sperre aller Community-Leitungsrollen.
-  - Widerruf aller Berechtigungen zur Nutzung der Mozilla-Marke.
+  - Dauerhafter Bann von Mozilla digitalen und Veranstaltungsbereichen.
+  - Dauerhafter Ausschluss aus allen Community-Führungspositionen.
+  - Entzug aller Berechtigungen zur Nutzung des Mozilla-Warenzeichens.
 
-## Meldeprozess
+## Meldeverfahren
 
-### Wie man einen Verstoß meldet
+### Verstöße melden
 
-Berichte können an mdn-cpg-report@mozilla.com gesendet werden. Um einen Verstoß oder Missbrauch auf GitHub zu melden, sehen Sie sich das [GitHub-Leitfaden zur Inhaltsmeldung](https://docs.github.com/en/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam) an. Die Option **„Den Repository-Admins melden“** muss aktiviert sein, damit das MDN-Team einen Inhaltsbericht sehen kann.
+Berichte können an mdn-cpg-report@mozilla.com gesendet werden. Um einen Verstoß oder Missbrauch auf GitHub zu melden, siehe [GitHubs Leitfaden zur Meldung von Inhalten](https://docs.github.com/en/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam). Die Option **„Report to repository admins“** muss aktiviert sein, damit das MDN-Team einen Inhaltsbericht sehen kann.
 
-Fügen Sie relevante Details bei, einschließlich Datum, Uhrzeit, Beschreibung des Verstoßes. Geben Sie gegebenenfalls identifizierende Informationen des Täters und Screenshots an.
+Fügen Sie relevante Details wie Datum, Uhrzeit und Beschreibung des Verstoßes bei. Fügen Sie, wenn möglich, identifizierende Informationen des Täters und Screenshots bei.
 
 ### Untersuchung
 
-Das MDN Community Management untersucht alle Berichte vertraulich. Bei Bedarf können weitere Informationen von den beteiligten Parteien eingeholt werden.
+Das MDN-Community-Management untersucht alle Berichte vertraulich. Bei Bedarf können weitere Informationen von den beteiligten Parteien angefordert werden.
 
 ### Entscheidungsfindung
 
-Das MDN Community Management beurteilt die Schwere des Verstoßes, wendet die entsprechenden Durchsetzungsmaßnahmen wie beschrieben an und teilt das Ergebnis den relevanten Parteien mit.
+Das MDN-Community-Management bewertet die Schwere des Verstoßes, wendet die beschriebenen Durchsetzungsmaßnahmen an und kommuniziert das Ergebnis an die relevanten Parteien.
 
 ### Berufungen
 
-Wenn eine gemeldete Person glaubt, dass die Entscheidung ungerecht war, kann sie über das [auf der Community-Seite erläuterte Berufungsverfahren] Einspruch einlegen. Berufungen werden von einem separaten, unparteiischen Gremium überprüft.
+Sobald ein Vorfall untersucht und eine Entscheidung den relevanten Parteien mitgeteilt wurde, haben alle die Möglichkeit, diese Entscheidung anzufechten, indem sie eine E-Mail an mdn-cpg-report@mozilla.com senden. Berufungen werden von einem separaten, unparteiischen Gremium überprüft.
 
 ### Dokumentation und Aufzeichnung
 
-Alle Vorfälle werden dokumentiert, um Konsistenz und Fairness zu gewährleisten. Aufzeichnungen über Verstöße und ergriffene Maßnahmen werden privat gehalten und sind nur vom MDN Community Management zugänglich.
+Alle Vorfälle werden dokumentiert, um Konsistenz und Fairness zu gewährleisten. Aufzeichnungen über Verstöße und getroffene Maßnahmen werden privat gehalten und sind nur für das MDN-Community-Management zugänglich.
 
 ## Häufig gestellte Fragen (FAQs)
 
-Häufige Fragen werden nachfolgend beantwortet. Wenn etwas über CPG-Berichte und -Prozesse unklar oder unbeantwortet bleibt, kontaktieren Sie uns über [unsere Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels).
+Allgemeine Fragen werden unten beantwortet. Wenn etwas anderes über CPG-Berichte und -Prozesse unklar oder unbeantwortet ist, nehmen Sie Kontakt über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) auf.
 
-### Was passiert, wenn ein Verstoß ein Grenzfall-Szenario beinhaltet?
+### Was passiert, wenn ein Verstoß einen Grenzfall darstellt?
 
-Verhalten, das unangemessen ist, aber nicht explizit vom Verhaltenskodex des Projekts beschrieben wird, wird individuell bewertet. Das Durchsetzungsteam wird basierend auf dem Kontext und den Prinzipien der Fairness, Transparenz und Verhältnismäßigkeit entscheiden.
+Verhalten, das unangemessen ist, aber nicht ausdrücklich durch den Verhaltenskodex des Projekts beschrieben wird, wird individuell bewertet. Das Durchsetzungsteam wird auf Basis des Kontexts und der Prinzipien der Fairness, Transparenz und Verhältnismäßigkeit eine Entscheidung treffen.
 
 Beispiele umfassen:
 
-- **Anonyme Berichte:** Diese Berichte werden mit besonderer Sorgfalt untersucht, um die Behauptungen zu validieren, während Fairness gewährleistet wird.
-- **Berichte über Mitglieder der Führungsebene:** Ein separates unvoreingenommenes Gremium wird diese Fälle bearbeiten, um Interessenkonflikte zu vermeiden.
-- **Interaktionen während der Auszeit:** Verstöße während einer Auszeit, z. B. unbeabsichtigte Online-Interaktionen, können anders betrachtet werden, wobei besonderer Wert auf Absicht und verursachten Schaden gelegt wird.
+- **Anonyme Berichte:** Diese Berichte werden mit besonderer Sorgfalt untersucht, um die Ansprüche zu validieren, während Fairness gewahrt wird.
+- **Berichte über Führungsmitglieder:** Ein separates, unparteiisches Gremium wird diese Fälle behandeln, um Interessenkonflikte zu vermeiden.
+- **Interaktionen während Abkühlungsphasen:** Verstöße während einer Abkühlungsphase, wie unbeabsichtigte Online-Interaktionen, können unterschiedlich betrachtet werden, wobei der Schwerpunkt auf Absicht und verursachtem Schaden liegt.
 
-### Aktualisierungen des CPG
+### Wie wird CPG im Laufe der Zeit gepflegt?
 
-Der CPG-Prozess ist ein lebendes Dokument, das sich mit der Community entwickelt. Feedback ist willkommen auf [GitHub Discussions](https://github.com/orgs/mdn/discussions), [Discord](https://mdn.dev/discord), und Änderungen werden auf der Community-Seite mitgeteilt.
+Der CPG-Prozess ist ein lebendiges Dokument, das sich mit der Community entwickelt. Feedback ist willkommen auf [GitHub Discussions](https://github.com/orgs/mdn/discussions), [Discord](https://mdn.dev/discord), und Änderungen werden auf der Community-Seite kommuniziert.

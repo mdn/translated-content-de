@@ -2,30 +2,30 @@
 title: Empfohlene Drag-Typen
 slug: Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types
 l10n:
-  sourceCommit: 4d9320f9857fb80fef5f3fe78e3d09b06eb0ebbd
+  sourceCommit: 79fdc26fea835d65c9361541bb8ab1896f307475
 ---
 
 {{DefaultAPISidebar("HTML Drag and Drop API")}}
 
-Die HTML Drag and Drop API unterstützt das Ziehen verschiedener Datentypen, einschließlich Klartext, URLs, HTML-Code, Dateien usw. Dieses Dokument beschreibt Best Practices für häufig verwendete draggable Datentypen.
+Die HTML Drag and Drop API unterstützt das Ziehen verschiedener Datentypen, einschließlich Klartext, URLs, HTML-Code, Dateien usw. Das Dokument beschreibt bewährte Methoden für häufige ziehbare Datentypen.
 
 ## Text ziehen
 
-Zum Ziehen von Text verwenden Sie den Typ `text/plain`. Der zweite Datenparameter sollte die gezogene Zeichenkette sein. Zum Beispiel:
+Verwenden Sie zum Ziehen von Text den Typ `text/plain`. Der zweite Datenparameter sollte der gezogene String sein. Zum Beispiel:
 
 ```js
 event.dataTransfer.setData("text/plain", "This is text to drag");
 ```
 
-Das Ziehen von Text in Textfeldern und Auswahlbereichen auf Webseiten wird automatisch vom Browser verarbeitet, sodass Sie dies nicht selbst handhaben müssen.
+Das Ziehen von Text in Textfeldern und Auswahlen auf Webseiten wird automatisch vom Browser durchgeführt, sodass Sie es nicht selbst handhaben müssen.
 
-Es wird empfohlen, immer Daten des Typs `text/plain` als Fallback für Anwendungen oder Ziele hinzuzufügen, die andere Typen nicht unterstützen, es sei denn, es gibt keine logische Textalternative. Fügen Sie diesen Typ `text/plain` immer zuletzt hinzu, da er der unspezifischste ist und nicht bevorzugt werden sollte.
+Es wird empfohlen, immer Daten des Typs `text/plain` als Fallback für Anwendungen oder Ziehelemente hinzuzufügen, die andere Typen nicht unterstützen, es sei denn, es gibt keine logische Textalternative. Fügen Sie diesen `text/plain`-Typ immer zuletzt hinzu, da er der am wenigsten spezifische ist und nicht bevorzugt werden sollte.
 
-Hinweis: In älterem Code könnten Sie `text/unicode` oder den Typ `Text` finden. Diese sind äquivalent zu `text/plain` und speichern und rufen einfache Textdaten ab.
+Hinweis: In älterem Code können Sie `text/unicode` oder die `Text`-Typen finden. Diese sind äquivalent zu `text/plain` und speichern und rufen Klartextdaten ab.
 
 ## Links ziehen
 
-Gezogene Hyperlinks sollten Daten von zwei Typen enthalten: `text/uri-list` und `text/plain`. _Beide_ Typen sollten die URL des Links als ihre Daten verwenden. Zum Beispiel:
+Gezogene Hyperlinks sollten Daten von zwei Typen enthalten: `text/uri-list` und `text/plain`. Für _beide_ Typen sollte die URL des Links für ihre Daten verwendet werden. Zum Beispiel:
 
 ```js
 const dt = event.dataTransfer;
@@ -33,16 +33,16 @@ dt.setData("text/uri-list", "https://www.mozilla.org");
 dt.setData("text/plain", "https://www.mozilla.org");
 ```
 
-Wie üblich setzen Sie den Typ `text/plain` zuletzt als Fallback für den Typ `text/uri-list`.
+Wie üblich, setze den `text/plain` Typ zuletzt als Fallback für den `text/uri-list` Typ.
 
-Hinweis: Der URL-Typ ist `uri-list` mit einem _I_ und nicht mit einem _L_.
+Hinweis: Der URL-Typ ist `uri-list` mit einem _I_, nicht einem _L_.
 
-Um mehrere Links zu ziehen, trennen Sie jeden Link im `text/uri-list`-Datenfeld mit einem CRLF-Zeilenumbruch. Zeilen, die mit einer Raute (`#`) beginnen, sind Kommentare und sollten nicht als URLs betrachtet werden. Sie können Kommentare verwenden, um den Zweck einer URL, den Titel einer URL oder andere Informationen anzugeben.
+Um mehrere Links zu ziehen, trennen Sie jeden Link innerhalb der `text/uri-list` Daten mit einem CRLF-Zeilenumbruch. Zeilen, die mit einem Nummernzeichen (`#`) beginnen, sind Kommentare und sollten nicht als URLs betrachtet werden. Sie können Kommentare verwenden, um den Zweck einer URL, den Titel, der mit einer URL assoziiert ist, oder andere Daten anzuzeigen.
 
 > [!WARNING]
-> Der Fallback `text/plain` für mehrere Links sollte alle URLs enthalten, jedoch keine Kommentare.
+> Der `text/plain` Fallback für mehrere Links sollte alle URLs enthalten, jedoch keine Kommentare.
 
-Zum Beispiel enthält diese Beispiel-`text/uri-list`-Daten zwei Links und einen Kommentar:
+Zum Beispiel enthält dieser `text/uri-list` Beispieldaten zwei Links und einen Kommentar:
 
 ```plain
 https://www.mozilla.org
@@ -50,16 +50,16 @@ https://www.mozilla.org
 http://www.example.com
 ```
 
-Wenn Sie einen gezogenen Link abfragen, stellen Sie sicher, dass Sie den Fall berücksichtigen, dass mehrere Links gezogen wurden, einschließlich etwaiger Kommentare. Der spezielle Typ `URL` kann für die erste gültige URL innerhalb der Daten des Typs `text/uri-list` verwendet werden.
+Wenn Sie einen fallen gelassenen Link abrufen, stellen Sie sicher, dass Sie berücksichtigen, wenn mehrere Links gezogen werden, einschließlich aller Kommentare. Aus Bequemlichkeit kann der spezielle Typ `URL` verwendet werden, um auf den ersten gültigen Link innerhalb der Daten für den `text/uri-list` Typ zu verweisen.
 
 > [!WARNING]
-> Fügen Sie keine Daten mit dem Typ `URL` hinzu – der Versuch, dies zu tun, setzt stattdessen den Wert des Typs `text/uri-list`.
+> Fügen Sie keine Daten mit dem `URL` Typ hinzu — der Versuch, dies zu tun, wird den Wert des `text/uri-list` Typs setzen.
 
 ```js
 const url = event.dataTransfer.getData("URL");
 ```
 
-Sie können auch Daten mit dem Mozilla-spezifischen Typ `text/x-moz-url` sehen. Wenn er vorhanden ist, sollte er vor dem Typ `text/uri-list` erscheinen. Er enthält die URLs von Links, gefolgt von deren Titeln, getrennt durch einen Zeilenumbruch. Zum Beispiel:
+Sie können auch Daten mit dem Mozilla-spezifischen Typ `text/x-moz-url` sehen. Wenn es erscheint, sollte es vor dem `text/uri-list` Typ erscheinen. Es enthält die URLs der Links, gefolgt von ihren Titeln, getrennt durch einen Zeilenumbruch. Zum Beispiel:
 
 ```plain
 https://www.mozilla.org
@@ -68,13 +68,13 @@ http://www.example.com
 Example
 ```
 
-## HTML und XML ziehen
+## HTML- und XML-Ziehen
 
-HTML-Inhalte können den Typ `text/html` verwenden. Die Daten für diesen Typ sollten serialisierte HTML-Quelltexte sein. Zum Beispiel könnte es geeignet sein, dessen Daten auf den Wert der [`innerHTML`](/de/docs/Web/API/Element/innerHTML)-Eigenschaft eines Elements zu setzen.
+HTML-Inhalte können den Typ `text/html` verwenden. Die Daten für diesen Typ sollten serialisierter HTML-Quellcode sein. Zum Beispiel wäre es geeignet, seine Daten auf den Wert der [`innerHTML`](/de/docs/Web/API/Element/innerHTML) Eigenschaft eines Elements zu setzen.
 
-XML-Inhalte können den Typ `text/xml` verwenden, stellen Sie jedoch sicher, dass die Daten gut geformtes XML sind.
+XML-Inhalte können den Typ `text/xml` verwenden, stellen Sie jedoch sicher, dass die Daten wohlgeformtes XML sind.
 
-Sie können auch eine reine Textdarstellung der HTML- oder XML-Daten mithilfe des Typs `text/plain` hinzufügen. Die Daten sollten nur der Text ohne die zugehörigen Tags oder Attribute sein. Zum Beispiel:
+Sie können auch eine Klartextdarstellung der HTML- oder XML-Daten mit dem Typ `text/plain` einfügen. Die Daten sollten nur der Text ohne irgendeine der Quell-Tags oder Attribute sein. Zum Beispiel:
 
 ```js
 const dt = event.dataTransfer;
@@ -82,11 +82,11 @@ dt.setData("text/html", "Hello there, <strong>stranger</strong>");
 dt.setData("text/plain", "Hello there, stranger");
 ```
 
-### Aktualisierungen zu DataTransfer.types
+### Aktualisierungen von DataTransfer.types
 
-Die neueste Spezifikation legt fest, dass [`DataTransfer.types`](/de/docs/Web/API/DataTransfer/types) ein eingefrorenes Array von Zeichenketten anstelle einer [`DOMStringList`](/de/docs/Web/API/DOMStringList) zurückgeben sollte (dies wird in Firefox 52 und höher unterstützt).
+Die neueste Spezifikation besagt, dass [`DataTransfer.types`](/de/docs/Web/API/DataTransfer/types) ein eingefrorenes Array von Strings statt einer [`DOMStringList`](/de/docs/Web/API/DOMStringList) zurückgeben sollte (dies wird in Firefox 52 und höher unterstützt).
 
-Daher funktioniert die [contains](/de/docs/Web/API/Node/contains)-Methode nicht mehr; stattdessen sollte die [includes](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)-Methode verwendet werden, um zu prüfen, ob ein bestimmter Datentyp bereitgestellt wird, zum Beispiel mit folgendem Code:
+Daher funktioniert die [contains](/de/docs/Web/API/Node/contains) Methode nicht mehr; die [includes](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) Methode sollte stattdessen verwendet werden, um zu überprüfen, ob ein bestimmter Datentyp bereitgestellt wird, indem Sie Code wie den folgenden verwenden:
 
 ```js
 if ([...event.dataTransfer.types].includes("text/html")) {
@@ -94,19 +94,19 @@ if ([...event.dataTransfer.types].includes("text/html")) {
 }
 ```
 
-Sie könnten Feature-Erkennung verwenden, um zu bestimmen, welche Methode auf `types` unterstützt wird, und dann den Code entsprechend ausführen.
+Sie könnten eine Funktion zur Merkmalserkennung verwenden, um festzustellen, welche Methode bei `types` unterstützt wird, und dann entsprechenden Code ausführen.
 
 ## Bilder ziehen
 
-Direktes Ziehen von Bildern ist nicht üblich. Tatsächlich wird das direkte Ziehen von Bildern unter Mac oder Linux von Mozilla nicht unterstützt. Stattdessen werden Bilder normalerweise nur über ihre URLs gezogen. Verwenden Sie dazu denselben Typ `text/uri-list` wie bei anderen URLs. Die Daten sollten die URL des Bildes oder eine [`data:` URL](/de/docs/Web/URI/Reference/Schemes/data) sein, wenn das Bild nicht auf einer Website oder Festplatte gespeichert ist.
+Das direkte Ziehen von Bildern ist nicht üblich. Tatsächlich unterstützt Mozilla das direkte Ziehen von Bildern auf Mac oder Linux nicht. Stattdessen werden Bilder normalerweise nur durch ihre URLs gezogen. Verwenden Sie hierzu den `text/uri-list` Typ wie bei anderen URLs. Die Daten sollten die URL des Bildes oder eine [`data:` URL](/de/docs/Web/URI/Reference/Schemes/data) sein, falls das Bild nicht auf einer Website oder Festplatte gespeichert ist.
 
-Wie bei Links sollten die Daten für den Typ `text/plain` auch die URL enthalten. Eine `data:`-URL ist jedoch in einem Textkontext normalerweise nicht nützlich, sodass Sie die `text/plain`-Daten in diesem Fall möglicherweise auslassen möchten.
+Wie bei Links sollte auch für den `text/plain` Typ die URL enthalten sein. Eine `data:` URL ist jedoch in einem Textkontext normalerweise nicht nützlich, daher möchten Sie möglicherweise die `text/plain` Daten in dieser Situation ausschließen.
 
-In Chrome oder anderem privilegierten Code können Sie auch die Typen `image/jpeg`, `image/png` oder `image/gif` verwenden, abhängig vom Bildtyp. Die Daten sollten ein Objekt sein, das die Schnittstelle `nsIInputStream` implementiert. Beim Lesen dieses Streams sollte er die Bits für die Bilddaten wie bei einer Datei dieses Typs bereitstellen.
+In Chrome oder anderem privilegierten Code können Sie auch die Typen `image/jpeg`, `image/png` oder `image/gif` verwenden, abhängig vom Bildtyp. Die Daten sollten ein Objekt sein, das die `nsIInputStream` Schnittstelle implementiert. Wenn dieser Stream gelesen wird, sollte er die Datenbits für das Bild bereitstellen, als ob das Bild eine Datei dieses Typs wäre.
 
-Sie sollten auch den Typ `application/x-moz-file` hinzufügen, wenn sich das Bild auf der Festplatte befindet. Tatsächlich ist dies eine gebräuchliche Methode, um Bilddateien zu ziehen.
+Sie sollten auch den Typ `application/x-moz-file` einfügen, wenn sich das Bild auf der Festplatte befindet. Dies ist tatsächlich eine gängige Methode, bei der Bilddateien gezogen werden.
 
-Es ist wichtig, die Daten in der richtigen Reihenfolge festzulegen, von spezifischsten zu den allgemeinsten. Der Standard-Bildtyp, wie `image/jpeg`, sollte zuerst kommen, gefolgt vom Typ `application/x-moz-file`. Danach sollten Sie die `text/uri-list`-Daten und schließlich die `text/plain`-Daten festlegen. Zum Beispiel:
+Es ist wichtig, die Daten in der richtigen Reihenfolge zu setzen, von spezifischsten zu am wenigsten spezifischen. Der Standard-Bildtyp, wie `image/jpeg`, sollte zuerst kommen, gefolgt vom `application/x-moz-file` Typ. Als nächstes sollten Sie die `text/uri-list` Daten setzen und schließlich die `text/plain` Daten. Zum Beispiel:
 
 ```js
 const dt = event.dataTransfer;
@@ -114,19 +114,19 @@ dt.setData("text/uri-list", imageURL);
 dt.setData("text/plain", imageURL);
 ```
 
-## Nodes ziehen
+## Knoten ziehen
 
-Nodes und Elemente in einem Dokument können mithilfe des Typs `application/x-moz-node` gezogen werden. Die Daten für diesen Typ sollten ein DOM-Node sein. Dies ermöglicht es dem Ziel des Ziehens, den tatsächlichen Node zu erhalten, von dem das Ziehen ausging. Beachten Sie, dass Aufrufer aus einer anderen Domäne keinen Zugriff auf den Node haben werden, selbst wenn er abgeworfen wurde.
+Knoten und Elemente in einem Dokument können mit dem Typ `application/x-moz-node` gezogen werden. Die Daten für diesen Typ sollten ein DOM-Knoten sein. Dies ermöglicht dem Empfangsziel den eigentlichen Knoten zu erhalten, von dem das Ziehen gestartet wurde. Beachten Sie, dass Aufrufer von einer anderen Domäne auf den Knoten nicht zugreifen können, selbst wenn er fallen gelassen wurde.
 
-Es sollte immer eine `text/plain`-Alternative für den Node enthalten sein.
+Sie sollten immer eine `text/plain` Alternative für den Knoten einschließen.
 
-## Eigene Daten ziehen
+## Benutzerdefinierte Daten ziehen
 
-Sie können auch andere Typen verwenden, die Sie für eigene Zwecke erstellen. Versuchen Sie stets, eine `text/plain`-Alternative hinzuzufügen, es sei denn, das gezogene Objekt ist spezifisch für eine bestimmte Website oder Anwendung. In diesem Fall stellt der benutzerdefinierte Typ sicher, dass die Daten nicht anderswo abgelegt werden können.
+Sie können auch andere Typen verwenden, die Sie für benutzerdefinierte Zwecke erfinden. Bemühen Sie sich immer, eine `text/plain` Alternative einzufügen, es sei denn, das gezogene Objekt ist spezifisch für eine bestimmte Site oder Anwendung. In diesem Fall stellt der benutzerdefinierte Typ sicher, dass die Daten nicht anderswo fallen gelassen werden können.
 
 ## Dateien in einen Ordner des Betriebssystems ziehen
 
-Es kann erforderlich sein, eine Datei zu einer vorhandenen Drag-Event-Sitzung hinzuzufügen, und Sie möchten möglicherweise die Datei auf der Festplatte schreiben, wenn die Drop-Operation über einem Ordner im Betriebssystem erfolgt, während Ihr Code eine Benachrichtigung über den Speicherort des Zielordners empfängt. Dies funktioniert nur in Erweiterungen (oder anderem privilegierten Code), und der Typ `application/moz-file-promise` sollte verwendet werden. Das folgende Beispiel bietet einen Überblick über diesen erweiterten Fall:
+Möglicherweise möchten Sie eine Datei zu einer bestehenden Drag-Event-Sitzung hinzufügen und möglicherweise die Datei auf die Festplatte schreiben, wenn die Drop-Operation über einem Ordner im Betriebssystem erfolgt, wenn Ihr Code eine Benachrichtigung über den Speicherpfad des Zielordners erhält. Dies funktioniert nur in Erweiterungen (oder anderem privilegierten Code) und der Typ `application/moz-file-promise` sollte verwendet werden. Das folgende Beispiel bietet einen Überblick über diesen erweiterten Fall:
 
 ```js
 // currentEvent is an existing drag operation event
@@ -149,12 +149,12 @@ dataProvider.prototype = {
       return this;
     throw Components.results.NS_NOINTERFACE;
   },
-  getFlavorData(aTransferable, aFlavor, aData, aDataLen) {
-    if (aFlavor === "application/x-moz-file-promise") {
+  getFlavorData(transferable, flavor, data, dataLen) {
+    if (flavor === "application/x-moz-file-promise") {
       const urlPrimitive = {};
       const dataSize = {};
 
-      aTransferable.getTransferData(
+      transferable.getTransferData(
         "application/x-moz-file-promise-url",
         urlPrimitive,
         dataSize,
@@ -165,7 +165,7 @@ dataProvider.prototype = {
       console.log(`URL file original is = ${url}`);
 
       const namePrimitive = {};
-      aTransferable.getTransferData(
+      transferable.getTransferData(
         "application/x-moz-file-promise-dest-filename",
         namePrimitive,
         dataSize,
@@ -177,7 +177,7 @@ dataProvider.prototype = {
       console.log(`target filename is = ${name}`);
 
       const dirPrimitive = {};
-      aTransferable.getTransferData(
+      transferable.getTransferData(
         "application/x-moz-file-promise-dir",
         dirPrimitive,
         dataSize,
@@ -204,6 +204,6 @@ dataProvider.prototype = {
 
 ## Siehe auch
 
-- [HTML Drag and Drop API (Übersicht)](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Zieh-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [HTML Drag and Drop API (Überblick)](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
 - [HTML Living Standard: Drag and Drop](https://html.spec.whatwg.org/multipage/interaction.html#dnd)

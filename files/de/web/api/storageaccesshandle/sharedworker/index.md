@@ -1,43 +1,44 @@
 ---
-title: "StorageAccessHandle: SharedWorker() Methode"
+title: "StorageAccessHandle: SharedWorker()-Methode"
 short-title: SharedWorker()
 slug: Web/API/StorageAccessHandle/SharedWorker
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 79fdc26fea835d65c9361541bb8ab1896f307475
 ---
 
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker), um die Nutzung zu verstehen.
+> Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker), um die Verwendung zu verstehen.
 
 ## Syntax
 
 ```js-nolint
-SharedWorker(aURL)
-SharedWorker(aURL, name)
-SharedWorker(aURL, options)
+SharedWorker(url)
+SharedWorker(url, name)
+SharedWorker(url, options)
 ```
 
 ### Parameter
 
-- `aURL`
+- `url`
   - : Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker).
 - `name` {{optional_inline}}
   - : Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker).
 - `options` {{optional_inline}}
   - : Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker).
 
-> [!NOTE] > `options.sameSiteCookies` unterstützt nur den Wert "none", welcher der Standardwert ist.
+> [!NOTE]
+> `options.sameSiteCookies` unterstützt nur den Wert "none", was der Standard ist.
 
 ### Rückgabewert
 
-Ein nicht partitioniertes [`SharedWorker`](/de/docs/Web/API/SharedWorker) Objekt.
+Ein nicht aufgeteilter [`SharedWorker`](/de/docs/Web/API/SharedWorker)-Objekt.
 
 ### Ausnahmen
 
 - `SecurityError` [`DomException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
+  - : Ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
 Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker)
 
@@ -56,7 +57,7 @@ document.requestStorageAccess({ SharedWorker: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeren Beispiel.
+> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein umfassenderes Beispiel.
 
 ## Spezifikationen
 

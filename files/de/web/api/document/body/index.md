@@ -3,18 +3,16 @@ title: "Document: body-Eigenschaft"
 short-title: body
 slug: Web/API/Document/body
 l10n:
-  sourceCommit: c82e8ba239176a7510e7d334a302a3dc3f985b29
+  sourceCommit: 79fdc26fea835d65c9361541bb8ab1896f307475
 ---
 
 {{APIRef("DOM")}}
 
-Die **`Document.body`**-Eigenschaft repräsentiert das
-{{HTMLElement("body")}}- oder {{HTMLElement("frameset")}}-Element des aktuellen Dokuments oder
-`null`, wenn kein solches Element existiert.
+Die **`Document.body`**-Eigenschaft repräsentiert den {{HTMLElement("body")}} oder {{HTMLElement("frameset")}} Knoten des aktuellen Dokuments oder `null`, wenn ein solcher Knoten nicht existiert.
 
 ## Wert
 
-Eines der folgenden:
+Einer der folgenden:
 
 - [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
 - [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
@@ -26,22 +24,18 @@ Eines der folgenden:
 // Given this HTML: <body id="oldBodyElement"></body>
 alert(document.body.id); // "oldBodyElement"
 
-const aNewBodyElement = document.createElement("body");
+const newBodyElement = document.createElement("body");
 
-aNewBodyElement.id = "newBodyElement";
-document.body = aNewBodyElement;
+newBodyElement.id = "newBodyElement";
+document.body = newBodyElement;
 alert(document.body.id); // "newBodyElement"
 ```
 
-## Anmerkungen
+## Hinweise
 
-`document.body` ist das Element, das den Inhalt des Dokuments enthält.
-In Dokumenten mit `<body>`-Inhalten gibt es das
-`<body>`-Element zurück, und in Frame-Set-Dokumenten wird das äußerste
-`<frameset>`-Element zurückgegeben.
+`document.body` ist das Element, das den Inhalt des Dokuments enthält. In Dokumenten mit `<body>`-Inhalt wird das `<body>`-Element zurückgegeben, und in Frameset-Dokumenten wird das äußerste `<frameset>`-Element zurückgegeben.
 
-Obwohl die `body`-Eigenschaft gesetzt werden kann, führt das Setzen eines neuen Bodys in einem Dokument dazu, dass alle aktuellen Kinder des bestehenden
-`<body>`-Elements entfernt werden.
+Obwohl die `body`-Eigenschaft setzbar ist, bewirkt das Setzen eines neuen Bodys in einem Dokument, dass alle aktuellen Kinder des bestehenden `<body>`-Elements effektiv entfernt werden.
 
 ## Spezifikationen
 

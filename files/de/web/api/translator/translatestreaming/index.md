@@ -1,14 +1,14 @@
 ---
-title: "Translator: `translateStreaming()` Methode"
+title: "Translator: translateStreaming() Methode"
 short-title: translateStreaming()
 slug: Web/API/Translator/translateStreaming
 l10n:
-  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
+  sourceCommit: 7cac5cc51350b7688903656bb36d79152f82d01f
 ---
 
 {{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`translateStreaming()`** Methode des [`Translator`](/de/docs/Web/API/Translator) Schnittstelle erzeugt eine Übersetzung als [`ReadableStream`](/de/docs/Web/API/ReadableStream).
+Die **`translateStreaming()`** Methode der [`Translator`](/de/docs/Web/API/Translator) Schnittstelle erzeugt eine Übersetzung als [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Syntax
 
@@ -20,11 +20,11 @@ translateStreaming(input, options)
 ### Parameter
 
 - `input`
-  - : Ein String, der den zu übersetzenden Text repräsentiert.
+  - : Ein String, der den zu übersetzenden Text darstellt.
 - `options` {{optional_inline}}
-  - : Ein Objekt, welches Konfigurationsoptionen für die `translateStreaming()` Operation spezifiziert. Mögliche Werte sind:
+  - : Ein Objekt, das die Konfigurationsoptionen für den `translateStreaming()` Vorgang spezifiziert. Mögliche Werte umfassen:
     - `signal`
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objektinstanz, welches ermöglicht, die `translateStreaming()` Operation über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
+      - : Eine Instanz des [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objekts, die es ermöglicht, den `translateStreaming()` Vorgang über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
 
 ### Rückgabewert
 
@@ -34,12 +34,12 @@ Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream), der die erzeugte Übers
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das aktuelle [`Document`](/de/docs/Web/API/Document) nicht aktiv ist.
-- `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Übersetzungsoperation das verfügbare [`inputQuota`](/de/docs/Web/API/Translator/inputQuota) überschreitet.
+- [`QuotaExceededError`](/de/docs/Web/API/QuotaExceededError)
+  - : Wird ausgelöst, wenn der Übersetzungsvorgang das verfügbare [`inputQuota`](/de/docs/Web/API/Translator/inputQuota) überschreitet.
 
 ## Beispiele
 
-### Grundlegende Verwendung von `translate()`
+### Grundlegende Nutzung von `translate()`
 
 ```js
 const translator = await Translator.create({
@@ -68,4 +68,4 @@ console.log("Complete translation:", translation);
 
 ## Siehe auch
 
-- [Verwendung der Translator und Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)
+- [Verwendung der Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)

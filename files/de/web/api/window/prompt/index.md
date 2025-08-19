@@ -1,16 +1,16 @@
 ---
-title: "Fenster: prompt()-Methode"
+title: "Window: prompt() Methode"
 short-title: prompt()
 slug: Web/API/Window/prompt
 l10n:
-  sourceCommit: b7310d059a28842d0a43ebabf814e8f2469c3419
+  sourceCommit: 79fdc26fea835d65c9361541bb8ab1896f307475
 ---
 
 {{ApiRef("Window")}}
 
-`window.prompt()` weist den Browser an, einen Dialog mit einer optionalen Nachricht anzuzeigen, die den Benutzer auffordert, einen Text einzugeben, und zu warten, bis der Benutzer entweder den Text übermittelt oder den Dialog abbricht.
+`window.prompt()` weist den Browser an, ein Dialogfeld mit einer optionalen Nachricht anzuzeigen, die den Benutzer auffordert, Text einzugeben, und darauf zu warten, bis der Benutzer entweder den Text abschickt oder den Dialog abbricht.
 
-Unter bestimmten Bedingungen (zum Beispiel, wenn der Benutzer die Registerkarten wechselt) kann es sein, dass der Browser keinen Dialog anzeigt oder nicht darauf wartet, dass der Benutzer den Text übermittelt oder den Dialog abbricht.
+Unter bestimmten Bedingungen (z. B. wenn der Benutzer die Registerkarten wechselt) kann es sein, dass der Browser kein Dialogfeld anzeigt oder nicht wartet, bis der Benutzer den Text abschickt oder den Dialog abbricht.
 
 ## Syntax
 
@@ -23,22 +23,22 @@ prompt(message, defaultValue)
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Ein Textstring, der dem Benutzer angezeigt wird. Kann weggelassen werden, wenn im Eingabefenster nichts angezeigt werden soll.
+  - : Ein Text, der dem Benutzer angezeigt wird. Kann weggelassen werden, wenn es im Aufforderungsfenster nichts zu zeigen gibt.
 - `defaultValue` {{optional_inline}}
-  - : Ein Textstring, der den Standardwert enthält, der im Texteingabefeld angezeigt wird.
+  - : Ein String, der den Standardwert enthält, der im Texteingabefeld angezeigt wird.
 
 ### Rückgabewert
 
-Ein String, der den vom Benutzer eingegebenen Text enthält oder `null`.
+Ein String, der den vom Benutzer eingegebenen Text enthält, oder `null`.
 
 ## Beispiele
 
-### Verwendung eines Prompts mit einer Nachricht und einem Standardwert
+### Verwenden einer Aufforderung mit einer Nachricht und einem Standardwert
 
-Das folgende Beispiel zeigt, wie der Rückgabewert eines Prompts überprüft wird.
-Wenn der Benutzer die OK-Schaltfläche klickt, wird der im Eingabefeld eingegebene Text zurückgegeben.
-Wenn der Benutzer OK klickt, ohne Text einzugeben, wird ein leerer String zurückgegeben.
-Wenn der Benutzer die Abbrechen-Schaltfläche klickt, gibt diese Funktion `null` zurück.
+Das folgende Beispiel zeigt, wie der zurückgegebene Wert einer Aufforderung überprüft wird.
+Wenn der Benutzer die OK-Schaltfläche anklickt, wird der im Eingabefeld eingegebene Text zurückgegeben.
+Klickt der Benutzer auf OK, ohne Text einzugeben, wird ein leerer String zurückgegeben.
+Klickt der Benutzer auf die Abbrechen-Schaltfläche, gibt diese Funktion `null` zurück.
 
 ```html live-sample___prompt
 <button id="signButton">Check star sign</button>
@@ -66,9 +66,9 @@ signButton.addEventListener("click", () => {
 
 {{EmbedLiveSample('prompt', , , , , , , 'allow-modals')}}
 
-### Eingabemeldungen und Standardwerte
+### Aufforderungsnachrichten und Standardwerte
 
-Es gibt mehrere Möglichkeiten, ein Prompt zu verwenden, indem `prompt`, `window.prompt` sowie Nachrichten und Standardwerte bereitgestellt werden:
+Es gibt mehrere Möglichkeiten, eine Aufforderung zu verwenden, unter Verwendung von `prompt`, `window.prompt` sowie Angabe von Nachrichten und Standardwerten:
 
 ```js
 // open a blank prompt window
@@ -83,16 +83,16 @@ sign = prompt("Are you feeling lucky", "sure");
 
 ## Hinweise
 
-Dialogfenster sind modale Fenster — sie verhindern, dass der Benutzer auf den Rest der Programmoberfläche zugreift, bis das Dialogfenster geschlossen wird.
-Aus diesem Grund sollten Sie keine Funktion übermäßig verwenden, die ein Dialogfenster oder ein modales Fenster erstellt.
+Dialogfelder sind modale Fenster – sie verhindern, dass der Benutzer auf den Rest der Programmoberfläche zugreift, bis das Dialogfeld geschlossen wird.
+Aus diesem Grund sollten Sie Funktionen, die ein Dialogfeld oder ein modales Fenster erzeugen, nicht übermäßig verwenden.
 Alternativ kann ein {{HTMLElement("dialog")}}-Element für Bestätigungen verwendet werden.
 
-Ein Eingabedialog enthält ein einzeiliges Textfeld, eine Abbrechen-Schaltfläche und eine OK-Schaltfläche und gibt den (möglicherweise leeren) Text zurück, den der Benutzer in dieses Textfeld eingegeben hat.
-Das Ergebnis ist ein String, was bedeutet, dass Sie manchmal den vom Benutzer angegebenen Wert umwandeln sollten.
-Zum Beispiel, wenn die Antwort eine Zahl sein soll, sollten Sie den Wert in Number konvertieren.
+Ein Aufforderungsdialog enthält ein einzeiliges Textfeld, eine Abbrechen-Schaltfläche und eine OK-Schaltfläche und gibt den (möglicherweise leeren) Text zurück, den der Benutzer in dieses Textfeld eingegeben hat.
+Das Ergebnis ist ein String, was bedeutet, dass Sie den vom Benutzer eingegebenen Wert manchmal umwandeln sollten.
+Wenn die Antwort zum Beispiel eine Zahl sein sollte, sollten Sie den Wert in Number umwandeln.
 
 ```js
-const aNumber = Number(window.prompt("Type a number", ""));
+const number = Number(window.prompt("Type a number", ""));
 ```
 
 ## Spezifikationen

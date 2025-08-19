@@ -1,14 +1,14 @@
 ---
-title: "SVGLengthList: appendItem() Methode"
+title: "SVGLengthList: appendItem()-Methode"
 short-title: appendItem()
 slug: Web/API/SVGLengthList/appendItem
 l10n:
-  sourceCommit: 39b9de4883b6d7606fd4549c894bbed6aafc7fc2
+  sourceCommit: 7cac5cc51350b7688903656bb36d79152f82d01f
 ---
 
 {{APIRef("SVG")}}
 
-Die **`appendItem()`**-Methode der [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Schnittstelle fügt ein neues Element am Ende der Liste ein. Wenn das angegebene Element bereits in einer Liste enthalten ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und nicht eine Kopie.
+Die **`appendItem()`**-Methode des [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Interfaces fügt ein neues Element am Ende der Liste ein. Wenn das angegebene Element bereits in einer Liste vorhanden ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie.
 
 ## Syntax
 
@@ -27,12 +27,12 @@ Das [`SVGLength`](/de/docs/Web/API/SVGLength), das zur Liste hinzugefügt wurde.
 
 ### Ausnahmen
 
-- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
+- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Liste schreibgeschützt ist.
 
 ## Beispiele
 
-Ein vollständiges Beispiel finden Sie unter [`SVGLengthList`](/de/docs/Web/API/SVGLengthList).
+Siehe [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) für ein vollständiges Beispiel.
 
 ## Spezifikationen
 

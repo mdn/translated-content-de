@@ -1,14 +1,14 @@
 ---
-title: "Response: `bytes()` Methode"
+title: "Response: bytes() Methode"
 short-title: bytes()
 slug: Web/API/Response/bytes
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: 7cac5cc51350b7688903656bb36d79152f82d01f
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`bytes()`** Methode des [`Response`](/de/docs/Web/API/Response) Interfaces nimmt einen [`Response`](/de/docs/Web/API/Response)-Stream und liest ihn vollständig aus. Sie gibt ein Promise zurück, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
+Die **`bytes()`**-Methode des [`Response`](/de/docs/Web/API/Response)-Interfaces nimmt einen [`Response`](/de/docs/Web/API/Response)-Stream und liest ihn vollständig aus. Sie gibt ein Promise zurück, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
 
 ## Syntax
 
@@ -26,21 +26,21 @@ Ein Promise, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
 
 ### Ausnahmen
 
-- [`DOMException`](/de/docs/Web/API/DOMException) `AbortError`
+- `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Die Anfrage wurde [abgebrochen](/de/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
 - {{jsxref("TypeError")}}
-  - : Ausgelöst aus einem der folgenden Gründe:
+  - : Wird aus einem der folgenden Gründe ausgelöst:
     - Der Antwortkörper ist [gestört oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - Es gab einen Fehler beim Dekodieren des Körperinhalts (zum Beispiel, weil der {{httpheader("Content-Encoding")}} Header inkorrekt ist).
+    - Es gab einen Fehler beim Dekodieren des Inhalts (zum Beispiel, weil der {{httpheader("Content-Encoding")}} Header falsch ist).
 - {{jsxref("RangeError")}}
-  - : Es gab ein Problem beim Erstellen des zugehörigen `ArrayBuffer`.
-    Zum Beispiel, wenn die Datengröße mehr als [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) ist.
+  - : Es gab ein Problem beim Erstellen des zugeordneten `ArrayBuffer`.
+    Zum Beispiel, wenn die Datengröße mehr als [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) beträgt.
 
 ## Beispiele
 
 ### Abrufen und Dekodieren einer Datei
 
-Der untenstehende Code zeigt, wie Sie eine Textdatei abrufen, den Körper als {{jsxref("Uint8Array")}} zurückgeben und dann in einen String dekodieren können.
+Der folgende Code zeigt, wie Sie eine Textdatei abrufen, den Körper als {{jsxref("Uint8Array")}} zurückgeben und diesen dann in einen String dekodieren können.
 
 ```js
 const response = await fetch("https://www.example.com/textfile.txt");
@@ -49,13 +49,13 @@ const string = new TextDecoder().decode(textFile);
 console.log(string);
 ```
 
-### Abrufen einer Bilddatei-Signatur
+### Abrufen einer Bilddateisignatur
 
 Dieses Beispiel zeigt, wie Sie `bytes()` verwenden können, um die Signaturbytes einer Reihe von Bilddateien zu lesen und den Typ zu identifizieren.
 
 #### HTML
 
-Zuerst definieren wir ein {{htmlelement("select")}} Element zur Auswahl des Dateityps mit entsprechenden Werten, die auf die spezifische Datei auf WikiMedia Commons hinweisen.
+Zuerst definieren wir ein {{htmlelement("select")}}-Element, um den Dateityp auszuwählen, mit entsprechenden Werten, die angeben, welche spezifische Datei auf WikiMedia Commons abgerufen werden soll.
 
 ```html
 <label for="file-select">Choose a file:</label>
@@ -100,7 +100,7 @@ function log(text) {
 }
 ```
 
-Der Code prüft zuerst, ob die `bytes()` Methode unterstützt wird. Wenn die Methode unterstützt wird, fügt er einen Event-Handler für das [`change` event](/de/docs/Web/API/HTMLElement/change_event) auf dem `<select>` Element hinzu. Wenn sich der Wert ändert, übergibt er den Wert der Auswahl (eine URL für eine Bilddatei) an die unten definierte Methode `checkSignature()`. Wenn die Methode nicht unterstützt wird, wird diese Information protokolliert.
+Der Code prüft zunächst, ob die `bytes()`-Methode unterstützt wird. Wenn die Methode unterstützt wird, wird ein Ereignishandler für das [`change` event](/de/docs/Web/API/HTMLElement/change_event) auf dem `<select>`-Element hinzugefügt. Wenn sich der Wert ändert, wird der Wert der Auswahl (eine URL für eine Bilddatei) an die unten definierte `checkSignature()`-Methode übergeben. Wenn die Methode nicht unterstützt wird, wird diese Information protokolliert.
 
 ```js
 if ("bytes" in Response.prototype) {
@@ -117,7 +117,7 @@ if ("bytes" in Response.prototype) {
 }
 ```
 
-Die Methode `checkSignature()` wird unten definiert. Diese ruft eine Datei von der angegebenen `url` ab und verwendet `response.bytes()`, um deren Inhalt als Byte-Array zu erhalten. Die Anfangsbytes werden dann mit den Anfangssignaturbytes einer Reihe von gängigen Dateitypen verglichen. Der Dateiname und der Dateityp werden dann protokolliert.
+Die `checkSignature()`-Methode wird unten definiert. Diese ruft eine Datei an der angegebenen `url` ab und verwendet `response.bytes()`, um ihren Inhalt als Byte-Array zu erhalten. Die Anfangsbytes werden dann mit den anfänglichen Signaturbytes einer Reihe von gängigen Dateitypen verglichen. Der Dateiname und der Dateityp werden dann protokolliert.
 
 ```js
 async function checkSignature(url) {
@@ -157,7 +157,7 @@ async function checkSignature(url) {
 
 #### Ergebnis
 
-Wählen Sie einen Bildtyp aus der Auswahlliste. Das Protokoll sollte dann den Dateinamen zusammen mit dem Dateityp anzeigen, der aus der Signatur der Datei bestimmt wurde.
+Wählen Sie einen Bildtyp aus der Auswahliste. Das Protokoll sollte dann den Dateinamen zusammen mit dem Dateityp anzeigen, der aus der Dateisignatur bestimmt wurde.
 
 {{EmbedLiveSample("Getting an image file signature", "100", "200px")}}
 

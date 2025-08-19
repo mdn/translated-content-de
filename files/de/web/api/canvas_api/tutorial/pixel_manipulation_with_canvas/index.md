@@ -1,36 +1,27 @@
 ---
-title: Pixelmanipulation mit Canvas
+title: Pixel-Manipulation mit Canvas
 slug: Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas
 l10n:
-  sourceCommit: 5f2a755c4fa7d126f85b56fbca90b15c5f039eff
+  sourceCommit: eba7ce08cf50c5d9e344652748f6bcfb19f3a396
 ---
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial/Advanced_animations", "Web/API/Canvas_API/Tutorial/Optimizing_canvas")}}
 
-Bisher haben wir die tatsächlichen Pixel unseres Canvas nicht betrachtet. Mit dem `ImageData`-Objekt können Sie direkt ein Datenarray lesen und schreiben, um Pixeldaten zu manipulieren. Wir werden auch darauf eingehen, wie das Bildglättung (Anti-Aliasing) gesteuert werden kann und wie Sie Bilder von Ihrem Canvas speichern.
+Bis jetzt haben wir uns nicht mit den tatsächlichen Pixeln unserer Canvas beschäftigt. Mit dem `ImageData`-Objekt können Sie direkt ein Datenarray lesen und schreiben, um Pixel-Daten zu manipulieren. Wir werden auch darauf eingehen, wie Bildglättung (Antialiasing) gesteuert werden kann und wie man Bilder von Ihrer Canvas speichert.
 
 ## Das ImageData-Objekt
 
-Das [`ImageData`](/de/docs/Web/API/ImageData)-Objekt repräsentiert die zugrunde liegenden Pixeldaten eines Bereichs eines Canvas-Objekts. Es enthält die folgenden schreibgeschützten Attribute:
+Das [`ImageData`](/de/docs/Web/API/ImageData)-Objekt repräsentiert die zugrunde liegenden Pixel-Daten eines Bereichs eines Canvas-Objekts. Seine `data`-Eigenschaft gibt eine {{jsxref("Uint8ClampedArray")}} (oder {{jsxref("Float16Array")}}, wenn angefordert) zurück, die verwendet werden kann, um die rohen Pixel-Daten anzusehen. Jeder Pixel wird durch vier Ein-Byte-Werte repräsentiert (rot, grün, blau und alpha, in dieser Reihenfolge; also „RGBA“-Format). Jede Farbkomponente wird durch eine Ganzzahl zwischen 0 und 255 dargestellt. Jede Komponente erhält einen aufeinanderfolgenden Index innerhalb des Arrays, wobei sich die rote Komponente des obersten linken Pixels an Index 0 im Array befindet. Die Pixel bewegen sich dann von links nach rechts und dann nach unten durch das Array.
 
-- `width`
-  - : Die Breite des Bildes in Pixeln.
-- `height`
-  - : Die Höhe des Bildes in Pixeln.
-- `data`
-  - : Ein {{jsxref("Uint8ClampedArray")}}, das ein eindimensionales Array darstellt, das die Daten im RGBA-Format mit Ganzzahlen zwischen `0` und `255` (einschließlich) enthält.
+Die {{jsxref("Uint8ClampedArray")}} enthält `height` × `width` × 4 Bytes Daten, mit Indexwerten von 0 bis (`height` × `width` × 4) - 1.
 
-Die `data`-Eigenschaft gibt ein {{jsxref("Uint8ClampedArray")}} zurück, das für den Zugriff auf die rohen Pixeldaten verwendet werden kann; jedes Pixel wird durch vier Ein-Byte-Werte (Rot, Grün, Blau und Alpha, in dieser Reihenfolge, also im „RGBA“-Format) dargestellt. Jede Farbkomponente wird durch eine Ganzzahl zwischen 0 und 255 repräsentiert. Jede Komponente wird einem aufeinanderfolgenden Index innerhalb des Arrays zugewiesen, wobei die rote Komponente des Pixels oben links bei Index 0 innerhalb des Arrays liegt. Die Pixel gehen dann von links nach rechts und dann nach unten durch das gesamte Array.
-
-Das {{jsxref("Uint8ClampedArray")}} enthält `height` × `width` × 4 Bytes an Daten, mit Indexwerten, die von 0 bis (`height` × `width` × 4) - 1 reichen.
-
-Zum Beispiel, um den Wert der blauen Komponente des Pixels an Spalte 200, Zeile 50 im Bild zu lesen, würden Sie Folgendes tun:
+Um zum Beispiel den Wert der blauen Komponente des Pixels in Spalte 200, Zeile 50 im Bild zu lesen, würden Sie folgendes tun:
 
 ```js
 const blueComponent = imageData.data[50 * (imageData.width * 4) + 200 * 4 + 2];
 ```
 
-Wenn Sie ein Satz von Koordinaten (X und Y) gegeben wird, könnten Sie etwas Ähnliches tun:
+Bei gegebenen Koordinaten (X und Y) könnten Sie etwas Folgendes tun:
 
 ```js
 const xCoord = 50;
@@ -47,7 +38,7 @@ const colorIndices = getColorIndicesForCoord(xCoord, yCoord, canvasWidth);
 const [redIndex, greenIndex, blueIndex, alphaIndex] = colorIndices;
 ```
 
-Sie können auch die Größe des Pixel-Arrays in Bytes durch Lesen des Attributs `Uint8ClampedArray.length` abrufen:
+Sie können auch die Größe des Pixel-Arrays in Bytes überprüfen, indem Sie das Attribut `Uint8ClampedArray.length` lesen:
 
 ```js
 const numBytes = imageData.data.length;
@@ -55,41 +46,38 @@ const numBytes = imageData.data.length;
 
 ## Ein ImageData-Objekt erstellen
 
-Um ein neues, leeres `ImageData`-Objekt zu erstellen, sollten Sie die Methode [`createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData) verwenden. Es gibt zwei Versionen der Methode `createImageData()`:
+Um ein neues, leeres `ImageData`-Objekt zu erstellen, sollten Sie die Methode [`createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData) verwenden. Es gibt zwei Versionen der `createImageData()`-Methode:
 
 ```js
 const myImageData = ctx.createImageData(width, height);
 ```
 
-Dies erstellt ein neues `ImageData`-Objekt mit den angegebenen Abmessungen. Alle Pixel sind auf transparent voreingestellt.
+Dies erstellt ein neues `ImageData`-Objekt mit den angegebenen Dimensionen. Alle Pixel sind auf transparent voreingestellt.
 
-Sie können auch ein neues `ImageData`-Objekt mit denselben Abmessungen wie das Objekt `anotherImageData` erstellen. Die Pixel des neuen Objekts sind alle auf transparentes Schwarz voreingestellt. **Dies kopiert die Bilddaten nicht!**
+Sie können auch ein neues `ImageData`-Objekt mit den gleichen Dimensionen wie das von `anotherImageData` angegebene Objekt erstellen. Die Pixel des neuen Objekts sind alle auf transparentes Schwarz voreingestellt. **Dies kopiert nicht die Bilddaten!**
 
 ```js
 const myImageData = ctx.createImageData(anotherImageData);
 ```
 
-## Abrufen der Pixeldaten für einen Kontext
+## Pixel-Daten für einen Kontext abrufen
 
-Um ein `ImageData`-Objekt zu erhalten, das eine Kopie der Pixeldaten für einen Canvas-Kontext enthält, können Sie die Methode `getImageData()` verwenden:
+Um ein `ImageData`-Objekt zu erhalten, das eine Kopie der Pixel-Daten für einen Canvas-Kontext enthält, können Sie die Methode `getImageData()` verwenden:
 
 ```js
 const myImageData = ctx.getImageData(left, top, width, height);
 ```
 
-Diese Methode gibt ein `ImageData`-Objekt zurück, das die Pixeldaten für den Bereich des Canvas repräsentiert, dessen Ecken durch die Punkte (`left`, `top`), (`left+width`, `top`), (`left`, `top+height`) und (`left+width`, `top+height`) repräsentiert werden. Die Koordinaten sind in Einheiten des Canvas-Koordinatenraums angegeben.
+Diese Methode gibt ein `ImageData`-Objekt zurück, das die Pixel-Daten für den Bereich des Canvas darstellt, dessen Ecken durch die Punkte (`left`, `top`), (`left+width`, `top`), (`left`, `top+height`) und (`left+width`, `top+height`) repräsentiert werden. Die Koordinaten sind in Canvas-Koordinatenraumeinheiten angegeben.
 
 > [!NOTE]
 > Alle Pixel außerhalb des Canvas werden im resultierenden `ImageData`-Objekt als transparentes Schwarz zurückgegeben.
 
-Diese Methode wird auch im Artikel [Manipulating video using canvas](/de/docs/Web/API/Canvas_API/Manipulating_video_using_canvas) demonstriert.
+Diese Methode wird auch in dem Artikel [Manipulating video using canvas](/de/docs/Web/API/Canvas_API/Manipulating_video_using_canvas) demonstriert.
 
-## Erstellen eines Farbwählers
+## Einen Farbwähler erstellen
 
-In diesem Beispiel verwenden wir die Methode [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData), um die Farbe unter dem Mauszeiger anzuzeigen.
-Dafür benötigen wir die aktuelle Position der Maus, dann suchen wir die Pixeldaten an dieser Position im Pixelarray, das `getImageData()` bereitstellt.
-Zum Schluss verwenden wir die Array-Daten, um eine Hintergrundfarbe und einen Text in das `<div>` zu setzen, um die Farbe anzuzeigen.
-Ein Klick auf das Bild führt die gleiche Operation aus, verwendet jedoch die ausgewählte Farbe.
+In diesem Beispiel verwenden wir die Methode [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData), um die Farbe unter dem Mauszeiger anzuzeigen. Dafür benötigen wir die aktuelle Position der Maus, dann suchen wir die Pixel-Daten an dieser Position im Pixel-Array, das [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) bereitstellt. Schließlich verwenden wir die Array-Daten, um eine Hintergrundfarbe und einen Text im `<div>` zum Anzeigen der Farbe festzulegen. Ein Klick auf das Bild führt die gleiche Operation aus, aber mit der ausgewählten Farbe.
 
 ```html
 <table>
@@ -160,33 +148,29 @@ td {
 }
 ```
 
-Bewegen Sie den Cursor irgendwo über das Bild, um das Ergebnis in der Spalte "Hovered color" zu sehen.
-Klicken Sie irgendwo im Bild, um das Ergebnis in der Spalte "Selected color" zu sehen.
+Bewegen Sie den Mauszeiger irgendwo über das Bild, um das Ergebnis in der Spalte „Hovered color“ zu sehen. Klicken Sie irgendwo im Bild, um das Ergebnis in der Spalte „Selected color“ zu sehen.
 
 {{embedlivesample("creating_a_color_picker", , 300)}}
 
-## Malen von Pixeldaten in einen Kontext
+## Pixel-Daten in einen Kontext malen
 
-Sie können die Methode [putImageData()](/de/docs/Web/API/CanvasRenderingContext2D/putImageData) verwenden, um Pixeldaten in einen Kontext zu malen:
+Sie können die Methode [putImageData()](/de/docs/Web/API/CanvasRenderingContext2D/putImageData) verwenden, um Pixel-Daten in einen Kontext zu malen:
 
 ```js
 ctx.putImageData(myImageData, dx, dy);
 ```
 
-Die Parameter `dx` und `dy` geben die Gerätekoordinaten innerhalb des Kontexts an, an denen Sie die obere linke Ecke der Pixeldaten, die Sie zeichnen möchten, malen möchten.
+Die Parameter `dx` und `dy` geben die Gerätekoordinaten im Kontext an, an denen die linke obere Ecke der zu zeichnenden Pixel-Daten gezeichnet werden soll.
 
-Zum Beispiel, um das gesamte durch `myImageData` repräsentierte Bild in die obere linke Ecke des Kontexts zu malen, können Sie Folgendes tun:
+Um beispielsweise das gesamte durch `myImageData` repräsentierte Bild in die obere linke Ecke des Kontextes zu malen, können Sie folgendes tun:
 
 ```js
 ctx.putImageData(myImageData, 0, 0);
 ```
 
-## Graustufen und Farben invertieren
+## Farben in Graustufen umwandeln und invertieren
 
-In diesem Beispiel iterieren wir über alle Pixel, um ihre Werte zu ändern, und setzen dann das modifizierte Pixelarray mit [putImageData()](/de/docs/Web/API/CanvasRenderingContext2D/putImageData) zurück auf das Canvas.
-Die Funktion `invert` subtrahiert jede Farbe vom Maximalwert `255`.
-Die Funktion `grayscale` verwendet den Durchschnitt von Rot, Grün und Blau. Sie können auch einen gewichteten Durchschnitt verwenden, der durch die Formel `x = 0.299r + 0.587g + 0.114b` gegeben ist, zum Beispiel.
-Siehe [Grayscale](https://en.wikipedia.org/wiki/Grayscale) auf Wikipedia für weitere Informationen.
+In diesem Beispiel iterieren wir über alle Pixel, um ihre Werte zu ändern, und setzen dann das geänderte Pixel-Array mit [putImageData()](/de/docs/Web/API/CanvasRenderingContext2D/putImageData) wieder auf die Canvas. Die Funktion `invert` zieht jede Farbe vom Maximalwert `255` ab. Die Funktion `grayscale` verwendet den Durchschnitt von Rot, Grün und Blau. Sie können auch einen gewichteten Durchschnitt verwenden, der durch die Formel `x = 0.299r + 0.587g + 0.114b` gegeben ist. Weitere Informationen finden Sie auf Wikipedia unter [Grayscale](https://en.wikipedia.org/wiki/Grayscale).
 
 ```html
 <canvas id="canvas" width="300" height="227"></canvas>
@@ -278,13 +262,13 @@ for (const input of inputs) {
 }
 ```
 
-Klicken Sie auf verschiedene Optionen, um das Ergebnis in Aktion zu sehen.
+Klicken Sie verschiedene Optionen an, um das Ergebnis in Aktion zu sehen.
 
 {{embedlivesample("grayscaling_and_inverting_colors", , 300)}}
 
-## Zoomen und Anti-Aliasing
+## Zoomen und Antialiasing
 
-Mit der Methode [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage), einem zweiten Canvas und der Eigenschaft [`imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled) können wir auf unser Bild zoomen und die Details sehen. Ein drittes Canvas ohne [`imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled) wird ebenfalls gezeichnet, um einen Vergleich Seite an Seite zu ermöglichen.
+Mit Hilfe der Methode [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage), einer zweiten Canvas und der Eigenschaft [`imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled) können wir in unser Bild hineinzoomen und die Details sehen. Eine dritte Canvas ohne [`imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled) wird ebenfalls gezeichnet, um einen Vergleich nebeneinander zu ermöglichen.
 
 ```html
 <table>
@@ -317,8 +301,7 @@ body {
 }
 ```
 
-Wir erhalten die Position der Maus und schneiden ein Bild von 5 Pixeln links und darüber bis zu 5 Pixeln rechts und darunter aus.
-Dann kopieren wir dieses auf ein anderes Canvas und ändern die Größe des Bildes auf die gewünschte Größe. Im Zoom-Canvas ändern wir einen 10×10 Pixel-Ausschnitt des ursprünglichen Canvas auf 200×200:
+Wir erhalten die Position der Maus und schneiden ein Bild von 5 Pixeln links und darüber bis 5 Pixel rechts und darunter aus. Dann kopieren wir es auf eine andere Canvas und ändern die Größe des Bildes auf die gewünschte Größe. In der Zoom-Canvas vergrößern wir einen 10×10 Pixel-Ausschnitt der ursprünglichen Canvas auf 200×200:
 
 ```js
 const img = new Image();
@@ -366,23 +349,22 @@ const draw = (image) => {
 
 ## Bilder speichern
 
-Das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) bietet eine `toDataURL()`-Methode, die nützlich ist, um Bilder zu speichern. Es gibt eine [Daten-URL](/de/docs/Web/URI/Reference/Schemes/data) zurück, die eine Darstellung des Bildes im angegebenen Format des `type`-Parameters enthält (standardmäßig [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics)). Das zurückgegebene Bild hat eine Auflösung von 96 dpi.
+Das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) bietet eine `toDataURL()`-Methode, die nützlich ist, um Bilder zu speichern. Sie gibt eine [Daten-URL](/de/docs/Web/URI/Reference/Schemes/data) zurück, die eine Darstellung des Bildes im durch den `type`-Parameter angegebenen Format enthält (standardmäßig [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics)). Das zurückgegebene Bild hat eine Auflösung von 96 dpi.
 
 > [!NOTE]
-> Seien Sie sich bewusst, dass, wenn das Canvas irgendwelche Pixel enthält, die von einem anderen {{Glossary("origin", "Ursprung")}} ohne die Verwendung von CORS stammen, das Canvas **verunreinigt** ist und sein Inhalt nicht mehr gelesen und gespeichert werden kann.
-> Siehe [Security and tainted canvases](/de/docs/Web/HTML/How_to/CORS_enabled_image#security_and_tainted_canvases).
+> Beachten Sie, dass wenn der Canvas Pixel enthält, die ohne Verwendung von CORS von einem anderen {{Glossary("origin", "Ursprung")}} erhalten wurden, der Canvas **verunreinigt** ist und sein Inhalt nicht mehr gelesen und gespeichert werden kann. Siehe [Sicherheit und verunreinigte Canvases](/de/docs/Web/HTML/How_to/CORS_enabled_image#security_and_tainted_canvases).
 
 - [`canvas.toDataURL('image/png')`](/de/docs/Web/API/HTMLCanvasElement/toDataURL)
-  - : Standard-Einstellung. Erstellt ein PNG-Bild.
+  - : Standardeinstellung. Erstellt ein PNG-Bild.
 - [`canvas.toDataURL('image/jpeg', quality)`](/de/docs/Web/API/HTMLCanvasElement/toDataURL)
-  - : Erstellt ein JPG-Bild. Optionale Angabe einer Qualität im Bereich von 0 bis 1, wobei 1 die beste Qualität und 0 fast nicht erkennbar, aber klein in der Dateigröße ist.
+  - : Erstellt ein JPG-Bild. Optional können Sie eine Qualität im Bereich von 0 bis 1 angeben, wobei eins die beste Qualität ist und 0 fast nicht erkennbar, aber klein in der Dateigröße.
 
-Sobald Sie eine Daten-URL von Ihrem Canvas generiert haben, können Sie sie als Quelle eines {{HTMLElement("img")}} verwenden oder in einen Hyperlink mit einem [download-Attribut](/de/docs/Web/HTML/Reference/Elements/a#download) setzen, um es beispielsweise auf die Festplatte zu speichern.
+Sobald Sie eine Daten-URL von Ihrem Canvas generiert haben, können Sie diese als Quelle eines {{HTMLElement("img")}} verwenden oder in einen Hyperlink mit einem [Download-Attribut](/de/docs/Web/HTML/Reference/Elements/a#download) einfügen, um es zum Beispiel auf die Festplatte zu speichern.
 
-Sie können auch ein [`Blob`](/de/docs/Web/API/Blob) von dem Canvas erstellen.
+Sie können auch ein [`Blob`](/de/docs/Web/API/Blob) vom Canvas erstellen.
 
 - [`canvas.toBlob(callback, type, encoderOptions)`](/de/docs/Web/API/HTMLCanvasElement/toBlob)
-  - : Erstellt ein `Blob`-Objekt, das das Bild im Canvas repräsentiert.
+  - : Erstellt ein `Blob`-Objekt, das das im Canvas enthaltene Bild repräsentiert.
 
 ## Siehe auch
 

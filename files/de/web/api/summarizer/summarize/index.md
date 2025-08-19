@@ -3,12 +3,12 @@ title: "Summarizer: summarize() Methode"
 short-title: summarize()
 slug: Web/API/Summarizer/summarize
 l10n:
-  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
+  sourceCommit: 7cac5cc51350b7688903656bb36d79152f82d01f
 ---
 
 {{APIRef("Summarizer API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`summarize()`** Methode der [`Summarizer`](/de/docs/Web/API/Summarizer) Schnittstelle erzeugt eine neue Zusammenfassungszeichenkette.
+Die **`summarize()`** Methode der [`Summarizer`](/de/docs/Web/API/Summarizer) Schnittstelle generiert einen neuen Zusammenfassungs-String.
 
 ## Syntax
 
@@ -20,36 +20,36 @@ summarize(input, options)
 ### Parameter
 
 - `input`
-  - : Eine Zeichenfolge, die den zu zusammenfassenden Text darstellt.
+  - : Ein String, der den zu zusammenfassenden Text darstellt.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das Konfigurationsoptionen für die `summarize()` Operation spezifiziert. Mögliche Werte umfassen:
+  - : Ein Objekt, das Konfigurationsoptionen für die `summarize()` Operation spezifiziert. Mögliche Werte sind:
     - `context`
-      - : Eine Zeichenfolge, die den Kontext beschreibt, in dem der Eingabetext verwendet wird, um dem `Summarizer` zu helfen, eine geeignetere Zusammenfassung zu erstellen.
+      - : Ein String, der den Kontext beschreibt, in dem der Eingabetext verwendet wird, was dem `Summarizer` hilft, eine geeignetere Zusammenfassung zu erstellen.
     - `signal`
-      - : Eine [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objektinstanz, die es ermöglicht, die `summarize()` Operation über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) Objektinstanz, die es erlaubt, die `summarize()` Operation über den zugehörigen [`AbortController`](/de/docs/Web/API/AbortController) abzubrechen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer Zeichenkette erfüllt wird, die die erzeugte Zusammenfassung enthält.
+Ein {{jsxref("Promise")}}, das mit einem String erfüllt wird, der die generierte Zusammenfassung enthält.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das aktuelle [`Document`](/de/docs/Web/API/Document) nicht aktiv ist.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Verwendung der Summarizer API durch eine {{httpheader('Permissions-Policy/summarizer','summarizer')}} {{httpheader("Permissions-Policy")}} blockiert ist.
+  - : Wird ausgelöst, wenn die Nutzung der Summarizer API durch eine {{httpheader('Permissions-Policy/summarizer','summarizer')}} {{httpheader("Permissions-Policy")}} blockiert wird.
 - `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Ausgabesummary vom Benutzeragent gefiltert wurde, beispielsweise weil sie als schädlich, ungenau oder unsinnig erkannt wurde.
+  - : Wird ausgelöst, wenn die Ausgabenzusammenfassung vom Benutzeragenten gefiltert wurde, beispielsweise weil sie als schädlich, ungenau oder unsinnig erkannt wurde.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der bereitgestellte `context` nicht in einer Sprache vorliegt, die der `Summarizer` unterstützt.
-- `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der bereitgestellte `context` nicht in einer Sprache ist, die der `Summarizer` unterstützt.
+- [`QuotaExceededError`](/de/docs/Web/API/QuotaExceededError)
   - : Wird ausgelöst, wenn die Zusammenfassungsoperation das verfügbare [`inputQuota`](/de/docs/Web/API/Summarizer/inputQuota) überschreitet.
 - `UnknownError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der `summarize()` Aufruf aus irgendeinem anderen Grund fehlschlug oder einen Grund, den der Benutzeragent nicht offenlegen wollte.
+  - : Wird ausgelöst, wenn der `summarize()` Aufruf aus einem anderen Grund fehlschlug oder aus einem Grund, den der Benutzeragent nicht offenlegen wollte.
 
 ## Beispiele
 
-### Grundlegende Verwendung von `summarize()`
+### Grundlegende Nutzung von `summarize()`
 
 ```js
 const summarizer = await Summarizer.create({
@@ -74,4 +74,4 @@ console.log(summary);
 ## Siehe auch
 
 - [Verwendung der Summarizer API](/de/docs/Web/API/Summarizer_API/Using)
-- [Web AI Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev
+- [Web-AI-Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev

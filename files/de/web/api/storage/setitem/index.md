@@ -3,12 +3,13 @@ title: "Storage: setItem() Methode"
 short-title: setItem()
 slug: Web/API/Storage/setItem
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: 7cac5cc51350b7688903656bb36d79152f82d01f
 ---
 
 {{APIRef("Web Storage API")}}
 
-Die **`setItem()`**-Methode der [`Storage`](/de/docs/Web/API/Storage)-Schnittstelle fügt, wenn ein Schlüsselname und ein Wert übergeben werden, diesen Schlüssel dem gegebenen `Storage`-Objekt hinzu oder aktualisiert den Wert des Schlüssels, falls er bereits existiert.
+Die **`setItem()`** Methode der [`Storage`](/de/docs/Web/API/Storage)
+Schnittstelle, fügt einen Schlüssel zu dem angegebenen `Storage`-Objekt hinzu, wenn ihr ein Schlüsselname und ein Wert übergeben werden, oder aktualisiert den Wert dieses Schlüssels, falls er bereits existiert.
 
 ## Syntax
 
@@ -29,12 +30,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn der Speicherplatz erschöpft ist oder der Benutzer es abgelehnt hat, Ihnen mehr Speicherplatz zu gewähren.
+- [`QuotaExceededError`](/de/docs/Web/API/QuotaExceededError)
+  - : Wird ausgelöst, wenn der Speicherplatz erschöpft ist oder der Benutzer Ihnen nicht mehr Speicherplatz gewährt hat.
 
 ## Beispiele
 
-Die folgende Funktion erstellt drei Dateneinträge im lokalen Speicher.
+Die folgende Funktion erstellt drei Datenobjekte im lokalen Speicher.
 
 ```js
 function populateStorage() {
@@ -45,7 +46,7 @@ function populateStorage() {
 ```
 
 > [!NOTE]
-> Um dies in einem realen Beispiel zu sehen, sehen Sie sich unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/) an.
+> Um dies in einem realen Beispiel zu sehen, besuchen Sie unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
 
 `Storage` unterstützt nur das Speichern und Abrufen von Strings. Wenn Sie andere Datentypen speichern möchten, müssen Sie diese in Strings umwandeln. Für einfache Objekte und Arrays können Sie {{jsxref("JSON.stringify()")}} verwenden.
 
@@ -57,7 +58,7 @@ localStorage.setItem("user", JSON.stringify(person));
 console.log(JSON.parse(localStorage.getItem("user"))); // { name: "Alex" }
 ```
 
-Es gibt jedoch keine generische Methode, um beliebige Datentypen zu speichern. Außerdem ist das abgerufene Objekt eine {{Glossary("Deep_copy", "tiefe Kopie")}} des Originalobjekts, und Änderungen daran wirken sich nicht auf das Originalobjekt aus.
+Es gibt jedoch keinen generischen Weg, um beliebige Datentypen zu speichern. Zudem ist das abgerufene Objekt eine {{Glossary("Deep_copy", "Tiefenkopie")}} des ursprünglichen Objekts und Änderungen daran wirken sich nicht auf das ursprüngliche Objekt aus.
 
 ## Spezifikationen
 
