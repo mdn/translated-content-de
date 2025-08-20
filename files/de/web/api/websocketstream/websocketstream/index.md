@@ -1,14 +1,14 @@
 ---
-title: "WebSocketStream: WebSocketStream()-Konstruktor"
+title: "WebSocketStream: WebSocketStream() Konstruktor"
 short-title: WebSocketStream()
 slug: Web/API/WebSocketStream/WebSocketStream
 l10n:
-  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
+  sourceCommit: b33543906a476c23d8b0c79b5f4fcea82c6526fb
 ---
 
 {{APIRef("WebSockets API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Der **`WebSocketStream()`**-Konstruktor erstellt eine neue Instanz des [`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-Objekts.
+Der **`WebSocketStream()`** Konstruktor erstellt eine neue Instanz des [`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-Objekts.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ new WebSocketStream(url, options)
 ### Parameter
 
 - `url`
-  - : Ein String, der die URL des WebSocket-Servers darstellt, mit dem Sie sich über diese `WebSocketStream`-Instanz verbinden möchten. Zulässige URL-Schemata sind `"ws"`, `"wss"`, `"http"` und `"https"`.
+  - : Ein String, der die URL des WebSocket-Servers darstellt, mit dem Sie sich mit dieser `WebSocketStream`-Instanz verbinden möchten. Erlaubte URL-Schemata sind `"ws"`, `"wss"`, `"http"` und `"https"`.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
     - `protocols` {{optional_inline}}
-      - : Ein einzelner String oder ein Array von Strings, das/die die Subprotokoll(e) darstellt, die der Client verwenden möchte, z.B. `"amqp"` oder `"mqtt"`. Subprotokolle können aus dem [IANA WebSocket Subprotocol Name Registry](https://www.iana.org/assignments/websocket/websocket.xml#subprotocol-name) ausgewählt oder benutzerdefinierte Namen sein, die von Client und Server gemeinsam verstanden werden. Ein einzelner Server kann mehrere WebSocket-Subprotokolle implementieren und je nach angegebenem Wert unterschiedliche Interaktionstypen behandeln. Wenn es weggelassen wird, wird standardmäßig ein leeres Array verwendet. Wenn `protocols` enthalten ist, wird die Verbindung nur hergestellt, wenn der Server meldet, dass er eines dieser Subprotokolle ausgewählt hat.
+      - : Ein einzelner String oder ein Array von Strings, die das/die Subprotokoll(e) darstellen, das/die der Client verwenden möchte, zum Beispiel `"amqp"` oder `"mqtt"`. Subprotokolle können aus dem [IANA-WebSocket-Subprotocol-Name-Register](https://www.iana.org/assignments/websocket/websocket.xml#subprotocol-name) ausgewählt oder benutzerdefinierte Namen sein, die vom Client und Server gemeinsam verstanden werden. Ein einzelner Server kann mehrere WebSocket-Subprotokolle implementieren und verschiedene Interaktionstypen je nach dem angegebenen Wert handhaben. Wenn es weggelassen wird, wird standardmäßig ein leeres Array verwendet. Wenn `protocols` enthalten ist, wird die Verbindung nur hergestellt, wenn der Server meldet, dass er eines dieser Subprotokolle ausgewählt hat.
     - `signal` {{optional_inline}}
-      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), das zu einem [`AbortController`](/de/docs/Web/API/AbortController) gehört, den Sie verwenden möchten, um die WebSocket-Verbindung zu schließen.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), das verwendet werden kann, um die Verbindung abzubrechen, bevor der [Handshake](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) abgeschlossen ist (das heißt, bevor das [`opened`](/de/docs/Web/API/WebSocketStream/opened) Versprechen erfüllt wird). Dies ist hauptsächlich dafür gedacht, Verbindungstimeouts zu implementieren. Daher hat es keine Auswirkung, nachdem die Verbindung hergestellt wurde.
 
 ### Ausnahmen
 
@@ -41,29 +41,28 @@ Das einfachste Beispiel nimmt die URL eines WebSocket-Servers als Argument:
 const wss = new WebSocketStream("wss://example.com/wss");
 ```
 
-Ein fortgeschritteneres Beispiel könnte auch ein Optionsobjekt mit benutzerdefinierten Protokollen und/oder einem [`AbortSignal`](/de/docs/Web/API/AbortSignal) enthalten:
+Ein fortgeschritteneres Beispiel könnte auch ein Optionsobjekt mit benutzerdefinierten Protokollen und/oder einem [`AbortSignal`](/de/docs/Web/API/AbortSignal) enthalten. Das folgende Beispiel wird die Verbindung zeitlich begrenzen, wenn sie nicht innerhalb von 5 Sekunden hergestellt wird:
 
 ```js
-const controller = new AbortController();
 const queueWSS = new WebSocketStream("wss://example.com/queue", {
   protocols: ["amqp", "mqtt"],
-  signal: controller.signal,
+  signal: AbortSignal.timeout(5000),
 });
 ```
 
-Zu einem späteren Zeitpunkt kann [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) aufgerufen werden, wenn es erforderlich ist, die Verbindung zu schließen:
+Wenn Sie sich mit localhost verbinden, wird es wahrscheinlich fast sofort erfolgreich sein oder fehlschlagen, daher hat dies keine Auswirkung.
 
-```js
-controller.abort();
-```
+Sie können die Methode [`WebSocketStream.close()`](/de/docs/Web/API/WebSocketStream/close) verwenden, um eine Verbindung zu schließen.
 
-Alternativ können Sie die Methode [`WebSocketStream.close()`](/de/docs/Web/API/WebSocketStream/close) verwenden, um eine Verbindung zu schließen. Dies ist jedoch hauptsächlich erforderlich, wenn Sie einen benutzerdefinierten Code und/oder Grund angeben möchten, den der Server melden soll.
+`WritableStream.close()` und `WritableStreamDefaultWriter.close()` von der `writable` des erfüllten `opened` `Promise` schließen ebenfalls die Verbindung.
 
-Siehe [Verwendung von WebSocketStream zur Erstellung eines Clients](/de/docs/Web/API/WebSockets_API/Using_WebSocketStream) für ein vollständiges Beispiel mit vollständiger Erklärung.
+Schauen Sie sich [Verwendung von WebSocketStream zur Erstellung eines Clients](/de/docs/Web/API/WebSockets_API/Using_WebSocketStream) für ein vollständiges Beispiel mit vollständiger Erklärung an.
 
 ## Spezifikationen
 
-Derzeit Teil keiner Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Fortschritt der Standardisierung.
+Derzeit nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Standardisierungsfortschritt.
+
+[WebSocketStream API-Design](https://docs.google.com/document/d/1La1ehXw76HP6n1uUeks-WJGFgAnpX2tCjKts7QFJ57Y/edit?pli=1&tab=t.0).
 
 ## Browser-Kompatibilität
 

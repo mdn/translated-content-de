@@ -2,27 +2,27 @@
 title: Mehrspaltiges Layout
 slug: Learn_web_development/Core/CSS_layout/Multiple-column_Layout
 l10n:
-  sourceCommit: 720baf2393c1cbb97d57066fe894c04fec6c75e1
+  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
 ---
 
-Die Spezifikation für das mehrspaltige Layout bietet Ihnen eine Methode, um Inhalte in Spalten anzuordnen, wie Sie sie vielleicht in einer Zeitung sehen. Dieser Artikel erklärt, wie Sie diese Funktion verwenden können.
+Die Spezifikation für mehrspaltige Layouts bietet Ihnen eine Methode, um Inhalte in Spalten anzuordnen, wie sie in einer Zeitung zu sehen sind. In diesem Artikel wird erklärt, wie Sie diese Funktion verwenden können.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        HTML-Grundlagen (studieren Sie
+        HTML-Grundlagen (lernen Sie
         <a href="/de/docs/Learn_web_development/Core/Structuring_content"
-          >Strukturierung von Inhalten mit HTML</a
-        >) und eine Vorstellung davon, wie CSS funktioniert (studieren Sie
+          >Das Strukturieren von Inhalten mit HTML</a
+        >) und ein Verständnis, wie CSS funktioniert (lernen Sie
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS-Styling-Grundlagen</a>.)
       </td>
     </tr>
     <tr>
-      <th scope="row">Ziel:</th>
+      <th scope="row">Zielsetzung:</th>
       <td>
-        Lernen, wie man ein mehrspaltiges Layout auf Webseiten erstellt, wie man es in einer Zeitung finden könnte.
+        Lernen, wie man ein mehrspaltiges Layout auf Webseiten erstellt, wie es in einer Zeitung zu finden ist.
       </td>
     </tr>
   </tbody>
@@ -30,13 +30,13 @@ Die Spezifikation für das mehrspaltige Layout bietet Ihnen eine Methode, um Inh
 
 ## Ein einfaches Beispiel
 
-Lassen Sie uns erkunden, wie man das mehrspaltige Layout verwendet — oft als _multicol_ bezeichnet. Sie können mitmachen, indem Sie [die multicol Ausgangsdatei herunterladen](https://github.com/mdn/learning-area/blob/main/css/css-layout/multicol/0-starting-point.html) und das CSS an den entsprechenden Stellen hinzufügen. Am Ende des Abschnitts sehen Sie ein Beispiel, wie der endgültige Code aussehen sollte.
+Lassen Sie uns erkunden, wie man das mehrspaltige Layout verwendet — oftmals als _multicol_ bezeichnet. Sie können mitmachen, indem Sie die [Multicol-Startdatei herunterladen](https://github.com/mdn/learning-area/blob/main/css/css-layout/multicol/0-starting-point.html) und das CSS an den entsprechenden Stellen hinzufügen. Am Ende des Abschnitts sehen Sie ein Beispiel dafür, wie der endgültige Code aussehen sollte.
 
 ### Ein dreispaltiges Layout
 
-Unsere Ausgangsdatei enthält ein sehr einfaches HTML: einen Wrapper mit einer Klasse `container`, in dem sich eine Überschrift und einige Absätze befinden.
+Unsere Startdatei enthält ein sehr einfaches HTML: ein Wrapper mit einer Klasse `container`, in dem sich eine Überschrift und einige Absätze befinden.
 
-Das {{htmlelement("div")}} mit einer Klasse von container wird zu unserem multicol Container. Wir aktivieren multicol, indem wir eine von zwei Eigenschaften verwenden: {{cssxref("column-count")}} oder {{cssxref("column-width")}}. Die `column-count`-Eigenschaft nimmt eine Zahl als Wert und erstellt diese Anzahl an Spalten. Wenn Sie das folgende CSS zu Ihrem Stylesheet hinzufügen und die Seite neu laden, erhalten Sie drei Spalten:
+Das {{htmlelement("div")}} mit der Klasse `container` wird unser Multicol-Container. Wir aktivieren Multicol, indem wir eine von zwei Eigenschaften verwenden: {{cssxref("column-count")}} oder {{cssxref("column-width")}}. Die Eigenschaft `column-count` nimmt eine Zahl als Wert an und erstellt so viele Spalten. Wenn Sie das folgende CSS zu Ihrem Stylesheet hinzufügen und die Seite neu laden, erhalten Sie drei Spalten:
 
 ```css
 .container {
@@ -89,9 +89,9 @@ body {
 
 {{ EmbedLiveSample('A_three-column_layout', '100%', 400) }}
 
-### Einstellen der column-width
+### Festlegen der column-width
 
-Ändern Sie Ihr CSS, um `column-width` wie folgt zu verwenden:
+Ändern Sie Ihr CSS so, dass `column-width` wie folgt verwendet wird:
 
 ```css
 .container {
@@ -99,7 +99,7 @@ body {
 }
 ```
 
-Der Browser erstellt jetzt so viele Spalten, wie es die von Ihnen angegebene Größe zulässt; der verbleibende Platz wird dann zwischen den vorhandenen Spalten verteilt. Das bedeutet, dass Sie nicht genau die von Ihnen angegebene Breite erhalten, es sei denn, Ihr Container ist genau durch diese Breite teilbar.
+Der Browser wird nun so viele Spalten wie möglich in der von Ihnen angegebenen Größe anzeigen; der verbleibende Raum wird dann zwischen den vorhandenen Spalten aufgeteilt. Das bedeutet, dass Sie nicht genau die Breite erhalten, die Sie angeben, es sei denn, Ihr Container ist genau durch diese Breite teilbar.
 
 ```css hidden
 body {
@@ -146,14 +146,14 @@ body {
 
 ## Stil der Spalten
 
-Die durch multicol erstellten Spalten können nicht einzeln gestylt werden. Es gibt keine Möglichkeit, eine Spalte größer als andere zu machen oder die Hintergrund- oder Textfarbe einer einzelnen Spalte zu ändern. Sie haben zwei Möglichkeiten, die Anzeige der Spalten zu ändern:
+Die von Multicol erstellten Spalten können nicht einzeln gestylt werden. Es gibt keine Möglichkeit, eine Spalte größer als andere zu machen oder die Hintergrund- oder Textfarbe einer einzelnen Spalte zu ändern. Sie haben zwei Möglichkeiten, das Erscheinungsbild der Spalten zu ändern:
 
-- Änderung der Größe des Abstands zwischen den Spalten mit {{cssxref("column-gap")}}.
+- Ändern der Größe des Abstands zwischen den Spalten mit {{cssxref("column-gap")}}.
 - Hinzufügen einer Linie zwischen den Spalten mit {{cssxref("column-rule")}}.
 
-Verwenden Sie Ihr obiges Beispiel, um die Größe des Abstands durch Hinzufügen einer `column-gap`-Eigenschaft zu ändern. Sie können mit verschiedenen Werten experimentieren — die Eigenschaft akzeptiert jede Längeneinheit.
+Verwenden Sie Ihr obiges Beispiel, um die Größe des Abstands zu ändern, indem Sie eine `column-gap`-Eigenschaft hinzufügen. Sie können mit verschiedenen Werten experimentieren — die Eigenschaft akzeptiert jede Längeneinheit.
 
-Fügen Sie nun eine Linie zwischen den Spalten mit `column-rule` hinzu. Ähnlich wie die {{cssxref("border")}}-Eigenschaft, die Sie in früheren Lektionen kennengelernt haben, ist `column-rule` eine Kurzform für {{cssxref("column-rule-color")}}, {{cssxref("column-rule-style")}} und {{cssxref("column-rule-width")}} und akzeptiert dieselben Werte wie `border`.
+Fügen Sie nun eine Regel zwischen den Spalten mit `column-rule` hinzu. Ähnlich wie die {{cssxref("border")}} Eigenschaft, die Sie in früheren Lektionen kennengelernt haben, ist `column-rule` eine Kurzform für {{cssxref("column-rule-color")}}, {{cssxref("column-rule-style")}} und {{cssxref("column-rule-width")}} und akzeptiert die gleichen Werte wie `border`.
 
 ```css
 .container {
@@ -163,7 +163,7 @@ Fügen Sie nun eine Linie zwischen den Spalten mit `column-rule` hinzu. Ähnlich
 }
 ```
 
-Versuchen Sie, Linien mit unterschiedlichen Stilen und Farben hinzuzufügen.
+Versuchen Sie, Regeln mit unterschiedlichen Stilen und Farben hinzuzufügen.
 
 ```css hidden
 body {
@@ -208,14 +208,14 @@ body {
 
 {{ EmbedLiveSample('Styling_the_columns', '100%', 400) }}
 
-Beachten Sie, dass die Linie keine eigene Breite einnimmt. Sie liegt im Abstand, den Sie mit `column-gap` erstellt haben. Um mehr Platz auf beiden Seiten der Linie zu schaffen, müssen Sie die Größe des `column-gap` erhöhen.
+Es ist zu beachten, dass die Regel keine eigene Breite einnimmt. Sie liegt über dem von Ihnen mit `column-gap` erstellten Abstand. Um mehr Platz auf beiden Seiten der Regel zu schaffen, müssen Sie die Größe des `column-gap` erhöhen.
 
-## Über Spalten spannen
+## Spaltenübergreifend
 
-Sie können ein Element alle Spalten überspannen lassen. In diesem Fall bricht der Inhalt dort, wo das überspannende Element eingeführt wird, und wird dann unterhalb des Elements fortgesetzt, wodurch ein neuer Satz Spalten entsteht. Um ein Element über alle Spalten zu spannen, geben Sie den Wert `all` für die {{cssxref("column-span")}}-Eigenschaft an.
+Sie können ein Element dazu bringen, sich über alle Spalten zu erstrecken. In diesem Fall wird der Inhalt dort unterbrochen, wo das Spanning-Element eingeführt wird, und dann unterhalb des Elements fortgesetzt, wodurch ein neuer Satz von Spalten erstellt wird. Um ein Element über alle Spalten zu ziehen, legen Sie den Wert `all` für die Eigenschaft {{cssxref("column-span")}} fest.
 
 > [!NOTE]
-> Es ist nicht möglich, ein Element nur über _einige_ Spalten zu spannen. Die Eigenschaft kann nur die Werte `none` (was der Standard ist) oder `all` haben.
+> Es ist nicht möglich, ein Element nur über _einige_ Spalten zu ziehen. Die Eigenschaft kann nur die Werte `none` (was der Standard ist) oder `all` haben.
 
 ```css hidden
 body {
@@ -277,11 +277,11 @@ h2 {
 
 ## Spalten und Fragmentierung
 
-Der Inhalt eines mehrspaltigen Layouts ist fragmentiert. Er verhält sich im Wesentlichen so, wie sich Inhalte in Seitenträgermedien verhalten, z.B. wenn Sie eine Webseite drucken. Wenn Sie Ihren Inhalt zu einem multicol Container machen, wird er in Spalten fragmentiert. Damit der Inhalt dies tun kann, muss er _brechen_.
+Der Inhalt eines mehrspaltigen Layouts wird fragmentiert. Es verhält sich im Wesentlichen so, wie es Inhalte in paginierten Medien tun, wie beim Drucken einer Webseite. Wenn Sie Ihren Inhalt in einen Multicol-Container verwandeln, wird er in Spalten fragmentiert. Damit der Inhalt dies tun kann, muss er _brechen_.
 
 ### Fragmentierte Boxen
 
-Manchmal erfolgt dieses Brechen an Stellen, die zu einem schlechten Leseerlebnis führen. Im untenstehenden Beispiel habe ich multicol verwendet, um eine Reihe von Boxen darzustellen, von denen jede eine Überschrift und etwas Text enthält. Die Überschrift wird vom Text getrennt, wenn die Spalten zwischen den beiden fragmentieren.
+Manchmal tritt dieser Bruch an Stellen auf, die zu einem schlechten Leseerlebnis führen. Im folgenden Beispiel habe ich Multicol verwendet, um eine Reihe von Boxen zu gestalten, von denen jede eine Überschrift und etwas Text enthält. Die Überschrift wird vom Text getrennt, wenn die Spalten zwischen den beiden fragmentiert werden.
 
 ```css hidden
 body {
@@ -385,15 +385,15 @@ body {
   background-color: rgb(207 232 220);
   border: 2px solid rgb(79 185 227);
   padding: 10px;
-  margin: 0 0 1em 0;
+  margin-bottom: 1em;
 }
 ```
 
 {{ EmbedLiveSample('Fragmented_boxes', '100%', 1000) }}
 
-### Einstellung von break-inside
+### Festlegen von break-inside
 
-Um dieses Verhalten zu steuern, können wir Eigenschaften aus der [CSS Fragmentation](/de/docs/Web/CSS/CSS_fragmentation) Spezifikation verwenden. Diese Spezifikation gibt uns Eigenschaften, um das Brechen von Inhalten in multicol und in Seitenträgermedien zu steuern. Zum Beispiel indem wir die Eigenschaft {{cssxref("break-inside")}} mit einem Wert von `avoid` zu den Regeln für `.card` hinzufügen. Dies ist der Container der Überschrift und des Textes, daher wollen wir nicht, dass er fragmentiert wird.
+Um dieses Verhalten zu kontrollieren, können wir Eigenschaften aus der [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Spezifikation verwenden. Diese Spezifikation gibt uns Eigenschaften, um das Brechen von Inhalten in Multicol und in paginierten Medien zu kontrollieren. Zum Beispiel, indem die Eigenschaft {{cssxref("break-inside")}} mit einem Wert von `avoid` zu den Regeln für `.card` hinzugefügt wird. Dies ist der Container der Überschrift und des Textes, also möchten wir nicht, dass es fragmentiert wird.
 
 ```css
 .card {
@@ -401,11 +401,11 @@ Um dieses Verhalten zu steuern, können wir Eigenschaften aus der [CSS Fragmenta
   background-color: rgb(207 232 220);
   border: 2px solid rgb(79 185 227);
   padding: 10px;
-  margin: 0 0 1em 0;
+  margin-bottom: 1em;
 }
 ```
 
-Durch das Hinzufügen dieser Eigenschaft bleiben die Boxen ganz — sie _fragmentieren_ jetzt nicht mehr über die Spalten hinweg.
+Durch das Hinzufügen dieser Eigenschaft bleiben die Boxen in einem Stück — sie _fragmentieren_ jetzt nicht mehr über die Spalten.
 
 ```css hidden
 body {
@@ -510,9 +510,9 @@ body {
 
 ## Zusammenfassung
 
-Sie wissen nun, wie Sie die grundlegenden Funktionen des mehrspaltigen Layouts nutzen, ein weiteres Werkzeug, das Ihnen zur Verfügung steht, wenn Sie eine Layoutmethode für Ihre Entwürfe wählen.
+Sie wissen nun, wie Sie die grundlegenden Funktionen des mehrspaltigen Layouts verwenden können, ein weiteres Werkzeug zu Ihrer Verfügung, wenn Sie eine Layout-Methode für die Designs auswählen, die Sie erstellen.
 
 ## Siehe auch
 
-- [CSS Fragmentation](/de/docs/Web/CSS/CSS_fragmentation)
+- [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation)
 - [Verwendung von mehrspaltigen Layouts](/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts)

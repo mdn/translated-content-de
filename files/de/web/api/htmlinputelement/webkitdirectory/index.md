@@ -1,58 +1,45 @@
 ---
-title: "HTMLInputElement: webkitdirectory Eigenschaft"
+title: "HTMLInputElement: webkitdirectory-Eigenschaft"
 short-title: webkitdirectory
 slug: Web/API/HTMLInputElement/webkitdirectory
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: cbe9efbaa88a12887c14d6955761cfa2ddcc95ba
 ---
 
 {{APIRef("File and Directory Entries API")}}
 
-Die **`webkitdirectory`** Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Interfaces spiegelt das [`webkitdirectory`](/de/docs/Web/HTML/Reference/Elements/input/file#webkitdirectory) HTML-Attribut wider, welches anzeigt, dass [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file) Elemente es dem Benutzer ermöglichen sollen, Verzeichnisse anstelle von Dateien auszuwählen.
+Die **`webkitdirectory`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces spiegelt das [`webkitdirectory`](/de/docs/Web/HTML/Reference/Elements/input/file#webkitdirectory) HTML-Attribut wider, das angibt, dass [`<input type="file">`](/de/docs/Web/HTML/Reference/Elements/input/file)-Elemente nur Verzeichnisse statt Dateien auswählen können.
 
-Wenn ein Verzeichnis ausgewählt wird, werden das Verzeichnis und seine gesamte Inhalts-Hierarchie in die Menge der ausgewählten Elemente aufgenommen. Die ausgewählten Dateisystemeinträge können über die [`webkitEntries`](/de/docs/Web/API/HTMLInputElement/webkitEntries) Eigenschaft abgerufen werden.
+Wenn ein Verzeichnis ausgewählt wird, werden das Verzeichnis und seine gesamte Inhalts-Hierarchie in die Menge der ausgewählten Elemente aufgenommen. Die ausgewählten Dateisystemeinträge können mit der [`webkitEntries`](/de/docs/Web/API/HTMLInputElement/webkitEntries)-Eigenschaft abgerufen werden.
 
 > [!NOTE]
-> Diese Eigenschaft wird `webkitdirectory` genannt aufgrund ihrer Ursprünge als Google Chrome-spezifische API.
-> Es ist wahrscheinlich, dass sie irgendwann umbenannt wird.
+> Diese Eigenschaft wird in der Spezifikation `webkitdirectory` genannt, da sie ursprünglich eine Google Chrome-spezifische API war.
 
 ## Wert
 
-Ein Boolean; `true` wenn das {{HTMLElement("input")}} Element nur die Auswahl von Verzeichnissen ermöglichen soll, oder `false`, wenn nur Dateien auswählbar sein sollen.
+Ein Boolean; `true`, wenn das {{HTMLElement("input")}}-Element nur das Auswählen von Verzeichnissen erlauben soll, oder `false`, wenn nur Dateien auswählbar sein sollen.
 
 ## Beschreibung
 
-Das Setzen von `webkitdirectory` auf true bewirkt, dass das Eingabefeld den Benutzern Verzeichnisse zur Auswahl anbietet anstatt Dateien.
+Wenn `webkitdirectory` auf `true` gesetzt ist, bietet das Eingabeelement Verzeichnisse zur Auswahl für den Benutzer an, anstatt Dateien. Nachdem der Benutzer ein Verzeichnis ausgewählt hat, hat jedes [`File`](/de/docs/Web/API/File)-Objekt in den zurückgegebenen `files` seine [`File.webkitRelativePath`](/de/docs/Web/API/File/webkitRelativePath)-Eigenschaft auf einen Pfad relativ zum ausgewählten übergeordneten Verzeichnis gesetzt. Zum Beispiel, betrachten Sie dieses Dateisystem:
 
-Nachdem der Benutzer eine Auswahl getroffen hat, hat jedes [`File`](/de/docs/Web/API/File) Objekt in `files` seine [`File.webkitRelativePath`](/de/docs/Web/API/File/webkitRelativePath) Eigenschaft auf den relativen Pfad innerhalb des ausgewählten Verzeichnisses gesetzt, an dem sich die Datei befindet.
+```plain
+PhotoAlbums
+├── Birthdays
+│   ├── Jamie's 1st birthday
+│   │   ├── PIC1000.jpg
+│   │   └── PIC1044.jpg
+│   └── Don's 40th birthday
+│       ├── PIC2343.jpg
+│       └── PIC2356.jpg
+└── Vacations
+    └── Mars
+        ├── PIC5556.jpg
+        ├── PIC5684.jpg
+        └── PIC5712.jpg
+```
 
-Betrachten Sie beispielsweise dieses Dateisystem:
-
-- PhotoAlbums
-
-  - Birthdays
-
-    - Jamies 1. Geburtstag
-
-      - PIC1000.jpg
-      - PIC1004.jpg
-      - PIC1044.jpg
-
-    - Dons 40. Geburtstag
-      - PIC2343.jpg
-      - PIC2344.jpg
-      - PIC2355.jpg
-      - PIC2356.jpg
-
-  - Vacations
-    - Mars
-      - PIC5533.jpg
-      - PIC5534.jpg
-      - PIC5556.jpg
-      - PIC5684.jpg
-      - PIC5712.jpg
-
-Wenn der Benutzer `PhotoAlbums` auswählt, enthält die von files gemeldete Liste [`File`](/de/docs/Web/API/File) Objekte für jede oben aufgeführte Datei—jedoch nicht die Verzeichnisse. Der Eintrag für `PIC2343.jpg` wird einen `webkitRelativePath` von `PhotoAlbums/Birthdays/Don's 40th birthday/PIC2343.jpg` haben. Dies ermöglicht es, die Hierarchie zu kennen, obwohl die [`FileList`](/de/docs/Web/API/FileList) flach ist.
+Wenn der Benutzer das `PhotoAlbums`-Verzeichnis auswählt, wird die Liste der durch Dateien gemeldeten [`File`](/de/docs/Web/API/File)-Objekte für jede Datei enthalten. Der Eintrag für `PIC2343.jpg` wird einen `webkitRelativePath` von `PhotoAlbums/Birthdays/Don's 40th birthday/PIC2343.jpg` haben. Dies macht es möglich, die Hierarchie des ausgewählten Verzeichnisses zu bestimmen, auch wenn die [`FileList`](/de/docs/Web/API/FileList) flach ist.
 
 > [!NOTE]
 > Das Verhalten von `webkitRelativePath` ist in _Chromium < 72_ unterschiedlich.
@@ -60,7 +47,7 @@ Wenn der Benutzer `PhotoAlbums` auswählt, enthält die von files gemeldete List
 
 ## Beispiele
 
-In diesem Beispiel wird ein Verzeichniswähler präsentiert, der es dem Benutzer ermöglicht, ein oder mehrere Verzeichnisse zu wählen. Wenn das [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignis auftritt, wird eine Liste aller Dateien innerhalb der ausgewählten Verzeichnishierarchien erstellt und angezeigt.
+In diesem Beispiel wird ein Verzeichnisauswahlelement präsentiert, das es dem Benutzer erlaubt, ein oder mehrere Verzeichnisse auszuwählen. Wenn das [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis auftritt, wird eine Liste aller Dateien innerhalb der ausgewählten Verzeichnishierarchien erstellt und angezeigt.
 
 ### HTML
 
@@ -88,7 +75,7 @@ document.getElementById("file-picker").addEventListener(
 
 ### Ergebnis
 
-{{ EmbedLiveSample('Examples') }}
+{{EmbedLiveSample('Examples')}}
 
 ## Spezifikationen
 

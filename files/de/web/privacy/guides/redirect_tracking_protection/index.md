@@ -1,71 +1,71 @@
 ---
-title: Schutz vor Umleitungsverfolgung
+title: Schutz vor Weiterleitungstracking
 slug: Web/Privacy/Guides/Redirect_tracking_protection
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
 ---
 
-Seit Version 79 schützt Firefox Benutzer vor **Umleitungsverfolgung**, indem es periodisch Cookies und Webseitendaten leert, die von bekannten Trackern gesetzt wurden. Diese Daten werden nur aus dem Speicher gelöscht, wenn der Benutzer [Tracking-Cookies blockiert](/de/docs/Web/Privacy/Guides/Storage_Access_Policy) (d.h. die Einstellung `network.cookie.cookieBehavior` ist auf `4` gesetzt).
+Seit Version 79 schützt Firefox Benutzer vor **Weiterleitungstracking**, indem er regelmäßig Cookies und Site-Daten von bekannten Trackern löscht. Diese Daten werden nur aus dem Speicher gelöscht, wenn der Benutzer [Tracking-Cookies blockiert](/de/docs/Web/Privacy/Guides/Storage_Access_Policy) (d.h. die Voreinstellung `network.cookie.cookieBehavior` ist auf `4` gesetzt).
 
-Unterstützung für andere Cookie-Politiken wird unter [Bug 1643045](https://bugzil.la/1643045) verfolgt.
+Die Unterstützung für andere Cookie-Richtlinien wird durch [Bug 1643045](https://bugzil.la/1643045) verfolgt.
 
-## Umleitungsverfolgung definiert
+## Definition von Weiterleitungstracking
 
-Umleitungsverfolgung ist ein Missbrauch der cross-site Navigation, bei dem ein Tracker den Benutzer kurzzeitig auf seine Webseite umleitet, um den Erstpartei-Speicher zu nutzen, um diesen Benutzer über verschiedene Webseiten hinweg zu verfolgen.
+Weiterleitungstracking ist ein Missbrauch der websiteübergreifenden Navigation, bei dem ein Tracker den Benutzer vorübergehend auf seine Website umleitet, um den Speicher der Erstanbieter zu verwenden, um diesen Benutzer über Websites hinweg zu verfolgen.
 
-Cross-site Navigations sind ein Kernelement des Webs; jemand könnte nach "beste Laufschuhe" bei einer Suchmaschine suchen, ein Suchergebnis anklicken, um Rezensionen zu lesen, und schließlich auf einen Link klicken, um ein Paar Schuhe in einem Online-Shop zu kaufen. In der Vergangenheit konnten jede dieser Webseiten Ressourcen von demselben Tracker einbetten, und der Tracker konnte seine Cookies nutzen, um alle diese Seitenbesuche derselben Person zuzuordnen. Um die Privatsphäre ihrer Benutzer zu schützen, blockieren Browser Tracker daran, Cookies zu verwenden, wenn sie in einem Drittanbieter-Kontext eingebettet sind (siehe beispielsweise Firefox's [Verstärkter Tracking-Schutz](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) (ETP)), erlauben es ihnen aber weiterhin, Cookies als Erstpartei zu verwenden, da das Blockieren von Erstpartei-Cookies dazu führt, dass Webseiten nicht mehr richtig funktionieren. Umleitungsverfolgung nutzt dies aus, um das Blockieren von Drittanbieter-Cookies zu umgehen.
+Websiteübegreifende Navigation ist eine Kernfunktion des Internets; eine Person könnte nach "beste Laufschuhe" in einer Suchmaschine suchen, auf ein Suchergebnis klicken, um Rezensionen zu lesen, und schließlich auf einen Link klicken, um ein Paar Schuhe in einem Online-Shop zu kaufen. In der Vergangenheit konnten diese Websites Ressourcen von demselben Tracker einbetten, und der Tracker konnte seine Cookies verwenden, um alle diese Seitenbesuche mit derselben Person zu verknüpfen. Um die Privatsphäre ihrer Benutzer zu schützen, blockieren Browser Tracker daran, Cookies zu verwenden, wenn sie in einem Drittanbieter-Kontext eingebettet sind (siehe z. B. Firefox's [Erweiterter Schutz vor Aktivitätenverfolgung](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) (ETP)), erlauben ihnen jedoch weiterhin die Verwendung von Cookies als Erstanbieter, da das Blockieren von Erstanbieter-Cookies dazu führen kann, dass Websites nicht mehr funktionieren. Weiterleitungstracking nutzt dies aus, um die Blockierung von Drittanbieter-Cookies zu umgehen.
 
-Redirect-Tracker funktionieren, indem Sie dazu gezwungen werden, einen nicht wahrnehmbaren und momentanen Zwischenstopp auf ihrer Webseite einzulegen als Teil dieser Reise. Anstatt also direkt von der Bewertungswebseite zum Einzelhändler zu navigieren, gelangen Sie zunächst zu dem Redirect-Tracker, bevor Sie zum Einzelhändler weitergeleitet werden. Dies bedeutet, dass der Tracker als Erstpartei geladen wird. Der Redirect-Tracker verknüpft Verfolgungsdaten mit den Identifikatoren, die sie in ihren Erstpartei-Cookies gespeichert haben, und leitet Sie dann weiter zum Einzelhändler.
+Weiterleitungstracker funktionieren, indem sie Sie dazu zwingen, im Rahmen dieser Reise einen kaum wahrnehmbaren und momentanen Zwischenstopp auf ihrer Website einzulegen. Anstatt also direkt von der Bewertungsseite zum Einzelhändler zu navigieren, werden Sie zunächst zum Weiterleitungstracker weitergeleitet und dann zum Einzelhändler. Das bedeutet, dass der Tracker als Erstanbieter geladen wird. Der Weiterleitungstracker verbindet Tracking-Daten mit den Kennungen, die sie in ihren Erstanbieter-Cookies gespeichert haben, und leitet Sie dann zum Einzelhändler weiter.
 
-## Welche Ursprünge werden geleert?
+## Welche Ursprünge werden gelöscht?
 
-Ein Ursprung wird geleert, wenn er die folgenden Bedingungen erfüllt:
+Ein Ursprung wird gelöscht, wenn er die folgenden Bedingungen erfüllt:
 
-1. Er hat innerhalb der letzten 72 Stunden Cookies gespeichert oder auf anderen Webspeicher zugegriffen (z. B. [localStorage](/de/docs/Web/API/Web_Storage_API), [IndexedDB](/de/docs/Web/API/IndexedDB_API), oder die [Cache-API](/de/docs/Web/API/CacheStorage)). Da Cookies pro Host gespeichert werden, löschen wir sowohl die `http`- als auch die `https`-Ursprungsvarianten eines Cookie-Hosts.
-2. Der Ursprung ist in unserer Tracking-Schutzliste [als Tracker klassifiziert](/de/docs/Web/Privacy/Guides/Storage_Access_Policy#tracking_protection_explained).
-3. Kein Ursprung mit derselben Basisdomäne ({{Glossary("eTLD", "eTLD+1")}}) verfügt über eine Benutzerinteraktionsberechtigung.
-   - Diese Berechtigung wird einem Ursprung für 45 Tage gewährt, sobald ein Benutzer mit einem Top-Level-Dokument von diesem Ursprung interagiert. "Interagieren" umfasst das Scrollen.
-   - Obwohl diese Berechtigung auf Ursprungsbasis gespeichert wird, prüfen wir, ob irgendein Ursprung mit derselben Basisdomäne sie hat, um zu vermeiden, dass Webseiten mit Subdomains und einer entsprechenden Cookie-Konfiguration beeinträchtigt werden.
+1. Er hat Cookies gespeichert oder auf andere Webseite-Speicher (z.B. [localStorage](/de/docs/Web/API/Web_Storage_API), [IndexedDB](/de/docs/Web/API/IndexedDB_API) oder die [Cache API](/de/docs/Web/API/CacheStorage)) in den letzten 72 Stunden zugegriffen. Da Cookies pro Host sind, löschen wir sowohl die `http`- als auch die `https`-Ursprungsvarianten eines Cookie-Hosts.
+2. Der Ursprung ist in unserer Tracking-Schutzliste als [Tracker klassifiziert](/de/docs/Web/Privacy/Guides/Storage_Access_Policy#tracking_protection_explained).
+3. Kein Ursprung mit derselben Basisdomain ({{Glossary("eTLD", "eTLD+1")}}) hat eine Benutzerinteraktionsberechtigung.
+   - Diese Berechtigung wird einem Ursprung für 45 Tage gewährt, sobald ein Benutzer mit einem Top-Level-Dokument von diesem Ursprung interagiert. "Interaktion" umfasst das Scrollen.
+   - Obwohl diese Berechtigung auf Ebene des Ursprungs gespeichert wird, überprüfen wir, ob irgendein Ursprung mit derselben Basisdomain sie hat, um zu vermeiden, dass Sites mit Subdomains und einem entsprechenden Cookie-Setup nicht mehr funktionieren.
 
 ## Welche Daten werden gelöscht?
 
-Firefox löscht die [folgenden Daten](https://searchfox.org/mozilla-central/rev/622dbd3409610ad3f71b56c9a6a92da905dab0aa/toolkit/components/antitracking/PurgeTrackerService.jsm#209-225):
+Firefox löscht die [folgenden Daten](https://searchfox.org/firefox-main/rev/9767e215f62521af8168bfb6fb4275755868f0db/toolkit/components/antitracking/PurgeTrackerService.jsm#209-225):
 
 - Netzwerk-Cache und Bild-Cache
 - Cookies
 - AppCache
-- DOM-Quote-Speicher (localStorage, IndexedDB, ServiceWorkers, DOM-Cache, usw.)
+- DOM-Quota-Speicher (localStorage, IndexedDB, ServiceWorkers, DOM-Cache, etc.)
 - DOM-Push-Benachrichtigungen
 - Reporting-API-Berichte
 - Sicherheitseinstellungen (d.h. HSTS)
-- EME-Mediaplugindaten
-- Plugindaten (z. B. Flash)
+- EME-Media-Plugin-Daten
+- Plugin-Daten (z.B. Flash)
 - Mediengeräte
-- Zugriffsberechtigungen für Speicher, die dem Ursprung gewährt wurden
-- HTTP-Authentifizierungstoken
+- Speicherzugriffsberechtigungen, die dem Ursprung gewährt wurden
+- HTTP-Authentifizierungstokens
 - HTTP-Authentifizierungs-Cache
 
 > [!NOTE]
-> Auch wenn wir all diese Daten löschen, kennzeichnen wir aktuell nur Ursprünge für die Löschung, wenn sie Cookies oder anderen Webspeicher verwenden.
+> Auch wenn wir all diese Daten löschen, markieren wir derzeit nur Ursprünge zur Löschung, wenn sie Cookies oder anderen Webseite-Speicher verwenden.
 
-Das Leeren des Speichers ignoriert Ursprungsattribute. Das bedeutet, dass der Speicher über [Container](https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers) und isolierten Speicher (d.h. von [First-Party Isolation](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation)) hinweg geleert wird.
+Das Löschen des Speichers ignoriert Attributen von Ursprüngen. Das bedeutet, dass Speicher über [Container](https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers) und isolierten Speicher (d.h. aus der [First-Party Isolation](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation)) gelöscht wird.
 
-## Wie häufig werden Daten geleert?
+## Wie häufig werden Daten gelöscht?
 
-Firefox leert den Speicher basierend auf dem Auslösen eines internen Ereignisses namens `idle-daily`, das durch die folgenden Bedingungen definiert ist:
+Firefox löscht Speicher basierend auf dem Auslösen eines internen Ereignisses namens `idle-daily`, das durch die folgenden Bedingungen definiert wird:
 
 - Es wird frühestens 24 Stunden nach dem letzten `idle-daily`-Ereignis ausgelöst.
-- Es wird nur ausgelöst, wenn der Benutzer mindestens 3 Minuten (für 24-48 Stunden nach dem letzten `idle-daily`) oder 1 Minute (für >48 Stunden nach dem letzten `idle-daily`) untätig war.
+- Es wird nur ausgelöst, wenn der Benutzer mindestens 3 Minuten (für 24-48 Stunden nach dem letzten `idle-daily`) oder 1 Minute (für >48 Stunden nach dem letzten `idle-daily`) inaktiv gewesen ist.
 
-Das bedeutet, dass zwischen jeder Speicherbereinigung mindestens 24 Stunden liegen und der Speicher nur geleert wird, wenn der Browser untätig ist. Beim Leeren von Cookies sortieren wir Cookies nach Erstellungsdatum und unterteilen sie zur Leistungssteigerung in Sätze von 100 (gesteuert durch die Einstellung `privacy.purge_trackers.max_purge_count`).
+Das bedeutet, dass zwischen jedem Speicherlöschvorgang mindestens 24 Stunden liegen, und der Speicher wird nur gelöscht, wenn der Browser im Leerlauf ist. Beim Löschen von Cookies sortieren wir die Cookies nach dem Erstellungsdatum und gruppieren sie aus Leistungsgründen in Sätzen zu 100 (gesteuert durch die Voreinstellung `privacy.purge_trackers.max_purge_count`).
 
 ## Debugging
 
-Der Schutz vor Umleitungsverfolgung kann aktiviert oder deaktiviert werden, indem die Einstellung `privacy.purge_trackers.enabled` in `about:config` umgeschaltet wird. Außerdem wird er nur ausgeführt, wenn die `network.cookie.cookieBehavior`-Einstellung in Firefox 79+ auf `4` oder `5` (`1`, `3`, `4` oder `5` ab Firefox 80) gesetzt ist.
+Der Schutz vor Weiterleitungstracking kann aktiviert oder deaktiviert werden, indem die Voreinstellung `privacy.purge_trackers.enabled` in `about:config` geändert wird. Außerdem wird es nur ausgeführt, wenn die `network.cookie.cookieBehavior`-Voreinstellung auf `4` oder `5` in Firefox 79+ gesetzt ist (`1`, `3`, `4` oder `5`, wie in Firefox 80).
 
-Verschiedene Protokollebenen können über die Einstellung `privacy.purge_trackers.logging.level` festgelegt werden.
+Verschiedene Protokollierungsstufen können über die Voreinstellung `privacy.purge_trackers.logging.level` eingestellt werden.
 
-Zu Debugging-Zwecken ist es am einfachsten, die Speicherbereinigung auszulösen, indem der Dienst direkt über die [Browser-Konsole-Befehlszeile](https://firefox-source-docs.mozilla.org/devtools-user/browser_console/index.html#browser-console-command-line) ausgelöst wird. Beachten Sie, dass dies sich von der normalen [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) unterscheidet, die Sie möglicherweise zur Fehlersuche auf einer Webseite verwenden, und dass die Einstellung `devtools.chrome.enabled` auf `true` gesetzt sein muss, um sie interaktiv zu verwenden. Sobald Sie die Browser-Konsole aktiviert haben, können Sie die Speicherbereinigung durch Ausführen des folgenden Befehls auslösen:
+Zu Debugging-Zwecken ist es am einfachsten, das Löschen des Speichers direkt über die [Browser-Konsole-Befehlszeile](https://firefox-source-docs.mozilla.org/devtools-user/browser_console/index.html#browser-console-command-line) auszulösen. Beachten Sie, dass dies von der normalen [Webkonsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) abweicht, die Sie möglicherweise zum Debuggen einer Website verwenden, und die `devtools.chrome.enabled`-Voreinstellung auf `true` gesetzt sein muss, um sie interaktiv zu verwenden. Sobald Sie die Browser-Konsole aktiviert haben, können Sie das Löschen des Speichers auslösen, indem Sie den folgenden Befehl ausführen:
 
 ```js
 await Components.classes["@mozilla.org/purge-tracker-service;1"]
@@ -73,12 +73,12 @@ await Components.classes["@mozilla.org/purge-tracker-service;1"]
   .purgeTrackingCookieJars();
 ```
 
-Die Zeit bis zum Ablauf der Benutzerinteraktionsberechtigungen kann auf einen niedrigeren Wert gesetzt werden, indem die Einstellung `privacy.userInteraction.expiration` angepasst wird. Beachten Sie, dass Sie diese Einstellung setzen müssen, bevor Sie die Webseiten besuchen, die Sie testen möchten — sie wird nicht rückwirkend angewendet.
+Die Zeit, bis Benutzerinteraktionsberechtigungen ablaufen, kann auf einen niedrigeren Wert gesetzt werden, indem die Voreinstellung `privacy.userInteraction.expiration` verwendet wird. Beachten Sie, dass Sie diese Voreinstellung vor dem Besuch der Websites, die Sie testen möchten, festlegen müssen – sie wird nicht rückwirkend angewendet.
 
-## Weitere Implementierungen
+## Andere Implementierungen
 
-WebKit führte den Schutz vor Umleitungsverfolgung erstmals in [ITP 2.0](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/) ein (sie bezeichnen denselben Angriff als "bounce tracking"). Ab Juli 2020 gibt es mehrere wesentliche Unterschiede zwischen der Implementierung von WebKit und der von Firefox:
+WebKit führte zuerst den Schutz vor Weiterleitungstracking in [ITP 2.0](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/) ein (sie beziehen sich auf denselben Angriff als Bounce-Tracking). Stand Juli 2020 gibt es mehrere signifikante Unterschiede zwischen der Implementierung von WebKit und der Implementierung von Firefox:
 
-- Die Liste der in Firefox zu löschenden Ursprünge basiert auf unserer [Tracking-Schutzliste](/de/docs/Web/Privacy/Guides/Storage_Access_Policy#tracking_protection_explained); WebKit verlässt sich auf die Klassifizierung von ITP.
-- Die Definition von "Interaktion" in Firefox umfasst das Scrollen des Benutzers beim Besuch des Ursprungs als Erstpartei; WebKit tut dies nicht.
-- Firefox wird keine Daten für einen Ursprung löschen, wenn er in den letzten 45 Kalendertagen als Erstpartei interagiert hat; das Interaktionsfenster von WebKit beträgt 30 Tage der Browsernutzung (d.h. Tage, an denen der Benutzer mindestens eine Interaktion mit Safari hatte).
+- Die Liste der zu löschenden Ursprünge in Firefox basiert auf unserer [Tracking-Schutzliste](/de/docs/Web/Privacy/Guides/Storage_Access_Policy#tracking_protection_explained); WebKit verlässt sich auf die Klassifizierung von ITP.
+- Die Definition von "Interaktion" in Firefox umfasst das Scrollen des Benutzers beim Besuch des Ursprungs als Erstanbieter; die von WebKit nicht.
+- Firefox wird keine Daten für einen Ursprung löschen, wenn er in den letzten 45 Kalendertagen als Erstanbieter eine Interaktion erhalten hat; das Interaktionsfenster von WebKit beträgt 30 Tage Browsernutzung (z.B. Tage, an denen der Benutzer mindestens einmal mit Safari interagiert hat).

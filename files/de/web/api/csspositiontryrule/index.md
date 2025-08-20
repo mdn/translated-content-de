@@ -2,38 +2,38 @@
 title: CSSPositionTryRule
 slug: Web/API/CSSPositionTryRule
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSPositionTryRule`** Schnittstelle beschreibt ein Objekt, das eine {{cssxref("@position-try")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) darstellt.
+Das **`CSSPositionTryRule`**-Interface beschreibt ein Objekt, das eine {{cssxref("@position-try")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) repräsentiert.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Vorgänger [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Erbt Eigenschaften von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSPositionTryRule.name`](/de/docs/Web/API/CSSPositionTryRule/name) {{ReadOnlyInline}}
-  - : Repräsentiert den Namen der Position-Try-Option, die durch die `@position-try` At-Regel's {{cssxref("dashed-ident")}} spezifiziert wird.
+  - : Repräsentiert den Namen der Position-Try-Option, die von der `@position-try` At-Regel mit {{cssxref("dashed-ident")}} spezifiziert wird.
 - [`CSSPositionTryRule.style`](/de/docs/Web/API/CSSPositionTryRule/style) {{ReadOnlyInline}}
-  - : Ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors) Objekt, das die in der `@position-try` At-Regel festgelegten Deklarationen darstellt.
+  - : Ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt, das die in der `@position-try` At-Regel festgelegten Deklarationen repräsentiert.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifischen Methoden; erbt Methoden von seinem Vorgänger [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Keine spezifischen Methoden; erbt Methoden von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-Das CSS enthält eine `@position-try` At-Regel mit dem Namen `--custom-left` und drei Deskriptoren.
+Das CSS enthält eine `@position-try` At-Regel mit einem Namen `--custom-left` und drei Deskriptoren.
 
 ```css
 @position-try --custom-left {
   position-area: left;
   width: 20%;
   max-width: 200px;
-  margin: 0 10px 0 0;
+  margin-right: 10px;
 }
 ```
 
@@ -59,6 +59,6 @@ console.log(tryOption.style.maxWidth); // "200px"
 - [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)
 - {{cssxref("@position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- [CSS-Anchor-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Verwendung der CSS-Anchor-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
-- [Umgang mit Overflows: Try-Optionen und bedingtes Verstecken](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
+- [Verwendung der CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
+- [Umgang mit Overflow: Try-Optionen und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)

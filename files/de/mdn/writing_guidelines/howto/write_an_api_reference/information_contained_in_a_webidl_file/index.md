@@ -2,63 +2,63 @@
 title: Informationen in einer WebIDL-Datei
 slug: MDN/Writing_guidelines/Howto/Write_an_api_reference/Information_contained_in_a_WebIDL_file
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
 ---
 
-Beim Schreiben von Dokumentationen zu einer API gibt es viele Informationsquellen: Die Spezifikationen beschreiben, was implementiert werden sollte und das Modell, während die Implementierungen beschreiben, was tatsächlich in die Browser implementiert wurde. WebIDL-Dateien sind eine sehr komprimierte Art, viele, aber nicht alle Informationen über die API bereitzustellen. Dieses Dokument bietet eine Referenz, um die WebIDL-Syntax zu verstehen.
+Beim Erstellen von Dokumentationen über eine API gibt es viele Informationsquellen: Die Spezifikationen beschreiben, was implementiert werden sollte sowie das Modell, und die Implementierungen beschreiben, was tatsächlich in den Browsern vorhanden ist. WebIDL-Dateien sind eine sehr komprimierte Art, viele, aber nicht alle, Informationen über die API zu liefern. Dieses Dokument bietet eine Referenz, um WebIDL-Syntax zu verstehen.
 
-IDL steht für **_Interface Definition Language_**, und sie ist dazu gedacht, APIs zu beschreiben. In der größeren Welt der Informatik gibt es mehrere Arten von IDL. In der Welt der Browser wird die IDL, die wir verwenden, _WebIDL_ genannt. Es gibt zwei Arten von WebIDL: die in der WebIDL-Spezifikation angegebene und die in Browsern implementierte. Die Spezifikation ist die maßgebliche Referenz, und die Browser-WebIDL beschreibt, was tatsächlich in einem bestimmten Browser implementiert ist, und enthält zusätzliche Dinge wie Anmerkungen, Informationen über nicht standardisierte Elemente und browserspezifische Erweiterungen der IDL-Spezifikation.
+IDL steht für **_Interface Definition Language_** und ist dazu gedacht, APIs zu beschreiben. In der weiteren Welt der Informatik gibt es mehrere Arten von IDLs. In der Welt der Browser verwenden wir die IDL namens _WebIDL_. Es gibt zwei Arten von WebIDL: Die in der WebIDL-Spezifikation definierte und die in Browsern implementierte. Die Spezifikation ist die kanonische Referenz, und das Browser-WebIDL beschreibt, was tatsächlich in einem bestimmten Browser implementiert ist, und enthält zusätzliche Dinge wie Anmerkungen, Informationen über nicht standardmäßige Elemente und browser-spezifische Erweiterungen der IDL-Spezifikation.
 
-## Wo Sie WebIDL-Dateien finden
+## Wo man WebIDL-Dateien findet
 
 WebIDL kann an mehreren Orten gefunden werden:
 
-- Jede Spezifikation enthält WebIDL im Text: Es ist eine sehr bequeme Möglichkeit, präzise Definitionen zu vermitteln. Diese beschreiben die Syntax der API. Obwohl die maßgebliche Referenz, müssen wir bedenken, dass sie sich von der tatsächlichen Implementierung unterscheiden kann. Auf MDN wollen wir pragmatisch sein und dokumentieren, was die Web-Plattform wirklich ist, nicht was sie idealerweise sein sollte. Überprüfen Sie daher, was dort mit Implementierungen vorhanden ist (und zögern Sie nicht, Fehler zu melden, wenn Sie Inkohärenzen entdecken).
-- Drei Browser-Engines verwenden (modifizierte) WebIDL als Teil ihrer Toolchain: Gecko, Chromium/Blink und WebCore/WebKit. Pre-Chromium-Versionen von Edge verwendeten es intern, aber diese sind leider nicht öffentlich.
-  - Für Gecko sind alle WebIDL-Dateien in einem einzigen Verzeichnis gruppiert: <https://searchfox.org/mozilla-central/source/dom/webidl/>. Ihre Erweiterung ist `.webidl`. Es gibt andere `*.idl`-Dateien im Gecko-Quellcodebaum, aber sie sind nicht WebIDL, daher können Sie diese ignorieren. Ältere Versionen von Gecko haben einige ihrer WebIDL-Dateien verteilt und verwenden möglicherweise sogar Mozillas IDL anstelle von WebIDL, um einige Webschnittstellen zu beschreiben, aber das wird in keinem aktuellen Gecko-Code ein Problem darstellen.
-  - Für Chromium sind sie an zwei Stellen zu finden, beide Unterverzeichnisse des Quellcodes im Verzeichnis [`renderer/`](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/): [`core/`](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/) und [`modules/`](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/modules/). Im Chromium-Quellcode gibt es IDL-Dateien an anderen Stellen, aber diese sind Teil des Testsystems und nicht relevant für API-Implementierungen.
-  - Für WebCore sind sie im Quellcode verteilt, daher müssen Sie etwas genauer suchen: Z.B. <https://github.com/WebKit/webkit/blob/main/Source/WebCore/html/DOMTokenList.idl>
+- Jede Spezifikation enthält WebIDL im Text: Es ist eine sehr praktische Möglichkeit, präzise Definitionen zu vermitteln. Diese beschreiben die Syntax der API. Obwohl die kanonische Referenz, müssen wir im Hinterkopf behalten, dass sie von der tatsächlichen Implementierung abweichen kann. Auf MDN wollen wir praktisch sein und dokumentieren, was die Webplattform wirklich ist, nicht, wie sie idealerweise sein sollte. Also überprüfen Sie, was dort mit Implementierungen vorhanden ist (und zögern Sie nicht, Bugs zu melden, wenn Sie Inkonsistenzen entdecken).
+- Drei Browser-Engines verwenden (modifiziertes) WebIDL als Teil ihrer Toolchain: Gecko, Chromium/Blink und WebCore/WebKit. Vor-Chromium-Versionen von Edge verwendeten es intern, aber diese sind leider nicht öffentlich.
+  - Für Gecko sind alle WebIDL-Dateien in einem einzigen Verzeichnis gruppiert: <https://searchfox.org/firefox-main/source/dom/webidl/>. Ihre Erweiterung ist `.webidl`. Es gibt andere `*.idl`-Dateien im Gecko-Quellbaum, aber sie sind nicht WebIDL, also können sie ignoriert werden. Ältere Versionen von Gecko haben einige ihrer WebIDL verstreut und können sogar Mozillas IDL anstelle von WebIDL verwenden, um einige Webschnittstellen zu beschreiben, aber dies wird in keinem aktuellen Gecko-Code ein Problem darstellen.
+  - In Chromium befinden sie sich an zwei Orten, beide Unterbäume des `renderer/`-Verzeichnisses des Quellcodes: [`core/`](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/) und [`modules/`](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/modules/). Der Chromium-Quellcode verfügt über IDL-Dateien an anderen Orten, aber diese sind Teil des Testsystems und nicht relevant für API-Implementierungen.
+  - Für WebCore sind sie im Quellcode verstreut, sodass Sie ein wenig tiefer graben müssen: Z.B. <https://github.com/WebKit/webkit/blob/main/Source/WebCore/html/DOMTokenList.idl>
 
 ## Verschiedene Dialekte von WebIDL
 
-WebIDL ist in [seiner Spezifikation](https://webidl.spec.whatwg.org/) definiert. Es wurde jedoch so entworfen, dass es erweitert werden kann, um mehr Informationen zu übermitteln, und Browser-Anbieter haben dies getan:
+WebIDL ist in [seiner Spezifikation](https://webidl.spec.whatwg.org/) definiert. Aber es wurde so entworfen, dass es erweitert werden kann, um mehr Informationen zu vermitteln, und Browseranbieter haben dies getan:
 
-- Für Gecko hat Mozilla die [Dokumentation](https://firefox-source-docs.mozilla.org/dom/webIdlBindings/index.html) seines dialektalen WebIDL erstellt.
-- Für Chromium hat Google ebenfalls ein [Dokument](https://www.chromium.org/blink/webidl/) erstellt, um seine Erweiterungen zu beschreiben.
-- Für WebCore hat Apple ebenfalls eine [Seite](https://trac.webkit.org/wiki/WebKitIDL) für seinen Dialekt bereitgestellt.
+- Für Gecko hat Mozilla die [Dokumentation](https://firefox-source-docs.mozilla.org/dom/webIdlBindings/index.html) seines dialektalen WebIDLs erstellt.
+- Für Chromium hat Google auch ein [Dokument](https://www.chromium.org/blink/webidl/) erstellt, um seine Erweiterungen zu beschreiben.
+- Für WebCore hat Apple auch eine [Seite](https://trac.webkit.org/wiki/WebKitIDL) für seinen Dialekt verfügbar gemacht.
 
 > [!NOTE]
-> Wir beschreiben hier nur den Teil von WebIDL, der am nützlichsten ist, wenn Sie Dokumentationen schreiben. Es gibt viele weitere Anmerkungen, die für Implementierer nützlich sind; beziehen Sie sich auf die vier oben verlinkten Dokumente, um einen vollständigen Überblick zu erhalten.
+> Wir beschreiben hier nur den Teil von WebIDL, der beim Schreiben von Dokumentationen am nützlichsten ist. Es gibt viele weitere Anmerkungen, die für Implementierer nützlich sind; beziehen Sie sich auf die oben verlinkten vier Dokumente, um einen vollständigen Überblick zu erhalten.
 
 ## Schnittstellen
 
-Dieser Abschnitt erklärt die WebIDL-Syntax, die die allgemeinen API-Funktionen beschreibt.
+Dieser Abschnitt erklärt die WebIDL-Syntax, die allgemeine API-Funktionen beschreibt.
 
 ### Name der Schnittstelle
 
-Der Schnittstellenname ist die Zeichenfolge, die nach dem Schlüsselwort `interface` und vor der nächsten öffnenden Klammer (`'{'`) oder Doppelpunkt (`':'`) erscheint.
+Der Schnittstellenname ist der String, der nach dem Schlüsselwort `interface` und vor der nächsten öffnenden Klammer (`'{'`) oder dem Doppelpunkt (`':'`) erscheint.
 
 ```webidl
 interface URL {};
 ```
 
-Jede WebIDL-Schnittstelle, sei es eine echte Schnittstelle oder ein Mixin, hat ihre eigene Seite in der Dokumentation, auf der jeder Konstruktor, jede Eigenschaft und jede Methode aufgelistet ist, die dafür definiert ist.
+Jede WebIDL-Schnittstelle, sei es eine echte Schnittstelle oder ein Mixin, hat ihre eigene Seite in der Dokumentation, auf der jeder Konstruktor, jede Eigenschaft und jede Methode, die darin definiert ist, aufgelistet wird.
 
 ### Vererbungskette
 
-Die Elternschnittstelle, falls vorhanden, einer gegebenen Schnittstelle wird nach dem Schnittstellennamen definiert, gefolgt von einem Doppelpunkt (`':'`). Es kann nur eine Elternschnittstelle pro Schnittstelle geben.
+Das übergeordnete Element, falls vorhanden, einer gegebenen Schnittstelle wird nach dem Schnittstellennamen definiert, nach einem Doppelpunkt (`':'`). Es kann nur ein übergeordnetes Element pro Schnittstelle geben.
 
 ```webidl
 interface HTMLMediaElement : HTMLElement {…}
 ```
 
-Die Vererbungskette wird automatisch in der Seitenleiste aufgelistet (mit dem \\{{APIRef}}-Makro). Sie kann auch als SVG-Bild über das Makro \\{{InheritanceDiagram}} hinzugefügt werden.
+Die Vererbungskette wird automatisch in der Seitenleiste aufgelistet (unter Verwendung des \\{{APIRef}} Makros). Es kann auch als SVG-Bild über das Makro \\{{InheritanceDiagram}} hinzugefügt werden.
 
 ### Mixins
 
-Einige Eigenschaften oder Methoden sind für mehrere Schnittstellen verfügbar. Um eine Neudefinition zu verhindern, werden sie in speziellen WebIDL-Schnittstellen namens _Mixins_ definiert.
+Einige Eigenschaften oder Methoden sind für mehrere Schnittstellen verfügbar. Um Neudefinitionen zu verhindern, werden sie in speziellen WebIDL-Schnittstellen namens _Mixins_ definiert.
 
-Seit September 2019 wurde die Mixin-Syntax aktualisiert. In der neuen Syntax verwenden Sie `interface mixin`, um eine Mixin-Schnittstelle zu definieren, wie folgt:
+Ab September 2019 wurde die Mixinsyntax aktualisiert. In der neuen Syntax verwendet man `interface mixin`, um eine Mixin-Schnittstelle zu definieren, so:
 
 ```webidl
 interface MyInterface {};
@@ -68,13 +68,13 @@ interface mixin MyMixin {
 }
 ```
 
-Dann verwenden Sie das Schlüsselwort `includes`, um zu sagen, dass die in einem Mixin definierten Eigenschaften auf einer Schnittstelle verfügbar sind:
+Dann verwenden Sie das Schlüsselwort `includes`, um anzugeben, dass die in einem Mixin definierten Eigenschaften in einer Schnittstelle verfügbar sind:
 
 ```webidl
 MyInterface includes MyMixin;
 ```
 
-Mixins haben keine Vererbung und können keine anderen Mixins enthalten. Sie unterstützen jedoch Partials, sodass Sie Dinge wie das Folgende sehen werden:
+Mixins haben keine Vererbung und können keine anderen Mixins einschließen. Sie unterstützen jedoch Partials, sodass Sie Dinge wie Folgendes sehen werden:
 
 ```webidl
 interface MyInterface {};
@@ -87,22 +87,27 @@ partial interface mixin MyMixin {
 MyInterface includes MyMixin;
 ```
 
-Für Dokumentationszwecke verbirgt MDN Mixins. Sie sind abstrakte und nur für Spezifikationen bestimmte Konstruktionen. Sie können sie nicht in der Browserkonsole sehen, und es ist nützlicher zu wissen, in welchen realen Schnittstellen Methoden und Eigenschaften implementiert sind.
+Zu Dokumentationszwecken verbirgt MDN Mixins. Sie sind abstrakt und nur für Spezifikationszwecke vorgesehen.
+Man kann sie in der Browserkonsole nicht sehen, und es ist nützlicher zu wissen, auf welchen echten Schnittstellen Methoden und Eigenschaften implementiert sind.
 
-Wenn Sie auf ein Mixin in IDL stoßen, wie [HTMLHyperlinkElementUtils](https://html.spec.whatwg.org/multipage/links.html#htmlhyperlinkelementutils), suchen Sie nach den Schnittstellen, die das Mixin implementieren, zum Beispiel [HTMLAnchorElement](https://html.spec.whatwg.org/multipage/text-level-semantics.html#htmlanchorelement), und dokumentieren Sie die Mitglieder des Mixins direkt auf diesen Schnittstellen.
+Wenn Sie auf ein Mixin in der IDL stoßen, wie [HTMLHyperlinkElementUtils](https://html.spec.whatwg.org/multipage/links.html#htmlhyperlinkelementutils),
+suchen Sie nach den Schnittstellen, die das Mixin implementieren, zum Beispiel
+[HTMLAnchorElement](https://html.spec.whatwg.org/multipage/text-level-semantics.html#htmlanchorelement), und dokumentieren Sie die Mixin-Mitglieder direkt in diesen Schnittstellen.
 
-In der Praxis bedeutet dies, dass anstatt `HTMLHyperlinkElementUtils` zu dokumentieren, Dokumentationen zu den konkreten Schnittstellen hinzugefügt werden, wie [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) und [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement).
+In der Praxis bedeutet dies, anstatt `HTMLHyperlinkElementUtils` zu dokumentieren,
+werden die Dokumente zu den konkreten Schnittstellen hinzugefügt, wie [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)
+und [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement).
 
-Siehe die folgenden zwei Seiten, die `HTMLHyperlinkElementUtils.hash` entsprechend dokumentieren:
+Siehe die folgenden beiden Seiten, die `HTMLHyperlinkElementUtils.hash` entsprechend dokumentieren:
 
 - [`HTMLAnchorElement.hash`](/de/docs/Web/API/HTMLAnchorElement/hash)
 - [`HTMLAreaElement.hash`](/de/docs/Web/API/HTMLAreaElement/hash)
 
-Für Kompatibilitätsdaten konsultieren Sie die [Datenguideline für Mixins in BCD](https://github.com/mdn/browser-compat-data/blob/main/docs/data-guidelines/index.md).
+Für kompatible Daten konsultieren Sie die [Datenschema-Richtlinien für Mixins in BCD](https://github.com/mdn/browser-compat-data/blob/main/docs/data-guidelines/index.md).
 
-### Alte Mixin-Syntax
+### Alte Mixinsyntax
 
-In der alten WebIDL-Mixin-Syntax, die Sie noch an einigen Stellen finden könnten, werden Mixins mit der Annotation `[NoInterfaceObject]` vorangestellt:
+In der alten WebIDL-Mixinsyntax, die Sie noch an einigen Stellen antreffen könnten, werden Mixins mit der `[NoInterfaceObject]`-Annotation vorangestellt:
 
 ```webidl
 [NoInterfaceObject]
@@ -115,9 +120,9 @@ In der alten Syntax werden Mixins, die auf einer Schnittstelle implementiert sin
 MyInterface implements MyMixin;
 ```
 
-### Verfügbarkeit im Fenster und in Workern
+### Verfügbarkeit in `window` und `workers`
 
-Die Verfügbarkeit in Web-Workern (jeglicher Art) und im Window-Kontext wird durch eine Annotation definiert: `[Exposed=(Window,Worker)]`. Die Annotation gilt für die partielle Schnittstelle, mit der sie aufgelistet ist.
+Die Verfügbarkeit in Webworkern (jeglicher Art) und im `Window`-Kontext wird mit einer Annotation definiert: `[Exposed=(Window,Worker)]`. Die Annotation gilt für die partielle Schnittstelle, mit der sie aufgeführt ist.
 
 ```webidl
 [Exposed=(Window,Worker)]
@@ -137,14 +142,14 @@ partial interface Performance {
 };
 ```
 
-In diesem Fall ist `Performance.now()` im `Window`-Kontext und in jedem Worker verfügbar, während `Performance.timing`, `Performance.navigation` und `Performance.toJSON()` nicht für Web-Worker verfügbar sind.
+In diesem Fall ist `Performance.now()` sowohl im `Window`-Kontext als auch für jeden Worker verfügbar, während `Performance.timing`, `Performance.navigation` und `Performance.toJSON()` für Webworker nicht verfügbar sind.
 
-Die gebräuchlichsten Werte für `[Exposed]` sind:
+Die häufigsten Werte für `[Exposed]` sind:
 
 - `Window`
-  - : Die partielle Schnittstelle ist im globalen Kontext [`Window`](/de/docs/Web/API/Window) verfügbar.
+  - : Die partielle Schnittstelle ist im globalen [`Window`](/de/docs/Web/API/Window)-Kontext verfügbar.
 - `Worker`
-  - : Die partielle Schnittstelle ist in jeder Art von Worker verfügbar, also wenn der globale Kontext ein Nachfolger von [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) ist — [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope), [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) oder [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) (Es ist auch im `ChromeWorker` verfügbar, aber wir dokumentieren dies nicht, da sie im Web nicht sichtbar sind und intern in Firefox verwendet werden.)
+  - : Die partielle Schnittstelle ist für jede Art von Worker verfügbar, d.h. wenn der globale Kontext ein Nachkömmling von [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) ist — [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope), [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) oder [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) (Es ist auch für `ChromeWorker` verfügbar, aber wir dokumentieren dies nicht, da sie im Web nicht sichtbar und intern für Firefox sind.)
 - `DedicatedWorker`
   - : Die partielle Schnittstelle ist nur im [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) verfügbar.
 - `SharedWorker`
@@ -152,23 +157,23 @@ Die gebräuchlichsten Werte für `[Exposed]` sind:
 - `ServiceWorker`
   - : Die partielle Schnittstelle ist nur im [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) verfügbar.
 
-Ein weiterer Wert ist möglich, wie `System`, aber dieser hat eine [besondere Bedeutung](https://firefox-source-docs.mozilla.org/dom/webIdlBindings/index.html#custom-extended-attributes) und muss nicht dokumentiert werden.
+Ein weiterer möglicher Wert ist `System`, aber dieser hat eine [besondere Bedeutung](https://firefox-source-docs.mozilla.org/dom/webIdlBindings/index.html#custom-extended-attributes) und muss nicht dokumentiert werden.
 
-Beachten Sie, dass diese möglichen Werte selbst in WebIDL-Dateien definiert sind. Schnittstellen können eine `[Global=xyz]`-Annotation haben. Das bedeutet, dass wenn ein Objekt dieses Typs als globaler Kontext verwendet wird, jede Schnittstelle, Eigenschaft oder Methode, mit `xyz` als Wert von `[Exposed]` verfügbar ist.
+Beachten Sie, dass diese möglichen Werte selbst in WebIDL-Dateien definiert sind. Schnittstellen können eine `[Global=xyz]`-Annotation haben. Dies bedeutet, dass, wenn ein Objekt dieses Typs als globaler Kontext verwendet wird, jede Schnittstelle, Eigenschaft oder Methode mit `xyz` als Wert von `[Exposed]` verfügbar ist.
 
 ```webidl
 [Global=(Worker,DedicatedWorker), Exposed=DedicatedWorker]
 interface DedicatedWorkerGlobalScope : WorkerGlobalScope {…}
 ```
 
-Hier wird definiert, dass wenn der globale Kontext vom Typ `DedicatedWorkerGlobalScope` ist, das heißt, wenn wir uns in einem dedizierten Worker befinden, jede Schnittstelle, Eigenschaft oder Methode, die auf `Worker` oder `DedicatedWorker`-Kontexte – mithilfe der `[Exposed]`-Annotation – verfügbar gemacht wird.
+Hier ist definiert, dass, wenn der globale Kontext vom Typ `DedicatedWorkerGlobalScope` ist, sobald wir in einem dedizierten Worker sind, jede Schnittstelle, Eigenschaft oder Methode, die mit der `[Exposed]`-Annotation als `Worker` oder `DedicatedWorker` verfügbar ist, verfügbar ist.
 
-### Präferenzen
+### Einstellungen
 
 > [!NOTE]
-> Diese Information ist spezifisch für Gecko und sollte nur im Abschnitt zur Browser-Kompatibilität verwendet werden.
+> Diese Information ist spezifisch für Gecko und sollte nur im Bereich der Browser-Kompatibilität verwendet werden.
 
-In Gecko kann die Verfügbarkeit einer partiellen Schnittstelle, einschließlich ihres Konstruktors, ihrer Eigenschaften und Methoden, durch eine Präferenz gesteuert werden (normalerweise als "Pref" bezeichnet). Dies ist ebenfalls in der WebIDL vermerkt.
+In Gecko kann die Verfügbarkeit einer partiellen Schnittstelle, einschließlich ihres Konstruktors, ihrer Eigenschaften und Methoden, durch eine Einstellung (üblicherweise als "pref" bezeichnet) kontrolliert werden. Dies wird auch im WebIDL markiert.
 
 ```webidl
 [Pref="media.webspeech.synth.enabled"]
@@ -179,14 +184,14 @@ interface SpeechSynthesis {
 };
 ```
 
-Hier steuert `media.webspeech.synth.enabled` die `SpeechSynthesis`-Schnittstelle und ihre Eigenschaften (die vollständige Auflistung hat mehr als drei).
+Hier steuert `media.webspeech.synth.enabled` die `SpeechSynthesis`-Schnittstelle und ihre Eigenschaften (die vollständige Auflistung hat mehr als drei.)
 
 > [!NOTE]
-> Der Standardwert der Präferenz ist nicht direkt in der WebIDL verfügbar (er kann je nach Produkt, das Gecko verwendet, unterschiedlich sein.)
+> Der Standardwert der Einstellung ist nicht direkt im WebIDL verfügbar (sie kann zwischen Produkten, die Gecko verwenden, variieren).
 
 ### Nur im Systemcode verfügbar
 
-Einige Schnittstellenfunktionen sind möglicherweise nur im internen Systemcode des Browsers oder im Chrome-Code verfügbar. Um dies zu kennzeichnen, verwenden wir in Gecko `[ChromeOnly]`. Zum Beispiel ist die Eigenschaft `propName` im folgenden Beispiel nur über den Chrome-Code ansprechbar:
+Einige Schnittstellenfunktionen sind möglicherweise nur im internen Systemcode des Browsers oder im Chromecode verfügbar. Um dies anzuzeigen, verwenden wir in Gecko \[ChromeOnly], z. B. ist die Eigenschaft propName im folgenden Beispiel nur über Chromecode aufrufbar:
 
 ```webidl
 interface MyInterface {
@@ -197,7 +202,7 @@ interface MyInterface {
 
 ## Eigenschaften
 
-Sie können die Definition einer Eigenschaft am Vorhandensein des Schlüsselworts `attribute` erkennen.
+Man kann die Definition einer Eigenschaft an der Anwesenheit des Schlüsselworts `attribute` erkennen.
 
 ### Name der Eigenschaft
 
@@ -205,7 +210,7 @@ Sie können die Definition einer Eigenschaft am Vorhandensein des Schlüsselwort
 readonly attribute MediaError? error;
 ```
 
-Im obigen Beispiel ist der Name der Eigenschaft `error`; in den Dokumenten werden wir sie als `HTMLMediaElement.error` bezeichnen, da sie zur `HTMLMediaElement`-Schnittstelle gehört. Das Verlinken auf die Seite erfolgt entweder **mit** dem Schnittstellenpräfix mit der \\{{domxref('HTMLMediaElement.error')}} oder **ohne** das Präfix mit \\{{domxref('HTMLMediaElement.error', 'error')}} wenn der Kontext offensichtlich und eindeutig ist.
+Im obigen Beispiel ist der Name der Eigenschaft `error`; in den Dokumenten wird sie als `HTMLMediaElement.error` bezeichnet, da sie zur `HTMLMediaElement`-Schnittstelle gehört. Die Verlinkung zur Seite erfolgt entweder **mit** dem Schnittstellen-Präfix über \\{{domxref('HTMLMediaElement.error')}} oder **ohne** das Präfix über \\{{domxref('HTMLMediaElement.error', 'error')}} wenn der Kontext offensichtlich und eindeutig ist.
 
 ### Typ der Eigenschaft
 
@@ -213,21 +218,20 @@ Im obigen Beispiel ist der Name der Eigenschaft `error`; in den Dokumenten werde
 readonly attribute MediaError? error;
 ```
 
-Der Eigenschaftswert ist ein Objekt des Typs `MediaError`. Das Fragezeichen (`'?'`) weist darauf hin, dass es den Wert `null` annehmen kann, und die Dokumentation muss erklären, _wann_ dies der Fall sein kann. Wenn kein Fragezeichen vorhanden ist, kann die `error`-Eigenschaft nicht `null` sein.
+Der Eigenschaftswert ist ein Objekt vom Typ `MediaError`. Das Fragezeichen (`'?'`) zeigt an, dass es den Wert `null` haben kann, und die Dokumentation muss erklären, _wann_ dies passieren kann. Wenn kein Fragezeichen vorhanden ist, kann die `error`-Eigenschaft nicht `null` sein.
 
-Der Typ der Eigenschaft kann mit einem _erweiterten Attribut_ versehen sein, einer Zeichenfolge, die in eckigen Klammern eingeschlossen ist (wie `[LegacyNullToEmptyString]`). Solche erweiterten Attribute weisen auf spezielle Verhaltensweisen hin, die in der Prosa beschrieben werden müssen. Hier ist eine Liste standardmäßiger erweiterter Attribute von Typen und der Zusätze, die gemacht werden müssen:
+Der Typ der Eigenschaft kann mit einem _erweiterten Attribut_ vorangestellt werden, einem in eckige Klammern eingeschlossenen String (wie `[LegacyNullToEmptyString]`). Solche erweiterten Attribute weisen auf spezielle Verhaltensweisen hin, die im Text beschrieben werden müssen. Hier ist eine Liste von standardmäßigen erweiterten Attributen von Typen und der Ergänzung, die gemacht werden muss:
 
 - `[LegacyNullToEmptyString]`
-
-  - : Der `null`-Wert wird in nicht standardmäßiger Weise in einen String konvertiert. Die Standardmethode ist die Umwandlung in einen `"null"`-String, aber in diesem Fall wird er in `""` umgewandelt.
+  - : Der `null`-Wert wird auf nicht-standardisierte Weise in einen String umgewandelt. Der Standardweg ist die Umwandlung in den String `"null"`, aber in diesem Fall wird es in `""` umgewandelt.
 
     Fügen Sie den folgenden Satz am Ende des _Wert_-Abschnitts des Artikels hinzu:
 
-    _Wenn er auf den `null`-Wert gesetzt wird, wird dieser `null`-Wert in einen leeren String (`""`) konvertiert, daher ist `elt.innerHTML = null` gleichbedeutend mit `elt.innerHTML = ""`._
+    _Wenn der Wert `null` festgelegt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt. Daher ist `elt.innerHTML = null` äquivalent zu `elt.innerHTML = ""`._
 
     Das kleine Inline-Beispiel muss für jede Eigenschaft angepasst werden.
 
-### Schreibrechte für die Eigenschaft
+### Schreibrechte auf der Eigenschaft
 
 ```webidl
 readonly attribute MediaError? error;
@@ -235,12 +239,12 @@ readonly attribute MediaError? error;
 
 Wenn das Schlüsselwort `readonly` vorhanden ist, kann die Eigenschaft nicht geändert werden. Sie muss als schreibgeschützt markiert werden:
 
-- In der Schnittstelle, indem das \\{{ReadOnlyInline}}-Makro neben seinem Definitionsterm hinzugefügt wird.
-- Im ersten Satz auf ihrer eigenen Seite, indem die Beschreibung mit: _Die schreibgeschützte **`HTMLMediaElement.error`**-Eigenschaft…_ beginnt.
-- Indem die Beschreibung auf der Schnittstellenseite mit _Gibt zurück…_ beginnt.
+- In der Schnittstelle, indem das \\{{ReadOnlyInline}} Makro neben dem Definitionsterm hinzugefügt wird.
+- Im ersten Satz ihrer eigenen Seite, indem die Beschreibung mit folgendem Satz beginnt: _Die schreibgeschützte **`HTMLMediaElement.error`**-Eigenschaft…_
+- Indem ihre Beschreibung auf der Schnittstellenseite mit _Gibt zurück…_ beginnt.
 
 > [!NOTE]
-> Nur schreibgeschützte Eigenschaften können als 'rückgebend' beschrieben werden. Nicht schreibgeschützte Eigenschaften können auch genutzt werden, um einen Wert zu setzen.
+> Nur schreibgeschützte Eigenschaften können als "gebende" Werte beschrieben werden. Nicht-schreibgeschützte Eigenschaften können auch verwendet werden, um einen Wert zu setzen.
 
 ### Auslösen von Ausnahmen
 
@@ -249,11 +253,11 @@ Wenn das Schlüsselwort `readonly` vorhanden ist, kann die Eigenschaft nicht ge�
             attribute DOMString src;
 ```
 
-In einigen Fällen, wie wenn einige Werte illegal sind, kann das Setzen eines neuen Wertes zu einer Ausnahme führen. Dies wird mit der `[SetterThrows]`-Annotation markiert. Wenn dies geschieht, _muss_ der Abschnitt Syntax der Eigenschaftsseite einen Abschnitt Ausnahmen haben. Die Liste der Ausnahmen und die Bedingungen, unter denen sie ausgelöst werden, sind in der Spezifikation dieser API als Textinformation aufgelistet.
+In einigen Fällen, wie zum Beispiel bei illegalen Werten, kann das Festlegen eines neuen Werts dazu führen, dass eine Ausnahme geworfen wird. Dies wird mit der `[SetterThrows]`-Annotation markiert. Wenn dies geschieht, muss der Syntax-Abschnitt der Eigenschaftenseite einen Abschnitt für Ausnahmen haben. Die Liste der Ausnahmen und die Bedingungen, bei denen sie geworfen werden, sind als textuelle Informationen in der Spezifikation dieser API aufgeführt.
 
-Beachten Sie, dass einige Ausnahmen nicht explizit markiert sind, sondern von den JavaScript-Bindungen definiert sind. [Der Versuch, einen illegalen Aufzählungswert](https://webidl.spec.whatwg.org/#es-enumeration) (zugeordnet zu einem JavaScript {{jsxref('String')}}) zu setzen, führt zu einer {{jsxref('TypeError')}}-Ausnahme. Dies muss dokumentiert werden, ist jedoch nur implizit in der WebIDL-Dokument markiert.
+Beachten Sie, dass einige Ausnahmen nicht explizit markiert sind, sondern durch die JavaScript-Bindungen definiert sind. [Der Versuch, einen illegalen enumerierten Wert festzulegen](https://webidl.spec.whatwg.org/#es-enumeration) (der zu einem JavaScript {{jsxref('String')}} abgebildet wird) führt zu einer {{jsxref('TypeError')}}-Ausnahme. Dies muss dokumentiert werden, ist aber nur implizit im WebIDL-Dokument markiert.
 
-Es ist selten, dass Getter Ausnahmen auslösen, obwohl es in einigen Fällen passiert. In diesem Fall wird die `[GetterThrows]`-Annotation verwendet. Hier auch _muss_ der Abschnitt Syntax der Eigenschaftsseite einen Abschnitt Ausnahmen haben.
+Es ist ungewöhnlich, dass Getter Ausnahmen werfen, obwohl es in einigen wenigen Fällen passiert. In diesem Fall wird die `[GetterThrows]`-Annotation verwendet. Auch hier muss der Syntax-Abschnitt der Eigenschaftenseite einen Abschnitt für Ausnahmen haben.
 
 ```webidl
 partial interface Blob {
@@ -262,11 +266,11 @@ partial interface Blob {
 };
 ```
 
-### Keine Ausnahmen auslösen
+### Keine Ausnahme werfen
 
-Wenn die Semantik von WebIDL nicht befolgt wird, wird oft eine Ausnahme ausgelöst, selbst ohne dass `[SetterThrows]` oder `[GetterThrows]` gesetzt sind. Wenn wir beispielsweise versuchen, eine schreibgeschützte Eigenschaft in einen neuen Wert zu setzen, das heißt ihren impliziten Setter aufzurufen, wird eine schreibgeschützte Eigenschaft im strikten Modus eine Ausnahme werfen.
+Wenn die Semantik von WebIDL nicht befolgt wird, wird oft eine Ausnahme geworfen, selbst ohne `[SetterThrows]` oder `[GetterThrows]`. Zum Beispiel, im strikten Modus, wenn wir versuchen, einer schreibgeschützten Eigenschaft einen neuen Wert zuzuweisen, das heißt, ihren impliziten Setter zu rufen, wirft eine schreibgeschützte Eigenschaft im strikten Modus eine Ausnahme.
 
-Hauptsächlich aus Kompatibilitätsgründen ist dieses Verhalten manchmal störend. Um dies zu verhindern, indem Sie einen Setter ohne Operation erstellen (indem jeder Versuch, die Eigenschaft in einen neuen Wert zu setzen, stillschweigend ignoriert wird), kann die `[LenientSetter]`-Annotation verwendet werden.
+Hauptsächlich aus Kompatibilitätsgründen ist dieses Verhalten manchmal störend. Um dies zu verhindern, indem ein No-Op-Setter erstellt wird (das heißt, indem der Versuch, der Eigenschaft einen neuen Wert zuzuweisen, stillschweigend ignoriert wird), kann die `[LenientSetter]`-Annotation verwendet werden.
 
 ```webidl
 partial interface Document {
@@ -277,70 +281,70 @@ partial interface Document {
 };
 ```
 
-In diesen Fällen wird der Beschreibung der Eigenschaft ein zusätzlicher Satz hinzugefügt. Z.B.
+In diesen Fällen wird der Beschreibung der Eigenschaft ein zusätzlicher Satz hinzugefügt. Z.B.:
 
-_Obwohl diese Eigenschaft schreibgeschützt ist, wird sie keine Ausnahme auslösen, wenn sie modifiziert wird (auch im strikten Modus); der Setter ist eine No-Operation und wird ignoriert._
+_Obwohl diese Eigenschaft schreibgeschützt ist, wird sie keine Ausnahme werfen, wenn sie geändert wird (auch im strikten Modus); der Setter ist eine No-Operation und wird ignoriert._
 
 ### Neue Objekte oder Referenzen
 
-Der Rückgabewert einer Eigenschaft kann entweder eine Kopie eines internen Objekts, ein neu erstelltes synthetisches Objekt oder eine Referenz zu einem internen Objekt sein.
+Der Rückgabewert einer Eigenschaft kann entweder eine Kopie eines internen Objekts, ein neu erstelltes synthetisches Objekt oder eine Referenz auf ein internes Objekt sein.
 
-Grundlegende Objekte mit Typen wie {{jsxref("String")}} (als IDL `DOMString` oder andere), {{jsxref("Number")}} (als IDL `byte`, `octet`, `unsigned int` oder andere) und {{jsxref("Boolean")}} werden immer kopiert und es muss nichts Besonderes über sie bemerkt werden (es ist ein natürliches Verhalten, das von einem JavaScript-Entwickler erwartet wird).
+Grundlegende Objekte mit Typen wie {{jsxref("String")}} (als IDL `DOMString`, oder andere), {{jsxref("Number")}} (als IDL `byte`, `octet`, `unsigned int`, oder andere) und {{jsxref("Boolean")}} werden immer kopiert und es muss nichts Besonderes darüber vermerkt werden (es ist ein natürliches Verhalten, das von einem JavaScript-Entwickler erwartet wird.)
 
-Für Schnittstellenobjekte ist der Standard, eine _Referenz_ auf das interne Objekt zurückzugeben. Dies muss sowohl in der Kurzbeschreibung auf der Schnittstellenseite als auch in der Beschreibung auf den speziellen Unterseiten erwähnt werden.
+Für Schnittstellenobjekte ist die Standardeinstellung, eine _Referenz_ auf das interne Objekt zurückzugeben. Dies muss sowohl in der kurzen Beschreibung auf der Schnittstellenseite als auch in der Beschreibung auf den spezifischen Unterseiten erwähnt werden.
 
 > [!NOTE]
-> Das Schlüsselwort `readonly`, das mit einer Eigenschaft verwendet wird, die ein Objekt zurückgibt, bezieht sich auf die Referenz (das interne Objekt kann nicht geändert werden). Die Eigenschaften des zurückgegebenen Objekts können geändert werden, selbst wenn sie in der entsprechenden Schnittstelle als schreibgeschützt markiert sind.
+> Das Schlüsselwort `readonly`, wenn es mit einer Eigenschaft verwendet wird, die ein Objekt zurückgibt, gilt für die Referenz (das interne Objekt kann nicht geändert werden). Die Eigenschaften des zurückgegebenen Objekts können geändert werden, selbst wenn sie in der relevanten Schnittstelle als schreibgeschützt markiert sind.
 
-Manchmal muss eine API ein _neues_ Objekt oder eine _Kopie_ eines internen zurückgeben. Dieser Fall wird in der WebIDL mit der `[NewObject]`-Annotation angegeben.
+Manchmal muss eine API ein _neues_ Objekt zurückgeben, oder eine _Kopie_ eines internen Objekts. Dieser Fall wird im WebIDL mit der `[NewObject]`-Annotation angezeigt.
 
 ```webidl
 [NewObject]
    readonly attribute TimeRanges buffered;
 ```
 
-In diesem Fall gibt jeder Aufruf von `buffered` ein anderes Objekt zurück: Wenn es geändert wird, ändert es nicht den internen Wert und eine Änderung des internen Werts wirkt sich nicht auf jede Objektinstanz aus. In der Dokumentation kennzeichnen wir dies, indem wir das Adjektiv _neu_ neben das Objekt stellen:
+In diesem Fall liefert jeder Aufruf von `buffered` ein anderes Objekt: eine Änderung daran wird den internen Wert nicht ändern, und eine Änderung im internen Wert wird jede Objektinstanz nicht beeinflussen. In der Dokumentation werden wir dies markieren, indem wir das Adjektiv _neu_ neben dem Objekt verwenden:
 
-_Die **`HTMLMediaElement.buffered`**-Eigenschaft gibt ein neues \\{{domxref("TimeRanges")}}-Objekt zurück, das…_
+_Die **`HTMLMediaElement.buffered`** schreibgeschützte Eigenschaft gibt ein neues \\{{domxref("TimeRanges")}}-Objekt zurück, das…_
 
 und
 
 - _\\{{domxref("HTMLMediaElement.buffered")}}\\{{ReadOnlyInline}}_
   - : _Gibt ein neues \\{{domxref("TimeRanges")}}-Objekt zurück, das …_
 
-Im Fall einer Referenz auf ein Sammlungsobjekt (wie `HTMLCollection`, `HTMLFormElementsCollection` oder `HTMLOptionsCollection`, immer ohne `[NewObject]`) machen wir explizit, dass Änderungen am zugrunde liegenden Objekt über die zurückgegebene Referenz verfügbar sein werden. Um dies zu kennzeichnen, qualifizieren wir die Sammlung als **live** `HTMLCollection` (oder `HTMLFormElementsCollections` oder `HTMLOptionsCollection`), sowohl in der Schnittstellenbeschreibung als auch in der Unterseite.
+Im Fall einer Referenz auf ein Sammlungsobjekt (wie `HTMLCollection`, `HTMLFormElementsCollection` oder `HTMLOptionsCollection`, immer ohne `[NewObject]`), machen wir es explizit, dass Änderungen am zugrunde liegenden Objekt über die zurückgegebene Referenz verfügbar sein werden. Um dies zu kennzeichnen, qualifizieren wir die Sammlung als **live** `HTMLCollection` (oder `HTMLFormElementsCollections`, oder `HTMLOptionsCollection`), sowohl in der Schnittstellenbeschreibung als auch auf der Unterseite.
 
-Z.B.
+Z.B.:
 
 - \\{{domxref("HTMLFormElement.elements")}}\\{{ReadOnlyInline}}
-  - : Gibt eine live \\{{domxref("HTMLFormControlsCollection")}} zurück, die…
+  - : Gibt ein live \\{{domxref("HTMLFormControlsCollection")}} zurück, das…
 
 ### Verfügbarkeit in Workern
 
-Die individuelle Verfügbarkeit von Eigenschaften in Workern findet sich auch in der WebIDL. Für eine Eigenschaft ist der Standard die gleiche Verfügbarkeit wie die `Schnittstelle` (das heißt, verfügbar im [`Window`](/de/docs/Web/API/Window)-Kontext, wenn nichts Besonderes markiert ist) oder die `partielle Schnittstelle`, in der sie definiert ist.
+Die Verfügbarkeit einzelner Eigenschaften in Workern ist auch im WebIDL zu finden. Für eine Eigenschaft ist der Standard dieselbe Verfügbarkeit wie die `Schnittstelle` (das heißt, sie ist nur im [`Window`](/de/docs/Web/API/Window)-Kontext verfügbar, es sei denn, es wird etwas Spezielles markiert) oder die `partielle Schnittstelle`, in der sie definiert ist.
 
-Zur Dokumentation muss die Unterseite einen Satz enthalten, der angibt, ob sie in Web-Workern verfügbar ist oder nicht, direkt vor dem Abschnitt "Syntax".
+Für die Dokumentation muss die Unterseite einen Satz enthalten, der angibt, ob sie in Web-Workern verfügbar ist, direkt vor dem "Syntax"-Abschnitt.
 
-### Präferenzen
+### Einstellungen
 
 > [!NOTE]
-> Diese Information ist spezifisch für Gecko und sollte nur im Abschnitt zur Browser-Kompatibilität verwendet werden.
+> Diese Information ist spezifisch für Gecko und sollte nur im Bereich der Browser-Kompatibilität verwendet werden.
 
-In Gecko kann die Verfügbarkeit einiger Eigenschaften durch eine Präferenz gesteuert werden. Dies ist ebenfalls in der WebIDL vermerkt.
+In Gecko kann die Verfügbarkeit einiger Eigenschaften durch eine Präferenz gesteuert werden. Dies wird auch im WebIDL markiert.
 
 ```webidl
 [Pref="media.webvtt.enabled"]
     readonly attribute TextTrackList? textTracks;
 ```
 
-Hier steuert `media.webvtt.enabled` die `textTracks`-Eigenschaft.
+Hier steuert `media.webvtt.enabled` die Eigenschaft `textTracks`.
 
 > [!NOTE]
-> Der Standardwert der Präferenz ist nicht direkt in der WebIDL verfügbar (er kann je nach Produkt, das Gecko verwendet, unterschiedlich sein).
+> Der Standardwert der Präferenz ist nicht direkt im WebIDL verfügbar (er kann zwischen Produkten, die Gecko verwenden, variieren).
 
 ## Methoden
 
-Sie können die Definition einer Methode am Vorhandensein von Klammern nach dem Namen erkennen.
+Die Definition einer Methode erkennt man an den Klammern nach dem Namen.
 
 ### Name der Methode
 
@@ -348,7 +352,7 @@ Sie können die Definition einer Methode am Vorhandensein von Klammern nach dem 
 DOMString canPlayType(DOMString type);
 ```
 
-Der Name der Methode ist `canPlayType`, und wir werden darauf als `HTMLMediaElement.canPlayType()` (mit den Klammern, die anzeigen, dass es sich um eine Methode handelt) in den Dokumenten verweisen, da sie zur `HTMLMediaElement`-Schnittstelle gehört. Das Verlinken auf die Seite erfolgt entweder **mit** dem Schnittstellenpräfix mit der \\{{domxref('HTMLMediaElement.canPlayType()')}}, oder **ohne** das Präfix mit \\{{domxref('HTMLMediaElement.canPlayType', 'canPlayType()')}} wenn der Kontext offensichtlich und eindeutig ist. Die Klammern sollten immer enthalten sein.
+Der Name der Methode ist `canPlayType` und wir werden sie als `HTMLMediaElement.canPlayType()` (mit den Klammern, die anzeigen, dass es sich um eine Methode handelt) in den Dokumenten bezeichnen, da sie zur `HTMLMediaElement`-Schnittstelle gehört. Die Verlinkung zur Seite erfolgt entweder **mit** dem Schnittstellen-Präfix über \\{{domxref('HTMLMediaElement.canPlayType()')}}, oder **ohne** das Präfix über \\{{domxref('HTMLMediaElement.canPlayType', 'canPlayType()')}} wenn der Kontext offensichtlich und eindeutig ist. Die Klammern sollten immer enthalten sein.
 
 ### Parameter
 
@@ -358,12 +362,12 @@ TextTrack addTextTrack(TextTrackKind kind,
                        optional DOMString language = "");
 ```
 
-Die Parameter einer Methode sind im Abschnitt Syntax der Methodenunterseite aufgelistet. Sie sind in der WebIDL in Reihenfolge, zwischen den Klammern, als kommagetrennte Liste aufgelistet. Jeder Parameter hat einen Namen (oben angegeben) und einen Typ (z.B. ein `'?'` bedeutet, dass der `null`-Wert gültig ist.) Wenn `optional` markiert, ist der Parameter optional, ein Aufruf der Methode muss die \\{{optional_inline}}-Markierung enthalten, wenn er im Abschnitt Syntax aufgelistet ist. Der Standardwert des Parameters ist nach dem Gleichheitszeichen (`'='`) angegeben.
+Die Parameter einer Methode sind im Syntax-Abschnitt der Methoden-Unterseite aufgelistet. Sie sind im WebIDL in der angegebenen Reihenfolge, zwischen den Klammern, als durch Kommas getrennte Liste aufgeführt. Jeder Parameter hat einen Namen (wie oben angegeben) und einen Typ (z.B., ein `'?'` bedeutet, dass der `null`-Wert gültig ist.) Wenn mit `optional` markiert, ist der Parameter optional, um in einem Methodenaufruf einbezogen zu werden und muss das \\{{optional_inline}}-Flag enthalten, wenn er im Syntax-Abschnitt aufgeführt ist. Der Standardwert des Parameters wird nach dem Gleichheitszeichen (`'='`) angegeben.
 
-Parametertypen können spezielle Verhaltensweisen beschrieben mit erweiterten Attributen haben (wie `[LegacyNullToEmptyString]`). Hier ist die Liste solcher Attribute, und der Zusatz, den Sie in der Prosa machen müssen:
+Parameter-Typen können spezielle Verhaltensweisen haben, die mit erweiterten Attributen beschrieben werden (wie `[LegacyNullToEmptyString]`). Hier ist die Liste solcher Attribute und die Ergänzung, die Sie im Text machen müssen:
 
 - `[LegacyNullToEmptyString]`
-  - : Fügen Sie den folgenden Satz am Ende der Parameterbeschreibung hinzu: _Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso behandelt wie der leere String (`""`)._
+  - : Fügen Sie folgenden Satz am Ende der Parameterbeschreibung hinzu: _Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso behandelt wie der leere String (`""`)._
 
 ### Typ des Rückgabewerts
 
@@ -371,9 +375,9 @@ Parametertypen können spezielle Verhaltensweisen beschrieben mit erweiterten At
 DOMString canPlayType(DOMString type);
 ```
 
-Der Typ des Rückgabewerts wird vor dem Methodennamen angegeben — im obigen Fall ist der Wert ein Objekt des Typs `DOMString`. Wenn der Rückgabewert von einem Fragezeichen (`'?'`) gefolgt ist, kann auch ein `null`-Wert zurückgegeben werden, und die Dokumentation muss erklären, _wann_ dies geschehen kann. Wenn kein Fragezeichen vorhanden ist, wie hier, kann der Rückgabewert nicht `null` sein.
+Der Rückgabewert-Typ ist vor dem Methodennamen angegeben — im obigen Fall ist der Wert ein Objekt vom Typ `DOMString`. Wenn der Rückgabetyp von einem Fragezeichen (`'?'`) gefolgt wird, kann auch ein Wert von `null` zurückgegeben werden und die Dokumentation muss erklären, _wann_ dies passieren kann. Wenn kein Fragezeichen vorhanden ist, wie hier, kann der Rückgabewert nicht `null` sein.
 
-Wenn der Rückgabewert das `void`-Schlüsselwort ist, bedeutet es, dass es keinen Rückgabewert gibt. Es ist kein Rückgabewerttyp. Wenn der WebIDL-Eintrag `void` liest, sollte der _Rückgabewert_-Abschnitt in den Dokumenten einfach "Kein (\{{jsxref("undefined")}})." angeben.
+Wenn der Rückgabewert das Schlüsselwort `void` ist, bedeutet das, dass es keinen Rückgabewert gibt. Es ist kein Rückgabewert-Typ. Wenn der WebIDL-Eintrag `void` lautet, sollte der _Rückgabewert_ Abschnitt in den Dokumenten einfach "Keine (\{{jsxref("undefined")}})." angeben.
 
 ### Auslösen von Ausnahmen
 
@@ -382,24 +386,24 @@ Wenn der Rückgabewert das `void`-Schlüsselwort ist, bedeutet es, dass es keine
    void fastSeek(double time);
 ```
 
-Einige Methoden können Ausnahmen auslösen. Dies wird mit der `[Throws]`-Annotation markiert. Wenn dies geschieht, _muss_ der Abschnitt Syntax der Methodenseite einen Abschnitt Ausnahmen haben. Die Liste der Ausnahmen und die Bedingungen, unter denen sie ausgelöst werden, sind in der Spezifikation dieser API als Textinformation aufgelistet.
+Einige Methoden können Ausnahmen auslösen. Das wird mit der `[Throws]`-Annotation markiert. Wenn dies geschieht, muss der Syntax-Abschnitt der Methodenseite einen Abschnitt für Ausnahmen haben. Die Liste der Ausnahmen und die Bedingungen, bei denen sie geworfen werden, sind als textuelle Informationen in der Spezifikation dieser API aufgeführt.
 
-Beachten Sie, dass einige Ausnahmen nicht explizit markiert sind, sondern von den JavaScript-Bindungen definiert sind. [Der Versuch, einen illegalen Aufzählungswert](https://webidl.spec.whatwg.org/#es-enumeration) (zugeordnet zu einem JavaScript {{jsxref('String')}}) als Parameter zu setzen, wird eine {{jsxref('TypeError')}}-Ausnahme führen. Dies muss dokumentiert werden, ist jedoch nur implizit in der WebIDL-Dokument markiert.
+Beachten Sie, dass einige Ausnahmen nicht explizit markiert sind, sondern durch die JavaScript-Bindungen definiert sind. [Der Versuch, einen illegalen enumerierten Wert als Parameter festzulegen](https://webidl.spec.whatwg.org/#es-enumeration) (der zu einem JavaScript {{jsxref('String')}} abgebildet wird) wird eine {{jsxref('TypeError')}}-Ausnahme auslösen. Dies muss dokumentiert werden, ist aber nur implizit im WebIDL-Dokument markiert.
 
-Sehen Sie sich einen dieser [_Ausnahmen_-Abschnitte](/de/docs/Web/API/SubtleCrypto/importKey#exceptions) an.
+Schauen Sie sich einen dieser [_Ausnahmen_ Abschnitte](/de/docs/Web/API/SubtleCrypto/importKey#exceptions) an.
 
 ### Verfügbarkeit in Workern
 
-Die individuelle Verfügbarkeit von Methoden in Workern findet sich auch in der WebIDL. Für eine Methode ist der Standard die gleiche Verfügbarkeit wie die `Schnittstelle` (das heißt, verfügbar im [`Window`](/de/docs/Web/API/Window)-Kontext, wenn nichts Besonderes markiert ist) oder die `partielle Schnittstelle`, in der sie definiert ist.
+Die Verfügbarkeit einzelner Methoden in Workern ist ebenfalls im WebIDL zu finden. Für eine Methode ist der Standard dieselbe Verfügbarkeit wie die `Schnittstelle` (das heißt, sie ist nur im [`Window`](/de/docs/Web/API/Window)-Kontext verfügbar, es sei denn, es wird etwas Spezielles markiert) oder die `partielle Schnittstelle`, in der sie definiert ist.
 
-Zur Dokumentation muss die Unterseite einen Satz enthalten, der angibt, ob sie in Web-Workern verfügbar ist oder nicht, direkt vor dem Abschnitt "Syntax".
+Für die Dokumentation muss die Unterseite einen Satz enthalten, der angibt, ob sie in Web-Workern verfügbar ist, direkt vor dem Syntax-Abschnitt.
 
-### Präferenzen
+### Einstellungen
 
 > [!NOTE]
-> Diese Information ist spezifisch für Gecko und sollte nur im Abschnitt zur Browser-Kompatibilität verwendet werden.
+> Diese Information ist spezifisch für Gecko und sollte nur im Bereich der Browser-Kompatibilität verwendet werden.
 
-In Gecko kann die Verfügbarkeit einiger Methoden durch eine Präferenz gesteuert werden. Dies ist ebenfalls in der WebIDL vermerkt.
+In Gecko kann die Verfügbarkeit einiger Methoden durch eine Präferenz gesteuert werden. Dies wird auch im WebIDL markiert.
 
 ```webidl
 [Pref="media.webvtt.enabled"]
@@ -411,60 +415,60 @@ In Gecko kann die Verfügbarkeit einiger Methoden durch eine Präferenz gesteuer
 Hier steuert `media.webvtt.enabled` die `addTextTrack()`-Methode.
 
 > [!NOTE]
-> Der Standardwert der Präferenz ist nicht direkt in der WebIDL verfügbar (er kann je nach Produkt, das Gecko verwendet, unterschiedlich sein).
+> Der Standardwert der Präferenz ist nicht direkt im WebIDL verfügbar (er kann zwischen Produkten, die Gecko verwenden, variieren).
 
 ## Spezielle Methoden
 
-Einige Methoden werden nicht als reguläre Methoden in WebIDL aufgelistet, sondern stattdessen als spezielle Schlüsselwörter, die in spezifische Standard-JavaScript-Methoden übersetzt werden.
+Einige Methoden sind nicht als reguläre Methoden in WebIDL aufgelistet, sondern als spezielle Schlüsselwörter, die in bestimmte standardmäßige JavaScript-Methoden übersetzt werden.
 
 ### toString() und toJSON()
 
-Ein Stringifizierer gibt an, wie ein Objekt basierend auf einer Schnittstelle in Kontexten, die einen String erwarten, aufgelöst wird. (Siehe den Abschnitt [Stringifizierer](#stringifizierer).) Zusätzlich wird das Schlüsselwort auf `toString()` abgebildet und wie folgt definiert:
+Ein Stringifier gibt an, wie ein Objekt basierend auf einer Schnittstelle in Kontexte aufgelöst wird, die einen String erwarten. (Siehe den Abschnitt [Stringifiers](#stringifiers).) Zusätzlich wird das Schlüsselwort `toString()` zugeordnet und definiert als:
 
 ```webidl
 stringifier;
 ```
 
-Die `toString()`-Methode wird genauso wie jede andere Methode der Schnittstelle aufgelistet und hat ihre eigene Unterseite (z.B. [`Range.toString()`](/de/docs/Web/API/Range/toString)).
+Die `toString()`-Methode wird wie jede andere Methode der Schnittstelle aufgelistet und hat ihre eigene Unterseite (z.B. [`Range.toString()`](/de/docs/Web/API/Range/toString))
 
-Ein Jsonifizierer wird auf `toJSON()` abgebildet und wie folgt definiert:
+Ein Jsonifier wird `toJSON()` zugeordnet und definiert als:
 
 ```webidl
 jsonifier; // Gecko version
 serializer; // Standard version
 ```
 
-Die `toJSON()`-Methode wird genauso wie jede andere Methode der Schnittstelle aufgelistet und hat ihre eigene Unterseite (z.B. [`Performance.toJSON()`](/de/docs/Web/API/Performance/toJSON)).
+Die `toJSON()`-Methode wird wie jede andere Methode der Schnittstelle aufgelistet und hat ihre eigene Unterseite (z.B. [`Performance.toJSON()`](/de/docs/Web/API/Performance/toJSON))
 
 > [!NOTE]
-> Die WebIDL-Spezifikation verwendet `serializer` anstelle von `jsonifier`. Dies wird in Gecko nicht verwendet — nur der nicht standardisierte, wahrscheinlich frühe Vorschlag `jsonifier` ist in mozilla-central zu finden.
+> Die WebIDL-Spezifikation verwendet `serializer` anstelle von `jsonifier`. Dies wird in Gecko nicht verwendet — nur der nicht-standardmäßige wahrscheinlich frühe Vorschlag `jsonifier` ist in mozilla-central zu finden.
 
 ### Iterator-ähnliche Methoden
 
-Eine Schnittstelle kann als _iterable_ definiert sein, was bedeutet, dass sie die folgenden Methoden haben wird: `entries()`, `keys()`, `values()` und `forEach()`. Sie unterstützen auch die Verwendung von {{jsxref("Statements/for...of", "for...of")}} auf einem implementierenden Objekt dieser Schnittstelle.
+Eine Schnittstelle kann als _iterierbar_ definiert werden, was bedeutet, dass sie die folgenden Methoden haben wird: `entries()`, `keys()`, `values()` und `forEach()`. Sie unterstützen auch die Verwendung von {{jsxref("Statements/for...of", "for...of")}} bei einem Objekt, das diese Schnittstelle implementiert.
 
-Es gibt zwei Arten von Iteration möglich: der _Werte-Iterator_ und der _Paar-Iterator._
+Es gibt zwei mögliche Arten der Iteration: der _Wert-Iterator_ und der _Paar-Iterator_.
 
-#### Werte-Iterator
+#### Wert-Iterator
 
 ```webidl
 iterable<valueType>
 ```
 
-Der Iterator wird über Werte des Typs _valueType_ iterieren. Die generierten Methoden werden sein:
+Der Iterator wird über Werte vom Typ _valueType_ iterieren. Die generierten Methoden werden sein:
 
-- `entries()`, die einen [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) über die Indizes (die `unsigned long` sind) zurückgibt.
-- `values()`, die einen [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) über die Werte zurückgibt.
-- `keys()`, die einen [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) über die Schlüssel zurückgibt, die ihre Indizes (die `unsigned long` sind) sind. Im Fall von Werte-Iteratoren sind `keys()` und `entries()` identisch.
-- `forEach()`, das eine gegebene Callback-Funktion einmal für jeden Eintrag in der Liste ausführt.
+- `entries()`, das einen [`iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) auf die Indizes (die `unsigned long` sind) zurückgibt.
+- `values()`, das einen [`iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) auf die Werte zurückgibt.
+- `keys()`, das einen [`iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) auf die Schlüssel zurückgibt, die die Indizes sind (die `unsigned long` sind). Im Fall von Wert-Iteratoren sind `keys()` und `entries()` identisch.
+- `forEach()`, das eine gegebene Rückruffunktion einmal für jeden Eintrag in der Liste ausführt.
 
-Ein solcher Iterator erlaubt es, die Syntax `for (const p in object)` zu verwenden, als Abkürzung für `for (const p in object.entries())`. Wir fügen einen Satz darüber in die Schnittstellenbeschreibung ein.
+Ein solcher Iterator ermöglicht es, die Syntax `for (const p in object)` als Kurzschrift von `for (const p in object.entries())` zu verwenden. Wir fügen einen Satz darüber in die Schnittstellenbeschreibung ein.
 
-Die Werte, über die iteriert werden soll, können auf eine der folgenden Arten definiert werden:
+Die zu überiterierenden Werte können auf eine der folgenden Arten definiert werden:
 
-- In der WebIDL-Datei, unter Verwendung der `iterable<valueType>`-Notation. Zum Beispiel siehe [`DOMTokenList`](/de/docs/Web/API/DOMTokenList).
-- Implizit in der WebIDL-Datei, wenn die Schnittstelle indexierte Eigenschaften unterstützt. Dies wird angegeben, wenn die Schnittstelle `getter`-Methoden mit einem Parameter vom Typ `unsigned long` enthält.
-- Außerhalb der WebIDL-Datei, in der begleitenden Prosa. Diese Prosa ist typischerweise in der Spezifikation zu finden und beginnt normalerweise mit: _"The [values to iterate over](https://webidl.spec.whatwg.org/#dfn-value-iterator)…"_.
+- Im WebIDL-Dokument, mit der Notation `iterable<valueType>`. Zum Beispiel siehe [`DOMTokenList`](/de/docs/Web/API/DOMTokenList).
+- Implizit im WebIDL-Dokument, wenn die Schnittstelle indizierte Eigenschaften unterstützt. Dies wird angegeben, wenn die Schnittstelle `getter`-Methoden mit einem Parameter des Typs `unsigned long` enthält.
+- Außerhalb des WebIDL-Dokuments, im begleitenden Text. Ein solcher Text ist typischerweise in der Spezifikation zu finden und beginnt gewöhnlich mit: _"Die [Werte, über die iteriert wird](https://webidl.spec.whatwg.org/#dfn-value-iterator)…"_.
 
 #### Paar-Iterator
 
@@ -472,23 +476,23 @@ Die Werte, über die iteriert werden soll, können auf eine der folgenden Arten 
 iterable<keyType, valueType>
 ```
 
-Der Iterator wird über Werte des Typs _valueType_ mit Schlüsseln des Typs _keyType_ iterieren, das heißt die Wertepaaren. Die generierten Methoden werden sein:
+Der Iterator wird über Werte vom Typ _valueType_ mit Schlüsseln vom Typ _keyType_, das heißt den Wert-Paaren, iterieren. Die generierten Methoden werden sein:
 
-- `entries()`, die einen [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) über die Wertepaaren zurückgibt. Zum Beispiel siehe [`FormData.entries()`](/de/docs/Web/API/FormData/entries).
-- `values()`, die einen [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) über die Werte zurückgibt. Zum Beispiel siehe [`FormData.values()`](/de/docs/Web/API/FormData/values).
-- `keys()`, die einen [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) über die Schlüssel zurückgibt. Zum Beispiel siehe [`FormData.keys()`](/de/docs/Web/API/FormData/keys).
-- `forEach()`, das eine gegebene Callback-Funktion einmal für jeden Eintrag in der Liste ausführt. Zum Beispiel siehe [`Headers.forEach()`](/de/docs/Web/API/Headers/forEach).
+- `entries()`, das einen [`iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) auf die Wert-Paare zurückgibt. Zum Beispiel siehe [`FormData.entries()`](/de/docs/Web/API/FormData/entries).
+- `values()`, das einen [`iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) auf die Werte zurückgibt. Zum Beispiel siehe [`FormData.values()`](/de/docs/Web/API/FormData/values).
+- `keys()`, das einen [`iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) auf die Schlüssel zurückgibt. Zum Beispiel siehe [`FormData.keys()`](/de/docs/Web/API/FormData/keys).
+- `forEach()`, das eine gegebene Rückruffunktion einmal für jeden Eintrag in der Liste ausführt. Zum Beispiel siehe [`Headers.forEach()`](/de/docs/Web/API/Headers/forEach).
 
-Ein solcher Iterator erlaubt es, die Syntax `for (const p in object)` zu verwenden, als Abkürzung für `for (const p in object.entries())`. Wir fügen einen Satz darüber in die Schnittstellenbeschreibung ein. Z. B. [`FormData`](/de/docs/Web/API/FormData).
+Ein solcher Iterator ermöglicht es, die Syntax `for (const p in object)` als Kurzschrift von `for (const p in object.entries())` zu verwenden. Wir fügen einen Satz darüber in die Schnittstellenbeschreibung ein. Z.B. [`FormData`](/de/docs/Web/API/FormData).
 
-Die Wertepaaren, über die iteriert werden soll, können auf eine der folgenden Arten definiert werden:
+Die zu überiterierenden Wert-Paare können auf eine der folgenden Arten definiert werden:
 
-- In der WebIDL-Datei, unter Verwendung der `iterable<keyType, valueType>`-Notation. Zum Beispiel siehe [`FormData`](/de/docs/Web/API/FormData).
-- Außerhalb der WebIDL-Datei, in der begleitenden Prosa. Solch eine Prosa ist typischerweise in der Spezifikation zu finden und beginnt normalerweise mit: _"The [value pairs to iterate over](https://webidl.spec.whatwg.org/#dfn-value-pairs-to-iterate-over)…"_.
+- Im WebIDL-Dokument, mit der Notation `iterable<keyType, valueType>`. Zum Beispiel siehe [`FormData`](/de/docs/Web/API/FormData).
+- Außerhalb des WebIDL-Dokuments, im begleitenden Text. Ein solcher Text ist typischerweise in der Spezifikation zu finden und beginnt gewöhnlich mit: _"Die [Wert-Paare, über die iteriert wird](https://webidl.spec.whatwg.org/#dfn-value-pairs-to-iterate-over)…"_.
 
 ### Set-ähnliche Methoden
 
-Eine Schnittstelle kann als _set-like_ definiert sein, was bedeutet, dass sie eine _geordneten Menge an Werten_ darstellt und die folgenden Methoden haben wird: `entries()`, `keys()`, `values()`, `forEach()` und `has()` (sie hat auch die `size`-Eigenschaft). Sie unterstützen auch die Verwendung von {{jsxref("Statements/for...of", "for...of")}} auf einem implementierenden Objekt dieser Schnittstelle. Das set-like kann als `readonly` oder nicht gekennzeichnet sein. Wenn es nicht schreibgeschützt ist, werden auch die Methoden implementiert, um das Set zu verändern: `add()`, `clear()` und `delete()`.
+Eine Schnittstelle kann als _set-ähnlich_ definiert werden, was bedeutet, dass sie _eine geordnete Menge von Werten_ darstellt und folgende Methoden haben wird: `entries()`, `keys()`, `values()`, `forEach()` und `has()` (außerdem hat sie die Eigenschaft `size`). Sie unterstützen auch die Verwendung von {{jsxref("Statements/for...of", "for...of")}} bei einem Objekt, das diese Schnittstelle implementiert. Das set-ähnliche kann vorangestellt werden mit `readonly` oder nicht. Wenn nicht schreibgeschützt, werden auch die Methoden zum Ändern des Sets implementiert: `add()`, `clear()` und `delete()`.
 
 ```webidl
 setlike<valueType>
@@ -496,28 +500,28 @@ setlike<valueType>
 
 Die generierten Eigenschaften werden sein:
 
-- `entries()`, die einen [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) über die Indizes zurückgibt. Zum Beispiel siehe [`NodeList.entries()`](/de/docs/Web/API/NodeList/entries).
-- `values()`, die einen [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) über die Werte zurückgibt. Zum Beispiel siehe [`NodeList.values()`](/de/docs/Web/API/NodeList/values).
-- `keys()`, die einen [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) über die Schlüssel zurückgibt. Zum Beispiel siehe [`NodeList.keys()`](/de/docs/Web/API/NodeList/keys).
-- `forEach()`, das eine gegebene Callback-Funktion einmal für jeden Eintrag in der Liste ausführt. Zum Beispiel siehe [`NodeList.forEach()`](/de/docs/Web/API/NodeList/forEach).
+- `entries()`, das einen [`iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) auf die Indizes zurückgibt. Zum Beispiel siehe [`NodeList.entries()`](/de/docs/Web/API/NodeList/entries).
+- `values()`, das einen [`iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) auf die Werte zurückgibt. Zum Beispiel siehe [`NodeList.values()`](/de/docs/Web/API/NodeList/values).
+- `keys()`, das einen [`iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) auf die Schlüssel zurückgibt. Zum Beispiel siehe [`NodeList.keys()`](/de/docs/Web/API/NodeList/keys).
+- `forEach()`, das eine gegebene Rückruffunktion einmal für jeden Eintrag in der Liste ausführt. Zum Beispiel siehe [`NodeList.forEach()`](/de/docs/Web/API/NodeList/forEach).
 
-In Fällen, in denen die set-like-Deklaration nicht durch schreibgeschützt vorangestellt ist, werden die folgenden Methoden ebenfalls generiert:
+In Fällen, in denen die set-ähnliche Deklaration nicht mit read-only vorangestellt ist, werden auch folgende Methoden generiert:
 
-- `add()` die einen Eintrag hinzufügt. Z. B. die `.add()`-Methode von [`FontFaceSet`](/de/docs/Web/API/FontFaceSet).
-- `clear()` die das set-like-Datenstruktur leert. Z. B. die `.clear()`-Methode von [`FontFaceSet`](/de/docs/Web/API/FontFaceSet).
-- `delete()` die einen Eintrag entfernt. Z. B. die `.delete()`-Methode von [`FontFaceSet`](/de/docs/Web/API/FontFaceSet).
+- `add()`, das einen Eintrag hinzufügt. Z.B. die `.add()`-Methode von [`FontFaceSet`](/de/docs/Web/API/FontFaceSet).
+- `clear()`, das die set-ähnliche Struktur leert. Z.B. die `.clear()`-Methode von [`FontFaceSet`](/de/docs/Web/API/FontFaceSet).
+- `delete()`, das einen Eintrag entfernt. Z.B. die `.delete()`-Methode von [`FontFaceSet`](/de/docs/Web/API/FontFaceSet).
 
-Eine solche set-Schnittstelle erlaubt auch die Verwendung der Syntax `for (const p in object)` als Abkürzung für `for (const p in object.entries())`.
+Eine solche Set-Schnittstelle ermöglicht es auch, die Syntax `for (const p in object)` als Kurzschrift von `for (const p in object.entries())` zu verwenden.
 
-## Spezielle Verhaltensweisen
+## Besondere Verhaltensweisen
 
-Einige IDL-Mitglieder geben spezielle Verhaltensweisen an, die auf den entsprechenden Seiten über beachtet werden sollten.
+Einige IDL-Mitglieder zeigen spezielle Verhaltensweisen an, die auf den entsprechenden Seiten vermerkt werden sollten.
 
-### Stringifizierer
+### Stringifiers
 
-Zusätzlich zum Hinzufügen der `toString()`-Methode zu einer Schnittstelle, wie unter [toString() und toJSON()](#tostring_and_tojson) beschrieben, geben Stringifizierer auch an, dass eine Objektinstanz, wenn sie als String verwendet wird, einen anderen String als den Standard zurückgibt. (Der Standard ist normalerweise eine JSON-Darstellung des Objekts). Wie genau hängt von der Weise ab, wie es in der IDL spezifiziert ist. Unabhängig vom Wie sollte das nicht-standardmäßige Verhalten auf der Schnittstellenseite beschrieben werden.
+Neben dem Hinzufügen der `toString()`-Methode zu einer Schnittstelle, wie in [toString() und toJSON()](#tostring_and_tojson) beschrieben, zeigen Stringifiers auch an, dass eine Objektinstanz, wenn sie als String verwendet wird, einen anderen String als den Standard zurückgibt. (Der Standard ist in der Regel eine JSON-Darstellung des Objekts). Wie genau hängt davon ab, wie es in der IDL spezifiziert ist. Unabhängig vom Wie sollte das nicht-standardmäßige Verhalten auf der Schnittstellen-Seite beschrieben werden.
 
-Wenn das `stringifier`-Schlüsselwort einen Attributnamen begleitet, hat das Referenzieren des Objektnamens das gleiche Ergebnis wie das Referenzieren des Attributnamens. Betrachten Sie das folgende IDL:
+Wenn das Schlüsselwort `stringifier` von einem Attributnamen begleitet wird, hat das Referenzieren des Objektnamens denselben Effekt wie das Referenzieren des Attributnamens. Betrachten Sie das folgende IDL:
 
 ```webidl
 interface InterfaceIdentifier {
@@ -525,14 +529,14 @@ interface InterfaceIdentifier {
 };
 ```
 
-Für eine Klasse, die auf dieser Schnittstelle basiert, sind die folgenden Zeilen des Codes gleichwertig. Das Verhalten sollte sowohl auf der Eigenschaftsseite als auch auf der Schnittstellenseite erläutert werden.
+Für eine Klasse, die auf dieser Schnittstelle basiert, sind die folgenden Codezeilen gleichwertig. Das Verhalten sollte sowohl auf der Eigenschaftsseite als auch auf der Schnittstellenseite vermerkt werden.
 
 ```js
 console.log(interfaceIdentifier);
 console.log(interfaceIdentifier.name);
 ```
 
-Wenn das `stringifier`-Schlüsselwort allein verwendet wird, kann ein Objekt der Schnittstelle wie oben verwendet werden, aber das Verhalten ist im Quellcode definiert.
+Wenn das Schlüsselwort `stringifier` alleine verwendet wird, kann ein Objekt der Schnittstelle wie oben verwendet werden, aber das Verhalten ist im Quellcode definiert.
 
 ```webidl
 interface InterfaceIdentifier {
@@ -540,11 +544,11 @@ interface InterfaceIdentifier {
 };
 ```
 
-Um zu erfahren, was ein Schnittstellenverweis tatsächlich tut, beziehen Sie sich auf die Spezifikation der Schnittstelle oder experimentieren Sie mit der Schnittstelle, um deren Ausgabe zu bestimmen.
+Um zu erfahren, was eine Schnittstellenreferenz tatsächlich tut, beziehen Sie sich auf die Spezifikation der Schnittstelle oder experimentieren Sie mit der Schnittstelle, um deren Ausgabe zu bestimmen.
 
 ## Konstruktoren
 
-Konstruktoren sind in WebIDL ein wenig versteckt: Sie sind als Annotationen der Hauptschnittstelle aufgelistet.
+Konstruktoren sind im WebIDL ein wenig verborgen: Sie sind als Annotationen der Hauptschnittstelle aufgelistet.
 
 ### Unbenannte Konstruktoren
 
@@ -556,9 +560,9 @@ Dies ist der häufigste Fall für Konstruktoren. Der Konstruktor einer bestimmte
     interface MessageChannel {…};
 ```
 
-Ein Konstruktor mit der gleichen Schnittstelle ist unter Verwendung der `Constructor`-Annotation auf der Schnittstelle definiert. Es kann Klammern und eine Liste von Parametern geben oder nicht (wie im obigen Beispiel). Wir dokumentieren alle unbenannten Konstruktoren auf einer Unterseite — zum Beispiel wird das oben erwähnte das Slug _Web/API/MessageChannel/MessageChannel_ und der Titel `MessageChannel()` gegeben.
+Ein Konstruktor mit derselben Schnittstelle wird mit der `Constructor`-Annotation auf der Schnittstelle definiert. Es können Klammern und eine Liste von Parametern vorhanden sein, oder nicht (wie im obigen Beispiel). Wir dokumentieren alle unbenannten Konstruktoren auf einer Unterseite — zum Beispiel wird das obige Beispiel unter dem Slug _Web/API/MessageChannel/MessageChannel_ und dem Titel `MessageChannel()` vermerkt.
 
-Ein weiteres Beispiel für einen unbenannten Konstruktor, mit Parametern:
+Ein weiteres Beispiel eines unbenannten Konstruktors, mit Parametern:
 
 ```webidl
 [Constructor(DOMString type, optional MessageEventInit eventInitDict),
@@ -566,7 +570,7 @@ Ein weiteres Beispiel für einen unbenannten Konstruktor, mit Parametern:
    interface MessageEvent : Event {…};
 ```
 
-Es kann auch mehrere unbenannte Konstruktoren geben, die sich durch ihre Parameterlisten unterscheiden. Alle Syntaxen werden in einer einzigen Unterseite dokumentiert.
+Es kann auch mehrere unbenannte Konstruktoren geben, die sich durch ihre Parameterlisten unterscheiden. Die gesamte Syntax wird auf einer einzigen Unterseite dokumentiert.
 
 ```webidl
 [Constructor(DOMString url, URL base),
@@ -582,13 +586,13 @@ Es kann auch mehrere unbenannte Konstruktoren geben, die sich durch ihre Paramet
     interface HTMLImageElement : HTMLElement {…
 ```
 
-Ein benannter Konstruktor ist ein Konstruktor, der einen anderen Namen als den seiner Schnittstelle hat. Zum Beispiel erstellt `new Image(…)` ein neues `HTMLImageElement`-Objekt. Sie werden in der WebIDL unter Verwendung der `NamedConstructor`-Annotation auf der Schnittstelle definiert, gefolgt vom Namen des Konstruktors nach dem Gleichheitszeichen (`'='`) und den Parametern in den Klammern, im selben Format, das Sie für Methoden sehen werden.
+Ein benannter Konstruktor ist ein Konstruktor, der einen anderen Namen als den seiner Schnittstelle hat. Zum Beispiel erstellt `new Image(…)` ein neues `HTMLImageElement`-Objekt. Sie werden im WebIDL mit der `NamedConstructor`-Annotation auf der Schnittstelle definiert, gefolgt vom Namen des Konstruktors nach dem Gleichheitszeichen (`'='`) und dem Parameter innerhalb der Klammern, im selben Format, das Sie für Methoden sehen.
 
-Es kann mehrere benannte Konstruktoren für eine spezifische Schnittstelle geben, aber dies ist extrem selten; in einem solchen Fall beinhalten wir eine Unterseite pro Name.
+Es kann mehrere benannte Konstruktoren für eine bestimmte Schnittstelle geben, aber das ist extrem selten; in einem solchen Fall fügen wir pro Namen eine Unterseite hinzu.
 
 ### Neue Konstruktorsyntax
 
-Seit September 2019 wurde die WebIDL-Konstruktorsyntax aktualisiert. Die Konstruktorsyntax verwendet keine erweiterte Eigenschaft mehr auf der Schnittstelle:
+Seit September 2019 wurde die Konstruktorsyntax von WebIDL aktualisiert. Die Konstruktorsyntax beinhaltet keine erweiterte Eigenschaft mehr auf der Schnittstelle:
 
 ```webidl
 [Constructor(DOMString str)]
@@ -597,7 +601,7 @@ Seit September 2019 wurde die WebIDL-Konstruktorsyntax aktualisiert. Die Konstru
 };
 ```
 
-Neue Spezifikationen verwenden stattdessen eine methodenartige Syntax namens `constructor` ohne explizit definierten Rückgabetyp, geschrieben wie folgt:
+Neue Spezifikationen verwenden stattdessen eine methodenähnliche Syntax namens `constructor` ohne explizit definierten Rückgabewert-Typ, so geschrieben:
 
 ```webidl
 interface MyInterface {
@@ -605,7 +609,7 @@ interface MyInterface {
 };
 ```
 
-Dies bedeutet, dass erweiterte Attribute jetzt auf den Konstruktor spezifiziert werden können, und es wird nicht mehr davon ausgegangen, dass alle Konstruktoren Ausnahmen werfen. Wenn ein Konstruktor eine Ausnahme wirft, wird `[Throws]` verwendet, um dies anzuzeigen:
+Dies bedeutet, dass erweiterte Eigenschaften nun auf dem Konstruktor angegeben werden können und es nicht angenommen wird, dass alle Konstruktoren Ausnahmen werfen. Wenn ein Konstruktor eine Ausnahme wirft, wird `[Throws]` verwendet, um dies anzuzeigen:
 
 ```webidl
 interface MyInterface {
@@ -613,12 +617,12 @@ interface MyInterface {
 };
 ```
 
-Es ist unwahrscheinlich, dass _alle_ Spezifikationen auf die neue Syntax aktualisiert werden, daher werden Sie wahrscheinlich auf beide in der freien Wildbahn stoßen. Wir werden daher weiterhin beide Arten von Syntax hier behandeln.
+Es ist unwahrscheinlich, dass _alle_ Spezifikationen aktualisiert werden, um die neue Syntax zu verwenden, daher werden Sie wahrscheinlich beide in der freien Wildbahn antreffen. Wir werden daher weiterhin beide Syntaxarten hier behandeln.
 
 ### Verfügbarkeit in Workern
 
-Konstruktoren haben die gleiche Verfügbarkeit wie die Schnittstelle oder partielle Schnittstelle, auf der sie definiert sind. Die Unterseite liefert diese Informationen auf die gleiche Weise wie bei einer Methode.
+Konstruktoren haben dieselbe Verfügbarkeit wie die Schnittstelle oder die partiale Schnittstelle, auf der sie definiert sind. Die Unterseite liefert diese Information genauso wie bei einer Methode.
 
-### Präferenzen
+### Einstellungen
 
-Konstruktoren werden von der gleichen Präferenz gesteuert wie die Schnittstelle oder partielle Schnittstelle, auf der sie definiert sind. Die Unterseite liefert diese Informationen auf die gleiche Weise wie bei einer Methode.
+Konstruktoren werden von derselben Präferenz wie die Schnittstelle oder die partiale Schnittstelle, auf der sie definiert sind, gesteuert. Die Unterseite liefert diese Information genauso wie bei einer Methode.

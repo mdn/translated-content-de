@@ -2,10 +2,10 @@
 title: Beispiel
 slug: Learn_web_development/Extensions/Forms/How_to_structure_a_web_form/Example
 l10n:
-  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
+  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
 ---
 
-Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [Anleitung zum Strukturieren eines HTML-Formulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form).
+Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [Anleitung zur Strukturierung eines HTML-Formulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form).
 
 ## Ein Zahlungsformular
 
@@ -148,7 +148,7 @@ input:focus {
 }
 
 button {
-  margin: 20px 0 0 0;
+  margin-top: 20px;
 }
 
 label {

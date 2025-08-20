@@ -2,29 +2,29 @@
 title: Verwendung von z-index
 slug: Web/CSS/CSS_positioned_layout/Using_z-index
 l10n:
-  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
+  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
 ---
 
-Der erste Artikel dieses Leitfadens, [Stapeln ohne die Eigenschaft `z-index`](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index), erklärt, wie Stapel standardmäßig angeordnet sind. Wenn Sie eine benutzerdefinierte Stapelreihenfolge erstellen möchten, können Sie die Eigenschaft {{cssxref("z-index")}} auf einem [positionierten](/de/docs/Web/CSS/position#types_of_positioning) Element verwenden.
+Der erste Artikel in diesem Leitfaden, [Stapeln ohne die `z-index` Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index), erklärt, wie das Stapeln standardmäßig arrangiert wird. Wenn Sie eine benutzerdefinierte Stapelreihenfolge erstellen möchten, können Sie die {{cssxref("z-index")}} Eigenschaft auf einem [positionierten](/de/docs/Web/CSS/position#types_of_positioning) Element verwenden.
 
-Die Eigenschaft `z-index` kann mit einem ganzzahligen Wert (positiv, null oder negativ) angegeben werden, der die Position des Elements entlang einer imaginären z-Achse darstellt. Wenn Sie mit dem Begriff "z-Achse" nicht vertraut sind, stellen Sie sich die Seite als einen Stapel von Schichten vor, wobei jede Schicht eine Nummer hat. Schichten werden in numerischer Reihenfolge gerendert, wobei größere Zahlen über kleineren Zahlen liegen (_X_ repräsentiert eine beliebige positive Ganzzahl):
+Die `z-index` Eigenschaft kann mit einem ganzzahligen Wert (positiv, null oder negativ) angegeben werden, der die Position des Elements entlang einer imaginären z-Achse repräsentiert. Wenn Ihnen der Begriff 'z-Achse' nicht vertraut ist, stellen Sie sich die Seite als Stapel von Schichten vor, von denen jede eine Nummer hat. Schichten werden in numerischer Reihenfolge gerendert, wobei größere Zahlen über kleineren Zahlen liegen (_X_ stellt eine beliebige positive Ganzzahl dar):
 
 | Schicht          | Beschreibung                             |
 | ---------------- | ---------------------------------------- |
 | Unterste Schicht | Am weitesten vom Betrachter entfernt     |
-| Schicht -X       | Schichten mit negativen `z-index`-Werten |
-| Schicht 0        | Standard-Render-Schicht                  |
-| Schicht X        | Schichten mit positiven `z-index`-Werten |
+| Schicht -X       | Schichten mit negativen `z-index` Werten |
+| Schicht 0        | Standard-Rendering-Schicht               |
+| Schicht X        | Schichten mit positiven `z-index` Werten |
 | Oberste Schicht  | Am nächsten zum Betrachter               |
 
 > [!NOTE]
 >
-> - Wenn keine `z-index`-Eigenschaft angegeben ist, werden Elemente auf der Standard-Render-Schicht (Schicht 0) gerendert.
-> - Wenn mehrere Elemente denselben `z-index`-Wert haben (d.h. sie befinden sich auf derselben Schicht), gelten die Stapelregelungen, die im Abschnitt [Stapeln ohne die Eigenschaft `z-index`](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index) erklärt werden.
+> - Wenn keine `z-index` Eigenschaft angegeben ist, werden Elemente in der Standard-Rendering-Schicht (Schicht 0) gerendert.
+> - Wenn mehrere Elemente denselben `z-index` Wert teilen (d.h. sie befinden sich auf derselben Schicht), gelten die Stapelregeln, die im Abschnitt [Stapeln ohne die `z-index` Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index) erklärt werden.
 
 ## Beispiel
 
-In diesem Beispiel wird die Stapelreihenfolge der Schichten mithilfe von `z-index` neu angeordnet. Der `z-index` von DIV #5 hat keine Auswirkung, da es sich nicht um ein positioniertes Element handelt.
+In diesem Beispiel wird die Stapelreihenfolge der Schichten mithilfe von `z-index` neu angeordnet. Der `z-index` von DIV #5 hat keine Auswirkungen, da es kein positioniertes Element ist.
 
 ### HTML
 
@@ -86,7 +86,7 @@ strong {
   top: 30px;
   border: 1px dashed #669966;
   background-color: #ccffcc;
-  margin: 0px 50px 0px 50px;
+  margin: 0px 50px;
 }
 
 #rel2 {
@@ -97,7 +97,7 @@ strong {
   left: 20px;
   border: 1px dashed #669966;
   background-color: #ccffcc;
-  margin: 0px 50px 0px 50px;
+  margin: 0px 50px;
 }
 
 #abs2 {
@@ -116,7 +116,7 @@ strong {
   height: 70px;
   border: 1px dashed #999966;
   background-color: #ffffcc;
-  margin: 0px 50px 0px 50px;
+  margin: 0px 50px;
 }
 ```
 
@@ -126,8 +126,8 @@ strong {
 
 ## Siehe auch
 
-- [Z-index verstehen](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
-- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- [Stapelnde schwebende Elemente](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
+- [Understanding z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
+- [Stacking context](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
+- [Stapeln von schwebenden Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
 - [Stapeln ohne `z-index`](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
-- Modul [CSS-positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout)
+- Modul [CSS positioned layout](/de/docs/Web/CSS/CSS_positioned_layout)

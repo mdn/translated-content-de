@@ -2,52 +2,52 @@
 title: XMLHttpRequestUpload
 slug: Web/API/XMLHttpRequestUpload
 l10n:
-  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
+  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das **`XMLHttpRequestUpload`** Interface repräsentiert den Upload-Vorgang für ein spezifisches [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest). Es ist ein _opakes_ Objekt, das den zugrunde liegenden, browserabhängigen Upload-Prozess darstellt. Es ist ein [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und kann durch Aufrufen von [`XMLHttpRequest.upload`](/de/docs/Web/API/XMLHttpRequest/upload) erhalten werden.
+Die **`XMLHttpRequestUpload`** Schnittstelle repräsentiert den Upload-Prozess für ein spezifisches [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest). Es ist ein _undurchsichtiges_ Objekt, das den zugrunde liegenden, browserabhängigen Upload-Prozess darstellt. Es ist ein [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und kann durch Aufruf von [`XMLHttpRequest.upload`](/de/docs/Web/API/XMLHttpRequest/upload) abgerufen werden.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Dieses Interface hat keine spezifische Eigenschaft, erbt jedoch die Eigenschaften von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Diese Schnittstelle hat keine spezifischen Eigenschaften, erbt aber die Eigenschaften von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Dieses Interface hat keine spezifische Methode, erbt jedoch die Methoden von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Diese Schnittstelle hat keine spezifischen Methoden, erbt aber die Methoden von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-## Ereignisse
+## Events
 
 - [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event)
-  - : Tritt auf, wenn eine Anforderung abgebrochen wurde, zum Beispiel weil das Programm [`XMLHttpRequest.abort()`](/de/docs/Web/API/XMLHttpRequest/abort) aufgerufen hat.
-    Auch verfügbar über die `onabort` Ereignis-Handler-Eigenschaft.
+  - : Wird ausgelöst, wenn eine Anfrage abgebrochen wurde, zum Beispiel weil das Programm [`XMLHttpRequest.abort()`](/de/docs/Web/API/XMLHttpRequest/abort) aufgerufen hat.
+    Auch über die `onabort` Event-Handler-Eigenschaft verfügbar.
 - [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event)
-  - : Tritt auf, wenn die Anforderung auf einen Fehler gestoßen ist.
-    Auch verfügbar über die `onerror` Ereignis-Handler-Eigenschaft.
+  - : Wird ausgelöst, wenn die Anfrage auf einen Fehler gestoßen ist.
+    Auch über die `onerror` Event-Handler-Eigenschaft verfügbar.
 - [`load`](/de/docs/Web/API/XMLHttpRequestUpload/load_event)
-  - : Tritt auf, wenn eine Anforderungstransaktion erfolgreich abgeschlossen wurde.
-    Auch verfügbar über die `onload` Ereignis-Handler-Eigenschaft.
+  - : Wird ausgelöst, wenn eine Anfragesitzung erfolgreich abgeschlossen wird.
+    Auch über die `onload` Event-Handler-Eigenschaft verfügbar.
 - [`loadend`](/de/docs/Web/API/XMLHttpRequestUpload/loadend_event)
-  - : Tritt auf, wenn eine Anforderung abgeschlossen wurde, egal ob erfolgreich (nach [`load`](/de/docs/Web/API/XMLHttpRequest/load_event)) oder erfolglos (nach [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event) oder [`error`](/de/docs/Web/API/XMLHttpRequest/error_event)).
-    Auch verfügbar über die `onloadend` Ereignis-Handler-Eigenschaft.
+  - : Wird ausgelöst, wenn eine Anfrage abgeschlossen ist, egal ob erfolgreich (nach [`load`](/de/docs/Web/API/XMLHttpRequest/load_event)) oder erfolglos (nach [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event) oder [`error`](/de/docs/Web/API/XMLHttpRequest/error_event)).
+    Auch über die `onloadend` Event-Handler-Eigenschaft verfügbar.
 - [`loadstart`](/de/docs/Web/API/XMLHttpRequestUpload/loadstart_event)
-  - : Tritt auf, wenn eine Anforderung begonnen hat, Daten zu laden.
-    Auch verfügbar über die `onloadstart` Ereignis-Handler-Eigenschaft.
+  - : Wird ausgelöst, wenn eine Anfrage begonnen hat, Daten zu laden.
+    Auch über die `onloadstart` Event-Handler-Eigenschaft verfügbar.
 - [`progress`](/de/docs/Web/API/XMLHttpRequestUpload/progress_event)
-  - : Tritt periodisch auf, wenn eine Anforderung mehr Daten empfängt.
-    Auch verfügbar über die `onprogress` Ereignis-Handler-Eigenschaft.
+  - : Wird periodisch ausgelöst, wenn eine Anfrage mehr Daten empfängt.
+    Auch über die `onprogress` Event-Handler-Eigenschaft verfügbar.
 - [`timeout`](/de/docs/Web/API/XMLHttpRequestUpload/timeout_event)
-  - : Tritt auf, wenn der Fortschritt aufgrund abgelaufener voreingestellter Zeit beendet wird.
-    Auch verfügbar über die `ontimeout` Ereignis-Handler-Eigenschaft.
+  - : Wird ausgelöst, wenn der Fortschritt aufgrund einer abgelaufenen voreingestellten Zeit beendet wird.
+    Auch über die `ontimeout` Event-Handler-Eigenschaft verfügbar.
 
 ## Beispiele
 
 ### Hochladen einer Datei mit einem Timeout
 
-Dies ermöglicht Ihnen, eine Datei auf einen Server hochzuladen; es zeigt eine Fortschrittsanzeige, während der Upload durchgeführt wird, sowie eine Nachricht mit dem Fortschritt und den Ergebnissen, Erfolg oder Misserfolg. Ein Abbruch-Button ermöglicht es, einen Upload zu stoppen.
+Dies ermöglicht Ihnen, eine Datei auf einen Server hochzuladen; es zeigt eine Fortschrittsanzeige an, während der Upload stattfindet, sowie eine Nachricht mit dem Fortschritt und den Ergebnissen, Erfolg oder Misserfolg. Eine Abbrechen-Schaltfläche ermöglicht es, einen Upload zu stoppen.
 
 #### HTML
 
@@ -99,7 +99,7 @@ main {
 
 label[for="file"] {
   background-color: lightgrey;
-  padding: 10px 10px;
+  padding: 10px;
 }
 
 progress {

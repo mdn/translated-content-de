@@ -2,10 +2,10 @@
 title: Anleitung zur Meldung von ARIA-bezogenen Fehlern
 slug: Web/Accessibility/ARIA/How_to/File_ARIA-related_bugs
 l10n:
-  sourceCommit: 515d03ad8572b96e88916888156444626dcba193
+  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
 ---
 
-Der Stand der ARIA-Technologie hing schon immer von der Gemeinschaft ab. Wenn Sie ein Implementierungsproblem bemerken, nehmen Sie sich bitte etwas Zeit und lassen Sie die Entwickler wissen. Hier können Sie Fehler melden:
+Der Zustand der ARIA-Technologie hängt schon immer von der Gemeinschaft ab. Wenn Sie ein Implementierungsproblem bemerken, nehmen Sie sich bitte etwas Zeit und lassen Sie die Entwickler es wissen. Hier erfahren Sie, wo Sie Fehler melden können:
 
 ### Screenreader
 
@@ -20,7 +20,7 @@ Der Stand der ARIA-Technologie hing schon immer von der Gemeinschaft ab. Wenn Si
  <tbody>
   <tr>
    <td><a href="https://www.freedomscientific.com/products/software/jaws/">Freedom Scientific JAWS</a></td>
-   <td><a href="https://support.freedomscientific.com/Forms/TechSupport">JAWS technische Support-Formular</a></td>
+   <td><a href="https://support.freedomscientific.com/Forms/TechSupport">JAWS-Technischer Support-Formular</a></td>
    <td></td>
   </tr>
   <tr>
@@ -28,8 +28,8 @@ Der Stand der ARIA-Technologie hing schon immer von der Gemeinschaft ab. Wenn Si
    <td><a href="https://github.com/nvaccess/nvda">NVDA-Fehler melden</a></td>
    <td>NVDA-Probleme diskutieren</td>
   </tr>
-  </tbody>
-  </table>
+ </tbody>
+</table>
 
 ### Browser
 
@@ -44,7 +44,7 @@ Der Stand der ARIA-Technologie hing schon immer von der Gemeinschaft ab. Wenn Si
  <tbody>
   <tr>
    <td>Apple Safari</td>
-   <td><a href="https://www.webkit.org/reporting-bugs/">WebKit.org-Fehler melden</a></td>
+   <td><a href="https://webkit.org/reporting-bugs/">WebKit.org-Fehler melden</a></td>
    <td></td>
   </tr>
   <tr>
@@ -55,7 +55,7 @@ Der Stand der ARIA-Technologie hing schon immer von der Gemeinschaft ab. Wenn Si
   <tr>
    <td>Mozilla Firefox</td>
    <td><a href="https://bugzilla.mozilla.org/">Firefox-Fehler melden</a></td>
-   <td>Verwenden Sie die Komponente: Disability Access APIs</td>
+   <td>Verwenden Sie Komponente: Disability Access APIs</td>
   </tr>
   <tr>
    <td>Opera</td>

@@ -2,30 +2,30 @@
 title: Stapeln von schwebenden Elementen
 slug: Web/CSS/CSS_positioned_layout/Stacking_floating_elements
 l10n:
-  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
+  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
 ---
 
 Bei schwebenden Elementen ist die Stapelreihenfolge etwas anders. Schwebende Elemente werden zwischen nicht positionierten Elementen und positionierten Elementen platziert:
 
-1. Der Hintergrund und die Rahmen des Wurzelelements.
-2. Nachkommende nicht positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
+1. Der Hintergrund und die Ränder des Wurzelelements.
+2. Nachkommende nicht positionierte Elemente, in der Reihenfolge ihres Erscheinens im HTML.
 3. _Schwebende Elemente_.
-4. Nachkommende positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
+4. Nachkommende positionierte Elemente, in der Reihenfolge ihres Erscheinens im HTML.
 
-Sehen Sie sich [Arten der Positionierung](/de/docs/Web/CSS/position#types_of_positioning) an, um eine Erklärung von positionierten und nicht positionierten Elementen zu erhalten.
+Siehe [Arten der Positionierung](/de/docs/Web/CSS/position#types_of_positioning) für eine Erklärung von positionierten und nicht positionierten Elementen.
 
 > [!NOTE]
-> Wenn ein `opacity`-Wert auf ein nicht positioniertes Element angewendet wird (d.h. DIV #4 im untenstehenden Beispiel), passiert etwas Merkwürdiges: Der Hintergrund und der Rahmen dieses Blocks erscheinen über den schwebenden und den positionierten Blöcken. Dies liegt an einem eigenartigen Teil der Spezifikation: Die Anwendung eines `opacity`-Wertes erstellt einen neuen Stapelkontext (siehe [What No One Told You About Z-Index](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/)).
+> Wenn einem nicht positionierten Element (z.B. DIV #4 im untenstehenden Beispiel) ein `opacity`-Wert zugewiesen wird, passiert etwas Merkwürdiges: Der Hintergrund und der Rand dieses Blocks erscheinen über den schwebenden Blöcken und den positionierten Blöcken. Dies liegt an einem eigenartigen Teil der Spezifikation: Das Anwenden eines `opacity`-Wertes erzeugt einen neuen Stapelkontext (siehe [What No One Told You About Z-Index](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/)).
 
 ## Beispiel
 
-In diesem Beispiel können Sie sehen, dass der Hintergrund und der Rahmen des nicht positionierten Elements (DIV #4) völlig unbeeinflusst von den schwebenden Elementen sind, aber der Inhalt ist betroffen. Dies geschieht gemäß dem Standardverhalten von Floats, was mit einer zur obigen Liste hinzugefügten Regel gezeigt werden kann:
+Sie können in diesem Beispiel sehen, dass der Hintergrund und der Rand des nicht positionierten Elements (DIV #4) völlig unbeeinflusst von schwebenden Elementen ist, der Inhalt jedoch betroffen ist. Dies geschieht gemäß dem standardmäßigen Verhalten von Floats, welches durch eine Regel, die zur obigen Liste hinzugefügt wird, gezeigt werden kann:
 
-1. Der Hintergrund und die Rahmen des Wurzelelements.
-2. Nachkommende nicht positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
+1. Der Hintergrund und die Ränder des Wurzelelements.
+2. Nachkommende nicht positionierte Elemente, in der Reihenfolge ihres Erscheinens im HTML.
 3. Schwebende Elemente.
 4. _Nachkommende nicht positionierte Inline-Elemente_.
-5. Nachkommende positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
+5. Nachkommende positionierte Elemente, in der Reihenfolge ihres Erscheinens im HTML.
 
 ### HTML
 
@@ -71,7 +71,7 @@ strong {
   height: 100px;
   border: 1px dashed #999966;
   background-color: #ffffcc;
-  margin: 0px 10px 0px 10px;
+  margin: 0px 10px;
   text-align: left;
 }
 
@@ -107,7 +107,7 @@ strong {
   position: relative;
   border: 1px dashed #999966;
   background-color: #ccffff;
-  margin: 0px 10px 0px 10px;
+  margin: 0px 10px;
   text-align: left;
 }
 ```
@@ -118,8 +118,8 @@ strong {
 
 ## Siehe auch
 
-- [Verständnis des z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
-- [Stapelung ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
+- [Understanding z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
+- [Stapelung ohne die Eigenschaft `z-index`](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
 - [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index)
 - [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- Modul [CSS-positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout)
+- [Modul CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout)

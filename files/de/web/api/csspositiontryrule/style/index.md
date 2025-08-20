@@ -1,14 +1,14 @@
 ---
-title: "CSSPositionTryRule: style-Eigenschaft"
+title: "CSSPositionTryRule: style Eigenschaft"
 short-title: style
 slug: Web/API/CSSPositionTryRule/style
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`style`**-Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle gibt ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt zurück, das die Deklarationen darstellt, die im Rumpf der `@position-try`-at-Regel festgelegt sind.
+Die schreibgeschützte **`style`**-Eigenschaft des [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Interfaces gibt ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt zurück, das die in der `@position-try`-Atregel im Körper festgelegten Deklarationen darstellt.
 
 ## Wert
 
@@ -16,13 +16,13 @@ Ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Ob
 
 ## Beispiele
 
-Das CSS enthält eine `@position-try`-at-Regel mit dem Namen `--custom-right` und drei Deskriptoren.
+Das CSS enthält eine `@position-try`-Atregel mit dem Namen `--custom-right` und drei Deskriptoren.
 
 ```css
 @position-try --custom-bottom {
   top: anchor(bottom);
   min-width: 100px;
-  margin: 10px 0 0 0;
+  margin-top: 10px;
 }
 ```
 
@@ -47,6 +47,6 @@ console.log(tryOption.style.positionArea); // ""; no position-area specified
 - [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)
 - {{cssxref("@position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning)-Modul
-- [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
-- [Umgang mit Überlauf: Versuch-Optionen und bedingtes Verstecken](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [CSS Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
+- [Verwendung der CSS Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
+- [Umgang mit Overflow: Try-Optionen und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
