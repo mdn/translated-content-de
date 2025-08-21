@@ -1,12 +1,12 @@
 ---
 title: "Testen Sie Ihre Fähigkeiten: Strukturierung von Inhalten mit HTML"
-short-title: Testen Sie Ihre Fähigkeiten
+short-title: "Test: HTML-Tests-Index"
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills
 l10n:
-  sourceCommit: 93f54b6e1fdfef1375233abb265f101bd6866f99
+  sourceCommit: 27f34d8b137f9bb2b467f9f9a1c4e1d04e12ed89
 ---
 
-Diese Seite enthält HTML-Tests, die Sie ausprobieren können, um zu überprüfen, ob Sie den Inhalt dieses Moduls verstanden haben.
+Diese Seite listet HTML-Tests auf, die Sie ausprobieren können, um zu überprüfen, ob Sie den Inhalt in diesem Modul verstanden haben.
 
 ## Testen Sie Ihre HTML-Fähigkeiten nach Thema
 

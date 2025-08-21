@@ -1,17 +1,17 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Grundlagen der CSS-Stilgebung"
-short-title: Testen Sie Ihre Fähigkeiten
+title: "Testen Sie Ihre Fähigkeiten: Grundlagen der CSS-Gestaltung"
+short-title: "Test: Index der Tests zu den Grundlagen der Gestaltung"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills
 l10n:
-  sourceCommit: c44c4d14527eddf441079e3623abccd711adfc23
+  sourceCommit: 78bdd004c24d256efc8372f18204ea58f83a1b5e
 ---
 
-Diese Seite listet Tests zu den Grundlagen der CSS-Stilgebung auf, die Sie ausprobieren können, um zu überprüfen, ob Sie den Inhalt dieses Moduls verstanden haben.
+Diese Seite listet Tests zu den Grundlagen der CSS-Gestaltung auf, die Sie ausprobieren können, um zu überprüfen, ob Sie den Inhalt dieses Moduls verstanden haben.
 
-## Testen Sie Ihre Fähigkeiten in den Grundlagen der CSS-Stilgebung nach Themen
+## Testen Sie Ihre Fähigkeiten in den CSS-Gestaltungsgrundlagen nach Themen
 
 {{SubpagesWithSummaries}}
 
 ## Siehe auch
 
-- [Grundlagen der CSS-Stilgebung](/de/docs/Learn_web_development/Core/Styling_basics)
+- [Grundlagen der CSS-Gestaltung](/de/docs/Learn_web_development/Core/Styling_basics)

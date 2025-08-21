@@ -1,31 +1,33 @@
 ---
 title: "Testen Sie Ihre Fähigkeiten: Das Box-Modell"
-short-title: Box model
+short-title: "Test: Box-Modell"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Box_model
 l10n:
-  sourceCommit: 2f16610802bfbdf6394ca919557a4369b1236e10
+  sourceCommit: 78bdd004c24d256efc8372f18204ea58f83a1b5e
 ---
 
-Ziel dieses Fähigkeitentests ist es, Ihnen zu helfen, zu beurteilen, ob Sie das [CSS-Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) verstehen.
+{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Box_model", "Learn_web_development/Core/Styling_basics/Handling_conflicts", "Learn_web_development/Core/Styling_basics")}}
+
+Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie das [CSS Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) verstehen.
 
 > [!NOTE]
-> Um Unterstützung zu erhalten, lesen Sie unseren [Anleitung zur Nutzung der Fähigkeitentests](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unsere [Anleitung zur Nutzung der Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Interaktive Herausforderung
 
-Zunächst bieten wir Ihnen eine unterhaltsame, interaktive Herausforderung, die sich mit der Margin-Shorthand befasst und von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home) erstellt wurde.
+Zunächst stellen wir Ihnen eine unterhaltsame, interaktive Herausforderung vor, die sich mit der Margin-Kurzschrift befasst, erstellt von unserem [Lernpartner](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds), [Scrimba](https://scrimba.com/home).
 
-Sehen Sie sich die eingebettete Scrim an und führen Sie die Aufgaben auf der Timeline (die kleinen Geister-Symbole) aus, indem Sie die Anweisungen befolgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie das Ansehen der Scrim fortsetzen, um zu überprüfen, wie die Lösung des Lehrers mit Ihrer übereinstimmt.
+Sehen Sie sich das eingebettete Scrim an und erledigen Sie die Aufgaben auf der Zeitleiste (die kleinen Geistersymbole), indem Sie die Anweisungen befolgen und den Code bearbeiten. Wenn Sie fertig sind, können Sie das Scrim fortsetzen, um zu überprüfen, wie die Lösung des Lehrers zu Ihrer passt.
 
 <scrim-inline url="https://scrimba.com/learn-html-and-css-c0p/~01s" scrimtitle="Margin shorthand" survey="true"></scrim-inline>
 
 ## Aufgabe 1
 
-In dieser Aufgabe befinden sich unten zwei Boxen, eine verwendet das Standard-Box-Modell, die andere das alternative Box-Modell. Wir möchten, dass Sie die Breite der zweiten Box ändern, indem Sie Deklarationen zur Klasse `.alternate` hinzufügen, sodass sie der visuellen Breite der ersten Box entspricht.
+In dieser Aufgabe gibt es unten zwei Boxen, eine verwendet das Standard-Box-Modell, die andere das alternative Box-Modell. Wir möchten, dass Sie die Breite der zweiten Box ändern, indem Sie Deklarationen zur `.alternate`-Klasse hinzufügen, sodass sie der visuellen Breite der ersten Box entspricht.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
-![Zwei Boxen gleicher Größe](mdn-box-model1.png)
+![Zwei Boxen der gleichen Größe](mdn-box-model1.png)
 
 ```html live-sample___box-models
 <div class="box">I use the standard box model.</div>
@@ -55,7 +57,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie müssen die Breite des zweiten Blocks erhöhen, um die Größe des Polsters und der Grenze hinzuzufügen:
+Sie müssen die Breite des zweiten Blocks erhöhen, um die Größe des Paddings und des Rahmens hinzuzufügen:
 
 ```css
 .alternate {
@@ -68,18 +70,18 @@ Sie müssen die Breite des zweiten Blocks erhöhen, um die Größe des Polsters 
 
 ## Aufgabe 2
 
-Um diese Aufgabe zu vervollständigen, fügen Sie der bereitgestellten Box die folgenden Merkmale hinzu:
+Um diese Aufgabe abzuschließen, fügen Sie der bereitgestellten Box die folgenden Merkmale hinzu:
 
-- Eine `5px`, schwarze, gepunktete Grenze.
+- Einen `5px` breiten, schwarzen, gepunkteten Rahmen.
 - Einen oberen Rand von `20px`.
 - Einen rechten Rand von `1em`.
 - Einen unteren Rand von `40px`.
 - Einen linken Rand von `2em`.
-- Polster an allen Seiten von `1em`.
+- Ein Padding auf allen Seiten von `1em`.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
-![Eine Box mit gepunkteter Grenze](mdn-box-model2.png)
+![Eine Box mit einem gepunkteten Rahmen](mdn-box-model2.png)
 
 ```html live-sample___mbp
 <div class="box">I use the standard box model.</div>
@@ -99,8 +101,8 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Diese Aufgabe beinhaltet die korrekte Verwendung der Eigenschaften Margin, Border und Padding.
-Möglicherweise entscheiden Sie sich, die Langform-Eigenschaften ({{cssxref("margin-top")}}, {{cssxref("margin-right")}}, usw.) zu verwenden, jedoch ist die Shorthand wahrscheinlich die bessere Wahl, wenn Sie Margin und Padding auf allen Seiten einstellen:
+Diese Aufgabe erfordert die korrekte Verwendung der Eigenschaften `margin`, `border` und `padding`.
+Sie können sich entscheiden, die Langformen zu verwenden ({{cssxref("margin-top")}}, {{cssxref("margin-right")}} usw.), jedoch ist bei Festlegung eines Rands und eines Paddings auf allen Seiten wahrscheinlich die Kurzschrift die bessere Wahl:
 
 ```css
 .box {
@@ -114,11 +116,11 @@ Möglicherweise entscheiden Sie sich, die Langform-Eigenschaften ({{cssxref("mar
 
 ## Aufgabe 3
 
-In dieser Aufgabe hat das Inline-Element einen Rand, Polster und eine Grenze. Allerdings überlappen die Zeilen darüber und darunter es.
+In dieser Aufgabe hat das Inline-Element einen Rand, ein Padding und einen Rahmen. Die darüber und darunter liegenden Zeilen überlappen es jedoch.
 
-Um diese Aufgabe abzuschließen, aktualisieren Sie das CSS, sodass die Größe des Rands, Polsters und der Grenze von den anderen Zeilen respektiert wird, während das Element weiterhin inline bleibt.
+Um diese Aufgabe abzuschließen, aktualisieren Sie das CSS, damit die Größe von Rand, Padding und Rahmen von den anderen Zeilen respektiert wird, während das Element weiterhin inline bleibt.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
 ![Eine Inline-Box mit Abstand zwischen ihr und dem umgebenden Text.](mdn-box-model3.png)
 
@@ -155,7 +157,8 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Um diese Aufgabe zu lösen, müssen Sie verstehen, wann unterschiedliche {{cssxref("display")}}-Werte verwendet werden. Nachdem Sie `display: inline-block` hinzugefügt haben, bewirken Rand, Grenze und Padding, dass die anderen Zeilen vom Element weggeschoben werden:
+Um diese Aufgabe zu lösen, müssen Sie verstehen, wann Sie verschiedene {{cssxref("display")}}-Werte verwenden.
+Nachdem Sie `display: inline-block` hinzugefügt haben, verursachen der Rand, der Rahmen und das Padding in Blockrichtung, dass die anderen Zeilen vom Element weg verschoben werden:
 
 ```css
 .box span {
@@ -167,3 +170,5 @@ Um diese Aufgabe zu lösen, müssen Sie verstehen, wann unterschiedliche {{cssxr
 ```
 
 </details>
+
+{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Box_model", "Learn_web_development/Core/Styling_basics/Handling_conflicts", "Learn_web_development/Core/Styling_basics")}}

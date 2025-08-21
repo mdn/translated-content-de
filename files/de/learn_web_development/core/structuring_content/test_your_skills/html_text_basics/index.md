@@ -1,19 +1,21 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: HTML-Textgrundlagen"
-short-title: HTML text basics
+title: "Testen Sie Ihr Können: HTML-Text-Grundlagen"
+short-title: "Test: HTML-Text-Grundlagen"
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics
 l10n:
-  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
+  sourceCommit: 27f34d8b137f9bb2b467f9f9a1c4e1d04e12ed89
 ---
 
-Der Zweck dieses Fähigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie verstehen, wie Sie Text in HTML so kennzeichnen, dass er Struktur und Bedeutung erhält.
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Lists", "Learn_web_development/Core/Structuring_content/Structuring_documents", "Learn_web_development/Core/Structuring_content")}}
+
+Ziel dieses Fertigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie verstehen, wie Text in HTML ausgezeichnet wird, um ihm Struktur und Bedeutung zu verleihen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitungsleitfaden zu den Fähigkeiten-Tests](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zum Testen Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie das bereitgestellte HTML mittels semantischer Überschriften- und Absatzelemente kennzeichnen.
+In dieser Aufgabe möchten wir, dass Sie den bereitgestellten HTML-Code mit semantischen Überschriften- und Absatzelementen auszeichnen.
 
 Das fertige Beispiel sollte so aussehen:
 
@@ -33,7 +35,7 @@ The Anaconda
 The crafty anaconda likes to slither around the page, traveling rapidly by way of anchors to sneak up on his prey.
 ```
 
-<!-- Gemeinsamer/Setup CSS-Code -->
+<!-- Gemeinsamer/Setup CSS Code -->
 
 ```css hidden live-sample___text-basics-1 live-sample___text-basics-2 live-sample___text-basics-3 live-sample___text-basics-4
 body {
@@ -63,7 +65,7 @@ h2 {
 }
 ```
 
-<!-- Beispielspezifischer Code -->
+<!-- Spezifischer Beispielcode -->
 
 ```css hidden live-sample___text-basics-1
 h1,
@@ -108,7 +110,7 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die erste nicht gekennzeichnete Liste in eine ungeordnete Liste und die zweite in eine geordnete Liste umwandeln.
+In dieser Aufgabe möchten wir, dass Sie die erste nicht ausgezeichnete Liste in eine ungeordnete Liste und die zweite in eine geordnete Liste umwandeln.
 
 Das fertige Beispiel sollte so aussehen:
 
@@ -248,9 +250,9 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 4
 
-In dieser Aufgabe wird Ihnen ein Absatz bereitgestellt, und Ihr Ziel ist es, einige passende Wörter mit starker Bedeutung und einige mit Betonung über Inline-Elemente zu kennzeichnen.
+In dieser Aufgabe erhalten Sie einen Absatz, und Ihr Ziel ist es, einige Inline-Elemente zu verwenden, um ein paar geeignete Wörter mit starker Bedeutung zu kennzeichnen und ein paar mit Betonung.
 
-Das fertige Beispiel sollte ungefähr so aussehen:
+Das fertige Beispiel sollte in etwa so aussehen:
 
 {{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/basic-text/basic-text3-finished.html", '100%', 120)}}
 
@@ -298,3 +300,5 @@ Ihr fertiges HTML sollte so aussehen:
 ```
 
 </details>
+
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Lists", "Learn_web_development/Core/Structuring_content/Structuring_documents", "Learn_web_development/Core/Structuring_content")}}

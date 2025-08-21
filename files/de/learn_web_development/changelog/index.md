@@ -2,19 +2,27 @@
 title: Änderungsprotokoll
 slug: Learn_web_development/Changelog
 l10n:
-  sourceCommit: 48d220a8cffdfd5f088f8ca89724a9a92e34d8c0
+  sourceCommit: 02eafb53ee0b481bc4a60e7da630811201fe228a
 ---
+
+## August 2025
+
+Im Sommer 2025 haben wir bedeutende Änderungen an der Struktur und Platzierung unserer "Testen Sie Ihre Fähigkeiten"-Artikel und anderer Leserübungen abgeschlossen:
+
+- Der Inhalt der "Testen Sie Ihre Fähigkeiten"-Artikel wurde aktualisiert, sodass die Sprache und Herangehensweise in jedem Artikel einheitlich ist. Beispielsweise wurden alle alten interaktiven Editoren durch Live-Beispielübungen ersetzt, die das [MDN Playground](/en-US/play) nutzen. Zudem wurde der meiste sich wiederholende Boilerplate in einem einzigen [Hilfeabschnitt zu "Testen Sie Ihre Fähigkeiten"](/de/docs/Learn_web_development#test_your_skills) zusammengefasst.
+- Die Platzierung der "Testen Sie Ihre Fähigkeiten"-Artikel in der Navigation wurde aktualisiert. Anstatt von "Testen Sie Ihre Fähigkeiten"-Untermenüs verfügbar zu sein und am Ende der zugehörigen Tutorials verlinkt zu werden, erscheinen die Artikel jetzt in der Seitenleiste und in den vorherigen/nächsten Links. Sie sind nun verpflichtende Artikel im Fluss, anstatt optionale Ressourcen.
+- Die Leserübungen in den Tutorials wurden ebenfalls modernisiert, um alte Code-Editoren zu ersetzen und die Sprache einheitlich zu gestalten.
 
 ## Dezember 2024
 
-Ein großes Update des Bereichs "Lernen Webentwicklung" wurde im November 2024 gestartet und schließlich im Dezember 2024 veröffentlicht. Zusammenfassend wurde das MDN-Curriculum in "Lernen Webentwicklung" integriert.
+Ein großes Update des Bereichs "Webentwicklung lernen" wurde im November 2024 begonnen und schließlich im Dezember 2024 veröffentlicht. Zusammengefasst wurde das MDN-Curriculum in den Bereich "Webentwicklung lernen" integriert.
 
 Konkret:
 
-- Der Inhalt ist derselbe, wurde aber umstrukturiert, um der gleichen Lernpfadstruktur wie das Curriculum zu folgen. In einigen Fällen wurde der Inhalt als für ein Anfängerpublikum ungeeignet erachtet und in andere Bereiche von MDN verschoben.
-- Spezifische Lernziele wurden zu Beginn der meisten Artikel hinzugefügt, um mit den im Curriculum beschriebenen Lernzielen übereinzustimmen.
-- Andere Merkmale des Curriculums wurden in den Bereich "Lernen Webentwicklung" übernommen, wie beispielsweise die [Über](/de/docs/Learn_web_development/About) Seite und [Ressourcen für Lehrkräfte](/de/docs/Learn_web_development/Educators).
+- Der Inhalt ist derselbe, wurde jedoch so umstrukturiert, dass er der gleichen Lernpfad-Struktur wie das Curriculum folgt. In einigen Fällen wurde Inhalt, der nicht für ein Anfängerpublikum geeignet war, in andere Teile von MDN migriert.
+- Spezifische Lernziele wurden oben in den meisten Artikeln hinzugefügt, um mit den im Curriculum detaillierten Lernzielen übereinzustimmen.
+- Weitere Funktionen aus dem Curriculum wurden in den Bereich "Webentwicklung lernen" übernommen, wie die [Über](/de/docs/Learn_web_development/About)-Seite und [Ressourcen für Lehrkräfte](/de/docs/Learn_web_development/Educators).
 
-Das Curriculum wird vorerst beibehalten, gilt jedoch als veraltet und wird entfernt, wenn der richtige Zeitpunkt gekommen ist.
+Die [ursprünglichen Curriculum-Seiten](/en-US/curriculum/) werden als Zusammenfassung der Inhalte zum Thema "Webentwicklung lernen" beibehalten, die für Lehrkräfte bei der Planung von Lehrplänen nützlich sind.
 
-Zukünftig werden wir weiterhin den Inhalt und das Design aktualisieren, um "Lernen Webentwicklung" noch nützlicher für Lernende und Lehrkräfte zu machen.
+Zukünftig werden wir die Inhalte und das Design weiterhin aktualisieren, um "Webentwicklung lernen" noch nützlicher für Lernende und Lehrkräfte zu machen.

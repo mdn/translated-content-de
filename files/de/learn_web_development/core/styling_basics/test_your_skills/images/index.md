@@ -1,23 +1,25 @@
 ---
 title: "Testen Sie Ihre Fähigkeiten: Bilder und Formularelemente"
-short-title: Bilder und Formulare
+short-title: "Test: Bilder und Formulare"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Images
 l10n:
-  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
+  sourceCommit: 78bdd004c24d256efc8372f18204ea58f83a1b5e
 ---
 
-Ziel dieses Fähigkeitstests ist es, zu bewerten, ob Sie verstehen, wie spezielle Elemente wie [Bilder, Medien und Formularelemente in CSS behandelt werden](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms).
+{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Images_media_forms", "Learn_web_development/Core/Styling_basics/Tables", "Learn_web_development/Core/Styling_basics")}}
+
+Das Ziel dieses Fähigkeitentests ist zu bewerten, ob Sie verstehen, wie spezielle Elemente wie [Bilder, Medien und Formularelemente in CSS behandelt werden](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms).
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung von Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
+> Um Unterstützung zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung der Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Aufgabe 1
 
-In dieser Aufgabe haben Sie ein Bild, das aus der Box herausragt. Wir möchten, dass das Bild verkleinert wird, um in die Box zu passen, ohne zusätzlichen weißen Raum, aber es macht nichts, wenn Teile des Bildes abgeschnitten werden. Aktualisieren Sie das CSS, um dies zu erreichen.
+In dieser Aufgabe haben Sie ein Bild, das über den Rahmen hinausragt. Wir möchten, dass das Bild verkleinert wird, um in den Rahmen zu passen, ohne zusätzlichen weißen Raum, aber es macht uns nichts aus, wenn ein Teil des Bildes abgeschnitten wird. Aktualisieren Sie das CSS, um dies zu erreichen.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Ein Bild in einer Box](mdn-images-object-fit.png)
+![Ein Bild in einem Rahmen](mdn-images-object-fit.png)
 
 ```html live-sample___object-fit
 <div class="box">
@@ -44,8 +46,8 @@ img {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Es ist in Ordnung, wenn Teile des Bildes abgeschnitten werden.
-Die Verwendung von `object-fit: cover` ist die beste Wahl. Sie müssen auch die Breite und Höhe auf `100%` setzen:
+Es ist in Ordnung, wenn einige Teile des Bildes abgeschnitten werden.
+Die Verwendung von `object-fit: cover` ist die beste Wahl, Sie müssen auch die Breite und Höhe auf `100%` setzen:
 
 ```css
 img {
@@ -63,10 +65,10 @@ In dieser Aufgabe haben Sie ein einfaches Formular.
 
 Um die Aufgabe abzuschließen:
 
-1. Verwenden Sie Attributselektoren, um das Suchfeld und die Schaltfläche innerhalb von `.my-form` zu targetieren.
-2. Stellen Sie sicher, dass das Formularfeld und die Schaltfläche die gleiche Textgröße wie der Rest des Formulars verwenden.
-3. Geben Sie dem Formularfeld und der Schaltfläche `10px` Padding.
-4. Geben Sie der Schaltfläche einen Hintergrund in `rebeccapurple`, weißen Vordergrund, keinen Rahmen und abgerundete Ecken von 5px.
+1. Verwenden Sie Attributselektoren, um das Suchfeld und den Button innerhalb von `.my-form` zu selektieren.
+2. Sorgen Sie dafür, dass das Formularfeld und der Button die gleiche Schriftgröße wie der Rest des Formulars verwenden.
+3. Geben Sie dem Formularfeld und dem Button `10px` Rahmenabstand.
+4. Geben Sie dem Button einen Hintergrund in `rebeccapurple`, weiße Vordergrundfarbe, keinen Rahmen und abgerundete Ecken von 5px.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
@@ -97,7 +99,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Hier ist ein Beispiel für eine Lösung der Aufgabe:
+Hier ist eine Beispiel-Lösung für die Aufgabe:
 
 ```css
 .my-form {
@@ -124,13 +126,13 @@ Hier ist ein Beispiel für eine Lösung der Aufgabe:
 
 ## Aufgabe 3
 
-Unsere zweite Formular-Styling-Bewertung ist relativ offen, und Sie haben viel Freiheit bei der Gestaltung. Ihr CSS muss die unten beschriebenen Anforderungen erfüllen.
+Unsere zweite Bewertung zur Formular-Styling ist ziemlich frei gestaltbar, und Sie haben viel Flexibilität bei dem, was Sie hier am Ende tun. Ihr CSS muss die unten beschriebenen Anforderungen erfüllen.
 
 Um die Aufgabe abzuschließen:
 
-1. Fügen Sie eine Art leichtgewichtigen "Reset" hinzu, um Fonts, Padding, Margen und Größen von Anfang an konsistenter zu machen, wie in [Normalisieren des Formularverhaltens](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms#normalizing_form_behavior) beschrieben.
-2. Fügen Sie darüber hinaus ein schönes, gleichmäßiges Styling für die Eingabefelder und die Schaltfläche hinzu.
-3. Verwenden Sie irgendeine Art von Layouttechnik, um die Eingabefelder und Beschriftungen sauber auszurichten.
+1. Fügen Sie eine Art leichtes "Reset" hinzu, um Schriftarten, Rahmenabstand, Margin und Größenkonsistenz zu Beginn, wie im [Normalisieren des Formularverhaltens](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms#normalizing_form_behavior) beschrieben, zu machen.
+2. Ergänzen Sie dies um einige schöne, konsistente Styles für Inputs und Button.
+3. Verwenden Sie eine Art von Layouttechnik, um Inputs und Labels sauber auszurichten.
 
 ```html hidden live-sample___forms-2
 <form>
@@ -187,7 +189,7 @@ body {
 /* Add your code here */
 ```
 
-{{ EmbedLiveSample("forms-2", "100%", 250) }}
+{{EmbedLiveSample("forms-2", "100%", 250)}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
@@ -256,3 +258,5 @@ button:focus {
 ```
 
 </details>
+
+{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Images_media_forms", "Learn_web_development/Core/Styling_basics/Tables", "Learn_web_development/Core/Styling_basics")}}

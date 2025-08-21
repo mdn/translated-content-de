@@ -1,25 +1,27 @@
 ---
 title: "Testen Sie Ihre Fähigkeiten: Werte und Einheiten"
-short-title: Werte und Einheiten
+short-title: "Test: Werte und Einheiten"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Values
 l10n:
-  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
+  sourceCommit: 78bdd004c24d256efc8372f18204ea58f83a1b5e
 ---
 
-Das Ziel dieses Fähigkeiten-Tests ist es, Ihnen zu helfen, einzuschätzen, ob Sie die verschiedenen Typen von [Werten und Einheiten, die in CSS-Eigenschaften verwendet werden](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units), verstehen.
+{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Values_and_units", "Learn_web_development/Core/Styling_basics/Sizing", "Learn_web_development/Core/Styling_basics")}}
+
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, einzuschätzen, ob Sie die verschiedenen Arten von [Werten und Einheiten, die in CSS-Eigenschaften verwendet werden](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units), verstehen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unsere [Verwendungsleitfaden für Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zum Testen Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) Kontakt zu uns aufnehmen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe wurde dem ersten Listenelement mithilfe eines Hex-Farbcodes eine Hintergrundfarbe zugewiesen. Vervollständigen Sie das CSS, indem Sie dieselbe Farbe in verschiedenen Formaten verwenden, plus ein finales Listenelement, bei dem Sie den Hintergrund halbtransparent machen sollten.
+In dieser Aufgabe wurde dem ersten Listenelement eine Hintergrundfarbe mittels eines Hex-Farbcodes zugewiesen. Vervollständigen Sie das CSS, indem Sie dieselbe Farbe in verschiedenen Formaten verwenden, sowie ein letztes Listenelement, bei dem Sie den Hintergrund halbtransparent machen.
 
 - Das zweite Listenelement sollte die RGB-Farbe verwenden.
-- Das dritte sollte HSL-Farbe verwenden.
-- Das vierte sollte RGB-Farbe verwenden, aber mit dem Alphakanal auf `0.6` gesetzt.
+- Das dritte sollte die HSL-Farbe verwenden.
+- Das vierte sollte die RGB-Farbe verwenden, aber mit dem Alpha-Kanal auf `0.6` gesetzt.
 
-Sie [können die Hex-Farbe auf convertingcolors.com umwandeln](https://convertingcolors.com/hex-color-86DEFA.html). Sie müssen herausfinden, wie Sie die Werte in CSS verwenden. Ihr Endergebnis sollte wie das Bild unten aussehen:
+Sie [können die Hex-Farbe auf convertingcolors.com konvertieren](https://convertingcolors.com/hex-color-86DEFA.html). Sie müssen herausfinden, wie Sie die Werte in CSS verwenden. Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
 ![Vier Listenelemente. Die ersten drei mit derselben Hintergrundfarbe und das letzte mit einem helleren Hintergrund.](mdn-value-color.png)
 
@@ -59,7 +61,7 @@ li {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Indem Sie [ein Farbkonvertierungswerkzeug](https://convertingcolors.com/hex-color-86DEFA.html) verwenden, sollten Sie in der Lage sein, verschiedene [Farbfunktionswerte](/de/docs/Web/CSS/color_value#syntax) zu verwenden, um dieselbe Farbe auf unterschiedliche Weise zu definieren:
+Durch die Verwendung [eines Farbkonvertierungstools](https://convertingcolors.com/hex-color-86DEFA.html) sollten Sie in der Lage sein, verschiedene [Farbfunktionen](/de/docs/Web/CSS/color_value#syntax) zu nutzen, um dieselbe Farbe auf unterschiedliche Weise zu definieren:
 
 ```css
 .hex {
@@ -83,16 +85,16 @@ Indem Sie [ein Farbkonvertierungswerkzeug](https://convertingcolors.com/hex-colo
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die Schriftgröße verschiedener Textelemente festlegen:
+In dieser Aufgabe sollen Sie die Schriftgröße verschiedener Textteile festlegen:
 
-- Das `<h1>` Element sollte `50px` sein.
-- Das `<h2>` Element sollte `2em` sein.
-- Alle `<p>` Elemente sollten `16px` sein.
-- Ein `<p>` Element, das direkt nach einem `<h1>` steht, sollte `120%` sein.
+- Das `<h1>`-Element sollte `50px` groß sein.
+- Das `<h2>`-Element sollte `2em` groß sein.
+- Alle `<p>`-Elemente sollten `16px` groß sein.
+- Ein `<p>`-Element, das sich direkt nach einem `<h1>` befindet, sollte `120%` sein.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
-![Einige Texte in verschiedenen Größen.](mdn-value-length.png)
+![Einige Texte mit unterschiedlichen Größen.](mdn-value-length.png)
 
 ```html live-sample___length
 <h1>Level 1 heading</h1>
@@ -159,11 +161,11 @@ h1 + p {
 
 ## Aufgabe 3
 
-Um die Aufgabe abzuschließen, aktualisieren Sie das CSS, um das Hintergrundbild so zu verschieben, dass es horizontal zentriert ist und `20%` vom oberen Rand der Box entfernt ist.
+Um die Aufgabe zu vervollständigen, aktualisieren Sie das CSS, um das Hintergrundbild so zu verschieben, dass es horizontal zentriert und `20%` vom oberen Rand des Kastens entfernt ist.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
-![Ein Stat, der horizontal in einer Box zentriert und in kurzer Entfernung vom oberen Rand der Box ist.](mdn-value-position.png)
+![Ein horizontales Zentrieren in einem Kasten und kurze Distanz vom oberen Rand des Kastens.](mdn-value-position.png)
 
 ```html live-sample___position
 <div class="box"></div>
@@ -186,7 +188,7 @@ Ihr Endergebnis sollte wie das Bild unten aussehen:
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Verwenden Sie `background-position` mit dem `center` Stichwort und einem Prozentsatz:
+Verwenden Sie `background-position` mit dem `center` Schlüsselwort und einem Prozentsatz:
 
 ```css
 .box {
@@ -197,3 +199,5 @@ Verwenden Sie `background-position` mit dem `center` Stichwort und einem Prozent
 ```
 
 </details>
+
+{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Values_and_units", "Learn_web_development/Core/Styling_basics/Sizing", "Learn_web_development/Core/Styling_basics")}}

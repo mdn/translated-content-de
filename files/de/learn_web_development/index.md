@@ -2,71 +2,71 @@
 title: Lernen Sie Webentwicklung
 slug: Learn_web_development
 l10n:
-  sourceCommit: 99d723c4f77d7f537292a07dd7b5e5c13cb610da
+  sourceCommit: 02eafb53ee0b481bc4a60e7da630811201fe228a
 ---
 
-## Das wesentliche Kompetenzset für neue Frontend-Entwickler
+## Das wesentliche Skillset für neue Frontend-Entwickler
 
-Willkommen bei MDN **Learning Web Development** (auch bekannt als **Learn**). Diese Ressource bietet eine strukturierte Reihe von Tutorials, die die wesentlichen Fähigkeiten und Praktiken lehren, um ein erfolgreicher Frontend-Entwickler zu werden, zusammen mit Herausforderungen und weiterführenden empfohlenen Ressourcen.
+Willkommen bei MDN **Lernen Sie Webentwicklung** (auch bekannt als **Learn**). Diese Ressource bietet eine strukturierte Reihe von Tutorials, die die wesentlichen Fähigkeiten und Praktiken lehren, um ein erfolgreicher Frontend-Entwickler zu werden, zusammen mit Herausforderungen und weiteren empfohlenen Ressourcen.
 
-## Über das Erlernen der Webentwicklung
+## Über Lernen Sie Webentwicklung
 
-- Lehrt die wesentlichen Fähigkeiten und das Wissen, das jeder Frontend-Entwickler im Berufsleben benötigt, um erfolgreich zu sein und für die Branche relevant zu bleiben, wie im [MDN Curriculum](/en-US/curriculum/) definiert.
+- Lehrt die wesentlichen Fähigkeiten und Kenntnisse, die jeder Frontend-Entwickler für beruflichen Erfolg und Relevanz in der Branche benötigt, wie sie im [MDN Curriculum](/en-US/curriculum/) definiert sind.
 
-- Erstellt von der MDN-Community und verfeinert mit Einblicken von Studenten, Lehrkräften und Entwicklern aus der breiteren Web-Community.
+- Erstellt von der MDN-Community und verfeinert mit Erkenntnissen von Schülern, Lehrern und Entwicklern aus der breiteren Web-Community.
 
-- Entwickelt, um Sie von "Anfänger" zu "vertraut" zu führen (nicht von "Anfänger" zu "Experte"), und gibt Ihnen genug Wissen, um fortgeschrittenere Ressourcen (wie [den Rest von MDN](/en-US/)) zu nutzen.
+- Entwickelt, um Sie vom "Anfänger" zum "Komfortablen" zu führen (nicht vom "Anfänger" zum "Experten"), sodass Sie genügend Wissen haben, um fortgeschrittenere Ressourcen zu nutzen (wie [den Rest von MDN](/en-US/)).
 
 > [!NOTE]
-> Letzte Aktualisierung: Dezember 2024 ([siehe Änderungsprotokoll](/de/docs/Learn_web_development/Changelog)).
+> Letzte Aktualisierung: August 2025 ([siehe Changelog](/de/docs/Learn_web_development/Changelog)).
 
-## Sie wissen nicht, wo Sie anfangen sollen?
+## Wissen Sie nicht, wo Sie anfangen sollen?
 
-- Noch nie zuvor programmiert?
-  - : Unsere [Einstiegsmodule](/de/docs/Learn_web_development/Getting_started) bieten Setup-Tutorials und wesentliche Konzepte sowie Hintergrundinformationen für absolute Anfänger. Sie sollten hier beginnen, wenn Sie ein kompletter Anfänger sind (d.h. Sie haben noch keinen Code-Editor installiert oder Code geschrieben).
-- Möchten Sie die Grundlagen meistern?
-  - : Unsere [Kernmodule](/de/docs/Learn_web_development/Core) bieten eine strukturierte Reihe von Tutorials, die die wesentlichen Fähigkeiten und Praktiken lehren, um ein erfolgreicher Frontend-Entwickler zu werden.
+- Noch nie programmiert?
+  - : Unsere [Getting started-Module](/de/docs/Learn_web_development/Getting_started) bieten Setup-Tutorials und grundlegende Konzepte und Hintergrundinformationen für absolute Anfänger. Sie sollten hier beginnen, wenn Sie ein absoluter Anfänger sind (d.h. wenn Sie noch keinen Code-Editor installiert oder Code geschrieben haben).
+- Möchten Sie die Grundlagen beherrschen?
+  - : Unsere [Core-Module](/de/docs/Learn_web_development/Core) bieten eine strukturierte Reihe von Tutorials, die die wesentlichen Fähigkeiten und Praktiken für einen erfolgreichen Frontend-Entwickler lehren.
 - Über die Grundlagen hinaus?
-  - : Unsere [Erweiterungsmodule](/de/docs/Learn_web_development/Extensions) decken nützliche zusätzliche Fähigkeiten ab, die gelernt werden sollten, wenn Sie beginnen, Ihr Wissen zu erweitern und Spezialisierungen zu entwickeln. Gehen Sie zu diesen über, nachdem Sie unsere Kernmodule abgeschlossen haben.
-- Arbeiten Sie an einer Schule?
-  - : Verwenden Sie unsere Module, um Ihren Unterricht zu leiten, besuchen Sie unsere [Seite für Lehrkräfte](/de/docs/Learn_web_development/Educators) für weitere Ideen, oder melden Sie Ihre Studenten beim Scrimba [Frontend Developer Career Path](https://scrimba.com/the-frontend-developer-career-path-c0j?via=mdn)<sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> an.
+  - : Unsere [Erweiterungsmodule](/de/docs/Learn_web_development/Extensions) decken nützliche zusätzliche Fähigkeiten ab, die Sie lernen sollten, wenn Sie beginnen, Ihr Wissen zu erweitern und sich zu spezialisieren. Bearbeiten Sie diese nach Abschluss unserer Kernmodule.
+- Arbeiten Sie in einer Schule?
+  - : Nutzen Sie unsere Module, um Ihre Lehre zu leiten, schauen Sie sich unsere [Seite für Pädagogen](/de/docs/Learn_web_development/Educators) für weitere Ideen an oder melden Sie Ihre Schüler bei Scrimbas [Frontend Developer Career Path](https://scrimba.com/the-frontend-developer-career-path-c0j?via=mdn)<sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> an.
 
 ## Testen Sie Ihre Fähigkeiten
 
-Während des Kurses finden Sie mehrere Artikel, die Ihnen helfen sollen einzuschätzen, ob Sie verstanden haben, was wir Ihnen im Kurs lehren. Es gibt zwei Arten:
+Im gesamten Kurs finden Sie mehrere Artikel, die Ihnen helfen sollen, zu überprüfen, ob Sie verstanden haben, was wir Ihnen im Kurs beibringen. Es gibt zwei Arten:
 
-- "Testen Sie Ihre Fähigkeiten"-Artikel treten häufiger auf und prüfen Ihr Wissen über ein einzelnes isoliertes Merkmal wie HTML-Links, das CSS-Boxmodell oder JavaScript-Funktionen.
-- "Herausforderungen" treten seltener auf und prüfen Ihre Fähigkeit, mehrere Features zusammen zu nutzen, um eine vollständige Website oder ein Programm zu erstellen.
+- "Testen Sie Ihre Fähigkeiten"-Artikel treten häufiger auf und testen Ihr Wissen zu einem einzelnen isolierten Feature wie HTML-Links, dem CSS-Box-Modell oder JavaScript-Funktionen.
+- "Herausforderungen" treten seltener auf und testen Ihre Fähigkeit, mehrere Features zusammen zu nutzen, um eine vollständige Website oder ein Programm zu erstellen.
 
-Die meisten Fragen enthalten HTML/CSS/JavaScript-Codeblöcke, die den Ausgangscode für jede Aufgabe zeigen. Die empfohlene Vorgehensweise, um jede zu lösen, besteht darin, auf die **"Play"**-Schaltfläche in einem der Codeblöcke zu klicken, um das Beispiel im [MDN Playground](/en-US/play) zu öffnen und dann den Code gemäß den Anweisungen der Frage zu bearbeiten.
+Die meisten Fragen enthalten HTML/CSS/JavaScript-Codeblöcke, die den Ausgangscode für jede Aufgabe zeigen. Der empfohlene Weg, jede Aufgabe zu erledigen, besteht darin, den **"Play"**-Button in einem der Codeblöcke zu drücken, um das Beispiel im [MDN Playground](/en-US/play) zu öffnen und den Code entsprechend den Anweisungen der Frage zu bearbeiten.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der Schaltfläche Zurücksetzen im MDN Playground löschen. Wenn Sie wirklich stecken bleiben, können Sie (normalerweise) die Lösung am Ende jedes Fragebereichs ansehen oder [um Hilfe bitten](#kontaktieren_sie_uns).
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem Reset-Button im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie (meistens) die Lösung am Ende jedes Fragensegments ansehen oder [um Hilfe bitten](#kontaktieren_sie_uns).
 
 > [!NOTE]
-> Wenn Sie lieber in Ihrem eigenen Editor oder in einem Online-Editor (wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/)) arbeiten möchten, können Sie den Code aus dem MDN Playground in Ihre gewählte Umgebung kopieren.
+> Wenn Sie es vorziehen, in Ihrem eigenen Editor oder in einem Online-Editor (wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/)) zu arbeiten, können Sie den Code aus dem MDN Playground in Ihre gewählte Umgebung kopieren.
 
-Einige Fragen enthalten keine Codeblöcke zum Starten und bitten Sie stattdessen, Starterdateien herunterzuladen, um auf Ihrer lokalen Maschine daran zu arbeiten. Manchmal liegt dies an der komplexen Natur der Frage, manchmal wollten wir einfach nur ein bisschen Abwechslung hineinbringen.
+Einige Fragen enthalten keine Codeblöcke, von denen aus Sie starten können, und bitten Sie stattdessen, Starter-Dateien herunterzuladen, um auf Ihrem lokalen Computer zu arbeiten. Manchmal liegt das an der komplexen Natur der Frage, und manchmal wollten wir einfach nur etwas Abwechslung hineinbringen.
 
-## Erhalten Sie unsere Codebeispiele
+## Unsere Codebeispiele erhalten
 
-Die Codebeispiele, die Sie im Lernbereich begegnen, sind alle [auf GitHub verfügbar](https://github.com/mdn/learning-area/):
+Die Codebeispiele, die Sie im Lernbereich finden, sind [auf GitHub verfügbar](https://github.com/mdn/learning-area/):
 
-- Der einfachste Weg, sie zu bekommen, ist, ein [ZIP der neuesten Hauptcode-Zweigstelle herunterzuladen](https://codeload.github.com/mdn/learning-area/zip/main).
+- Der einfachste Weg, sie zu bekommen, ist, [ein ZIP der neuesten Haupt-Codebranch herunterzuladen](https://codeload.github.com/mdn/learning-area/zip/main).
 - Wenn Sie mit Git und GitHub vertraut sind, können Sie auch das Repository klonen.
 
 ## Kontaktieren Sie uns
 
-Wenn Sie mit uns über irgendetwas in Kontakt treten möchten, verwenden Sie die [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels). Wir würden gerne von Ihnen hören über alles, was Sie für falsch oder fehlend auf der Seite halten, Anfragen für neue Lernthemen, Anfragen um Hilfe bei Dingen, die Sie nicht verstehen, oder jede andere Frage oder Sorge.
+Wenn Sie aus irgendeinem Grund mit uns in Kontakt treten möchten, nutzen Sie die [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels). Wir würden gerne von Ihnen hören, ob Sie etwas auf der Seite als falsch oder fehlend empfinden, Anfragen für neue Lerninhalte haben, Hilfe bei nicht verstandenen Themen benötigen oder andere Fragen oder Bedenken haben.
 
-Wenn Sie daran interessiert sind, Inhalte zu entwickeln/verbessern, sehen Sie sich an, [wie Sie helfen können](/de/docs/MDN/Community) und nehmen Sie Kontakt mit uns auf! Wir sprechen gerne mit Ihnen, egal ob Sie Lernender, Lehrer, erfahrener Webentwickler oder jemand anderes sind, der daran interessiert ist, das Lernerlebnis zu verbessern.
+Wenn Sie daran interessiert sind, Inhalte zu entwickeln oder zu verbessern, schauen Sie sich an, [wie Sie helfen können](/de/docs/MDN/Community) und nehmen Sie Kontakt auf! Wir sprechen sehr gerne mit Ihnen, egal ob Sie ein Lernender, Lehrer, erfahrener Webentwickler oder jemand anderes sind, der daran interessiert ist, das Lernerlebnis zu verbessern.
 
 ## Siehe auch
 
-- [Der Frontend Developer Career Path](https://scrimba.com/the-frontend-developer-career-path-c0j?via=mdn) <sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup>
-  - : [Scrimbas](https://scrimba.com?via=mdn) _Frontend Developer Career Path_ lehrt alles, was Sie wissen müssen, um ein kompetenter Frontend-Webentwickler zu werden, mit unterhaltsamen interaktiven Lektionen und Herausforderungen, wissensreichen Lehrern und einer unterstützenden Community. Gehen Sie von Null auf zum ersten Frontend-Job! Viele der Kurskomponenten sind als eigenständige kostenlose Versionen verfügbar.
+- [The Frontend Developer Career Path](https://scrimba.com/the-frontend-developer-career-path-c0j?via=mdn) <sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup>
+  - : [Scrimbas](https://scrimba.com?via=mdn) _Frontend Developer Career Path_ lehrt alles, was Sie wissen müssen, um ein kompetenter Frontend-Webentwickler zu sein, mit unterhaltsamen interaktiven Lektionen und Herausforderungen, wissensreichen Lehrern und einer unterstützenden Gemeinschaft. Gehen Sie von Null zum ersten Frontend-Job! Viele der Kurselemente sind als eigenständige kostenlose Versionen verfügbar.
 - [Codecademy](https://www.codecademy.com/)
-  - : Eine großartige interaktive Seite zum Lernen von Programmiersprachen von Grund auf.
+  - : Eine großartige interaktive Seite, um Programmiersprachen von Grund auf zu lernen.
 - [freeCodeCamp.org](https://www.freecodecamp.org/)
-  - : Interaktive Seite mit Tutorials und Projekten, um Webentwicklung zu lernen.
+  - : Interaktive Seite mit Tutorials und Projekten zum Erlernen der Webentwicklung.
 - [Learn JavaScript](https://learnjavascript.online/)
-  - : Eine ausgezeichnete Ressource für angehende Webentwickler - Lernen Sie JavaScript in einer interaktiven Umgebung, mit kurzen Lektionen und interaktiven Tests, geleitet von automatisierter Bewertung. Die ersten 40 Lektionen sind kostenlos, und der vollständige Kurs ist gegen eine kleine einmalige Zahlung verfügbar.
+  - : Eine ausgezeichnete Ressource für angehende Webentwickler – Lernen Sie JavaScript in einer interaktiven Umgebung, mit kurzen Lektionen und interaktiven Tests, geführt durch automatisierte Bewertung. Die ersten 40 Lektionen sind kostenlos, und der gesamte Kurs ist gegen eine geringe Einmalzahlung verfügbar.

@@ -1,24 +1,24 @@
 ---
-title: Links erstellen
+title: Erstellen von Links
 slug: Learn_web_development/Core/Structuring_content/Creating_links
 l10n:
-  sourceCommit: bdb97b3e01499ce52f02caa3f51d6dd245a48782
+  sourceCommit: 27f34d8b137f9bb2b467f9f9a1c4e1d04e12ed89
 ---
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Advanced_text_features", "Learn_web_development/Core/Structuring_content/Marking_up_a_letter", "Learn_web_development/Core/Structuring_content")}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Advanced_HTML_text", "Learn_web_development/Core/Structuring_content/Test_your_skills/Links", "Learn_web_development/Core/Structuring_content")}}
 
-Links (auch als Hyperlinks bekannt) sind wirklich wichtig — sie sind es, die das Web zu einem _Netz_ machen.
-Dieser Artikel zeigt die Syntax, die erforderlich ist, um einen Link zu erstellen, und diskutiert Best Practices für Links.
+Links (auch bekannt als Hyperlinks) sind wirklich wichtig — sie sind das, was das Web zu einem _Netz_ macht.
+Dieser Artikel zeigt die erforderliche Syntax zum Erstellen eines Links und diskutiert bewährte Praktiken für Links.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegende HTML-Kenntnisse, wie sie in der
+        Grundlegendes Verständnis von HTML, wie es in
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
-          >Grundlagen der HTML-Syntax</a
-        > behandelt werden. Textorientierte Semantik wie <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
+          >Grundlegende HTML-Syntax</a
+        > behandelt wird. Textuelle Semantik wie <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
           >Überschriften und Absätze</a
         > und <a href="/de/docs/Learn_web_development/Core/Structuring_content/Lists"
           >Listen</a
@@ -29,13 +29,13 @@ Dieser Artikel zeigt die Syntax, die erforderlich ist, um einen Link zu erstelle
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Verstehen, warum Links die grundlegende Funktion des Webs sind. Es gibt kein Web ohne Links.</li>
+          <li>Verstehen, warum Links das grundlegende Merkmal des Webs sind. Es gibt kein Web ohne Links.</li>
           <li>Das <code>href</code>-Attribut.</li>
-          <li>Absolute und relative Pfade und wann diese zu verwenden sind.</li>
-          <li>Pfadsyntax im Detail — Schrägstriche, Einzelpunkt und Doppelpunkt.</li>
+          <li>Absolute und relative Pfade und wann man sie verwendet.</li>
+          <li>Pfadsyntax im Detail — Schrägstriche, einzelner Punkt und Doppelpunkt.</li>
           <li>Link-Zustände und warum sie wichtig sind — <code>:hover</code>, <code>:focus</code>, <code>:visited</code> und <code>:active</code>.</li>
           <li>Inline- und Block-Level-Links.</li>
-          <li>Verstehen der Vorteile, guten Link-Text zu schreiben, wie z.B. bessere Zugänglichkeit für Benutzer von Bildschirmlesern und potenziell positive SEO-Effekte.</li>
+          <li>Verstehen der Vorteile von gutem Link-Text, wie z.B. bessere Zugänglichkeit für Benutzer von Bildschirmlesegeräten und potenzielle positive SEO-Effekte.</li>
         </ul>
       </td>
     </tr>
@@ -44,22 +44,22 @@ Dieser Artikel zeigt die Syntax, die erforderlich ist, um einen Link zu erstelle
 
 ## Was ist ein Hyperlink?
 
-Hyperlinks sind eine der spannendsten Innovationen, die das Web zu bieten hat.
-Sie sind seit Anfang an eine Funktion des Webs und machen das Web zu einem _Netz_.
-Hyperlinks ermöglichen es uns, Dokumente mit anderen Dokumenten oder Ressourcen zu verlinken, auf bestimmte Teile von Dokumenten zu verlinken oder Apps unter einer Webadresse verfügbar zu machen.
-Fast jeder Webinhalt kann in einen Link umgewandelt werden, sodass beim Klicken oder anderweitigem Aktivieren der Webbrowser zu einer anderen Webadresse ({{Glossary("URL", "URL")}}) wechselt.
+Hyperlinks sind eine der aufregendsten Innovationen, die das Web zu bieten hat.
+Sie sind seit den Anfängen des Webs ein Feature und machen das Web zu einem _Netz_.
+Hyperlinks ermöglichen es uns, Dokumente mit anderen Dokumenten oder Ressourcen zu verknüpfen, auf bestimmte Teile von Dokumenten zu verweisen oder Apps unter einer Webadresse verfügbar zu machen.
+Fast jeder Webinhalt kann in einen Link umgewandelt werden, sodass beim Klicken oder anders aktivieren der Webbrowser zu einer anderen Webadresse ({{Glossary("URL", "URL")}}) navigiert.
 
 > [!NOTE]
-> Eine URL kann auf HTML-Dateien, Textdateien, Bilder, Textdokumente, Video- und Audiodateien oder alles andere verweisen, das im Web existiert.
-> Wenn der Webbrowser nicht weiß, wie er die Datei anzeigen oder handhaben soll, wird er Ihnen die Möglichkeit geben, die Datei zu öffnen (in welchem Fall die Pflicht des Öffnens oder Handhabens der Datei an eine geeignete native App auf dem Gerät übergeben wird) oder die Datei herunterzuladen (in welchem Fall Sie später versuchen können, damit umzugehen).
+> Eine URL kann auf HTML-Dateien, Textdateien, Bilder, Textdokumente, Video- und Audiodateien oder alles andere auf dem Web verweisen.
+> Wenn der Webbrowser nicht weiß, wie er die Datei anzeigen oder handhaben soll, wird er Sie fragen, ob Sie die Datei öffnen möchten (in diesem Fall wird die Pflicht zum Öffnen oder Handhaben der Datei an eine geeignete native App auf dem Gerät übertragen) oder die Datei herunterladen möchten (in diesem Fall können Sie später versuchen, sie zu bearbeiten).
 
-Zum Beispiel enthält die BBC-Startseite viele Links, die nicht nur auf mehrere Nachrichtenartikel, sondern auch auf verschiedene Bereiche der Website (Navigationsfunktionalität), Login-/Registrierungsseiten (Benutzerwerkzeuge) und mehr verweisen.
+Zum Beispiel enthält die BBC-Homepage viele Links, die nicht nur auf mehrere Nachrichtenberichte verweisen, sondern auch auf verschiedene Bereiche der Website (Navigationsfunktionalität), Anmelde-/Registrierungsseiten (Benutzerwerkzeuge) und mehr.
 
-![Frontseite von bbc.co.uk, die viele Nachrichtenartikel und Navigationsmenüfunktionen zeigt](updated-bbc-website.png)
+![Startseite von bbc.co.uk, zeigt viele Nachrichtenartikel und Navigationsmenü-Funktionalität](updated-bbc-website.png)
 
 ## Anatomie eines Links
 
-Ein grundlegender Link wird erstellt, indem der Text oder andere Inhalte innerhalb eines {{htmlelement("a")}}-Elements eingeschlossen und das [`href`](/de/docs/Web/HTML/Reference/Elements/a#href)-Attribut verwendet wird, das auch als **Hypertext-Referenz** oder **Ziel** bekannt ist und die Webadresse enthält.
+Ein grundlegender Link wird erstellt, indem der Text oder andere Inhalt innerhalb eines {{htmlelement("a")}}-Elements eingeschlossen wird, und indem das [`href`](/de/docs/Web/HTML/Reference/Elements/a#href)-Attribut, auch bekannt als **Hypertext-Referenz** oder **Ziel**, verwendet wird, das die Webadresse enthält.
 
 ```html
 <p>
@@ -73,12 +73,12 @@ Dies ergibt das folgende Ergebnis:
 Ich erstelle einen Link zur [Mozilla-Homepage](https://www.mozilla.org/en-US/).
 
 > [!NOTE]
-> Scrimbas [Anchortags](https://scrimba.com/learn-html-and-css-c0p/~0a?via=mdn) <sup>[_MDN Learning Partner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> Scrim bietet eine interaktive Demonstration, wie man Links mit HTML erstellt, sowie eine Herausforderung, Ihre eigenen Links zu erstellen.
+> Das Scrimba [Anchor-Tag](https://scrimba.com/learn-html-and-css-c0p/~0a?via=mdn) <sup>[_MDN-Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> Skript bietet eine interaktive Demonstration, wie man Links mit HTML erstellt, und eine Herausforderung, um Sie dazu zu bringen, Ihre eigenen Links zu erstellen.
 
 ### Block-Level-Links
 
-Wie zuvor erwähnt, kann fast jeder Inhalt in einen Link umgewandelt werden, sogar {{Glossary("Block/CSS", "Block-Level-Elemente")}}.
-Wenn Sie möchten, dass ein Überschriftselement ein Link wird, dann schließen Sie es in ein Anker- (`<a>`) Element ein, wie im folgenden Codebeispiel gezeigt:
+Wie bereits erwähnt, kann fast jeder Inhalt in einen Link umgewandelt werden, sogar {{Glossary("Block/CSS", "Block-Level-Elemente")}}.
+Wenn Sie ein Überschriftenelement zu einem Link machen möchten, umschließen Sie es mit einem Anker (`<a>`) Element, wie im folgenden Codebeispiel gezeigt:
 
 ```html
 <a href="https://developer.mozilla.org/en-US/">
@@ -90,9 +90,9 @@ Wenn Sie möchten, dass ein Überschriftselement ein Link wird, dann schließen 
 ```
 
 Dies verwandelt die Überschrift in einen Link:
-{{EmbedLiveSample('Block-Level-Links', '100%', 150)}}
+{{EmbedLiveSample('Block level links', '100%', 150)}}
 
-### Bild-Links
+### Bildlinks
 
 Um ein Bild in einen Link zu verwandeln, umschließen Sie das {{htmlelement("img")}}-Element mit einem {{htmlelement("a")}}-Element. Das folgende Beispiel verwendet einen relativen Pfad, um auf eine lokal gespeicherte SVG-Bilddatei zu verweisen.
 
@@ -111,15 +111,15 @@ img {
 ```
 
 Dies macht das MDN-Logo zu einem Link:
-{{EmbedLiveSample('Bild-Links', '100%', 150)}}
+{{EmbedLiveSample('Image links', '100%', 150)}}
 
 > [!NOTE]
-> Sie werden mehr darüber erfahren, wie man Bilder im Web verwendet, in einem zukünftigen Artikel.
+> Sie werden mehr über die Verwendung von Bildern im Web in einem zukünftigen Artikel erfahren.
 
-### Zusätzlich unterstützende Informationen mit dem `title`-Attribut hinzufügen
+### Hinzufügen unterstützender Informationen mit dem title-Attribut
 
-Ein weiteres Attribut, das Sie Ihren Links hinzufügen können, ist `title`.
-Der Titel enthält zusätzliche Informationen über den Link, wie zum Beispiel, welche Art von Informationen die Seite enthält oder worauf man auf der Website achten muss.
+Ein weiteres Attribut, das Sie möglicherweise zu Ihren Links hinzufügen möchten, ist `title`.
+Der Titel enthält zusätzliche Informationen über den Link, z.B. welche Art von Informationen die Seite enthält oder worauf auf der Website zu achten ist.
 
 ```html-nolint
 <p>
@@ -132,23 +132,23 @@ Der Titel enthält zusätzliche Informationen über den Link, wie zum Beispiel, 
 </p>
 ```
 
-Dies ergibt das folgende Ergebnis und beim Überfahren des Links wird der Titel als Tooltip angezeigt:
+Dies ergibt das folgende Ergebnis, und das Überfahren des Links zeigt den Titel als Tooltip an:
 
-{{EmbedLiveSample('Zusätzlich unterstützende Informationen mit dem title Attribut hinzufügen', '100%', 150)}}
+{{EmbedLiveSample('Adding supporting information with the title attribute', '100%', 150)}}
 
 > [!NOTE]
-> Ein Linktitel wird nur beim Überfahren mit der Maus angezeigt, was bedeutet, dass Personen, die sich auf Tastatursteuerungen oder Touchscreens verlassen, um Webseiten zu navigieren, Schwierigkeiten haben werden, auf die Titelinformation zuzugreifen.
-> Wenn die Informationen eines Titels wirklich wichtig für die Benutzerfreundlichkeit der Seite sind, sollten Sie diese auf eine Weise präsentieren, die für alle Benutzer zugänglich ist, z.B. indem Sie sie in den regulären Text einfügen.
+> Ein Link-Titel wird nur beim Überfahren mit der Maus angezeigt, was bedeutet, dass Personen, die auf Tastatursteuerungen oder Touchscreens angewiesen sind, Schwierigkeiten haben werden, Titelinformationen zu erhalten.
+> Wenn die Informationen eines Titels wirklich wichtig für die Benutzerfreundlichkeit der Seite sind, sollten Sie diese in einer Weise präsentieren, die für alle Benutzer zugänglich ist, beispielsweise indem Sie sie im regulären Text darstellen.
 
-### Erstellen eigener Beispiel-Links
+### Erstellen Ihrer eigenen Beispiellinks
 
-OK, jetzt sind Sie an der Reihe!
+OK, jetzt sind Sie dran!
 
-1. Klicken Sie auf **„Play“** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten, oder kopieren Sie unsere [Erste-Schritte-Vorlage](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html) und kopieren Sie den untenstehenden Code dort hinein.
-2. Verlinken Sie den Text „Rotes Eichhörnchen“ und „Östliches Grauhörnchen“ mit Wikipedia-Seiten, die die entsprechenden Arten beschreiben. Geben Sie jedem Link ein `title`-Attribut mit dem wissenschaftlichen Namen der Art.
-3. Verlinken Sie den Text „Wikipedia Eichhörnchenseite“ mit der Hauptseite auf Wikipedia für Eichhörnchen.
+1. Klicken Sie auf **"Play"** im untenstehenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten, oder machen Sie eine Kopie unserer [Startvorlage](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html) und kopieren Sie den untenstehenden Code dorthin.
+2. Verknüpfen Sie den Text "Rotes Eichhörnchen" und "Östliches Graues Eichhörnchen" mit Wikipedia-Seiten, die die entsprechenden Arten beschreiben. Geben Sie jedem Link ein `title`-Attribut, das dem wissenschaftlichen Namen der Art entspricht.
+3. Verknüpfen Sie den Text "Wikipedia-Eichhörnchen-Seite" mit der Haupt-Wikipedia-Seite für Eichhörnchen.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_ Knopf im MDN Playground löschen. Wenn Sie wirklich steckenbleiben, können Sie die Lösung unterhalb des Codeblocks anzeigen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit der _Zurücksetzen_-Schaltfläche im MDN Playground löschen. Wenn Sie wirklich feststecken, können Sie die Lösung unter dem Codeblock anzeigen.
 
 ```html live-sample___links-1
 <h1>Squirrels</h1>
@@ -175,7 +175,7 @@ Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_ Knopf im M
 {{ EmbedLiveSample('links-1', "100%", 280) }}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung zu zeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte so aussehen:
 
@@ -215,23 +215,23 @@ Ihr fertiges HTML sollte so aussehen:
 
 </details>
 
-## Ein kurzer Überblick über URLs und Pfade
+## Ein schneller Überblick über URLs und Pfade
 
-Um Linkziele vollständig zu verstehen, müssen Sie URLs und Dateipfade verstehen. In diesem Abschnitt erhalten Sie die Informationen, die Sie dafür benötigen.
+Um Linkziele vollständig zu verstehen, müssen Sie URLs und Dateipfade verstehen. Dieser Abschnitt gibt Ihnen die Informationen, die Sie dafür benötigen.
 
-Eine URL, oder Uniform Resource Locator, ist eine Textzeichenfolge, die definiert, wo sich etwas im Web befindet. Zum Beispiel lautet die URL der englischen Mozilla-Homepage `https://www.mozilla.org/en-US/`.
+Eine URL, oder Uniform Resource Locator, ist eine Zeichenfolge, die beschreibt, wo sich etwas im Web befindet. Beispielsweise befindet sich die englische Homepage von Mozilla unter `https://www.mozilla.org/en-US/`.
 
-URLs verwenden Pfade, um Dateien zu finden. Pfade spezifizieren, wo die Datei, an der Sie interessiert sind, im Dateisystem liegt. Schauen wir uns ein Beispiel einer Verzeichnisstruktur an, siehe die Verzeichnisstruktur `creating-hyperlinks`, die unten gezeigt wird:
+URLs verwenden Pfade, um Dateien zu finden. Pfade geben an, wo sich die Datei, an der Sie interessiert sind, im Dateisystem befindet. Schauen wir uns ein Beispiel für eine Verzeichnisstruktur an, s siehe die Verzeichnisstruktur `creating-hyperlinks` unten:
 
-![Eine einfache Verzeichnisstruktur. Das übergeordnete Verzeichnis heißt creating-hyperlinks und enthält zwei Dateien namens index.html und contacts.html sowie zwei Verzeichnisse namens projects und pdfs, die jeweils eine index.html- und eine project-brief.pdf-Datei enthalten](simple-directory.png)
+![Eine einfache Verzeichnisstruktur. Das übergeordnete Verzeichnis heißt creating-hyperlinks und enthält zwei Dateien namens index.html und contacts.html sowie zwei Verzeichnisse namens projects und pdfs, die jeweils eine index.html und eine project-brief.pdf Datei enthalten](simple-directory.png)
 
-Das **Root** dieser Verzeichnisstruktur heißt `creating-hyperlinks`. Wenn Sie lokal mit einer Website arbeiten, haben Sie ein Verzeichnis, das die gesamte Site enthält. Innerhalb des **Root** haben wir eine `index.html`-Datei und eine `contacts.html`. In einer echten Website würde `index.html` unsere Startseite oder Landingpage sein (eine Webseite, die als Einstiegspunkt für eine Website oder einen bestimmten Abschnitt einer Website dient).
+Der **Wurzel** dieser Verzeichnisstruktur wird as `creating-hyperlinks` bezeichnet. Wenn Sie lokal mit einer Website arbeiten, haben Sie ein Verzeichnis, das die gesamte Website enthält. Innerhalb der **Wurzel** haben wir eine `index.html`-Datei und eine `contacts.html`. Auf einer echten Website wäre `index.html` unsere Start- oder Zielseite (eine Webseite, die als Einstiegspunkt für eine Website oder einen bestimmten Abschnitt einer Website dient).
 
-Es gibt auch zwei Verzeichnisse innerhalb unseres Root-Verzeichnisses — `pdfs` und `projects`. Jedes von ihnen enthält eine einzige Datei — ein PDF (`project-brief.pdf`) und eine `index.html`-Datei. Beachten Sie, dass Sie zwei `index.html`-Dateien in einem Projekt haben können, solange sie an unterschiedlichen Speicherorten im Dateisystem liegen. Die zweite `index.html` wäre möglicherweise die Haupt-Landingpage für projektbezogene Informationen.
+Es gibt auch zwei Verzeichnisse innerhalb unserer Wurzel – `pdfs` und `projects`. Diese haben jeweils eine einzelne Datei – ein PDF (`project-brief.pdf`) und eine `index.html`-Datei. Beachten Sie, dass Sie zwei `index.html`-Dateien in einem Projekt haben können, solange sie sich an verschiedenen Standorten im Dateisystem befinden. Die zweite `index.html` wäre möglicherweise die Haupt-Landingpage für projektbezogene Informationen.
 
-Schauen wir uns einige Beispiele für Links zwischen einigen verschiedenen Dateien in dieser Verzeichnisstruktur an, um unterschiedliche Linktypen zu demonstrieren:
+Schauen wir uns einige Beispiele für Links zwischen verschiedenen Dateien in dieser Verzeichnisstruktur an, um verschiedene Linktypen zu demonstrieren:
 
-- **Gleiches Verzeichnis**: Wenn Sie innerhalb von `index.html` (der obersten `index.html`) einen Hyperlink zu `contacts.html` einfügen möchten, müssen Sie den Dateinamen angeben, den Sie verlinken möchten, da er sich im selben Verzeichnis wie die aktuelle Datei befindet. Die zu verwendende URL ist `contacts.html`:
+- **Gleiches Verzeichnis**: Wenn Sie einen Hyperlink in `index.html` (die oberste `index.html`) einfügen möchten, der auf `contacts.html` verweist, würden Sie den Namen der Datei angeben, auf die Sie verweisen möchten, da sie sich im selben Verzeichnis wie die aktuelle Datei befindet. Die zu verwendende URL ist `contacts.html`:
 
   ```html
   <p>
@@ -240,34 +240,34 @@ Schauen wir uns einige Beispiele für Links zwischen einigen verschiedenen Datei
   </p>
   ```
 
-- **In Unterverzeichnisse wechseln**: Wenn Sie in `index.html` (der obersten `index.html`) einen Hyperlink zu `projects/index.html` einfügen möchten, müssten Sie in das `projects`-Verzeichnis wechseln, bevor Sie die Datei angeben, zu der Sie verlinken möchten.
-  Dies wird durch das Angeben des Verzeichnisnamens, dann ein Vorwärtsschrägstrich, und dann der Name der Datei erreicht. Die zu verwendende URL ist `projects/index.html`:
+- **Abstieg in Unterverzeichnisse**: Wenn Sie einen Hyperlink in `index.html` (die oberste `index.html`) einfügen möchten, der auf `projects/index.html` verweist, müssten Sie in das `projects`-Verzeichnis absteigen, bevor Sie die Datei angeben, auf die Sie verweisen möchten.
+  Dies wird erreicht, indem Sie den Namen des Verzeichnisses angeben, dann einen Schrägstrich, gefolgt vom Namen der Datei. Die URL, die Sie verwenden würden, lautet `projects/index.html`:
 
   ```html
   <p>Visit my <a href="projects/index.html">project homepage</a>.</p>
   ```
 
-- **Wieder zurück in übergeordnete Verzeichnisse wechseln**: Wenn Sie innerhalb von `projects/index.html` einen Hyperlink zu `pdfs/project-brief.pdf` einfügen möchten, müssten Sie ein Verzeichnislevel nach oben und dann zurück in das `pdfs`-Verzeichnis wechseln.
-  Um ein Verzeichnis nach oben zu gelangen, verwenden Sie zwei Punkte — `..` — sodass die zu verwendende URL `../pdfs/project-brief.pdf` ist:
+- **Wiederaufsteigen in übergeordnete Verzeichnisse**: Wenn Sie einen Hyperlink in `projects/index.html` einfügen möchten, der auf `pdfs/project-brief.pdf` verweist, müssten Sie ein Verzeichnis höher steigen und dann in das `pdfs`-Verzeichnis absteigen.
+  Um ein Verzeichnis höher zu steigen, verwenden Sie zwei Punkte — `..` — also lautet die zu verwendende URL `../pdfs/project-brief.pdf`:
 
   ```html
   <p>A link to my <a href="../pdfs/project-brief.pdf">project brief</a>.</p>
   ```
 
 > [!NOTE]
-> Sie können mehrere Instanzen dieser Merkmale zu komplexen URLs kombinieren, wenn nötig, zum Beispiel: `../../../complex/path/to/my/file.html`.
+> Sie können mehrere Instanzen dieser Funktionen in komplexe URLs kombinieren, falls erforderlich, zum Beispiel: `../../../complex/path/to/my/file.html`.
 
 ### Dokumentfragmente
 
-Es ist möglich, zu einem bestimmten Teil eines HTML-Dokuments zu verlinken, bekannt als **Dokumentfragment**, statt nur oben auf das Dokument zu verlinken.
-Dazu müssen Sie zuerst einem Element, auf das Sie verlinken möchten, ein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut zuweisen.
-In der Regel macht es Sinn, auf eine bestimmte Überschrift zu verlinken, so würde dies etwa folgendermaßen aussehen:
+Es ist möglich, auf einen bestimmten Teil eines HTML-Dokuments zu verweisen, der als **Dokumentfragment** bekannt ist, anstatt nur auf den Anfang des Dokuments.
+Um dies zu tun, müssen Sie zuerst ein [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attribut dem Element zuweisen, auf das Sie verweisen möchten.
+Es macht normalerweise Sinn, auf eine bestimmte Überschrift zu verweisen, sodass es in etwa so aussieht:
 
 ```html
 <h2 id="Mailing_address">Mailing address</h2>
 ```
 
-Um dann auf diese spezifische `id` zu verlinken, würden Sie diese am Ende der URL anfügen, vorangestellt durch ein Hash/Rautensymbol (`#`), zum Beispiel:
+Um dann auf diese spezifische `id` zu verweisen, würden Sie sie am Ende der URL hinzufügen, wobei ein Rautezeichen (`#`) vorausgeht, zum Beispiel:
 
 ```html
 <p>
@@ -276,7 +276,7 @@ Um dann auf diese spezifische `id` zu verlinken, würden Sie diese am Ende der U
 </p>
 ```
 
-Sie können sogar den Dokumentfragmentverweis alleine verwenden, um auf _einen anderen Teil des aktuellen Dokuments_ zu verlinken:
+Sie können sogar das Dokumentfragment nur verwenden, um _auf einen anderen Teil des aktuellen Dokuments_ zu verweisen:
 
 ```html
 <p>
@@ -289,31 +289,31 @@ Sie können sogar den Dokumentfragmentverweis alleine verwenden, um auf _einen a
 
 Zwei Begriffe, auf die Sie im Web stoßen werden, sind **absolute URL** und **relative URL:**
 
-**Absolute URL**: Verweist auf einen Ort, der durch seinen absoluten Standort im Web definiert ist, einschließlich {{Glossary("protocol", "Protokoll")}} und {{Glossary("domain_name", "Domainname")}}.
-Zum Beispiel, wenn eine `index.html`-Seite in ein Verzeichnis namens `projects` hochgeladen wird, das sich im **Root** eines Webservers befindet, und die Domäne der Website lautet `https://www.example.com`, wäre die Seite unter `https://www.example.com/projects/index.html` verfügbar (oder sogar nur `https://www.example.com/projects/`, da die meisten Webserver einfach nach einer Landingpage wie `index.html` suchen, um sie zu laden, wenn sie nicht in der URL angegeben wird).
+**Absolute URL**: Verweist auf einen Standort, der durch seinen absoluten Standort im Web definiert ist, einschließlich {{Glossary("protocol", "Protokoll")}} und {{Glossary("domain_name", "Domainname")}}.
+Wenn beispielsweise eine `index.html`-Seite in ein Verzeichnis namens `projects` hochgeladen wird, das sich innerhalb der **Wurzel** eines Webservers befindet, und die Domain der Website `https://www.example.com` ist, wäre die Seite unter `https://www.example.com/projects/index.html` verfügbar (oder sogar nur unter `https://www.example.com/projects/`, da die meisten Webserver einfach nach einer Startseite wie `index.html` suchen, wenn sie nicht in der URL angegeben wird).
 
-Eine absolute URL verweist immer auf den gleichen Ort, egal wo sie verwendet wird.
+Eine absolute URL verweist immer auf denselben Ort, egal wo sie verwendet wird.
 
-**Relative URL**: Verweist auf einen Ort, der _relativ_ zu der Datei ist, von der Sie verlinken, und ähnelt mehr dem, was wir im vorherigen Abschnitt angesehen haben.
-Zum Beispiel, wenn wir von unserer Beispieldatei unter `https://www.example.com/projects/index.html` zu einer PDF-Datei im selben Verzeichnis verlinken wollten, wäre die URL einfach der Dateiname — `project-brief.pdf` — keine zusätzlichen Informationen benötigt. Wenn das PDF in einem Unterverzeichnis innerhalb von `projects` namens `pdfs` verfügbar wäre, wäre der relative Link `pdfs/project-brief.pdf` (die äquivalente absolute URL wäre `https://www.example.com/projects/pdfs/project-brief.pdf`).
+**Relative URL**: Verweist auf einen Standort, der relativ zu der Datei ist, auf die Sie verweisen, ähnlicher dem, was wir im vorherigen Abschnitt betrachtet haben.
+Wenn wir beispielsweise von unserer Beispiel-Datei unter `https://www.example.com/projects/index.html` auf eine PDF-Datei im gleichen Verzeichnis verweisen möchten, wäre die URL einfach der Dateiname — `project-brief.pdf` — keine weiteren Informationen erforderlich. Wenn das PDF in einem Unterverzeichnis innerhalb von `projects` namens `pdfs` verfügbar wäre, wäre der relative Link `pdfs/project-brief.pdf` (die äquivalente absolute URL wäre `https://www.example.com/projects/pdfs/project-brief.pdf`).
 
-Eine relative URL verweist auf unterschiedliche Orte, abhängig von der tatsächlichen Position der Datei, von der aus Sie verweisen — zum Beispiel, wenn wir unsere `index.html`-Datei aus dem `projects`-Verzeichnis herausnehmen und ins **Root** der Website (die oberste Ebene, nicht in einem Verzeichnis) verschieben, würde der `pdfs/project-brief.pdf` relative Link darin nun auf eine Datei bei `https://www.example.com/pdfs/project-brief.pdf` verweisen, nicht auf eine Datei bei `https://www.example.com/projects/pdfs/project-brief.pdf`.
+Eine relative URL zeigt auf verschiedene Orte, je nach dem tatsächlichen Standort der Datei, von der Sie verweisen — wenn wir beispielsweise unsere `index.html`-Datei aus dem `projects`-Verzeichnis in die **Wurzel** der Website verschieben (das oberste Level, nicht in Verzeichnissen), würde der relative URL-Link `pdfs/project-brief.pdf` darin nun auf eine Datei an `https://www.example.com/pdfs/project-brief.pdf` verweisen, nicht auf eine Datei an `https://www.example.com/projects/pdfs/project-brief.pdf`.
 
-Natürlich ändern sich der Standort der `project-brief.pdf`-Datei und des `pdfs`-Ordners nicht plötzlich, weil Sie die `index.html`-Datei verschoben haben — das würde Ihren Link dazu bringen, auf den falschen Ort zu verweisen, sodass er nicht funktionieren würde, wenn darauf geklickt wird. Sie müssen vorsichtig sein!
+Natürlich wird sich der Standort der Datei `project-brief.pdf` und des `pdfs`-Ordners nicht plötzlich ändern, weil Sie die `index.html`-Datei verschoben haben — dies würde Ihren Link auf den falschen Ort verweisen lassen, sodass er nicht funktionieren würde, wenn man darauf klickt. Sie müssen vorsichtig sein!
 
 ## Best Practices für Links
 
-Es gibt einige Best Practices, die beim Schreiben von Links zu beachten sind. Lassen Sie uns diese jetzt ansehen.
+Es gibt einige bewährte Praktiken, die beim Schreiben von Links beachtet werden sollten. Schauen wir uns diese nun an.
 
-### Verwenden Sie klare Link-Wortlaute
+### Verwenden Sie klare Linktexte
 
-Es ist einfach, Links auf Ihre Seite zu setzen. Das ist nicht genug. Wir müssen unsere Links _zugänglich_ für alle Leser machen, unabhängig von ihrem aktuellen Kontext und welchen Tools sie bevorzugen. Beispielsweise:
+Es ist einfach, Links auf Ihrer Seite zu platzieren. Das ist nicht genug. Wir müssen unsere Links _zugänglich_ für alle Leser machen, unabhängig von ihrem aktuellen Kontext und den Tools, die sie bevorzugen. Zum Beispiel:
 
-- Nutzer von Bildschirmlesern springen gerne von Link zu Link auf der Seite und lesen Links aus dem Zusammenhang.
-- Suchmaschinen verwenden Linktext zur Indexierung von Zieldateien, daher ist es eine gute Idee, Schlüsselwörter in Ihren Linktext aufzunehmen, um effektiv zu beschreiben, worauf verwiesen wird.
-- Visuelle Leser überfliegen die Seite eher, als jedes Wort zu lesen, und ihre Augen werden zu Seitenmerkmalen hingezogen, die herausragen, wie etwa Links. Sie werden beschreibenden Linktext nützlich finden.
+- Bildschirmlesegeräte-Benutzer mögen es, von Link zu Link auf der Seite zu springen und Links aus dem Kontext zu lesen.
+- Suchmaschinen verwenden Linktexte, um Zieldateien zu indexieren, daher ist es eine gute Idee, Schlüsselwörter in Ihren Linktext aufzunehmen, um effektiv zu beschreiben, was verlinkt wird.
+- Visuelle Leser überfliegen die Seite eher, anstatt jedes Wort zu lesen, und ihre Augen werden auf Seitenmerkmale gelenkt, die hervorstechen, wie Links. Sie finden beschreibende Linktexte nützlich.
 
-Schauen wir uns ein konkretes Beispiel an:
+Schauen wir uns ein spezifisches Beispiel an:
 
 **Guter** Linktext: [Download Firefox](https://www.firefox.com/en-US/?redirect_source=firefox-com)
 
@@ -323,7 +323,7 @@ Schauen wir uns ein konkretes Beispiel an:
 
 <!-- markdownlint-disable descriptive-link-text -->
 
-**Schlechter** Linktext: [Klicken Sie hier](https://www.firefox.com/en-US/), um Firefox herunterzuladen
+**Schlechter** Linktext: [Klicken Sie hier](https://www.firefox.com/en-US/) um Firefox herunterzuladen
 
 ```html example-bad
 <p>
@@ -335,16 +335,16 @@ Schauen wir uns ein konkretes Beispiel an:
 
 Weitere Tipps:
 
-- Wiederholen Sie die URL nicht als Teil des Linktexts — URLs sehen unschön aus und klingen noch unschöner, wenn ein Bildschirmleser sie Buchstabe für Buchstabe vorliest.
-- Sagen Sie nicht „Link“ oder „verlinkt zu“ im Linktext — es ist nur Lärm. Bildschirmleser sagen den Leuten, dass es einen Link gibt.
-  Auch visuelle Nutzer werden wissen, dass es einen Link gibt, da Links in der Regel in einer anderen Farbe dargestellt und unterstrichen sind (diese Konvention sollte im Allgemeinen nicht gebrochen werden, da Benutzer daran gewöhnt sind).
-- Halten Sie Ihren Linktext so kurz wie möglich — das ist hilfreich, da Bildschirmleser den gesamten Linktext interpretieren müssen.
-- Minimieren Sie Instanzen, in denen mehrere Kopien desselben Textes an verschiedene Orte verlinkt sind.
-  Dies kann Probleme für Benutzer von Bildschirmlesern verursachen, wenn es eine Liste von Links ohne Kontext gibt, die mit „Klicken Sie hier“, „Klicken Sie hier“, „Klicken Sie hier“ beschriftet sind.
+- Wiederholen Sie die URL nicht als Teil des Linktextes — URLs sehen hässlich aus und klingen noch hässlicher, wenn ein Bildschirmleser sie Buchstabe für Buchstabe vorliest.
+- Sagen Sie nicht "Link" oder "verlinkt mit" im Linktext — das ist nur Lärm. Bildschirmlesegeräte sagen den Benutzern, dass es einen Link gibt.
+  Visuelle Benutzer werden auch wissen, dass es einen Link gibt, weil Links normalerweise in einer anderen Farbe und unterstrichen gestaltet sind (diese Konvention sollte im Allgemeinen nicht gebrochen werden, da Benutzer daran gewöhnt sind).
+- Halten Sie Ihren Linktext so kurz wie möglich — dies ist hilfreich, da Bildschirmlesegeräte den gesamten Linktext interpretieren müssen.
+- Minimieren Sie Fälle, in denen mehrere Kopien desselben Textes an verschiedene Orte verlinkt sind.
+  Dies kann Probleme für Benutzer von Bildschirmlesegeräten verursachen, wenn eine Liste von Links außerhalb des Kontexts angezeigt wird, die mit "klicken Sie hier", "klicken Sie hier", "klicken Sie hier" beschriftet ist.
 
-### Links zu Nicht-HTML-Ressourcen — klare Wegweiser hinterlassen
+### Verlinkung zu Nicht-HTML-Ressourcen — hinterlassen Sie klare Wegweiser
 
-Wenn Sie auf eine Ressource verlinken, die nicht als „normale Navigation“ auf der aktuellen Seite geöffnet wird, sollten Sie klare Formulierungen im Linktext hinzufügen, was passieren wird. Beispielsweise, wenn Sie eine Ressource herunterladen oder streamen, oder wenn der Link ein Popup öffnet oder eine andere potenziell unerwartete Wirkung hat, sollte dies im Text angegeben werden. Dies ist wichtig für Benutzer mit langsamen Verbindungen, die vermeiden möchten, Assets mit mehreren Megabyte herunterzuladen. Es hilft auch, Erwartungen für Benutzer von Bildschirmlesern zu setzen, die sonst möglicherweise nicht wissen, was passiert.
+Beim Verlinken einer Ressource, die nicht auf der aktuellen Seite als "normale Navigation" geöffnet wird, sollten Sie in klarer Sprache im Linktext angeben, was passieren wird. Beispielsweise sollten Sie, wenn Sie eine Ressource herunterladen oder streamen oder wenn der Link ein Popup öffnen oder einen anderen potenziell unerwarteten Effekt auslösen wird, dies im Text angeben. Dies ist wichtig für Benutzer mit langsamen Verbindungen, die möglicherweise vermeiden möchten, Assets von mehreren Megabyte herunterzuladen. Es hilft auch, die Erwartungen für Benutzer von Bildschirmlesegeräten zu setzen, die andernfalls möglicherweise nicht wissen, was passiert.
 
 Schauen wir uns einige Beispiele an, um zu sehen, welche Art von Text hier verwendet werden kann:
 
@@ -362,9 +362,9 @@ Schauen wir uns einige Beispiele an, um zu sehen, welche Art von Text hier verwe
 </p>
 ```
 
-### Verwenden des download-Attributs beim Verlinken auf einen Download
+### Verwenden Sie das Download-Attribut, wenn Sie auf einen Download verlinken
 
-Wenn Sie auf eine Ressource verlinken, die heruntergeladen und nicht im Browser geöffnet wird, können Sie das Attribut `download` verwenden, um einen Standardspeicherdateinamen anzugeben. Hier ist ein Beispiel mit einem Download-Link zur neuesten Windows-Version von Firefox:
+Wenn Sie auf eine Ressource verlinken, die heruntergeladen werden soll, anstatt im Browser geöffnet zu werden, können Sie das `download`-Attribut verwenden, um einen standardmäßigen Dateinamen zum Speichern anzugeben. Hier ist ein Beispiel mit einem Download-Link zur neuesten Windows-Version von Firefox:
 
 ```html
 <a
@@ -376,27 +376,27 @@ Wenn Sie auf eine Ressource verlinken, die heruntergeladen und nicht im Browser 
 
 ### Wann sollten Links in einem neuen Tab geöffnet werden
 
-Links öffnen standardmäßig im selben Tab wie die Seite, auf der sie sich befinden, was es dem Benutzer ermöglicht, über die Schaltfläche "Zurück" im Browser zur vorherigen Seite zu navigieren. Viele Seiten (einschließlich MDN) entscheiden sich jedoch, bestimmte Links, insbesondere externe Links, in einem neuen Tab zu öffnen. Dies geschieht durch das Setzen des [`target`](/de/docs/Web/HTML/Reference/Elements/a#target)-Attributs auf `"_blank"`.
+Links öffnen sich standardmäßig im gleichen Tab, in dem sich die Seite befindet, was es dem Benutzer ermöglicht, über die Zurück-Schaltfläche des Browsers zur vorherigen Seite zu navigieren. Viele Websites (einschließlich MDN) wählen jedoch, bestimmte Links, insbesondere externe Links, in einem neuen Tab zu öffnen. Dies wird erreicht, indem das [`target`](/de/docs/Web/HTML/Reference/Elements/a#target)-Attribut auf `"_blank"` gesetzt wird.
 
 ```html
 Firefox is developed by the
 <a href="https://www.mozilla.org/en-US/" target="_blank">Mozilla Foundation</a>.
 ```
 
-Ob Links in einem neuen Tab geöffnet werden sollten oder nicht, sollte eine bewusste Entscheidung basierend auf Überlegungen zur Benutzerfreundlichkeit sein. Hier sind einige Dinge, über die man nachdenken sollte:
+Ob Links in einem neuen Tab geöffnet werden oder nicht, sollte bewusst auf der Grundlage von Erfahrungen und Designüberlegungen erfolgen. Hier sind einige Dinge, die Sie beachten sollten:
 
-- Das Öffnen von Links in einem neuen Tab stellt beide Dokumente gleichzeitig dar, was für eine „parallele“ Navigationserfahrung nützlich ist. Andererseits sind Links, die im selben Tab geöffnet werden, eher eine Fortsetzung der aktuellen Seite.
-- Das Öffnen von Links in einem neuen Tab kann verwirrend für Benutzer sein, die es gewohnt sind, die Zurück-Schaltfläche zu verwenden.
-- Auch wenn Links standardmäßig im selben Tab geöffnet werden, können Benutzer sie dennoch in einem neuen Tab öffnen, indem sie Tastaturkürzel oder Kontextmenüoptionen verwenden. Auf der anderen Seite sind Links, die in einem neuen Tab geöffnet werden, schwer im gleichen Tab zu öffnen.
-- Benutzer von Bildschirmlesern können durch Links, die in einem neuen Tab geöffnet werden, verwirrt sein, da sie möglicherweise nicht bemerken, dass der neue Tab geöffnet wurde, und den Kontext darüber verlieren, wo sie sich auf der Seite befinden.
+- Links, die in einem neuen Tab geöffnet werden, präsentieren die beiden Dokumente gleichzeitig, was für eine "parallele" Navigationserfahrung nützlich ist. Auf der anderen Seite sind Links, die sich im gleichen Tab öffnen, eher wie eine Fortsetzung der aktuellen Seite.
+- Links, die in einem neuen Tab geöffnet werden, können verwirrend für Benutzer sein, die sich an die Nutzung der Zurück-Schaltfläche gewöhnt haben.
+- Selbst wenn Links standardmäßig im gleichen Tab geöffnet werden, können Benutzer sie immer noch in einem neuen Tab öffnen, durch Tastaturkürzel oder Kontextmenüoptionen. Auf der anderen Seite sind Links, die sich in einem neuen Tab öffnen, schwer in demselben Tab zu öffnen.
+- Benutzer von Bildschirmlesegeräten können durch Links, die sich in einem neuen Tab öffnen, verwirrt werden, da sie möglicherweise nicht erkennen, dass sich ein neuer Tab geöffnet hat, und sie möglicherweise den Kontext darüber verlieren, wo sie sich auf der Seite befinden.
 
-Eine gängige Vorgehensweise ist, externe Links in neuen Tabs zu öffnen und interne Links im selben Tab.
-Einige Designer bevorzugen es, alle Links im selben Tab zu öffnen.
-Wenn Sie Links in neuen Tabs öffnen, wird empfohlen, Hinweise für diese Links bereitzustellen, beispielsweise ein Symbol neben dem Linktext.
+Ein häufiger Ansatz ist es, externe Links in neuen Tabs zu öffnen und interne Links im gleichen Tab.
+Einige Designer bevorzugen es, alle Links im gleichen Tab zu öffnen.
+Wenn Sie Links in neuen Tabs öffnen, wird empfohlen, Hinweise für diese Links bereitzustellen, wie z.B. ein Icon neben dem Linktext.
 
 ## Erstellen eines Navigationsmenüs
 
-Für diese Übung möchten wir, dass Sie einige Seiten mit einem Navigationsmenü verlinken, um eine mehrseitige Website zu erstellen. Dies ist eine gängige Methode zur Erstellung einer Website — dieselbe Seitenstruktur wird auf jeder Seite verwendet und dasselbe Navigationsmenü enthält, sodass beim Klicken auf Links der Eindruck entsteht, dass Sie am selben Ort bleiben und unterschiedliche Inhalte angezeigt werden.
+Für diese Übung möchten wir, dass Sie einige Seiten mit einem Navigationsmenü verknüpfen, um eine mehrseitige Website zu erstellen. Dies ist eine übliche Methode zur Erstellung einer Website – dieselbe Seitenstruktur wird auf jeder Seite verwendet, einschließlich des gleichen Navigationsmenüs, sodass beim Klicken auf Links der Eindruck entsteht, dass Sie am selben Ort bleiben und unterschiedliche Inhalte angezeigt werden.
 
 Sie müssen lokale Kopien der folgenden vier Seiten erstellen, alle im selben Verzeichnis. Eine vollständige Dateiliste finden Sie im Verzeichnis [navigation-menu-start](https://github.com/mdn/learning-area/tree/main/html/introduction-to-html/navigation-menu-start):
 
@@ -407,41 +407,41 @@ Sie müssen lokale Kopien der folgenden vier Seiten erstellen, alle im selben Ve
 
 Sie sollten:
 
-1. Fügen Sie an der angegebenen Stelle auf einer Seite eine ungeordnete Liste ein, die die Namen der Seiten enthält, zu denen verlinkt werden soll.
+1. Fügen Sie eine ungeordnete Liste an der angegebenen Stelle auf einer Seite hinzu, die die Namen der Seiten enthält, auf die verlinkt werden soll.
    Ein Navigationsmenü ist normalerweise nur eine Liste von Links, daher ist dies semantisch in Ordnung.
-2. Wandeln Sie jeden Seitennamen in einen Link zu dieser Seite um.
+2. Verändern Sie jeden Seitennamen in einen Link zu dieser Seite.
 3. Kopieren Sie das Navigationsmenü auf jede Seite.
-4. Entfernen Sie auf jeder Seite nur den Link zu dieser Seite selbst — es ist verwirrend und unnötig, dass eine Seite einen Link auf sich selbst enthält.
-   Und das Fehlen eines Links gibt eine gute visuelle Erinnerung daran, auf welcher Seite Sie sich gerade befinden.
+4. Entfernen Sie auf jeder Seite nur den Link zu derselben Seite — es ist verwirrend und unnötig, wenn eine Seite einen Link zu sich selbst enthält.
+   Und das Fehlen eines Links dient als gute visuelle Erinnerung daran, auf welcher Seite Sie sich gerade befinden.
 
-Das fertige Beispiel sollte ähnlich wie die folgende Seite aussehen:
+Das fertige Beispiel sollte in etwa wie die folgende Seite aussehen:
 
-![Ein Beispiel für ein einfaches HTML-Navigationsmenü mit Home-, Bilder-, Projekte- und Social-Menüelementen](navigation-example.png)
+![Ein Beispiel für ein einfaches HTML-Navigationsmenü mit Home-, Bilder-, Projekte- und Sozial-Menüelementen](navigation-example.png)
 
 > [!NOTE]
-> Wenn Sie stecken bleiben oder nicht sicher sind, ob Sie es richtig haben, können Sie das [navigation-menu-marked-up](https://github.com/mdn/learning-area/tree/main/html/introduction-to-html/navigation-menu-marked-up)-Verzeichnis überprüfen, um die richtige Antwort zu sehen.
+> Wenn Sie sich festgefahren fühlen oder nicht sicher sind, ob Sie es richtig gemacht haben, können Sie das Verzeichnis [navigation-menu-marked-up](https://github.com/mdn/learning-area/tree/main/html/introduction-to-html/navigation-menu-marked-up) überprüfen, um die richtige Antwort zu sehen.
 
 ## E-Mail-Links
 
-Es ist möglich, Links oder Schaltflächen zu erstellen, die beim Klicken eine neue ausgehende E-Mail-Nachricht öffnen, anstatt zu einer Ressource oder Seite zu verlinken.
-Dies geschieht mit dem {{HTMLElement("a")}}-Element und dem `mailto:` URL-Schema.
+Es ist möglich, Links oder Schaltflächen zu erstellen, die beim Klicken eine neue ausgehende E-Mail-Nachricht öffnen, anstatt auf eine Ressource oder Seite zu verlinken.
+Dies wird mit dem {{HTMLElement("a")}}-Element und dem `mailto:` URL-Schema erreicht.
 
-In seiner einfachsten und am häufigsten verwendeten Form gibt ein `mailto:` Link die E-Mail-Adresse des vorgesehenen Empfängers an. Zum Beispiel:
+In seiner grundlegendsten und am häufigsten verwendeten Form gibt ein `mailto:`-Link die E-Mail-Adresse des beabsichtigten Empfängers an. Zum Beispiel:
 
 ```html
 <a href="mailto:nowhere@mozilla.org">Send email to nowhere</a>
 ```
 
-Dies ergibt einen Link, der so aussieht: [E-Mail an nirgendwo senden](mailto:nowhere@mozilla.org).
+Dies ergibt einen Link, der so aussieht: [E-Mail an nowhere senden](mailto:nowhere@mozilla.org).
 
-Tatsächlich ist die E-Mail-Adresse optional. Wenn Sie sie weglassen und Ihr [`href`](/de/docs/Web/HTML/Reference/Elements/a#href) "mailto:" ist, wird ein neues ausgehendes E-Mail-Fenster ohne Empfängeradresse vom E-Mail-Client des Benutzers geöffnet.
-Dies ist oft nützlich als „Teilen“-Links, auf die Benutzer klicken können, um eine E-Mail an eine Adresse ihrer Wahl zu senden.
+Tatsächlich ist die E-Mail-Adresse optional. Wenn Sie sie weglassen und Ihr [`href`](/de/docs/Web/HTML/Reference/Elements/a#href) "mailto:" ist, wird vom E-Mail-Client des Benutzers ein neues Fenster mit einer ausgehenden E-Mail geöffnet, ohne eine Empfängeradresse anzugeben.
+Dies ist oft nützlich als "Teilen"-Links, die Benutzer anklicken können, um eine E-Mail an eine Adresse ihrer Wahl zu senden.
 
 ### Details angeben
 
-Zusätzlich zur E-Mail-Adresse können Sie weitere Informationen bereitstellen. Tatsächlich können dem angegebenen `mailto` URL alle Standard-Mail-Header-Felder hinzugefügt werden.
-Die am häufigsten verwendeten davon sind "subject", "cc" und "body" (was kein echtes Header-Feld ist, aber es Ihnen ermöglicht, eine kurze Inhaltsnachricht für die neue E-Mail anzugeben).
-Jedes Feld und sein Wert werden als Abfrageschlüsselwort angegeben.
+Zusätzlich zur E-Mail-Adresse können Sie weitere Informationen angeben. Tatsächlich können alle Standard-Mail-Header-Felder zur `mailto`-URL hinzugefügt werden, die Sie bereitstellen.
+Die am häufigsten verwendeten dieser Felder sind "subject", "cc" und "body" (was kein echtes Header-Feld ist, aber es ermöglicht Ihnen, eine kurze Inhaltsnachricht für die neue E-Mail anzugeben).
+Jedes Feld und dessen Wert wird als Abfragebegriff angegeben.
 
 Hier ist ein Beispiel, das cc, bcc, subject und body enthält:
 
@@ -453,25 +453,21 @@ Hier ist ein Beispiel, das cc, bcc, subject und body enthält:
 ```
 
 > [!NOTE]
-> Die Werte jedes Feldes müssen URL-kodiert werden, mit nicht druckbaren Zeichen (unsichtbaren Zeichen wie Tabs, Wagenrückläufen und Seitenumbrüchen) und Leerzeichen {{Glossary("Percent-encoding", "prozent-codiert")}}.
-> Beachten Sie auch die Verwendung des Fragezeichens (`?`) zur Trennung der Haupt-URL von den Feldwerten und der kaufmännischen Und-Zeichen (&), um jedes Feld in der `mailto:` URL zu trennen.
-> Dies ist eine Standard-URL-Abfragenotation.
-> Lesen Sie [Die GET-Methode](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data#the_get_method), um zu verstehen, wofür die URL-Abfragenotation häufiger verwendet wird.
+> Die Werte jedes Feldes müssen mit nicht druckbaren Zeichen (unsichtbaren Zeichen wie Tabs, Wagenrückläufen und Seitenumbrüchen) und Leerzeichen {{Glossary("Percent-encoding", "percent-codiert")}} URL-kodiert werden.
+> Beachten Sie auch die Verwendung des Fragezeichens (`?`), um die Haupt-URL von den Feldwerten zu trennen, und der kaufmännischen Und-Zeichen (`&`), um jedes Feld in der `mailto:`-URL zu trennen.
+> Dies ist die Standard-URL-Abfragungssyntax.
+> Lesen Sie [Die GET-Methode](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data#the_get_method), um zu verstehen, wofür die URL-Abfragungssyntax häufiger verwendet wird.
 
-Hier sind einige weitere Beispiel-`mailto` URLs:
+Hier sind einige weitere Beispiel-`mailto`-URLs:
 
 - <mailto:>
 - <mailto:nowhere@mozilla.org>
 - <mailto:nowhere@mozilla.org,nobody@mozilla.org>
 - <mailto:nowhere@mozilla.org?cc=nobody@mozilla.org>
-- <mailto:nowhere@mozilla.org?cc=nobody@mozilla.org&subject=Das%20ist%20der%20Betreff>
-
-## Testen Sie Ihre Fähigkeiten!
-
-Sie haben das Ende dieses Artikels erreicht, können Sie sich jedoch an die wichtigsten Informationen erinnern? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen - siehe [Testen Sie Ihre Fähigkeiten: Links](/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Links).
+- <mailto:nowhere@mozilla.org?cc=nobody@mozilla.org&subject=This%20is%20the%20subject>
 
 ## Zusammenfassung
 
-Das war's vorerst mit Links! Sie werden später im Kurs zu Links zurückkehren, wenn Sie beginnen, sie zu stylen. Als Nächstes bei HTML werden Sie einige Herausforderungen durchlaufen, die Ihr Verständnis der bisher behandelten Themen testen.
+Das war's fürs Erste zu Links! Sie werden später im Kurs zu Links zurückkehren, wenn Sie anfangen, sich mit deren Stilgestaltung auseinanderzusetzen. Als Nächstes geben wir Ihnen einige Tests, mit denen Sie überprüfen können, wie gut Sie die bereitgestellten Informationen über Links verstanden und behalten haben.
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Advanced_text_features", "Learn_web_development/Core/Structuring_content/Marking_up_a_letter", "Learn_web_development/Core/Structuring_content")}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Advanced_HTML_text", "Learn_web_development/Core/Structuring_content/Test_your_skills/Links", "Learn_web_development/Core/Structuring_content")}}
