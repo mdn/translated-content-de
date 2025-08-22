@@ -2,10 +2,10 @@
 title: caret-color
 slug: Web/CSS/caret-color
 l10n:
-  sourceCommit: 7c98b5490c1c1a9e7b1cdf4d42cad5acc732d44f
+  sourceCommit: 7a146b52b4ba03be98075668d50490872c78fd12
 ---
 
-Die **`caret-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des **Einfüge-Carets** fest, das manchmal auch als **Texteingabecursor** bezeichnet wird. Dies ist der sichtbare Marker, der an der Einfügestelle erscheint, wo das nächste getippte Zeichen eingefügt oder das nächste gelöschte Zeichen entfernt wird.
+Die **`caret-color`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Farbe des **Einfügemarkers**, manchmal auch **Texteingabecursor** genannt. Dies ist der sichtbare Marker, der an der Einfügestelle erscheint, wo das nächste eingegebene Zeichen hinzugefügt oder das nächste zu löschende Zeichen entfernt wird.
 
 {{InteractiveExample("CSS Demo: caret-color")}}
 
@@ -61,36 +61,36 @@ caret-color: unset;
 ### Werte
 
 - `auto`
-  - : Löst sich im Allgemeinen zu [`currentColor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) auf, der {{cssxref("color")}} des Textes, der modifiziert wird.
+  - : Wird im Allgemeinen zu [`currentColor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) aufgelöst, der {{cssxref("color")}} des Textes, der bearbeitet wird.
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe des Carets.
+  - : Die Farbe des Cursors.
 
 ## Beschreibung
 
-Ein Einfüge-Caret ist ein sichtbares Zeichen der Position innerhalb von editierbarem Text – oder innerhalb eines Elements, das Texteingaben akzeptiert – an der der Benutzer Inhalt einfügen (oder löschen) wird. Das Caret ist typischerweise eine dünne vertikale Linie, die anzeigt, wo das Hinzufügen oder Löschen von Zeichen stattfinden wird. Es blinkt in der Regel (flackert an und aus), um besser sichtbar zu sein. Das Caret erscheint nur, wenn das editierbare Element den Fokus hat. Standardmäßig hat dieses Caret die Farbe des Textes. Die `caret-color`-Eigenschaft kann verwendet werden, um die Farbe dieses Carets auf etwas anderes als die `currentColor` zu setzen oder um ein gefärbtes Caret auf seinen Standardwert zurückzusetzen.
+Ein Einfügemarker ist ein sichtbarer Indikator für die Stelle innerhalb von bearbeitbarem Text — oder innerhalb eines Elements, das Texteingaben akzeptiert —, an der Inhalt vom Benutzer eingefügt (oder gelöscht) wird. Der Marker ist typischerweise eine dünne vertikale Linie, die anzeigt, wo das Hinzufügen oder Löschen von Zeichen erfolgen wird. Er blinkt generell (erscheint und verschwindet), sodass er auffälliger ist. Der Marker erscheint nur, wenn das bearbeitbare Element den Fokus hat. Standardmäßig hat dieser Marker die Farbe des Textes. Die Eigenschaft `caret-color` kann verwendet werden, um die Farbe dieses Markers auf etwas anderes als den `currentColor` zu setzen oder um einen farbigen Marker auf seine Standardeinstellung zurückzusetzen.
 
-Der `auto` Wert setzt das Einfüge-Caret auf `currentColor`, was die {{cssxref("color")}} des Textes ist, der hinzugefügt oder gelöscht wird. Benutzeragenten können eine andere Farbe wählen, um eine gute Sichtbarkeit und Kontrast mit dem umgebenden Inhalt zu gewährleisten, wobei die {{cssxref("color")}}, {{cssxref("background-color")}}, Schatten und andere Faktoren berücksichtigt werden. In der Praxis jedoch verwenden alle Browser die aktuelle Farbe standardmäßig, und wenn `caret-color` auf `auto` gesetzt ist. Sie können einen gültigen `<color>` Wert als Wert festlegen.
+Der Wert `auto` setzt den Einfügemarker auf `currentColor`, das ist die {{cssxref("color")}} des Textes, der hinzugefügt oder gelöscht wird. Benutzeragenten können eine andere Farbe wählen, um eine gute Sichtbarkeit und Kontrast zum umgebenden Inhalt sicherzustellen, wobei Faktoren wie die {{cssxref("color")}}, {{cssxref("background-color")}}, Schatten und andere berücksichtigt werden. In der Praxis verwenden jedoch alle Browser standardmäßig die aktuelle Farbe, auch wenn `caret-color` auf `auto` gesetzt ist. Sie können jeden gültigen `<color>`-Wert setzen.
 
-### Verständnis von Einfüge-Carets
+### Verständnis von Einfügemarkern
 
-Das Einfüge-Caret und damit diese Eigenschaft gelten nur für Text oder Elemente, die Texteingaben akzeptieren können. Das Caret erscheint in fokussierten Benutzeroberflächenelementen, in denen Benutzer Inhalte aktualisieren können, wie zum Beispiel {{HTMLElement("input")}} Elemente, die freien Text akzeptieren, das {{HTMLElement("textarea")}} Element und Elemente mit dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut gesetzt.
+Der Einfügemarker und somit diese Eigenschaft gelten nur für Text oder Elemente, die Texteingaben akzeptieren können. Der Marker erscheint in fokussierten Benutzerschnittstellenelementen, in denen Benutzer Inhalte aktualisieren können, wie {{HTMLElement("input")}}-Elemente, die freien Text akzeptieren, das {{HTMLElement("textarea")}}-Element und Elemente mit dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable)-Attribut.
 
-Das Caret kann in `<input>` Elementen der Typen `password`, `text`, `search`, `tel` und `email` erscheinen. Kein Caret existiert bei Datums-, `color`, `hidden`, `radio` oder `checkbox` Eingabetypen. Einige Browser zeigen ein Caret mit dem `number` Eingabetyp an. In einigen Browsern ist es möglich, ein Caret in Elementen erscheinen zu lassen, die nie Textinhalt haben – zum Beispiel, indem man [`appearance: none`](/de/docs/Web/CSS/appearance) setzt und das `contenteditable` Attribut hinzufügt. Dies wird jedoch nicht empfohlen.
+Der Marker kann in `<input>`-Elementen des Typs `password`, `text`, `search`, `tel` und `email` erscheinen. Bei Datums-, `color`-, `hidden`-, `radio`- oder `checkbox`-Eingabetypen existiert kein Marker. Einige Browser zeigen einen Marker mit dem Eingabetyp `number` an. Es ist in einigen Browsern möglich, einen Marker in Elementen erscheinen zu lassen, die niemals Textinhalte haben — zum Beispiel indem [`appearance: none`](/de/docs/Web/CSS/appearance) gesetzt und das `contenteditable`-Attribut hinzugefügt wird. Dies wird jedoch nicht empfohlen.
 
-Ein Caret kann in einem editierbaren Element oder dessen Nachkommen angezeigt werden, vorausgesetzt, die Editierbarkeit ist nicht deaktiviert, zum Beispiel, indem das `contentEditable` Attribut eines Nachkommens auf `false` gesetzt wird. Wenn ein Element nicht editierbar oder auswählbar ist, zum Beispiel wenn {{cssxref("user-select")}} auf `none` gesetzt ist, sollte das Caret nicht erscheinen.
+Ein Marker kann in einem bearbeitbaren Element oder dessen Nachkommen angezeigt werden, sofern die Bearbeitbarkeit nicht deaktiviert ist, zum Beispiel indem das `contentEditable`-Attribut eines Nachkommenelements auf `false` gesetzt wird. Wenn ein Element nicht bearbeitbar oder auswählbar ist, zum Beispiel wenn {{cssxref("user-select")}} auf `none` gesetzt ist, sollte der Marker nicht erscheinen.
 
-### Caret gegenüber Cursor
+### Marker versus Cursor
 
-Es gibt mehrere Arten von Carets. Das Einfüge-Caret ist der einzige Typ, der von der `caret-color` Eigenschaft betroffen ist.
+Es gibt verschiedene Arten von Markern. Der Einfügemarker ist der einzige Typ, der von der `caret-color` Eigenschaft betroffen ist.
 
-Viele Browser haben ein **Navigations-Caret**, das ähnlich wie ein Einfüge-Caret funktioniert, aber in nicht bearbeitbarem Text bewegt werden kann.
+Viele Browser haben einen **Navigationsmarker**, der ähnlich wie ein Einfügemarker funktioniert, jedoch in nicht bearbeitbarem Text verschoben werden kann.
 
-Das Maus-Cursor-Bild, das für bestimmte {{cssxref("cursor")}} Eigenschaftswerte angezeigt wird (zum Beispiel `auto` oder `text`), kann einem Caret ähneln, ist es aber nicht. Es ist ein Cursor.
+Das Mauszeigerbild, das für bestimmte Werte der {{cssxref("cursor")}} Eigenschaft angezeigt wird (zum Beispiel `auto` oder `text`), kann einem Marker ähneln, ist es aber nicht. Es handelt sich um einen Cursor.
 
 ### Animation von `auto`
 
-Im Allgemeinen, wenn die `caret-color` auf oder standardmäßig `auto` ist, verwenden Benutzeragenten `currentColor`, das animierbar ist. `auto` ist jedoch kein animierbarer Wert: Bei der Animation oder dem Übergang der `caret-color` von `auto` zu einem beliebigen Farbwert findet keine Interpolation statt. Die Animation ist [diskret](/de/docs/Web/CSS/CSS_animated_properties#discrete); die Farbe wechselt von oder zu `currentColor` in der Mitte der {{cssxref("animation-duration")}} oder {{cssxref("transition-duration")}}.
+Im Allgemeinen verwenden Benutzeragenten `currentColor`, wenn `caret-color` auf `auto` gesetzt ist oder dies der Standardwert ist, der animierbar ist. `auto` ist jedoch kein animierbarer Wert standardmäßig: Beim Animieren oder Übergehen der `caret-color` von `auto` zu einem beliebigen Farbwert findet keine Interpolation statt. Die Animation ist [diskret](/de/docs/Web/CSS/CSS_animated_properties#discrete); die Farbe wechselt von oder zu `currentColor` in der Mitte der {{cssxref("animation-duration")}} oder {{cssxref("transition-duration")}}.
 
 ## Formale Definition
 
@@ -102,7 +102,7 @@ Im Allgemeinen, wenn die `caret-color` auf oder standardmäßig `auto` ist, verw
 
 ## Beispiele
 
-### Eine benutzerdefinierte Caret-Farbe einstellen
+### Festlegung einer benutzerdefinierten Markierungsfarbe
 
 #### HTML
 
@@ -146,6 +146,7 @@ p.custom {
 
 ## Siehe auch
 
+- {{cssxref("caret-animation")}}
 - {{cssxref("color")}}
 - {{cssxref("text-emphasis")}}
 - {{cssxref("cursor")}}

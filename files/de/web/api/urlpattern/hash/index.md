@@ -3,12 +3,14 @@ title: "URLPattern: hash-Eigenschaft"
 short-title: hash
 slug: Web/API/URLPattern/hash
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 4535090888f24ac8394e177c27260d16a53631e6
 ---
 
 {{APIRef("URL Pattern API")}} {{AvailableInWorkers}}
 
-Die **`hash`**-Eigenschaft des [`URLPattern`](/de/docs/Web/API/URLPattern)-Interfaces ist eine schreibgeschützte Zeichenkette, die das Muster enthält, das verwendet wird, um den Fragmentteil einer URL zu matchen. Dieser Wert kann sich aufgrund von Normalisierung von der Eingabe im Konstruktor unterscheiden.
+Die **`hash`**-Eigenschaft der Schnittstelle [`URLPattern`](/de/docs/Web/API/URLPattern) ist eine schreibgeschützte Zeichenkette, die das [Muster](/de/docs/Web/API/URL_Pattern_API#pattern_syntax) enthält, das verwendet wird, um den Fragmentteil einer URL abzugleichen.
+
+Dies ist der [normalisierte Wert](/de/docs/Web/API/URL_Pattern_API#pattern_normalization) des Hash-Musters, das an den [Konstruktor](/de/docs/Web/API/URLPattern/URLPattern) übergeben wurde, ein [geerbter Wert von einer `baseURL`](/de/docs/Web/API/URLPattern/URLPattern#inheritance_from_a_baseurl), der an den Konstruktor übergeben wurde, oder der Standardwert (`"*"`), der jedes Hash-Muster abgleicht.
 
 ## Wert
 
@@ -16,11 +18,15 @@ Eine Zeichenkette.
 
 ## Beispiele
 
-Das untenstehende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `books/:id` für den `hash`-Teil. Dieses Muster matcht jedes Fragment, das mit `books/` beginnt und mit einem beliebigen Zeichenketten-Identifikator endet.
+### Grundlegende Verwendung
+
+Das folgende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `books/:id` für den `hash`-Teil und protokolliert die Eigenschaft.
+Dieses Muster gleicht jedes Fragment ab, das mit `books/` beginnt und mit einem beliebigen String-Bezeichner endet.
 
 ```js
 const pattern = new URLPattern("https://example.org#books/:id");
 console.log(pattern.hash); // 'books/:id'
+console.log(pattern.test("https://example.org#books/123")); // true
 ```
 
 ## Spezifikationen

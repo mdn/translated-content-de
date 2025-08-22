@@ -1,18 +1,18 @@
 ---
-title: "HTMLDialogElement: requestClose() Methode"
+title: "HTMLDialogElement: Methode requestClose()"
 short-title: requestClose()
 slug: Web/API/HTMLDialogElement/requestClose
 l10n:
-  sourceCommit: 8e757e03faacaf3ad764c2defb9dc203b3e3e687
+  sourceCommit: 48a1966f4fb3633ab40daa544bcb267a7794afb1
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`requestClose()`**-Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle fordert die Schließung des {{htmlelement("dialog")}} an. Ein optionaler String kann als Argument übergeben werden, um den `returnValue` des Dialogs zu aktualisieren.
+Die **`requestClose()`**-Methode des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces fordert das Schließen des {{htmlelement("dialog")}} an. Ein optionaler String kann als Argument übergeben werden, um den `returnValue` des Dialogs zu aktualisieren.
 
-Diese Methode unterscheidet sich von der [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode, da sie ein `cancel`-Ereignis auslöst, bevor das `close`-Ereignis ausgelöst wird. Autoren können [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) im Handler für das `cancel`-Ereignis aufrufen, um zu verhindern, dass der Dialog geschlossen wird.
+Diese Methode unterscheidet sich von der [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode, da sie ein [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis auslöst, bevor das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst wird. Autoren können [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) im Handler für das `cancel`-Ereignis aufrufen, um zu verhindern, dass der Dialog geschlossen wird.
 
-Diese Methode zeigt dasselbe Verhalten wie der interne Schließ-Wächter des Dialogs.
+Diese Methode zeigt das gleiche Verhalten wie der interne Schließ-Überwacher des Dialogs.
 
 ## Syntax
 
@@ -34,7 +34,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung von requestClose()
 
-Das folgende Beispiel zeigt einen einfachen Knopf, der beim Anklicken ein {{htmlelement("dialog")}} mit einem Formular öffnet, über die `showModal()`-Methode. Einmal geöffnet, können Sie auf die **X**-Schaltfläche klicken, um die Schließung des Dialogs anzufordern (über die `HTMLDialogElement.requestClose()`-Methode), oder das Formular über die **Bestätigen**-Schaltfläche absenden.
+Das folgende Beispiel zeigt einen einfachen Button, der, wenn er angeklickt wird, ein {{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode öffnet. Sobald es geöffnet ist, können Sie auf den **X**-Button klicken, um das Schließen des Dialogs anzufordern (über die `HTMLDialogElement.requestClose()`-Methode) oder das Formular über den **Bestätigen**-Button absenden.
 
 #### HTML
 
@@ -100,7 +100,7 @@ dialog.addEventListener("cancel", (event) => {
 });
 ```
 
-Wenn die "X"-Schaltfläche `type="submit"` wäre, würde der Dialog geschlossen, ohne dass JavaScript erforderlich wäre. Eine Formularübertragung schließt das `<dialog>`, in dem es eingebettet ist, wenn die [Methode des Formulars `dialog`](/de/docs/Web/HTML/Reference/Elements/form#method) ist, sodass keine "Schließen"-Schaltfläche erforderlich ist.
+Wenn der "X"-Button `type="submit"` hätte, würde der Dialog ohne JavaScript geschlossen werden. Eine Formularübertragung schließt das `<dialog>`, in dem es eingebettet ist, wenn [die Methode des Formulars `dialog`](/de/docs/Web/HTML/Reference/Elements/form#method) ist, sodass kein "Schließen"-Button erforderlich ist.
 
 #### Ergebnis
 
@@ -116,4 +116,4 @@ Wenn die "X"-Schaltfläche `type="submit"` wäre, würde der Dialog geschlossen,
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("dialog") }}.
+- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.
