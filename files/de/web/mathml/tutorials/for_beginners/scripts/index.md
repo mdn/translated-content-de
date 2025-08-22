@@ -1,14 +1,14 @@
 ---
-title: MathML skriptbasierte Elemente
-short-title: Skriptbasierte Elemente
+title: MathML-Skript-Elemente
+short-title: Scripted elements
 slug: Web/MathML/Tutorials/For_beginners/Scripts
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: f33de00c56ac53878eb2cb7cb5849df1f9ab8db7
 ---
 
 {{PreviousMenuNext("Web/MathML/Tutorials/For_beginners/Fractions_and_roots", "Web/MathML/Tutorials/For_beginners/Tables", "Web/MathML/Tutorials/For_beginners")}}
 
-Wir setzen die Überprüfung der grundlegenden mathematischen Notationen fort und konzentrieren uns auf den Aufbau von MathML-Elementen mit Skripten.
+Wir setzen die Übersicht der grundlegenden mathematischen Notationen fort und konzentrieren uns auf den Aufbau von MathML-Elementen mit Skripten.
 
 ## Tief- und Hochstellungen
 
@@ -50,23 +50,23 @@ Unten sehen Sie die Darstellung des obigen Beispiels in Ihrem Browser.
 
 {{ EmbedLiveSample('Subtrees_of_msub_msup_msubsup', 700, 200, "", "") }}
 
-Sie sollten bemerken, dass:
+Sie sollten bemerken:
 
-- Das zweite Kind des `<msub>`-Elements als Index zu seinem ersten Kind angefügt wird.
-- Das zweite Kind des `<msup>`-Elements als Hochstellung zu seinem ersten Kind angefügt wird.
-- Die zweiten und dritten Kinder des `<msubsup>`-Elements werden entsprechend als Index und Hochstellung zu seinem ersten Kind angefügt.
-- Der Text innerhalb der Skripte wird verkleinert.
+- Das zweite Kind des `<msub>`-Elements ist als Tiefstellung an sein erstes Kind angefügt.
+- Das zweite Kind des `<msup>`-Elements ist als Hochstellung an sein erstes Kind angefügt.
+- Die zweiten und dritten Kinder des `<msubsup>`-Elements sind als Tief- und Hochstellung an sein erstes Kind angefügt.
+- Der Text innerhalb von Skripten ist verkleinert.
 
 > [!NOTE]
-> Die MathML-Elemente `<msub>` und `<msup>` unterscheiden sich von den HTML-Elementen [`<sub>`](/de/docs/Web/HTML/Reference/Elements/sub) und [`<sup>`](/de/docs/Web/HTML/Reference/Elements/sup). Sie ermöglichen es den Autoren, beliebige MathML-Teilbäume als Skripte bereitzustellen, nicht nur Text.
+> Die MathML-Elemente `<msub>` und `<msup>` unterscheiden sich von den HTML-Elementen [`<sub>`](/de/docs/Web/HTML/Reference/Elements/sub) und [`<sup>`](/de/docs/Web/HTML/Reference/Elements/sup). Sie ermöglichen Autoren, beliebige MathML-Teilbäume als Skripte bereitzustellen, nicht nur Text.
 
 ## Unter- und Überschriften
 
-Die `<munder>`, `<mover>` und `<munderover>` Elemente sind sehr ähnlich, außer dass sie verwendet werden, um Unterschriften und Überschriften zu verknüpfen. Anstatt Details zu geben, lassen wir Sie ihre Definitionen selbst mit der folgenden Übung herausfinden.
+Die `<munder>`, `<mover>` und `<munderover>`-Elemente sind sehr ähnlich, außer dass sie verwendet werden, um Unterschriften und Überschriftungen anzufügen. Anstatt Details zu geben, lassen wir Sie ihre Definitionen selbst herausfinden mit der folgenden Übung.
 
-### Aktives Lernen: Erkennen von Unter-/Überschriften
+### Erkennen von Unter-/Überschriften
 
-Versuchen Sie im folgenden Beispiel, die Namen der mysteriösen Elemente (als Fragezeichen dargestellt) zu erraten und klicken Sie auf den Knopf, um die Lösung zu enthüllen:
+Versuchen Sie im folgenden Beispiel, die Namen der geheimnisvollen Elemente (als Fragezeichen geschrieben) zu erraten und klicken Sie auf die Schaltfläche, um die Lösung zu enthüllen:
 
 ```html hidden
 <p>
@@ -119,11 +119,11 @@ document.getElementById("showSolution").addEventListener("click", () => {
 });
 ```
 
-{{ EmbedLiveSample('Subtrees_of_munder_mover_munderover', 700, 400, "", "") }}
+{{ EmbedLiveSample('Recognizing under/over scripts', 700, 400, "", "") }}
 
-### Aktives Lernen: Erkennen von skriptbasierten Elementen
+### Erkennen von Skript-Elementen
 
-Die folgende MathML-Formel enthält einen komplexeren Ausdruck, der Brüche, Wurzeln und Skripte verschachtelt. Versuchen Sie, die Elemente zu erraten, die mit den skriptbasierten Elementen `<msub>`, `<msup>`, `<msubsup>`, `<munder>`, `<mover>`, `<munderover>` aufgebaut sind. Jedes Mal, wenn Sie auf ein solches Element klicken, wird es hervorgehoben und eine Bestätigungsmeldung angezeigt. Lesen Sie schließlich die MathML-Quelle, um zu überprüfen, ob dies Ihrer Erwartung entspricht.
+Die folgende MathML-Formel enthält einen komplexeren Ausdruck, der Brüche, Wurzeln und Skripte verschachtelt. Versuchen Sie, die Elemente zu erraten, die mit den Skript-Elementen `<msub>`, `<msup>`, `<msubsup>`, `<munder>`, `<mover>`, `<munderover>` ausgelegt sind. Jedes Mal, wenn Sie auf ein solches Element klicken, wird es hervorgehoben und eine Bestätigungsnachricht angezeigt. Lesen Sie schließlich die MathML-Quelle, um zu überprüfen, ob dies Ihrer Erwartung entspricht.
 
 ```html hidden
 <!doctype html>
@@ -229,15 +229,15 @@ document.getElementById("clearOutput").addEventListener("click", () => {
 });
 ```
 
-{{ EmbedLiveSample('Active_learning_recognize_scripted_elements', 700, 400, "", "") }}
+{{ EmbedLiveSample('Recognizing scripted elements', 700, 400, "", "") }}
 
-## Weitere Eigenschaften von Operatoren
+## Weitere Operator-Eigenschaften
 
-Wir haben zuvor einige [Eigenschaften des `<mo>`-Elements](/de/docs/Web/MathML/Tutorials/For_beginners/Text_containers#operator_properties_of_mo) gesehen, nämlich Dehnung in vertikaler Richtung und Abstand. Jetzt, da Skriptelemente verfügbar sind, können wir diese Liste erweitern. Wir werden dies tun, indem wir unser [vorheriges Beispiel](#active_learning_recognize_scripted_elements) anpassen.
+Wir haben zuvor einige [Eigenschaften des `<mo>`-Elements](/de/docs/Web/MathML/Tutorials/For_beginners/Text_containers#operator_properties_of_mo) gesehen, nämlich das Strecken in vertikaler Richtung und den Abstand. Da nun Skript-Elemente verfügbar sind, können wir diese Liste erweitern. Wir werden dies tun, indem wir unser [vorheriges Beispiel](#erkennen_von_skript-elementen) anpassen.
 
-### Dehnung in horizontaler Richtung
+### Strecken in horizontaler Richtung
 
-Nehmen wir zuerst die Substitutionen <math><mi>β</mi><mo>≔</mo><mrow><msub><mi>z</mi><mn>1</mn></msub><mo>+</mo><msub><mi>z</mi><mn>2</mn></msub></mrow><annotation encoding="TeX">\beta := z*{1} + z*{2}</annotation></math> und <math><mi>α</mi><mo>≔</mo><mrow><msub><mi>v</mi><mn>1</mn></msub><mo>+</mo><msub><mi>v</mi><mn>2</mn></msub></mrow><annotation encoding="TeX">\alpha := v*{1} + v*{2}</annotation></math> vor:
+Lassen Sie uns zunächst die Substitutionen <math><mi>β</mi><mo>≔</mo><mrow><msub><mi>z</mi><mn>1</mn></msub><mo>+</mo><msub><mi>z</mi><mn>2</mn></msub></mrow><annotation encoding="TeX">\beta := z*{1} + z*{2}</annotation></math> und <math><mi>α</mi><mo>≔</mo><mrow><msub><mi>v</mi><mn>1</mn></msub><mo>+</mo><msub><mi>v</mi><mn>2</mn></msub></mrow><annotation encoding="TeX">\alpha := v*{1} + v*{2}</annotation></math> durchführen:
 
 ```html hidden
 <!doctype html>
@@ -337,14 +337,14 @@ math {
 
 {{ EmbedLiveSample('Stretching_in_horizontal_direction', 700, 200, "", "") }}
 
-Wir erkennen nun, dass die untere Klammer "⎵" und der Pfeil nach rechts "→" horizontal gestreckt werden, um die Breite der substituierten Werte zu decken. Denken Sie daran, dass [einige vertikale Operatoren gedehnt werden können](/de/docs/Web/MathML/Tutorials/For_beginners/Text_containers#active_learning_stretchy_operators), um die Höhe der nicht gedehnten Geschwister innerhalb eines `<mrow>` abzudecken. Ebenso können einige horizontale Operatoren gedehnt werden, um die Breite der nicht gedehnten Geschwister in einem `<munder>`, `<mover>` oder `<munderover>`-Element abzudecken.
+Wir erkennen nun, dass die untere Klammer "⎵" und der Rechtspfeil "→" sich horizontal strecken, um die Breite der substituierten Werte abzudecken. Erinnern Sie sich daran, dass [einige vertikale Operatoren sich strecken können](/de/docs/Web/MathML/Tutorials/For_beginners/Text_containers#recognizing_stretchy_operators), um die Höhe nicht-streckbarer Geschwister innerhalb eines `<mrow>` abzudecken. Ähnlich können einige horizontale Operatoren sich strecken, um die Breite nicht-streckbarer Geschwister in einem `<munder>`, `<mover>` oder `<munderover>`-Element abzudecken.
 
 > [!NOTE]
-> Dehnung kann für jedes Kind des `<munder>`, `<mover>` oder `<munderover>`-Elements auftreten, nicht nur für die Unterschrift oder Überschrift.
+> Das Strecken kann für jedes Kind des `<munder>`, `<mover>` oder `<munderover>`-Elements geschehen, nicht nur für die Unterschrift oder Überschrift.
 
 ### Großer Operator und Grenzwerte
 
-Bisher wurde unser Beispiel tatsächlich mit dem Attribut [`display="block"`](/de/docs/Web/MathML/Tutorials/For_beginners/Getting_started#the_display_attribute) gerendert. Schauen wir uns dasselbe Beispiel an, wie es ohne dieses Attribut gerendert wird:
+Bisher wurde unser Beispiel tatsächlich mit dem Attribut [`display="block"`](/de/docs/Web/MathML/Tutorials/For_beginners/Getting_started#the_display_attribute) gerendert. Schauen wir das gleiche Beispiel an, wie es ohne dieses Attribut gerendert wird:
 
 ```html hidden
 <!doctype html>
@@ -444,17 +444,17 @@ math {
 
 {{ EmbedLiveSample('Large_operator_and_limits', 700, 200, "", "") }}
 
-Wie erwartet, ist die Formel nicht mehr zentriert und die Darstellung wurde so verändert, dass die Höhe minimiert wird. Konzentriert man sich auf das Summenzeichen, so kann man feststellen, dass das Sigma kleiner gezeichnet wird und dass die Skripte des `<munderover>`-Elements jetzt als Index und Hochstellung angefügt sind! Dies liegt an zwei Eigenschaften des „∑“-Operators:
+Wie erwartet, ist die Formel nicht mehr zentriert und die Darstellung wird geändert, um die Höhe zu minimieren. Blickt man auf das Summenzeichen, kann man feststellen, dass das Sigma kleiner gezeichnet ist und dass die Skripte des `<munderover>`-Elements jetzt als Tief- und Hochstellung angefügt sind! Dies liegt an zwei Eigenschaften des „∑“-Operators:
 
-- _largeop_: Der Operator wird mit einem größeren Glyph gezeichnet, wenn das `<math>`-Tag ein `display="block"`-Attribut hat.
-- _movablelimits_: Die an den Operator angefügten Unterschriften und Überschriften werden entsprechend als Index und Hochstellung gerendert, wenn das `<math>`-Tag nicht das `display="block"`-Attribut hat.
+- _largeop_: Der Operator wird mit einem größeren Glyph dargestellt, wenn das `<math>`-Tag ein `display="block"`-Attribut hat.
+- _movablelimits_: Die Unterschriften und Überschriften, die am Operator angehängt sind, werden als Tief- und Hochstellungen dargestellt, wenn das `<math>`-Tag nicht das `display="block"`-Attribut hat.
 
 > [!NOTE]
-> Die _largeop_-Eigenschaft hat tatsächlich keinen Bezug zu Skripten, obwohl Operatoren mit dieser Eigenschaft typischerweise geskriptet sind. Die _movablelimits_-Eigenschaft wird ebenfalls für `<munder>` und `<mover>`-Elemente berücksichtigt.
+> Die _largeop_-Eigenschaft ist eigentlich unabhängig von Skripten, obwohl Operatoren, die diese Eigenschaft haben, typischerweise geskriptet sind. Die _movablelimits_-Eigenschaft wird auch für `<munder>` und `<mover>`-Elemente berücksichtigt.
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir die grundlegende Layout-Übersicht abgeschlossen, indem wir die Elemente `<msub>`, `<msup>`, `<msubsup>`, `<munder>`, `<mover>`, `<munderover>` für Tiefstellungen, Hochstellungen, Unterschriften und Überschriften eingeführt haben. Mithilfe dieser Elemente konnten wir kurz neue Eigenschaften des `<mo>`-Elements vorstellen. Im nächsten Artikel werden wir uns weiterhin auf das [tabellarische Layout](/de/docs/Web/MathML/Tutorials/For_beginners/Tables) konzentrieren.
+In diesem Artikel haben wir die grundlegende Layout-Überprüfung abgeschlossen und die Elemente `<msub>`, `<msup>`, `<msubsup>`, `<munder>`, `<mover>`, `<munderover>` für Tiefstellungen, Hochstellungen, Unterschriften und Überschriften eingeführt. Mit diesen Elementen konnten wir kurz neue Eigenschaften des `<mo>`-Elements einführen. Im nächsten Artikel werden wir uns weiter auf das [tabellarische Layout](/de/docs/Web/MathML/Tutorials/For_beginners/Tables) konzentrieren.
 
 ## Siehe auch
 

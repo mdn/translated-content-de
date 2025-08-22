@@ -1,27 +1,28 @@
 ---
-title: Welche Texteditoren sind verfügbar?
+title: Welche Texteditoren stehen zur Verfügung?
 slug: Learn_web_development/Howto/Tools_and_setup/Available_text_editors
 l10n:
-  sourceCommit: 30c9f71e6a6cac4d894688cabf7e4b50af87cfe5
+  sourceCommit: f33de00c56ac53878eb2cb7cb5849df1f9ab8db7
 ---
 
-In diesem Artikel heben wir einige Aspekte hervor, die Sie bei der Installation eines Texteditors für die Webentwicklung berücksichtigen sollten.
+In diesem Artikel heben wir einige Überlegungen hervor, die Sie bei der Installation eines Texteditors für die Webentwicklung bedenken sollten.
 
 <table class="standard-table">
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Sie sollten bereits über verschiedene <a
+        Sie sollten bereits über <a
           href="/de/docs/Learn_web_development/Howto/Tools_and_setup/What_software_do_I_need"
         >
-          Softwaretools, die Sie zum Erstellen einer Website benötigen</a>, informiert sein.
+          verschiedene Software, die Sie für den Aufbau einer Website benötigen</a
+        >, Bescheid wissen.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Erfahren Sie, wie Sie einen Texteditor auswählen, der am besten zu Ihren Bedürfnissen als Webentwickler passt.
+        Lernen Sie, wie Sie einen Texteditor auswählen, der Ihren Bedürfnissen als Webentwickler am besten entspricht.
       </td>
     </tr>
   </tbody>
@@ -29,20 +30,20 @@ In diesem Artikel heben wir einige Aspekte hervor, die Sie bei der Installation 
 
 ## Zusammenfassung
 
-Eine Website besteht größtenteils aus Textdateien. Für ein angenehmes Entwicklererlebnis sollten Sie Ihren Texteditor daher weise wählen.
+Eine Website besteht hauptsächlich aus Textdateien, daher sollten Sie Ihren Texteditor für ein angenehmes Entwicklungserlebnis sorgfältig auswählen.
 
-Die Vielzahl an Möglichkeiten ist etwas überwältigend, da ein Texteditor ein grundlegendes Werkzeug der Informatik ist (ja, Webentwicklung gehört zur Informatik). Idealerweise probieren Sie so viele Editoren wie möglich aus und finden heraus, welcher am besten zu Ihrem Arbeitsablauf passt. Wir geben Ihnen einige Hinweise für den Einstieg.
+Die schiere Anzahl an Möglichkeiten kann überwältigend sein, da ein Texteditor so grundlegend für die Informatik ist (ja, Webentwicklung ist Informatik). Idealerweise würden Sie so viele Editoren wie möglich ausprobieren und ein Gefühl dafür bekommen, welcher am besten zu Ihrem Arbeitsablauf passt. Wir geben Ihnen jedoch einige Hinweise zum Einstieg.
 
-Hier sind die wichtigsten Fragen, die Sie berücksichtigen sollten:
+Hier sind die Hauptfragen, die Sie berücksichtigen sollten:
 
-- Mit welchem Betriebssystem (OS) möchte ich arbeiten?
-- Welche Technologien möchte ich bearbeiten?
-- Welche Grundfunktionen erwarte ich von meinem Texteditor?
-- Möchte ich zusätzliche Funktionen zu meinem Texteditor hinzufügen?
-- Benötige ich Unterstützung/Hilfe bei der Nutzung meines Texteditors?
-- Ist mir das Aussehen meines Texteditors wichtig?
+- Mit welchem Betriebssystem möchte ich arbeiten?
+- Welche Art von Technologien möchte ich bearbeiten?
+- Welche grundlegenden Funktionen erwarte ich von meinem Texteditor?
+- Möchte ich meinem Texteditor zusätzliche Funktionen hinzufügen?
+- Benötige ich Unterstützung/Hilfe bei der Verwendung meines Texteditors?
+- Ist mir das Aussehen und das Gefühl meines Texteditors wichtig?
 
-Beachten Sie, dass wir den Preis nicht erwähnt haben. Natürlich spielt das auch eine Rolle, aber die Kosten eines Produkts stehen oft nur wenig in Verbindung mit seiner Qualität oder Fähigkeit. Es besteht eine große Chance, dass Sie einen geeigneten Texteditor kostenlos finden.
+Beachten Sie, dass wir den Preis nicht erwähnt haben. Natürlich ist dieser auch wichtig, aber die Kosten eines Produkts haben wenig mit seiner Qualität oder Leistungsfähigkeit zu tun. Es ist sehr wahrscheinlich, dass Sie einen geeigneten Texteditor kostenlos finden.
 
 Hier sind einige beliebte Editoren:
 
@@ -53,7 +54,7 @@ Hier sind einige beliebte Editoren:
       <th scope="col">Lizenz</th>
       <th scope="col">Preis</th>
       <th scope="col">OS</th>
-      <th scope="col">Support</th>
+      <th scope="col">Unterstützung</th>
       <th scope="col">Dok.</th>
       <th scope="col">Erweiterbar</th>
     </tr>
@@ -125,7 +126,7 @@ Hier sind einige beliebte Editoren:
           href="https://mail.gnu.org/mailman/listinfo/help-gnu-emacs"
           rel="external"
           >Mailingliste</a
-        >, <a href="news://gnu.emacs.help" rel="external">Newsgroup</a>
+        >, <a href="news://gnu.emacs.help" rel="external">News-Gruppe</a>
       </td>
       <td>
         <a
@@ -141,7 +142,7 @@ Hier sind einige beliebte Editoren:
       <td>99 $</td>
       <td>Mac</td>
       <td>
-        <a href="mailto:hello@espressoapp.com">Email</a>
+        <a href="mailto:hello@espressoapp.com">E-Mail</a>
       </td>
       <td>
         <a href="https://help.espressoapp.com/">Online-Handbuch</a>
@@ -250,7 +251,7 @@ Hier sind einige beliebte Editoren:
         <a href="https://irc.com/?channels=textmate">IRC</a>,
         <a href="https://lists.macromates.com/postorius/lists/textmate.lists.macromates.com/" rel="external"
           >Mailingliste</a
-        >, <a href="mailto:tm-support@macromates.com">Email</a>
+        >, <a href="mailto:tm-support@macromates.com">E-Mail</a>
       </td>
       <td>
         <a href="https://macromates.com/manual/en/">Online-Handbuch</a>
@@ -293,7 +294,7 @@ Hier sind einige beliebte Editoren:
         <a
           href="https://vimdoc.sourceforge.net/htmldoc/uganda.html#license"
           rel="external"
-          >Spezifische Open-License</a
+          >Spezifische Open-Lizenz</a
         >
       </td>
       <td>Kostenlos</td>
@@ -317,8 +318,7 @@ Hier sind einige beliebte Editoren:
         <a href="https://code.visualstudio.com/download">Visual Studio Code</a>
       </td>
       <td>
-        <a href="https://github.com/microsoft/vscode">Open Source</a> unter MIT
-        Lizenz/ Spezifische Lizenz für das Produkt
+        <a href="https://github.com/microsoft/vscode">Open Source</a> unter MIT-Lizenz/ Spezifische Produktlizenz
       </td>
       <td>Kostenlos</td>
       <td>Windows, Mac, Linux</td>
@@ -331,65 +331,65 @@ Hier sind einige beliebte Editoren:
   </tbody>
 </table>
 
-## Aktives Lernen
+## Installation und Nutzung eines Texteditors
 
-In diesem Abschnitt zum aktiven Lernen möchten wir Sie dazu einladen, einen Texteditor Ihrer Wahl zu nutzen und/oder zu installieren. Ihr Computer hat möglicherweise bereits einen der oben genannten Editoren installiert (z. B. Gedit, wenn Sie GNOME-Desktop verwenden, Kate, wenn Sie KDE verwenden usw.). Andernfalls sollten Sie versuchen, einen oder mehrere Texteditoren Ihrer Wahl zu installieren.
+Wir möchten, dass Sie versuchen, einen Texteditor Ihrer Wahl zu verwenden und/oder zu installieren. Möglicherweise ist auf Ihrem Computer bereits einer der oben vorgeschlagenen Editoren installiert (z. B. Gedit, wenn Sie den GNOME-Desktop verwenden, Kate, wenn Sie KDE verwenden usw.), falls nicht, sollten Sie versuchen, einen oder mehrere Texteditoren Ihrer Wahl zu installieren.
 
-Versuchen Sie, die Einstellungen Ihres Editors zu durchforsten und lesen Sie das Handbuch oder die Dokumentation, um herauszufinden, welche Funktionen er bietet. Insbesondere (wenn möglich in Ihrem Editor) versuchen Sie:
+Versuchen Sie, in den Einstellungen Ihres Editors zu stöbern, und lesen Sie das Handbuch oder die Dokumentation, um zu sehen, welche Funktionen er bietet. Insbesondere (falls möglich in Ihrem Editor), versuchen Sie:
 
-- Syntax-Hervorhebungseinstellungen und Farben zu ändern
-- Mit der Einzugsbreite zu spielen und sie auf eine angemessene Einstellung für Ihre Bedürfnisse festzulegen
-- Zu prüfen, ob Auto-Save- und Sitzungs-Speicher-Einstellungen vorhanden sind
-- Verfügbare Plugins zu konfigurieren und zu untersuchen, wie man neue erhalten kann
+- Syntax-Hervorhebungseinstellungen und -farben zu ändern
+- Mit der [Einstellung des Einzugs](<https://en.wikipedia.org/wiki/Indentation_(typesetting)#Indentation_in_programming>) zu spielen und sie für Ihre Bedürfnisse anzupassen
+- Autosave- und Sitzungs-Speicherungseinstellungen zu überprüfen
+- Verfügbare [Plugins](<https://en.wikipedia.org/wiki/Plug-in_(computing)>) zu konfigurieren und zu untersuchen, wie Sie neue erhalten können
 - Farbschemata zu ändern
-- Anzeigeeinstellungen zu anpassen und zu sehen, wie Sie das Layout der Ansichten ändern können
-- Zu prüfen, welche Programmiersprachen/Technologien Ihr Editor unterstützt
+- Ansichtseinstellungen anzupassen und zu sehen, wie Sie das Layout der Ansichten ändern können
+- Zu überprüfen, welche Programmiersprachen/Technologien Ihr Editor unterstützt
 
-Auch wenn die Standardeinstellungen der meisten Texteditoren für die ersten Schritte ausreichend sind, ist es wichtig, dass Sie sich mit den von Ihnen gewählten Werkzeugen vertraut machen, damit Sie das beste für Ihre Nutzung auswählen können. Sie werden mehr über die Anpassung Ihrer Editoren und Tools lernen, wenn Sie mehr Erfahrung sammeln, und vor allem, welche Funktionen für Ihre Zwecke am nützlichsten sind.
+Während Sie lernen, sollten die Standardeinstellungen der meisten Texteditoren in Ordnung sein, aber es ist wichtig, sich mit den gewählten Tools vertraut zu machen, damit Sie das für Ihre Nutzung am besten geeignete auswählen können. Sie werden mehr über die Anpassung Ihrer Editoren und Tools erfahren, wenn Sie mehr Erfahrung sammeln, und noch wichtiger, Sie werden herausfinden, welche Funktionen für Ihre Zwecke nützlicher sind.
 
-## Vertiefung
+## Tiefer eintauchen
 
 ### Auswahlkriterien
 
-Was sollten Sie im Detail bedenken, wenn Sie einen Texteditor auswählen?
+Was sollten Sie also im Detail bedenken, wenn Sie einen Texteditor wählen?
 
-#### Mit welchem OS (Betriebssystem) möchte ich arbeiten?
+#### Mit welchem Betriebssystem möchte ich arbeiten?
 
-Natürlich ist es Ihre Wahl. Einige Editoren sind jedoch nur für bestimmte Betriebssysteme verfügbar. Wenn Sie gerne zwischen verschiedenen OS hin- und herwechseln, würde das die Möglichkeiten eingrenzen. Jeder Texteditor _kann_ die Arbeit erledigen, wenn er auf Ihrem System läuft, aber ein plattformübergreifender Editor erleichtert den Wechsel zwischen verschiedenen Betriebssystemen.
+Natürlich ist das Ihre Wahl. Einige Editoren sind jedoch nur für bestimmte Betriebssysteme verfügbar. Wenn Sie also gerne hin und her wechseln, würde dies die Möglichkeiten einschränken. Jeder Texteditor _kann_ die Arbeit erledigen, sofern er auf Ihrem System läuft, aber ein plattformübergreifender Editor erleichtert den Wechsel von einem Betriebssystem zum anderen.
 
-Finden Sie also zuerst heraus, welches OS Sie verwenden, und prüfen Sie dann, ob ein bestimmter Editor Ihr OS unterstützt. Die meisten Editoren geben auf ihrer Website an, ob sie Windows oder Mac unterstützen, obwohl einige Editoren nur bestimmte Versionen unterstützen. Wenn Sie Ubuntu verwenden, ist es am besten, innerhalb des Ubuntu Software Center zu suchen. Im Allgemeinen ist die Linux/UNIX-Welt ein ziemlich vielfältiger Ort, wo verschiedene Distributionen mit unterschiedlichen, inkompatiblen Paketsystemen arbeiten. Das bedeutet, dass wenn Sie sich für einen unbekannten Texteditor entschieden haben, Sie diesen möglicherweise selbst aus dem Quellcode kompilieren müssen (nichts für schwache Nerven).
+Finden Sie also zuerst heraus, welches Betriebssystem Sie verwenden, und überprüfen Sie dann, ob ein bestimmter Editor Ihr Betriebssystem unterstützt. Die meisten Editoren geben auf ihrer Website an, ob sie Windows oder Mac unterstützen, obwohl einige Editoren nur bestimmte Versionen unterstützen. Wenn Sie Ubuntu ausführen, ist Ihre beste Option, im Ubuntu Software Center zu suchen. Im Allgemeinen ist die Linux/UNIX-Welt ein recht vielfältiger Ort, an dem verschiedene Distributionen mit verschiedenen, inkompatiblen Paketsystemen arbeiten. Das bedeutet, wenn Sie Ihr Herz auf einen obskuren Texteditor gesetzt haben, müssen Sie ihn möglicherweise selbst aus dem Quellcode kompilieren (nichts für schwache Nerven).
 
-#### Welche Technologien möchte ich bearbeiten?
+#### Welche Art von Technologien möchte ich bearbeiten?
 
-Allgemein gesprochen kann jeder Texteditor jede Textdatei öffnen. Das funktioniert hervorragend, um Notizen für sich selbst zu schreiben, aber wenn Sie in der Webentwicklung mit {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und {{Glossary("JavaScript", "JavaScript")}} arbeiten, können Sie einige ziemlich große, komplexe Dateien erstellen. Erleichtern Sie sich die Arbeit, indem Sie einen Texteditor wählen, der die Technologien versteht, mit denen Sie arbeiten. Viele Texteditoren unterstützen Sie mit Funktionen wie:
+Im Allgemeinen kann jeder Texteditor jede Textdatei öffnen. Das funktioniert hervorragend, um sich selbst Notizen zu machen, aber wenn Sie Webentwicklung betreiben und in {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und {{Glossary("JavaScript", "JavaScript")}} schreiben, können Sie einige ziemlich große und komplexe Dateien produzieren. Machen Sie es sich einfacher, indem Sie einen Texteditor wählen, der die Technologien versteht, mit denen Sie arbeiten. Viele Texteditoren helfen Ihnen mit Funktionen wie:
 
-- **[Syntax-Hervorhebung](https://en.wikipedia.org/wiki/Syntax_highlighting).** Machen Sie Ihre Datei lesbarer, indem Sie Schlüsselwörter basierend auf der verwendeten Technologie farblich kennzeichnen.
-- **[Codevervollständigung](https://en.wikipedia.org/wiki/Autocomplete#In_source_code_editors).** Sparen Sie Zeit, indem Sie wiederkehrende Strukturen automatisch vervollständigen (zum Beispiel durch das automatische Schließen von HTML-Tags oder das Vorschlagen gültiger Werte für eine bestimmte CSS-Eigenschaft).
-- **[Code-Snippets](<https://en.wikipedia.org/wiki/Snippet_(programming)>).** Wie Sie beim Starten eines neuen HTML-Dokuments gesehen haben, verwenden viele Technologien immer wieder die gleiche Dokumentstruktur. Vermeiden Sie die Mühe, alles neu einzugeben, indem Sie ein Code-Snippet verwenden, um Ihr Dokument vorab zu füllen.
+- **[Syntax-Hervorhebung](https://en.wikipedia.org/wiki/Syntax_highlighting).** Machen Sie Ihre Datei besser lesbar, indem Sie Schlüsselwörter basierend auf der Technologie, die Sie verwenden, farbcodieren.
+- **[Codevervollständigung](https://en.wikipedia.org/wiki/Autocomplete#In_source_code_editors).** Sparen Sie Zeit, indem Sie wiederkehrende Strukturen automatisch vervollständigen (zum Beispiel automatisch HTML-Tags schließen oder gültige Werte für eine gegebene CSS-Eigenschaft vorschlagen).
+- **[Codeschnipsel](<https://en.wikipedia.org/wiki/Snippet_(programming)>).** Wie Sie beim Starten eines neuen HTML-Dokuments gesehen haben, verwenden viele Technologien immer wieder dieselbe Dokumentstruktur. Ersparen Sie sich den Aufwand, alles neu zu tippen, indem Sie einen Codeschnipsel verwenden, um Ihr Dokument vorzufüllen.
 
-Die meisten Texteditoren unterstützen jetzt Syntax-Hervorhebung, aber nicht unbedingt die anderen beiden Funktionen. Stellen Sie insbesondere sicher, dass Ihr Texteditor die Hervorhebung für {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und {{Glossary("JavaScript", "JavaScript")}} unterstützt.
+Die meisten Texteditoren unterstützen jetzt Syntax-Hervorhebung, aber nicht unbedingt die anderen beiden Funktionen. Stellen Sie besonders sicher, dass Ihr Texteditor Hervorhebung für {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und {{Glossary("JavaScript", "JavaScript")}} unterstützt.
 
-#### Welche Grundfunktionen erwarte ich von meinem Texteditor?
+#### Welche grundlegenden Funktionen erwarte ich von meinem Texteditor?
 
-Das hängt von Ihren Bedürfnissen und Plänen ab. Diese Funktionalitäten sind oft hilfreich:
+Das hängt von Ihren Bedürfnissen und Plänen ab. Diese Funktionen sind oft hilfreich:
 
-- Such-und-Ersetze, in einem oder mehreren Dokumenten, basierend auf {{Glossary("Regular_Expression", "regulären Ausdrücken")}} oder anderen Mustern nach Bedarf
-- Schnell zu einer bestimmten Zeile springen
-- Zwei Teile eines großen Dokuments separat anzeigen
-- HTML so anzeigen, wie es im Browser aussieht
+- Suchen-und-Ersetzen in einem oder mehreren Dokumenten basierend auf {{Glossary("Regular_Expression", "regulären Ausdrücken")}} oder anderen Mustern nach Bedarf
+- Schneller Sprung zu einer bestimmten Zeile
+- Zwei Teile eines großen Dokuments getrennt anzeigen
+- HTML anzeigen, wie es im Browser angezeigt wird
 - Text an mehreren Stellen gleichzeitig auswählen
-- Projektdateien und -verzeichnisse anzeigen
-- Ihren Code automatisch mit einem Code-Beautifier formatieren
-- Rechtschreibung prüfen
-- Code automatisch einrücken basierend auf Einzugseinstellungen
+- Dateien und Verzeichnisse Ihres Projekts anzeigen
+- Ihren Code automatisch mit einem Code-Schönheitsprogramm formatieren
+- Rechtschreibprüfung
+- Code automatisch basierend auf Einzugseinstellungen einrücken
 
-#### Möchte ich zusätzliche Funktionen zu meinem Texteditor hinzufügen?
+#### Möchte ich meinem Texteditor zusätzliche Funktionen hinzufügen?
 
-Ein erweiterbarer Editor kommt mit weniger eingebauten Funktionen, kann aber basierend auf Ihren Bedürfnissen erweitert werden.
+Ein erweiterbarer Editor kommt mit weniger integrierten Funktionen, kann aber basierend auf Ihren Bedürfnissen erweitert werden.
 
-Wenn Sie sich nicht sicher sind, welche Funktionen Sie möchten, oder Ihr Lieblingseditor diese Funktionen nicht von Haus aus bietet, suchen Sie nach einem erweiterbaren Editor. Die besten Editoren bieten viele Plugins und idealerweise eine Möglichkeit, automatisch nach neuen Plugins zu suchen und diese zu installieren.
+Wenn Sie sich nicht sicher sind, welche Funktionen Sie möchten oder Ihrem bevorzugten Editor diese Funktionen fehlen, suchen Sie nach einem erweiterbaren Editor. Die besten Editoren bieten viele Plugins und idealerweise eine Möglichkeit, nach neuen Plugins zu suchen und diese automatisch zu installieren.
 
-Wenn Sie _viele_ Funktionen mögen und Ihr Editor aufgrund all Ihrer Plugins langsamer wird, versuchen Sie ein [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) (integrierte Entwicklungsumgebung) zu verwenden. Ein IDE bietet viele Werkzeuge in einer Oberfläche und kann etwas überwältigend für Anfänger sein, ist aber immer eine Option, wenn sich Ihr Texteditor zu begrenzt anfühlt. Hier sind einige beliebte IDEs:
+Wenn Sie _viele_ Funktionen mögen und Ihr Editor verlangsamt, weil Sie alle Ihre Plugins verwenden, versuchen Sie, eine [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) (integrierte Entwicklungsumgebung) zu verwenden. Eine IDE bietet viele Werkzeuge in einer Oberfläche und kann für Anfänger einschüchternd sein, ist aber immer eine Option, wenn sich Ihr Texteditor zu begrenzt anfühlt. Hier sind einige beliebte IDEs:
 
 - [Aptana Studio](https://www.axway.com/en/aptana)
 - [Eclipse](https://www.eclipse.org/)
@@ -397,28 +397,28 @@ Wenn Sie _viele_ Funktionen mögen und Ihr Editor aufgrund all Ihrer Plugins lan
 - [Visual Studio](https://visualstudio.microsoft.com/)
 - [WebStorm](https://www.jetbrains.com/webstorm/)
 
-#### Benötige ich Unterstützung/Hilfe bei der Nutzung meines Texteditors?
+#### Benötige ich Unterstützung/Hilfe bei der Verwendung meines Texteditors?
 
-Es ist immer gut zu wissen, ob Sie bei der Verwendung von Software Hilfe erhalten können oder nicht. Bei Texteditoren achten Sie auf zwei verschiedene Arten von Unterstützung:
+Es ist immer gut zu wissen, ob Sie Hilfe erhalten können oder nicht, wenn Sie Software verwenden. Für Texteditoren prüfen Sie zwei verschiedene Arten von Unterstützung:
 
 1. Benutzerorientierte Inhalte (FAQ, Handbuch, Online-Hilfe)
 2. Diskussion mit Entwicklern und anderen Benutzern (Forum, E-Mail, IRC)
 
-Verwenden Sie die schriftliche Dokumentation, wenn Sie lernen, wie man den Editor benutzt. Kontaktieren Sie andere Benutzer, wenn Sie bei der Installation oder Benutzung des Editors Probleme haben.
+Verwenden Sie die schriftliche Dokumentation, wenn Sie lernen, wie man den Editor verwendet. Treten Sie in Kontakt mit anderen Benutzern, wenn Sie Probleme bei der Installation oder Verwendung des Editors haben.
 
-#### Ist mir das Aussehen meines Texteditors wichtig?
+#### Ist mir das Aussehen und das Gefühl meines Texteditors wichtig?
 
-Nun, das ist Geschmackssache, aber einige Menschen mögen es, jedes Detail der Benutzeroberfläche anzupassen, von den Farben bis zu den Positionen der Schaltflächen. Editoren variieren stark in ihrer Flexibilität, also prüfen Sie das im Voraus. Es ist nicht schwer, einen Texteditor zu finden, der das Farbschema ändern kann, aber wenn Sie viel anpassen möchten, sind Sie möglicherweise besser mit einem IDE aufgehoben.
+Nun, das ist eine Frage des Geschmacks, aber manche Leute mögen es, jedes Detail der Benutzeroberfläche (UI) anzupassen, von Farben bis zu den Positionen der Schaltflächen. Editoren variieren stark in Bezug auf Flexibilität, also überprüfen Sie das im Voraus. Es ist nicht schwer, einen Texteditor zu finden, der das Farbschema ändern kann, aber wenn Sie eine umfangreiche Anpassung wünschen, sind Sie möglicherweise mit einer IDE besser bedient.
 
 ### Installation und Einrichtung
 
-Die Installation eines Texteditors ist in der Regel recht unkompliziert. Die Methode variiert je nach Plattform, sollte aber nicht zu schwierig sein:
+Die Installation eines Texteditors ist in der Regel ziemlich einfach. Die Methode variiert je nach Plattform, sollte aber nicht zu schwierig sein:
 
-- **Windows.** Die Entwickler geben Ihnen ein `.exe` oder `.msi` Datei. Manchmal kommt die Software in einem komprimierten Archiv wie `.zip`, `.7z`, oder `.rar`, und in diesem Fall müssen Sie ein zusätzliches Programm installieren, um den Inhalt aus dem Archiv zu extrahieren. Windows unterstützt `.zip` standardmäßig.
-- **Mac.** Auf der Website des Editors können Sie eine `.dmg` Datei herunterladen. Einige Texteditoren finden Sie direkt im Apple Store, um die Installation noch einfacher zu machen.
-- **Linux.** In den beliebtesten Distributionen können Sie mit Ihrem grafischen Paketmanager beginnen (Ubuntu Software Center, mintInstall, GNOME Software, &c.). Oft finden Sie eine `.deb` oder `.rpm` Datei für vorverpackte Software, aber meistens müssen Sie den Repository-Server Ihrer Distribution verwenden oder im schlimmsten Fall Ihren Editor aus dem Quellcode kompilieren. Nehmen Sie sich die Zeit, die Installationsanweisungen auf der Website des Texteditors sorgfältig zu prüfen.
+- **Windows.** Die Entwickler stellen Ihnen eine `.exe` oder `.msi`-Datei zur Verfügung. Manchmal kommt die Software in einem komprimierten Archiv wie `.zip`, `.7z` oder `.rar`, und in diesem Fall müssen Sie ein zusätzliches Programm installieren, um den Inhalt aus dem Archiv zu extrahieren. Windows unterstützt `.zip` standardmäßig.
+- **Mac.** Auf der Website des Editors können Sie eine `.dmg`-Datei herunterladen. Einige Texteditoren können Sie direkt im Apple Store finden, um die Installation noch einfacher zu gestalten.
+- **Linux.** In den beliebtesten Distributionen können Sie mit Ihrem grafischen Paketmanager (Ubuntu Software Center, mintInstall, GNOME Software usw.) beginnen. Sie können oft eine `.deb`- oder `.rpm`-Datei für vorverpackte Software finden, aber die meiste Zeit müssen Sie den Repository-Server Ihrer Distribution verwenden oder, im schlimmsten Fall, Ihren Editor aus dem Quellcode kompilieren. Nehmen Sie sich die Zeit, die Installationsanleitungen auf der Website des Texteditors sorgfältig zu überprüfen.
 
-Wenn Sie einen neuen Texteditor installieren, wird Ihr Betriebssystem wahrscheinlich weiterhin Textdateien mit seinem Standardeditor öffnen, bis Sie die _[Dateizuordnung](https://en.wikipedia.org/wiki/File_association)_ ändern. Diese Anweisungen helfen Ihnen anzugeben, dass Ihr Betriebssystem Dateien in Ihrem bevorzugten Editor öffnen soll, wenn Sie darauf doppelklicken:
+Wenn Sie einen neuen Texteditor installieren, wird Ihr Betriebssystem wahrscheinlich weiterhin Textdateien mit seinem Standardeditor öffnen, bis Sie die _[Dateizuordnung](https://en.wikipedia.org/wiki/File_association)_ ändern. Diese Anweisungen helfen Ihnen, Ihrem Betriebssystem mitzuteilen, dass es Dateien in Ihrem bevorzugten Editor öffnen soll, wenn Sie sie doppelklicken:
 
 - [Windows](https://support.microsoft.com/en-us/windows)
 
@@ -431,4 +431,4 @@ Wenn Sie einen neuen Texteditor installieren, wird Ihr Betriebssystem wahrschein
 
 ## Nächste Schritte
 
-Nun, da Sie einen guten Texteditor haben, könnten Sie etwas Zeit darauf verwenden, [Ihre grundlegende Arbeitsumgebung einzurichten](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server), oder, wenn Sie gleich damit spielen möchten, [Ihre allererste Webseite schreiben](/de/docs/Learn_web_development/Getting_started/Your_first_website).
+Nun da Sie einen guten Texteditor haben, könnten Sie etwas Zeit damit verbringen, [Ihre grundlegende Arbeitsumgebung](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server) zu vervollständigen oder, wenn Sie gleich damit loslegen möchten, [Ihre allererste Webseite](/de/docs/Learn_web_development/Getting_started/Your_first_website) zu schreiben.

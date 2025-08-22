@@ -2,12 +2,13 @@
 title: Ihr erstes Formular
 slug: Learn_web_development/Extensions/Forms/Your_first_form
 l10n:
-  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
+  sourceCommit: f33de00c56ac53878eb2cb7cb5849df1f9ab8db7
 ---
 
 {{NextMenu("Learn_web_development/Extensions/Forms/How_to_structure_a_web_form", "Learn_web_development/Extensions/Forms")}}
 
-Der erste Artikel unserer Serie bietet Ihnen Ihre erste Erfahrung in der Erstellung eines Webformulars, einschließlich des Designs eines einfachen Formulars, der Implementierung mit den richtigen HTML-Formular-Steuerelementen und anderen HTML-Elementen, der Hinzufügung von sehr einfachem Styling über CSS und der Beschreibung, wie Daten an einen Server gesendet werden. Auf jeden dieser Teilaspekte werden wir später im Modul genauer eingehen.
+Der erste Artikel unserer Serie bietet Ihnen Ihre allererste Erfahrung mit der Erstellung eines Webformulars, einschließlich der Gestaltung eines einfachen Formulars, der Implementierung mit den richtigen HTML-Formularsteuerelementen und anderen HTML-Elementen, dem Hinzufügen von sehr einfachem Styling über CSS und der Beschreibung, wie Daten an einen Server gesendet werden.
+Wir werden später in diesem Modul auf jeden dieser Unterpunkte näher eingehen.
 
 <table>
   <tbody>
@@ -23,7 +24,7 @@ Der erste Artikel unserer Serie bietet Ihnen Ihre erste Erfahrung in der Erstell
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Vertrautheit mit dem, was Webformulare sind, wofür sie verwendet werden, wie man über deren Gestaltung nachdenken sollte, und den grundlegenden HTML-Elementen, die Sie für einfache Fälle benötigen.
+        Vertrautheit mit Webformularen zu erlangen, wofür sie verwendet werden, wie man über das Design nachdenkt und welche grundlegenden HTML-Elemente für einfache Fälle benötigt werden.
       </td>
     </tr>
   </tbody>
@@ -31,32 +32,35 @@ Der erste Artikel unserer Serie bietet Ihnen Ihre erste Erfahrung in der Erstell
 
 ## Was sind Webformulare?
 
-**Webformulare** sind einer der Hauptanlaufpunkte für die Interaktion zwischen einem Benutzer und einer Website oder Anwendung. Formulare ermöglichen es Benutzern, Daten einzugeben, die in der Regel an einen Webserver zur Verarbeitung und Speicherung gesendet werden (siehe [Senden von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data) später im Modul) oder auf der Client-Seite verwendet werden, um die Benutzeroberfläche sofort in irgendeiner Weise zu aktualisieren (zum Beispiel, um ein weiteres Element zu einer Liste hinzuzufügen oder eine UI-Funktion ein- oder auszublenden).
+**Webformulare** sind einer der wichtigsten Interaktionspunkte zwischen einem Benutzer und einer Website oder Anwendung.
+Formulare ermöglichen es Benutzern, Daten einzugeben, die in der Regel an einen Webserver zur Verarbeitung und Speicherung gesendet werden (siehe [Senden von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data) später im Modul) oder auf der Client-Seite genutzt werden können, um die Oberfläche sofort in gewisser Weise zu aktualisieren (zum Beispiel, um einen weiteren Eintrag zu einer Liste hinzuzufügen oder ein UI-Feature ein- oder auszublenden).
 
-HTML eines Webformulars besteht aus einem oder mehreren **Formular-Steuerelementen** (manchmal auch **Widgets** genannt) sowie einigen zusätzlichen Elementen, um das gesamte Formular zu strukturieren — sie werden oft als **HTML-Formulare** bezeichnet. Die Steuerelemente können einzeilige oder mehrzeilige Textfelder, Dropdown-Boxen, Schaltflächen, Kontrollkästchen oder Radio-Buttons sein und werden hauptsächlich mit dem {{htmlelement("input")}}-Tag erstellt, obwohl es auch einige andere Elemente zu lernen gibt.
+Das HTML eines Webformulars besteht aus einem oder mehreren **Formularsteuerelementen** (manchmal auch **Widgets** genannt) sowie einigen zusätzlichen Elementen, die beim Strukturieren des gesamten Formulars helfen — oft werden sie als **HTML-Formulare** bezeichnet.
+Die Steuerelemente können ein- oder mehrzeilige Textfelder, Dropdown-Boxen, Schaltflächen, Kontrollkästchen oder Optionsfelder sein und werden hauptsächlich mit dem {{htmlelement("input")}} Element erstellt, obwohl es auch einige andere Elemente gibt, die es zu lernen gilt.
 
-Formular-Steuerelemente können programmiert werden, um bestimmte Formate oder Werte zu erzwingen (**Formularvalidierung**) und sind mit Textetiketten gekoppelt, die ihren Zweck sowohl sehenden als auch sehbehinderten Benutzern beschreiben.
+Formularsteuerelemente können auch so programmiert werden, dass sie bestimmte Formate oder Werte erfordern (**Formularvalidierung**) und mit Textbeschriftungen gepaart werden, die ihren Zweck sowohl für sehende als auch sehbehinderte Benutzer beschreiben.
 
-## Entwerfen Ihres Formulars
+## Ihr Formular entwerfen
 
-Bevor Sie mit dem Codieren beginnen, ist es immer besser, einen Schritt zurückzutreten und sich die Zeit zu nehmen, über Ihr Formular nachzudenken. Das Entwerfen eines schnellen Entwurfs hilft Ihnen, den richtigen Satz von Daten zu definieren, den Sie von Ihrem Benutzer anfordern möchten. Aus Sicht der Benutzererfahrung (UX) ist es wichtig zu bedenken, dass je größer Ihr Formular ist, desto mehr riskieren Sie, Menschen zu frustrieren und Benutzer zu verlieren. Halten Sie es einfach und bleiben Sie fokussiert: Fragen Sie nur nach den Daten, die Sie unbedingt benötigen.
+Bevor Sie mit dem Programmieren beginnen, ist es immer besser, einen Schritt zurückzutreten und sich Zeit zu nehmen, um über Ihr Formular nachzudenken. Ein schnelles Mockup zu entwerfen, hilft Ihnen, den richtigen Satz an Daten zu definieren, den Sie von Ihren Benutzern anfordern möchten. Aus Sicht der Benutzererfahrung (UX) ist es wichtig, daran zu denken, dass je größer Ihr Formular ist, desto mehr riskieren Sie, Menschen zu frustrieren und Benutzer zu verlieren. Halten Sie es einfach und bleiben Sie fokussiert: Fragen Sie nur nach den Daten, die Sie unbedingt benötigen.
 
-Das Entwerfen von Formularen ist ein wichtiger Schritt beim Aufbau einer Website oder Anwendung. Es liegt außerhalb des Umfangs dieses Artikels, die Benutzererfahrung von Formularen abzudecken, aber wenn Sie sich in dieses Thema vertiefen möchten, sollten Sie die folgenden Artikel lesen:
+Das Entwerfen von Formularen ist ein wichtiger Schritt beim Erstellen einer Website oder Anwendung.
+Es liegt außerhalb des Umfangs dieses Artikels, die Benutzererfahrung von Formularen zu behandeln, aber wenn Sie tiefer in dieses Thema eintauchen möchten, sollten Sie die folgenden Artikel lesen:
 
-- Smashing Magazine hat einige [gute Artikel über Formular-UX](https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-1/), darunter einen älteren, aber immer noch relevanten [Umfangreichen Leitfaden zur Benutzerfreundlichkeit von Webformularen](https://www.smashingmagazine.com/2011/11/extensive-guide-web-form-usability/).
-- UXMatters ist ebenfalls eine sehr durchdachte Ressource mit guten Ratschlägen von [grundlegenden Best Practices](https://www.uxmatters.com/mt/archives/2012/05/7-basic-best-practices-for-buttons.php) bis hin zu komplexen Anliegen wie [mehrseitigen Formularen](https://www.uxmatters.com/mt/archives/2010/03/pagination-in-web-forms-evaluating-the-effectiveness-of-web-forms.php).
+- Smashing Magazine hat einige [gute Artikel über Formulare UX](https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-1/), einschließlich eines älteren aber immer noch relevanten Artikels [Extensive Guide To Web Form Usability](https://www.smashingmagazine.com/2011/11/extensive-guide-web-form-usability/).
+- UXMatters ist auch eine sehr durchdachte Ressource mit guten Ratschlägen von [grundlegenden Best Practices](https://www.uxmatters.com/mt/archives/2012/05/7-basic-best-practices-for-buttons.php) bis hin zu komplexen Anliegen wie [mehrseitigen Formularen](https://www.uxmatters.com/mt/archives/2010/03/pagination-in-web-forms-evaluating-the-effectiveness-of-web-forms.php).
 
-In diesem Artikel erstellen wir ein einfaches Kontaktformular. Lassen Sie uns eine grobe Skizze anfertigen.
+In diesem Artikel werden wir ein einfaches Kontaktformular erstellen. Lassen Sie uns eine grobe Skizze machen.
 
-![Das zu erstellende Formular, grob skizziert](form-sketch-low.jpg)
+![Das Formular, das erstellt werden soll, grobe Skizze](form-sketch-low.jpg)
 
-Unser Formular wird drei Textfelder und eine Schaltfläche enthalten. Wir fragen den Benutzer nach seinem Namen, seiner E-Mail-Adresse und der Nachricht, die er senden möchte. Durch Anklicken der Schaltfläche werden seine Daten an einen Webserver gesendet.
+Unser Formular wird drei Textfelder und einen Button enthalten. Wir fragen den Benutzer nach seinem Namen, seiner E-Mail und der Nachricht, die er senden möchte. Durch Klicken auf die Schaltfläche werden ihre Daten an einen Webserver gesendet.
 
-## Aktives Lernen: Umsetzung unseres Formular-HTMLs
+## Implementierung unseres Formular-HTML
 
-Ok, probieren wir die Erstellung des HTMLs für unser Formular aus. Wir werden die folgenden HTML-Elemente verwenden: {{HTMLelement("form")}}, {{HTMLelement("label")}}, {{HTMLelement("input")}}, {{HTMLelement("textarea")}}, und {{HTMLelement("button")}}.
+Ok, lassen Sie uns versuchen, das HTML für unser Formular zu erstellen. Wir werden die folgenden HTML-Elemente verwenden: {{HTMLelement("form")}}, {{HTMLelement("label")}}, {{HTMLelement("input")}}, {{HTMLelement("textarea")}}, und {{HTMLelement("button")}}.
 
-Bevor Sie weitermachen, machen Sie eine lokale Kopie unserer [einfachen HTML-Vorlage](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html) — Sie werden Ihr Formular-HTML hier eingeben.
+Bevor Sie weitermachen, erstellen Sie eine lokale Kopie unserer [einfachen HTML-Vorlage](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html) — Sie werden dort Ihr Formular-HTML eingeben.
 
 ### Das `<form>`-Element
 
@@ -66,25 +70,25 @@ Alle Formulare beginnen mit einem {{HTMLelement("form")}}-Element, wie diesem:
 <form action="/my-handling-form-page" method="post">…</form>
 ```
 
-Dieses Element definiert formal ein Formular. Es ist ein Container-Element wie ein {{HTMLelement("section")}}- oder {{HTMLelement("footer")}}-Element, aber speziell zum Enthalten von Formularen; es unterstützt auch einige spezifische Attribute, um das Verhalten des Formulars zu konfigurieren. Alle seine Attribute sind optional, aber es ist Standardpraxis, immer mindestens die Attribute [`action`](/de/docs/Web/HTML/Reference/Elements/form#action) und [`method`](/de/docs/Web/HTML/Reference/Elements/form#method) festzulegen:
+Dieses Element definiert formal ein Formular. Es ist ein Container-Element wie ein {{HTMLelement("section")}}- oder {{HTMLelement("footer")}}-Element, aber speziell für die Aufnahme von Formularen; es unterstützt auch einige spezifische Attribute, um das Verhalten des Formulars zu konfigurieren. Alle seine Attribute sind optional, aber es ist üblich, zumindest die Attribute [`action`](/de/docs/Web/HTML/Reference/Elements/form#action) und [`method`](/de/docs/Web/HTML/Reference/Elements/form#method) einzustellen:
 
-- Das `action`-Attribut definiert den Ort (URL), an den die gesammelten Daten des Formulars bei der Übermittlung gesendet werden sollen.
-- Das `method`-Attribut definiert, mit welcher HTTP-Methode die Daten gesendet werden sollen (üblicherweise `get` oder `post`).
+- Das `action`-Attribut definiert den Ort (URL), an den die gesammelten Daten des Formulars gesendet werden sollen, wenn sie abgeschickt werden.
+- Das `method`-Attribut definiert, mit welcher HTTP-Methode die Daten gesendet werden sollen (normalerweise `get` oder `post`).
 
 > [!NOTE]
 > Wir werden uns später in unserem Artikel [Senden von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data) ansehen, wie diese Attribute funktionieren.
 
-Fügen Sie nun das oben stehende {{htmlelement("form")}}-Element in Ihr HTML-{{htmlelement("body")}} ein.
+Fügen Sie nun das obige {{htmlelement("form")}}-Element in Ihr HTML {{htmlelement("body")}} ein.
 
-### Die `<label>`, `<input>` und `<textarea>`-Elemente
+### Die `<label>`, `<input>` und `<textarea>` Elemente
 
 Unser Kontaktformular ist nicht komplex: Der Dateneingabeteil enthält drei Textfelder, jedes mit einem entsprechenden {{HTMLelement("label")}}:
 
-- Das Eingabefeld für den Namen ist ein {{HTMLelement("input/text", "Einzeiliges Textfeld")}}.
-- Das Eingabefeld für die E-Mail ist ein {{HTMLelement("input/email", "Eingabe vom Typ E-Mail")}}: ein einzeiliges Textfeld, das nur E-Mail-Adressen akzeptiert.
+- Das Eingabefeld für den Namen ist ein {{HTMLelement("input/text", "einzeiliges Textfeld")}}.
+- Das Eingabefeld für die E-Mail ist ein {{HTMLelement("input/email", "Eingabefeld vom Typ Email")}}: ein einzeiliges Textfeld, das nur E-Mail-Adressen akzeptiert.
 - Das Eingabefeld für die Nachricht ist ein {{HTMLelement("textarea")}}; ein mehrzeiliges Textfeld.
 
-In Bezug auf HTML-Code benötigen wir etwas wie das Folgende, um diese Formular-Widgets zu implementieren:
+In Bezug auf HTML-Code benötigen wir etwas in der Art des Folgenden, um diese Formular-Widgets zu implementieren:
 
 ```html
 <form action="/my-handling-form-page" method="post">
@@ -103,24 +107,38 @@ In Bezug auf HTML-Code benötigen wir etwas wie das Folgende, um diese Formular-
 </form>
 ```
 
-Aktualisieren Sie Ihren Formularcode, sodass er wie der obenstehende aussieht.
+Aktualisieren Sie Ihren Formularcode, damit er wie das obige Beispiel aussieht.
 
-Die {{HTMLelement("p")}}-Elemente sind dazu da, unseren Code bequem zu strukturieren und das Styling zu erleichtern (siehe später im Artikel). Für Benutzerfreundlichkeit und Zugänglichkeit fügen wir ein explizites Label für jedes Formular-Steuerelement hinzu. Beachten Sie die Verwendung des [`for`](/de/docs/Web/HTML/Reference/Attributes/for)-Attributs auf allen {{HTMLelement("label")}}-Elementen, das als Wert die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) des zugehörigen Formular-Steuerelements nimmt — so ordnen Sie ein Formular-Steuerelement seinem Label zu.
+Die {{HTMLelement("p")}}-Elemente sind da, um unseren Code bequem zu strukturieren und das Styling einfacher zu gestalten (siehe später im Artikel).
+Für die Benutzerfreundlichkeit und Zugänglichkeit fügen wir jedem Formularsteuerelement ein explizites Label hinzu.
+Beachten Sie die Verwendung des [`for`](/de/docs/Web/HTML/Reference/Attributes/for)-Attributs auf allen {{HTMLelement("label")}}-Elementen, das als Wert die [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) des zugehörigen Formularsteuerelements nimmt — so wird ein Formularsteuerelement mit seinem Label verknüpft.
 
-Dies hat einen großen Vorteil — es verknüpft das Label mit dem Formular-Steuerelement, sodass Benutzer von Maus, Trackpad und Touch-Geräten auf das Label klicken können, um das entsprechende Steuerelement zu aktivieren, und es bietet auch einen zugänglichen Namen für Bildschirmleseprogramme, um ihren Benutzern vorzulesen. Weitere Details zu Formularlabels finden Sie in der [Anleitung zur Strukturierung eines Webformulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form).
+Es gibt großen Nutzen daraus — es verbindet das Label mit dem Formularsteuerelement, ermöglicht es Benutzern von Maus, Trackpad und Touch-Geräten, auf das Label zu klicken, um das entsprechende Steuerelement zu aktivieren, und bietet auch einen zugänglichen Namen, den Bildschirmlesegeräte für ihre Benutzer vorlesen können.
+Weitere Details zu Formularetiketten finden Sie in [How to structure a web form](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form).
 
-Beim {{HTMLelement("input")}}-Element ist das wichtigste Attribut das `type`-Attribut. Dieses Attribut ist äußerst wichtig, da es das Erscheinungsbild und Verhalten des {{HTMLelement("input")}}-Elements definiert. Dazu erfahren Sie mehr im späteren Artikel [Grundlegende native Formular-Steuerelemente](/de/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls).
+Beim {{HTMLelement("input")}}-Element ist das wichtigste Attribut das `type`-Attribut.
+Dieses Attribut ist äußerst wichtig, da es das Erscheinungsbild und das Verhalten des {{HTMLelement("input")}}-Elements definiert.
+Sie finden mehr darüber im Artikel [Basic native form controls](/de/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls) später.
 
-- In unserem einfachen Beispiel verwenden wir den Wert {{HTMLelement("input/text", "text")}} für die erste Eingabe — den Standardwert für dieses Attribut. Er stellt ein grundlegendes einzeiliges Textfeld dar, das jede Art von Texteingabe akzeptiert.
-- Für die zweite Eingabe verwenden wir den Wert {{HTMLelement("input/email", "email")}}, der ein einzeiliges Textfeld definiert, das nur eine gut formatierte E-Mail-Adresse akzeptiert. Dies verwandelt ein einfaches Textfeld in ein Art "intelligentes" Feld, das einige Validierungsprüfungen der vom Benutzer eingegebenen Daten durchführt. Auf Geräten mit dynamischen Tastaturen, wie Smartphones, erscheint auch eine passendere Tastaturanordnung zum Eingeben von E-Mail-Adressen (z. B. mit einem @-Zeichen standardmäßig). Mehr über Formularvalidierung erfahren Sie im späteren Artikel [Clientseitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation).
+- In unserem einfachen Beispiel verwenden wir den Wert {{HTMLelement("input/text", "text")}} für die erste Eingabe — den Standardwert für dieses Attribut.
+  Es stellt ein grundlegendes einzeiliges Textfeld dar, das jede Art von Texteingabe akzeptiert.
+- Für die zweite Eingabe verwenden wir den Wert {{HTMLelement("input/email", "email")}}, der ein einzeiliges Textfeld definiert, das nur eine korrekt formatierte E-Mail-Adresse akzeptiert.
+  Dies verwandelt ein grundlegendes Textfeld in eine Art "intelligentes" Feld, das einige Validierungsprüfungen an den vom Benutzer eingegebenen Daten durchführt.
+  Es bewirkt auch, dass ein passenderes Tastaturlayout für die Eingabe von E-Mail-Adressen (z.B. mit einem @-Symbol standardmäßig) auf Geräten mit dynamischen Tastaturen wie Smartphones erscheint.
+  Sie erfahren im Artikel [client-side form validation](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) später mehr über Formularvalidierung.
 
-Last but not least, beachten Sie die Syntax von `<input>` vs. `<textarea></textarea>`. Dies ist eine der Eigenheiten von HTML. Das `<input>`-Tag ist ein {{Glossary("void_element", "Void-Element")}}, was bedeutet, dass es keinen Schlusstag benötigt. {{HTMLElement("textarea")}} ist kein Void-Element, was bedeutet, dass es mit dem richtigen Endtag geschlossen werden sollte. Dies hat Auswirkungen auf eine spezifische Funktion von Formularen: die Art und Weise, wie Sie den Standardwert definieren. Um den Standardwert eines {{HTMLElement("input")}}-Elements zu definieren, müssen Sie das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut wie folgt verwenden:
+Zu guter Letzt beachten Sie die Syntax von `<input>` im Vergleich zu `<textarea></textarea>`.
+Dies ist eine der Eigenheiten von HTML.
+Das `<input>`-Tag ist ein {{Glossary("void_element", "void element")}}, was bedeutet, dass es keinen Schließtag benötigt.
+{{HTMLElement("textarea")}} ist kein void-Element, was bedeutet, dass es mit dem entsprechenden Schlusstag geschlossen werden muss.
+Dies hat Auswirkungen auf eine spezifische Funktion von Formularen: die Art und Weise, wie Sie den Standardwert definieren.
+Um den Standardwert eines {{HTMLElement("input")}}-Elements zu definieren, müssen Sie das [`value`](/de/docs/Web/HTML/Reference/Elements/input#value)-Attribut wie folgt verwenden:
 
 ```html
 <input type="text" value="by default this element is filled with this text" />
 ```
 
-Wenn Sie dagegen einen Standardwert für ein {{HTMLElement("textarea")}} definieren möchten, setzen Sie ihn zwischen die Öffnungs- und Schlusstag des {{HTMLElement("textarea")}}-Elements, wie folgt:
+Wenn Sie andererseits einen Standardwert für ein {{HTMLElement("textarea")}} definieren möchten, setzen Sie ihn zwischen die öffnenden und schließenden Tags des {{HTMLElement("textarea")}}-Elements, wie folgt:
 
 ```html
 <textarea>
@@ -130,7 +148,8 @@ by default this element is filled with this text
 
 ### Das `<button>`-Element
 
-Das Markup für unser Formular ist fast fertig; wir müssen nur noch eine Schaltfläche hinzufügen, mit der der Benutzer seine Daten senden oder "übermitteln" kann, sobald er das Formular ausgefüllt hat. Dies wird durch die Verwendung des {{HTMLelement("button")}}-Elements gemacht; fügen Sie das Folgende kurz vor dem schließenden `</form>`-Tag hinzu:
+Das Markup für unser Formular ist fast vollständig; wir müssen nur noch eine Schaltfläche hinzufügen, damit der Benutzer seine Daten senden oder "einreichen" kann, nachdem er das Formular ausgefüllt hat.
+Dies wird durch die Verwendung des {{HTMLelement("button")}}-Elements erledigt; fügen Sie das Folgende knapp über dem schließenden `</form>`-Tag hinzu:
 
 ```html
 <p class="button">
@@ -140,23 +159,23 @@ Das Markup für unser Formular ist fast fertig; wir müssen nur noch eine Schalt
 
 Das {{htmlelement("button")}}-Element akzeptiert auch ein `type`-Attribut — dieses akzeptiert einen von drei Werten: `submit`, `reset` oder `button`.
 
-- Ein Klick auf eine `submit`-Schaltfläche (der Standardwert) sendet die Formulardaten an die Webseite, die durch das `action`-Attribut des {{HTMLelement("form")}}-Elements definiert ist.
-- Ein Klick auf eine `reset`-Schaltfläche setzt alle Formular-Widgets sofort auf ihren Standardwert zurück. Aus UX-Sicht wird dies allgemein als schlechte Praxis angesehen, daher sollten Sie diese Art von Schaltfläche vermeiden, es sei denn, Sie haben wirklich einen guten Grund, eine hinzuzufügen.
-- Ein Klick auf eine `button`-Schaltfläche tut _nichts_! Das klingt albern, aber es ist unglaublich nützlich, um benutzerdefinierte Schaltflächen zu erstellen — Sie können ihre gewählte Funktionalität mit JavaScript definieren.
+- Ein Klick auf eine `submit`-Schaltfläche (der Standardwert) sendet die Daten des Formulars an die Webseite, die durch das `action`-Attribut des {{HTMLelement("form")}}-Elements definiert ist.
+- Ein Klick auf eine `reset`-Schaltfläche setzt alle Formular-Widgets sofort auf ihren Standardwert zurück. Aus Sicht der UX wird dies als schlechte Praxis angesehen, daher sollten Sie diese Art von Schaltfläche nur verwenden, wenn Sie wirklich einen guten Grund dafür haben.
+- Ein Klick auf eine `button`-Schaltfläche macht _nichts_! Das klingt albern, aber es ist erstaunlich nützlich zum Erstellen benutzerdefinierter Schaltflächen — Sie können ihre gewählte Funktionalität mit JavaScript definieren.
 
 > [!NOTE]
-> Sie können das {{HTMLElement("input")}}-Element auch mit dem entsprechenden `type` verwenden, um eine Schaltfläche zu erzeugen, z. B. `<input type="submit">`. Der Hauptvorteil des {{htmlelement("button")}}-Elements ist, dass das {{HTMLelement("input")}}-Element nur reinen Text in seinem Label erlaubt, während das {{htmlelement("button")}}-Element vollständigen HTML-Inhalt zulässt, was komplexeres, kreativeres Schaltflächen-Content ermöglicht.
+> Sie können das {{HTMLElement("input")}}-Element auch mit dem entsprechenden `type` verwenden, um eine Schaltfläche zu erzeugen, zum Beispiel `<input type="submit">`. Der Hauptvorteil des {{HTMLelement("button")}}-Elements besteht darin, dass das {{HTMLelement("input")}}-Element nur reinen Text in seinem Label zulässt, während das {{HTMLelement("button")}}-Element vollwertigen HTML-Inhalt akzeptiert und damit komplexere, kreativere Schaltflächeninhalte ermöglicht.
 
-## Grundlegendes Formularstyling
+## Grundlegendes Formulardesign
 
-Nachdem Sie den HTML-Code Ihres Formulars abgeschlossen haben, versuchen Sie, es zu speichern und in einem Browser zu betrachten. Im Moment werden Sie sehen, dass es ziemlich hässlich aussieht.
+Jetzt, da Sie das HTML-Code Ihres Formulars geschrieben haben, versuchen Sie, es zu speichern und in einem Browser anzusehen. Im Moment werden Sie sehen, dass es ziemlich hässlich aussieht.
 
 > [!NOTE]
-> Wenn Sie denken, dass Ihr HTML-Code nicht richtig ist, vergleichen Sie ihn mit unserem fertigen Beispiel — siehe [first-form.html](https://github.com/mdn/learning-area/blob/main/html/forms/your-first-HTML-form/first-form.html) ([auch live ansehen](https://mdn.github.io/learning-area/html/forms/your-first-HTML-form/first-form.html)).
+> Wenn Sie glauben, dass Ihr HTML-Code nicht richtig ist, vergleichen Sie ihn mit unserem fertigen Beispiel — siehe [first-form.html](https://github.com/mdn/learning-area/blob/main/html/forms/your-first-HTML-form/first-form.html) ([auch live ansehen](https://mdn.github.io/learning-area/html/forms/your-first-HTML-form/first-form.html)).
 
-Formulare sind notorisch schwer schön zu stylen. Es liegt außerhalb des Umfangs dieses Artikels, Ihnen detailliertes Formularstyling beizubringen, daher werden wir Sie im Moment nur dazu bringen, etwas CSS hinzuzufügen, damit es besser aussieht.
+Formulare sind notorisch schwer schön zu gestalten. Es ist außerhalb des Umfangs dieses Artikels, Ihnen das Formulardesign im Detail beizubringen, daher werden wir momentan nur einige CSS hinzufügen, damit es akzeptabel aussieht.
 
-Zunächst fügen Sie ein {{htmlelement("style")}}-Element zu Ihrer Seite hinzu, innerhalb des HTML-Kopfes. Es sollte so aussehen:
+Fügen Sie zuerst ein {{htmlelement("style")}}-Element zu Ihrer Seite hinzu, innerhalb des HTML-Kopfes. Es sollte so aussehen:
 
 ```html
 <style>
@@ -230,18 +249,22 @@ button {
 }
 ```
 
-Speichern und neu laden, und Sie werden sehen, dass Ihr Formular viel weniger hässlich aussehen sollte.
+Speichern und laden Sie die Seite neu, und Sie werden sehen, dass Ihr Formular deutlich weniger hässlich aussieht.
 
 > [!NOTE]
-> Unsere Version finden Sie auf GitHub unter [first-form-styled.html](https://github.com/mdn/learning-area/blob/main/html/forms/your-first-HTML-form/first-form-styled.html) ([auch live ansehen](https://mdn.github.io/learning-area/html/forms/your-first-HTML-form/first-form-styled.html)).
+> Sie finden unsere Version auf GitHub unter [first-form-styled.html](https://github.com/mdn/learning-area/blob/main/html/forms/your-first-HTML-form/first-form-styled.html) ([auch live ansehen](https://mdn.github.io/learning-area/html/forms/your-first-HTML-form/first-form-styled.html)).
 
-## Senden von Formulardaten an Ihren Webserver
+## Formulardaten an Ihren Webserver senden
 
-Der letzte Teil und vielleicht der kniffligste ist die Handhabung von Formulardaten auf der Serverseite. Das {{HTMLelement("form")}}-Element definiert, wohin und wie die Daten gesendet werden, dank der [`action`](/de/docs/Web/HTML/Reference/Elements/form#action)- und [`method`](/de/docs/Web/HTML/Reference/Elements/form#method)-Attribute.
+Der letzte Teil, und vielleicht der schwierigste, besteht darin, Formulardaten auf der Serverseite zu verarbeiten.
+Das {{HTMLelement("form")}}-Element definiert, wo und wie die Daten dank der Attribute [`action`](/de/docs/Web/HTML/Reference/Elements/form#action) und [`method`](/de/docs/Web/HTML/Reference/Elements/form#method) gesendet werden sollen.
 
-Wir stellen ein `name`-Attribut für jedes Formular-Steuerelement bereit. Die Namen sind sowohl client- als auch serverseitig wichtig; sie teilen dem Browser mit, welchen Namen er jedem Datenstück geben soll, und serverseitig lassen sie den Server jedes Datenstück nach Namen behandeln. Die Formulardaten werden als Name/Wert-Paare an den Server gesendet.
+Wir stellen jedem Formularsteuerelement ein `name`-Attribut zur Verfügung.
+Die Namen sind sowohl auf der Client- als auch auf der Serverseite wichtig; sie teilen dem Browser mit, welchen Namen jedes Datenstück erhält, und auf der Serverseite lassen sie den Server jedes Datenstück mit seinem Namen handhaben.
+Die Formulardaten werden als Name/Wert-Paare an den Server gesendet.
 
-Um die Daten in einem Formular zu benennen, müssen Sie das `name`-Attribut für jedes Formular-Widget verwenden, das ein bestimmtes Datenstück sammelt. Werfen wir erneut einen Blick auf einige unserer Formularcodes:
+Um die Daten in einem Formular zu benennen, müssen Sie das `name`-Attribut auf jedem Formular-Widget verwenden, das ein bestimmtes Datenstück sammelt.
+Schauen wir uns einige unserer Formularcodes noch einmal an:
 
 ```html
 <form action="/my-handling-form-page" method="post">
@@ -262,13 +285,17 @@ Um die Daten in einem Formular zu benennen, müssen Sie das `name`-Attribut für
 </form>
 ```
 
-In unserem Beispiel sendet das Formular 3 Datenstücke mit den Namen `user_name`, `user_email` und `user_message`. Diese Daten werden mit der [HTTP `POST`](/de/docs/Web/HTTP/Reference/Methods/POST)-Methode an die URL `/my-handling-form-page` gesendet.
+In unserem Beispiel sendet das Formular 3 Datenstücke namens `user_name`, `user_email` und `user_message`.
+Diese Daten werden mithilfe der [HTTP `POST`](/de/docs/Web/HTTP/Reference/Methods/POST)-Methode an die URL `/my-handling-form-page` gesendet.
 
-Serverseitig empfängt das Skript an der URL `/my-handling-form-page` die Daten als Liste von 3 Schlüssel/Wert-Paaren, die in der HTTP-Anfrage enthalten sind. Wie dieses Skript die Daten verarbeitet, bleibt Ihnen überlassen. Jede serverseitige Sprache (PHP, Python, Ruby, Java, C#, etc.) hat ihren eigenen Mechanismus zur Verarbeitung von Formulardaten. Es liegt außerhalb des Umfangs dieses Tutorials, tief in dieses Thema einzutauchen, aber wenn Sie mehr wissen möchten, haben wir einige Beispiele in unserem Artikel [Senden von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data) später bereitgestellt.
+Auf der Serverseite empfängt das Skript unter der URL `/my-handling-form-page` die Daten als Liste von 3 Schlüssel/Wert-Elementen, die in der HTTP-Anfrage enthalten sind.
+Die Art und Weise, wie dieses Skript die Daten verarbeiten wird, liegt bei Ihnen.
+Jede Serverseitige Sprache (PHP, Python, Ruby, Java, C#, etc.) hat ihren eigenen Mechanismus, um Formulardaten zu verarbeiten.
+Es liegt außerhalb des Umfangs dieses Tutorials, tief in dieses Thema einzusteigen, aber wenn Sie mehr wissen möchten, haben wir einige Beispiele in unserem Artikel [Senden von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data) später bereitgestellt.
 
 ## Zusammenfassung
 
-Herzlichen Glückwunsch, Sie haben Ihr erstes Webformular erstellt. Es sieht live so aus:
+Herzlichen Glückwunsch, Sie haben Ihr erstes Webformular erstellt. So sieht es live aus:
 
 ```html hidden
 <form action="/my-handling-form-page" method="post">
@@ -364,6 +391,6 @@ button {
 
 {{ EmbedLiveSample('Summary', '', '300') }}
 
-Das ist jedoch nur der Anfang — jetzt ist es an der Zeit, einen genaueren Blick darauf zu werfen. Formulare haben weit mehr Möglichkeiten als das, was wir hier gesehen haben, und die anderen Artikel in diesem Modul werden Ihnen helfen, den Rest zu meistern.
+Das ist jedoch erst der Anfang — jetzt ist es an der Zeit, einen tieferen Blick zu werfen. Formulare haben weitaus mehr Möglichkeiten, als wir hier gesehen haben, und die anderen Artikel in diesem Modul helfen Ihnen, den Rest zu meistern.
 
 {{NextMenu("Learn_web_development/Extensions/Forms/How_to_structure_a_web_form", "Learn_web_development/Extensions/Forms")}}
