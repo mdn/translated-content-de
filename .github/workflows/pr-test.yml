@@ -30,10 +30,15 @@ jobs:
       BUILD_OUT_ROOT: /tmp/build
 
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout (translated-content-de)
+        uses: actions/checkout@v5
+        with:
+          repository: mdn/translated-content-de
+          path: mdn/translated-content-de
 
       - name: Get changed files
         id: check
+        working-directory: mdn/translated-content-de
         run: |
           # Use the GitHub API to get the list of changed files
           DIFF_DOCUMENTS=$(gh api repos/{owner}/{repo}/compare/${BASE_SHA}...${HEAD_SHA} \
@@ -77,17 +82,38 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/checkout@v5
+      - name: Checkout (content)
+        uses: actions/checkout@v5
         if: steps.check.outputs.HAS_FILES == 'true'
         with:
           repository: mdn/content
           path: mdn/content
 
+      - name: Checkout (translated-content)
+        uses: actions/checkout@v5
+        if: steps.check.outputs.HAS_FILES == 'true'
+        with:
+          repository: mdn/translated-content
+          path: mdn/translated-content
+
+      - name: Move de into translated-content
+        if: steps.check.outputs.HAS_FILES == 'true'
+        run: |
+          mv mdn/translated-content-de/files/de mdn/translated-content/files/
+          rm -rf mdn/translated-content-de
+
+      - name: Clean and commit de
+        if: steps.check.outputs.HAS_FILES == 'true'
+        working-directory: mdn/translated-content
+        run: |
+          git add files/de
+          git -c user.name='MDN' -c user.email='mdn-dev@mozilla.com' commit -m 'de'
+
       - name: Setup Node.js environment
         if: steps.check.outputs.HAS_FILES == 'true'
         uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
+          node-version-file: "mdn/content/.nvmrc"
           cache: yarn
           cache-dependency-path: mdn/content/yarn.lock
 
@@ -103,8 +129,14 @@ jobs:
         id: build-content
         if: steps.check.outputs.HAS_MD_FILES == 'true'
         env:
+          GIT_DIFF_CONTENT: ${{ steps.check.outputs.GIT_DIFF_CONTENT }}
+
+          # Used by the `rari` cli to avoid rate limiting issues
+          # when fetching the latest releases info from the GitHub API.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
           CONTENT_ROOT: ${{ github.workspace }}/mdn/content/files
-          CONTENT_TRANSLATED_ROOT: ${{ github.workspace }}/files
+          CONTENT_TRANSLATED_ROOT: ${{ github.workspace }}/mdn/translated-content/files
 
           # This is so that if there's a single 'unsafe_html' flaw, it
           # completely fails the build.
@@ -131,24 +163,33 @@ jobs:
           # Playground
           REACT_APP_PLAYGROUND_BASE_HOST: mdnyalp.dev
 
+          # rari
+          LIVE_SAMPLES_BASE_URL: https://live.mdnyalp.dev
+          INTERACTIVE_EXAMPLES_BASE_URL: https://interactive-examples.mdn.allizom.ne
+          ADDITIONAL_LOCALES_FOR_GENERICS_AND_SPAS: de
         working-directory: ${{ github.workspace }}/mdn/content
         run: |
-          mkdir -p ${BUILD_OUT_ROOT}
+          mkdir -p $BUILD_OUT_ROOT
+
+          # The reason this script isn't in `package.json` is because
+          # you don't need that script as a writer. It's only used in CI
+          # and it can't use the default CONTENT_ROOT that gets set in
+          # package.json.
 
           # Read into array, one filename per line
           readarray -t files_to_build <<< "$GIT_DIFF_CONTENT"
 
           ARGS=()
           for file in "${files_to_build[@]}"; do
-            ARGS+=("-f" "$PWD/$file")
+              file_without_prefix="${file#files/}"
+              ARGS+=("-f" "$CONTENT_TRANSLATED_ROOT/$file_without_prefix")
           done
 
-          # Don't use `yarn build` (from mdn/content) because that one hardcodes
-          # the BUILD_OUT_ROOT and CONTENT_ROOT env vars.
-          node node_modules/@mdn/yari/build/cli.js "${files_to_build[@]}"
+          yarn rari build --no-basic --json-issues --data-issues "${ARGS[@]}"
+          yarn yari-render-html
 
-          echo "Disk usage size of build"
-          du -sh ${BUILD_OUT_ROOT}
+          echo "Disk usage size of the build"
+          du -sh $BUILD_OUT_ROOT
 
           # Save the PR number into the build
           echo ${{ github.event.number }} > ${BUILD_OUT_ROOT}/NR
@@ -163,7 +204,7 @@ jobs:
         if: steps.check.outputs.HAS_MD_FILES == 'true'
         run: |
           # Exclude the .map files, as they're used for debugging JS and CSS.
-          rsync -a --exclude "*.map" ${{ github.workspace }}/mdn/content/node_modules/@mdn/yari/client/build/ ${BUILD_OUT_ROOT}
+          rsync -a --exclude "*.map" "${{ github.workspace }}/mdn/content/node_modules/@mdn/yari/client/build/" ${BUILD_OUT_ROOT}
           # Show the final disk usage size of the build.
           du -sh ${BUILD_OUT_ROOT}
 
