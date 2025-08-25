@@ -246,7 +246,7 @@ Dieses Beispiel erweitert die [grundlegende Tabelle](#grundlegende_tabelle), erw
 
 #### HTML
 
-Die Tabelle umfasst jetzt vier Zeilen ({{HTMLElement("tr")}}-Elemente), mit jeweils vier Spalten. Die erste Zeile ist eine Zeile von Kopfzellen (die erste Zeile enthält nur {{HTMLElement("th")}}-Elemente). Nachfolgende Zeilen enthalten eine Kopfspalte ({{HTMLElement("th")}}-Elemente als erstes Kindelement jeder Zeile) und drei Datenspalten ({{HTMLElement("td")}}-Elemente). Da keine Tabellenselektionselemente verwendet werden, definiert der Browser automatisch die Struktur der Inhaltsgruppe, d. h. alle Zeilen sind im Hauptteil der Tabelle eines impliziten {{HTMLElement("tbody")}}-Elements eingebettet.
+Die Tabelle umfasst jetzt vier Zeilen ({{HTMLElement("tr")}}-Elemente), mit jeweils vier Spalten. Die erste Zeile ist eine Zeile von Kopfzellen (die erste Zeile enthält nur {{HTMLElement("th")}}-Elemente). Nachfolgende Zeilen enthalten eine Kopfspalte ({{HTMLElement("th")}}-Elemente als erstes Kindelement jeder Zeile) und drei Datenspalten ({{HTMLElement("td")}}-Elemente). Da keine Tabellenselektionselemente verwendet werden, definiert der Browser automatisch die Struktur der Inhaltsgruppe, d.h. alle Zeilen sind im Hauptteil der Tabelle eines impliziten {{HTMLElement("tbody")}}-Elements eingebettet.
 
 ```html
 <table>
