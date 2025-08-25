@@ -2,14 +2,13 @@
 title: Tutorials
 slug: Web/Progressive_web_apps/Tutorials
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 81715a83bdb5d71cdceaf32d1e40a3edfc986a12
 ---
 
-Diese Seite listet Tutorials auf, um beim Erlernen der Entwicklung von PWAs zu helfen. Tutorials führen Schritt für Schritt durch die Erstellung einer App, von Anfang bis Ende, und erklären, wie die verschiedenen Funktionen der App implementiert werden.
+Diese Seite listet Tutorials auf, um Ihnen zu helfen, zu lernen, wie man PWAs entwickelt. Tutorials führen Sie durch die Schritte zur Erstellung einer App von Anfang bis Ende und erklären, wie die verschiedenen Funktionen der App implementiert werden.
 
-- [Erstellen Ihrer ersten PWA](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker)
+- [Erstellen Sie Ihre erste PWA](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker)
+  - : Dieses Tutorial auf Anfängerniveau führt durch die Erstellung einer PWA zur Verfolgung des Menstruationszyklus. Die Lektionen umfassen eine Einführung in das HTML, CSS und JavaScript, die erforderlich sind, um eine voll funktionsfähige Web-App zu erstellen, das Einrichten einer Testumgebung und vollständige Erklärungen, die den Lernenden durch die Aufrüstung der Web-App zu einer PWA leiten; einschließlich der Entwicklung und Überprüfung eines Manifests, dem Hinzufügen eines Service Workers und der Verwendung des Service Workers zum Löschen veralteter Caches.
 
-  - : Dieses Tutorial auf Anfängerniveau führt durch die Erstellung einer PWA zur Verfolgung von Menstruationszyklen. Die Lektionen beinhalten eine Durchsicht des HTML, CSS und JavaScript, die erforderlich sind, um eine voll funktionsfähige Web-App zu erstellen, das Einrichten einer Testumgebung und vollständige Erklärungen, die den Lernenden durch die Aufwertung der Web-App zu einer PWA führen; einschließlich der Entwicklung und Überprüfung eines Manifests, dem Hinzufügen eines Service Workers und der Verwendung des Service Workers zum Löschen veralteter Caches.
-
-- [Tiefergehendes Verständnis von PWA](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames)
-  - : Dieses Tutorial auf mittlerem Niveau führt durch die Erstellung einer PWA, die Informationen über Spiele auflistet, die für die Kategorie A-Frame beim [js13kGames 2017](https://2017.js13kgames.com/) Wettbewerb eingereicht wurden. Dieses Tutorial enthält alle Grundlagen zur Erstellung einer PWA sowie zusätzliche Funktionen, einschließlich Benachrichtigungen, Push und App-Leistung.
+- [Tiefer Einblick in PWA](/de/docs/Web/Progressive_web_apps/Tutorials/js13kGames)
+  - : Dieses Tutorial auf mittlerem Niveau führt durch die Erstellung einer PWA, die Informationen über Spiele auflistet, die in der A-Frame-Kategorie des [js13kGames 2017](https://js13kgames.com/2017/) Wettbewerbs eingereicht wurden. Dieses Tutorial beinhaltet alle Grundlagen zur Erstellung einer PWA sowie zusätzliche Funktionen, einschließlich Benachrichtigungen, Push und App-Performance.
