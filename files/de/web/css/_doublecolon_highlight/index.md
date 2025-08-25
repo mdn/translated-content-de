@@ -2,14 +2,16 @@
 title: ::highlight()
 slug: Web/CSS/::highlight
 l10n:
-  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
+  sourceCommit: 37482c6bb0894d047a225c24f102352f89788523
 ---
 
-Das **`::highlight()`** CSS [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf einen benutzerdefinierten Highlight an.
+Das **`::highlight()`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf ein benutzerdefiniertes Highlight an.
 
-Ein benutzerdefinierter Highlight ist eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten und wird auf einer Webseite mit dem [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert.
+Ein benutzerdefiniertes Highlight ist eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten und wird auf einer Webseite unter Verwendung des [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert.
 
-## Zulässige Eigenschaften
+Das `::highlight()` Pseudoelement folgt einem speziellen Vererbungsmodell, das allen Highlight-Pseudoelementen gemeinsam ist. Weitere Details zur Funktionsweise dieser Vererbung finden Sie im Abschnitt [Highlight-Pseudoelemente Vererbung](/de/docs/Web/CSS/Pseudo-elements#highlight_pseudo-elements_inheritance).
+
+## Erlaubte Eigenschaften
 
 Nur bestimmte CSS-Eigenschaften können mit `::highlight()` verwendet werden:
 
@@ -29,7 +31,7 @@ Insbesondere wird {{CSSxRef("background-image")}} ignoriert.
 
 ## Beispiele
 
-### Zeichen hervorheben
+### Hervorhebung von Zeichen
 
 #### HTML
 
@@ -123,6 +125,6 @@ for (let i = 0; i < textNode.textContent.length; i++) {
 
 ## Siehe auch
 
-- [CSS custom highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API) Modul
-- [CSS custom highlight](/de/docs/Web/API/CSS_Custom_Highlight_API) API
-- [CSS pseudo-elements](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
+- [CSS Custom Highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API) Modul
+- [CSS Custom Highlight](/de/docs/Web/API/CSS_Custom_Highlight_API) API
+- [CSS-Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul

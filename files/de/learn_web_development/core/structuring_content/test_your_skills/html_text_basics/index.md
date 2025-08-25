@@ -1,21 +1,21 @@
 ---
-title: "Testen Sie Ihr Können: HTML-Text-Grundlagen"
-short-title: "Test: HTML-Text-Grundlagen"
+title: "Testen Sie Ihre Fähigkeiten: Grundlagen von HTML-Text"
+short-title: "Test: Grundlagen von HTML-Text"
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics
 l10n:
-  sourceCommit: 27f34d8b137f9bb2b467f9f9a1c4e1d04e12ed89
+  sourceCommit: 65c873fda639b035b94db77dd0f9373f38549aa0
 ---
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Lists", "Learn_web_development/Core/Structuring_content/Structuring_documents", "Learn_web_development/Core/Structuring_content")}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Lists", "Learn_web_development/Core/Structuring_content/Advanced_text_features", "Learn_web_development/Core/Structuring_content")}}
 
-Ziel dieses Fertigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie verstehen, wie Text in HTML ausgezeichnet wird, um ihm Struktur und Bedeutung zu verleihen.
+Das Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie verstehen, wie man Text in HTML so auszeichnet, dass er Struktur und Bedeutung erhält.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zum Testen Ihrer Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung von Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie den bereitgestellten HTML-Code mit semantischen Überschriften- und Absatzelementen auszeichnen.
+In dieser Aufgabe sollen Sie die bereitgestellten HTML-Inhalte mit semantischen Überschriften- und Absatzelementen auszeichnen.
 
 Das fertige Beispiel sollte so aussehen:
 
@@ -35,7 +35,7 @@ The Anaconda
 The crafty anaconda likes to slither around the page, traveling rapidly by way of anchors to sneak up on his prey.
 ```
 
-<!-- Gemeinsamer/Setup CSS Code -->
+<!-- Gemeinsamer/setup CSS-Code -->
 
 ```css hidden live-sample___text-basics-1 live-sample___text-basics-2 live-sample___text-basics-3 live-sample___text-basics-4
 body {
@@ -65,7 +65,7 @@ h2 {
 }
 ```
 
-<!-- Spezifischer Beispielcode -->
+<!-- Beispiel-spezifischer Code -->
 
 ```css hidden live-sample___text-basics-1
 h1,
@@ -110,7 +110,7 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die erste nicht ausgezeichnete Liste in eine ungeordnete Liste und die zweite in eine geordnete Liste umwandeln.
+In dieser Aufgabe sollen Sie die erste unformatiert aufgeführte Liste in eine ungeordnete Liste, und die zweite in eine geordnete Liste umwandeln.
 
 Das fertige Beispiel sollte so aussehen:
 
@@ -187,7 +187,7 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 3
 
-In dieser Aufgabe möchten wir, dass Sie die bereitgestellten Tiere und ihre Definitionen in eine Definitionsliste umwandeln.
+In dieser Aufgabe sollen Sie die bereitgestellten Tiere und ihre Definitionen in eine Definitionsliste umwandeln.
 
 Das fertige Beispiel sollte so aussehen:
 
@@ -250,7 +250,7 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 4
 
-In dieser Aufgabe erhalten Sie einen Absatz, und Ihr Ziel ist es, einige Inline-Elemente zu verwenden, um ein paar geeignete Wörter mit starker Bedeutung zu kennzeichnen und ein paar mit Betonung.
+In dieser Aufgabe erhalten Sie einen Absatz, und Ihr Ziel ist es, einige passende Wörter mit starken Hervorhebungen und einige mit Betonung zu markieren.
 
 Das fertige Beispiel sollte in etwa so aussehen:
 
@@ -301,4 +301,4 @@ Ihr fertiges HTML sollte so aussehen:
 
 </details>
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Lists", "Learn_web_development/Core/Structuring_content/Structuring_documents", "Learn_web_development/Core/Structuring_content")}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Lists", "Learn_web_development/Core/Structuring_content/Advanced_text_features", "Learn_web_development/Core/Structuring_content")}}

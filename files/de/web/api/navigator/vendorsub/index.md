@@ -3,10 +3,10 @@ title: "Navigator: vendorSub-Eigenschaft"
 short-title: vendorSub
 slug: Web/API/Navigator/vendorSub
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: 9cbfa7fc0051724913e92958b712425db77291a8
 ---
 
-{{ApiRef}} {{Deprecated_Header}}
+{{ApiRef}}
 
 Der Wert der **`Navigator.vendorSub`**-Eigenschaft ist in jedem Browser immer der leere String.
 

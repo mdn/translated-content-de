@@ -3,10 +3,10 @@ title: "Navigator: productSub-Eigenschaft"
 short-title: productSub
 slug: Web/API/Navigator/productSub
 l10n:
-  sourceCommit: 1dfc56990b6ec2ddd42616240d0507b77c95e954
+  sourceCommit: 9cbfa7fc0051724913e92958b712425db77291a8
 ---
 
-{{ ApiRef("HTML DOM") }} {{Deprecated_Header}}
+{{ ApiRef("HTML DOM") }}
 
 Die schreibgeschützte Eigenschaft **`Navigator.productSub`** gibt entweder den String "20030107" oder den String "20100101" zurück.
 
@@ -22,9 +22,9 @@ document.body.textContent = `productSub: ${navigator.productSub}`;
 
 {{ EmbedLiveSample("Examples") }}
 
-## Hinweise
+## Anmerkungen
 
-In IE gibt diese Eigenschaft `undefined` zurück.
+In IE gibt diese Eigenschaft undefined zurück.
 
 In Apple Safari und Google Chrome gibt diese Eigenschaft immer `20030107` zurück.
 

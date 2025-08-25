@@ -3,29 +3,29 @@ title: "Testen Sie Ihre Fähigkeiten: Links"
 short-title: "Test: Links"
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Links
 l10n:
-  sourceCommit: 27f34d8b137f9bb2b467f9f9a1c4e1d04e12ed89
+  sourceCommit: 65c873fda639b035b94db77dd0f9373f38549aa0
 ---
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Creating_links", "Learn_web_development/Core/Structuring_content/Marking_up_a_letter", "Learn_web_development/Core/Structuring_content")}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Creating_links", "Learn_web_development/Core/Structuring_content/Structuring_a_page_of_content", "Learn_web_development/Core/Structuring_content")}}
 
-Das Ziel dieses Fähigkeitentests ist es, Ihnen zu helfen zu bewerten, ob Sie verstehen, wie man [Links in HTML implementiert](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links).
-
-> [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Leitfaden. Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie verstehen, wie man [Links in HTML implementiert](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links).
 
 > [!NOTE]
-> Einige der Links im Ausgangscode für diese Aufgaben haben das `target="_blank"` Attribut gesetzt, sodass beim Klicken auf sie die verlinkte Seite in einem neuen Tab und nicht im gleichen Tab geöffnet wird. Dies ist nicht unbedingt best practice, aber wir haben es hier so gemacht, damit die Seiten nicht im MDN Playground Ausgabe-`<iframe>` geöffnet werden und Ihr Beispielcode verloren geht!
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Leitfaden zur Nutzung. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+
+> [!NOTE]
+> Einige der Links im Startcode für diese Aufgaben haben das Attribut `target="_blank"` gesetzt, sodass sie beim Klicken die verlinkte Seite in einem neuen Tab öffnen, anstatt im selben Tab. Dies ist nicht unbedingt Best Practice, aber wir haben es hier gemacht, damit die Seiten nicht im MDN Playground-Output-`<iframe>` geöffnet werden und Ihr Beispielcode dabei verschwindet!
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie helfen, die Links auf unserer Informationsseite über Wale auszufüllen.
+In dieser Aufgabe möchten wir, dass Sie die Links auf unserer Wale-Informationsseite ergänzen.
 
 Um die Aufgabe abzuschließen, aktualisieren Sie die Links wie folgt:
 
-1. Der erste Link sollte zu einer Seite namens `whales.html` verlinken, die sich im selben Verzeichnis wie die aktuelle Seite befindet.
-2. Fügen Sie einen Tooltip hinzu, der dem Benutzer, wenn er mit der Maus darüber fährt, mitteilt, dass die Seite Informationen über Blau- und Pottwale enthält.
-3. Der zweite Link sollte so umgewandelt werden, dass Sie ihn anklicken können, um eine E-Mail im Standard-Mailprogramm des Benutzers zu öffnen, mit dem Empfänger "whales\@example.com".
-4. Bonuspunkte, wenn Sie auch einstellen, dass die Betreffzeile der E-Mail automatisch als "Question about Whales" ausgefüllt wird.
+1. Der erste Link sollte sich auf eine Seite namens `whales.html` beziehen, die sich im gleichen Verzeichnis wie die aktuelle Seite befindet.
+2. Geben Sie ihm einen Tooltip, der dem Benutzer beim Darüberfahren mit der Maus mitteilt, dass die Seite Informationen zu Blauwalen und Pottwalen enthält.
+3. Der zweite Link sollte in einen klickbaren Link umgewandelt werden, um eine E-Mail im Standard-Mailprogramm des Benutzers zu öffnen, mit dem Empfänger "whales\@example.com".
+4. Bonuspunkte, wenn Sie auch das Betreffzeilenfeld der E-Mail automatisch mit "Frage zu Walen" ausfüllen.
 
 ```html live-sample___links-1
 <h1>Information on Whales</h1>
@@ -73,7 +73,7 @@ p {
 {{ EmbedLiveSample('links-1', "100%", 170) }}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung zu zeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiger HTML-Code sollte so aussehen:
 
@@ -97,14 +97,14 @@ Ihr fertiger HTML-Code sollte so aussehen:
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die vier Links so ausfüllen, dass sie zu den entsprechenden Orten verlinken.
+In dieser Aufgabe möchten wir, dass Sie die vier Links so ausfüllen, dass sie auf die entsprechenden Stellen verweisen.
 
 Um die Aufgabe abzuschließen, aktualisieren Sie die Links wie folgt:
 
-1. Der erste Link sollte zu einem Bild namens `blue-whale.jpg` verlinken, das sich in einem Verzeichnis namens `blue` im aktuellen Verzeichnis befindet.
-2. Der zweite Link sollte zu einem Bild namens `narwhal.jpg` verlinken, das sich in einem Verzeichnis namens `narwhal` befindet, welches ein Verzeichnisebene über dem aktuellen Verzeichnis liegt.
-3. Der dritte Link sollte zur UK Google Bildersuche verlinken. Die Basis-URL ist `https://www.google.co.uk`, und die Bildersuche befindet sich in einem Unterverzeichnis namens `imghp`.
-4. Der vierte Link sollte zum Absatz ganz unten auf der aktuellen Seite verlinken. Er hat die ID `bottom`.
+1. Der erste Link sollte auf ein Bild namens `blue-whale.jpg` verlinken, das sich in einem Verzeichnis namens `blue` im aktuellen Verzeichnis befindet.
+2. Der zweite Link sollte auf ein Bild namens `narwhal.jpg` verlinken, das sich in einem Verzeichnis namens `narwhal` befindet, das sich eine Verzeichnisebene über dem aktuellen Verzeichnis befindet.
+3. Der dritte Link sollte auf die UK Google Bildersuche verlinken. Die Basis-URL ist `https://www.google.co.uk`, und die Bildersuche befindet sich in einem Unterverzeichnis namens `imghp`.
+4. Der vierte Link sollte auf den Absatz ganz unten auf der aktuellen Seite verlinken. Er hat die ID `bottom`.
 
 ```html live-sample___links-2
 <h1>List path tests</h1>
@@ -153,7 +153,7 @@ div {
 {{ EmbedLiveSample('links-2', "100%", 200) }}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung zu zeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiger HTML-Code sollte so aussehen:
 
@@ -184,11 +184,11 @@ Ihr fertiger HTML-Code sollte so aussehen:
 
 ## Aufgabe 3
 
-Die folgenden Links führen zu einer Infoseite über Narwale, einer Support-E-Mail-Adresse und einer PDF-Datei, die eine Größe von 4 MB hat.
+Die folgenden Links verweisen auf eine Infoseite über Narwale, eine Unterstützungsemailadresse und ein PDF-Datenblatt, das 4 MB groß ist.
 
 Um die Aufgabe abzuschließen:
 
-1. Nehmen Sie die vorhandenen Absätze mit schlecht geschriebenem Linktext und schreiben Sie sie so um, dass sie guten Linktext enthalten.
+1. Nehmen Sie die vorhandenen Absätze mit schlecht geschriebenem Link-Text und schreiben Sie sie so um, dass sie guten Link-Text enthalten.
 2. Fügen Sie eine Warnung zu allen Links hinzu, die eine Warnung benötigen.
 
 ```html live-sample___links-3
@@ -234,7 +234,7 @@ p {
 {{ EmbedLiveSample('links-3', "100%", 200) }}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung zu zeigen</summary>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiger HTML-Code sollte so aussehen:
 
@@ -255,4 +255,4 @@ Ihr fertiger HTML-Code sollte so aussehen:
 
 </details>
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Creating_links", "Learn_web_development/Core/Structuring_content/Marking_up_a_letter", "Learn_web_development/Core/Structuring_content")}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Creating_links", "Learn_web_development/Core/Structuring_content/Structuring_a_page_of_content", "Learn_web_development/Core/Structuring_content")}}
