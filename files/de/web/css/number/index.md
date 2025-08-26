@@ -2,18 +2,20 @@
 title: <number>
 slug: Web/CSS/number
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: f3d234ca192782b7993276924bf64870612bcc1a
 ---
 
-Der **`<number>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert eine Zahl, die entweder ein ganzzahliger Wert oder eine Zahl mit einem Bruchteil sein kann.
+Der **`<number>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert eine Zahl, die entweder eine ganze Zahl, eine Zahl mit einer Bruchkomponente oder ein Zehner-Exponent in wissenschaftlicher Notation sein kann.
 
 ## Syntax
 
-Die Syntax von `<number>` erweitert die Syntax von {{CSSxRef("&lt;integer&gt;")}}. Ein Bruchwert wird durch einen `.` gefolgt von einer oder mehreren Dezimalstellen dargestellt und kann an eine Ganzzahl angefügt werden. Es gibt keine Einheit, die mit Zahlen verknüpft ist.
+Die Syntax von `<number>` erweitert die Syntax von {{CSSxRef("&lt;integer&gt;")}}. Ein Bruchwert wird durch einen `.` gefolgt von einer oder mehreren Dezimalziffern dargestellt und kann an eine ganze Zahl angehängt werden. Ein `<number>` kann auch mit dem Buchstaben `e` oder `E` gefolgt von einer ganzen Zahl enden, was einen Zehner-Exponent in wissenschaftlicher Notation anzeigt. Zahlen sind mit keiner Einheit verbunden.
+
+Wie bei ganzen Zahlen kann das erste Zeichen der Zahl unmittelbar von - oder + gefolgt sein, um das Vorzeichen der Zahl anzugeben: ob die Zahl positiv oder negativ ist.
 
 ## Interpolation
 
-Bei Animationen werden die Werte des `<number>` CSS-Datentyps als reelle, Gleitkommazahlen interpoliert. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verknüpfte [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
+Bei Animationen werden Werte des `<number>` CSS-Datentyps als reale, Gleitkommazahlen interpoliert. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verbundene [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
 
 ## Beispiele
 
@@ -49,4 +51,6 @@ Bei Animationen werden die Werte des `<number>` CSS-Datentyps als reelle, Gleitk
 
 ## Siehe auch
 
-- {{CSSxRef("&lt;integer&gt;")}}
+- {{CSSxRef("integer")}}
+- {{CSSxRef("ratio")}}
+- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Modul

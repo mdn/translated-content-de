@@ -2,44 +2,44 @@
 title: XMLHttpRequest API
 slug: Web/API/XMLHttpRequest_API
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 0cc63ce1d7f43eb98746a908a9aba68ef6a36f7b
 ---
 
 {{DefaultAPISidebar("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **XMLHttpRequest-API** ermöglicht es Web-Apps, HTTP-Anfragen an Webserver zu senden und die Antworten programmatisch mit JavaScript zu empfangen. Dies ermöglicht es einer Website, nur einen Teil einer Seite mit Daten vom Server zu aktualisieren, anstatt zu einer ganz neuen Seite zu navigieren. Diese Praxis wird manchmal auch als {{Glossary("AJAX", "AJAX")}} bezeichnet.
+Die **XMLHttpRequest API** ermöglicht es Webanwendungen, HTTP-Anfragen an Webserver zu senden und die Antworten programmatisch mit JavaScript zu empfangen. Dadurch kann eine Website nur einen Teil einer Seite mit Daten vom Server aktualisieren, anstatt auf eine komplett neue Seite navigieren zu müssen. Diese Praxis wird manchmal auch als {{Glossary("AJAX", "AJAX")}} bezeichnet.
 
-Die [Fetch-API](/de/docs/Web/API/Fetch_API) ist der flexiblere und leistungsfähigere Ersatz für die XMLHttpRequest-API. Die Fetch-API verwendet {{jsxref("Promise", "Promises", "", 1)}} anstelle von Ereignissen zur Behandlung von asynchronen Antworten, integriert sich gut mit [Service-Workers](/de/docs/Web/API/Service_Worker_API) und unterstützt fortgeschrittene Aspekte von HTTP wie [CORS](/de/docs/Web/HTTP/Guides/CORS). Aus diesen Gründen wird die Fetch-API in modernen Web-Apps üblicherweise anstelle von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) verwendet.
+Die [Fetch API](/de/docs/Web/API/Fetch_API) ist der flexiblere und leistungsstärkere Ersatz für die XMLHttpRequest API. Die Fetch API verwendet {{jsxref("Promise", "Promises", "", 1)}} anstelle von Ereignissen, um asynchrone Antworten zu verarbeiten, integriert sich gut mit [Service Workern](/de/docs/Web/API/Service_Worker_API) und unterstützt fortgeschrittene Aspekte von HTTP wie [CORS](/de/docs/Web/HTTP/Guides/CORS). Aus diesen Gründen wird die Fetch API normalerweise anstelle von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) in modernen Webanwendungen verwendet.
 
 ## Konzepte und Verwendung
 
-Die zentrale Schnittstelle in der XMLHttpRequest-API ist [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest). Um eine HTTP-Anfrage zu senden:
+Das zentrale Interface in der XMLHttpRequest API ist [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest). Um eine HTTP-Anfrage zu stellen:
 
-1. Erstellen Sie eine neue `XMLHttpRequest`-Instanz, indem Sie deren [Konstruktor](/de/docs/Web/API/XMLHttpRequest/XMLHttpRequest) aufrufen.
-2. Initialisieren Sie sie, indem Sie [`XMLHttpRequest.open()`](/de/docs/Web/API/XMLHttpRequest/open) aufrufen. Sie geben dabei die URL für die Anfrage an, die zu verwendende [HTTP-Methode](/de/docs/Web/HTTP/Reference/Methods) und optional einen Benutzernamen und ein Passwort.
-3. Fügen Sie Ereignis-Handler hinzu, um das Ergebnis der Anfrage zu erhalten. Zum Beispiel wird das [`load`](/de/docs/Web/API/XMLHttpRequest/load_event)-Ereignis ausgelöst, wenn die Anfrage erfolgreich abgeschlossen wurde, und das [`error`](/de/docs/Web/API/XMLHttpRequest/error_event)-Ereignis wird in verschiedenen Fehlerfällen ausgelöst.
+1. Erstellen Sie eine neue Instanz von `XMLHttpRequest`, indem Sie deren [Konstruktor](/de/docs/Web/API/XMLHttpRequest/XMLHttpRequest) aufrufen.
+2. Initialisieren Sie es, indem Sie [`XMLHttpRequest.open()`](/de/docs/Web/API/XMLHttpRequest/open) aufrufen. An diesem Punkt geben Sie die URL für die Anfrage, die zu verwendende [HTTP-Methode](/de/docs/Web/HTTP/Reference/Methods) und optional einen Benutzernamen und ein Passwort an.
+3. Fügen Sie Ereignis-Handler hinzu, um das Ergebnis der Anfrage zu erhalten. Zum Beispiel wird das [`load`](/de/docs/Web/API/XMLHttpRequestEventTarget/load_event) Ereignis ausgelöst, wenn die Anfrage erfolgreich abgeschlossen wurde, und das [`error`](/de/docs/Web/API/XMLHttpRequestEventTarget/error_event) Ereignis wird in verschiedenen Fehlersituationen ausgelöst.
 4. Senden Sie die Anfrage, indem Sie [`XMLHttpRequest.send()`](/de/docs/Web/API/XMLHttpRequest/send) aufrufen.
 
-Für einen ausführlichen Leitfaden zur XMLHttpRequest API, siehe [Using XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest).
+Für einen detaillierten Leitfaden zur XMLHttpRequest API, siehe [Using XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest).
 
 ## Schnittstellen
 
 - [`FormData`](/de/docs/Web/API/FormData)
-  - : Ein Objekt, das {{htmlelement("form")}}-Felder und ihre Werte darstellt, die an einen Server gesendet werden können, indem [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) oder [`fetch()`](/de/docs/Web/API/Window/fetch) verwendet wird.
+  - : Ein Objekt, das {{htmlelement("form")}}-Felder und deren Werte repräsentiert, das an einen Server gesendet werden kann, indem [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) oder [`fetch()`](/de/docs/Web/API/Window/fetch) verwendet wird.
 - [`ProgressEvent`](/de/docs/Web/API/ProgressEvent)
-  - : Eine Unterklasse von [`Event`](/de/docs/Web/API/Event), die in das [`progress`](/de/docs/Web/API/XMLHttpRequest/progress_event)-Ereignis übergeben wird und Informationen darüber enthält, wie viel von der Anfrage abgeschlossen wurde.
+  - : Eine Unterklasse von [`Event`](/de/docs/Web/API/Event), die in das [`progress`](/de/docs/Web/API/XMLHttpRequestEventTarget/progress_event) übergeben wird und Informationen darüber enthält, wie viel von der Anfrage abgeschlossen ist.
 - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
-  - : Stellt eine einzelne HTTP-Anfrage dar.
+  - : Repräsentiert eine einzelne HTTP-Anfrage.
 - [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget)
-  - : Eine Superklasse von sowohl [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) als auch [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload), die die in beiden dieser Schnittstellen verfügbaren Ereignisse definiert.
+  - : Eine Superklasse von sowohl [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) als auch [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload), die die Ereignisse definiert, die in beiden dieser Schnittstellen verfügbar sind.
 - [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload)
-  - : Stellt den Hochladevorgang für einen HTTP-Upload dar. Bietet Ereignisse, die es dem Code ermöglichen, den Fortschritt eines Uploads zu verfolgen.
+  - : Repräsentiert den Upload-Prozess eines HTTP-Uploads. Bietet Ereignisse, die es dem Code ermöglichen, den Fortschritt eines Uploads zu verfolgen.
 
 ## Beispiele
 
-### Abrufen von JSON-Daten vom Server
+### JSON-Daten vom Server abrufen
 
-In diesem Beispiel rufen wir eine JSON-Datei von `https://raw.githubusercontent.com/mdn/content/main/files/en-us/_wikihistory.json` ab, indem wir Ereignis-Listener hinzufügen, um den Fortschritt des Ereignisses zu zeigen.
+In diesem Beispiel rufen wir eine JSON-Datei von `https://raw.githubusercontent.com/mdn/content/main/files/en-us/_wikihistory.json` ab und fügen Ereignis-Listener hinzu, um den Fortschritt des Ereignisses anzuzeigen.
 
 #### HTML
 
@@ -111,4 +111,4 @@ xhrButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [Fetch-API](/de/docs/Web/API/Fetch_API)
+- [Fetch API](/de/docs/Web/API/Fetch_API)

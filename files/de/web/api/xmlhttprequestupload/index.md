@@ -2,52 +2,32 @@
 title: XMLHttpRequestUpload
 slug: Web/API/XMLHttpRequestUpload
 l10n:
-  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
+  sourceCommit: 0cc63ce1d7f43eb98746a908a9aba68ef6a36f7b
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **`XMLHttpRequestUpload`** Schnittstelle repräsentiert den Upload-Prozess für ein spezifisches [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest). Es ist ein _undurchsichtiges_ Objekt, das den zugrunde liegenden, browserabhängigen Upload-Prozess darstellt. Es ist ein [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und kann durch Aufruf von [`XMLHttpRequest.upload`](/de/docs/Web/API/XMLHttpRequest/upload) abgerufen werden.
+Das **`XMLHttpRequestUpload`** Interface repräsentiert den Upload-Prozess für ein spezifisches [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest). Es ist ein _undurchsichtiges_ Objekt, das den zugrunde liegenden, browserabhängigen Upload-Prozess darstellt. Es ist ein [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und kann durch Aufruf von [`XMLHttpRequest.upload`](/de/docs/Web/API/XMLHttpRequest/upload) erhalten werden.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle hat keine spezifischen Eigenschaften, erbt aber die Eigenschaften von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface hat keine spezifische Eigenschaft, erbt jedoch die Eigenschaften von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine spezifischen Methoden, erbt aber die Methoden von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface hat keine spezifische Methode, erbt jedoch die Methoden von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-## Events
+## Ereignisse
 
-- [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event)
-  - : Wird ausgelöst, wenn eine Anfrage abgebrochen wurde, zum Beispiel weil das Programm [`XMLHttpRequest.abort()`](/de/docs/Web/API/XMLHttpRequest/abort) aufgerufen hat.
-    Auch über die `onabort` Event-Handler-Eigenschaft verfügbar.
-- [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event)
-  - : Wird ausgelöst, wenn die Anfrage auf einen Fehler gestoßen ist.
-    Auch über die `onerror` Event-Handler-Eigenschaft verfügbar.
-- [`load`](/de/docs/Web/API/XMLHttpRequestUpload/load_event)
-  - : Wird ausgelöst, wenn eine Anfragesitzung erfolgreich abgeschlossen wird.
-    Auch über die `onload` Event-Handler-Eigenschaft verfügbar.
-- [`loadend`](/de/docs/Web/API/XMLHttpRequestUpload/loadend_event)
-  - : Wird ausgelöst, wenn eine Anfrage abgeschlossen ist, egal ob erfolgreich (nach [`load`](/de/docs/Web/API/XMLHttpRequest/load_event)) oder erfolglos (nach [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event) oder [`error`](/de/docs/Web/API/XMLHttpRequest/error_event)).
-    Auch über die `onloadend` Event-Handler-Eigenschaft verfügbar.
-- [`loadstart`](/de/docs/Web/API/XMLHttpRequestUpload/loadstart_event)
-  - : Wird ausgelöst, wenn eine Anfrage begonnen hat, Daten zu laden.
-    Auch über die `onloadstart` Event-Handler-Eigenschaft verfügbar.
-- [`progress`](/de/docs/Web/API/XMLHttpRequestUpload/progress_event)
-  - : Wird periodisch ausgelöst, wenn eine Anfrage mehr Daten empfängt.
-    Auch über die `onprogress` Event-Handler-Eigenschaft verfügbar.
-- [`timeout`](/de/docs/Web/API/XMLHttpRequestUpload/timeout_event)
-  - : Wird ausgelöst, wenn der Fortschritt aufgrund einer abgelaufenen voreingestellten Zeit beendet wird.
-    Auch über die `ontimeout` Event-Handler-Eigenschaft verfügbar.
+_Dieses Interface hat keine spezifischen Ereignisse, erbt jedoch die Ereignisse von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget)._
 
 ## Beispiele
 
-### Hochladen einer Datei mit einem Timeout
+### Hochladen einer Datei mit Timeout
 
-Dies ermöglicht Ihnen, eine Datei auf einen Server hochzuladen; es zeigt eine Fortschrittsanzeige an, während der Upload stattfindet, sowie eine Nachricht mit dem Fortschritt und den Ergebnissen, Erfolg oder Misserfolg. Eine Abbrechen-Schaltfläche ermöglicht es, einen Upload zu stoppen.
+Dies ermöglicht es Ihnen, eine Datei zu einem Server hochzuladen; es zeigt eine Fortschrittsleiste während des Uploads sowie eine Nachricht mit dem Fortschritt und den Ergebnissen, Erfolg oder Misserfolg an. Ein Abbruch-Button ermöglicht das Stoppen eines Uploads.
 
 #### HTML
 

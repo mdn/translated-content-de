@@ -1,23 +1,23 @@
 ---
-title: Zahlen und Strings
+title: Zahlen und Zeichenfolgen
 slug: Web/JavaScript/Guide/Numbers_and_strings
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 82617295992be4d9dc4ca74499ee63f8d2e5984b
 ---
 
 {{PreviousNext("Web/JavaScript/Guide/Expressions_and_operators", "Web/JavaScript/Guide/Representing_dates_times")}}
 
-Dieses Kapitel führt die beiden grundlegendsten Datentypen in JavaScript ein: Zahlen und Strings. Wir werden ihre zugrunde liegenden Repräsentationen vorstellen und Funktionen, die verwendet werden, um mit ihnen zu arbeiten und Berechnungen durchzuführen.
+In diesem Kapitel werden die beiden grundlegendsten Datentypen in JavaScript vorgestellt: Zahlen und Zeichenfolgen. Wir erläutern ihre zugrunde liegenden Darstellungen und die Funktionen, die verwendet werden, um mit ihnen zu arbeiten und Berechnungen durchzuführen.
 
 ## Zahlen
 
-In JavaScript werden Zahlen im [Doppelpräzisions-64-Bit-Binärformat IEEE 754](https://en.wikipedia.org/wiki/Double-precision_floating-point_format) implementiert (d.h. eine Zahl zwischen ±2^−1022 und ±2^+1023, oder etwa ±10^−308 bis ±10^+308, mit einer numerischen Präzision von 53 Bits). Ganzzahlen bis zu ±2^53 − 1 können exakt dargestellt werden.
+In JavaScript werden Zahlen im [Doppelpräzisions-64-Bit-Binärformat IEEE 754](https://en.wikipedia.org/wiki/Double-precision_floating-point_format) implementiert (d.h. eine Zahl zwischen ±2^−1022 und ±2^+1023, oder etwa ±10^−308 bis ±10^+308, mit einer numerischen Präzision von 53 Bit). Ganze Zahlen bis zu ±2^53 − 1 können genau dargestellt werden.
 
-Zusätzlich zur Darstellung von Fließkommazahlen hat der Zahlentyp drei symbolische Werte: {{jsxref("Infinity")}}, `-Infinity` und {{jsxref("NaN")}} (not-a-number).
+Zusätzlich zur Darstellung von Gleitkommazahlen hat der Zahlentyp drei symbolische Werte: {{jsxref("Infinity")}}, `-Infinity` und {{jsxref("NaN")}} (not-a-number).
 
-Siehe auch [JavaScript-Datenstrukturen](/de/docs/Web/JavaScript/Guide/Data_structures) für den Kontext mit anderen primitiven Typen in JavaScript.
+Siehe auch [JavaScript-Datentypen und -strukturen](/de/docs/Web/JavaScript/Guide/Data_structures) für den Kontext mit anderen primitiven Typen in JavaScript.
 
-Sie können vier Arten von Zahl-Literalen verwenden: dezimal, binär, oktal und hexadezimal.
+Sie können vier Arten von Zahlenliteralen verwenden: dezimal, binär, oktal und hexadezimal.
 
 ### Dezimalzahlen
 
@@ -26,7 +26,7 @@ Sie können vier Arten von Zahl-Literalen verwenden: dezimal, binär, oktal und 
 42
 ```
 
-Dezimal-Literale können mit einer Null (`0`) gefolgt von einer anderen Dezimalziffer beginnen, aber wenn alle Ziffern nach der führenden `0` kleiner als 8 sind, wird die Zahl als Oktalzahl interpretiert. Dies wird als veraltete Syntax betrachtet, und Zahl-Literale mit Präfix `0`, egal ob als Oktal oder Dezimal interpretiert, verursachen einen Syntaxfehler im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode#legacy_octal_literals) — verwenden Sie stattdessen das Präfix `0o`.
+Dezimale Literale können mit einer Null (`0`) beginnen, gefolgt von einer anderen Dezimalziffer, aber wenn alle Ziffern nach der führenden `0` kleiner als 8 sind, wird die Zahl als Oktalzahl interpretiert. Dies wird als veraltete Syntax angesehen, und Zahlenliterale, die mit `0` beginnen, ob als Oktal oder Dezimal interpretiert, verursachen in [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode#legacy_octal_literals) einen Syntaxfehler — verwenden Sie stattdessen das Präfix `0o`.
 
 ```js-nolint example-bad
 0888 // 888 parsed as decimal
@@ -35,7 +35,7 @@ Dezimal-Literale können mit einer Null (`0`) gefolgt von einer anderen Dezimalz
 
 ### Binärzahlen
 
-Die Binärzahl-Syntax verwendet eine führende Null gefolgt von einem kleinen oder großen lateinischen Buchstaben "B" (`0b` oder `0B`). Wenn die Ziffern nach dem `0b` nicht 0 oder 1 sind, wird der folgende {{jsxref("SyntaxError")}} ausgelöst: "Fehlende binäre Ziffern nach 0b".
+Die Binärzahlensyntax verwendet eine führende Null, gefolgt von einem Klein- oder Großbuchstaben "B" (`0b` oder `0B`). Wenn die Ziffern nach dem `0b` nicht 0 oder 1 sind, wird der folgende {{jsxref("SyntaxError")}} ausgelöst: "Fehlende Binärziffern nach 0b".
 
 ```js-nolint
 0b10000000000000000000000000000000 // 2147483648
@@ -45,25 +45,25 @@ Die Binärzahl-Syntax verwendet eine führende Null gefolgt von einem kleinen od
 
 ### Oktalzahlen
 
-Die Standard-Syntax für Oktalzahlen ist, sie mit `0o` zu präfixieren. Zum Beispiel:
+Die Standardsyntax für Oktalzahlen besteht darin, sie mit `0o` zu prefixen. Zum Beispiel:
 
 ```js-nolint
 0O755 // 493
 0o644 // 420
 ```
 
-Es gibt auch eine veraltete Syntax für Oktalzahlen — indem die Oktalzahl mit einer Null präfixiert wird: `0644 === 420` und `"\045" === "%"`. Wenn die Ziffern nach der `0` außerhalb des Bereichs 0 bis 7 liegen, wird die Zahl als Dezimalzahl interpretiert.
+Es gibt auch eine veraltete Syntax für Oktalzahlen — indem man die Oktalzahl mit einer Null prefixed: `0644 === 420` und `"\045" === "%"`. Wenn die Ziffern nach dem `0` außerhalb des Bereichs 0 bis 7 liegen, wird die Zahl als Dezimalzahl interpretiert.
 
 ```js
 const n = 0755; // 493
 const m = 0644; // 420
 ```
 
-[Strikter Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) verbietet diese Oktal-Syntax.
+[Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) verbietet diese Oktalsyntax.
 
 ### Hexadezimalzahlen
 
-Hexadezimalzahl-Syntax verwendet eine führende Null gefolgt von einem kleinen oder großen lateinischen Buchstaben "X" (`0x` oder `0X`). Wenn die Ziffern nach 0x außerhalb des Bereichs (0123456789ABCDEF) liegen, wird der folgende {{jsxref("SyntaxError")}} ausgelöst: "Bezeichner beginnt sofort nach Zahlenliteral".
+Hexadezimalzahlensyntax verwendet eine führende Null, gefolgt von einem Klein- oder Großbuchstaben "X" (`0x` oder `0X`). Wenn die Ziffern nach 0x außerhalb des Bereichs (0123456789ABCDEF) liegen, wird der folgende {{jsxref("SyntaxError")}} ausgelöst: "Kennung beginnt direkt nach dem numerischen Literal".
 
 ```js-nolint
 0xFFFFFFFFFFFFF // 4503599627370495
@@ -83,9 +83,24 @@ Hexadezimalzahl-Syntax verwendet eine führende Null gefolgt von einem kleinen o
 1E3    // 1000
 ```
 
+### Numerische Trennzeichen
+
+Für alle oben gezeigten Literal-Syntaxen kann ein Unterstrich (`_`) zwischen Ziffern eingefügt werden, um die Lesbarkeit zu verbessern.
+
+```js-nolint
+1_000_000_000_000
+1_050.95
+0b1010_0001_1000_0101
+0o2_2_5_6
+0xA0_B0_C0
+1_000_000_000_000_000_000_000n
+```
+
+Siehe die Referenz [Lexikalische Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar#numeric_literals) für weitere Details zu Zahlenliteralen.
+
 ## Number-Objekt
 
-Das eingebaute {{jsxref("Number")}}-Objekt hat Eigenschaften für numerische Konstanten, wie den Maximalwert, "not-a-number" und Unendlichkeit. Sie können die Werte dieser Eigenschaften nicht ändern, und Sie verwenden sie wie folgt:
+Das eingebaute {{jsxref("Number")}}-Objekt hat Eigenschaften für numerische Konstanten, wie z.B. maximaler Wert, Not-a-Number und Unendlichkeit. Sie können die Werte dieser Eigenschaften nicht ändern und verwenden sie folgendermaßen:
 
 ```js
 const biggestNum = Number.MAX_VALUE;
@@ -99,49 +114,49 @@ Sie beziehen sich immer auf eine Eigenschaft des vordefinierten `Number`-Objekts
 
 Die folgende Tabelle fasst die Eigenschaften des `Number`-Objekts zusammen.
 
-| Eigenschaft                            | Beschreibung                                                                                                                                                 |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| {{jsxref("Number.MAX_VALUE")}}         | Die größte darstellbare positive Zahl (`1.7976931348623157e+308`)                                                                                            |
-| {{jsxref("Number.MIN_VALUE")}}         | Die kleinste darstellbare positive Zahl (`5e-324`)                                                                                                           |
-| {{jsxref("Number.NaN")}}               | Spezieller "not a number"-Wert                                                                                                                               |
-| {{jsxref("Number.NEGATIVE_INFINITY")}} | Spezieller negativer Unendlichkeitswert; wird bei Überlauf zurückgegeben                                                                                     |
-| {{jsxref("Number.POSITIVE_INFINITY")}} | Spezieller positiver Unendlichkeitswert; wird bei Überlauf zurückgegeben                                                                                     |
-| {{jsxref("Number.EPSILON")}}           | Unterschied zwischen `1` und dem kleinsten darstellbaren Wert größer als `1`, der als {{jsxref("Number")}} dargestellt werden kann (`2.220446049250313e-16`) |
-| {{jsxref("Number.MIN_SAFE_INTEGER")}}  | Minimal sichere Ganzzahl in JavaScript (−2^53 + 1, oder `−9007199254740991`)                                                                                 |
-| {{jsxref("Number.MAX_SAFE_INTEGER")}}  | Maximal sichere Ganzzahl in JavaScript (+2^53 − 1, oder `+9007199254740991`)                                                                                 |
+| Eigenschaft                            | Beschreibung                                                                                                                                           |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| {{jsxref("Number.MAX_VALUE")}}         | Die größte positive darstellbare Zahl (`1.7976931348623157e+308`)                                                                                      |
+| {{jsxref("Number.MIN_VALUE")}}         | Die kleinste positive darstellbare Zahl (`5e-324`)                                                                                                     |
+| {{jsxref("Number.NaN")}}               | Spezieller "not a number"-Wert                                                                                                                         |
+| {{jsxref("Number.NEGATIVE_INFINITY")}} | Spezieller negativer unendlicher Wert; wird bei Überlauf zurückgegeben                                                                                 |
+| {{jsxref("Number.POSITIVE_INFINITY")}} | Spezieller positiver unendlicher Wert; wird bei Überlauf zurückgegeben                                                                                 |
+| {{jsxref("Number.EPSILON")}}           | Unterschied zwischen `1` und dem kleinsten Wert, der größer als `1` ist und als {{jsxref("Number")}} dargestellt werden kann (`2.220446049250313e-16`) |
+| {{jsxref("Number.MIN_SAFE_INTEGER")}}  | Minimale sichere Ganze Zahl in JavaScript (−2^53 + 1, oder `−9007199254740991`)                                                                        |
+| {{jsxref("Number.MAX_SAFE_INTEGER")}}  | Maximale sichere Ganze Zahl in JavaScript (+2^53 − 1, oder `+9007199254740991`)                                                                        |
 
-| Methode                              | Beschreibung                                                                                                                                                           |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| {{jsxref("Number.parseFloat()")}}    | Analysiert ein String-Argument und gibt eine Gleitkommazahl zurück. Vergleichbar mit der globalen {{jsxref("parseFloat()")}}-Funktion.                                 |
-| {{jsxref("Number.parseInt()")}}      | Analysiert ein String-Argument und gibt eine Ganzzahl im angegebenen Radix- oder Basis-System zurück. Vergleichbar mit der globalen {{jsxref("parseInt()")}}-Funktion. |
-| {{jsxref("Number.isFinite()")}}      | Bestimmt, ob der übergebene Wert eine endliche Zahl ist.                                                                                                               |
-| {{jsxref("Number.isInteger()")}}     | Bestimmt, ob der übergebene Wert eine Ganzzahl ist.                                                                                                                    |
-| {{jsxref("Number.isNaN()")}}         | Bestimmt, ob der übergebene Wert {{jsxref("NaN")}} ist. Robustere Version der ursprünglichen globalen {{jsxref("isNaN()")}}.                                           |
-| {{jsxref("Number.isSafeInteger()")}} | Bestimmt, ob der bereitgestellte Wert eine Zahl ist, die eine _sichere Ganzzahl_ ist.                                                                                  |
+| Methode                              | Beschreibung                                                                                                                            |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| {{jsxref("Number.parseFloat()")}}    | Parst ein String-Argument und gibt eine Gleitkommazahl zurück. Entspricht der globalen {{jsxref("parseFloat()")}}-Funktion.             |
+| {{jsxref("Number.parseInt()")}}      | Parst ein String-Argument und gibt ein Integer der angegebenen Basis zurück. Entspricht der globalen {{jsxref("parseInt()")}}-Funktion. |
+| {{jsxref("Number.isFinite()")}}      | Bestimmt, ob der übergebene Wert eine endliche Zahl ist.                                                                                |
+| {{jsxref("Number.isInteger()")}}     | Bestimmt, ob der übergebene Wert ein Integer ist.                                                                                       |
+| {{jsxref("Number.isNaN()")}}         | Bestimmt, ob der übergebene Wert {{jsxref("NaN")}} ist. Eine robustere Version der ursprünglichen globalen {{jsxref("isNaN()")}}.       |
+| {{jsxref("Number.isSafeInteger()")}} | Bestimmt, ob der angegebene Wert eine _sichere ganze Zahl_ ist.                                                                         |
 
-Das `Number`-Prototyp stellt Methoden bereit, um Informationen aus `Number`-Objekten in verschiedenen Formaten abzurufen. Die folgende Tabelle fasst die Methoden von `Number.prototype` zusammen.
+Das `Number`-Prototyp stellt Methoden zum Abrufen von Informationen von `Number`-Objekten in verschiedenen Formaten bereit. Die folgende Tabelle fasst die Methoden von `Number.prototype` zusammen.
 
-| Methode                                               | Beschreibung                                                                                                |
-| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| {{jsxref("Number/toExponential", "toExponential()")}} | Gibt einen String zurück, der die Zahl in Exponentialschreibweise darstellt.                                |
-| {{jsxref("Number/toFixed", "toFixed()")}}             | Gibt einen String zurück, der die Zahl in Festkomma-Schreibweise darstellt.                                 |
-| {{jsxref("Number/toPrecision", "toPrecision()")}}     | Gibt einen String zurück, der die Zahl mit einer angegebenen Präzision in Festkomma-Schreibweise darstellt. |
+| Methode                                               | Beschreibung                                                                                                    |
+| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| {{jsxref("Number/toExponential", "toExponential()")}} | Gibt einen String zurück, der die Zahl in Exponentialschreibweise darstellt.                                    |
+| {{jsxref("Number/toFixed", "toFixed()")}}             | Gibt einen String zurück, der die Zahl in Festkommaschreibweise darstellt.                                      |
+| {{jsxref("Number/toPrecision", "toPrecision()")}}     | Gibt einen String zurück, der die Zahl mit einer spezifizierten Genauigkeit in Festkommaschreibweise darstellt. |
 
 ## Math-Objekt
 
-Das eingebaute {{jsxref("Math")}}-Objekt hat Eigenschaften und Methoden für mathematische Konstanten und Funktionen. Beispielsweise hat die `PI`-Eigenschaft des `Math`-Objekts den Wert von Pi (3,141…), den Sie in einer Anwendung folgendermaßen verwenden würden:
+Das eingebaute {{jsxref("Math")}}-Objekt verfügt über Eigenschaften und Methoden für mathematische Konstanten und Funktionen. Zum Beispiel hat die `Math`-Eigenschaft `PI` den Wert von Pi (3.141…), den Sie in einer Anwendung folgendermaßen verwenden würden:
 
 ```js
 Math.PI;
 ```
 
-Ähnlich sind Standard-Mathematik-Funktionen Methoden von `Math`. Diese umfassen trigonometrische, logarithmische, exponentielle und andere Funktionen. Wenn Sie beispielsweise die trigonometrische Funktion Sinus verwenden möchten, würden Sie schreiben:
+Ebenso sind Standardmathematische Funktionen Methoden von `Math`. Dazu gehören trigonometrische, logarithmische, exponentielle und andere Funktionen. Wenn Sie beispielsweise die trigonometrische Funktion Sinus verwenden möchten, würden Sie schreiben:
 
 ```js
 Math.sin(1.56);
 ```
 
-Beachten Sie, dass alle trigonometrischen Methoden von `Math` Argumente in Radiant annehmen.
+Beachten Sie, dass alle trigonometrischen Methoden von `Math` Argumente in Bogenmaß verwenden.
 
 Die folgende Tabelle fasst die Methoden des `Math`-Objekts zusammen.
 
@@ -167,7 +182,7 @@ Die folgende Tabelle fasst die Methoden des `Math`-Objekts zusammen.
         {{jsxref("Math.cos", "cos()")}},
         {{jsxref("Math.tan", "tan()")}}
       </td>
-      <td>Standard trigonometrische Funktionen; mit Argument in Radiant.</td>
+      <td>Standard-trigonometrische Funktionen; mit dem Argument im Bogenmaß.</td>
     </tr>
     <tr>
       <td>
@@ -176,7 +191,7 @@ Die folgende Tabelle fasst die Methoden des `Math`-Objekts zusammen.
         {{jsxref("Math.atan", "atan()")}},
         {{jsxref("Math.atan2", "atan2()")}}
       </td>
-      <td>Inverse trigonometrische Funktionen; Rückgabewerte in Radiant.</td>
+      <td>Inverse trigonometrische Funktionen; Rückgabewerte im Bogenmaß.</td>
     </tr>
     <tr>
       <td>
@@ -184,7 +199,7 @@ Die folgende Tabelle fasst die Methoden des `Math`-Objekts zusammen.
         {{jsxref("Math.cosh", "cosh()")}},
         {{jsxref("Math.tanh", "tanh()")}}
       </td>
-      <td>Hyperbolische Funktionen; Argument im Hyperbelwinkel.</td>
+      <td>Hyperbolische Funktionen; Argument im hyperbolischen Winkelmaß.</td>
     </tr>
     <tr>
       <td>
@@ -192,7 +207,7 @@ Die folgende Tabelle fasst die Methoden des `Math`-Objekts zusammen.
         {{jsxref("Math.acosh", "acosh()")}},
         {{jsxref("Math.atanh", "atanh()")}}
       </td>
-      <td>Inverse hyperbolische Funktionen; Rückgabewerte im Hyperbelwinkel.</td>
+      <td>Inverse hyperbolische Funktionen; Rückgabewerte im hyperbolischen Winkelmaß.</td>
     </tr>
     <tr>
       <td>
@@ -214,7 +229,8 @@ Die folgende Tabelle fasst die Methoden des `Math`-Objekts zusammen.
         {{jsxref("Math.ceil", "ceil()")}}
       </td>
       <td>
-        Gibt die größte/kleinste Ganzzahl zurück, die kleiner/größer oder gleich einem Argument ist.
+        Gibt den größten/kleinsten Integer zurück, der kleiner/größer oder gleich einen
+        Argument ist.
       </td>
     </tr>
     <tr>
@@ -223,7 +239,8 @@ Die folgende Tabelle fasst die Methoden des `Math`-Objekts zusammen.
         {{jsxref("Math.max", "max()")}}
       </td>
       <td>
-        Gibt den minimalen oder maximalen (jeweils) Wert einer durch Kommas getrennten Liste von Zahlen als Argumente zurück.
+        Gibt den minimalen oder maximalen (jeweils) Wert einer durch Komma getrennten
+        Liste von Zahlen als Argumente zurück.
       </td>
     </tr>
     <tr>
@@ -236,7 +253,7 @@ Die folgende Tabelle fasst die Methoden des `Math`-Objekts zusammen.
         {{jsxref("Math.fround", "fround()")}},
         {{jsxref("Math.trunc", "trunc()")}},
       </td>
-      <td>Rundungs- und Abschneidefunktionen.</td>
+      <td>Rundungs- und Trunkierungsfunktionen.</td>
     </tr>
     <tr>
       <td>
@@ -251,7 +268,8 @@ Die folgende Tabelle fasst die Methoden des `Math`-Objekts zusammen.
     <tr>
       <td>{{jsxref("Math.sign", "sign()")}}</td>
       <td>
-        Das Vorzeichen einer Zahl, das angibt, ob die Zahl positiv, negativ oder null ist.
+        Das Vorzeichen einer Zahl, um anzuzeigen, ob die Zahl positiv,
+        negativ oder null ist.
       </td>
     </tr>
     <tr>
@@ -259,7 +277,7 @@ Die folgende Tabelle fasst die Methoden des `Math`-Objekts zusammen.
         {{jsxref("Math.clz32", "clz32()")}},<br />{{jsxref("Math.imul", "imul()")}}
       </td>
       <td>
-        Anzahl der führenden Null-Bits in der 32-Bit-Binärdarstellung.<br />Das
+        Anzahl der führenden Nullbits in der 32-Bit-Binärdarstellung.<br />Das
         Ergebnis der C-ähnlichen 32-Bit-Multiplikation der beiden Argumente.
       </td>
     </tr>
@@ -270,9 +288,9 @@ Im Gegensatz zu vielen anderen Objekten erstellen Sie niemals ein eigenes `Math`
 
 ## BigInts
 
-Ein Mangel von Zahlenwerten ist, dass sie nur 64 Bits haben. In der Praxis, aufgrund der Verwendung von IEEE 754-Codierung, können sie keine Ganzzahl größer als [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) (das ist 2<sup>53</sup> - 1) präzise darstellen. Um das Bedürfnis nach der Codierung von Binärdaten zu erfüllen und um mit anderen Sprachen, die breite Ganzzahlen wie `i64` (64-Bit-Ganzzahlen) und `i128` (128-Bit-Ganzzahlen) anbieten, zusammenzuarbeiten, bietet JavaScript auch einen anderen Datentyp an, um _beliebig große Ganzzahlen_ darzustellen: [`BigInt`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt).
+Ein Manko von Zahlenwerten ist, dass sie nur 64 Bit umfassen. In der Praxis können sie aufgrund der Verwendung des IEEE 754-Codings keine ganze Zahl genau darstellen, die größer als [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) (was 2<sup>53</sup> - 1 ist) ist. Um das Bedürfnis nach der Codierung von Binärdaten zu lösen und mit anderen Sprachen, die große Ganzzahlen wie `i64` (64-Bit-Ganzzahlen) und `i128` (128-Bit-Ganzzahlen) bieten, zu interagieren, bietet JavaScript einen weiteren Datentyp zur Darstellung von _beliebig großen Ganzzahlen_: [`BigInt`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt).
 
-Ein BigInt kann als Ganzzahlenliteral definiert werden, das mit `n` endet:
+Ein BigInt kann als Ganzzahlenliteral definiert werden, das mit `n` postfixiert wird:
 
 ```js
 const b1 = 123n;
@@ -280,7 +298,7 @@ const b1 = 123n;
 const b2 = -1234567890987654321n;
 ```
 
-BigInts können auch aus Zahlenwerten oder Stringwerten mithilfe des [`BigInt`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt)-Konstruktors erstellt werden.
+BigInts können auch aus Zahlenwerten oder Zeichenfolgenwerten konstruiert werden, indem der [`BigInt`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) Konstruktor verwendet wird.
 
 ```js
 const b1 = BigInt(123);
@@ -289,45 +307,45 @@ const b1 = BigInt(123);
 const b2 = BigInt("-1234567890987654321");
 ```
 
-Konzeptionell ist ein BigInt einfach eine beliebig lange Sequenz von Bits, die eine Ganzzahl kodiert. Sie können sicher alle arithmetischen Operationen durchführen, ohne an Präzision zu verlieren oder ein Über- bzw. Unterlauf zu verursachen.
+Konzeptionell ist ein BigInt einfach eine beliebig lange Folge von Bits, die eine ganze Zahl kodiert. Sie können sicher alle arithmetischen Operationen durchführen, ohne Präzision zu verlieren oder Über-/Unterläufe zu verursachen.
 
 ```js
 const integer = 12 ** 34; // 4.9222352429520264e+36; only has limited precision
 const bigint = 12n ** 34n; // 4922235242952026704037113243122008064n
 ```
 
-Im Vergleich zu Zahlen bieten BigInt-Werte eine höhere Präzision beim Darstellen großer _Ganzzahlen_; sie können jedoch keine _Fließkommazahlen_ darstellen. Zum Beispiel würde eine Division auf null runden:
+Im Vergleich zu Zahlen liefern BigInt-Werte eine höhere Präzision bei der Darstellung großer _ganzer Zahlen_; sie können jedoch keine _Gleitkommazahlen_ darstellen. Zum Beispiel würde eine Division auf null gerundet:
 
 ```js
 const bigintDiv = 5n / 2n; // 2n, because there's no 2.5 in BigInt
 ```
 
-`Math`-Funktionen können nicht auf BigInt-Werte angewendet werden; sie funktionieren nur mit Zahlen.
+`Math`-Funktionen können nicht auf BigInt-Werten verwendet werden; sie funktionieren nur mit Zahlen.
 
-Die Wahl zwischen BigInt und Zahl hängt von Ihrem Anwendungsfall und dem Bereich Ihrer Eingaben ab. Die Präzision von Zahlen sollte in der Lage sein, die meisten alltäglichen Aufgaben bereits zu bewältigen, und BigInts sind am besten geeignet für den Umgang mit Binärdaten.
+Die Auswahl zwischen BigInt und Number hängt von Ihrem Anwendungsfall und dem Bereich Ihrer Eingabe ab. Die Präzision von Zahlen sollte in der Lage sein, die meisten alltäglichen Aufgaben bereits zu bewältigen, und BigInts sind am besten zum Umgang mit Binärdaten geeignet.
 
-Lesen Sie mehr darüber, was Sie mit BigInt-Werten machen können, im Abschnitt [Ausdrücke und Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#bigint_operators) oder im [BigInt-Referenz](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt).
+Lesen Sie mehr darüber, was Sie mit BigInt-Werten tun können, im Abschnitt [Ausdrücke und Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#bigint_operators) oder in der [BigInt-Referenz](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt).
 
-## Strings
+## Zeichenfolgen
 
-Der {{Glossary("String", "String")}}-Typ von JavaScript wird zur Darstellung von Textdaten verwendet. Es handelt sich um eine Menge von "Elementen" von 16-Bit-unsigned Integer-Werten (UTF-16-Codeeinheiten). Jedes Element in dem String nimmt eine Position im String ein. Das erste Element befindet sich am Index 0, das nächste an Index 1 und so weiter. Die Länge eines Strings ist die Anzahl der Elemente in ihm. Sie können Strings mithilfe von String-Literalen oder String-Objekten erstellen.
+Der JavaScript-{{Glossary("String", "String")}}-Typ wird verwendet, um Textdaten darzustellen. Er ist eine Menge von "Elementen" von 16-Bit vorzeichenlosen Integer-Werten (UTF-16-Codeeinheiten). Jedes Element im String nimmt eine Position im String ein. Das erste Element befindet sich an Index 0, das nächste an Index 1, und so weiter. Die Länge eines Strings ist die Anzahl der Elemente darin. Sie können Zeichenfolgen mithilfe von Zeichenfolgenliteralen oder Zeichenfolgenobjekten erstellen.
 
-### String-Literale
+### Zeichenfolgenliterale
 
-Sie können Strings im Quellcode mit einfachen oder doppelten Anführungszeichen deklarieren:
+Sie können Zeichenfolgen im Quellcode unter Verwendung von einfachen oder doppelten Anführungszeichen deklarieren:
 
 ```js-nolint
 'foo'
 "bar"
 ```
 
-In einem String-Literal können die meisten Zeichen wörtlich eingegeben werden. Die einzigen Ausnahmen sind der Backslash (`\`, der eine Escape-Sequenz einleitet), das Anführungszeichen, das zum Einschließen des Strings verwendet wird, das den String beendet, und das Zeilenumbruchzeichen, das einen Syntaxfehler verursacht, wenn ihm nicht ein Backslash vorangeht.
+Innerhalb eines Zeichenfolgenliterals können die meisten Zeichen wörtlich eingegeben werden. Die einzigen Ausnahmen sind der Rückwärtsschrägstrich (`\`, der eine Escape-Sequenz startet), das Anführungszeichen, das zur Umfassung des Strings verwendet wird und ihn beendet, und das Zeilenumbruchzeichen, das einen Syntaxfehler verursacht, wenn es nicht von einem Rückwärtsschrägstrich gefolgt wird.
 
-Fortgeschrittenere Strings können mit Escape-Sequenzen erstellt werden:
+Komplexere Zeichenfolgen können mithilfe von Escape-Sequenzen erstellt werden:
 
 #### Hexadezimale Escape-Sequenzen
 
-Die Zahl nach \x wird als [Hexadezimalzahl](https://en.wikipedia.org/wiki/Hexadecimal) interpretiert.
+Die Zahl nach \x wird als [hexadezimale](https://en.wikipedia.org/wiki/Hexadecimal) Zahl interpretiert.
 
 ```js-nolint
 "\xA9" // "©"
@@ -341,9 +359,9 @@ Die Unicode-Escape-Sequenzen erfordern mindestens vier hexadezimale Ziffern nach
 "\u00A9" // "©"
 ```
 
-#### Unicode-Codepunkt-Escapes
+#### Unicode-Codepoint-Escapes
 
-Mit Unicode-Codepunkt-Escapes kann jedes Zeichen mit Hexadezimalzahlen maskiert werden, sodass es möglich ist, Unicode-Codepunkte bis zu `0x10FFFF` zu verwenden. Mit den vierstelligen Unicode-Escapes ist es oft notwendig, die Surrogat-Hälften separat zu schreiben, um dasselbe Ergebnis zu erzielen.
+Mit Unicode-Codepoint-Escapes kann jedes Zeichen unter Verwendung hexadezimaler Zahlen so maskiert werden, dass es möglich ist, Unicode-Codepunkte bis zu `0x10FFFF` zu verwenden. Mit den vierstelligen Unicode-Escapes ist es oft notwendig, die Surrogathälften separat zu schreiben, um das gleiche Ergebnis zu erzielen.
 
 Siehe auch {{jsxref("String.fromCodePoint()")}} oder {{jsxref("String.prototype.codePointAt()")}}.
 
@@ -356,7 +374,7 @@ Siehe auch {{jsxref("String.fromCodePoint()")}} oder {{jsxref("String.prototype.
 
 ## String-Objekt
 
-Sie können Methoden direkt auf einem String-Wert aufrufen:
+Sie können Methoden direkt auf einem Zeichenfolgenwert aufrufen:
 
 ```js
 console.log("hello".toUpperCase()); // HELLO
@@ -364,23 +382,23 @@ console.log("hello".toUpperCase()); // HELLO
 
 Die folgenden Methoden sind auf {{jsxref("String")}}-Werten verfügbar:
 
-- Abfrage: das Zeichen oder den Zeichencode an einem bestimmten String-Index abrufen. Methoden umfassen {{jsxref("String/at", "at()")}}, {{jsxref("String/charAt", "charAt()")}}, {{jsxref("String/charCodeAt", "charCodeAt()")}}, und {{jsxref("String/codePointAt", "codePointAt()")}}.
-- Suche: Informationen zu einem Teilstring, der einem Muster entspricht, abrufen oder testen, ob ein bestimmter Teilstring existiert. Methoden umfassen {{jsxref("String/indexOf", "indexOf()")}}, {{jsxref("String/lastIndexOf", "lastIndexOf()")}}, {{jsxref("String/startsWith", "startsWith()")}}, {{jsxref("String/endsWith", "endsWith()")}}, {{jsxref("String/includes", "includes()")}}, {{jsxref("String/match", "match()")}}, {{jsxref("String/matchAll", "matchAll()")}}, und {{jsxref("String/search", "search()")}}
-- Zusammensetzung: Strings in einen längeren String kombinieren. Methoden umfassen {{jsxref("String/padStart", "padStart()")}}, {{jsxref("String/padEnd", "padEnd()")}}, {{jsxref("String/concat", "concat()")}}, und {{jsxref("String/repeat", "repeat()")}}.
-- Zerlegung: Einen String in kleinere Strings aufteilen. Methoden umfassen {{jsxref("String/split", "split()")}}, {{jsxref("String/slice", "slice()")}}, {{jsxref("String/substring", "substring()")}}, {{jsxref("String/substr", "substr()")}}, {{jsxref("String/trim", "trim()")}}, {{jsxref("String/trimStart", "trimStart()")}}, und {{jsxref("String/trimEnd", "trimEnd()")}}.
-- Transformation: Einen neuen String basierend auf dem Inhalt des aktuellen Strings zurückgeben. Methoden umfassen {{jsxref("String/toLowerCase", "toLowerCase()")}}, {{jsxref("String/toUpperCase", "toUpperCase()")}}, {{jsxref("String/toLocaleLowerCase", "toLocaleLowerCase()")}}, {{jsxref("String/toLocaleUpperCase", "toLocaleUpperCase()")}}, {{jsxref("String/normalize", "normalize()")}}, und {{jsxref("String/toWellFormed", "toWellFormed()")}}.
+- Abfrage: Holen Sie das Zeichen oder den Zeichencode an einem bestimmten String-Index. Methoden umfassen {{jsxref("String/at", "at()")}}, {{jsxref("String/charAt", "charAt()")}}, {{jsxref("String/charCodeAt", "charCodeAt()")}}, und {{jsxref("String/codePointAt", "codePointAt()")}}.
+- Suche: Informationen über ein Teilstring erhalten, das einem Muster entspricht, oder testen, ob ein bestimmtes Teilstring vorhanden ist. Methoden umfassen {{jsxref("String/indexOf", "indexOf()")}}, {{jsxref("String/lastIndexOf", "lastIndexOf()")}}, {{jsxref("String/startsWith", "startsWith()")}}, {{jsxref("String/endsWith", "endsWith()")}}, {{jsxref("String/includes", "includes()")}}, {{jsxref("String/match", "match()")}}, {{jsxref("String/matchAll", "matchAll()")}}, und {{jsxref("String/search", "search()")}}.
+- Komposition: Zeichenfolgen zu einer längeren Zeichenfolge kombinieren. Methoden umfassen {{jsxref("String/padStart", "padStart()")}}, {{jsxref("String/padEnd", "padEnd()")}}, {{jsxref("String/concat", "concat()")}}, und {{jsxref("String/repeat", "repeat()")}}.
+- Zerlegung: Eine Zeichenfolge in kleinere Zeichenfolgen aufbrechen. Methoden umfassen {{jsxref("String/split", "split()")}}, {{jsxref("String/slice", "slice()")}}, {{jsxref("String/substring", "substring()")}}, {{jsxref("String/substr", "substr()")}}, {{jsxref("String/trim", "trim()")}}, {{jsxref("String/trimStart", "trimStart()")}}, und {{jsxref("String/trimEnd", "trimEnd()")}}.
+- Transformation: Eine neue Zeichenfolge basierend auf dem Inhalt der aktuellen Zeichenfolge zurückgeben. Methoden umfassen {{jsxref("String/toLowerCase", "toLowerCase()")}}, {{jsxref("String/toUpperCase", "toUpperCase()")}}, {{jsxref("String/toLocaleLowerCase", "toLocaleLowerCase()")}}, {{jsxref("String/toLocaleUpperCase", "toLocaleUpperCase()")}}, {{jsxref("String/normalize", "normalize()")}}, und {{jsxref("String/toWellFormed", "toWellFormed()")}}.
 
-Beim Arbeiten mit Strings gibt es zwei weitere Objekte, die wichtige Funktionalität für die String-Manipulation bieten: {{jsxref("RegExp")}} und {{jsxref("Intl")}}. Sie werden in [regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) und [Internationalisierung](/de/docs/Web/JavaScript/Guide/Internationalization) eingeführt.
+Beim Arbeiten mit Zeichenfolgen gibt es zwei weitere Objekte, die wichtige Funktionen zur Zeichenfolgenmanipulation bereitstellen: {{jsxref("RegExp")}} und {{jsxref("Intl")}}. Sie werden in [Regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) und [Internationalisierung](/de/docs/Web/JavaScript/Guide/Internationalization) vorgestellt.
 
 ## Template-Literale
 
-[Template-Literale](/de/docs/Web/JavaScript/Reference/Template_literals) sind String-Literale, die eingebettete Ausdrücke erlauben. Sie können mehrzeilige Strings und String-Interpolationsfunktionen mit ihnen verwenden.
+[Template-Literale](/de/docs/Web/JavaScript/Reference/Template_literals) sind Zeichenfolgenliterale, die eingebettete Ausdrücke ermöglichen. Sie können sie für mehrzeilige Zeichenfolgen und Stringinterpolation verwenden.
 
-Template-Literale werden von Backtick-Zeichen ([Gravis](https://en.wikipedia.org/wiki/Grave_accent)) (`` ` ``) anstelle von doppelten oder einfachen Anführungszeichen umschlossen. Template-Literale können Platzhalter enthalten. Diese werden durch das Dollarzeichen und geschweifte Klammern (`${expression}`) angezeigt.
+Template-Literale werden durch Backticks ([Gravis](https://en.wikipedia.org/wiki/Grave_accent)) anstelle von doppelten oder einfachen Anführungszeichen eingeschlossen. Template-Literale können Platzhalter enthalten, die durch das Dollarzeichen und geschweifte Klammern (`${expression}`) angezeigt werden.
 
-### Mehrzeilig
+### Mehrzeilige Zeichenfolgen
 
-Alle in den Quellcode eingefügten Zeilenumbruchzeichen sind Teil des Template-Literals. Mit normalen Strings müssten Sie die folgende Syntax verwenden, um mehrzeilige Strings zu erhalten:
+Alle in den Quellcode eingefügten Zeilenumbrüche sind Teil des Template-Literals. Bei normalen Zeichenfolgen müssten Sie die folgende Syntax verwenden, um mehrzeilige Zeichenfolgen zu erhalten:
 
 ```js
 console.log(
@@ -391,7 +409,7 @@ string text line 2",
 // string text line 2"
 ```
 
-Um denselben Effekt mit mehrzeiligen Strings zu erzielen, können Sie nun schreiben:
+Um denselben Effekt mit mehrzeiligen Zeichenfolgen zu erzielen, können Sie jetzt schreiben:
 
 ```js
 console.log(`string text line 1
@@ -402,7 +420,7 @@ string text line 2`);
 
 ### Eingebettete Ausdrücke
 
-Um Ausdrücke innerhalb normaler Strings einzubetten, würden Sie die folgende Syntax verwenden:
+Um Ausdrücke innerhalb normaler Zeichenfolgen einzubetten, würden Sie die folgende Syntax verwenden:
 
 ```js
 const five = 5;
@@ -413,7 +431,7 @@ console.log(
 // "Fifteen is 15 and not 20."
 ```
 
-Jetzt, mit Template-Literalen, können Sie die syntaktische Vereinfachung verwenden, um solche Substitutionen lesbarer zu machen:
+Mit Template-Literalen können Sie nun das syntaktische Zucker nutzen, um solche Ersetzungen lesbarer zu machen:
 
 ```js
 const five = 5;
@@ -422,6 +440,6 @@ console.log(`Fifteen is ${five + ten} and not ${2 * five + ten}.`);
 // "Fifteen is 15 and not 20."
 ```
 
-Für weitere Informationen, lesen Sie über [Template-Literale](/de/docs/Web/JavaScript/Reference/Template_literals) in der [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference).
+Weitere Informationen finden Sie unter [Template-Literale](/de/docs/Web/JavaScript/Reference/Template_literals) im [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference).
 
 {{PreviousNext("Web/JavaScript/Guide/Expressions_and_operators", "Web/JavaScript/Guide/Representing_dates_times")}}

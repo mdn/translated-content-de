@@ -3,23 +3,19 @@ title: "Testen Sie Ihre Fähigkeiten: Grundlagen von HTML-Text"
 short-title: "Test: Grundlagen von HTML-Text"
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics
 l10n:
-  sourceCommit: 65c873fda639b035b94db77dd0f9373f38549aa0
+  sourceCommit: c132e962e8a432d843d77ea5e32d8cdb0a9e7fd8
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Lists", "Learn_web_development/Core/Structuring_content/Advanced_text_features", "Learn_web_development/Core/Structuring_content")}}
 
-Das Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie verstehen, wie man Text in HTML so auszeichnet, dass er Struktur und Bedeutung erhält.
+Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, einzuschätzen, ob Sie verstehen, wie man Text in HTML kennzeichnet, um ihm Struktur und Bedeutung zu verleihen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung von Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu erhalten, lesen Sie unseren [Fähigkeitstest-Leitfaden](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über unsere [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe sollen Sie die bereitgestellten HTML-Inhalte mit semantischen Überschriften- und Absatzelementen auszeichnen.
-
-Das fertige Beispiel sollte so aussehen:
-
-{{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/basic-text/basic-text1-finished.html", '100%', 300)}}
+In dieser Aufgabe möchten wir, dass Sie das bereitgestellte HTML mit semantischen Überschriften- und Absatz-Elementen versehen.
 
 ```html-nolint live-sample___text-basics-1
 Basic HTML Animals
@@ -35,9 +31,9 @@ The Anaconda
 The crafty anaconda likes to slither around the page, traveling rapidly by way of anchors to sneak up on his prey.
 ```
 
-<!-- Gemeinsamer/setup CSS-Code -->
+<!-- Gemeinsamer/Setup-CSS-Code -->
 
-```css hidden live-sample___text-basics-1 live-sample___text-basics-2 live-sample___text-basics-3 live-sample___text-basics-4
+```css hidden live-sample___text-basics-1 live-sample___text-basics-1-finished live-sample___text-basics-2 live-sample___text-basics-2-finished live-sample___text-basics-3 live-sample___text-basics-3-finished live-sample___text-basics-4 live-sample___text-basics-4-finished
 body {
   background-color: white;
   color: #333333;
@@ -67,7 +63,7 @@ h2 {
 
 <!-- Beispiel-spezifischer Code -->
 
-```css hidden live-sample___text-basics-1
+```css hidden live-sample___text-basics-1 live-sample___text-basics-1-finished
 h1,
 h2 {
   color: purple;
@@ -81,12 +77,16 @@ p {
 
 {{ EmbedLiveSample('text-basics-1', "100%", 130) }}
 
+Das fertige Beispiel sollte folgendermaßen aussehen:
+
+{{ EmbedLiveSample('text-basics-1-finished', "100%", 320) }}
+
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte so aussehen:
 
-```html
+```html live-sample___text-basics-1-finished
 <h1>Basic HTML Animals</h1>
 
 <p>This is the first paragraph in our page. It introduces our animals.</p>
@@ -110,11 +110,7 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 2
 
-In dieser Aufgabe sollen Sie die erste unformatiert aufgeführte Liste in eine ungeordnete Liste, und die zweite in eine geordnete Liste umwandeln.
-
-Das fertige Beispiel sollte so aussehen:
-
-{{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/basic-text/basic-text2-finished.html", '100%', 400)}}
+In dieser Aufgabe möchten wir, dass Sie die erste nicht markierte Liste in eine ungeordnete Liste und die zweite in eine geordnete Liste umwandeln.
 
 ```html-nolint live-sample___text-basics-2
 <h1>Looking at lists</h1>
@@ -134,7 +130,7 @@ Wait for at least 5 seconds
 Turn the handle and push
 ```
 
-```css hidden live-sample___text-basics-2
+```css hidden live-sample___text-basics-2 live-sample___text-basics-2-finished
 p {
   margin: 0.5em 0;
 }
@@ -156,12 +152,16 @@ ul {
 
 {{ EmbedLiveSample('text-basics-2', "100%", 220) }}
 
+Das fertige Beispiel sollte folgendermaßen aussehen:
+
+{{ EmbedLiveSample('text-basics-2-finished', "100%", 400) }}
+
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte so aussehen:
 
-```html
+```html live-sample___text-basics-2-finished
 <h1>Looking at lists</h1>
 
 <p>Turn the following list of my favorite vegetables into an unordered list.</p>
@@ -187,11 +187,7 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 3
 
-In dieser Aufgabe sollen Sie die bereitgestellten Tiere und ihre Definitionen in eine Definitionsliste umwandeln.
-
-Das fertige Beispiel sollte so aussehen:
-
-{{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/advanced-text/advanced-text1-finished.html", '100%', 250)}}
+In dieser Aufgabe möchten wir, dass Sie die bereitgestellten Tiere und ihre Definitionen in eine Definitionsliste umwandeln.
 
 ```html-nolint live-sample___text-basics-3
 <h1>Advanced HTML Animals</h1>
@@ -204,7 +200,7 @@ Hippopotamus
 His description is bottomless.
 ```
 
-```css hidden live-sample___text-basics-3
+```css hidden live-sample___text-basics-3 live-sample___text-basics-3-finished
 h1 {
   color: purple;
 }
@@ -222,12 +218,16 @@ dt {
 
 {{ EmbedLiveSample('text-basics-3', "100%", 160) }}
 
+Das fertige Beispiel sollte folgendermaßen aussehen:
+
+{{ EmbedLiveSample('text-basics-3-finished', "100%", 250) }}
+
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte so aussehen:
 
-```html
+```html live-sample___text-basics-3-finished
 <h1>Advanced HTML Animals</h1>
 
 <dl>
@@ -250,11 +250,7 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## Aufgabe 4
 
-In dieser Aufgabe erhalten Sie einen Absatz, und Ihr Ziel ist es, einige passende Wörter mit starken Hervorhebungen und einige mit Betonung zu markieren.
-
-Das fertige Beispiel sollte in etwa so aussehen:
-
-{{EmbedGHLiveSample("learning-area/html/introduction-to-html/tasks/basic-text/basic-text3-finished.html", '100%', 120)}}
+In dieser Aufgabe erhalten Sie einen Absatz und Ihr Ziel ist es, einige passende Wörter mit starker Wichtigkeit und einige mit Betonung durch Inline-Elemente zu kennzeichnen.
 
 ```html live-sample___text-basics-4
 <h1>Emphasis and importance</h1>
@@ -265,7 +261,7 @@ Das fertige Beispiel sollte in etwa so aussehen:
 </p>
 ```
 
-```css hidden live-sample___text-basics-4
+```css hidden live-sample___text-basics-4 live-sample___text-basics-4-finished
 h1,
 strong {
   color: purple;
@@ -283,12 +279,16 @@ em {
 
 {{ EmbedLiveSample('text-basics-4', "100%", 160) }}
 
+Das fertige Beispiel sollte in etwa so aussehen:
+
+{{ EmbedLiveSample('text-basics-4-finished', "100%", 140) }}
+
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Ihr fertiges HTML sollte so aussehen:
 
-```html
+```html live-sample___text-basics-4-finished
 <h1>Emphasis and importance</h1>
 
 <p>

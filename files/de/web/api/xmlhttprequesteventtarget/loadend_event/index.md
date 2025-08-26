@@ -1,23 +1,23 @@
 ---
-title: "XMLHttpRequest: progress event"
-short-title: progress
-slug: Web/API/XMLHttpRequest/progress_event
+title: "XMLHttpRequestEventTarget: loadend Ereignis"
+short-title: loadend
+slug: Web/API/XMLHttpRequestEventTarget/loadend_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 0cc63ce1d7f43eb98746a908a9aba68ef6a36f7b
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das **`progress`**-Ereignis wird periodisch ausgelöst, wenn eine Anfrage mehr Daten empfängt.
+Das **`loadend`** Ereignis wird ausgelöst, wenn eine Anfrage abgeschlossen ist, sei es erfolgreich (nach [`load`](/de/docs/Web/API/XMLHttpRequestEventTarget/load_event)) oder erfolglos (nach [`abort`](/de/docs/Web/API/XMLHttpRequestEventTarget/abort_event) oder [`error`](/de/docs/Web/API/XMLHttpRequestEventTarget/error_event)).
 
 ## Syntax
 
 Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
-addEventListener("progress", (event) => { })
+addEventListener("loadend", (event) => { })
 
-onprogress = (event) => { }
+onloadend = (event) => { }
 ```
 
 ## Ereignistyp
@@ -28,18 +28,18 @@ Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/do
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind auch Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_In Ergänzung zu den unten aufgeführten Eigenschaften sind Eigenschaften aus der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
-  - : Ein booleanes Flag, das anzeigt, ob die gesamte zu leistende Arbeit und der bereits geleistete Arbeitsumfang des zugrunde liegenden Prozesses berechenbar ist. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
+  - : Eine boolesche Flagge, die anzeigt, ob die gesamte zu erledigende Arbeit und die bereits erledigte Menge durch den zugrunde liegenden Prozess berechenbar ist. Mit anderen Worten, sie zeigt an, ob der Fortschritt messbar ist oder nicht.
 - [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
-  - : Ein 64-Bit-ganzzahliger Wert, der die bereits geleistete Arbeit des zugrunde liegenden Prozesses angibt. Der Anteil der geleisteten Arbeit kann berechnet werden, indem der Wert dieser Eigenschaft durch `total` geteilt wird. Beim Herunterladen einer Ressource über HTTP wird nur der Hauptteil der HTTP-Nachricht gezählt, nicht aber die Header und andere Overheads.
+  - : Ein 64-Bit-unsigned Integer-Wert, der die Menge der bereits vom zugrunde liegenden Prozess geleisteten Arbeit angibt. Der Anteil der geleisteten Arbeit kann berechnet werden, indem der Wert dieser Eigenschaft durch `total` geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Nachrichtentext der HTTP-Nachricht und schließt keine Header und anderen Overhead ein.
 - [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
-  - : Ein 64-Bit-ganzzahliger Wert, der die Gesamtmenge an Arbeit angibt, die der zugrunde liegende Prozess gerade erledigt. Beim Herunterladen einer Ressource über HTTP entspricht dies der `Content-Length` (der Größe des Hauptteils der Nachricht) und umfasst nicht die Header und andere Overheads.
+  - : Ein 64-Bit-unsigned Integer, der die Gesamtmenge der Arbeit darstellt, die der zugrunde liegende Prozess ausführt. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Nachrichtentextes) und schließt keine Header und anderen Overhead ein.
 
 ## Beispiele
 
-### Live-Beispiel
+### Verwendung mit XMLHttpRequest
 
 #### HTML
 
@@ -130,7 +130,23 @@ xhrButtonAbort.addEventListener("click", () => {
 
 #### Ergebnis
 
-{{ EmbedLiveSample('Live_example', '100%', '150px') }}
+{{ EmbedLiveSample('Usage with XMLHttpRequest', '100%', '150px') }}
+
+### Verwendung mit XMLHttpRequestUpload
+
+Sie können das `loadend` Ereignis verwenden, um das (erfolgreiche oder nicht) Ende eines Uploads zu erkennen. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige zeigt, besuchen Sie die Hauptseite von [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
+
+```js
+// When the upload is finished, we hide the progress bar.
+xhr.upload.addEventListener("loadend", (event) => {
+  progressBar.classList.remove("visible");
+  if (event.loaded !== 0) {
+    // Successful termination
+    log.textContent = "Upload finished.";
+  }
+  abortButton.disabled = true;
+});
+```
 
 ## Spezifikationen
 
@@ -142,5 +158,5 @@ xhrButtonAbort.addEventListener("click", () => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: [`loadstart`](/de/docs/Web/API/XMLHttpRequest/loadstart_event), [`load`](/de/docs/Web/API/XMLHttpRequest/load_event), [`loadend`](/de/docs/Web/API/XMLHttpRequest/loadend_event), [`error`](/de/docs/Web/API/XMLHttpRequest/error_event), [`abort`](/de/docs/Web/API/XMLHttpRequest/abort_event)
+- Verwandte Ereignisse: [`loadstart`](/de/docs/Web/API/XMLHttpRequestEventTarget/loadstart_event), [`load`](/de/docs/Web/API/XMLHttpRequestEventTarget/load_event), [`progress`](/de/docs/Web/API/XMLHttpRequestEventTarget/progress_event), [`error`](/de/docs/Web/API/XMLHttpRequestEventTarget/error_event), [`abort`](/de/docs/Web/API/XMLHttpRequestEventTarget/abort_event)
 - [Fortschritt überwachen](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest#monitoring_progress)
