@@ -1,18 +1,21 @@
 ---
-title: "Content-Security-Policy: frame-ancestors Richtlinie"
+title: "Content-Security-Policy: frame-ancestors-Direktive"
 short-title: frame-ancestors
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: 39dacf36080d1947d3886a13f74bc9f2fb2ed234
 ---
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`frame-ancestors`** Richtlinie gibt gültige Eltern an, die eine Seite mittels {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("object")}} oder {{HTMLElement("embed")}} einbetten dürfen.
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`frame-ancestors`**-Direktive legt fest, welche gültigen übergeordneten Elemente eine Seite mittels {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("object")}} oder {{HTMLElement("embed")}} einbetten dürfen.
 
-Diese Richtlinie auf `'none'` zu setzen, ist ähnlich wie {{HTTPHeader("X-Frame-Options", "X-Frame-Options: deny")}} (was auch in älteren Browsern unterstützt wird).
+Das Setzen dieser Direktive auf `'none'` ähnelt {{HTTPHeader("X-Frame-Options", "X-Frame-Options: deny")}} (was ebenfalls in älteren Browsern unterstützt wird).
 
 > [!NOTE]
-> **`frame-ancestors`** erlaubt es Ihnen anzugeben, welche übergeordnete Quelle eine Seite einbetten darf.
-> Dies unterscheidet sich von **`frame-src`**, das angibt, von wo iframes in einer Seite geladen werden dürfen.
+> **`frame-ancestors`** ermöglicht Ihnen, anzugeben, welche übergeordnete Quelle eine Seite einbetten darf.
+> Dies unterscheidet sich von **`frame-src`**, welches festlegt, woher iframes in einer Seite geladen werden dürfen.
+
+> [!NOTE]
+> Die **`frame-ancestors`**-Direktive [überprüft jeden Vorfahren](https://www.w3.org/TR/CSP2/#frame-ancestors-and-frame-options). Wenn ein Vorfahre nicht übereinstimmt, wird das Laden abgebrochen. Daher sollten alle Vorfahren durch die **`frame-ancestors`**-Direktive von Endrahmen erlaubt sein, wenn verschachtelte Rahmen verwendet werden.
 
 <table class="properties">
   <tbody>
@@ -21,16 +24,17 @@ Diese Richtlinie auf `'none'` zu setzen, ist ähnlich wie {{HTTPHeader("X-Frame-
       <td>2</td>
     </tr>
     <tr>
-      <th scope="row">Richtlinientyp</th>
-      <td>{{Glossary("Navigation_directive", "Navigationsrichtlinie")}}</td>
+      <th scope="row">Direktivtyp</th>
+      <td>{{Glossary("Navigation_directive", "Navigations-Direktive")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
-      <td>Nein. Wenn dies nicht gesetzt ist, ist alles erlaubt.</td>
+      <th scope="row">{{CSP("default-src")}}-Ausweichlösung</th>
+      <td>Nein. Wird dies nicht festgelegt, ist alles erlaubt.</td>
     </tr>
     <tr>
       <th colspan="2" scope="row">
-        Diese Richtlinie wird im {{HTMLElement("meta")}}-Element nicht unterstützt.
+        Diese Direktive wird im {{HTMLElement("meta")}}
+        Element nicht unterstützt.
       </th>
     </tr>
   </tbody>
@@ -43,18 +47,18 @@ Content-Security-Policy: frame-ancestors 'none';
 Content-Security-Policy: frame-ancestors <source-expression-list>;
 ```
 
-Diese Richtlinie kann einen der folgenden Werte haben:
+Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Diese Ressource darf nicht eingebettet werden. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Diese Ressource darf nicht eingebettet werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
-  - : Eine durch Leerzeichen getrennte Liste von _Quellausdrucks_-Werten. Diese Ressource darf eingebettet werden, wenn der Einbettende mit einem der angegebenen Quellausdrücke übereinstimmt. Für diese Richtlinie sind die folgenden Quellausdrucks-Werte anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _Quellausdruck_-Werten. Diese Ressource darf eingebettet werden, wenn der Einbettende mit einem der angegebenen Quellausdrücke übereinstimmt. Für diese Direktive sind die folgenden Quellausdruckswerte anwendbar:
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
     - [`'self'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#self)
 
 > [!NOTE]
-> Die Syntax der `frame-ancestors` Richtlinie ist ähnlich zu der Quelllisten-Syntax, die von anderen Richtlinien akzeptiert wird (z. B. {{CSP("child-src")}}), aber sie fällt nicht auf die `default-src` Einstellung zurück. Eine Richtlinie, die `default-src 'none'` deklariert, erlaubt es dennoch, dass die Ressource von jedem eingebettet wird.
+> Die Syntax der `frame-ancestors`-Direktive ist ähnlich der Quelllisten-Syntax, die von anderen Direktiven akzeptiert wird (z.B. {{CSP("child-src")}}), aber sie greift nicht auf die `default-src`-Einstellung zurück. Eine Richtlinie, die `default-src 'none'` erklärt, erlaubt es trotzdem, die Ressource von jedermann einbetten zu lassen.
 
 ## Beispiele
 

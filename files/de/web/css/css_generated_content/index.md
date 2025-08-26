@@ -1,15 +1,15 @@
 ---
-title: CSS-generierter Inhalt
+title: CSS generierter Inhalt
 slug: Web/CSS/CSS_generated_content
 l10n:
-  sourceCommit: bc761c19c07b875eb889d4aad87b18d8443da339
+  sourceCommit: 6cd62fb4482a2d6927cebd0223bf8d0386095340
 ---
 
-Das Modul **CSS-generierter Inhalt** definiert, wie der Inhalt eines Elements ersetzt werden und Inhalt mit CSS zu einem Dokument hinzugefügt werden kann.
+Das Modul für **CSS generierter Inhalt** definiert, wie der Inhalt eines Elements ersetzt und Inhalt mit CSS zu einem Dokument hinzugefügt werden kann.
 
-Generierter Inhalt kann für Inhaltsersetzung verwendet werden, wobei in diesem Fall der Inhalt eines DOM-Knotens durch ein CSS `<image>` ersetzt wird. Der CSS-generierte Inhalt ermöglicht auch die Erzeugung von sprachspezifischen Anführungszeichen, das Erstellen benutzerdefinierter Listenelementnummern und -punkte und das visuelle Hinzufügen von Inhalten durch das Generieren von Inhalt auf ausgewählten Pseudo-Elementen als anonyme ersetzte Elemente.
+Generierter Inhalt kann zur Inhaltsersetzung verwendet werden, wobei der Inhalt eines DOM-Knotens durch ein CSS `<image>` ersetzt wird. Der generierte CSS-Inhalt ermöglicht auch die Generierung von sprachspezifischen Anführungszeichen, das Erstellen von benutzerdefinierten Listennummern und Aufzählungszeichen sowie das visuelle Hinzufügen von Inhalten durch die Erzeugung von Inhalten auf ausgewählten Pseudo-Elementen als anonyme ersetzte Elemente.
 
-### Generierter Inhalt im Einsatz
+## Generierter Inhalt in Aktion
 
 ```html hidden live-sample___generated_content
 <div></div>
@@ -98,9 +98,9 @@ div::before {
 
 {{EmbedLiveSample("generated_content", "", "400px")}}
 
-Das HTML für dieses Beispiel ist ein einzelnes, leeres {{HTMLElement("div")}} innerhalb eines ansonsten leeren {{HTMLElement("body")}}. Der Schneemann wurde mit [CSS-Bildern](/de/docs/Web/CSS/CSS_images) und [CSS-Hintergründen und -Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) erstellt. Die Karottennase wurde mit generiertem Inhalt hinzugefügt: ein leerer Kasten mit einem breiten orangefarbenen [linken Rahmen](/de/docs/Web/CSS/border-left), der zum {{cssxref("::before")}} Pseudo-Element hinzugefügt wurde. Der Text ist ebenfalls generierter Inhalt: „only one &lt;div>“ wurde mit der {{cssxref("content")}}-Eigenschaft, die auf das {{cssxref("::after")}} Pseudo-Element angewendet wurde, erzeugt.
+Das HTML für dieses Beispiel ist ein einziges, leeres {{HTMLElement("div")}} in einem ansonsten leeren {{HTMLElement("body")}}. Der Schneemann wurde mit [CSS-Bildern](/de/docs/Web/CSS/CSS_images) und [CSS-Hintergründen und -Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) erstellt. Die Karotten-Nase wurde durch generierten Inhalt hinzugefügt: eine leere Box mit einem breiten orangen [linken Rahmen](/de/docs/Web/CSS/border-left), der dem {{cssxref("::before")}} Pseudo-Element hinzugefügt wurde. Der Text ist ebenfalls generierter Inhalt: "only one &lt;div>" wurde mit der {{cssxref("content")}} Eigenschaft angewendet auf das {{cssxref("::after")}} Pseudo-Element generiert.
 
-Klicken Sie auf "Play" im obigen Beispiel, um den Code im MDN Playground anzusehen oder zu bearbeiten.
+Klicken Sie auf "Play" im obigen Beispiel, um den Code im MDN Playground zu sehen oder zu bearbeiten.
 
 ## Referenz
 
@@ -109,11 +109,11 @@ Klicken Sie auf "Play" im obigen Beispiel, um den Code im MDN Playground anzuseh
 - {{cssxref("content")}}
 - {{cssxref("quotes")}}
 
-Das CSS-generierte Inhaltsmodul führt auch vier gefährdete Eigenschaften ein: `string-set`, `bookmark-label`, `bookmark-level`, und `bookmark-state`. Derzeit unterstützen keine Browser diese Funktionen.
+Das Modul für CSS generierter Inhalt führt auch vier risikobehaftete Eigenschaften ein: `string-set`, `bookmark-label`, `bookmark-level` und `bookmark-state`. Derzeit unterstützen keine Browser diese Funktionen.
 
 ### Funktionen
 
-Das CSS-generierte Inhaltsmodul führt sechs noch zu implementierende CSS-Funktionen ein, darunter `content()`, `string()`, und `leader()`, sowie die drei [`<target>`](/de/docs/Web/CSS/content#target) Funktionen `target-counter()`, `target-counters()`, und `target-text()`.
+Das Modul für CSS generierter Inhalt führt sechs bisher nicht umgesetzte CSS-Funktionen ein, einschließlich `content()`, `string()` und `leader()`, sowie die drei [`<target>`](/de/docs/Web/CSS/content#target) Funktionen `target-counter()`, `target-counters()` und `target-text()`.
 
 ### Datentypen
 
@@ -127,9 +127,9 @@ Das CSS-generierte Inhaltsmodul führt sechs noch zu implementierende CSS-Funkti
 ## Leitfäden
 
 - ["Anleitung" für generierten Inhalt](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Generated_content)
-  - : Lernen Sie, wie Sie Text- oder Bildinhalte mit der {{cssxref("content")}}-Eigenschaft zu einem Dokument hinzufügen können.
+  - : Lernen Sie, wie Sie Text- oder Bildinhalte mit der {{cssxref("content")}} Eigenschaft zu einem Dokument hinzufügen.
 
-- [Erstellen Sie schicke Boxen mit generiertem Inhalt](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Create_fancy_boxes)
+- [Erstellen Sie fantasievolle Kästen mit generiertem Inhalt](/de/docs/Learn_web_development/Howto/Solve_CSS_problems/Create_fancy_boxes)
   - : Beispiel für das Styling von generiertem Inhalt für visuelle Effekte.
 
 ## Verwandte Konzepte
@@ -139,7 +139,7 @@ Das CSS-generierte Inhaltsmodul führt sechs noch zu implementierende CSS-Funkti
   - {{cssxref("::after")}} Pseudo-Element
   - {{cssxref("::marker")}} Pseudo-Element
 
-- [CSS-Listen und -Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
   - {{cssxref("counter", "counter()")}} Funktion
   - {{cssxref("counters", "counters()")}} Funktion
   - {{cssxref("counter-increment")}} Eigenschaft
@@ -162,5 +162,5 @@ Das CSS-generierte Inhaltsmodul führt sechs noch zu implementierende CSS-Funkti
 ## Siehe auch
 
 - [CSS-Pseudo-Elemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
-- [CSS-Listen und -Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
 - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}
