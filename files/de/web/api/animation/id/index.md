@@ -3,12 +3,12 @@ title: "Animation: id-Eigenschaft"
 short-title: id
 slug: Web/API/Animation/id
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: 291a8c75ed553e807895225d51dff7ac24ad1f05
 ---
 
 {{ APIRef("Web Animations") }}
 
-Die **`Animation.id`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt einen String zurück oder setzt diesen, um die Animation zu identifizieren.
+Die **`Animation.id`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt einen String zurück oder legt einen fest, der verwendet wird, um die Animation zu identifizieren.
 
 ## Wert
 
@@ -16,10 +16,10 @@ Ein String, der verwendet werden kann, um die Animation zu identifizieren, oder 
 
 ## Beispiele
 
-Im [Beispiel "Follow the White Rabbit"](https://codepen.io/rachelnabors/pen/eJyWzm?editors=0010) können Sie der `rabbitDownAnimation` eine `id` wie folgt zuweisen:
+Im [Beispiel des Wettlaufs der Roten Königin](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#other_useful_methods) können Sie der `redQueenAlice` eine `id` wie folgt zuweisen:
 
 ```js
-rabbitDownAnimation.id = "rabbitGo";
+redQueenAlice.id = "redQueenAlice";
 ```
 
 ## Spezifikationen

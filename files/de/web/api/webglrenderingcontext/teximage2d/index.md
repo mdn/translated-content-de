@@ -3,804 +3,168 @@ title: "WebGLRenderingContext: texImage2D()-Methode"
 short-title: texImage2D()
 slug: Web/API/WebGLRenderingContext/texImage2D
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: fe3f1f2dfaf44fcbe868b91b6a429270d2055716
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.texImage2D()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt ein zweidimensionales Texturbild fest.
+Die **`texImage2D()`**-Methode der [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Schnittstelle der [WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert ein zweidimensionales Texturbild.
 
 ## Syntax
 
 ```js-nolint
-// WebGL1
-texImage2D(target, level, internalformat, width, height, border, format, type, pixels)
-texImage2D(target, level, internalformat, format, type, pixels)
+// WebGL 1:
+texImage2D(target, level, internalformat, width, height, border, format, type, srcData)
+texImage2D(target, level, internalformat, format, type, source)
 
-
-// WebGL2
-texImage2D(target, level, internalformat, width, height, border, format, type, offset)
-texImage2D(target, level, internalformat, width, height, border, format, type, source)
+// Additionally available in WebGL 2:
 texImage2D(target, level, internalformat, width, height, border, format, type, srcData, srcOffset)
+texImage2D(target, level, internalformat, width, height, border, format, type, source)
+texImage2D(target, level, internalformat, width, height, border, format, type, offset)
 ```
 
 ### Parameter
 
 - `target`
-
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (target) der aktiven Textur angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) der aktiven Textur angibt. Mögliche Werte:
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_X`: Positive X-Fläche für eine texturierte Würfelfläche.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_X`: Negative X-Fläche für eine texturierte Würfelfläche.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Y`: Positive Y-Fläche für eine texturierte Würfelfläche.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Y`: Negative Y-Fläche für eine texturierte Würfelfläche.
-    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Z`: Positive Z-Fläche für eine texturierte Würfelfläche.
-    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Z`: Negative Z-Fläche für eine texturierte Würfelfläche.
-
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_X`: Positive X-Seite für eine Würfelkarten-Textur.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_X`: Negative X-Seite für eine Würfelkarten-Textur.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Y`: Positive Y-Seite für eine Würfelkarten-Textur.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Y`: Negative Y-Seite für eine Würfelkarten-Textur.
+    - `gl.TEXTURE_CUBE_MAP_POSITIVE_Z`: Positive Z-Seite für eine Würfelkarten-Textur.
+    - `gl.TEXTURE_CUBE_MAP_NEGATIVE_Z`: Negative Z-Seite für eine Würfelkarten-Textur.
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Detailebene angibt. Ebene 0 ist die Basisebene und Ebene _n_ ist die n-te Mipmap-Reduktionsebene.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Detaillierungsgrad angibt. Level 0 ist das Basisbildebene und Level _n_ ist die n-te Mipmap-Reduktionsstufe.
 - `internalformat`
-
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Farbkomponenten in der Textur angibt.
-
-    Mögliche Werte sowohl in WebGL1 als auch in WebGL2
-
-    <table>
-      <thead>
-        <tr>
-          <td>Format</td>
-          <td>Typ</td>
-          <td>Kanäle</td>
-          <td>Bytes pro Pixel</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>RGBA</td>
-          <td>UNSIGNED_BYTE</td>
-          <td>4</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td>RGB</td>
-          <td>UNSIGNED_BYTE</td>
-          <td>3</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>RGBA</td>
-          <td>UNSIGNED_SHORT_4_4_4_4</td>
-          <td>4</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>RGBA</td>
-          <td>UNSIGNED_SHORT_5_5_5_1</td>
-          <td>4</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>RGB</td>
-          <td>UNSIGNED_SHORT_5_6_5</td>
-          <td>3</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>LUMINANCE_ALPHA</td>
-          <td>UNSIGNED_BYTE</td>
-          <td>2</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>LUMINANCE</td>
-          <td>UNSIGNED_BYTE</td>
-          <td>1</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>ALPHA</td>
-          <td>UNSIGNED_BYTE</td>
-          <td>1</td>
-          <td>1</td>
-        </tr>
-      </tbody>
-    </table>
-
-    Andere mögliche Werte in WebGL2 für die Versionen von `texImage2D`, die ein {{jsxref("TypedArray")}}, einen {{jsxref("DataView")}} oder einen `GLintptr offset` verwenden
-
-    <table>
-      <thead>
-        <tr>
-          <td>
-            <strong>Format<br />mit Größe</strong>
-          </td>
-          <td>
-            <strong>Basis-<br />Format</strong>
-          </td>
-          <td>
-            <strong>R<br />Bits</strong>
-          </td>
-          <td>
-            <strong>G<br />Bits</strong>
-          </td>
-          <td>
-            <strong>B<br />Bits</strong>
-          </td>
-          <td>
-            <strong>A<br />Bits</strong>
-          </td>
-          <td>
-            <strong>Geteilte<br />Bits</strong>
-          </td>
-          <td>
-            <strong>Farb-<br />darstellbar</strong>
-          </td>
-          <td>
-            <strong>Textur-<br />filterbar</strong>
-          </td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>R8</td>
-          <td>RED</td>
-          <td>8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>R8_SNORM</td>
-          <td>RED</td>
-          <td>s8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RG8</td>
-          <td>RG</td>
-          <td>8</td>
-          <td>8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RG8_SNORM</td>
-          <td>RG</td>
-          <td>s8</td>
-          <td>s8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RGB8</td>
-          <td>RGB</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RGB8_SNORM</td>
-          <td>RGB</td>
-          <td>s8</td>
-          <td>s8</td>
-          <td>s8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RGB565</td>
-          <td>RGB</td>
-          <td>5</td>
-          <td>6</td>
-          <td>5</td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RGBA4</td>
-          <td>RGBA</td>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-          <td>4</td>
-          <td></td>
-          <td>●</td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RGB5_A1</td>
-          <td>RGBA</td>
-          <td>5</td>
-          <td>5</td>
-          <td>5</td>
-          <td>1</td>
-          <td></td>
-          <td>●</td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RGBA8</td>
-          <td>RGBA</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td></td>
-          <td>●</td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RGBA8_SNORM</td>
-          <td>RGBA</td>
-          <td>s8</td>
-          <td>s8</td>
-          <td>s8</td>
-          <td>s8</td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RGB10_A2</td>
-          <td>RGBA</td>
-          <td>10</td>
-          <td>10</td>
-          <td>10</td>
-          <td>2</td>
-          <td></td>
-          <td>●</td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RGB10_A2UI</td>
-          <td>RGBA</td>
-          <td>ui10</td>
-          <td>ui10</td>
-          <td>ui10</td>
-          <td>ui2</td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>SRGB8</td>
-          <td>RGB</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>SRGB8_ALPHA8</td>
-          <td>RGBA</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td>8</td>
-          <td></td>
-          <td>●</td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>R16F</td>
-          <td>RED</td>
-          <td>f16</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RG16F</td>
-          <td>RG</td>
-          <td>f16</td>
-          <td>f16</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RGB16F</td>
-          <td>RGB</td>
-          <td>f16</td>
-          <td>f16</td>
-          <td>f16</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RGBA16F</td>
-          <td>RGBA</td>
-          <td>f16</td>
-          <td>f16</td>
-          <td>f16</td>
-          <td>f16</td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>R32F</td>
-          <td>RED</td>
-          <td>f32</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RG32F</td>
-          <td>RG</td>
-          <td>f32</td>
-          <td>f32</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGB32F</td>
-          <td>RGB</td>
-          <td>f32</td>
-          <td>f32</td>
-          <td>f32</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGBA32F</td>
-          <td>RGBA</td>
-          <td>f32</td>
-          <td>f32</td>
-          <td>f32</td>
-          <td>f32</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>R11F_G11F_B10F</td>
-          <td>RGB</td>
-          <td>f11</td>
-          <td>f11</td>
-          <td>f10</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>RGB9_E5</td>
-          <td>RGB</td>
-          <td>9</td>
-          <td>9</td>
-          <td>9</td>
-          <td></td>
-          <td>5</td>
-          <td></td>
-          <td>●</td>
-        </tr>
-        <tr>
-          <td>R8I</td>
-          <td>RED</td>
-          <td>i8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>R8UI</td>
-          <td>RED</td>
-          <td>ui8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>R16I</td>
-          <td>RED</td>
-          <td>i16</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>R16UI</td>
-          <td>RED</td>
-          <td>ui16</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>R32I</td>
-          <td>RED</td>
-          <td>i32</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>R32UI</td>
-          <td>RED</td>
-          <td>ui32</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RG8I</td>
-          <td>RG</td>
-          <td>i8</td>
-          <td>i8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RG8UI</td>
-          <td>RG</td>
-          <td>ui8</td>
-          <td>ui8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RG16I</td>
-          <td>RG</td>
-          <td>i16</td>
-          <td>i16</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RG16UI</td>
-          <td>RG</td>
-          <td>ui16</td>
-          <td>ui16</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RG32I</td>
-          <td>RG</td>
-          <td>i32</td>
-          <td>i32</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RG32UI</td>
-          <td>RG</td>
-          <td>ui32</td>
-          <td>ui32</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGB8I</td>
-          <td>RGB</td>
-          <td>i8</td>
-          <td>i8</td>
-          <td>i8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGB8UI</td>
-          <td>RGB</td>
-          <td>ui8</td>
-          <td>ui8</td>
-          <td>ui8</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGB16I</td>
-          <td>RGB</td>
-          <td>i16</td>
-          <td>i16</td>
-          <td>i16</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGB16UI</td>
-          <td>RGB</td>
-          <td>ui16</td>
-          <td>ui16</td>
-          <td>ui16</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGB32I</td>
-          <td>RGB</td>
-          <td>i32</td>
-          <td>i32</td>
-          <td>i32</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGB32UI</td>
-          <td>RGB</td>
-          <td>ui32</td>
-          <td>ui32</td>
-          <td>ui32</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGBA8I</td>
-          <td>RGBA</td>
-          <td>i8</td>
-          <td>i8</td>
-          <td>i8</td>
-          <td>i8</td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGBA8UI</td>
-          <td>RGBA</td>
-          <td>ui8</td>
-          <td>ui8</td>
-          <td>ui8</td>
-          <td>ui8</td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGBA16I</td>
-          <td>RGBA</td>
-          <td>i16</td>
-          <td>i16</td>
-          <td>i16</td>
-          <td>i16</td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGBA16UI</td>
-          <td>RGBA</td>
-          <td>ui16</td>
-          <td>ui16</td>
-          <td>ui16</td>
-          <td>ui16</td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGBA32I</td>
-          <td>RGBA</td>
-          <td>i32</td>
-          <td>i32</td>
-          <td>i32</td>
-          <td>i32</td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>RGBA32UI</td>
-          <td>RGBA</td>
-          <td>ui32</td>
-          <td>ui32</td>
-          <td>ui32</td>
-          <td>ui32</td>
-          <td></td>
-          <td>●</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-
-    Mögliche Werte in WebGL2 für die Versionen von `texImage2D`, die eine Textur von einem `HTMLImageElement`, `HTMLCanvasElement`, `HTMLVideoElement`, `ImageBitmap` oder `ImageData` nehmen
-
-    - `gl.ALPHA`: Verwirft die Rot-, Grün- und Blaukomponenten und liest die Alphakomponente.
-    - `gl.RGB`: Verwirft die Alphakomponenten und liest die Rot-, Grün- und Blaukkomponenten.
-    - `gl.RGBA`: Rot-, Grün-, Blau- und Alphakomponenten werden aus dem Farbbuffer gelesen.
-    - `gl.LUMINANCE`: Jede Farbkomponente ist eine Luminanzkomponente, Alpha ist 1.0.
-    - `gl.LUMINANCE_ALPHA`: Jede Komponente ist eine Luminanz-/Alphakomponente.
-
-    Bei Verwendung der [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture)-Erweiterung:
-
-    - `gl.DEPTH_COMPONENT`
-    - `gl.DEPTH_STENCIL`
-
-    Bei Verwendung der [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB)-Erweiterung:
-
-    - `ext.SRGB_EXT`
-    - `ext.SRGB_ALPHA_EXT`
-
-    Bei Verwendung eines [WebGL 2-Kontextes](/de/docs/Web/API/WebGL2RenderingContext) sind folgende Werte zusätzlich verfügbar:
-
-    - `gl.R8`
-    - `gl.R16F`
-    - `gl.R32F`
-    - `gl.R8UI`
-    - `gl.RG8`
-    - `gl.RG16F`
-    - `gl.RG32F`
-    - `gl.RG8UI`
-    - `gl.RG16UI`
-    - `gl.RG32UI`
-    - `gl.RGB8`
-    - `gl.SRGB8`
-    - `gl.RGB565`
-    - `gl.R11F_G11F_B10F`
-    - `gl.RGB9_E5`
-    - `gl.RGB16F`
-    - `gl.RGB32F`
-    - `gl.RGB8UI`
-    - `gl.RGBA8`
-    - `gl.SRGB8_ALPHA8`
-    - `gl.RGB5_A1`
-    - `gl.RGB10_A2`
-    - `gl.RGBA4`
-    - `gl.RGBA16F`
-    - `gl.RGBA32F`
-    - `gl.RGBA8UI`
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, wie die Textur gespeichert werden soll, nachdem sie geladen wurde. Siehe unten für verfügbare Werte.
 - `width`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur in Texeln angibt.
 - `height`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur in Texeln angibt.
 - `border`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Rands angibt. Muss 0 sein.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Rahmens angibt. Muss 0 sein.
 - `format`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Format der Texeldaten angibt. In WebGL 1 muss dies dasselbe wie `internalformat` sein (siehe oben). In WebGL 2 sind die Kombinationen in [dieser Tabelle](https://registry.khronos.org/webgl/specs/latest/2.0/#TEXTURE_TYPES_FORMATS_FROM_DOM_ELEMENTS_TABLE) aufgelistet.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, wie jedes ganzzahlige Element in den rohen Texeldaten als Farbkomponente interpretiert werden soll. In WebGL 1 muss dies dieselbe wie `internalformat` sein. Siehe unten für verfügbare Werte.
 - `type`
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die Größe jedes ganzzahligen Elements in den rohen Texeldaten angibt.
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Datentyp der Texeldaten angibt. Mögliche Werte:
+    Die Werte für `internalformat`, `format` und `type` müssen kompatibel sein. Mögliche Kombinationen in beiden WebGL 1 und WebGL 2 (diese internen Formate sind _ungenormt_, da Sie nicht festlegen können, wie viele Bytes jedes Pixel intern benötigt):
 
-    - `gl.UNSIGNED_BYTE`: 8 Bits pro Kanal für `gl.RGBA`
-    - `gl.UNSIGNED_SHORT_5_6_5`: 5 rote Bits, 6 grüne Bits, 5 blaue Bits.
-    - `gl.UNSIGNED_SHORT_4_4_4_4`: 4 rote Bits, 4 grüne Bits, 4 blaue Bits, 4 Alphabits.
-    - `gl.UNSIGNED_SHORT_5_5_5_1`: 5 rote Bits, 5 grüne Bits, 5 blaue Bits, 1 Alphabit.
+    | `internalformat`  | `format`          | `type`                   | Eingabebytes pro Pixel | Eingabepixellayout (Bits pro Kanal) |
+    | ----------------- | ----------------- | ------------------------ | ---------------------- | ----------------------------------- |
+    | `RGB`             | `RGB`             | `UNSIGNED_BYTE`          | 3                      | (R, G, B) = (8, 8, 8)               |
+    | `RGB`             | `RGB`             | `UNSIGNED_SHORT_5_6_5`   | 2                      | (R, G, B) = (5, 6, 5)               |
+    | `RGBA`            | `RGBA`            | `UNSIGNED_BYTE`          | 4                      | (R, G, B, A) = (8, 8, 8, 8)         |
+    | `RGBA`            | `RGBA`            | `UNSIGNED_SHORT_4_4_4_4` | 2                      | (R, G, B, A) = (4, 4, 4, 4)         |
+    | `RGBA`            | `RGBA`            | `UNSIGNED_SHORT_5_5_5_1` | 2                      | (R, G, B, A) = (5, 5, 5, 1)         |
+    | `LUMINANCE_ALPHA` | `LUMINANCE_ALPHA` | `UNSIGNED_BYTE`          | 2                      | (L, A) = (8, 8)                     |
+    | `LUMINANCE`       | `LUMINANCE`       | `UNSIGNED_BYTE`          | 1                      | (L) = (8)                           |
+    | `ALPHA`           | `ALPHA`           | `UNSIGNED_BYTE`          | 1                      | (A) = (8)                           |
 
-    Bei Verwendung der [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture)-Erweiterung:
+    Wenn die [`OES_texture_float`](/de/docs/Web/API/OES_texture_float)-Erweiterung aktiviert ist, kann `type` zusätzlich `FLOAT` sein. Wenn die [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float)-Erweiterung aktiviert ist, kann `type` zusätzlich `ext.HALF_FLOAT_OES` (Konstante, die durch die Erweiterung bereitgestellt wird) sein.
 
-    - `gl.UNSIGNED_SHORT`
-    - `gl.UNSIGNED_INT`
-    - `ext.UNSIGNED_INT_24_8_WEBGL` (Konstante, die von der Erweiterung bereitgestellt wird)
+    Wenn die [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB)-Erweiterung aktiviert ist, kann `internalformat` zusätzlich `ext.SRGB_EXT` oder `ext.SRGB_ALPHA_EXT` sein.
 
-    - Bei Verwendung der [`OES_texture_float`](/de/docs/Web/API/OES_texture_float)-Erweiterung:
-      - `gl.FLOAT`
+    In WebGL 2, wenn die Quelle als `srcData` oder `offset` angegeben wird, sind die folgenden Kombinationen zusätzlich verfügbar (diese internen Formate sind _genormt_, da das interne Pixellayout genau festgelegt ist; wir lassen das Eingabelayout hier weg, da es ähnlich wie das oben funktioniert):
 
-    Bei Verwendung der [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float)-Erweiterung:
+    | `internalformat` | `format`       | `type`                                                                   | Internes Pixellayout                        | Farblich renderbar | Texture filterbar |
+    | ---------------- | -------------- | ------------------------------------------------------------------------ | ------------------------------------------- | ------------------ | ----------------- |
+    | `R8`             | `RED`          | `UNSIGNED_BYTE`                                                          | (R) = (8)                                   | Y                  | Y                 |
+    | `R8_SNORM`       | `RED`          | `BYTE`                                                                   | (R) = (s8)                                  |                    | Y                 |
+    | `R16F`           | `RED`          | `HALF_FLOAT`, `FLOAT`                                                    | (R) = (f16)                                 |                    | Y                 |
+    | `R32F`           | `RED`          | `FLOAT`                                                                  | (R) = (f32)                                 |                    |                   |
+    | `R8UI`           | `RED_INTEGER`  | `UNSIGNED_BYTE`                                                          | (R) = (ui8)                                 | Y                  |                   |
+    | `R8I`            | `RED_INTEGER`  | `BYTE`                                                                   | (R) = (i8)                                  | Y                  |                   |
+    | `R16UI`          | `RED_INTEGER`  | `UNSIGNED_SHORT`                                                         | (R) = (ui16)                                | Y                  |                   |
+    | `R16I`           | `RED_INTEGER`  | `SHORT`                                                                  | (R) = (i16)                                 | Y                  |                   |
+    | `R32UI`          | `RED_INTEGER`  | `UNSIGNED_INT`                                                           | (R) = (ui32)                                | Y                  |                   |
+    | `R32I`           | `RED_INTEGER`  | `INT`                                                                    | (R) = (i32)                                 | Y                  |                   |
+    | `RG8`            | `RG`           | `UNSIGNED_BYTE`                                                          | (R, G) = (8, 8)                             | Y                  | Y                 |
+    | `RG8_SNORM`      | `RG`           | `BYTE`                                                                   | (R, G) = (s8, s8)                           |                    | Y                 |
+    | `RG16F`          | `RG`           | `HALF_FLOAT`, `FLOAT`                                                    | (R, G) = (f16, f16)                         |                    | Y                 |
+    | `RG32F`          | `RG`           | `FLOAT`                                                                  | (R, G) = (f32, f32)                         |                    |                   |
+    | `RG8UI`          | `RG_INTEGER`   | `UNSIGNED_BYTE`                                                          | (R, G) = (ui8, ui8)                         | Y                  |                   |
+    | `RG8I`           | `RG_INTEGER`   | `BYTE`                                                                   | (R, G) = (i8, i8)                           | Y                  |                   |
+    | `RG16UI`         | `RG_INTEGER`   | `UNSIGNED_SHORT`                                                         | (R, G) = (ui16, ui16)                       | Y                  |                   |
+    | `RG16I`          | `RG_INTEGER`   | `SHORT`                                                                  | (R, G) = (i16, i16)                         | Y                  |                   |
+    | `RG32UI`         | `RG_INTEGER`   | `UNSIGNED_INT`                                                           | (R, G) = (ui32, ui32)                       | Y                  |                   |
+    | `RG32I`          | `RG_INTEGER`   | `INT`                                                                    | (R, G) = (i32, i32)                         | Y                  |                   |
+    | `RGB8`           | `RGB`          | `UNSIGNED_BYTE`                                                          | (R, G, B) = (8, 8, 8)                       | Y                  | Y                 |
+    | `SRGB8`          | `RGB`          | `UNSIGNED_BYTE`                                                          | (R, G, B) = (8, 8, 8)                       |                    | Y                 |
+    | `RGB565`         | `RGB`          | `UNSIGNED_BYTE`, `UNSIGNED_SHORT_5_6_5`                                  | (R, G, B) = (5, 6, 5)                       | Y                  | Y                 |
+    | `RGB8_SNORM`     | `RGB`          | `BYTE`                                                                   | (R, G, B) = (s8, s8, s8)                    |                    | Y                 |
+    | `R11F_G11F_B10F` | `RGB`          | `UNSIGNED_INT_10F_11F_11F_REV`, `HALF_FLOAT`, `FLOAT`                    | (R, G, B) = (f11, f11, f10)                 |                    | Y                 |
+    | `RGB9_E5`        | `RGB`          | `UNSIGNED_INT_5_9_9_9_REV`, `HALF_FLOAT`, `FLOAT`                        | (R, G, B) = (f9, f9, f9), 5 gemeinsame Bits |                    | Y                 |
+    | `RGB16F`         | `RGB`          | `HALF_FLOAT`, `FLOAT`                                                    | (R, G, B) = (f16, f16, f16)                 |                    | Y                 |
+    | `RGB32F`         | `RGB`          | `FLOAT`                                                                  | (R, G, B) = (f32, f32, f32)                 |                    |                   |
+    | `RGB8UI`         | `RGB_INTEGER`  | `UNSIGNED_BYTE`                                                          | (R, G, B) = (ui8, ui8, ui8)                 | Y                  |                   |
+    | `RGB8I`          | `RGB_INTEGER`  | `BYTE`                                                                   | (R, G, B) = (i8, i8, i8)                    | Y                  |                   |
+    | `RGB16UI`        | `RGB_INTEGER`  | `UNSIGNED_SHORT`                                                         | (R, G, B) = (ui16, ui16, ui16)              | Y                  |                   |
+    | `RGB16I`         | `RGB_INTEGER`  | `SHORT`                                                                  | (R, G, B) = (i16, i16, i16)                 | Y                  |                   |
+    | `RGB32UI`        | `RGB_INTEGER`  | `UNSIGNED_INT`                                                           | (R, G, B) = (ui32, ui32, ui32)              | Y                  |                   |
+    | `RGB32I`         | `RGB_INTEGER`  | `INT`                                                                    | (R, G, B) = (i32, i32, i32)                 | Y                  |                   |
+    | `RGBA8`          | `RGBA`         | `UNSIGNED_BYTE`                                                          | (R, G, B, A) = (8, 8, 8, 8)                 | Y                  | Y                 |
+    | `SRGB8_ALPHA8`   | `RGBA`         | `UNSIGNED_BYTE`                                                          | (R, G, B, A) = (8, 8, 8, 8)                 | Y                  | Y                 |
+    | `RGBA8_SNORM`    | `RGBA`         | `BYTE`                                                                   | (R, G, B, A) = (s8, s8, s8, s8)             |                    | Y                 |
+    | `RGB5_A1`        | `RGBA`         | `UNSIGNED_BYTE`, `UNSIGNED_SHORT_5_5_5_1`, `UNSIGNED_INT_2_10_10_10_REV` | (R, G, B, A) = (5, 5, 5, 1)                 | Y                  | Y                 |
+    | `RGBA4`          | `RGBA`         | `UNSIGNED_BYTE`, `UNSIGNED_SHORT_4_4_4_4`                                | (R, G, B, A) = (4, 4, 4, 4)                 | Y                  | Y                 |
+    | `RGB10_A2`       | `RGBA`         | `UNSIGNED_INT_2_10_10_10_REV`                                            | (R, G, B, A) = (10, 10, 10, 2)              | Y                  | Y                 |
+    | `RGBA16F`        | `RGBA`         | `HALF_FLOAT`, `FLOAT`                                                    | (R, G, B, A) = (f16, f16, f16, f16)         |                    | Y                 |
+    | `RGBA32F`        | `RGBA`         | `FLOAT`                                                                  | (R, G, B, A) = (f32, f32, f32, f32)         |                    |                   |
+    | `RGBA8UI`        | `RGBA_INTEGER` | `UNSIGNED_BYTE`                                                          | (R, G, B, A) = (ui8, ui8, ui8, ui8)         | Y                  |                   |
+    | `RGBA8I`         | `RGBA_INTEGER` | `BYTE`                                                                   | (R, G, B, A) = (i8, i8, i8, i8)             | Y                  |                   |
+    | `RGBA10_A2UI`    | `RGBA_INTEGER` | `UNSIGNED_INT_2_10_10_10_REV`                                            | (R, G, B, A) = (ui10, ui10, ui10, ui2)      | Y                  |                   |
+    | `RGBA16UI`       | `RGBA_INTEGER` | `UNSIGNED_SHORT`                                                         | (R, G, B, A) = (ui16, ui16, ui16, ui16)     | Y                  |                   |
+    | `RGBA16I`        | `RGBA_INTEGER` | `SHORT`                                                                  | (R, G, B, A) = (i16, i16, i16, i16)         | Y                  |                   |
+    | `RGBA32UI`       | `RGBA_INTEGER` | `UNSIGNED_INT`                                                           | (R, G, B, A) = (ui32, ui32, ui32, ui32)     | Y                  |                   |
+    | `RGBA32I`        | `RGBA_INTEGER` | `INT`                                                                    | (R, G, B, A) = (i32, i32, i32, i32)         | Y                  |                   |
 
-    - `ext.HALF_FLOAT_OES` (Konstante, die von der Erweiterung bereitgestellt wird)
+    In WebGL 2, bei der Angabe der Quelle als `srcData` oder `offset` sind die folgenden Kombinationen zusätzlich verfügbar. Sie können in WebGL 1 über die [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture)-Erweiterung aktiviert werden:
 
-    Bei Verwendung eines [WebGL 2-Kontextes](/de/docs/Web/API/WebGL2RenderingContext),
-    sind folgende Werte zusätzlich verfügbar:
+    | `internalformat`     | `format`          | `type`                                              | Internes Pixelformat |
+    | -------------------- | ----------------- | --------------------------------------------------- | -------------------- |
+    | `DEPTH_COMPONENT16`  | `DEPTH_COMPONENT` | `UNSIGNED_SHORT`, `UNSIGNED_INT`                    | (D) = (16)           |
+    | `DEPTH_COMPONENT24`  | `DEPTH_COMPONENT` | `UNSIGNED_INT`                                      | (D) = (24)           |
+    | `DEPTH_COMPONENT32F` | `DEPTH_COMPONENT` | `FLOAT`                                             | (D) = (f32)          |
+    | `DEPTH24_STENCIL8`   | `DEPTH_STENCIL`   | `UNSIGNED_INT_24_8` (`ext.UNSIGNED_INT_24_8_WEBGL`) | (D, S) = (24, 8)     |
+    | `DEPTH32F_STENCIL8`  | `DEPTH_STENCIL`   | `FLOAT_32_UNSIGNED_INT_24_8_REV`                    | (D, S) = (f32, 8)    |
 
-    - `gl.BYTE`
-    - `gl.UNSIGNED_SHORT`
-    - `gl.SHORT`
-    - `gl.UNSIGNED_INT`
-    - `gl.INT`
-    - `gl.HALF_FLOAT`
-    - `gl.FLOAT`
-    - `gl.UNSIGNED_INT_2_10_10_10_REV`
-    - `gl.UNSIGNED_INT_10F_11F_11F_REV`
-    - `gl.UNSIGNED_INT_5_9_9_9_REV`
-    - `gl.UNSIGNED_INT_24_8`
-    - `gl.FLOAT_32_UNSIGNED_INT_24_8_REV` (Pixels müssen
-      [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein)
+    Wenn die Datenquelle ein DOM-Pixel-Quelle ist, ist die Darstellung jedes Kanals in der Regel ein vorzeichenloser Ganzzahltyp mit mindestens 8 Bits. Die Umwandlung einer solchen Darstellung in vorzeichenbehaftete Ganzzahlen oder vorzeichenlose Ganzzahlen mit mehr Bits ist nicht klar definiert. Zum Beispiel ist es unklar, ob beim Konvertieren von `RGBA8` zu `RGBA16UI` die Absicht besteht, Werte auf den vollen Bereich einer 16-Bit vorzeichenlosen Ganzzahl zu skalieren. Daher ist nur die Umwandlung in vorzeichenlosen Ganzzahlen von höchstens 8 Bits, Halbfloats oder Floats erlaubt.
 
-- `pixels`
+Die Texturquelle kann auf drei Arten bereitgestellt werden: aus einem {{jsxref("ArrayBuffer")}} (möglicherweise gemeinsam genutzt) unter Verwendung von `srcData` und `srcOffset`; von einer DOM-Pixel-`source`; oder in WebGL 2 von `gl.PIXEL_UNPACK_BUFFER` unter Verwendung von `offset`.
 
-  - : Die folgenden Typen können immer als Pixelquelle für die Textur verwendet werden:
+- `srcData`
+  - : Ein {{jsxref("TypedArray")}} oder {{jsxref("DataView")}}, der die komprimierten Texturdaten enthält. Der Typ muss dem `type`-Parameter entsprechen:
 
-    - [`ImageData`](/de/docs/Web/API/ImageData),
-    - [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement),
-    - [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement),
-    - [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement),
-    - [`ImageBitmap`](/de/docs/Web/API/ImageBitmap).
+    | `srcData`-Typ                                             | `type`-Wert                                                                                                                    |
+    | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+    | {{jsxref("Int8Array")}}                                   | `BYTE`                                                                                                                         |
+    | {{jsxref("Uint8Array")}}, {{jsxref("Uint8ClampedArray")}} | `UNSIGNED_BYTE`                                                                                                                |
+    | {{jsxref("Int16Array")}}                                  | `SHORT`                                                                                                                        |
+    | {{jsxref("Uint16Array")}}                                 | `UNSIGNED_SHORT`, `UNSIGNED_SHORT_5_6_5`, `UNSIGNED_SHORT_5_5_5_1`, `UNSIGNED_SHORT_4_4_4_4`, `HALF_FLOAT`                     |
+    | {{jsxref("Int32Array")}}                                  | `INT`                                                                                                                          |
+    | {{jsxref("Uint32Array")}}                                 | `UNSIGNED_INT`, `UNSIGNED_INT_5_9_9_9_REV`, `UNSIGNED_INT_2_10_10_10_REV`, `UNSIGNED_INT_10F_11F_11F_REV`, `UNSIGNED_INT_24_8` |
+    | {{jsxref("Float32Array")}}                                | `FLOAT`                                                                                                                        |
 
-    Die folgenden Typen können nur als Pixelquelle verwendet werden, wenn `width`, `height` und `border` angegeben sind:
+    Wenn `type` `FLOAT_32_UNSIGNED_INT_24_8_REV` ist, muss `srcData` `null` sein.
 
-    - {{jsxref("Uint8Array")}} (muss verwendet werden, wenn `type` `gl.UNSIGNED_BYTE` ist)
-    - {{jsxref("Uint16Array")}} (muss verwendet werden, wenn `type` entweder
-      `gl.UNSIGNED_SHORT_5_6_5`, `gl.UNSIGNED_SHORT_4_4_4_4`,
-      `gl.UNSIGNED_SHORT_5_5_5_1`, `gl.UNSIGNED_SHORT` oder
-      `ext.HALF_FLOAT_OES` ist)
-    - {{jsxref("Uint32Array")}} (muss verwendet werden, wenn `type` `gl.UNSIGNED_INT` oder `ext.UNSIGNED_INT_24_8_WEBGL` ist)
-    - {{jsxref("Float32Array")}} (muss verwendet werden, wenn `type` `gl.FLOAT` ist)
+- `srcOffset` {{optional_inline}}
+  - : (Nur WebGL 2) Eine Ganzzahl, die den Index von `srcData` angibt, ab dem gelesen werden soll. Standardwert ist `0`.
+- `source`
+  - : Von einer DOM-Pixelquelle gelesen, die eine der folgenden sein kann:
+    - [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)
+    - [`ImageData`](/de/docs/Web/API/ImageData)
+    - [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)
+    - [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)
+    - [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)
+    - [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
+    - [`VideoFrame`](/de/docs/Web/API/VideoFrame)
+
+    In WebGL 1 werden die `width` und `height` immer aus der Quelle abgeleitet. In WebGL 2 können sie auch explizit angegeben werden.
 
 - `offset`
-  - : (Nur WebGL 2) Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types) Byte-Offset in den Datenspeicher des
-    [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer). Wird verwendet, um Daten in die derzeit gebundene
-    [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) vom `WebGLBuffer`, das an das `PIXEL_UNPACK_BUFFER`-Target gebunden ist, hochzuladen.
+  - : (Nur WebGL 2) Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der die Startadresse im Pufferspeicher angibt, der an `gl.PIXEL_UNPACK_BUFFER` gebunden ist.
 
 ### Rückgabewert
 

@@ -1,111 +1,66 @@
 ---
-title: "WebGL2RenderingContext: Methode texImage3D()"
+title: "WebGL2RenderingContext: texImage3D()-Methode"
 short-title: texImage3D()
 slug: Web/API/WebGL2RenderingContext/texImage3D
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: fe3f1f2dfaf44fcbe868b91b6a429270d2055716
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die Methode **`WebGLRenderingContext.texImage3D()`** der [WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert ein dreidimensionales Texturbild.
+Die **`texImage3D()`**-Methode der Schnittstelle [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) des [WebGL-API](/de/docs/Web/API/WebGL_API) legt ein dreidimensionales Texturbild fest.
 
 ## Syntax
 
 ```js-nolint
-texImage3D(target, level, internalformat, width, height, depth, border, format, type, offset)
-texImage3D(target, level, internalformat, width, height, depth, border, format, type, source)
 texImage3D(target, level, internalformat, width, height, depth, border, format, type, srcData)
 texImage3D(target, level, internalformat, width, height, depth, border, format, type, srcData, srcOffset)
+texImage3D(target, level, internalformat, width, height, depth, border, format, type, source)
+texImage3D(target, level, internalformat, width, height, depth, border, format, type, offset)
 ```
 
 ### Parameter
 
 - `target`
-
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) der aktiven Textur spezifiziert. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Target) der aktiven Textur spezifiziert. Mögliche Werte:
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
-
 - `level`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Detailgrad spezifiziert. Level 0 ist das Basisbildlevel und Level _n_ ist das n-te Mipmap-Reduktionslevel.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Detailgrad spezifiziert. Level 0 ist das Basisbild und Level _n_ ist das n-te Mipmap-Reduktionslevel.
 - `internalformat`
-
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Farbkomponenten in der Textur spezifiziert. Mögliche Werte:
-    - `gl.ALPHA`: Verwirft die roten, grünen und blauen Komponenten und liest die Alphakomponente.
-    - `gl.RGB`: Verwirft die Alphakomponenten und liest die roten, grünen und blauen Komponenten.
-    - `gl.RGBA`: Rot, grün, blau und Alphakomponenten werden aus dem Farbpuffer gelesen.
-    - `gl.LUMINANCE`: Jede Farbkomponente ist eine Luminanzkomponente, Alpha ist 1.0.
-    - `gl.LUMINANCE_ALPHA`: Jede Komponente ist eine Luminanz-/Alphakomponente.
-    - `gl.R8`
-    - `gl.R16F`
-    - `gl.R32F`
-    - `gl.R8UI`
-    - `gl.RG8`
-    - `gl.RG16F`
-    - `gl.RG32F`
-    - `gl.RG8UI`
-    - `gl.RGB8`
-    - `gl.SRGB8`
-    - `gl.RGB565`
-    - `gl.R11F_G11F_B10F`
-    - `gl.RGB9_E5`
-    - `gl.RGB16F`
-    - `gl.RGB32F`
-    - `gl.RGB8UI`
-    - `gl.RGBA8`
-    - `gl.SRGB8_ALPHA8`
-    - `gl.RGB5_A1`
-    - `gl.RGBA4444`
-    - `gl.RGBA16F`
-    - `gl.RGBA32F`
-    - `gl.RGBA8UI`
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das festlegt, wie die Textur nach dem Laden gespeichert werden soll.
 - `width`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur spezifiziert.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur in Texeln angibt.
 - `height`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur spezifiziert.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur in Texeln angibt.
 - `depth`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Tiefe der Textur spezifiziert.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Tiefe der Textur/die Anzahl der Texturen in einem `TEXTURE_2D_ARRAY` angibt.
 - `border`
-  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Rands spezifiziert. Muss 0 sein.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Randes angibt. Muss 0 sein.
 - `format`
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Format der Texeldaten angibt. Die korrekten Kombinationen mit `internalformat` sind in [dieser Tabelle](https://registry.khronos.org/webgl/specs/latest/2.0/#TEXTURE_TYPES_FORMATS_FROM_DOM_ELEMENTS_TABLE) aufgelistet.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das festlegt, wie jedes ganzzahlige Element in den Roh-Texeldaten als Farbkomponenten interpretiert werden soll.
 - `type`
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die Größe jedes ganzzahligen Elements in den Roh-Texeldaten angibt.
 
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Datentyp der Texeldaten angibt. Mögliche Werte:
-    - `gl.UNSIGNED_BYTE`: 8 Bits pro Kanal für `gl.RGBA`
-    - `gl.UNSIGNED_SHORT_5_6_5`: 5 rote Bits, 6 grüne Bits, 5 blaue Bits.
-    - `gl.UNSIGNED_SHORT_4_4_4_4`: 4 rote Bits, 4 grüne Bits, 4 blaue Bits, 4 Alphabits.
-    - `gl.UNSIGNED_SHORT_5_5_5_1`: 5 rote Bits, 5 grüne Bits, 5 blaue Bits, 1 Alphabit.
-    - `gl.BYTE`
-    - `gl.UNSIGNED_SHORT`
-    - `gl.SHORT`
-    - `gl.UNSIGNED_INT`
-    - `gl.INT`
-    - `gl.HALF_FLOAT`
-    - `gl.FLOAT`
-    - `gl.UNSIGNED_INT_2_10_10_10_REV`
-    - `gl.UNSIGNED_INT_10F_11F_11F_REV`
-    - `gl.UNSIGNED_INT_5_9_9_9_REV`
-    - `gl.UNSIGNED_INT_24_8`
-    - `gl.FLOAT_32_UNSIGNED_INT_24_8_REV` (Pixel müssen [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein)
+    Die Werte `internalformat`, `format` und `type` müssen miteinander kompatibel sein. Für alle gültigen Kombinationen siehe [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D).
 
-- `source`
-
-  - : Eines der folgenden Objekte kann als Pixelquelle für die Textur verwendet werden:
-    - [`ImageBitmap`](/de/docs/Web/API/ImageBitmap),
-    - [`ImageData`](/de/docs/Web/API/ImageData),
-    - [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement),
-    - [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement),
-    - [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement).
+Die Texturquelle kann auf eine von drei Arten bereitgestellt werden: aus einem {{jsxref("ArrayBuffer")}} (möglicherweise geteilt) unter Verwendung von `srcData` und `srcOffset`; von einer DOM-Pixelquelle `source`; oder von `gl.PIXEL_UNPACK_BUFFER` unter Verwendung von `offset`.
 
 - `srcData`
-
-  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}} Objekt.
-
+  - : Ein {{jsxref("TypedArray")}} oder {{jsxref("DataView")}}, das die komprimierten Texturdaten enthält. Der Typ muss mit dem `type`-Parameter übereinstimmen; siehe [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D). Wenn `type` `FLOAT_32_UNSIGNED_INT_24_8_REV` ist, muss `srcData` `null` sein.
+- `srcOffset` {{optional_inline}}
+  - : Ein ganzzahliger Wert, der den Index von `srcData` angibt, ab dem das Lesen beginnt. Standardwert ist `0`.
+- `source`
+  - : Wird von einer DOM-Pixelquelle gelesen, die eines der folgenden sein kann:
+    - [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)
+    - [`ImageData`](/de/docs/Web/API/ImageData)
+    - [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)
+    - [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)
+    - [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)
+    - [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
+    - [`VideoFrame`](/de/docs/Web/API/VideoFrame)
 - `offset`
-  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types) Byte-Offset in den Datenstore des [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer). Wird verwendet, um Daten von dem aktuell gebundenen [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) aus dem `WebGLBuffer`, der an das Ziel `PIXEL_UNPACK_BUFFER` gebunden ist, hochzuladen.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der die Startadresse im Puffer angibt, der an `gl.PIXEL_UNPACK_BUFFER` gebunden ist.
 
 ### Rückgabewert
 
@@ -140,7 +95,12 @@ gl.texImage3D(
 
 - [`WebGLRenderingContext.createTexture()`](/de/docs/Web/API/WebGLRenderingContext/createTexture)
 - [`WebGLRenderingContext.bindTexture()`](/de/docs/Web/API/WebGLRenderingContext/bindTexture)
-- [`WebGLRenderingContext.texSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texSubImage2D)
-- [`WebGLRenderingContext.compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D)
-- [`WebGLRenderingContext.copyTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/copyTexImage2D)
+- [`WebGL2RenderingContext.texSubImage3D()`](/de/docs/Web/API/WebGL2RenderingContext/texSubImage3D)
+- [`WebGL2RenderingContext.compressedTexImage3D()`](/de/docs/Web/API/WebGL2RenderingContext/compressedTexImage3D)
+- [`WebGL2RenderingContext.copyTexSubImage3D()`](/de/docs/Web/API/WebGL2RenderingContext/copyTexSubImage3D)
 - [`WebGLRenderingContext.getTexParameter()`](/de/docs/Web/API/WebGLRenderingContext/getTexParameter)
+- [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture)
+- [`OES_texture_float`](/de/docs/Web/API/OES_texture_float)
+- [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float)
+- [`EXT_texture_norm16`](/de/docs/Web/API/EXT_texture_norm16)
+- [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB)

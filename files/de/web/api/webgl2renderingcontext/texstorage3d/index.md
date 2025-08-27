@@ -1,15 +1,14 @@
 ---
-title: "WebGL2RenderingContext: texStorage3D()-Methode"
+title: "WebGL2RenderingContext: Methode texStorage3D()"
 short-title: texStorage3D()
 slug: Web/API/WebGL2RenderingContext/texStorage3D
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: fe3f1f2dfaf44fcbe868b91b6a429270d2055716
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.texStorage3D()`**-Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert alle Ebenen einer dreidimensionalen Textur oder einer zweidimensionalen Array-Textur.
+Die **`texStorage3D()`**-Methode des [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) der [WebGL-API](/de/docs/Web/API/WebGL_API) legt alle Ebenen der dreidimensionalen Texturspeicherung fest.
 
 ## Syntax
 
@@ -20,61 +19,19 @@ texStorage3D(target, levels, internalformat, width, height, depth)
 ### Parameter
 
 - `target`
-
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) der aktiven Textur angibt.
-    Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) der aktiven Textur angibt. Mögliche Werte:
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
-
-- `level`
+- `levels`
   - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Texturebenen angibt.
 - `internalformat`
-
-  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Speicherformat der Textur angibt. Mögliche Werte:
-
-    - `gl.R8`
-    - `gl.R16F`
-    - `gl.R32F`
-    - `gl.R8UI`
-    - `gl.RG8`
-    - `gl.RG16F`
-    - `gl.RG32F`
-    - `gl.RGUI`
-    - `gl.RGB8`
-    - `gl.SRGB8`
-    - `gl.RGB565`
-    - `gl.R11F_G11F_B10F`
-    - `gl.RGB9_E5`
-    - `gl.RGB16F`
-    - `gl.RGB32F`
-    - `gl.RGB8UI`
-    - `gl.RGBA8`
-    - `gl.SRGB_ALPHA8`
-    - `gl.RGB5_A1`
-    - `gl.RGBA4444`
-    - `gl.RGBA16F`
-    - `gl.RGBA32F`
-    - `gl.RGBA8UI`
-
-    Zusätzlich, wenn die [`WEBGL_compressed_texture_etc`](/de/docs/Web/API/WEBGL_compressed_texture_etc)-Erweiterung unterstützt wird, sind auch die folgenden Werte möglich:
-
-    - `gl.COMPRESSED_R11_EAC`
-    - `gl.COMPRESSED_SIGNED_R11_EAC`
-    - `gl.COMPRESSED_RG11_EAC`
-    - `gl.COMPRESSED_SIGNED_RG11_EAC`
-    - `gl.COMPRESSED_RGB8_ETC2`
-    - `gl.COMPRESSED_RGBA8_ETC2_EAC`
-    - `gl.COMPRESSED_SRGB8_ETC2`
-    - `gl.COMPRESSED_SRGB8_ALPHA8_ETC2_EAC`
-    - `gl.COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2`
-    - `gl.COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2`
-
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Format der Texturspeicherung angibt. Eine Liste möglicher Werte finden Sie unter [`WebGL2RenderingContext.texStorage2D()`](/de/docs/Web/API/WebGL2RenderingContext/texStorage2D).
 - `width`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur in Texeln angibt.
 - `height`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur in Texeln angibt.
 - `depth`
-  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Tiefe der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Tiefe der Textur/die Anzahl der Texturen in einem `TEXTURE_2D_ARRAY` angibt.
 
 ### Rückgabewert
 
@@ -96,4 +53,5 @@ gl.texStorage3D(gl.TEXTURE_3D, 1, gl.RGB8, 256, 256, 256);
 
 ## Siehe auch
 
-- [`WebGLRenderingContext.compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D)
+- [`WebGL2RenderingContext.texStorage2D()`](/de/docs/Web/API/WebGL2RenderingContext/texStorage2D)
+- [`WEBGL_compressed_texture_etc`](/de/docs/Web/API/WEBGL_compressed_texture_etc)
