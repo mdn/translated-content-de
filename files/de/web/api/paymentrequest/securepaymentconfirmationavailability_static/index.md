@@ -1,14 +1,14 @@
 ---
-title: "PaymentRequest: `securePaymentConfirmationAvailability()` statische Methode"
+title: "PaymentRequest: securePaymentConfirmationAvailability() statische Methode"
 short-title: securePaymentConfirmationAvailability()
 slug: Web/API/PaymentRequest/securePaymentConfirmationAvailability_static
 l10n:
-  sourceCommit: 43875884a5ebc2c7de4702c31a9bdc3ecbeed610
+  sourceCommit: 8b10fe925e7bdd362ef4c0b88e305c104befa465
 ---
 
-{{securecontext_header}}{{APIRef("Payment Request API")}}
+{{securecontext_header}}{{APIRef("Payment Request API")}}{{SeeCompatTable}}
 
-Die statische Methode **`securePaymentConfirmationAvailability()`** der [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) Schnittstelle gibt an, ob die Funktion [Secure Payment Confirmation](/de/docs/Web/API/Payment_Request_API/Using_secure_payment_confirmation) (SPC) verfügbar ist.
+Die statische Methode **`securePaymentConfirmationAvailability()`** der [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Schnittstelle zeigt an, ob die Funktion [Secure Payment Confirmation](/de/docs/Web/API/Payment_Request_API/Using_secure_payment_confirmation) (SPC) verfügbar ist.
 
 ## Syntax
 
@@ -22,20 +22,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem aufgelisteten Wert aufgelöst wird, der angibt, ob SPC verfügbar ist, und wenn nicht, ein Grund für die Nichtverfügbarkeit.
+Ein {{jsxref("Promise")}}, das mit einem aufgezählten Wert aufgelöst wird, der angibt, ob SPC verfügbar ist; falls nicht, wird ein Grund für die Nichtverfügbarkeit angegeben.
 
 Mögliche Werte sind:
 
 - `available`
-  - : SPC ist im aufrufenden Frame verfügbar. Dies garantiert nicht, dass ein [SPC-kompatibles Anmeldeinformation](/de/docs/Web/API/Payment_Request_API/Using_secure_payment_confirmation#creating_a_credential) zur Authentifizierung verfügbar ist.
+  - : SPC ist im aufrufenden Frame verfügbar. Dies garantiert nicht, dass ein [SPC-kompatibles Anmeldeinformationsobjekt](/de/docs/Web/API/Payment_Request_API/Using_secure_payment_confirmation#creating_a_credential) zur Authentifizierung verfügbar ist.
 - `unavailable-unknown-reason`
-  - : SPC ist im aufrufenden Frame aus unbekannten Gründen nicht verfügbar. Der Browser kann dieses Ergebnis anstelle eines spezifischeren Grundes zurückgeben, um die Privatsphäre der Benutzer zu schützen.
+  - : SPC ist im aufrufenden Frame aus einem unbekannten Grund nicht verfügbar. Der Browser könnte dieses Ergebnis zurückgeben, anstatt einen spezifischeren Grund anzugeben, um die Privatsphäre der Nutzer zu schützen.
 - `unavailable-feature-not-enabled`
   - : SPC ist im aufrufenden Frame nicht verfügbar, weil es nicht aktiviert ist.
 - `unavailable-no-permission-policy`
-  - : SPC ist im aufrufenden Frame nicht verfügbar, weil es durch eine [`payment`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/payment) [Genehmigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert wird.
+  - : SPC ist im aufrufenden Frame nicht verfügbar, weil es durch eine [`payment`](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy/payment)-[Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert ist.
 - `unavailable-no-user-verifying-platform-authenticator`
-  - : SPC ist im aufrufenden Frame nicht verfügbar, weil kein Benutzer-verifizierender Plattform-Authenticator zur Verfügung steht ([`PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()`](/de/docs/Web/API/PublicKeyCredential/isUserVerifyingPlatformAuthenticatorAvailable_static) kann ebenfalls verwendet werden, um diese Information zu ermitteln).
+  - : SPC ist im aufrufenden Frame nicht verfügbar, weil kein nutzerverifizierender Plattform-Authentifikator vorhanden ist ([`PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()`](/de/docs/Web/API/PublicKeyCredential/isUserVerifyingPlatformAuthenticatorAvailable_static) kann ebenfalls verwendet werden, um diese Information zu ermitteln).
 
 ## Beispiele
 
@@ -60,4 +60,4 @@ async function spcSupport() {
 
 ## Siehe auch
 
-- [Verwendung der Secure Payment Confirmation](/de/docs/Web/API/Payment_Request_API/Using_secure_payment_confirmation)
+- [Verwendung der sicheren Zahlungsbestätigung](/de/docs/Web/API/Payment_Request_API/Using_secure_payment_confirmation)

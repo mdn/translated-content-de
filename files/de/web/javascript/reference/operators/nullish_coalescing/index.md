@@ -1,11 +1,11 @@
 ---
-title: Nullish coalescing Operator (??)
+title: Nullish Coalescing-Operator (??)
 slug: Web/JavaScript/Reference/Operators/Nullish_coalescing
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 0d97f6cee768cb4ec982839f690c832fab20f346
 ---
 
-Der **nullish coalescing (`??`)** Operator ist ein logischer Operator, der seinen rechten Operand zurückgibt, wenn sein linker Operand [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}} ist, und andernfalls seinen linken Operand zurückgibt.
+Der **nullish coalescing (`??`)** Operator ist ein logischer Operator, der seinen rechten Operanden zurückgibt, wenn sein linker Operand [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}} ist, andernfalls gibt er seinen linken Operanden zurück.
 
 {{InteractiveExample("JavaScript Demo: Nullish coalescing (??) operator")}}
 
@@ -27,18 +27,18 @@ leftExpr ?? rightExpr
 
 ## Beschreibung
 
-Der nullish coalescing Operator kann als Sonderfall des [logischen ODER (`||`) Operators](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR) angesehen werden. Letzterer gibt den rechten Operand zurück, wenn der linke Operand _irgendeinen_ {{Glossary("falsy", "falsy")}} Wert darstellt, nicht nur `null` oder `undefined`. Mit anderen Worten, wenn Sie `||` verwenden, um einem anderen Variablen `foo` einen Standardwert zuzuweisen, können unerwartete Verhaltensweisen auftreten, wenn Sie bestimmte falsy Werte als verwendbar betrachten (z.B. `''` oder `0`). Siehe [unten](#zuweisen_eines_standardwerts_zu_einer_variablen) für weitere Beispiele.
+Der nullish coalescing Operator kann als ein Sonderfall des [logischen ODER-Operators (`||`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR) angesehen werden. Letzterer gibt den rechten Operanden zurück, wenn der linke Operand irgendeinen {{Glossary("falsy", "falsy")}} Wert hat, nicht nur `null` oder `undefined`. Mit anderen Worten, wenn Sie `||` verwenden, um einem anderen Variablen `foo` einen Standardwert zuzuweisen, könnten unerwartete Verhaltensweisen auftreten, wenn Sie einige `falsy` Werte als verwendbar betrachten (z.B. `''` oder `0`). Siehe [unten](#zuweisung_eines_standardwerts_zu_einer_variablen) für weitere Beispiele.
 
-Der nullish coalescing Operator hat die fünfthöchste [Operatorpriorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence), direkt niedriger als `||` und direkt höher als der [bedingte (ternäre) Operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator).
+Der nullish coalescing Operator hat die fünfthöchste [Operator-Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence), direkt niedriger als `||` und direkt höher als der [Bedingungsoperator (ternär)](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator).
 
-Es ist nicht möglich, die UND (`&&`) und ODER (`||`) Operatoren direkt mit `??` zu kombinieren. Ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Cant_use_nullish_coalescing_unparenthesized) wird in solchen Fällen ausgelöst.
+Es ist nicht möglich, die AND (`&&`) oder OR-Operatoren (`||`) direkt mit `??` zu kombinieren. Ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Cant_use_nullish_coalescing_unparenthesized) wird in solchen Fällen ausgelöst.
 
 ```js-nolint example-bad
 null || undefined ?? "foo"; // raises a SyntaxError
 true && undefined ?? "foo"; // raises a SyntaxError
 ```
 
-Stattdessen nutzen Sie Klammern, um die Priorität explizit anzugeben:
+Stattdessen stellen Sie Klammern bereit, um die Priorität explizit anzuzeigen:
 
 ```js example-good
 (null || undefined) ?? "foo"; // returns "foo"
@@ -48,7 +48,7 @@ Stattdessen nutzen Sie Klammern, um die Priorität explizit anzugeben:
 
 ### Verwendung des nullish coalescing Operators
 
-In diesem Beispiel werden wir Standardwerte bereitstellen, aber Werte außer `null` oder `undefined` behalten.
+In diesem Beispiel werden wir Standardwerte bereitstellen, aber andere als `null` oder `undefined` beibehalten.
 
 ```js
 const nullValue = null;
@@ -64,9 +64,9 @@ console.log(valB); // "" (as the empty string is not null or undefined)
 console.log(valC); // 42
 ```
 
-### Zuweisen eines Standardwerts zu einer Variablen
+### Zuweisung eines Standardwerts zu einer Variablen
 
-Früher, wenn man einem Variablen einen Standardwert zuweisen wollte, war es gängig, den logischen ODER Operator ([`||`](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR)) zu verwenden:
+Früher, wenn man einem Variablen einen Standardwert zuweisen wollte, war ein häufig verwendetes Muster, den logischen ODER-Operator ([`||`](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR)) zu verwenden:
 
 ```js
 let foo;
@@ -75,7 +75,7 @@ let foo;
 const someDummyText = foo || "Hello!";
 ```
 
-Da `||` jedoch ein boolescher logischer Operator ist, wurde der linke Operand für die Auswertung in einen booleschen Wert umgewandelt und jeder _falsy_ Wert (einschließlich `0`, `''`, `NaN`, `false`, etc.) nicht zurückgegeben. Dieses Verhalten kann unerwartete Konsequenzen haben, wenn Sie `0`, `''` oder `NaN` als gültige Werte betrachten.
+Aufgrund dessen, dass `||` ein boolescher logischer Operator ist, wurde der linke Operand für die Auswertung zu einem Boolean konvertiert, und jeder _falsy_ Wert (einschließlich `0`, `''`, `NaN`, `false`, etc.) wurde nicht zurückgegeben. Dieses Verhalten kann unerwartete Konsequenzen haben, wenn Sie `0`, `''` oder `NaN` als gültige Werte betrachten.
 
 ```js
 const count = 0;
@@ -87,7 +87,7 @@ console.log(qty); // 42 and not 0
 console.log(message); // "hi!" and not ""
 ```
 
-Der nullish coalescing Operator umgeht dieses Problem, indem er nur den zweiten Operand zurückgibt, wenn der erste entweder `null` oder `undefined` ist (nicht aber andere falsy Werte):
+Der nullish coalescing Operator vermeidet diesen Fallstrick, indem er nur den zweiten Operanden zurückgibt, wenn der erste entweder `null` oder `undefined` ist (aber keine anderen falschen Werte):
 
 ```js
 const myText = ""; // An empty string (which is also a falsy value)
@@ -99,9 +99,9 @@ const preservingFalsy = myText ?? "Hi neighborhood";
 console.log(preservingFalsy); // '' (as myText is neither undefined nor null)
 ```
 
-### Kurzschlussverhalten
+### Short-Circuiting
 
-Wie die logischen 'ODER' und 'UND' Operatoren wird der Ausdruck auf der rechten Seite nicht ausgewertet, wenn die linke Seite weder `null` noch `undefined` ist.
+Wie bei den logischen Operatoren 'ODER' und 'UND' wird der Ausdruck auf der rechten Seite nicht ausgewertet, wenn die linke Seite sich als weder `null` noch `undefined` erweist.
 
 ```js
 function a() {
@@ -127,9 +127,9 @@ console.log(b() ?? c());
 // hand side expression was not evaluated
 ```
 
-### Beziehung zum optional chaining Operator (?.)
+### Beziehung zum optionalen Verkettungsoperator (?.)
 
-Der nullish coalescing Operator behandelt `undefined` und `null` als spezifische Werte. Das tut auch der [optional chaining Operator (`?.`)](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining), der nützlich ist, um auf eine Eigenschaft eines Objekts zuzugreifen, die möglicherweise `null` oder `undefined` ist. Durch ihre Kombination können Sie sicher auf eine Eigenschaft eines möglicherweise nullish Objekts zugreifen und einen Standardwert bereitstellen, falls sie es ist.
+Der nullish coalescing Operator behandelt `undefined` und `null` als spezifische Werte. Das Gleiche gilt für den [optionalen Verkettungsoperator (`?.`)](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining), der nützlich ist, um auf eine Eigenschaft eines Objekts zuzugreifen, das `null` oder `undefined` sein könnte. Indem man sie kombiniert, kann man sicher auf eine Eigenschaft eines Objekts zugreifen, das nullish sein könnte und einen Standardwert bereitstellen, wenn es so ist.
 
 ```js
 const foo = { someFooProp: "hi" };
@@ -149,6 +149,6 @@ console.log(foo.someBarProp?.toUpperCase() ?? "not available"); // "not availabl
 ## Siehe auch
 
 - [Nullish coalescing Zuweisung (`??=`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment)
-- [Optional chaining (`?.`)](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+- [Optionale Verkettung (`?.`)](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 - [Logisches ODER (`||`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR)
 - [Standardparameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters)
