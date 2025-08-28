@@ -1,18 +1,18 @@
 ---
-title: "Herausforderung: Markieren eines Briefes"
-short-title: "Herausforderung: Briefmarkierung"
+title: "Herausforderung: Briefauszeichnung"
+short-title: "Herausforderung: Brief-Auszeichnung"
 slug: Learn_web_development/Core/Structuring_content/Marking_up_a_letter
 l10n:
-  sourceCommit: 65c873fda639b035b94db77dd0f9373f38549aa0
+  sourceCommit: a2b29d9159294f1437e0adf49cdf3019e9c1c24b
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Advanced_HTML_text", "Learn_web_development/Core/Structuring_content/Structuring_documents", "Learn_web_development/Core/Structuring_content")}}
 
-Früher oder später lernen wir alle, wie man einen Brief schreibt; es ist auch ein nützliches Beispiel, um unsere Fähigkeiten im Textformatieren zu testen. In dieser Herausforderung geben wir Ihnen einen Brief, den Sie als Test für Ihre HTML-Textformatierungsfähigkeiten und Ihr Wissen über die Inhalte des HTML-`<head>` markieren sollen.
+Wir alle lernen früher oder später, einen Brief zu schreiben; es ist auch ein nützliches Beispiel, um unsere Fähigkeiten zur Textformatierung zu testen. In dieser Herausforderung geben wir Ihnen einen Brief, den Sie zur Prüfung Ihrer HTML-Textformatierungsfähigkeiten und Ihres Wissens über den Inhalt des HTML-`<head>` auszeichnen sollen.
 
 ## Ausgangspunkt
 
-Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche im Code-Beispiel-Panel unten, um den bereitgestellten Text im MDN Playground zu öffnen. Sie folgen den Anweisungen in den folgenden Abschnitten, um den Text angemessen zu markieren.
+Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche im Code-Beispiel-Panel unten, um den bereitgestellten Text im MDN Playground zu öffnen. Sie folgen den Anweisungen in den folgenden Abschnitten, um den Text entsprechend auszuzeichnen.
 
 ```html-nolint live-sample___start
 Dr. Eleanor Gaye
@@ -63,7 +63,7 @@ priority:
 
 Turning H2O into wine, and the health benefits of Resveratrol
 (C14H12O3.)
-Measuring the effect on performance of funk bassplayers at temperatures
+Measuring the effect on performance of funk bass players at temperatures
 exceeding 30°C (86°F), when the audience size exponentially increases
 (effect of 3 × 103 increasing to 3 × 104.)
 HTML, Hypertext Markup Language, and CSS,
@@ -77,7 +77,7 @@ Exotic dance moves
 
 Yes, you are right! As part of my post-doctorate work, I
 did study exotic tribal dances. To answer your question, my
-favourite dances are as follows, with definitions:
+favorite dances are as follows, with definitions:
 
 Polynesian chicken dance
     A little known but very influential dance dating back as far as
@@ -107,34 +107,34 @@ The memoirs of Bill S Preston, Esq.
 
 {{embedlivesample("start", "100%", "200px")}}
 
-## Projektauftrag
+## Projektbeschreibung
 
-Bei diesem Projekt besteht Ihre Aufgabe darin, einen Brief zu markieren, der auf einem Universitätsintranet gehostet werden muss. Der Brief ist eine Antwort von einem Forschungsmitarbeiter an einen potenziellen Doktoranden, der sich an der Universität bewirbt.
+Bei diesem Projekt besteht Ihre Aufgabe darin, einen Brief zu kennzeichnen, der auf einem universitären Intranet gehostet werden muss. Der Brief ist eine Antwort eines wissenschaftlichen Mitarbeiters an eine potenzielle Doktorandenbewerberin zu ihrer Bewerbung an der Universität.
 
 ### Block-/Strukturelle Semantik
 
-- Fügen Sie eine geeignete HTML-Struktur hinzu, einschließlich Doctype, und {{htmlelement("html")}}, {{htmlelement("head")}} und {{htmlelement("body")}} Elemente.
-- Im Allgemeinen sollte der Brief als Organisation von Überschriften und Absätzen markiert werden, abgesehen von den Adressen, die im nächsten Punkt erwähnt werden. Es gibt eine Überschrift auf oberster Ebene (die "Re:"-Zeile) und drei Überschriften auf zweiter Ebene.
-- Setzen Sie die beiden Adressen in {{htmlelement("address")}} Elemente. Jede Zeile der Adresse sollte in einer neuen Zeile stehen, aber nicht in einem neuen Absatz.
-- Verwenden Sie einen geeigneten Listentyp, um die Semesteranfangsdaten, Studienfächer und exotische Tänze zu markieren.
+- Fügen Sie eine geeignete HTML-Struktur einschließlich Doctype sowie {{htmlelement("html")}}, {{htmlelement("head")}} und {{htmlelement("body")}}-Elementen hinzu.
+- Im Allgemeinen sollte der Brief als eine Organisation von Überschriften und Absätzen ausgezeichnet werden, mit Ausnahme der bei dem nächsten Punkt erwähnten Adressen. Es gibt eine Hauptüberschrift (die "Re:"-Zeile) und drei Überschriften der zweiten Ebene.
+- Die beiden Adressen sollten in {{htmlelement("address")}}-Elementen platziert werden. Jede Zeile der Adresse sollte in einer neuen Zeile stehen, aber nicht in einem neuen Absatz.
+- Verwenden Sie einen geeigneten Listentyp, um die Semesterstartdaten, Studienfächer und exotischen Tänze auszuzeichnen.
 
 ### Inline-Semantik
 
-- Die Namen von Absender und Empfänger (sowie _Tel_ und _Email_) sollten mit starker Wichtigkeit markiert werden.
-- Die vier Daten im Dokument sollten in geeignete Elemente mit maschinenlesbaren Daten eingebettet werden.
-- Die erste Adresse und das erste Datum im Brief sollten ein `class`-Attribut mit dem Wert `sender-column` haben. Das später hinzuzufügende CSS wird diese Elemente rechts ausrichten, was in einem klassischen Brief-Layout der Fall sein sollte.
-- Markieren Sie die folgenden fünf Akronyme/Abkürzungen im Haupttext des Briefes — "PhD," "HTML," "CSS," "BC," und "Esq." — um Erweiterungen für jede zu bieten.
-- Die sechs Unter-/Hochstellungen sollten angemessen markiert werden — in den chemischen Formeln und den Zahlen 103 und 104 (sie sollten 10 hoch 3 bzw. 4 sein).
-- Markieren Sie mindestens zwei andere geeignete Wörter im Text mit starker Wichtigkeit/Betonung.
-- Markieren Sie das Universitätsmotto-Zitat und die Zitation mit geeigneten Elementen.
+- Die Namen des Absenders und Empfängers (sowie _Tel_ und _Email_) sollten mit starker Betonung ausgezeichnet werden.
+- Die vier Daten im Dokument sollten in geeignete Elemente eingeschlossen sein, die maschinenlesbare Daten enthalten.
+- Die erste Adresse und das erste Datum im Brief sollten ein `class`-Attribut mit dem Wert `sender-column` besitzen. Das später hinzugefügte CSS wird bewirken, dass diese rechts ausgerichtet werden, wie es in einer klassischen Briefvorlage sein sollte.
+- Die folgenden fünf Akronyme/Abkürzungen im Haupttext des Briefes sollten so gekennzeichnet werden, dass Erweiterungen für jedes bereitgestellt werden: "PhD", "HTML", "CSS", "BC" und "Esq."
+- Die sechs Unter-/Hochstellungen sollten angemessen ausgezeichnet sein – in den chemischen Formeln und den Zahlen 103 und 104 (sie sollten 10 hoch 3 bzw. 4 sein).
+- Markieren Sie mindestens zwei andere geeignete Wörter im Text mit starker Bedeutung/Beto-nung.
+- Das Zitat und die Zitationsangabe des Universitätsmotto sollten mit geeigneten Elementen ausgezeichnet werden.
 
 ### Der Kopf des Dokuments
 
-- Der Zeichensatz des Dokuments sollte mit dem `<meta>`-Tag als `utf-8` gesetzt werden.
+- Der Zeichensatz des Dokuments sollte mit `utf-8` unter Verwendung des entsprechenden `<meta>`-Tags festgelegt werden.
 - Der Autor des Briefes sollte in einem geeigneten `<meta>`-Tag angegeben werden.
-- Sie sollten die Sprache des Dokuments auf `en-US` setzen.
-- Fügen Sie den folgenden Text in ein Dokumenttitel-Element ein: "Awesome science application correspondence".
-- Das folgende CSS sollte innerhalb eines geeigneten Elements im Kopf enthalten sein:
+- Sie sollten die Sprache des Dokuments als `en-US` festlegen.
+- Der folgende Text sollte in einem Dokumenttitel-Element enthalten sein: "Awesome science application correspondence".
+- Das folgende CSS sollte in ein geeignetes Element im Kopf eingebunden sein:
 
   ```css
   body {
@@ -156,19 +156,19 @@ Bei diesem Projekt besteht Ihre Aufgabe darin, einen Brief zu markieren, der auf
 
 ## Hinweise und Tipps
 
-- Verwenden Sie den [W3C HTML Validator](https://validator.w3.org/), um Ihr HTML zu validieren. Vergeben Sie sich selbst Bonuspunkte, wenn es validiert.
-- Sie müssen kein CSS kennen, um diese Aufgabe zu erledigen. Sie müssen nur das bereitgestellte CSS in ein HTML-Element einfügen.
+- Verwenden Sie den [W3C HTML Validator](https://validator.w3.org/), um Ihr HTML zu überprüfen. Belohnen Sie sich mit Bonuspunkten, wenn es validiert.
+- Sie müssen kein CSS kennen, um diese Aufgabe zu erledigen. Sie müssen das bereitgestellte CSS nur in einem HTML-Element platzieren.
 
 ## Beispiel
 
-Das folgende Live-Beispiel zeigt, wie der Brief aussehen sollte, nachdem er markiert wurde. Wenn Sie Probleme haben, einige dieser Punkte zu erreichen, sehen Sie sich die Lösung unter dem Live-Beispiel an.
+Das folgende Live-Beispiel zeigt, wie der Brief aussehen sollte, nachdem er ausgezeichnet wurde. Wenn Sie nicht weiter wissen, wie Sie dies erreichen können, sehen Sie sich die Lösung unter dem Live-Beispiel an.
 
 {{embedlivesample("finish", "100%", "500px")}}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte folgendermaßen aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html live-sample___finish
 <!DOCTYPE html>
@@ -268,7 +268,7 @@ Ihr fertiges HTML sollte folgendermaßen aussehen:
         (C<sub>14</sub>H<sub>12</sub>O<sub>3</sub>.)
       </li>
       <li>
-        Measuring the effect on performance of funk bassplayers at temperatures
+        Measuring the effect on performance of funk bass players at temperatures
         exceeding 30°C (86°F), when the audience size exponentially increases
         (effect of 3 × 10<sup>3</sup> increasing to 3 × 10<sup>4</sup>.)
       </li>
@@ -289,7 +289,7 @@ Ihr fertiges HTML sollte folgendermaßen aussehen:
     <p>
       Yes, you are right! As part of my post-doctorate work, I
       <em>did</em> study exotic tribal dances. To answer your question, my
-      favourite dances are as follows, with definitions:
+      favorite dances are as follows, with definitions:
     </p>
 
     <dl>
@@ -311,7 +311,7 @@ Ihr fertiges HTML sollte folgendermaßen aussehen:
       <dt>Arctic robot dance</dt>
       <dd>
         An interesting example of historic misinformation, English explorers in
-        the 1960s believed to have discovered a new dance style characterised by
+        the 1960s believed to have discovered a new dance style characterized by
         "robotic", stilted movements, being practiced by inhabitants of Northern
         Alaska and Canada. Later on however it was discovered that they were
         just moving like this because they were really cold.

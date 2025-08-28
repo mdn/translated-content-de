@@ -5469,7 +5469,7 @@
 /de/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web	/de/docs/Learn_web_development/Core/Structuring_content/Including_vector_graphics_in_HTML
 /de/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML	/de/docs/Learn_web_development/Core/Structuring_content/HTML_images
 /de/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML/Test_your_skills:_HTML_images	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Images
-/de/docs/Learn/HTML/Multimedia_and_embedding/Mozilla_splash_page	/de/docs/Learn_web_development/Core/Structuring_content/Mozilla_splash_page
+/de/docs/Learn/HTML/Multimedia_and_embedding/Mozilla_splash_page	/de/docs/Learn_web_development/Core/Structuring_content/Splash_page
 /de/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies	/de/docs/Learn_web_development/Core/Structuring_content/General_embedding_technologies
 /de/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images	/de/docs/Web/HTML/Guides/Responsive_images
 /de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content	/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio
@@ -5786,6 +5786,7 @@
 /de/docs/Learn_web_development/Core/Structuring_content/HTML_images/Test_your_skills:_HTML_images	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Images
 /de/docs/Learn_web_development/Core/Structuring_content/HTML_text_fundamentals	/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs
 /de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio/Test_your_skills:_Multimedia_and_embedding	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video
+/de/docs/Learn_web_development/Core/Structuring_content/Mozilla_splash_page	/de/docs/Learn_web_development/Core/Structuring_content/Splash_page
 /de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Multimedia_and_embedding	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video
 /de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills:_Advanced_HTML_text	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Advanced_HTML_text
 /de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills:_HTML_text_basics	/de/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics
@@ -12107,6 +12108,7 @@
 /de/docs/Web/CSS/:nth-last-col	/de/docs/Web/CSS/:nth-last-of-type
 /de/docs/Web/CSS/:nth-last-of-type()	/de/docs/Web/CSS/:nth-last-of-type
 /de/docs/Web/CSS/:nth-of-type()	/de/docs/Web/CSS/:nth-of-type
+/de/docs/Web/CSS/:target-within	/de/docs/Web/CSS
 /de/docs/Web/CSS/@-moz-document	/de/docs/Web/CSS/@document
 /de/docs/Web/CSS/@font-face/font-variant	/de/docs/Web/CSS/@font-face
 /de/docs/Web/CSS/@media/aural	/de/docs/Web/CSS/@media

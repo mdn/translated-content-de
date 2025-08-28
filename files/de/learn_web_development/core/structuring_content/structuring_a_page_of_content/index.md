@@ -1,21 +1,21 @@
 ---
-title: "Herausforderung: Strukturierung einer Inhaltsseite"
-short-title: "Herausforderung: Vogelbeobachtungs-Website"
+title: "Herausforderung: Eine Inhaltsseite strukturieren"
+short-title: "Herausforderung: Vogelbeobachtungsseite"
 slug: Learn_web_development/Core/Structuring_content/Structuring_a_page_of_content
 l10n:
-  sourceCommit: 95cdd9e21be7e28a65b4efae345a53c97f91617c
+  sourceCommit: a2b29d9159294f1437e0adf49cdf3019e9c1c24b
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Links", "Learn_web_development/Core/Structuring_content/HTML_images", "Learn_web_development/Core/Structuring_content")}}
 
-Die Strukturierung einer Inhaltsseite, die bereit ist, mit CSS gestaltet zu werden, ist eine sehr wichtige Fähigkeit, die es zu meistern gilt. In dieser Herausforderung wird Ihre Fähigkeit getestet, darüber nachzudenken, wie eine Seite am Ende aussehen könnte, und geeignete strukturelle Semantiken auszuwählen, um darauf ein Layout aufzubauen.
+Das Strukturieren einer Inhaltsseite, die bereit ist, mit CSS gestaltet zu werden, ist eine sehr wichtige Fähigkeit, die es zu meistern gilt. In dieser Herausforderung werden Sie auf Ihre Fähigkeit getestet, sich vorzustellen, wie eine Seite am Ende aussehen könnte, und geeignete strukturelle Semantiken auszuwählen, um ein Layout darauf aufzubauen.
 
 ## Ausgangspunkt
 
-Um diese Herausforderung zu lösen, erwarten wir von Ihnen, ein einfaches Website-Projekt zu erstellen, entweder in einem Ordner auf der Festplatte Ihres Computers oder mit einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des benötigten Codes wird bereits bereitgestellt.
+Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website-Projekt erstellen, entweder in einem Ordner auf der Festplatte Ihres Computers oder mit einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des benötigten Codes wird bereits bereitgestellt.
 
-1. Erstellen Sie einen neuen Ordner an einem geeigneten Ort auf Ihrem Computer mit dem Namen `structuring-html-challenge` (oder öffnen Sie einen Online-Editor und führen Sie die erforderlichen Schritte aus, um ein neues Projekt zu erstellen).
-2. Speichern Sie die folgende HTML-Auflistung in einer Datei in Ihrem Ordner mit dem Namen `index.html` (oder fügen Sie sie in das HTML-Feld Ihres Online-Editors ein).
+1. Erstellen Sie an einem geeigneten Ort auf Ihrem Computer einen neuen Ordner mit dem Namen `structuring-html-challenge` (oder öffnen Sie einen Online-Editor und führen Sie die erforderlichen Schritte aus, um ein neues Projekt zu erstellen).
+2. Speichern Sie das folgende HTML-Verzeichnis in einer Datei in Ihrem Ordner mit dem Namen `index.html` (oder fügen Sie es in das HTML-Panel Ihres Online-Editors ein).
 
    ```html
    <!DOCTYPE html>
@@ -48,7 +48,7 @@ Um diese Herausforderung zu lösen, erwarten wir von Ihnen, ein einfaches Websit
          get out into the great outdoors!
        </p>
 
-       <h2>Favourite photos</h2>
+       <h2>Favorite photos</h2>
 
        <!-- Link images here. -->
 
@@ -65,7 +65,7 @@ Um diese Herausforderung zu lösen, erwarten wir von Ihnen, ein einfaches Websit
    </html>
    ```
 
-3. Speichern Sie die folgende CSS-Auflistung in einer Datei in Ihrem Ordner mit dem Namen `style.css` (oder fügen Sie sie in das CSS-Feld Ihres Online-Editors ein).
+3. Speichern Sie das folgende CSS-Verzeichnis in einer Datei in Ihrem Ordner mit dem Namen `style.css` (oder fügen Sie es in das CSS-Panel Ihres Online-Editors ein).
 
    ```css
    /* || General setup */
@@ -198,63 +198,63 @@ Um diese Herausforderung zu lösen, erwarten wir von Ihnen, ein einfaches Websit
    }
    ```
 
-Später müssen Sie die folgenden URLs in Ihre Seite einfügen.
+Später müssen Sie die folgenden URLs in Ihre Seite einbinden.
 
-- `dove.png`: [Das Seitenlogo](https://mdn.github.io/shared-assets/images/examples/learn/birds/dove.png)
-- `favorite-bird-1.jpg`: [Vollversion des ersten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-1.jpg)
-- `favorite-bird-1_th.jpg`: [Miniaturbild des ersten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-1_th.jpg)
-- `favorite-bird-2.jpg`: [Vollversion des zweiten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-2.jpg)
-- `favorite-bird-2_th.jpg`: [Miniaturbild des zweiten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-2_th.jpg)
-- `favorite-bird-3.jpg`: [Vollversion des dritten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-3.jpg)
-- `favorite-bird-3_th.jpg`: [Miniaturbild des dritten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-3_th.jpg)
-- `favorite-bird-4.jpg`: [Vollversion des vierten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-4.jpg)
-- `favorite-bird-4_th.jpg`: [Miniaturbild des vierten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-4_th.jpg)
+- `dove.png`: [Das Site-Logo](https://mdn.github.io/shared-assets/images/examples/learn/birds/dove.png)
+- `favorite-bird-1.jpg`: [Vollversion der ersten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-1.jpg)
+- `favorite-bird-1_th.jpg`: [Thumbnail des ersten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-1_th.jpg)
+- `favorite-bird-2.jpg`: [Vollversion des zweiten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-2.jpg)
+- `favorite-bird-2_th.jpg`: [Thumbnail des zweiten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-2_th.jpg)
+- `favorite-bird-3.jpg`: [Vollversion des dritten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-3.jpg)
+- `favorite-bird-3_th.jpg`: [Thumbnail des dritten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-3_th.jpg)
+- `favorite-bird-4.jpg`: [Vollversion des vierten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-4.jpg)
+- `favorite-bird-4_th.jpg`: [Thumbnail des vierten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-4_th.jpg)
 
-## Projektbeschreibung
+## Projektvorgabe
 
-Bei diesem Projekt besteht Ihre Aufgabe darin, die Inhalte der Startseite einer Vogelbeobachtungs-Website zu nehmen und strukturelle Elemente hinzuzufügen, damit sie ein Seitenlayout erhalten können. Außerdem müssen Sie einige Ergänzungen zu den Inhalten machen.
+Für dieses Projekt besteht Ihre Aufgabe darin, den Inhalt für die Startseite einer Vogelbeobachtungsseite zu übernehmen und strukturelle Elemente hinzuzufügen, damit ein Seitenlayout darauf angewendet werden kann. Außerdem müssen Sie einige Ergänzungen zum Inhalt vornehmen.
 
 ### Inhaltsergänzungen
 
-1. Fügen Sie innerhalb des `<h1>`-Elements ein `<img>`-Element hinzu, das das Tauben-Logo auf der Seite einfügt. Geben Sie ihm einen leeren Alternativtext ("").
+1. Fügen Sie innerhalb des `<h1>`-Elements ein `<img>`-Element hinzu, das das Taubenlogo auf der Seite enthält. Geben Sie ihm einen leeren Alternativtext ("").
 2. Die Textelemente "Home", "Get started", "Photos", "Gear" und "Forum" sollten in ein Navigationsmenü umgewandelt werden.
    1. Markieren Sie sie als ungeordnete Liste.
-   2. Wickeln Sie in jedem Listenelement den Text in ein `<a>`-Element ein, das auf eine URL von `#` verweist (was einen Dummy-Link erstellt).
-3. Entfernen Sie den Kommentar `<!-- Link images here. -->`. Ersetzen Sie ihn durch eine Reihe von vier Miniaturbildern der "Lieblingsvögel". Jedes davon sollte einen geeigneten Alternativtext zur Beschreibung des Bildes enthalten und in ein `<a>`-Element eingewickelt werden, das auf die vollformatige Entsprechung verlinkt.
+   2. Umschließen Sie in jedem Listenelement den Text in einem `<a>`-Element, das auf eine URL von `#` verweist (was einen Dummy-Link erstellt).
+3. Entfernen Sie den `<!-- Link images here. -->`-Kommentar. Ersetzen Sie ihn durch eine Reihe von vier Thumbnail-Bildern der "Lieblingsvögel". Jedes sollte einen passenden Alternativtext enthalten, um das Bild zu beschreiben, und in einem `<a>`-Element umschlossen sein, das auf das Vollbild-Äquivalent verweist.
 
-### Strukturale Anforderungen
+### Strukturanforderungen
 
-Die Seitenstruktur muss aus Folgendem bestehen:
+Die Webseitenstruktur muss aus Folgendem bestehen:
 
-1. Eine Kopfzeile, die die Überschrift der obersten Ebene der Seite und die Navigationsmenüliste umschließt.
+1. Ein Header, der die erstklassige Seitenüberschrift und die Navigationsmenüliste umschließt.
 2. Ein zusätzlicher Wrapper um die Navigationsmenüliste.
-3. Ein Hauptinhaltsbereich, der zwei Spalten enthält — einen Hauptartikel, um den Begrüßungstext zu enthalten, und eine Seitenleiste (aside), um die Bild-Miniaturen zu enthalten.
-4. Eine Fußzeile, die die Copyright-Informationen und Quellenangaben enthält.
+3. Ein Hauptinhaltbereich mit zwei Spalten — einem Hauptartikel, der den Willkommensgrußtext enthält, und einer Seitenleiste (`aside`) mit den Bild-Thumbnails.
+4. Ein Footer, der die Urheberrechtsinformationen und Credits enthält.
 
-Mit anderen Worten, Sie müssen einen geeigneten Wrapper hinzufügen für:
+Mit anderen Worten, Sie müssen einen geeigneten Wrapper für Folgendes hinzufügen:
 
-- Die Kopfzeile
+- Den Header
 - Das Navigationsmenü
 - Den Hauptinhalt
 - Den Begrüßungsartikel
 - Das Bild-Aside
-- Die Fußzeile
+- Den Footer
 
-### Gestaltung der Seite
+### Die Seite stylen
 
-Falls erforderlich, wenden Sie das bereitgestellte CSS auf die Seite an, indem Sie ein weiteres {{htmlelement("link")}}-Element direkt unter dem im Ausgangs-HTML bereitgestellten hinzufügen (einige Online-Code-Editoren werden das CSS automatisch anwenden).
+Falls erforderlich, wenden Sie das bereitgestellte CSS auf die Seite an, indem Sie ein weiteres {{htmlelement("link")}}-Element direkt unter dem im Anfangs-HTML bereitgestellten hinzufügen (einige Online-Code-Editoren wenden das CSS automatisch an).
 
 ## Hinweise und Tipps
 
-- Verwenden Sie den [W3C HTML Validator](https://validator.w3.org/), um unbeabsichtigte Fehler in Ihrem HTML zu erkennen — damit Sie sie beheben können.
-- Sie müssen kein CSS kennen, um diese Herausforderung zu meistern; Sie müssen nur das bereitgestellte CSS auf Ihre HTML anwenden.
-- Wenn Sie stecken bleiben und sich nicht vorstellen können, welche Elemente wohin sollen, erstellen Sie ein einfaches Blockdiagramm des Seitenlayouts und schreiben Sie die Elemente darauf, von denen Sie denken, dass sie jeden Block umschließen sollten. Dies ist extrem hilfreich.
+- Verwenden Sie den [W3C HTML Validator](https://validator.w3.org/), um unerwartete Fehler in Ihrem HTML zu entdecken — damit Sie sie beheben können.
+- Sie müssen kein CSS beherrschen, um diese Herausforderung zu bestehen; Sie müssen lediglich das bereitgestellte CSS auf Ihr HTML anwenden.
+- Wenn Sie feststecken und nicht wissen, welche Elemente wo platziert werden sollen, zeichnen Sie ein einfaches Blockdiagramm des Seitenlayouts und schreiben Sie darauf, welche Elemente Sie für jeden Block verwenden sollten. Dies ist äußerst hilfreich.
 
 ## Beispiel
 
-Im folgenden Screenshot sehen Sie ein Beispiel, wie die Startseite nach der Markierung aussehen könnte. Wenn Sie Schwierigkeiten haben, wie man einige dieser Punkte erreicht, sehen Sie sich die Lösung unter dem Live-Beispiel an.
+Der folgende Screenshot zeigt ein Beispiel dafür, wie die Startseite nach der Auszeichnung aussehen könnte. Wenn Sie Schwierigkeiten haben, einige davon zu erreichen, sehen Sie sich die Lösung unter dem Live-Beispiel an.
 
-![Das fertige Beispiel für die Herausforderung; eine einfache Webseite über Vogelbeobachtung, einschließlich einer Überschrift "Birdwatching", Vogelphotos und einer Willkommensnachricht](example-page.png)
+![Das fertige Beispiel für die Herausforderung; eine einfache Webseite über Vogelbeobachtung, einschließlich einer Überschrift "Birdwatching", Vogelbildern und einer Willkommensnachricht](example-page.png)
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
@@ -312,7 +312,7 @@ Ihr fertiges HTML sollte so aussehen:
       </article>
 
       <aside>
-        <h2>Favourite photos</h2>
+        <h2>Favorite photos</h2>
 
         <a
           href="https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-1.jpg">
