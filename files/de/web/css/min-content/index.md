@@ -2,29 +2,31 @@
 title: min-content
 slug: Web/CSS/min-content
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: bbff081938f76bdd6c6fdbf59d2e25e0a7a1cf2a
 ---
 
-Das `min-content` Schlüsselwort zur Größenbestimmung repräsentiert die minimale {{Glossary("intrinsic_size", "intrinsische Größe")}} des Inhalts. Für Textinhalte bedeutet dies, dass der Inhalt alle Gelegenheiten zum weichen Umbruch nutzt und so klein wie das längste Wort wird.
+Das `min-content` Größenschlüsselwort repräsentiert die {{Glossary("Intrinsic_Size#minimum_intrinsic_size", "minimale intrinsische Größe")}} eines Elements.
+Dieses Schlüsselwort verkleinert das Element auf die kleinstmögliche Größe, ohne vermeidbares Überlaufen seines Inhalts zu verursachen.
+Für Textinhalt führt dieses Schlüsselwort dazu, dass der Inhalt bei jeder Gelegenheit (wie Leerzeichen zwischen Wörtern) umgebrochen wird, und das Element wird nur so breit wie das längste Wort sein.
 
 Die {{cssxref("interpolate-size")}} Eigenschaft und die {{cssxref("calc-size()")}} Funktion können verwendet werden, um Animationen zu und von `min-content` zu ermöglichen.
 
 ## Syntax
 
 ```css
-/* Used as a length */
+/* Used as a length value */
 width: min-content;
 inline-size: min-content;
 height: min-content;
 block-size: min-content;
 
-/* used in grid tracks */
+/* Used in grid tracks */
 grid-template-columns: 200px 1fr min-content;
 ```
 
 ## Beispiele
 
-### Verwendung von min-content für Box-Größenbestimmung
+### Größe von Boxen mit min-content
 
 #### HTML
 
@@ -48,7 +50,7 @@ grid-template-columns: 200px 1fr min-content;
 
 {{EmbedLiveSample("Using_min-content_for_box_sizing", "100%", 200)}}
 
-### Größenbestimmung von Grid-Spalten mit min-content
+### Größe von Gitterspalten mit min-content
 
 #### HTML
 
@@ -94,5 +96,5 @@ grid-template-columns: 200px 1fr min-content;
 
 ## Siehe auch
 
-- Verwandte Schlüsselwörter zur Größenbestimmung: {{cssxref("max-content")}}, {{cssxref("fit-content")}}
-- [CSS Box-Modell](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- Verwandte Größenschlüsselwörter: {{cssxref("max-content")}}, {{cssxref("fit-content")}}
+- [CSS Box Modell](/de/docs/Web/CSS/CSS_box_sizing) Modul

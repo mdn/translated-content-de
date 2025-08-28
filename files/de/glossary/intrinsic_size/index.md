@@ -2,24 +2,24 @@
 title: Intrinsische Größe
 slug: Glossary/Intrinsic_Size
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: bbff081938f76bdd6c6fdbf59d2e25e0a7a1cf2a
 ---
 
-In CSS ist die _intrinsische Größe_ eines Elements die Größe, die es basierend auf seinem Inhalt hätte, ohne die Auswirkungen des Kontexts zu berücksichtigen, in dem es erscheint. Zum Beispiel die durch CSS [Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) Eigenschaften angewendete Größen. Die intrinsischen Größen eines Elements werden durch seine {{cssxref("min-content")}} und {{cssxref("max-content")}} Größen dargestellt.
+In CSS bezeichnet die **intrinsische Größe** eines Elements die Größe, die es basierend ausschließlich auf seinem Inhalt hätte, ohne die Auswirkungen des Layout-Kontexts zu berücksichtigen, in dem es erscheint. Dies ist das Gegenteil der {{Glossary("extrinsic_size", "extrinsischen Größe")}} eines Elements, die durch externe Einschränkungen wie die Größe des Containers bestimmt wird. Die intrinsischen Größen eines Elements werden durch seine {{cssxref("min-content")}}- und {{cssxref("max-content")}}-Größen repräsentiert.
 
-Inline-Elemente sind intrinsisch dimensioniert: [Größenanpassung](/de/docs/Web/CSS/CSS_box_sizing) und [Box](/de/docs/Web/CSS/CSS_box_model) Eigenschaften einschließlich {{cssxref("height")}}, {{cssxref("width")}}, {{cssxref("block-size")}}, {{cssxref("inline-size")}}, und {{cssxref("padding-block")}} und {{cssxref("margin-block")}} haben keinen Einfluss auf sie (obwohl {{cssxref("margin-inline")}} und {{cssxref("padding-inline")}} das tun).
+Inline-Elemente haben intrinsische Größen. CSS-[Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model)-Eigenschaften wie {{cssxref("height")}}, {{cssxref("width")}}, {{cssxref("block-size")}}, {{cssxref("inline-size")}}, {{cssxref("padding-block")}} und {{cssxref("margin-block")}} haben keinen Einfluss auf ihr Layout (obwohl {{cssxref("margin-inline")}} und {{cssxref("padding-inline")}} den Abstand innerhalb einer Zeile beeinflussen).
 
-Zum Beispiel ist die minimale intrinsische Größe des Inline-{{htmlelement("span")}} Elements die minimale Größe, die es hätte, wenn es gefloatet wäre (ohne andere CSS-Box-Eigenschaften angewendet), innerhalb eines Containers mit einer Inline-Größe von `0px`. Die maximale intrinsische Größe ist das Gegenteil. Es ist die Größe, die dasselbe `<span>` hätte, wenn die Inline-Größe seines Containers unendlich wäre.
+Zum Beispiel ist die minimale intrinsische Größe des Inline-{{htmlelement("span")}}-Elements die kleinste Größe, die es hätte, wenn es in einem Container mit `inline-size: 0` floated wäre (ohne dass andere CSS-Box-Eigenschaften angewendet werden). Die maximale intrinsische Größe ist das Gegenteil; es ist die Größe, die das gleiche `<span>` hätte, wenn es in einem Container mit unendlicher `inline-size` platziert würde.
 
-Intrinsische Größe hat die gleiche Bedeutung für Bilder wie für Text — die Größe, in der die Bilder angezeigt werden, wenn kein CSS angewendet wird, um die Darstellung zu ändern.
+Die intrinsische Größe hat für Bilder die gleiche Bedeutung wie für Text — die Größe, in der die Bilder angezeigt werden, wenn kein CSS angewendet wird, um die Darstellung zu ändern.
 
-Pixeldichte und Auflösung beeinflussen die intrinsische Größe. Standardmäßig wird angenommen, dass Bilder eine "1x" Pixeldichte haben (1 Gerätepixel = 1 CSS-Pixel), in welchem Fall die intrinsische Größe einfach die Pixelhöhe und -breite ist. Die intrinsische Größe und Auflösung eines Bildes können explizit in seinen {{Glossary("EXIF", "EXIF")}} Daten angegeben werden. Die Pixeldichte eines Bildes kann auch für Bilder mit dem [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset) Attribut festgelegt werden. Beachten Sie, dass, wenn beide Mechanismen verwendet werden, der `srcset`-Wert "über" dem EXIF-Wert angewendet wird.
+Pixeldichte und Auflösung beeinflussen die intrinsische Größe. Standardmäßig wird angenommen, dass Bilder eine "1x" Pixeldichte haben (1 Geräte-Pixel = 1 CSS-Pixel), in welchem Fall die intrinsische Größe einfach die Pixelhöhe und -breite ist. Die intrinsische Größe und Auflösung eines Bildes können explizit in seinen {{Glossary("EXIF", "EXIF")}}-Daten angegeben werden. Die Pixeldichte von Bildern kann auch mit dem [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset)-Attribut festgelegt werden. Beachten Sie, dass, wenn beide Mechanismen verwendet werden, der `srcset`-Wert "über" den EXIF-Wert angewendet wird.
 
-Intrinsische Größen und wie sie berechnet werden, sind im [CSS-Größenmodul](/de/docs/Web/CSS/CSS_box_sizing) definiert.
+Intrinsische Größen und deren Berechnung sind im [CSS Box Sizing](/de/docs/Web/CSS/CSS_box_sizing)-Modul definiert.
 
-#### minimale intrinsische Größe
+## Minimale intrinsische Größe
 
-Um ein Element gemäß seiner minimalen intrinsischen Größe festzulegen, setzen Sie die {{cssxref("inline-size")}} (oder {{cssxref("width")}} in horizontalen Schreibmodi, wie Englisch und Hebräisch) auf {{cssxref("min-content")}}. Dies setzt das Element auf die Größe, die es hätte, wenn der Text so klein wie möglich in der Inline-Richtung umgebrochen würde, ohne einen Überlauf zu verursachen, mit so viel weichem Umbruch wie möglich. Für eine Box, die eine Zeichenkette mit Text enthält, würde die minimale intrinsische Größe durch das längste Wort definiert werden.
+Um ein Element entsprechend seiner minimalen intrinsischen Größe einzustellen, setzen Sie die {{cssxref("inline-size")}} (oder {{cssxref("width")}} in horizontalen Schreibmodi, wie Englisch und Hebräisch) auf {{cssxref("min-content")}}. Dies setzt das Element auf die Größe, die es hätte, wenn der Text in der Inline-Richtung so klein wie möglich umbrochen würde, ohne dass es zu einem Überlauf kommt, mit möglichst viel weichem Umbruch. Für eine Box, die eine Zeichenkette enthält, würde die minimale intrinsische Größe durch das längste Wort definiert werden.
 
 ```html hidden
 <p>Text wraps, making the element only as wide as its longest word.</p>
@@ -32,11 +32,11 @@ p {
 }
 ```
 
-{{ EmbedLiveSample('minimale intrinsische Größe', '100%', '220') }}
+{{EmbedLiveSample('minimum intrinsic size', '100%', '220')}}
 
-#### maximale intrinsische Größe
+## Maximale intrinsische Größe
 
-Die maximale intrinsische Größe ist das Gegenteil. Es ist die Größe des Elements, wenn die Inline-Größe des Containers unendlich wäre. Textinhalt würde so breit wie möglich angezeigt werden, ohne weichen Umbruch, selbst wenn er seinen Container überfluten würde. Der Schlüsselwortwert {{cssxref("max-content")}} setzt dieses Verhalten.
+Die maximale intrinsische Größe ist das Gegenteil. Es ist die Größe des Elements, wenn die Inline-Größe des Containers unendlich wäre. Textinhalte würden so breit wie möglich angezeigt, ohne weichen Umbruch, selbst wenn er seinen Container überfließt. Der Schlüsselwortwert {{cssxref("max-content")}} setzt dieses Verhalten.
 
 ```html hidden
 <p>Element grows as text doesn't wrap.</p>
@@ -54,17 +54,15 @@ p {
 }
 ```
 
-{{ EmbedLiveSample('maximale intrinsische Größe', '100%', '200') }}
-
-## Extrinsische Größenbestimmung
-
-Das Gegenteil der _intrinsischen Größe_ ist **_extrinsische Größe_**, die auf dem Kontext eines Elements basiert, ohne Rücksicht auf seinen Inhalt. Die extrinsische Größenbestimmung wird durch die Werte der Box-Modell-Eigenschaften bestimmt. Bei der extrinsischen Größenbestimmung geben Prozentsätze die Größe einer Box im Verhältnis zum umschließenden Block der Box an.
+{{EmbedLiveSample('maximum intrinsic size', '100%', '200')}}
 
 ## Siehe auch
 
-- CSS {{cssxref("min-content")}}, {{cssxref("max-content")}}, und {{cssxref("fit-content")}} Eigenschaftswerte.
+- Verwandte Glossarbegriffe:
+  - {{Glossary("Extrinsic_size", "Extrinsische Größe")}}
+- CSS {{cssxref("min-content")}}, {{cssxref("max-content")}}, und {{cssxref("fit-content")}} Größen-Schlüsselwörter
 - {{cssxref("interpolate-size")}}
 - {{cssxref("aspect-ratio")}}
 - {{cssxref("calc-size()")}}
-- [CSS-Größenanpassung](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- [CSS Box Sizing](/de/docs/Web/CSS/CSS_box_sizing)-Modul
 - [CSS Box Sizing Module Level 3](https://drafts.csswg.org/css-sizing-3/#intrinsic-sizes) Spezifikation
