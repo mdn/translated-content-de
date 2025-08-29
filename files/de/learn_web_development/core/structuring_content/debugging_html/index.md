@@ -2,36 +2,36 @@
 title: Debugging HTML
 slug: Learn_web_development/Core/Structuring_content/Debugging_HTML
 l10n:
-  sourceCommit: 27f34d8b137f9bb2b467f9f9a1c4e1d04e12ed89
+  sourceCommit: dbf1f82bfdfeb12ab5e2a5fc65db5805fca91c29
 ---
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Forms_and_buttons", "Learn_web_development/Core/Styling_basics", "Learn_web_development/Core/Structuring_content")}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Forms_challenge", "Learn_web_development/Core/Styling_basics", "Learn_web_development/Core/Structuring_content")}}
 
-HTML zu schreiben ist in Ordnung, aber was ist, wenn etwas schiefgeht und Sie nicht herausfinden können, wo der Fehler im Code ist? Dieser Artikel stellt Ihnen einige Werkzeuge vor, die Ihnen helfen können, Fehler in HTML zu finden und zu beheben.
+HTML zu schreiben ist in Ordnung, aber was passiert, wenn etwas schiefgeht und Sie nicht herausfinden können, wo der Fehler im Code liegt? Dieser Artikel wird Ihnen einige Werkzeuge vorstellen, die Ihnen helfen können, Fehler in HTML zu finden und zu beheben.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse in HTML, wie sie in
+        Grundlegende HTML-Kenntnisse, wie sie in
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
-          >Grundlegende HTML-Syntax</a
-        > behandelt werden. Textbezogene Semantik wie <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
+          >HTML-Grundsyntax</a
+        > behandelt werden. Semantik auf Textebene wie <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
           >Überschriften und Absätze</a
         > und <a href="/de/docs/Learn_web_development/Core/Structuring_content/Lists"
           >Listen</a
         >. <a href="/de/docs/Learn_web_development/Core/Structuring_content/Structuring_documents"
-          >Strukturelles HTML</a>.
+          >Strukturales HTML</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Wichtiges Hintergrundwissen zum Debuggen von HTML</li>
-          <li>Verwendung des DOM-Inspektors in den DevTools Ihres Browsers, um tiefer in Ihren HTML-Code einzutauchen.</li>
-          <li>Erforschung von häufigen HTML-Fehlertypen.</li>
+          <li>Die wichtigsten Grundlagen zum Debuggen von HTML</li>
+          <li>Verwendung des DOM-Inspektors in Ihren Browser-Entwicklertools, um tiefer in Ihren HTML-Code einzutauchen.</li>
+          <li>Untersuchen von häufigen HTML-Fehlertypen.</li>
           <li>Verwendung des <a href="https://validator.w3.org/">HTML-Validators</a>, um HTML-Fehler zu erkennen.</li>
         </ul>
       </td>
@@ -41,36 +41,36 @@ HTML zu schreiben ist in Ordnung, aber was ist, wenn etwas schiefgeht und Sie ni
 
 ## Debugging ist nicht beängstigend
 
-Beim Schreiben von Code ist alles in Ordnung, bis dieser gefürchtete Moment kommt, in dem ein Fehler auftritt – Sie haben etwas falsch gemacht, sodass Ihr Code entweder gar nicht oder nicht ganz so funktioniert, wie Sie es sich gewünscht haben. Das folgende Beispiel zeigt einen Fehler, der gemeldet wird, wenn versucht wird, ein einfaches Programm zu {{Glossary("compile", "kompilieren")}}, das in der [Rust](https://www.rust-lang.org/)-Sprache geschrieben wurde.
+Wenn Sie irgendeine Art von Code schreiben, ist alles in Ordnung, bis zu dem gefürchteten Moment, in dem ein Fehler auftritt – Sie haben etwas falsch gemacht, daher funktioniert Ihr Code nicht – entweder überhaupt nicht oder nicht so, wie Sie es sich vorgestellt haben. Zum Beispiel zeigt das Folgende einen Fehler an, der auftritt, wenn versucht wird, ein einfaches Programm in der [Rust](https://www.rust-lang.org/)-Sprache zu {{Glossary("compile", "kompilieren")}}.
 
-![Ein Konsolenfenster zeigt das Ergebnis eines Kompilierungsversuchs eines Rust-Programms mit einem fehlenden Anführungszeichen um einen String in einer Druckanweisung. Die Fehlermeldung lautet: error: unterminated double quote string.](error-message.png)
+![Ein Konsolenfenster das das Ergebnis des Versuchs zeigt, ein Rust-Programm mit einem fehlenden Anführungszeichen um eine Zeichenkette in einer Druckanweisung zu kompilieren. Die Fehlermeldung lautet: Fehler: nicht abgeschlossenes doppeltes Anführungszeichen Zeichenkette.](error-message.png)
 
-Hier ist die Fehlermeldung relativ leicht zu verstehen – "unterminated double quote string". Wenn Sie sich die Liste ansehen, können Sie wahrscheinlich erkennen, wie `println!(Hello, world!");` möglicherweise ein Anführungszeichen fehlt. Allerdings können Fehlermeldungen schnell komplizierter und schwerer zu interpretieren werden, je größer Programme werden, und selbst einfache Fälle können jemanden, der nichts über Rust weiß, einschüchtern.
+Hier ist die Fehlermeldung relativ leicht zu verstehen – "nicht abgeschlossenes doppeltes Anführungszeichen Zeichenkette". Wenn Sie sich die Auflistung ansehen, können Sie wahrscheinlich sehen, wie `println!(Hello, world!");` logisch ein doppeltes Anführungszeichen fehlen könnte. Fehlernachrichten können jedoch schnell komplizierter und weniger leicht interpretierbar werden, wenn Programme größer werden, und selbst einfache Fälle können für jemanden, der nichts über Rust weiß, ein wenig beängstigend wirken.
 
-Debugging muss jedoch nicht beängstigend sein – der Schlüssel, um sich beim Schreiben und Debuggen jeglichen Codes wohlzufühlen, ist die Vertrautheit mit der Sprache und den zugehörigen Werkzeugen.
+Debugging muss jedoch nicht beängstigend sein – der Schlüssel zur Beherrschung des Schreibens und Debuggens von Code liegt in der Vertrautheit mit sowohl der Programmiersprache als auch den dazugehörigen Werkzeugen.
 
 ## HTML und Debugging
 
-HTML ist nicht so kompliziert zu verstehen wie Rust. HTML wird vor dem Parsen nicht in eine andere Form kompiliert (es wird _interpretiert_, nicht _kompiliert_). Und die {{Glossary("element", "Element")}}-Syntax von HTML ist wohl viel einfacher zu verstehen als eine "echte Programmiersprache" wie Rust, {{Glossary("JavaScript", "JavaScript")}} oder {{Glossary("Python", "Python")}}.
+HTML ist nicht so kompliziert zu verstehen wie Rust. HTML wird nicht in eine andere Form kompiliert, bevor es geparst wird (es wird _interpretiert_, nicht _kompiliert_). Und die {{Glossary("element", "Element")}}-Syntax von HTML ist wohl viel einfacher zu verstehen als die einer "echten Programmiersprache" wie Rust, {{Glossary("JavaScript", "JavaScript")}} oder {{Glossary("Python", "Python")}}.
 
-Die Art und Weise, wie Browser HTML parsen, ist viel **permissiver** als das Parsen der meisten Programmiersprachen, was sowohl gut als auch schlecht ist.
+Die Art und Weise, wie Browser HTML parsen, ist viel **nachsichtiger** als bei den meisten Programmiersprachen, was sowohl gut als auch schlecht ist.
 
-Aber was meinen wir zunächst mit permissiv? Nun, im Allgemeinen gibt es zwei Hauptarten von Fehlern, auf die Sie stoßen werden, wenn Sie im Code etwas falsch machen:
+Aber zuerst einmal, was meinen wir mit nachsichtig? Nun, im Allgemeinen, wenn Sie etwas falsch im Code machen, gibt es zwei Haupttypen von Fehlern, auf die Sie stoßen werden:
 
-- **Syntaxfehler**: Dies sind Tippfehler in Ihrem Code, die dazu führen, dass das Programm nicht ausgeführt wird, wie der zuvor gezeigte Rust-Fehler. Diese sind normalerweise einfach zu beheben, solange Sie mit der Syntax der Sprache vertraut sind und wissen, was die Fehlermeldungen bedeuten.
-- **Logikfehler**: Dies sind Fehler, bei denen die Syntax tatsächlich korrekt ist, der Code jedoch nicht das tut, was Sie beabsichtigt haben, was bedeutet, dass das Programm falsch ausgeführt wird. Diese sind oft schwieriger zu beheben als Syntaxfehler, da es keine Fehlermeldung gibt, die Sie zur Fehlerquelle führt.
+- **Syntaxfehler**: Das sind Tippfehler in Ihrem Code, die das Programm daran hindern, ausgeführt zu werden, wie der oben gezeigte Rust-Fehler. Diese sind in der Regel leicht zu beheben, solange Sie mit der Syntax der Sprache vertraut sind und wissen, was die Fehlermeldungen bedeuten.
+- **Logikfehler**: Das sind Fehler, bei denen die Syntax tatsächlich korrekt ist, aber der Code nicht das tut, was Sie beabsichtigt haben, was bedeutet, dass das Programm falsch läuft. Diese sind oft schwerer zu beheben als Syntaxfehler, da es keine Fehlermeldung gibt, die Sie zur Quelle des Fehlers führt.
 
-HTML selbst leidet nicht unter Syntaxfehlern, weil Browser es permissiv parsen, was bedeutet, dass die Seite auch dann noch angezeigt wird, wenn es Syntaxfehler im Quellcode gibt. Browser haben eingebaute Regeln, die festlegen, wie falsch geschriebenes HTML-Markup (oft als **ungültig** oder **schlecht geformt** bezeichnet) interpretiert wird und es automatisch in gültiges Markup umgewandelt wird.
+HTML selbst leidet nicht unter Syntaxfehlern, da Browser es nachsichtig parsen, was bedeutet, dass die Seite angezeigt wird, auch wenn es Syntaxfehler im Quellcode gibt. Browser haben eingebaute Regeln, um anzugeben, wie falsch geschriebenes HTML-Markup (oft als **ungültiges** oder **schlecht formatiertes** Markup bezeichnet) interpretiert werden soll und es automatisch in ein gültiges Markup zu ändern.
 
-Zum Beispiel enthält der folgende HTML-Ausschnitt falsch geschachtelte Elemente:
+Zum Beispiel enthält das folgende HTML-Snippet falsch geschachtelte Elemente:
 
 ```html example-bad
 <p>I didn't expect to find the <em>next-door neighbor's <strong>cat</em></strong> here!</p>
 ```
 
-Das schließende `</strong>`-Tag sollte vor dem schließenden `</em>`-Tag stehen, aber das tut es nicht – es steht danach.
+Das schließende `</strong>`-Tag sollte vor dem schließenden `</em>`-Tag sein, aber es ist nicht – es steht danach.
 
-Wenn Sie dieses HTML in einen Browser laden und den [gerenderten DOM](/de/docs/Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites#handling_html) betrachten, werden Sie feststellen, dass die Schachtelung vom Browser korrigiert wurde:
+Wenn Sie dieses HTML in einen Browser laden und sich den [gerenderten DOM](/de/docs/Learn_web_development/Getting_started/Web_standards/How_browsers_load_websites#handling_html) ansehen, werden Sie sehen, dass die Verschachtelung vom Browser korrigiert wurde:
 
 ```html example-good
 <p>
@@ -79,32 +79,32 @@ Wenn Sie dieses HTML in einen Browser laden und den [gerenderten DOM](/de/docs/L
 </p>
 ```
 
-Warum ist das sowohl gut als auch schlecht? Nun, in diesem Fall hat der Browser das beabsichtigte Ergebnis erstellt, aber wie Sie [später](#your_turn_studying_html_using_the_dom_inspector) sehen werden, ist das nicht immer der Fall. Sie erhalten immer _etwas_, das läuft, aber der Browser liegt nicht immer richtig, was Probleme verursachen kann. Es ist besser, korrekten Markup von vornherein zu schreiben.
+Warum ist das also sowohl gut als auch schlecht? Nun, in diesem Fall hat der Browser das beabsichtigte Ergebnis erstellt, aber wie Sie [später](#your_turn_studying_html_using_the_dom_inspector) sehen werden, ist das nicht immer der Fall. Sie werden immer _etwas_ zum Laufen bringen, aber der Browser macht es nicht immer richtig, was Probleme verursachen kann. Es ist besser, von vornherein korrektes Markup zu schreiben.
 
 > [!NOTE]
-> HTML wird permissiv geparst, weil beim ersten Erstellen des Internets entschieden wurde, dass das Veröffentlichen von Inhalten wichtiger ist, als die Syntax absolut korrekt zu machen. Das Internet wäre wahrscheinlich nicht so populär, wie es heute ist, wenn es von Anfang an strenger gewesen wäre.
+> HTML wird nachsichtig geparst, weil bei der Erstellung des Webs beschlossen wurde, dass es wichtiger war, Inhalte zu veröffentlichen, als sicherzustellen, dass die Syntax absolut korrekt ist. Das Web wäre wahrscheinlich nicht so populär, wie es heute ist, wenn es von Anfang an strikter gewesen wäre.
 
-Wie finden Sie also Markup-Fehler? Später zeigen wir Ihnen, wie Sie Fehler in HTML mit einem Werkzeug namens [HTML-Validator](#html-validierung) finden können, aber zuerst zeigen wir Ihnen, wie Sie Ihr HTML manuell mit einem **DOM-Inspektor** inspizieren und dann erkunden, nach welcher Art von Markup-Fehlern Sie suchen könnten und wie der Browser diese interpretieren könnte.
+Wie finden Sie also Markup-Fehler? Später zeigen wir Ihnen, wie Sie mit einem Tool namens [HTML-Validator](#html-validierung) Fehler in HTML finden können, aber zuerst zeigen wir Ihnen, wie Sie Ihr HTML manuell mit einem **DOM-Inspektor** überprüfen können, und dann erkunden wir, welche Arten von Markup-Fehlern Sie suchen könnten und wie der Browser diese interpretieren könnte.
 
 ## Verwendung des DOM-Inspektors
 
-Alle modernen Browser verfügen über eine Reihe von [Entwicklerwerkzeugen](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) (DevTools), die in sie integriert sind und eine Reihe von Funktionen bieten, um die im aktuellen Tab geladene Webseite zu untersuchen. Sie können Ihnen zeigen, welches HTML in der Seite gerendert wird, welcher CSS auf jeden DOM-Knoten angewendet wird, welcher JavaScript-Code in der Seite läuft und mehr. Sie ermöglichen es Ihnen auch, den aktuell laufenden Code zu bearbeiten und die Auswirkung live auf der Seite zu sehen.
+Alle modernen Browser haben einen Satz von [Entwicklertools](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) (Devtools) eingebaut, die eine Reihe von Funktionen zum Untersuchen der in der aktuellen Registerkarte geladenen Webseite bieten. Diese Tools können Ihnen zeigen, welches HTML in der Seite angezeigt wird, welches CSS auf jeden DOM-Knoten angewendet wird, welcher JavaScript-Code in der Seite läuft und mehr. Sie ermöglichen es Ihnen auch, den aktuell laufenden Code zu bearbeiten und die Auswirkung live auf der Seite zu sehen.
 
-Sie können die DevTools in jedem Browser auf ähnliche Weise öffnen – sehen Sie sich [So öffnen Sie die DevTools in Ihrem Browser](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools#how_to_open_the_devtools_in_your_browser) an, um zu lernen, wie das geht.
+Sie können die Entwicklertools in jedem Browser auf ähnliche Weise öffnen – siehe [Wie Sie die Entwicklertools in Ihrem Browser öffnen](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools#how_to_open_the_devtools_in_your_browser), um zu erfahren, wie es geht.
 
-Für diesen Artikel ist die einzige relevante DevTools-Funktion der **DOM-Inspektor**, der das aktuell gerenderte HTML DOM zeigt und Ihnen erlaubt, es zu bearbeiten. Schauen wir uns das jetzt an:
+Für diesen Artikel ist die einzige relevante Funktion der Entwicklertools der **DOM-Inspektor**, der das aktuell gerenderte HTML DOM anzeigt und Ihnen ermöglicht, es zu bearbeiten. Schauen wir uns das jetzt an:
 
-1. Öffnen Sie die DevTools in Ihrem Browser.
-2. Öffnen Sie den DOM-Inspektor. Er befindet sich an derselben Stelle in jedem Browser – der erste Tab in den DevTools zu Beginn der Reihe. In Firefox ist er mit _Inspektor_ beschriftet, während er in Safari, Edge und Chrome mit _Elements_ beschriftet ist. Dieser Tab sollte beim ersten Öffnen der DevTools standardmäßig ausgewählt sein, wählen Sie ihn jedoch aus, wenn er es nicht ist.
-3. Untersuchen Sie die DOM-Baumstruktur, die im Tab angezeigt wird, und beachten Sie, wie Sie auf die kleinen Erweiterungspfeile am Anfang jedes DOM-Knotens klicken können, um sie zu erweitern und zu schließen und deren Nachkommensknoten anzuzeigen. Sie können auch die Aufwärts- und Abwärtspfeiltasten verwenden, um sich nach oben und unten durch die Knoten zu bewegen, und die Rechts- und Linkspfeiltasten, um die Knoten zu erweitern und zu schließen.
-4. Versuchen Sie auch, über die Knoten zu fahren (oder sie mit den Pfeiltasten auszuwählen) und beachten Sie, wie das aktuell überfahrene (oder ausgewählte) Element im Ansichtsfenster hervorgehoben wird.
-5. Sie können auch den gerenderten DOM bearbeiten. Wir werden die Bearbeitungsfunktionalität in diesem Artikel nicht verwenden, aber nehmen Sie sich etwas Zeit, um nachzuschlagen, wie das funktioniert, wenn Sie neugierig sind.
+1. Öffnen Sie die Entwicklertools in Ihrem Browser.
+2. Öffnen Sie den DOM-Inspektor. Er befindet sich in jedem Browser an derselben Stelle – in der Entwicklertools-Maske ganz am Anfang der Reihe. In Firefox ist er als _Inspector_ bezeichnet, in Safari, Edge und Chrome als _Elements_. Diese Registerkarte sollte standardmäßig ausgewählt sein, wenn Sie die Entwicklerwerkzeuge zum ersten Mal öffnen, wählen Sie sie aber trotzdem aus, wenn sie es nicht ist.
+3. Untersuchen Sie die in der Registerkarte angezeigte DOM-Baumstruktur und beachten Sie, wie Sie mit den kleinen Erweiterungspfeilen an jedem DOM-Knoten die Knoten erweitern und zusammenklappen können, um deren untergeordnete Knoten sichtbar zu machen. Sie können auch den Auf- und Abwärtspfeil Ihrer Tastatur verwenden, um durch die Knoten nach oben und unten zu navigieren, sowie die linke und rechte Pfeiltaste, um die Knoten zu erweitern und zusammenzufalten.
+4. Bewegen Sie den Mauszeiger über die Knoten (oder wählen Sie sie mit den Pfeiltasten aus) und beachten Sie, wie das aktuell ausgewählte (oder ausgewählte) Element im Ansichtsbereich hervorgehoben wird.
+5. Sie können auch den gerenderten DOM bearbeiten. Wir werden die Bearbeitungsfunktionalität in diesem Artikel nicht verwenden, aber nehmen Sie sich etwas Zeit, um nachzusehen, wie es gemacht wird, wenn Sie neugierig sind.
 
-## Ihr Part: HTML mit dem DOM-Inspektor studieren
+## Ihr Einsatz: HTML mit dem DOM-Inspektor studieren
 
-In diesem Abschnitt werden Sie einige Codes mit dem DOM-Inspektor studieren und sehen, wie der Browser mit häufigen Markup-Fehlern umgeht.
+In diesem Abschnitt werden Sie sich einige Codes mit dem DOM-Inspektor ansehen und sehen, wie der Browser gängige Markup-Fehler verarbeitet.
 
-1. Speichern Sie zunächst das folgende HTML-Dateilisting als `debug-example.html` auf Ihrem lokalen Computer. Dieses Demo wurde absichtlich mit einigen eingebauten Fehlern geschrieben, die wir erkunden können.
+1. Speichern Sie zunächst die folgende HTML-Datei als `debug-example.html` irgendwo auf Ihrem lokalen Rechner. Dieses Beispiel ist absichtlich mit einigen eingebauten Fehlern geschrieben, die wir untersuchen werden.
 
    ```html-nolint
    <!doctype html>
@@ -126,8 +126,8 @@ In diesem Abschnitt werden Sie einige Codes mit dem DOM-Inspektor studieren und 
    </html>
    ```
 
-2. Öffnen Sie es als Nächstes in einem Browser. Sie werden etwas sehen, das so aussieht: ![Ein einfaches HTML-Dokument mit dem Titel HTML-Debugging-Beispiele und einigen Informationen zu häufigen HTML-Fehlern wie ungeschlossenen Elementen, falsch geschachtelten Elementen und ungeschlossenen Attributen.](badly-formed-html.png)
-3. Das sieht sofort nicht gut aus; betrachten wir den Quellcode, um herauszufinden, warum (es wird nur der Inhalt des Body angezeigt):
+2. Öffnen Sie es anschließend in einem Browser. Sie werden etwas in der Art sehen:![Ein einfaches HTML-Dokument mit einem Titel von HTML-Debugging-Beispiele und einigen Informationen über häufige HTML-Fehler, wie nicht geschlossene Elemente, schlecht geschachtelte Elemente und nicht geschlossene Attribute.](badly-formed-html.png)
+3. Das sieht sofort nicht gut aus; sehen wir uns den Quellcode an, um zu sehen, ob wir herausfinden können, warum (es werden nur die Inhaltsbereiche des Body-Elements gezeigt):
 
    ```html
    <h1>HTML debugging examples</h1>
@@ -148,17 +148,17 @@ In diesem Abschnitt werden Sie einige Codes mit dem DOM-Inspektor studieren und 
    </ul>
    ```
 
-4. Lassen Sie uns die Probleme überprüfen:
-   - Die {{htmlelement("p","paragraph")}}- und {{htmlelement("li","list item")}}-Elemente haben keine schließenden Tags. Wenn man sich das obige Bild ansieht, scheint dies die Markup-Darstellung nicht allzu sehr beeinträchtigt zu haben, da es leicht zu schließen ist, wo ein Element enden und ein anderes beginnen sollte.
-   - Das erste {{htmlelement("strong")}}-Element hat kein schließendes Tag. Dies ist etwas problematischer, da es nicht einfach zu sagen ist, wo das Element enden soll. Tatsächlich wurde der gesamte restliche Text in Fettschrift dargestellt.
-   - Dieser Abschnitt ist schlecht verschachtelt: `<strong>strong <em>strong emphasized?</strong> what is this?</em>`. Es ist nicht einfach zu erkennen, wie dies interpretiert wurde, aufgrund des vorherigen Problems.
-   - Der [`href`](/de/docs/Web/HTML/Reference/Elements/a#href)-Attributwert fehlt ein schließendes Anführungszeichen. Dies scheint das größte Problem verursacht zu haben – der Link wurde überhaupt nicht dargestellt.
+4. Sehen wir uns die Probleme an:
+   - Die {{htmlelement("p","Absatz")}}- und {{htmlelement("li","Listenelemente")}}-Elemente haben keine schließenden Tags. Beim Blick auf das obige Bild scheint dies die Markup-Darstellung nicht stark beeinträchtigt zu haben, da es leicht ist zu erahnen, wo ein Element enden und das nächste beginnen sollte.
+   - Das erste {{htmlelement("strong")}}-Element hat keine schließende Tag. Dies ist etwas problematischer, da es nicht leicht zu erkennen ist, wo das Element enden soll. Tatsächlich wurde der gesamte restliche Text fett gerendert.
+   - Dieser Abschnitt ist schlecht geschachtelt: `<strong>strong <em>strong emphasized?</strong> what is this?</em>`. Es ist aufgrund des vorherigen Problems nicht leicht zu sagen, wie dies interpretiert wurde.
+   - Der [`href`](/de/docs/Web/HTML/Reference/Elements/a#href)-Attributwert fehlt ein schließendes doppeltes Anführungszeichen. Dies scheint das größte Problem verursacht zu haben – der Link wurde überhaupt nicht gerendert.
 
-5. Lassen Sie uns nun den gerenderten DOM im Gegensatz zum Quellcode untersuchen. Öffnen Sie dazu den DOM-Inspektor Ihres Browsers. Sie sehen eine Darstellung des gerenderten Markups: ![Der HTML-Inspektor in Firefox, mit dem Absatz unseres Beispiels hervorgehoben, der den Text "What causes errors in HTML?" zeigt. Hier sehen Sie, dass das p-Element von den Browser geschlossen wurde.](html-inspector.png)
-6. Schauen Sie sich an, wie der Browser versucht hat, unsere HTML-Fehler zu beheben (wir haben die Überprüfung in Firefox durchgeführt; andere moderne Browser _sollten_ dasselbe Ergebnis liefern):
-   - Die Absätze und Listenelemente wurden mit schließenden Tags versehen.
-   - Es ist nicht klar, wo das erste `<strong>`-Element geschlossen werden sollte, deshalb hat der Browser jeden separaten Textblock in ein eigenes `<strong>`-Element gewickelt, bis zum Ende des Dokuments!
-   - Die falsche Verschachtelung wurde vom Browser wie folgt korrigiert:
+5. Nun sehen wir uns den gerenderten DOM im Gegensatz zum Quellcode an. Öffnen Sie dazu den DOM-Inspektor Ihres Browsers. Sie sehen eine Darstellung des gerenderten Markups: ![Der HTML-Inspektor in Firefox, mit unserem Beispiel-Absatz hervorgehoben, zeigt den Text "What causes errors in HTML?" Hier können Sie sehen, dass das Absatzelement vom Browser geschlossen wurde.](html-inspector.png)
+6. Schauen Sie, wie der Browser versucht hat, unsere HTML-Fehler zu beheben (wir haben die Überprüfung in Firefox durchgeführt; andere moderne Browser _sollten_ dasselbe Ergebnis liefern):
+   - Den Absätzen und Listenelementen wurden abschließende Tags hinzugefügt.
+   - Es ist unklar, wo das erste `<strong>`-Element geschlossen werden sollte, sodass der Browser jeden separaten Textblock in sein eigenes `<strong>`-Element eingehüllt hat, bis ganz unten im Dokument!
+   - Die falsche Verschachtelung wurde vom Browser wie hier gezeigt korrigiert:
 
      ```html
      <strong>
@@ -168,7 +168,7 @@ In diesem Abschnitt werden Sie einige Codes mit dem DOM-Inspektor studieren und 
      <em> what is this?</em>
      ```
 
-   - Der Link mit dem fehlenden Anführungszeichen wurde insgesamt gelöscht. Das letzte Listenelement sieht so aus:
+   - Der Link mit dem fehlenden doppelt geschlossenen Anführungszeichen wurde vollständig gelöscht. Das letzte Listenelement sieht so aus:
 
      ```html
      <li>
@@ -181,52 +181,52 @@ In diesem Abschnitt werden Sie einige Codes mit dem DOM-Inspektor studieren und 
 
 ## HTML-Validierung
 
-Sie können aus dem obigen Beispiel sehen, dass Sie wirklich sicherstellen möchten, dass Ihr HTML gut geformt ist! Aber wie? In einem kleinen Beispiel wie dem oben gesehenen ist es einfach, die Zeilen durchzusehen und die Fehler zu finden, aber was ist mit einem riesigen, komplexen HTML-Dokument?
+Am obigen Beispiel können Sie sehen, dass Sie unbedingt sicherstellen möchten, dass Ihr HTML gut geformt ist! Aber wie? In einem kleinen Beispiel wie dem oben gesehenen ist es einfach, die Zeilen zu durchsuchen und die Fehler zu finden, aber was ist mit einem riesigen, komplexen HTML-Dokument?
 
-Das Werkzeug dafür ist der [Markup Validation Service](https://validator.w3.org/) (oder **HTML-Validator**), der vom W3C erstellt und gepflegt wird (von dem Sie im [Webstandards-Modell](/de/docs/Learn_web_development/Getting_started/Web_standards/The_web_standards_model) mehr erfahren haben). Der Validator nimmt ein HTML-Dokument als Eingabe auf, geht es durch und gibt Ihnen einen Bericht, der Ihnen sagt, was mit Ihrem HTML nicht stimmt.
+Das Werkzeug für diesen Job ist der [Markup Validation Service](https://validator.w3.org/) (oder **HTML-Validator**), der von der W3C erstellt und gepflegt wird (welche Sie in [Das Webstandards-Modell](/de/docs/Learn_web_development/Getting_started/Web_standards/The_web_standards_model) kennengelernt haben). Der Validator nimmt ein HTML-Dokument als Eingabe, geht es durch und gibt Ihnen einen Bericht, der Ihnen sagt, was mit Ihrem HTML falsch ist.
 
-![Die Startseite des HTML-Validators](validator.png)
+![Die HTML-Validator-Homepage](validator.png)
 
-Um das zu validierende HTML anzugeben, können Sie eine Webadresse angeben, eine HTML-Datei hochladen oder direkt HTML-Code eingeben.
+Um das zu validierende HTML anzugeben, können Sie eine Webadresse bereitstellen, eine HTML-Datei hochladen oder direkt einige HTML-Codes eingeben.
 
 ## Validierung eines HTML-Dokuments
 
-In dieser Aufgabe werden wir Sie den HTML-Validator ausprobieren lassen. Sie werden unser [Beispieldokument](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/debugging-html/debug-example.html) validieren und die zurückgegebenen Ergebnisse ansehen. Dieses Beispiel enthält dasselbe HTML, das Sie zuvor mit dem DOM-Inspektor studiert haben.
+In dieser Aufgabe werden wir Sie den HTML-Validator ausprobieren lassen. Sie werden unser [Beispieldokument](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/debugging-html/debug-example.html) validieren und sehen, welche Ergebnisse zurückgegeben werden. Dieses Beispiel enthält dasselbe HTML, das Sie früher mit dem DOM-Inspektor studiert haben.
 
 1. Laden Sie zuerst den [Markup Validation Service](https://validator.w3.org/) in einem neuen Browser-Tab, falls er noch nicht geöffnet ist.
-2. Wechseln Sie zur [Validate by Direct Input](https://validator.w3.org/#validate_by_input) Registerkarte.
-3. Kopieren Sie den gesamten Code des Beispieldokuments (nicht nur den Body) und fügen Sie ihn in das große Textfeld ein, das im Markup Validation Service angezeigt wird.
-4. Drücken Sie die _Check_-Taste.
+2. Wechseln Sie zur Registerkarte [Validate by Direct Input](https://validator.w3.org/#validate_by_input).
+3. Kopieren Sie den gesamten Code des Beispieldokuments (nicht nur den Body) und fügen Sie ihn in das große Textfeld im Markup Validation Service ein.
+4. Drücken Sie die _Überprüfen_ Taste.
 
-Dies sollte Ihnen eine Liste von Fehlern und anderen Informationen liefern.
+Dies sollte Ihnen eine Liste von Fehlern und anderen Informationen geben.
 
-![Eine Liste von HTML-Validierungsergebnissen vom W3C-Markup-Validierungsdienst](validation-results.png)
+![Eine Liste der HTML-Validierungsergebnisse vom W3C-Markup-Validierungsdienst](validation-results.png)
 
-### Interpretation der Fehlermeldungen
+### Interpretieren der Fehlermeldungen
 
-Die Fehlermeldungen sind in der Regel hilfreich, aber manchmal sind sie nicht so einfach zu verstehen. Mit etwas Übung können Sie lernen, diese zu interpretieren, um Ihren Code zu beheben. Lassen Sie uns die Fehlermeldungen durchgehen und sehen, was sie bedeuten. Sie werden sehen, dass jede Meldung mit einer Zeilen- und Spaltennummer versehen ist, um Ihnen zu helfen, den Fehler leicht zu finden.
+Die Fehlermeldungen sind normalerweise hilfreich, aber manchmal nicht so leicht zu verstehen. Mit ein wenig Übung können Sie lernen, diese zu interpretieren, um Ihren Code zu korrigieren. Gehen wir die Fehlermeldungen durch und sehen wir, was sie bedeuten. Sie werden sehen, dass jede Nachricht mit einer Zeilen- und Spaltennummer versehen ist, die es Ihnen erleichtert, den Fehler zu lokalisieren.
 
-- "End tag `li` implied, but there were open elements" (2 Instanzen): Diese Meldungen geben an, dass ein Element geöffnet ist, das geschlossen werden sollte. Das End-Tag wird impliziert, ist aber nicht tatsächlich vorhanden. Die Zeilen-/Spalteninformation verweist auf die erste Zeile nach der Zeile, in der das Schließtag wirklich sein sollte, aber dies ist ein guter Hinweis, um zu sehen, was falsch ist.
-- "Unclosed element `strong`": Das ist einfacher zu verstehen – ein {{htmlelement("strong")}}-Element ist ungeschlossen, und die Zeilen-/Spalteninformation verweist genau darauf, wo es sich befindet.
-- "End tag `strong` violates nesting rules": Dies weist auf die falsch verschachtelten Elemente hin, und die Zeilen-/Spalteninformation zeigt auf, wo sie sind.
-- "End of file reached when inside an attribute value. Ignoring tag": Diese ist etwas kryptisch; sie bezieht sich darauf, dass ein Attributwert irgendwo, möglicherweise nahe dem Ende der Datei, nicht richtig geformt ist, weil das Ende der Datei innerhalb des Attributwertes erscheint. Die Tatsache, dass der Browser den Link nicht rendert, sollte uns einen guten Hinweis darauf geben, welches Element schuld ist.
-- "End of file seen and there were open elements": Dies ist etwas zweideutig, bezieht sich aber im Grunde darauf, dass es offene Elemente gibt, die richtig geschlossen werden müssen. Die Zeilennummern weisen auf die letzten Zeilen der Datei hin, und diese Fehlermeldung kommt mit einer Zeile Code, die ein Beispiel für ein offenes Element anzeigt:
+- "Endtag `li` impliziert, aber es gab offene Elemente" (2 Fälle): Diese Nachrichten signalisieren, dass ein Element geöffnet ist, das geschlossen werden sollte. Das Endtag ist impliziert, aber tatsächlich nicht vorhanden. Die Zeilen- und Spalteninformationen weisen auf die erste Zeile nach der Zeile hin, an der das schließende Tag eigentlich stehen sollte, aber dies ist ein guter Hinweis darauf, was falsch ist.
+- "Nicht geschlossenes Element `strong`": Dies ist leichter zu verstehen – einem {{htmlelement("strong")}}-Element fehlt das schließende Tag, und die Zeilen-/Spalteninformationen zeigen genau darauf.
+- "End-Tag `strong` verletzt Verschachtelungsregeln": Dies weist auf die falsch geschachtelten Elemente hin, und die Zeilen-/Spalteninformationen zeigen, wo sie sich befinden.
+- "Ende der Datei erreicht, während sich in einem Attributwert. Ignoriere Tag": Diese Nachricht ist ziemlich kryptisch; sie bezieht sich darauf, dass ein Attributwert nicht richtig irgendwo geformt ist, möglicherweise gegen Ende der Datei, weil das Ende der Datei innerhalb des Attributwerts erscheint. Die Tatsache, dass der Browser den Link nicht rendert, sollte uns einen guten Hinweis darauf geben, welches Element fehlerhaft ist.
+- "Ende der Datei gesehen und es gab offene Elemente": Das ist etwas mehrdeutig, bezieht sich aber letztendlich darauf, dass es offene Elemente gibt, die ordnungsgemäß geschlossen werden müssen. Die Zeilennummern verweisen auf die letzten Zeilen der Datei, und diese Fehlermeldung wird mit einer Codezeile geliefert, die ein Beispiel für ein offenes Element aufzeigt:
 
   ```plain
   example: <a href="https://www.mozilla.org/>link to Mozilla homepage</a> ↩ </ul>↩ </body>↩</html>
   ```
 
   > [!NOTE]
-  > Ein Attribut, dem ein schließendes Anführungszeichen fehlt, kann zu einem offenen Element führen, da der Rest des Dokuments als Inhalt des Attributs interpretiert wird.
+  > Ein Attribut, das ein schließendes Anführungszeichen fehlt, kann ein offenes Element zur Folge haben, weil der Rest des Dokuments als Inhalt des Attributs interpretiert wird.
 
-- "Unclosed element `ul`": Dies ist nicht sehr hilfreich, da das {{htmlelement("ul")}}-Element korrekt geschlossen ist. Dieser Fehler tritt auf, weil das {{htmlelement("a")}}-Element nicht geschlossen ist, aufgrund des fehlenden schließenden Anführungszeichens.
+- "Nicht geschlossenes Element `ul`": Dies ist nicht sehr hilfreich, da das {{htmlelement("ul")}}-Element korrekt geschlossen ist. Dieser Fehler tritt auf, weil das {{htmlelement("a")}}-Element aufgrund des fehlenden schließenden Anführungszeichens nicht geschlossen wurde.
 
-Wenn Sie nicht herausfinden können, was jede Fehlermeldung bedeutet, machen Sie sich keine Sorgen. Eine gute Strategie besteht darin, einige Fehler gleichzeitig zu beheben und dann nach jedem Satz von Korrekturen Ihr HTML erneut zu validieren, um zu sehen, welche Fehler noch übrig sind. Manchmal behebt das Beheben eines früheren Fehlers auch andere Fehlermeldungen – mehrere Fehler können oft durch ein einzelnes Problem in einem Dominoeffekt verursacht werden.
+Wenn Sie nicht herausfinden können, was jede Fehlermeldung bedeutet, machen Sie sich keine Sorgen. Eine gute Strategie ist es, ein paar Fehler auf einmal zu beheben, dann Ihre HTML nach jedem Satz von Korrekturen erneut zu validieren, um zu zeigen, welche Fehler noch übrig sind. Manchmal kann das Beheben eines früheren Fehlers auch andere Fehlermeldungen beseitigen – mehrere Fehler können oft durch ein einziges Problem verursacht werden, in einem Dominoeffekt.
 
-Sie wissen, dass alle Ihre Fehler behoben sind, wenn Sie ein schönes kleines grünes Banner sehen, das Ihnen mitteilt, dass es keine Fehler oder Warnungen zu zeigen gibt. Zum Zeitpunkt des Schreibens hieß es: "Document checking completed. No errors or warnings to show."
+Sie wissen, dass alle Ihre Fehler behoben sind, wenn Ihnen ein schöner kleiner grüner Banner mitteilt, dass es keine Fehler oder Warnungen zu berichten gibt. Zum Zeitpunkt des Schreibens hieß es "Dokumentprüfung abgeschlossen. Keine Fehler oder Warnungen zu zeigen."
 
 ## Zusammenfassung
 
-Damit haben wir eine Einführung in das Debuggen von HTML, die Ihnen einige nützliche Fähigkeiten vermitteln sollte, auf die Sie beim Debuggen von HTML, aber auch von CSS- und JavaScript-Code später im Kurs zählen können. Dies markiert auch das Ende des Moduls _Strukturieren von Inhalten mit HTML_.
+Damit haben wir eine Einführung in das Debuggen von HTML, die Ihnen einige nützliche Fähigkeiten vermitteln sollte, auf die Sie sich beim Debuggen von HTML sowie später im Kurs von CSS- und JavaScript-Code verlassen können. Dies markiert auch das Ende des Moduls _Inhalte mit HTML strukturieren_.
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Forms_and_buttons", "Learn_web_development/Core/Styling_basics", "Learn_web_development/Core/Structuring_content")}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Forms_challenge", "Learn_web_development/Core/Styling_basics", "Learn_web_development/Core/Structuring_content")}}

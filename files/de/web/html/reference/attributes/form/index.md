@@ -3,32 +3,32 @@ title: "HTML-Attribut: form"
 short-title: form
 slug: Web/HTML/Reference/Attributes/form
 l10n:
-  sourceCommit: f29e825161ee6776a395cd846f8570686f784341
+  sourceCommit: 6afda999d054c2ba12d13d129b13eb35952b4fbe
 ---
 
-Das `form` HTML-Attribut verknüpft ein formularassoziiertes Element mit einem {{htmlelement("form")}}-Element innerhalb desselben Dokuments. Dieses Attribut gilt für die Elemente {{htmlelement("button")}}, {{htmlelement("fieldset")}}, {{htmlelement("input")}}, {{htmlelement("object")}}, {{htmlelement("output")}}, {{htmlelement("select")}} und {{htmlelement("textarea")}}.
+Das HTML-Attribut `form` verknüpft ein formularassoziiertes Element mit einem {{htmlelement("form")}}-Element innerhalb desselben Dokuments. Dieses Attribut gilt für die Elemente {{htmlelement("button")}}, {{htmlelement("fieldset")}}, {{htmlelement("input")}}, {{htmlelement("object")}}, {{htmlelement("output")}}, {{htmlelement("select")}} und {{htmlelement("textarea")}}.
 
 ## Werte
 
 Die `id` des `<form>`-Elements, mit dem das Element verknüpft werden soll.
 
-## Hinweise zur Nutzung
+## Nutzungshinweise
 
-Standardmäßig sind Formularsteuerelemente mit ihrem nächstgelegenen Vorfahren-{{htmlelement("form")}}-Element verknüpft, während Formularsteuerelemente, die nicht in einem `<form>` verschachtelt sind, mit keinem Formular verknüpft sind. Das `form`-Attribut ermöglicht das Überschreiben dieser Standardverhalten.
+Standardmäßig sind Formularelemente mit ihrem nächsten Vorfahren-{{htmlelement("form")}}-Element verknüpft, während Formularelemente, die nicht innerhalb eines `<form>` verschachtelt sind, mit keinem Formular verknüpft sind. Das Attribut `form` ermöglicht das Überschreiben dieser Standardverhalten.
 
-Das `form`-Attribut der Elemente {{htmlelement("button")}}, {{htmlelement("fieldset")}}, {{htmlelement("input")}}, {{htmlelement("object")}}, {{htmlelement("output")}}, {{htmlelement("select")}} und {{htmlelement("textarea")}} erlaubt es Ihnen, einen expliziten Formular-Eigentümer festzulegen. Damit können Sie Formularsteuerelemente, die sich irgendwo im Dokument befinden, mit einem beliebigen `<form>`-Element desselben Dokuments verbinden.
+Das `form`-Attribut der Elemente {{htmlelement("button")}}, {{htmlelement("fieldset")}}, {{htmlelement("input")}}, {{htmlelement("object")}}, {{htmlelement("output")}}, {{htmlelement("select")}} und {{htmlelement("textarea")}} erlaubt es Ihnen, einen expliziten Formularinhaber anzugeben, was Ihnen ermöglicht, Formularelemente, die sich irgendwo in einem Dokument befinden, mit einem beliebigen `<form>`-Element im selben Dokument zu verknüpfen.
 
-Wenn ein Formular abgeschickt wird, werden die Namen und Werte der mit dem `<form>`-Element verknüpften Steuerelemente eingereicht, egal ob sie physisch innerhalb dieses `<form>` verschachtelt sind oder in einem anderen `<form>`.
+Wenn ein Formular gesendet wird, werden die Namen und Werte der mit dem `<form>`-Element verknüpften Steuerelemente gesendet, unabhängig davon, ob sie physisch innerhalb dieses `<form>` verschachtelt sind oder nicht, und sogar, wenn sie in einem anderen `<form>` verschachtelt sind.
 
-Das `form`-Attribut eines Steuerelements nimmt als Wert die `id` des `<form>`-Elements, mit dem das Steuerelement verknüpft werden soll. Alle anderen Werte, die für das `form`-Attribut festgelegt sind, werden ignoriert.
+Das `form`-Attribut eines Steuerelements nimmt als Wert die `id` des `<form>`-Elements, mit dem Sie das Steuerelement verknüpfen möchten, an. Alle anderen für das `form`-Attribut festgelegten Werte werden ignoriert.
 
-Obwohl es nicht notwendig ist, den Attributwert auf die `id` des nächstgelegenen Vorfahrens-`<form>` zu setzen, stellt eine explizite Definition der Zuordnung zwischen einem Formularsteuerelement und seinem nächstgelegenen Vorfahren-Formular sicher, dass das Formularsteuerelement nicht von seinem Formular getrennt wird, wenn Skripte oder fehlerhaftes HTML dazu führen, dass dieses spezielle `<form>` nicht der nächste Formularvorfahre des Steuerelements ist.
+Auch wenn es nicht notwendig ist, den Attributwert auf die `id` des nächsten Vorfahren-`<form>` zu setzen, stellt die explizite Definition der Beziehung zwischen einem Formularsteuerelement und seinem nächsten Vorfahrenformular sicher, dass das Formularsteuerelement nicht mehr von seinem Formular getrennt wird, falls Skripte oder fehlerhaftes HTML dazu führen, dass dieses spezielle `<form>` nicht mehr der nächste Formularvorfahre des Steuerelements ist.
 
-### Zuordnung zu einem Nicht-Vorfahren-Formular
+### Verknüpfung mit einem nicht-Vorfahren-Formular
 
-Das `form`-Attribut kann verwendet werden, um ein Formularsteuerelement, das in einem `<form>` verschachtelt ist, mit einem anderen `<form>` zu verknüpfen.
+Das `form`-Attribut kann verwendet werden, um ein in einem `<form>` verschachteltes Formularsteuerelement mit einem anderen `<form>` zu verknüpfen.
 
-In diesem Codebeispiel ist das `<input>` für den Benutzernamen im `internalForm` verschachtelt, aber das `form`-Attribut löst die Verknüpfung mit seinem Vorfahrenformular, in dem es verschachtelt ist, und verknüpft es stattdessen mit dem `externalForm`:
+In diesem Codebeispiel ist das `<input>` für den Benutzernamen innerhalb des `internalForm` verschachtelt, aber das `form`-Attribut trennt das Steuerelement von seinem Vorfahrenformular, in dem es verschachtelt ist, und verknüpft es stattdessen mit dem `externalForm`:
 
 ```html
 <form id="externalForm"></form>
@@ -38,13 +38,13 @@ In diesem Codebeispiel ist das `<input>` für den Benutzernamen im `internalForm
 </form>
 ```
 
-In diesem Fall wird der Benutzername eingereicht, wenn das `externalForm` eingereicht wird, während das `internalForm` keine zugeordneten Formularsteuerelemente hat.
+In diesem Fall wird der Benutzername gesendet, wenn das `externalForm` gesendet wird, während das `internalForm` keine verbundenen Formularsteuerelemente hat.
 
-### Nicht-Vererbung des `form`-Attributs
+### Keine Vererbung des `form`-Attributs
 
-Das `form`-Attribut verknüpft nur das Element, auf dem es gesetzt ist. Das Attributverhalten wird nicht vererbt. Zum Beispiel, wenn das `form`-Attribut auf einem `<fieldset>`-Element gesetzt ist, verknüpft es nur das `<fieldset>`; es verknüpft **nicht** automatisch die Formularsteuerelemente innerhalb dieses `<fieldset>`.
+Das `form`-Attribut verknüpft nur das Element, auf dem es festgelegt wird. Das Attributverhalten wird nicht vererbt. Beispielsweise, wenn das `form`-Attribut auf einem `<fieldset>`-Element gesetzt ist, verknüpft es nur das `<fieldset>`; es verknüpft **nicht** automatisch die innerhalb dieses `<fieldset>` verschachtelten Formularsteuerelemente.
 
-In diesem Beispiel sind das `<fieldset>` und das `username`-`<input>` mit dem `exampleForm` verknüpft und in die [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection) der [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements)-Eigenschaft aufgenommen, aber das `password` nicht. Nur der `username` wird eingeschlossen, wenn das `exampleForm` eingereicht wird:
+In diesem Beispiel sind das `<fieldset>` und das `username` `<input>` mit dem `exampleForm` verknüpft und in der [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection) der [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements)-Eigenschaft enthalten, aber das Passwort nicht. Nur der `username` wird einbezogen, wenn das `exampleForm` gesendet wird:
 
 ```html
 <form id="exampleForm"></form>
@@ -58,13 +58,13 @@ In diesem Beispiel sind das `<fieldset>` und das `username`-`<input>` mit dem `e
 </fieldset>
 ```
 
-Jedes verschachtelte Element benötigt sein eigenes `form`-Attribut oder muss innerhalb des Formulars verschachtelt sein. Sie können prüfen, welche Elemente mit einem Formular verknüpft sind, indem Sie JavaScript verwenden, um [HTMLFormElement.elements](/de/docs/Web/API/HTMLFormElement/elements) zu nutzen.
+Jedes verschachtelte Element benötigt sein eigenes `form`-Attribut oder muss innerhalb des Formulars verschachtelt sein. Sie können überprüfen, welche Elemente mit einem Formular verknüpft sind, indem Sie JavaScript verwenden, mit [HTMLFormElement.elements](/de/docs/Web/API/HTMLFormElement/elements).
 
 ### Formularübermittlung
 
-Das Hinzufügen des `form`-Attributs bedeutet nicht, dass das Element mit dem Formular eingereicht wird. Nur einreichbare Elemente, einschließlich `<button>`, `<input>`, `<select>` und `<textarea>`, haben ihre Namen und Werte eingereicht, wenn das zugehörige `<form>` eingereicht wird.
+Die Aufnahme des `form`-Attributs bedeutet nicht, dass das Element mit dem Formular gesendet wird. Nur absendbare Elemente, einschließlich `<button>`, `<input>`, `<select>` und `<textarea>`, haben ihre Namen und Werte gesendet, wenn ihr zugeordnetes `<form>` gesendet wird.
 
-In diesem Fall wird, obwohl das `<output>` implizit und dann explizit mit dem `calcForm` verknüpft ist, das `result` nicht zusammen mit `a` und `b` eingereicht, wenn das `calcForm` eingereicht wird. Es ist jedoch Teil der `HTMLFormControlsCollection` des Formulars.
+In diesem Fall, obwohl das `<output>` implizit dann explizit mit dem `calcForm` verbunden ist, wird das `result` nicht zusammen mit `a` und `b` gesendet, wenn `calcForm` gesendet wird. Es ist jedoch Teil der `HTMLFormControlsCollection` des Formulars.
 
 ```html
 <form id="calcForm">
@@ -78,7 +78,7 @@ In diesem Fall wird, obwohl das `<output>` implizit und dann explizit mit dem `c
 
 ### Einfaches Beispiel
 
-Dieses Beispiel zeigt, wie formularassoziierte Elemente mit einem `<form>`-Element unter Verwendung des `form`-Attributs verknüpft werden können, auch wenn sie nicht explizit darin verschachtelt sind. Alle in diesem Beispiel gezeigten formularassoziierten Elemente sind entweder implizit (durch direkte Verschachtelung im Formular) oder explizit über das `form`-Attribut mit dem `loginForm` verknüpft. Wenn das Anmeldeformular eingereicht wird, werden die Namen und Werte jedes einreichbaren Elements eingeschlossen.
+Dieses Beispiel zeigt, wie formularassoziierte Elemente mit einem `<form>`-Element unter Verwendung des `form`-Attributs verknüpft werden können, selbst wenn sie nicht explizit darin verschachtelt sind. Alle im Beispiel gezeigten formularassoziierten Elemente sind entweder implizit (durch direkte Verschachtelung innerhalb des Formulars) oder explizit über das `form`-Attribut mit dem `loginForm` verbunden. Wenn das Login-Formular gesendet wird, werden die Namen und Werte jedes absendbaren Elements eingeschlossen.
 
 ```html
 <form id="loginForm">
@@ -106,9 +106,9 @@ Hello, World!</textarea
 </button>
 ```
 
-### Element, das mit einem anderen Formular verknüpft ist
+### Element mit einem anderen Formular verknüpft
 
-In diesem Beispiel haben wir zwei `<form>`-Elemente: `parentForm` und `targetForm`. Das `<button>` im `parentForm` hat sein `form`-Attribut auf `targetForm` gesetzt, entkoppelt es von seinem nächstgelegenen Vorfahren `parentForm` und verknüpft es stattdessen mit dem `targetForm`. Wenn die Schaltfläche zum Senden aktiviert wird, übermittelt sie das `targetForm`, nicht ihren `parentForm`-Vorfahren.
+In diesem Beispiel haben wir zwei `<form>`-Elemente: `parentForm` und `targetForm`. Das `<button>` innerhalb des `parentForm` hat sein `form`-Attribut auf `targetForm` gesetzt, wodurch es von seinem nächsten Vorfahren `parentForm` getrennt wird, während es mit dem `targetForm` verknüpft wird. Wenn der Absenden-Knopf aktiviert wird, wird das `targetForm` gesendet, nicht sein `parentForm`-Vorfahre.
 
 ```html
 <form id="targetForm">
@@ -131,4 +131,4 @@ In diesem Beispiel haben wir zwei `<form>`-Elemente: `parentForm` und `targetFor
 
 ## Siehe auch
 
-- [`Überschreiben standardmäßiger Formularverhalten`](/de/docs/Web/HTML/Reference/Elements/input/image#overriding_default_form_behaviors)
+- [Überschreiben von Standard-Formularverhalten](/de/docs/Web/HTML/Reference/Elements/input/image#overriding_default_form_behaviors)

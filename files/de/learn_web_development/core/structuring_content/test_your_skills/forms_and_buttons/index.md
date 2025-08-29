@@ -1,29 +1,29 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Formulare und Buttons"
-short-title: "Test: Formulare und Buttons"
+title: "Testen Sie Ihr Können: Formulare und Schaltflächen"
+short-title: "Test: Formulare und Schaltflächen"
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Forms_and_buttons
 l10n:
-  sourceCommit: 27f34d8b137f9bb2b467f9f9a1c4e1d04e12ed89
+  sourceCommit: dbf1f82bfdfeb12ab5e2a5fc65db5805fca91c29
 ---
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/HTML_forms", "Learn_web_development/Core/Structuring_content/Debugging_HTML", "Learn_web_development/Core/Structuring_content")}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/HTML_forms", "Learn_web_development/Core/Structuring_content/Forms_challenge", "Learn_web_development/Core/Structuring_content")}}
 
-Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie verstehen, wie [HTML-Formulare und Buttons](/de/docs/Learn_web_development/Core/Structuring_content/HTML_forms) funktionieren.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie verstehen, wie [HTML-Formulare und Schaltflächen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_forms) funktionieren.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Nutzungsleitfaden. Sie können uns auch über unsere [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Um Hilfe zu bekommen, lesen Sie unseren [Testen Sie Ihr Können](/de/docs/Learn_web_development#test_your_skills) Nutzungsleitfaden. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
-## Formulare und Buttons 1
+## Formulare und Schaltflächen 1
 
-Diese Aufgabe beginnt ganz sanft, indem Sie aufgefordert werden, zwei `<input>`-Elemente für die Benutzer-ID und das Passwort sowie einen Absende-Button zu erstellen.
+Diese Aufgabe beginnt sanft, indem Sie gebeten werden, zwei `<input>`-Elemente zu erstellen, für die ID und das Passwort eines Benutzers, zusammen mit einer Absenden-Schaltfläche.
 
 Um die Aufgabe abzuschließen:
 
 1. Erstellen Sie geeignete Eingaben für Benutzer-ID und Passwort.
-2. Sie sollten sie auch semantisch mit ihren Textbeschriftungen verknüpfen.
-3. Erstellen Sie einen Absende-Button im verbleibenden Listenelement mit dem Button-Text "Log in".
+2. Sie sollten diese auch semantisch mit ihren Textbeschriftungen verbinden.
+3. Erstellen Sie eine Absenden-Schaltfläche innerhalb des verbleibenden Listenelements mit dem Schaltflächentext "Log in".
 
-<!-- Gemeinsamer Code für alle Beispiele -->
+<!-- Code shared across examples -->
 
 ```css hidden live-sample___forms-buttons-1 live-sample___forms-buttons-2 live-sample___forms-buttons-3 live-sample___forms-buttons-4 live-sample___forms-buttons-5 live-sample___forms-buttons-6
 body {
@@ -43,7 +43,7 @@ body {
 }
 ```
 
-<!-- Beispiel-spezifischer Code -->
+<!-- Example-specific code -->
 
 ```html live-sample___forms-buttons-1
 <form>
@@ -60,7 +60,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr vollständiges HTML sollte in etwa so aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <form>
@@ -82,15 +82,15 @@ Ihr vollständiges HTML sollte in etwa so aussehen:
 
 </details>
 
-## Formulare und Buttons 2
+## Formulare und Schaltflächen 2
 
-Die nächste Aufgabe erfordert die Erstellung funktionsfähiger Sätze von Kontrollkästchen und Optionsfeldern aus den bereitgestellten Textbeschreibungen.
+Die nächste Aufgabe erfordert, dass Sie funktionierende Sets von Kontrollkästchen und Optionsfeldern aus den bereitgestellten Textbeschriftungen erstellen.
 
 Um die Aufgabe abzuschließen:
 
-1. Verwandeln Sie den Inhalt des ersten `<fieldset>` in eine Gruppe von Optionsfeldern — Sie sollten nur ein Pony-Charakter gleichzeitig auswählen können.
-2. Stellen Sie sicher, dass das erste Optionsfeld beim Laden der Seite ausgewählt ist.
-3. Wandeln Sie den Inhalt des zweiten `<fieldset>` in eine Gruppe von Kontrollkästchen um.
+1. Verwandeln Sie den Inhalt des ersten `<fieldset>` in eine Gruppe von Optionsfeldern – es sollte nur möglich sein, einen Pony-Charakter auszuwählen.
+2. Das erste Optionsfeld sollte beim Laden der Seite ausgewählt sein.
+3. Verwandeln Sie den Inhalt des zweiten `<fieldset>` in eine Gruppe von Kontrollkästchen.
 4. Fügen Sie ein paar weitere Hotdog-Optionen Ihrer Wahl hinzu.
 
 ```html live-sample___forms-buttons-2
@@ -129,7 +129,7 @@ Um die Aufgabe abzuschließen:
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr vollständiges HTML sollte in etwa so aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <form>
@@ -178,9 +178,9 @@ Ihr vollständiges HTML sollte in etwa so aussehen:
 
 </details>
 
-## Formulare und Buttons 3
+## Formulare und Schaltflächen 3
 
-In dieser Aufgabe werden Sie einige spezifischere Eingabetypen erkunden. Wir möchten, dass Sie geeignete Eingaben für einen Benutzer erstellen, um seine Daten zu aktualisieren für:
+In dieser Aufgabe erkunden Sie einige spezifischere Eingabetypen. Wir möchten, dass Sie geeignete Eingaben für einen Benutzer erstellen, um ihre Details zu aktualisieren für:
 
 1. E-Mail
 2. Website
@@ -215,7 +215,7 @@ In dieser Aufgabe werden Sie einige spezifischere Eingabetypen erkunden. Wir mö
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr vollständiges HTML sollte in etwa so aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <form>
@@ -246,15 +246,15 @@ Ihr vollständiges HTML sollte in etwa so aussehen:
 
 </details>
 
-## Formulare und Buttons 4
+## Formulare und Schaltflächen 4
 
-Jetzt ist es an der Zeit, ein Drop-down-Auswahlmenü zu implementieren, damit ein Benutzer sein Lieblingsessen aus den bereitgestellten Optionen auswählen kann.
+Jetzt ist es Zeit, ein Dropdown-Auswahlmenü zu implementieren, bei dem ein Benutzer sein Lieblingsessen aus den gegebenen Optionen auswählen kann.
 
 Um die Aufgabe abzuschließen:
 
-1. Erstellen Sie eine grundlegende Struktur für die Auswahlbox.
-2. Verknüpfen Sie sie semantisch mit dem bereitgestellten "Essen"-Label.
-3. Teilen Sie die Auswahlmöglichkeiten in der Liste in 2 Untergruppen auf — "Hauptgerichte" und "Snacks".
+1. Erstellen Sie eine einfache Struktur für das Auswahlfeld.
+2. Verbinden Sie es semantisch mit der bereitgestellten "food"-Beschriftung.
+3. Teilen Sie die Auswahlmöglichkeiten innerhalb der Liste in 2 Untergruppen auf – "Hauptgerichte" und "Snacks".
 
 ```html live-sample___forms-buttons-4
 <form>
@@ -276,7 +276,7 @@ Um die Aufgabe abzuschließen:
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr vollständiges HTML sollte in etwa so aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <form>
@@ -307,15 +307,15 @@ Ihr vollständiges HTML sollte in etwa so aussehen:
 
 </details>
 
-## Formulare und Buttons 5
+## Formulare und Schaltflächen 5
 
-In dieser Aufgabe möchten wir, dass Sie die bereitgestellten Formularelemente strukturieren.
+In dieser Aufgabe möchten wir, dass Sie die bereitgestellten Formularfunktionen strukturieren.
 
 Um die Aufgabe abzuschließen:
 
-1. Trennen Sie die ersten beiden und die zweiten beiden Formularfelder in zwei getrennte Container, jeweils mit einer beschreibenden Legende (verwenden Sie "Persönliche Daten" für die ersten beiden und "Kommentarinformationen" für die zweiten beiden).
-2. Markieren Sie jedes Textlabel mit einem geeigneten Element, damit es semantisch mit dem jeweiligen Formularfeld verknüpft ist.
-3. Fügen Sie eine geeignete Gruppe von strukturellen Elementen um die Label/Feld-Paare hinzu, um sie zu trennen.
+1. Trennen Sie die ersten beiden und die zweiten beiden Formularfelder in zwei unterschiedliche Container, jeweils mit einer beschreibenden Legende (verwenden Sie "Persönliche Details" für die ersten beiden und "Kommentarinformation" für die zweiten beiden).
+2. Markieren Sie jede Textbeschriftung mit einem geeigneten Element, sodass sie semantisch mit ihrem jeweiligen Formularfeld verbunden ist.
+3. Fügen Sie geeignete strukturelle Elemente um die Beschriftung/Feld-Paare hinzu, um sie voneinander zu trennen.
 
 ```html live-sample___forms-buttons-5
 <form>
@@ -338,7 +338,7 @@ Um die Aufgabe abzuschließen:
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr vollständiges HTML sollte in etwa so aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <form>
@@ -373,17 +373,17 @@ Ihr vollständiges HTML sollte in etwa so aussehen:
 
 </details>
 
-## Formulare und Buttons 6
+## Formulare und Schaltflächen 6
 
-In dieser Aufgabe stellen wir Ihnen ein einfaches Support-Anfrageformular zur Verfügung, und wir möchten, dass Sie einige Validierungsmerkmale hinzufügen. Diese Aufgabe erfordert Kenntnisse, die wir im Artikel "Formulare und Buttons in HTML" nicht vermitteln, daher müssen Sie möglicherweise anderswo recherchieren.
+In dieser Aufgabe stellen wir Ihnen ein einfaches Support-Anfrageformular zur Verfügung, und wir möchten, dass Sie einige Validierungsfunktionen hinzufügen. Diese Aufgabe erfordert einige Kenntnisse, die wir im Artikel "Formulare und Schaltflächen in HTML" nicht lehren, daher müssen Sie möglicherweise anderweitig recherchieren.
 
 Um die Aufgabe abzuschließen:
 
-1. Machen Sie alle Eingabefelder zu Pflichtfeldern, die ausgefüllt werden müssen, bevor das Formular abgeschickt werden kann.
-2. Ändern Sie den Typ der Felder "E-Mail-Adresse" und "Telefonnummer", damit der Browser eine spezifischere Validierung vornimmt, die für die angeforderten Daten geeignet ist.
-3. Geben Sie dem Feld "Benutzername" eine erforderliche Länge zwischen 5 und 20 Zeichen, dem Feld "Telefonnummer" eine maximale Länge von 15 Zeichen und dem Feld "Kommentar" eine maximale Länge von 200 Zeichen.
+1. Machen Sie alle Eingabefelder obligatorisch, bevor das Formular abgeschickt werden kann.
+2. Ändern Sie den Typ der Felder "Email address" und "Phone number", damit der Browser spezifischere Validierung anwendet, die für die abgefragten Daten geeignet ist.
+3. Geben Sie für das Feld "User name" eine erforderliche Länge zwischen 5 und 20 Zeichen an, für das Feld "Phone number" eine maximale Länge von 15 Zeichen und für das Feld "Comment" eine maximale Länge von 200 Zeichen.
 
-Versuchen Sie, Ihr Formular abzusenden — es sollte sich weigern, abzusenden, bis die oben genannten Einschränkungen eingehalten werden, und geeignete Fehlermeldungen anzeigen.
+Versuchen Sie, Ihr Formular zu senden – es sollte die Übermittlung verweigern, bis die oben genannten Einschränkungen erfüllt sind, und passende Fehlermeldungen geben.
 
 ```html live-sample___forms-buttons-6
 <form>
@@ -417,7 +417,7 @@ Versuchen Sie, Ihr Formular abzusenden — es sollte sich weigern, abzusenden, b
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr vollständiges HTML sollte in etwa so aussehen:
+Ihr fertiges HTML sollte in etwa so aussehen:
 
 ```html
 <form>
@@ -454,4 +454,4 @@ Ihr vollständiges HTML sollte in etwa so aussehen:
 
 </details>
 
-{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/HTML_forms", "Learn_web_development/Core/Structuring_content/Debugging_HTML", "Learn_web_development/Core/Structuring_content")}}
+{{PreviousMenuNext("Learn_web_development/Core/Structuring_content/HTML_forms", "Learn_web_development/Core/Structuring_content/Forms_challenge", "Learn_web_development/Core/Structuring_content")}}
