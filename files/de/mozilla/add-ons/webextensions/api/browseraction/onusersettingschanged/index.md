@@ -33,7 +33,7 @@ Ereignisse haben drei Funktionen:
     - `change`
       - : 'object'. Details der geänderten benutzerspezifischen Einstellungen.
         - `isOnToolbar`
-          - : `boolean`. Ob das Browser-Aktionssymbol der Erweiterung in der obersten Symbolleiste der Browserfenster sichtbar ist (d. h., ob die Erweiterung vom Benutzer "angeheftet" wurde).
+          - : `boolean`. Ob das Browser-Aktionssymbol der Erweiterung in der obersten Symbolleiste der Browserfenster sichtbar ist (d.h. ob die Erweiterung vom Benutzer "angeheftet" wurde).
 
 {{WebExtExamples}}
 
