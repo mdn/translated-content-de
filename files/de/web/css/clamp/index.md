@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-Die **`clamp()`**-Funktion in [CSS](/de/docs/Web/CSS) [clamp()](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) begrenzt einen Mittelwert innerhalb eines Wertebereichs zwischen einem definierten Mindest- und einem Maximalwert. Die Funktion benötigt drei Parameter: einen Mindestwert, einen bevorzugten Wert und einen maximal zulässigen Wert.
+Die **`clamp()`**-Funktion in [CSS](/de/docs/Web/CSS) [clamp()](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) begrenzt einen Wert in eines Wertebereichs zwischen einem definierten Mindest- und einem Maximalwert. Die Funktion benötigt drei Parameter: einen Mindestwert, einen bevorzugten Wert und einen maximal zulässigen Wert.
 
 {{InteractiveExample("CSS Demo: clamp()")}}
 
