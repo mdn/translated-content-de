@@ -3,70 +3,70 @@ title: Firefox 143 für Entwickler
 short-title: Firefox 143 (Beta)
 slug: Mozilla/Firefox/Releases/143
 l10n:
-  sourceCommit: 4da1a8a9c5464e521d95ff78341ec8ed791fc97b
+  sourceCommit: 22e14749bb928385b10b287b380c2db36177110f
 ---
 
-Dieser Artikel informiert über die Änderungen in Firefox 143, die Entwickler betreffen.
+Dieser Artikel bietet Informationen über die Änderungen in Firefox 143, die Entwickler betreffen.
 Firefox 143 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [16. September 2025](https://whattrainisitnow.com/release/?version=143) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
+> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Authors: Please uncomment any headings you are writing notes for -->
+<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Notizen schreiben -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Developer Tools -->
+<!-- ### Entwicklerwerkzeuge -->
 
 <!-- ### HTML -->
 
-<!-- No notable changes. -->
+<!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
 ### CSS
 
-- Das {{cssxref("::details-content")}} Pseudo-Element ist jetzt standardmäßig aktiviert. Es ermöglicht die Gestaltung des Inhalts des {{htmlElement("details")}} Elements.
-  ([Firefox-Bug 1941406](https://bugzil.la/1941406)).
+- Das {{cssxref("::details-content")}} Pseudoelement ist jetzt standardmäßig aktiviert. Es ermöglicht Ihnen, den Inhalt des {{htmlElement("details")}} Elements zu stylen.
+  ([Firefox Bug 1941406](https://bugzil.la/1941406)).
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
 <!-- ### JavaScript -->
 
-<!-- No notable changes. -->
+<!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
 <!-- ### SVG -->
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
 <!-- ### HTTP -->
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
-<!-- ### Security -->
+<!-- ### Sicherheit -->
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
 ### APIs
 
 <!-- #### DOM -->
 
-<!-- #### Media, WebRTC, and Web Audio -->
+<!-- #### Medien, WebRTC und Web Audio -->
 
-#### Removals
+#### Entfernen
 
-- Die veraltete Eigenschaft [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) wird nicht mehr unterstützt.
-  ([Firefox-Bug 1700969](https://bugzil.la/1700969)).
+- Die veraltete [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) Eigenschaft wird nicht mehr unterstützt.
+  ([Firefox Bug 1700969](https://bugzil.la/1700969)).
 
 <!-- ### WebAssembly -->
 
-<!-- #### Removals -->
+<!-- #### Entfernen -->
 
-<!-- ### WebDriver conformance (WebDriver BiDi, Marionette) -->
+<!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
 
-<!-- #### General -->
+<!-- #### Allgemein -->
 
 <!-- #### WebDriver BiDi -->
 
@@ -74,15 +74,19 @@ Firefox 143 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 ## Änderungen für Add-on-Entwickler
 
-- Hinzufügung von {{WebExtAPIRef("storage.StorageArea.getKeys()")}}. Diese Methode gibt ein Array zurück, das alle Schlüssel in einem Speicherbereich enthält. Sie ist für alle Speicherbereiche verfügbar, das heißt {{WebExtAPIRef("storage.sync", "sync")}}, {{WebExtAPIRef("storage.local", "local")}}, {{WebExtAPIRef("storage.session", "session")}}, und {{WebExtAPIRef("storage.managed", "managed")}}. ([Firefox-Bug 1910669](https://bugzil.la/1910669))
-- Die Auswahl eines Erweiterungsvorschlags in der Adressleiste (omnibox) durch den Benutzer, eine Aktion, die {{WebExtAPIRef("omnibox.onInputEntered")}} auslöst, wird nun als [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) betrachtet. Neben der Aktivierung der APIs, die eine Benutzeraktion erfordern, gewährt die Auswahl eines Erweiterungsvorschlags in der Adressleiste auch die Berechtigung `"activeTab"`.
+- Hinzufügung von {{WebExtAPIRef("storage.StorageArea.getKeys()")}}. Diese Methode gibt ein Array zurück, das alle Schlüssel in einem Speicherbereich enthält. Es ist für alle Speicherbereiche verfügbar, das heißt {{WebExtAPIRef("storage.sync", "sync")}}, {{WebExtAPIRef("storage.local", "local")}}, {{WebExtAPIRef("storage.session", "session")}}, und {{WebExtAPIRef("storage.managed", "managed")}}. ([Firefox Bug 1910669](https://bugzil.la/1910669))
+- Die Nutzer-Auswahl eines Erweiterungsvorschlags in der Adressleiste (Omnibox), eine Aktion, die {{WebExtAPIRef("omnibox.onInputEntered")}} auslöst, wird jetzt als [Nutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) betrachtet. Neben der Aktivierung der APIs, die eine Nutzeraktion erfordern, gewährt die Auswahl eines Erweiterungsvorschlags in der Adressleiste auch die `"activeTab"` Berechtigung.
 
-<!-- ### Removals -->
+<!-- ### Entfernen -->
 
-<!-- ### Other -->
+<!-- ### Sonstiges -->
 
-## Experimentelle Webfeatures
+## Experimentelle Web-Features
 
-Diese Funktionen sind in Firefox 143 verfügbar, aber standardmäßig deaktiviert.
-Um sie zu testen, suchen Sie auf der `about:config` Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
-Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+- **`text-autospace`**: `layout.css.text-autospace.enabled`
+
+  Die **`text-autospace`** CSS-Eigenschaft ermöglicht es Ihnen, den Abstand zwischen chinesischen/japanischen/koreanischen (CJK) und nicht-CJK-Zeichen festzulegen. Derzeit werden diese Werte nur geparst und haben keinen Effekt auf die Ausgabe. ([Firefox Bug 1869577](https://bugzil.la/1869577)).
+
+Diese Funktionen werden in Firefox 143 ausgeliefert, sind aber standardmäßig deaktiviert.
+Um mit ihnen zu experimentieren, suchen Sie auf der `about:config` Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
+Weitere solcher Funktionen finden Sie auf der [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features) Seite.
