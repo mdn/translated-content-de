@@ -1,73 +1,75 @@
 ---
-title: Erstellen eines plattformübergreifenden Video-Players
+title: Erstellen eines browserübergreifenden Videoplayers
 slug: Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: daad50a992d56b23573fdd50517c75df176747cf
 ---
 
-Dieser Artikel beschreibt einen grundlegenden HTML-Videoplayer, der die Media- und Fullscreen-APIs verwendet. Neben der Vollbildfunktion verfügt der Player über benutzerdefinierte Steuerelemente, anstatt nur die Standardeinstellungen des Browsers zu nutzen. Die Steuerungselemente des Players werden über die grundlegenden Anforderungen hinaus nicht weiter gestaltet; die vollständige Gestaltung des Players wird in einem zukünftigen Artikel behandelt.
+Dieser Artikel beschreibt einen grundlegenden HTML-Videoplayer, der die Media- und Fullscreen-APIs verwendet. Neben der Vollbildfunktion verfügt der Player über benutzerdefinierte Steuerelemente, anstatt nur die Standard-Browsersteuerelemente zu verwenden. Die Player-Steuerelemente selbst werden über die wesentlichen Funktionen hinaus nicht gestylt; das vollständige Styling des Players wird in einem späteren Artikel behandelt.
 
-## Funktionierendes Beispiel
-
-Unser Beispiel-Video-Player zeigt einen Ausschnitt aus einem Open-Source-Film namens [Tears of Steel](https://mango.blender.org/about/) und enthält typische Videosteuerungen.
-
-![Ein Bild eines Videoplayers mit mehreren Bedienelementen wie Abspielen, Pause und Stopp. Das Video zeigt eine Gruppe von Männern, die gegen eine Gruppe von Robotern kämpfen.](video-player-example.png)
+Unser Beispiel-Videoplayer zeigt einen Clip aus einem Open-Source-Film namens [Tears of Steel](https://mango.blender.org/about/) und enthält typische Videosteuerungen.
 
 ## HTML-Markup
 
-Zunächst schauen wir uns das HTML an, das den Player ausmacht.
+Um zu beginnen, schauen wir uns das HTML an, aus dem der Player besteht.
 
 ### Das Video
 
-Zuerst wird das {{ htmlelement("video") }}-Element definiert, das in einem {{ htmlelement("figure") }}-Element enthalten ist, das als Video-Container dient. Für jeden, der mit HTML-Markup und dem {{ htmlelement("video") }}-Element vertraut ist, sollte hier nichts Überraschendes sein.
+Unser gesamter Player ist in einem {{ htmlelement("figure") }}-Element enthalten.
 
-```html
+```html-nolint live-sample___video-player
 <figure id="videoContainer">
-  <video id="video" controls preload="metadata" poster="img/poster.jpg">
-    <source
-      src="video/tears-of-steel-battle-clip-medium.mp4"
-      type="video/mp4" />
-    <source
-      src="video/tears-of-steel-battle-clip-medium.webm"
-      type="video/webm" />
-    <source
-      src="video/tears-of-steel-battle-clip-medium.ogg"
-      type="video/ogg" />
-    <!-- Offer download -->
-    <a href="video/tears-of-steel-battle-clip-medium.mp4">Download MP4</a>
-  </video>
-  <figcaption>
-    &copy; Blender Foundation |
-    <a href="http://mango.blender.org">mango.blender.org</a>
-  </figcaption>
-</figure>
 ```
 
-Auch wenn dieser Player seine eigene benutzerdefinierte Steuerungssatz definiert, wird das `controls`-Attribut dennoch zum {{ htmlelement("video") }}-Element hinzugefügt, und das Standardsteuerungsset des Players wird später mit JavaScript ausgeschaltet. Auf diese Weise können Benutzer, die JavaScript aus welchem Grund auch immer deaktiviert haben, weiterhin auf die nativen Steuerelemente des Browsers zugreifen.
+Zuerst definieren wir das {{ htmlelement("video") }}-Element.
 
-Ein Posterbild wird für das Video definiert, und das `preload`-Attribut ist auf `metadata` gesetzt, was dem Browser mitteilt, dass er zunächst nur versuchen soll, die Metadaten aus der Videodatei und nicht die gesamte Videodatei zu laden. Dies bietet dem Player Daten wie Videodauer und -format.
+```html live-sample___video-player
+<video
+  id="video"
+  controls
+  preload="metadata"
+  poster="/shared-assets/images/examples/tears-of-steel-battle-clip-medium-poster.jpg">
+  <source
+    src="/shared-assets/videos/tears-of-steel-battle-clip-medium.mp4"
+    type="video/mp4" />
+  <source
+    src="/shared-assets/videos/tears-of-steel-battle-clip-medium.webm"
+    type="video/webm" />
+  <source
+    src="/shared-assets/videos/tears-of-steel-battle-clip-medium.ogg"
+    type="video/ogg" />
+  <!-- Offer download -->
+  <a href="/shared-assets/videos/tears-of-steel-battle-clip-medium.mp4"
+    >Download MP4</a
+  >
+</video>
+```
 
-Drei verschiedene Videoquellen werden für den Player bereitgestellt: MP4, WebM und Ogg. Durch die Verwendung dieser verschiedenen Quellformate verbessert sich die Unterstützung in allen Browsern, die HTML-Video unterstützen. Weitere Informationen zu Videoformaten und Browser-Kompatibilität finden Sie unter [Wahl eines Videocodecs](/de/docs/Web/Media/Guides/Formats/Video_codecs#choosing_a_video_codec).
+Auch wenn dieser Player seine eigenen benutzerdefinierten Steuerelemente definiert, wird das `controls`-Attribut dennoch zum {{ htmlelement("video") }}-Element hinzugefügt, und die Standard-Steuerelemente des Players werden später mit JavaScript deaktiviert. Auf diese Weise haben Benutzer, die JavaScript aus irgendeinem Grund deaktiviert haben, weiterhin Zugriff auf die nativen Steuerelemente des Browsers.
 
-Der obige Code würde die Wiedergabe des Videos in den meisten Browsern mit dem Standardsteuerungsset des Browsers ermöglichen. Der nächste Schritt ist die Definition eines benutzerdefinierten Steuerungssatzes, ebenfalls in HTML, um das Video zu steuern.
+Ein Posterbild wird für das Video definiert, und das `preload`-Attribut wird auf `metadata` gesetzt, was den Browser darüber informiert, dass er zunächst nur versuchen sollte, die Metadaten aus der Videodatei zu laden, anstatt die gesamte Datei. Dies liefert dem Player Daten wie Videodauer und -format.
 
-### Der Steuerungssatz
+Drei verschiedene Videoquellen werden für den Player bereitgestellt: MP4, WebM und Ogg. Die Verwendung dieser verschiedenen Quellenformate bietet die beste Chance, in allen Browsern unterstützt zu werden, die HTML-Video unterstützen. Für weitere Informationen zu Videoformaten und Browser-Kompatibilität siehe [Choosing a video codec](/de/docs/Web/Media/Guides/Formats/Video_codecs#choosing_a_video_codec).
 
-Die meisten Standardvideosteuerungen von Browsern bieten die folgende Funktionalität:
+Der obige Code ermöglicht die Wiedergabe des Videos in den meisten Browsern mit dem Standard-Steuerelementset des Browsers. Der nächste Schritt ist die Definition eines benutzerdefinierten Steuerelementsatzes, ebenfalls in HTML, der zur Steuerung des Videos verwendet wird.
 
-- Abspielen/Pause
-- Stummschalten
+### Der Steuerelementsatz
+
+Die meisten Standard-Videosteuerungen der Browser haben die folgende Funktionalität:
+
+- Wiedergabe/Pause
+- Stummschaltung
 - Lautstärkeregelung
 - Fortschrittsanzeige
-- Vorspulen
+- Vorspringen
 - Vollbildmodus
 
-Der benutzerdefinierte Steuerungssatz wird diese Funktionalität ebenfalls unterstützen, mit der Ergänzung eines Stopp-Buttons.
+Der benutzerdefinierte Steuerelementsatz wird auch diese Funktionalität unterstützen, mit der Hinzufügung einer Stopp-Taste.
 
-Auch hier ist das HTML recht unkompliziert, mit einer ungeordneten Liste, die über `list-style-type:none` eingestellt ist, um die Steuerungen einzuschließen, von denen jede ein Listenelement mit `float:left` ist. Für die Fortschrittsanzeige wird das `progress`-Element genutzt. Diese Liste wird nach dem {{ htmlelement("video") }}-Element, jedoch innerhalb des {{ htmlelement("figure") }}-Elements eingefügt (dies ist wichtig für die Vollbildfunktion, die später erklärt wird).
+Auch hier ist das HTML ganz einfach, indem eine ungeordnete Liste mit `list-style-type:none` verwendet wird, um die Steuerelemente einzuschließen, wobei jedes ein Listenelement ist, das mit `float:left` versehen ist. Für die Fortschrittsanzeige wird das `progress`-Element genutzt. Diese Liste wird nach dem {{ htmlelement("video") }}-Element, aber innerhalb des {{ htmlelement("figure") }}-Elements eingefügt (dies ist für die Vollbildfunktionalität wichtig, die später erklärt wird).
 
-```html
-<ul id="video-controls" class="controls">
+```html live-sample___video-player
+<ul id="video-controls" class="controls" data-state="hidden">
   <li><button id="play-pause" type="button">Play/Pause</button></li>
   <li><button id="stop" type="button">Stop</button></li>
   <li class="progress">
@@ -80,51 +82,34 @@ Auch hier ist das HTML recht unkompliziert, mit einer ungeordneten Liste, die ü
 </ul>
 ```
 
-Jeder Button erhält eine `id`, damit er mit JavaScript einfach zugänglich ist.
+Jeder Button erhält eine `id`, damit er leicht mit JavaScript zugänglich ist.
 
-Die Steuerelemente sind zunächst mit einem CSS `display:none` ausgeblendet und werden mit JavaScript aktiviert. Auch hier kann, wenn ein Benutzer JavaScript deaktiviert hat, der benutzerdefinierte Steuerungssatz nicht angezeigt werden, und sie können das Standardsteuerungssatz des Browsers ungehindert verwenden.
+Die Steuerelemente sind zunächst mit einem CSS `display:none` verborgen und werden mit JavaScript aktiviert. Wenn ein Benutzer JavaScript deaktiviert hat, erscheinen die benutzerdefinierten Steuerelemente nicht, und sie können die Standard-Steuerelemente des Browsers ungehindert nutzen.
 
-Natürlich ist dieser benutzerdefinierte Steuerungssatz derzeit nutzlos und tut nichts: Lassen Sie uns die Situation mit JavaScript verbessern.
+Natürlich ist dieser benutzerdefinierte Steuerelementsatz derzeit nutzlos und tut nichts: Lassen Sie uns die Situation mit JavaScript verbessern.
+
+Zum Schluss schließen wir das `<figure>`-Element mit einem {{htmlelement("figcaption")}} ab, das die Urheberrechtsinformationen enthält.
+
+```html live-sample___video-player
+  <figcaption>
+    &copy; Blender Foundation |
+    <a href="http://mango.blender.org">mango.blender.org</a>
+  </figcaption>
+</figure>
+```
 
 ## Verwendung der Media-API
 
-HTML bietet eine JavaScript-[Media-API](/de/docs/Web/API/HTMLMediaElement), die Entwicklern den Zugriff auf und die Steuerung von HTML-Medien ermöglicht. Diese API wird verwendet, um den oben definierten benutzerdefinierten Steuerungssatz tatsächlich funktionsfähig zu machen. Zusätzlich wird der Vollbild-Button die [Fullscreen-API](/de/docs/Web/API/Fullscreen_API) verwenden, eine weitere W3C-API, die die Möglichkeit von Webbrowsern steuert, Apps im Vollbildmodus Ihres Computers anzuzeigen.
+HTML wird mit einer JavaScript-[Media-API](/de/docs/Web/API/HTMLMediaElement) geliefert, die Entwicklern Zugriff auf HTML-Medien und deren Steuerung ermöglicht. Diese API wird verwendet, um den oben definierten benutzerdefinierten Steuerelementsatz tatsächlich funktionsfähig zu machen. Zusätzlich wird die Vollbildtaste die [Fullscreen API](/de/docs/Web/API/Fullscreen_API) verwenden, eine weitere W3C-API, die die Fähigkeit von Webbrowsern steuert, Apps im Vollbildmodus Ihres Computers anzuzeigen.
 
 ### Einrichtung
 
-Bevor die einzelnen Buttons behandelt werden, sind einige Initialisierungsaufrufe erforderlich.
+Bevor die einzelnen Tasten behandelt werden, sind eine Reihe von Initialisierungsaufrufen erforderlich. Variablen, die auf HTML-Elemente verweisen, sind erforderlich:
 
-Zunächst ist es eine gute Idee, zu überprüfen, ob der Browser das {{ htmlelement("video") }}-Element tatsächlich unterstützt und die benutzerdefinierten Steuerelemente nur dann einzurichten. Dies geschieht, indem überprüft wird, ob ein erstelltes {{ htmlelement("video") }}-Element die [Methode `canPlayType()`](/de/docs/Web/API/HTMLMediaElement/canPlayType) unterstützt, die jedes unterstützte HTML-{{ htmlelement("video") }}-Element sollte.
-
-```js
-const supportsVideo = !!document.createElement("video").canPlayType;
-if (supportsVideo) {
-  // set up custom controls
-  // …
-}
-```
-
-Sobald bestätigt wurde, dass der Browser HTML-Video unterstützt, ist es an der Zeit, die benutzerdefinierten Steuerelemente einzurichten. Variablen, die auf HTML-Elemente verweisen, sind erforderlich:
-
-```js
+```js live-sample___video-player
 const videoContainer = document.getElementById("videoContainer");
 const video = document.getElementById("video");
 const videoControls = document.getElementById("video-controls");
-```
-
-Wie bereits erwähnt, müssen die Standardsteuerungen des Browsers jetzt deaktiviert und die benutzerdefinierten Steuerungen angezeigt werden:
-
-```js
-// Hide the default controls
-video.controls = false;
-
-// Display the user defined video controls
-videoControls.style.display = "block";
-```
-
-Mit diesem Schritt ist nun eine Variable erforderlich, die auf jeden der Buttons verweist:
-
-```js
 const playPause = document.getElementById("play-pause");
 const stop = document.getElementById("stop");
 const mute = document.getElementById("mute");
@@ -134,11 +119,20 @@ const progress = document.getElementById("progress");
 const fullscreen = document.getElementById("fs");
 ```
 
-Mit diesen Handles können nun Ereignisse an jeden der benutzerdefinierten Steuerungsbuttons angefügt werden, um sie interaktiv zu machen. Die meisten dieser Buttons erfordern, dass ein `click`-Ereignislistener hinzugefügt wird, und eine in der Media-API definierte Methode und/oder Attribute müssen für das Video aufgerufen/überprüft werden.
+Mit diesen Handles können nun Ereignisse an jede der benutzerdefinierten Steuerelement-Tasten angehängt werden, um sie interaktiv zu machen. Die meisten dieser Tasten erfordern einen `click`-Ereignislistener, der hinzugefügt wird, und eine durch die Media-API definierte Methode und/oder Attribute, die für das Video aufgerufen/überprüft werden.
 
-### Abspielen/Pause
+Wie bereits erwähnt, müssen die Standard-Steuerelemente des Browsers nun deaktiviert werden, und die benutzerdefinierten Steuerelemente müssen angezeigt werden:
 
-```js
+```js live-sample___video-player
+// Hide the default controls
+video.controls = false;
+// Display the user defined video controls
+videoControls.setAttribute("data-state", "visible");
+```
+
+### Wiedergabe/Pause
+
+```js live-sample___video-player
 playPause.addEventListener("click", (e) => {
   if (video.paused || video.ended) {
     video.play();
@@ -148,11 +142,11 @@ playPause.addEventListener("click", (e) => {
 });
 ```
 
-Wenn ein `click`-Ereignis auf dem Abspiel-/Pause-Button erkannt wird, prüft der Handler zuerst, ob das Video derzeit pausiert ist oder bereits beendet ist (über die Attribute `paused` und `ended` der Media-API). Wenn ja, wird die `play()`-Methode verwendet, um das Video abzuspielen. Andernfalls muss das Video abgespielt werden, daher wird es mit der `pause()`-Methode pausiert.
+Wenn ein `click`-Ereignis auf der Wiedergabe/Pause-Taste erkannt wird, prüft der Handler zuerst, ob das Video derzeit pausiert oder beendet ist (über die `paused`- und `ended`-Attribute der Media-API); falls ja, wird die `play()`-Methode verwendet, um das Video abzuspielen. Andernfalls muss das Video abgespielt werden, und es wird mit der `pause()`-Methode pausiert.
 
-### Stopp
+### Stop
 
-```js
+```js live-sample___video-player
 stop.addEventListener("click", (e) => {
   video.pause();
   video.currentTime = 0;
@@ -160,21 +154,21 @@ stop.addEventListener("click", (e) => {
 });
 ```
 
-Die Media-API hat keine `stop`-Methode, daher wird zur Nachahmung das Video angehalten, und sein `currentTime` (d.h. die aktuelle Abspielposition des Videos) sowie die Position des {{ htmlelement("progress") }}-Elements auf 0 gesetzt (mehr zum {{ htmlelement("progress") }}-Element später).
+Die Media-API hat keine `stop`-Methode, daher wird, um dies nachzuahmen, das Video angehalten, und seine `currentTime` (d.h. die aktuelle Wiedergabeposition des Videos) und die Position des {{ htmlelement("progress") }}-Elements wird auf 0 gesetzt (mehr dazu später).
 
 ### Stummschalten
 
-```js
+```js live-sample___video-player
 mute.addEventListener("click", (e) => {
   video.muted = !video.muted;
 });
 ```
 
-Der Stummschalttaster ist ein Umschaltknopf, der das `muted`-Attribut der Media-API verwendet, um das Video stumm zu schalten: Dies ist ein Boolescher Wert, der angibt, ob das Video stummgeschaltet ist oder nicht. Um ihn zu toggeln, setzen wir ihn auf das Gegenteil von sich selbst.
+Die Stummschalttaste ist eine Umschalttaste, die das `muted`-Attribut der Media-API verwendet, um das Video stummzuschalten: Dies ist ein boolescher Wert, der angibt, ob das Video stummgeschaltet ist oder nicht. Um es zu kippen, setzen wir es auf das Gegenteil von sich selbst.
 
 ### Lautstärke
 
-```js
+```js live-sample___video-player
 volInc.addEventListener("click", (e) => {
   alterVolume("+");
 });
@@ -183,9 +177,9 @@ volDec.addEventListener("click", (e) => {
 });
 ```
 
-Zwei Lautstärkeregler-Buttons wurden definiert, einer zum Erhöhen der Lautstärke und ein weiterer zum Verringern der Lautstärke. Eine benutzerdefinierte Funktion, `alterVolume(direction)`, wurde erstellt, die dies behandelt:
+Es wurden zwei Lautstärkeregler definiert, einer zum Erhöhen und ein anderer zum Verringern der Lautstärke. Eine benutzerdefinierte Funktion, `alterVolume(direction)`, wurde erstellt, die sich damit befasst:
 
-```js
+```js live-sample___video-player
 function alterVolume(dir) {
   const currentVolume = Math.floor(video.volume * 10) / 10;
   if (dir === "+" && currentVolume < 1) {
@@ -196,23 +190,23 @@ function alterVolume(dir) {
 }
 ```
 
-Diese Funktion nutzt das Attribut `volume` der Media-API, das den aktuellen Lautstärkewert des Videos hält. Gültige Werte für dieses Attribut sind 0 und 1 und alles dazwischen. Die Funktion überprüft den `dir`-Parameter, der anzeigt, ob die Lautstärke erhöht (+) oder verringert (-) werden soll, und handelt entsprechend. Die Funktion ist so definiert, dass sie das `volume`-Attribut des Videos in Schritten von 0.1 erhöht oder verringert, wobei sichergestellt wird, dass es nicht unter 0 oder über 1 geht.
+Diese Funktion nutzt das `volume`-Attribut der Media-API, das den aktuellen Lautstärkewert des Videos enthält. Gültige Werte für dieses Attribut sind 0 und 1 und alles dazwischen. Die Funktion prüft den `dir`-Parameter, der angibt, ob die Lautstärke erhöht (+) oder verringert (-) werden soll und handelt entsprechend. Die Funktion ist so definiert, dass sie die Lautstärke des Videos in Schritten von 0,1 erhöht oder verringert und sicherstellt, dass sie nicht niedriger als 0 oder höher als 1 geht.
 
 ### Fortschritt
 
-Als das {{ htmlelement("progress") }}-Element oben im HTML definiert wurde, wurden nur zwei Attribute, `value` und `min`, festgelegt, beide mit einem Wert von 0. Die Funktion dieser Attribute ist selbsterklärend, wobei `min` den minimal zulässigen Wert des `progress`-Elements und `value` den aktuellen Wert angibt. Es muss auch einen maximalen Wert haben, damit es seinen Bereich korrekt darstellen kann, und das kann über das `max`-Attribut erledigt werden, das auf die maximale Abspieldauer des Videos gesetzt werden muss. Dies wird aus dem `duration`-Attribut des Videos gewonnen, das wieder Teil der Media-API ist.
+Als das {{ htmlelement("progress") }}-Element oben im HTML definiert wurde, wurden nur zwei Attribute gesetzt: `value` und `min`, beide erhielten einen Wert von 0. Die Funktion dieser Attribute ist selbsterklärend, wobei `min` den minimal zulässigen Wert des `progress`-Elements angibt und `value` dessen aktuellen Wert. Es muss auch einen Maximalwert haben, damit es seinen Bereich korrekt anzeigen kann, und dies kann über das `max`-Attribut erfolgen, das auf die maximale Wiedergabezeit des Videos eingestellt werden muss. Dies wird aus dem `duration`-Attribut des Videos abgeleitet, das wiederum Teil der Media-API ist.
 
-Idealerweise ist der korrekte Wert des `duration`-Attributs des Videos verfügbar, wenn das `loadedmetadata`-Ereignis ausgelöst wird, das auftritt, wenn die Metadaten des Videos geladen wurden:
+Idealerweise steht der korrekte Wert des `duration`-Attributs des Videos zur Verfügung, wenn das `loadedmetadata`-Ereignis ausgelöst wird, was eintritt, wenn die Metadaten des Videos geladen wurden:
 
-```js
+```js live-sample___video-player
 video.addEventListener("loadedmetadata", () => {
   progress.setAttribute("max", video.duration);
 });
 ```
 
-Leider kann in einigen mobilen Browsern, wenn `loadedmetadata` ausgelöst wird — falls es überhaupt _ausgelöst_ wird — das `video.duration`-Attribut möglicherweise nicht den korrekten Wert besitzen oder überhaupt irgendeinen Wert. Daher muss noch etwas anderes getan werden. Mehr dazu weiter unten.
+Leider kann in einigen mobilen Browsern der Wert `video.duration` beim Auslösen von `loadedmetadata` entweder der richtige sein oder keinen Wert haben. Daher muss etwas anderes getan werden. Mehr dazu weiter unten.
 
-Ein weiteres Ereignis, `timeupdate`, wird regelmäßig ausgelöst, während das Video abgespielt wird. Dieses Ereignis ist ideal, um den Wert der Fortschrittsanzeige zu aktualisieren und ihn auf den Wert des `currentTime`-Attributs des Videos zu setzen, was anzeigt, wie weit das aktuelle Abspiel durch das Video fortgeschritten ist.
+Ein weiteres Ereignis, `timeupdate`, wird periodisch ausgelöst, während das Video abgespielt wird. Dieses Ereignis eignet sich ideal zur Aktualisierung des Werts der Fortschrittsleiste, indem es auf den Wert des `currentTime`-Attributs des Videos gesetzt wird, das angibt, wie weit die aktuelle Wiedergabe des Videos fortgeschritten ist.
 
 ```js
 video.addEventListener("timeupdate", () => {
@@ -220,11 +214,11 @@ video.addEventListener("timeupdate", () => {
 });
 ```
 
-Wenn das `timeupdate`-Ereignis ausgelöst wird, wird das `value`-Attribut des `progress`-Elements auf die `currentTime` des Videos gesetzt. Diese Spannweite hat eine solide CSS-Hintergrundfarbe, was ihr hilft, das gleiche visuelle Feedback wie ein {{ htmlelement("progress") }}-Element zu bieten.
+Wenn das `timeupdate`-Ereignis ausgelöst wird, wird das `value`-Attribut des `progress`-Elements auf das `currentTime`-Attribut des Videos gesetzt. Dieser Bereich hat eine solide CSS-Hintergrundfarbe, die ihm hilft, dieselbe visuelle Rückmeldung zu geben wie ein {{ htmlelement("progress") }}-Element.
 
-Zurück zum `video.duration`-Problem, das oben erwähnt wurde: Wenn das `timeupdate`-Ereignis ausgelöst wird, sollte in den meisten mobilen Browsern das `duration`-Attribut des Videos jetzt den korrekten Wert haben. Dies kann genutzt werden, um das `max`-Attribut des `progress`-Elements festzulegen, falls es derzeit nicht gesetzt ist:
+Zurück zum oben erwähnten `video.duration`-Problem: Wenn das `timeupdate`-Ereignis ausgelöst wird, sollte das `duration`-Attribut des Videos jetzt in den meisten mobilen Browsern den korrekten Wert haben. Dies kann genutzt werden, um das `max`-Attribut des `progress`-Elements festzulegen, wenn es derzeit nicht gesetzt ist:
 
-```js
+```js live-sample___video-player
 video.addEventListener("timeupdate", () => {
   if (!progress.getAttribute("max"))
     progress.setAttribute("max", video.duration);
@@ -233,78 +227,147 @@ video.addEventListener("timeupdate", () => {
 ```
 
 > [!NOTE]
-> Für weitere Informationen und Ideen zu Fortschrittsbalken und Pufferungsfeedback lesen Sie [Medienpufferung, Suchen und Zeitbereiche](/de/docs/Web/Media/Guides/Audio_and_video_delivery/buffering_seeking_time_ranges).
+> Für mehr Informationen und Ideen zu Fortschrittsbalken und Pufferrückmeldungen lesen Sie [Media Buffering, Seeking, and Time Ranges](/de/docs/Web/Media/Guides/Audio_and_video_delivery/buffering_seeking_time_ranges).
 
 ### Vorspringen
 
-Ein weiteres Feature der meisten Standardvideosteuerungssätze von Browsern ist die Möglichkeit, auf die Fortschrittsanzeige des Videos zu klicken, um "vorzuspringen" zu einem anderen Punkt im Video. Dies kann auch erreicht werden, indem ein `click`-Ereignislistener zum `progress`-Element hinzugefügt wird:
+Ein weiteres Feature der meisten Standard-Videosteuerungssätze von Browsern ist die Fähigkeit, auf die Fortschrittsleiste des Videos zu klicken, um zu einem anderen Punkt im Video zu springen. Dies kann auch durch Hinzufügen eines `click`-Ereignislisteners zum `progress`-Element erreicht werden:
 
-```js
+```js live-sample___video-player
 progress.addEventListener("click", (e) => {
+  if (!Number.isFinite(video.duration)) return;
   const rect = progress.getBoundingClientRect();
   const pos = (e.pageX - rect.left) / progress.offsetWidth;
   video.currentTime = pos * video.duration;
 });
 ```
 
-Dieses Stück Code verwendet die geklickte Position, um (ungefähr) zu bestimmen, wo im `progress`-Element der Benutzer geklickt hat, und bewegt das Video an diese Position, indem es sein `currentTime`-Attribut setzt.
+Dieses Stück Code verwendet die angeklickte Position, um (ungefähr) zu berechnen, wo im `progress`-Element der Benutzer geklickt hat, und um das Video durch Setzen seines `currentTime`-Attributs an diese Position zu verschieben. Es wird vermieden, das `currentTime` zu setzen, wenn die Dauer des Videos {{jsxref("Global_Objects/NaN", "NaN")}} oder {{jsxref("Global_Objects/Infinity", "Infinity")}} ist, was passiert, wenn das Video noch nicht geladen ist.
 
-### Vollbildmodus
+### Vollbild
 
-Die Fullscreen-API sollte einfach zu verwenden sein: Der Benutzer klickt auf einen Button, wenn das Video im Vollbildmodus ist, wird der Modus beendet, andernfalls wird der Vollbildmodus aufgerufen.
+Die Fullscreen-API sollte einfach zu bedienen sein: der Benutzer klickt auf einen Button; wenn das Video im Vollbildmodus ist, wird dieser beendet, andernfalls wird der Vollbildmodus aktiviert.
 
-Der Vollbild-Button ist ausgeblendet, wenn die Fullscreen-API nicht aktiviert ist:
+Der Vollbild-Button wird ausgeblendet, wenn die Fullscreen-API nicht aktiviert ist:
 
-```js
+```js live-sample___video-player
 if (!document?.fullscreenEnabled) {
   fullscreen.style.display = "none";
 }
 ```
 
-Der Vollbild-Button muss tatsächlich etwas tun. Wie bei den anderen Buttons wird eine `click`-Ereignis-Handler angehängt, die eine benutzerdefinierte Funktion `handleFullscreen` aufruft:
+Der Vollbild-Button muss tatsächlich etwas bewirken. Wie bei den anderen Schaltflächen wird ein `click`-Ereignishandler hinzugefügt, der den Vollbildmodus umschaltet:
 
-```js
+```js live-sample___video-player
 fullscreen.addEventListener("click", (e) => {
-  handleFullscreen();
-});
-```
-
-Die Funktion `handleFullscreen` wird wie folgt definiert:
-
-```js
-function handleFullscreen() {
   if (document.fullscreenElement !== null) {
     // The document is in fullscreen mode
     document.exitFullscreen();
-    setFullscreenData(false);
   } else {
     // The document is not in fullscreen mode
     videoContainer.requestFullscreen();
-    setFullscreenData(true);
   }
-}
-```
-
-Wenn der Browser sich derzeit im Vollbildmodus befindet, muss dieser beendet werden und umgekehrt. Interessanterweise muss `document` zum Beenden/Abbrechen des Vollbildmodus verwendet werden, während jedes HTML-Element den Vollbildmodus anfordern kann. Hier wird das `videoContainer` verwendet, da es auch die benutzerdefinierten Steuerelemente enthält, die zusammen mit dem Video im Vollbildmodus angezeigt werden sollten.
-
-Eine weitere benutzerdefinierte Funktion — `setFullscreenData()` — wird ebenfalls aufgerufen, die den Wert eines `data-fullscreen`-Attributs auf dem `videoContainer` setzt (dies nutzt [data-states](https://ultimatecourses.com/blog/stop-toggling-classes-with-js-use-behaviour-driven-dom-manipulation-with-data-states#data-state-attributes)).
-
-```js
-function setFullscreenData(state) {
-  videoContainer.setAttribute("data-fullscreen", !!state);
-}
-```
-
-Diese wird verwendet, um einige grundlegende CSS zu setzen, um die Gestaltung der benutzerdefinierten Steuerungen im Vollbildmodus zu verbessern (siehe den Beispielcode für weitere Details). Wenn ein Video im Vollbildmodus angezeigt wird, wird gewöhnlich eine Nachricht angezeigt, die darauf hinweist, dass der Benutzer die _Esc_-Taste drücken kann, um den Vollbildmodus zu beenden. Der Code muss daher relevante Ereignisse ablauschen, um die `setFullscreenData()`-Funktion aufzurufen, um sicherzustellen, dass die Steuerungsstilierung korrekt ist:
-
-```js
-document.addEventListener("fullscreenchange", (e) => {
-  setFullscreenData(!!document.fullscreenElement);
 });
 ```
+
+Wenn der Browser derzeit im Vollbildmodus ist, muss dieser beendet werden und umgekehrt. Interessanterweise muss `document` für das Beenden/Abbrechen des Vollbildmodus verwendet werden, während jedes HTML-Element den Vollbildmodus anfordern kann; hier wird `videoContainer` verwendet, da es auch die benutzerdefinierten Steuerungen enthält, die zusammen mit dem Video im Vollbildmodus angezeigt werden sollten.
+
+## Ergebnis
+
+Der CSS-Teil ist für dieses Tutorial verborgen, aber Sie können auf "Play" klicken, um den vollständigen Quellcode zu sehen. Im nächsten Teil, [Grundlagen der Videoplayer-Styling](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Video_player_styling_basics), werden wir einige interessante hier verwendete CSS-Techniken untersuchen und auch neues CSS hinzufügen, um den Player ansprechender zu gestalten.
+
+```css hidden live-sample___video-player
+:root {
+  color: #333333;
+  font-family:
+    "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans", "Lucida", "Arial",
+    "Helvetica", sans-serif;
+}
+a {
+  color: #0095dd;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #2255aa;
+  text-decoration: underline;
+}
+figure {
+  max-width: 64rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+figcaption {
+  display: block;
+  font-size: 1rem;
+}
+video {
+  width: 100%;
+}
+
+/* controls */
+.controls {
+  display: flex;
+  gap: 6px;
+  list-style-type: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.controls[data-state="hidden"] {
+  display: none;
+}
+.controls li {
+  width: max(10%, 3rem);
+  margin: 0;
+  padding: 0;
+}
+.controls .progress {
+  flex-grow: 1;
+  cursor: pointer;
+}
+.controls button {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.controls progress {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #aaa;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+/* fullscreen */
+figure:fullscreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 100%;
+  height: 100%;
+}
+figure:fullscreen video {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+figure:fullscreen figcaption {
+  display: none;
+}
+```
+
+> [!WARNING]
+> Das Beispielvideo könnte laut sein!
+
+{{EmbedLiveSample("video-player", "", 400, "", "", "", "fullscreen")}}
 
 ## Siehe auch
 
 - {{ htmlelement("video") }} für Referenzmaterial
-- [HTML-Video und -Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio) für weitere Techniken
+- [HTML Video und Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio) für weitere Techniken
 - [Medienformate, die von den HTML-Audio- und -Videoelementen unterstützt werden](/de/docs/Web/Media/Guides/Formats)

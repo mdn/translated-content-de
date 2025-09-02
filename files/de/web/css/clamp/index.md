@@ -2,10 +2,10 @@
 title: clamp()
 slug: Web/CSS/clamp
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 602e6b33dccd7ff78d1307257a1cd59bd140e7f9
 ---
 
-Die **`clamp()`**-Funktion in [CSS](/de/docs/Web/CSS) [clamp()](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) begrenzt einen Mittelwert innerhalb eines Wertebereichs zwischen einem definierten Mindest- und einem Maximalwert. Die Funktion benötigt drei Parameter: einen Mindestwert, einen bevorzugten Wert und einen maximal zulässigen Wert.
+Die **`clamp()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) begrenzt einen Wert innerhalb eines Wertebereichs zwischen einer definierten minimalen und maximalen Grenze. Die Funktion nimmt drei Parameter: einen Minimalwert, einen bevorzugten Wert und einen maximal erlaubten Wert.
 
 {{InteractiveExample("CSS Demo: clamp()")}}
 
@@ -30,7 +30,7 @@ font-size: clamp(1rem, 10vw, 2rem);
 </section>
 ```
 
-Beachten Sie, dass die Verwendung von `clamp()` für Schriftgrößen, wie in diesen Beispielen, es Ihnen ermöglicht, eine Schriftgröße festzulegen, die mit der Größe des Ansichtsfensters wächst, jedoch nie unter eine Mindestschriftgröße oder über eine Maximalschriftgröße hinausgeht. Es hat denselben Effekt wie der Code in [Fluid Typography](https://css-tricks.com/snippets/css/fluid-typography/), aber in einer Zeile und ohne Einsatz von Media Queries.
+Beachten Sie, dass die Verwendung von `clamp()` für Schriftgrößen, wie in diesen Beispielen, es Ihnen ermöglicht, eine Schriftgröße festzulegen, die mit der Größe des Viewports wächst, aber nicht unter eine Mindestgröße oder über eine Maximalgröße hinausgeht. Dies hat denselben Effekt wie der Code in [Fluid Typography](https://css-tricks.com/snippets/css/fluid-typography/), jedoch in einer Zeile und ohne die Verwendung von Media Queries.
 
 ## Syntax
 
@@ -47,33 +47,33 @@ width: clamp(100px, calc(30% / 2rem + 10px), 900px);
 
 ### Parameter
 
-Die `clamp(min, val, max)`-Funktion akzeptiert drei durch Kommas getrennte Ausdrücke als ihre Parameter.
+Die Funktion `clamp(min, val, max)` akzeptiert drei durch Kommas getrennte Ausdrücke als Parameter.
 
 - `min`
-  - : Der Mindestwert ist der kleinste (am negativsten) Wert. Dies ist die Untergrenze im Bereich der zulässigen Werte. Wenn der bevorzugte Wert kleiner als dieser Wert ist, wird der Mindestwert verwendet.
+  - : Der Minimalwert ist der kleinste (am meisten negative) Wert. Dies ist die Untergrenze im Bereich der erlaubten Werte. Wenn der bevorzugte Wert kleiner als dieser Wert ist, wird der Minimalwert verwendet.
 
 - `val`
-  - : Der bevorzugte Wert ist der Ausdruck, dessen Wert solange verwendet wird, wie das Ergebnis zwischen den Mindest- und Maximalwerten liegt.
+  - : Der bevorzugte Wert ist der Ausdruck, dessen Wert verwendet wird, solange das Ergebnis zwischen den minimalen und maximalen Werten liegt.
 
 - `max`
-  - : Der Maximalwert ist der größte (am positivsten) Ausdruckswert, dem das Wert der Eigenschaft zugewiesen wird, wenn der bevorzugte Wert größer ist als diese obere Grenze.
+  - : Der Maximalwert ist der größte (am meisten positive) Ausdruckswert, dem der Wert der Eigenschaft zugewiesen wird, wenn der bevorzugte Wert größer als diese obere Grenze ist.
 
-Die Ausdrücke können mathematische Funktionen sein (siehe {{CSSxRef("calc", "calc()")}} für weitere Informationen), literale Werte, andere Ausdrücke, die zu einem gültigen Argumenttyp ausgewertet werden (wie {{CSSxRef("&lt;length&gt;")}}), oder verschachtelte {{CSSxRef("min", "min()")}} und {{CSSxRef("max", "max()")}} Funktionen. Für mathematische Ausdrücke können Sie Addition, Subtraktion, Multiplikation und Division verwenden, ohne die `calc()`-Funktion selbst zu nutzen. Sie können auch Klammern verwenden, um die Reihenfolge der Berechnungen festzulegen, wenn erforderlich.
+Die Ausdrücke können mathematische Funktionen sein (siehe {{CSSxRef("calc", "calc()")}} für mehr Informationen), literale Werte, andere Ausdrücke, die sich zu einem gültigen Argumenttyp zusammenfassen (wie {{CSSxRef("&lt;length&gt;")}}), oder verschachtelte {{CSSxRef("min", "min()")}} und {{CSSxRef("max", "max()")}} Funktionen. Für mathematische Ausdrücke können Sie Addition, Subtraktion, Multiplikation und Division ohne die Verwendung der `calc()` Funktion selbst nutzen. Sie dürfen auch Klammern verwenden, um die Reihenfolge der Berechnungen festzulegen.
 
-Es ist möglich, verschiedene Einheiten für jeden Wert Ihrer Ausdrücke und verschiedene Einheiten in einer mathematischen Funktion zu verwenden, die eines der Argumente bildet.
+Sie können unterschiedliche Einheiten für jeden Wert in Ihren Ausdrücken und unterschiedliche Einheiten in jeder mathematischen Funktion, die Teile eines der Argumente bildet, verwenden.
 
-Beachten Sie folgende Aspekte, während Sie mit der Funktion arbeiten:
+Beachten Sie die folgenden Aspekte bei der Arbeit mit der Funktion:
 
-- Mathematische Ausdrücke, die Prozentsätze für Breiten und Höhen von Tabellenspalten, Tabellen-Spaltengruppen, Tabellenzeilen, Tabellen-Zeilengruppen und Tabellenzellen in sowohl automatischen als auch festen Layout-Tabellen beinhalten, _können_ so behandelt werden, als ob `auto` angegeben wurde.
-- Es ist erlaubt, `max()` und `min()` Funktionen als Ausdruckswerte zu verschachteln, wobei die inneren Funktionen dann als einfache Klammern behandelt werden. Die Ausdrücke sind vollständige mathematische Ausdrücke, sodass Sie direkte Addition, Subtraktion, Multiplikation und Division ohne Verwendung der `calc()`-Funktion selbst nutzen können.
-- Der Ausdruck kann Werte kombinieren, die Additions- (`+`), Subtraktions- (`-`), Multiplikations- (`*`) und Division- (`/`) Operatoren verwenden, unter Anwendung der Standardpräzedenzregeln der Operatoren. Achten Sie darauf, ein Leerzeichen auf jeder Seite der `+` und `-` Operanden zu setzen. Die Operanden im Ausdruck können jeden {{CSSxRef("&lt;length&gt;")}} Syntax-Wert haben. Sie können verschiedene Einheiten für jeden Wert in Ihrem Ausdruck verwenden. Klammern dürfen ebenfalls verwendet werden, um die Reihenfolge der Berechnungen festzulegen, wenn erforderlich.
-- Häufig werden Sie {{CSSxRef("min", "min()")}} und {{CSSxRef("max", "max()")}} innerhalb einer `clamp()`-Funktion verwenden wollen.
+- Mathematische Ausdrücke, die Prozentsätze für Breiten und Höhen auf Tabellenspalten, Tabellensplattengruppen, Tabellenzeilen, Tabellenzeilengruppen und Tabellenzellen in sowohl Auto- als auch fixen Layout-Tableau betreffen, _können_ so behandelt werden, als wäre `auto` angegeben worden.
+- Es ist erlaubt, `max()` und `min()` Funktionen als Ausdruckswerte zu verschachteln, in welchem Fall die inneren Funktionen als grundlegende Klammern behandelt werden. Die Ausdrücke sind vollständige mathematische Ausdrücke, sodass Sie direkte Addition, Subtraktion, Multiplikation und Division ohne die Verwendung der `calc()` Funktion selbst verwenden können.
+- Der Ausdruck kann Werte kombinieren, die die Operatoren Addition (`+`), Subtraktion (`-`), Multiplikation (`*`) und Division (`/`) nutzen, entsprechend den Standardregeln der Operatorpriorität. Stellen Sie sicher, dass zwischen den Operanden `+` und `-` Leerzeichen stehen. Die Operanden im Ausdruck können beliebige {{CSSxRef("&lt;length&gt;")}} Syntaxwerte sein. Sie können unterschiedliche Einheiten für jeden Wert in Ihrem Ausdruck nutzen. Sie dürfen auch Klammern verwenden, um die Reihenfolge der Berechnungen festzulegen, falls nötig.
+- Oftmals werden Sie {{CSSxRef("min", "min()")}} und {{CSSxRef("max", "max()")}} innerhalb einer `clamp()` Funktion nutzen wollen.
 
 ### Rückgabewert
 
-`clamp(MIN, VAL, MAX)` wird aufgelöst als `max(MIN, min(VAL, MAX))`.
+`clamp(MIN, VAL, MAX)` wird als `max(MIN, min(VAL, MAX))` aufgelöst.
 
-Basierend auf den bereitgestellten Parametern gibt die Funktion {{CSSxRef("&lt;length&gt;")}}, {{CSSxRef("&lt;frequency&gt;")}}, {{CSSxRef("&lt;angle&gt;")}}, {{CSSxRef("&lt;time&gt;")}}, {{CSSxRef("&lt;percentage&gt;")}}, {{CSSxRef("&lt;number&gt;")}} oder {{CSSxRef("&lt;integer&gt;")}} zurück.
+Basierend auf den bereitgestellten Parametern gibt die Funktion {{CSSxRef("&lt;length&gt;")}}, {{CSSxRef("&lt;frequency&gt;")}}, {{CSSxRef("&lt;angle&gt;")}}, {{CSSxRef("&lt;time&gt;")}}, {{CSSxRef("&lt;percentage&gt;")}}, {{CSSxRef("&lt;number&gt;")}}, oder {{CSSxRef("&lt;integer&gt;")}} zurück.
 
 ## Formale Syntax
 
@@ -83,26 +83,26 @@ Basierend auf den bereitgestellten Parametern gibt die Funktion {{CSSxRef("&lt;l
 
 ### Vergleich von min(), max() und clamp()
 
-In diesem Beispiel haben wir eine Webseite, die {{CSSxRef("min", "min()")}}, {{CSSxRef("max", "max()")}} und `clamp()` verwendet, um Größen responsiv einzustellen.
+In diesem Beispiel haben wir eine Webseite, die {{CSSxRef("min", "min()")}}, {{CSSxRef("max", "max()")}} und `clamp()` nutzt, um Größen responsiv zu gestalten.
 
-Das Beispiel passt die Größen der Seitenelemente auf drei Arten an:
+Das Beispiel passt die Größen von Seitenelementen auf drei Arten an:
 
-- die Länge der Textzeilen
-- die Schriftgröße des Absatztextes
-- die Schriftgröße des Überschriftentextes
+- die Längen der Textzeilen
+- die Schriftgröße des Absatztexts
+- die Schriftgröße des Überschriftentexts
 
-In allen drei Fällen verwendet die Seite eine Kombination aus viewport-relativen Einheiten ([`vw`](/de/docs/Web/CSS/length#vw) und {{cssxref("percentage")}}), um eine Größe festzulegen, die mit der Breite des Ansichtsfensters variiert, sowie einen Wert, der nicht viewport-relativ ist ([`rem`](/de/docs/Web/CSS/length#rem) und [`px`](/de/docs/Web/CSS/length#px)), um Mindest- und/oder Maximalgrößen zu implementieren.
+In allen drei Fällen verwendet die Seite eine Kombination aus viewport-relativen Einheiten ([`vw`](/de/docs/Web/CSS/length#vw) und {{CSSxRef("percentage")}}), um eine Größe festzulegen, die mit der Viewport-Breite variiert, und einen Wert, der nicht relativ zum Viewport ist ([`rem`](/de/docs/Web/CSS/length#rem) und [`px`](/de/docs/Web/CSS/length#px)), um Mindest- und/oder Höchstgrößen zu implementieren.
 
 Das Beispiel befindet sich unter <https://mdn.github.io/css-examples/min-max-clamp/>. Öffnen Sie es in einem neuen Fenster und versuchen Sie, die Fensterbreite anzupassen.
 
-Die **Zeilenlänge** (gesteuert durch die [`width`](/de/docs/Web/CSS/width) des [`<body>`](/de/docs/Web/HTML/Reference/Elements/body) Elements) wird größer, je breiter das Fenster wird, aber nur bis zu einem bestimmten Punkt (`1000px`), und darüber hinaus wird sie nicht größer. Wir verwenden `min()`, um eine **maximale Zeilenlänge** festzulegen: sie kann unter `1000px` gehen, aber nicht darüber hinaus. Dies ist hilfreich, weil lange Zeilen schwerer zu lesen sind, weshalb wir oft begrenzen wollen, wie lang eine Zeile sein kann. Um dies zu erreichen, verwenden wir `min(1000px, calc(70% + 100px))`: wenn das Ergebnis der prozentualen Berechnung über `1000px` hinausgeht, wechseln wir zum festen Wert von `1000px`.
+Die **Zeilenlänge** (gesteuert durch die [`width`](/de/docs/Web/CSS/width) des [`<body>`](/de/docs/Web/HTML/Reference/Elements/body) Elements) wird mit zunehmender Fensterbreite größer, jedoch nur bis zu einem bestimmten Punkt (`1000px`), und darüber hinaus wird sie nicht mehr größer. Wir verwenden `min()`, um eine **maximale Zeilenlänge** festzulegen: sie kann unter `1000px` gehen, aber nicht darüber hinaus. Dies ist hilfreich, weil lange Zeilen schwerer zu lesen sind, also wollen wir oft die Länge einer Zeile begrenzen. Um dies zu erreichen, verwenden wir `min(1000px, calc(70% + 100px))`: Wenn das Ergebnis der prozentual basierten Berechnung über `1000px` geht, wechseln wir zum festen `1000px`-Wert.
 
-Die **Größe des Absatztextes**, gesteuert durch die [`font-size`](/de/docs/Web/CSS/font-size) des [`<p>`](/de/docs/Web/HTML/Reference/Elements/p) Elements, verringert sich, je schmaler das Fenster wird, aber nur bis zu einem bestimmten Punkt, und darüber hinaus (wo `1.2vw` weniger als `1.2rem` ist) wird sie nicht kleiner: sie bleibt bei `1.2rem`. Wir verwenden `max()`, um eine **minimale Schriftgröße** festzulegen: Die Schrift kann über `1.2rem` hinauswachsen, aber niemals darunter sinken. Dies ist hilfreich, weil wirklich kleiner Text schwer zu lesen ist. Um dies zu erreichen, verwenden wir `max(1.2rem, 1.2vw)`. Dies bedeutet, dass die `font-size` auf `1.2rem` eingestellt wird, es sei denn, der berechnete Wert von `1.2vw` ist größer als der von `1.2rem`, in welchem Fall er stattdessen auf `1.2vw` eingestellt wird.
+Die **Größe des Absatztexts**, gesteuert durch die [`font-size`](/de/docs/Web/CSS/font-size) des [`<p>`](/de/docs/Web/HTML/Reference/Elements/p) Elements, nimmt ab, wenn das Fenster schmaler wird, jedoch nur bis zu einem bestimmten Punkt, und darüber hinaus (wenn der Punkt erreicht ist, an dem `1.2vw` kleiner ist als `1.2rem`) wird sie nicht mehr kleiner: sie bleibt bei `1.2rem`. Wir verwenden `max()`, um eine **Mindestschriftgröße** festzulegen: die Schrift kann über `1.2rem` wachsen, aber niemals darunter fallen. Dies ist hilfreich, weil wirklich kleiner Text schwer zu lesen ist. Um dies zu erreichen, verwenden wir `max(1.2rem, 1.2vw)`. Das bedeutet, dass die `font-size` auf `1.2rem` gesetzt wird, es sei denn, der berechnete Wert von `1.2vw` ist größer als der von `1.2rem`, in diesem Fall wird sie stattdessen auf `1.2vw` gesetzt.
 
-Die **Größe des Überschriftentextes**, gesteuert durch die [`font-size`](/de/docs/Web/CSS/font-size) des [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) Elements, hat einen viewport-relativen Wert mit sowohl einem maximalen als auch einem minimalen Schwellenwert. Um dies zu erreichen, verwenden wir `clamp(1.8rem, 2.5vw, 2.8rem)`. Der viewport-relative Wert ist `2.5vw`, aber er wird zwischen `1.8rem` und `2.8rem` eingegrenzt, also:
+Die **Größe des Überschriftentexts**, gesteuert durch die [`font-size`](/de/docs/Web/CSS/font-size) des [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) Elements, hat einen viewport-relativen Wert mit sowohl einer maximalen als auch einer minimalen Schwelle. Um dies zu erreichen, verwenden wir `clamp(1.8rem, 2.5vw, 2.8rem)`. Der viewport-relative Wert ist `2.5vw`, aber er wird zwischen `1.8rem` und `2.8rem` geklammert, sodass:
 
-- wenn der berechnete Wert von `2.5vw` weniger als `1.8rem` ist, wird `1.8rem` verwendet
-- wenn der berechnete Wert von `2.5vw` größer als `2.8rem` ist, wird `2.8rem` verwendet.
+- wenn der berechnete Wert von `2.5vw` kleiner als `1.8rem` ist, dann wird `1.8rem` verwendet
+- wenn der berechnete Wert von `2.5vw` größer als `2.8rem` ist, dann wird `2.8rem` verwendet.
 
 Dies verhindert, dass der Überschriftentext in einem sehr schmalen Fenster zu klein oder in einem sehr breiten Fenster zu groß wird.
 
@@ -170,4 +170,4 @@ p {
 - {{CSSxRef("calc", "calc()")}}
 - {{CSSxRef("max", "max()")}}
 - {{CSSxRef("min", "min()")}}
-- [Lernen: CSS-Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
+- [Leitfaden: CSS Values and Units](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)

@@ -2,23 +2,23 @@
 title: browserSettings
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 0883a7eca5c44d65daea8d73163a89d66a8d2f13
 ---
 
-Ermöglicht einer Erweiterung, bestimmte globale Browsereinstellungen zu ändern. Jede Eigenschaft dieser API ist ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das die Möglichkeit bietet, eine bestimmte Einstellung zu ändern.
+Ermöglicht es einer Erweiterung, bestimmte globale Browsereinstellungen zu ändern. Jede Eigenschaft dieser API ist ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das die Möglichkeit bietet, eine bestimmte Einstellung zu ändern.
 
-Da es sich um globale Einstellungen handelt, können Erweiterungen in Konflikt geraten. Siehe die Dokumentation zu [`BrowserSetting.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/set) für Details dazu, wie Konflikte gehandhabt werden.
+Da es sich um globale Einstellungen handelt, können Erweiterungen in Konflikt geraten. Weitere Informationen zur Behandlung von Konflikten finden Sie in der Dokumentation zu [`BrowserSetting.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/set).
 
-Um diese API zu verwenden, müssen Sie die "browserSettings"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben.
+Um diese API zu verwenden, benötigen Sie die Berechtigung "browserSettings" [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 ## Eigenschaften
 
 - {{WebExtAPIRef("browserSettings.allowPopupsForUserEvents")}}
-  - : Bestimmt, ob im Webseitencode laufende Abläufe Pop-ups als Reaktion auf Benutzerereignisse anzeigen können.
+  - : Bestimmt, ob Code, der in Webseiten ausgeführt wird, Pop-ups als Reaktion auf Benutzereignisse anzeigen kann.
 - {{WebExtAPIRef("browserSettings.cacheEnabled")}}
   - : Bestimmt, ob der Browser-Cache aktiviert ist oder nicht.
 - {{WebExtAPIRef("browserSettings.closeTabsByDoubleClick")}}
-  - : Bestimmt, ob der ausgewählte Tab durch Doppelklick geschlossen werden kann.
+  - : Bestimmt, ob der ausgewählte Tab durch einen Doppelklick geschlossen werden kann.
 - {{WebExtAPIRef("browserSettings.colorManagement")}}
   - : Bestimmt verschiedene Einstellungen für das Farbmanagement.
 - {{WebExtAPIRef("browserSettings.contextMenuShowEvent")}}
@@ -28,31 +28,33 @@ Um diese API zu verwenden, müssen Sie die "browserSettings"-[Berechtigung](/de/
 - {{WebExtAPIRef("browserSettings.homepageOverride")}}
   - : Liest den Wert der Startseite des Browsers.
 - {{WebExtAPIRef("browserSettings.imageAnimationBehavior")}}
-  - : Bestimmt, wie der Browser mit animierten Bildern umgeht.
+  - : Bestimmt, wie der Browser animierte Bilder behandelt.
 - {{WebExtAPIRef("browserSettings.newTabPageOverride")}}
   - : Liest den Wert der neuen Tab-Seite des Browsers.
 - {{WebExtAPIRef("browserSettings.newTabPosition")}}
-  - : Steuert die Position neu geöffneter Tabs im Verhältnis zu bereits geöffneten Tabs.
+  - : Steuert die Position neuer Tabs im Verhältnis zu den geöffneten Tabs.
 - {{WebExtAPIRef("browserSettings.openBookmarksInNewTabs")}}
-  - : Bestimmt, ob Lesezeichen im aktuellen oder in einem neuen Tab geöffnet werden.
+  - : Bestimmt, ob Lesezeichen im aktuellen Tab oder einem neuen Tab geöffnet werden.
 - {{WebExtAPIRef("browserSettings.openSearchResultsInNewTabs")}}
-  - : Bestimmt, ob Suchergebnisse im aktuellen oder in einem neuen Tab geöffnet werden.
+  - : Bestimmt, ob Suchergebnisse im aktuellen Tab oder einem neuen Tab geöffnet werden.
 - {{WebExtAPIRef("browserSettings.openUrlbarResultsInNewTabs")}}
-  - : Bestimmt, ob Adressleisten-Autovervollständigungsvorschläge im aktuellen oder einem neuen Tab geöffnet werden.
+  - : Bestimmt, ob Adressleiste-Autovervollständigungsvorschläge im aktuellen Tab oder einem neuen Tab geöffnet werden.
 - {{WebExtAPIRef("browserSettings.overrideContentColorScheme")}}
-  - : Steuert, ob das Browser-Theme (hell oder dunkel) überschrieben wird, wenn die bevorzugte Farbgebung von Seiten eingestellt wird.
+  - : Kontrolliert, ob das Browser-Design (hell oder dunkel) beim Festlegen der bevorzugten Farbpalette von Seiten überschrieben wird.
 - {{WebExtAPIRef("browserSettings.overrideDocumentColors")}}
-  - : Steuert, ob die vom Benutzer gewählten Farben die Seitenfarben überschreiben.
+  - : Kontrolliert, ob die vom Benutzer gewählten Farben die Farben der Seite überschreiben.
 - {{WebExtAPIRef("browserSettings.tlsVersionRestrictionConfig")}}
-  - : Liest die höchste und niedrigste Version von TLS, die vom Browser unterstützt wird.
+  - : Liest die höchsten und niedrigsten vom Browser unterstützten TLS-Versionen.
 - {{WebExtAPIRef("browserSettings.useDocumentFonts")}}
-  - : Steuert, ob der Browser die von einer Webseite angegebenen Schriftarten verwendet oder nur eingebaute Schriftarten nutzt.
+  - : Kontrolliert, ob der Browser die von einer Webseite angegebenen Schriftarten verwendet oder nur eingebaute Schriftarten verwendet.
+- {{WebExtAPIRef("browserSettings.verticalTabs")}}
+  - : Kontrolliert, ob der Browser die Tableiste horizontal oder vertikal anzeigt.
 - {{WebExtAPIRef("browserSettings.webNotificationsDisabled")}}
-  - : Verhindert, dass Webseiten Benachrichtigungen über die [`Notification`](/de/docs/Web/API/Notification) Web API anzeigen.
+  - : Verhindert, dass Websites Benachrichtigungen mit der [`Notification`](/de/docs/Web/API/Notification) Web API anzeigen.
 - {{WebExtAPIRef("browserSettings.zoomFullPage")}}
-  - : Steuert, ob die Zoomfunktion auf die gesamte Seite oder nur auf Text angewendet wird.
+  - : Kontrolliert, ob der Zoom auf die gesamte Seite oder nur auf den Text angewendet wird.
 - {{WebExtAPIRef("browserSettings.zoomSiteSpecific")}}
-  - : Steuert, ob der Seitenzoom site-spezifisch oder pro Tab angewendet wird. Wenn [`privacy.websites.resistFingerprinting`](/de/docs/Mozilla/Add-ons/WebExtensions/API/privacy/websites#resistfingerprinting) wahr ist, hat diese Einstellung keine Auswirkung und der Zoom wird pro Tab angewendet.
+  - : Kontrolliert, ob der Seitenzoom pro Website oder pro Tab angewendet wird. Wenn [`privacy.websites.resistFingerprinting`](/de/docs/Mozilla/Add-ons/WebExtensions/API/privacy/websites#resistfingerprinting) wahr ist, hat diese Einstellung keine Wirkung und der Zoom wird pro Tab angewendet.
 
 {{WebExtExamples("h2")}}
 
