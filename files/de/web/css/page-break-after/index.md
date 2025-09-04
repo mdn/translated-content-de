@@ -2,13 +2,13 @@
 title: page-break-after
 slug: Web/CSS/page-break-after
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 5eb1c147189824b5d2ff915da1b444aeafd51c6f
 ---
 
 {{deprecated_header}}
 
 > [!WARNING]
-> Diese Eigenschaft wurde durch die Eigenschaft {{cssxref("break-after")}} ersetzt.
+> Diese Eigenschaft wurde durch die {{cssxref("break-after")}}-Eigenschaft ersetzt.
 
 Die **`page-break-after`** [CSS](/de/docs/Web/CSS) Eigenschaft passt Seitenumbrüche _nach_ dem aktuellen Element an.
 
@@ -23,22 +23,18 @@ page-break-after: always;
 ```
 
 ```html interactive-example
-<section id="default-example">
-  <div>
-    <p>
-      The effect of this property can be noticed when the document is being
-      printed or a preview of a print is displayed.
-    </p>
-    <button id="print-btn">Show Print Preview</button>
-    <div class="box-container">
-      <div class="box">Content before the property</div>
-      <div class="box" id="example-element">
-        Content with 'page-break-after'
-      </div>
-      <div class="box">Content after the property</div>
-    </div>
+<div>
+  <p>
+    The effect of this property can be noticed when the document is being
+    printed or a preview of a print is displayed.
+  </p>
+  <button id="print-btn">Show Print Preview</button>
+  <div class="box-container">
+    <div class="box">Content before the property</div>
+    <div class="box" id="example-element">Content with 'page-break-after'</div>
+    <div class="box">Content after the property</div>
   </div>
-</section>
+</div>
 ```
 
 ```css interactive-example
@@ -54,36 +50,13 @@ page-break-after: always;
   background-color: #ffc129;
   color: black;
 }
-
-.hide-element {
-  display: none;
-}
 ```
 
 ```js interactive-example
 const btn = document.getElementById("print-btn");
-const editorContainer = document.getElementsByClassName(
-  "css-editor-container",
-)[0];
-const exampleHTMLElement = document.getElementById("default-example");
-
-const printableSection = document.createElement("div");
-printableSection.setAttribute("id", "printable-section");
-printableSection.classList.add("hide-element");
-document.body.appendChild(printableSection);
 
 btn.addEventListener("click", () => {
-  const exampleContent = exampleHTMLElement.innerHTML;
-
-  editorContainer.classList.add("hide-element");
-  printableSection.innerHTML = exampleContent;
-  printableSection.classList.remove("hide-element");
-
   window.print();
-
-  printableSection.classList.add("hide-element");
-  printableSection.innerHTML = "";
-  editorContainer.classList.remove("hide-element");
 });
 ```
 
@@ -107,30 +80,30 @@ page-break-after: revert-layer;
 page-break-after: unset;
 ```
 
-Diese Eigenschaft gilt für Blockelemente, die eine Box generieren. Sie gilt nicht für ein leeres {{HTMLElement("div")}}, das keine Box generiert.
+Diese Eigenschaft gilt für Blockelemente, die eine Box erzeugen. Sie gilt nicht für ein leeres {{HTMLElement("div")}}, das keine Box erzeugen wird.
 
 ### Werte
 
 - `auto`
-  - : Initialwert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
+  - : Anfangswert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
 - `always`
   - : Erzwingt immer Seitenumbrüche nach dem Element.
 - `avoid`
   - : Vermeidet Seitenumbrüche nach dem Element.
 - `left`
-  - : Erzwingt Seitenumbrüche nach dem Element, sodass die nächste Seite als linke Seite formatiert wird. Das ist die Seite, die auf der linken Seite des Buchrückens oder die Rückseite der Seite im Duplexdruck platziert ist.
+  - : Erzwingt Seitenumbrüche nach dem Element, sodass die nächste Seite als linke Seite formatiert wird. Dies ist die Seite, die auf der linken Seite des Buchrückens oder auf der Rückseite der Seite beim Duplexdruck angeordnet ist.
 - `right`
-  - : Erzwingt Seitenumbrüche nach dem Element, sodass die nächste Seite als rechte Seite formatiert wird. Das ist die Seite, die auf der rechten Seite des Buchrückens oder die Vorderseite der Seite im Duplexdruck platziert ist.
+  - : Erzwingt Seitenumbrüche nach dem Element, sodass die nächste Seite als rechte Seite formatiert wird. Dies ist die Seite, die auf der rechten Seite des Buchrückens oder auf der Vorderseite der Seite beim Duplexdruck angeordnet ist.
 - `recto`
   - : Wenn die Seiten von links nach rechts verlaufen, wirkt dies wie `right`. Wenn die Seiten von rechts nach links verlaufen, wirkt dies wie `left`.
 - `verso`
   - : Wenn die Seiten von links nach rechts verlaufen, wirkt dies wie `left`. Wenn die Seiten von rechts nach links verlaufen, wirkt dies wie `right`.
 
-## Alias für Seitenumbruch
+## Seitenumbruch-Aliase
 
-Die Eigenschaft `page-break-after` ist jetzt eine veraltete Eigenschaft, die durch {{cssxref("break-after")}} ersetzt wurde.
+Die `page-break-after` Eigenschaft ist jetzt eine veraltete Eigenschaft, die durch {{cssxref("break-after")}} ersetzt wurde.
 
-Aus Kompatibilitätsgründen sollte `page-break-after` von Browsern als Alias von `break-after` behandelt werden. Dies stellt sicher, dass Seiten, die `page-break-after` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Alias behandelt werden:
+Aus Kompatibilitätsgründen sollte `page-break-after` von Browsern als Alias von `break-after` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-after` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Aliase behandelt werden:
 
 | page-break-after | break-after |
 | ---------------- | ----------- |

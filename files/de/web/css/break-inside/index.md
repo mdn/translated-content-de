@@ -2,10 +2,10 @@
 title: break-inside
 slug: Web/CSS/break-inside
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 5eb1c147189824b5d2ff915da1b444aeafd51c6f
 ---
 
-Die **`break-inside`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Seiten-, Spalten- oder Regionsumbrüche innerhalb einer generierten Box verhalten sollen. Wenn keine generierte Box existiert, wird die Eigenschaft ignoriert.
+Die **`break-inside`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Seiten-, Spalten- oder Regionenumbrüche in einem generierten Kasten behandelt werden sollen. Wenn kein generierter Kasten vorhanden ist, wird die Eigenschaft ignoriert.
 
 {{InteractiveExample("CSS Demo: break-inside")}}
 
@@ -18,20 +18,18 @@ break-inside: avoid;
 ```
 
 ```html interactive-example
-<section id="default-example">
-  <div>
-    <p>
-      The effect of this property can be noticed when the document is being
-      printed or a preview of a print is displayed.
-    </p>
-    <button id="print-btn">Show Print Preview</button>
-    <div class="box-container">
-      <div class="box">Content before the property</div>
-      <div class="box" id="example-element">Content with 'break-inside'</div>
-      <div class="box">Content after the property</div>
-    </div>
+<div>
+  <p>
+    The effect of this property can be noticed when the document is being
+    printed or a preview of a print is displayed.
+  </p>
+  <button id="print-btn">Show Print Preview</button>
+  <div class="box-container">
+    <div class="box">Content before the property</div>
+    <div class="box" id="example-element">Content with 'break-before'</div>
+    <div class="box">Content after the property</div>
   </div>
-</section>
+</div>
 ```
 
 ```css interactive-example
@@ -48,10 +46,6 @@ break-inside: avoid;
   color: black;
 }
 
-.hide-element {
-  display: none;
-}
-
 @media print {
   #example-element {
     height: 25cm;
@@ -61,28 +55,9 @@ break-inside: avoid;
 
 ```js interactive-example
 const btn = document.getElementById("print-btn");
-const editorContainer = document.getElementsByClassName(
-  "css-editor-container",
-)[0];
-const exampleHTMLElement = document.getElementById("default-example");
-
-const printableSection = document.createElement("div");
-printableSection.setAttribute("id", "printable-section");
-printableSection.classList.add("hide-element");
-document.body.appendChild(printableSection);
 
 btn.addEventListener("click", () => {
-  const exampleContent = exampleHTMLElement.innerHTML;
-
-  editorContainer.classList.add("hide-element");
-  printableSection.innerHTML = exampleContent;
-  printableSection.classList.remove("hide-element");
-
   window.print();
-
-  printableSection.classList.add("hide-element");
-  printableSection.innerHTML = "";
-  editorContainer.classList.remove("hide-element");
 });
 ```
 
@@ -104,31 +79,31 @@ break-inside: revert-layer;
 break-inside: unset;
 ```
 
-Jeder mögliche Umbruchpunkt (mit anderen Worten, jede Elementgrenze) wird von drei Eigenschaften beeinflusst: dem Wert von {{cssxref("break-after")}} des vorherigen Elements, dem Wert von {{cssxref("break-before")}} des nächsten Elements und dem `break-inside` Wert des enthaltenden Elements.
+Jeder mögliche Umbruchpunkt (also jede Elementgrenze) wird durch drei Eigenschaften beeinflusst: den Wert von {{cssxref("break-after")}} des vorherigen Elements, den Wert von {{cssxref("break-before")}} des nächsten Elements und den `break-inside` Wert des beinhaltenden Elements.
 
-Um zu bestimmen, ob ein Umbruch erfolgen muss, werden die folgenden Regeln angewendet:
+Um festzustellen, ob ein Umbruch erfolgen muss, werden die folgenden Regeln angewendet:
 
-1. Wenn einer der drei betroffenen Werte ein _erzwungener Umbruchwert_ (`always`, `left`, `right`, `page`, `column` oder `region`) ist, hat er Vorrang. Wenn mehr als einer dieser Umbruchwerte vorliegt, wird der Wert des Elements verwendet, das im Fluss am spätesten erscheint. Somit hat der `break-before` Wert Vorrang vor dem `break-after` Wert, welcher wiederum Vorrang vor dem `break-inside` Wert hat.
-2. Wenn einer der drei betroffenen Werte ein _Umbruch-vermeidender Wert_ (`avoid`, `avoid-page`, `avoid-region` oder `avoid-column`) ist, wird an dieser Stelle kein solcher Umbruch angewendet.
+1. Wenn einer der drei betreffenden Werte ein _erzwungener Umbruchwert_ ist (`always`, `left`, `right`, `page`, `column` oder `region`), hat dieser Vorrang. Wenn mehr als einer davon ein solcher Umbruch ist, wird der Wert des Elements verwendet, das zuletzt im Fluss erscheint. Somit hat der `break-before` Wert Vorrang vor dem `break-after` Wert, der wiederum Vorrang vor dem `break-inside` Wert hat.
+2. Wenn einer der drei betreffenden Werte ein _Umbruch vermeiden_ Wert ist (`avoid`, `avoid-page`, `avoid-region` oder `avoid-column`), wird an dieser Stelle kein solcher Umbruch vorgenommen.
 
-Sobald erzwungene Umbrüche angewendet wurden, können bei Bedarf weiche Umbrüche hinzugefügt werden, jedoch nicht an Elementgrenzen, die in einem entsprechenden `avoid` Wert aufgelöst werden.
+Sobald erzwungene Umbrüche angewendet wurden, können bei Bedarf weiche Umbrüche hinzugefügt werden, jedoch nicht an den Elementgrenzen, die in einem entsprechenden `avoid` Wert aufgelöst werden.
 
 ### Werte
 
 - `auto`
-  - : Ermöglicht, erzwingt jedoch nicht, dass ein Umbruch (Seite, Spalte oder Region) innerhalb der Hauptbox eingefügt wird.
+  - : Erlaubt, erzwingt aber nicht, dass ein Umbruch (Seite, Spalte oder Region) innerhalb des Hauptkastens eingefügt wird.
 - `avoid`
-  - : Vermeidet, dass ein Umbruch (Seite, Spalte oder Region) innerhalb der Hauptbox eingefügt wird.
+  - : Vermeidet jeden Umbruch (Seite, Spalte oder Region) innerhalb des Hauptkastens.
 - `avoid-page`
-  - : Vermeidet jeden Seitenumbruch innerhalb der Hauptbox.
+  - : Vermeidet jeden Seitenumbruch innerhalb des Hauptkastens.
 - `avoid-column`
-  - : Vermeidet jeden Spaltenumbruch innerhalb der Hauptbox.
+  - : Vermeidet jeden Spaltenumbruch innerhalb des Hauptkastens.
 - `avoid-region`
-  - : Vermeidet jeden Regionsumbruch innerhalb der Hauptbox.
+  - : Vermeidet jeden Regionenumbruch innerhalb des Hauptkastens.
 
-## Seitenumbruch-Aliasse
+## Seitenumbruch-Aliase
 
-Aus Kompatibilitätsgründen sollte die veraltete Eigenschaft {{cssxref("page-break-inside")}} von Browsern als Alias für `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, wie beabsichtigt funktionieren. Ein Teil der Werte sollte wie folgt als Alias verwendet werden:
+Aus Kompatibilitätsgründen sollte die veraltete {{cssxref("page-break-inside")}} Eigenschaft von Browsern als Alias von `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, weiterhin wie geplant funktionieren. Ein Teil der Werte sollte wie folgt als Alias verwendet werden:
 
 | page-break-inside | break-inside |
 | ----------------- | ------------ |
@@ -145,11 +120,11 @@ Aus Kompatibilitätsgründen sollte die veraltete Eigenschaft {{cssxref("page-br
 
 ## Beispiele
 
-### Vermeiden von Umbrüchen innerhalb einer Grafik
+### Vermeidung eines Umbruchs in einer Abbildung
 
-Im folgenden Beispiel haben wir einen Container, der eine `<h1>` enthält, die sich über alle Spalten erstreckt (erreicht durch `column-span: all`) und eine Reihe von Absätzen, die in mehreren Spalten mit `column-width: 200px` ausgelegt sind. Wir haben auch eine `<figure>`, die ein Bild und eine Beschriftung enthält.
+Im folgenden Beispiel haben wir einen Container, der eine `<h1>` Überschrift enthält, die alle Spalten überspannt (erreicht durch `column-span: all`), sowie eine Reihe von Absätzen, die in mehreren Spalten mit `column-width: 200px` angeordnet sind. Wir haben auch ein `<figure>`, das ein Bild und eine Beschriftung enthält.
 
-Standardmäßig ist es möglich, dass ein Umbruch zwischen dem Bild und seiner Beschriftung erfolgt, was wir nicht wollen. Um dies zu vermeiden, haben wir `break-inside: avoid` auf die `<figure>` angewendet, wodurch sie immer zusammenbleiben.
+Standardmäßig ist es möglich, dass zwischen dem Bild und seiner Beschriftung ein Umbruch auftritt, was wir nicht wollen. Um dies zu vermeiden, haben wir `break-inside: avoid` auf das `<figure>` gesetzt, wodurch sie immer zusammenbleiben.
 
 #### HTML
 
@@ -252,4 +227,4 @@ article {
 ## Siehe auch
 
 - [Erlernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
-- [Breaking Boxes With CSS Fragmentation](https://www.smashingmagazine.com/2019/02/css-fragmentation/)
+- [Bruchstellen mit CSS Fragmentierung]https://www.smashingmagazine.com/2019/02/css-fragmentation/)

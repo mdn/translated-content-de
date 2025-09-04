@@ -2,13 +2,13 @@
 title: page-break-inside
 slug: Web/CSS/page-break-inside
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 5eb1c147189824b5d2ff915da1b444aeafd51c6f
 ---
 
 {{deprecated_header}}
 
 > [!WARNING]
-> Diese Eigenschaft wurde durch die {{cssxref("break-inside")}}-Eigenschaft ersetzt.
+> Diese Eigenschaft wurde durch die Eigenschaft {{cssxref("break-inside")}} ersetzt.
 
 Die **`page-break-inside`** [CSS](/de/docs/Web/CSS) Eigenschaft passt Seitenumbrüche _innerhalb_ des aktuellen Elements an.
 
@@ -23,22 +23,18 @@ page-break-inside: avoid;
 ```
 
 ```html interactive-example
-<section id="default-example">
-  <div>
-    <p>
-      The effect of this property can be noticed when the document is being
-      printed or a preview of a print is displayed.
-    </p>
-    <button id="print-btn">Show Print Preview</button>
-    <div class="box-container">
-      <div class="box">Content before the property</div>
-      <div class="box" id="example-element">
-        Content with 'page-break-inside'
-      </div>
-      <div class="box">Content after the property</div>
-    </div>
+<div>
+  <p>
+    The effect of this property can be noticed when the document is being
+    printed or a preview of a print is displayed.
+  </p>
+  <button id="print-btn">Show Print Preview</button>
+  <div class="box-container">
+    <div class="box">Content before the property</div>
+    <div class="box" id="example-element">Content with 'page-break-inside'</div>
+    <div class="box">Content after the property</div>
   </div>
-</section>
+</div>
 ```
 
 ```css interactive-example
@@ -55,10 +51,6 @@ page-break-inside: avoid;
   color: black;
 }
 
-.hide-element {
-  display: none;
-}
-
 @media print {
   #example-element {
     height: 25cm;
@@ -68,28 +60,9 @@ page-break-inside: avoid;
 
 ```js interactive-example
 const btn = document.getElementById("print-btn");
-const editorContainer = document.getElementsByClassName(
-  "css-editor-container",
-)[0];
-const exampleHTMLElement = document.getElementById("default-example");
-
-const printableSection = document.createElement("div");
-printableSection.setAttribute("id", "printable-section");
-printableSection.classList.add("hide-element");
-document.body.appendChild(printableSection);
 
 btn.addEventListener("click", () => {
-  const exampleContent = exampleHTMLElement.innerHTML;
-
-  editorContainer.classList.add("hide-element");
-  printableSection.innerHTML = exampleContent;
-  printableSection.classList.remove("hide-element");
-
   window.print();
-
-  printableSection.classList.add("hide-element");
-  printableSection.innerHTML = "";
-  editorContainer.classList.remove("hide-element");
 });
 ```
 
@@ -113,13 +86,13 @@ page-break-inside: unset;
 - `auto`
   - : Anfangswert. Automatische Seitenumbrüche (weder erzwungen noch verboten).
 - `avoid`
-  - : Vermeidet Seitenumbrüche innerhalb des Elements.
+  - : Vermeiden von Seitenumbrüchen innerhalb des Elements.
 
 ## Seitenumbruch-Aliasse
 
-Die `page-break-inside`-Eigenschaft ist jetzt eine veraltete Eigenschaft, die durch {{cssxref("break-inside")}} ersetzt wurde.
+Die Eigenschaft `page-break-inside` ist jetzt eine veraltete Eigenschaft, die durch {{cssxref("break-inside")}} ersetzt wurde.
 
-Aus Kompatibilitätsgründen sollte `page-break-inside` von Browsern als Alias für `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Aliasse verwendet werden:
+Aus Kompatibilitätsgründen sollte `page-break-inside` von Browsern als Alias für `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, weiterhin wie geplant funktionieren. Ein Teil der Werte sollte wie folgt aliased werden:
 
 | page-break-inside | break-inside |
 | ----------------- | ------------ |

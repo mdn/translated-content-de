@@ -1,18 +1,19 @@
 ---
-title: "PublicKeyCredential: getClientExtensionResults()-Methode"
+title: "PublicKeyCredential: getClientExtensionResults() Methode"
 short-title: getClientExtensionResults()
 slug: Web/API/PublicKeyCredential/getClientExtensionResults
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 3735f39708265a883e5fc9829c4335c31378e3ce
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`getClientExtensionResults()`**-Methode des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces gibt eine Zuordnung zwischen den Kennungen von Erweiterungen zurück, die während der Erstellung oder Authentifizierung von Anmeldeinformationen angefordert wurden, und deren Ergebnissen nach der Verarbeitung durch den Benutzeragenten.
+Die **`getClientExtensionResults()`** Methode des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) Interfaces gibt ein Objekt zurück, das die Kennungen der während der Erstellung oder Authentifizierung der Berechtigung angeforderten Erweiterungen und deren Ergebnisse nach der Verarbeitung durch den Benutzeragenten abbildet.
 
-Während der Erstellung oder des Abrufs eines `PublicKeyCredential` (über [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) und [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) jeweils) ist es möglich, eine "benutzerdefinierte" Verarbeitung durch den Client für verschiedene Erweiterungen anzufordern, die in der `extensions`-Eigenschaft der `publicKey`-Option angegeben sind. Weitere Informationen zum Anfordern der verschiedenen Erweiterungen finden Sie in [Web Authentication-Erweiterungen](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions).
+Während der Erstellung oder des Abrufens eines `PublicKeyCredential` (über [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) bzw. [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)) ist es möglich, eine "benutzerdefinierte" Verarbeitung durch den Client für verschiedene Erweiterungen anzufordern, die in der `extensions` Eigenschaft der `publicKey` Option angegeben sind. Weitere Informationen zum Anfordern der verschiedenen Erweiterungen finden Sie in [Web Authentication-Erweiterungen](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions).
 
-> [!NOTE] > `getClientExtensionResults()` gibt nur die Ergebnisse von Erweiterungen zurück, die vom Benutzeragenten (Client) verarbeitet wurden. Die Ergebnisse von Erweiterungen, die vom Authenticator verarbeitet wurden, finden Sie in den [Authenticator-Daten](/de/docs/Web/API/Web_Authentication_API/Authenticator_data), die in [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData) verfügbar sind.
+> [!NOTE]
+> `getClientExtensionResults()` gibt nur die Ergebnisse von Erweiterungen zurück, die vom Benutzeragenten (Client) verarbeitet wurden. Die Ergebnisse von Erweiterungen, die vom Authenticator verarbeitet wurden, finden Sie in den [Authenticator-Daten](/de/docs/Web/API/Web_Authentication_API/Authenticator_data), die in [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData) verfügbar sind.
 
 ## Syntax
 
@@ -26,7 +27,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Map", "Map")}}, wobei jeder Eintrag einen Zeichenfolgenbezeichner der Erweiterung als Schlüssel und die Ausgabe der Verarbeitung der Erweiterung durch den Client als Wert enthält.
+Ein Objekt, wobei jeder Eintrag eine Zeichenkette zur Kennung der Erweiterung als Schlüssel und das Resultat der Verarbeitung der Erweiterung durch den Client als Wert hat.
 
 ### Ausnahmen
 
@@ -73,5 +74,5 @@ navigator.credentials
 
 ## Siehe auch
 
-- [Die Liste der aktuell definierten Erweiterungen](https://w3c.github.io/webauthn/#sctn-defined-extensions)
-- [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData), die das Ergebnis der Verarbeitung der Erweiterungen durch den Authenticator enthält
+- [Die Liste der derzeit definierten Erweiterungen](https://w3c.github.io/webauthn/#sctn-defined-extensions)
+- [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData), die das Ergebnis der Verarbeitung von Erweiterungen durch den Authenticator enthält.

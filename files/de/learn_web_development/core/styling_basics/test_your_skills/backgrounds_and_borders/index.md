@@ -3,15 +3,15 @@ title: "Testen Sie Ihre Fähigkeiten: Hintergründe und Rahmen"
 short-title: "Test: Hintergründe und Rahmen"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Backgrounds_and_borders
 l10n:
-  sourceCommit: 78bdd004c24d256efc8372f18204ea58f83a1b5e
+  sourceCommit: d94f783daceb9635b94a4041bae68af31adfaa6c
 ---
 
-{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Backgrounds_and_borders", "Learn_web_development/Core/Styling_basics/Overflow", "Learn_web_development/Core/Styling_basics")}}
+{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Backgrounds_and_borders", "Learn_web_development/Core/Styling_basics/Size_decorate_content_panel", "Learn_web_development/Core/Styling_basics")}}
 
-Das Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie [Hintergründe und Rahmen von Boxen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders) verstehen.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, einzuschätzen, ob Sie [Hintergründe und Rahmen von Boxen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders) verstehen.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung der Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
+> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung "Testen Sie Ihre Fähigkeiten"](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
@@ -19,17 +19,17 @@ In dieser Aufgabe möchten wir, dass Sie einem Seitenkopf einen Hintergrund, ein
 
 Um die Aufgabe abzuschließen:
 
-1. Geben Sie der Box einen 5px schwarzen, soliden Rahmen mit abgerundeten Ecken von 10px.
-2. Geben Sie dem `<h2>` eine halbtransparente schwarze Hintergrundfarbe und machen Sie den Text weiß.
-3. Fügen Sie ein Hintergrundbild hinzu und passen Sie es so an, dass es die Box abdeckt. Sie können das folgende Bild verwenden:
+1. Geben Sie der Box einen 5px schwarzen, durchgehenden Rahmen mit abgerundeten Ecken von 10px.
+2. Geben Sie dem `<h2>` einen halbtransparenten schwarzen Hintergrund und machen Sie den Text weiß.
+3. Fügen Sie ein Hintergrundbild hinzu und skalieren Sie es so, dass es die Box abdeckt. Sie können das folgende Bild verwenden:
 
    ```plain
    https://mdn.github.io/shared-assets/images/examples/balloons.jpg
    ```
 
-Ihr Endergebnis sollte wie das folgende Bild aussehen:
+Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
 
-![Das Bild zeigt eine Box mit einem Foto als Hintergrund, einem abgerundeten Rahmen und weißem Text auf einem halbtransparenten schwarzen Hintergrund.](backgrounds-task1.png)
+![Das Bild zeigt eine Box mit einem Foto-Hintergrund, abgerundetem Rahmen und weißem Text auf einem halbtransparenten schwarzen Hintergrund.](backgrounds-task1.png)
 
 ```html live-sample___backgrounds1
 <div class="box">
@@ -85,11 +85,11 @@ h2 {
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie Hintergrundbilder, einen Rahmen und einige andere Stile zu einer dekorativen Box hinzufügen.
+In dieser Aufgabe möchten wir, dass Sie einem dekorativen Kästchen Hintergrundbilder, einen Rahmen und einige andere Stile hinzufügen.
 
 Um die Aufgabe abzuschließen:
 
-1. Geben Sie der Box einen 5px hellblauen Rahmen und runden Sie die obere linke Ecke mit 20px und die untere rechte Ecke mit 40px ab.
+1. Geben Sie der Box einen 5px hellblauen Rahmen und runden Sie die obere linke Ecke 20px und die untere rechte Ecke 40px ab.
 2. Die Überschrift verwendet das Bild `star.png` als Hintergrundbild, mit einem einzelnen zentrierten Stern auf der linken Seite und einem sich wiederholenden Muster von Sternen auf der rechten Seite.
    Sie können das folgende Bild verwenden:
 
@@ -97,11 +97,11 @@ Um die Aufgabe abzuschließen:
    https://mdn.github.io/shared-assets/images/examples/star.png
    ```
 
-3. Stellen Sie sicher, dass der Überschriftstext nicht über dem Bild liegt und zentriert ist — Sie müssen Techniken verwenden, die Sie in früheren Lektionen gelernt haben, um dies zu erreichen.
+3. Stellen Sie sicher, dass der Überschriftstext nicht das Bild überlagert und dass er zentriert ist - Sie müssen Techniken anwenden, die in vorherigen Lektionen gelernt wurden, um dies zu erreichen.
 
-Ihr Endergebnis sollte wie das folgende Bild aussehen:
+Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
 
-![Das Bild zeigt eine Box mit einem blauen Rahmen, der an den Ecken oben links und unten rechts abgerundet ist. Links vom Text befindet sich ein einzelner Stern, rechts drei Sterne.](backgrounds-task2.png)
+![Das Bild zeigt eine Box mit einem blauen Rahmen, der an den oberen linken und unteren rechten Ecken abgerundet ist. Links vom Text ist ein einzelner Stern, rechts drei Sterne.](backgrounds-task2.png)
 
 ```html live-sample___backgrounds2
 <div class="box">
@@ -136,7 +136,7 @@ h2 {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie müssen der Überschrift Padding hinzufügen, damit sie das Sternbild nicht überlagert - dies knüpft an das Lernen aus der früheren [Box-Modell-Lektion](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) an.
+Sie müssen dem Überschriftstext Padding hinzufügen, damit er das Sternbild nicht überlagert - dies verlinkt zurück zu den Lerninhalten aus der früheren [Box-Modell Lektion](/de/docs/Learn_web_development/Core/Styling_basics/Box_model).
 Der Text sollte mit der Eigenschaft `text-align` ausgerichtet werden:
 
 ```css
@@ -159,4 +159,4 @@ h2 {
 
 </details>
 
-{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Backgrounds_and_borders", "Learn_web_development/Core/Styling_basics/Overflow", "Learn_web_development/Core/Styling_basics")}}
+{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Backgrounds_and_borders", "Learn_web_development/Core/Styling_basics/Size_decorate_content_panel", "Learn_web_development/Core/Styling_basics")}}
