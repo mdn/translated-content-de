@@ -3,23 +3,23 @@ title: "HTMLTableCellElement: colSpan-Eigenschaft"
 short-title: colSpan
 slug: Web/API/HTMLTableCellElement/colSpan
 l10n:
-  sourceCommit: 373fcd42528fc9eafa3703dc99927cc56c75fa8d
+  sourceCommit: 2406bfdc031740afbd500a1fc953a76a4b7f8484
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`colSpan`**-Eigenschaft der [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Schnittstelle stellt die Anzahl der Spalten dar, die diese Zelle überspannen muss; dadurch kann die Zelle den Raum über mehrere Spalten der Tabelle einnehmen. Sie spiegelt das [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut wider.
+Die **`colSpan`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces repräsentiert die Anzahl der Spalten, die diese Zelle umspannen muss. Dadurch kann die Zelle Raum über mehrere Spalten der Tabelle einnehmen. Sie entspricht dem [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut.
 
 ## Wert
 
 Eine positive Zahl, die die Anzahl der Spalten darstellt.
 
 > [!NOTE]
-> Beim Setzen eines neuen Wertes wird der Wert auf die nächstgelegene strikt positive Zahl _eingeschränkt_.
+> Beim Setzen eines neuen Wertes wird der Wert auf die nächste strikt positive Zahl _geklammert_.
 
 ## Beispiele
 
-Dieses Beispiel bietet zwei Schaltflächen, um die Spaltenüberspannung der ersten Zelle des Körperbereichs zu ändern.
+Dieses Beispiel bietet zwei Schaltflächen, um die Spaltenanzahl der ersten Zelle des Körpers zu ändern.
 
 ### HTML
 

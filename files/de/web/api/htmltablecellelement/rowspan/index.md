@@ -3,23 +3,23 @@ title: "HTMLTableCellElement: rowSpan-Eigenschaft"
 short-title: rowSpan
 slug: Web/API/HTMLTableCellElement/rowSpan
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: 2406bfdc031740afbd500a1fc953a76a4b7f8484
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`rowSpan`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces ist eine schreibgeschützte Eigenschaft, die die Anzahl der Zeilen darstellt, die diese Zelle überspannen muss; dies ermöglicht es der Zelle, Platz über mehrere Zeilen der Tabelle hinweg einzunehmen. Sie entspricht dem [`rowspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut.
+Die **`rowSpan`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces gibt die Anzahl der Reihen an, die diese Zelle überspannen muss; damit kann die Zelle Platz über mehrere Reihen der Tabelle hinweg einnehmen. Sie spiegelt das [`rowspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attribut wider.
 
 ## Wert
 
-Eine positive Zahl, die die Anzahl der Zeilen darstellt. Wenn sie `0` ist, bedeutet dies alle verbleibenden Zeilen in der Spalte.
+Eine positive Zahl, die die Anzahl der Reihen darstellt. Wenn sie `0` ist, bedeutet dies alle verbleibenden Reihen in der Spalte.
 
 > [!NOTE]
-> Beim Setzen eines neuen Wertes wird ein von 0 abweichender Wert auf die nächstgelegene strikt positive Zahl _geklammert_.
+> Beim Setzen eines neuen Werts wird ein Wert, der nicht 0 ist, auf die nächste strikt positive Zahl _begrenz_.
 
 ## Beispiele
 
-Dieses Beispiel bietet zwei Buttons, um die Zeilenspanne der ersten Zelle des Körpers zu ändern.
+Dieses Beispiel bietet zwei Schaltflächen, um die Zeilenspanne der ersten Zelle des Körpers zu ändern.
 
 ### HTML
 

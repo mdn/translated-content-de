@@ -2,12 +2,12 @@
 title: IdentityCredentialError
 slug: Web/API/IdentityCredentialError
 l10n:
-  sourceCommit: 9b77c8c7faabe6fd9fd428e12270290e975b8c39
+  sourceCommit: f1251a98115e7a6d566331512256dcbbc4cf7c24
 ---
 
-{{APIRef("FedCM API")}}{{SecureContext_Header}}
+{{APIRef("FedCM API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Die **`IdentityCredentialError`**-Schnittstelle der [FedCM API](/de/docs/Web/API/FedCM_API) beschreibt einen Authentifizierungsfehler, der darauf hinweist, dass der Benutzeragent keine Identitätsaussage erhalten hat, nachdem der Benutzer die Verwendung eines föderierten Kontos angefordert hat. Dies kann passieren, wenn der Client nicht autorisiert ist oder der Server vorübergehend nicht verfügbar ist, zum Beispiel.
+Das **`IdentityCredentialError`** Interface der [FedCM API](/de/docs/Web/API/FedCM_API) beschreibt einen Authentifizierungsfehler, der darauf hinweist, dass der Benutzeragent nach der Anforderung eines föderierten Kontos durch den Benutzer keine Identitätsbestätigung erhalten hat. Dies kann passieren, wenn der Client nicht autorisiert ist oder der Server vorübergehend nicht verfügbar ist.
 
 Browser können diesen Fehlertyp verwenden, um die Fehlermeldung in der Benutzeroberfläche anzuzeigen.
 
@@ -15,17 +15,17 @@ Browser können diesen Fehlertyp verwenden, um die Fehlermeldung in der Benutzer
 
 ## Konstruktor
 
-- [`IdentityCredentialError()`](/de/docs/Web/API/IdentityCredentialError/IdentityCredentialError)
-  - : Erstellt eine neue Instanz des `IdentityCredentialError`-Objekts.
+- [`IdentityCredentialError()`](/de/docs/Web/API/IdentityCredentialError/IdentityCredentialError) {{experimental_inline}}
+  - : Erstellt eine neue Instanz des `IdentityCredentialError` Objekts.
 
 ## Instanz-Eigenschaften
 
-_Zusätzlich zu den unten stehenden Eigenschaften erbt `IdentityCredentialError` Eigenschaften von seinem Elternobjekt, [`DOMException`](/de/docs/Web/API/DOMException)_.
+_Neben den unten aufgeführten Eigenschaften erbt `IdentityCredentialError` Eigenschaften von seinem Elternteil, [`DOMException`](/de/docs/Web/API/DOMException)_.
 
 - [`error`](/de/docs/Web/API/IdentityCredentialError/error) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Ein String. Dies kann entweder einer der in der [OAuth 2.0 spezifizierten Fehlerliste](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1) aufgeführten Werte sein oder ein beliebiger String.
 - [`url`](/de/docs/Web/API/IdentityCredentialError/url) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Eine URL, die auf menschenlesbare Informationen über den Fehler verweist, um sie den Benutzern anzuzeigen, z. B. wie der Fehler behoben werden kann oder wie der Kundenservice kontaktiert werden kann.
+  - : Eine URL, die auf menschenlesbare Informationen über den Fehler verweist, um Benutzern anzuzeigen, wie der Fehler behoben werden kann oder wie der Kundendienst kontaktiert werden kann.
 
 ## Beispiele
 
@@ -58,4 +58,4 @@ try {
 ## Siehe auch
 
 - [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get)
-- [ID-Aussagefehlerantworten](/de/docs/Web/API/FedCM_API/IDP_integration#id_assertion_error_responses)
+- [ID Assertion Error Responses](/de/docs/Web/API/FedCM_API/IDP_integration#id_assertion_error_responses)

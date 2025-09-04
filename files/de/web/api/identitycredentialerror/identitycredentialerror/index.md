@@ -3,10 +3,10 @@ title: "IdentityCredentialError: IdentityCredentialError() Konstruktor"
 short-title: IdentityCredentialError()
 slug: Web/API/IdentityCredentialError/IdentityCredentialError
 l10n:
-  sourceCommit: 9b77c8c7faabe6fd9fd428e12270290e975b8c39
+  sourceCommit: f1251a98115e7a6d566331512256dcbbc4cf7c24
 ---
 
-{{APIRef("Fetch API")}}{{AvailableInWorkers}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
 Der **`IdentityCredentialError()`** Konstruktor erstellt ein neues [`IdentityCredentialError`](/de/docs/Web/API/IdentityCredentialError) Objekt.
 
@@ -25,9 +25,9 @@ new IdentityCredentialError(message, options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften haben kann:
     - `error` {{optional_inline}}
-      - : Ein String. Dies kann entweder einer der in der [OAuth 2.0 spezifizierten Fehlerliste](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1) aufgelisteten Werte oder ein beliebiger String sein.
+      - : Ein String. Dies kann entweder einer der Werte aus der [OAuth 2.0 spezifizierten Fehlerliste](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1) sein oder ein beliebiger String.
     - `url` {{optional_inline}}
-      - : Eine URL, die auf lesbare Informationen über den Fehler verweist, die den Nutzern angezeigt werden sollen, wie z.B. wie der Fehler behoben werden kann oder wie der Kundendienst kontaktiert werden kann.
+      - : Eine URL, die auf menschenlesbare Informationen über den Fehler verweist, um den Nutzern anzuzeigen, wie der Fehler behoben werden kann oder wie der Kundendienst kontaktiert werden kann.
 
 ## Beispiele
 

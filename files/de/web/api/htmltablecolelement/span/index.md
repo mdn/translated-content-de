@@ -3,23 +3,23 @@ title: "HTMLTableColElement: span-Eigenschaft"
 short-title: span
 slug: Web/API/HTMLTableColElement/span
 l10n:
-  sourceCommit: 373fcd42528fc9eafa3703dc99927cc56c75fa8d
+  sourceCommit: 2406bfdc031740afbd500a1fc953a76a4b7f8484
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte **`span`**-Eigenschaft des [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement)-Interfaces steht für die Anzahl der Spalten, die dieses {{htmlelement("col")}} oder {{htmlelement("colgroup")}} überspannen muss. Dadurch kann die Spalte Platz über mehrere Spalten der Tabelle einnehmen. Sie spiegelt das [`span`](/de/docs/Web/HTML/Reference/Elements/col#span)-Attribut wider.
+Die **`span`**-Eigenschaft der [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement)-Schnittstelle repräsentiert die Anzahl der Spalten, die dieses {{htmlelement("col")}} oder {{htmlelement("colgroup")}} umfassen muss; dies ermöglicht der Spalte, Platz über mehrere Spalten der Tabelle einzunehmen. Sie spiegelt das [`span`](/de/docs/Web/HTML/Reference/Elements/col#span)-Attribut wider.
 
 ## Wert
 
 Eine positive Zahl, die die Anzahl der Spalten darstellt.
 
 > [!NOTE]
-> Beim Festlegen eines neuen Wertes wird der Wert auf die nächstgelegene strikt positive Zahl (bis zu 1000) _geklammert_.
+> Beim Setzen eines neuen Wertes wird der Wert auf die nächstgelegene strikt positive Zahl (bis zu 1000) begrenzt (_clamped_).
 
 ## Beispiele
 
-Dieses Beispiel bietet zwei Schaltflächen, um die Spannweite der Spalte der ersten Zelle des Körpers zu ändern.
+Dieses Beispiel bietet zwei Schaltflächen, um die Spaltenbreite der ersten Zelle des Körpers zu ändern.
 
 ### HTML
 

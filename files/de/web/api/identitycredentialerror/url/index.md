@@ -3,12 +3,12 @@ title: "IdentityCredentialError: url-Eigenschaft"
 short-title: url
 slug: Web/API/IdentityCredentialError/url
 l10n:
-  sourceCommit: 9b77c8c7faabe6fd9fd428e12270290e975b8c39
+  sourceCommit: f1251a98115e7a6d566331512256dcbbc4cf7c24
 ---
 
-{{APIRef("FedCM API")}}{{AvailableInWorkers}}
+{{APIRef("FedCM API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`url`**-Schreibgeschützte Eigenschaft des [`IdentityCredentialError`](/de/docs/Web/API/IdentityCredentialError)-Interfaces ist die URL, die auf menschenlesbare Informationen über den Fehler verweist, die den Benutzern angezeigt werden können, wie etwa Anweisungen zur Behebung des Fehlers oder Kontaktinformationen zum Kundenservice.
+Die schreibgeschützte **`url`**-Eigenschaft des [`IdentityCredentialError`](/de/docs/Web/API/IdentityCredentialError)-Interfaces ist die URL, die auf menschenlesbare Informationen über den Fehler verweist, die den Benutzern angezeigt werden sollen, zum Beispiel, wie der Fehler behoben werden kann oder wie der Kundenservice kontaktiert werden kann.
 
 ## Wert
 
@@ -45,4 +45,4 @@ try {
 ## Siehe auch
 
 - [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get)
-- [ID-Assertion-Fehlerantworten](/de/docs/Web/API/FedCM_API/IDP_integration#id_assertion_error_responses)
+- [ID-Assertionsfehler-Antworten](/de/docs/Web/API/FedCM_API/IDP_integration#id_assertion_error_responses)
