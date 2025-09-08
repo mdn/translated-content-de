@@ -1,14 +1,15 @@
 ---
-title: "PeriodicSyncManager: unregister() Methode"
+title: "PeriodicSyncManager: unregister()-Methode"
 short-title: unregister()
 slug: Web/API/PeriodicSyncManager/unregister
 l10n:
-  sourceCommit: b74d47ab6e99d2bd43ef9638367d9c69fca04402
+  sourceCommit: 0ca040b6a9cfd931558bd1d3a402707abddc1924
 ---
 
 {{APIRef("Periodic Background Sync")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`unregister()`** Methode der [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) Schnittstelle hebt die Registrierung der periodischen Synchronisierungsanforderung für die angegebene Kennung auf und gibt ein {{jsxref('Promise')}} zurück, das aufgelöst wird, wenn die Abmeldung abgeschlossen ist.
+Die **`unregister()`**-Methode des
+[`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Interfaces entfernt die periodische Synchronisationsanfrage, die dem angegebenen Tag entspricht, und gibt ein {{jsxref('Promise')}} zurück, das aufgelöst wird, wenn die Deregistrierung abgeschlossen ist.
 
 ## Syntax
 
@@ -19,7 +20,7 @@ unregister(tag)
 ### Parameter
 
 - tag
-  - : Der eindeutige {{jsxref('String')}}-Bezeichner für die spezifische Hintergrundsynchronisierung.
+  - : Der eindeutige {{jsxref('String')}}-Bezeichner für die spezifische Hintergrundsynchronisation.
 
 ### Rückgabewert
 
@@ -31,7 +32,7 @@ Keine.
 
 ## Beispiele
 
-Das folgende Beispiel entfernt eine periodische Synchronisierung, um das Synchronisieren von Artikeln im Hintergrund zu stoppen.
+Das folgende Beispiel entfernt eine periodische Synchronisation, um das Synchronisieren von Artikeln im Hintergrund zu stoppen.
 
 ```js
 navigator.serviceWorker.ready.then((registration) => {
@@ -49,5 +50,4 @@ navigator.serviceWorker.ready.then((registration) => {
 
 ## Siehe auch
 
-- [Richer offline experiences with the Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
-- [A Periodic Background Sync demo app](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)
+- [Erweiterte Offline-Erlebnisse mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)

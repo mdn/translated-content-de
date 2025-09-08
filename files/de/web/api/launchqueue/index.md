@@ -2,19 +2,19 @@
 title: LaunchQueue
 slug: Web/API/LaunchQueue
 l10n:
-  sourceCommit: c60eaa2dd90fefcaaafdaca69f3185b46d399d8b
+  sourceCommit: 57b594763d8e34b8346ee7ea206bfc2e59238fb1
 ---
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Das **`LaunchQueue`**-Interface der [Launch Handler API](/de/docs/Web/API/Launch_Handler_API) ist über die [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue)-Eigenschaft verfügbar. Wenn eine [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) mit einem `launch_handler` `client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wird, bietet `LaunchQueue` Zugriff auf Funktionen, die es ermöglichen, benutzerdefiniertes Startnavigations-Handling in der PWA zu implementieren. Diese Funktionalität wird durch die Eigenschaften des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts gesteuert, das an die [`setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) Callback-Funktion übergeben wird.
+Das **`LaunchQueue`**-Interface der [Launch Handler API](/de/docs/Web/API/Launch_Handler_API) ist über die [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue)-Eigenschaft verfügbar. Wenn eine [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) mit einem [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler) `client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wird, bietet `LaunchQueue` Zugriff auf Funktionalitäten, die eine benutzerdefinierte Startnavigationsbehandlung in der PWA ermöglichen. Diese Funktionalität wird durch die Eigenschaften des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts gesteuert, das in die [`setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer)-Callback-Funktion übergeben wird.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
 - [`setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) {{Experimental_Inline}}
-  - : Enthält eine Callback-Funktion, die benutzerdefinierte Startnavigation für eine PWA behandelt.
+  - : Beinhaltet eine Callback-Funktion, die die benutzerdefinierte Startnavigation für eine PWA behandelt.
 
 ## Beispiele
 
@@ -28,7 +28,7 @@ if ("launchQueue" in window) {
       const track = params.get("track");
       if (track) {
         audio.src = track;
-        title.textContent = new URL(track).pathname.substr(1);
+        title.textContent = new URL(track).pathname.slice(1);
         audio.play();
       }
     }

@@ -2,21 +2,21 @@
 title: LaunchParams
 slug: Web/API/LaunchParams
 l10n:
-  sourceCommit: c60eaa2dd90fefcaaafdaca69f3185b46d399d8b
+  sourceCommit: 57b594763d8e34b8346ee7ea206bfc2e59238fb1
 ---
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Das **`LaunchParams`**-Interface der [Launch Handler API](/de/docs/Web/API/Launch_Handler_API) wird bei der Implementierung einer benutzerdefinierten Startnavigation in einer PWA verwendet. Wenn [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) aufgerufen wird, um die Startnavigation-Funktionalität einzurichten, wird der Callback-Funktion innerhalb von `setConsumer()` ein `LaunchParams`-Objekt übergeben.
+Das **`LaunchParams`**-Interface der [Launch Handler API](/de/docs/Web/API/Launch_Handler_API) wird verwendet, um benutzerdefinierte Startnavigation in einer PWA zu implementieren. Wenn [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) aufgerufen wird, um die Funktionalität der Startnavigation einzurichten, wird der Callback-Funktion innerhalb von `setConsumer()` eine Instanz des `LaunchParams`-Objekts übergeben.
 
-Eine solche benutzerdefinierte Navigation wird über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) eingeleitet, wenn eine PWA mit einem [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler)-`client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wurde.
+Ein solches benutzerdefiniertes Navigationshandling wird über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) eingeleitet, wenn eine PWA mit einem [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler) `client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wurde.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
 - [`LaunchParams.files`](/de/docs/Web/API/LaunchParams/files) {{ReadOnlyInline}}{{Experimental_Inline}}
-  - : Gibt ein schreibgeschütztes Array von [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Objekten zurück, die alle Dateien darstellen, die zusammen mit der Startnavigation über die [`POST`](/de/docs/Web/HTTP/Reference/Methods/POST)-Methode übergeben wurden.
+  - : Gibt ein schreibgeschütztes Array von [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Objekten zurück, die alle Dateien darstellen, die mit der Startnavigation über die [`POST`](/de/docs/Web/HTTP/Reference/Methods/POST)-Methode übergeben wurden.
 - [`LaunchParams.targetURL`](/de/docs/Web/API/LaunchParams/targetURL) {{ReadOnlyInline}}{{Experimental_Inline}}
   - : Gibt die Ziel-URL des Starts zurück.
 
@@ -32,7 +32,7 @@ if ("launchQueue" in window) {
       const track = params.get("track");
       if (track) {
         audio.src = track;
-        title.textContent = new URL(track).pathname.substr(1);
+        title.textContent = new URL(track).pathname.slice(1);
         audio.play();
       }
     }

@@ -1,11 +1,11 @@
 ---
-title: CSS-Text
+title: CSS text
 slug: Web/CSS/CSS_text
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: d92ee717f209ccad5d5a5705d64548e1d289f5d9
 ---
 
-Das **CSS-Text**-Modul definiert, wie Textmanipulationen durchgeführt werden, wie z.B. Zeilenumbruch, Ausrichtung und Justierung, Handhabung von Leerzeichen und Texttransformation.
+Das **CSS text** Modul definiert, wie Textmanipulationen wie Zeilenumbrüche, Blocksatz und Ausrichtung, Umgang mit Leerzeichen und Textumwandlungen durchgeführt werden.
 
 ## Referenz
 
@@ -23,6 +23,7 @@ Das **CSS-Text**-Modul definiert, wie Textmanipulationen durchgeführt werden, w
 - {{cssxref("text-align-last")}}
 - {{cssxref("text-indent")}}
 - {{cssxref("text-justify")}}
+- {{cssxref("text-autospace")}}
 - {{cssxref("text-spacing-trim")}} {{Experimental_Inline}}
 - {{cssxref("text-transform")}}
 - {{cssxref("text-wrap")}}
@@ -37,8 +38,8 @@ Die Spezifikation definiert auch die Eigenschaften `hyphenate-limit-last`, `hyph
 
 ### Leitfäden
 
-- [Umbruch und Trennung von Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
-  - : Ein Leitfaden zu den verschiedenen Möglichkeiten, wie überlaufender Text in CSS verwaltet werden kann.
+- [Umbruch und Zeilenumbruch bei Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
+  - : Ein Leitfaden zu den verschiedenen Möglichkeiten, wie überfließender Text in CSS verwaltet werden kann.
 
 ## Verwandte Konzepte
 
@@ -76,4 +77,4 @@ Die Spezifikation definiert auch die Eigenschaften `hyphenate-limit-last`, `hyph
 - [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
 - [CSS-Schriften](/de/docs/Web/CSS/CSS_fonts) Modul
 - [CSS-Ruby-Layout](/de/docs/Web/CSS/CSS_ruby_layout) Modul
-- [CSS-Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) Modul
+- [CSS-Text Dekoration](/de/docs/Web/CSS/CSS_text_decoration) Modul

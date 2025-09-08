@@ -1,14 +1,14 @@
 ---
-title: "LaunchQueue: setConsumer()-Methode"
+title: "LaunchQueue: setConsumer() Methode"
 short-title: setConsumer()
 slug: Web/API/LaunchQueue/setConsumer
 l10n:
-  sourceCommit: c60eaa2dd90fefcaaafdaca69f3185b46d399d8b
+  sourceCommit: 57b594763d8e34b8346ee7ea206bfc2e59238fb1
 ---
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Die **`setConsumer()`**-Methode des [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Interfaces wird verwendet, um den Callback zu deklarieren, der das benutzerdefinierte Navigationshandling beim Starten in einer [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) verwalten wird. Solch eine benutzerdefinierte Navigation wird über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) initiiert, wenn eine PWA mit einem [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler)-`client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wurde.
+Die **`setConsumer()`**-Methode der [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Schnittstelle wird verwendet, um den Callback zu deklarieren, der das benutzerdefinierte Startnavigations-Handling in einer [progressiven Web-App](/de/docs/Web/Progressive_web_apps) (PWA) verarbeiten wird. Solch eine benutzerdefinierte Navigation wird über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) initiiert, wenn eine PWA mit einem [`launch_handler`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/launch_handler) `client_mode`-Wert von `focus-existing`, `navigate-new` oder `navigate-existing` gestartet wurde.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setConsumer(callback)
 ### Parameter
 
 - `callback`
-  - : Eine Callback-Funktion, die das benutzerdefinierte Navigieren für die PWA behandelt. Der Callback erhält eine [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objektinstanz als Parameter.
+  - : Eine Callback-Funktion, die die benutzerdefinierte Navigation für die PWA verarbeitet. Dem Callback wird ein [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objektinstanz als Parameter übergeben.
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ if ("launchQueue" in window) {
       const track = params.get("track");
       if (track) {
         audio.src = track;
-        title.textContent = new URL(track).pathname.substr(1);
+        title.textContent = new URL(track).pathname.slice(1);
         audio.play();
       }
     }
@@ -55,5 +55,5 @@ if ("launchQueue" in window) {
 
 ## Siehe auch
 
-- [Launch Handler API: Kontrollieren Sie, wie Ihre App gestartet wird](https://developer.chrome.com/docs/web-platform/launch-handler/)
+- [Launch Handler API: Control how your app is launched](https://developer.chrome.com/docs/web-platform/launch-handler/)
 - [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue)

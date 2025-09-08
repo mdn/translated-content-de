@@ -3,12 +3,12 @@ title: "LaunchParams: targetURL-Eigenschaft"
 short-title: targetURL
 slug: Web/API/LaunchParams/targetURL
 l10n:
-  sourceCommit: c60eaa2dd90fefcaaafdaca69f3185b46d399d8b
+  sourceCommit: 57b594763d8e34b8346ee7ea206bfc2e59238fb1
 ---
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`targetURL`**-Eigenschaft der [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Schnittstelle gibt die Ziel-URL des zugehörigen Web-App-Starts zurück.
+Die schreibgeschützte **`targetURL`**-Eigenschaft des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Interfaces gibt die Ziel-URL des zugehörigen Web-App-Starts zurück.
 
 ## Wert
 
@@ -26,7 +26,7 @@ if ("launchQueue" in window) {
       const track = params.get("track");
       if (track) {
         audio.src = track;
-        title.textContent = new URL(track).pathname.substr(1);
+        title.textContent = new URL(track).pathname.slice(1);
         audio.play();
       }
     }
