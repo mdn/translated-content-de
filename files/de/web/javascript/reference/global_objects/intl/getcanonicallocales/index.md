@@ -3,10 +3,12 @@ title: Intl.getCanonicalLocales()
 short-title: getCanonicalLocales()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/getCanonicalLocales
 l10n:
-  sourceCommit: 939067a53bb5bb3787f2d536b83df2252d4e838e
+  sourceCommit: 6356aa3911fe6cf953e0b04c3b285fe95e4b5355
 ---
 
-Die **`Intl.getCanonicalLocales()`** statische Methode gibt ein Array zurück, das die kanonischen Sprachgebietsschemata enthält. Duplikate werden weggelassen und Elemente werden als strukturell gültige Sprach-Tags validiert.
+Die **`Intl.getCanonicalLocales()`** statische Methode gibt ein Array zurück,
+das die kanonischen Locale-Namen enthält. Duplikate werden ausgelassen und Elemente werden
+als strukturell gültige Sprach-Tags validiert.
 
 {{InteractiveExample("JavaScript Demo: Intl.getCanonicalLocales()")}}
 
@@ -34,11 +36,11 @@ Intl.getCanonicalLocales(locales)
 ### Parameter
 
 - `locales`
-  - : Eine Liste von {{jsxref("String")}}-Werten, für die die kanonischen Sprachgebietsschemata erhalten werden sollen.
+  - : Eine Liste von {{jsxref("String")}}-Werten, für die die kanonischen Locale-Namen abgerufen werden sollen.
 
 ### Rückgabewert
 
-Ein Array, das die kanonischen Sprachgebietsschemata enthält.
+Ein Array, das die kanonischen Locale-Namen enthält.
 
 ## Beispiele
 
@@ -49,7 +51,7 @@ Intl.getCanonicalLocales("EN-US"); // ["en-US"]
 Intl.getCanonicalLocales(["EN-US", "Fr"]); // ["en-US", "fr"]
 
 Intl.getCanonicalLocales("EN_US");
-// RangeError:'EN_US' is not a structurally valid language tag
+// RangeError: invalid language tag: "EN_US"
 ```
 
 ## Spezifikationen
