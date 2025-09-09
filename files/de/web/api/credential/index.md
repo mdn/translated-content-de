@@ -2,14 +2,14 @@
 title: Credential
 slug: Web/API/Credential
 l10n:
-  sourceCommit: 616b1da6696a833451891ad8c767ff15474b08f7
+  sourceCommit: 463cfc7f25a083241b06a5f5a9a927924f48ca6e
 ---
 
 {{APIRef("Credential Management API")}}{{securecontext_header}}
 
-Die **`Credential`**-Schnittstelle der [Credential Management API](/de/docs/Web/API/Credential_Management_API) liefert Informationen über eine Entität (normalerweise ein Benutzer), die normalerweise als Voraussetzung für eine Vertrauensentscheidung erforderlich sind.
+Das **`Credential`** Interface der [Credential Management API](/de/docs/Web/API/Credential_Management_API) liefert Informationen über eine Entität (normalerweise einen Benutzer), normalerweise als Voraussetzung für eine Vertrauensentscheidung.
 
-`Credential`-Objekte können folgende Typen haben:
+`Credential` Objekte können von den folgenden Typen sein:
 
 - [`FederatedCredential`](/de/docs/Web/API/FederatedCredential)
 - [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)
@@ -20,14 +20,14 @@ Die **`Credential`**-Schnittstelle der [Credential Management API](/de/docs/Web/
 ## Instanz-Eigenschaften
 
 - [`Credential.id`](/de/docs/Web/API/Credential/id) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der den Bezeichner des Anmeldedatensatzes enthält. Dies kann eine GUID, ein Benutzername oder eine E-Mail-Adresse sein.
+  - : Gibt einen String zurück, der die Kennung des Credentials enthält. Dies kann eine GUID, ein Benutzername oder eine E-Mail-Adresse sein.
 - [`Credential.type`](/de/docs/Web/API/Credential/type) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der den Typ des Anmeldedatensatzes enthält. Gültige Werte sind `password`, `federated`, `public-key`, `identity` und `otp`. (Für [`PasswordCredential`](/de/docs/Web/API/PasswordCredential), [`FederatedCredential`](/de/docs/Web/API/FederatedCredential), [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential), [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) und [`OTPCredential`](/de/docs/Web/API/OTPCredential))
+  - : Gibt einen String zurück, der den Typ des Credentials enthält. Gültige Werte sind `password`, `federated`, `public-key`, `identity` und `otp`. (Für [`PasswordCredential`](/de/docs/Web/API/PasswordCredential), [`FederatedCredential`](/de/docs/Web/API/FederatedCredential), [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential), [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) und [`OTPCredential`](/de/docs/Web/API/OTPCredential))
 
 ## Statische Methoden
 
-- [`Credential.isConditionalMediationAvailable()`](/de/docs/Web/API/Credential/isConditionalMediationAvailable_static)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das immer zu `false` aufgelöst wird. Unterklassen können diesen Wert überschreiben.
+- [`Credential.isConditionalMediationAvailable()`](/de/docs/Web/API/Credential/isConditionalMediationAvailable_static) {{experimental_inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das immer auf `false` auflöst. Unterklassen können diesen Wert überschreiben.
 
 ## Beispiele
 
