@@ -2,34 +2,34 @@
 title: WindowClient
 slug: Web/API/WindowClient
 l10n:
-  sourceCommit: 2ef36a6d6f380e79c88bc3a80033e1d3c4629994
+  sourceCommit: 4a1d696e78d9aa0a3ca571cbc0aab9ba90258235
 ---
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Das `WindowClient`-Interface der [ServiceWorker API](/de/docs/Web/API/Service_Worker_API) repräsentiert den Bereich eines Service Worker-Clients, der ein Dokument in einem Browsing-Kontext ist und von einem aktiven Worker gesteuert wird. Der Service Worker-Client wählt und verwendet unabhängig einen Service Worker für das eigene Laden und die Subressourcen.
+Das `WindowClient`-Interface der [ServiceWorker-API](/de/docs/Web/API/Service_Worker_API) repräsentiert den Gültigkeitsbereich eines Service-Worker-Clients, der ein Dokument in einem Browsing-Kontext ist, das von einem aktiven Worker gesteuert wird. Der Service-Worker-Client wählt und verwendet unabhängig einen Service Worker für sein eigenes Laden und seine Unterressourcen.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
-`WindowClient` erbt Methoden von seiner übergeordneten Schnittstelle, [`Client`](/de/docs/Web/API/Client).
+_`WindowClient` erbt Methoden von seinem Eltern-Interface, [`Client`](/de/docs/Web/API/Client)._
 
 - [`WindowClient.focus()`](/de/docs/Web/API/WindowClient/focus)
-  - : Gibt dem aktuellen Client den Benutzereingabe-Fokus.
+  - : Gibt dem aktuellen Client den Benutzereingabefokus.
 - [`WindowClient.navigate()`](/de/docs/Web/API/WindowClient/navigate)
-  - : Lädt eine angegebene URL in eine gesteuerte Client-Seite.
+  - : Lädt eine angegebene URL in eine kontrollierte Client-Seite.
 
 ## Instanzeigenschaften
 
-`WindowClient` erbt Eigenschaften von seiner übergeordneten Schnittstelle, [`Client`](/de/docs/Web/API/Client).
+_`WindowClient` erbt Eigenschaften von seinem Eltern-Interface, [`Client`](/de/docs/Web/API/Client)._
 
 - [`WindowClient.ancestorOrigins`](/de/docs/Web/API/WindowClient/ancestorOrigins) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Ein Array von Zeichenfolgen, das die Vorfahrenherkünfte des Browsing-Kontextes anzeigt, der durch dieses `WindowClient` in umgekehrter Reihenfolge dargestellt wird.
+  - : Ein Array von Zeichenfolgen, das die Vorfahrenursprünge des vom `WindowClient` dargestellten Browsing-Kontexts in umgekehrter Reihenfolge angibt.
 - [`WindowClient.focused`](/de/docs/Web/API/WindowClient/focused) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der angibt, ob der aktuelle Client den Fokus hat.
+  - : Ein Boolean, der angibt, ob der aktuelle Client den Fokus hat.
 - [`WindowClient.visibilityState`](/de/docs/Web/API/WindowClient/visibilityState) {{ReadOnlyInline}}
-  - : Gibt die Sichtbarkeit des aktuellen Clients an. Dieser Wert kann `"hidden"`, `"visible"` oder `"prerender"` sein.
+  - : Gibt die Sichtbarkeit des aktuellen Clients an. Dieser Wert kann `"hidden"` oder `"visible"` sein.
 
 ## Beispiel
 
@@ -69,6 +69,6 @@ self.addEventListener("notificationclick", (event) => {
 ## Siehe auch
 
 - [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Codebeispiel zu Service Workern](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Grundlegendes Beispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Webworkern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
 - [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API)

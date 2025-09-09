@@ -1,40 +1,40 @@
 ---
-title: Spekulatives Laden
+title: Spekulative Vorausladung
 slug: Web/Performance/Guides/Speculative_loading
 l10n:
-  sourceCommit: 774d84fbf6e708895c16cf82144233471b54216e
+  sourceCommit: 4a1d696e78d9aa0a3ca571cbc0aab9ba90258235
 ---
 
-**Spekulatives Laden** bezieht sich auf die Praxis, Navigationsaktionen (wie das Abrufen von DNS, das Abrufen von Ressourcen oder das Rendern von Dokumenten) durchzuführen, bevor die zugehörigen Seiten tatsächlich besucht werden. Dies basiert auf Vorhersagen darüber, welche Seiten der Benutzer als nächstes wahrscheinlich besuchen wird.
+**Spekulative Vorausladung** bezieht sich auf die Praxis, Navigationsaktionen (wie DNS-Abruf, Ressourcenerfassung oder Dokumentenrendering) durchzuführen, bevor die zugehörigen Seiten tatsächlich besucht werden, basierend auf Vorhersagen darüber, welche Seiten der Benutzer als nächstes wahrscheinlich besuchen wird.
 
-Diese Vorhersagen können von Entwicklern bereitgestellt werden (zum Beispiel Listen der beliebtesten Ziele auf ihrer Website) oder durch Browser-Heuristiken ermittelt werden (zum Beispiel basierend auf beliebten Seiten in der Benutzerhistorie). Bei erfolgreicher Verwendung können solche Technologien die Leistung erheblich verbessern, indem Seiten schneller oder in manchen Fällen sofort verfügbar gemacht werden.
+Diese Vorhersagen können von Entwicklern bereitgestellt werden (zum Beispiel Listen der beliebtesten Ziele ihrer Website) oder durch Browserheuristiken bestimmt werden (zum Beispiel basierend auf beliebten Seiten in der Browserhistorie des Benutzers). Bei erfolgreicher Verwendung können solche Technologien die Leistung erheblich verbessern, indem Seiten schneller oder in einigen Fällen sofort verfügbar gemacht werden.
 
-Diese Seite gibt einen Überblick über verfügbare spekulative Lade-Technologien und wann sie zur Leistungsverbesserung verwendet werden können und sollten.
+Diese Seite gibt einen Überblick über verfügbare Technologien zur spekulativen Vorausladung und wann sie eingesetzt werden können und sollten, um die Leistung zu verbessern.
 
-## Spekulative Lade-Mechanismen
+## Mechanismen der spekulativen Vorausladung
 
-Es gibt mehrere Mechanismen für das spekulative Laden:
+Es gibt mehrere Mechanismen für die spekulative Vorausladung:
 
-- **Prefetching** beinhaltet das Abrufen einiger oder aller Ressourcen, die zum Rendern eines Dokuments (oder eines Teils davon) benötigt werden, bevor sie tatsächlich gebraucht werden. Auf diese Weise kann das Rendern viel schneller erfolgen, wenn der Zeitpunkt kommt, sie anzuzeigen.
-- **Prerendering** geht einen Schritt weiter und rendert tatsächlich den Inhalt, der angezeigt werden soll, wenn er benötigt wird. Je nachdem, wie dies getan wird, kann dies zu einer sofortigen Navigation von der alten Seite zur neuen führen.
-- **Preconnecting** beinhaltet die Beschleunigung zukünftiger Ladevorgänge von einem bestimmten Ursprung, indem vorsorglich ein Teil oder der gesamte Verbindungs-Handshake (d.h. DNS + TCP + TLS) durchgeführt wird.
+- **Prefetching** beinhaltet das Abrufen einiger oder aller Ressourcen, die erforderlich sind, um ein Dokument (oder einen Teil davon) zu rendern, bevor sie benötigt werden, sodass das Rendering wesentlich schneller erfolgen kann, wenn der Zeitpunkt zum Rendern gekommen ist.
+- **Prerendering** geht einen Schritt weiter und rendert den Inhalt tatsächlich, sodass er bei Bedarf sofort angezeigt werden kann. Abhängig davon, wie dies durchgeführt wird, kann dies zu einer sofortigen Navigation von der alten zur neuen Seite führen.
+- **Preconnecting** beschleunigt zukünftige Ladezeiten von einem bestimmten Ursprung, indem Teile des Verbindungsaufbaus (d.h. DNS + TCP + TLS) vorweggenommen werden.
 
 > [!NOTE]
-> Die obigen Beschreibungen sind allgemeine und generelle Erklärungen. Genau was Browser tun, um Prefetching und Prerendering zu erreichen, hängt von den verwendeten Funktionen ab. Genauere Funktionsbeschreibungen finden Sie im Abschnitt [Spekulative Ladefunktionen](#spekulative_ladefunktionen) unten.
+> Die obigen Beschreibungen sind allgemein gehalten. Was genau Browser tun, um Prefetching und Prerendering zu erreichen, hängt von den verwendeten Funktionen ab. Genauere Funktionsbeschreibungen werden im Abschnitt [Funktionen der spekulativen Vorausladung](#funktionen_der_spekulativen_vorausladung) unten bereitgestellt.
 
-## Wie wird spekulatives Laden erreicht?
+## Wie wird spekulative Vorausladung erreicht?
 
-Spekulatives Laden wird auf zwei Hauptwegen erreicht.
+Spekulative Vorausladung wird auf zwei Hauptwegen erreicht.
 
-Erstens werden einige Browser automatisch Seiten basierend auf verschiedenen Heuristiken prerendern, um automatische Leistungsverbesserungen bereitzustellen. Wie genau dies geschieht, hängt von der Browser-Implementierung ab. Chrome zum Beispiel rendert automatisch Seiten vor, wenn übereinstimmende Zeichenfolgen in die Adressleiste eingegeben werden — wenn es eine hohe Zuversicht hat, dass Sie diese Seite besuchen werden (siehe [Anzeigen von Chromes Adressleisten-Vorhersagen](https://developer.chrome.com/docs/web-platform/prerender-pages#view_chromes_address_bar_predictions) für weitere Details). Darüber hinaus kann es Suchergebnisseiten automatisch rendern, wenn Suchbegriffe in die Adressleiste eingegeben werden, wenn es von der Suchmaschine dazu angewiesen wird. Es verwendet dabei den gleichen Mechanismus wie die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API).
+Erstens, einige Browser werden Seiten automatisch prerendern basierend auf verschiedenen Heuristiken, um automatische Leistungsverbesserungen zu bieten. Wie genau dies gemacht wird, hängt von der Implementierung des Browsers ab. Chrome beispielsweise prerendert automatisch Seiten, wenn passende Strings in die Adressleiste eingegeben werden — wenn eine hohe Wahrscheinlichkeit besteht, dass Sie diese Seite besuchen (siehe [Anzeigen von Chromes Adressleisten-Vorhersagen](https://developer.chrome.com/docs/web-platform/prerender-pages#view_chromes_address_bar_predictions) für mehr Details). Zusätzlich kann es Suchergebnisseiten automatisch prerendern, wenn Suchbegriffe in die Adressleiste eingegeben werden, wenn dies von der Suchmaschine so angewiesen wird. Es nutzt dabei denselben Mechanismus wie die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API).
 
-Zweitens gibt es mehrere Plattformfunktionen, die Entwickler verwenden können, um Anleitungen zu geben, welche spekulativen Ladeaktionen der Browser durchführen soll. Diese werden im nächsten Abschnitt besprochen.
+Zweitens gibt es mehrere Plattformfunktionen, die Entwickler verwenden können, um Anweisungen zu geben, welche spekulative Vorausladung der Browser durchführen soll. Diese werden im nächsten Abschnitt behandelt.
 
-## Spekulative Ladefunktionen
+## Funktionen der spekulativen Vorausladung
 
 ### `<link rel="preconnect">`
 
-[`<link rel="preconnect">`](/de/docs/Web/HTML/Reference/Attributes/rel/preconnect) bietet einen Hinweis für Browser, dass der Benutzer voraussichtlich Ressourcen vom Ursprung der angegebenen Ressource benötigt und daher der Browser die Leistung verbessern kann, indem er vorsorglich eine Verbindung zu diesem Ursprung initiiert. Unterstützende Browser führen vorsorglich einen Teil oder den gesamten Verbindungs-Handshake (d.h. DNS + TCP + TLS) durch.
+[`<link rel="preconnect">`](/de/docs/Web/HTML/Reference/Attributes/rel/preconnect) bietet einen Hinweis für Browser, dass der Benutzer wahrscheinlich Ressourcen vom Ursprung der angegebenen Ressource benötigt. Daher kann der Browser die Leistung wahrscheinlich verbessern, indem er vorzeitig eine Verbindung zu diesem Ursprung aufbaut. Unterstützende Browser werden einen Teil oder den gesamten Verbindungsaufbau (d.h. DNS + TCP + TLS) vorwegnehmen.
 
 Zum Beispiel:
 
@@ -42,11 +42,11 @@ Zum Beispiel:
 <link rel="preconnect" href="https://example.com" />
 ```
 
-`<link rel="preconnect">` wird von den meisten Browsern unterstützt und bietet einen Vorteil für alle zukünftigen, plattformübergreifenden HTTP-Anfragen, Navigationen oder Subressourcen. Es hat keinen Vorteil bei gleichursprünglichen Anfragen, da die Verbindung bereits offen ist.
+`<link rel="preconnect">` wird in den meisten Browsern unterstützt und bietet einen Vorteil für jede zukünftige Cross-Origin-HTTP-Anfrage, Navigation oder Subressource. Es hat keinen Vorteil bei Anfragen gleichen Ursprungs, da die Verbindung bereits offen ist.
 
-Wenn eine Seite Verbindungen zu vielen Drittdomains herstellen muss, kann das Vorher-Verbinden aller kontraproduktiv sein. Der `<link rel="preconnect">`-Hinweis wird am besten nur für die kritischsten Verbindungen verwendet. Für die anderen verwenden Sie einfach `<link rel="dns-prefetch">`, um Zeit beim ersten Schritt — der DNS-Abfrage — zu sparen.
+Wenn eine Seite Verbindungen zu vielen Drittanbieter-Domains herstellen muss, kann das Vorverbinden aller Verbindungen kontraproduktiv sein. Der `<link rel="preconnect">`-Hinweis sollte am besten nur für die kritischsten Verbindungen verwendet werden. Für die anderen verwenden Sie einfach `<link rel="dns-prefetch">`, um Zeit bei dem ersten Schritt — der DNS-Suche — zu sparen.
 
-Sie können Preconnect auch als HTTP-`Link`-Header implementieren, zum Beispiel:
+Sie können auch Preconnect als HTTP-`Link`-Header implementieren, zum Beispiel:
 
 ```http
 Link: <https://example.com>; rel="preconnect"
@@ -54,9 +54,9 @@ Link: <https://example.com>; rel="preconnect"
 
 ### `<link rel="dns-prefetch">`
 
-[`<link rel="dns-prefetch">`](/de/docs/Web/HTML/Reference/Attributes/rel/dns-prefetch) bietet einen Hinweis für Browser, dass der Benutzer voraussichtlich Ressourcen vom Ursprung der angegebenen Ressource benötigt und daher der Browser die Leistung verbessern kann, indem er vorsorglich eine DNS-Auflösung für diesen Ursprung durchführt. Es ist identisch zu `<link rel="preconnect">`, außer dass es nur den DNS-Teil abwickelt.
+[`<link rel="dns-prefetch">`](/de/docs/Web/HTML/Reference/Attributes/rel/dns-prefetch) bietet einen Hinweis für Browser, dass der Benutzer wahrscheinlich Ressourcen vom Ursprung der angegebenen Ressource benötigt, und daher könnte der Browser die Leistung verbessern, indem er vorzeitig die DNS-Auflösung für diesen Ursprung durchführt. Es ist identisch mit `<link rel="preconnect">`, außer dass es nur den DNS-Teil behandelt.
 
-Auch hier ist die Browserunterstützung weit verbreitet, und es hat keinen Vorteil bei gleichursprünglichen Anfragen, da die Verbindung bereits offen ist.
+Auch hier ist die Unterstützung von Browsern weit verbreitet, und es hat keinen Vorteil bei Anfragen gleichen Ursprungs, da die Verbindung bereits offen ist.
 
 Zum Beispiel:
 
@@ -65,11 +65,11 @@ Zum Beispiel:
 ```
 
 > [!NOTE]
-> Weitere Details finden Sie unter [Verwendung von dns-prefetch](/de/docs/Web/Performance/Guides/dns-prefetch).
+> Sehen Sie [Verwendung von dns-prefetch](/de/docs/Web/Performance/Guides/dns-prefetch) für mehr Details.
 
 ### `<link rel="preload">`
 
-[`<link rel="preload">`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) gibt Browsern einen Hinweis, welche Ressourcen auf _der aktuellen Seite_ von hoher Priorität sind, damit sie mit dem Herunterladen beginnen, sobald sie das {{htmlelement("link")}}-Element im {{htmlelement("head")}} der Seite sehen.
+[`<link rel="preload">`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) bietet einen Hinweis für Browser, welche Ressourcen auf _der aktuellen Seite_ hohe Priorität haben, damit sie frühzeitig mit dem Herunterladen beginnen können, wenn sie das {{htmlelement("link")}}-Element(e) im {{htmlelement("head")}} der Seite sehen.
 
 Zum Beispiel:
 
@@ -84,19 +84,19 @@ Zum Beispiel:
   crossorigin />
 ```
 
-Das Ergebnis wird in einem pro-Dokument Arbeitsspeicher-Cache gespeichert. Wenn Sie etwas vorladen, das Ihre aktuelle Seite nicht als Subressource verwendet, ist es im Allgemeinen eine Verschwendung von Ressourcen, obwohl das Ergebnis den HTTP-Cache bevölkern kann, wenn die Header es zulassen.
+Das Ergebnis wird in einem pro Dokument bestehenden In-Memory-Cache gehalten. Wenn Sie etwas vorladen, das Ihre aktuelle Seite nicht als Subressource nutzt, ist das im Allgemeinen Ressourcenverschwendung, obwohl das Ergebnis möglicherweise den HTTP-Cache auffüllt, wenn die Header es zulassen.
 
-Sie können Preload auch als HTTP-`Link`-Header implementieren, zum Beispiel:
+Sie können auch Preload als HTTP-`Link`-Header implementieren, zum Beispiel:
 
 ```http
 Link: <https://www.example.com/fonts/cicle_fina-webfont.woff2>; rel="preload"
 ```
 
-Die Browserunterstützung für `<link rel="preload">`/`<link rel="modulepreload">` ist in modernen Browsern weit verbreitet.
+Die Unterstützung von Browsern für `<link rel="preload">`/`<link rel="modulepreload">` ist in modernen Browsern weit verbreitet.
 
 ### `<link rel="modulepreload">`
 
-[`<link rel="modulepreload">`](/de/docs/Web/HTML/Reference/Attributes/rel/modulepreload) gibt Browsern einen Hinweis, welche JavaScript-Module auf _der aktuellen Seite_ von hoher Priorität sind, sodass sie frühzeitig mit dem Herunterladen beginnen können.
+[`<link rel="modulepreload">`](/de/docs/Web/HTML/Reference/Attributes/rel/modulepreload) bietet einen Hinweis für Browser, welche JavaScript-Module auf _der aktuellen Seite_ hohe Priorität haben, damit sie frühzeitig mit dem Herunterladen beginnen können.
 
 Zum Beispiel:
 
@@ -104,15 +104,15 @@ Zum Beispiel:
 <link rel="modulepreload" href="main.js" />
 ```
 
-Es ist eine spezialisierte Version von `<link rel="preload">` für [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules) und funktioniert im Wesentlichen auf die gleiche Weise. Es gibt jedoch einige Unterschiede:
+Es ist eine spezialisierte Version von `<link rel="preload">` für [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules) und funktioniert im Wesentlichen genauso. Es gibt jedoch einige Unterschiede:
 
-- Der Browser weiß, dass die Ressource ein JavaScript-Modul ist, da das `as`-Attribut nicht benötigt wird, und er kann die korrekten Anmeldemoden verwenden, um Doppelfetching zu vermeiden.
-- Anstatt es einfach herunterzuladen und im Cache zu speichern, lädt der Browser es herunter, parst es dann und kompiliert es direkt in die In-Memory-Modulkarte.
-- Der Browser kann das Gleiche auch automatisch für Modulabhängigkeiten tun.
+- Der Browser weiß, dass die Ressource ein JavaScript-Modul ist, da das `as`-Attribut nicht benötigt wird, und er kann die richtigen Anmeldemodi verwenden, um Doppelabrufe zu vermeiden.
+- Anstatt es nur herunterzuladen und im Cache zu speichern, lädt der Browser es herunter, parst es und kompiliert es direkt in die In-Memory-Modulkarte.
+- Der Browser kann dasselbe auch automatisch für Modulpakete tun.
 
 ### `<link rel="prefetch">`
 
-[`<link rel="prefetch">`](/de/docs/Web/HTML/Reference/Attributes/rel/prefetch) bietet einen Hinweis für Browser, dass der Benutzer voraussichtlich die Zielressource für zukünftige Navigationen benötigt und daher der Browser die Benutzererfahrung verbessern kann, indem er die Ressource vorsorglich abruft und im Cache speichert. `<link rel="prefetch">` wird für gleichseitige Navigationsressourcen oder für Subressourcen verwendet, die von gleichseitigen Seiten verwendet werden.
+[`<link rel="prefetch">`](/de/docs/Web/HTML/Reference/Attributes/rel/prefetch) bietet einen Hinweis für Browser, dass der Benutzer die Zielressource für zukünftige Navigationen wahrscheinlich benötigt, und daher kann der Browser die Benutzererfahrung wahrscheinlich verbessern, indem er die Ressource vorab abruft und im Cache speichert. `<link rel="prefetch">` wird für gleichseitige Navigationen oder für Subressourcen verwendet, die von gleichseitigen Seiten genutzt werden.
 
 Zum Beispiel:
 
@@ -120,38 +120,35 @@ Zum Beispiel:
 <link rel="prefetch" href="main.js" />
 ```
 
-Prefetching kann verwendet werden, um sowohl HTML als auch Subressourcen für eine mögliche nächste Navigation zu holen. Ein häufiger Anwendungsfall ist eine einfache Website-Landingpage, die "schwerwiegendere" Ressourcen abruft, die vom Rest der Seite verwendet werden.
+Prefetching kann verwendet werden, um sowohl HTML als auch Subressourcen für eine mögliche nächste Navigation abzurufen. Ein häufiges Anwendungsbeispiel ist, eine einfache Website-Landingpage zu haben, die schwergewichtigere Ressourcen des restlichen Außenlebens der Website abruft.
 
 ```html
 <link rel="prefetch" href="/app/style.css" />
 <link rel="prefetch" href="/landing-page" />
 ```
 
-Das Ergebnis wird im HTTP-Cache auf der Festplatte gespeichert. Deshalb ist es nützlich für das Vorabrufen von Subressourcen, auch wenn sie nicht von der aktuellen Seite verwendet werden. Sie könnten es auch verwenden, um das nächste Dokument vorzuladen, das der Benutzer wahrscheinlich auf der Seite besuchen wird. Sie müssen jedoch vorsichtig mit den Headern sein — zum Beispiel könnten bestimmte [Cache-Control](/de/docs/Web/HTTP/Reference/Headers/Cache-Control)-Header das Vorrufen blockieren (zum Beispiel `no-cache` oder `no-store`).
+Das Ergebnis wird im HTTP-Cache auf der Festplatte gespeichert. Daher ist es nützlich für die Vorabladen von Subressourcen, selbst wenn sie nicht von der aktuellen Seite verwendet werden. Sie könnten es auch verwenden, um das nächste Dokument vorzusehen, das der Benutzer möglicherweise auf der Website besucht. Allerdings müssen Sie aufgrund dieser Eigenschaft vorsichtig mit den Headern sein — zum Beispiel könnten bestimmte [Cache-Control](/de/docs/Web/HTTP/Reference/Headers/Cache-Control) Header das Prefetching blockieren (zum Beispiel `no-cache` oder `no-store`).
 
-Viele Browser implementieren mittlerweile eine Form von [Cache-Partitionierung](https://developer.chrome.com/blog/http-cache-partitioning), die `<link rel="prefetch">` unbrauchbar macht für Ressourcen, die für die Verwendung durch verschiedene Top-Level-Seiten gedacht sind. Dies schließt das Hauptdokument ein, wenn es plattformübergreifend navigiert wird. Zum Beispiel wäre das folgende Prefetch:
+Viele Browser implementieren jetzt eine Form der [Cache-Partitionierung](https://developer.chrome.com/blog/http-cache-partitioning), die `<link rel="prefetch">` für Ressourcen, die für die Nutzung durch verschiedene oberste Seiten gedacht sind, unbrauchbar macht. Dies schließt das Hauptdokument beim Navigieren seitenübergreifend ein. Das folgende Prefetch-Beispiel wäre zum Beispiel nicht von `https://aggregator.example/` erreichbar:
 
 ```html
 <link rel="prefetch" href="https://news.example/article" />
 ```
 
-nicht von `https://aggregator.example/` aus zugänglich.
+> [!NOTE]
+> `<link rel="prefetch">` ist funktional gleichbedeutend mit einem [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf, bei dem eine `priority: "low"`-Option gesetzt ist, außer dass die erstere im Allgemeinen eine noch niedrigere Priorität hat, und sie wird einen [`Sec-Purpose: prefetch`](/de/docs/Web/HTTP/Reference/Headers/Sec-Purpose)-Header in der Anfrage gesetzt haben.
 
 > [!NOTE]
-> `<link rel="prefetch">` ist funktional äquivalent zu einem [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf mit der Option `priority: "low"`, mit der Ausnahme, dass das erste im Allgemeinen eine noch niedrigere Priorität hat und es wird ein [`Sec-Purpose: prefetch`](/de/docs/Web/HTTP/Reference/Headers/Sec-Purpose)-Header an der Anfrage gesetzt.
-
-> [!NOTE]
-> Die Abrufanfrage für eine `prefetch`-Operation ergibt eine HTTP-Anfrage, die den HTTP-Header [`Sec-Purpose: prefetch`](/de/docs/Web/HTTP/Reference/Headers/Sec-Purpose) enthält. Ein Server könnte diesen Header verwenden, um die Cache-Timeouts für die Ressourcen zu ändern oder eine spezielle Behandlung durchzuführen.
-> Die Anfrage wird auch den {{HTTPHeader("Sec-Fetch-Dest")}}-Header enthalten, wobei der Wert auf `empty` gesetzt ist.
-> Der {{HTTPHeader("Accept")}}-Header in der Anfrage entspricht dem für normale Navigationsanfragen verwendeten Wert. Dies ermöglicht es dem Browser, die übereinstimmenden gecachten Ressourcen nach der Navigation zu finden.
-> Wenn eine Antwort zurückgegeben wird, wird sie mit der Anfrage im HTTP-Cache zwischengespeichert.
+> Die Fetch-Anfrage für eine `prefetch`-Operation führt zu einer HTTP-Anfrage, die den HTTP-Header [`Sec-Purpose: prefetch`](/de/docs/Web/HTTP/Reference/Headers/Sec-Purpose) enthält. Ein Server könnte diesen Header verwenden, um die Cache-Zeitüberschreitungen für die Ressourcen zu ändern oder eine andere spezielle Behandlung durchzuführen. Die Anfrage wird auch den {{HTTPHeader("Sec-Fetch-Dest")}}-Header mit dem Wert `empty` enthalten.
+> Der {{HTTPHeader("Accept")}}-Header in der Anfrage wird mit dem Wert übereinstimmen, der für normale Navigationsanfragen verwendet wird. Dies ermöglicht es dem Browser, die passenden gecachten Ressourcen nach der Navigation zu finden.
+> Wenn eine Antwort zurückgegeben wird, wird sie zusammen mit der Anfrage im HTTP-Cache gespeichert.
 
 ### `<link rel="prerender">` {{deprecated_inline}}{{non-standard_inline}}
 
 > [!NOTE]
-> Diese Technologie war nur jemals in Chrome verfügbar und ist jetzt veraltet. Stattdessen sollten Sie die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) verwenden, die diese ersetzt.
+> Diese Technologie war ausschließlich in Chrome verfügbar und ist jetzt veraltet und [führt keine Prerendering mehr wie der Name vermuten lässt](https://developer.chrome.com/blog/nostate-prefetch). Stattdessen sollten Sie die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) verwenden, die diese Funktion übertrifft.
 
-[`<link rel="prerender">`](/de/docs/Web/HTML/Reference/Attributes/rel/prerender) bietet einen Hinweis für Browser, dass der Benutzer die Zielressource für die nächste Navigation benötigen könnte und daher der Browser die Leistung verbessern kann, indem er die Ressource vorab rendert. `prerender` wird für zukünftige Navigationen verwendet, nur gleichseitig, und ergibt daher Sinn für Mehrseitenanwendungen (MPAs), nicht für Einzelanwendungen (SPAs).
+[`<link rel="prerender">`](/de/docs/Web/HTML/Reference/Attributes/rel/prerender) bietet einen Hinweis für Browser, dass der Benutzer die Zielressource für die nächste Navigation möglicherweise benötigt und daher die Browserleistung wahrscheinlich durch Prerendering der Ressource verbessert werden kann. `prerender` wird für zukünftige Navigationen nur mit gleicher Seite verwendet und eignet sich daher für Mehrseitenanwendungen (MPAs), nicht für Einzelseitenanwendungen (SPAs).
 
 Zum Beispiel:
 
@@ -159,26 +156,26 @@ Zum Beispiel:
 <link rel="prerender" href="/next-page" />
 ```
 
-Es wird das referenzierte Dokument abrufen, dann statisch auffindbare verlinkte Ressourcen abrufen und diese auch holen, wobei das Ergebnis im HTTP-Cache auf der Festplatte mit einem Timeout von fünf Minuten gespeichert wird. Die Ausnahme sind Subressourcen, die über JavaScript geladen werden — es findet diese nicht. Es hat auch andere Probleme — wie `<link rel="prefetch">` kann es auch durch [Cache-Control](/de/docs/Web/HTTP/Reference/Headers/Cache-Control)-Header blockiert werden und durch Browser-[Cache-Partitionierung](https://developer.chrome.com/blog/http-cache-partitioning) für Ressourcen, die für die Verwendung durch verschiedene Top-Level-Seiten gedacht sind, unbrauchbar gemacht werden.
+Es wird das referenzierte Dokument abrufen, dann alle statisch auffindbaren Ressourcen ebenfalls abrufen und sie speichern, wobei das Ergebnis im HTTP-Cache auf der Festplatte mit einem Zeitüberschreitung von fünf Minuten gespeichert wird. Die Ausnahme bilden Subressourcen, die über JavaScript geladen werden — diese werden nicht gefunden. Es hat auch andere Probleme — wie `<link rel="prefetch">` kann es auch durch [Cache-Control](/de/docs/Web/HTTP/Reference/Headers/Cache-Control)-Header blockiert werden, und durch [Cache-Partitionierung](https://developer.chrome.com/blog/http-cache-partitioning) unbrauchbar gemacht werden.
 
 ### Speculation Rules API
 
-Die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) wird verwendet, um eine Reihe von Regeln zu spezifizieren, die bestimmen, welche zukünftigen Dokumente vom Browser abgerufen oder vorgerendert werden sollen. Diese Regeln werden als JSON-Strukturen innerhalb von eingebetteten [`<script type="speculationrules">`](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules)-Elementen und externen Textdateien, die durch den {{httpheader("Speculation-Rules")}}-Antwortheader referenziert werden, angegeben.
+Die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) wird verwendet, um eine Reihe von Regeln festzulegen, die bestimmen, welche zukünftigen Dokumente von dem Browser vorgeladen oder prerendert werden sollen. Diese Regeln werden als JSON-Strukturen in Inline-`<script type="speculationrules">`](/de/docs/Web/HTML/Reference/Elements/script/type/speculationrules)-Elemente und externe Textdateien bereitgestellt, die von der {{httpheader("Speculation-Rules")}}-Antwort-Header referenziert werden.
 
 ## Wann sollten Sie jede Funktion verwenden?
 
-Die folgende Tabelle fasst die oben beschriebenen Funktionen zusammen und gibt Empfehlungen, wann jede von ihnen verwendet werden sollte.
+Die folgende Tabelle fasst die oben beschriebenen Funktionen zusammen und gibt Anweisungen, wann jede davon verwendet werden sollte.
 
-| Spekulative Ladefunktionen                                                               | Zweck                                                              | Wann verwenden                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`<link rel="preconnect">`](/de/docs/Web/HTML/Reference/Attributes/rel/preconnect)       | Aufwärmen von plattformübergreifenden Verbindungen                 | Verwenden Sie es für Ihre kritischsten plattformübergreifenden Verbindungen, um Leistungsverbesserungen beim Herstellen der Verbindung zu ermöglichen.                                                                                                                                                                                                                                                                                                                                                                   |
-| [`<link rel="dns-prefetch">`](/de/docs/Web/HTML/Reference/Attributes/rel/dns-prefetch)   | Aufwärmen von plattformübergreifenden Verbindungen                 | Verwenden Sie es für alle plattformübergreifenden Verbindungen, um kleine Verbesserungen der Leistung beim Herstellen der Verbindung zu ermöglichen.                                                                                                                                                                                                                                                                                                                                                                     |
-| [`<link rel="preload">`](/de/docs/Web/HTML/Reference/Attributes/rel/preload)             | Hochpriorisiertes Laden von Subressourcen der aktuellen Seite      | Verwenden Sie es, um hochpriorisierte Ressourcen auf der aktuellen Seite schneller zu laden, für strategische Leistungsverbesserungen. Laden Sie nicht alles vor, sonst sehen Sie keinen Nutzen. Es gibt auch einige andere interessante Anwendungen — siehe [Preload: What Is It Good For?](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/) auf Smashing Magazine (2016)                                                                                                                         |
-| [`<link rel="modulepreload">`](/de/docs/Web/HTML/Reference/Attributes/rel/modulepreload) | Hochpriorisiertes Laden von JavaScript-Modulen der aktuellen Seite | Verwenden Sie es, um hochpriorisierte JavaScript-Module vorab zu laden, für strategische Leistungsverbesserungen.                                                                                                                                                                                                                                                                                                                                                                                                        |
-| [`<link rel="prefetch">`](/de/docs/Web/HTML/Reference/Attributes/rel/prefetch)           | Vorab-Befüllung des HTTP-Caches                                    | Verwenden Sie es zum Vorabrufen von gleichseitigen zukünftigen Navigationsressourcen oder Subressourcen, die auf diesen Seiten verwendet werden. Verwendet den HTTP-Cache und hat daher eine Reihe von Problemen mit Dokumenten-Prefetches, wie beispielsweise das Potenzial, durch [Cache-Control](/de/docs/Web/HTTP/Reference/Headers/Cache-Control)-Header blockiert zu werden. Verwenden Sie die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) für Dokumenten-Prefetches, wo sie unterstützt wird. |
-| [`<link rel="prerender">`](/de/docs/Web/HTML/Reference/Attributes/rel/prerender)         | Vorbereitung für die nächste Navigation                            | Veraltet; es wird empfohlen, dies nicht zu verwenden. Verwenden Sie stattdessen, wo unterstützt, die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) prerender.                                                                                                                                                                                                                                                                                                                                          |
-| [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) prefetch                 | Vorbereitung für die nächste Navigation                            | Verwenden Sie es, um gleich- oder plattformübergreifende zukünftige Navigationsdokumente vorzuholen. Breite Nutzung wird empfohlen, wo es unterstützt wird; überprüfen Sie, dass die Seiten [sicher zum Vorabrufen](/de/docs/Web/API/Speculation_Rules_API#unsafe_prefetching) sind. Es behandelt keine Subressourcen-Prefetches; dafür müssen Sie `<link rel="prefetch">` verwenden.                                                                                                                                    |
-| [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) prerender                | Vorbereitung für die nächste Navigation                            | Verwenden Sie es, um gleichursprüngliche zukünftige Navigationsressourcen vorzubereiten, für beinahe sofortige Navigationen. Verwenden Sie es auf hochprioritären Seiten, wo unterstützt; überprüfen Sie, dass die Seiten [sicher zum Vorrendern](/de/docs/Web/API/Speculation_Rules_API#unsafe_prerendering) sind.                                                                                                                                                                                                      |
+| Funktionen der spekulativen Vorausladung                                                 | Zweck                                                  | Wann verwenden                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`<link rel="preconnect">`](/de/docs/Web/HTML/Reference/Attributes/rel/preconnect)       | Cross-Origin-Verbindungsaufbau                         | Verwenden Sie es für Ihre kritischsten Cross-Origin-Verbindungen, um Leistungsverbesserungen beim Verbindungsaufbau zu erzielen.                                                                                                                                                                                                                                                                                                                                                             |
+| [`<link rel="dns-prefetch">`](/de/docs/Web/HTML/Reference/Attributes/rel/dns-prefetch)   | Cross-Origin-Verbindungsaufbau                         | Verwenden Sie es für alle Ihre Cross-Origin-Verbindungen, um kleine Leistungsverbesserungen beim Verbindungsaufbau zu erzielen.                                                                                                                                                                                                                                                                                                                                                              |
+| [`<link rel="preload">`](/de/docs/Web/HTML/Reference/Attributes/rel/preload)             | Hochpriorität-Laden von aktuellen Seiten-Subressourcen | Verwenden Sie es, um hochpriorisierte Ressourcen schneller auf der aktuellen Seite zu laden, für strategische Leistungsverbesserungen. Laden Sie nicht alles vor, sonst sehen Sie keinen Nutzen. Es gibt auch einige andere interessante Anwendungsfälle — siehe [Preload: What Is It Good For?](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/) auf Smashing Magazine (2016)                                                                                         |
+| [`<link rel="modulepreload">`](/de/docs/Web/HTML/Reference/Attributes/rel/modulepreload) | Hochpriorität-Laden von aktuellen JavaScript-Modulen   | Verwenden Sie es, um hochpriorisierte JavaScript-Module für strategische Leistungsverbesserungen vorzuladen.                                                                                                                                                                                                                                                                                                                                                                                 |
+| [`<link rel="prefetch">`](/de/docs/Web/HTML/Reference/Attributes/rel/prefetch)           | Vorfüllung des HTTP-Caches                             | Verwenden Sie es, um gleichseitige zukünftige Navigationsressourcen oder Subressourcen, die auf diesen Seiten verwendet werden, vorzusegen. Verwendet den HTTP-Cache und hat daher eine Reihe von Problemen mit Dokumenteninhalten, wie z.B. ein potenzielles Blockieren durch [Cache-Control](/de/docs/Web/HTTP/Reference/Headers/Cache-Control)-Header. Verwenden Sie stattdessen die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) für Dokumenteninhalte, wo verfügbar. |
+| [`<link rel="prerender">`](/de/docs/Web/HTML/Reference/Attributes/rel/prerender)         | Vorbereitung für die nächste Navigation                | Veraltet; es wird nicht empfohlen, dies zu verwenden. Verwenden Sie stattdessen die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) für Prerendering, wenn diese verfügbar ist.                                                                                                                                                                                                                                                                                              |
+| [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) Prefetch                 | Vorbereitung für die nächste Navigation                | Verwenden Sie es, um gleich- oder seitenübergreifende zukünftige Navigationsdokumente vorzusehen. Eine breite Integration wird empfohlen, wo es unterstützt wird; Stellen Sie sicher, dass die Seiten [sicher vorgeladen werden können](/de/docs/Web/API/Speculation_Rules_API#unsafe_prefetching). Es handhabt keine Subressourceneinhalte; dafür müssen Sie `<link rel="prefetch">` verwenden.                                                                                             |
+| [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) Prerender                | Vorbereitung für die nächste Navigation                | Verwenden Sie es, um gleich-ursprüngliche zukünftige Navigationsressourcen vorzuladen, für nahezu sofortige Navigationen. Verwenden Sie es auf hochpriorisierten Seiten, wo es unterstützt wird; Stellen Sie sicher, dass die Seiten [sicher vorbereitet werden können](/de/docs/Web/API/Speculation_Rules_API#unsafe_prerendering).                                                                                                                                                         |
 
 ## Siehe auch
 

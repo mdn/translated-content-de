@@ -1,29 +1,29 @@
 ---
-title: CSSOM-Ansicht
+title: CSSOM view
 slug: Web/CSS/CSSOM_view
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 9f1ac4351350c32273d5e0501c2fb895d561a0e8
 ---
 
-Das **CSSOM-Ansicht**-Modul ermöglicht es Ihnen, die visuelle Ansicht eines Dokuments zu manipulieren. Dazu gehört, die Position der Layoutboxen eines Elements zu erhalten, die Breite oder Höhe des Ansichtsfensters durch Skript zu ermitteln und auch ein Element zu scrollen.
+Das **CSSOM view** Modul ermöglicht es Ihnen, die visuelle Ansicht eines Dokuments zu manipulieren, einschließlich der Ermittlung der Position von Element-Layoutboxen, der Ermittlung der Breite oder Höhe des Ansichtsfensters durch Skript und dem Scrollen eines Elements.
 
 ## Referenz
 
 ### Ereignisse
 
-- [`Window`](/de/docs/Web/API/Window)-Ereignisse:
+- [`Window`](/de/docs/Web/API/Window) Ereignisse:
   - [`resize`](/de/docs/Web/API/Window/resize_event)
-- [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Ereignisse:
+- [`VisualViewport`](/de/docs/Web/API/VisualViewport) Ereignisse:
   - [`resize`](/de/docs/Web/API/VisualViewport/resize_event)
   - [`scroll`](/de/docs/Web/API/VisualViewport/scroll_event)
   - [`scrollend`](/de/docs/Web/API/VisualViewport/scrollend_event)
-- [`Document`](/de/docs/Web/API/Document)-Ereignisse
+- [`Document`](/de/docs/Web/API/Document) Ereignisse
   - [`scroll`](/de/docs/Web/API/Document/scroll_event)
   - [`scrollend`](/de/docs/Web/API/Document/scrollend_event)
-- [`Element`](/de/docs/Web/API/Element)-Ereignisse
+- [`Element`](/de/docs/Web/API/Element) Ereignisse
   - [`scroll`](/de/docs/Web/API/Element/scroll_event)
   - [`scrollend`](/de/docs/Web/API/Element/scrollend_event)
-- [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Ereignisse
+- [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) Ereignisse
   - [`change`](/de/docs/Web/API/MediaQueryList/change_event)
 
 ### Glossar
@@ -114,20 +114,23 @@ Dieses Modul fügt Schnittstellen, die in anderen Spezifikationen definiert sind
 
 Dieses Modul definiert geometrische Hilfsmethoden, die auf die Schnittstellen [`Text`](/de/docs/Web/API/Text), [`Element`](/de/docs/Web/API/Element), [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement) und [`Document`](/de/docs/Web/API/Document) angewendet werden. Diese `GeometryUtils`-Funktionen sind in keinem Browser implementiert.
 
-## Leitfaden
+## Leitfäden
 
 - [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)
-  - : Die Koordinatensysteme, die verwendet werden, um eine Position in einem Anzeige-Kontext wie einem Fenster auf einem Monitor, einem Viewport auf einem mobilen Gerät oder einer Position auf einem Blatt Papier beim Drucken anzugeben.
+  - : Die Koordinatensysteme, die verwendet werden, um eine Position in einem Anzeigekontext wie einem Fenster auf einem Monitor, einem Viewport auf einem mobilen Gerät oder einer Position auf einem Blatt Papier beim Drucken anzugeben.
 - [Viewport-Konzepte](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts)
-  - : Das Konzept des Viewports — was es ist, seine Auswirkungen im Hinblick auf CSS, SVG und mobile Geräte — und der Unterschied zwischen dem visuellen Viewport und dem Layout-Viewport.
+  - : Das Konzept des Viewports — was er ist, seine Auswirkungen im Hinblick auf CSS, SVG und mobile Geräte — und der Unterschied zwischen dem visuellen Viewport und dem Layout-Viewport.
 
 ## Verwandte Konzepte
 
 - {{cssxref("zoom")}}
-- {{Glossary("CSSOM", "CSSOM")}}
+- {{htmlelement("meta")}}
+
+### Glossarbegriffe und Definitionen
+
+- {{Glossary("CSSOM", "CSS-Objektmodell (CSSOM)")}}
 - {{Glossary("CSS_pixel", "CSS-Pixel")}}
 - {{Glossary("Scroll_container", "Scroll-Container")}}
-- {{htmlelement("meta")}}
 
 ## Spezifikationen
 
@@ -136,6 +139,7 @@ Dieses Modul definiert geometrische Hilfsmethoden, die auf die Schnittstellen [`
 ## Siehe auch
 
 - [CSS-Objektmodell (CSSOM)](/de/docs/Web/API/CSS_Object_Model) API
-- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow)-Modul
-- [CSS-Overscroll-Verhalten](/de/docs/Web/CSS/CSS_overscroll_behavior)-Modul
-- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap)-Modul
+- [CSS-Viewport](/de/docs/Web/CSS/CSS_viewport) Modul
+- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS-Overscroll-Verhalten](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul

@@ -2,190 +2,192 @@
 title: Schreiben von WebSocket-Client-Anwendungen
 slug: Web/API/WebSockets_API/Writing_WebSocket_client_applications
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 20c3765ca2538a98ffef564c7eb87df43e2cef94
 ---
 
-{{DefaultAPISidebar("WebSockets API")}} {{AvailableInWorkers}}
+{{DefaultAPISidebar("WebSockets API")}}
 
-WebSocket-Client-Anwendungen verwenden die [WebSocket API](/de/docs/Web/API/WebSockets_API), um mit [WebSocket-Servern](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers) über das WebSocket-Protokoll zu kommunizieren.
+In diesem Leitfaden führen wir Sie durch die Implementierung einer auf WebSockets basierenden Ping-Anwendung. In dieser Anwendung sendet der Client jede Sekunde eine "ping"-Nachricht an den Server, und der Server antwortet mit einer "pong"-Nachricht. Der Client hört auf "pong"-Nachrichten und protokolliert diese, um zu verfolgen, wie viele Nachrichten ausgetauscht wurden.
+
+Obwohl dies eine ziemlich minimalistische Anwendung ist, deckt sie die grundlegenden Punkte ab, die beim Schreiben eines WebSocket-Clients zu beachten sind.
+
+Das vollständige Beispiel finden Sie unter [https://github.com/mdn/dom-examples/tree/main/websockets](https://github.com/mdn/dom-examples/tree/main/websockets). Die Serverseite ist in [Deno](https://deno.com/) geschrieben, daher müssen Sie dies zuerst installieren, wenn Sie das Beispiel lokal ausführen möchten.
+
+## Erstellen eines `WebSocket` Objekts
+
+Um mit dem WebSocket-Protokoll zu kommunizieren, müssen Sie ein [`WebSocket`](/de/docs/Web/API/WebSocket) Objekt erstellen. Sobald Sie dieses Objekt erstellen, versucht es, sich mit dem angegebenen Server zu verbinden.
+
+```js
+const wsUri = "ws://127.0.0.1/";
+const websocket = new WebSocket(wsUri);
+```
+
+Der `WebSocket`-Konstruktor erfordert ein obligatorisches Argument – die URL des WebSocket-Servers, mit dem eine Verbindung hergestellt werden soll. In diesem Fall verwenden wir die localhost-Adresse, da wir den Server lokal ausführen.
 
 > [!NOTE]
-> Die Beispielausschnitte in diesem Artikel stammen von unserem WebSocket-Chat-Client/Server-Beispiel.
-> [Sehen Sie sich den Code an](https://github.com/mdn/samples-server/tree/master/s/websocket-chat).
+> In diesem Beispiel verwenden wir das `ws`-Protokoll für die Verbindung, da wir uns im Beispiel mit localhost verbinden. In einer echten Anwendung sollten Webseiten über HTTPS bereitgestellt werden und die WebSocket-Verbindung sollte `wss` als Protokoll verwenden.
 
-## Erstellen eines WebSocket-Objekts
+Der Konstruktor nimmt ein weiteres optionales Argument [`protocols`](/de/docs/Web/API/WebSocket/WebSocket#protocols), das es einem einzelnen Server ermöglicht, mehrere Subprotokolle zu implementieren. In unserem Beispiel verwenden wir diese Funktion nicht.
 
-Um über das WebSocket-Protokoll zu kommunizieren, müssen Sie ein [`WebSocket`](/de/docs/Web/API/WebSocket)-Objekt erstellen; dies wird automatisch versuchen, die Verbindung zum Server zu öffnen.
+Der Konstruktor wirft einen `SecurityError`, wenn das Ziel den Zugriff nicht erlaubt. Dies kann passieren, wenn Sie versuchen, eine unsichere Verbindung zu verwenden (die meisten {{Glossary("user_agent", "User Agents")}} erfordern jetzt eine sichere Verbindung für alle WebSocket-Verbindungen, es sei denn, sie befinden sich auf demselben Gerät oder möglicherweise im selben Netzwerk).
 
-Der WebSocket-Konstruktor akzeptiert einen erforderlichen und einen optionalen Parameter:
+## Lauschen auf das `open` Ereignis
+
+Das Erstellen einer `WebSocket`-Instanz startet den Prozess der Herstellung einer Verbindung zum Server. Sobald die Verbindung hergestellt ist, wird das [`open`](/de/docs/Web/API/WebSocket/open_event) Ereignis ausgelöst, und ab diesem Zeitpunkt kann der Socket Daten übertragen.
+
+Im folgenden Beispielcode senden wir, wenn das `open`-Ereignis ausgelöst wird, jede Sekunde eine "ping"-Nachricht an den Server, unter Verwendung der [`Window.setInterval()`](/de/docs/Web/API/Window/setInterval) API:
 
 ```js
-webSocket = new WebSocket(url, protocols);
+websocket.addEventListener("open", () => {
+  log("CONNECTED");
+  pingInterval = setInterval(() => {
+    log(`SENT: ping: ${counter}`);
+    websocket.send("ping");
+  }, 1000);
+});
 ```
 
-- `url`
-  - : Die URL, zu der die Verbindung hergestellt werden soll; dies sollte die URL sein, auf die der WebSocket-Server antworten wird.
-    Dies sollte das URL-Schema `wss://` verwenden, obwohl einige Software möglicherweise erlaubt, die unsichere `ws://` für eine lokale Verbindung zu verwenden.
-    Relative URL-Werte und `https://` und `http://` Schemata sind ebenfalls in den [neuesten Browserversionen](/de/docs/Web/API/WebSocket/WebSocket#browser_compatibility) erlaubt.
-- `protocols` {{optional_inline}}
-  - : Entweder ein einzelner Protokoll-String oder ein Array von Protokoll-Strings.
-    Diese Strings werden verwendet, um Subprotokolle anzugeben, sodass ein einzelner Server mehrere WebSocket-Subprotokolle implementieren kann (zum Beispiel könnten Sie möchten, dass ein Server in der Lage ist, verschiedene Arten von Interaktionen basierend auf dem angegebenen `protocol` zu handhaben).
-    Wenn Sie keinen Protokoll-String angeben, wird ein leerer String angenommen.
+## Lauschen auf Fehler
 
-Der Konstruktor löst einen `SecurityError` aus, wenn das Ziel keinen Zugriff erlaubt.
-Dies kann passieren, wenn Sie versuchen, eine unsichere Verbindung zu verwenden (die meisten {{Glossary("user_agent", "User Agents")}} erfordern jetzt eine sichere Verbindung für alle WebSocket-Verbindungen, es sei denn, sie befinden sich auf demselben Gerät oder möglicherweise im selben Netzwerk).
+Wenn beim Herstellen der Verbindung oder zu irgendeinem Zeitpunkt nach deren Herstellung ein Fehler auftritt, wird das [`error`](/de/docs/Web/API/WebSocket/error_event) Ereignis ausgelöst.
 
-### Verbindungsfehler
-
-Wenn ein Fehler beim Versuch auftritt, die Verbindung herzustellen, wird zuerst ein [`error` Event](/de/docs/Web/API/WebSocket/error_event) an das [`WebSocket`](/de/docs/Web/API/WebSocket)-Objekt gesendet (wodurch alle Handler aufgerufen werden), gefolgt von einem [`close` Event](/de/docs/Web/API/WebSocket/close_event), das den Grund für das Schließen der Verbindung angibt.
-
-Der Browser kann auch eine detailliertere Fehlermeldung sowie einen Schließcode gemäß [RFC 6455, Abschnitt 7.4](https://datatracker.ietf.org/doc/html/rfc6455#section-7.4) über das [`CloseEvent`](/de/docs/Web/API/CloseEvent) ausgeben.
-
-### Beispiele
-
-Dieses einfache Beispiel erstellt einen neuen WebSocket und verbindet sich mit dem Server unter `wss://www.example.com/socketserver`.
-Ein benutzerdefiniertes Protokoll mit dem Namen "protocolOne" wird in der Anfrage für den Socket in diesem Beispiel angegeben, obwohl dies weggelassen werden kann.
+Unsere Anwendung führt bei einem Fehler nichts Besonderes aus, aber wir protokollieren ihn:
 
 ```js
-const exampleSocket = new WebSocket(
-  "wss://www.example.com/socketserver",
-  "protocolOne",
-);
+websocket.addEventListener("error", (e) => {
+  log(`ERROR`);
+});
 ```
 
-Beim Zurückkehren ist [`exampleSocket.readyState`](/de/docs/Web/API/WebSocket/readyState) `CONNECTING`.
-Der `readyState` wird `OPEN`, sobald die Verbindung bereit ist, Daten zu übertragen.
+Bei einem Fehler wird die Verbindung geschlossen und das `close`-Ereignis wird ausgelöst.
 
-Wenn Sie eine Verbindung öffnen möchten und flexibel bezüglich der unterstützten Protokolle sind, können Sie ein Array von Protokollen angeben:
+## Nachrichten senden
+
+Wir haben bereits gesehen, dass wir, sobald die Verbindung hergestellt ist, die [`send()`](/de/docs/Web/API/WebSocket/send) Methode verwenden können, um Nachrichten an den Server zu senden:
 
 ```js
-const exampleSocket = new WebSocket("wss://www.example.com/socketserver", [
-  "protocolOne",
-  "protocolTwo",
-]);
+websocket.addEventListener("open", () => {
+  log("CONNECTED");
+  pingInterval = setInterval(() => {
+    log(`SENT: ping: ${counter}`);
+    websocket.send("ping");
+  }, 1000);
+});
 ```
 
-Sobald die Verbindung hergestellt ist (also `readyState` `OPEN` ist), wird Ihnen [`exampleSocket.protocol`](/de/docs/Web/API/WebSocket/protocol) mitteilen, welches Protokoll der Server ausgewählt hat.
+In unserem Beispiel senden wir Text, aber Sie können auch Binärdaten als [`Blob`](/de/docs/Web/API/Blob), {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}}, oder {{jsxref("DataView")}} senden.
 
-Die Herstellung einer WebSocket-Verbindung basiert auf dem [HTTP Upgrade-Mechanismus](/de/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism), sodass die Anforderung für das Protokoll-Upgrade implizit ist, wenn wir den Webserver als `ws://www.example.com` oder `wss://www.example.com` ansprechen.
-
-## Senden von Daten an den Server
-
-Sobald Sie Ihre Verbindung geöffnet haben, können Sie beginnen, Daten an den Server zu übertragen.
-Dazu rufen Sie bei jeder Nachricht, die Sie senden möchten, die Methode [`send()`](/de/docs/Web/API/WebSocket/send) des `WebSocket`-Objekts auf:
+Ein häufiger Ansatz ist die Verwendung von {{Glossary("JSON", "JSON")}}, um serialisierte JavaScript-Objekte als Text zu senden. Zum Beispiel könnte unser Client anstelle des einfachen Sendens der Textnachricht "ping" ein serialisiertes Objekt senden, das die Anzahl der bisher ausgetauschten Nachrichten enthält:
 
 ```js
-exampleSocket.send("Here's some text that the server is urgently awaiting!");
-```
-
-Sie können Daten als String, [`Blob`](/de/docs/Web/API/Blob) oder {{jsxref("ArrayBuffer")}} senden.
-
-Da das Herstellen einer Verbindung asynchron ist und zu Fehlern führen kann, gibt es keine Garantie dafür, dass der Aufruf der `send()`-Methode unmittelbar nach dem Erstellen eines WebSocket-Objekts erfolgreich ist.
-Wir können zumindest sicher sein, dass das Senden von Daten nur stattfindet, sobald eine Verbindung hergestellt ist, indem wir einen [`onopen`](/de/docs/Web/API/WebSocket/open_event)-Event-Handler definieren, um die Arbeit zu erledigen:
-
-```js
-exampleSocket.onopen = (event) => {
-  exampleSocket.send("Here's some text that the server is urgently awaiting!");
+const message = {
+  iteration: counter,
+  content: "ping",
 };
+websocket.send(JSON.stringify(message));
 ```
 
-### Verwendung von JSON zum Übertragen von Objekten
+Die `send()` Methode ist asynchron: Sie wartet nicht darauf, dass die Daten übertragen werden, bevor sie zum Aufrufer zurückkehrt. Sie fügt die Daten nur ihrem internen Puffer hinzu und beginnt mit dem Übertragungsprozess. Die [`WebSocket.bufferedAmount`](/de/docs/Web/API/WebSocket/bufferedAmount) Eigenschaft repräsentiert die Anzahl der Bytes, die noch nicht übertragen wurden. Beachten Sie, dass das WebSockets-Protokoll {{Glossary("UTF-8", "UTF-8")}} verwendet, um Text zu codieren, sodass `bufferedAmount` basierend auf der UTF-8-Codierung der gepufferten Textdaten berechnet wird.
 
-Eine praktische Sache, die Sie tun können, ist die Verwendung von {{Glossary("JSON", "JSON")}}, um recht komplexe Daten an den Server zu senden.
-Ein Chat-Programm könnte zum Beispiel mit einem Server über ein Protokoll interagieren, das mit Paketen von in JSON gekapselten Daten implementiert ist:
+## Nachrichten empfangen
+
+Um Nachrichten vom Server zu empfangen, lauschen wir auf das [`message`](/de/docs/Web/API/WebSocket/message_event) Ereignis.
+
+Unser Nachrichtenereignishandler protokolliert die empfangene Nachricht und erhöht unsere Zählung der Anzahl der Nachrichten, die ausgetauscht wurden:
 
 ```js
-// Send text to all users through the server
-function sendText() {
-  // Construct a msg object containing the data the server needs to process the message from the chat client.
-  const msg = {
-    type: "message",
-    text: document.getElementById("text").value,
-    id: clientID,
-    date: Date.now(),
-  };
-
-  // Send the msg object as a JSON-formatted string.
-  exampleSocket.send(JSON.stringify(msg));
-
-  // Blank the text input element, ready to receive the next line of text from the user.
-  document.getElementById("text").value = "";
-}
+websocket.addEventListener("message", (e) => {
+  log(`RECEIVED: ${e.data}: ${counter}`);
+  counter++;
+});
 ```
 
-## Empfangen von Nachrichten vom Server
+Der Server kann auch Binärdaten senden, die dem Client als [`Blob`](/de/docs/Web/API/Blob) oder als {{jsxref("ArrayBuffer")}}, basierend auf dem Wert der [`WebSocket.binaryType`](/de/docs/Web/API/WebSocket/binaryType) Eigenschaft, angezeigt werden.
 
-WebSockets ist eine ereignisgesteuerte API; wenn Nachrichten empfangen werden, wird ein `message`-Ereignis an das `WebSocket`-Objekt gesendet. Um es zu verarbeiten, fügen Sie einen Event-Listener für das `message`-Event hinzu oder verwenden Sie den [`onmessage`](/de/docs/Web/API/WebSocket/message_event)-Event-Handler.
-Um mit dem Abhören von eingehenden Daten zu beginnen, können Sie etwas wie Folgendes tun:
+Wie wir beim Senden von Nachrichten gesehen haben, kann der Server auch JSON-Strings senden, die der Client dann in ein Objekt parsen kann:
 
 ```js
-exampleSocket.onmessage = (event) => {
-  console.log(event.data);
-};
+websocket.addEventListener("message", (e) => {
+  const message = JSON.parse(e.data);
+  log(`RECEIVED: ${message.iteration}: ${message.content}`);
+  counter++;
+});
 ```
 
-### Empfangen und Interpretieren von JSON-Objekten
+## Umgang mit Verbindungsunterbrechungen
 
-Betrachten wir die Chat-Client-Anwendung, die in [Verwendung von JSON zum Übertragen von Objekten](#verwendung_von_json_zum_übertragen_von_objekten) zuvor erwähnt wurde. Es gibt verschiedene Arten von Datenpaketen, die der Client empfangen könnte, wie etwa:
+Wenn die Verbindung geschlossen wird, entweder weil der Client oder der Server sie geschlossen hat oder weil ein Fehler aufgetreten ist, wird das [`close`](/de/docs/Web/API/WebSocket/close_event) Ereignis ausgelöst.
 
-- Login-Handshake
-- Nachrichtentext
-- Benutzerlisten-Updates
-
-Der Code, der diese eingehenden Nachrichten interpretiert, könnte wie folgt aussehen:
+Unsere Anwendung lauscht auf das `close` Ereignis und bereinigt den Intervall-Timer, wenn es ausgelöst wird:
 
 ```js
-exampleSocket.onmessage = (event) => {
-  const f = document.getElementById("chat-box").contentDocument;
-  let text = "";
-  const msg = JSON.parse(event.data);
-  const time = new Date(msg.date);
-  const timeStr = time.toLocaleTimeString();
+websocket.addEventListener("close", () => {
+  log("DISCONNECTED");
+  clearInterval(pingInterval);
+});
+```
 
-  switch (msg.type) {
-    case "id":
-      clientID = msg.id;
-      setUsername();
-      break;
-    case "username":
-      text = `User <em>${msg.name}</em> signed in at ${timeStr}<br>`;
-      break;
-    case "message":
-      text = `(${timeStr}) ${msg.name} : ${msg.text} <br>`;
-      break;
-    case "reject-username":
-      text = `Your username has been set to <em>${msg.name}</em> because the name you chose is in use.<br>`;
-      break;
-    case "user-list":
-      document.getElementById("user-list-box").innerText = msg.users.join("\n");
-      break;
+## Arbeiten mit dem bfcache
+
+Der Back/Forward Cache oder {{Glossary("bfcache", "bfcache")}} ermöglicht wesentlich schnellere Vor- und Zurück-Navigationen zwischen Seiten, die der Nutzer kürzlich besucht hat. Er tut dies, indem er einen vollständigen Schnappschuss der Seite speichert, einschließlich des JavaScript-Heaps.
+
+Der Browser pausiert und setzt die JavaScript-Ausführung fort, wenn eine Seite in den bfcache aufgenommen oder daraus wiederhergestellt wird. Dies bedeutet, dass es je nachdem, was die Seite tut, nicht immer sicher ist, den bfcache für die Seite zu verwenden. Wenn der Browser feststellt, dass es nicht sicher ist, wird die Seite nicht in den bfcache aufgenommen, und der Benutzer erhält nicht den Leistungsvorteil, den er bieten kann.
+
+Verschiedene Browser verwenden unterschiedliche Kriterien, um eine Seite in den bfcache aufzunehmen, und eine offene WebSocket-Verbindung kann verhindern, dass der Browser Ihre Seite in den bfcache aufnimmt. Dies bedeutet, dass es gute Praxis ist, Ihre Verbindung zu schließen, wenn der Nutzer mit Ihrer Seite fertig ist. Das beste Ereignis dafür ist das [`pagehide`](/de/docs/Web/API/Window/pagehide_event) Ereignis.
+
+Wir tun dies in unserer Beispiel-App:
+
+```js
+window.addEventListener("pagehide", () => {
+  if (websocket) {
+    log("CLOSING");
+    websocket.close();
+    websocket = null;
+    window.clearInterval(pingInterval);
   }
-
-  if (text.length) {
-    f.write(text);
-    document.getElementById("chat-box").contentWindow.scrollByPages(1);
-  }
-};
+});
 ```
 
-Hier verwenden wir {{jsxref("JSON.parse()")}}, um das JSON-Objekt zurück in das ursprüngliche Objekt zu konvertieren, und prüfen und handeln dann auf seinen Inhalt.
-
-### Textdatenformat
-
-Der über eine WebSocket-Verbindung empfangene Text ist im UTF-8-Format.
-
-## Schließen der Verbindung
-
-Wenn Sie die WebSocket-Verbindung nicht mehr benötigen, rufen Sie die WebSocket-Methode [`close()`](/de/docs/Web/API/WebSocket/close) auf:
+Umgekehrt können Sie durch das Abhören des [`pageshow`](/de/docs/Web/API/Window/pageshow_event) Ereignisses die Verbindung nahtlos wiederherstellen, wenn die Seite aus dem bfcache wiederhergestellt wird. Da das `pageshow`-Ereignis auch beim Laden der Seite ausgelöst wird, kann es auch verwendet werden, um die WebSocket-Verbindung beim ersten Laden der Seite zu starten:
 
 ```js
-exampleSocket.close();
+let websocket = null;
+
+window.addEventListener("pageshow", () => {
+  log("OPENING");
+
+  websocket = new WebSocket(wsUri);
+
+  websocket.addEventListener("open", () => {
+    log("CONNECTED");
+    pingInterval = setInterval(() => {
+      log(`SENT: ping: ${counter}`);
+      websocket.send("ping");
+    }, 1000);
+  });
+
+  websocket.addEventListener("close", () => {
+    log("DISCONNECTED");
+    clearInterval(pingInterval);
+  });
+
+  websocket.addEventListener("message", (e) => {
+    log(`RECEIVED: ${e.data}: ${counter}`);
+    counter++;
+  });
+
+  websocket.addEventListener("error", (e) => {
+    log(`ERROR: ${e.data}`);
+  });
+});
 ```
 
-Es kann hilfreich sein, das Attribut [`bufferedAmount`](/de/docs/Web/API/WebSocket/bufferedAmount) des Sockets zu überprüfen, bevor Sie versuchen, die Verbindung zu schließen, um festzustellen, ob noch Daten im Netzwerk übertragen werden müssen.
-Wenn dieser Wert nicht 0 ist, sind noch ausstehende Daten vorhanden, sodass Sie möglicherweise warten möchten, bevor Sie die Verbindung schließen.
+Wenn Sie unser Beispiel ausführen, versuchen Sie, zu einer anderen Seite zu navigieren und dann zum Beispiel zurückzukehren. In Chrome sollten Sie sehen, dass das Beispiel die Verbindung erneut herstellt und seinen ursprünglichen Kontext beibehält: es merkt sich beispielsweise die Anzahl der ausgetauschten Nachrichten.
+
+Siehe den [web.dev-Artikel über den bfcache](https://web.dev/articles/bfcache#close-open-connections) für mehr Kontext zur bfcache-Kompatibilität und der WebSockets-API.
+
+Bei Browsern, die dies unterstützen, können Sie [die `notRestoredReasons` Eigenschaft der Performance API verwenden](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons), um den Grund zu erfahren, warum eine Seite nicht zum bfcache hinzugefügt wurde.
 
 ## Sicherheitsüberlegungen
 
-WebSockets sollten nicht in einer Umgebung mit gemischten Inhalten verwendet werden; das heißt, Sie sollten keine nicht-sichere WebSocket-Verbindung von einer Seite aus öffnen, die über HTTPS geladen wurde, oder umgekehrt.
-Die meisten Browser erlauben jetzt nur noch sichere WebSocket-Verbindungen und unterstützen diese nicht mehr in unsicheren Kontexten.
+WebSockets sollten nicht in einer gemischten Inhaltsumgebung verwendet werden; das heißt, Sie sollten keine unsichere WebSocket-Verbindung von einer über HTTPS geladenen Seite oder umgekehrt öffnen. Die meisten Browser erlauben jetzt nur sichere WebSocket-Verbindungen und unterstützen keine unsicheren Kontexte mehr.

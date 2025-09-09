@@ -12244,7 +12244,6 @@
 /de/docs/Web/CSS/CSS_Values_and_Units/CSS_Types	/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types
 /de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions/Using_CSS_math_functions	/de/docs/Web/CSS/CSS_Values_and_Units/Using_CSS_math_functions
 /de/docs/Web/CSS/CSS_Variables	/de/docs/Web/CSS/CSS_cascading_variables
-/de/docs/Web/CSS/CSS_Viewport	/de/docs/Web/CSS
 /de/docs/Web/CSS/CSS_animations/Tips	/de/docs/Web/API/Web_Animations_API/Tips
 /de/docs/Web/CSS/CSS_cascade/actual_value	/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value
 /de/docs/Web/CSS/CSS_cascade/computed_value	/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value
