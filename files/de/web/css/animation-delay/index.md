@@ -2,10 +2,10 @@
 title: animation-delay
 slug: Web/CSS/animation-delay
 l10n:
-  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
-Die **`animation-delay`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Wartezeit an, die vom Anwenden der Animation auf ein Element bis zum Beginn der Animation verstreicht. Die Animation kann später, sofort ab ihrem Anfang oder sofort und teilweise während der Animation beginnen.
+Die **`animation-delay`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, wie lange ab dem Zeitpunkt der Anwendung der Animation auf ein Element gewartet wird, bevor die Animation beginnt. Die Animation kann später, sofort von Anfang an oder sofort und mitten in der Animation beginnen.
 
 {{InteractiveExample("CSS Demo: animation-delay")}}
 
@@ -71,44 +71,40 @@ animation-delay: -2s;
 ```
 
 ```js interactive-example
-"use strict";
+const el = document.getElementById("example-element");
+const status = document.getElementById("play-status");
 
-window.addEventListener("load", () => {
-  const el = document.getElementById("example-element");
-  const status = document.getElementById("play-status");
-
-  function update() {
-    status.textContent = "delaying";
-    el.className = "";
+function update() {
+  status.textContent = "delaying";
+  el.className = "";
+  window.requestAnimationFrame(() => {
     window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        el.className = "animating";
-      });
+      el.className = "animating";
     });
-  }
-
-  el.addEventListener("animationstart", () => {
-    status.textContent = "playing";
   });
+}
 
-  el.addEventListener("animationend", () => {
-    status.textContent = "finished";
-  });
+el.addEventListener("animationstart", () => {
+  status.textContent = "playing";
+});
 
-  const observer = new MutationObserver(() => {
-    update();
-  });
+el.addEventListener("animationend", () => {
+  status.textContent = "finished";
+});
 
-  observer.observe(el, {
-    attributes: true,
-    attributeFilter: ["style"],
-  });
-
+const observer = new MutationObserver(() => {
   update();
 });
+
+observer.observe(el, {
+  attributes: true,
+  attributeFilter: ["style"],
+});
+
+update();
 ```
 
-Es ist oft praktisch, die abgekürzte Eigenschaft {{cssxref("animation")}} zu verwenden, um alle Animations-Eigenschaften auf einmal festzulegen.
+Es ist oft praktisch, die Kurzform-Eigenschaft {{cssxref("animation")}} zu verwenden, um alle Animations-Eigenschaften auf einmal festzulegen.
 
 ## Syntax
 
@@ -132,17 +128,17 @@ animation-delay: unset;
 ### Werte
 
 - {{cssxref("&lt;time&gt;")}}
-  - : Der Zeitversatz, vom Zeitpunkt an dem die Animation auf das Element angewendet wird, zu dem die Animation beginnen soll. Dies kann entweder in Sekunden (`s`) oder Millisekunden (`ms`) angegeben werden. Die Einheit ist erforderlich.
+  - : Der Zeitversatz, ab dem Moment, in dem die Animation auf das Element angewendet wird, zu dem die Animation beginnen soll. Dies kann entweder in Sekunden (`s`) oder Millisekunden (`ms`) angegeben werden. Die Einheit ist erforderlich.
 
-    Ein positiver Wert gibt an, dass die Animation beginnen soll, nachdem die angegebene Zeit verstrichen ist. Ein Wert von `0s`, was der Standardwert ist, gibt an, dass die Animation beginnen soll, sobald sie angewendet wird.
+    Ein positiver Wert gibt an, dass die Animation nach Ablauf der angegebenen Zeit beginnen soll. Ein Wert von `0s`, was der Standard ist, gibt an, dass die Animation sofort beginnen soll, sobald sie angewendet wird.
 
-    Ein negativer Wert führt dazu, dass die Animation sofort beginnt, jedoch teilweise während ihres Zyklus. Zum Beispiel, wenn Sie `-1s` als Animationsverzögerung angeben, beginnt die Animation sofort, aber sie startet 1 Sekunde in der Animationssequenz. Wenn Sie einen negativen Wert für die Animationsverzögerung angeben, aber der Startwert implizit ist, wird der Startwert ab dem Moment genommen, in dem die Animation auf das Element angewendet wird.
-
-> [!NOTE]
-> Wenn Sie mehrere durch Kommata getrennte Werte für eine `animation-*` Eigenschaft angeben, werden sie auf die Animationen in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+    Ein negativer Wert bewirkt, dass die Animation sofort, aber mitten in ihrem Zyklus, beginnt. Wenn Sie beispielsweise `-1s` als Animationsverzögerungszeit angeben, beginnt die Animation sofort, aber startet 1 Sekunde in der Animationssequenz. Wenn Sie einen negativen Wert für die Animationsverzögerung angeben, aber der Startwert implizit ist, wird der Startwert ab dem Moment genommen, in dem die Animation auf das Element angewendet wird.
 
 > [!NOTE]
-> `animation-delay` hat keinen Einfluss auf [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations).
+> Wenn Sie mehrere durch Kommas getrennte Werte bei einer `animation-*` Eigenschaft angeben, werden sie in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Fälle, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Setting multiple animation property values](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+
+> [!NOTE]
+> `animation-delay` hat keine Auswirkung auf [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations).
 
 ## Formale Definition
 
@@ -154,7 +150,7 @@ animation-delay: unset;
 
 ## Beispiele
 
-### Einstellen einer Animationsverzögerung
+### Eine Animationsverzögerung einstellen
 
 Diese Animation hat eine Verzögerung von 2 Sekunden.
 
@@ -192,7 +188,7 @@ Diese Animation hat eine Verzögerung von 2 Sekunden.
 
 #### Ergebnis
 
-Fahren Sie mit der Maus über das Rechteck, um die Animation zu starten.
+Bewegen Sie den Mauszeiger über das Rechteck, um die Animation zu starten.
 
 {{EmbedLiveSample("Setting an animation delay","100%","250")}}
 

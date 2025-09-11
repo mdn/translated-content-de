@@ -1,18 +1,18 @@
 ---
-title: "HTMLProgressElement: labels-Eigenschaft"
+title: "HTMLProgressElement: labels Eigenschaft"
 short-title: labels
 slug: Web/API/HTMLProgressElement/labels
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 {{APIRef("DOM")}}
 
-Die **`HTMLProgressElement.labels`** schreibgeschützte Eigenschaft gibt eine [`NodeList`](/de/docs/Web/API/NodeList) der mit dem {{HTMLElement("progress")}}-Element verbundenen {{HTMLElement("label")}}-Elemente zurück.
+Die schreibgeschützte Eigenschaft **`HTMLProgressElement.labels`** gibt ein [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die dem {{HTMLElement("progress")}}-Element zugeordnet sind.
 
 ## Wert
 
-Eine [`NodeList`](/de/docs/Web/API/NodeList), die die mit dem `<progress>`-Element verbundenen `<label>`-Elemente enthält.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die dem `<progress>`-Element zugeordnet sind.
 
 ## Beispiele
 
@@ -27,12 +27,10 @@ Eine [`NodeList`](/de/docs/Web/API/NodeList), die die mit dem `<progress>`-Eleme
 ### JavaScript
 
 ```js
-window.addEventListener("DOMContentLoaded", () => {
-  const progress = document.getElementById("test");
-  for (const label of progress.labels) {
-    console.log(label.textContent); // "Label 1" and "Label 2"
-  }
-});
+const progress = document.getElementById("test");
+for (const label of progress.labels) {
+  console.log(label.textContent); // "Label 1" and "Label 2"
+}
 ```
 
 {{EmbedLiveSample("Examples", "100%", 30)}}

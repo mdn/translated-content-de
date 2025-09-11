@@ -3,12 +3,12 @@ title: "HTML-Attribut: autocomplete"
 short-title: autocomplete
 slug: Web/HTML/Reference/Attributes/autocomplete
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 1ff044ac87e406eb23ae7181dd171bad87421b79
 ---
 
-Das HTML-Attribut `autocomplete` ermöglicht es Webentwicklern anzugeben, ob und welche Berechtigung der {{Glossary("user_agent", "Nutzeragent")}} hat, bei der automatischen Assistenz beim Ausfüllen von Formularfeldern zu helfen, sowie dem Browser Hinweise zu geben, welche Art von Informationen im Feld erwartet werden.
+Das HTML-Attribut `autocomplete` ermöglicht es Webentwicklern anzugeben, ob und in welchem Umfang der {{Glossary("user_agent", "User-Agent")}} eine automatische Unterstützung beim Ausfüllen von Formularfeldwerten bereitstellen darf, sowie eine Anleitung für den Browser zu geben, welche Art von Informationen im Feld erwartet werden.
 
-Es ist auf {{HTMLElement("input")}}-Elementen verfügbar, die Text- oder Zahlenwerte als Eingabe annehmen, sowie auf {{HTMLElement("textarea")}}-Elementen, {{HTMLElement("select")}}-Elementen und {{HTMLElement("form")}}-Elementen.
+Es ist verfügbar auf {{HTMLElement("input")}}-Elementen, die einen Text- oder numerischen Wert als Eingabe akzeptieren, {{HTMLElement("textarea")}}-Elementen, {{HTMLElement("select")}}-Elementen und {{HTMLElement("form")}}-Elementen.
 
 {{InteractiveExample("HTML Demo: autocomplete", "tabbed-shorter")}}
 
@@ -32,7 +32,7 @@ label {
 
 ## Beschreibung
 
-Das `autocomplete`-Attribut bietet dem Nutzeragenten einen Hinweis darauf, wie oder ob ein Formularsteuerfeld vorausgefüllt werden soll. Der Attributwert ist entweder das Schlüsselwort `off` oder `on`, oder eine geordnete Liste von durch Leerzeichen getrennten Tokens.
+Das Attribut `autocomplete` gibt dem User-Agent einen Hinweis, wie oder ob ein Steuerelement im Formular ausgefüllt werden soll. Der Attributwert ist entweder das Schlüsselwort `off` oder `on` oder eine geordnete Liste von durch Leerzeichen getrennten Tokens.
 
 ```html
 <input autocomplete="off" />
@@ -41,191 +41,191 @@ Das `autocomplete`-Attribut bietet dem Nutzeragenten einen Hinweis darauf, wie o
 <input autocomplete="section-user1 billing postal-code" />
 ```
 
-Wenn ein {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}} kein `autocomplete`-Attribut hat, verwendet der Browser das [`autocomplete`-Attribut des Formulars, dem das Element zugehört](/de/docs/Web/HTML/Reference/Elements/form#autocomplete). Das zugehörige Formular ist entweder das {{HTMLElement("form")}}, das mit der `id` übereinstimmt, die durch das [`form`](/de/docs/Web/HTML/Reference/Elements/input#form) Attribut des Elements angegeben ist (falls vorhanden), oder, häufiger, das `<form>`, in dem das Element eingebettet ist.
+Wenn ein {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}}-Element kein `autocomplete`-Attribut hat, verwendet der Browser das [`autocomplete`-Attribut des **zugehörigen Formulars** des Elements](/de/docs/Web/HTML/Reference/Elements/form#autocomplete). Das zugehörige Formular ist entweder das {{HTMLElement("form")}}, das dem durch das [`form`](/de/docs/Web/HTML/Reference/Attributes/form)-Attribut des Elements (falls vorhanden) angegebenen `id` entspricht, oder meist das `<form>`, in dem das Element verschachtelt ist.
 
 > [!NOTE]
-> Um eine Autovervollständigung bereitzustellen, könnten Nutzeragenten erfordern, dass `<input>`/`<select>`/`<textarea>`-Elemente:
+> Um die Autovervollständigung bereitzustellen, könnten User-Agents erfordern, dass `<input>`/`<select>`/`<textarea>`-Elemente:
 >
 > 1. Ein `name`- und/oder `id`-Attribut haben
-> 2. Nachkommen eines `<form>`-Elements sind
-> 3. Zu einem Formular gehören, das einen {{HTMLElement("input/submit", "submit")}}-Button hat
+> 2. Nachfahren eines `<form>`-Elements sind
+> 3. Von einem Formular mit einem {{HTMLElement("input/submit", "submit")}}-Button verwendet werden
 
-Wenn dieselbe Liste von Tokens in mehr als einem Formularsteuerfeld verwendet wird, wird der Nutzeragent alle Vorkommen desselben `autocomplete`-Wertes mit demselben Datenwert automatisch ausfüllen.
+Wenn dieselbe Liste von Tokens in mehr als einem Formularsteuerelement verwendet wird, wird der User-Agent alle Vorkommen desselben `autocomplete`-Wertes mit demselben Datenwert autovervollständigen.
 
-Einige Tokens können mehr als einmal verwendet werden, möglicherweise mit unterschiedlichen erwarteten Werten, wie das `zip-code`-Token in einem Formular, das sowohl Liefer- als auch Rechnungsadressen enthält. Das Einfügen mehrerer verschiedener Tokens in eine durch Leerzeichen getrennte Liste führt dazu, dass die zugehörigen Formularsteuerfelder eindeutige Autovervollständigungswerte erhalten: in diesem Fall `autocomplete="shipping zip-code"` und `autocomplete="billing zip-code"`.
+Einige Tokens können mehr als einmal mit potenziell unterschiedlichen erwarteten Werten verwendet werden, wie beispielsweise das Token `zip-code` in einem Formular, das sowohl Versand- als auch Rechnungsadressen enthält. Die Aufnahme mehrerer verschiedener Tokens in einer durch Leerzeichen getrennten Liste führt dazu, dass die zugehörigen Formularsteuerelemente eindeutige Autovervollständigungswerte erhalten: in diesem Fall `autocomplete="shipping zip-code"` und `autocomplete="billing zip-code"`.
 
-Einige Autovervollständigungswerte müssen möglicherweise mehrmals wiederverwendet werden. Beispielsweise kann ein Formular mehrere Lieferadressen enthalten und daher mehrfach `"shipping zip-code"` erwarten, während immer noch unterschiedliche Werte erwartet werden. Um den Autovervollständigungswert in diesen Fällen eindeutig zu machen, kann das erste Token in der durch Leerzeichen getrennten Liste von Tokens ein `section-*`-Token sein, wo die ersten acht Zeichen des Tokens immer die Zeichenfolge "section-" sind, gefolgt von einer alphanumerischen Zeichenfolge. Alle Formularfelder, die das `section-*`-Token mit derselben alphanumerischen Zeichenfolge haben, gehören zur selben **benannten Gruppe**.
+Einige Autovervollständigungswerte müssen möglicherweise mehrfach wiederverwendet werden. Beispielsweise kann ein Formular mehrere Versandadressen enthalten und daher mehrere Vorkommen von `"shipping zip-code"` erwarten, während dennoch unterschiedliche Werte erwartet werden. Um den Autovervollständigungswert in diesen Fällen eindeutig zu machen, kann das erste Token in der durch Leerzeichen getrennten Liste von Tokens ein `section-*`-Token sein, wobei die ersten acht Zeichen des Tokens stets der String "section-" sind, gefolgt von einem alphanumerischen String. Alle Formularfelder, denen das `section-*`-Token mit demselben alphanumerischen String zugewiesen ist, gehören zur selben **benannten Gruppe**.
 
-Wenn das `autocomplete`-Attribut auf {{HTMLElement("input/hidden", "hidden")}}-Eingabeelementen (`<input type="hidden">`) enthalten ist, muss sein Wert eine geordnete Liste von durch Leerzeichen getrennten Tokens sein; die Schlüsselwörter `on` und `off` sind nicht erlaubt.
+Wenn das `autocomplete`-Attribut bei {{HTMLElement("input/hidden", "hidden")}}-Eingabeelementen (`<input type="hidden">`) enthalten ist, muss dessen Wert eine geordnete Liste von durch Leerzeichen getrennten Tokens sein; die Schlüsselwörter `on` und `off` sind nicht zulässig.
 
-Die Quelle der vorgeschlagenen Werte hängt im Allgemeinen vom Browser ab; typischerweise stammen Werte aus früheren Eingaben des Nutzers, sie können jedoch auch aus vorkonfigurierten Werten stammen. Beispielsweise könnte ein Browser dem Nutzer erlauben, seinen Namen, Adresse, Telefonnummer und E-Mail-Adressen für Autovervollständigungszwecke zu speichern. Der Browser kann auch die Möglichkeit bieten, verschlüsselte Kreditkarteninformationen zu speichern, zur Autovervollständigung nach einem Authentifizierungsverfahren.
+Die Quelle der vorgeschlagenen Werte liegt im Allgemeinen im Ermessen des Browsers; typischerweise stammen die Werte aus vergangenen Eingaben des Benutzers, aber sie können auch aus vorkonfigurierten Werten stammen. Zum Beispiel könnte ein Browser dem Benutzer erlauben, seinen Namen, seine Adresse, Telefonnummer und E-Mail-Adressen für Autovervollständigungszwecke zu speichern. Der Browser könnte auch die Möglichkeit bieten, verschlüsselte Kreditkarteninformationen zu speichern, um sie nach einem Authentifizierungsverfahren zur Autovervollständigung bereitzustellen.
 
 > [!NOTE]
-> Das `autocomplete`-Attribut steuert auch, ob Firefox — im Gegensatz zu anderen Browsern — [den dynamischen deaktivierten Zustand und (falls zutreffend) die dynamische Markierung](https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing) eines `<input>`-Elements, `<textarea>`-Elements oder gesamten `<form>` über Seitenladungen hinweg speichert. Die Persistenzfunktion ist standardmäßig aktiviert. Die Einstellung des Attributwerts von `autocomplete` auf `off` deaktiviert diese Funktion. Dies funktioniert auch dann, wenn das `autocomplete`-Attribut normalerweise nicht anwendbar wäre, aufgrund seines `type`. Siehe [Firefox bug 654072](https://bugzil.la/654072).
+> Das Attribut `autocomplete` steuert auch, ob Firefox – im Gegensatz zu anderen Browsern – [den dynamischen deaktivierten Zustand und (falls zutreffend) den dynamischen "checked"-Zustand](https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing) eines `<input>`-Elements, `<textarea>`-Elements oder gesamten `<form>`-Elements über Seitenladevorgänge hinweg speichert. Die Persistenzfunktion ist standardmäßig aktiviert. Durch Festlegen des Wertes des `autocomplete`-Attributs auf `off` wird diese Funktion deaktiviert. Dies funktioniert sogar dann, wenn das `autocomplete`-Attribut normalerweise aufgrund seines `type` nicht angewendet wird. Siehe [Firefox Bug 654072](https://bugzil.la/654072).
 
 ## Wert
 
-Der Attributwert ist entweder das Schlüsselwort `off` oder `on`, oder eine durch Leerzeichen getrennte `<token-list>`, die die Bedeutung des Autovervollständigungswerts beschreibt.
+Der Attributwert ist entweder das Schlüsselwort `off` oder `on` oder eine durch Leerzeichen getrennte `<token-list>`, die die Bedeutung des Autovervollständigungswertes beschreibt.
 
 - `off`
-  - : Der Browser darf keinen Wert für dieses Feld automatisch eingeben oder auswählen. Es ist möglich, dass das Dokument oder die Anwendung eine eigene Autovervollständigungsfunktion bereitstellt oder dass Sicherheitsbedenken erfordern, dass der Wert des Feldes nicht automatisch eingegeben wird.
+  - : Der Browser ist nicht berechtigt, automatisch einen Wert für dieses Feld einzugeben oder auszuwählen. Es ist möglich, dass das Dokument oder die Anwendung eine eigene Autovervollständigungsfunktion bietet oder dass Sicherheitsbedenken erfordern, dass der Wert des Feldes nicht automatisch eingegeben wird.
 
     > [!NOTE]
-    > In den meisten modernen Browsern verhindert das Setzen von `autocomplete` auf `"off"` nicht, dass ein Passwort-Manager den Nutzer fragt, ob er Benutzername und Passwort speichern möchte, oder diese Werte in einem Anmeldeformular der Website automatisch ausfüllt. Siehe [Verwalten der Autovervollständigung für Anmeldefelder](/de/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion#managing_autofill_for_login_fields).
+    > In den meisten modernen Browsern wird das Setzen von `autocomplete` auf `"off"` einen Passwortmanager nicht davon abhalten, den Benutzer zu fragen, ob er Benutzername und Passwort speichern möchte, oder diese Werte automatisch in einem Anmeldeformular auf der Website auszufüllen. Siehe [Verwaltung von Autofill für Anmeldefelder](/de/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion#managing_autofill_for_login_fields).
 
 - `on`
-  - : Der Browser darf die Eingabe automatisch vervollständigen. Es wird keine Anleitung zum erwarteten Datentyp im Feld gegeben, sodass der Browser sein eigenes Urteil fällen kann.
+  - : Dem Browser ist es erlaubt, die Eingabe automatisch zu vervollständigen. Es gibt keine Anleitung zur Art der erwarteten Daten im Feld, sodass der Browser sein eigenes Urteil verwenden kann.
 
 - `<token-list>`
-  - : Eine geordnete Menge von [Leerzeichen-getrennten Tokens](#token_list_tokens), bestehend aus Autovervollständigungsdetail-Tokens, die optional von einer Sektionierung sowie entweder von einem Rechnungs- oder Liefergruppierungs-Token eingerahmt werden. Telefonnummern, E-Mail-Adressen und Nachrichtenprotokoll-Tokens sind durch ein Token gekennzeichnet, das den Empfängertyp identifiziert.
+  - : Eine geordnete Reihe von [durch Leerzeichen getrennten Tokens](#token-listen-tokens), die aus Autofill-Detailtokens besteht, die von optionalen Sektions- und entweder Abrechnungs- oder Versandgruppentokens vorangestellt werden. Telefonnummern, E-Mail-Adressen und Messaging-Protokoll-Tokens sind von einem Token vorangestellt, das den Typ des Empfängers identifiziert.
 
-Siehe die [WHATWG Standard](https://html.spec.whatwg.org/multipage/forms.html#autofill) für detailliertere Informationen.
+Siehe den [WHATWG Standard](https://html.spec.whatwg.org/multipage/forms.html#autofill) für detailliertere Informationen.
 
-### Token List Tokens
+### Token-Listen-Tokens
 
-Die `<token-list>`-Optionen umfassen, in Reihenfolge:
+Die `<token-list>` Optionen umfassen, in der Reihenfolge:
 
-1. [Gruppennamen-Token](#benannte_gruppen)
-2. [Gruppierungsbezeichner](#gruppierungsbezeichner)
+1. [Gruppen-Benennungstoken](#benannte_gruppen)
+2. [Gruppierungskennzeichen](#gruppierungskennzeichen)
 3. [Detail-Tokens](#detail-tokens)
-4. [Web-Authentifizierung](#web-authentifizierungs-token)
+4. [Webautorisierung](#webautorisierungstoken)
 
 #### Benannte Gruppen
 
-Um eine benannte Gruppe von Formularfeldern zu erstellen, kann das optionale `section-*`-Token verwendet werden. Wenn vorhanden, muss dieses Token das erste Token in der durch Leerzeichen getrennten Liste von Tokens sein.
+Um eine benannte Gruppe von Formularfeldern zu erstellen, kann das optionale `section-*`-Token verwendet werden. Falls vorhanden, muss dieses Token das erste Token in der durch Leerzeichen getrennten Tokenliste sein.
 
 - `section-*`
-  - : Definiert den Namen für eine Gruppe von Formularsteuerelementen. Ein Token, dessen erste acht Zeichen die Zeichenfolge "section-" sind, ohne Berücksichtigung der Groß-/Kleinschreibung, gefolgt von zusätzlichen Zeichen. Alle Formularsteuerelemente, die mit demselben Token beginnen, gehören zur benannten Gruppe.
+  - : Definiert den Namen für eine Gruppe von Formularsteuerelementen. Ein Token, dessen die ersten acht Zeichen der String "section-", nicht unterscheidend zwischen Groß- und Kleinschreibung, gefolgt von zusätzlichen Zeichen ist. Alle Formularsteuerelemente, die mit demselben Token beginnen, gehören zur benannten Gruppe.
 
-#### Gruppierungsbezeichner
+#### Gruppierungskennzeichen
 
-Ein optionaler `shipping` (Versand) oder `billing` (Rechnung) Gruppierungsbezeichner
+Ein optionales `shipping` oder `billing` Gruppierungskennzeichen
 
 - `shipping`
-  - : Das durch die folgenden Tokens identifizierte Feld ist Teil der Lieferadresse oder Kontaktinformationen
+  - : Das durch nachfolgende Tokens identifizierte Feld ist Teil der Versandadresse oder Kontaktinformation
 - `billing`
-  - : Das durch die folgenden Tokens identifizierte Feld ist Teil der Rechnungsadresse oder Kontaktinformationen
+  - : Das durch nachfolgende Tokens identifizierte Feld ist Teil der Abrechnungsadresse oder Kontaktinformation
 
 #### Detail-Tokens
 
-Jede durch Leerzeichen getrennte Detail-Tokenliste umfasst entweder einen Empfängertyp mit digitalen Kontaktinformationen in dieser Reihenfolge oder eine durch Leerzeichen getrennte Liste anderer Tokens.
+Jede durch Leerzeichen getrennte Detailliste von Tokens umfasst entweder einen Empfängertyp mit digitalen Kontaktinformationen in dieser Reihenfolge oder eine durch Leerzeichen getrennte Tokenliste anderer Tokens.
 
 ##### Empfängertyp
 
-Die Tokens, die den Empfängertyp identifizieren, umfassen:
+Die Tokens, die den Typ des Empfängers identifizieren, umfassen:
 
 - `home`
-  - : Der durch die folgenden Tokens identifizierte Kontakttyp dient dazu, den Empfänger an seinem Wohnsitz zu kontaktieren.
+  - : Der durch nachfolgende Tokens identifizierte Kontaktart ist für die Kontaktaufnahme mit dem Empfänger an seinem Wohnsitz.
 - `work`
-  - : Der durch die folgenden Tokens identifizierte Kontakttyp dient dazu, den Empfänger an seinem Arbeitsplatz zu kontaktieren.
+  - : Der durch nachfolgende Tokens identifizierte Kontaktart ist für die Kontaktaufnahme mit dem Empfänger an seinem Arbeitsplatz.
 - `mobile`
-  - : Der durch die folgenden Tokens identifizierte Kontakttyp dient dazu, den Empfänger unabhängig von seinem Standort zu kontaktieren.
+  - : Der durch nachfolgende Tokens identifizierte Kontaktart ist für die Kontaktaufnahme mit dem Empfänger unabhängig von dessen Standort.
 - `fax`
-  - : Der durch die folgenden Tokens identifizierte Empfänger ist ein Faxgerät.
+  - : Der durch nachfolgende Tokens identifizierte Empfänger ist für ein Faxgerät.
 - `page`
-  - : Der durch die folgenden Tokens identifizierte Empfänger ist ein Pager oder Beeper.
+  - : Der durch nachfolgende Tokens identifizierte Empfänger ist für einen Pager oder Piepser.
 
 ##### Digitale Kontakt-Tokens
 
-Das Token oder die Token-Gruppe für Telefonnummern oder die Komponenten einer Telefonnummer, Telefonnummern-Erweiterungen, E-Mail-Adressen oder Protokolle für Sofortnachrichten.
+Das Token oder die Token-Gruppe für Telefonnummern oder deren Komponenten, Durchwahlnummern, E-Mail-Adressen oder Instant-Messaging-Protokolle.
 
 - `tel`
-  - : Eine vollständige Telefonnummer, einschließlich der Landesvorwahl. Wenn Sie die Telefonnummer in ihre Komponenten aufteilen müssen, können Sie diese Werte für diese Felder verwenden:
+  - : Eine vollständige Telefonnummer, einschließlich der Ländervorwahl. Wenn Sie die Telefonnummer in ihre Komponenten aufteilen müssen, können Sie diese Werte für diese Felder verwenden:
     - `tel-country-code`
-      - : Die Landesvorwahl, wie "1" für die Vereinigten Staaten, Kanada und andere Gebiete in Nordamerika sowie Teile der Karibik.
+      - : Die Ländervorwahl, wie "1" für die Vereinigten Staaten, Kanada und andere Gebiete in Nordamerika und Teilen der Karibik.
     - `tel-national`
-      - : Die gesamte Telefonnummer ohne die Landesvorwahlkomponente, einschließlich einer landesinternen Vorwahl. Für die Telefonnummer "1-855-555-6502" wäre der Wert dieses Feldes "855-555-6502".
+      - : Die gesamte Telefonnummer ohne die Ländervorwahl-Komponente, einschließlich eines landesinternen Präfixes. Für die Telefonnummer "1-855-555-6502" wäre der Wert dieses Feldes "855-555-6502".
     - `tel-area-code`
-      - : Die Vorwahl, mit einer landesinternen Vorwahl, falls zutreffend.
+      - : Die Ortsvorwahl, mit jedem landesinternen Präfix, falls zutreffend.
     - `tel-local`
-      - : Die Telefonnummer ohne Landes- oder Vorwahl. Diese kann weiter in zwei Teile aufgeteilt werden, bei Telefonnummern, die eine Vermittlungsnummer und dann eine Nummer innerhalb der Vermittlung haben. Bei der Telefonnummer "555-6502" verwenden Sie `tel-local-prefix` für "555" und `tel-local-suffix` für "6502".
+      - : Die Telefonnummer ohne Landes- oder Ortsvorwahl. Diese kann weiter in zwei Teile unterteilt werden, für Telefonnummern, die eine Vermittlungsnummer und dann eine Telefonnummer innerhalb der Vermittlung haben. Für die Telefonnummer "555-6502" verwenden Sie `tel-local-prefix` für "555" und `tel-local-suffix` für "6502".
 
 - `tel-extension`
-  - : Eine Telefonerweiterung innerhalb der Telefonnummer, wie ein Zimmer- oder Suite-Nummer in einem Hotel oder eine Büroerweiterung in einem Unternehmen.
+  - : Eine Durchwahlnummer innerhalb der Telefonnummer, wie eine Zimmernummer in einem Hotel oder eine Bürodurchwahl in einem Unternehmen.
 - `email`
   - : Eine E-Mail-Adresse.
 - `impp`
-  - : Eine URL für einen Endpunkt eines Sofortnachrichtenprotokolls, wie `xmpp:username@example.net`.
+  - : Eine URL für ein Instant-Messaging-Protokoll-Endpunkt, wie `xmpp:username@example.net`.
 
-##### Andere Tokens
+##### Weitere Tokens
 
-Wenn das Formularfeld keine Telefonnummer, E-Mail-Adresse oder kein Sofortnachrichtenprotokoll ist, wird die durch Leerzeichen getrennte Liste von Tokens nicht durch einen Kontakttyp eingeleitet:
+Wenn das Formularfeld keine Telefonnummer, E-Mail-Adresse oder Instant-Messaging-Protokoll ist, wird die durch Leerzeichen getrennte Tokenliste nicht von einem Kontaktart vorangestellt:
 
 - `name`
-  - : Das Feld erwartet, dass der Wert der vollständige Name einer Person ist. Die Verwendung von `name` anstatt den Namen in seine Bestandteile zu unterteilen, wird im Allgemeinen bevorzugt, da so die große Vielfalt menschlicher Namen und ihre Strukturierung vermieden wird. Sie können jedoch die folgenden `autocomplete`-Werte verwenden, wenn Sie den Namen in seine Bestandteile zerlegen müssen:
+  - : Das Feld erwartet einen vollständigen Namen einer Person als Wert. Die Verwendung von `name` anstelle des Aufteilens des Namens in seine Komponenten wird im Allgemeinen bevorzugt, da so die große Vielfalt an menschlichen Namen und deren Strukturierung vermieden wird; Sie können jedoch die folgenden `autocomplete`-Werte verwenden, wenn Sie den Namen in seine Komponenten aufteilen müssen:
     - `honorific-prefix`
-      - : Der Präfix oder Titel, wie "Frau", "Herr", "Fräulein", "Ms.", "Dr." oder "Mlle.".
+      - : Das Präfix oder der Titel, wie "Frau.", "Herr.", "Fräulein", "Fr.", "Dr." oder "Hon.".
     - `given-name`
       - : Der Vorname.
     - `additional-name`
-      - : Der mittlere Name.
+      - : Der zweite Vorname.
     - `family-name`
-      - : Der Nachname.
+      - : Der Familienname (oder Nachname).
     - `honorific-suffix`
-      - : Der Suffix, wie "Jr.", "B.Sc.", "PhD.", "MBASW" oder "IV".
+      - : Das Suffix, wie "Jr.", "B.Sc.", "PhD.", "MBASW" oder "IV".
     - `nickname`
-      - : Ein Spitziname oder Benutzername.
+      - : Ein Spitzname oder Kürzel.
 
 - `username`
   - : Ein Benutzername oder Kontoname.
 - `new-password`
-  - : Ein neues Passwort. Beim Erstellen eines neuen Kontos oder beim Ändern von Passwörtern sollte dies für ein "Neues Passwort eingeben" oder "Neues Passwort bestätigen" Feld verwendet werden, im Gegensatz zu einem allgemeinen "Aktuelles Passwort eingeben" Feld, das eventuell vorhanden sein könnte. Dies kann vom Browser sowohl verwendet werden, um das versehentliche Ausfüllen eines bestehenden Passworts zu vermeiden, als auch Unterstützung bei der Erstellung eines sicheren Passworts anzubieten.
+  - : Ein neues Passwort. Beim Erstellen eines neuen Kontos oder beim Ändern von Passwörtern sollte dies für ein Feld "Geben Sie Ihr neues Passwort ein" oder "Bestätigen Sie das neue Passwort" verwendet werden, im Gegensatz zu einem allgemeinen Feld "Geben Sie Ihr aktuelles Passwort ein", das möglicherweise vorhanden ist. Dies könnte vom Browser sowohl verwendet werden, um versehentliches Ausfüllen eines bestehenden Passworts zu vermeiden, als auch um Hilfe bei der Erstellung eines sicheren Passworts anzubieten.
 - `current-password`
-  - : Das aktuelle Passwort des Nutzers.
+  - : Das aktuelle Benutzerpasswort.
 - `one-time-code`
-  - : Ein Einmal-Passwort (OTP) zur Verifizierung der Nutzeridentität, das als zusätzlicher Faktor in einem Anmeldeprozess verwendet wird.
-    Am häufigsten ist dies ein Code, der über einen Kanal außerhalb des regulären Kommunikationswegs empfangen wird, wie SMS, E-Mail oder Authentifizierungsanwendung.
+  - : Ein Einmalpasswort (OTP) zur Verifizierung der Benutzeridentität, das als zusätzlicher Faktor im Anmeldevorgang verwendet wird.
+    Meistens ist dies ein Code, der über einen externen Mechanismus wie SMS, E-Mail oder Authenticator-Anwendung empfangen wird.
 - `organization-title`
-  - : Ein Jobtitel oder der Titel, den eine Person innerhalb einer Organisation hat, wie "Senior Technical Writer", "President" oder "Assistant Troop Leader".
+  - : Eine Berufsbezeichnung oder der Titel, den eine Person innerhalb einer Organisation hat, wie "Leitender Technischer Redakteur", "Präsident" oder "Stellvertretender Gruppenführer".
 - `organization`
-  - : Ein Unternehmens- oder Organisationsname, wie "Acme Widget Company" oder "Girl Scouts of America".
+  - : Der Name eines Unternehmens oder einer Organisation, wie "Acme Widget Company" oder "Pfadfinderinnen von Amerika".
 - `street-address`
-  - : Eine Straßenadresse. Diese kann aus mehreren Textzeilen bestehen und sollte den Standort der Adresse innerhalb seiner zweiten Verwaltungsebene (typischerweise eine Stadt oder ein Ort) vollständig identifizieren, sollte jedoch nicht den Stadtnamen, die Postleitzahl oder den Ländernamen enthalten.
+  - : Eine Straßenadresse. Diese kann mehrere Textzeilen umfassen und sollte den Standort der Adresse innerhalb der zweiten Verwaltungsebene (typischerweise eine Stadt oder Gemeinde) voll identifizieren, sollte jedoch nicht den Stadtnamen, die Postleitzahl oder den Ländernamen enthalten.
     - `address-line1`, `address-line2`, `address-line3`
-      - : Jede einzelne Zeile der Straßenadresse. Diese sollten nur vorhanden sein, wenn `street-address` nicht vorhanden ist.
+      - : Jede einzelne Zeile der Straßenadresse. Diese sollten nur vorhanden sein, wenn die `street-address` nicht vorhanden ist.
 - `address-level4`
-  - : Die feinste [Verwaltungsebene](#verwaltungsebenen_in_adressen), bei Adressen, die vier Ebenen haben.
+  - : Die feinste [Verwaltungsebene](#verwaltungsebenen_in_adressen) in Adressen, die vier Ebenen haben.
 - `address-level3`
-  - : Die dritte [Verwaltungsebene](#verwaltungsebenen_in_adressen), bei Adressen mit mindestens drei Verwaltungsebenen.
+  - : Die dritte [Verwaltungsebene](#verwaltungsebenen_in_adressen) in Adressen mit mindestens drei Verwaltungsebenen.
 - `address-level2`
-  - : Die zweite [Verwaltungsebene](#verwaltungsebenen_in_adressen), bei Adressen mit mindestens zwei davon. In Ländern mit zwei Verwaltungsebenen wäre dies typischerweise die Stadt, der Ort oder das Dorf, in dem sich die Adresse befindet.
+  - : Die zweite [Verwaltungsebene](#verwaltungsebenen_in_adressen) in Adressen mit mindestens zwei von ihnen. In Ländern mit zwei Verwaltungsebenen wäre dies typischerweise die Stadt, das Dorf oder eine andere Ortschaft, in der sich die Adresse befindet.
 - `address-level1`
-  - : Die erste [Verwaltungsebene](#verwaltungsebenen_in_adressen) in der Adresse. Dies ist typischerweise die Provinz, in der sich die Adresse befindet. In den Vereinigten Staaten wäre dies der Staat, in der Schweiz der Kanton, im Vereinigten Königreich die Grafschaft.
+  - : Die erste [Verwaltungsebene](#verwaltungsebenen_in_adressen) in der Adresse. Dies ist typischerweise die Provinz, in der sich die Adresse befindet. In den Vereinigten Staaten wäre dies der Staat. In der Schweiz der Kanton. Im Vereinigten Königreich die Grafschaft.
 - `country`
-  - : Ein Länder- oder Territoriumscode.
+  - : Ein Länder- oder Gebietscode.
 - `country-name`
-  - : Ein Länder- oder Territoriumsname.
+  - : Ein Länder- oder Gebietsname.
 - `postal-code`
-  - : Ein Postleitzahl (in den Vereinigten Staaten ist dies die ZIP-Code).
+  - : Eine Postleitzahl (in den Vereinigten Staaten ist dies die ZIP-Code).
 
 - `cc-name`
-  - : Der vollständige Name, wie auf oder mit einem Zahlungsmittel, wie einer Kreditkarte, gedruckt. Die Verwendung eines vollständigen Namensfeldes wird in der Regel bevorzugt, anstatt den Namen in Stücke zu unterteilen.
+  - : Der vollständige Name, wie er auf oder in Verbindung mit einem Zahlungsmittel wie einer Kreditkarte gedruckt ist. Typischerweise ist die Verwendung eines vollständigen Namensfeldes vorzuziehen, anstatt den Namen in Teile aufzuteilen.
     - `cc-given-name`
-      - : Ein Vorname, wie auf einem Zahlungsmittel wie einer Kreditkarte angegeben.
+      - : Ein Vorname, wie er auf einem Zahlungsmittel wie einer Kreditkarte angegeben ist.
     - `cc-additional-name`
-      - : Ein zweiter Vorname, wie auf einem Zahlungsmittel oder Kreditkarte angegeben.
+      - : Ein zweiter Vorname, wie er auf einem Zahlungsmittel oder einer Kreditkarte angegeben ist.
     - `cc-family-name`
-      - : Ein Nachname, wie auf einer Kreditkarte angegeben.
+      - : Ein Familienname, wie er auf einer Kreditkarte angegeben ist.
 - `cc-number`
-  - : Eine Kreditkartennummer oder andere Nummer, die ein Zahlungsmittel identifiziert, wie eine Kontonummer.
+  - : Eine Kreditkartennummer oder eine Nummer, die ein Zahlungsmittel identifiziert, wie eine Kontonummer.
 - `cc-exp`
-  - : Ein Ablaufdatum des Zahlungsmittels, typischerweise in der Form "MM/YY" oder "MM/YYYY".
+  - : Ein Ablaufdatum eines Zahlungsmittels, typischerweise in der Form "MM/JJ" oder "MM/JJJJ".
     - `cc-exp-month`
       - : Der Monat, in dem das Zahlungsmittel abläuft.
     - `cc-exp-year`
       - : Das Jahr, in dem das Zahlungsmittel abläuft.
 - `cc-csc`
-  - : Der Sicherheitscode des Zahlungsmittels; bei Kreditkarten ist dies die 3-stellige Verifizierungsnummer auf der Rückseite der Karte.
+  - : Der Sicherheitscode für das Zahlungsmittel; bei Kreditkarten ist dies die 3-stellige Prüfnummer auf der Rückseite der Karte.
 - `cc-type`
   - : Der Typ des Zahlungsmittels (wie "Visa" oder "Master Card").
 - `transaction-currency`
   - : Die Währung, in der die Transaktion stattfinden soll.
 - `transaction-amount`
-  - : Der Betrag, angegeben in der durch `transaction-currency` festgelegten Währung, der Transaktion, für ein Zahlungsformular.
+  - : Der Betrag, angegeben in der durch `transaction-currency` spezifizierten Währung, der Transaktion, für ein Zahlungsformular.
 - `language`
-  - : Eine bevorzugte Sprache, angegeben als ein gültiger [BCP 47-Language-Tag](https://en.wikipedia.org/wiki/IETF_language_tag).
+  - : Eine bevorzugte Sprache, angegeben als gültiges [BCP 47 Sprach-Tag](https://en.wikipedia.org/wiki/IETF_language_tag).
 - `bday`
-  - : Ein Geburtsdatum, als komplettes Datum.
+  - : Ein Geburtsdatum, als vollständiges Datum.
     - `bday-day`
       - : Der Tag des Monats eines Geburtsdatums.
     - `bday-month`
@@ -233,18 +233,18 @@ Wenn das Formularfeld keine Telefonnummer, E-Mail-Adresse oder kein Sofortnachri
     - `bday-year`
       - : Das Jahr eines Geburtsdatums.
 - `sex`
-  - : Eine Geschlechtsidentität (wie "Weiblich", "Fa'afafine", "Hijra", "Männlich", "Nicht-binär"), als freier Text ohne Zeilenumbrüche.
+  - : Eine Geschlechtsidentität (wie "Weiblich", "Fa'afafine", "Hijra", "Männlich", "Nicht-binär"), als Freitext ohne neue Zeilen.
 - `url`
-  - : Eine URL, wie eine Startseite oder Unternehmenswebsite, die im Kontext der anderen Felder im Formular angemessen ist.
+  - : Eine URL, wie eine Homepage- oder Firmenwebseiten-Adresse, die im Kontext der anderen Felder im Formular angemessen ist.
 - `photo`
-  - : Die URL eines Bildes, das die Person, das Unternehmen oder die Kontaktdaten repräsentiert, die in den anderen Feldern im Formular angegeben sind.
+  - : Die URL eines Bildes, das die in den anderen Feldern im Formular angegebenen Person, das Unternehmen oder die Kontaktinformationen darstellt.
 
-#### Web-Authentifizierungs-Token
+#### Webautorisierungstoken
 
-Mit {{htmlelement("input")}} und {{htmlelement("textarea")}} kann das `webauthn`-Token am Ende eingeschlossen werden, um anzuzeigen, dass der Nutzeragent beim Interagieren mit dem Steuerelement öffentliche Schlüssel-Anmeldedaten anzeigen soll.
+Mit {{htmlelement("input")}} und {{htmlelement("textarea")}} kann das `webauthn`-Token zuletzt eingefügt werden, um anzuzeigen, dass der User-Agent öffentliche Schlüsselanmeldeinformationen anzeigen sollte, wenn der Benutzer mit der Steuerung interagiert.
 
 - `webauthn`
-  - : Passkeys, die von der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) generiert wurden, wie durch einen bedingten [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf angefordert (d.h. einen Aufruf, der `mediation: 'conditional'` enthält). Wenn eingeschlossen, ist dies das letzte Token in der durch Leerzeichen getrennten Tokenliste. Siehe [Anmelden mit einem Passkey durch Formular-Autofill](https://web.dev/articles/passkey-form-autofill) für mehr Details.
+  - : Passwörter, die von der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) generiert wurden, wie durch einen bedingten [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufruf angefordert (d.h. einen, der `mediation: 'conditional'` enthält). Wenn vorhanden, ist dies das letzte Token in der durch Leerzeichen getrennten Tokenliste. Siehe [Mit einem Passkey über die Formular-Autovervollständigung anmelden](https://web.dev/articles/passkey-form-autofill) für mehr Details.
 
 ## Beispiele
 
@@ -257,17 +257,17 @@ Mit {{htmlelement("input")}} und {{htmlelement("textarea")}} kann das `webauthn`
 
 ### Verwaltungsebenen in Adressen
 
-Die vier Verwaltungsebene-Felder (`address-level1` bis `address-level4`) beschreiben die Adresse in Bezug auf zunehmende Präzision innerhalb des Landes, in dem sich die Adresse befindet. Jedes Land hat sein eigenes System von Verwaltungsebenen und kann die Ebenen in unterschiedlicher Reihenfolge anordnen, wenn Adressen geschrieben werden.
+Die vier Verwaltungsebenen-Felder (`address-level1` bis `address-level4`) beschreiben die Adresse in Bezug auf zunehmende Genauigkeit innerhalb des Landes, in dem sich die Adresse befindet. Jedes Land hat sein eigenes System von Verwaltungsebenen und kann die Ebenen in unterschiedlichen Ordnungen anordnen, wenn Adressen geschrieben werden.
 
-`address-level1` repräsentiert immer die breiteste Verwaltungseinheit; es ist der am wenigsten spezifische Teil der Adresse, abgesehen vom Ländernamen.
+`address-level1` repräsentiert stets die breiteste Verwaltungsebene; es ist der am wenigsten spezifische Teil der Adresse mit Ausnahme des Ländernamens.
 
-### Flexibilität des Formulardesigns
+### Flexibilität des Formularlayouts
 
-Da verschiedene Länder ihre Adresse auf unterschiedliche Weise schreiben, mit jedem Feld an unterschiedlichen Stellen innerhalb der Adresse und sogar mit unterschiedlichen Sets und Anzahlen von Feldern, kann es hilfreich sein, wenn Ihre Website in der Lage ist, das Layout an die Erwartungen Ihrer Nutzer anzupassen, wenn ein Adresseneingabeformular präsentiert wird, basierend auf dem Land, in dem sich die Adresse befindet.
+Da verschiedene Länder ihre Adressen unterschiedlich bilden, mit jedem Feld an unterschiedlichen Stellen innerhalb der Adresse, und sogar unterschiedliche Sets und Anzahlen von Feldern, kann es hilfreich sein, wenn Ihre Seite in der Lage ist, das Layout anzupassen, das von Ihren Benutzern erwartet wird, wenn sie ein Adresseneingabeformular anzeigen, basierend auf dem Land, in dem sich die Adresse befindet.
 
 ### Variationen
 
-Die Art und Weise, wie jede Verwaltungsebene verwendet wird, variiert von Land zu Land. Hier sind einige Beispiele; dies soll keine vollständige Liste sein.
+Die Nutzung jeder Verwaltungsebene variiert von Land zu Land. Unten sind einige Beispiele; dies ist nicht als erschöpfende Liste gedacht.
 
 #### Vereinigte Staaten
 
@@ -276,15 +276,15 @@ Eine typische Wohnadresse innerhalb der Vereinigten Staaten sieht so aus:
 432 Anywhere St
 Exampleville CA 95555
 
-In den Vereinigten Staaten ist der am wenigsten spezifische Teil der Adresse der Staat, in diesem Fall "CA" (die offizielle Abkürzung des US-Postdienstes für "California"). Somit ist `address-level1` der Staat, oder "CA" in diesem Fall.
+In den Vereinigten Staaten ist der am wenigsten spezifische Teil der Adresse der Bundesstaat, in diesem Fall "CA" (die offizielle US-Post-Schreibweise für "California"). Somit ist `address-level1` der Staat, oder "CA" in diesem Fall.
 
-Der zweitwenigste spezifische Teil der Adresse ist der Stadt- oder Ortnamen, so dass `address-level2` "Exampleville" in diesem Beispielsadresse ist.
+Der zweitwenigste spezifische Teil der Adresse ist der Stadt- oder Ortsname, daher ist `address-level2` "Exampleville" in diesem Beispiel.
 
 Adressen in den Vereinigten Staaten verwenden keine Ebenen 3 und höher.
 
 #### Vereinigtes Königreich
 
-Adresseneingabeformulare im Vereinigten Königreich sollten eine oder zwei Adressebenen und eine, zwei oder drei Adresszeilen basierend auf der Adresse enthalten. Eine vollständige Adresse würde etwa so aussehen:
+Adresseneingabeformulare im Vereinigten Königreich sollten ein oder zwei Adresseneinstellungen und ein, zwei oder drei Adresszeilen enthalten, abhängig von der Adresse. Eine vollständige Adresse würde so aussehen:
 
 103 Frogmarch Street
 Upper-Wapping
@@ -292,34 +292,34 @@ Winchelsea
 Whereshire
 TN99 8ZZ
 
-Die Adressebenen sind:
+Die Adresseneinstellungen sind:
 
 - `address-level1`: Die Grafschaft — "Whereshire" in diesem Fall.
 - `address-level2`: Die Poststadt — "Winchelsea" in diesem Fall.
-- `address-line2`: Der Bezirk — "Upper-Wapping" in diesem Fall.
-- `address-line1`: Die Haus- und Straßenangaben — "103 Frogmarch Street".
+- `address-line2`: Die Lokalität — "Upper-Wapping" in diesem Fall.
+- `address-line1`: Die Haus-/Straßeneinzelheiten — "103 Frogmarch Street".
 
-Der Postcode ist separat. Beachten Sie, dass Sie tatsächlich nur den Postcode und `address-line1` benötigen, um Post im Vereinigten Königreich erfolgreich zuzustellen. Sie sollten die einzigen obligatorischen Angaben sein, aber normalerweise geben die Leute tendenziell mehr Details an.
+Die Postleitzahl ist separat. Beachten Sie, dass Sie tatsächlich nur die Postleitzahl und `address-line1` verwenden können, um Post erfolgreich im Vereinigten Königreich zu liefern, daher sollten sie die einzigen Pflichtangaben sein, aber üblicherweise neigen Menschen dazu, mehr Angaben zu machen.
 
 #### China
 
 China kann bis zu drei Verwaltungsebenen verwenden: die Provinz, die Stadt und den Bezirk.
 
-Die 6-stellige Postleitzahl wird nicht immer benötigt, aber wenn sie angegeben wird, befindet sie sich gesondert und mit einem Label für Klarheit. Zum Beispiel:
+Die 6-stellige Postleitzahl ist nicht immer erforderlich, aber wenn sie angegeben wird, wird sie zur Klarheit separat mit einem Label platziert. Zum Beispiel:
 
 北京市东城区建国门北大街 8 号华润大厦 17 层 1708 单元
 邮编：100005
 
 #### Japan
 
-Eine Adresse in Japan wird typischerweise **in einer Zeile geschrieben**, in einer Reihenfolge vom wenigsten spezifischen zu mehr spezifischen Teilen (in **umgekehrter Reihenfolge zu den Vereinigten Staaten**). Es gibt zwei oder drei Verwaltungsebenen in einer Adresse. Eine zusätzliche Zeile kann verwendet werden, um Gebäudenamen und Raumnummern anzuzeigen. Die Postleitzahl ist separat. Zum Beispiel:
+Eine Adresse in Japan wird typischerweise **in einer Zeile** geschrieben, in einer Reihenfolge von der am wenigsten spezifischen zu den spezifischeren Teilen (in **umgekehrter Reihenfolge zu den Vereinigten Staaten**). Eine zusätzliche Linie kann verwendet werden, um Gebäudenamen und Raumnummern anzuzeigen. Die Postleitzahl ist separat. Zum Beispiel:
 
 〒 381-0000
 長野県長野市某町 123
 
-"〒" und die folgenden sieben Ziffern zeigen die Postleitzahl an.
+"〒" und die darauffolgenden sieben Ziffern zeigen die Postleitzahl.
 
-`address-level1` wird für Präfekturen oder die Metropole Tokyo verwendet; "長野県" (Präfektur Nagano) in diesem Fall. `address-level2` wird typischerweise für Städte, Landkreise, Bezirke und Dörfer verwendet; "長野市" (Stadt Nagano) in diesem Fall. "某町 123" ist `address-line1`, das aus einem Gebietsnamen und einer Lot-Nummer besteht.
+`address-level1` wird für Präfekturen oder die Tokyo Metropole verwendet; "長野県" (Nagano Präfektur) ist in diesem Fall. `address-level2` wird typischerweise für Städte, Landkreise, Städte und Dörfer verwendet; "長野市" (Nagano Stadt) in diesem Fall. "某町 123" ist `address-line1` welches einen Gebietsname und eine Losnummer umfasst.
 
 ## Spezifikationen
 
@@ -331,9 +331,9 @@ Eine Adresse in Japan wird typischerweise **in einer Zeile geschrieben**, in ein
 
 ## Siehe auch
 
-- Das {{htmlelement("input")}}-Element
-- Das {{htmlelement("select")}}-Element
-- Das {{htmlelement("textarea")}}-Element
-- Das {{htmlelement("form")}}-Element
-- [HTML-Formulare](/de/docs/Learn/web_development/Extensions/Forms)
+- Das {{htmlelement("input")}} Element
+- Das {{htmlelement("select")}} Element
+- Das {{htmlelement("textarea")}} Element
+- Das {{htmlelement("form")}} Element
+- [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms)
 - Alle [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes)

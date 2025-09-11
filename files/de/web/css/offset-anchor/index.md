@@ -2,10 +2,10 @@
 title: offset-anchor
 slug: Web/CSS/offset-anchor
 l10n:
-  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
-Die **`offset-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert den Punkt innerhalb des Rahmens eines Elements, das entlang eines {{cssxref("offset-path")}} reist und tatsächlich den Pfad entlang bewegt wird.
+Die **`offset-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt den Punkt innerhalb des Rahmens eines Elements, das entlang eines {{cssxref("offset-path")}} verläuft und tatsächlich entlang des Pfades bewegt wird.
 
 {{InteractiveExample("CSS Demo: offset-anchor")}}
 
@@ -79,19 +79,17 @@ offset-anchor: 20% 80%;
 ```
 
 ```js interactive-example
-window.addEventListener("load", () => {
-  const example = document.getElementById("example-element");
-  const button = document.getElementById("playback");
+const example = document.getElementById("example-element");
+const button = document.getElementById("playback");
 
-  button.addEventListener("click", () => {
-    if (example.classList.contains("running")) {
-      example.classList.remove("running");
-      button.textContent = "Play";
-    } else {
-      example.classList.add("running");
-      button.textContent = "Pause";
-    }
-  });
+button.addEventListener("click", () => {
+  if (example.classList.contains("running")) {
+    example.classList.remove("running");
+    button.textContent = "Play";
+  } else {
+    example.classList.add("running");
+    button.textContent = "Pause";
+  }
 });
 ```
 
@@ -129,9 +127,9 @@ offset-anchor: unset;
 ### Werte
 
 - `auto`
-  - : `offset-anchor` erhält denselben Wert wie der {{cssxref("transform-origin")}} des Elements, es sei denn, {{cssxref("offset-path")}} ist `none`. In diesem Fall nimmt es seinen Wert von {{cssxref("offset-position")}}.
+  - : `offset-anchor` erhält denselben Wert wie der {{cssxref("transform-origin")}} des Elements, es sei denn, {{cssxref("offset-path")}} ist `none`. In diesem Fall wird sein Wert von {{cssxref("offset-position")}} übernommen.
 - `<position>`
-  - : Ein {{cssxref("&lt;position&gt;")}} definiert eine x/y-Koordinate, um ein Element relativ zu den Rändern des Rahmens eines Elements zu platzieren. Es kann mit einem bis vier Werten definiert werden. Für spezifischere Informationen siehe die {{cssxref("&lt;position&gt;")}} und {{cssxref("background-position")}} Referenzseiten. Beachten Sie, dass die 3-Werte-Position-Syntax für keine Nutzung von `<position>` funktioniert, außer in `background(-position)`.
+  - : Ein {{cssxref("&lt;position&gt;")}} definiert eine x/y-Koordinate, um ein Element relativ zu den Kanten des Rahmens eines Elements zu platzieren. Es kann mit einem bis vier Werten definiert werden. Für weitere Details sehen Sie die Referenzseiten zu {{cssxref("&lt;position&gt;")}} und {{cssxref("background-position")}}. Beachten Sie, dass die 3-Werte-Position-Syntax für keine Verwendung von `<position>` funktioniert, außer in `background(-position)`.
 
 ## Formale Definition
 
@@ -143,13 +141,13 @@ offset-anchor: unset;
 
 ## Beispiele
 
-### Verschiedene offset-anchor Werte setzen
+### Verschiedene offset-anchor-Werte einstellen
 
-Im folgenden Beispiel haben wir drei {{htmlelement("div")}}-Elemente, die in {{htmlelement("section")}}-Elemente geschachtelt sind. Jedes `<div>` erhält denselben {{cssxref("offset-path")}} (eine 200 Pixel lange horizontale Linie) und wird animiert, sich entlang dieser zu bewegen. Die drei erhalten dann unterschiedliche {{cssxref("background-color")}} und `offset-anchor` Werte.
+Im folgenden Beispiel haben wir drei {{htmlelement("div")}}-Elemente, die in {{htmlelement("section")}}-Elemente verschachtelt sind. Jedes `<div>` erhält denselben {{cssxref("offset-path")}} (eine 200 Pixel lange horizontale Linie) und wird animiert, um sich entlang dieser Linie zu bewegen. Die drei erhalten dann unterschiedliche {{cssxref("background-color")}} und `offset-anchor` Werte.
 
-Jedes `<section>` wurde mit einem linearen Verlauf gestaltet, um ihm eine horizontale Linie durch seine Mitte zu geben, damit Sie eine visuelle Darstellung davon haben, wo die `<div>`-Offset-Pfade verlaufen.
+Jedes `<section>` wurde mit einem linearen Verlauf gestylt, um eine horizontale Linie durch seine Mitte zu ziehen, damit Sie eine visuelle Anzeige davon erhalten, wo die Offset-Pfade der `<div>`s verlaufen.
 
-Dies ermöglicht es Ihnen zu sehen, welchen Effekt die verschiedenen `offset-anchor` Werte haben — der erste, `auto`, bewirkt, dass sich der Mittelpunkt des `<div>` entlang des Pfades bewegt. Die anderen beiden bewirken, dass sich die oberen rechten und unteren linken Punkte des `<div>` entlang des Pfades bewegen.
+Dies ermöglicht es Ihnen, den Effekt der verschiedenen `offset-anchor` Werte zu sehen — der erste, `auto`, bewirkt, dass sich der Mittelpunkt des `<div>`s entlang des Pfades bewegt. Die anderen beiden bewirken, dass sich die oberen rechten und unteren linken Punkte des `<div>`s entlang des Pfades bewegen.
 
 #### HTML
 

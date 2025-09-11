@@ -2,7 +2,7 @@
 title: animation-fill-mode
 slug: Web/CSS/animation-fill-mode
 l10n:
-  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 Die **`animation-fill-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie eine CSS-Animation Stile auf ihr Ziel vor und nach ihrer Ausführung anwendet.
@@ -76,41 +76,37 @@ animation-delay: 1s;
 ```
 
 ```js interactive-example
-"use strict";
+const el = document.getElementById("example-element");
+const status = document.getElementById("play-status");
 
-window.addEventListener("load", () => {
-  const el = document.getElementById("example-element");
-  const status = document.getElementById("play-status");
-
-  function update() {
-    status.textContent = "delaying";
-    el.className = "";
+function update() {
+  status.textContent = "delaying";
+  el.className = "";
+  window.requestAnimationFrame(() => {
     window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        el.className = "animating";
-      });
+      el.className = "animating";
     });
-  }
-
-  el.addEventListener("animationstart", () => {
-    status.textContent = "playing";
   });
+}
 
-  el.addEventListener("animationend", () => {
-    status.textContent = "finished";
-  });
+el.addEventListener("animationstart", () => {
+  status.textContent = "playing";
+});
 
-  const observer = new MutationObserver(() => {
-    update();
-  });
+el.addEventListener("animationend", () => {
+  status.textContent = "finished";
+});
 
-  observer.observe(el, {
-    attributes: true,
-    attributeFilter: ["style"],
-  });
-
+const observer = new MutationObserver(() => {
   update();
 });
+
+observer.observe(el, {
+  attributes: true,
+  attributeFilter: ["style"],
+});
+
+update();
 ```
 
 Es ist oft praktisch, die Kurzschreibweiseigenschaft {{cssxref("animation")}} zu verwenden, um alle Animationseigenschaften auf einmal festzulegen.
@@ -139,37 +135,37 @@ animation-fill-mode: unset;
 ### Werte
 
 - `none`
-  - : Die Animation wird keine Stile auf das Ziel anwenden, wenn sie nicht ausgeführt wird. Das Element wird stattdessen mit allen anderen darauf angewendeten CSS-Regeln angezeigt. Dies ist der Standardwert.
+  - : Die Animation wendet keine Stile auf das Ziel an, wenn sie nicht ausgeführt wird. Das Element wird stattdessen unter Verwendung der anderen darauf angewendeten CSS-Regeln angezeigt. Dies ist der Standardwert.
 - `forwards`
-  - : Das Ziel behält die berechneten Werte, die durch das letzte im Verlauf der Ausführung betrachtete [keyframe](/de/docs/Web/CSS/@keyframes) gesetzt wurden. Das letzte Keyframe hängt von dem Wert von {{cssxref("animation-direction")}} und {{cssxref("animation-iteration-count")}} ab:
+  - : Das Ziel behält die berechneten Werte, die vom letzten [Keyframe](/de/docs/Web/CSS/@keyframes) während der Ausführung festgelegt wurden. Der letzte Keyframe hängt vom Wert von {{cssxref("animation-direction")}} und {{cssxref("animation-iteration-count")}} ab:
 
-    | `animation-direction` | `animation-iteration-count` | letztes betrachtetes Keyframe |
-    | --------------------- | --------------------------- | ----------------------------- |
-    | `normal`              | gerade oder ungerade        | `100%` oder `to`              |
-    | `reverse`             | gerade oder ungerade        | `0%` oder `from`              |
-    | `alternate`           | gerade                      | `0%` oder `from`              |
-    | `alternate`           | ungerade                    | `100%` oder `to`              |
-    | `alternate-reverse`   | gerade                      | `100%` oder `to`              |
-    | `alternate-reverse`   | ungerade                    | `0%` oder `from`              |
+    | `animation-direction` | `animation-iteration-count` | last keyframe encountered |
+    | --------------------- | --------------------------- | ------------------------- |
+    | `normal`              | gerade oder ungerade        | `100%` oder `to`          |
+    | `reverse`             | gerade oder ungerade        | `0%` oder `from`          |
+    | `alternate`           | gerade                      | `0%` oder `from`          |
+    | `alternate`           | ungerade                    | `100%` oder `to`          |
+    | `alternate-reverse`   | gerade                      | `100%` oder `to`          |
+    | `alternate-reverse`   | ungerade                    | `0%` oder `from`          |
 
-    Animierte Eigenschaften verhalten sich, als ob sie in einem Satz [`will-change`](/de/docs/Web/CSS/will-change) Eigenschaftswerten enthalten wären. Wenn ein neuer Stacking-Kontext während der Animation erstellt wurde, behält das Zielelement den Stacking-Kontext bei, nachdem die Animation abgeschlossen ist.
+    Animierte Eigenschaften verhalten sich, als wären sie in einem [`will-change`](/de/docs/Web/CSS/will-change) Eigenschaftswert enthalten. Wenn während der Animation ein neuer Stacking-Kontext erstellt wurde, behält das Zielelement den Stacking-Kontext bei, nachdem die Animation beendet wurde.
 
 - `backwards`
-  - : Die Animation wird die in dem ersten relevanten [keyframe](/de/docs/Web/CSS/@keyframes) definierten Werte anwenden, sobald sie auf das Ziel angewandt wird, und diese während der {{cssxref("animation-delay")}} Periode beibehalten. Das erste relevante Keyframe hängt von dem Wert von {{cssxref("animation-direction")}} ab:
+  - : Die Animation wendet die im ersten relevanten [Keyframe](/de/docs/Web/CSS/@keyframes) definierten Werte an, sobald sie auf das Ziel angewendet wird, und behält diese während der {{cssxref("animation-delay")}} Periode bei. Der erste relevante Keyframe hängt vom Wert von {{cssxref("animation-direction")}} ab:
 
-    | `animation-direction`              | erstes relevantes Keyframe |
-    | ---------------------------------- | -------------------------- |
-    | `normal` oder `alternate`          | `0%` oder `from`           |
-    | `reverse` oder `alternate-reverse` | `100%` oder `to`           |
+    | `animation-direction`              | first relevant keyframe |
+    | ---------------------------------- | ----------------------- |
+    | `normal` oder `alternate`          | `0%` oder `from`        |
+    | `reverse` oder `alternate-reverse` | `100%` oder `to`        |
 
 - `both`
-  - : Die Animation folgt den Regeln sowohl für _forwards_ als auch _backwards_ und dehnt somit die Animationseigenschaften in beide Richtungen aus.
+  - : Die Animation folgt den Regeln sowohl vorwärts als auch rückwärts, wodurch die Animationseigenschaften in beide Richtungen erweitert werden.
 
 > [!NOTE]
-> Wenn Sie mehrere durch Kommas getrennte Werte bei einer `animation-*` Eigenschaft angeben, werden diese in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Fälle, in denen die Anzahl der Animationen und der `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere durch Kommas getrennte Werte auf einer `animation-*` Eigenschaft angeben, werden sie in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animationswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 > [!NOTE]
-> `animation-fill-mode` hat die gleiche Wirkung beim Erstellen von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) wie bei regulären, zeitbasierten Animationen.
+> `animation-fill-mode` hat denselben Effekt bei der Erstellung von [CSS-Scroll-Animationsantrieben](/de/docs/Web/CSS/CSS_scroll-driven_animations), wie bei regulären zeitbasierten Animationen.
 
 ## Formale Definition
 
@@ -183,7 +179,7 @@ animation-fill-mode: unset;
 
 ### Fill-Modus einstellen
 
-Im folgenden Beispiel können Sie den Effekt von `animation-fill-mode` sehen. Es zeigt, wie Sie die Animation im Endzustand verbleiben lassen können, anstatt zum Originalzustand zurückzukehren (was der Standard ist).
+Sie können den Effekt von `animation-fill-mode` im folgenden Beispiel sehen. Es zeigt, wie Sie die Animation im Endzustand belassen können, anstatt in den Originalzustand zurückzukehren (was der Standard ist).
 
 #### HTML
 
@@ -228,7 +224,7 @@ Im folgenden Beispiel können Sie den Effekt von `animation-fill-mode` sehen. Es
 
 {{EmbedLiveSample('Setting fill mode',700,300)}}
 
-Sehen Sie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) für weitere Beispiele.
+Siehe [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) für weitere Beispiele.
 
 ## Spezifikationen
 

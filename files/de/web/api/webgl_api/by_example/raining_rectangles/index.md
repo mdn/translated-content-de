@@ -1,23 +1,23 @@
 ---
-title: Regnende Rechtecke
+title: Regennde Rechtecke
 slug: Web/API/WebGL_API/By_example/Raining_rectangles
 l10n:
-  sourceCommit: 364a4d02b10854ab7cef4ff4b0ec3616d4e1c8ab
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Scissor_animation","Web/API/WebGL_API/By_example/Hello_GLSL")}}
 
-Ein einfaches WebGL-Spiel, das das Löschen mit Vollfarben, das Ausschneiden, Animationen und Benutzerinteraktion demonstriert.
+Ein einfaches WebGL-Spiel, das das Löschen mit Vollfarben, Scissoring, Animation und Benutzerinteraktion demonstriert.
 
-## Animation und Benutzerinteraktion mit Ausschneiden
+## Animation und Benutzerinteraktion mit Scissoring
 
 {{EmbedLiveSample("Animation_and_user_interaction_with_scissoring",660,425)}}
 
-Dies ist ein einfaches Spiel. Das Ziel: Versuchen Sie, so viele der regnenden Rechtecke wie möglich zu fangen, indem Sie darauf klicken. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, was hilft, den Zustand des Rechtecks (Position, Farbe usw.) an einem Ort organisiert zu halten und den gesamten Code kompakter und wiederverwendbarer zu gestalten.
+Dies ist ein einfaches Spiel. Das Ziel: Versuchen Sie, so viele der regnenden Rechtecke wie möglich durch Anklicken zu fangen. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, was hilft, den Zustand des Rechtecks (seine Position, Farbe usw.) an einem Ort zu organisieren und den gesamten Code kompakter und wiederverwendbarer zu machen.
 
-Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Vollfarben und Ausschneideoperationen. Es ist eine Vorschau auf eine vollständige grafische Anwendung, die verschiedene Phasen der {{Glossary("WebGL", "WebGL")}}-Grafikpipeline und Zustandsmaschine manipuliert.
+Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Vollfarben und Scissoring-Operationen. Es ist eine Vorschau einer vollständigen grafischen Anwendung, die verschiedene Phasen der {{Glossary("WebGL", "WebGL")}}-Grafikpipeline und Zustandsmaschine manipuliert.
 
-Darüber hinaus zeigt das Beispiel, wie WebGL-Funktionsaufrufe innerhalb einer Spielschleife integriert werden können. Die Spielschleife ist verantwortlich für das Zeichnen der Animationsrahmen und dafür, die Animation auf Benutzereingaben zu reagieren zu lassen. Hier wird die Spielschleife mit Zeitlimits implementiert.
+Darüber hinaus demonstriert das Beispiel, wie die WebGL-Funktionsaufrufe innerhalb einer Spielschleife integriert werden. Die Spielschleife ist dafür verantwortlich, die Animationsframes zu zeichnen und die Animation für Benutzereingaben reaktionsfähig zu halten. Hier wird die Spielschleife mithilfe von Timeouts implementiert.
 
 ```html hidden
 <p>You caught <strong>0</strong>. You missed <strong>0</strong>.</p>
@@ -49,23 +49,24 @@ button {
 ```
 
 ```js
-window.addEventListener("load", setupAnimation, false);
-let gl;
-let timer;
-let rainingRect;
-let scoreDisplay;
-let missesDisplay;
-function setupAnimation(evt) {
-  window.removeEventListener(evt.type, setupAnimation, false);
-  if (!(gl = getRenderingContext())) return;
-  gl.enable(gl.SCISSOR_TEST);
+const canvas = document.querySelector("canvas");
 
-  rainingRect = new Rectangle();
-  timer = setTimeout(drawAnimation, 17);
-  document
-    .querySelector("canvas")
-    .addEventListener("click", playerClick, false);
-  [scoreDisplay, missesDisplay] = document.querySelectorAll("strong");
+const gl = getRenderingContext();
+gl.enable(gl.SCISSOR_TEST);
+let rainingRect = new Rectangle();
+
+let timer = setTimeout(drawAnimation, 17);
+canvas.addEventListener("click", playerClick);
+const [scoreDisplay, missesDisplay] = document.querySelectorAll("strong");
+
+function getRenderingContext() {
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  const gl = canvas.getContext("webgl");
+  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+  return gl;
 }
 
 let score = 0;
@@ -139,26 +140,6 @@ class Rectangle {
 
 function getRandomVector() {
   return [Math.random(), Math.random(), Math.random()];
-}
-```
-
-```js hidden
-function getRenderingContext() {
-  const canvas = document.querySelector("canvas");
-  canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
-  const gl =
-    canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-  if (!gl) {
-    const paragraph = document.querySelector("p");
-    paragraph.textContent =
-      "Failed. Your browser or device may not support WebGL.";
-    return null;
-  }
-  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-  gl.clearColor(0.0, 0.0, 0.0, 1.0);
-  gl.clear(gl.COLOR_BUFFER_BIT);
-  return gl;
 }
 ```
 

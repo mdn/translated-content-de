@@ -2,14 +2,14 @@
 title: caret-animation
 slug: Web/CSS/caret-animation
 l10n:
-  sourceCommit: 9cbfa7fc0051724913e92958b712425db77291a8
+  sourceCommit: 49f90b9c810e5167fecf6ad652afb03075072db7
 ---
 
 {{SeeCompatTable}}
 
-Die **`caret-animation`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um das Blinken des **Einfüge-Cursors** zu aktivieren oder zu deaktivieren. Der Cursor ist das sichtbare Zeichen, das in editierbaren Elementen erscheint, um anzuzeigen, wo das nächste Zeichen eingefügt oder gelöscht wird.
+Die **`caret-animation`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um das Blinken des **Eingabecursors** zu aktivieren oder zu deaktivieren. Der sichtbare Marker erscheint in editierbaren Elementen, um anzuzeigen, wo das nächste Zeichen eingefügt oder gelöscht wird.
 
-Wenn Sie eine benutzerdefinierte Animation auf den Cursor anwenden, sollten Sie das standardmäßige Blinken deaktivieren, damit es die Animation nicht stört.
+Wenn Sie eine benutzerdefinierte Animation auf den Cursor anwenden, sollten Sie das standardmäßige Blinken stoppen, damit es nicht mit der Animation interferiert.
 
 ## Syntax
 
@@ -28,12 +28,12 @@ caret-animation: unset;
 
 ### Werte
 
-Die Eigenschaft `caret-animation` wird als eines der unten aufgeführten Schlüsselwörter festgelegt.
+Die `caret-animation` Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
 
 - `auto`
-  - : Der Cursor blinkt ein und aus. Dies ist der Standardwert.
+  - : Der Cursor blinkt ein und aus. Dies ist der Standardwert (initialer Wert).
 - `manual`
-  - : Der Cursor blinkt nicht.
+  - : Der Cursor blinkt nicht ein und aus.
 
 ## Formale Definition
 
@@ -45,13 +45,13 @@ Die Eigenschaft `caret-animation` wird als eines der unten aufgeführten Schlüs
 
 ## Beispiele
 
-### Grundlegende Verwendung von `caret-animation`
+### Grundlegende Nutzung von `caret-animation`
 
-Dieses Beispiel zeigt den Unterschied zwischen `caret-animation` auf `auto` und `manual` an einem editierbaren Element.
+Dieses Beispiel zeigt den Unterschied zwischen `caret-animation` auf `auto` und `manual` bei einem editierbaren Element.
 
 #### HTML
 
-Das Markup enthält zwei {{htmlelement("p")}}-Elemente mit dem [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut, um sie editierbar zu machen.
+Das Markup enthält zwei {{htmlelement("p")}} Elemente mit [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable), um sie editierbar zu machen.
 
 ```html live-sample___caret-animation-basic
 <p contenteditable="true">
@@ -66,7 +66,7 @@ Das Markup enthält zwei {{htmlelement("p")}}-Elemente mit dem [`contenteditable
 
 #### CSS
 
-Das CSS setzt den Wert von {{cssxref("caret-color")}} auf `red`. Dann wird dem ersten Paragraphen ein `caret-animation` Wert von `auto` und dem zweiten Paragraphen ein `caret-animation` Wert von `manual` zugewiesen.
+Das CSS setzt den Wert von {{cssxref("caret-color")}} auf `red`. Es weist dann dem ersten Absatz einen `caret-animation` Wert von `auto` und dem zweiten Absatz einen `caret-animation` Wert von `manual` zu.
 
 ```css live-sample___caret-animation-basic
 p {
@@ -82,21 +82,21 @@ p:last-of-type {
 }
 ```
 
-#### Resultat
+#### Ergebnis
 
 Das gerenderte Ergebnis sieht folgendermaßen aus:
 
 {{EmbedLiveSample('caret-animation-basic', 'auto', 100)}}
 
-Versuchen Sie, die beiden Absätze zu fokussieren, um den Unterschied im Cursorverhalten zu sehen.
+Versuchen Sie, sich auf die beiden Absätze zu fokussieren, um den Unterschied im Cursorverhalten zu sehen.
 
-### Erstellen einer benutzerdefinierten Cursoranimation
+### Erstellen einer benutzerdefinierten Cursor-Animation
 
-In diesem Beispiel wird eine benutzerdefinierte Cursoranimation auf einen editierbaren Paragraphen und ein Texteingabefeld angewendet.
+In diesem Beispiel wird eine benutzerdefinierte Cursor-Animation auf einen editierbaren Absatz und eine Texteingabe angewendet.
 
 #### HTML
 
-Das Markup enthält ein {{htmlelement("p")}}-Element und zwei Text {{htmlelement("input")}}-Elemente. Das `<p>`-Element hat das [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut, um es editierbar zu machen. Der Paragraph und das erste Texteingabefeld haben eine `class` mit dem Wert `custom-caret`.
+Das Markup enthält ein {{htmlelement("p")}} Element und zwei Text {{htmlelement("input")}} Elemente. Das `<p>` Element hat das [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut, um es editierbar zu machen. Der Absatz und die erste Texteingabe haben eine `class` von `custom-caret`.
 
 ```html live-sample___caret-animation-custom
 <p contenteditable="true" class="custom-caret">
@@ -115,7 +115,7 @@ Das Markup enthält ein {{htmlelement("p")}}-Element und zwei Text {{htmlelement
 
 #### CSS
 
-Wir definieren zuerst eine Reihe von {{cssxref("@keyframes")}}, die die {{cssxref("caret-color")}} von `transparent` zu `darkblue` ändern.
+Zuerst definieren wir ein Set von {{cssxref("@keyframes")}}, das die {{cssxref("caret-color")}} von `transparent` zu `darkblue` verändert.
 
 ```css live-sample___caret-animation-custom
 @keyframes custom-caret-animation {
@@ -129,7 +129,7 @@ Wir definieren zuerst eine Reihe von {{cssxref("@keyframes")}}, die die {{cssxre
 }
 ```
 
-Dann gestalten wir das `<p>` und das erste `<input>` mit der benutzerdefinierten `@keyframes` Animation, einer {{cssxref("caret-color")}} und einem `caret-animation` Wert von `manual`, um das Standard-Blinkverhalten des Cursors auszuschalten.
+Wir stylen dann das `<p>` und das erste `<input>` mit der benutzerdefinierten `@keyframes` Animation, einer {{cssxref("caret-color")}}, und einem `caret-animation` Wert von `manual`, um das standardmäßige Blinken des Cursors zu deaktivieren.
 
 ```css hidden live-sample___caret-animation-custom
 body {
@@ -155,13 +155,13 @@ input {
 }
 ```
 
-#### Resultat
+#### Ergebnis
 
 Das gerenderte Ergebnis sieht folgendermaßen aus:
 
 {{EmbedLiveSample('caret-aniamtion-custom', 'auto', 260)}}
 
-Versuchen Sie, die ersten beiden Elemente zu fokussieren, um die benutzerdefinierte Cursoranimation zu sehen. Um sie mit dem standardmäßigen blinkenden Cursor zu vergleichen, fokussieren Sie das dritte Element.
+Versuchen Sie, sich auf die ersten beiden Elemente zu fokussieren, um zu sehen, wie die benutzerdefinierte Cursor-Animation aussieht. Zum Vergleich mit dem standardmäßigen blinkenden Cursor können Sie sich auf das dritte Element fokussieren.
 
 ## Spezifikationen
 
@@ -173,5 +173,6 @@ Versuchen Sie, die ersten beiden Elemente zu fokussieren, um die benutzerdefinie
 
 ## Siehe auch
 
-- {{cssxref("caret-color")}}
-- [CSS grundlegendes Benutzeroberflächenmodul](/de/docs/Web/CSS/CSS_basic_user_interface) modul
+- {{cssxref("caret-color")}}, {{cssxref("caret-shape")}}
+- {{cssxref("caret")}} Shorthand
+- [CSS grundlegendes Benutzerinterface](/de/docs/Web/CSS/CSS_basic_user_interface) Modul

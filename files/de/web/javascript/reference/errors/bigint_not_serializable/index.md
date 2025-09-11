@@ -1,11 +1,11 @@
 ---
-title: "TypeError: BigInt value kann in JSON nicht serialisiert werden"
+title: "TypeError: BigInt-Wert kann nicht in JSON serialisiert werden"
 slug: Web/JavaScript/Reference/Errors/BigInt_not_serializable
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 4026c18a22b6ceb24e69adf4851de13af8fab92d
 ---
 
-Der JavaScript-Fehler "BigInt value kann in JSON nicht serialisiert werden" tritt auf, wenn ein {{jsxref("BigInt")}} in {{jsxref("JSON.stringify")}} ohne benutzerdefinierte Serialisierungsmethode vorgefunden wird.
+Die JavaScript-Ausnahme "BigInt-Wert kann nicht in JSON serialisiert werden" tritt auf, wenn ein {{jsxref("BigInt")}} in {{jsxref("JSON.stringify")}} ohne eine benutzerdefinierte Serialisierungsmethode auftritt.
 
 ## Nachricht
 
@@ -21,21 +21,21 @@ TypeError: JSON.stringify cannot serialize BigInt. (Safari)
 
 ## Was ist schiefgelaufen?
 
-Sie versuchen, einen BigInt-Wert mit `JSON.stringify` zu serialisieren, was standardmäßig keine BigInt-Werte unterstützt. Manchmal erfolgt die JSON-Serialisierung implizit in Bibliotheken als Teil der Datenserialisierung. Zum Beispiel erfordert das Senden von Daten an den Server, das Speichern in einem externen Speicher oder das Übertragen zwischen Threads alle eine Serialisierung, die oft mit JSON durchgeführt wird.
+Sie versuchen, einen BigInt-Wert mit `JSON.stringify` zu serialisieren, was standardmäßig keine BigInt-Werte unterstützt. Manchmal erfolgt die JSON-Stringifizierung implizit in Bibliotheken als Teil der Datenserialisierung. Beispielsweise erfordert das Senden von Daten an den Server, das Speichern in externen Speichern oder das Übertragen zwischen Threads eine Serialisierung, die oft mit JSON durchgeführt wird.
 
-Es gibt mehrere Möglichkeiten, dies zu handhaben:
+Es gibt mehrere Möglichkeiten, damit umzugehen:
 
-- Wenn Sie die Datenquelle ändern können, vermeiden Sie die Verwendung von BigInt-Werten und wandeln Sie sie in eine Zahl um (was möglicherweise bei großen Zahlen zu Präzisionsverlusten führt).
-- Wenn Sie den Serialisierungsprozess ändern können, übergeben Sie eine Ersetzungsfunktion an `JSON.stringify`, die BigInt-Werte in Strings oder Zahlen umwandelt.
-- Sie können auch global eine `BigInt.prototype.toJSON`-Methode bereitstellen, die aufgerufen wird, wann immer ein BigInt-Wert serialisiert wird.
+- Wenn Sie die Datenquelle ändern können, vermeiden Sie die Verwendung von BigInt-Werten und wandeln Sie diese zuerst in eine Zahl um (was für große Zahlen Präzisionsverluste bedeuten kann).
+- Wenn Sie den Stringifizierungsprozess ändern können, übergeben Sie eine Ersetzungsfunktion an `JSON.stringify`, die BigInt-Werte in Zeichenfolgen oder Zahlen umwandelt.
+- Sie können auch global eine `BigInt.prototype.toJSON`-Methode bereitstellen, die aufgerufen wird, wann immer ein BigInt-Wert stringifiziert wird.
 
-Für weitere Informationen zu verschiedenen Abwägungen siehe [BigInt-Referenz](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt#use_within_json).
+Für weitere Informationen zu verschiedenen Kompromissen siehe [BigInt-Referenz](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt#use_within_json).
 
 ## Beispiele
 
 ### Bereitstellung einer benutzerdefinierten Serialisierungsmethode
 
-Standardmäßig sind BigInt-Werte in JSON nicht serialisierbar:
+Standardmäßig sind BigInt-Werte nicht in JSON serialisierbar:
 
 ```js example-bad
 const data = { a: 1n };
@@ -45,7 +45,7 @@ JSON.stringify(data);
 
 Angenommen, Sie beabsichtigen, dass das JSON einen Zahlenwert enthält, hier sind einige Ansätze, die funktionieren:
 
-- Konvertieren Sie das BigInt in eine Zahl, bevor Sie es serialisieren:
+- Wandeln Sie den BigInt vor der Stringifizierung in eine Zahl um:
 
   ```js
   const data = { a: 1n };
@@ -53,7 +53,7 @@ Angenommen, Sie beabsichtigen, dass das JSON einen Zahlenwert enthält, hier sin
   // '{"a":1}'
   ```
 
-- Stellen Sie eine Ersetzungsfunktion bereit, die BigInt-Werte in Zahlen oder [rohe JSON-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/rawJSON) konvertiert:
+- Stellen Sie eine Ersetzungsfunktion bereit, die BigInt-Werte in Zahlen oder [raw JSON objects](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/rawJSON) umwandelt:
 
   ```js
   const data = { a: 1n };
@@ -71,7 +71,7 @@ Angenommen, Sie beabsichtigen, dass das JSON einen Zahlenwert enthält, hier sin
   // '{"a":1}'
   ```
 
-- Stellen Sie eine `BigInt.prototype.toJSON`-Methode bereit, die aufgerufen wird, wann immer ein BigInt-Wert serialisiert wird:
+- Stellen Sie eine `BigInt.prototype.toJSON`-Methode bereit, die aufgerufen wird, wann immer ein BigInt-Wert stringifiziert wird:
 
   ```js
   BigInt.prototype.toJSON = function () {

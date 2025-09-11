@@ -3,20 +3,23 @@ title: "HTMLCanvasElement: toDataURL() Methode"
 short-title: toDataURL()
 slug: Web/API/HTMLCanvasElement/toDataURL
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`HTMLCanvasElement.toDataURL()`** Methode gibt eine [Daten-URL](/de/docs/Web/URI/Reference/Schemes/data) zurück, die eine Darstellung des Bildes im Format enthält, das durch den `type` Parameter angegeben wird.
+Die **`HTMLCanvasElement.toDataURL()`** Methode gibt eine [Daten-URL](/de/docs/Web/URI/Reference/Schemes/data) zurück, die eine Darstellung des Bildes im durch den `type` Parameter angegebenen Format enthält.
 
-Das gewünschte Dateiformat und die Bildqualität können angegeben werden. Wenn das Dateiformat nicht spezifiziert ist oder das angegebene Format nicht unterstützt wird, wird die Daten als `image/png` exportiert. Mit anderen Worten, wenn der zurückgegebene Wert mit `data:image/png` für jeden anderen angeforderten `type` beginnt, wird dieses Format nicht unterstützt.
+Das gewünschte Dateiformat und die Bildqualität können angegeben werden.
+Wenn das Dateiformat nicht angegeben ist oder das angegebene Format nicht unterstützt wird, wird die Daten als `image/png` exportiert.
+Mit anderen Worten, wenn der zurückgegebene Wert mit `data:image/png` für jeden anderen angeforderten `type` beginnt, wird dieses Format nicht unterstützt.
 
-Browser müssen `image/png` unterstützen; viele werden zusätzliche Formate unterstützen, einschließlich `image/jpeg` und `image/webp`.
+Browser sind verpflichtet, `image/png` zu unterstützen; viele werden zusätzlich Formate wie `image/jpeg` und `image/webp` unterstützen.
 
-Die erstellten Bilddaten haben eine Auflösung von 96dpi für Dateiformate, die die Kodierung von Auflösungsmetadaten unterstützen.
+Die erzeugten Bilddaten werden für Dateiformate, die das Encodieren von Auflösungsmetadaten unterstützen, eine Auflösung von 96dpi haben.
 
-> [!WARNING] > `toDataURL()` kodiert das gesamte Bild in einem Speicher-String. Bei größeren Bildern kann dies Leistungseinbußen verursachen und möglicherweise die URL-Längenbegrenzung des Browsers überschreiten, wenn es der [`HTMLImageElement.src`](/de/docs/Web/API/HTMLImageElement/src) zugewiesen wird. Sie sollten im Allgemeinen [`toBlob()`](/de/docs/Web/API/HTMLCanvasElement/toBlob) anstelle dessen bevorzugen, in Kombination mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static).
+> [!WARNING]
+> `toDataURL()` codiert das gesamte Bild in einem In-Memory-String. Bei größeren Bildern kann dies Leistungsauswirkungen haben und sogar das Längenlimit für URLs im Browser überschreiten, wenn es zu [`HTMLImageElement.src`](/de/docs/Web/API/HTMLImageElement/src) zugewiesen wird. Im Allgemeinen sollten Sie eher [`toBlob()`](/de/docs/Web/API/HTMLCanvasElement/toBlob) bevorzugen, in Kombination mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static).
 
 ## Syntax
 
@@ -29,24 +32,27 @@ toDataURL(type, quality)
 ### Parameter
 
 - `type` {{optional_inline}}
-  - : Ein String, der das Bildformat angibt. Der Standardtyp ist `image/png`; dieses Bildformat wird auch verwendet, wenn der angegebene Typ nicht unterstützt wird.
+  - : Ein String, der das Bildformat angibt.
+    Der Standardtyp ist `image/png`; dieses Bildformat wird auch verwendet, wenn der angegebene Typ nicht unterstützt wird.
 - `quality` {{optional_inline}}
-  - : Eine {{jsxref("Number")}} zwischen `0` und `1`, die die Bildqualität angibt, die bei der Erstellung von Bildern verwendet werden soll, die Dateiformate mit verlustbehafteter Kompression unterstützen (wie `image/jpeg` oder `image/webp`). Ein Benutzeragent verwendet seinen Standardqualitätswert, wenn diese Option nicht angegeben ist oder wenn die Zahl außerhalb des erlaubten Bereichs liegt.
+  - : Eine {{jsxref("Number")}} zwischen `0` und `1`, die die Bildqualität angibt, die verwendet werden soll, wenn Bilder mit Dateiformaten erstellt werden, die verlustbehaftete Komprimierung unterstützen (wie `image/jpeg` oder `image/webp`).
+    Ein User-Agent verwendet seinen Standardqualitätswert, wenn diese Option nicht angegeben ist, oder wenn die Zahl außerhalb des erlaubten Bereichs liegt.
 
 ### Rückgabewert
 
 Ein String, der die angeforderte [Daten-URL](/de/docs/Web/URI/Reference/Schemes/data) enthält.
 
-Wenn die Höhe oder Breite der Leinwand `0` oder größer als die [maximale Leinwandgröße](/de/docs/Web/HTML/Reference/Elements/canvas#maximum_canvas_size) ist, wird der String `"data:,"` zurückgegeben.
+Wenn die Höhe oder Breite der Leinwand `0` ist oder größer als die [maximale Leinwandgröße](/de/docs/Web/HTML/Reference/Elements/canvas#maximum_canvas_size) ist, wird der String `"data:,"` zurückgegeben.
 
 ### Ausnahmen
 
 - `SecurityError`
-  - : Der Bitmap der Leinwand ist nicht ursprungsrein; mindestens einige ihrer Inhalte wurden oder könnten von einer anderen Site geladen worden sein als der, von der das Dokument selbst geladen wurde.
+  - : Das Bitmap der Leinwand ist nicht "origin clean";
+    mindestens einige ihrer Inhalte wurden oder könnten von einer anderen Seite als derjenigen geladen worden sein, von der das Dokument selbst geladen wurde.
 
 ## Beispiele
 
-Gegebenes {{HTMLElement("canvas")}} Element:
+Angenommen, dieses {{HTMLElement("canvas")}} Element:
 
 ```html
 <canvas id="canvas" width="5" height="5"></canvas>
@@ -73,7 +79,7 @@ const lowQuality = canvas.toDataURL("image/jpeg", 0.1);
 
 ### Beispiel: Bilder dynamisch ändern
 
-Sie können diese Technik in Koordination mit Maus-Ereignissen verwenden, um Bilder dynamisch zu ändern (grau vs. Farbe in diesem Beispiel):
+Sie können diese Technik in Verbindung mit Mausereignissen verwenden, um Bilder dynamisch zu ändern (Graustufen vs. Farbe in diesem Beispiel):
 
 #### HTML
 
@@ -84,8 +90,6 @@ Sie können diese Technik in Koordination mit Maus-Ereignissen verwenden, um Bil
 #### JavaScript
 
 ```js
-window.addEventListener("load", removeColors);
-
 function showColorImg() {
   this.style.display = "none";
   this.nextSibling.style.display = "inline";
@@ -126,6 +130,8 @@ function removeColors() {
     colorImg.parentNode.insertBefore(grayImg, colorImg);
   }
 }
+
+removeColors();
 ```
 
 ## Spezifikationen

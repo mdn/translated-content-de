@@ -1,47 +1,47 @@
 ---
-title: Verwendung von HTML-Formularvalidierung und der Constraint Validation API
+title: Verwendung der HTML-Formularvalidierung und der Constraint Validation API
 short-title: Constraint validation
 slug: Web/HTML/Guides/Constraint_validation
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
-Die Erstellung von Webformularen war schon immer eine komplexe Aufgabe. Während das Markieren des Formulars selbst einfach ist, ist die Überprüfung, ob jedes Feld einen gültigen und kohärenten Wert hat, schwieriger, und die Benutzer über das Problem zu informieren, kann zu einer Herausforderung werden. {{Glossary("HTML5", "HTML5")}} führte neue Mechanismen für Formulare ein: Es fügte neue semantische Typen für das {{ HTMLElement("input") }}-Element und die _Constraint-Validierung_ hinzu, um die Überprüfung des Formularinhalts auf der Client-Seite zu erleichtern. Basiskonstanten können überprüft werden, ohne dass JavaScript erforderlich ist, indem neue Attribute gesetzt werden; komplexere Einschränkungen können mit der Constraint Validation API getestet werden.
+Die Erstellung von Webformularen war schon immer eine komplexe Aufgabe. Während die Auszeichnung des Formulars selbst einfach ist, ist es schwierig zu überprüfen, ob jedes Feld einen gültigen und kohärenten Wert hat, und den Benutzer über das Problem zu informieren kann zur Herausforderung werden. {{Glossary("HTML5", "HTML5")}} führte neue Mechanismen für Formulare ein: Es fügte neue semantische Typen für das {{ HTMLElement("input") }}-Element und die _Constraint-Validierung_ hinzu, um die Überprüfung des Formularinhalts auf der Clientseite zu erleichtern. Grundlegende, übliche Einschränkungen können ohne den Einsatz von JavaScript durch das Setzen neuer Attribute überprüft werden; komplexere Einschränkungen können mithilfe der Constraint Validation API getestet werden.
 
-Für eine grundlegende Einführung in diese Konzepte, mit Beispielen, siehe das [Formularvalidierungs-Tutorial](/de/docs/Learn_web_development/Extensions/Forms/Form_validation).
+Für eine grundlegende Einführung in diese Konzepte mit Beispielen, siehe das [Formularvalidierungs-Tutorial](/de/docs/Learn_web_development/Extensions/Forms/Form_validation).
 
 > [!NOTE]
-> Die HTML-Constraint-Validierung entfernt nicht die Notwendigkeit der Validierung auf der _Server-Seite_. Auch wenn weitaus weniger ungültige Formularanfragen zu erwarten sind, können ungültige Anfragen auf viele Arten gesendet werden:
+> Die HTML Constraint Validation ersetzt nicht die Notwendigkeit der Validierung auf der _Serverseite_. Auch wenn weitaus weniger ungültige Formularanforderungen zu erwarten sind, können ungültige dennoch auf viele Arten gesendet werden:
 >
-> - Durch Änderung von HTML über die Entwicklertools des Browsers.
-> - Durch manuelle Erstellung einer HTTP-Anfrage, ohne das Formular zu verwenden.
-> - Durch das programmgesteuerte Schreiben von Inhalten in das Formular (bestimmte Constraint-Validierungen werden _nur bei_ Benutzereingaben ausgeführt und nicht, wenn Sie den Wert eines Formularfeldes mit JavaScript setzen).
+> - Durch Ändern von HTML über die Entwicklertools des Browsers.
+> - Durch manuelles Erstellen einer HTTP-Anfrage ohne Verwendung des Formulars.
+> - Durch programmgesteuertes Schreiben von Inhalten in das Formular (bestimmte Constraint-Validierungen werden _nur für_ Benutzereingaben ausgeführt und nicht, wenn Sie den Wert eines Formularfelds mithilfe von JavaScript setzen).
 >
-> Deshalb sollten Sie immer Formulardaten auf der Server-Seite validieren, konsistent mit dem, was auf der Client-Seite gemacht wird.
+> Daher sollten Sie Formulardaten immer auf der Serverseite validieren, konsistent mit dem, was auf der Clientseite gemacht wird.
 
-## Intrinsische und grundlegende Constraints
+## Intrinsische und grundlegende Einschränkungen
 
-In HTML werden grundlegende Constraints auf zwei Arten deklariert:
+In HTML werden grundlegende Einschränkungen auf zwei Arten deklariert:
 
-- Durch die Auswahl des semantisch geeignetsten Wertes für das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut des {{ HTMLElement("input") }}-Elements, z. B. erzeugt die Auswahl des `email`-Typs automatisch ein Constraint, das überprüft, ob der Wert eine gültige E-Mail-Adresse ist.
-- Durch das Setzen von Werten auf validierungsbezogene Attribute, die es erlauben, grundlegende Constraints ohne Verwendung von JavaScript zu beschreiben.
+- Durch die Wahl des semantisch geeignetsten Wertes für das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut des {{ HTMLElement("input") }}-Elements, z. B. führt die Auswahl des Typs `email` automatisch zu einer Einschränkung, die überprüft, ob der Wert eine gültige E-Mail-Adresse ist.
+- Durch das Setzen von Werten auf validierungsbezogene Attribute, wodurch grundlegende Einschränkungen ohne JavaScript beschrieben werden können.
 
 ### Semantische Eingabetypen
 
-Die intrinsischen Constraints für das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut sind:
+Die intrinsischen Einschränkungen für das [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attribut sind:
 
-| Eingabetyp                                                                 | Beschreibung des Constraints                                                                                                                                                      | Zugehöriger Verstoß                                                                |
-| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| [`<input type="URL">`](/de/docs/Web/HTML/Reference/Elements/input/url)     | Der Wert muss eine absolute [URL](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL) sein, wie im [URL Living Standard](https://url.spec.whatwg.org/) definiert.   | **[TypeMismatch](/de/docs/Web/API/ValidityState/typeMismatch)** Constraintsverstoß |
-| [`<input type="email">`](/de/docs/Web/HTML/Reference/Elements/input/email) | Der Wert muss eine syntaktisch gültige E-Mail-Adresse sein, die im Allgemeinen das Format `benutzername@hostname.tld` hat, aber auch lokal wie `benutzername@hostname` sein kann. | **[TypeMismatch](/de/docs/Web/API/ValidityState/typeMismatch)** Constraintsverstoß |
+| Eingabetyp                                                                 | Beschreibung der Einschränkung                                                                                                                                                  | Zugehöriger Verstoß                                                                |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| [`<input type="URL">`](/de/docs/Web/HTML/Reference/Elements/input/url)     | Der Wert muss eine absolute [URL](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL) sein, wie im [URL Living Standard](https://url.spec.whatwg.org/) definiert. | **[TypeMismatch](/de/docs/Web/API/ValidityState/typeMismatch)** Constraint-Verstoß |
+| [`<input type="email">`](/de/docs/Web/HTML/Reference/Elements/input/email) | Der Wert muss eine syntaktisch korrekte E-Mail-Adresse sein, die im Allgemeinen das Format `username@hostname.tld` hat, aber auch lokal wie `username@hostname` sein kann.      | **[TypeMismatch](/de/docs/Web/API/ValidityState/typeMismatch)** Constraint-Verstoß |
 
-Für beide dieser Eingabetypen, wenn das [`multiple`](/de/docs/Web/HTML/Reference/Elements/input#multiple)-Attribut gesetzt ist, können mehrere Werte als kommagetrennte Liste angegeben werden. Wenn einer dieser Werte die hier beschriebene Bedingung nicht erfüllt, wird der **TypeMismatch** Constraintsverstoß ausgelöst.
+Für beide dieser Eingabetypen, wenn das [`multiple`](/de/docs/Web/HTML/Reference/Elements/input#multiple)-Attribut gesetzt ist, können mehrere Werte als kommagetrennte Liste gesetzt werden. Wenn einer dieser Werte die hier beschriebene Bedingung nicht erfüllt, wird der **Type mismatch** Constraint-Verstoß ausgelöst.
 
-Beachten Sie, dass die meisten Eingabetypen keine intrinsischen Constraints haben, da einige von der Constraints-Validierung ausgeschlossen sind oder einen Sanitisierungsalgorithmus haben, der falsche Werte in einen korrekten Standardwert umwandelt.
+Beachten Sie, dass die meisten Eingabetypen keine intrinsischen Einschränkungen haben, da einige von der Constraint-Validierung ausgeschlossen sind oder einen Bereinigungsalgorithmus haben, der falsche Werte in einen korrekten Standardwert umwandelt.
 
 ### Validierungsbezogene Attribute
 
-Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attribute verwendet, um grundlegende Constraints zu beschreiben:
+Zusätzlich zum oben beschriebenen `type`-Attribut werden die folgenden Attribute verwendet, um grundlegende Einschränkungen zu beschreiben:
 
 <table class="standard-table">
   <thead>
@@ -49,7 +49,7 @@ Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attri
       <th scope="col">Attribut</th>
       <th scope="col">Unterstützte Eingabetypen</th>
       <th scope="col">Mögliche Werte</th>
-      <th scope="col">Beschreibung des Constraints</th>
+      <th scope="col">Beschreibung der Einschränkung</th>
       <th scope="col">Zugehöriger Verstoß</th>
     </tr>
   </thead>
@@ -67,17 +67,16 @@ Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attri
       <td>
         Ein
         <a href="/de/docs/Web/JavaScript/Guide/Regular_expressions"
-          >JavaScript regulärer Ausdruck</a
+          >JavaScript-Regulärer Ausdruck</a
         >
-        (kompiliert mit den Flags {{jsxref("RegExp.global", "global")}}, {{jsxref("RegExp.ignoreCase", "ignoreCase")}}, und
-        {{jsxref("RegExp.multiline", "multiline")}} <em>deaktiviert</em>)
+        (kompiliert mit den {{jsxref("RegExp.global", "global")}}, {{jsxref("RegExp.ignoreCase", "ignoreCase")}}, und {{jsxref("RegExp.multiline", "multiline")}} Flags <em>deaktiviert</em>)
       </td>
       <td>Der Wert muss dem Muster entsprechen.</td>
       <td>
         <a href="/de/docs/Web/API/ValidityState/patternMismatch"
           ><strong><code>patternMismatch</code></strong></a
         >
-        Constraintsverstoß
+        Constraint-Verstoß
       </td>
     </tr>
     <tr>
@@ -95,7 +94,7 @@ Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attri
             ></code
           ></strong
         >
-        Constraintsverstoß
+        Constraint-Verstoß
       </td>
     </tr>
     <tr>
@@ -114,7 +113,7 @@ Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attri
       </td>
       <td><code>range</code>, <code>number</code></td>
       <td>Eine gültige Zahl</td>
-      <td rowspan="3">Der Wert muss kleiner oder gleich dem Wert sein</td>
+      <td rowspan="3">Der Wert muss kleiner oder gleich dem Wert sein.</td>
       <td rowspan="3">
         <strong
           ><code
@@ -123,7 +122,7 @@ Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attri
             ></code
           ></strong
         >
-        Constraintsverstoß
+        Constraint-Verstoß
       </td>
     </tr>
     <tr>
@@ -152,7 +151,7 @@ Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attri
         {{ HTMLElement("textarea") }} Elementen
       </td>
       <td>
-        <em>keine</em>, da es ein Boolean-Attribut ist: seine Anwesenheit bedeutet
+        <em>keine</em> da es ein Boolean-Attribut ist: seine Existenz bedeutet
         <em>wahr</em>, seine Abwesenheit bedeutet <em>falsch</em>
       </td>
       <td>Es muss ein Wert vorhanden sein (falls gesetzt).</td>
@@ -164,7 +163,7 @@ Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attri
             ></code
           ></strong
         >
-        Constraintsverstoß
+        Constraint-Verstoß
       </td>
     </tr>
     <tr>
@@ -172,10 +171,10 @@ Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attri
         <code><a href="/de/docs/Web/HTML/Reference/Attributes/step">step</a></code>
       </td>
       <td><code>date</code></td>
-      <td>Eine ganze Anzahl von Tagen</td>
+      <td>Eine ganze Zahl von Tagen</td>
       <td rowspan="5">
         Sofern der Schritt nicht auf das Literal <code>any</code> gesetzt ist, muss der Wert
-        <strong>min</strong> + ein Vielfaches des Schritts sein.
+        <strong>min</strong> + ein ganzzahliges Vielfaches des Schritts sein.
       </td>
       <td rowspan="5">
         <strong
@@ -185,22 +184,22 @@ Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attri
             ></code
           ></strong
         >
-        Constraintsverstoß
+        Constraint-Verstoß
       </td>
     </tr>
     <tr>
       <td><code>month</code></td>
-      <td>Eine ganze Anzahl von Monaten</td>
+      <td>Eine ganze Zahl von Monaten</td>
     </tr>
     <tr>
       <td><code>week</code></td>
-      <td>Eine ganze Anzahl von Wochen</td>
+      <td>Eine ganze Zahl von Wochen</td>
     </tr>
     <tr>
       <td>
         <code>datetime-local</code>, <code>time</code>
       </td>
-      <td>Eine ganze Anzahl von Sekunden</td>
+      <td>Eine ganze Zahl von Sekunden</td>
     </tr>
     <tr>
       <td><code>range</code>, <code>number</code></td>
@@ -217,12 +216,13 @@ Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attri
       <td>
         <code>text</code>, <code>search</code>, <code>url</code>,
         <code>tel</code>, <code>email</code>, <code>password</code>; auch auf dem
-        {{ HTMLElement("textarea") }}-Element
+        {{ HTMLElement("textarea") }} Element
       </td>
       <td>Eine ganzzahlige Länge</td>
       <td>
-        Die Anzahl der Zeichen (Codepunkte) muss mindestens dem Wert des Attributs entsprechen, wenn es nicht leer ist. Alle Zeilenumbrüche werden auf ein einziges Zeichen normalisiert (anstatt CRLF-Paare) für
-        {{ HTMLElement("textarea") }}.
+        Die Anzahl der Zeichen (Codepunkte) darf nicht kleiner als der Wert
+        des Attributs sein, falls nicht leer. Alle neuen Zeilen werden für
+        {{ HTMLElement("textarea") }} zu einem einzigen Zeichen normalisiert.
       </td>
       <td>
         <strong
@@ -232,7 +232,7 @@ Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attri
             ></code
           ></strong
         >
-        Constraintsverstoß
+        Constraint-Verstoß
       </td>
     </tr>
     <tr>
@@ -246,7 +246,7 @@ Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attri
       <td>
         <code>text</code>, <code>search</code>, <code>url</code>,
         <code>tel</code>, <code>email</code>, <code>password</code>; auch auf dem
-        {{ HTMLElement("textarea") }}-Element
+        {{ HTMLElement("textarea") }} Element
       </td>
       <td>Eine ganzzahlige Länge</td>
       <td>
@@ -260,40 +260,40 @@ Zusätzlich zu dem oben beschriebenen `type`-Attribut werden die folgenden Attri
             ></code
           ></strong
         >
-        Constraintsverstoß
+        Constraint-Verstoß
       </td>
     </tr>
   </tbody>
 </table>
 
-## Constraint-Validierungsprozess
+## Prozess der Constraint-Validierung
 
-Die Constraint-Validierung erfolgt über die Constraint Validation API entweder auf einem einzelnen Formularelement oder auf der Formularebene, direkt auf dem {{ HTMLElement("form") }}-Element. Die Constraint-Validierung erfolgt auf folgende Weise:
+Die Constraint-Validierung wird entweder über die Constraint Validation API auf einem einzelnen Formularfeld oder auf Formularebene auf dem {{ HTMLElement("form") }}-Element selbst durchgeführt. Die Constraint-Validierung erfolgt auf folgende Weise:
 
-- Durch einen Aufruf der `checkValidity()`- oder `reportValidity()`-Methode einer formularassoziierten DOM-Schnittstelle, ([`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement), [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement), [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement) oder [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)), die die Constraints nur auf diesem Element auswertet, wodurch ein Skript diese Informationen erhalten kann. Die `checkValidity()`-Methode gibt einen Boolean-Wert zurück, der anzeigt, ob der Wert des Elements seine Constraints erfüllt. (Dies wird typischerweise vom Benutzer-Agent getan, wenn er bestimmt, welche der CSS-Pseudoklassen, {{ Cssxref(":valid") }} oder {{ Cssxref(":invalid") }}, zutrifft.) Im Gegensatz dazu meldet die `reportValidity()`-Methode dem Benutzer alle Constraint-Fehler.
-- Durch einen Aufruf der `checkValidity()`- oder `reportValidity()`-Methode auf der [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Schnittstelle.
+- Durch einen Aufruf der `checkValidity()` oder `reportValidity()`-Methode einer formularassoziierten DOM-Schnittstelle, ([`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement), [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement), [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement) oder [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)), die die Einschränkungen nur auf diesem Element auswertet und es einem Skript ermöglicht, diese Informationen zu erhalten. Die `checkValidity()`-Methode gibt ein Boolean zurück, das angibt, ob der Wert des Elements seine Einschränkungen besteht. (Dies wird normalerweise vom User-Agent getan, um zu bestimmen, welche der CSS-Pseudoklassen, {{ Cssxref(":valid") }} oder {{ Cssxref(":invalid") }}, Anwendung findet.) Im Gegensatz dazu meldet die `reportValidity()`-Methode dem Benutzer etwaige Verstöße gegen die Einschränkungen.
+- Durch einen Aufruf der `checkValidity()` oder `reportValidity()`-Methode auf der [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Schnittstelle.
 - Durch das Absenden des Formulars selbst.
 
-Der Aufruf von `checkValidity()` wird als _statische_ Validierung der Constraints bezeichnet, während der Aufruf von `reportValidity()` oder das Absenden des Formulars als _interaktive_ Validierung der Constraints bezeichnet wird.
+Das Aufrufen von `checkValidity()` wird als _statische_ Validierung der Einschränkungen bezeichnet, während das Aufrufen von `reportValidity()` oder das Absenden des Formulars als _interaktive_ Validierung der Einschränkungen bezeichnet wird.
 
 > [!NOTE]
 >
-> - Wenn das [`novalidate`](/de/docs/Web/HTML/Reference/Elements/form#novalidate)-Attribut auf dem {{ HTMLElement("form") }}-Element gesetzt ist, erfolgt keine interaktive Validierung der Constraints.
-> - Der Aufruf der `submit()`-Methode auf der [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Schnittstelle löst keine Constraint-Validierung aus. Mit anderen Worten, diese Methode sendet die Formulardaten an den Server, auch wenn sie die Constraints nicht erfüllen. Rufen Sie stattdessen die `click()`-Methode auf einem Absenden-Button auf.
-> - Die `minlength`- und `maxlength`-Constraints werden nur bei benutzerseitig bereitgestellten Eingaben überprüft. Sie werden nicht überprüft, wenn ein Wert programmgesteuert gesetzt wird, selbst wenn `checkValidity()` oder `reportValidity()` explizit aufgerufen wird.
+> - Wenn das [`novalidate`](/de/docs/Web/HTML/Reference/Elements/form#novalidate)-Attribut auf dem {{ HTMLElement("form") }}-Element gesetzt ist, erfolgt keine interaktive Validierung der Einschränkungen.
+> - Der Aufruf der `submit()`-Methode auf der [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Schnittstelle löst keine Constraint-Validierung aus. Mit anderen Worten, diese Methode sendet die Formulardaten an den Server, selbst wenn sie die Einschränkungen nicht erfüllen. Rufen Sie stattdessen die `click()`-Methode für eine Schaltfläche zum Absenden auf.
+> - Die `minlength`- und `maxlength`-Einschränkungen werden nur bei benutzereingegebener Eingabe geprüft. Sie werden nicht überprüft, wenn ein Wert programmatisch gesetzt wird, selbst bei explizitem Aufruf von `checkValidity()` oder `reportValidity()`.
 
-## Komplexe Constraints mit der Constraint Validation API
+## Komplexe Einschränkungen mit der Constraint Validation API
 
-Mit JavaScript und der Constraint API ist es möglich, komplexere Constraints zu implementieren, zum Beispiel Constraints, die mehrere Felder kombinieren oder solche, die komplexe Berechnungen erfordern.
+Durch die Verwendung von JavaScript und der Constraint API ist es möglich, komplexere Einschränkungen zu implementieren, beispielsweise Einschränkungen, die mehrere Felder kombinieren, oder Einschränkungen, die komplexe Berechnungen beinhalten.
 
-Im Grunde besteht die Idee darin, JavaScript bei einem Ereignis des Formularfelds (wie **onchange**) auszulösen, um zu berechnen, ob das Constraint verletzt wird, und dann die Methode `field.setCustomValidity()` zu verwenden, um das Ergebnis der Validierung festzulegen: Ein leerer String bedeutet, dass das Constraint erfüllt ist, und jeder andere String bedeutet, dass ein Fehler vorliegt und dieser String die Fehlermeldung ist, die dem Benutzer angezeigt werden soll.
+Grundsätzlich geht es darum, JavaScript bei einem Formularfeldevent (wie **onchange**) auszulösen, um zu berechnen, ob die Einschränkung verletzt wird, und dann die Methode `field.setCustomValidity()` zu verwenden, um das Ergebnis der Validierung festzulegen: Ein leerer String bedeutet, dass die Einschränkung erfüllt ist, und ein anderer String bedeutet, dass ein Fehler vorliegt und dieser String die Fehlermeldung anzeigt, die dem Benutzer angezeigt werden soll.
 
-### Constraint, das mehrere Felder kombiniert: Postleitzahlvalidierung
+### Einschränkung, die mehrere Felder kombiniert: Validierung der Postleitzahl
 
-Das Postleitzahlformat variiert von Land zu Land. Viele Länder erlauben ein optionales Präfix mit dem Ländercode (wie `D-` in Deutschland, `F-` in Frankreich und `CH-` in der Schweiz). Einige Länder verwenden nur eine feste Anzahl von Ziffern in Postleitzahlen, während andere, wie das Vereinigte Königreich, komplexere Formate haben, die an bestimmten Positionen Buchstaben erlauben.
+Das Format der Postleitzahl variiert von Land zu Land. Viele Länder erlauben ein optionales Präfix mit dem Ländercode (wie `D-` in Deutschland, `F-` in Frankreich und `CH-` in der Schweiz). Einige Länder verwenden nur eine feste Anzahl von Ziffern in Postleitzahlen, während andere, wie das Vereinigte Königreich, komplexere Formate haben, die Buchstaben an einigen spezifischen Positionen erlauben.
 
 > [!NOTE]
-> Dies ist keine umfassende Bibliothek zur Postleitzahlvalidierung, sondern eher eine Demonstration der Hauptkonzepte.
+> Dies ist keine umfassende Bibliothek zur Postleitzahlenvalidierung, sondern eine Demonstration der wichtigsten Konzepte.
 
 Als Beispiel werden wir ein Skript hinzufügen, das die Constraint-Validierung für ein Formular überprüft:
 
@@ -316,9 +316,12 @@ Dies zeigt das folgende Formular an:
 
 {{EmbedLiveSample("Constraint_combining_several_fields_Postal_code_validation")}}
 
-Zuerst schreiben wir eine Funktion, die das Constraint selbst überprüft:
+Zuerst schreiben wir eine Funktion, die die Einschränkung selbst überprüft:
 
 ```js
+const countrySelect = document.getElementById("country");
+const postalCodeField = document.getElementById("postal-code");
+
 function checkPostalCode() {
   // For each country, defines the pattern that the postal code has to follow
   const constraints = {
@@ -341,10 +344,7 @@ function checkPostalCode() {
   };
 
   // Read the country id
-  const country = document.getElementById("country").value;
-
-  // Get the NPA field
-  const postalCodeField = document.getElementById("postal-code");
+  const country = countrySelect.value;
 
   // Build the constraint checker
   const constraint = new RegExp(constraints[country][0], "");
@@ -362,18 +362,16 @@ function checkPostalCode() {
 }
 ```
 
-Dann verknüpfen wir sie mit dem **onchange**-Ereignis für den {{ HTMLElement("select") }} und dem **oninput**-Ereignis für den {{ HTMLElement("input") }}:
+Dann verknüpfen wir es mit dem `change`-Ereignis für das {{ HTMLElement("select") }} und dem `input`-Ereignis für das {{ HTMLElement("input") }}:
 
 ```js
-window.onload = () => {
-  document.getElementById("country").onchange = checkPostalCode;
-  document.getElementById("postal-code").oninput = checkPostalCode;
-};
+countrySelect.addEventListener("change", checkPostalCode);
+postalCodeField.addEventListener("input", checkPostalCode);
 ```
 
 ### Begrenzung der Dateigröße vor dem Hochladen
 
-Ein weiteres häufiges Constraint ist die Begrenzung der Größe einer Datei, die hochgeladen werden soll. Die Überprüfung auf der Client-Seite, bevor die Datei an den Server übertragen wird, erfordert die Kombination der Constraint Validation API und insbesondere der Methode `field.setCustomValidity()` mit einer anderen JavaScript-API, hier der File API.
+Eine weitere übliche Einschränkung besteht darin, die Größe einer hochzuladenden Datei zu begrenzen. Die Prüfung auf der Clientseite, bevor die Datei an den Server übertragen wird, erfordert die Kombination der Constraint Validation API, insbesondere der Methode `field.setCustomValidity()`, mit einer anderen JavaScript-API, hier der File API.
 
 Hier ist der HTML-Teil:
 
@@ -386,11 +384,12 @@ Dies zeigt:
 
 {{EmbedLiveSample("Limiting_the_size_of_a_file_before_its_upload")}}
 
-Das JavaScript liest die ausgewählte Datei, verwendet die Methode `File.size()`, um ihre Größe zu ermitteln, vergleicht sie mit dem (hart kodierten) Limit und ruft die Constraint API auf, um den Browser zu informieren, ob ein Verstoß vorliegt:
+Das JavaScript liest die ausgewählte Datei aus, verwendet die `File.size()`-Methode, um ihre Größe zu ermitteln, vergleicht sie mit dem (hardcodierten) Limit und ruft die Constraint API auf, um den Browser zu informieren, wenn ein Verstoß vorliegt:
 
 ```js
+const fs = document.getElementById("fs");
+
 function checkFileSize() {
-  const fs = document.getElementById("fs");
   const files = fs.files;
 
   // If there is (at least) one file selected
@@ -407,25 +406,23 @@ function checkFileSize() {
 }
 ```
 
-Schließlich verbinden wir die Methode mit dem richtigen Ereignis:
+Schließlich verknüpfen wir die Methode mit dem richtigen Ereignis:
 
 ```js
-window.onload = () => {
-  document.getElementById("fs").onchange = checkFileSize;
-};
+fs.addEventListener("change", checkFileSize);
 ```
 
 ## Visuelles Styling der Constraint-Validierung
 
-Abgesehen vom Setzen von Constraints möchten Webentwickler kontrollieren, welche Nachrichten den Benutzern angezeigt werden und wie sie gestaltet sind.
+Neben dem Festlegen von Einschränkungen möchten Webentwickler steuern, welche Nachrichten den Benutzern angezeigt werden und wie sie gestaltet sind.
 
-### Kontrolle des Aussehens von Elementen
+### Steuerung des Erscheinungsbilds von Elementen
 
 Das Erscheinungsbild von Elementen kann über CSS-Pseudoklassen gesteuert werden.
 
 #### :required und :optional CSS-Pseudoklassen
 
-Die {{cssxref(':required')}} und {{cssxref(':optional')}} [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) ermöglichen es, Selektoren zu schreiben, die Formularelemente zuordnen, die das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut haben, beziehungsweise die es nicht haben.
+Die {{cssxref(':required')}} und {{cssxref(':optional')}} [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) ermöglichen das Schreiben von Selektoren, die Formularelemente ansprechen, die das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required)-Attribut haben oder nicht.
 
 #### :placeholder-shown CSS-Pseudoklasse
 
@@ -433,18 +430,18 @@ Siehe {{cssxref(':placeholder-shown')}}.
 
 #### :valid :invalid CSS-Pseudoklassen
 
-Die {{cssxref(':valid')}} und {{cssxref(':invalid')}} [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) werden verwendet, um `<input>`-Elemente darzustellen, deren Inhalt laut der Eingabetyp-Einstellung validiert bzw. nicht validiert wird. Diese Klassen erlauben es dem Benutzer, gültige oder ungültige Formularelemente zu stylen, um leichter erkennen zu können, welche Elemente entweder korrekt oder fehlerhaft formatiert sind.
+Die {{cssxref(':valid')}} und {{cssxref(':invalid')}} [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) werden verwendet, um `<input>`-Elemente darzustellen, deren Inhalt gemäß der Typeinstellung des Inputs validiert bzw. nicht validiert. Diese Klassen erlauben es dem Benutzer, gültige oder ungültige Formularelemente zu gestalten, um es einfacher zu machen, Elemente zu identifizieren, die entweder korrekt oder inkorrekt formatiert sind.
 
-### Kontrolle des Textes von Constraintsverstößen
+### Steuerung des Textes bei Constraint-Verstößen
 
-Die folgenden Punkte können dabei helfen, den Text eines Constraintsverstoßes zu kontrollieren:
+Die folgenden Punkte können helfen, den Text bei Constraint-Verstößen zu steuern:
 
-- Die `setCustomValidity(message)`-Methode auf den folgenden Elementen:
-  - {{HTMLElement("fieldset")}}. Hinweis: Das Setzen einer benutzerdefinierten Gültigkeitsnachricht auf fieldset-Elementen wird in den meisten Browsern nicht die Formularübermittlung verhindern.
+- Die Methode `setCustomValidity(message)` auf den folgenden Elementen:
+  - {{HTMLElement("fieldset")}}. Hinweis: Das Setzen einer benutzerdefinierten Gültigkeitsnachricht auf Fieldset-Elementen verhindert nicht die Formularübermittlung in den meisten Browsern.
   - {{HTMLElement("input")}}
   - {{HTMLElement("output")}}
   - {{HTMLElement("select")}}
-  - Absenden-Buttons (erstellt mit entweder einem {{HTMLElement("button")}}-Element mit dem `submit`-Typ oder einem `input`-Element mit dem {{HTMLElement("input/submit", "submit")}}-Typ. Andere Arten von Buttons nehmen nicht an der Constraint-Validierung teil.
+  - Übermittlungsschaltflächen (erstellt entweder mit einem {{HTMLElement("button")}}-Element mit dem Typ `submit` oder einem `input`-Element mit dem {{HTMLElement("input/submit", "submit")}}-Typ. Andere Arten von Schaltflächen beteiligen sich nicht an der Constraint-Validierung.)
   - {{HTMLElement("textarea")}}
 
-- Die [`ValidityState`](/de/docs/Web/API/ValidityState)-Schnittstelle beschreibt das Objekt, das durch die `validity`-Eigenschaft der oben aufgeführten Elementtypen zurückgegeben wird. Sie repräsentiert verschiedene Möglichkeiten, wie ein eingegebener Wert ungültig sein kann. Zusammen helfen sie zu erklären, warum der Wert eines Elements nicht validiert werden kann, wenn er ungültig ist.
+- Die [`ValidityState`](/de/docs/Web/API/ValidityState)-Schnittstelle beschreibt das Objekt, das von der `validity`-Eigenschaft der oben aufgeführten Elementtypen zurückgegeben wird. Es repräsentiert verschiedene Möglichkeiten, wie ein eingegebener Wert ungültig sein kann. Zusammen helfen sie zu erklären, warum der Wert eines Elements nicht gültig ist, falls er nicht validiert.

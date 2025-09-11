@@ -2,12 +2,12 @@
 title: overflow-anchor
 slug: Web/CSS/overflow-anchor
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
-Die **`overflow-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft bietet eine Möglichkeit, das Scrollverankerungsverhalten des Browsers auszuschließen, welches die Scrollposition anpasst, um Inhaltssprünge zu minimieren.
+Die **`overflow-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft bietet eine Möglichkeit, das Scroll-Ankerverhalten des Browsers abzulehnen. Dieses Verhalten passt die Scrollposition an, um Verschiebungen im Inhalt zu minimieren.
 
-Das Scrollverankerungsverhalten ist standardmäßig in jedem unterstützenden Browser aktiviert. Daher ist es im Allgemeinen nur erforderlich, den Wert dieser Eigenschaft zu ändern, wenn es Probleme mit der Scrollverankerung in einem Dokument oder einem Teil eines Dokuments gibt und Sie dieses Verhalten deaktivieren müssen.
+Das Scroll-Ankerverhalten ist standardmäßig in jedem Browser aktiviert, der es unterstützt. Daher ist es in der Regel nur erforderlich, den Wert dieser Eigenschaft zu ändern, wenn Sie Probleme mit dem Scroll-Ankerverhalten in einem Dokument oder einem Teil eines Dokuments erleben und das Verhalten deaktivieren müssen.
 
 {{InteractiveExample("CSS Demo: overflow-anchor")}}
 
@@ -66,38 +66,36 @@ overflow-anchor: none;
 ```
 
 ```js interactive-example
-window.addEventListener("load", () => {
-  const example = document.getElementById("example-element");
-  const button = document.getElementById("playback");
-  let intervalId;
+const example = document.getElementById("example-element");
+const button = document.getElementById("playback");
+let intervalId;
 
-  function setInitialState() {
-    example.innerHTML = "";
-    Array.from({ length: 10 }, (_, i) => i).forEach(addContent);
-    example.scrollTop = example.scrollHeight;
+function setInitialState() {
+  example.innerHTML = "";
+  Array.from({ length: 10 }, (_, i) => i).forEach(addContent);
+  example.scrollTop = example.scrollHeight;
+}
+
+function addContent() {
+  console.log("adding content");
+  const magicNumber = Math.floor(Math.random() * 10000);
+  example.insertAdjacentHTML(
+    "afterbegin",
+    `<div class="new-content-container">New Magic Number: ${magicNumber}</div>`,
+  );
+}
+
+button.addEventListener("click", () => {
+  if (example.classList.contains("running")) {
+    example.classList.remove("running");
+    button.textContent = "Start lottery";
+    clearInterval(intervalId);
+  } else {
+    example.classList.add("running");
+    button.textContent = "Stop lottery";
+    setInitialState();
+    intervalId = setInterval(addContent, 1000);
   }
-
-  function addContent() {
-    console.log("adding content");
-    const magicNumber = Math.floor(Math.random() * 10000);
-    example.insertAdjacentHTML(
-      "afterbegin",
-      `<div class="new-content-container">New Magic Number: ${magicNumber}</div>`,
-    );
-  }
-
-  button.addEventListener("click", () => {
-    if (example.classList.contains("running")) {
-      example.classList.remove("running");
-      button.textContent = "Start lottery";
-      clearInterval(intervalId);
-    } else {
-      example.classList.add("running");
-      button.textContent = "Stop lottery";
-      setInitialState();
-      intervalId = setInterval(addContent, 1000);
-    }
-  });
 });
 ```
 
@@ -119,9 +117,9 @@ overflow-anchor: unset;
 ### Werte
 
 - `auto`
-  - : Das Element wird ein potenzieller Anker, wenn die Scrollposition angepasst wird.
+  - : Das Element wird zu einem potentiellen Anker, wenn die Scrollposition angepasst wird.
 - `none`
-  - : Das Element wird nicht als potenzieller Anker ausgewählt.
+  - : Das Element wird nicht als potentieller Anker ausgewählt.
 
 ## Formale Definition
 
@@ -133,9 +131,9 @@ overflow-anchor: unset;
 
 ## Beispiele
 
-### Scrollverankerung verhindern
+### Scroll-Ankerverhalten verhindern
 
-Um die Scrollverankerung in einem Dokument zu verhindern, verwenden Sie die `overflow-anchor` Eigenschaft.
+Um das Scroll-Ankerverhalten in einem Dokument zu verhindern, verwenden Sie die Eigenschaft `overflow-anchor`.
 
 ```css
 * {
@@ -153,5 +151,5 @@ Um die Scrollverankerung in einem Dokument zu verhindern, verwenden Sie die `ove
 
 ## Siehe auch
 
-- [Übersicht der Scrollverankerung](/de/docs/Web/CSS/CSS_scroll_anchoring/Scroll_anchoring)
-- Modul [CSS Scrollverankerung](/de/docs/Web/CSS/CSS_scroll_anchoring)
+- [Übersicht über das Scroll-Ankerverhalten](/de/docs/Web/CSS/CSS_scroll_anchoring/Scroll_anchoring)
+- [CSS Scroll-Anker](/de/docs/Web/CSS/CSS_scroll_anchoring) Modul

@@ -2,12 +2,12 @@
 title: <input type="color">
 slug: Web/HTML/Reference/Elements/input/color
 l10n:
-  sourceCommit: f06142077fabbb1e0fe791d74b856ae4f8d058b4
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
-{{HTMLElement("input")}} Elemente vom Typ **`color`** bieten ein Benutzerschnittstellenelement, das es einem Benutzer ermöglicht, eine Farbe anzugeben, entweder durch die Verwendung einer visuellen Farbauswahloberfläche oder durch Eingabe der Farbe in einem [CSS-Farbwert](/de/docs/Web/CSS/color_value)-Format in ein Textfeld.
+{{HTMLElement("input")}}-Elemente vom Typ **`color`** stellen ein Benutzeroberflächenelement bereit, das es einem Benutzer ermöglicht, eine Farbe entweder über eine visuelle Farbauswahl-Oberfläche festzulegen oder die Farbe in einer [CSS-Farbwert](/de/docs/Web/CSS/color_value)-Format in ein Textfeld einzugeben.
 
-Die Darstellung des Elements kann sich je nach Browser und/oder Plattform erheblich unterscheiden – es könnte ein einfaches Texteingabefeld sein, das automatisch überprüft, ob die Farbinformationen im richtigen Format eingegeben wurden, oder eine plattformstandardmäßige Farbwahl, oder eine Art benutzerdefiniertes Farbwahlfenster.
+Die Darstellung des Elements kann erheblich von einem Browser und/oder einer Plattform zur anderen variieren – es kann sich um ein einfaches Texteingabefeld handeln, das automatisch validiert wird, um sicherzustellen, dass die Farbinformationen im richtigen Format eingegeben werden, oder um einen plattformstandardisierten Farbselektor oder eine Art von benutzerdefiniertem Farbauswahlfenster.
 
 {{InteractiveExample("HTML Demo: &lt;input type=&quot;color&quot;&gt;", "tabbed-standard")}}
 
@@ -49,27 +49,27 @@ input {
 Ein [CSS-Farbwert](/de/docs/Web/CSS/color_value).
 
 > [!NOTE]
-> Historisch gesehen waren nur grundlegende hexadezimale Farben (ohne Alphakanal) zugelassen. Jetzt können alle CSS-Farbformate, einschließlich benannter Farben, funktionaler Notationen und hexadezimaler Farben mit einem Alphakanal, verwendet werden. Der Standardwert ist `#000000` (schwarz), wenn ein `value` weggelassen oder ungültig ist.
+> Historisch gesehen waren nur einfache hexadezimale Farben (ohne Alphakanal) erlaubt. Jetzt können alle CSS-Farbformate, einschließlich benannter Farben, funktionaler Notationen und hexadezimaler Farben mit Alphakanal verwendet werden. Der Standardwert ist `#000000` (schwarz), wenn ein `value` weggelassen wird oder ungültig ist.
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den [globalen Attributen](/de/docs/Web/HTML/Reference/Global_attributes) und den [Input-Attributen](/de/docs/Web/HTML/Reference/Elements/input#attributes), die für alle {{HTMLElement("input")}} Elemente üblich sind, unterstützt der `color` Input die folgenden Attribute:
+Zusätzlich zu den [globalen Attributen](/de/docs/Web/HTML/Reference/Global_attributes) und den [Eingabeattributen](/de/docs/Web/HTML/Reference/Elements/input#attributes), die allen {{HTMLElement("input")}}-Elementen gemeinsam sind, unterstützt die `color`-Eingabe auch die folgenden Attribute:
 
 - `alpha` {{experimental_inline}}
-  - : Ein {{Glossary("Boolean/HTML", "boolesches")}} Attribut, das, falls vorhanden, anzeigt, dass die Alpha-Komponente der Farbe vom Endbenutzer manipuliert werden kann und nicht vollständig undurchsichtig sein muss.
+  - : Ein {{Glossary("Boolean/HTML", "boolean")}}-Attribut, das, wenn es vorhanden ist, angibt, dass der Alphakanal der Farbe vom Endbenutzer bearbeitet werden kann und nicht vollständig deckend sein muss.
 
 - `colorspace` {{experimental_inline}}
-  - : Definiert den {{Glossary("color_space", "Farbraum")}} für die Farbe und gibt Hinweise auf die gewünschte Benutzeroberfläche für das Farbwahl-Widget. Mögliche {{Glossary("enumerated", "aufgezählte")}} Werte sind:
-    - `"limited-srgb"`: Die Farbe befindet sich im {{glossary("RGB". "sRGB")}} Farbraum. Dies schließt [`rgb()`](/de/docs/Web/CSS/color_value/rgb), [`hsl()`](/de/docs/Web/CSS/color_value/hsl), [`hwb()`](/de/docs/Web/CSS/color_value/hwb) und {{cssxref("hex-color")}} Werte ein. Der Farbwert ist auf 8-Bit pro `r`, `g` und `b` Komponente begrenzt. Dies ist die Standardeinstellung.
-    - `"display-p3"`: Der {{Glossary("Color_space#display-p3", "Display P3 Farbraum")}}, z.B., `color(display-p3 1.84 -0.19 0.72 / 0.6)`
+  - : Definiert den {{Glossary("color_space", "Farbraum")}} für die Farbe und gibt Hinweise auf die gewünschte Benutzeroberfläche für das Farbwähler-Widget. Mögliche {{Glossary("enumerated", "aufzählende")}} Werte sind:
+    - `"limited-srgb"`: Die Farbe befindet sich im {{glossary("RGB". "sRGB")}}-Farbraum. Dies umfasst [`rgb()`](/de/docs/Web/CSS/color_value/rgb), [`hsl()`](/de/docs/Web/CSS/color_value/hsl), [`hwb()`](/de/docs/Web/CSS/color_value/hwb) und {{cssxref("hex-color")}} Werte. Der Farbwert ist auf 8-Bit pro `r`, `g` und `b` Komponente begrenzt. Dies ist der Standard.
+    - `"display-p3"`: Der {{Glossary("Color_space#display-p3", "Display-P3-Farbraum")}}, z. B. `color(display-p3 1.84 -0.19 0.72 / 0.6)`
 
 ## Verwendung von Farbeingaben
 
-Eingaben vom Typ `color` sind einfach, aufgrund der begrenzten Anzahl von Attributen, die sie unterstützen.
+Eingaben vom Typ `color` sind einfach, da sie nur eine begrenzte Anzahl von Attributen unterstützen.
 
-### Festlegen einer Standardfarbe
+### Bereitstellung einer Standardfarbe
 
-Sie können das obige Beispiel aktualisieren, um einen Standardwert festzulegen, sodass der Farbwähler mit der Standardfarbe vorab ausgefüllt ist und der Farbwähler (falls vorhanden) auch auf diese Farbe standardmäßig eingestellt ist.
+Sie können das obige Beispiel aktualisieren, um einen Standardwert festzulegen, sodass der Farbwähler mit der Standardfarbe vorausgefüllt wird und der Farbwähler (falls vorhanden) ebenfalls auf diese Farbe standardisiert.
 
 ```html
 <input type="color" value="#ff0000" />
@@ -84,13 +84,13 @@ Sie können das obige Beispiel aktualisieren, um einen Standardwert festzulegen,
 
 {{EmbedLiveSample("Providing_a_default_color", 700, 30)}}
 
-Wenn Sie keinen Wert angeben oder der Wert ungültig oder anderweitig nicht vom Browser unterstützt wird, ist der Standardwert `#000000`, was undurchsichtigem Schwarz entspricht.
+Wenn Sie keinen Wert angeben oder wenn der Wert ungültig oder vom Browser nicht unterstützt ist, wird der Wert standardmäßig auf `#000000` gesetzt, was ein opakes Schwarz ist.
 
 ### Verfolgen von Farbänderungen
 
-Wie bei anderen {{HTMLElement("input")}} Typen gibt es zwei Ereignisse, mit denen Änderungen des Farbwerts erkannt werden können: [`input`](/de/docs/Web/API/Element/input_event) und [`change`](/de/docs/Web/API/HTMLElement/change_event). `input` wird auf dem `<input>` Element jedes Mal ausgelöst, wenn sich die Farbe ändert. Das `change` Ereignis wird ausgelöst, wenn der Benutzer den Farbwähler schließt. In beiden Fällen können Sie den neuen Wert des Elements ermitteln, indem Sie dessen [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) betrachten.
+Wie bei anderen {{HTMLElement("input")}}-Typen gibt es zwei Ereignisse, die verwendet werden können, um Änderungen des Farbwerts zu erkennen: [`input`](/de/docs/Web/API/Element/input_event) und [`change`](/de/docs/Web/API/HTMLElement/change_event). `input` wird auf dem `<input>`-Element jedes Mal ausgelöst, wenn sich die Farbe ändert. Das `change`-Ereignis wird ausgelöst, wenn der Benutzer den Farbauswähler schließt. In beiden Fällen können Sie den neuen Wert des Elements ermitteln, indem Sie dessen [`value`](/de/docs/Web/HTML/Reference/Elements/input#value) betrachten.
 
-Hier ist ein Beispiel, das Änderungen im Laufe der Zeit am Farbwert überwacht:
+Hier ist ein Beispiel, das die Änderungen des Farbwerts im Zeitverlauf überwacht:
 
 ```js
 colorPicker.addEventListener("input", updateFirst, false);
@@ -103,11 +103,11 @@ function watchColorPicker(event) {
 }
 ```
 
-### Auswahl des Wertes
+### Auswahl des Werts
 
-Wenn ein Browser keine Farbwähler-Schnittstelle unterstützt, wird seine Implementierung von Farbeingaben ein Textfeld sein, das die Inhalte automatisch überprüft, um sicherzustellen, dass der Wert im korrekten Format vorliegt. In diesem Fall können Sie die [`select()`](/de/docs/Web/API/HTMLInputElement/select) Methode verwenden, um den aktuell im Bearbeitungsfeld befindlichen Text auszuwählen.
+Wenn ein Browser keine Farbauswahl-Oberfläche unterstützt, wird die Implementierung von Farbeingaben ein Textfeld sein, das den Inhalt automatisch validiert, um sicherzustellen, dass der Wert im richtigen Format vorliegt. In diesem Fall können Sie die [`select()`](/de/docs/Web/API/HTMLInputElement/select)-Methode verwenden, um den Text auszuwählen, der sich derzeit im Bearbeitungsfeld befindet.
 
-Wenn der Browser stattdessen einen Farbwähler verwendet, bewirkt `select()` nichts. Sie sollten sich dieses Verhaltens bewusst sein, damit Ihr Code in beiden Fällen entsprechend reagieren kann.
+Wenn der Browser stattdessen einen Farbauswähler verwendet, bewirkt `select()` nichts. Sie sollten sich dieses Verhaltens bewusst sein, damit Ihr Code in jedem Fall angemessen reagieren kann.
 
 ```js
 colorPicker.select();
@@ -115,15 +115,15 @@ colorPicker.select();
 
 ## Validierung
 
-Ein Farbinput-Wert wird als ungültig angesehen, wenn der {{Glossary("user_agent", "Benutzeragent")}} nicht in der Lage ist, die Eingabe des Benutzers in eine siebenstellige, kleingeschriebene, hexadezimale Notation zu konvertieren. Falls dies der Fall ist, wird die {{cssxref(":invalid")}} Pseudoklasse auf das Element angewendet.
+Ein Farb-Eingabewert gilt als ungültig, wenn der {{Glossary("user_agent", "User Agent")}} nicht in der Lage ist, die Benutzereingabe in eine siebenstellige, kleingeschriebene Hexadezimalnotation zu konvertieren. In diesem Fall wird die {{cssxref(":invalid")}}-Pseudoklasse auf das Element angewendet.
 
 ## Beispiel
 
-Lassen Sie uns ein Beispiel erstellen, das ein wenig mehr mit dem Farbeingabeelement macht, indem es die [`change`](/de/docs/Web/API/HTMLElement/change_event) und [`input`](/de/docs/Web/API/Element/input_event) Ereignisse verfolgt, um die neue Farbe zu nehmen und sie auf jedes {{HTMLElement("p")}} Element im Dokument anzuwenden.
+Lassen Sie uns ein Beispiel erstellen, das ein wenig mehr mit der Farbeingabe macht, indem es die [`change`](/de/docs/Web/API/HTMLElement/change_event) und [`input`](/de/docs/Web/API/Element/input_event)-Ereignisse nachverfolgt, um die neue Farbe zu verwenden und auf jeden {{HTMLElement("p")}}-Element im Dokument anzuwenden.
 
 ### HTML
 
-Das HTML ist ziemlich einfach – ein paar Absätze mit beschreibendem Material mit einem {{HTMLElement("input")}} vom Typ `color` mit der ID `color-picker`, das wir verwenden werden, um die Farbe des Textes der Absätze zu ändern.
+Das HTML ist ziemlich einfach – ein paar beschreibende Absätze mit einem {{HTMLElement("input")}} vom Typ `color` mit der ID `color-picker`, das wir verwenden werden, um die Farbe des Absatztexts zu ändern.
 
 ```html
 <p>
@@ -145,36 +145,26 @@ Das HTML ist ziemlich einfach – ein paar Absätze mit beschreibendem Material 
 
 ### JavaScript
 
-Zuerst gibt es etwas Setup. Hier etablieren wir einige Variablen, richten eine Variable ein, die die Farbe enthält, auf die wir den Farbwähler beim ersten Laden einstellen werden, und richten dann einen [`load`](/de/docs/Web/API/Window/load_event) Handler ein, um die Haupt-Startup-Arbeit zu erledigen, sobald die Seite vollständig geladen ist.
-
-```js
-let colorPicker;
-const defaultColor = "#0000ff";
-
-window.addEventListener("load", startup, false);
-```
-
 #### Initialisierung
 
-Sobald die Seite geladen ist, wird unser `load` Ereignishandler, `startup()`, aufgerufen:
+Der folgende Code initialisiert die Farbeingabe:
 
 ```js
-function startup() {
-  colorPicker = document.querySelector("#color-picker");
-  colorPicker.value = defaultColor;
-  colorPicker.addEventListener("input", updateFirst, false);
-  colorPicker.addEventListener("change", updateAll, false);
-  colorPicker.select();
-}
+const defaultColor = "#0000ff";
+const colorPicker = document.querySelector("#color-picker");
+colorPicker.value = defaultColor;
+colorPicker.addEventListener("input", updateFirst, false);
+colorPicker.addEventListener("change", updateAll, false);
+colorPicker.select();
 ```
 
-Dies erhält eine Referenz zum `<input>` Element für Farbe in einer Variable namens `colorPicker` und setzt dann den Wert der Farbeingabe auf den Wert in `defaultColor`. Dann wird das `input` Ereignis des Farbeingabe-Elements eingestellt, um unsere `updateFirst()` Funktion aufzurufen, und das `change` Ereignis wird eingestellt, um `updateAll()` aufzurufen. Diese sind beide unten zu sehen.
+Dies holt eine Referenz zum Farbe-`<input>`-Element in einer Variablen namens `colorPicker` und setzt dann den Wert der Farbeingabe auf den Wert in `defaultColor`. Dann wird das `input`-Ereignis der Farbeingabe so eingerichtet, dass unsere `updateFirst()`-Funktion aufgerufen wird, und das `change`-Ereignis wird so eingerichtet, dass `updateAll()` aufgerufen wird. Beide sind unten zu sehen.
 
-Schließlich rufen wir [`select()`](/de/docs/Web/API/HTMLInputElement/select) auf, um den Textinhalt der Farbeingabe auszuwählen, wenn die Steuerung als Textfeld implementiert ist (dies hat keine Auswirkung, wenn stattdessen eine Schnittstelle für eine Farbauswahl vorhanden ist).
+Schließlich rufen wir [`select()`](/de/docs/Web/API/HTMLInputElement/select) auf, um den Textinhalt der Farbeingabe auszuwählen, falls die Steuerung als Textfeld implementiert ist (dies hat keinen Effekt, wenn stattdessen eine Farbauswahloberfläche bereitgestellt wird).
 
 #### Reaktion auf Farbänderungen
 
-Wir bieten zwei Funktionen an, die sich mit Farbänderungen befassen. Die Funktion `updateFirst()` wird als Reaktion auf das `input` Ereignis aufgerufen. Sie ändert die Farbe des ersten Absatzes im Dokument, um den neuen Wert der Farbeingabe zu übernehmen. Da `input` Ereignisse jedes Mal ausgelöst werden, wenn eine Anpassung am Wert vorgenommen wird (beispielsweise wenn die Helligkeit der Farbe erhöht wird), geschieht dies wiederholt, während der Farbwähler verwendet wird.
+Wir stellen zwei Funktionen bereit, die sich mit Farbänderungen befassen. Die Funktion `updateFirst()` wird als Reaktion auf das `input`-Ereignis aufgerufen. Sie ändert die Farbe des ersten Absatz-Elements im Dokument so, dass sie mit dem neuen Wert der Farbeingabe übereinstimmt. Da `input`-Ereignisse jedes Mal ausgelöst werden, wenn eine Anpassung des Werts gemacht wird (zum Beispiel, wenn die Helligkeit der Farbe erhöht wird), werden diese wiederholt auftreten, während der Farbwähler verwendet wird.
 
 ```js
 function updateFirst(event) {
@@ -185,7 +175,7 @@ function updateFirst(event) {
 }
 ```
 
-Wenn der Farbwähler geschlossen wird, was anzeigt, dass sich der Wert nicht mehr ändert (es sei denn, der Benutzer öffnet den Farbwähler erneut), wird ein `change` Ereignis an das Element gesendet. Wir behandeln dieses Ereignis mit der `updateAll()` Funktion, indem wir [`Event.target.value`](/de/docs/Web/HTML/Reference/Elements/input#value) verwenden, um die schließlich ausgewählte Farbe zu erhalten:
+Wenn der Farbwähler geschlossen wird, was darauf hinweist, dass sich der Wert nicht mehr ändern wird (es sei denn, der Benutzer öffnet den Farbwähler erneut), wird ein `change`-Ereignis an das Element gesendet. Wir behandeln dieses Ereignis mit der Funktion `updateAll()`, indem wir [`Event.target.value`](/de/docs/Web/HTML/Reference/Elements/input#value) verwenden, um die letztendlich ausgewählte Farbe zu erhalten:
 
 ```js
 function updateAll(event) {
@@ -195,7 +185,7 @@ function updateAll(event) {
 }
 ```
 
-Dies setzt die Farbe jedes {{HTMLElement("p")}} Blocks so, dass sein {{cssxref("color")}} Attribut mit dem aktuellen Wert der Farbeingabe übereinstimmt, der mit [`event.target`](/de/docs/Web/API/Event/target) referenziert wird.
+Dies setzt die Farbe jedes {{HTMLElement("p")}}-Blocks so, dass sein {{cssxref("color")}}-Attribut mit dem aktuellen Wert der Farbeingabe übereinstimmt, auf die mit [`event.target`](/de/docs/Web/API/Event/target) verwiesen wird.
 
 ### Ergebnis
 
@@ -210,7 +200,7 @@ Das Endergebnis sieht so aus:
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
-        Jeder CSS {{cssxref("&lt;color&gt;")}} Wert in jeder Notation.
+        Jeder CSS {{cssxref("&lt;color&gt;")}}-Wert in beliebiger Notation.
       </td>
     </tr>
     <tr>
@@ -221,14 +211,14 @@ Das Endergebnis sieht so aus:
       </td>
     </tr>
     <tr>
-      <td><strong>Unterstützte allgemeine Attribute</strong></td>
+      <td><strong>Unterstützte gemeinsame Attribute</strong></td>
       <td>
         <a href="/de/docs/Web/HTML/Reference/Elements/input#autocomplete"><code>autocomplete</code></a> und
         <a href="/de/docs/Web/HTML/Reference/Elements/input#list"><code>list</code></a>
       </td>
     </tr>
     <tr>
-      <td><strong>IDL Attribute</strong></td>
+      <td><strong>IDL-Attribute</strong></td>
       <td>
         <a href="/de/docs/Web/API/HTMLInputElement/alpha"><code>alpha</a></code>,
         <a href="/de/docs/Web/API/HTMLInputElement/colorSpace"><code>colorSpace</code></a>,
@@ -237,7 +227,7 @@ Das Endergebnis sieht so aus:
       </td>
     </tr>
     <tr>
-      <td><strong>DOM Schnittstelle</strong></td>
+      <td><strong>DOM-Schnittstelle</strong></td>
       <td><p>[`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)</p></td>
     </tr>
     <tr>
@@ -247,7 +237,7 @@ Das Endergebnis sieht so aus:
       </td>
     </tr>
     <tr>
-      <td><strong>Implizierte ARIA Rolle</strong></td>
+      <td><strong>Implizite ARIA-Rolle</strong></td>
       <td><a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">keine entsprechende Rolle</a></td>
     </tr>
   </tbody>

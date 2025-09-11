@@ -15036,6 +15036,7 @@
 /de/docs/Web/Security/Securing_your_site	/de/docs/Web/Security/Practical_implementation_guides
 /de/docs/Web/Security/Securing_your_site/Configuring_server_MIME_types	/de/docs/Learn_web_development/Extensions/Server-side/Configuring_server_MIME_types
 /de/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion	/de/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion
+/de/docs/Web/Security/Subdomain_takeovers	/de/docs/Web/Security/Attacks/Subdomain_takeover
 /de/docs/Web/Security/Types_of_attacks	/de/docs/Web/Security/Attacks
 /de/docs/Web/Text_fragments	/de/docs/Web/URI/Reference/Fragment/Text_fragments
 /de/docs/Web/Tutorials	/de/docs/MDN/Tutorials

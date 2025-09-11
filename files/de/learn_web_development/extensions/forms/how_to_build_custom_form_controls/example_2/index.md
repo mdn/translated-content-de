@@ -2,7 +2,7 @@
 title: Beispiel 2
 slug: Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_2
 l10n:
-  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 Dies ist das zweite Beispiel, das erklärt, [wie man benutzerdefinierte Formular-Widgets erstellt](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls).
@@ -159,12 +159,10 @@ Dies ist das zweite Beispiel, das erklärt, [wie man benutzerdefinierte Formular
 ### JavaScript
 
 ```js
-window.addEventListener("load", () => {
-  const form = document.querySelector("form");
+const form = document.querySelector("form");
 
-  form.classList.remove("no-widget");
-  form.classList.add("widget");
-});
+form.classList.remove("no-widget");
+form.classList.add("widget");
 ```
 
 ### Ergebnis

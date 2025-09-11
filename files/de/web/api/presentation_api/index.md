@@ -2,46 +2,46 @@
 title: Presentation API
 slug: Web/API/Presentation_API
 l10n:
-  sourceCommit: 950f04d94b48f259c471175bdafb52933b2b038d
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
 {{securecontext_header}}{{SeeCompatTable}}{{DefaultAPISidebar("Presentation API")}}
 
-Die Presentation API ermöglicht es einem {{Glossary("user_agent", "user agent")}} (wie einem Webbrowser), Webinhalte effektiv auf großen Präsentationsgeräten wie Projektoren und netzwerkverbundenen Fernsehern anzuzeigen. Unterstützte Typen von Multimedia-Geräten umfassen sowohl Displays, die über HDMI, DVI oder Ähnliches verkabelt sind, als auch drahtlose Geräte, die [DLNA](https://www.dlna.org/), [Chromecast](https://developers.google.com/cast/), [AirPlay](https://developer.apple.com/airplay/) oder [Miracast](https://www.wi-fi.org/applications) verwenden.
+Die Presentation API ermöglicht es einem {{Glossary("user_agent", "User Agent")}} (wie einem Webbrowser), Webinhalte effektiv über große Präsentationsgeräte wie Projektoren und netzwerkverbundene Fernseher anzuzeigen. Unterstützte Arten von Multimedia-Geräten schließen sowohl Displays ein, die über HDMI, DVI oder Ähnliches verkabelt sind, als auch drahtlose, welche [DLNA](https://www.dlna.org/), [Chromecast](https://developers.google.com/cast/), [AirPlay](https://developer.apple.com/airplay/) oder [Miracast](https://www.wi-fi.org/applications) verwenden.
 
-![1-UA-Modus lud die Steuerungs- und Präsentationsseiten zusammen, bevor sie auf Displays ausgegeben wurden. 2-UA-Modus lud sie getrennt unter Verwendung des Präsentationssteuerprotokolls.](presentation_mode_illustration.png)
+![1-UA-Modus lädt die Steuerungs- und Präsentationsseiten zusammen, bevor sie auf Displays ausgegeben werden. 2-UA-Modus lädt sie separat mit dem Präsentationssteuerungsprotokoll.](presentation_mode_illustration.png)
 
-Im Allgemeinen verwendet eine Webseite die Presentation Controller API, um die Webinhalte anzugeben, die auf dem Präsentationsgerät gerendert werden sollen, und die Präsentationssitzung zu initiieren. Mit der Presentation Receiver API erhält der präsentierende Webinhalt den Sitzungsstatus. Indem sowohl der Steuerungsseite als auch der Empfängerseite ein nachrichtenbasierter Kanal bereitgestellt wird, kann ein Webentwickler die Interaktion zwischen diesen beiden Seiten implementieren.
+Im Allgemeinen verwendet eine Webseite die Presentation Controller API, um die Webinhalte anzugeben, die über das Präsentationsgerät gerendert werden sollen, und um die Präsentationssitzung zu initiieren. Mit der Presentation Receiver API erhalten die präsentierten Webinhalte den Sitzungsstatus. Indem sowohl die Steuerungs- als auch die Empfängerseite mit einem nachrichtenbasierten Kanal versehen werden, kann ein Webentwickler die Interaktion zwischen diesen beiden Seiten implementieren.
 
-Abhängig vom Verbindungstyp, der durch das Präsentationsgerät bereitgestellt wird, können sowohl die Steuerungs- als auch die Empfängerseite durch denselben oder durch getrennte User Agents gerendert werden.
+Abhängig vom Verbindungsmechanismus, der vom Präsentationsgerät bereitgestellt wird, kann jede Steuerungs- und Empfängerseite entweder vom gleichen User Agent oder von separaten User Agents gerendert werden.
 
-- Bei Geräten im 1-UA-Modus werden beide Seiten vom selben User Agent geladen. Das Rendering-Ergebnis der Empfängerseite wird jedoch über ein unterstütztes Remote-Rendering-Protokoll an das Präsentationsgerät gesendet.
-- Bei Geräten im 2-UA-Modus wird die Empfängerseite direkt auf dem Präsentationsgerät geladen. Der steuernde User Agent kommuniziert über ein unterstütztes Präsentationssteuerprotokoll mit dem Präsentationsgerät, um die Präsentationssitzung zu steuern und Nachrichten zwischen den beiden Seiten zu übertragen.
+- Bei Geräten im 1-UA-Modus werden beide Seiten vom gleichen User Agent geladen. Das Rendering-Ergebnis der Empfängerseite wird jedoch über ein unterstütztes Remote-Rendering-Protokoll an das Präsentationsgerät gesendet.
+- Bei Geräten im 2-UA-Modus wird die Empfängerseite direkt auf dem Präsentationsgerät geladen. Der steuernde User Agent kommuniziert über ein unterstütztes Präsentationssteuerungsprotokoll mit dem Präsentationsgerät, um die Präsentationssitzung zu steuern und Nachrichten zwischen den beiden Seiten zu übertragen.
 
 ## Schnittstellen
 
 - [`Presentation`](/de/docs/Web/API/Presentation)
-  - : Im steuernden Browsing-Kontext bietet das `Presentation`-Interface einen Mechanismus zum Überschreiben des Standardverhaltens des Browsers beim Starten einer Präsentation auf einem externen Bildschirm. Im empfangenden Browsing-Kontext bietet das `Presentation`-Interface Zugriff auf die verfügbaren Präsentationsverbindungen.
+  - : Im Steuerungskontext der Browser bietet die `Presentation`-Schnittstelle einen Mechanismus, das Standardverhalten des Browsers beim Start einer Präsentation auf einem externen Bildschirm zu überschreiben. Im Empfängerkontext bietet die `Presentation`-Schnittstelle Zugang zu den verfügbaren Präsentationsverbindungen.
 - [`PresentationRequest`](/de/docs/Web/API/PresentationRequest)
-  - : Initiert oder stellt eine Verbindung zu einer Präsentation her, die von einem steuernden Browsing-Kontext durchgeführt wird.
+  - : Startet oder stellt die Verbindung mit einer Präsentation in einem steuernden Browserkontext wieder her.
 - [`PresentationAvailability`](/de/docs/Web/API/PresentationAvailability)
-  - : Ein [PresentationAvailability](/de/docs/Web/API/PresentationAvailability)-Objekt ist mit den verfügbaren Präsentationsdisplays verbunden und repräsentiert die _Verfügbarkeit von Präsentationsdisplays_ für eine Präsentationsanfrage.
+  - : Ein [PresentationAvailability](/de/docs/Web/API/PresentationAvailability)-Objekt ist mit den verfügbaren Präsentationsdisplays verknüpft und stellt die _Verfügbarkeit von Präsentationsdisplays_ für eine Präsentationsanforderung dar.
 - [`PresentationConnectionAvailableEvent`](/de/docs/Web/API/PresentationConnectionAvailableEvent)
-  - : Das `PresentationConnectionAvailableEvent` wird bei einem [`PresentationRequest`](/de/docs/Web/API/PresentationRequest) ausgelöst, wenn eine Verbindung, die mit dem Objekt assoziiert ist, erstellt wird.
+  - : Der `PresentationConnectionAvailableEvent` wird auf einem [`PresentationRequest`](/de/docs/Web/API/PresentationRequest) ausgelöst, wenn eine mit dem Objekt verknüpfte Verbindung erstellt wird.
 - [`PresentationConnection`](/de/docs/Web/API/PresentationConnection)
   - : Jede Präsentationsverbindung wird durch ein [PresentationConnection](/de/docs/Web/API/PresentationConnection)-Objekt dargestellt.
 - [`PresentationConnectionCloseEvent`](/de/docs/Web/API/PresentationConnectionCloseEvent)
-  - : Ein `PresentationConnectionCloseEvent` wird ausgelöst, wenn eine Präsentationsverbindung in einen `closed`-Status wechselt.
+  - : Ein `PresentationConnectionCloseEvent` wird ausgelöst, wenn eine Präsentationsverbindung in einen `closed`-Status übergeht.
 - [`PresentationReceiver`](/de/docs/Web/API/PresentationReceiver)
-  - : Der [PresentationReceiver](/de/docs/Web/API/PresentationReceiver) ermöglicht es einem empfangenden Browsing-Kontext, auf die steuernden Browsing-Kontexte zuzugreifen und mit ihnen zu kommunizieren.
+  - : Der [PresentationReceiver](/de/docs/Web/API/PresentationReceiver) erlaubt einem empfangenden Browserkontext, auf die steuernden Browserkontexte zuzugreifen und mit ihnen zu kommunizieren.
 - [`PresentationConnectionList`](/de/docs/Web/API/PresentationConnectionList)
-  - : `PresentationConnectionList` repräsentiert die Sammlung nicht beendeter Präsentationsverbindungen. Es überwacht auch das Ereignis einer neu verfügbaren Präsentationsverbindung.
+  - : `PresentationConnectionList` steht für die Sammlung nicht beendeter Präsentationsverbindungen. Es ist auch ein Monitor für das Ereignis neuer verfügbarer Präsentationsverbindungen.
 
 ## Beispiel
 
-Die folgenden Beispielcodes zeigen die Verwendung der Hauptfunktionen der Presentation API: `controller.html` implementiert den Controller und `presentation.html` implementiert die Präsentation. Beide Seiten werden von der Domain `https://example.org` (`https://example.org/controller.html` und `https://example.org/presentation.html`) bereitgestellt. Diese Beispiele gehen davon aus, dass die Steuerungsseite jeweils eine Präsentation verwaltet. Bitte beachten Sie die Kommentare in den Beispielcodes für weitere Details.
+Die folgenden Beispielcodes veranschaulichen die Nutzung der Hauptmerkmale der Presentation API: `controller.html` implementiert die Steuerung und `presentation.html` die Präsentation. Beide Seiten werden von der Domain `https://example.org` bedient (`https://example.org/controller.html` und `https://example.org/presentation.html`). Diese Beispiele gehen davon aus, dass die Steuerungsseite jeweils eine Präsentation verwaltet. Bitte beachten Sie die Kommentare in den Codebeispielen für weitere Details.
 
-### Überwachen der Verfügbarkeit von Präsentationsdisplays
+### Überwachung der Verfügbarkeit von Präsentationsdisplays
 
 In `controller.html`:
 
@@ -96,7 +96,7 @@ request
   });
 ```
 
-### Starten einer neuen Präsentation
+### Start einer neuen Präsentation
 
 In `controller.html`:
 
@@ -111,7 +111,7 @@ presentBtn.onclick = () => {
 };
 ```
 
-### Wiederverbinden mit einer Präsentation
+### Wiederherstellen der Verbindung zu einer Präsentation
 
 In der Datei `controller.html`:
 
@@ -133,7 +133,7 @@ const reconnect = () => {
   }
 };
 // On navigation of the controller, reconnect automatically.
-document.addEventListener("DOMContentLoaded", reconnect);
+reconnect();
 // Or allow manual reconnection.
 reconnectBtn.onclick = reconnect;
 ```
@@ -149,7 +149,7 @@ navigator.presentation.defaultRequest.onconnectionavailable = (evt) => {
 };
 ```
 
-Das Setzen von `presentation.defaultRequest` ermöglicht es der Seite, die `PresentationRequest` zu spezifizieren, die verwendet werden soll, wenn der steuernde UA eine Präsentation startet.
+Das Setzen von `presentation.defaultRequest` erlaubt es der Seite, die `PresentationRequest` zu spezifizieren, die verwendet werden soll, wenn der steuernde UA eine Präsentation startet.
 
 ### Überwachen des Verbindungsstatus und Datenaustausch
 
@@ -236,7 +236,7 @@ function setConnection(newConnection) {
 }
 ```
 
-### Überwachen verfügbarer Verbindungen und "Hallo" sagen
+### Überwachen verfügbarer Verbindungen und Begrüßung
 
 In `presentation.html`:
 
@@ -257,7 +257,7 @@ navigator.presentation.receiver.connectionList.then((list) => {
 });
 ```
 
-### Übermitteln von Lokalinformationen mit einer Nachricht
+### Übermittlung von Sprachinformationen mit einer Nachricht
 
 In der Datei `controller.html`:
 
@@ -290,4 +290,4 @@ connection.onmessage = (message) => {
 
 ## Siehe auch
 
-[Presentation API polyfill](https://mediascape.github.io/presentation-api-polyfill/) enthält eine JavaScript-Polyfill der [Presentation API](https://w3c.github.io/presentation-api/) Spezifikation, die im Rahmen der Standardisierung in der [Second Screen Working Group](https://www.w3.org/2014/secondscreen/) bei W3C behandelt wird. Die Polyfill ist hauptsächlich dafür gedacht, zu erforschen, wie die Presentation API basierend auf verschiedenen Präsentationsmechanismen implementiert werden kann.
+[Presentation API polyfill](https://mediascape.github.io/presentation-api-polyfill/) enthält ein JavaScript-Polyfill der [Presentation API](https://w3c.github.io/presentation-api/)-Spezifikation, die innerhalb der [Second Screen Working Group](https://www.w3.org/2014/secondscreen/) bei W3C standardisiert wird. Das Polyfill ist hauptsächlich dazu gedacht, zu erforschen, wie die Presentation API über verschiedene Präsentationsmechanismen hinweg implementiert werden kann.

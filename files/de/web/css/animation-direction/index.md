@@ -2,10 +2,10 @@
 title: animation-direction
 slug: Web/CSS/animation-direction
 l10n:
-  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
+  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
 ---
 
-Die **`animation-direction`**-[CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob eine Animation vorwärts, rückwärts oder abwechselnd vorwärts und rückwärts abgespielt werden soll.
+Die **`animation-direction`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob eine Animation vorwärts, rückwärts oder abwechselnd zwischen vorwärts und rückwärts gespielt werden soll.
 
 {{InteractiveExample("CSS Demo: animation-direction")}}
 
@@ -72,25 +72,21 @@ animation-direction: alternate-reverse;
 ```
 
 ```js interactive-example
-"use strict";
+const el = document.getElementById("example-element");
+const button = document.getElementById("play-pause");
 
-window.addEventListener("load", () => {
-  const el = document.getElementById("example-element");
-  const button = document.getElementById("play-pause");
-
-  button.addEventListener("click", () => {
-    if (el.classList.contains("running")) {
-      el.classList.remove("running");
-      button.textContent = "Play";
-    } else {
-      el.classList.add("running");
-      button.textContent = "Pause";
-    }
-  });
+button.addEventListener("click", () => {
+  if (el.classList.contains("running")) {
+    el.classList.remove("running");
+    button.textContent = "Play";
+  } else {
+    el.classList.add("running");
+    button.textContent = "Pause";
+  }
 });
 ```
 
-Es ist oft praktisch, die Kurzschreibweise {{cssxref("animation")}} zu verwenden, um alle Animations-Eigenschaften auf einmal festzulegen.
+Es ist oft praktisch, die Kurzschreibweise {{cssxref("animation")}} zu verwenden, um alle Animationseigenschaften auf einmal festzulegen.
 
 ## Syntax
 
@@ -116,19 +112,19 @@ animation-direction: unset;
 ### Werte
 
 - `normal`
-  - : Die Animation spielt _vorwärts_ in jedem Zyklus. Mit anderen Worten, bei jedem Animationszyklus wird die Animation auf den Anfangszustand zurückgesetzt und beginnt erneut. Dies ist der Standardwert.
+  - : Die Animation spielt _vorwärts_ in jedem Zyklus. Mit anderen Worten, jedes Mal, wenn die Animation zyklisch abläuft, wird die Animation auf den Anfangszustand zurückgesetzt und beginnt von neuem. Dies ist der Standardwert.
 - `reverse`
-  - : Die Animation spielt _rückwärts_ in jedem Zyklus. Mit anderen Worten, bei jedem Animationszyklus wird die Animation auf den Endzustand zurückgesetzt und beginnt erneut. Animationsschritte werden rückwärts ausgeführt, und auch die Übergangsfunktionen kehren sich um. Beispielsweise wird eine `ease-in` Übergangsfunktion zu `ease-out`.
+  - : Die Animation spielt _rückwärts_ in jedem Zyklus. Mit anderen Worten, jedes Mal, wenn die Animation zyklisch abläuft, wird die Animation auf den Endzustand zurückgesetzt und beginnt von neuem. Animationsschritte werden rückwärts ausgeführt und die Timing-Funktionen werden ebenfalls umgekehrt. Zum Beispiel wird eine `ease-in`-Funktion zu `ease-out`.
 - `alternate`
-  - : Die Animation wechselt die Richtung in jedem Zyklus, wobei die erste Ausführung _vorwärts_ abgespielt wird. Die Zählung zur Bestimmung, ob ein Zyklus gerade oder ungerade ist, beginnt bei eins.
+  - : Die Animation kehrt jede Runde die Richtung um, wobei die erste Iteration _vorwärts_ gespielt wird. Die Zählung, ob ein Zyklus gerade oder ungerade ist, beginnt bei eins.
 - `alternate-reverse`
-  - : Die Animation wechselt die Richtung in jedem Zyklus, wobei die erste Ausführung _rückwärts_ abgespielt wird. Die Zählung zur Bestimmung, ob ein Zyklus gerade oder ungerade ist, beginnt bei eins.
+  - : Die Animation kehrt jede Runde die Richtung um, wobei die erste Iteration _rückwärts_ gespielt wird. Die Zählung, ob ein Zyklus gerade oder ungerade ist, beginnt bei eins.
 
 > [!NOTE]
-> Wenn Sie mehrere kommagetrennte Werte auf einer `animation-*` Eigenschaft spezifizieren, werden sie in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und der `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere durch Kommas getrennte Werte bei einer `animation-*` Eigenschaft angeben, werden sie auf die Animationen in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. In Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animationswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 > [!NOTE]
-> Beim Erstellen von [scrollbasierten CSS-Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) funktioniert die Spezifikation von `animation-direction` wie erwartet, z.B. führt `reverse` dazu, dass die Animation im Verlauf des Zeitstrahls rückwärts läuft. Ein Wert von `alternate` (kombiniert mit einer {{cssxref("animation-iteration-count")}}) führt dazu, dass die Animation vorwärts und rückwärts läuft, während der Zeitstrahl fortschreitet.
+> Wenn Sie [CSS scrollgetriebene Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) erstellen, funktioniert das Festlegen einer `animation-direction` wie erwartet, beispielsweise führt `reverse` dazu, dass die Animation rückwärts im Verlauf der Entwicklung der Timeline abläuft. Ein Wert von `alternate` (kombiniert mit einem {{cssxref("animation-iteration-count")}}) führt dazu, dass die Animation vorwärts und rückwärts läuft, während die Timeline weiterentwickelt wird.
 
 ## Formale Definition
 
@@ -140,7 +136,7 @@ animation-direction: unset;
 
 ## Beispiele
 
-### Richtung der Animation umkehren
+### Umkehrung der Animationsrichtung
 
 #### HTML
 
@@ -192,4 +188,4 @@ Siehe [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) f�
 
 - [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
 - JavaScript [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) API
-- Andere verwandte Animations-Eigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-name")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}
+- Andere verwandte Animationseigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-name")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}
