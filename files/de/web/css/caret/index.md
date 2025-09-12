@@ -2,12 +2,12 @@
 title: caret
 slug: Web/CSS/caret
 l10n:
-  sourceCommit: 49f90b9c810e5167fecf6ad652afb03075072db7
+  sourceCommit: 625d139412c475dd5744bd5516f218e9d97e73ea
 ---
 
 {{SeeCompatTable}}
 
-Die **`caret`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft legt das Erscheinungsbild und das Verhalten des **Eingabemarkers** in einer einzigen Deklaration fest.
+Die **`caret`** [shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt das Erscheinungsbild und Verhalten des **Einfüge-Carets** in einer einzigen Deklaration fest.
 
 {{InteractiveExample("CSS Demo: caret")}}
 
@@ -81,34 +81,34 @@ caret: revert-layer;
 caret: unset;
 ```
 
-Die `caret`-Eigenschaft wird als ein, zwei oder drei Werte aus den Bestandteileigenschaften angegeben. Werte können in beliebiger Reihenfolge angegeben werden, und ausgelassene Werte werden auf ihre Anfangswerte gesetzt.
+Die `caret`-Eigenschaft wird als ein, zwei oder drei Werte der Bestandteileigenschaften angegeben. Werte können in beliebiger Reihenfolge festgelegt werden, und ausgelassene Werte werden auf ihre Standardwerte gesetzt.
 
 ### Werte
 
 - {{cssxref("caret-color")}}
-  - : Setzt die Farbe des Eingabemarkers.
+  - : Legt die Farbe des Carets fest.
 
 - {{cssxref("caret-animation")}}
-  - : Steuert, ob der Eingabemarker blinkt.
+  - : Steuert, ob das Caret blinkt.
 
 - {{cssxref("caret-shape")}}
-  - : Legt die visuelle Form des Eingabemarkers fest.
+  - : Legt die visuelle Form des Carets fest.
 
 ## Beschreibung
 
-Die `caret`-Kurzform ermöglicht es Ihnen, mehrere Eingabemarkereigenschaften in einer einzigen Deklaration festzulegen, was es bequem macht, das vollständige Erscheinungsbild und Verhalten des Eingabemarkers anzupassen.
+Das `caret`-Shorthand ermöglicht es Ihnen, mehrere Caret-Eigenschaften in einer einzigen Deklaration festzulegen, was es bequem macht, das vollständige Erscheinungsbild und Verhalten des Einfüge-Carets anzupassen.
 
 ### Wertauflösung
 
-Wenn Werte in der Kurzform weggelassen werden, werden sie auf ihre Anfangswerte zurückgesetzt:
+Wenn Werte im Shorthand ausgelassen werden, werden sie auf ihre Standardwerte zurückgesetzt:
 
 - `caret-color`: `auto` (löst sich zu `currentColor` auf).
-- `caret-animation`: `auto` (Eingabemarker blinkt).
-- `caret-shape`: `auto` (vom Browser bestimmte Form).
+- `caret-animation`: `auto` (Caret blinkt).
+- `caret-shape`: `auto` (browserbestimmte Form).
 
-### Unabhängigkeit der Reihenfolge
+### Reihenfolgeunabhängigkeit
 
-Im Gegensatz zu einigen CSS-Kurzformen akzeptiert die `caret`-Eigenschaft Werte in beliebiger Reihenfolge. Der Browser bestimmt, welcher Wert für welche Eigenschaft gilt, basierend auf dem Werttyp:
+Im Gegensatz zu einigen CSS-Kurzformen akzeptiert die `caret`-Eigenschaft Werte in beliebiger Reihenfolge. Der Browser bestimmt, welcher Wert auf welche Eigenschaft angewendet wird, basierend auf dem Werttyp:
 
 - {{cssxref("&lt;color>")}}-Werte gelten für `caret-color`.
 - `auto`/`manual` Schlüsselwörter gelten für `caret-animation`.
@@ -124,11 +124,11 @@ Im Gegensatz zu einigen CSS-Kurzformen akzeptiert die `caret`-Eigenschaft Werte 
 
 ## Beispiele
 
-### Retro-Terminal mit animiertem Eingabemarker
+### Retro-Terminal mit animiertem Caret
 
-Dieses Beispiel erstellt eine Vintage-Terminal-Oberfläche unter Verwendung der `caret`-Kurzform, um mehrere Eingabemarkereigenschaften zu kombinieren und zu demonstrieren, wie sie ältere, auf Rändern basierende Techniken ersetzt.
+Dieses Beispiel erstellt eine Vintage-Terminalschnittstelle mit der `caret`-Kurzform, um mehrere Caret-Eigenschaften zu kombinieren und zeigt, wie sie ältere, auf Rahmen basierende Techniken ersetzt.
 
-Der Hauptvorteil der `caret`-Kurzform besteht darin, mehrere Eigenschaften in einer Deklaration zu kombinieren. Hier setzen wir die Form auf `block`, deaktivieren das standardmäßige Blinken und setzen die Farbe auf `green`, alles in einer einzigen Zeile.
+Der Hauptvorteil der `caret`-Kurzform besteht darin, mehrere Eigenschaften in einer Deklaration zu kombinieren. Hier setzen wir die Form auf `block`, deaktivieren das Standardblinken und setzen die Farbe auf `green`, alles in einer einzigen Zeile.
 
 #### HTML
 
@@ -147,7 +147,7 @@ label {
   background: #092104;
   display: block;
   padding: 10px 20px;
-  color: green;
+  color: #00ad00;
   font-weight: bold;
   font-family: monospace;
 }
@@ -169,7 +169,7 @@ label {
 span {
   display: inline-block;
   padding: 2px 5px;
-  color: green;
+  color: #00ad00;
   font-weight: bold;
   margin-right: 8px;
 }
@@ -178,7 +178,7 @@ span {
   background: transparent;
   height: 100%;
   border: none;
-  color: green;
+  color: #00ad00;
   font-family: inherit;
   font-size: 1rem;
   outline: none;
@@ -196,7 +196,7 @@ span {
 @keyframes vintage-caret {
   from,
   50% {
-    caret-color: green;
+    caret-color: #00ad00;
   }
   75%,
   to {
@@ -220,4 +220,4 @@ span {
 ## Siehe auch
 
 - {{cssxref("caret-color")}}, {{cssxref("caret-animation")}}, {{cssxref("caret-shape")}}
-- [CSS basic user interface](/de/docs/Web/CSS/CSS_basic_user_interface) Moduls
+- [CSS basic user interface](/de/docs/Web/CSS/CSS_basic_user_interface) Modul

@@ -2,12 +2,12 @@
 title: caret-shape
 slug: Web/CSS/caret-shape
 l10n:
-  sourceCommit: 49f90b9c810e5167fecf6ad652afb03075072db7
+  sourceCommit: 625d139412c475dd5744bd5516f218e9d97e73ea
 ---
 
 {{SeeCompatTable}}
 
-Die **`caret-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form des **Einfüge-Carets** fest, des sichtbaren Markers, der in editierbaren Elementen erscheint, um anzugeben, wo das nächste Zeichen eingefügt oder gelöscht wird.
+Die **`caret-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form des **Eingabemarkers** fest, des sichtbaren Markers, der in bearbeitbaren Elementen erscheint, um anzuzeigen, wo das nächste Zeichen eingefügt oder gelöscht wird.
 
 {{InteractiveExample("CSS Demo: caret-shape")}}
 
@@ -68,41 +68,41 @@ caret-shape: unset;
 ### Werte
 
 - `auto`
-  - : Der Standardwert. Der Browser bestimmt die Form des Carets. Dies folgt typischerweise den Plattformkonventionen und kann je nach Kontext variieren.
+  - : Der Standardwert. Der Browser bestimmt die Form des Eingabemarkers. Dies folgt typischerweise den Plattformkonventionen und kann sich je nach Kontext ändern.
 
 - `bar`
-  - : Das Caret erscheint als dünne vertikale Linie am Einfügepunkt, zwischen den Zeichen positioniert anstatt über ihnen.
+  - : Der Eingabemarker erscheint als dünne vertikale Linie an der Einfügestelle, zwischen den Zeichen positioniert, anstatt über ihnen.
 
 - `block`
-  - : Das Caret erscheint als Rechteck, das das nächste Zeichen nach dem Einfügepunkt überlappt. Wenn kein Zeichen folgt, erscheint es nach dem letzten Zeichen.
+  - : Der Eingabemarker erscheint als Rechteck, das das nächste Zeichen nach der Einfügestelle überlappt. Wenn kein Zeichen folgt, erscheint er nach dem letzten Zeichen.
 
 - `underscore`
-  - : Das Caret erscheint als dünne horizontale Linie unter dem nächsten Zeichen nach dem Einfügepunkt. Wenn kein Zeichen folgt, erscheint es nach dem letzten Zeichen.
+  - : Der Eingabemarker erscheint als dünne horizontale Linie unter dem nächsten Zeichen nach der Einfügestelle. Wenn kein Zeichen folgt, erscheint er nach dem letzten Zeichen.
 
 ## Beschreibung
 
-Das Einfüge-Caret ist der blinkende Cursor, der anzeigt, wo Text eingefügt wird, wenn getippt wird. Unterschiedliche Caret-Formen können visuelles Feedback über den aktuellen Editiermodus geben oder visuelle Anpassungen bieten.
+Der Eingabemarker ist der blinkende Cursor, der anzeigt, wo Text eingefügt wird, wenn Sie tippen. Unterschiedliche Formen des Eingabemarkers können visuelles Feedback über den aktuellen Bearbeitungsmodus geben oder visuelle Anpassungen bieten.
 
-### Bearbeitungsmodi und Caret-Formen
+### Bearbeitungsmodi und Eingabemarkerformen
 
 Texteditoren arbeiten typischerweise in einem von zwei Modi:
 
-- **Einfügemodus**: Neue Zeichen werden an der Caret-Position eingefügt und schieben den vorhandenen Text bis zum Zeilenende. Dies ist das Standardverhalten in den meisten modernen Anwendungen.
-- **Überschreibe-Modus** (auch „Überschreibmodus“ genannt): Neue Zeichen ersetzen vorhandene Zeichen an der Caret-Position anstatt zwischen ihnen eingefügt zu werden. Dieser Modus wird oft mit der <kbd>Einfügen</kbd>-Taste umgeschaltet.
+- **Einfügemodus**: Neue Zeichen werden an der Position des Eingabemarkers eingefügt, wodurch vorhandener Text ans Ende der Zeile verschoben wird. Dies ist das Standardverhalten in den meisten modernen Anwendungen.
+- **Überschreibmodus** (auch "Overtype-Modus" genannt): Neue Zeichen ersetzen vorhandene Zeichen an der Position des Eingabemarkers, anstatt zwischen ihnen eingefügt zu werden. Dieser Modus wird oft mit der <kbd>Einfügen</kbd>-Taste umgeschaltet.
 
-Verschiedene Caret-Formen haben traditionelle Verwendungen, zum Beispiel:
+Unterschiedliche Formen des Eingabemarkers haben traditionelle Verwendungen, zum Beispiel:
 
-- **Bar-Carets** sind zwischen Zeichen positioniert und in modernen Schnittstellen am häufigsten.
-- **Block-Carets** überlagern das nächste Zeichen und werden oft in Terminal-Anwendungen oder zur Anzeige des Überschreibmodus verwendet.
-- **Unterstrich-Carets** erscheinen unter den Zeichen und können nützlich für bestimmte Ästhetiken sein, wie das Nachahmen von Schreibmaschinen oder unterstrichenen Texteingabestilen.
+- **Leisten-Eingabemarker** sind zwischen den Zeichen positioniert und in modernen Schnittstellen am häufigsten.
+- **Block-Eingabemarker** überlagern das nächste Zeichen und werden häufig in Terminalanwendungen oder zur Anzeige des Überschreibmodus verwendet.
+- **Unterstrich-Eingabemarker** erscheinen unter den Zeichen und können für bestimmte Designästhetiken nützlich sein, z. B. um Schreibmaschinen- oder Unterstrich-Textinput-Stile zu imitieren.
 
-### Caret-Positionierung und Verhalten
+### Positionierung und Verhalten des Eingabemarkers
 
-Die `caret-shape` Eigenschaft beeinflusst, wie das Caret visuell dargestellt wird, ändert jedoch nicht seine logische Position im Text. Das Caret repräsentiert immer den Einfügepunkt zwischen Zeichen, unabhängig von seiner visuellen Form.
+Die `caret-shape` Eigenschaft beeinflusst, wie der Eingabemarker visuell dargestellt wird, ändert jedoch nicht seine logische Position im Text. Der Eingabemarker repräsentiert immer die Einfügestelle zwischen Zeichen, unabhängig von seiner visuellen Form.
 
 ### Interaktion mit Schreibmodi
 
-Die Form des Carets passt sich dem {{cssxref("writing-mode")}} des Textes an. In vertikalen Schreibmodi werden Bar-Carets horizontal und Unterstrich-Carets positionieren sich entsprechend der Textausrichtung.
+Die Form des Eingabemarkers passt sich dem {{cssxref("writing-mode")}} des Textes an. In vertikalen Schreibmodi werden Leisten-Eingabemarker horizontal, und Unterstrich-Eingabemarker positionieren sich entsprechend der Leserichtung.
 
 ## Formale Definition
 
@@ -114,11 +114,11 @@ Die Form des Carets passt sich dem {{cssxref("writing-mode")}} des Textes an. In
 
 ## Beispiele
 
-### Retro-Terminal mit animiertem Caret
+### Retro-Terminal mit animiertem Eingabemarker
 
-Dieses Beispiel zeigt, wie man eine Vintage-Terminal-Oberfläche unter Verwendung von `caret-shape: block` mit animierter Caret-Farbe erstellt und damit die alte Technik der Verwendung von Rändern ersetzt.
+Dieses Beispiel zeigt, wie man eine retroartige Terminaloberfläche mit `caret-shape: block` und animierter Eingabemarkerfarbe erstellt und so die alte Technik der Verwendung von Rahmen ersetzt.
 
-Der entscheidende Teil ist die Verwendung der modernen Caret-Eigenschaften anstelle der alten technik basierend auf Rändern. Wir setzen das Caret auf Blockform, deaktivieren das standardmäßige Blinken und erstellen unsere eigene benutzerdefinierte Animation.
+Der Schlüssel dabei ist die Verwendung der modernen Eingabemarker-Eigenschaften anstelle der alten, rahmenbasierten Technik. Wir setzen die Form des Eingabemarkers auf Block, deaktivieren das standardmäßige Blinken und erstellen unsere eigene benutzerdefinierte Animation.
 
 #### HTML
 
@@ -137,7 +137,7 @@ label {
   background: #092104;
   display: block;
   padding: 10px 20px;
-  color: green;
+  color: #00ad00;
   font-weight: bold;
   font-family: monospace;
 }
@@ -159,7 +159,7 @@ label {
 span {
   display: inline-block;
   padding: 2px 5px;
-  color: green;
+  color: #00ad00;
   font-weight: bold;
   margin-right: 8px;
 }
@@ -168,7 +168,7 @@ span {
   background: transparent;
   height: 100%;
   border: none;
-  color: green;
+  color: #00ad00;
   font-family: inherit;
   font-size: 1rem;
   outline: none;
@@ -187,7 +187,7 @@ span {
 @keyframes old-caret {
   from,
   50% {
-    caret-color: green;
+    caret-color: #00ad00;
   }
   75%,
   to {
@@ -200,9 +200,9 @@ span {
 
 {{EmbedLiveSample('Retro_terminal_with_animated_caret', 550, 215)}}
 
-### Konsolenschnittstelle mit Unterstrich-Caret
+### Konsolenschnittstelle mit Unterstrich-Eingabemarker
 
-Dieses Beispiel demonstriert die Verwendung von `caret-shape: underscore`, um eine Konsolenstil-Oberfläche zu erstellen, bei der das Unterstrich-Caret das Terminal-Ästhetik ergänzt.
+Dieses Beispiel zeigt die Verwendung von `caret-shape: underscore`, um eine Konsolenschnittstelle zu erstellen, bei der der Unterstrich-Eingabemarker das Terminalästhetik ergänzt.
 
 #### HTML
 
@@ -289,5 +289,5 @@ label {
 ## Siehe auch
 
 - {{cssxref("caret-color")}}, {{cssxref("caret-animation")}}
-- {{cssxref("caret")}} shorthand
-- [CSS basic user interface](/de/docs/Web/CSS/CSS_basic_user_interface) Modul
+- {{cssxref("caret")}} Shorthand
+- [CSS Grundlegende Benutzerschnittstelle](/de/docs/Web/CSS/CSS_basic_user_interface) Modul
