@@ -3,29 +3,26 @@ title: "HTMLFormElement: elements-Eigenschaft"
 short-title: elements
 slug: Web/API/HTMLFormElement/elements
 l10n:
-  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
+  sourceCommit: 8626f2e444062fbbf08b8729ab4269cceaf7d1bd
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Eigenschaft **`elements`** gibt eine [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection) zurück, die alle in dem {{HTMLElement("form")}}-Element enthaltenen Formularsteuerelemente auflistet.
+Die **`elements`**-Eigenschaft des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interfaces gibt eine [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection) zurück, die alle aufgelisteten Formularsteuerelemente enthält, die dem {{HTMLElement("form")}}-Element zugeordnet sind.
 
-Unabhängig davon können Sie die Anzahl der Formularsteuerelemente mit der [`length`](/de/docs/Web/API/HTMLFormElement/length)-Eigenschaft erhalten.
+Sie können ein bestimmtes Formularsteuerelement in der zurückgegebenen Sammlung entweder über einen Index oder über die `name`- oder `id`-Attribute des Elements abrufen.
 
-Ein bestimmtes Formularsteuerelement in der zurückgegebenen Sammlung kann entweder durch einen Index oder durch die `name`- oder `id`-Attribute des Elements aufgerufen werden.
+Vor HTML 5 war das zurückgegebene Objekt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), auf der `HTMLFormControlsCollection` basiert ist.
 
-Vor HTML5 war das zurückgegebene Objekt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), auf der die `HTMLFormControlsCollection` basiert.
-
-> [!NOTE]
-> Ähnlich können Sie eine Liste aller im Dokument enthaltenen Formulare über die `forms`-Eigenschaft des Dokuments erhalten.
+Unabhängig davon können Sie die Anzahl der zugeordneten Formularsteuerelemente ausschließlich über die [`length`](/de/docs/Web/API/HTMLFormElement/length)-Eigenschaft ermitteln. Sie können eine Liste aller in einem bestimmten Dokument enthaltenen Formulare über die `forms`-Eigenschaft des Dokuments abrufen.
 
 ## Wert
 
-Eine [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection), die alle Nicht-Bild-Steuerelemente im Formular enthält. Dies ist eine Live-Sammlung; wenn Formularsteuerelemente zum Formular hinzugefügt oder davon entfernt werden, aktualisiert sich diese Sammlung, um die Änderung widerzuspiegeln.
+Eine [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection), die alle mit dem Formular verbundenen Nicht-Bild-Steuerelemente enthält. Dies ist eine Live-Sammlung; wenn Formularsteuerelemente dem Formular zugeordnet oder aus ihm entfernt werden, wird diese Sammlung aktualisiert, um die Änderung widerzuspiegeln.
 
-Die Formularsteuerelemente in der zurückgegebenen Sammlung sind in derselben Reihenfolge, in der sie im Formular erscheinen, indem sie einer Vorordnung folgen, einer tiefenbezogenen Traversierung des Baums. Dies wird als **Baumordnung** bezeichnet.
+Die Formularsteuerelemente in der zurückgegebenen Sammlung erscheinen in der gleichen Reihenfolge, in der sie im Dokument erscheinen, indem sie einem Präorder-, tiefen-erst Traversieren des Baumes folgen. Dies nennt man **Baumordnung**.
 
-Nur die folgenden Elemente werden zurückgegeben:
+Nur die folgenden Formularsteuerelemente werden zurückgegeben:
 
 - {{HTMLElement("button")}}
 - {{HTMLElement("fieldset")}}
@@ -34,13 +31,13 @@ Nur die folgenden Elemente werden zurückgegeben:
 - {{HTMLElement("output")}}
 - {{HTMLElement("select")}}
 - {{HTMLElement("textarea")}}
-- [form-assoziierte benutzerdefinierte Elemente](https://html.spec.whatwg.org/multipage/custom-elements.html#form-associated-custom-element)
+- [mit dem Formular verbundene benutzerdefinierte Elemente](https://html.spec.whatwg.org/multipage/custom-elements.html#form-associated-custom-element)
 
 ## Beispiele
 
 ### Schnelles Syntaxbeispiel
 
-In diesem Beispiel sehen wir, wie die Liste der Formularsteuerelemente erhalten wird und wie man auf ihre Mitglieder durch Index und durch Name oder ID zugreifen kann.
+In diesem Beispiel sehen wir, wie man die Liste der Formularsteuerelemente erhält und wie man auf ihre Mitglieder durch Index und durch Name oder ID zugreift.
 
 ```html
 <form id="my-form">
@@ -65,9 +62,52 @@ const inputByIndex = inputs[0];
 const inputByName = inputs["username"];
 ```
 
+### Zuordnung der Formularsteuerelemente
+
+Dieses Beispiel zeigt, wie die [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection) die mit dem Formular verknüpften Steuerelemente enthält und nicht die Steuerelemente, die physisch im `<form>` eingebettet sind.
+
+Das erste Formular ist vollständig, mit vier Formularsteuerelementen: einem {{htmlelement("fieldset")}} und drei {{htmlelement("input")}}-Elementen. Die {{htmlelement("legend")}}- und {{htmlelement("label")}}-Elemente sind keine aufgelisteten Formularsteuerelemente. Das zweite Formular ist spärlich, mit nur einem eingebetteten Formularsteuerelement: einem einzelnen {{htmlelement("object")}}-Element. Alle Formularsteuerelemente im vollständigen Formular sind über ihr `form`-Attribut mit dem spärlichen Formular verbunden.
+
+```html
+<form id="fullForm">
+  This form looks full, but it has no associated form controls
+  <fieldset form="sparseForm">
+    <legend>This is a legend</legend>
+    <label>A form control: <input form="sparseForm" /></label>
+    <label>Another form control: <input form="sparseForm" /></label>
+    <label>Yest anotehr form control: <input form="sparseForm" /></label>
+  </fieldset>
+</form>
+
+<form id="sparseForm">
+  <object>Lone form control</object>
+</form>
+```
+
+Wir verwenden die `elements`-Eigenschaft, um die `HTMLFormControlsCollection` für jedes Formular zu erhalten.
+
+```js
+const sparse = document.getElementById("sparseForm").elements;
+const full = document.getElementById("fullForm").elements;
+```
+
+Die Sammlung umfasst die mit dem Formular verbundenen Formularsteuerelemente, d.h. alle {{HTMLElement("button")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}}, {{HTMLElement("object")}}, {{HTMLElement("output")}}, {{HTMLElement("select")}}, {{HTMLElement("textarea")}} und formularverknüpfte benutzerdefinierte Elemente, die mit dem Formular verbunden sind, selbst wenn diese Elemente in einem anderen Formular eingebettet sind oder in keinem Formular eingebettet sind.
+
+```js
+console.log(`sparse form: ${sparse.length}`); // sparse form: 5
+console.log(`full form: ${full.length}`); // full form: 0
+```
+
+Die Formularsteuerelemente der Sammlung befinden sich in der gleichen Reihenfolge, in der sie im Dokument erscheinen.
+
+```js
+console.log(`first member: ${sparse[0].tagName}`); // first member: FIELDSET
+console.log(`last member: ${sparse[sparse.length - 1].tagName}`); // last member: OBJECT
+```
+
 ### Zugriff auf Formularsteuerelemente
 
-Dieses Beispiel erhält die Elementliste des Formulars und iteriert dann über die Liste, um {{HTMLElement("input")}}-Elemente des Typs [`"text"`](/de/docs/Web/HTML/Reference/Elements/input/text) zu suchen, damit eine Form der Verarbeitung an ihnen durchgeführt werden kann.
+In diesem Beispiel wird die Liste der Formularelemente abgerufen und dann über diese Liste iteriert, wobei {{HTMLElement("input")}}-Elemente des Typs [`"text"`](/de/docs/Web/HTML/Reference/Elements/input/text) gesucht werden, damit eine Form von Verarbeitung an ihnen durchgeführt werden kann.
 
 ```js
 const inputs = document.getElementById("my-form").elements;
@@ -81,7 +121,7 @@ for (const input of inputs) {
 }
 ```
 
-### Deaktivierung von Formularsteuerelementen
+### Deaktivieren von Formularsteuerelementen
 
 ```js
 const inputs = document.getElementById("my-form").elements;

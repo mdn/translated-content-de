@@ -1,12 +1,12 @@
 ---
-title: Set()-Konstruktor
+title: Set() Konstruktor
 short-title: Set()
 slug: Web/JavaScript/Reference/Global_Objects/Set/Set
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 1d905454be7d8910d5e3b33f0c22d063fe212816
 ---
 
-Der **`Set()`**-Konstruktor erzeugt {{jsxref("Set")}}-Objekte.
+Der **`Set()`** Konstruktor erstellt {{jsxref("Set")}} Objekte.
 
 {{InteractiveExample("JavaScript Demo: Set() constructor")}}
 
@@ -31,22 +31,20 @@ new Set(iterable)
 ```
 
 > [!NOTE]
-> `Set()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> `Set()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` zu aufzurufen, wirft einen {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `iterable` {{optional_inline}}
-  - : Wenn ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Statements/for...of) übergeben wird, werden alle seine Elemente dem neuen `Set` hinzugefügt.
-
-    Wenn Sie diesen Parameter nicht angeben oder sein Wert `null` ist, ist das neue `Set` leer.
+  - : Wenn ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols) (wie ein Array) übergeben wird, werden alle seine Elemente dem neuen `Set` hinzugefügt. Wenn Sie diesen Parameter nicht angeben oder sein Wert `null` oder `undefined` ist, ist das neue `Set` leer.
 
 ### Rückgabewert
 
-Ein neues `Set`-Objekt.
+Ein neues `Set` Objekt.
 
 ## Beispiele
 
-### Verwendung des `Set`-Objekts
+### Verwenden des `Set` Objekts
 
 ```js
 const mySet = new Set();
