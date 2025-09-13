@@ -189,6 +189,7 @@ Als Nächstes müssen Sie den Funktionskörper der `renderHouses()` vervollstän
 4. Erstellen Sie eine neue Funktion innerhalb `renderHouses()` namens `renderHouse()`. Diese Funktion muss ein Hausobjekt als Argument nehmen und zwei Dinge tun:
    1. Berechnen Sie die Gesamtfläche der Zimmer, die im `room_sizes` Objekt des Hauses enthalten sind. Dies ist nicht so einfach wie das Schleifen durch ein Array von Zahlen und das Summieren, aber es ist nicht allzu kompliziert.
    2. Fügen Sie ein `<article>` Element innerhalb des "output" `<section>` Elements hinzu, das die Hausnummer, den Straßennamen, die Anzahl von Schlafzimmern und Badezimmern, die gesamte Raumfläche und den Preis des Hauses enthält. Sie können die Struktur variieren, aber wir möchten, dass es diesem HTML-Schnipsel ähnlich ist:
+
    ```html
    <article>
      <h2>number street name</h2>
@@ -200,6 +201,7 @@ Als Nächstes müssen Sie den Funktionskörper der `renderHouses()` vervollstän
      </ul>
    </article>
    ```
+
 5. Schleifen Sie durch alle Häuser innerhalb des gefilterten Arrays und geben jedes in einen `renderHouse()` Aufruf.
 
 ## Tipps und Hinweise
