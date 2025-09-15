@@ -1,14 +1,14 @@
 ---
-title: "CaretPosition: Eigenschaft offsetNode"
+title: "CaretPosition: offsetNode-Eigenschaft"
 short-title: offsetNode
 slug: Web/API/CaretPosition/offsetNode
 l10n:
-  sourceCommit: ce31fcc3aced95a022db44b8b83f96221a10a5fd
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM view API")}}
 
-Die **`offsetNode`**-Eigenschaft des [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Interfaces gibt einen [`Node`](/de/docs/Web/API/Node) zurück, der den gefundenen Knoten an der Position des Carets enthält.
+Die **`offsetNode`**-Eigenschaft des [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Interfaces gibt ein [`Node`](/de/docs/Web/API/Node) zurück, das den gefundenen Knoten an der Position des Cursors enthält.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`Node`](/de/docs/Web/API/Node).
 
 ## Beispiele
 
-Dieses Beispiel protokolliert den `offsetNode` und `offset` der Caret-Position, wenn innerhalb des Eingabefeldes geklickt wird.
+Dieses Beispiel protokolliert `offsetNode` und `offset` der Cursor-Position, wenn innerhalb des Eingabefeldes geklickt wird.
 
 ```html
 <input aria-label="text field" value="Click inside this input field" />

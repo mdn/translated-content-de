@@ -1,24 +1,24 @@
 ---
-title: "MouseEvent: clientX-Eigenschaft"
+title: "MouseEvent: clientX Eigenschaft"
 short-title: clientX
 slug: Web/API/MouseEvent/clientX
 l10n:
-  sourceCommit: d13c1276b80bbfc940a1091b62f333fe9edc78a2
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`clientX`** des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die horizontale Koordinate innerhalb des {{Glossary("viewport", "Viewports")}} der Anwendung, an der das Ereignis aufgetreten ist (im Gegensatz zur Koordinate innerhalb der Seite).
+Die schreibgeschützte **`clientX`**-Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die horizontale Koordinate innerhalb des Anwendungs-{{Glossary("viewport", "Viewports")}}, an der das Ereignis auftrat (im Gegensatz zur Koordinate innerhalb der Seite).
 
-Wenn Sie beispielsweise auf den linken Rand des Viewports klicken, führt dies immer zu einem Mausereignis mit einem `clientX`-Wert von `0`, unabhängig davon, ob die Seite horizontal gescrollt ist.
+Beispielsweise wird ein Klick auf den linken Rand des Viewports immer ein Mausereignis mit einem `clientX`-Wert von `0` ergeben, unabhängig davon, ob die Seite horizontal gescrollt wurde oder nicht.
 
 ## Wert
 
-Ein `double`-Gleitkommawert in Pixel.
+Ein `double`-Gleitkommawert in Pixeln.
 
 ## Beispiele
 
-Dieses Beispiel zeigt Ihre Mauskoordinaten an, wann immer Sie das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis auslösen.
+Dieses Beispiel zeigt die Koordinaten Ihrer Maus an, wann immer Sie das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis auslösen.
 
 ### HTML
 
@@ -57,4 +57,4 @@ function logKey(e) {
 - [`MouseEvent`](/de/docs/Web/API/MouseEvent)
 - [`clientY`](/de/docs/Web/API/MouseEvent/clientY)
 - [`screenX`](/de/docs/Web/API/MouseEvent/screenX) / [`screenY`](/de/docs/Web/API/MouseEvent/screenY)
-- [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)
+- [Koordinatensysteme](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems)

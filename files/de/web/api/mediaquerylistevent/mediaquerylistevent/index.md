@@ -3,10 +3,10 @@ title: "MediaQueryListEvent: MediaQueryListEvent() Konstruktor"
 short-title: MediaQueryListEvent()
 slug: Web/API/MediaQueryListEvent/MediaQueryListEvent
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM view API")}}
 
 Der **`MediaQueryListEvent()`** Konstruktor erstellt ein neues [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)-Objekt.
 
@@ -20,14 +20,14 @@ new MediaQueryListEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Events.
-    Es ist case-sensitive und Browser setzen es immer auf `change`.
+  - : Ein Zeichenfolgenwert mit dem Namen des Ereignisses.
+    Er ist groß-/kleinschreibungssensitiv und Browser setzen ihn immer auf `change`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den Eigenschaften, die in [`Event()`](/de/docs/Web/API/Event/Event) definiert sind_, die folgenden Eigenschaften haben kann:
     - `media` {{optional_inline}}
-      - : Ein String, der eine serialisierte Medienabfrage darstellt. Standardmäßig ist er `""`.
+      - : Eine Zeichenfolge, die eine serialisierte Media Query darstellt. Standardmäßig ist sie `""`.
     - `matches` {{optional_inline}}
-      - : Ein boolescher Wert, der den Status der Medienabfrage darstellt; `true`, wenn sie zutrifft, `false`, wenn nicht. Standardmäßig ist er `false`.
+      - : Ein boolescher Wert, der den Status der Media Query darstellt; `true`, wenn sie zutrifft, `false`, wenn nicht. Standardmäßig ist sie `false`.
 
 ### Rückgabewert
 
@@ -55,8 +55,8 @@ const myMediaQueryListEvent = new MediaQueryListEvent("change", {
 
 ## Siehe auch
 
-- [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Medienabfragen im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

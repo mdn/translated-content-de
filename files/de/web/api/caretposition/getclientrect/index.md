@@ -1,14 +1,14 @@
 ---
-title: "CaretPosition: getClientRect() Methode"
+title: "CaretPosition: Methode getClientRect()"
 short-title: getClientRect()
 slug: Web/API/CaretPosition/getClientRect
 l10n:
-  sourceCommit: ce31fcc3aced95a022db44b8b83f96221a10a5fd
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM view API")}}
 
-Die `getClientRect()` Methode der [`CaretPosition`](/de/docs/Web/API/CaretPosition) Schnittstelle gibt das Client-Rechteck für den Caret-Bereich zurück.
+Die `getClientRect()`-Methode der [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Schnittstelle gibt das Client-Rechteck für den Caret-Bereich zurück.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`DOMRect`](/de/docs/Web/API/DOMRect) Objekt.
+Ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt.
 
 ## Beispiele
 
-### Die Bildschirmposition des Carets bestimmen
+### Position des Carets auf dem Bildschirm ermitteln
 
 ```html
 <input aria-label="text field" value="Click inside this input field" />
@@ -78,7 +78,7 @@ function log(text) {
 }
 ```
 
-{{EmbedLiveSample("Die Bildschirmposition des Carets bestimmen", "", 300)}}
+{{EmbedLiveSample("Position des Carets auf dem Bildschirm ermitteln", "", 300)}}
 
 ## Spezifikationen
 

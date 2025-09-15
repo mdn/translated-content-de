@@ -2,14 +2,14 @@
 title: CSS-Transformationen
 slug: Web/CSS/CSS_transforms
 l10n:
-  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-Das **CSS-Transformations**-Modul definiert, wie Elemente, die mit CSS gestylt sind, in zwei- oder dreidimensionalem Raum transformiert werden können.
+Das **CSS-Transformationsmodul** definiert, wie Elemente, die mit CSS gestaltet sind, in zwei- oder dreidimensionalem Raum transformiert werden können.
 
 ## CSS-Transformationen in Aktion
 
-Verwenden Sie die Schieberegler im folgenden Beispiel, um die CSS-Transformations-Eigenschaften Translation, Rotation, Skalierung und Schräge des Würfels im 3D-Raum zu ändern. Beachten Sie, wie der Würfel mit dem als `z:0px` gekennzeichneten Element interagiert, das sich an der 3D-Position `(0, 0, 0)` befindet.
+Verwenden Sie die Schieberegler im folgenden Beispiel, um die Eigenschaften der CSS-Transformationen Übersetzung, Drehung, Skalierung und Scherung des Würfels im 3D-Raum zu ändern. Wenn Sie den Würfel durch den 3D-Raum bewegen, beachten Sie, wie er mit dem Element interagiert, das mit `z:0px` bezeichnet ist und sich an der 3D-Position `(0, 0, 0)` befindet.
 
 ```html hidden live-sample___transforms
 <article>
@@ -651,16 +651,16 @@ updateTransform();
 
 {{EmbedLiveSample("transforms", "", "850px")}}
 
-Sie können auch den `perspective`-Schieberegler verwenden, um die [`perspective`](/de/docs/Web/CSS/perspective) Eigenschaft des Containers des Würfels zu ändern, die die Distanz zwischen Ihnen und der `z=0`-Ebene bestimmt.
+Sie können auch den `perspective`-Schieberegler verwenden, um die [`perspective`](/de/docs/Web/CSS/perspective)-Eigenschaft des Containers des Würfels zu ändern, die den Abstand zwischen Ihnen und der `z=0`-Ebene bestimmt.
 
-Die [`perspective-origin`](/de/docs/Web/CSS/perspective-origin) Schieberegler bestimmen, wo Sie, der Betrachter, in den 3D-Raum schauen, um den _Fluchtpunkt_ der Ansicht zu bestimmen. Dieser Fluchtpunkt wird durch einen kleinen roten Punkt angezeigt. Sie können sich das Ändern dieser Schieberegler als eine physische Bewegung Ihres Kopfes nach oben, unten, links und rechts vorstellen, um verschiedene Teile des Würfels zu sehen, ohne den Würfel selbst zu bewegen.
+Die [`perspective-origin`](/de/docs/Web/CSS/perspective-origin)-Schieberegler bestimmen, wo Sie als Betrachter in den 3D-Raum hineinschauen, um den Fluchtpunkt der Ansicht zu bestimmen. Dieser Fluchtpunkt wird durch einen kleinen roten Punkt angezeigt. Sie können sich vorstellen, dass das Ändern dieser Schieberegler dem physischen Bewegen Ihres Kopfes nach oben, unten, links und rechts entspricht, um verschiedene Teile des Würfels zu sehen, ohne den Würfel selbst zu bewegen.
 
-Das Kontrollkästchen `backface-visibility` bestimmt, ob die Rückseiten des Würfels auf `visible` oder `hidden` gesetzt sind.
+Das `backface-visibility`-Kontrollkästchen bestimmt, ob die Rückseiten des Würfels auf `visible` oder `hidden` gesetzt sind.
 
-Der im obigen Beispiel gezeigte Würfel besteht aus sechs `<div>`-Elementen, die alle mit CSS gestylt sind, um die Flächen des Würfels zu erzeugen. Der Würfel wird nicht mit einem 2D- oder 3D-Canvas-Kontext gezeichnet, daher **können Sie die Flächen des Würfels mit den Entwicklertools Ihres Browsers inspizieren, wie Sie jedes andere DOM-Element inspizieren würden**. Versuchen Sie, mit dem Elementauswahlwerkzeug der Entwicklertools Ihres Browsers verschiedene Flächen des Würfels zu inspizieren, während Sie seine Position und Rotation transformieren.
+Der Würfel im obigen Beispiel besteht aus sechs `<div>`-Elementen, die alle mit CSS gestaltet sind, um die Seiten des Würfels zu erstellen. Der Würfel wird nicht mit einem 2D- oder 3D-Canvas-Kontext gezeichnet, daher **können Sie die Flächen des Würfels mit den Entwicklertools Ihres Browsers untersuchen, wie Sie jedes andere DOM-Element untersuchen würden**. Versuchen Sie, den Element-Picker der Entwicklertools Ihres Browsers zu verwenden, um verschiedene Flächen des Würfels zu überprüfen, während Sie seine Position und Drehung transformieren.
 
 > [!NOTE]
-> Die Reihenfolge, in der Transformationen, einschließlich 3D-Rotationen, angewendet werden, beeinflusst die resultierende Transformation. Im obigen Beispiel werden die Transformationen in der Reihenfolge Translation, Skalierung, Drehung und dann Schrägung angewendet. Die Drehungen erfolgen in der Reihenfolge X → Y → Z.
+> Die Reihenfolge, in der Transformationen, einschließlich 3D-Drehungen, angewendet werden, beeinflusst die resultierende Transformation. Im obigen Beispiel werden Transformationen übersetzt, skaliert, gedreht und dann geschert. Die Drehungen werden in der Reihenfolge X → Y → Z angewendet.
 
 ## Referenz
 
@@ -707,12 +707,12 @@ Der im obigen Beispiel gezeigte Würfel besteht aus sechs `<div>`-Elementen, die
 
 ## Leitfäden
 
-- [Verwenden von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
-  - : Schritt-für-Schritt-Tutorial darüber, wie Sie mit CSS gestylte Elemente transformieren können.
-- [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)
-  - : Beschreibt die Art und Weise, wie Pixellokationen im CSS-Objektmodell definiert werden.
-- [Grundlagen der Leistung: Verwenden Sie CSS-Transformationen](/de/docs/Web/Performance/Guides/Fundamentals#use_css_transforms)
-  - : Ein Überblick über die Grundlagen der Webleistung, einschließlich wie CSS-Transformationen die Leistung verbessern können.
+- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
+  - : Schritt-für-Schritt-Anleitung, wie man mit CSS gestaltete Elemente transformiert.
+- [Koordinatensysteme](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems)
+  - : Beschreibt, wie Pixelpositionen im CSS-Objektmodell definiert werden.
+- [Leistungsgrundlagen: Verwendung von CSS-Transformationen](/de/docs/Web/Performance/Guides/Fundamentals#use_css_transforms)
+  - : Ein Überblick über die Grundlagen der Web-Performance, einschließlich der Verbesserung der Leistung durch CSS-Transformationen.
 - [Matrixmathematik für das Web](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web)
   - : Beschreibt, wie Objekttransformationen durch mathematische Matrizen dargestellt werden können.
 
@@ -742,13 +742,13 @@ Der im obigen Beispiel gezeigte Würfel besteht aus sechs `<div>`-Elementen, die
   - {{cssxref("percentage")}}
   - [`<position>`](/de/docs/Web/CSS/position_value)
 - Glossarbegriffe:
-  - [Interpolation](/de/docs/Glossary/Interpolation)
-  - [Stapellauf-Kontext](/de/docs/Glossary/Stacking_context)
-- [SVG](/de/docs/Web/SVG) Konzepte:
-  - [`<animate>`](/de/docs/Web/SVG/Reference/Element/animate) Element
-  - [`<animateTransform>`](/de/docs/Web/SVG/Reference/Element/animateTransform) Element
-  - [`<set>`](/de/docs/Web/SVG/Reference/Element/set) Element
-  - [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform) Element
+  - {{Glossary("Interpolation", "Interpolation")}}
+  - {{Glossary("Stacking_context", "Stacking context")}}
+- [SVG](/de/docs/Web/SVG)-Konzepte:
+  - [`<animate>`](/de/docs/Web/SVG/Reference/Element/animate)-Element
+  - [`<animateTransform>`](/de/docs/Web/SVG/Reference/Element/animateTransform)-Element
+  - [`<set>`](/de/docs/Web/SVG/Reference/Element/set)-Element
+  - [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform)-Element
 
 ## Spezifikationen
 
@@ -756,6 +756,6 @@ Der im obigen Beispiel gezeigte Würfel besteht aus sechs `<div>`-Elementen, die
 
 ## Siehe auch
 
-- [Grundlegende SVG-Transformationen](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_transformations) Tutorial
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) Modul
-- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) Modul
+- Tutorial zu [grundlegenden SVG-Transformationen](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_transformations)
+- Modul zu [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)
+- Modul zu [CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions)

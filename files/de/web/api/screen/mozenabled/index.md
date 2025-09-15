@@ -1,18 +1,18 @@
 ---
-title: "Screen: mozEnabled-Eigenschaft"
+title: "Bildschirm: mozEnabled-Eigenschaft"
 short-title: mozEnabled
 slug: Web/API/Screen/mozEnabled
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-{{APIRef("CSSOM")}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{APIRef("CSSOM view API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Dieses boolesche Attribut steuert den Bildschirm des Geräts. Wenn es auf `false` gesetzt wird, schaltet sich der Bildschirm aus.
+Dieses boolesche Attribut steuert den Bildschirm des Geräts. Wenn es auf `false` gesetzt wird, wird der Bildschirm ausgeschaltet.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein Boolean.
 
 ## Spezifikationen
 

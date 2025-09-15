@@ -3,12 +3,12 @@ title: "Screen: pixelDepth-Eigenschaft"
 short-title: pixelDepth
 slug: Web/API/Screen/pixelDepth
 l10n:
-  sourceCommit: 5f2a755c4fa7d126f85b56fbca90b15c5f039eff
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM view API")}}
 
-Gibt die Farbtiefe des Bildschirms zurück. Gemäß CSSOM geben einige Implementierungen `24` aus Kompatibilitätsgründen zurück. Siehe den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für diejenigen, die das nicht tun.
+Gibt die Farbtiefe des Bildschirms zurück. Laut CSSOM geben einige Implementierungen `24` aus Kompatibilitätsgründen zurück. Siehe den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für diejenigen, die dies nicht tun.
 
 ## Wert
 

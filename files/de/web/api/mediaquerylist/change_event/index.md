@@ -1,18 +1,18 @@
 ---
-title: "MediaQueryList: change-Event"
+title: "MediaQueryList: change-Ereignis"
 short-title: change
 slug: Web/API/MediaQueryList/change_event
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM view API")}}
 
-Das **`change`**-Event des [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Interfaces wird ausgelöst, wenn sich der Status der Unterstützung für Medienabfragen ändert.
+Das **`change`**-Ereignis der [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle wird ausgelöst, wenn sich der Status der Unterstützung von Media-Queries ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("change", (event) => { })
@@ -28,12 +28,12 @@ Ein [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent). Erbt von [`Ev
 
 ## Ereigniseigenschaften
 
-_Das `MediaQueryListEvent`-Interface erbt Eigenschaften von seinem übergeordneten Interface, [`Event`](/de/docs/Web/API/Event)._
+_Die `MediaQueryListEvent`-Schnittstelle erbt Eigenschaften von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`MediaQueryListEvent.matches`](/de/docs/Web/API/MediaQueryListEvent/matches) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) aktuell der Medienabfrageliste entspricht, oder `false`, wenn nicht.
+  - : Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Media-Query-Liste übereinstimmt, oder `false`, wenn nicht.
 - [`MediaQueryListEvent.media`](/de/docs/Web/API/MediaQueryListEvent/media) {{ReadOnlyInline}}
-  - : Ein String, der eine serialisierte Medienabfrage darstellt.
+  - : Ein String, der eine serialisierte Media-Query darstellt.
 
 ## Beispiel
 
@@ -61,8 +61,8 @@ mql.onchange = (e) => {
 
 ## Siehe auch
 
-- [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Medienabfragen im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Media-Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Media-Queries im Code verwenden](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

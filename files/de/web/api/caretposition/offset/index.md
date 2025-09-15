@@ -3,22 +3,22 @@ title: "CaretPosition: offset-Eigenschaft"
 short-title: offset
 slug: Web/API/CaretPosition/offset
 l10n:
-  sourceCommit: ce31fcc3aced95a022db44b8b83f96221a10a5fd
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM view API")}}
 
-Die **`offset`**-Eigenschaft des [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Interfaces gibt eine ganze Zahl zurück, die den Versatz der Auswahl im Caret-Position-Knoten darstellt.
+Die **`offset`**-Eigenschaft der [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Schnittstelle gibt ein ganzzahliges Offset des Auswahlbereichs im Caret-Position-Knoten zurück.
 
-Dies wird der Zeichenversatz in einem Textknoten oder der Index des ausgewählten Kindknotens in einem Elementknoten sein.
+Dies ist der Zeichenoffset in einem Textknoten oder der Index des ausgewählten Kindknotens in einem Elementknoten.
 
 ## Wert
 
-Eine ganze Zahl.
+Ein Ganzzahlwert.
 
 ## Beispiele
 
-Dieses Beispiel protokolliert das `offsetNode` und den `offset` der Caret-Position, wenn innerhalb des Eingabefelds geklickt wird.
+In diesem Beispiel werden `offsetNode` und `offset` der Caret-Position protokolliert, wenn Sie in das Eingabefeld klicken.
 
 ```html
 <input aria-label="text field" value="Click inside this input field" />

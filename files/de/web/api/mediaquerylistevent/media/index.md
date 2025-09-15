@@ -3,17 +3,17 @@ title: "MediaQueryListEvent: media Eigenschaft"
 short-title: media
 slug: Web/API/MediaQueryListEvent/media
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
 ---
 
-{{APIRef("CSSOM")}}
+{{APIRef("CSSOM view API")}}
 
-Die schreibgeschützte Eigenschaft **`media`** des
-[`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)-Interfaces ist ein String, der eine serialisierte Media Query darstellt.
+Die **`media`** schreibgeschützte Eigenschaft des
+[`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent) Interface ist ein String, der eine serialisierte Media-Query darstellt.
 
 ## Wert
 
-Ein String, der eine serialisierte Media Query darstellt.
+Ein String, der eine serialisierte Media-Query darstellt.
 
 ## Beispiele
 
