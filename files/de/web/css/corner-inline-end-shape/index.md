@@ -2,14 +2,16 @@
 title: corner-inline-end-shape
 slug: Web/CSS/corner-inline-end-shape
 l10n:
-  sourceCommit: 28a0409af150dc6d13584302f2e53664fb4ad02f
+  sourceCommit: 2a64c5583a2c61c729ffe1ee1e7709a5898f57b0
 ---
 
-Die **`corner-inline-end-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form beider Ecken auf der Inline-End-Kante eines Kastens innerhalb ihres {{cssxref("border-radius")}} Bereichs fest.
+{{SeeCompatTable}}
 
-Für eine vollständige Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele siehe die Seite der {{cssxref("corner-shape")}} Kurzschreibweise.
+Die **`corner-inline-end-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Form beider Ecken an der inline-end Kante eines Kastens innerhalb ihres {{cssxref("border-radius")}} Bereichs an.
 
-## Bestandteilseigenschaften
+Für eine vollständige Beschreibung des Eckverhaltens und mehrere Beispiele siehe die Seite der {{cssxref("corner-shape")}} Kurzschreibweise.
+
+## Zusätzliche Eigenschaften
 
 Die `corner-inline-end-shape` Eigenschaft ist eine Kurzschreibweise für die folgenden physischen Eigenschaften:
 
@@ -41,10 +43,10 @@ corner-inline-end-shape: unset;
 
 ### Werte
 
-Die `corner-inline-end-shape` Eigenschaft wird mit einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
+Die `corner-inline-end-shape` Eigenschaft wird unter Verwendung von einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
 
-- Wenn **ein Wert** verwendet wird, legt er die Form beider **Inline-End**-Ecken fest.
-- Wenn **zwei Werte** verwendet werden, legt der erste die Form der **Block-Start/Inline-End**-Ecke fest, und der zweite legt die Form der **Block-End/Inline-End**-Ecke fest.
+- Wenn **ein Wert** verwendet wird, gibt er die Form beider **inline-end** Ecken an.
+- Wenn **zwei Werte** verwendet werden, gibt der erste die Form der **block-start/inline-end** Ecke an, und der zweite gibt die Form der **block-end/inline-end** Ecke an.
 
 ## Formale Definition
 
@@ -56,7 +58,7 @@ Die `corner-inline-end-shape` Eigenschaft wird mit einem oder zwei {{cssxref("&l
 
 ## Beispiele
 
-Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
+Sie können weitere verwandte Beispiele auf der {{cssxref("corner-shape")}} Referenzseite finden.
 
 ### Grundlegende Verwendung von `corner-inline-end-shape`
 
@@ -70,7 +72,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stilarten, die wir der Kürze halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `15% 30%` und eine `corner-inline-end-shape` von `bevel squircle` an.
+Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber versteckt haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `15% 30%` und eine `corner-inline-end-shape` von `bevel squircle` an.
 
 ```css hidden live-sample___basic-usage
 body {

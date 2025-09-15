@@ -2,16 +2,18 @@
 title: corner-left-shape
 slug: Web/CSS/corner-left-shape
 l10n:
-  sourceCommit: 28a0409af150dc6d13584302f2e53664fb4ad02f
+  sourceCommit: 2a64c5583a2c61c729ffe1ee1e7709a5898f57b0
 ---
 
-Die **`corner-left-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Form beider Ecken auf der linken Seite eines Kastens innerhalb ihres {{cssxref("border-radius")}} Bereichs an.
+{{SeeCompatTable}}
 
-Für eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele siehe die Seite zur knappen Eigenschaft {{cssxref("corner-shape")}}.
+Die **`corner-left-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form beider Ecken an der linken Kante eines Kastens innerhalb ihres {{cssxref("border-radius")}}-Bereichs fest.
 
-## Zusammengesetzte Eigenschaften
+Für eine vollständige Beschreibung des Eckformenverhaltens und mehrere Beispiele, siehe die Seite zur {{cssxref("corner-shape")}} Kurzschreibweise.
 
-Die `corner-left-shape` Eigenschaft ist eine Kurzform für die folgenden physischen Eigenschaften:
+## Bestandteilseigenschaften
+
+Die `corner-left-shape` Eigenschaft ist eine Kurzschreibweise für die folgenden physikalischen Eigenschaften:
 
 - {{cssxref("corner-top-left-shape")}}
 - {{cssxref("corner-bottom-left-shape")}}
@@ -41,10 +43,10 @@ corner-left-shape: unset;
 
 ### Werte
 
-Die `corner-left-shape` Eigenschaft wird unter Verwendung eines oder zweier {{cssxref("&lt;corner-shape-value>")}} Werte angegeben:
+Die `corner-left-shape` Eigenschaft wird unter Verwendung von einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
 
-- Wenn **ein Wert** verwendet wird, spezifiziert er die Form **beider linker Ecken**.
-- Wenn **zwei Werte** verwendet werden, gibt der erste die Form der **oberen linken** Ecke an, und der zweite die Form der **unteren linken** Ecke.
+- Wird **ein Wert** verwendet, spezifiziert er die Form **beider linken Ecken**.
+- Werden **zwei Werte** verwendet, spezifiziert der erste die Form der **oberen linken** Ecke und der zweite die Form der **unteren linken** Ecke.
 
 ## Formale Definition
 
@@ -58,11 +60,11 @@ Die `corner-left-shape` Eigenschaft wird unter Verwendung eines oder zweier {{cs
 
 Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
 
-### Grundlegende `corner-left-shape` Nutzung
+### Grundlegende Verwendung von `corner-left-shape`
 
 #### HTML
 
-Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} Element.
+Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}}-Element.
 
 ```html live-sample___basic-usage
 <div></div>
@@ -70,7 +72,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir aus Gründen der Kürze weggelassen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `20px 40px / 60px 80px`, und einen `corner-left-shape` von `notch bevel` an.
+Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber versteckt haben. Wir setzen auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `20px 40px / 60px 80px` und eine `corner-left-shape` von `notch bevel`.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -118,10 +120,10 @@ Das gerenderte Ergebnis sieht so aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}} Kurzform-Eigenschaft
+- {{cssxref("corner-shape")}} Kurzschreibweise
 - {{cssxref("corner-top-shape")}}, {{cssxref("corner-bottom-shape")}}, und {{cssxref("corner-right-shape")}}
 - {{cssxref("corner-block-start-shape")}}, {{cssxref("corner-block-end-shape")}}, {{cssxref("corner-inline-start-shape")}}, und {{cssxref("corner-inline-end-shape")}}
-- {{cssxref("border-radius")}} Kurzform-Eigenschaft
+- {{cssxref("border-radius")}} Kurzschreibweise
 - {{cssxref("border-top-left-radius")}} und {{cssxref("border-bottom-left-radius")}}
 - [CSS borders and box decorations](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
 - [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul

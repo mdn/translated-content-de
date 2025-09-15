@@ -2,16 +2,18 @@
 title: corner-block-end-shape
 slug: Web/CSS/corner-block-end-shape
 l10n:
-  sourceCommit: 28a0409af150dc6d13584302f2e53664fb4ad02f
+  sourceCommit: 2a64c5583a2c61c729ffe1ee1e7709a5898f57b0
 ---
 
-Die **`corner-block-end-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Form der beiden Ecken an der Block-Ende-Kante eines Kastens innerhalb ihres {{cssxref("border-radius")}} Bereichs an.
+{{SeeCompatTable}}
 
-Für eine vollständige Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele, siehe die Seite der Kurzform-Eigenschaft {{cssxref("corner-shape")}}.
+Die **`corner-block-end-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form beider Ecken an der Block-Endkante eines Kastens innerhalb ihres {{cssxref("border-radius")}} Bereichs.
 
-## Bestandteile der Eigenschaften
+Für eine vollständige Beschreibung des Verhaltens der Eckformen und mehrere Beispiele, siehe die Seite der {{cssxref("corner-shape")}} Kurzschreibweise.
 
-Die Eigenschaft `corner-block-end-shape` ist eine Kurzform für die folgenden physikalischen Eigenschaften:
+## Bestandeigenschaften
+
+Die `corner-block-end-shape` Eigenschaft ist eine Kurzform für die folgenden physischen Eigenschaften:
 
 - {{cssxref("corner-end-start-shape")}}
 - {{cssxref("corner-end-end-shape")}}
@@ -41,10 +43,10 @@ corner-block-end-shape: unset;
 
 ### Werte
 
-Die Eigenschaft `corner-block-end-shape` wird mit einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
+Die `corner-block-end-shape` Eigenschaft wird mit einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten spezifiziert:
 
-- Wenn **ein Wert** verwendet wird, gibt er die Form der **beiden Block-Ende**-Ecken an.
-- Wenn **zwei Werte** verwendet werden, gibt der erste die Form der **Block-Ende/Inline-Start**-Ecke an, und der zweite gibt die Form der **Block-Ende/Inline-Ende**-Ecke an.
+- Wenn **ein Wert** verwendet wird, legt er die Form beider **Block-Ende** Ecken fest.
+- Wenn **zwei Werte** verwendet werden, legt der erste Wert die Form der **Block-Ende/Inline-Start** Ecke fest, und der zweite Wert die Form der **Block-Ende/Inline-Ende** Ecke.
 
 ## Formale Definition
 
@@ -56,13 +58,13 @@ Die Eigenschaft `corner-block-end-shape` wird mit einem oder zwei {{cssxref("&lt
 
 ## Beispiele
 
-Weitere verwandte Beispiele finden Sie auf der Referenzseite {{cssxref("corner-shape")}}.
+Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
 
 ### Grundlegende Verwendung von `corner-block-end-shape`
 
 #### HTML
 
-Das Markup für dieses Beispiel enthält ein einziges {{htmlelement("div")}} Element.
+Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}}-Element.
 
 ```html live-sample___basic-usage
 <div></div>
@@ -123,5 +125,5 @@ Das gerenderte Ergebnis sieht so aus:
 - {{cssxref("corner-top-shape")}}, {{cssxref("corner-bottom-shape")}}, {{cssxref("corner-left-shape")}}, und {{cssxref("corner-right-shape")}}
 - {{cssxref("border-radius")}} Kurzform-Eigenschaft
 - {{cssxref("border-end-start-radius")}} und {{cssxref("border-end-end-radius")}}
-- [CSS Ränder und Kastenverzierungen](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
-- [CSS Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS borders and box decorations](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
+- [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul

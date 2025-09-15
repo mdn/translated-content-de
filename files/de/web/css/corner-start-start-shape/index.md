@@ -2,12 +2,14 @@
 title: corner-start-start-shape
 slug: Web/CSS/corner-start-start-shape
 l10n:
-  sourceCommit: 28a0409af150dc6d13584302f2e53664fb4ad02f
+  sourceCommit: 2a64c5583a2c61c729ffe1ee1e7709a5898f57b0
 ---
 
-Die **`corner-start-start-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die Form der Ecke an der blockstart- und inlinestart-Seite eines Kastens innerhalb seines {{cssxref("border-radius")}} Bereichs.
+{{SeeCompatTable}}
 
-Für eine vollständige Beschreibung des Verhaltens von Ecken und mehrere Beispiele, sehen Sie sich die Seite der {{cssxref("corner-shape")}} Kurzform-Eigenschaft an.
+Die **`corner-start-start-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form der Ecke eines Rahmens an der Block-Start- und Inline-Start-Seite innerhalb seines {{cssxref("border-radius")}}-Bereichs.
+
+Eine vollständige Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele finden Sie auf der Seite zur {{cssxref("corner-shape")}} Kurzschreibweise.
 
 ## Syntax
 
@@ -30,7 +32,7 @@ corner-start-start-shape: unset;
 
 ### Werte
 
-Die Eigenschaft `corner-start-start-shape` wird unter Verwendung eines {{cssxref("&lt;corner-shape-value>")}} Werts spezifiziert.
+Die `corner-start-start-shape` Eigenschaft wird mit einem {{cssxref("&lt;corner-shape-value>")}} Wert angegeben.
 
 ## Formale Definition
 
@@ -48,7 +50,7 @@ Sie können weitere verwandte Beispiele auf der {{cssxref("corner-shape")}} Refe
 
 #### HTML
 
-Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} Element.
+Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}}-Element.
 
 ```html live-sample___basic-usage
 <div></div>
@@ -56,7 +58,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Übersichtlichkeit halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `40% 10px 10px` und einen `corner-start-start-shape` von `scoop` an.
+Wir geben der Box einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `40% 10px 10px` und eine `corner-start-start-shape` von `scoop` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -104,10 +106,10 @@ Das gerenderte Ergebnis sieht so aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}} Kurzform-Eigenschaft
+- {{cssxref("corner-shape")}} Kurzschreibweise
 - {{cssxref("corner-start-end-shape")}}, {{cssxref("corner-end-start-shape")}}, und {{cssxref("corner-end-end-shape")}}
 - {{cssxref("corner-top-left-shape")}}, {{cssxref("corner-top-right-shape")}}, {{cssxref("corner-bottom-left-shape")}}, und {{cssxref("corner-bottom-right-shape")}}
-- {{cssxref("border-radius")}} Kurzform-Eigenschaft
+- {{cssxref("border-radius")}} Kurzschreibweise
 - {{cssxref("border-start-start-radius")}}
-- [CSS borders and box decorations](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
-- [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS-Rahmen und Box-Dekorationen](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
+- [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul

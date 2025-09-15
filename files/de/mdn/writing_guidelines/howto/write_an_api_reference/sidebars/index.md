@@ -1,119 +1,129 @@
 ---
-title: API-Referenz-Sidebars
+title: API-Referenz-Seitenleisten
 slug: MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars
 l10n:
-  sourceCommit: b1e1430dd3b1d2e01197231ab0fa6047ed8a221b
+  sourceCommit: 6d363614de8a40c33d1afe92e4e846b75beea986
 ---
 
-Sie können eine benutzerdefinierte Sidebar auf API-Referenzseiten einschließen, die Links zu verwandten Interfaces, Tutorials und anderen Ressourcen anzeigt, die nur für diese API relevant sind. Dieser Artikel erklärt, wie das funktioniert.
+Sie können eine benutzerdefinierte Seitenleiste auf API-Referenzseiten einfügen, damit Links zu verwandten Schnittstellen, Tutorials und anderen Ressourcen angezeigt werden, die nur für diese API relevant sind.
+Dieser Artikel erklärt, wie das funktioniert.
 
-## Erstellen einer Sidebar
+## Erstellen einer Seitenleiste
 
-Sie müssen die folgenden drei Schritte durchführen, um Ihre API-Sidebar zu erstellen:
+Sie müssen die folgenden drei Schritte ausführen, um Ihre API-Seitenleiste zu erstellen:
 
 1. Erstellen Sie Ihre API-Referenzseiten.
-2. Fügen Sie einen Eintrag für Ihre spezielle API in die Datei [`GroupData.json`](https://github.com/mdn/content/blob/main/files/jsondata/GroupData.json) ein.
-3. Verwenden Sie das Makro [`APIRef`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/api_list_specs.rs), um die Sidebar in jede Seite einzufügen, auf der Sie sie anzeigen möchten.
+2. Fügen Sie einen Eintrag für Ihre spezifische API in die Datei [`GroupData.json`](https://github.com/mdn/content/blob/main/files/jsondata/GroupData.json) ein.
+3. Verwenden Sie das [`APIRef`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/api_list_specs.rs) Makro, um die Seitenleiste in jede Seite einzufügen, auf der Sie sie anzeigen möchten.
 
-Lassen Sie uns jeden dieser Schritte der Reihe nach durchgehen. Das Beispiel, auf das wir uns in diesem Artikel beziehen, ist die [Fetch API](/de/docs/Web/API/Fetch_API).
+Lassen Sie uns jeden dieser Schritte der Reihe nach durchgehen.
+Das Beispiel, auf das wir uns in diesem Artikel beziehen, ist die [Fetch API](/de/docs/Web/API/Fetch_API).
 
-### Einen Eintrag zu GroupData.json hinzufügen
+### Hinzufügen eines Eintrags zu GroupData.json
 
-Die Datei `GroupData.json` enthält alle Daten darüber, welche Links in den API-Referenz-Sidebars erscheinen sollen.
-Wenn das `APIRef`-Makro aufgerufen wird, nimmt es einen API-Namen als Parameter, sucht diesen Namen in `GroupData.json`, baut eine passende Sidebar und fügt diese in die Seite ein.
+Die Datei `GroupData.json` enthält alle Daten, die sich darauf beziehen, welche Links in den API-Referenz-Seitenleisten erscheinen sollen.
+Beim Aufruf nimmt das `APIRef` Makro einen als Parameter angegebenen API-Namen, sucht diesen Namen in `GroupData.json`, erstellt eine entsprechende Seitenleiste und fügt sie in die Seite ein.
 
-Um einen Eintrag in `GroupData.json` hinzuzufügen, müssen Sie:
+Um einen Eintrag zu `GroupData.json` hinzuzufügen, müssen Sie:
 
 1. Sicherstellen, dass Sie ein [GitHub](https://github.com/) Konto haben.
-2. Das MDN-Inhalts-Repository forken, einen neuen Branch erstellen, der Ihre Änderungen enthält, und das Repository lokal klonen.
-3. Ihren neuen Branch auschecken, bevor Sie mit der Arbeit beginnen, und sicherstellen, dass Sie Änderungen an ihn pushen, nachdem Sie fertig sind.
-4. Einen Pull-Request erstellen, damit das MDN-Team Ihre Arbeit überprüfen kann, und falls nötig um Änderungen bitten.
+2. Das MDN-Inhaltsrepo forken, einen neuen Branch erstellen, um Ihre Änderungen aufzunehmen, und das Repo lokal klonen.
+3. Ihren neuen Branch auschecken, bevor Sie mit der Arbeit beginnen, und sicherstellen, dass Sie die Änderungen darauf pushen, nachdem Sie die Arbeit abgeschlossen haben.
+4. Einen Pull-Request erstellen, damit das MDN-Team Ihre Arbeit überprüfen kann und gegebenenfalls Änderungen anfordern kann.
 
 Die Datei `GroupData.json` befindet sich im Verzeichnis `files/jsondata/`.
-Beim Durchsehen werden Sie eine große JSON-Struktur sehen, bei der jede API ihr eigenes Mitglied hat. Der Name ist der API-Name, und der Wert ist ein Objekt, das mehrere Untermengen enthält, die die zu erstellenden Sidebar-Links definieren.
+Wenn Sie sie sich ansehen, sehen Sie eine riesige JSON-Struktur, wobei jede API ihr eigenes Mitglied hat.
+Der Name ist der API-Name und der Wert ist ein Objekt, das mehrere Untermglieder enthält, die die zu erstellenden Seitenleisten-Links definieren.
 
-Zum Beispiel sieht der entsprechende Eintrag in `GroupData.json` für die [Fetch API](/de/docs/Web/API/Fetch_API)-Seite auf MDN so aus:
+Zum Beispiel sehen Sie sich die [Fetch API](/de/docs/Web/API/Fetch_API) Seite auf MDN an.
+Der entsprechende Eintrag in `GroupData.json` sieht folgendermaßen aus:
 
 ```json
-"Fetch API": {
-    "overview":   [ "Fetch API"],
-    "interfaces": [ "Headers",
-                    "Request",
-                    "Response",
-                    "FetchController",
-                    "FetchObserver",
-                    "FetchSignal",
-                    "ObserverCallback" ],
-    "methods":    [ "fetch()" ],
+{
+  "Fetch API": {
+    "overview": ["Fetch API"],
+    "interfaces": [
+      "Headers",
+      "Request",
+      "Response",
+      "FetchController",
+      "FetchObserver",
+      "FetchSignal",
+      "ObserverCallback"
+    ],
+    "methods": ["fetch()"],
     "properties": [],
-    "events":     []
-},
+    "events": []
+  }
+}
 ```
 
-Wie Sie sehen können, haben wir "Fetch API" für den Namen verwendet, und innerhalb des Objektwerts haben wir eine Anzahl von Untermengen eingefügt.
+Wie Sie sehen, haben wir "Fetch API" für den Namen verwendet, und innerhalb des Objektwerts haben wir eine Reihe von Untermgliedern eingefügt.
 
-#### Untermengen, die in einen GroupData-Eintrag einzuschließen sind
+#### Untermglieder, die in einem GroupData-Eintrag enthalten sein sollten
 
-Dieser Abschnitt listet alle Untermengen auf, die Sie in einen `GroupData`-Eintrag einfügen könnten.
+Dieser Abschnitt listet alle Untermglieder auf, die in einem `GroupData`-Eintrag enthalten sein könnten.
 
-Beachten Sie, dass die meisten der innerhalb der aufgeführten Untermengen enthaltenen Werte sowohl dem Link-Text entsprechen, als auch Slugs, die an das Ende der Haupt-API-Indexseite angehängt werden — `https://developer.mozilla.org/\<language-code\>/docs/Web/API` — um die endgültige URL für den angezeigten Link zu erstellen.
-Beispielsweise wird "Response" zu einem Link wie folgt führen:
+Beachten Sie, dass die meisten der in den aufgelisteten Untermgliedern enthaltenen Werte sowohl dem Linktext als auch Slugs entsprechen, die an das Ende der Haupt-API-Indexseite angehängt werden — `https://developer.mozilla.org/<language-code>/docs/Web/API` — um die endgültige URL für den angezeigten Link zu erstellen.
+Zum Beispiel wird "Response" zu einem Link wie folgt führen:
 
 ```html
 <li><a href="/en-US/docs/Web/API/Response">Response</a></li>
 ```
 
-Es gibt ein paar Ausnahmen.
-Beispielsweise enthält die Untermengen "guides" die URLs, die auf zugehörige Anleitungen/Tutorials verweisen.
-In diesem Fall werden die URLs an das Ende der MDN-Dokumentations-Root-URL angehängt — `https://developer.mozilla.org/\<language-code\>` — sodass ein Artikel überall auf MDN einbezogen werden kann.
+Es gibt einige Ausnahmen.
+Zum Beispiel enthält das Untermglied "guides" die URLs, die auf zugehörige Leitfäden/Tutorials zeigen.
+In diesem Fall werden die URLs an das Ende des MDN-Dokumentationsstamms angehängt — `https://developer.mozilla.org/<language-code>` — wodurch ein Artikel überall auf MDN einbezogen werden kann.
 
 Hier sind die verfügbaren Mitglieder.
-Diese sind alle technisch optional, aber es wird dringend empfohlen, dass Sie diese, anstatt sie wegzulassen, als leere Arrays einschließen.
+Diese sind alle technisch optional, aber es wird dringend empfohlen, dass Sie, anstatt sie auszulassen, leere Arrays hinzufügen.
 
 1. `"overview"` — der Wert ist ein Array, in dem Sie den Slug der API-Übersichtsseite einfügen, falls es eine gibt.
-   "Fetch API" führt zu einem Link, der zu [https://developer.mozilla.org/de/docs/Web/API/Fetch_API](/de/docs/Web/API/Fetch_API) führt.
-2. `"interfaces"` — der Wert ist ein Array, in dem Sie alle Interfaces auflisten sollten, die Teil dieser API sind.
-   "Response" führt zu einem Link, der zu [https://developer.mozilla.org/de/docs/Web/API/Response](/de/docs/Web/API/Response) führt.
-3. `"methods"` — der Wert ist ein Array, das alle Methoden enthalten sollte, die die Spezifikation zu Interfaces hinzufügt, die mit anderen APIs verbunden sind, wie z. B. Instantiierungsmethoden auf [`Navigator`](/de/docs/Web/API/Navigator) oder [`Window`](/de/docs/Web/API/Window).
-   Wenn es eine große Anzahl von Methoden gibt, sollten Sie in Betracht ziehen, nur die beliebtesten oder die wichtigsten zuerst aufzulisten.
-   "fetch()" führt zu einem Link, der zu [https://developer.mozilla.org/de/docs/Web/API/fetch](/de/docs/Web/API/Window/fetch) führt.
-   Listen Sie _nicht_ Methoden auf, die Mitglieder von Interfaces sind, die von derselben API verwaltet werden.
+   "Fetch API" führt zu einem Link zu [https://developer.mozilla.org/de/docs/Web/API/Fetch_API](/de/docs/Web/API/Fetch_API).
+2. `"interfaces"` — der Wert ist ein Array, in dem Sie alle Schnittstellen auflisten sollten, die Teil dieser API sind.
+   "Response" führt zu einem Link zu [https://developer.mozilla.org/de/docs/Web/API/Response](/de/docs/Web/API/Response).
+3. `"methods"` — der Wert ist ein Array, das alle Methoden enthalten sollte, die die Spezifikation Schnittstellen anderer APIs hinzufügt, wie Instanziierungsmethoden, die auf [`Navigator`](/de/docs/Web/API/Navigator) oder [`Window`](/de/docs/Web/API/Window) erstellt wurden.
+   Wenn es eine große Anzahl von Methoden gibt, könnten Sie in Erwägung ziehen, nur die beliebtesten aufzulisten oder sie am Anfang der Liste zu platzieren.
+   "fetch()" führt zu einem Link zu [https://developer.mozilla.org/de/docs/Web/API/fetch](/de/docs/Web/API/Window/fetch).
+   Listen Sie _keine_ Methoden auf, die Mitglieder von Schnittstellen sind, die derselben API gehören.
 4. `"properties"` — der Wert ist ein Array, das alle mit der API verbundenen Eigenschaften enthalten sollte.
-   Dies kann Eigenschaften einschließen, die Mitglieder von Interfaces sind, die in der API-Spezifikation definiert sind, und Eigenschaften, die die API auf anderen Interfaces definiert.
-   Wenn es eine große Anzahl von Eigenschaften gibt, sollten Sie in Betracht ziehen, nur die beliebtesten aufzulisten, oder diese zuerst in die Liste zu setzen.
-   "Headers.append" führt zu einem Link, der zu [https://developer.mozilla.org/de/docs/Web/API/Headers/append](/de/docs/Web/API/Headers/append) führt.
-5. `"events"` — der Wert ist ein Array, das die _Titel_ von Events enthalten sollte, die Teil der API sind, aber in Interfaces definiert sind, die _nicht_ Teil der API sind (Events, die zu Interfaces in der API gehören (`interfaces`), werden standardmäßig dokumentiert).
-   Wenn es eine große Anzahl von Events gibt, sollten Sie in Betracht ziehen, nur die beliebtesten aufzulisten, oder diese zuerst in die Liste zu setzen.
-   Zum Beispiel ist `"Document: selectionchange"` Teil der [Selection API](/de/docs/Web/API/Selection_API), aber `Document` ist es nicht. Daher fügen wir das Event dem Array hinzu und es wird vom [Selection API](/de/docs/Web/API/Selection_API) Thema verlinkt.
-6. `"guides"` — der Wert ist ein Array von Strings, die sich mit einem Leitfaden-Thema befassen, das erklärt, wie die API genutzt wird.
-   Die Strings enthalten den Teil der URL-Adresse des Leitfadens nach dem Sprachpfad: d.h. den `/docs/...` Teil der URL des Leitfadens.
-   Zum Beispiel, um auf das Thema "Using Fetch" unter `https://developer.mozilla.org/de/docs/Web/API/Fetch_API/Using_Fetch` zu verlinken, würde das Guide-Array "/docs/Web/API/Fetch_API/Using_Fetch" enthalten.
-7. `"dictionaries"` — ein Array von Strings, das alle Wörterbücher auflistet, die Teil der API sind.
-   Im Allgemeinen sollten nur Wörterbücher aufgelistet werden, die von mehr als einer Eigenschaft oder Methode verwendet werden, es sei denn, sie sind von besonderer Bedeutung oder werden voraussichtlich von mehreren Seiten referenziert.
+   Dies kann Eigenschaften umfassen, die Mitglieder von Schnittstellen sind, die in der API-Spezifikation definiert sind, und Eigenschaften, die die API auf anderen Schnittstellen definiert.
+   Wenn es eine große Anzahl von Eigenschaften gibt, könnten Sie in Erwägung ziehen, nur die beliebtesten aufzulisten oder sie am Anfang der Liste zu platzieren.
+   "Headers.append" führt zu einem Link zu [https://developer.mozilla.org/de/docs/Web/API/Headers/append](/de/docs/Web/API/Headers/append).
+5. `"events"` — der Wert ist ein Array, das den _Titel_ von Ereignissen enthalten sollte, die Teil der API sind, jedoch in Schnittstellen definiert sind, die _nicht_ Teil der API sind (Ereignisse, die zu Schnittstellen in der API (`interfaces`) gehören, werden standardmäßig dokumentiert).
+   Wenn es eine große Anzahl von Ereignissen gibt, könnten Sie in Erwägung ziehen, nur die beliebtesten aufzulisten oder sie am Anfang der Liste zu platzieren.
+   Zum Beispiel ist `"Document: selectionchange"` Teil der [Selection API](/de/docs/Web/API/Selection_API), aber `Document` nicht, daher fügen wir das Ereignis dem Array hinzu, und es wird vom [Selection API](/de/docs/Web/API/Selection_API) Thema verlinkt.
+6. `"guides"` — der Wert ist ein Array von Zeichenketten, die jeweils ein Leitfadenthema behandeln, das erklärt, wie die API verwendet wird.
+   Die Zeichenketten enthalten den Teil der URL-Adresse des Leitfadens nach dem Sprachpfad: d.h. den `/docs/...` Teil der Leitfaden-URL.
+   Zum Beispiel, um das Thema "Using Fetch" unter `https://developer.mozilla.org/de/docs/Web/API/Fetch_API/Using_Fetch` zu verlinken, würde das Leitfaden-Array "/docs/Web/API/Fetch_API/Using_Fetch" enthalten.
+7. `"dictionaries"` — ein Array von Zeichenketten, das alle Wörterbücher auflistet, die Teil der API sind.
+   Im Allgemeinen sollten nur Wörterbücher aufgeführt werden, die von mehr als einer Eigenschaft oder Methode verwendet werden, es sei denn, sie sind von besonderer Bedeutung oder müssen möglicherweise von mehreren Seiten aus referenziert werden.
    "CryptoKeyPair" führt zu einem Link zu [https://developer.mozilla.org/de/docs/Web/API/CryptoKeyPair](/de/docs/Web/API/CryptoKeyPair).
    > [!NOTE]
    > MDN bewegt sich weg von der separaten Dokumentation von Wörterbüchern.
-   > Wo möglich, werden diese jetzt an den Stellen beschrieben, an denen sie verwendet werden.
-8. `"types"` — ein Array von Typedefs und aufgezählten Typen, die von der API definiert sind.
-   Sie können sich dafür entscheiden, nur diejenigen aufzulisten, die von besonderer Bedeutung sind oder von mehreren Seiten referenziert werden, um die Liste kurz zu halten.
+   > Wo möglich, werden diese jetzt als Objekte an den Stellen beschrieben, an denen sie verwendet werden.
+8. `"types"` — ein Array von Typdeklationen und enumerierten Typen, die von der API definiert werden.
+   Sie können sich entscheiden, nur solche aufzulisten, die von besonderer Bedeutung sind oder von mehreren Seiten referenziert werden, um die Liste kurz zu halten.
    > [!NOTE]
-   > MDN bewegt sich weg von der separaten Dokumentation von Typedefs.
+   > MDN bewegt sich weg von der separaten Dokumentation von Typen.
    > Wo möglich, werden diese jetzt als Werte an den Stellen beschrieben, an denen sie verwendet werden.
 9. `"callbacks"` — der Wert ist ein Array, das eine Liste aller definierten Callback-Typen für die API enthält.
-   Sie könnten es für unnötig halten, diese Gruppe überhaupt zu verwenden, selbst bei APIs, die Callback-Typen enthalten, da sie oft nicht nützlich sind, um separat dokumentiert zu werden.
+   Es kann sein, dass es überhaupt nicht notwendig ist, diese Gruppe zu verwenden, auch nicht bei APIs, die Callback-Typen enthalten, da oft kein Bedarf besteht, sie separat zu dokumentieren.
 
-## Tags, die von Sidebars verwendet werden
+## Tags, die von Seitenleisten verwendet werden
 
-Einige Untermengen werden basierend auf Seitentags automatisch von untergeordneten Seiten entdeckt. Seiten unter der obersten API-Ebene werden jedes Mal durchsucht, wenn die Sidebar gerendert wird, und Einträge werden automatisch für Methoden ("Method"-Tag), Eigenschaften ("Property"-Tag) und Konstruktoren ("Constructor"-Tag) erstellt.
+Einige Untermglieder werden automatisch von Unterseiten aus entdeckt, basierend auf Seitentags.
+Seiten unter der obersten API-Ebene werden jedes Mal durchsucht, wenn die Seitenleiste gerendert wird, und Einträge für Methoden ("Method" Tag), Eigenschaften ("Property" Tag) und Konstruktoren ("Constructor" Tag) werden automatisch erstellt.
 
-Untermengen werden auch automatisch mit Warnsymbolen basierend auf Tags dekoriert. Dekorationen werden für experimentelle ("Experimental"-Tag), nicht standardmäßige ("Non Standard" oder "Non-standard"-Tag) oder veraltete ("Deprecated"-Tag) Untermengen hinzugefügt.
+Untermglieder werden ebenfalls automatisch mit Warnsymbolen basierend auf Tags dekoriert.
+Dekorationen werden für experimentelle ("Experimental" Tag), nicht standardisierte ("Non Standard" oder "Non-standard" Tag) oder stillgelegte ("Deprecated" Tag) Untermglieder hinzugefügt.
 
-Weitere Informationen zur tagbasierten Verarbeitung finden Sie [im APIRef-Quellcode](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/api_list_specs.rs).
+Weitere Informationen zur tagbasierten Verarbeitung sind [im APIRef-Quellcode](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/api_list_specs.rs) verfügbar.
 
-## Einfügen der Sidebar
+## Einfügen der Seitenleiste
 
-Nachdem Sie einen Eintrag für Ihre API in `GroupData.json` hinzugefügt, ihn als Pull-Request eingereicht und die Änderung in das Hauptrepository übernommen wurde, können Sie ihn in Ihre API-Referenzseiten mit dem [`APIRef`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/api_list_specs.rs) Makro einfügen, das den Namen verwendet, den Sie für Ihre API in GroupData als Parameter verwendet haben.
-Zum Beispiel wird die Sidebar der [WebVR API](/de/docs/Web/API/WebVR_API) in ihren Seiten mit dem folgenden Code eingefügt:
+Sobald Sie einen Eintrag für Ihre API in `GroupData.json` hinzugefügt, ihn als Pull-Request eingereicht und die Änderung im Hauptrepo akzeptiert haben, können Sie ihn in Ihren API-Referenzseiten mithilfe des [`APIRef`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/api_list_specs.rs) Makros einfügen, das den Namen verwendet, den Sie für Ihre API in GroupData als Parameter angegeben haben.
+Als Beispiel wird die Seitenleiste der [WebVR API](/de/docs/Web/API/WebVR_API) in ihren Seiten mit folgendem Code eingefügt:
 
 ```plain
 \{{APIRef("WebVR API")}}

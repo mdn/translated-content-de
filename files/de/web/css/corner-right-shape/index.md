@@ -2,14 +2,16 @@
 title: corner-right-shape
 slug: Web/CSS/corner-right-shape
 l10n:
-  sourceCommit: 28a0409af150dc6d13584302f2e53664fb4ad02f
+  sourceCommit: 2a64c5583a2c61c729ffe1ee1e7709a5898f57b0
 ---
 
-Die **`corner-right-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form beider Ecken an der rechten Kante eines Kästchens fest, innerhalb ihres {{cssxref("border-radius")}} Bereichs.
+{{SeeCompatTable}}
 
-Eine vollständige Beschreibung des Verhaltens der Eckform und mehrere Beispiele finden Sie auf der Seite zur {{cssxref("corner-shape")}} Kurzform-Eigenschaft.
+Die **`corner-right-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form beider Ecken am rechten Rand eines Kastens innerhalb ihres {{cssxref("border-radius")}} Bereichs fest.
 
-## Zusammenfassende Eigenschaften
+Für eine vollständige Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele siehe die Seite der Kurzform-Eigenschaft {{cssxref("corner-shape")}}.
+
+## Zusammengesetzte Eigenschaften
 
 Die `corner-right-shape` Eigenschaft ist eine Kurzform für die folgenden physischen Eigenschaften:
 
@@ -41,12 +43,12 @@ corner-right-shape: unset;
 
 ### Werte
 
-Die `corner-right-shape` Eigenschaft wird mit einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
+Die `corner-right-shape` Eigenschaft wird unter Verwendung von einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
 
-- Wenn **ein Wert** verwendet wird, spezifiziert er die Form **beider rechter Ecken**.
-- Wenn **zwei Werte** verwendet werden, spezifiziert der erste die Form der **oberen rechten** Ecke und der zweite die Form der **unteren rechten** Ecke.
+- Wenn ein **Wert** verwendet wird, gibt er die Form beider **rechten Ecken** an.
+- Wenn **zwei Werte** verwendet werden, gibt der erste die Form der **oberen rechten** Ecke und der zweite die Form der **unteren rechten** Ecke an.
 
-## Formale Definition
+## Formaler Definition
 
 {{CSSInfo}}
 
@@ -56,9 +58,9 @@ Die `corner-right-shape` Eigenschaft wird mit einem oder zwei {{cssxref("&lt;cor
 
 ## Beispiele
 
-Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
+Andere verwandte Beispiele finden Sie auf der Referenzseite {{cssxref("corner-shape")}}.
 
-### Grundlegende Verwendung von `corner-right-shape`
+### Grundlegende Nutzung von `corner-right-shape`
 
 #### HTML
 
@@ -70,7 +72,7 @@ Das Markup für dieses Beispiel enthält ein einziges {{htmlelement("div")}} Ele
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Übersichtlichkeit halber verborgen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `20% 30% / 50% 40%` und eine `corner-right-shape` von `square scoop` an.
+Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber verborgen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `20% 30% / 50% 40%`, und eine `corner-right-shape` von `square scoop` an.
 
 ```css hidden live-sample___basic-usage
 body {

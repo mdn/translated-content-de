@@ -1,25 +1,25 @@
 ---
-title: Long Animation Frame Timing
+title: Lange Animationsframe-Timing
 slug: Web/API/Performance_API/Long_animation_frame_timing
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 6d363614de8a40c33d1afe92e4e846b75beea986
 ---
 
 {{DefaultAPISidebar("Performance API")}}
 
-**Langsame Animationsrahmen** (LoAFs) können die Benutzererfahrung einer Website beeinträchtigen. Sie können langsame Benutzeroberflächenaktualisierungen verursachen, was in scheinbar nicht reagierenden Steuerelementen und {{Glossary("Jank", "ruckelnden")}} (oder nicht flüssigen) Animationseffekten und Scroll-Bewegungen resultiert, die zu Benutzerfrustration führen. Die [Long Animation Frames API](https://w3c.github.io/long-animation-frames/) ermöglicht es Entwicklern, Informationen über die langen Animationsrahmen zu erhalten und deren Ursachen besser zu verstehen. Dieser Artikel zeigt, wie man die Long Animation Frames API verwendet.
+**Lange Animationsframes** (LoAFs) können die Benutzererfahrung einer Website beeinträchtigen. Sie können langsame Benutzeroberflächen-Updates (UI) verursachen, was zu scheinbar nicht reagierenden Steuerelementen und {{Glossary("Jank", "ruckelnden")}} (oder nicht geschmeidigen) animierten Effekten und Bildläufen führt, was Benutzer frustrieren kann. Die [Long Animation Frames API](https://w3c.github.io/long-animation-frames/) ermöglicht es Entwicklern, Informationen über die langen Animationsframes zu erhalten und deren Ursachen besser zu verstehen. Dieser Artikel zeigt, wie Sie die Long Animation Frames API verwenden.
 
-## Was ist ein langsamer Animationsrahmen?
+## Was ist ein langer Animationsframe?
 
-Ein langsamer Animationsrahmen — oder LoAF — ist eine Rendering-Aktualisierung, die mehr als 50ms verzögert wird.
+Ein langer Animationsframe — oder LoAF — ist ein Render-Update, das um mehr als 50 ms verzögert wird.
 
-Gute Reaktionsfähigkeit bedeutet, dass eine Seite schnell auf Interaktionen reagiert. Dies beinhaltet eine zügige Aktualisierung aller vom Benutzer benötigten Elemente und das Vermeiden von Blockaden dieser Aktualisierungen. Googles [Interaction to Next Paint (INP)](https://web.dev/articles/inp)-Metrik empfiehlt beispielsweise, dass eine Website innerhalb von 200ms auf Seiteninteraktionen (wie Klicks oder Tastendrücke) reagieren sollte.
+Gute Reaktionsfähigkeit bedeutet, dass eine Seite schnell auf Interaktionen reagiert. Dazu gehört das rechtzeitige Malen aller Updates, die vom Benutzer benötigt werden, und das Vermeiden von allem, was diese Updates blockieren könnte. Googles [Interaction to Next Paint (INP)](https://web.dev/articles/inp)-Metrik empfiehlt zum Beispiel, dass eine Website innerhalb von 200 ms auf Seiteninteraktionen (wie Klicks oder Tastendrücke) reagieren sollte.
 
-Für flüssige Animationen müssen die Aktualisierungen schnell erfolgen — damit eine Animation mit flüssigen 60 Bildern pro Sekunde läuft, sollte jeder Animationsrahmen innerhalb von etwa 16ms (1000/60) gerendert werden.
+Für geschmeidige Animationen müssen Updates schnell sein — damit eine Animation mit geschmeidigen 60 Frames pro Sekunde läuft, sollte jeder Animationsframe innerhalb von etwa 16 ms (1000/60) gerendert werden.
 
-## Beobachten von langsamen Animationsrahmen
+## Beobachtung langer Animationsframes
 
-Um Informationen über LoAFs zu erhalten und Problemmacher zu identifizieren, können Sie Performance-Timeline-Einträge mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"long-animation-frame"` mithilfe eines standardmäßigen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) beobachten:
+Um Informationen über LoAFs zu erhalten und Störquellen ausfindig zu machen, können Sie Leistungstimeline-Einträge mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"long-animation-frame"` mit einem Standard-[`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) beobachten:
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -29,101 +29,100 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "long-animation-frame", buffered: true });
 ```
 
-Frühere langsame Animationsrahmen können ebenfalls abgefragt werden, zum Beispiel mit der Methode [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType):
+Frühere lange Animationsframes können auch abgefragt werden, indem eine Methode wie [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) verwendet wird:
 
 ```js
 const loafs = performance.getEntriesByType("long-animation-frame");
 ```
 
-Achten Sie jedoch darauf, dass die maximale Puffergröße für `"long-animation-frame"`-Einträge 200 beträgt, danach werden neue Einträge fallen gelassen, daher wird die Verwendung des `PerformanceObserver`-Ansatzes empfohlen.
+Beachten Sie jedoch, dass die maximale Puffergröße für `"long-animation-frame"`-Eintragstypen 200 beträgt, danach werden neue Einträge verworfen, sodass der `PerformanceObserver`-Ansatz empfohlen wird.
 
-## Untersuchen von `"long-animation-frame"`-Einträgen
+## Untersuchung von `"long-animation-frame"`-Einträgen
 
-Performance-Timeline-Einträge mit dem Typ `"long-animation-frame"` werden durch [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Objekte repräsentiert. Dieses Objekt verfügt über eine [`scripts`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/scripts)-Eigenschaft, die ein Array von [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Objekten enthält, von denen jedes Informationen über ein Skript enthält, das zum langsamen Animationsrahmen beigetragen hat.
+Einträge der Leistungstimeline mit einem Typ von `"long-animation-frame"` werden durch [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Objekte dargestellt. Dieses Objekt hat eine [`scripts`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/scripts)-Eigenschaft, die ein Array von [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming) Objekten enthält, von denen jedes Informationen über ein Skript enthält, das zum langen Animationsframe beigetragen hat.
 
-Das folgende Beispiel ist eine JSON-Darstellung eines vollständigen `"long-animation-frame"`-Performance-Eintrags mit einem einzigen Skript:
+Das folgende ist ein vollständiges Beispiel für einen `"long-animation-frame"`-Leistungseintrag, der ein einziges Skript enthält:
 
-```json
-{
-  "blockingDuration": 0,
-  "duration": 60,
-  "entryType": "long-animation-frame",
-  "firstUIEventTimestamp": 11801.099999999627,
-  "name": "long-animation-frame",
-  "renderStart": 11858.800000000745,
-  "scripts": [
+```js
+({
+  blockingDuration: 0,
+  duration: 60,
+  entryType: "long-animation-frame",
+  firstUIEventTimestamp: 11801.099999999627,
+  name: "long-animation-frame",
+  renderStart: 11858.800000000745,
+  scripts: [
     {
-      "duration": 45,
-      "entryType": "script",
-      "executionStart": 11803.199999999255,
-      "forcedStyleAndLayoutDuration": 0,
-      "invoker": "DOMWindow.onclick",
-      "invokerType": "event-listener",
-      "name": "script",
-      "pauseDuration": 0,
-      "sourceURL": "https://web.dev/js/index-ffde4443.js",
-      "sourceFunctionName": "myClickHandler",
-      "sourceCharPosition": 17796,
-      "startTime": 11803.199999999255,
-      "window": [Window object],
-      "windowAttribution": "self"
-    }
+      duration: 45,
+      entryType: "script",
+      executionStart: 11803.199999999255,
+      forcedStyleAndLayoutDuration: 0,
+      invoker: "DOMWindow.onclick",
+      invokerType: "event-listener",
+      name: "script",
+      pauseDuration: 0,
+      sourceURL: "https://web.dev/js/index-ffde4443.js",
+      sourceFunctionName: "myClickHandler",
+      sourceCharPosition: 17796,
+      startTime: 11803.199999999255,
+      window: {
+        // …Window object…
+      },
+      windowAttribution: "self",
+    },
   ],
-  "startTime": 11802.400000000373,
-  "styleAndLayoutStart": 11858.800000000745
-}
+  startTime: 11802.400000000373,
+  styleAndLayoutStart: 11858.800000000745,
+});
 ```
 
-Abgesehen von den standardmäßig von einem [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Eintrag zurückgegebenen Daten enthält dies die folgenden bemerkenswerten Elemente:
+Neben den standardmäßig von einem [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Eintrag zurückgegebenen Daten enthält dies die folgenden bemerkenswerten Elemente:
 
 - [`blockingDuration`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/blockingDuration)
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Gesamtdauer in Millisekunden angibt, für die der Hauptthread daran gehindert wurde, auf hochpriorisierte Aufgaben wie Benutzereingaben zu reagieren. Dies wird berechnet, indem alle [langen Aufgaben](/de/docs/Web/API/PerformanceLongTaskTiming#description) innerhalb des LoAFs genommen werden, die eine `duration` von mehr als `50ms` haben, `50ms` von jedem abgezogen wird, die Rendering-Zeit zur längsten Aufgabendauer hinzuaddiert und die Ergebnisse aufsummiert werden.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Gesamtzeit in Millisekunden angibt, während der der Hauptthread daran gehindert wurde, auf hoch priorisierte Aufgaben wie Benutzereingaben zu reagieren. Dies wird berechnet, indem alle [langen Aufgaben](/de/docs/Web/API/PerformanceLongTaskTiming#description) innerhalb des LoAF, die eine `duration` von mehr als `50ms` haben, erfasst, `50ms` von jeder abgezogen wird, die Renderzeit zur längsten Aufgabenzeit hinzugefügt und die Ergebnisse summiert werden.
 - [`firstUIEventTimestamp`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/firstUIEventTimestamp)
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt des ersten UI-Ereignisses angibt — wie ein Maus- oder Tastaturereignis —, das während des aktuellen Animationsrahmens verarbeitet wird. Beachten Sie, dass dieser Zeitstempel vor Beginn dieses Animationsrahmens liegen kann, wenn zwischen dem Ereignis und seiner Verarbeitung eine Verzögerung bestand.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit des ersten UI-Ereignisses — wie ein Maus- oder Tastaturereignis — angibt, das während des aktuellen Animationsframes verarbeitet wird. Beachten Sie, dass dieser Zeitstempel vor dem Start dieses Animationsframes liegen kann, wenn es zwischen dem Ereigniseintritt und dessen Verarbeitung eine Verzögerung gab.
 - [`renderStart`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/renderStart)
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Startzeitpunkt des Rendering-Zyklus angibt, der [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)-Callbacks, Stil- und Layoutberechnung, [`ResizeObserver`](/de/docs/Web/API/ResizeObserver)-Callbacks und [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Callbacks einschließt.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Startzeit des Renderzyklus angibt, der [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)-Callbacks, Stil- und Layoutberechnungen, [`ResizeObserver`](/de/docs/Web/API/ResizeObserver)-Callbacks und [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Callbacks umfasst.
 - [`styleAndLayoutStart`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/styleAndLayoutStart)
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Beginn des Zeitraums angibt, der in Stil- und Layoutberechnungen für den aktuellen Animationsrahmen verbracht wurde.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Beginn der Zeitspanne angibt, die für Stil- und Layoutberechnungen des aktuellen Animationsframes aufgewendet wurde.
 - [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Eigenschaften:
-
-  - : Eigenschaften, die Informationen über das Skript oder die Skripte liefern, die zum LoAF beigetragen haben:
-
+  - : Eigenschaften, die Informationen über das/die Skript(e) bereitstellen, die zum LoAF beigetragen haben:
     - [`script.executionStart`](/de/docs/Web/API/PerformanceScriptTiming/executionStart)
-      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt angibt, an dem die Skriptkompilierung abgeschlossen und die Ausführung begonnen wurde.
+      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt angibt, an dem die Skriptkompilierung beendet und die Ausführung gestartet wurde.
     - [`script.forcedStyleAndLayoutDuration`](/de/docs/Web/API/PerformanceScriptTiming/forcedStyleAndLayoutDuration)
-      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Gesamtzeit in Millisekunden angibt, die das Skript mit erzwungenem Layout/Stil verbracht hat. Weitere Informationen, um zu verstehen, warum dies auftritt, finden Sie unter [Vermeiden von Layout-Trashing](https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing#avoid_layout_thrashing).
+      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Gesamtzeit in Millisekunden angibt, die das Skript mit der Verarbeitung gezwungener Layout-/Stiloperationen verbrachte. Siehe [Vermeidung von Layout-Fragmentierungen](https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing#avoid_layout_thrashing), um zu verstehen, was dies verursacht.
     - [`script.invoker`](/de/docs/Web/API/PerformanceScriptTiming/invoker) und [`script.invokerType`](/de/docs/Web/API/PerformanceScriptTiming/invokerType)
-      - : Zeichenfolgen, die angeben, wie das Skript aufgerufen wurde (zum Beispiel `"IMG#id.onload"` oder `"Window.requestAnimationFrame"`) und den Typ des Skript-Einstiegspunkts (zum Beispiel `"event-listener"` oder `"resolve-promise"`).
+      - : Zeichenfolgenwerte, die angeben, wie das Skript aufgerufen wurde (zum Beispiel `"IMG#id.onload"` oder `"Window.requestAnimationFrame"`) und den Skripteinstiegspunkt-Typ (zum Beispiel `"event-listener"` oder `"resolve-promise"`).
     - [`script.pauseDuration`](/de/docs/Web/API/PerformanceScriptTiming/pauseDuration)
-      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Gesamtzeit in Millisekunden angibt, die das Skript damit verbracht hat, "pausierende" synchrone Operationen durchzuführen (zum Beispiel [`Window.alert()`](/de/docs/Web/API/Window/alert)-Aufrufe oder synchrone [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)s).
-    - [`script.sourceCharPosition`](/de/docs/Web/API/PerformanceScriptTiming/sourceCharPosition), [`script.sourceFunctionName`](/de/docs/Web/API/PerformanceScriptTiming/sourceFunctionName) und [`script.sourceURL`](/de/docs/Web/API/PerformanceScriptTiming/sourceURL)
+      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Gesamtzeit in Millisekunden angibt, die das Skript für das „Pausieren“ synchroner Operationen aufgewendet hat (zum Beispiel [`Window.alert()`](/de/docs/Web/API/Window/alert) Aufrufe oder synchrone [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)s).
+    - [`script.sourceCharPosition`](/de/docs/Web/API/PerformanceScriptTiming/sourceCharPosition), [`script.sourceFunctionName`](/de/docs/Web/API/PerformanceScriptTiming/sourceFunctionName), und [`script.sourceURL`](/de/docs/Web/API/PerformanceScriptTiming/sourceURL)
+      - : Werte, die die Skriptzeichenposition, den Funktionsnamen und die Skript-URL repräsentieren. Es ist wichtig zu beachten, dass der gemeldete Funktionsname der "Einstiegspunkt" des Skripts sein wird (d.h. die oberste Ebene des Stacks) und nicht eine spezifische langsame Unterfunktion.
 
-      - : Werte, die die Zeichenposition des Skripts, den Funktionsnamen und die Skript-URL darstellen. Es ist wichtig zu beachten, dass der gemeldete Funktionsname der "Einstiegspunkt" des Skripts sein wird (d.h. die oberste Ebene des Stapels) und nicht eine spezifische langsame Untersubfunktion.
-
-        Wenn beispielsweise ein Ereignishandler eine Top-Level-Funktion aufruft, die wiederum eine langsame Untersubfunktion aufruft, geben die `source*`-Felder den Namen und den Ort der Top-Level-Funktion an, nicht die langsame Untersubfunktion. Dies ist aus Performance-Gründen so gestaltet — ein vollständiges Stack-Trace ist aufwendig.
+        Zum Beispiel, wenn ein Ereignishandler eine Top-Level-Funktion aufruft, die eine langsame Unterfunktion aufruft, werden die `source*` Felder den Namen und Standort der Top-Level-Funktion berichten, nicht der langsamen Unterfunktion. Dies geschieht aus Leistungsgründen — ein vollständiger Stack-Trace ist kostspielig.
 
     - [`script.windowAttribution`](/de/docs/Web/API/PerformanceScriptTiming/windowAttribution) und [`script.window`](/de/docs/Web/API/PerformanceScriptTiming/window)
-      - : Ein enumerierter Wert, der die Beziehung des Containers (d.h. entweder das Top-Level-Dokument oder und {{htmlelement("iframe")}}), in dem dieses Skript ausgeführt wurde, zum Top-Level-Dokument beschreibt, sowie ein Verweis auf sein [`Window`](/de/docs/Web/API/Window)-Objekt.
+      - : Ein enumerierter Wert, der die Beziehung des Containers (d.h. entweder das Top-Level-Dokument oder ein {{htmlelement("iframe")}}), in dem das Skript ausgeführt wurde, zum Top-Level-Dokument beschreibt, und eine Referenz auf sein [`Window`](/de/docs/Web/API/Window)-Objekt.
 
     > [!NOTE]
-    > Die Skriptzuordnung wird nur für Skripte bereitgestellt, die im Hauptthread einer Seite ausgeführt werden, einschließlich gleichherkunftsbezogener `<iframe>`s. Allerdings werden fremdherkunftsbezogene `<iframe>`s, [Web-Worker](/de/docs/Web/API/Web_Workers_API), [Service-Worker](/de/docs/Web/API/Service_Worker_API) und [Erweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions) in langsamen Animationsrahmen keine Skriptzuordnung haben, auch wenn sie die Dauer eines solchen Rahmens beeinflussen.
+    > Skriptzuordnung wird nur für Skripte bereitgestellt, die im Hauptthread einer Seite laufen, einschließlich gleichherkunfts-`<iframe>`s. Cross-Origin-`<iframe>`s, [Web Worker](/de/docs/Web/API/Web_Workers_API), [Service Worker](/de/docs/Web/API/Service_Worker_API) und [Erweiterungs](/de/docs/Mozilla/Add-ons/WebExtensions)-Code haben jedoch keine Skriptzuordnung in langen Animationsframes, selbst wenn sie die Dauer eines solchen beeinflussen.
 
 ## Berechnung von Zeitstempeln
 
-Die in der [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Klasse bereitgestellten Zeitstempel ermöglichen es, mehrere nützliche Zeitberechnungen für den langsamen Animationsrahmen durchzuführen:
+Die in der [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming) Klasse bereitgestellten Zeitstempel ermöglichen die Berechnung mehrerer weiterer nützlicher Timings für den langen Animationsframe:
 
-| Zeitberechnung                | Berechnung                                                               |
+| Timing                        | Berechnung                                                               |
 | ----------------------------- | ------------------------------------------------------------------------ |
 | Startzeit                     | `startTime`                                                              |
 | Endzeit                       | `startTime + duration`                                                   |
 | Arbeitsdauer                  | `renderStart ? renderStart - startTime : duration`                       |
 | Renderdauer                   | `renderStart ? (startTime + duration) - renderStart : 0`                 |
-| Render: Vor-Layout-Dauer      | `styleAndLayoutStart ? styleAndLayoutStart - renderStart : 0`            |
-| Render: Stil und Layout-Dauer | `styleAndLayoutStart ? (startTime + duration) - styleAndLayoutStart : 0` |
+| Rendervorbereitungsdauer      | `styleAndLayoutStart ? styleAndLayoutStart - renderStart : 0`            |
+| Render: Stil- und Layoutdauer | `styleAndLayoutStart ? (startTime + duration) - styleAndLayoutStart : 0` |
 
 ## Beispiele
 
-### Erkennung der Long Animation Frames API-Funktion
+### Funktionsnachweis der Long Animation Frames API
 
 Sie können testen, ob die Long Animation Frames API unterstützt wird, indem Sie [`PerformanceObserver.supportedEntryTypes`](/de/docs/Web/API/PerformanceObserver/supportedEntryTypes_static) verwenden:
 
@@ -133,9 +132,9 @@ if (PerformanceObserver.supportedEntryTypes.includes("long-animation-frame")) {
 }
 ```
 
-### Berichterstattung über LoAFs über einem bestimmten Schwellenwert
+### Melden von LoAFs über einem bestimmten Schwellenwert
 
-Auch wenn LoAF-Schwellenwerte auf 50ms festgelegt sind, kann dies zu einer großen Menge an Berichten führen, wenn Sie mit der Optimierung der Performance beginnen. Zunächst möchten Sie möglicherweise LoAFs bei einem höheren Schwellenwert melden und den Schwellenwert schrittweise verringern, während Sie die Seite verbessern und die größten LoAFs beseitigen. Der folgende Code könnte verwendet werden, um LoAFs über einem bestimmten Schwellenwert zur weiteren Analyse zu erfassen (zum Beispiel, indem sie an ein Analyse-Endpunkt zurückgesendet werden):
+Obwohl LoAF-Schwellenwerte auf 50 ms festgelegt sind, kann dies zu einem großen Volumen an Berichten führen, wenn Sie mit der Leistungsoptimierung beginnen. Zunächst möchten Sie möglicherweise LoAFs über einem höheren Schwellenwert melden und den Schwellenwert schrittweise senken, während Sie die Seite verbessern und die schlimmsten LoAFs entfernen. Der folgende Code könnte verwendet werden, um LoAFs über einem bestimmten Schwellenwert zur weiteren Analyse zu erfassen (z. B. indem sie an ein Analytik-Endpunkt gesendet werden):
 
 ```js
 const REPORTING_THRESHOLD_MS = 150;
@@ -152,11 +151,11 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "long-animation-frame", buffered: true });
 ```
 
-Langsame Animationsrahmen-Einträge können ziemlich groß sein; daher sollten Sie sorgfältig überlegen, welche Daten von jedem Eintrag an die Analyse gesendet werden sollen. Beispielsweise könnten die zusammengefassten Zeiten der Einträge und die Skript-URLs genügen.
+Einträge von langen Animationsframes können ziemlich groß sein; überlegen Sie daher sorgfältig, welche Daten aus jedem Eintrag an die Analytik gesendet werden sollten. Zum Beispiel könnten die Zusammenfassungszeiten der Einträge und die Skript-URLs für das, was Sie benötigen, ausreichend sein.
 
-### Beobachtung der längsten Animationsrahmen
+### Beobachtung der längsten Animationsframes
 
-Es kann sinnvoll sein, nur Daten über die längsten Animationsrahmen zu sammeln (zum Beispiel die Top 5 oder 10), um das Volumen der gesammelten Daten zu reduzieren. Dies könnte wie folgt behandelt werden:
+Vielleicht möchten Sie nur Daten über die längsten Animationsframes (sagen wir die Top 5 oder 10) sammeln, um das zu sammelnde Datenvolumen zu reduzieren. Dies könnte folgendermaßen gehandhabt werden:
 
 ```js
 MAX_LOAFS_TO_CONSIDER = 10;
@@ -177,11 +176,11 @@ document.addEventListener("visibilitychange", () => {
 });
 ```
 
-### Berichterstattung über langsame Animationsrahmen mit Interaktionen
+### Melden langer Animationsframes mit Interaktionen
 
-Eine weitere nützliche Technik besteht darin, die größten LoAF-Einträge zu senden, bei denen während des Rahmens eine Interaktion auftrat, die durch das Vorhandensein eines [`firstUIEventTimestamp`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/firstUIEventTimestamp)-Wertes erkannt werden kann.
+Eine weitere nützliche Technik ist das Senden der größten LoAF-Einträge, bei denen während des Frames eine Interaktion aufgetreten ist, die durch das Vorhandensein eines [`firstUIEventTimestamp`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/firstUIEventTimestamp)-Werts erkannt werden kann.
 
-Der folgende Code protokolliert alle LoAF-Einträge größer als 150ms, bei denen während des Rahmens eine Interaktion auftrat. Sie könnten je nach Bedarf einen höheren oder niedrigeren Wert wählen.
+Der folgende Code protokolliert alle LoAF-Einträge, die größer als 150 ms sind und bei denen während des Frames eine Interaktion stattgefunden hat. Sie könnten einen höheren oder niedrigeren Wert wählen, je nach Ihren Bedürfnissen.
 
 ```js
 const REPORTING_THRESHOLD_MS = 150;
@@ -201,11 +200,11 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "long-animation-frame", buffered: true });
 ```
 
-### Identifizierung gemeinsamer Skriptmuster in langsamen Animationsrahmen
+### Identifizierung häufiger Skriptmuster in langen Animationsframes
 
-Eine alternative Strategie besteht darin, zu untersuchen, welche Skripte am häufigsten in LoAF-Einträgen erscheinen. Daten könnten auf der Ebene eines Skripts und/oder Zeichenpositions gemeldet werden, um die problematischsten Skripte zu identifizieren. Dies ist nützlich in Fällen, in denen Themes oder Plugins verwendet werden, die in mehreren Sites Leistungsprobleme verursachen.
+Eine alternative Strategie besteht darin, zu betrachten, welche Skripte am häufigsten in LoAF-Einträgen auftreten. Daten könnten auf Skript- und/oder Zeichenpositionsebene gemeldet werden, um die problematischsten Skripte zu identifizieren. Dies ist nützlich in Fällen, in denen Themen oder Plugins, die Leistungsprobleme verursachen, auf mehreren Seiten verwendet werden.
 
-Die Ausführungszeiten gemeinsamer Skripte (oder Third-Party-Ursprünge) in LoAFs könnten aufsummiert und gemeldet werden, um gemeinsame Ursachen zu identifizieren, die zu LoAFs auf einer Site oder einem Set von Sites beitragen.
+Die Ausführungszeiten häufiger Skripte (oder Ursprünge Dritter) in LoAFs könnten addiert und zurückgemeldet werden, um gemeinsame Beiträger zu LoAFs auf einer Site oder einer Sammlungs-Site zu identifizieren.
 
 Zum Beispiel, um Skripte nach URL zu gruppieren und die Gesamtdauer anzuzeigen:
 
@@ -237,17 +236,17 @@ observer.observe({ type: "long-animation-frame", buffered: true });
 
 ## Vergleich mit der Long Tasks API
 
-Die Long Animation Frames API wurde von der [Long Tasks API](https://w3c.github.io/longtasks/) (siehe [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)) vorangegangen. Beide APIs haben einen ähnlichen Zweck und Nutzen — sie legen Informationen über {{Glossary("Long_task", "lange Aufgaben")}} offen, die den Haupt-Thread für 50ms oder mehr blockieren.
+Die Long Animation Frames API wurde von der [Long Tasks API](https://w3c.github.io/longtasks/) (siehe [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)) eingeführt. Beide APIs haben einen ähnlichen Zweck und eine ähnliche Verwendung — sie geben Informationen über {{Glossary("Long_task", "lange Aufgaben")}} frei, die den Hauptthread 50 ms oder länger blockieren.
 
-Die Reduzierung der Anzahl der langen Aufgaben, die auf Ihrer Website auftreten, ist nützlich, da lange Aufgaben Reaktionsprobleme verursachen können. Wenn beispielsweise ein Benutzer auf einen Button klickt, während der Haupt-Thread eine lange Aufgabe bearbeitet, wird die Benutzeroberflächenreaktion auf den Klick verzögert, bis die lange Aufgabe abgeschlossen ist. Konventionell ist es ratsam, lange Aufgaben in mehrere kleinere Aufgaben zu unterteilen, sodass wichtige Interaktionen dazwischen gehandhabt werden können.
+Die Reduzierung der Anzahl langer Aufgaben, die auf Ihrer Website auftreten, ist nützlich, da lange Aufgaben Reaktionsprobleme verursachen können. Beispielsweise, wenn ein Benutzer einen Button klickt, während der Hauptthread mit einer langen Aufgabe beschäftigt ist, wird die Benutzeroberflächenreaktion auf den Klick so lange verzögert, bis die lange Aufgabe abgeschlossen ist. Die gängige Weisheit ist es, lange Aufgaben in mehrere kleinere Aufgaben aufzuteilen, damit wichtige Interaktionen dazwischen gehandhabt werden können.
 
-Allerdings hat die Long Tasks API ihre Einschränkungen:
+Die Long Tasks API hat jedoch ihre Einschränkungen:
 
-- Ein Animationsrahmen könnte aus mehreren Aufgaben bestehen, die unter dem 50ms-Schwellenwert liegen, aber dennoch kollektiv den Haupt-Thread blockieren. Die Long Animation Frames API löst dies, indem sie den Animationsrahmen als Ganzes betrachtet.
-- Der [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)-Eintragstyp bietet weniger Informationen als der [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Typ — er kann Ihnen den Container zeigen, in dem eine lange Aufgabe stattfand, aber nicht das Skript oder die Funktion, die sie verursacht hat.
-- Die Long Tasks API bietet eine unvollständige Ansicht, da sie einige wichtige Aufgaben möglicherweise ausschließt. Einige Updates (zum Beispiel das Rendering) finden in separaten Aufgaben statt, die idealerweise zusammen mit der vorangegangenen Ausführung enthalten sein sollten, die dieses Update ausgelöst hat, um die "Gesamtarbeit" für diese Interaktion genau zu messen.
+- Ein Animationsframe könnte aus mehreren Aufgaben bestehen, die unter dem 50-ms-Schwellenwert liegen, aber dennoch den Hauptthread kollektiv blockieren. Die Long Animation Frames API löst dies, indem sie den Animationsframe als Ganzes betrachtet.
+- Der [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)-Eintragstyp gibt weniger Informationen frei als der [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Typ — er kann Ihnen den Container mitteilen, in dem eine lange Aufgabe aufgetreten ist, aber nicht das Skript oder die Funktion, die sie verursacht hat, zum Beispiel.
+- Die Long Tasks API bietet eine unvollständige Sicht, da sie einige wichtige Aufgaben ausschließen kann. Einige Updates (Rendern zum Beispiel) passieren in separaten Aufgaben, die idealerweise zusammen mit der vorhergehenden Ausführung, die dieses Update verursacht hat, einbezogen werden sollten, um die "Gesamtarbeit" für diese Interaktion genau zu messen.
 
 ## Siehe auch
 
-- [Optimieren Sie lange Aufgaben](https://web.dev/articles/optimize-long-tasks) auf web.dev (2024)
-- [Wo lange Aufgaben fehlen](https://github.com/w3c/long-animation-frames#where-long-tasks-fall-short), Erklärer der Long Animation Frames API (2024)
+- [Optimierung langer Aufgaben](https://web.dev/articles/optimize-long-tasks) auf web.dev (2024)
+- [Wo lange Aufgaben zu kurz kommen](https://github.com/w3c/long-animation-frames#where-long-tasks-fall-short), Long Animation Frames API Erklärer (2024)
