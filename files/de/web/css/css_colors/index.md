@@ -2,20 +2,20 @@
 title: CSS-Farben
 slug: Web/CSS/CSS_colors
 l10n:
-  sourceCommit: 6cd62fb4482a2d6927cebd0223bf8d0386095340
+  sourceCommit: c148812e0874220770cab62c16f33f48ceb98e99
 ---
 
-Das **CSS-Farben**-Modul definiert Farben, Farbtypen, Farbüberblendungen, Transparenz und wie Sie diese Farben und Effekte auf HTML-Inhalte anwenden können.
+Das **CSS-Farben**-Modul definiert Farben, Farbtypen, Farbmischung, Transparenz und wie Sie diese Farben und Effekte auf HTML-Inhalte anwenden können.
 
-Auch wenn dieses Modul nur zwei CSS-Eigenschaften hat, {{cssxref("color")}} und {{cssxref("opacity")}}, hängen über 20 CSS- und SVG-Eigenschaften, CSS-Bilder, At-Regeln und @media-Regeln von diesen beiden Eigenschaften ab.
+Obwohl dieses Modul nur zwei CSS-Eigenschaften umfasst, {{cssxref("color")}} und {{cssxref("opacity")}}, hängen über 20 CSS- und SVG-Eigenschaften, CSS-Bilder, At-Regeln und @media-Regeln von diesen beiden Eigenschaften ab.
 
 ## Farben in Aktion
 
-Der unten stehende Farbsyntax-Konverter zeigt die Werte der aktuell ausgewählten Farbe in [rot-grün-blau](/de/docs/Web/CSS/color_value/rgb) (RGB), [hexadezimal](/de/docs/Web/CSS/hex-color) (HEX), [Farbton, Sättigung und Helligkeit](/de/docs/Web/CSS/color_value/hsl) (HSL) und [Farbton, Weiß- und Schwarzanteil](/de/docs/Web/CSS/color_value/hwb) (HWB) CSS-Farbformaten. Alle hier dargestellten RGB-, HEX-, HSL- und HWB-Farbwerte repräsentieren, obwohl sie unterschiedlich geschrieben sind, denselben Farbwert.
+Der untenstehende Farbsyntax-Konverter zeigt die Werte der aktuell ausgewählten Farbe in den CSS-Farbformaten [rot-grün-blau](/de/docs/Web/CSS/color_value/rgb) (RGB), [hexadezimal](/de/docs/Web/CSS/hex-color) (HEX), [Farbton, Sättigung und Helligkeit](/de/docs/Web/CSS/color_value/hsl) (HSL) und [Farbton, Weißheit und Schwärze](/de/docs/Web/CSS/color_value/hwb) (HWB). Alle hier dargestellten RGB-, HEX-, HSL- und HWB-Farbwerte stellen, obwohl unterschiedlich geschrieben, denselben Farbwert dar.
 
 {{EmbedGHLiveSample("css-examples/modules/colors.html", '100%', 450)}}
 
-Die Auswahl einer Farbe über den [Farbwähler](/de/docs/Web/HTML/Reference/Elements/input/color) und einer Transparenz über den [Schieberegler](/de/docs/Web/HTML/Reference/Elements/input/range) aktualisiert die RGB-, HEX-, HSL- und HWB-Werte. Wenn Sie einen neuen Farb- oder Transparenzwert wählen, aktualisieren sich die Hintergrundfarbe und der Schieberegler über die CSS-Eigenschaften {{cssxref("background-color")}} und {{cssxref("accent-color")}}.
+Die Auswahl einer Farbe über den [Farbwähler](/de/docs/Web/HTML/Reference/Elements/input/color) und einer Transparenz über den [Schieberegler](/de/docs/Web/HTML/Reference/Elements/input/range) aktualisiert die RGB-, HEX-, HSL- und HWB-Werte. Wenn Sie einen neuen Farb- oder Transparenzwert wählen, aktualisiert sich die Farbe des Hintergrunds und des Schiebereglers über die CSS-Eigenschaften {{cssxref("background-color")}} und {{cssxref("accent-color")}}.
 
 Um den Code für diesen Farbsyntax-Konverter zu sehen, [sehen Sie sich den Quellcode auf GitHub an](https://github.com/mdn/css-examples/blob/main/modules/colors.html).
 
@@ -28,7 +28,7 @@ Um den Code für diesen Farbsyntax-Konverter zu sehen, [sehen Sie sich den Quell
 
 ### At-Regeln und Deskriptoren
 
-Das CSS-Farben-Modul führt auch die {{cssxref("@color-profile")}} At-Regel ein, zusammen mit deren `components`, `rendering-intent` und `src` Deskriptoren. Derzeit unterstützen keine Browser diese Funktionen.
+Das CSS-Farbenmodul führt auch die {{cssxref("@color-profile")}}-At-Regel ein, zusammen mit den Deskriptoren `components`, `rendering-intent` und `src`. Derzeit unterstützen keine Browser diese Funktionen.
 
 ### Funktionen
 
@@ -45,7 +45,7 @@ Das CSS-Farben-Modul führt auch die {{cssxref("@color-profile")}} At-Regel ein,
 - [`contrast-color()`](/de/docs/Web/CSS/color_value/contrast-color)
 - {{CSSXref("color_value/light-dark", "light-dark()")}}
 
-Das CSS-Farbmodul führt auch die {{CSSXref("color_value/device-cmyk", "device-cmyk()")}} und `contrast-color()` Funktionen ein. Derzeit unterstützen keine Browser diese Funktionen.
+Das CSS-Farbenmodul führt auch die Funktionen {{CSSXref("color_value/device-cmyk", "device-cmyk()")}} und `contrast-color()` ein. Derzeit unterstützen keine Browser diese Funktionen.
 
 ### Datentypen
 
@@ -58,7 +58,7 @@ Das CSS-Farbmodul führt auch die {{CSSXref("color_value/device-cmyk", "device-c
 - {{cssxref("system-color")}}
 - [`<colorspace-params>`](/de/docs/Web/CSS/color_value/color#using_predefined_color_spaces_with_color)
 
-### Glossarbegriffe und Schlüsselwörter
+### Glossareinträge und Schlüsselwörter
 
 - {{Glossary("color_space", "Farbraum")}}
 - [`currentColor`](/de/docs/Web/CSS/color_value#currentcolor_keyword)
@@ -68,24 +68,24 @@ Das CSS-Farbmodul führt auch die {{CSSXref("color_value/device-cmyk", "device-c
 
 ### Schnittstellen
 
-Das CSS-Farbmodul führt auch die `CSSColorProfileRule` Schnittstelle ein. Derzeit unterstützen keine Browser diese Funktion.
+Das CSS-Farben-Modul führt auch die `CSSColorProfileRule`-Schnittstelle ein. Derzeit unterstützen keine Browser diese Funktion.
 
-## Leitfäden
+## Leitfaden
 
-- [Anwenden von Farben auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color)
-  - : Ein Leitfaden zur Verwendung von CSS, um Farbe auf eine Vielzahl von Inhalten anzuwenden, einschließlich aller CSS-Eigenschaften, die `<color>` als Wert akzeptieren.
+- [Anwenden von Farbe auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color)
+  - : Ein Leitfaden zur Nutzung von CSS, um Farbe auf verschiedene Arten von Inhalten anzuwenden, einschließlich aller CSS-Eigenschaften, die `<color>` als Wert akzeptieren.
 - [CSS-Farbwerte](/de/docs/Web/CSS/CSS_colors/Color_values)
-  - : Ein Überblick über Farbräume und die verschiedenen `<color>` funktionalen Notationen, die in CSS verfügbar sind.
+  - : Ein Überblick über Farbräume und die verschiedenen `<color>` Funktionalnotationen, die in CSS verfügbar sind.
 - [Farben klug verwenden](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
-  - : Farbtheorie und Ressourcen, einschließlich der richtigen Farbwahl, um eine zugängliche Farbpalette, Kontrast und Farbdruck zu erstellen.
+  - : Farbtheorie und Ressourcen, einschließlich der Suche nach den richtigen Farben, um eine zugängliche Farbpalette, Kontrast und das Drucken in Farbe zu erstellen.
 - [Relative Farben verwenden](/de/docs/Web/CSS/CSS_colors/Relative_colors)
-  - : Dieser Artikel erklärt relative CSS-Farbsyntax, zeigt, welche verschiedenen Optionen es gibt, und betrachtet einige illustrative Beispiele.
-- [Farbwähler-Tool](/de/docs/Web/CSS/CSS_colors/Color_picker_tool)
-  - : Ein Tool, das es Ihnen ermöglicht, eine Farbe im sRGB-Farbraum auszuwählen und sie zwischen verschiedenen CSS-Farbformaten zu konvertieren, um das Verständnis der Syntax der verschiedenen Farbnotationen zu erleichtern.
-- [Verstehen von Farben und Leuchtkraft](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
-  - : Farbwahrnehmung und die Verwendung von Farben mit Blick auf farbenblinde Benutzer, Benutzer mit eingeschränktem Sehvermögen und Benutzer mit vestibulären Störungen oder anderen neurologischen Störungen.
+  - : Dieser Artikel erklärt die relative CSS-Farbsyntax, zeigt die verschiedenen Optionen und veranschaulicht sie mit einigen Beispielen.
+- [Farbwähler](/de/docs/Web/CSS/CSS_colors/Color_picker)
+  - : Ein Tool, das es Ihnen ermöglicht, eine Farbe im sRGB-Farbraum auszuwählen und zwischen verschiedenen CSS-Farbformaten zu konvertieren, um das Verständnis der verschiedenen Farbsyntax zu fördern.
+- [Farbe und Leuchtdichte verstehen](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
+  - : Farbempfindung und die Verwendung von Farben mit farbunempfindlichen (farbenblinden) Benutzern, Benutzern mit eingeschränkter Sehkraft und Benutzern mit vestibulären oder anderen neurologischen Störungen im Hinterkopf.
 - [WCAG 1.4.1: Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)
-  - : Erklärung der Kontrastanforderungen zwischen Hintergrund und Vordergrundinhalt, um die Lesbarkeit zu gewährleisten.
+  - : Erklärung der Kontrastanforderungen zwischen Hintergrund- und Vordergrundinhalten zur Sicherstellung der Lesbarkeit.
 
 ## Verwandte Konzepte
 
@@ -111,7 +111,7 @@ Das CSS-Farbmodul führt auch die `CSSColorProfileRule` Schnittstelle ein. Derze
   - [`lighting-color`](/de/docs/Web/SVG/Reference/Attribute/lighting-color)
   - [`stop-color`](/de/docs/Web/SVG/Reference/Attribute/stop-color)
   - [`stroke`](/de/docs/Web/SVG/Reference/Attribute/stroke)
-- SVG [`color`](/de/docs/Web/SVG/Reference/Attribute/color) Attribut
+- SVG [`color`](/de/docs/Web/SVG/Reference/Attribute/color)-Attribut
 - {{Glossary("Color_wheel", "Farbkreis")}} Glossarbegriff
 - {{Glossary("Interpolation", "Interpolation")}} Glossarbegriff
 - Die [`@font-palette-values`](/de/docs/Web/CSS/@font-palette-values) At-Regel [`override-colors`](/de/docs/Web/CSS/@font-palette-values/override-colors) Deskriptor
@@ -125,8 +125,8 @@ Das CSS-Farbmodul führt auch die `CSSColorProfileRule` Schnittstelle ein. Derze
 
 ## Siehe auch
 
-- [CSS-Farbanpassung](/de/docs/Web/CSS/CSS_color_adjustment) Modul und die {{cssxref("print-color-adjust")}} Eigenschaft.
-- [CSS-Bilder](/de/docs/Web/CSS/CSS_images) Modul, in dem CSS [`<gradient>`](/de/docs/Web/CSS/gradient) Bilder definiert sind.
+- [CSS-Farbabstimmung](/de/docs/Web/CSS/CSS_color_adjustment) Modul und die {{cssxref("print-color-adjust")}} Eigenschaft.
+- [CSS-Bilder](/de/docs/Web/CSS/CSS_images) Modul, welches die CSS [`<gradient>`](/de/docs/Web/CSS/gradient) Bilder definiert.
 - Die [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace) Schnittstelle
 - Das SVG [`<feColorMatrix>`](/de/docs/Web/SVG/Reference/Element/feColorMatrix) Element
-- [Canvas API: Anwenden von Stilen und Farben](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors#colors)
+- [Canvas-API: Anwenden von Stilen und Farben](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors#colors)

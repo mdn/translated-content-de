@@ -2,13 +2,13 @@
 title: rgb()
 slug: Web/CSS/color_value/rgb
 l10n:
-  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
+  sourceCommit: c148812e0874220770cab62c16f33f48ceb98e99
 ---
 
 > [!NOTE]
-> Die `rgba()` Funktionsnotation ist ein Alias für `rgb()`. Sie sind genau gleichwertig. Es wird empfohlen, `rgb()` zu verwenden.
+> Die funktionale Notation `rgba()` ist ein Alias für `rgb()`. Sie sind genau gleichwertig. Es wird empfohlen, `rgb()` zu verwenden.
 
-Die **`rgb()`** Funktionsnotation drückt eine Farbe im {{Glossary("RGB", "sRGB")}} {{Glossary("color_space", "Farbraum")}} entsprechend ihrer roten, grünen und blauen Komponenten aus. Eine optionale Alphakomponente repräsentiert die Transparenz der Farbe.
+Die **`rgb()`** Funktion beschreibt eine Farbe im {{Glossary("RGB", "sRGB")}} {{Glossary("color_space", "Farbraum")}} anhand ihrer Rot-, Grün- und Blaukomponenten. Eine optionale Alphakomponente repräsentiert die Transparenz der Farbe.
 
 {{InteractiveExample("CSS Demo: rgb()")}}
 
@@ -63,11 +63,11 @@ rgb(0, 255, 255, 50%)
 ```
 
 > [!NOTE]
-> Aus Kompatibilitätsgründen werden [Web-API](/de/docs/Web/API/Window/getComputedStyle)-serialisierte Farbwerte als `rgb()`-Farben ausgedrückt, wenn der Alpha-Kanalwert genau 1 ist, und sonst als `rgba()`-Farben. In beiden Fällen wird die alte Syntax verwendet, bei der Kommas als Trennzeichen dienen (zum Beispiel `rgb(255, 0, 0)`).
+> Aus Kompatibilitätsgründen werden die durch [Web API](/de/docs/Web/API/Window/getComputedStyle) serialisierten Farbwerte als `rgb()` Farben ausgedrückt, wenn der Wert des Alphakanals genau 1 ist, und als `rgba()` Farben ansonsten. In beiden Fällen wird die alte Syntax mit Kommas als Trenner verwendet (zum Beispiel `rgb(255, 0, 0)`).
 
 ### Werte
 
-Nachfolgend finden Sie Beschreibungen der zulässigen Werte für sowohl absolute als auch [relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors).
+Im Folgenden finden Sie Beschreibungen der zulässigen Werte für sowohl absolute als auch [relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors).
 
 #### Absolute Wertsyntax
 
@@ -78,14 +78,14 @@ rgb(R G B[ / A])
 Die Parameter sind wie folgt:
 
 - `R`, `G`, `B`
-  - : Jeder Wert kann als {{CSSXref("&lt;number&gt;")}} zwischen `0` und `255`, als {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%` oder als Schlüsselwort `none` (in diesem Fall gleichwertig zu `0%`) dargestellt werden. Diese Werte repräsentieren die roten, grünen und blauen Kanäle.
+  - : Jeder Wert kann als {{CSSXref("&lt;number&gt;")}} zwischen `0` und `255`, als {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%` oder als Schlüsselwort `none` (in diesem Fall gleichbedeutend mit `0%`) dargestellt werden. Diese Werte repräsentieren die Rot-, Grün- und Blaukanäle.
 - `A` {{optional_inline}}
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, der den Alphakanalwert der Farbe darstellt, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig deckend) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alphakanal anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben wird, ist er standardmäßig auf 100% gesetzt. Wenn er eingeschlossen ist, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, das den Alphakanalwert der Farbe darstellt, wobei die Zahl `0` `0%` entspricht (vollkommen transparent) und `1` `100%` (vollkommen undurchsichtig) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alphakanal anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben wird, ist er standardmäßig 100%. Wenn er enthalten ist, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
 
 > [!NOTE]
-> Siehe [Fehlende Farbkomponenten](/de/docs/Web/CSS/color_value#missing_color_components) für weitere Informationen über die Wirkung von `none`.
+> Weitere Informationen zur Wirkung von `none` finden Sie unter [Fehlende Farbkomponenten](/de/docs/Web/CSS/color_value#missing_color_components).
 
-#### Relative Wertsprache
+#### Relative Wertsyntax
 
 ```plain
 rgb(from <color> R G B[ / A])
@@ -94,41 +94,41 @@ rgb(from <color> R G B[ / A])
 Die Parameter sind wie folgt:
 
 - `from <color>`
-  - : Das Schlüsselwort `from` ist immer enthalten, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}}-Wert, der die **Ursprungsfarbe** repräsentiert: Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann _jede_ gültige {{cssxref("&lt;color&gt;")}}-Syntax sein, einschließlich einer anderen relativen Farbe.
+  - : Das Schlüsselwort `from` wird immer beim Definieren einer relativen Farbe eingeschlossen, gefolgt von einem {{cssxref("&lt;color&gt;")}} Wert, der die **Ursprungsfarbe** darstellt: Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann _jede_ gültige {{cssxref("&lt;color&gt;")}} Syntax sein, einschließlich einer anderen relativen Farbe.
 - `R`, `G`, `B`
-  - : Jeder Wert kann als {{CSSXref("&lt;number&gt;")}} zwischen `0` und `255`, als {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%` oder als Schlüsselwort `none` (in diesem Fall gleichwertig zu `0%`) dargestellt werden. Diese Werte repräsentieren die roten, grünen und blauen Kanalwerte der Ausgabefarbe.
+  - : Jeder Wert kann als {{CSSXref("&lt;number&gt;")}} zwischen `0` und `255`, als {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%` oder als Schlüsselwort `none` (in diesem Fall gleichbedeutend mit `0%`) dargestellt werden. Diese Werte repräsentieren die Werte der Rot-, Grün- und Blaukanäle der Ausgabefarbe.
 - `A` {{optional_inline}}
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, der den Alphakanalwert der Ausgabefarbe darstellt, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig deckend) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alphakanal anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben wird, ist er standardmäßig auf den Alphakanalwert der Ursprungsfarbe gesetzt. Wenn er eingeschlossen ist, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, das den Alphakanalwert der Ausgabefarbe darstellt, wobei die Zahl `0` `0%` entspricht (vollkommen transparent) und `1` `100%` (vollkommen undurchsichtig) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alphakanal anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben wird, ist er standardmäßig gleich dem Alphakanalwert der Ursprungsfarbe. Wenn er enthalten ist, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
 
 > [!NOTE]
-> Um die Darstellung des vollen Spektrums sichtbarer Farben vollständig zu ermöglichen, wird die Ausgabe von relativen `rgb()`-Farbfunktionen zu `color(srgb)` serialisiert. Das bedeutet, dass das Abfragen des Ausgabe-Farbwertes über die [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft oder die [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue)-Methode die Ausgabefarbe als [`color(srgb ...)`](/de/docs/Web/CSS/color_value/color)-Wert zurückgibt.
+> Um die Darstellung des gesamten sichtbaren Farbspektrums vollständig zu ermöglichen, wird die Ausgabe von relativen `rgb()` Farboperationen zu `color(srgb)` serialisiert. Dies bedeutet, dass die Abfrage des Ausgabefarbwertes über die [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft oder die [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue)-Methode den Ausgabefarbwert als [`color(srgb ...)`](/de/docs/Web/CSS/color_value/color)-Wert zurückgibt.
 
-#### Bestimmung der Ausgabekanal-Komponenten relativer Farben
+#### Definition von relativen Farbausgabe-Kanalwerten
 
-Wenn eine relative Farbsyntax innerhalb einer `rgb()`-Funktion verwendet wird, wandelt der Browser die Ursprungsfarbe in eine gleichwertige RGB-Farbe um (falls sie nicht bereits als solche angegeben ist). Die Farbe wird als drei verschiedene Farbkanalwerte definiert — `r` (rot), `g` (grün) und `b` (blau) — plus einem Alphakanalwert (`alpha`). Diese Kanalwerte stehen innerhalb der Funktion zur Verfügung, um bei der Definition der Ausgabekanalwerte verwendet zu werden:
+Beim Verwenden der relativen Farbsyntax innerhalb einer `rgb()` Funktion konvertiert der Browser die Ursprungsfarbe in eine äquivalente RGB-Farbe (falls sie nicht bereits so angegeben ist). Die Farbe wird als drei separate Farbkanalwerte definiert — `r` (Rot), `g` (Grün) und `b` (Blau) — plus ein Alphakanalwert (`alpha`). Diese Kanalwerte stehen innerhalb der Funktion zur Verfügung, um bei der Definition der Ausgabefarbkanalwerte verwendet zu werden:
 
-- Die `r`, `g` und `b` Werte werden jeweils auf `<number>` Werte zwischen `0` und `255` aufgelöst, inklusive.
-- Der `alpha` Kanal wird auf einen `<number>` Wert zwischen `0` und `1` aufgelöst, inklusive.
+- Die `r`, `g` und `b` Werte werden jeweils in `<number>`s zwischen `0` und `255`, inklusive, aufgelöst.
+- Der `alpha`-Kanal wird in ein `<number>` zwischen `0` und `1`, inklusive, aufgelöst.
 
-Wenn eine relative Farbe definiert wird, können die unterschiedlichen Kanäle der Ausgabefarbe auf mehrere verschiedene Weisen ausgedrückt werden. Nachfolgend werden wir einige Beispiele studieren, um dies zu illustrieren.
+Beim Definieren einer relativen Farbe können die verschiedenen Kanäle der Ausgabefarbe auf mehrere verschiedene Arten ausgedrückt werden. Unten werden wir einige Beispiele studieren, um diese zu veranschaulichen.
 
-In den ersten beiden Beispielen unten verwenden wir die relative Farbsyntax. Allerdings gibt das erste Beispiel die gleiche Farbe wie die Ursprungsfarbe aus, und das zweite Beispiel gibt eine Farbe aus, die überhaupt nicht auf der Ursprungsfarbe basiert. Sie erstellen also eigentlich keine relativen Farben! Man würde diese wahrscheinlich nie in einem realen Code verwenden und stattdessen einfach einen absoluten Farbwert verwenden. Wir haben diese Beispiele als Ausgangspunkt gewählt, um die relative `rgb()`-Syntax kennenzulernen.
+In den ersten beiden Beispielen unten verwenden wir die relative Farbsyntax. Allerdings gibt das erste die gleiche Farbe wie die Ursprungsfarbe aus und das zweite eine Farbe, die überhaupt nicht auf der Ursprungsfarbe basiert. Sie erzeugen wirklich keine relativen Farben! Sie würden diese wahrscheinlich nie in einem echten Code-Base verwenden und stattdessen wahrscheinlich einfach einen absoluten Farbwert verwenden. Wir haben diese Beispiele als Ausgangspunkt für das Erlernen der relativen `rgb()`-Syntax aufgenommen.
 
-Lassen Sie uns mit einer Ursprungsfarbe von `hsl(0 100% 50%)` beginnen (entspricht `rgb(255 0 0)`). Die folgende Funktion gibt die gleiche Farbe wie die Ursprungsfarbe aus — sie verwendet die `r`, `g` und `b` Kanalwerte (`255`, `0`, und `0`) der Ursprungsfarbe als Ausgabe-Kanalwerte:
+Beginnen wir mit einer Ursprungsfarbe von `hsl(0 100% 50%)` (entspricht `rgb(255 0 0)`). Die folgende Funktion gibt die gleiche Farbe wie die Ursprungsfarbe aus — sie verwendet die `r`-, `g`- und `b`-Kanalwerte (`255`, `0`, und `0`) der Ursprungsfarbe als Ausgabekanalwerte:
 
 ```css
 rgb(from hsl(0 100% 50%) r g b)
 ```
 
-Der Ausgabe-Farbwert dieser Funktion ist das sRGB `color()`-Äquivalent von `rgb(255 0 0)`: `color(srgb 1 0 0)`.
+Diese Funktion gibt die sRGB `color()`-Äquivalente von `rgb(255 0 0)` aus: `color(srgb 1 0 0)`.
 
-Die nächste Funktion verwendet absolute Werte für die Ausgabe-Farbkanalwerte, was zu einer völlig anderen Farbe führt, die nicht auf der Ursprungsfarbe basiert:
+Die nächste Funktion verwendet absolute Werte für die Ausgabefarbkanalwerte und gibt damit eine völlig andere Farbe aus, die nicht auf der Ursprungsfarbe basiert:
 
 ```css
 rgb(from hsl(0 100% 50%) 132 132 224)
 ```
 
-In diesem Fall ist der Ausgabe-Farbwert das sRGB `color()`-Äquivalent von `rgb(132 132 224)`: `color(srgb 0.517647 0.517647 0.878431)`.
+In dem obigen Fall ist die ausgegebene Farbe das sRGB `color()`-Äquivalent von `rgb(132 132 224)`: `color(srgb 0.517647 0.517647 0.878431)`.
 
 Die folgende Funktion erstellt eine relative Farbe basierend auf der Ursprungsfarbe:
 
@@ -138,18 +138,18 @@ rgb(from hsl(0 100% 50%) r 80 80)
 
 Dieses Beispiel:
 
-- Wandelt die Ursprungsfarbe (`hsl(0 100% 50%)`) in ein `rgb()`-Äquivalent (`rgb(255 0 0)`) um.
+- Konvertiert die Ursprungsfarbe (`hsl(0 100% 50%)`) in ein `rgb()`-Äquivalent (`rgb(255 0 0)`).
 - Setzt den `R`-Kanalwert für die Ausgabefarbe auf den `R`-Kanalwert des `rgb()`-Äquivalents der Ursprungsfarbe — `255`.
 - Setzt die `G`- und `B`-Kanalwerte der Ausgabefarbe auf neue Werte, die nicht auf der Ursprungsfarbe basieren: `80` und `80`, jeweils.
 
-Die endgültige Ausgabefarbe ist in einem SRGB-Farbraum das Äquivalent von `rgb(255 80 80)` — `color(srgb 1 0.313726 0.313726)`.
+Die endgültige Ausgabefarbe ist das Äquivalent von `rgb(255 80 80)` im sRGB-Farbraum — `color(srgb 1 0.313726 0.313726)`.
 
 > [!NOTE]
-> Wie oben erwähnt, wenn die Ausgabefarbe ein anderes Farbmodell als die Ursprungsfarbe verwendet, wird die Ursprungsfarbe im Hintergrund in dasselbe Modell oder den gleichen Raum wie die Ausgabefarbe umgewandelt, damit sie auf eine Weise dargestellt werden kann, die kompatibel ist (d.h. die gleichen Kanäle verwendet).
+> Wie bereits erwähnt, wenn die Ausgabefarbe ein anderes Farbmodell als die Ursprungsfarbe verwendet, wird die Ursprungsfarbe im Hintergrund in das gleiche Modell oder den gleichen Raum wie die Ausgabefarbe konvertiert, sodass sie auf eine kompatible Art und Weise dargestellt werden kann (d.h. unter Verwendung der gleichen Kanäle).
 
-In den Beispielen, die wir bisher in diesem Abschnitt gesehen haben, wurden die Alphakanäle weder für die Ursprungs- noch die Ausgabefarben explizit angegeben. Wenn der Alphakanal der Ausgabefarbe nicht angegeben wird, ist er standardmäßig auf den gleichen Wert wie der Alphakanal der Ursprungsfarbe gesetzt. Wenn der Alphakanal der Ursprungsfarbe nicht angegeben wird (und es sich nicht um eine relative Farbe handelt), ist er standardmäßig `1`. Daher haben die Ursprungs- und Ausgabewerte des Alphakanals den Wert `1` für die obigen Beispiele.
+In den bisher in diesem Abschnitt gesehenen Beispielen wurden die Alphakanäle weder für die Ursprungs- noch für die Ausgabefarben explizit angegeben. Wenn der Ausgabefarbenalphakanal nicht spezifiziert ist, hat er standardmäßig den gleichen Wert wie der Alphakanal der Ursprungsfarbe. Wenn der Alphakanal der Ursprungsfarbe nicht angegeben ist (und es sich nicht um eine relative Farbe handelt), ist er standardmäßig `1`. Daher haben die Ursprungs- und Ausgabefarbalphakanalwerte den Wert `1` für die obigen Beispiele.
 
-Lassen Sie uns einige Beispiele betrachten, die die Ursprungs- und Ausgabewerte des Alphakanals angeben. Das erste Beispiel gibt den Ausgabewert des Alphakanals als den gleichen wie den Alphawert der Ursprungsfarbe an, während das zweite Beispiel einen anderen Ausgabewert des Alphakanals angibt, der nicht mit dem Alphakanalwert der Ursprungsfarbe in Verbindung steht.
+Sehen wir uns einige Beispiele an, die Ursprungs- und Ausgabefarbalphakanalwerte spezifizieren. Das erste gibt den Ausgabefarbenalphakanalwert als gleich dem Alpha-Wert des Ursprungs an, während das zweite einen anderen, nicht mit dem Ursprungsalphakanalwert in Zusammenhang stehenden, Ausgabewert angibt.
 
 ```css
 rgb(from hsl(0 100% 50% / 0.8) r g b / alpha)
@@ -159,14 +159,14 @@ rgb(from hsl(0 100% 50% / 0.8) r g b / 0.5)
 /* Computed output color: color(srgb 1 0 0 / 0.5) */
 ```
 
-Im folgenden Beispiel wird die Ursprungsfarbe `hsl()` erneut in eine `rgb()`-Darstellung umgewandelt — `rgb(255 0 0)`. {{cssxref("calc")}} Berechnungen werden auf die `R`-, `G`-, `B`- und `A`-Werte angewandt. Nach der Berechnung betragen die R-, G-, B- und A-Werte `127.5`, `25`, `175` und `0.9`. Die endgültige Ausgabefarbe ist in einem sRGB-Farbraum das Äquivalent von `rgb(127.5 25 175 / 0.9)`: `color(srgb 0.5 0.0980392 0.686275 / 0.9)`.
+Im folgenden Beispiel wird die `hsl()`-Ursprungsfarbe erneut in eine `rgb()`-Darstellung konvertiert — `rgb(255 0 0)`. {{cssxref("calc")}} Berechnungen werden auf die `R`-, `G`-, `B`- und `A`-Werte angewendet. Nach Berechnungen sind die R-, G-, B- und A-Werte `127.5`, `25`, `175` bzw. `0.9`. Die endgültige Ausgabefarbe ist das Äquivalent von `rgb(127.5 25 175 / 0.9)` im sRGB Farbraum: `color(srgb 0.5 0.0980392 0.686275 / 0.9)`.
 
 ```css
 rgb(from hsl(0 100% 50%) calc(r/2) calc(g + 25) calc(b + 175) / calc(alpha - 0.1))
 ```
 
 > [!NOTE]
-> Da die Ursprungsfarbkanalwerte auf `<number>`-Werte aufgelöst werden, müssen Sie ihnen in Berechnungen Zahlen hinzufügen, auch in Fällen, in denen ein Kanal normalerweise `<percentage>`, `<angle>` oder andere Wertetypen akzeptieren würde. Zum Beispiel funktioniert das Addieren eines `<percentage>` zu einem `<number>` nicht.
+> Weil die Kanalswerte der Ursprungsfarbe in `<number>` Werte aufgelöst werden, müssen Sie Zahlen zu ihnen hinzufügen, wenn Sie sie in Berechnungen verwenden, selbst in Fällen, in denen ein Kanal normalerweise `<percentage>`, `<angle>` oder andere Wertetypen akzeptieren würde. Zum Beispiel funktioniert es nicht, ein `<percentage>` zu einer `<number>` hinzuzufügen.
 
 ## Formale Syntax
 
@@ -176,7 +176,7 @@ rgb(from hsl(0 100% 50%) calc(r/2) calc(g + 25) calc(b + 175) / calc(alpha - 0.1
 
 ### Grundlegende Syntax
 
-In diesem Beispiel haben wir drei {{htmlelement("div")}}-Elemente mit unterschiedlichen Hintergrundfarben, die über einem gestreiften Hintergrund angezeigt werden.
+In diesem Beispiel haben wir drei {{htmlelement("div")}}-Elemente mit verschiedenen Hintergrundfarben, die über einem gestreiften Hintergrund angezeigt werden.
 
 #### HTML
 
@@ -190,7 +190,7 @@ In diesem Beispiel haben wir drei {{htmlelement("div")}}-Elemente mit unterschie
 
 #### CSS
 
-Die Hintergrundfarben werden mit der `rgb()`-Farbfunktionsnotation festgelegt. Die drei Farben sind identisch. Die dritte ist halbtransparent, daher haben wir einen {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}} auf den {{htmlelement("body")}} angewendet, um die Transparenz von Alphakanälen besser zu demonstrieren.
+Die Hintergrundfarben werden mit der `rgb()` Farb-Funktion gesetzt. Die drei Farben sind gleich. Die dritte ist halbtransparent, deshalb haben wir einen {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}} auf den {{htmlelement("body")}} hinzugefügt, um die Transparenz der Alphakanäle besser zu demonstrieren.
 
 ```css hidden
 div {
@@ -227,11 +227,11 @@ body {
 
 {{ EmbedLiveSample("Basic syntax", "100%", "75") }}
 
-### Verwendung relativer Farben mit rgb()
+### Verwendung von relativen Farben mit rgb()
 
-Dieses Beispiel stylt drei {{htmlelement("div")}}-Elemente mit unterschiedlichen Hintergrundfarben. Das linke wird mit der unveränderten `--base-color` versehen, während die mittleren und rechten Varianten dieser `--base-color` Farben successive mehr vom roten Kanal entfernen und mehr zum blauen Kanal hinzufügen.
+Dieses Beispiel stylt drei {{htmlelement("div")}}-Elemente mit unterschiedlichen Hintergrundfarben. Das linke erhält die unveränderte `--base-color`, während die mittleren und rechten Varianten dieser `--base-color` nacheinander mehr vom roten Kanal entfernen und mehr zum blauen Kanal hinzufügen.
 
-Diese Varianten werden unter Verwendung relativer Farben definiert –– die `--base-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) wird in eine `rgb()`-Funktion eingespeist, und die Ausgabefarbe hat ihre roten und blauen Kanäle modifiziert, um den gewünschten Effekt über `calc()`-Funktionen zu erreichen, während der grüne Kanal unverändert bleibt.
+Diese Varianten werden mit relativen Farben definiert — die `--base-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) wird in eine `rgb()`-Funktion übergeben, und die Ausgabefarbe hat ihre roten und blauen Kanäle modifiziert, um den gewünschten Effekt über `calc()` Funktionen zu erzielen, während der grüne Kanal unverändert bleibt.
 
 ```html hidden
 <div id="container">
@@ -295,9 +295,9 @@ Diese Varianten werden unter Verwendung relativer Farben definiert –– die `-
 
 {{ EmbedLiveSample("Using relative colors with rgb()", "100%", "200") }}
 
-### Veraltete Syntax: Komma-getrennte Werte
+### Alte Syntax: Kommagetrennte Werte
 
-Aus zerlegten Gründen akzeptiert die `rgb()` Funktion eine Form, bei der alle Werte durch Kommas getrennt werden.
+Aus historischen Gründen akzeptiert die `rgb()`-Funktion eine Form, in der alle Werte durch Kommas getrennt werden.
 
 #### HTML
 
@@ -338,7 +338,7 @@ div.comma-separated {
 
 ## Siehe auch
 
-- Der {{CSSXref("&lt;color&gt;")}} Datentyp für eine Liste aller Farbnotationen
-- [sRGB Farbwähler und Konvertierungstool](/de/docs/Web/CSS/CSS_colors/Color_picker_tool)
-- [Verwendung von relativen Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
+- Der {{CSSXref("&lt;color&gt;")}} Datentyp für eine Liste aller Farbnährungen
+- [sRGB Farbwahlwerkzeug und Umrechnungstool](/de/docs/Web/CSS/CSS_colors/Color_picker)
+- [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
 - [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
