@@ -2,10 +2,10 @@
 title: blur()
 slug: Web/CSS/filter-function/blur
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: 27beb4f1026ae9acce9aba2fa0820fbb0d278d9b
 ---
 
-Die **`blur()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) wendet einen [Gaussian blur](https://en.wikipedia.org/wiki/Gaussian_blur) auf das Eingabebild an. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`blur()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) wendet einen [Gaußschen Blur](https://en.wikipedia.org/wiki/Gaussian_blur) auf das Eingabebild an. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
 {{InteractiveExample("CSS Demo: blur()")}}
 
@@ -34,17 +34,6 @@ filter: blur(1.5rem);
 ## Syntax
 
 ```css
-blur(radius)
-```
-
-### Parameter
-
-- `radius` {{Optional_Inline}}
-  - : Der Radius des Weichzeichners, angegeben als {{cssxref("&lt;length&gt;")}}. Er definiert den Wert der Standardabweichung für die Gauß-Funktion, d.h. wie viele Pixel auf dem Bildschirm ineinander übergehen; daher wird ein größerer Wert mehr Unschärfe erzeugen. Ein Wert von `0` belässt den Input unverändert. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Prozentwerte sind ungültig. Der Standardwert ist `0px`.
-
-### Beispiele für Unschärfewerte
-
-```css
 blur()         /* No effect */
 blur(0)        /* No effect */
 
@@ -52,9 +41,14 @@ blur(8px)      /* Blur with 8px radius */
 blur(1.17rem)  /* Blur with 1.17rem radius */
 ```
 
+### Parameter
+
+- {{cssxref("length")}} {{Optional_Inline}}
+  - : Bestimmt den Radius des Blurs. Es definiert den Wert der Standardabweichung für die Gauß-Funktion, das heißt, wie viele Pixel auf dem Bildschirm ineinander übergehen. Daher erzeugt ein größerer Wert mehr Unschärfe. Ein Wert von `0` lässt die Eingabe unverändert. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Prozentuale Werte sind ungültig. Der Standardwert ist `0`.
+
 ## SVG-Filter
 
-Das SVG {{SVGElement("feGaussianBlur")}}-Filter-Element kann ebenfalls verwendet werden, um Inhalte zu verwischen. Das Attribut {{SVGAttr("stdDeviation")}} des Filters akzeptiert bis zu zwei Werte, die die Erstellung komplexerer Unschärfewertrenderungen ermöglichen. Um eine gleichwertige Unschärfe zu erzeugen, geben wir einen Wert für `stdDeviation` an. Dieser SVG-Effekt kann dann über die ID referenziert werden:
+Das SVG-Element {{SVGElement("feGaussianBlur")}} kann ebenfalls verwendet werden, um Inhalte zu verwischen. Das Attribut {{SVGAttr("stdDeviation")}} des Filters akzeptiert bis zu zwei Werte, was die Erstellung komplexerer Blur-Werte ermöglicht. Um einen äquivalenten Blur zu erzeugen, geben wir einen Wert für `stdDeviation` an. Dieser SVG-Effekt kann dann über die ID referenziert werden:
 
 ```html
 <svg role="none">
@@ -64,7 +58,7 @@ Das SVG {{SVGElement("feGaussianBlur")}}-Filter-Element kann ebenfalls verwendet
 </svg>
 ```
 
-Die folgenden Deklarationen erzeugen denselben Effekt:
+Die folgenden Deklarationen erzeugen den gleichen Effekt:
 
 ```css
 filter: blur(1.1px);
@@ -78,7 +72,7 @@ filter: url("folder/fileName.svg#blur11"); /* external svg filter definition */
 
 ## Beispiele
 
-Dieses Beispiel zeigt drei Bilder: das Bild mit einer `blur()`-Filterfunktion angewendet, das Bild mit der äquivalenten SVG-Unschärfefunktion angewendet und die Originalbilder zum Vergleich:
+Dieses Beispiel zeigt drei Bilder: das Bild mit einer `blur()`-Filterfunktion angewendet, das Bild mit der äquivalenten SVG-Blur-Funktion angewendet und die Originalbilder zum Vergleich:
 
 ```css
 .filter {
@@ -154,8 +148,8 @@ svg:not([height]) {
 
 ## Siehe auch
 
-- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)-Modul
-- Die anderen {{cssxref("&lt;filter-function&gt;")}}-Funktionen, die in den Werten der Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, umfassen:
+- Modul [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
+- Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in den Werten der Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, sind:
   - {{cssxref("filter-function/brightness", "brightness()")}}
   - {{cssxref("filter-function/contrast", "contrast()")}}
   - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}

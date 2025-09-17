@@ -2,31 +2,32 @@
 title: abs()
 slug: Web/CSS/abs
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: b09d6e2402f997214bb80c93aba8ea1148e120d5
 ---
 
-Die **`abs()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) gibt den absoluten Wert des Arguments zurück, und zwar in demselben Typ wie die Eingabe.
+Die **`abs()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) gibt den Absolutwert des Arguments zurück, und zwar vom selben Typ wie die Eingabe.
 
 ## Syntax
 
 ```css
-/* property: abs(expression) */
-width: abs(20% - 100px);
+/* abs( <calc-sum> ) */
+abs(20% - 100px)
+abs(var(--gradientAngle))
 ```
 
 ### Parameter
 
-Die `abs(x)` Funktion akzeptiert nur einen Wert als Parameter.
+Die `abs()` Funktion akzeptiert einen Parameter.
 
-- `x`
-  - : Eine Berechnung, die zu einer Zahl aufgelöst wird.
+- `<calc-sum>`
+  - : Ein Ausdruck oder eine Berechnung, die sich zu einer {{cssxref("number")}}, einer {{cssxref("dimension")}}, einem {{cssxref("percentage")}} oder einem {{cssxref("calc-keyword")}} auflöst.
 
 ### Rückgabewert
 
-Der absolute Wert von `x`.
+Der Absolutwert von `<calc-sum>`.
 
-- Wenn der numerische Wert von `x` positiv oder `0⁺` ist, wird `x` zurückgegeben.
-- Andernfalls wird `-1 * x` zurückgegeben.
+- Ist der numerische Wert von `<calc-sum>` positiv oder `0⁺`, gibt die Funktion `<calc-sum>` zurück.
+- Andernfalls gibt sie `-1 * <calc-sum>` zurück.
 
 ## Formale Syntax
 
@@ -36,7 +37,7 @@ Der absolute Wert von `x`.
 
 ### Positive Variablen
 
-Die `abs()` Funktion kann verwendet werden, um sicherzustellen, dass ein Wert immer positiv ist. Im folgenden Beispiel wird eine CSS-Custom-Property `--font-size` als Wert von {{CSSxRef("font-size")}} verwendet. Das Einhüllen dieser Custom-Property in `abs()` wandelt einen negativen Wert in einen positiven um.
+Die `abs()` Funktion kann verwendet werden, um sicherzustellen, dass ein Wert immer positiv ist. Im folgenden Beispiel wird eine CSS-Custom-Eigenschaft `--font-size` als Wert von {{CSSxRef("font-size")}} verwendet. Durch das Einbinden dieser Custom-Eigenschaft in `abs()` wird ein negativer Wert in einen positiven umgewandelt.
 
 ```css
 h1 {
@@ -44,9 +45,9 @@ h1 {
 }
 ```
 
-### Steuerung des Verlaufswinkels der Richtung
+### Steuerung des Verlaufswinkels
 
-Sie können auch die Verlaufsrichtung mit der `abs()` Funktion steuern. Im folgenden Beispiel würde bei einem Winkel von -45 Grad der Verlauf rot beginnen und zu blau übergehen. Durch die Verwendung von `abs()` wird der Wert positiv gemacht, sodass der Verlauf blau beginnt und nach rot übergeht.
+Sie können auch die Verlaufsrichtung mit der `abs()` Funktion steuern. Im folgenden Beispiel würde der Verlauf bei einem Winkel von -45deg rot beginnen und zu blau wechseln. Durch die Verwendung von `abs()`, um den Wert positiv zu machen, beginnt der Verlauf blau und wechselt zu rot.
 
 ```css
 div {
@@ -55,9 +56,9 @@ div {
 }
 ```
 
-### Abwärtskompatible Fallback
+### Rückwärtskompatibler Fallback
 
-In älteren Browsern, die die CSS `abs()` Funktion nicht unterstützen, können Sie die CSS {{CSSxRef("max")}} Funktion verwenden, um dasselbe Ergebnis zu erzielen, wie unten gezeigt:
+In Browsern, die die CSS `abs()` Funktion nicht unterstützen, können Sie die CSS {{CSSxRef("max")}} Funktion verwenden, um das gleiche Ergebnis zu erzielen:
 
 ```css
 p {
@@ -65,7 +66,7 @@ p {
 }
 ```
 
-Wir verwenden die {{CSSxRef("max")}} Funktion, um den größten (am positivsten) Wert aus einer Liste von zwei Werten zurückzugeben: `var(--lh)` oder `-1 * var(--lh)`. Unabhängig davon, ob `--lh` positiv oder negativ ist, wird der berechnete Rückgabewert immer positiv sein, d.h. eine absolute Zahl.
+Wir verwenden die {{CSSxRef("max")}} Funktion, um den größten (am positivsten) Wert aus einer Liste von zwei Werten zurückzugeben: `var(--lh)` oder `-1 * var(--lh)`. Unabhängig davon, ob `--lh` positiv oder negativ ist, wird der berechnete Rückgabewert immer positiv sein, das heißt, eine absolute Zahl.
 
 ## Spezifikationen
 

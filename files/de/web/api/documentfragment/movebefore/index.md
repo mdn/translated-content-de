@@ -3,12 +3,12 @@ title: "DocumentFragment: moveBefore() Methode"
 short-title: moveBefore()
 slug: Web/API/DocumentFragment/moveBefore
 l10n:
-  sourceCommit: a61be259435257328a25c462cb0f42bc91981a6f
+  sourceCommit: cf16851e73da29823438198c4f0efcb7026b7d10
 ---
 
-{{APIRef("DOM")}}{{SeeCompatTable}}
+{{APIRef("DOM")}}
 
-Die **`moveBefore()`**-Methode des [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Interfaces bewegt einen gegebenen [`Node`](/de/docs/Web/API/Node) innerhalb des aufrufenden `DocumentFragment` als direktes Kind, vor einem angegebenen Referenzknoten.
+Die **`moveBefore()`**-Methode der [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Schnittstelle verschiebt einen angegebenen [`Node`](/de/docs/Web/API/Node) innerhalb des aufrufenden `DocumentFragment` als direktes Kind vor einen angegebenen Referenzknoten.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ moveBefore(movedNode, referenceNode)
 ### Parameter
 
 - `movedNode`
-  - : Ein [`Node`](/de/docs/Web/API/Node), der den zu bewegenden Knoten darstellt. Beachten Sie, dass dies ein [`Element`](/de/docs/Web/API/Element) oder ein [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten sein muss.
+  - : Ein [`Node`](/de/docs/Web/API/Node), der den zu verschiebenden Knoten darstellt. Beachten Sie, dass dies ein [`Element`](/de/docs/Web/API/Element) oder ein [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten sein muss.
 - `referenceNode`
-  - : Ein [`Node`](/de/docs/Web/API/Node), vor dem `movedNode` verschoben wird, oder `null`. Ist der Wert `null`, wird `movedNode` am Ende der Kindknoten des aufrufenden `DocumentFragment` eingefügt.
+  - : Ein [`Node`](/de/docs/Web/API/Node), vor dem `movedNode` verschoben wird, oder `null`. Wenn der Wert `null` ist, wird `movedNode` am Ende der Kindknoten des aufrufenden `DocumentFragment` eingefügt.
 
 ### Rückgabewert
 
@@ -31,47 +31,47 @@ Keiner ({{jsxref("undefined")}}).
 
 - `HierarchyRequestError` {{jsxref("TypeError")}}
   - : Wird in einer der folgenden Situationen ausgelöst:
-    - Der angegebene `movedNode` ist bereits zum DOM hinzugefügt und Sie versuchen, ihn innerhalb eines `DocumentFragment` zu verschieben.
+    - Der angegebene `movedNode` ist bereits zum DOM hinzugefügt worden und Sie versuchen, ihn innerhalb eines `DocumentFragment` zu verschieben.
     - Sie versuchen, `movedNode` zwischen zwei verschiedenen Dokumentfragmenten zu verschieben.
-    - Der angegebene `movedNode` ist kein [`Element`](/de/docs/Web/API/Element)- oder [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten.
+    - Der angegebene `movedNode` ist kein [`Element`](/de/docs/Web/API/Element) oder [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten.
 - `NotFoundError` {{jsxref("TypeError")}}
-  - : Der angegebene `referenceNode` ist kein Kind des `DocumentFragment`, auf dem Sie `moveBefore()` aufrufen, also des Fragments, in dem Sie `movedNode` verschieben möchten.
+  - : Der angegebene `referenceNode` ist kein Kind des `DocumentFragment`, auf dem Sie `moveBefore()` aufrufen, das heißt, des Fragments, in das Sie `movedNode` verschieben möchten.
 - `TypeError` {{jsxref("TypeError")}}
-  - : Das zweite Argument wurde nicht bereitgestellt.
+  - : Das zweite Argument wurde nicht angegeben.
 
 ## Beschreibung
 
-Die `moveBefore()`-Methode verschiebt einen gegebenen Knoten an eine neue Stelle im `DocumentFragment`. Sie bietet eine ähnliche Funktionalität wie die [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore)-Methode, mit dem Unterschied, dass sie den Knoten nicht entfernt und dann erneut einfügt. Das bedeutet, dass der Zustand des Knotens (der zurückgesetzt würde, wenn er mit `insertBefore()` und ähnlichen Mechanismen verschoben wird) nach der Verschiebung erhalten bleibt. Dazu gehören:
+Die `moveBefore()`-Methode verschiebt einen gegebenen Knoten an eine neue Stelle im `DocumentFragment`. Sie bietet eine ähnliche Funktionalität wie die [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore)-Methode, außer dass sie den Knoten nicht entfernt und dann wieder einfügt. Das bedeutet, dass der Zustand des Knotens (der zurückgesetzt würde, wenn er mit `insertBefore()` und ähnlichen Mechanismen verschoben würde) nach der Verschiebung beibehalten wird. Dies umfasst:
 
-- [Animations-](/de/docs/Web/CSS/CSS_animations) und [Übergangs-](/de/docs/Web/CSS/CSS_transitions)-Zustände.
-- Ladezustand des {{htmlelement("iframe")}}.
-- Interaktivitätszustände (zum Beispiel {{cssxref(":focus")}} und {{cssxref(":active")}}).
-- [Vollbild-](/de/docs/Web/API/Fullscreen_API)-Zustand von Elementen.
-- Offen/Geschlossen-Zustand von [Popovers](/de/docs/Web/API/Popover_API).
-- Modaler Zustand von {{htmlelement("dialog")}}-Elementen (modale Dialoge werden nicht geschlossen).
+- [Animation](/de/docs/Web/CSS/CSS_animations)- und [Übergangs](/de/docs/Web/CSS/CSS_transitions)-Zustand.
+- Ladezustand von {{htmlelement("iframe")}}.
+- Interaktivitätszustände (zum Beispiel, {{cssxref(":focus")}} und {{cssxref(":active")}}).
+- [Vollbild](/de/docs/Web/API/Fullscreen_API)-Elementzustand.
+- Offen/geschlossen Zustand von [Popovers](/de/docs/Web/API/Popover_API).
+- Modalzustand von {{htmlelement("dialog")}}-Elementen (modale Dialoge werden nicht geschlossen).
 
 Der Abspielzustand von {{htmlelement("video")}} und {{htmlelement("audio")}}-Elementen ist nicht in der obigen Liste enthalten, da diese Elemente ihren Zustand behalten, wenn sie entfernt und wieder eingefügt werden, unabhängig vom verwendeten Mechanismus.
 
-Beim Beobachten von Änderungen im DOM mit einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) werden Knoten, die mit `moveBefore()` verschoben wurden, als [entfernter Knoten](/de/docs/Web/API/MutationRecord/removedNodes) und als [hinzugefügter Knoten](/de/docs/Web/API/MutationRecord/addedNodes) aufgezeichnet.
+Beim Beobachten von Änderungen am DOM mit einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) werden Knoten, die mit `moveBefore()` verschoben werden, als [entfernte Knoten](/de/docs/Web/API/MutationRecord/removedNodes) und [hinzugefügte Knoten](/de/docs/Web/API/MutationRecord/addedNodes) dokumentiert.
 
-### Einschränkungen von `moveBefore()`
+### `moveBefore()`-Einschränkungen
 
-Es gibt einige Einschränkungen, die beim Verwenden von `moveBefore()` zu beachten sind:
+Es gibt einige Einschränkungen, die bei der Verwendung von `moveBefore()` zu beachten sind:
 
 - Es funktioniert nur, wenn ein Knoten innerhalb desselben Dokumentfragments verschoben wird.
-- Es funktioniert nicht, wenn Sie versuchen, einen Knoten, der bereits zum DOM hinzugefügt wurde, in einem `DocumentFragment` zu verschieben.
+- Es wird nicht funktionieren, wenn Sie versuchen, einen Knoten, der bereits zum DOM hinzugefügt wurde, innerhalb eines `DocumentFragment` zu verschieben.
 
-In solchen Fällen schlägt `moveBefore()` mit einer `HierarchyRequestError`-Ausnahme fehl. Wenn die oben genannten Einschränkungen für Ihren speziellen Anwendungsfall Anforderungen sind, sollten Sie stattdessen [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore) verwenden oder [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) verwenden, um die Fehler zu behandeln, die in solchen Fällen auftreten.
+In solchen Fällen wird `moveBefore()` mit einer `HierarchyRequestError`-Ausnahme fehlschlagen. Wenn die obigen Einschränkungen für Ihren speziellen Anwendungsfall Anforderungen darstellen, sollten Sie stattdessen [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore) verwenden oder [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) verwenden, um die Fehler zu behandeln, die in solchen Fällen auftreten.
 
 ## Beispiele
 
-### Grundlegende Verwendung von `moveBefore()`
+### Grundlegende Anwendung von `moveBefore()`
 
-In diesem Demo zeigen wir die grundlegende Verwendung von `moveBefore()`.
+In diesem Beispiel veranschaulichen wir die grundlegende Verwendung von `moveBefore()`.
 
 #### HTML
 
-Das HTML enthält drei {{htmlelement("button")}}-Elemente und ein {{htmlelement("article")}}-Element. Wir werden die Schaltflächen verwenden, um `DocumentFragment`-Instanzen in das `<article>` einzufügen und es zu leeren.
+Das HTML umfasst drei {{htmlelement("button")}}-Elemente und ein {{htmlelement("article")}}-Element. Wir werden die Schaltflächen verwenden, um `DocumentFragment`-Instanzen in das `<article>`-Element einzufügen und es zu leeren.
 
 ```html live-sample___movebefore-basic
 <button id="insert1">Insert fragment</button>
@@ -82,7 +82,7 @@ Das HTML enthält drei {{htmlelement("button")}}-Elemente und ein {{htmlelement(
 
 #### CSS
 
-Wir bieten einige rudimentäre Stile für das Aussehen und den Abstand der Elemente, die später als Kinder von JavaScript-generierten `DocumentFragment`s auf der Seite eingefügt werden, an.
+Wir bieten einige grundlegende Stile für das Aussehen und die Anordnung von Elementen, die später auf der Seite als Kinder von JavaScript-generierten `DocumentFragment`s eingefügt werden.
 
 ```css live-sample___movebefore-basic
 #section1,
@@ -109,11 +109,11 @@ Wir bieten einige rudimentäre Stile für das Aussehen und den Abstand der Eleme
 
 In unserem Skript definieren wir eine Funktion, `createFragment()`, die ein `DocumentFragment` erstellt, das ein {{htmlelement("div")}}-Element und zwei {{htmlelement("section")}}-Elemente als unmittelbare Kinder enthält.
 
-Wir fügen dann jedem `<button>` über [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) einen Klick-Eventlistener hinzu:
+Wir fügen dann jeden `<button>` mit einem Klick-Ereignislistener über [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) an:
 
-- Der erste Button fügt das `DocumentFragment` unverändert dem `<article>`-Element mit der ID `#wrapper` hinzu.
-- Der zweite Button fügt das `DocumentFragment` dem `<article>`-Element mit der ID `#wrapper` hinzu, benutzt jedoch zuerst `moveBefore()`, um das `<div>` an die zweite Stelle des `DocumentFragment` zu verschieben, anstatt an die erste.
-- Der dritte Button leert das `<article>`-Element mit der ID `#wrapper`, indem er [`innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet.
+- Die erste Schaltfläche fügt das `DocumentFragment` unverändert in das `#wrapper` `<article>`-Element ein.
+- Die zweite Schaltfläche fügt das `DocumentFragment` in das `#wrapper` `<article>`-Element ein, verschiebt aber zuerst das `<div>` mit `moveBefore()` an die zweite Stelle als Kind des `DocumentFragment`, anstatt an die erste.
+- Die dritte Schaltfläche leert das `#wrapper` `<article>`-Element mithilfe von [`innerHTML`](/de/docs/Web/API/Element/innerHTML).
 
 ```js live-sample___movebefore-basic
 const wrapper = document.getElementById("wrapper");
@@ -158,11 +158,11 @@ clearBtn.addEventListener("click", () => {
 
 #### Ergebnis
 
-Das gerenderte Beispiel sieht folgendermaßen aus:
+Das gerenderte Beispiel sieht so aus:
 
 {{EmbedLiveSample("movebefore-basic", "100%", "300px")}}
 
-Versuchen Sie, die ersten beiden Schaltflächen ein paar Mal zu klicken und beachten Sie, wie die `DocumentFragment`-Struktur durch die zweite Schaltfläche geändert wird.
+Versuchen Sie, die ersten beiden Schaltflächen ein paar Mal zu klicken und beachten Sie, wie die `DocumentFragment`-Struktur von der zweiten Schaltfläche modifiziert wird.
 
 ## Spezifikationen
 
