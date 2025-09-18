@@ -1,14 +1,14 @@
 ---
-title: "Event: type Eigenschaft"
+title: "Event: type-Eigenschaft"
 short-title: type
 slug: Web/API/Event/type
 l10n:
-  sourceCommit: 15f0b5552bc9c2ea1f32b0cd5ee840a7d43c887e
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`type`** schreibgeschützte Eigenschaft des [`Event`](/de/docs/Web/API/Event)-Interfaces gibt einen String zurück, der den Typ des Ereignisses enthält. Dieser wird beim Erstellen des Ereignisses festgelegt und ist der Name, der üblicherweise verwendet wird, um auf das spezifische Ereignis zu verweisen, wie zum Beispiel `click`, `load` oder `error`.
+Die schreibgeschützte Eigenschaft **`type`** des [`Event`](/de/docs/Web/API/Event)-Interfaces gibt einen String zurück, der den Typ des Ereignisses enthält. Dieser wird festgelegt, wenn das Ereignis erstellt wird, und ist der Name, der häufig verwendet wird, um sich auf das spezifische Ereignis zu beziehen, wie `click`, `load` oder `error`.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der den Typ des [`Event`](/de/docs/Web/API/Event) enthält.
 
 ## Beispiel
 
-Dieses Beispiel protokolliert den Ereignistyp, wenn Sie eine Tastaturtaste drücken oder eine Maustaste klicken.
+Dieses Beispiel protokolliert den Ereignistyp, wann immer Sie eine Taste auf der Tastatur drücken oder eine Maustaste klicken.
 
 ### HTML
 
@@ -34,14 +34,14 @@ function getEventType(event) {
 }
 
 // Keyboard events
-document.addEventListener("keydown", getEventType, false); // first
-document.addEventListener("keypress", getEventType, false); // second
-document.addEventListener("keyup", getEventType, false); // third
+document.addEventListener("keydown", getEventType); // first
+document.addEventListener("keypress", getEventType); // second
+document.addEventListener("keyup", getEventType); // third
 
 // Mouse events
-document.addEventListener("mousedown", getEventType, false); // first
-document.addEventListener("mouseup", getEventType, false); // second
-document.addEventListener("click", getEventType, false); // third
+document.addEventListener("mousedown", getEventType); // first
+document.addEventListener("mouseup", getEventType); // second
+document.addEventListener("click", getEventType); // third
 ```
 
 ### Ergebnis

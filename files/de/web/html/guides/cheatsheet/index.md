@@ -1,19 +1,19 @@
 ---
-title: HTML-Spickzettel für Syntax und häufige Aufgaben
-short-title: HTML cheatsheet
+title: HTML-Cheat Sheet für Syntax und gängige Aufgaben
+short-title: Cheatsheet
 slug: Web/HTML/Guides/Cheatsheet
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: b9d130d2fcfcc37d57ec3b039ff7c3e7939d2e15
 ---
 
-Beim Arbeiten mit {{Glossary("HTML", "HTML")}} kann es sehr hilfreich sein, eine einfache Möglichkeit zu haben, sich daran zu erinnern, wie man HTML-Tags richtig verwendet und anwendet. MDN bietet Ihnen erweiterte [HTML-Referenzdokumentation](/de/docs/Web/HTML/Reference/Elements) sowie eine umfassende Anleitung in Form von [HTML-Leitfäden](/de/docs/Learn_web_development/Core/Structuring_content). In vielen Fällen benötigen wir jedoch nur schnelle Hinweise, während wir arbeiten. Der Spickzettel hat genau diesen Zweck, um Ihnen schnell präzise und gebrauchsfertige Code-Snippets für allgemeine Anwendungsfälle zu liefern.
+Beim Verwenden von {{Glossary("HTML", "HTML")}} kann es sehr hilfreich sein, eine einfache Möglichkeit zu haben, sich daran zu erinnern, wie HTML-Tags ordnungsgemäß verwendet werden und wie sie anzuwenden sind. MDN bietet Ihnen erweiterte [HTML-Referenz-Dokumentation](/de/docs/Web/HTML/Reference/Elements) sowie eine umfassende Anleitungsreihe von [HTML-Leitfäden](/de/docs/Learn_web_development/Core/Structuring_content). In vielen Fällen benötigen wir jedoch nur ein paar schnelle Hinweise, während wir arbeiten. Das ist der ganze Zweck des Cheat Sheets — Ihnen schnell präzise und einsatzbereite Codeausschnitte für gängige Verwendungen zu bieten.
 
 > [!NOTE]
-> HTML-Tags sollten für ihren semantischen Wert verwendet werden, nicht für ihr Aussehen. Es ist immer möglich, das Erscheinungsbild eines bestimmten Tags mit {{Glossary("CSS", "CSS")}} vollständig zu ändern. Verwenden Sie HTML daher mit dem Fokus auf Bedeutung, nicht auf Aussehen.
+> HTML-Tags müssen für ihren semantischen Wert verwendet werden, nicht für ihr Erscheinungsbild. Es ist immer möglich, das Aussehen und Gefühl eines bestimmten Tags mithilfe von {{Glossary("CSS", "CSS")}} vollständig zu ändern. Wenn Sie HTML verwenden, nehmen Sie sich daher die Zeit, sich auf die Bedeutung und nicht auf das Erscheinungsbild zu konzentrieren.
 
 ## Inline-Elemente
 
-Ein "Element" ist ein einzelner Teil einer Webseite. Einige Elemente sind groß und enthalten kleinere Elemente wie Container. Einige Elemente sind klein und sind in größere Elemente "eingebettet". Standardmäßig erscheinen "Inline-Elemente" nebeneinander auf einer Webseite. Sie nehmen nur so viel Breite ein, wie sie auf einer Seite benötigen, und passen sich horizontal an, wie Wörter in einem Satz oder Bücher, die Seite an Seite in einem Regal stehen. Alle Inline-Elemente können innerhalb des `<body>`-Elements platziert werden.
+Ein "Element" ist ein einzelner Teil einer Webseite. Einige Elemente sind groß und halten kleinere Elemente wie Container. Einige Elemente sind klein und "verschachtelt" in größeren Elementen. Standardmäßig erscheinen "Inline-Elemente" nebeneinander auf einer Webseite. Sie nehmen nur so viel Breite in einer Seite ein, wie sie benötigen, und passen sich horizontal wie Wörter in einem Satz oder Bücher, die nebeneinander im Regal stehen, zusammen. Alle Inline-Elemente können innerhalb des `<body>`-Elements platziert werden.
 
 <table class="standard-table">
   <caption>Inline-Elemente: Verwendung und Beispiele</caption>
@@ -50,7 +50,7 @@ Ein Link zu example.org&#x3C;/a>.</pre
       <td id="span-example">
         <pre class="brush: html">
 Wird verwendet, um Elemente zu gruppieren: zum Beispiel,
-um sie zu &#x3C;span style="color:blue">stylen&#x3C;/span>.</pre
+um sie &#x3C;span style="color:blue">zu stylen&#x3C;/span>.</pre
         >
         {{EmbedLiveSample("span-example", 100, 60)}}
       </td>
@@ -59,7 +59,7 @@ um sie zu &#x3C;span style="color:blue">stylen&#x3C;/span>.</pre
       <td>Text betonen</td>
       <td>{{HTMLElement("em")}}</td>
       <td id="em-example">
-        <pre class="brush: html">&#x3C;em>I'm posh&#x3C;/em>.</pre>
+        <pre class="brush: html">&#x3C;em>Ich bin posh&#x3C;/em>.</pre>
         {{EmbedLiveSample("em-example", 100, 60)}}
       </td>
     </tr>
@@ -68,7 +68,7 @@ um sie zu &#x3C;span style="color:blue">stylen&#x3C;/span>.</pre
       <td>{{HTMLElement("i")}}</td>
       <td id="i-example">
         <pre class="brush: html">
-Markieren Sie einen Ausdruck in &#x3C;i>Kursivschrift&#x3C;/i>.</pre
+Markieren Sie einen Satz in &#x3C;i>Kursivschrift&#x3C;/i>.</pre
         >
         {{EmbedLiveSample("i-example", 100, 60)}}
       </td>
@@ -77,7 +77,7 @@ Markieren Sie einen Ausdruck in &#x3C;i>Kursivschrift&#x3C;/i>.</pre
       <td>Fetter Text</td>
       <td>{{HTMLElement("b")}}</td>
       <td id="b-example">
-        <pre class="brush: html">Betonen Sie &#x3C;b>ein Wort oder einen Ausdruck&#x3C;/b>.</pre>
+        <pre class="brush: html">Betone &#x3C;b>ein Wort oder eine Phrase&#x3C;/b>.</pre>
         {{EmbedLiveSample("b-example", 100, 60)}}
       </td>
     </tr>
@@ -85,7 +85,7 @@ Markieren Sie einen Ausdruck in &#x3C;i>Kursivschrift&#x3C;/i>.</pre
       <td>Wichtiger Text</td>
       <td>{{HTMLElement("strong")}}</td>
       <td id="strong-example">
-        <pre class="brush: html">&#x3C;strong>I'm important!&#x3C;/strong></pre>
+        <pre class="brush: html">&#x3C;strong>Ich bin wichtig!&#x3C;/strong></pre>
         {{EmbedLiveSample("strong-example", 100, 60)}}
       </td>
     </tr>
@@ -93,7 +93,7 @@ Markieren Sie einen Ausdruck in &#x3C;i>Kursivschrift&#x3C;/i>.</pre
       <td>Text hervorheben</td>
       <td>{{HTMLElement("mark")}}</td>
       <td id="mark-example">
-        <pre class="brush: html">&#x3C;mark>Notice me!&#x3C;/mark></pre>
+        <pre class="brush: html">&#x3C;mark>Beachte mich!&#x3C;/mark></pre>
         {{EmbedLiveSample("mark-example", 100, 60)}}
       </td>
     </tr>
@@ -101,7 +101,7 @@ Markieren Sie einen Ausdruck in &#x3C;i>Kursivschrift&#x3C;/i>.</pre
       <td>Durchgestrichener Text</td>
       <td>{{HTMLElement("s")}}</td>
       <td id="s-example">
-        <pre class="brush: html">&#x3C;s>I'm irrelevant.&#x3C;/s></pre>
+        <pre class="brush: html">&#x3C;s>Ich bin irrelevant.&#x3C;/s></pre>
         {{EmbedLiveSample("s-example", 100, 60)}}
       </td>
     </tr>
@@ -118,8 +118,8 @@ Markieren Sie einen Ausdruck in &#x3C;i>Kursivschrift&#x3C;/i>.</pre
       <td>{{HTMLElement("small")}}</td>
       <td id="small-example">
         <pre class="brush: html">
-Wird verwendet, um den &#x3C;small>kleinen
-Druck &#x3C;/small> eines Dokuments darzustellen.</pre
+Wird verwendet, um das &#x3C;small>Kleingedruckte
+eines Dokuments&#x3C;/small> darzustellen.</pre
         >
         {{EmbedLiveSample("small-example", 100, 60)}}
       </td>
@@ -135,11 +135,11 @@ Druck &#x3C;/small> eines Dokuments darzustellen.</pre
       </td>
     </tr>
     <tr>
-      <td>Textliches Zitat</td>
+      <td>Textuelles Zitat</td>
       <td>{{HTMLElement("cite")}}</td>
       <td id="cite-example">
         <pre class="brush: html">
-Für weitere Monster siehe
+Für mehr Monster, siehe
 &#x3C;cite>Das Monsterbuch der Monster&#x3C;/cite>.</pre
         >
         {{EmbedLiveSample("cite-example", 100, 60)}}
@@ -157,7 +157,7 @@ Für weitere Monster siehe
       <td>Inline-Zitat</td>
       <td>{{HTMLElement("q")}}</td>
       <td id="q-example">
-        <pre class="brush: html">&#x3C;q>Me?&#x3C;/q>, sagte sie.</pre>
+        <pre class="brush: html">&#x3C;q>Ich?&#x3C;/q>, sagte sie.</pre>
         {{EmbedLiveSample("q-example", 100, 60)}}
       </td>
     </tr>
@@ -199,8 +199,8 @@ veröffentlicht am 23-05-2020&#x3C;/time>.</pre
       <td id="code-example">
         <pre class="brush: html">
 Dieser Text ist im normalen Format,
-aber &#x3C;code>dieser Text ist im Code-Format
-&#x3C;/code>.</pre
+aber &#x3C;code>dieser Text ist im Code-
+Format&#x3C;/code>.</pre
         >
         {{EmbedLiveSample("code-example", 100, 60)}}
       </td>
@@ -235,10 +235,10 @@ aber &#x3C;code>dieser Text ist im Code-Format
 
 ## Block-Elemente
 
-"Block-Elemente" hingegen nehmen die gesamte Breite einer Webseite ein. Sie beanspruchen auch eine ganze Zeile einer Webseite; sie passen nicht nebeneinander. Stattdessen stapeln sie sich wie Absätze in einem Aufsatz oder Spielzeuge in einem Turm.
+"Block-Elemente" hingegen nehmen die gesamte Breite einer Webseite ein. Sie nehmen auch eine volle Zeile einer Webseite ein; sie passen nicht nebeneinander. Stattdessen stapeln sie sich wie Absätze in einem Aufsatz oder Bauklötze in einem Turm.
 
 > [!NOTE]
-> Da dieser Spickzettel auf wenige Elemente beschränkt ist, die spezifische Strukturen darstellen oder spezielle Semantiken haben, ist das [`div`](/de/docs/Web/HTML/Reference/Elements/div)-Element absichtlich nicht enthalten – weil das `div`-Element nichts darstellt und keine speziellen Semantiken hat.
+> Da dieses Cheat Sheet auf wenige Elemente beschränkt ist, die spezielle Strukturen repräsentieren oder besondere Semantik haben, wird das [`div`](/de/docs/Web/HTML/Reference/Elements/div)-Element absichtlich nicht berücksichtigt — da das `div`-Element nichts darstellt und keine spezielle Semantik hat.
 
 <table class="standard-table">
   <thead>
@@ -266,8 +266,8 @@ aber &#x3C;code>dieser Text ist im Code-Format
       <td id="blockquote-example">
         <pre class="brush: html">
 Sie sagten:
-&#x3C;blockquote>Das Blockquote-Element zeigt
-ein erweitertes Zitat an.&#x3C;/blockquote></pre
+&#x3C;blockquote>Das Blockquote-Element gibt an
+ein erweitertes Zitat.&#x3C;/blockquote></pre
         >
         {{EmbedLiveSample("blockquote-example", 100, 100)}}
       </td>
@@ -278,7 +278,7 @@ ein erweitertes Zitat an.&#x3C;/blockquote></pre
       <td id="details-example">
         <pre class="brush: html">
 &#x3C;details>
-  &#x3C;summary>HTML-Spickzettel&#x3C;/summary>
+  &#x3C;summary>HTML-Cheat Sheet&#x3C;/summary>
   &#x3C;p>Inline-Elemente&#x3C;/p>
   &#x3C;p>Block-Elemente&#x3C;/p>
 &#x3C;/details></pre
@@ -330,18 +330,18 @@ ein erweitertes Zitat an.&#x3C;/blockquote></pre
       </td>
     </tr>
     <tr>
-      <td>Text Überschrift</td>
+      <td>Text-Überschrift</td>
       <td>
         {{HTMLElement("Heading_Elements", "&lt;h1&gt;-&lt;h6&gt;")}}
       </td>
       <td id="h1-h6-example">
         <pre class="brush: html">
-&#x3C;h1> Das ist Überschrift 1 &#x3C;/h1>
-&#x3C;h2> Das ist Überschrift 2 &#x3C;/h2>
-&#x3C;h3> Das ist Überschrift 3 &#x3C;/h3>
-&#x3C;h4> Das ist Überschrift 4 &#x3C;/h4>
-&#x3C;h5> Das ist Überschrift 5 &#x3C;/h5>
-&#x3C;h6> Das ist Überschrift 6 &#x3C;/h6></pre
+&#x3C;h1> Dies ist Überschrift 1 &#x3C;/h1>
+&#x3C;h2> Dies ist Überschrift 2 &#x3C;/h2>
+&#x3C;h3> Dies ist Überschrift 3 &#x3C;/h3>
+&#x3C;h4> Dies ist Überschrift 4 &#x3C;/h4>
+&#x3C;h5> Dies ist Überschrift 5 &#x3C;/h5>
+&#x3C;h6> Dies ist Überschrift 6 &#x3C;/h6></pre
         >
         {{EmbedLiveSample("h1-h6-example", 100, 350)}}
       </td>

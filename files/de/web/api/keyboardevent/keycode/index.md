@@ -3,61 +3,59 @@ title: "KeyboardEvent: keyCode-Eigenschaft"
 short-title: keyCode
 slug: Web/API/KeyboardEvent/keyCode
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{APIRef("UI Events")}}{{Deprecated_Header}}
 
-Die veraltete, schreibgeschützte **`KeyboardEvent.keyCode`**-Eigenschaft repräsentiert einen system- und implementierungsabhängigen numerischen Code, der den unmodifizierten Wert der gedrückten Taste identifiziert.
+Die veraltete, schreibgeschützte **`KeyboardEvent.keyCode`**-Eigenschaft stellt einen system- und implementierungsabhängigen numerischen Code dar, der den unmodifizierten Wert der gedrückten Taste identifiziert.
 
-Dies ist normalerweise der dezimale ASCII- ({{RFC(20)}}) oder Windows-1252-Code, der der Taste entspricht. Wenn die Taste nicht identifiziert werden kann, ist dieser Wert `0`.
+Dies ist in der Regel der dezimale ASCII- ({{RFC(20)}}) oder Windows 1252-Code, der der Taste entspricht. Wenn die Taste nicht identifiziert werden kann, ist dieser Wert `0`.
 
-Sie sollten nach Möglichkeit darauf verzichten, diese zu verwenden; sie ist schon seit einiger Zeit veraltet. Stattdessen sollten Sie [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code) (für die physisch gedrückte Taste) oder [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) (für das Zeichen, das der Taste zugeordnet ist) verwenden. Überprüfen Sie die Kompatibilität für beide Eigenschaften, wenn Sie sehr alte Browser anvisieren.
+Sie sollten die Verwendung dieser Eigenschaft nach Möglichkeit vermeiden; sie ist seit einiger Zeit veraltet. Stattdessen sollten Sie [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code) (für die physisch gedrückte Taste) oder [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) (für das Zeichen, dem die Taste zugeordnet ist) verwenden. Überprüfen Sie die Kompatibilität für beide Eigenschaften, wenn Sie sehr alte Browser anvisieren.
 
 > [!NOTE]
-> Webentwickler sollten das `keyCode`-Attribut für druckbare Zeichen bei der Behandlung von `keydown`- und `keyup`-Ereignissen nicht verwenden. Wie oben beschrieben, ist das `keyCode`-Attribut für druckbare Zeichen nicht nützlich, insbesondere für diejenigen, die mit der <kbd>Shift</kbd>- oder <kbd>Alt</kbd>-Taste eingegeben werden.
+> Webentwickler sollten das `keyCode`-Attribut für druckbare Zeichen bei der Verarbeitung von `keydown`- und `keyup`-Ereignissen nicht verwenden. Wie oben beschrieben, ist das `keyCode`-Attribut für druckbare Zeichen nicht nützlich, insbesondere nicht für diejenigen, die mit gedrückter <kbd>Shift</kbd>- oder <kbd>Alt</kbd>-Taste eingegeben werden.
 
 ## Wert von keyCode
 
 ### Druckbare Tasten in Standardposition
 
-Der Wert von Key-Events, die durch das Drücken oder Loslassen von druckbaren Tasten in Standardposition verursacht werden, ist nicht zwischen Browsern kompatibel.
+Der Wert von Tastenereignissen, die durch das Drücken oder Loslassen druckbarer Tasten in Standardposition verursacht werden, ist nicht zwischen Browsern kompatibel.
 
-IE gibt einfach den nativen virtuellen Tastencode als `KeyboardEvent.keyCode` wieder.
+IE zeigt einfach den nativen virtuellen Tastencode-Wert als `KeyboardEvent.keyCode` an.
 
-Google Chrome, Chromium und Safari müssen den Wert aus dem Eingabezeichen bestimmen. Wenn das eingegebene Zeichen mit dem US-Tastaturlayout eingegeben werden kann, verwenden sie den `keyCode`-Wert des US-Tastaturlayouts.
+Google Chrome, Chromium und Safari müssen den Wert aus dem Eingabezeichensatz bestimmen. Wenn das eingetippte Zeichen mit dem US-Tastaturlayout eingegeben werden kann, verwenden sie den `keyCode`-Wert auf dem US-Tastaturlayout.
 
-Firefox erhält `keyCode`-Werte aus {{Glossary("ASCII", "ASCII")}}-Zeichen, die durch die Taste eingegeben werden können, selbst mit Shift-Modifikatoren oder einem ASCII-fähigen Tastaturlayout. Siehe die folgenden Regeln für Einzelheiten:
+Firefox erhält `keyCode`-Werte aus {{Glossary("ASCII", "ASCII")}}-Zeichen, die durch die Taste eingegeben werden können — auch mit Shift-Modifikatoren oder einem ASCII-fähigen Tastaturlayout. Siehe die folgenden Regeln für Details:
 
-1. Wenn das System Windows ist und der native Tastencode der gedrückten Taste anzeigt, dass die Taste a-z oder 0-9 ist, verwenden Sie einen Keycode dafür.
-2. Wenn das System Mac ist und der native Tastencode der gedrückten Taste anzeigt, dass die Taste 0-9 ist, verwenden Sie einen Keycode dafür.
-3. Wenn die gedrückte Taste ein ASCII-alphabetisches oder numerisches Zeichen ohne Modifikatortaste eingibt, verwenden Sie einen Keycode dafür.
-4. Wenn die gedrückte Taste ein ASCII-alphabetisches oder numerisches Zeichen mit einer Shift-Modifikatortaste eingibt, verwenden Sie einen Keycode dafür.
-5. Wenn die gedrückte Taste ein anderes ASCII-Zeichen ohne Modifikatortaste eingibt, verwenden Sie einen Keycode dafür.
-6. Wenn die gedrückte Taste ein anderes ASCII-Zeichen mit einer Shift-Modifikatortaste eingibt, verwenden Sie einen Keycode dafür.
-7. Ansonsten, d.h. die gedrückte Taste gibt ein Unicode-Zeichen ein:
-   1. Wenn das Tastaturlayout ASCII-fähig ist (d.h. ASCII-Alphabeten eingeben kann), verwenden Sie 0 oder berechnen Sie mit den folgenden zusätzlichen Regeln.
-   2. Ansonsten, d.h. das Tastaturlayout ist nicht ASCII-fähig, verwenden Sie das in der Umgebung installierte ASCII-fähige Tastaturlayout mit der höchsten Priorität:
-      1. Wenn die gedrückte Taste im alternativen Tastaturlayout ein ASCII-alphabetisches oder numerisches Zeichen eingibt, verwenden Sie einen Keycode dafür.
+1. Wenn das System Windows ist und der native Tastencode der gedrückten Taste angibt, dass die Taste a-z oder 0-9 ist, verwenden Sie einen Tastencode dafür.
+2. Wenn das System Mac ist und der native Tastencode der gedrückten Taste angibt, dass die Taste 0-9 ist, verwenden Sie einen Tastencode dafür.
+3. Wenn die gedrückte Taste ein ASCII-Alphabetiv- oder -Ziffernzeichen ohne Modifikatortaste eingibt, verwenden Sie einen Tastencode dafür.
+4. Wenn die gedrückte Taste ein ASCII-Alphabetiv- oder -Ziffernzeichen mit einem Shift-Tastenmodifikator eingibt, verwenden Sie einen Tastencode dafür.
+5. Wenn die gedrückte Taste ein anderes ASCII-Zeichen ohne Modifikatortaste eingibt, verwenden Sie einen Tastencode dafür.
+6. Wenn die gedrückte Taste ein anderes ASCII-Zeichen mit einem Shift-Tastenmodifikator eingibt, verwenden Sie einen Tastencode dafür.
+7. Andernfalls, d.h. gedrückte Taste gibt ein Unicode-Zeichen ein:
+   1. Wenn das Tastaturlayout ASCII-fähig ist (d.h. ASCII-Alphabete eingeben kann), verwenden Sie 0 oder berechnen Sie mit den folgenden zusätzlichen Regeln.
+   2. Andernfalls, d.h. das Tastaturlayout ist nicht ASCII-fähig, verwenden Sie das ASCII-fähige Tastaturlayout, das in der Umgebung mit der höchsten Priorität installiert ist:
+      1. Wenn die gedrückte Taste auf dem alternativen Tastaturlayout ein ASCII-Alphabetiv- oder -Ziffernzeichen eingibt, verwenden Sie einen Tastencode dafür.
       2. Andernfalls verwenden Sie 0 oder berechnen Sie mit den folgenden zusätzlichen Regeln.
 
-Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die Punkte 7.1 oder 7.2 in der obigen Liste erreicht werden), mit den folgenden Regeln:
+Gecko setzt `keyCode`-Werte von Interpunktionstasten so weit wie möglich (wenn Punkt 7.1 oder 7.2 in der obigen Liste erreicht wird) mit den folgenden Regeln:
 
 > [!WARNING]
-> Der Zweck dieser neuen zusätzlichen Regeln besteht darin, Benutzern, deren Tastaturlayouts Unicode-Zeichen auf Interpunktions-Tasten eines US-Tastaturlayouts abbilden, die Verwendung von Webanwendungen zu ermöglichen, die nur mit ASCII-fähigen Tastaturlayouts oder nur mit einem US-Tastaturlayout in Firefox unterstützt werden. Andernfalls könnten die neu abgebildeten `keyCode`-Werte mit anderen Tasten in Konflikt geraten. Zum Beispiel haben in einem aktiven russischen Tastaturlayout die **sowohl** die `"Period"`-Taste als auch die `"Slash"`-Taste den `keyCode`-Wert `190` (`KeyEvent.DOM_VK_PERIOD`). Wenn Sie diese Tasten unterscheiden müssen, aber nicht alle Tastaturlayouts der Welt selbst unterstützen möchten, sollten Sie wahrscheinlich [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code) verwenden.
+> Der Zweck dieser neuen zusätzlichen Regeln besteht darin, dass Benutzer, deren Tastaturlayouts Unicode-Zeichen auf Interpunktionstasten im US-Tastaturlayout abbilden, Webanwendungen verwenden können, die Firefox nur mit ASCII-fähigen Tastaturlayouts oder nur mit einem US-Tastaturlayout unterstützen. Andernfalls könnten die neu zugewiesenen `keyCode`-Werte mit anderen Tasten in Konflikt stehen. Zum Beispiel, wenn das aktive Tastaturlayout Russisch ist, haben sowohl die **“Period”**-Taste als auch die **“Slash”**-Taste den `keyCode`-Wert `190` (`KeyEvent.DOM_VK_PERIOD`). Wenn Sie diese Tasten unterscheiden müssen, aber nicht alle Tastaturlayouts der Welt selbst unterstützen möchten, sollten Sie wahrscheinlich [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code) verwenden.
 
 1. Wenn macOS oder Linux ausgeführt wird:
-
    1. Wenn das aktive Tastaturlayout nicht ASCII-fähig ist und ein alternatives ASCII-fähiges Tastaturlayout verfügbar ist.
+      1. Wenn das alternative ASCII-fähige Tastaturlayout ein ASCII-Zeichen nur über die unveränderte Taste erzeugt, verwenden Sie einen `keyCode` für das Zeichen.
+      2. Wenn das alternative ASCII-fähige Tastaturlayout ein ASCII-Zeichen mit einem Shift-Tastenmodifikator erzeugt, verwenden Sie einen `keyCode` für das verschobene Zeichen.
+      3. Andernfalls verwenden Sie einen `keyCode` für ein ASCII-Zeichen, das von der Taste erzeugt wird, wenn das US-Tastaturlayout aktiv ist.
 
-      1. Wenn das alternative ASCII-fähige Tastaturlayout ein ASCII-Zeichen durch einfach nur die unmodifizierte Taste erzeugt, verwenden Sie einen `keyCode` für das Zeichen.
-      2. Wenn das alternative ASCII-fähige Tastaturlayout ein ASCII-Zeichen mit einer Shift-Modifikatortaste erzeugt, verwenden Sie einen `keyCode` für das geschiftete Zeichen.
-      3. Verwenden Sie andernfalls einen `keyCode` für ein ASCII-Zeichen, das von der Taste erzeugt wird, wenn das US-Tastaturlayout aktiv ist.
+   2. Andernfalls verwenden Sie einen `keyCode` für ein ASCII-Zeichen, das von der Taste erzeugt wird, wenn das US-Tastaturlayout aktiv ist.
 
-   2. Verwenden Sie andernfalls einen `keyCode` für ein ASCII-Zeichen, das von der Taste erzeugt wird, wenn das US-Tastaturlayout aktiv ist.
-
-2. Wenn auf Windows ausgeführt wird:
-   1. Verwenden Sie einen `keyCode`-Wert für ein ASCII-Zeichen, das von einer Taste erzeugt wird, die auf den gleichen virtuellen Windows-Code abgebildet ist, wenn das US-Tastaturlayout aktiv ist.
+2. Wenn auf Windows ausgeführt:
+   1. Verwenden Sie einen `keyCode`-Wert für ein ASCII-Zeichen, das von einer Taste erzeugt wird, die auf denselben virtuellen Tastencode von Windows abgebildet ist, wenn das US-Tastaturlayout aktiv ist.
 
 <table class="no-markdown">
   <caption>
@@ -87,29 +85,29 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
     <tr>
       <th></th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
     </tr>
   </thead>
   <tbody>
@@ -524,29 +522,29 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
         [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code)
       </th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
     </tr>
     <tr>
       <th colspan="3" scope="col">Windows</th>
@@ -571,7 +569,7 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
 <table class="no-markdown">
   <caption>
     keyCode-Werte des `keydown`-Ereignisses jedes Browsers, verursacht durch druckbare Tasten in
-    Standardposition (Interpunktion im US-Layout):
+    Standardposition (Interpunktionen im US-Layout):
   </caption>
   <thead>
     <tr>
@@ -596,29 +594,29 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
     <tr>
       <th></th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
     </tr>
   </thead>
   <tbody>
@@ -634,7 +632,7 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
       <td colspan="3" rowspan="2"><code>0xBC (188)</code></td>
     </tr>
     <tr>
-      <th scope="row"><code>"Comma"</code> mit <kbd>Shift</kbd></th>
+      <th scope="row"><code>"Comma"</code> with <kbd>Shift</kbd></th>
     </tr>
     <tr>
       <th scope="row"><code>"Period"</code></th>
@@ -648,7 +646,7 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
       <td colspan="3" rowspan="2"><code>0xBE (190)</code></td>
     </tr>
     <tr>
-      <th scope="row"><code>"Period"</code> mit <kbd>Shift</kbd></th>
+      <th scope="row"><code>"Period"</code> with <kbd>Shift</kbd></th>
     </tr>
     <tr>
       <th scope="row"><code>"Semicolon"</code></th>
@@ -678,7 +676,7 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
       <td rowspan="2"><code>0x00 (0)</code>⚠️</td>
     </tr>
     <tr>
-      <th scope="row"><code>"Semicolon"</code> mit <kbd>Shift</kbd></th>
+      <th scope="row"><code>"Semicolon"</code> with <kbd>Shift</kbd></th>
       <td><code>0xBB (187)</code>⚠️ [1]</td>
       <td><code>0xBB (187)</code>⚠️</td>
       <td><code>0xBB (187)</code>⚠️ [1]</td>
@@ -711,7 +709,7 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
       <td rowspan="2"><code>0xDE (222)</code></td>
     </tr>
     <tr>
-      <th scope="row"><code>"Quote"</code> mit Shift</th>
+      <th scope="row"><code>"Quote"</code> with Shift</th>
       <td><code>0xDE (222)</code>⚠️ [1]</td>
       <td><code>0x38 (56)</code>⚠️</td>
       <td><code>0xDE (222)</code>⚠️ [1]</td>
@@ -744,7 +742,7 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
       <td rowspan="2"><code>0xDB (219)</code></td>
     </tr>
     <tr>
-      <th scope="row"><code>"BracketLeft"</code> mit <kbd>Shift</kbd></th>
+      <th scope="row"><code>"BracketLeft"</code> with <kbd>Shift</kbd></th>
       <td><code>0xC0 (192)</code>⚠️ [1]</td>
       <td><code>0xC0 (192)</code>⚠️</td>
       <td><code>0xC0 (192)</code>⚠️ [1]</td>
@@ -777,7 +775,7 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
       <td rowspan="2"><code>0xDD (221)</code></td>
     </tr>
     <tr>
-      <th scope="row"><code>"BracketRight"</code> mit <kbd>Shift</kbd></th>
+      <th scope="row"><code>"BracketRight"</code> with <kbd>Shift</kbd></th>
     </tr>
     <tr>
       <th scope="row"><code>"Backquote"</code></th>
@@ -801,7 +799,7 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
       <td rowspan="2"><code>0xC0 (192)</code></td>
     </tr>
     <tr>
-      <th scope="row"><code>"Backquote"</code> mit <kbd>Shift</kbd></th>
+      <th scope="row"><code>"Backquote"</code> with <kbd>Shift</kbd></th>
     </tr>
     <tr>
       <th scope="row"><code>"Backslash"</code></th>
@@ -825,7 +823,7 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
       <td rowspan="2"><code>0xDC (220)</code></td>
     </tr>
     <tr>
-      <th scope="row"><code>"Backslash"</code> mit <kbd>Shift</kbd></th>
+      <th scope="row"><code>"Backslash"</code> with <kbd>Shift</kbd></th>
     </tr>
     <tr>
       <th scope="row"><code>"Minus"</code></th>
@@ -847,7 +845,7 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
       <td colspan="3" rowspan="2"><code>0xAD (173)</code></td>
     </tr>
     <tr>
-      <th scope="row"><code>"Minus"</code> mit <kbd>Shift</kbd></th>
+      <th scope="row"><code>"Minus"</code> with <kbd>Shift</kbd></th>
       <td><code>0xBB (187)</code>⚠️ [1]</td>
       <td><code>0xBB (187)</code>⚠️</td>
       <td><code>0xBD (189)</code></td>
@@ -882,7 +880,7 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
       <td rowspan="2"><code>0x3D (61)</code></td>
     </tr>
     <tr>
-      <th scope="row"><code>"Equal"</code> mit <kbd>Shift</kbd></th>
+      <th scope="row"><code>"Equal"</code> with <kbd>Shift</kbd></th>
       <td><code>0xC0 (192)</code>⚠️ [1]</td>
       <td><code>0xC0 (192)</code>⚠️</td>
       <td><code>0xBB (187)</code></td>
@@ -917,7 +915,7 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
       <td rowspan="2"><code>0x00 (0)</code></td>
     </tr>
     <tr>
-      <th scope="row"><code>"IntlRo"</code> mit <kbd>Shift</kbd></th>
+      <th scope="row"><code>"IntlRo"</code> with <kbd>Shift</kbd></th>
     </tr>
     <tr>
       <th scope="row"><code>"IntlYen"</code></th>
@@ -947,7 +945,7 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
       <td rowspan="2"><code>0x00 (0)</code>⚠️</td>
     </tr>
     <tr>
-      <th scope="row"><code>"IntlYen"</code> mit <kbd>Shift</kbd></th>
+      <th scope="row"><code>"IntlYen"</code> with <kbd>Shift</kbd></th>
       <td><code>0xDC (220)</code></td>
       <td><code>0xDC (220)</code></td>
       <td><code>0xBD (189)</code>⚠️</td>
@@ -961,29 +959,29 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
         [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code)
       </th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
       <th scope="col">US</th>
-      <th scope="col">Japanese</th>
-      <th scope="col">Greek</th>
+      <th scope="col">Japanisch</th>
+      <th scope="col">Griechisch</th>
     </tr>
     <tr>
       <th colspan="3" scope="col">Windows</th>
@@ -1005,15 +1003,15 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
   </tfoot>
 </table>
 
-\[1] Der Wert wird von einer JIS-Tastatur eingegeben. Wenn Sie eine ANSI-Tastatur verwenden, sind der `keyCode`-Wert und das eingegebene Zeichen das, was Sie aus dem US-Tastaturlayout ausgewählt haben.
+\[1] Der Wert wird von der JIS-Tastatur eingegeben. Wenn Sie die ANSI-Tastatur verwenden, sind der Tastencode-Wert und das eingegebene Zeichen das, was Sie aus dem US-Tastaturlayout auswählen.
 
 \[2] Die Taste ist eine tote Taste. Der Wert des `keyup`-Ereignisses ist `0xBA (186)`.
 
 \[3] Die Taste ist eine tote Taste. Der Wert des `keyup`-Ereignisses ist `0x10 (16)`.
 
-\[4] Keine Tastendrücke werden ausgelöst.
+\[4] Es werden keine Tastenereignisse ausgegeben.
 
-\[5] Die Taste ist beim griechischen Tastaturlayout nicht verfügbar (gibt kein Zeichen ein). Der Wert des `keyup`-Ereignisses ist `0x00 (0)`.
+\[5] Die Taste ist mit dem griechischen Tastaturlayout nicht verfügbar (gibt keine Zeichen ein). Der Wert des `keyup`-Ereignisses ist `0x00 (0)`.
 
 ### Nicht druckbare Tasten (Funktionstasten)
 
@@ -1029,20 +1027,11 @@ Gecko setzt `keyCode`-Werte von Interpunktions-Tasten, soweit möglich (wenn die
       <th scope="col">IE 11</th>
       <th colspan="2" scope="col">Google Chrome 34</th>
       <th scope="col">Chromium 34</th>
-      <th scope="col">Safari 7</th>
-      <th colspan="3" scope="col">Gecko 29</th>
-    </tr>
-    <tr>
-      <th scope="col">Windows</th>
-      <th scope="col">Windows</th>
-      <th scope="col">Mac (10.9)</th>
-      <th scope="col">Linux (Ubuntu 14.04)</th>
-      <th scope="col">Mac (10.9)</th>
-      <th scope
+      <th scope="
 
-## Konstanten für den keyCode-Wert
+## Konstanten für keyCode-Wert
 
-Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabelle explizit zu machen. Diese Werte sind nützlich für Firefox-Erweiterungsentwickler, aber nicht so nützlich auf öffentlichen Webseiten.
+Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabelle explizit zu machen. Diese Werte sind nützlich für Add-on-Entwickler von Firefox, aber nicht so nützlich in öffentlichen Webseiten.
 
 <table class="no-markdown">
   <thead>
@@ -1061,7 +1050,7 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_HELP</code></td>
       <td>0x06 (6)</td>
-      <td>Hilfe-Taste.</td>
+      <td>Hilfetaste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_BACK_SPACE</code></td>
@@ -1071,19 +1060,19 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_TAB</code></td>
       <td>0x09 (9)</td>
-      <td>Tab-Taste.</td>
+      <td>Tabulatortaste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_CLEAR</code></td>
       <td>0x0C (12)</td>
       <td>
-        "5"-Taste auf dem Nummernblock, wenn NumLock nicht aktiv ist. Oder auf Mac die Löschen-Taste, die sich an der NumLock-Position befindet.
+        "5"-Taste auf dem Ziffernblock, wenn NumLock nicht aktiviert ist. Oder auf Mac, Löschtaste, die sich bei der NumLock-Taste befindet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_RETURN</code></td>
       <td>0x0D (13)</td>
-      <td>Return/Enter-Taste auf der Haupttastatur.</td>
+      <td>Eingabe-/Entertaste auf der Haupttastatur.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_ENTER</code></td>
@@ -1096,7 +1085,7 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_SHIFT</code></td>
       <td>0x10 (16)</td>
-      <td>Umschalttaste.</td>
+      <td>Umschalt-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_CONTROL</code></td>
@@ -1106,7 +1095,7 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_ALT</code></td>
       <td>0x12 (18)</td>
-      <td>Alt (Option auf Mac) Taste.</td>
+      <td>Alt (Option auf Mac)-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_PAUSE</code></td>
@@ -1116,67 +1105,67 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_CAPS_LOCK</code></td>
       <td>0x14 (20)</td>
-      <td>Caps Lock.</td>
+      <td>Feststelltaste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_KANA</code></td>
       <td>0x15 (21)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_HANGUL</code></td>
       <td>0x15 (21)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_EISU</code></td>
       <td>0x 16 (22)</td>
-      <td>"英数"-Taste auf der japanischen Mac-Tastatur.</td>
+      <td>"英数"-Taste auf japanischen Mac-Tastaturen.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_JUNJA</code></td>
       <td>0x17 (23)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_FINAL</code></td>
       <td>0x18 (24)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_HANJA</code></td>
       <td>0x19 (25)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_KANJI</code></td>
       <td>0x19 (25)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_ESCAPE</code></td>
       <td>0x1B (27)</td>
-      <td>Escape-Taste.</td>
+      <td>Escapetaste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_CONVERT</code></td>
       <td>0x1C (28)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_NONCONVERT</code></td>
       <td>0x1D (29)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_ACCEPT</code></td>
       <td>0x1E (30)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_MODECHANGE</code></td>
       <td>0x1F (31)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_SPACE</code></td>
@@ -1186,7 +1175,7 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_PAGE_UP</code></td>
       <td>0x21 (33)</td>
-      <td>Bild-aufs-Taste.</td>
+      <td>Bild-auf-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_PAGE_DOWN</code></td>
@@ -1206,42 +1195,42 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_LEFT</code></td>
       <td>0x25 (37)</td>
-      <td>Pfeil links.</td>
+      <td>Pfeil-nach-links-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_UP</code></td>
       <td>0x26 (38)</td>
-      <td>Pfeil aufwärts.</td>
+      <td>Pfeil-nach-oben-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_RIGHT</code></td>
       <td>0x27 (39)</td>
-      <td>Pfeil rechts.</td>
+      <td>Pfeil-nach-rechts-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_DOWN</code></td>
       <td>0x28 (40)</td>
-      <td>Pfeil abwärts.</td>
+      <td>Pfeil-nach-unten-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_SELECT</code></td>
       <td>0x29 (41)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_PRINT</code></td>
       <td>0x2A (42)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_EXECUTE</code></td>
       <td>0x2B (43)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_PRINTSCREEN</code></td>
       <td>0x2C (44)</td>
-      <td>Bildschirmdruck-Taste.</td>
+      <td>Drucktaste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_INSERT</code></td>
@@ -1251,62 +1240,62 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_DELETE</code></td>
       <td>0x2E (46)</td>
-      <td>Löschentaste.</td>
+      <td>Löschen-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_0</code></td>
       <td>0x30 (48)</td>
-      <td>"0"-Taste in Standardposition.</td>
+      <td>"0"-Taste an Standardposition.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_1</code></td>
       <td>0x31 (49)</td>
-      <td>"1"-Taste in Standardposition.</td>
+      <td>"1"-Taste an Standardposition.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_2</code></td>
       <td>0x32 (50)</td>
-      <td>"2"-Taste in Standardposition.</td>
+      <td>"2"-Taste an Standardposition.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_3</code></td>
       <td>0x33 (51)</td>
-      <td>"3"-Taste in Standardposition.</td>
+      <td>"3"-Taste an Standardposition.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_4</code></td>
       <td>0x34 (52)</td>
-      <td>"4"-Taste in Standardposition.</td>
+      <td>"4"-Taste an Standardposition.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_5</code></td>
       <td>0x35 (53)</td>
-      <td>"5"-Taste in Standardposition.</td>
+      <td>"5"-Taste an Standardposition.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_6</code></td>
       <td>0x36 (54)</td>
-      <td>"6"-Taste in Standardposition.</td>
+      <td>"6"-Taste an Standardposition.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_7</code></td>
       <td>0x37 (55)</td>
-      <td>"7"-Taste in Standardposition.</td>
+      <td>"7"-Taste an Standardposition.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_8</code></td>
       <td>0x38 (56)</td>
-      <td>"8"-Taste in Standardposition.</td>
+      <td>"8"-Taste an Standardposition.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_9</code></td>
       <td>0x39 (57)</td>
-      <td>"9"-Taste in Standardposition.</td>
+      <td>"9"-Taste an Standardposition.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_COLON</code></td>
       <td>0x3A (58)</td>
-      <td>Kolon (":")-Taste.</td>
+      <td>Doppelpunkt (":")-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_SEMICOLON</code></td>
@@ -1321,7 +1310,7 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_EQUALS</code></td>
       <td>0x3D (61)</td>
-      <td>Gleich ("=")-Taste.</td>
+      <td>Gleichheitszeichen ("=")-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_GREATER_THAN</code></td>
@@ -1471,77 +1460,77 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_WIN</code></td>
       <td>0x5B (91)</td>
-      <td>Windows-Logo-Taste auf Windows. Oder Super oder Hyper-Taste auf Linux.</td>
+      <td>Windows-Logo-Taste auf Windows. Oder Super- oder Hyper-Taste auf Linux.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_CONTEXT_MENU</code></td>
       <td>0x5D (93)</td>
-      <td>Kontextmenü öffnen-Taste.</td>
+      <td>Kontextmenü-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_SLEEP</code></td>
       <td>0x5F (95)</td>
-      <td>Linux-Unterstützung für diesen Tastencode wurde in Gecko 4.0 hinzugefügt.</td>
+      <td>Unterstützung für diesen Tastencode wurde in Gecko 4.0 für Linux hinzugefügt.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_NUMPAD0</code></td>
       <td>0x60 (96)</td>
-      <td>"0" auf dem numerischen Tastaturblock.</td>
+      <td>"0" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_NUMPAD1</code></td>
       <td>0x61 (97)</td>
-      <td>"1" auf dem numerischen Tastaturblock.</td>
+      <td>"1" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_NUMPAD2</code></td>
       <td>0x62 (98)</td>
-      <td>"2" auf dem numerischen Tastaturblock.</td>
+      <td>"2" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_NUMPAD3</code></td>
       <td>0x63 (99)</td>
-      <td>"3" auf dem numerischen Tastaturblock.</td>
+      <td>"3" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_NUMPAD4</code></td>
       <td>0x64 (100)</td>
-      <td>"4" auf dem numerischen Tastaturblock.</td>
+      <td>"4" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_NUMPAD5</code></td>
       <td>0x65 (101)</td>
-      <td>"5" auf dem numerischen Tastaturblock.</td>
+      <td>"5" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_NUMPAD6</code></td>
       <td>0x66 (102)</td>
-      <td>"6" auf dem numerischen Tastaturblock.</td>
+      <td>"6" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_NUMPAD7</code></td>
       <td>0x67 (103)</td>
-      <td>"7" auf dem numerischen Tastaturblock.</td>
+      <td>"7" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_NUMPAD8</code></td>
       <td>0x68 (104)</td>
-      <td>"8" auf dem numerischen Tastaturblock.</td>
+      <td>"8" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_NUMPAD9</code></td>
       <td>0x69 (105)</td>
-      <td>"9" auf dem numerischen Tastaturblock.</td>
+      <td>"9" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_MULTIPLY</code></td>
       <td>0x6A (106)</td>
-      <td>"*" auf dem numerischen Tastaturblock.</td>
+      <td>"*" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_ADD</code></td>
       <td>0x6B (107)</td>
-      <td>"+" auf dem numerischen Tastaturblock.</td>
+      <td>"+" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_SEPARATOR</code></td>
@@ -1551,17 +1540,17 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_SUBTRACT</code></td>
       <td>0x6D (109)</td>
-      <td>"-" auf dem numerischen Tastaturblock.</td>
+      <td>"-" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_DECIMAL</code></td>
       <td>0x6E (110)</td>
-      <td>Dezimalpunkt auf dem numerischen Tastaturblock.</td>
+      <td>Dezimalpunkt auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_DIVIDE</code></td>
       <td>0x6F (111)</td>
-      <td>"/" auf dem numerischen Tastaturblock.</td>
+      <td>"/" auf dem Ziffernblock.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_F1</code></td>
@@ -1686,56 +1675,56 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_NUM_LOCK</code></td>
       <td>0x90 (144)</td>
-      <td>Num Lock-Taste.</td>
+      <td>NumLock-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_SCROLL_LOCK</code></td>
       <td>0x91 (145)</td>
-      <td>Rollen-Taste.</td>
+      <td>Scroll-Lock-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_FJ_JISHO</code></td>
       <td>0x92 (146)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für die "Wörterbuch"-Taste auf Fujitsu OASYS verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für die "Wörterbuch"-Taste auf Fujitsu OASYS verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_FJ_MASSHOU</code></td>
       <td>0x93 (147)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für die "Wort abmelden"-Taste auf Fujitsu OASYS verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für die Taste "Wort deregistrieren" auf Fujitsu OASYS verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_FJ_TOUROKU</code></td>
       <td>0x94 (148)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für die "Wort registrieren"-Taste auf Fujitsu OASYS verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für die Taste "Wort registrieren" auf Fujitsu OASYS verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_FJ_LOYA</code></td>
       <td>0x95 (149)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für die "Linker OYAYUBI"-Taste auf Fujitsu OASYS verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für die Taste "Linkes OYAYUBI" auf Fujitsu OASYS verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_FJ_ROYA</code></td>
       <td>0x96 (150)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für die "Rechter OYAYUBI"-Taste auf Fujitsu OASYS verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für die Taste "Rechtes OYAYUBI" auf Fujitsu OASYS verwendet.
       </td>
     </tr>
     <tr>
@@ -1756,7 +1745,7 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_HASH</code></td>
       <td>0xA3 (163)</td>
-      <td>Rautetaste ("#").</td>
+      <td>Raute ("#")-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_DOLLAR</code></td>
@@ -1806,7 +1795,7 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_HYPHEN_MINUS</code></td>
       <td>0xAD (173)</td>
-      <td>Bindestrich-("/US/docs/Minus")-Taste.</td>
+      <td>Bindestrich ("-")-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_OPEN_CURLY_BRACKET</code></td>
@@ -1831,12 +1820,12 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_VOLUME_DOWN</code></td>
       <td>0xB6 (182)</td>
-      <td>Audios leiser-Taste</td>
+      <td>Audio-Lautstärke-leiser-Taste</td>
     </tr>
     <tr>
       <td><code>DOM_VK_VOLUME_UP</code></td>
       <td>0xB7 (183)</td>
-      <td>Audios lauter-Taste</td>
+      <td>Audio-Lautstärke-lauter-Taste</td>
     </tr>
     <tr>
       <td><code>DOM_VK_COMMA</code></td>
@@ -1856,7 +1845,7 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_BACK_QUOTE</code></td>
       <td>0xC0 (192)</td>
-      <td>Apostroph ("`")-Taste.</td>
+      <td>Backtick ("`")-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_OPEN_BRACKET</code></td>
@@ -1866,7 +1855,7 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_BACK_SLASH</code></td>
       <td>0xDC (220)</td>
-      <td>Rückschrägstrich ("\")-Taste.</td>
+      <td>Backslash ("\")-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_CLOSE_BRACKET</code></td>
@@ -1876,7 +1865,7 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_QUOTE</code></td>
       <td>0xDE (222)</td>
-      <td>Zitat ('')-Taste.</td>
+      <td>Hochkomma (''')-Taste.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_META</code></td>
@@ -1886,176 +1875,176 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_ALTGR</code></td>
       <td>0xE1 (225)</td>
-      <td>AltGr-Taste (Level 3 Umschalttaste oder Level 5 Umschalttaste) auf Linux.</td>
+      <td>AltGr-Taste (Level-3-Umschalttaste oder Level-5-Umschalttaste) auf Linux.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_ICO_HELP</code></td>
       <td>0xE3 (227)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies ist (war?) für Olivetti ICO-Tastatur verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für die Olivetti ICO-Tastatur verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_ICO_00</code></td>
       <td>0xE4 (228)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies ist (war?) für Olivetti ICO-Tastatur verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für die Olivetti ICO-Tastatur verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_ICO_CLEAR</code></td>
       <td>0xE6 (230)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies ist (war?) für Olivetti ICO-Tastatur verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für die Olivetti ICO-Tastatur verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_RESET</code></td>
       <td>0xE9 (233)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für Nokia/Ericsson-Geräte verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für Geräte von Nokia/Ericsson verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_JUMP</code></td>
       <td>0xEA (234)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für Nokia/Ericsson-Geräte verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für Geräte von Nokia/Ericsson verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_PA1</code></td>
       <td>0xEB (235)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für Nokia/Ericsson-Geräte verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für Geräte von Nokia/Ericsson verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_PA2</code></td>
       <td>0xEC (236)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für Nokia/Ericsson-Geräte verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für Geräte von Nokia/Ericsson verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_PA3</code></td>
       <td>0xED (237)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für Nokia/Ericsson-Geräte verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für Geräte von Nokia/Ericsson verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_WSCTRL</code></td>
       <td>0xEE (238)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für Nokia/Ericsson-Geräte verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für Geräte von Nokia/Ericsson verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_CUSEL</code></td>
       <td>0xEF (239)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für Nokia/Ericsson-Geräte verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für Geräte von Nokia/Ericsson verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_ATTN</code></td>
       <td>0xF0 (240)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für Nokia/Ericsson-Geräte verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für Geräte von Nokia/Ericsson verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_FINISH</code></td>
       <td>0xF1 (241)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für Nokia/Ericsson-Geräte verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für Geräte von Nokia/Ericsson verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_COPY</code></td>
       <td>0xF2 (242)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für Nokia/Ericsson-Geräte verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für Geräte von Nokia/Ericsson verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_AUTO</code></td>
       <td>0xF3 (243)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für Nokia/Ericsson-Geräte verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für Geräte von Nokia/Ericsson verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_ENLW</code></td>
       <td>0xF4 (244)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für Nokia/Ericsson-Geräte verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für Geräte von Nokia/Ericsson verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_BACKTAB</code></td>
       <td>0xF5 (245)</td>
       <td>
-        Ein
-        <a href="#oem_specific_keys_on_windows">OEM-spezifischer Schlüssel auf Windows</a>.
-        Dies wurde für Nokia/Ericsson-Geräte verwendet.
+        Eine
+        <a href="#oem_specific_keys_on_windows">OEM-spezifische Taste auf Windows</a>.
+        Diese wurde für Geräte von Nokia/Ericsson verwendet.
       </td>
     </tr>
     <tr>
       <td><code>DOM_VK_ATTN</code></td>
       <td>0xF6 (246)</td>
-      <td>Attn (Attention) Taste von IBM-Großrechnern, z. B. AS/400.</td>
+      <td>Attn (Aufmerksamkeit)-Taste von IBM-Mittelrechnern, z.B. AS/400.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_CRSEL</code></td>
       <td>0xF7 (247)</td>
-      <td>CrSel (Cursor Selection) Taste des IBM 3270-Tastaturlayouts.</td>
+      <td>CrSel (Cursor-Auswahl)-Taste des IBM-3270-Tastaturlayouts.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_EXSEL</code></td>
       <td>0xF8 (248)</td>
-      <td>ExSel (Extend Selection) Taste des IBM 3270-Tastaturlayouts.</td>
+      <td>ExSel (Erweitern der Auswahl)-Taste des IBM-3270-Tastaturlayouts.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_EREOF</code></td>
       <td>0xF9 (249)</td>
-      <td>Lösche EOF-Taste des IBM 3270-Tastaturlayouts.</td>
+      <td>Löschen-EOF-Taste des IBM-3270-Tastaturlayouts.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_PLAY</code></td>
       <td>0xFA (250)</td>
-      <td>Abspiele-Taste des IBM 3270-Tastaturlayouts.</td>
+      <td>Wiedergabe-Taste des IBM-3270-Tastaturlayouts.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_ZOOM</code></td>
@@ -2065,14 +2054,14 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
     <tr>
       <td><code>DOM_VK_PA1</code></td>
       <td>0xFD (253)</td>
-      <td>PA1-Taste des IBM 3270-Tastaturlayouts.</td>
+      <td>PA1-Taste des IBM-3270-Tastaturlayouts.</td>
     </tr>
     <tr>
       <td><code>DOM_VK_WIN_OEM_CLEAR</code></td>
       <td>0xFE (254)</td>
       <td>
-        Löschen-Taste, aber wir sind uns nicht sicher über den Bedeutungsunterschied zu
-        <code>DOM_VK_CLEAR</code>.
+        Löschtaste, aber wir sind uns über den Bedeutungsunterschied zu
+        <code>DOM_VK_CLEAR</code> nicht sicher.
       </td>
     </tr>
   </tbody>
@@ -2081,29 +2070,25 @@ Gecko definiert viele `keyCode`-Werte in `KeyboardEvent`, um die Zuordnungstabel
 ## Beispiele
 
 ```js
-window.addEventListener(
-  "keydown",
-  (event) => {
-    if (event.defaultPrevented) {
-      return; // Should do nothing if the default action has been cancelled
-    }
+window.addEventListener("keydown", (event) => {
+  if (event.defaultPrevented) {
+    return; // Should do nothing if the default action has been cancelled
+  }
 
-    let handled = false;
-    if (event.key !== undefined) {
-      // Handle the event with KeyboardEvent.key
-      handled = true;
-    } else if (event.keyCode !== undefined) {
-      // Handle the event with KeyboardEvent.keyCode
-      handled = true;
-    }
+  let handled = false;
+  if (event.key !== undefined) {
+    // Handle the event with KeyboardEvent.key
+    handled = true;
+  } else if (event.keyCode !== undefined) {
+    // Handle the event with KeyboardEvent.keyCode
+    handled = true;
+  }
 
-    if (handled) {
-      // Suppress "double action" if event handled
-      event.preventDefault();
-    }
-  },
-  true,
-);
+  if (handled) {
+    // Suppress "double action" if event handled
+    event.preventDefault();
+  }
+});
 ```
 
 ## Spezifikationen
@@ -2116,8 +2101,8 @@ window.addEventListener(
 
 ### OEM-spezifische Tasten auf Windows
 
-Unter Windows sind einige Werte der virtuellen Tastencodes für OEM-spezifische Tasten definiert (reserviert). Sie sind für spezielle Tasten auf nicht standardmäßigen Tastaturen verfügbar. Mit anderen Worten, einige Werte werden von zwei oder mehr Herstellern (oder Hardware) für unterschiedliche Bedeutungen verwendet.
+Unter Windows sind einige Werte des virtuellen Tastencodes für OEM-spezifische Tasten definiert (reserviert). Sie sind für spezielle Tasten auf nicht standardmäßigen Tastaturen verfügbar. In anderen Worten, einige Werte werden von zwei oder mehr Anbietern (oder Hardware) für unterschiedliche Bedeutungen verwendet.
 
-Ab Gecko 21 (und älter als 15) sind OEM-spezifische Tastencodes nur auf der `keyCode`-Eigenschaft unter Windows verfügbar. Daher sind sie für gewöhnliche Webanwendungen nicht nützlich. Sie sind nur nützlich für Intranet-Anwendungen oder in ähnlichen Situationen.
+Ab Gecko 21 (und älter als 15) sind OEM-spezifische Tastenwerte nur unter Windows im `keyCode`-Attribut verfügbar. Daher sind sie nicht nützlich für übliche Webanwendungen. Sie sind nur für Intranetanwendungen oder in ähnlichen Situationen nützlich.
 
-Details finden Sie unter "[Manufacturer-specific Virtual-Key Codes (Windows CE 5.0)](<https://learn.microsoft.com/en-us/previous-versions/windows/embedded/aa452679(v=msdn.10)>)" in MSDN.
+Siehe "[Herstellerspezifische virtuelle Tasten-Codes (Windows CE 5.0)](<https://learn.microsoft.com/en-us/previous-versions/windows/embedded/aa452679(v=msdn.10)>)" in MSDN für weitere Details.

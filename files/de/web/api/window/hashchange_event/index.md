@@ -1,16 +1,16 @@
 ---
-title: "Window: hashchange Ereignis"
+title: "Fenster: hashchange-Ereignis"
 short-title: hashchange
 slug: Web/API/Window/hashchange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
 ---
 
 {{APIRef}}
 
-Das **`hashchange`**-Ereignis wird ausgelöst, wenn sich der Fragment-Identifikator der URL geändert hat (der Teil der URL, der mit dem `#`-Symbol beginnt und darauf folgt).
+Das **`hashchange`**-Ereignis wird ausgelöst, wenn sich der Fragmentbezeichner der URL geändert hat (der Teil der URL, der mit dem `#`-Symbol beginnt und darauf folgt).
 
-Dieses Ereignis wird nicht ausgelöst, wenn der Hash mittels [`history.pushState()`](/de/docs/Web/API/History/pushState) oder [`history.replaceState()`](/de/docs/Web/API/History/replaceState) modifiziert wird.
+Dieses Ereignis wird nicht ausgelöst, wenn der Hash mit [`history.pushState()`](/de/docs/Web/API/History/pushState) oder [`history.replaceState()`](/de/docs/Web/API/History/replaceState) modifiziert wird.
 
 ## Syntax
 
@@ -31,11 +31,11 @@ Ein [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent). Erbt von [`Event`](/d
 ## Ereigniseigenschaften
 
 - [`HashChangeEvent.newURL`](/de/docs/Web/API/HashChangeEvent/newURL) {{ReadOnlyInline}}
-  - : Ein String, der die neue URL repräsentiert, zu der das Fenster navigiert.
+  - : Ein Zeichenfolgenwert, der die neue URL darstellt, zu der das Fenster navigiert.
 - [`HashChangeEvent.oldURL`](/de/docs/Web/API/HashChangeEvent/oldURL) {{ReadOnlyInline}}
-  - : Ein String, der die vorherige URL repräsentiert, von der das Fenster navigiert wurde.
+  - : Ein Zeichenfolgenwert, der die vorherige URL darstellt, von der das Fenster navigiert wurde.
 
-## Ereignis-Handler-Alternativen
+## Ereignis-Handler-Aliase
 
 Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `onhashchange` auch auf den folgenden Zielen verfügbar:
 
@@ -48,13 +48,9 @@ Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `onh
 Sie können das `hashchange`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
-window.addEventListener(
-  "hashchange",
-  () => {
-    console.log("The hash has changed!");
-  },
-  false,
-);
+window.addEventListener("hashchange", () => {
+  console.log("The hash has changed!");
+});
 ```
 
 Oder verwenden Sie die `onhashchange`-Ereignis-Handler-Eigenschaft:
@@ -79,4 +75,4 @@ window.onhashchange = locationHashChanged;
 
 ## Siehe auch
 
-- [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignis
+- [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis

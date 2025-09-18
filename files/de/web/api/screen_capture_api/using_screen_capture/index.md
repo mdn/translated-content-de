@@ -1,20 +1,20 @@
 ---
-title: VerwendunHder Screen Capture API
+title: Verwendung der Screen Capture API
 slug: Web/API/Screen_Capture_API/Using_Screen_Capture
 l10n:
-  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
+  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
 ---
 
 {{DefaultAPISidebar("Screen Capture API")}}
 
-In diesem Artikel werden wir untersuchen, wie die Screen Capture API und ihre Methode [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) verwendet werden, um Teile oder den gesamten Bildschirm für das Streaming, Aufnahme oder Teilen während einer [WebRTC](/de/docs/Web/API/WebRTC_API)-Konferenzsitzung zu erfassen.
+In diesem Artikel werden wir untersuchen, wie die Screen Capture API und ihre Methode [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) verwendet werden können, um einen Teil oder den gesamten Bildschirm für das Streaming, die Aufnahme oder das Teilen während einer [WebRTC](/de/docs/Web/API/WebRTC_API)-Konferenzsitzung zu erfassen.
 
 > [!NOTE]
-> Es kann nützlich sein zu beachten, dass neuere Versionen des [WebRTC adapter.js shim](https://github.com/webrtcHacks/adapter) Implementierungen von `getDisplayMedia()` beinhalten, um Bildschirmfreigabe in Browsern zu ermöglichen, die es unterstützen, aber die aktuelle Standard-API nicht implementieren. Dies funktioniert mindestens mit Chrome, Edge und Firefox.
+> Es kann nützlich sein, darauf hinzuweisen, dass neuere Versionen des [WebRTC adapter.js shims](https://github.com/webrtcHacks/adapter) Implementierungen von `getDisplayMedia()` enthalten, um Bildschirmfreigabe in Browsern zu ermöglichen, die es unterstützen, aber die aktuelle Standard-API nicht implementieren. Dies funktioniert mindestens mit Chrome, Edge und Firefox.
 
-## Erfassen von Bildschirminhalten
+## Erfassen von Bildschirm-Inhalten
 
-Das Erfassen von Bildschirminhalten als Live-[`MediaStream`](/de/docs/Web/API/MediaStream) wird durch Aufruf von [`navigator.mediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) initiiert, welches ein Versprechen zurückgibt, das zu einem Stream auflöst, der die Live-Bildschirminhalte enthält. Das im unten stehenden Beispiel referenzierte Objekt `displayMediaOptions` könnte folgendermaßen aussehen:
+Das Erfassen von Bildschirm-Inhalten als live [`MediaStream`](/de/docs/Web/API/MediaStream) wird durch den Aufruf von [`navigator.mediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) initiiert, der ein Promise zurückgibt, das zu einem Stream aufgelöst wird, der die live Bildschirm-Inhalte enthält. Das `displayMediaOptions` Objekt, das in den folgenden Beispielen referenziert wird, könnte in etwa so aussehen:
 
 ```js
 const displayMediaOptions = {
@@ -32,7 +32,7 @@ const displayMediaOptions = {
 };
 ```
 
-### Starten der Bildschirmaufnahme: `async`/`await`-Stil
+### Starten der Bildschirmaufnahme: `async`/`await` Stil
 
 ```js
 async function startCapture(displayMediaOptions) {
@@ -48,9 +48,9 @@ async function startCapture(displayMediaOptions) {
 }
 ```
 
-Sie können diesen Code entweder unter Verwendung einer asynchronen Funktion und des [`await`](/de/docs/Web/JavaScript/Reference/Operators/await)-Operators schreiben, wie oben gezeigt, oder das {{jsxref("Promise")}} direkt verwenden, wie unten zu sehen.
+Sie können diesen Code entweder unter Verwendung einer asynchronen Funktion und des [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) Operators, wie oben gezeigt, oder durch direkte Verwendung des {{jsxref("Promise")}} schreiben, wie unten zu sehen.
 
-### Starten der Bildschirmaufnahme: `Promise`-Stil
+### Starten der Bildschirmaufnahme: `Promise` Stil
 
 ```js
 function startCapture(displayMediaOptions) {
@@ -63,49 +63,49 @@ function startCapture(displayMediaOptions) {
 }
 ```
 
-In beiden Fällen reagiert der {{Glossary("user_agent", "User-Agent")}}, indem er eine Benutzeroberfläche präsentiert, die den Benutzer auffordert, den zu teilenden Bildschirmbereich auszuwählen. Beide Implementierungen von `startCapture()` geben den [`MediaStream`](/de/docs/Web/API/MediaStream) zurück, der die erfassten Displaybilder enthält.
+Unabhängig von der Methode präsentiert der {{Glossary("user_agent", "User Agent")}} eine Benutzeroberfläche, die den Benutzer dazu auffordert, den Bildschirmbereich auszuwählen, der geteilt werden soll. Beide Implementierungen von `startCapture()` geben den [`MediaStream`](/de/docs/Web/API/MediaStream) zurück, der die aufgenommenen Display-Bilder enthält.
 
-Siehe [Optionen und Einschränkungen](#optionen_und_einschränkungen) weiter unten, um mehr über die Spezifizierung des gewünschten Oberflächentyps sowie andere Anpasungsmöglichkeiten für den resultierenden Stream zu erfahren.
+Siehe [Optionen und Einschränkungen](#optionen_und_einschränkungen) unten für weitere Informationen darüber, wie Sie den Typ der Oberfläche spezifizieren können, den Sie möchten, sowie andere Methoden, um den resultierenden Stream anzupassen.
 
-### Beispiel eines Fensters, das dem Benutzer erlaubt, eine Display-Oberfläche zur Aufnahme auszuwählen
+### Beispiel eines Fensters, das dem Benutzer die Auswahl einer zu erfassenden Anzeigeoberfläche ermöglicht
 
 ![Screenshot von Chromes Fenster zur Auswahl einer Quelloberfläche](chrome-screen-capture-window.png)
 
-Sie können dann den erfassten Stream, `captureStream`, für alles verwenden, was einen Stream als Eingabe akzeptiert. Die [Beispiele](#beispiele) unten zeigen einige Möglichkeiten, den Stream zu nutzen.
+Anschließend können Sie den erfassten Stream `captureStream` für alles verwenden, was einen Stream als Eingabe akzeptiert. Die [Beispiele](#beispiele) unten zeigen einige Möglichkeiten zur Verwendung des Streams.
 
-### Sichtbare vs. logische Display-Oberflächen
+### Sichtbare vs. logische Anzeigeoberflächen
 
-Für die Zwecke der Screen Capture API ist eine **Display-Oberfläche** jedes Inhaltsobjekt, das für Freigabezwecke von der API ausgewählt werden kann. Freigabeoberflächen beinhalten den Inhalt eines Browser-Tabs, eines gesamten Fensters und eines Monitors (oder einer Gruppe von Monitoren, die zu einer Oberfläche kombiniert werden).
+Für die Zwecke der Screen Capture API ist eine **Anzeigeoberfläche** jedes Inhaltsobjekt, das von der API für Freigabezwecke ausgewählt werden kann. Freigabeoberflächen umfassen die Inhalte eines Browser-Tabs, eines vollständigen Fensters und eines Monitors (oder einer Gruppe von Monitoren, die zu einer Oberfläche kombiniert werden).
 
-Es gibt zwei Arten von Display-Oberflächen. Eine **sichtbare Display-Oberfläche** ist eine Oberfläche, die vollständig auf dem Bildschirm sichtbar ist, wie z.B. das vorderste Fenster oder Tab oder der gesamte Bildschirm.
+Es gibt zwei Arten von Anzeigeoberflächen. Eine **sichtbare Anzeigeoberfläche** ist eine Oberfläche, die auf dem Bildschirm vollständig sichtbar ist, wie das vorderste Fenster oder Tab oder der gesamte Bildschirm.
 
-Eine **logische Display-Oberfläche** ist eine, die teilweise oder vollständig verdeckt ist, entweder indem sie zu einem gewissen Grad durch ein anderes Objekt überlappt wird oder indem sie vollständig versteckt oder außerhalb des Bildschirms ist. Wie diese von der Screen Capture API behandelt werden, variiert. Im Allgemeinen wird der Browser ein Bild bereitstellen, das den verdeckten Teil der logischen Display-Oberfläche in irgendeiner Weise verdeckt, zum Beispiel durch Unschärfe oder Ersetzen durch eine Farbe oder ein Muster. Dies wird aus Sicherheitsgründen gemacht, da Inhalte, die der Benutzer nicht sehen kann, Daten enthalten können, die er nicht teilen möchte.
+Eine **logische Anzeigeoberfläche** ist eine, die teilweise oder vollständig verdeckt ist, entweder durch Überlappung mit einem anderen Objekt oder indem sie vollständig verborgen oder außerhalb des Bildschirms ist. Wie diese von der Screen Capture API behandelt werden, variiert. Im Allgemeinen liefert der Browser ein Bild, das den verborgenen Teil der logischen Anzeigeoberfläche in irgendeiner Weise verdeckt, z. B. durch Unschärfe oder Ersetzen durch eine Farbe oder ein Muster. Dies geschieht aus Sicherheitsgründen, da der Inhalt, der vom Benutzer nicht gesehen werden kann, Daten enthalten kann, die er nicht teilen möchte.
 
-Ein User-Agent könnte die Erfassung des gesamten Inhalts eines verdeckten Fensters auch nach Erhalt der Erlaubnis des Benutzers zulassen. In diesem Fall könnte der User-Agent den verdeckten Inhalt entweder durch Abfragen der aktuellen Inhalte des verdeckten Fensterteils einbeziehen oder, falls die aktuellen Inhalte nicht verfügbar sind, die zuletzt sichtbaren Inhalte darstellen.
+Ein User Agent könnte die Erfassung des gesamten Inhalts eines verdeckten Fensters erlauben, nachdem er die Erlaubnis des Benutzers erhalten hat. In diesem Fall kann der User Agent den verdeckten Inhalt einbeziehen, entweder durch Abrufen der aktuellen Inhalte des verborgenen Teils des Fensters oder durch Präsentation der zuletzt sichtbaren Inhalte, wenn die aktuellen Inhalte nicht verfügbar sind.
 
 ### Optionen und Einschränkungen
 
-Das an [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) übergebene Optionsobjekt wird verwendet, um Optionen für den resultierenden Stream festzulegen.
+Das in [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) übergebene Optionsobjekt wird verwendet, um Optionen für den resultierenden Stream festzulegen.
 
-Die in das Optionsobjekt übergebenen `video`- und `audio`-Objekte können auch zusätzliche Einschränkungen für diese Medienspuren enthalten. Siehe [Eigenschaften von freigegebenen Bildschirmspuren](/de/docs/Web/API/MediaTrackConstraints#instance_properties_of_shared_screen_tracks) für Details zu zusätzlichen Einschränkungen zur Konfiguration eines Bildschirmaufnahme-Streams, die zu [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints), [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints) und [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings) hinzugefügt wurden.
+Die `video` und `audio` Objekte, die in das Optionsobjekt übergeben werden, können auch zusätzliche Einschränkungen für diese Medienspuren enthalten. Siehe [Eigenschaften von freigegebenen Bildschirmschienen](/de/docs/Web/API/MediaTrackConstraints#instance_properties_of_shared_screen_tracks) für Details zu zusätzlichen Einschränkungen zur Konfiguration eines Bildschirmaufnahme-Streams, die zu [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints), [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints) und [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings) hinzugefügt werden.
 
-Keine der Einschränkungen werden in irgendeiner Weise angewendet, bis der zu erfassende Inhalt ausgewählt wurde. Die Einschränkungen verändern, was Sie im resultierenden Stream sehen. Beispielsweise wird eine Einschränkung der [`width`](/de/docs/Web/API/MediaTrackConstraints/width) für das Video durch Skalierung des Videos nach Auswahl des Bereichs zur Freigabe angewendet. Sie stellt keine Einschränkung der tatsächlichen Größe der Quelle dar.
-
-> [!NOTE]
-> Einschränkungen führen _niemals_ zu Änderungen an der Liste der durch die Screen Sharing API verfügbaren Quellen. Dies stellt sicher, dass Webanwendungen die Benutzer nicht zwingen können, spezifische Inhalte zu teilen, indem sie die Quellliste einschränken, bis nur noch ein Element übrig ist.
-
-Während eine Bildschirmfreigabe aktiv ist, zeigt die Maschine, die Bildschirminhalte teilt, eine Form von Indikator an, damit der Benutzer weiß, dass eine Freigabe stattfindet.
+Keine der Einschränkungen wird in irgendeiner Weise angewendet, bis der Inhalt zur Erfassung ausgewählt wurde. Die Einschränkungen ändern, was Sie im resultierenden Stream sehen. Beispielsweise wird, wenn Sie eine [`width`](/de/docs/Web/API/MediaTrackConstraints/width) Einschränkung für das Video angeben, diese angewendet, indem das Video skaliert wird, nachdem der Benutzer den zu teilenden Bereich ausgewählt hat. Es stellt keine Einschränkung für die Größe der Quelle selbst dar.
 
 > [!NOTE]
-> Aus Datenschutz- und Sicherheitsgründen sind Bildschirmfreigabequellen nicht mit [`enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) auflistbar. In Zusammenhang damit wird das [`devicechange`](/de/docs/Web/API/MediaDevices/devicechange_event)-Ereignis nie gesendet, wenn es Änderungen an den für `getDisplayMedia()` verfügbaren Quellen gibt.
+> Einschränkungen verändern _niemals_ die Liste der von der Screen Sharing API zur Erfassung verfügbaren Quellen. Dies stellt sicher, dass Webanwendungen den Benutzer nicht zwingen können, spezifische Inhalte durch Einschränkung der Quellliste zu teilen, bis nur noch ein Element übrig bleibt.
 
-### Erfassen von freigegebenem Audio
+Während die Display-Aufnahme aktiv ist, zeigt die Maschine, die die Bildschirm-Inhalte teilt, eine Art von Indikator an, damit der Benutzer weiß, dass die Freigabe stattfindet.
 
-[`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) wird meist verwendet, um Video des Benutzerbildschirms (oder Teile davon) zu erfassen. Jedoch können {{Glossary("user_agent", "User-Agents")}} erlauben, dass Audio zusammen mit dem Videoinhalt erfasst wird. Die Quelle dieses Audios könnte das ausgewählte Fenster sein, das gesamte Audiosystem des Computers oder das Mikrofon des Benutzers (oder eine Kombination all dessen).
+> [!NOTE]
+> Aus Datenschutz- und Sicherheitsgründen sind Bildschirmfreigabequellen nicht durch [`enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) auflistbar. In verwandtem Zusammenhang wird das [`devicechange`](/de/docs/Web/API/MediaDevices/devicechange_event) Ereignis niemals gesendet, wenn sich die verfügbaren Quellen für `getDisplayMedia()` ändern.
 
-Bevor Sie ein Projekt starten, das die Freigabe von Audio erfordert, sollten Sie die [Browser-Kompatibilität](/de/docs/Web/API/MediaDevices/getDisplayMedia#browser_compatibility) von `getDisplayMedia()` überprüfen, um zu sehen, ob die Browser, mit denen Sie kompatibel sein möchten, Unterstützung für Audio in erfassten Bildschirmstreams bieten.
+### Erfassen von gemeinsam genutztem Audio
 
-Um zu beantragen, dass der Bildschirm mit eingeschlossenem Audio freigegeben wird, könnten die an `getDisplayMedia()` übergebenen Optionen folgendermaßen aussehen:
+[`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) wird am häufigsten verwendet, um Video des Bildschirms eines Benutzers (oder Teile davon) zu erfassen. Jedoch können {{Glossary("user_agent", "User Agents")}} auch das Erfassen von Audio zusammen mit dem Videoinhalt ermöglichen. Die Quelle dieses Audios könnte das ausgewählte Fenster, das gesamte Audiosystem des Computers oder das Mikrofon des Benutzers sein (oder eine Kombination all dessen).
+
+Bevor Sie ein Projekt starten, das die Freigabe von Audio erfordert, sollten Sie die [Browser-Kompatibilität](/de/docs/Web/API/MediaDevices/getDisplayMedia#browser_compatibility) von `getDisplayMedia()` überprüfen, um festzustellen, ob die von Ihnen gewünschten Browser Unterstützung für Audio in erfassten Bildschirm-Streams bieten.
+
+Um zu verlangen, dass der Bildschirm mit enthaltenem Audio geteilt wird, könnten die in `getDisplayMedia()` übergebenen Optionen so aussehen:
 
 ```js
 const displayMediaOptions = {
@@ -114,7 +114,7 @@ const displayMediaOptions = {
 };
 ```
 
-Dies ermöglicht dem Benutzer die vollkommene Freiheit, auszuwählen, was immer er möchte, innerhalb der Grenzen dessen, was der User-Agent unterstützt. Dies könnte weiter verfeinert werden, indem zusätzliche Optionen und Einschränkungen in den `audio`- und `video`-Objekten spezifiziert werden:
+Dies erlaubt dem Benutzer völlige Freiheit, auszuwählen, was er möchte, innerhalb der Grenzen dessen, was der User Agent unterstützt. Dies könnte weiter verfeinert werden, indem zusätzliche Optionen und Einschränkungen innerhalb der `audio` und `video` Objekte spezifiziert werden:
 
 ```js
 const displayMediaOptions = {
@@ -133,49 +133,49 @@ const displayMediaOptions = {
 };
 ```
 
-In diesem Beispiel soll die erfasste Display-Oberfläche das ganze Fenster sein. Die Audiospur sollte idealerweise Rauschunterdrückungs- und Echounterdrückungsmerkmale aktiviert haben, sowie eine ideale Audio-Samplerate von 44,1 kHz und eine Unterdrückung der lokalen Audiowiedergabe.
+In diesem Beispiel soll die gesamte Fensteroberfläche erfasst werden. Die Audiospur sollte idealerweise die Funktionen zur Geräuschunterdrückung und Echo-Reduzierung aktiviert haben, sowie eine ideale Audio-Sample-Rate von 44,1kHz und die Unterdrückung der lokalen Audiowiedergabe.
 
-Zusätzlich deutet die App dem User-Agent an, dass er:
+Zusätzlich gibt die App dem User Agent folgende Hinweise:
 
-- Eine Steuerung während der Bildschirmfreigabe bereitstellen soll, um dem Benutzer das dynamische Wechseln des freigegebenen Tabs zu ermöglichen.
-- Den aktuellen Tab in der Liste der Optionen auszublenden, die dem Benutzer bei Anfrage der Aufnahme präsentiert werden.
-- Das Systemaudio nicht zu den möglichen Audiosquellen zählen soll, die dem Benutzer angeboten werden.
+- Während der Bildschirmfreigabe eine Steuerung bereitzustellen, die es dem Benutzer ermöglicht, dynamisch den freigegebenen Tab zu wechseln.
+- Den aktuellen Tab aus der Liste der dem Benutzer präsentierten Optionen auszublenden, wenn die Erfassung angefordert wird.
+- Das Systemaudio nicht unter den dem Benutzer angebotenen möglichen Audioquellen einzuschließen.
 
-Das Erfassen von Audio ist immer optional, und selbst wenn Web-Inhalte einen Stream mit sowohl Audio als auch Video anfordern, kann der zurückgegebene [`MediaStream`](/de/docs/Web/API/MediaStream) immer noch nur eine Videospur enthalten, ohne Audio.
+Das Erfassen von Audio ist immer optional, und selbst wenn Webinhalte einen Stream mit sowohl Audio- als auch Videoanfragen, kann der zurückgegebene [`MediaStream`](/de/docs/Web/API/MediaStream) dennoch nur einen Video-Track ohne Audio enthalten.
 
 ## Nutzung des erfassten Streams
 
-Das von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) zurückgegebene {{jsxref("promise")}} löst sich zu einem [`MediaStream`](/de/docs/Web/API/MediaStream) auf, der mindestens einen Videostream enthält, der den Bildschirm oder einen Bildschirmbereich enthält, und der basierend auf den beim Aufruf von `getDisplayMedia()` angegebenen Einschränkungen angepasst oder gefiltert wurde.
+Das von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) zurückgegebene {{jsxref("promise")}} wird zu einem [`MediaStream`](/de/docs/Web/API/MediaStream) aufgelöst, das mindestens einen Videostream enthält, der den Bildschirm oder den Bildschirmbereich umfasst, und der basierend auf den spezifizierten Einschränkungen angepasst oder gefiltert wird, als `getDisplayMedia()` aufgerufen wurde.
 
 ### Potenzielle Risiken
 
-Datenschutz- und Sicherheitsprobleme im Zusammenhang mit der Bildschirmfreigabe sind meist nicht übermäßig ernst, aber sie existieren. Das größte potenzielle Problem ist, dass Benutzer ungewollt Inhalte teilen, die sie nicht teilen wollten.
+Datenschutz- und Sicherheitsprobleme im Zusammenhang mit der Bildschirmfreigabe sind in der Regel nicht übermäßig ernst, aber sie existieren. Das größte mögliche Problem ist, dass Benutzer unbeabsichtigt Inhalte freigeben, die sie nicht teilen möchten.
 
-Zum Beispiel können Datenschutz- und/oder sicherheitsverletzungen leicht auftreten, wenn der Benutzer seinen Bildschirm teilt und ein sichtbares Hintergrundfenster zufällig persönliche Informationen enthält oder wenn sein Passwortmanager im freigegebenen Stream sichtbar ist. Dieser Effekt kann verstärkt werden, wenn logische Display-Oberflächen erfasst werden, die möglicherweise Inhalte enthalten, von denen der Benutzer überhaupt nichts weiß.
+Zum Beispiel können Datenschutz- und/oder Sicherheitsverletzungen leicht auftreten, wenn der Benutzer seinen Bildschirm teilt und ein sichtbares Hintergrundfenster zufällig persönliche Informationen enthält, oder wenn ihr Passwort-Manager im freigegebenen Stream sichtbar ist. Dieser Effekt kann verstärkt werden, wenn logische Anzeigeoberflächen erfasst werden, die Inhalte enthalten können, von denen der Benutzer nicht einmal weiß, geschweige denn sieht.
 
-User-Agents, die Datenschutz ernst nehmen, sollten Inhalte, die tatsächlich nicht auf dem Bildschirm sichtbar sind, verschleiern, es sei denn, es wurde eine Genehmigung zur Freigabe dieser Inhalte explizit erteilt.
+User Agents, die Datenschutz ernst nehmen, sollten Inhalte, die tatsächlich nicht auf dem Bildschirm sichtbar sind, verschleiern, es sei denn, es wurde die Berechtigung erteilt, diese Inhalte spezifisch zu teilen.
 
-### Genehmigung zur Erfassung von Display-Inhalten
+### Autorisierung der Erfassung von Display-Inhalten
 
-Bevor das Streaming der erfassten Bildschirminhalte beginnen kann, wird der {{Glossary("user_agent", "User-Agent")}} den Benutzer bitten, die Freigabeanfrage zu bestätigen und die zu teilenden Inhalte auszuwählen.
+Bevor das Streaming der erfassten Bildschirm-Inhalte beginnen kann, wird der {{Glossary("user_agent", "User Agent")}} den Benutzer bitten, die Freigabeanfrage zu bestätigen und den Inhalt auszuwählen, der geteilt werden soll.
 
 ## Beispiele
 
-### Streaming der Bildschirmaufnahme
+### Streamen der Bildschirmaufnahme
 
-In diesem Beispiel werden die Inhalte des erfassten Bildschirmbereichs in ein {{HTMLElement("video")}}-Element auf derselben Seite gestreamt.
+In diesem Beispiel werden die Inhalte des erfassten Bildschirmbereichs in ein {{HTMLElement("video")}} Element auf derselben Seite gestreamt.
 
 #### JavaScript
 
-Es ist nicht viel Code erforderlich, um dies zu bewerkstelligen, und wenn Sie mit der Verwendung von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) zur Erfassung von Video von einer Kamera vertraut sind, wird Ihnen [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) sehr vertraut vorkommen.
+Es ist nicht viel Code erforderlich, um dies zu realisieren, und wenn Sie mit der Verwendung von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) zur Erfassung von Video von einer Kamera vertraut sind, wird Ihnen [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) sehr vertraut erscheinen.
 
 ##### Einrichtung
 
-Zuerst werden einige Konstanten eingerichtet, um die Elemente auf der Seite zu referenzieren, auf die wir Zugriff benötigen: das {{HTMLElement("video")}}, in das die erfassten Bildschirminhalte gestreamt werden sollen, ein Bereich, in den Protokollausgaben gezeichnet werden, und die Start- und Stopp-Schaltflächen, die das Ein- und Ausschalten der Bildaufnahme steuern.
+Zuerst werden einige Konstanten eingerichtet, um auf die Elemente der Seite zu verweisen, auf die wir Zugriff benötigen: das {{HTMLElement("video")}}, in welches die erfassten Bildschirm-Inhalte gestreamt werden, ein Kasten, in den protokollierte Ausgaben gezeichnet werden, sowie die Start- und Stop-Tasten, die die Erfassung von Bildschirmbildern ein- und ausschalten.
 
-Das Objekt `displayMediaOptions` enthält die Optionen, die an `getDisplayMedia()` übergeben werden; hier wird die [`displaySurface`](/de/docs/Web/API/MediaTrackConstraints/displaySurface)-Eigenschaft auf `window` gesetzt, um anzugeben, dass das gesamte Fenster erfasst werden soll.
+Das Objekt `displayMediaOptions` enthält die Optionen, die an `getDisplayMedia()` übergeben werden sollen. In diesem Fall gibt die [`displaySurface`](/de/docs/Web/API/MediaTrackConstraints/displaySurface) Eigenschaft `window` an, was bedeutet, dass das gesamte Fenster erfasst werden soll.
 
-Schließlich werden Ereignislistener eingerichtet, um Benutzerklicks auf die Start- und Stopp-Schaltflächen zu erkennen.
+Schließlich werden Ereignis-Listener eingerichtet, um Benutzer-Klicks auf die Start- und Stop-Tasten zu erkennen.
 
 ```js
 const videoElem = document.getElementById("video");
@@ -193,26 +193,18 @@ const displayMediaOptions = {
 };
 
 // Set event listeners for the start and stop buttons
-startElem.addEventListener(
-  "click",
-  (evt) => {
-    startCapture();
-  },
-  false,
-);
+startElem.addEventListener("click", (evt) => {
+  startCapture();
+});
 
-stopElem.addEventListener(
-  "click",
-  (evt) => {
-    stopCapture();
-  },
-  false,
-);
+stopElem.addEventListener("click", (evt) => {
+  stopCapture();
+});
 ```
 
 ##### Protokollierung von Inhalten
 
-Dieses Beispiel überschreibt bestimmte Methoden von [`console`](/de/docs/Web/API/console), um deren Nachrichten in den {{HTMLElement("pre")}}-Block zu leiten, dessen ID `log` ist.
+Dieses Beispiel überschreibt bestimmte [`console`](/de/docs/Web/API/console) Methoden, um ihre Nachrichten in den {{HTMLElement("pre")}} Block auszugeben, dessen ID `log` ist.
 
 ```js
 console.log = (msg) => (logElem.textContent = `${logElem.textContent}\n${msg}`);
@@ -220,11 +212,11 @@ console.error = (msg) =>
   (logElem.textContent = `${logElem.textContent}\nError: ${msg}`);
 ```
 
-Dies ermöglicht es uns, [`console.log()`](/de/docs/Web/API/console/log_static) und [`console.error()`](/de/docs/Web/API/console/error_static) zu verwenden, um Informationen in das Protokollfeld im Dokument zu schreiben.
+Damit können wir [`console.log()`](/de/docs/Web/API/console/log_static) und [`console.error()`](/de/docs/Web/API/console/error_static) verwenden, um Informationen in die Logfeld im Dokument zu protokollieren.
 
-##### Starten der Bildschirmaufnahme
+##### Starten der Display-Erfassung
 
-Die Methode `startCapture()` unten startet die Erfassung eines [`MediaStream`](/de/docs/Web/API/MediaStream), dessen Inhalte aus einem vom Benutzer ausgewählten Bereich des Bildschirms stammen. `startCapture()` wird aufgerufen, wenn die "Start Capture"-Schaltfläche geklickt wird.
+Die `startCapture()` Methode startet die Erfassung eines [`MediaStream`](/de/docs/Web/API/MediaStream), dessen Inhalte aus einem vom Benutzer ausgewählten Bereich des Bildschirms entnommen werden. `startCapture()` wird aufgerufen, wenn die Schaltfläche "Start Capture" angeklickt wird.
 
 ```js
 async function startCapture() {
@@ -240,17 +232,17 @@ async function startCapture() {
 }
 ```
 
-Nach dem Löschen der Inhalte des Protokolls, um eventuelle verbleibende Texte vom vorherigen Verbindungsversuch zu entfernen, ruft `startCapture()` [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) auf, wobei das durch `displayMediaOptions` definierte Einschränkungsobjekt übergeben wird. Unter Verwendung von {{jsxref("Operators/await", "await")}} wird die folgende Codezeile erst ausgeführt, nachdem das von `getDisplayMedia()` zurückgegebene {{jsxref("promise")}} aufgelöst wurde. Nach der Auflösung gibt das Versprechen einen [`MediaStream`](/de/docs/Web/API/MediaStream) zurück, der die Inhaltsströme des Bildschirms, Fensters oder eines anderen vom Benutzer ausgewählten Bereichs enthält.
+Nach dem Löschen der Inhalte des Protokolls, um etwaigen Resttext vom vorherigen Verbindungsversuch zu beseitigen, ruft `startCapture()` [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) auf und übergibt dabei das durch `displayMediaOptions` definierte Einschränkungsobjekt. Durch die Verwendung von {{jsxref("Operators/await", "await")}} wird die folgende Codezeile erst ausgeführt, nachdem das durch `getDisplayMedia()` zurückgegebene {{jsxref("promise")}} aufgelöst wurde. Nach der Auflösung gibt das Promise einen [`MediaStream`](/de/docs/Web/API/MediaStream) zurück, der die Inhalte des Bildschirms, Fensters oder eines anderen vom Benutzer ausgewählten Bereichs streamt.
 
-Der Stream wird mit dem {{HTMLElement("video")}}-Element verbunden, indem der zurückgegebene `MediaStream` in das [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Element des Videos gespeichert wird.
+Der Stream wird mit dem {{HTMLElement("video")}} Element verbunden, indem der zurückgegebene `MediaStream` in das [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject) des Elements gespeichert wird.
 
-Die `dumpOptionsInfo()`-Funktion, die wir gleich anschauen werden, gibt Informationen über den Stream in das Protokollfeld aus, zu Ausbildungszwecken.
+Die `dumpOptionsInfo()` Funktion — die wir uns gleich ansehen werden — gibt Informationen über den Stream in das Protokollfeld aus, zu Bildungszwecken.
 
-Falls einer dieser Schritte fehlschlägt, gibt die [`catch()`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Klausel eine Fehlermeldung in das Protokollfeld aus.
+Wenn irgendetwas davon fehlschlägt, gibt die [`catch()`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) Klausel eine Fehlermeldung in das Protokollfeld aus.
 
-##### Beenden der Bildschirmaufnahme
+##### Beenden der Display-Erfassung
 
-Die Methode `stopCapture()` wird aufgerufen, wenn die "Stop Capture"-Schaltfläche geklickt wird. Sie stoppt den Stream, indem sie seine Spur-Liste mit [`MediaStream.getTracks()`](/de/docs/Web/API/MediaStream/getTracks) abruft und dann die [`stop()`](/de/docs/Web/API/MediaStreamTrack/stop)-Methode jeder Spur aufruft. Danach wird `srcObject` auf `null` gesetzt, um zu verdeutlichen, dass kein Stream verbunden ist.
+Die `stopCapture()` Methode wird aufgerufen, wenn die Schaltfläche "Stop Capture" angeklickt wird. Sie stoppt den Stream, indem sie seine Liste von Tracks mit [`MediaStream.getTracks()`](/de/docs/Web/API/MediaStream/getTracks) abruft und dann die [`stop()`](/de/docs/Web/API/MediaStreamTrack/stop) Methode jedes Tracks aufruft. Sobald das erledigt ist, wird `srcObject` auf `null` gesetzt, um sicherzustellen, dass jedem Interessierten klar ist, dass kein Stream verbunden ist.
 
 ```js
 function stopCapture(evt) {
@@ -263,7 +255,7 @@ function stopCapture(evt) {
 
 ##### Ausgabe von Konfigurationsinformationen
 
-Die oben gezeigte Methode `startCapture()` ruft zu Informationszwecken eine Methode namens `dumpOptions()` auf, die die aktuellen Spur-Einstellungen sowie die bei der Erstellung des Streams auferlegten Einschränkungen ausgibt.
+Der Informierungszwecke halber ruft die oben gezeigte `startCapture()` Methode eine Methode namens `dumpOptions()` auf, die die aktuellen Track-Einstellungen sowie die bei der Erstellung des Streams festgelegten Einschränkungen ausgibt.
 
 ```js
 function dumpOptionsInfo() {
@@ -276,11 +268,11 @@ function dumpOptionsInfo() {
 }
 ```
 
-Die Spurliste wird durch Aufruf von [`getVideoTracks()`](/de/docs/Web/API/MediaStream/getVideoTracks) auf dem erfassten Display-`MediaStream`(/de/docs/Web/API/MediaStream) erhalten. Die aktuell aktiven Einstellungen werden mit [`getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) abgefragt und die festgelegten Einschränkungen mit [`getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints).
+Die Track-Liste wird durch Aufrufen von [`getVideoTracks()`](/de/docs/Web/API/MediaStream/getVideoTracks) auf dem erfassten Bildschirm [`MediaStream`](/de/docs/Web/API/MediaStream) abgerufen. Die aktuell in Kraft befindlichen Einstellungen werden mit [`getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) und die festgelegten Einschränkungen mit [`getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints) erlangt.
 
 #### HTML
 
-Das HTML beginnt mit einem einführenden Absatz und geht dann in das Wesentliche über.
+Das HTML beginnt mit einem einleitenden Absatz und geht dann auf das Wesentliche ein.
 
 ```html
 <p>
@@ -302,16 +294,16 @@ Das HTML beginnt mit einem einführenden Absatz und geht dann in das Wesentliche
 <pre id="log"></pre>
 ```
 
-Die Schlüsselteile des HTMLs sind:
+Die wichtigsten Teile des HTML sind:
 
-1. Ein {{HTMLElement("button")}}, beschriftet mit "Start Capture", das beim Klicken die `startCapture()`-Funktion aufruft, um Zugriff auf die Bildschirminhalte zu beantragen und mit der Erfassung zu beginnen.
-2. Eine zweite Schaltfläche, "Stop Capture", die bei Klick `stopCapture()` aufruft, um die Erfassung der Bildschirminhalte zu beenden.
-3. Ein {{HTMLElement("video")}}, in das die erfassten Bildschirminhalte gestreamt werden.
-4. Ein {{HTMLElement("pre")}}-Block, in den Protokolltexte durch die abgefangene [`console`](/de/docs/Web/API/console)-Methode ausgegeben werden.
+1. Ein {{HTMLElement("button")}} mit der Aufschrift "Start Capture", der bei einem Klick die Funktion `startCapture()` aufruft, um den Zugriff anzufordern und die Bildschirm-Inhalte zu erfassen.
+2. Ein zweiter Button, "Stop Capture", der bei Klick `stopCapture()` aufruft, um die Erfassung der Bildschirm-Inhalte zu beenden.
+3. Ein {{HTMLElement("video")}}, in das die erfassten Bildschirm-Inhalte gestreamt werden.
+4. Ein {{HTMLElement("pre")}} Block, in den der vom abgefangenen [`console`](/de/docs/Web/API/console) method ausgegebene Text platziert wird.
 
 #### CSS
 
-Das CSS ist in diesem Beispiel rein kosmetisch. Das Video erhält einen Rahmen, und seine Breite wird so eingestellt, dass sie nahezu den gesamten verfügbaren horizontalen Raum ausfüllt (`width: 98%`). {{cssxref("max-width")}} ist auf `860px` gesetzt, um eine absolute Obergrenze für die Videogröße festzulegen,
+Das CSS ist in diesem Beispiel rein kosmetischer Natur. Das Video erhält einen Rahmen, und seine Breite wird so eingestellt, dass sie fast den gesamten verfügbaren horizontalen Raum einnimmt (`width: 98%`). {{cssxref("max-width")}} wird auf `860px` gesetzt, um eine absolute Obergrenze für die Größe des Videos festzulegen,
 
 ```css
 #video {
@@ -331,21 +323,21 @@ Das CSS ist in diesem Beispiel rein kosmetisch. Das Video erhält einen Rahmen, 
 
 #### Ergebnis
 
-Das Endprodukt sieht so aus. Wenn Ihr Browser die Screen Capture API unterstützt, zeigt ein Klick auf "Start Capture" die Benutzeroberfläche des {{Glossary("user_agent", "User-Agents")}}, um einen Bildschirm, ein Fenster oder einen Tab zur Freigabe auszuwählen.
+Das Endprodukt sieht so aus. Wenn Ihr Browser die Screen Capture API unterstützt, wird beim Klicken auf "Start Capture" die {{Glossary("user_agent", "Benutzeroberfläche")}} für die Auswahl eines Bildschirms, Fensters oder Tabs zum Teilen angezeigt.
 
 {{EmbedLiveSample("Streaming screen capture", 640, 800, "", "", "", "display-capture")}}
 
 ## Sicherheit
 
-Um zu funktionieren, wenn die [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) aktiviert ist, benötigen Sie die Berechtigung `display-capture`. Dies kann über den {{HTTPHeader("Permissions-Policy")}} {{Glossary("HTTP", "HTTP")}}-Header erfolgen oder — falls Sie die Screen Capture API in einem {{HTMLElement("iframe")}} verwenden, über das [`allow`](/de/docs/Web/HTML/Reference/Elements/iframe#allow)-Attribut des `<iframe>`-Elements.
+Um zu funktionieren, wenn [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) aktiviert ist, benötigen Sie die Berechtigung `display-capture`. Dies kann mit dem {{HTTPHeader("Permissions-Policy")}} {{Glossary("HTTP", "HTTP")}} Header oder – falls Sie die Screen Capture API in einem {{HTMLElement("iframe")}} verwenden – mit dem [`allow`](/de/docs/Web/HTML/Reference/Elements/iframe#allow) Attribut des `<iframe>` Elements erfolgen.
 
-Zum Beispiel würde diese Zeile in den HTTP-Headern die Screen Capture API für das Dokument und alle eingebetteten {{HTMLElement("iframe")}}-Elemente, die von derselben Quelle geladen werden, aktivieren:
+Zum Beispiel wird diese Zeile in den HTTP-Headern die Screen Capture API für das Dokument und alle eingebetteten {{HTMLElement("iframe")}} Elemente aktivieren, die vom selben Ursprung geladen werden:
 
 ```http
 Permissions-Policy: display-capture=(self)
 ```
 
-Wenn Sie die Bildschirmaufnahme innerhalb eines `<iframe>`s durchführen, können Sie die Berechtigung nur für diesen Frame beantragen, was offensichtlich sicherer ist, als allgemein die Berechtigung anzufordern:
+Wenn Sie die Bildschirmaufnahme innerhalb eines `<iframe>` durchführen, können Sie die Erlaubnis nur für dieses Frame anfordern, was eindeutig sicherer ist als die allgemeinere Anforderung der Berechtigung:
 
 ```html
 <iframe src="https://mycode.example.net/etc" allow="display-capture"> </iframe>
@@ -359,5 +351,5 @@ Wenn Sie die Bildschirmaufnahme innerhalb eines `<iframe>`s durchführen, könne
 
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Aufnahme von Standbildern mit WebRTC](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos)
-- [`HTMLCanvasElement.captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream), um einen [`MediaStream`](/de/docs/Web/API/MediaStream) mit den Live-Inhalten eines {{HTMLElement("canvas")}} zu erhalten.
+- [Aufnehmen von Standbildern mit WebRTC](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos)
+- [`HTMLCanvasElement.captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream) zum Erhalt eines [`MediaStream`](/de/docs/Web/API/MediaStream) mit den Live-Inhalten eines {{HTMLElement("canvas")}}

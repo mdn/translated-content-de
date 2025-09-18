@@ -1,14 +1,14 @@
 ---
-title: "Animation: play()-Methode"
+title: "Animation: play() Methode"
 short-title: play()
 slug: Web/API/Animation/play
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{ APIRef("Web Animations") }}
 
-Die **`play()`**-Methode der [`Animation`](/de/docs/Web/API/Animation) Schnittstelle des [Web Animations API](/de/docs/Web/API/Web_Animations_API) startet oder setzt die Wiedergabe einer Animation fort. Wenn die Animation beendet ist, startet ein Aufruf von `play()` die Animation neu, indem sie von Anfang an abgespielt wird.
+Die **`play()`** Methode der [Web Animations API](/de/docs/Web/API/Web_Animations_API) Schnittstelle [`Animation`](/de/docs/Web/API/Animation) startet oder setzt die Wiedergabe einer Animation fort. Wenn die Animation beendet ist, startet ein Aufruf von `play()` die Animation neu, beginnend von vorne.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im Beispiel [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) führt ein Klick oder Tippen auf den Kuchen dazu, dass die Wachstumsanimation von Alice (`aliceChange`) vorwärts abgespielt wird, wodurch sie größer wird, sowie die Animation des Kuchens ausgelöst wird. Zwei `Animation.play()`, ein `EventListener`:
+Im Beispiel [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) führt ein Klick oder Tippen auf den Kuchen dazu, dass Alices Wachstumsanimation (`aliceChange`) vorwärts abgespielt wird, wodurch sie größer wird und die Animation des Kuchens ausgelöst wird. Zwei `Animation.play()`s, ein `EventListener`:
 
 ```js
 // The cake has its own animation:
@@ -54,8 +54,8 @@ const growAlice = () => {
 };
 
 // When a user holds their mouse down or taps, call growAlice to make all the animations play.
-cake.addEventListener("mousedown", growAlice, false);
-cake.addEventListener("touchstart", growAlice, false);
+cake.addEventListener("mousedown", growAlice);
+cake.addEventListener("touchstart", growAlice);
 ```
 
 ## Spezifikationen
@@ -70,7 +70,7 @@ cake.addEventListener("touchstart", growAlice, false);
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
 - [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie zur Steuerung von Webseitenanimationen verwenden können.
-- [`Animation.pause()`](/de/docs/Web/API/Animation/pause) um eine Animation anzuhalten.
+- [`Animation.pause()`](/de/docs/Web/API/Animation/pause) zum Anhalten einer Animation.
 - [`Animation.reverse()`](/de/docs/Web/API/Animation/reverse) um eine Animation rückwärts abzuspielen.
 - [`Animation.finish()`](/de/docs/Web/API/Animation/finish) um eine Animation zu beenden.
 - [`Animation.cancel()`](/de/docs/Web/API/Animation/cancel) um eine Animation abzubrechen.

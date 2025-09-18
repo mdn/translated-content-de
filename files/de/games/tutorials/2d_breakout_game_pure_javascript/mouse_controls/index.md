@@ -2,26 +2,26 @@
 title: Maussteuerung
 slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Mouse_controls
 l10n:
-  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
+  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
 ---
 
 {{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Finishing_up")}}
 
 Dies ist der **9. Schritt** von 10 des [Gamedev Canvas Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, finden Sie unter [Gamedev-Canvas-workshop/lesson9.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson09.html).
 
-Das Spiel selbst ist eigentlich fertig, also arbeiten wir daran, es zu verfeinern. Wir haben bereits Tastatursteuerung hinzugefügt, aber wir könnten auch leicht eine Maussteuerung hinzufügen.
+Das Spiel selbst ist eigentlich fertig, also lassen Sie uns daran arbeiten, es zu optimieren. Wir haben bereits Steuerungen über die Tastatur hinzugefügt, aber wir könnten auch problemlos Maussteuerungen hinzufügen.
 
-## Mausbewegung erfassen
+## Auf Mausbewegungen hören
 
-Das Erfassen von Mausbewegungen ist noch einfacher als das Erfassen von Tastendrücken: Alles, was wir brauchen, ist der Listener für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignis. Fügen Sie die folgende Zeile an derselben Stelle wie die anderen Event-Listener hinzu, direkt unter dem `keyup event`:
+Auf Mausbewegungen zu hören, ist sogar noch einfacher als auf Tastendrücke: Wir benötigen lediglich den Listener für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignis. Fügen Sie die folgende Zeile an der gleichen Stelle wie die anderen Event-Listener hinzu, direkt unter dem `keyup Ereignis`:
 
 ```js
-document.addEventListener("mousemove", mouseMoveHandler, false);
+document.addEventListener("mousemove", mouseMoveHandler);
 ```
 
-## Verankern der Schlägerbewegung an die Mausbewegung
+## Die Bewegung des Schlägers an die Mausbewegung binden
 
-Wir können die Schlägerposition basierend auf den Zeigerkoordinaten aktualisieren – die folgende Handlerfunktion erledigt genau das. Fügen Sie die folgende Funktion zu Ihrem Code hinzu, unterhalb der zuvor hinzugefügten Zeile:
+Wir können die Schlägerposition basierend auf den Zeigerkoordinaten aktualisieren — die folgende Handler-Funktion wird genau das tun. Fügen Sie die folgende Funktion Ihrem Code hinzu, unter der vorher hinzugefügten Zeile:
 
 ```js
 function mouseMoveHandler(e) {
@@ -32,13 +32,13 @@ function mouseMoveHandler(e) {
 }
 ```
 
-In dieser Funktion berechnen wir zunächst einen `relativeX`-Wert, der gleich der horizontalen Mausposition im Ansichtsfenster (`e.clientX`) minus der Entfernung zwischen der linken Kante des Canvas und der linken Kante des Ansichtsfensters (`canvas.offsetLeft`) ist — dies entspricht effektiv der Entfernung zwischen der linken Kante des Canvas und dem Mauszeiger. Wenn die relative X-Zeigerposition größer als null und kleiner als die Canvas-Breite ist, liegt der Zeiger innerhalb der Canvas-Grenzen, und die `paddleX`-Position (verankert an der linken Kante des Schlägers) wird auf den `relativeX`-Wert minus die Hälfte der Schlägerbreite gesetzt, sodass die Bewegung tatsächlich relativ zur Mitte des Schlägers erfolgt.
+In dieser Funktion berechnen wir zunächst einen `relativeX`-Wert, der gleich der horizontalen Mausposition im Ansichtsfenster (`e.clientX`) minus dem Abstand zwischen der linken Kante der Leinwand und der linken Kante des Ansichtsfensters (`canvas.offsetLeft`) ist — im Grunde ist dies gleich dem Abstand zwischen der linken Kante der Leinwand und dem Mauszeiger. Wenn die relative X-Zeigerposition größer als Null und kleiner als die Breite der Leinwand ist, befindet sich der Zeiger innerhalb der Canvas-Grenzen, und die `paddleX`-Position (verankert an der linken Kante des Schlägers) wird auf den `relativeX`-Wert minus die Hälfte der Breite des Schlägers gesetzt, sodass die Bewegung tatsächlich relativ zur Mitte des Schlägers ist.
 
-Der Schläger folgt nun der Position des Mauszeigers, aber da wir die Bewegung auf die Größe des Canvas beschränken, verschwindet er nicht vollständig an einer der beiden Seiten.
+Der Schläger wird nun der Position des Mauszeigers folgen, aber da wir die Bewegung auf die Größe der Leinwand beschränken, wird er nicht vollständig an beiden Seiten verschwinden.
 
 ## Vergleichen Sie Ihren Code
 
-Dies ist der neueste Stand des Codes zum Vergleich:
+Dies ist der neueste Stand des Codes, mit dem Sie ihn vergleichen können:
 
 ```html hidden
 <canvas id="myCanvas" width="480" height="320"></canvas>
@@ -91,9 +91,9 @@ for (let c = 0; c < brickColumnCount; c++) {
   }
 }
 
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
-document.addEventListener("mousemove", mouseMoveHandler, false);
+document.addEventListener("keydown", keyDownHandler);
+document.addEventListener("keyup", keyUpHandler);
+document.addEventListener("mousemove", mouseMoveHandler);
 
 function keyDownHandler(e) {
   if (e.key === "Right" || e.key === "ArrowRight") {
@@ -226,10 +226,10 @@ runButton.addEventListener("click", () => {
 {{embedlivesample("compare_your_code", 600, 360)}}
 
 > [!NOTE]
-> Versuchen Sie, die Grenzen der Schlägerbewegung anzupassen, sodass der gesamte Schläger an beiden Rändern des Canvas sichtbar ist, anstatt nur die Hälfte davon.
+> Versuchen Sie, die Grenzen der Schlägerbewegung anzupassen, sodass der gesamte Schläger an beiden Rändern der Leinwand sichtbar ist, anstatt nur die Hälfte davon.
 
 ## Nächste Schritte
 
-Jetzt haben wir ein vollständiges Spiel und werden unsere Serie von Lektionen mit einigen kleinen Anpassungen abschließen — [Abschluss](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Finishing_up).
+Jetzt, da wir ein vollständiges Spiel haben, werden wir unsere Serie von Lektionen mit einigen weiteren kleinen Anpassungen abschließen — [Finishing up](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Finishing_up).
 
 {{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Finishing_up")}}

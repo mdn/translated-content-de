@@ -1,38 +1,34 @@
 ---
-title: "PointerEvent: azimuthAngle-Eigenschaft"
+title: "PointerEvent: azimuthAngle Eigenschaft"
 short-title: azimuthAngle
 slug: Web/API/PointerEvent/azimuthAngle
 l10n:
-  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
+  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
 ---
 
 {{ APIRef("Pointer Events") }}
 
-Die **`azimuthAngle`** schreibgeschützte Eigenschaft des [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces stellt den Winkel zwischen der Y-Z-Ebene und der Ebene dar, die sowohl die Transducer-(Zeiger oder Stift-)Achse als auch die Y-Achse enthält.
+Die **`azimuthAngle`** schreibgeschützte Eigenschaft des [`PointerEvent`](/de/docs/Web/API/PointerEvent) Schnittstelle stellt den Winkel zwischen der Y-Z-Ebene und der Ebene dar, die sowohl die Achse des Transducers (Zeiger oder Stift) als auch die Y-Achse enthält.
 
-Je nach spezifischer Hardware und Plattform erhalten Benutzeragenten wahrscheinlich nur einen Satz von Werten für die Orientierung des Transducers relativ zur Bildebene – entweder [`tiltX`](/de/docs/Web/API/PointerEvent/tiltX) und [`tiltY`](/de/docs/Web/API/PointerEvent/tiltY) oder [`altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) und `azimuthAngle`.
+Je nach spezifischer Hardware und Plattform werden Benutzeragenten wahrscheinlich nur einen Satz von Werten für die Transducerausrichtung relativ zur Bildschirmebene empfangen — entweder [`tiltX`](/de/docs/Web/API/PointerEvent/tiltX) und [`tiltY`](/de/docs/Web/API/PointerEvent/tiltY) oder [`altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) und `azimuthAngle`.
 
-![Der Azimuthwinkel eines Zeigers im Vergleich zum Höhenwinkel](azimuth_altitude_angles.svg)
+![Der Azimutwinkel eines Zeigers im Vergleich zum Höhenwinkel](azimuth_altitude_angles.svg)
 
-Für eine zusätzliche Darstellung dieser Eigenschaft siehe [Abbildung 5 in der Spezifikation](https://w3c.github.io/pointerevents/#figure_azimuthAngle).
+Für eine zusätzliche Veranschaulichung dieser Eigenschaft siehe [Abbildung 5 in der Spezifikation](https://w3c.github.io/pointerevents/#figure_azimuthAngle).
 
 ## Wert
 
-Ein Winkel in Radiant zwischen `0` und `2π`, wobei `0` einen Transducer repräsentiert, dessen Kappe in die Richtung der steigenden X-Werte zeigt (zeigt auf "3 Uhr", wenn man von oben schaut) auf der X-Y-Ebene, und die Werte sich im Uhrzeigersinn progressiv erhöhen (`π/2` bei "6 Uhr", `π` bei "9 Uhr", `3π/2` bei "12 Uhr").
+Ein Winkel in Radiant zwischen `0` und `2π`, wobei `0` einen Transducer darstellt, dessen Kappe in die Richtung der zunehmenden X-Werte zeigt (zeigt auf "3 Uhr", wenn man direkt nach unten schaut) in der X-Y-Ebene, und die Werte nehmen im Uhrzeigersinn zu (`π/2` bei "6 Uhr", `π` bei "9 Uhr", `3π/2` bei "12 Uhr").
 
-Wenn der Transducer senkrecht zur Oberfläche steht ([`altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) von `π/2`), beträgt der Wert 0.
-Für Hardware und Plattformen, die keinen Neigungs- oder Winkelwert melden, beträgt der Wert `0`.
+Wenn der Transducer senkrecht zur Oberfläche ist ([`altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) von `π/2`), ist der Wert 0.
+Für Hardware und Plattformen, die Neigung oder Winkel nicht melden, ist der Wert `0`.
 
 ## Beispiel
 
 ```js
-someElement.addEventListener(
-  "pointerdown",
-  (event) => {
-    process_angles(event.altitudeAngle, event.azimuthAngle);
-  },
-  false,
-);
+someElement.addEventListener("pointerdown", (event) => {
+  process_angles(event.altitudeAngle, event.azimuthAngle);
+});
 ```
 
 ## Spezifikationen

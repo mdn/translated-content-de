@@ -1,9 +1,9 @@
 ---
-title: "HTMLVideoElement: requestPictureInPicture() Methode"
+title: "HTMLVideoElement: requestPictureInPicture()-Methode"
 short-title: requestPictureInPicture()
 slug: Web/API/HTMLVideoElement/requestPictureInPicture
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{APIRef("Picture-in-Picture API")}}
@@ -11,9 +11,7 @@ l10n:
 Die **[`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)**-Methode
 **`requestPictureInPicture()`** stellt eine asynchrone Anfrage, um das Video im Bild-in-Bild-Modus anzuzeigen.
 
-Es ist nicht garantiert, dass das Video in den Bild-in-Bild-Modus gesetzt wird. Wenn die Berechtigung
-für diesen Modus erteilt wird, wird das zurückgegebene {{jsxref("Promise")}} aufgelöst und das
-Video erhält ein [`enterpictureinpicture`](/de/docs/Web/API/HTMLVideoElement/enterpictureinpicture_event)-Ereignis, um anzuzeigen, dass es sich jetzt im Bild-in-Bild-Modus befindet.
+Es ist nicht garantiert, dass das Video in den Bild-in-Bild-Modus geschaltet wird. Wenn die Erlaubnis für diesen Modus erteilt wird, wird das zurückgegebene {{jsxref("Promise")}} erfüllt und das Video erhält ein [`enterpictureinpicture`](/de/docs/Web/API/HTMLVideoElement/enterpictureinpicture_event)-Ereignis, um es darüber zu informieren, dass es jetzt im Bild-in-Bild-Modus ist.
 
 ## Syntax
 
@@ -27,18 +25,18 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf ein [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow)-Objekt aufgelöst wird, das verwendet werden kann, um zu hören, wann ein Benutzer dieses schwebende Fenster vergrößert oder verkleinert.
+Ein {{jsxref("Promise")}}, das zu einem [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow)-Objekt aufgelöst wird, welches verwendet werden kann, um zu hören, wenn ein Benutzer dieses schwebende Fenster in der Größe verändert.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn die Funktion nicht unterstützt wird (zum Beispiel, wenn sie durch eine Benutzereinstellung oder durch eine Plattformbeschränkung deaktiviert ist).
+  - : Wird geworfen, wenn die Funktion nicht unterstützt wird (zum Beispiel durch eine Benutzereinstellung oder durch eine Plattformbeschränkung deaktiviert).
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn die Funktion durch eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert wird.
+  - : Wird geworfen, wenn die Funktion durch eine [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) blockiert wird.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn der `readState` des Videoelements `HAVE_NOTHING` ist, oder wenn das Videoelement keine Videospur hat, oder wenn das `disablePictureInPicture`-Attribut des Videoelements `true` ist.
+  - : Wird geworfen, wenn das Lesezustand des Videoelements `HAVE_NOTHING` ist, oder wenn das Videoelement keine Videospur hat, oder wenn das `disablePictureInPicture`-Attribut des Videoelements `true` ist.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn `document.pictureInPictureElement` `null` ist und das Dokument keine {{Glossary("transient_activation", "transiente Aktivierung")}} hat.
+  - : Wird geworfen, wenn `document.pictureInPictureElement` `null` ist und das Dokument keine {{Glossary("transient_activation", "transiente Aktivierung")}} hat.
 
 ## Sicherheit
 
@@ -46,15 +44,13 @@ Ein {{jsxref("Promise")}}, das auf ein [`PictureInPictureWindow`](/de/docs/Web/A
 
 ## Beispiele
 
-Dieses Beispiel fordert an, dass das Video in den Bild-in-Bild-Modus wechselt, und setzt einen Ereignislistener, um die Größenänderung des schwebenden Fensters zu handhaben.
+Dieses Beispiel fordert, dass das Video den Bild-in-Bild-Modus betritt, und setzt einen Ereignis-Listener, um das Ändern der Größe des schwebenden Fensters zu behandeln.
 
 ```js
 function enterPictureInPicture() {
   videoElement.requestPictureInPicture().then((pictureInPictureWindow) => {
-    pictureInPictureWindow.addEventListener(
-      "resize",
-      () => onPipWindowResize(),
-      false,
+    pictureInPictureWindow.addEventListener("resize", () =>
+      onPipWindowResize(),
     );
   });
 }

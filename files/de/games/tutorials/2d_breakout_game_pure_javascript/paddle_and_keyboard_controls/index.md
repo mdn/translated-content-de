@@ -1,19 +1,19 @@
 ---
-title: Paddle- und Tastatursteuerung
+title: Schläger- und Tastatursteuerung
 slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Paddle_and_keyboard_controls
 l10n:
-  sourceCommit: 2530db14de9ac226cf06f84540fa0101e804ca9b
+  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
 ---
 
 {{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Game_over")}}
 
-Dies ist der **4. Schritt** von 10 des [Gamedev Canvas-Leitfadens](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, finden Sie unter [Gamedev-Canvas-workshop/lesson4.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson04.html).
+Dies ist der **4. Schritt** von 10 des [Gamedev-Canvas-Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie können den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Canvas-workshop/lesson4.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson04.html) finden.
 
-Der Ball prallt frei von den Wänden ab und Sie können ihm unendlich lange zuschauen, aber derzeit gibt es keine Interaktivität. Es ist kein Spiel, wenn Sie keine Kontrolle darüber haben! Lassen Sie uns also einige Benutzerinteraktionen hinzufügen: ein steuerbares Paddle.
+Der Ball prallt frei von den Wänden ab und Sie können ihm unbegrenzt zusehen. Derzeit gibt es jedoch keine Interaktivität. Es ist kein Spiel, wenn man es nicht steuern kann! Lassen Sie uns also einige Benutzerinteraktionen hinzufügen: einen steuerbaren Schläger.
 
-## Definition eines Paddles zum Treffen des Balls
+## Einen Schläger definieren, um den Ball zu schlagen
 
-Wir brauchen ein Paddle, um den Ball zu treffen. Lassen Sie uns dafür einige Variablen definieren. Fügen Sie die folgenden Variablen nahe dem Anfang Ihres Codes hinzu, neben Ihren anderen Variablen:
+Wir brauchen also einen Schläger, um den Ball zu schlagen. Definieren wir ein paar Variablen dafür. Fügen Sie die folgenden Variablen in der Nähe des Anfangs Ihres Codes neben Ihren anderen Variablen hinzu:
 
 ```js
 const paddleHeight = 10;
@@ -21,7 +21,7 @@ const paddleWidth = 75;
 let paddleX = (canvas.width - paddleWidth) / 2;
 ```
 
-Hier definieren wir die Höhe und Breite des Paddles und seinen Startpunkt auf der `x`-Achse für Berechnungen weiter unten im Code. Lassen Sie uns eine Funktion erstellen, die das Paddle auf dem Bildschirm zeichnet. Fügen Sie das Folgende direkt unterhalb Ihrer `drawBall()`-Funktion hinzu:
+Hier definieren wir die Höhe und Breite des Schlägers und seinen Ausgangspunkt auf der `x`-Achse zur Verwendung in späteren Berechnungen im Code. Lassen Sie uns eine Funktion erstellen, die den Schläger auf dem Bildschirm zeichnet. Fügen Sie das Folgende direkt unter Ihrer `drawBall()`-Funktion hinzu:
 
 ```js
 function drawPaddle() {
@@ -33,30 +33,30 @@ function drawPaddle() {
 }
 ```
 
-## Dem Benutzer die Steuerung des Paddles ermöglichen
+## Ermöglichung der Steuerung des Schlägers durch den Benutzer
 
-Wir können das Paddle überall zeichnen, wo wir wollen, aber es sollte auf die Aktionen des Benutzers reagieren. Es ist Zeit, einige Tastatursteuerungen zu implementieren. Wir benötigen Folgendes:
+Wir können den Schläger zeichnen, wo immer wir wollen, aber er sollte auf die Aktionen des Benutzers reagieren. Es ist Zeit, einige Tastatursteuerungen zu implementieren. Wir benötigen Folgendes:
 
-- Zwei Variablen, um Informationen zu speichern, ob die Steuerungstaste für links oder rechts gedrückt ist.
-- Zwei Ereignislistener für `keydown`- und `keyup`-Ereignisse. Wir möchten etwas Code ausführen, um die Paddlebewegung zu handhaben, wenn die Tasten gedrückt werden.
-- Zwei Funktionen, die die `keydown`- und `keyup`-Ereignisse handhaben und den Code, der ausgeführt wird, wenn die Tasten gedrückt werden.
-- Die Fähigkeit, das Paddle nach links und rechts zu bewegen.
+- Zwei Variablen zur Speicherung von Informationen darüber, ob die linke oder rechte Steuertaste gedrückt ist.
+- Zwei Ereignis-Listener für `keydown` und `keyup` Events. Wir möchten einen Code ausführen, der die Schlägerbewegung behandelt, wenn die Tasten gedrückt werden.
+- Zwei Funktionen, die die `keydown` und `keyup` Events verarbeiten und den Code, der ausgeführt wird, wenn die Tasten gedrückt werden.
+- Die Fähigkeit, den Schläger nach links und rechts zu bewegen
 
-Gedrückte Tasten können wie im Beispiel mit booleschen Variablen definiert und initialisiert werden. Fügen Sie diese Zeilen irgendwo in der Nähe Ihrer anderen Variablen hinzu:
+Gedrückte Tasten können mit booleschen Variablen wie im Beispiel definiert und initialisiert werden. Fügen Sie diese Zeilen irgendwo in der Nähe der restlichen Variablen hinzu:
 
 ```js
 let rightPressed = false;
 let leftPressed = false;
 ```
 
-Der Standardwert für beide ist `false`, da zu Beginn die Steuertasten nicht gedrückt sind. Um Tastenanschläge zu erfassen, richten wir zwei Ereignislistener ein. Fügen Sie die folgenden Zeilen direkt oberhalb der `setInterval()`-Zeile am Ende Ihres JavaScripts hinzu:
+Der Standardwert für beide ist `false`, da zu Beginn die Steuertasten nicht gedrückt sind. Um Tastenanschläge zu überwachen, richten wir zwei Ereignis-Listener ein. Fügen Sie die folgenden Zeilen direkt über der `setInterval()`-Zeile am Ende Ihres JavaScripts hinzu:
 
 ```js
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("keydown", keyDownHandler);
+document.addEventListener("keyup", keyUpHandler);
 ```
 
-Wenn das `keydown`-Ereignis bei einer beliebigen Taste auf Ihrer Tastatur ausgelöst wird (wenn sie gedrückt wird), wird die `keyDownHandler()`-Funktion ausgeführt. Dasselbe Muster gilt für den zweiten Listener: `keyup`-Ereignisse führen zur Ausführung der `keyUpHandler()`-Funktion (wenn die Tasten nicht mehr gedrückt werden). Fügen Sie das jetzt Ihrem Code hinzu, unterhalb der `addEventListener()`-Zeilen:
+Wenn das `keydown`-Ereignis auf einer beliebigen Taste auf Ihrer Tastatur ausgelöst wird (wenn sie gedrückt wird), wird die Funktion `keyDownHandler()` ausgeführt. Dasselbe Muster gilt für den zweiten Listener: `keyup`-Ereignisse lösen die Funktion `keyUpHandler()` aus (wenn die Tasten nicht mehr gedrückt werden). Fügen Sie diese jetzt Ihrem Code hinzu, unter den `addEventListener()`-Zeilen:
 
 ```js
 function keyDownHandler(e) {
@@ -76,13 +76,13 @@ function keyUpHandler(e) {
 }
 ```
 
-Wenn wir eine Taste drücken, wird diese Information in einer Variablen gespeichert. Die jeweilige Variable wird auf `true` gesetzt. Wenn die Taste losgelassen wird, wird die Variable wieder auf `false` gesetzt.
+Wenn wir eine Taste drücken, wird diese Information in einer Variablen gespeichert. Die relevante Variable wird in jedem Fall auf `true` gesetzt. Wenn die Taste losgelassen wird, wird die Variable wieder auf `false` gesetzt.
 
-Beide Funktionen nehmen ein Ereignis als Parameter, repräsentiert durch die Variable `e`. Daraus können Sie nützliche Informationen erhalten: Die `key`-Eigenschaft enthält Informationen über die gedrückte Taste. Die meisten Browser verwenden `ArrowRight` und `ArrowLeft` für die Pfeiltasten rechts/links, aber wir müssen auch `Right` und `Left` überprüfen, um IE/Edge-Browser zu unterstützen. Wenn die linke Pfeiltaste gedrückt wird, wird die Variable `leftPressed` auf `true` gesetzt, und wenn sie losgelassen wird, wird die Variable `leftPressed` auf `false` gesetzt. Dasselbe Muster folgt mit der rechten Pfeiltaste und der Variable `rightPressed`.
+Beide Funktionen nehmen ein Ereignis als Parameter, repräsentiert durch die Variable `e`. Daraus können Sie nützliche Informationen erhalten: `key` enthält die Information über die gedrückte Taste. Die meisten Browser verwenden `ArrowRight` und `ArrowLeft` für die Cursor-Tasten links/rechts, aber wir müssen auch `Right` und `Left` prüfen, um IE/Edge-Browser zu unterstützen. Wird die linke Cursor-Taste gedrückt, dann wird die Variable `leftPressed` auf `true` gesetzt, und wenn sie losgelassen wird, wird die Variable `leftPressed` auf `false` gesetzt. Dasselbe Muster gilt für die rechte Cursor-Taste und die Variable `rightPressed`.
 
-### Die Paddle-Bewegungslogik
+### Die Logik zur Bewegung des Schlägers
 
-Wir haben nun die Variablen eingerichtet, um die Informationen über die gedrückten Tasten, die Ereignislistener und die relevanten Funktionen zu speichern. Als nächstes kommen wir zum Code, um all die Dinge zu nutzen, die wir gerade eingerichtet haben, und um das Paddle auf dem Bildschirm zu bewegen. Innerhalb der `draw()`-Funktion überprüfen wir, ob die linke oder rechte Pfeiltaste gedrückt wird, wenn jeder Frame gerendert wird. Unser Code könnte so aussehen:
+Wir haben nun die Variablen eingerichtet, um Informationen über die gedrückten Tasten zu speichern, Ereignis-Listener und relevante Funktionen. Als nächstes gehen wir in den Code, um all die Dinge zu nutzen, die wir gerade eingerichtet haben, um den Schläger auf dem Bildschirm zu bewegen. Innerhalb der `draw()`-Funktion prüfen wir bei jeder gerenderten Frame, ob die linke oder rechte Cursor-Taste gedrückt ist. Unser Code könnte folgendermaßen aussehen:
 
 ```js
 if (rightPressed) {
@@ -92,7 +92,7 @@ if (rightPressed) {
 }
 ```
 
-Wenn die linke Pfeiltaste gedrückt wird, bewegt sich das Paddle um sieben Pixel nach links, und wenn die rechte Pfeiltaste gedrückt wird, bewegt sich das Paddle um sieben Pixel nach rechts. Dies funktioniert derzeit, aber das Paddle verschwindet vom Rand der Leinwand, wenn wir eine der Tasten zu lange gedrückt halten. Wir könnten das verbessern und das Paddle nur innerhalb der Grenzen der Leinwand bewegen, indem wir den Code folgendermaßen ändern:
+Wenn die linke Cursor-Taste gedrückt wird, bewegt sich der Schläger sieben Pixel nach links, und wenn die rechte Cursor-Taste gedrückt wird, bewegt sich der Schläger sieben Pixel nach rechts. Dies funktioniert derzeit, aber der Schläger verschwindet vom Rand der Leinwand, wenn wir eine der Tasten zu lange gedrückt halten. Wir könnten das verbessern und den Schläger nur innerhalb der Grenzen der Leinwand bewegen, indem wir den Code wie folgt ändern:
 
 ```js
 if (rightPressed) {
@@ -102,11 +102,11 @@ if (rightPressed) {
 }
 ```
 
-Die Position `paddleX`, die wir verwenden, bewegt sich zwischen `0` auf der linken Seite der Leinwand und `canvas.width-paddleWidth` auf der rechten Seite, was genau so funktioniert, wie wir es wollen.
+Die `paddleX`-Position, die wir verwenden, wird sich zwischen `0` auf der linken Seite der Leinwand und `canvas.width-paddleWidth` auf der rechten Seite bewegen, was genau so funktioniert, wie wir es möchten.
 
-Fügen Sie den obigen Codeblock in die `draw()`-Funktion am Ende ein, direkt über der schließenden geschweiften Klammer.
+Fügen Sie den obigen Codeblock in die `draw()`-Funktion am Ende ein, direkt über der schließenden Klammer.
 
-Das Einzige, was jetzt noch zu tun ist, ist die `drawPaddle()`-Funktion aus der `draw()`-Funktion heraus aufzurufen, um sie tatsächlich auf dem Bildschirm auszugeben. Fügen Sie die folgende Zeile in Ihre `draw()`-Funktion ein, direkt unterhalb der Zeile, die `drawBall()` aufruft:
+Das einzige, was jetzt noch zu tun ist, ist das Aufrufen der `drawPaddle()`-Funktion innerhalb der `draw()`-Funktion, um sie tatsächlich auf dem Bildschirm anzuzeigen. Fügen Sie die folgende Zeile in Ihre `draw()`-Funktion ein, direkt unter der Zeile, die `drawBall()` aufruft:
 
 ```js
 drawPaddle();
@@ -114,7 +114,7 @@ drawPaddle();
 
 ## Vergleichen Sie Ihren Code
 
-Sehen Sie, wie Ihr Code im Vergleich zum Live-Beispiel unten aussieht:
+Sehen Sie, wie Ihr Code mit dem Live-Beispiel unten verglichen wird:
 
 ```html hidden
 <canvas id="myCanvas" width="480" height="320"></canvas>
@@ -144,8 +144,8 @@ let paddleX = (canvas.width - paddleWidth) / 2;
 let rightPressed = false;
 let leftPressed = false;
 
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("keydown", keyDownHandler);
+document.addEventListener("keyup", keyUpHandler);
 
 function keyDownHandler(e) {
   if (e.key === "Right" || e.key === "ArrowRight") {
@@ -220,10 +220,10 @@ runButton.addEventListener("click", () => {
 {{embedlivesample("compare_your_code", 600, 360)}}
 
 > [!NOTE]
-> Versuchen Sie, das Paddle schneller oder langsamer zu bewegen oder seine Größe zu ändern.
+> Versuchen Sie, den Schläger schneller oder langsamer zu bewegen oder seine Größe zu ändern.
 
 ## Nächste Schritte
 
-Jetzt haben wir etwas, das einem Spiel ähnelt. Das einzige Problem ist derzeit, dass Sie einfach weitermachen können, den Ball mit dem Paddle zu treffen, und es gibt weder ein Gewinnen noch ein Verlieren. Das wird sich alles im fünften Kapitel ändern, [Game over](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Game_over), wenn wir anfangen, einen Endzustand für unser Spiel hinzuzufügen.
+Jetzt haben wir etwas, das einem Spiel ähnelt. Das einzige Problem ist jetzt, dass Sie den Ball einfach weiter mit dem Schläger schlagen können und es kein Siegen oder Verlieren gibt. Dies wird sich alles im fünften Kapitel ändern, [Game over](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Game_over), wenn wir einen Endspielzustand für unser Spiel hinzufügen.
 
 {{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Game_over")}}

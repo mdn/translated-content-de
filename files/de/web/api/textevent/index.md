@@ -2,14 +2,15 @@
 title: TextEvent
 slug: Web/API/TextEvent
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
 ---
 
 {{APIRef("UI Events")}}{{deprecated_header}}
 
-Die **`TextEvent`**-Schnittstelle ist eine veraltete UI-Ereignisschnittstelle zur Meldung von Änderungen an Text-UI-Elementen.
+Die **`TextEvent`**-Schnittstelle ist eine veraltete UI-Event-Schnittstelle für die Meldung von Änderungen an Text-UI-Elementen.
 
-> [!NOTE] > `TextEvent`-Ereignisse wurden durch Ereignisse wie `input`, `beforeinput`, `keypress`, `keyup` und `keydown` ersetzt.
+> [!NOTE]
+> `TextEvent`-Ereignisse wurden durch Ereignisse wie `input`, `beforeinput`, `keypress`, `keyup` und `keydown` ersetzt.
 
 {{InheritanceDiagram}}
 
@@ -23,34 +24,30 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`UIEvent`](/d
 ## Instanz-Methoden
 
 - [`TextEvent.initTextEvent()`](/de/docs/Web/API/TextEvent/initTextEvent) {{deprecated_inline}}
-  - : Füllt die Werte dieses (neuen) `TextEvent` mit den gegebenen Parametern.
+  - : Füllt die Werte dieses (neuen) `TextEvent` mit den angegebenen Parametern.
 
 ## Ereignisliste
 
-Die folgende Liste enthält alle `TextEvent`-Ereignisse:
+Im Folgenden finden Sie eine Liste aller `TextEvent`-Ereignisse:
 
 - `textinput`
 
 ## Beispiele
 
-### Lauschen auf Texteingabe-Ereignisse
+### Hören auf Text-Eingabe-Ereignisse
 
-Sie können einen Listener für Texteingabe-Ereignisse mit [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) wie folgt registrieren:
+Sie können einen Listener für Text-Eingabe-Ereignisse mit [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) registrieren, wie folgt:
 
 ```js
-element.addEventListener(
-  "textInput",
-  (event) => {
-    // …
-  },
-  false,
-);
+element.addEventListener("textInput", (event) => {
+  // …
+});
 ```
 
 ### Einfacher Logger, der Eingabeereignisse anzeigt
 
-Dieses Beispiel lauscht auf eine Anzahl von Ereignissen, die auf einer Eingabe ausgelöst werden, einschließlich `textInput`.
-Der Ereignistyp und die Ereignisdaten werden protokolliert, sodass Sie sehen können, wo `textInput` im Vergleich zu anderen Ereignissen wie denen, die durch Tastendrücke generiert werden, ausgegeben wird.
+Dieses Beispiel hört auf eine Reihe von Ereignissen, die bei einer Eingabe ausgelöst werden, einschließlich `textInput`.
+Der Ereignistyp und die Ereignisdaten werden protokolliert, sodass Sie sehen können, wo `textInput` im Verhältnis zu anderen durch Tastendrücke generierten Ereignissen emittiert wird.
 
 #### HTML
 

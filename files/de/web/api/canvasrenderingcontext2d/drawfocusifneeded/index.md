@@ -1,16 +1,15 @@
 ---
-title: "CanvasRenderingContext2D: Methode drawFocusIfNeeded()"
+title: "CanvasRenderingContext2D: drawFocusIfNeeded()-Methode"
 short-title: drawFocusIfNeeded()
 slug: Web/API/CanvasRenderingContext2D/drawFocusIfNeeded
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{APIRef}}
 
-Die Methode
-**`CanvasRenderingContext2D.drawFocusIfNeeded()`**
-der Canvas 2D API zeichnet einen Fokusring um den aktuellen oder gegebenen Pfad, wenn das
+Die
+**`CanvasRenderingContext2D.drawFocusIfNeeded()`**-Methode der Canvas 2D API zeichnet einen Fokusring um den aktuellen oder gegebenen Pfad, wenn das
 angegebene Element fokussiert ist.
 
 ## Syntax
@@ -23,9 +22,9 @@ drawFocusIfNeeded(path, element)
 ### Parameter
 
 - `element`
-  - : Das Element, um zu prüfen, ob es fokussiert ist oder nicht.
+  - : Das Element, bei dem überprüft werden soll, ob es fokussiert ist oder nicht.
 - `path`
-  - : Ein [`Path2D`](/de/docs/Web/API/Path2D) Pfad, der verwendet werden soll.
+  - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad zur Verwendung.
 
 ### Rückgabewert
 
@@ -33,9 +32,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Verwalten des Fokus von Schaltflächen
+### Verwaltung des Button-Fokus
 
-Dieses Beispiel zeichnet zwei Schaltflächen auf eine Leinwand. Die Methode `drawFocusIfNeeded()`
+Dieses Beispiel zeichnet zwei Buttons auf einer Leinwand. Die `drawFocusIfNeeded()`-Methode
 wird verwendet, um bei Bedarf einen Fokusring zu zeichnen.
 
 #### HTML
@@ -57,7 +56,7 @@ const button2 = document.getElementById("button2");
 
 document.addEventListener("focus", redraw, true);
 document.addEventListener("blur", redraw, true);
-canvas.addEventListener("click", handleClick, false);
+canvas.addEventListener("click", handleClick);
 redraw();
 
 function redraw() {

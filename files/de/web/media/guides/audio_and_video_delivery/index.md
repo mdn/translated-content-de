@@ -1,22 +1,22 @@
 ---
-title: Audio- und Videoübermittlung
+title: Audio- und Videowiedergabe
 slug: Web/Media/Guides/Audio_and_video_delivery
 l10n:
-  sourceCommit: daad50a992d56b23573fdd50517c75df176747cf
+  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
 ---
 
-Wir können Audio und Video auf verschiedene Weise im Web bereitstellen, angefangen von 'statischen' Mediendateien bis hin zu adaptiven Live-Streams. Dieser Artikel dient als Ausgangspunkt, um die verschiedenen Übermittlungsmechanismen webbasierter Medien und deren Kompatibilität mit beliebten Browsern zu erkunden.
+Wir können Audio und Video im Web auf verschiedene Arten bereitstellen, von 'statischen' Mediendateien bis hin zu adaptiven Live-Streams. Dieser Artikel soll ein Einstiegspunkt sein, um die verschiedenen Bereitstellungsmechanismen webbasierter Medien und deren Kompatibilität mit gängigen Browsern zu erkunden.
 
 ## Audio- und Video-HTML-Elemente
 
-Ob wir es mit vorab aufgezeichneten Audiodateien oder Live-Streams zu tun haben, der Mechanismus, um sie über die {{ htmlelement("audio")}} und {{ htmlelement("video")}} Elemente des Browsers verfügbar zu machen, bleibt weitgehend gleich. Derzeit müssen wir zur Unterstützung aller Browser zwei Formate angeben. Allerdings ändert sich dies schnell, da die Formate MP3 und MP4 in Firefox und Opera übernommen werden. Kompatibilitätsinformationen finden Sie im [Leitfaden zu Medientypen und -formaten im Web](/de/docs/Web/Media/Guides/Formats).
+Ob wir mit voraufgezeichneten Audiodateien oder Live-Streams arbeiten, der Mechanismus, um sie über die {{ htmlelement("audio")}}- und {{ htmlelement("video")}}-Elemente des Browsers verfügbar zu machen, bleibt weitgehend derselbe. Derzeit müssen wir, um alle Browser zu unterstützen, zwei Formate angeben, obwohl sich dies mit der Einführung von MP3- und MP4-Formaten in Firefox und Opera schnell ändert. Sie können Kompatibilitätsinformationen im [Leitfaden zu Medientypen und -formaten im Web](/de/docs/Web/Media/Guides/Formats) finden.
 
-Um Video und Audio bereitzustellen, sieht der allgemeine Workflow normalerweise so aus:
+Um Video und Audio bereitzustellen, sieht der allgemeine Arbeitsablauf normalerweise so aus:
 
-1. Überprüfen Sie, welches Format der Browser per Feature-Erkennung unterstützt (meistens zwei Auswahlmöglichkeiten, wie oben erwähnt).
-2. Wenn der Browser keines der bereitgestellten Formate von Haus aus unterstützt, präsentieren Sie entweder ein Standbild oder verwenden Sie eine Fallback-Technologie, um das Video darzustellen.
-3. Entscheiden Sie, wie Sie das Medium abspielen/instanziieren möchten (z.B. ein {{ htmlelement("video") }}-Element oder vielleicht `document.createElement('video')`).
-4. Stellen Sie die Mediendatei dem Player zur Verfügung.
+1. Prüfen, welches Format der Browser über Feature-Erkennung unterstützt (meistens eine Auswahl aus zwei, wie oben erwähnt).
+2. Wenn der Browser die Wiedergabe eines der bereitgestellten Formate nicht nativ unterstützt, entweder ein Standbild präsentieren oder eine Ersatztechnologie verwenden, um das Video darzustellen.
+3. Bestimmen, wie Sie das Medium abspielen/instanziieren möchten (z.B. ein {{ htmlelement("video") }}-Element oder vielleicht `document.createElement('video')`?).
+4. Die Mediendatei an den Player liefern.
 
 ### HTML Audio
 
@@ -32,12 +32,12 @@ Um Video und Audio bereitzustellen, sieht der allgemeine Workflow normalerweise 
 </audio>
 ```
 
-Der obige Code erstellt einen Audio-Player, der versucht, so viel Audio wie möglich vorab zu laden, um eine reibungslose Wiedergabe zu gewährleisten.
+Der obige Code erstellt einen Audioplayer, der versucht, so viel Audio wie möglich vorzuladen, um eine reibungslose Wiedergabe zu gewährleisten.
 
 > [!NOTE]
 > Das `preload`-Attribut kann von einigen mobilen Browsern ignoriert werden.
 
-Weitere Informationen finden Sie unter [Cross-Browser Audio Basics (HTML Audio im Detail)](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Cross-browser_audio_basics#html_audio_in_detail)
+Für weitere Informationen siehe [Cross Browser Audio Basics (HTML Audio In Detail)](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Cross-browser_audio_basics#html_audio_in_detail).
 
 ### HTML Video
 
@@ -67,14 +67,14 @@ Weitere Informationen finden Sie unter [Cross-Browser Audio Basics (HTML Audio i
 </video>
 ```
 
-Der obige Code erstellt einen Videoplayer mit den Abmessungen 640x480 Pixel, der ein Posterbild anzeigt, bis das Video abgespielt wird. Wir weisen das Video an, automatisch abzuspielen, jedoch standardmäßig stummgeschaltet zu sein.
+Der obige Code erstellt einen Videoplayer mit Abmessungen von 640x480 Pixeln und zeigt ein Posterbild an, bis das Video abgespielt wird. Wir weisen das Video an, automatisch abzuspielen, aber standardmäßig stummgeschaltet zu sein.
 
 > [!NOTE]
-> Das `autoplay`-Attribut kann von einigen mobilen Browsern ignoriert werden. Außerdem kann die Autoplay-Funktion umstritten sein, wenn sie missbraucht wird. Es wird dringend empfohlen, dass Sie den [Leitfaden zum automatischen Abspielen für Medien und Web-Audio-APIs](/de/docs/Web/Media/Guides/Autoplay) lesen, um zu lernen, wie Sie Autoplay sinnvoll einsetzen.
+> Das `autoplay`-Attribut kann von einigen mobilen Browsern ignoriert werden. Auch kann das Autoplay-Feature umstritten sein, wenn es missbräuchlich verwendet wird. Es wird dringend empfohlen, den [Autoplay-Leitfaden für Medien und Web Audio APIs](/de/docs/Web/Media/Guides/Autoplay) zu lesen, um zu lernen, wie man Autoplay weise nutzt.
 
-Weitere Informationen finden Sie unter [`<video>`-Element](/de/docs/Web/HTML/Reference/Elements/video) und [Erstellen eines plattformübergreifenden Video-Players](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player).
+Für weitere Informationen siehe [`<video>`-Element](/de/docs/Web/HTML/Reference/Elements/video) und [Erstellen eines plattformübergreifenden Videoplayers](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player).
 
-### JavaScript Audio
+### JavaScript-Audio
 
 ```js
 const myAudio = document.createElement("audio");
@@ -89,12 +89,12 @@ myAudio.currentTime = 5;
 myAudio.play();
 ```
 
-Wir setzen die Quelle des Audios entsprechend dem vom Browser unterstützten Audio-Dateityp und setzen dann den Abspielkopf 5 Sekunden ein und versuchen, ihn abzuspielen.
+Wir setzen die Quelle des Audios abhängig von der Art der Audiodatei, die der Browser unterstützt, und setzen dann den Spielkopf auf 5 Sekunden und versuchen, es abzuspielen.
 
 > [!NOTE]
-> Die Wiedergabe wird von den meisten Browsern ignoriert, es sei denn, sie wird durch ein vom Benutzer initiiertes Ereignis ausgelöst.
+> Das Abspielen wird von den meisten Browsern ignoriert, es sei denn, es erfolgt durch ein benutzergesteuertes Ereignis.
 
-Es ist auch möglich, einem {{ htmlelement("audio") }}-Element eine base64-codierte WAV-Datei zu übergeben, um Audio dynamisch zu generieren:
+Es ist auch möglich, einem {{ htmlelement("audio") }}-Element eine base64-kodierte WAV-Datei zuzuführen, die es erlaubt, Audio dynamisch zu erzeugen:
 
 ```html
 <audio id="player" src="data:audio/x-wav;base64,UklGRvC…"></audio>
@@ -102,7 +102,7 @@ Es ist auch möglich, einem {{ htmlelement("audio") }}-Element eine base64-codie
 
 [Speak.js](https://github.com/kripken/speak.js/) verwendet diese Technik.
 
-### JavaScript Video
+### JavaScript-Video
 
 ```js
 const myVideo = document.createElement("video");
@@ -117,11 +117,11 @@ myVideo.width = 480;
 myVideo.height = 320;
 ```
 
-Wir setzen die Quelle des Videos entsprechend dem vom Browser unterstützten Video-Dateityp und setzen dann die Breite und Höhe des Videos.
+Wir setzen die Quelle des Videos abhängig von der Art der Videodatei, die der Browser unterstützt, und legen dann die Breite und Höhe des Videos fest.
 
 ## Web Audio API
 
-In diesem Beispiel rufen wir eine MP3-Datei mit der [`fetch()`](/de/docs/Web/API/Window/fetch)-API ab, laden sie in eine Quelle und spielen sie ab.
+In diesem Beispiel holen wir eine MP3-Datei mit der [`fetch()`](/de/docs/Web/API/Window/fetch)-API, laden sie in eine Quelle und spielen sie ab.
 
 ```js
 let audioCtx;
@@ -153,21 +153,21 @@ play.addEventListener("click", async () => {
 });
 ```
 
-Sie können [das vollständige Beispiel live ausführen](https://mdn.github.io/webaudio-examples/decode-audio-data/promise/) oder [den Quelltext anzeigen](https://github.com/mdn/webaudio-examples/tree/main/decode-audio-data/promise).
+Sie können [das komplette Beispiel live ausführen](https://mdn.github.io/webaudio-examples/decode-audio-data/promise/) oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/decode-audio-data/promise).
 
-Erfahren Sie mehr über die Grundlagen der Web Audio API in [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API).
+Finden Sie mehr über die Grundlagen der Web Audio API in [Nutzung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API).
 
-## getUserMedia / Stream-API
+## getUserMedia / Stream API
 
-Es ist auch möglich, mit `getUserMedia` und der Stream-API einen Live-Stream von einer Webcam und/oder einem Mikrofon zu erhalten. Dies ist Teil einer breiteren Technologie namens WebRTC (Web Real-Time Communications) und ist mit den neuesten Versionen von Chrome, Firefox und Opera kompatibel.
+Es ist auch möglich, einen Live-Stream von einer Webcam und/oder einem Mikrofon mit `getUserMedia` und der Stream-API abzurufen. Dies ist Teil einer breiteren Technologie, bekannt als WebRTC (Web Real-Time Communications) und ist kompatibel mit den neuesten Versionen von Chrome, Firefox und Opera.
 
-Um den Stream von Ihrer Webcam zu erfassen, richten Sie zunächst ein {{htmlelement("video")}}-Element ein:
+Um den Stream von Ihrer Webcam abzurufen, richten Sie zunächst ein {{htmlelement("video")}}-Element ein:
 
 ```html
 <video id="webcam" width="480" height="360"></video>
 ```
 
-Wenn es unterstützt wird, verbinden Sie die Webcam-Quelle mit dem Video-Element:
+Anschließend, wenn unterstützt, verbinden Sie die Webcam-Quelle mit dem Videoelement:
 
 ```js
 if (navigator.mediaDevices) {
@@ -188,13 +188,13 @@ if (navigator.mediaDevices) {
 }
 ```
 
-Weitere Informationen finden Sie auf unserer Seite zu [`MediaDevices.getUserMedia`](/de/docs/Web/API/MediaDevices/getUserMedia).
+Für weitere Informationen, lesen Sie unsere Seite [`MediaDevices.getUserMedia`](/de/docs/Web/API/MediaDevices/getUserMedia).
 
-## MediaStream-Aufzeichnung
+## MediaStream-Aufnahme
 
-Neue Standards werden eingeführt, um Ihrem Browser zu ermöglichen, Medien von Ihrem Mikrofon oder Ihrer Kamera mit `getUserMedia` zu erfassen und sofort mit der neuen MediaStream-Aufzeichnungs-API aufzuzeichnen. Sie erhalten den Stream von `getUserMedia`, übergeben ihn an ein `MediaRecorder`-Objekt, nehmen das resultierende Output und speisen es in Ihre Audio- oder Videoquelle ein\*.
+Neue Standards werden ausgearbeitet, um Ihrem Browser zu erlauben, Medien von Ihrem Mikrofon oder Ihrer Kamera mit `getUserMedia` zu erfassen und sie sofort mit der neuen MediaStream-Aufnahme-API aufzuzeichnen. Sie nehmen den Stream, den Sie von `getUserMedia` erhalten, übergeben ihn einem `MediaRecorder`-Objekt, nehmen die resultierende Ausgabe und führen sie Ihrer Audio- oder Videoquelle zu.
 
-Der Hauptmechanismus wird unten skizziert:
+Das Hauptverfahren wird unten beschrieben:
 
 ```js
 navigator.mediaDevices
@@ -227,43 +227,45 @@ Weitere Details finden Sie in der [MediaStream Recording API](/de/docs/Web/API/M
 
 ## Media Source Extensions (MSE)
 
-[Media Source Extensions](https://w3c.github.io/media-source/) ist ein Entwurf der W3C, der plant, [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) zu erweitern, um es JavaScript zu ermöglichen, Mediastreams zur Wiedergabe zu generieren. JavaScript in die Lage zu versetzen, Streams zu generieren, ermöglicht eine Vielzahl von Anwendungsfällen, wie z.B. adaptives Streaming und Zeitschieben von Live-Streams.
+[Media Source Extensions](https://w3c.github.io/media-source/) ist ein W3C-Arbeitsentwurf, der plant, [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) zu erweitern, um JavaScript zu ermöglichen, Medienstreams zur Wiedergabe zu erzeugen. JavaScript die Generierung von Streams zu ermöglichen, erleichtert eine Vielzahl von Anwendungsfällen wie adaptives Streaming und zeitversetzte Live-Streams.
 
-### Verschlüsselte Media Extensions (EME)
+### Encrypted Media Extensions (EME)
 
-[Verschlüsselte Media Extensions](https://w3c.github.io/encrypted-media/) ist ein W3C-Vorschlag zur Erweiterung von `HTMLMediaElement`, um APIs bereitzustellen, die die Wiedergabe von geschütztem Inhalt steuern.
+[Encrypted Media Extensions](https://w3c.github.io/encrypted-media/) ist ein W3C-Vorschlag zur Erweiterung des `HTMLMediaElement`, der APIs zur Steuerung der Wiedergabe von geschütztem Inhalt bereitstellt.
 
-Die API unterstützt Anwendungsfälle, die von der einfachen Clear Key-Dekodierung bis hin zu hochpreisigem Video reichen (vorausgesetzt, eine entsprechende Benutzeragenten-Implementierung ist gegeben). Der Lizenz-/Schlüsselaustausch wird durch die Anwendung gesteuert, was die Entwicklung robuster Wiedergabeanwendungen ermöglicht, die eine Reihe von Technologien zur Inhaltentschlüsselung und Schutz unterstützen.
+Die API unterstützt Anwendungsfälle vom grundlegenden Clear Key-Entschlüsselung bis hin zu hochwertigem Video (bei entsprechender Implementierung des Benutzeragents). Der Austausch von Lizenzen/Schlüsseln wird durch die Anwendung gesteuert, was die Entwicklung robuster Wiedergabeanwendungen unterstützt, die eine Vielzahl von Inhalt-Entschlüsselungs- und Schutztechnologien unterstützen.
 
-Eine der Hauptverwendungen von EME besteht darin, Browsern zu ermöglichen, DRM ([Digital Rights Management](https://en.wikipedia.org/wiki/Digital_rights_management)) zu implementieren, was hilft, das Kopieren webbasierter Inhalte (insbesondere Videos) zu verhindern.
+Eine der Hauptverwendungen von EME besteht darin, Browsern zu ermöglichen, DRM ([Digital Rights Management](https://en.wikipedia.org/wiki/Digital_rights_management)) zu implementieren, was hilft, webbasierte Inhalte (insbesondere Video) davor zu bewahren, kopiert zu werden.
 
 ### Adaptives Streaming
 
-Neue Formate und Protokolle werden eingeführt, um adaptives Streaming zu ermöglichen. Adaptives Streaming von Medien bedeutet, dass die Bandbreite und in der Regel auch die Qualität des Streams in Echtzeit in Reaktion auf die verfügbare Bandbreite des Benutzers geändert werden kann. Adaptives Streaming wird oft im Zusammenhang mit Live-Streaming verwendet, bei dem die reibungslose Lieferung von Audio oder Video von größter Bedeutung ist.
+Neue Formate und Protokolle werden eingeführt, um adaptives Streaming zu ermöglichen. Adaptives Streaming-Medien bedeutet, dass die Bandbreite und in der Regel die Qualität des Streams in Echtzeit in Reaktion auf die verfügbare Bandbreite des Benutzers ändern kann. Adaptives Streaming wird häufig in Verbindung mit Live-Streaming verwendet, wo eine reibungslose Bereitstellung von Audio oder Video von größter Bedeutung ist.
 
-Die Hauptformate, die für adaptives Streaming verwendet werden, sind [HLS](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Live_streaming_web_audio_and_video#hls) und [MPEG-DASH](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Live_streaming_web_audio_and_video#mpeg-dash). MSE wurde im Hinblick auf DASH entworfen. MSE definiert Byte-Streams nach [ISOBMFF](https://dvcs.w3.org/hg/html-media/raw-file/tip/media-source/isobmff-byte-stream-format.html) und [M2TS](https://en.wikipedia.org/wiki/M2ts) (beide in DASH unterstützt, letztere in HLS unterstützt). Im Allgemeinen sind Sie wahrscheinlich mit DASH besser bedient, wenn Sie an Standards interessiert sind, nach Flexibilität suchen oder die meisten modernen Browser unterstützen möchten.
+Die Hauptformate, die für adaptives Streaming verwendet werden, sind [HLS](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Live_streaming_web_audio_and_video#hls) und [MPEG-DASH](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Live_streaming_web_audio_and_video#mpeg-dash). MSE wurde mit DASH im Sinn entworfen. MSE definiert Byte-Streams entsprechend [ISOBMFF](https://dvcs.w3.org/hg/html-media/raw-file/tip/media-source/isobmff-byte-stream-format.html) und [M2TS](https://en.wikipedia.org/wiki/M2ts) (beide in DASH unterstützt, letzterer in HLS unterstützt). Im Allgemeinen, wenn Sie an Standards interessiert sind, Flexibilität suchen oder die meisten modernen Browser unterstützen möchten, sind Sie wahrscheinlich mit DASH besser bedient.
 
 > [!NOTE]
-> Derzeit unterstützt Safari DASH nicht, obwohl dash.js in neueren Versionen von Safari funktionieren wird, die mit OSX Yosemite veröffentlicht werden.
+> Derzeit unterstützt Safari DASH nicht, obwohl dash.js auf neueren Versionen von Safari funktioniert, die mit OSX Yosemite veröffentlicht werden sollen.
 
-DASH bietet auch eine Reihe von Profilen, einschließlich On-Demand-Profile, die keine Vorverarbeitung und Aufteilung von Mediendateien erfordern. Es gibt auch einige Cloud-basierte Dienste, die Ihre Medien sowohl in HLS als auch in DASH konvertieren.
+DASH bietet auch eine Reihe von Profilen, einschließlich On-Demand-Profile, die keine Vorverarbeitung und Aufteilung von Mediendateien erfordern. Es gibt auch eine Reihe von Cloud-basierten Diensten, die Ihre Medien sowohl in HLS als auch in DASH konvertieren.
 
-Weitere Informationen finden Sie unter [Live-Streaming von Web-Audio und -Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Live_streaming_web_audio_and_video).
+Für weitere Informationen siehe [Live-Streaming von Web-Audio und -Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Live_streaming_web_audio_and_video).
 
-## Anpassen Ihres Media Players
+## Anpassung Ihres Media-Players
 
-Sie möchten möglicherweise, dass Ihr Audio- oder Video-Player in allen Browsern ein konsistentes Erscheinungsbild hat oder ihn einfach an Ihr Website-Design anpassen. Die allgemeine Technik, dies zu erreichen, besteht darin, das `controls`-Attribut wegzulassen, sodass die Standard-Browsersteuerungen nicht angezeigt werden, eigene Steuerungen mit HTML und CSS zu erstellen und dann JavaScript zu verwenden, um Ihre Steuerungen mit der Audio-/Vide-API zu verbinden.
+Vielleicht entscheiden Sie sich, dass Ihr Audio- oder Videoplayer einen konsistenten Look über alle Browser hinweg haben soll oder einfach wünschen, ihn an die Gestaltung Ihrer Seite anzupassen. Die allgemeine Technik, um dies zu erreichen, besteht darin, das `controls`-Attribut wegzulassen, sodass die Standard-Browser-Steuerelemente nicht angezeigt werden, benutzerdefinierte Steuerelemente mit HTML und CSS zu erstellen und dann mit JavaScript Ihre Steuerelemente mit der Audio/Video-API zu verknüpfen.
 
-Wenn Sie etwas Zusätzliches benötigen, ist es möglich, Funktionen hinzuzufügen, die derzeit in den Standard-Playern nicht vorhanden sind, wie z.B. Wiedergabegeschwindigkeit, Qualitätsumschaltung des Streams oder sogar Audio-Spektren. Sie können auch wählen, wie Sie Ihren Player responsive gestalten möchten — z.B. könnten Sie die Fortschrittsleiste unter bestimmten Bedingungen entfernen.
+Wenn Sie etwas zusätzliches benötigen, ist es möglich, Funktionen hinzuzufügen, die derzeit in Standard-Playern nicht vorhanden sind, wie z.B. Wiedergabegeschwindigkeit, Qualitätsschalter oder sogar Audiospektren. Sie können auch wählen, wie Sie Ihren Player reaktionsfähig machen - zum Beispiel könnten Sie die Fortschrittsanzeige unter bestimmten Bedingungen entfernen.
 
-Es ist oft wichtig, an die Tastatursteuerung zu denken, um den Benutzerkomfort und die Barrierefreiheit zu gewährleisten. Ein schnelles Beispiel — richten Sie zunächst Ihre Audio- und benutzerdefinierten Steuerungen in HTML ein:
+Sie können Klick-, Berührungs- und/oder Tastaturereignisse erkennen, um Aktionen wie Abspielen, Pausieren und Scrollen auszulösen. Es ist oft wichtig, Tastatursteuerungen zur Benutzerfreundlichkeit und Zugänglichkeit zu merken.
+
+Ein schnelles Beispiel - richten Sie zunächst Ihr Audio und benutzerdefinierte Steuerelemente in HTML ein:
 
 ```html
 <audio id="my-audio" src="/shared-assets/audio/guitar.mp3"></audio>
 <button id="my-control">play</button>
 ```
 
-Fügen Sie ein wenig JavaScript hinzu, um Ereignisse zum Abspielen und Anhalten des Audios zu erfassen:
+Fügen Sie etwas JavaScript hinzu, um Ereignisse zu erkennen, um das Audio abzuspielen und zu pausieren:
 
 ```js
 const myAudio = document.getElementById("my-audio");
@@ -286,28 +288,24 @@ function checkKey(e) {
   }
 }
 
-myControl.addEventListener(
-  "click",
-  () => {
-    switchState();
-  },
-  false,
-);
+myControl.addEventListener("click", () => {
+  switchState();
+});
 
-window.addEventListener("keypress", checkKey, false);
+window.addEventListener("keypress", checkKey);
 ```
 
-{{EmbedLiveSample("customizing your media player", "", 200)}}
+{{EmbedLiveSample("anpassen Ihres Media-Players", "", 200)}}
 
-Weitere Informationen finden Sie unter [Erstellen Ihres eigenen benutzerdefinierten Audio-Players](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Cross-browser_audio_basics#creating_your_own_custom_audio_player).
+Für weitere Informationen, siehe [Einen eigenen benutzerdefinierten Audioplayer erstellen](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Cross-browser_audio_basics#creating_your_own_custom_audio_player).
 
 ## Weitere Tipps für Audio/Video
 
-### Stopping the download of media
+### Stoppen des Downloads von Medien
 
-Während das Anhalten der Wiedergabe von Medien so einfach ist wie das Aufrufen der Methode `pause()` des Elements, lädt der Browser die Medien weiterhin herunter, bis das Medien-Element durch Garbage Collection entsorgt wird.
+Während das Stoppen der Wiedergabe von Medien so einfach ist, wie die `pause()`-Methode des Elements aufzurufen, lädt der Browser weiterhin die Medien herunter, bis das Medienelement durch Müllsammlung entsorgt wird.
 
-Hier ein Trick, um den Download sofort zu stoppen:
+Hier ist ein Trick, der den Download sofort stoppt:
 
 ```js
 const mediaElement = document.querySelector("#myMediaElementID");
@@ -315,15 +313,15 @@ mediaElement.removeAttribute("src");
 mediaElement.load();
 ```
 
-Durch das Entfernen des `src`-Attributs des Medien-Elements und das Aufrufen der `load()`-Methode geben Sie die mit dem Video verbundenen Ressourcen frei, was den Netzwerkdownload stoppt. Sie müssen `load()` nach dem Entfernen des Attributs aufrufen, da das bloße Entfernen des `src`-Attributs den Ladealgorithmus nicht auslöst. Wenn das `<video>`-Element auch `<source>`-Element-Nachkommen enthält, sollten diese auch entfernt werden, bevor Sie `load()` aufrufen.
+Durch das Entfernen des `src`-Attributs des Medienelements und das Aufrufen der `load()`-Methode, werden die mit dem Video verbundenen Ressourcen freigegeben, wodurch der Netzwerkdownload gestoppt wird. Sie müssen `load()` nach dem Entfernen des Attributs aufrufen, da das bloße Entfernen des `src`-Attributs den Ladealgorithmus nicht auslöst. Wenn das `<video>`-Element auch `<source>`-Element-Nachkommen hat, sollten diese ebenfalls vor dem Aufrufen von `load()` entfernt werden.
 
-Beachten Sie, dass das bloße Setzen des `src`-Attributs auf einen leeren String den Browser tatsächlich dazu bringt, es so zu behandeln, als würden Sie eine Videoquelle auf einen relativen Pfad setzen. Dies führt dazu, dass der Browser versucht, erneut etwas herunterzuladen, das wahrscheinlich kein gültiges Video ist.
+Beachten Sie, dass das bloße Setzen des `src`-Attributs auf eine leere Zeichenkette den Browser tatsächlich dazu veranlasst, es so zu behandeln, als würden Sie eine Videoquelle auf einen relativen Pfad setzen. Dies verursacht, dass der Browser versucht, etwas herunterzuladen, das wahrscheinlich kein gültiges Video ist.
 
-### Seeking through media
+### Durch Medien suchen
 
-Medienelemente bieten Unterstützung, um die aktuelle Wiedergabeposition zu bestimmten Punkten im Inhalt des Mediums zu verschieben. Dies geschieht durch Setzen des Werts der `currentTime`-Eigenschaft am Element; siehe [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) für weitere Details zu den Eigenschaften des Elements. Setzen Sie den Wert auf die Zeit in Sekunden, an der Sie die Wiedergabe fortsetzen möchten.
+Medienelemente bieten Unterstützung für das Verschieben der aktuellen Wiedergabeposition zu bestimmten Punkten im Medieninhalt. Dies geschieht, indem der Wert der `currentTime`-Eigenschaft am Element gesetzt wird; siehe [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) für weitere Details zu den Eigenschaften des Elements. Setzen Sie den Wert auf die Zeit in Sekunden, bei der die Wiedergabe fortgesetzt werden soll.
 
-Sie können die `seekable`-Eigenschaft des Elements verwenden, um die Bereiche des Mediums zu bestimmen, die derzeit zum Suchen verfügbar sind. Dies gibt ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurück, das die Zeitbereiche auflistet, zu denen Sie suchen können.
+Sie können die `seekable`-Eigenschaft des Elements verwenden, um die Bereiche des Medieninhalts zu bestimmen, die derzeit für die Suche verfügbar sind. Diese gibt ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurück, das die Zeitenbereiche auflistet, die durchsucht werden können.
 
 ```js
 const mediaElement = document.querySelector("#mediaElementID");
@@ -333,34 +331,34 @@ mediaElement.currentTime = 122; // Seek to 122 seconds
 mediaElement.played.end(0); // Returns the number of seconds the browser has played
 ```
 
-### Specifying playback range
+### Wiedergabebereich festlegen
 
-When specifying the URI of media for an {{ HTMLElement("audio") }} or {{ HTMLElement("video") }} element, you can optionally include additional information to specify the portion of the media to play. To do this, append a hash mark ("#") followed by the media fragment description.
+Beim Festlegen der URI für Medien in einem {{ HTMLElement("audio") }}- oder {{ HTMLElement("video") }}-Element können Sie optional zusätzliche Informationen einfügen, um den zu spielenden Teil der Medien zu spezifizieren. Dazu fügen Sie eine Raute ("#") gefolgt von der Beschreibung des Medienfragments hinzu.
 
-A time range is specified using the syntax:
+Ein Zeitbereich wird mittels folgender Syntax angegeben:
 
 ```plain
 #t=[starttime][,endtime]
 ```
 
-The time can be specified as a number of seconds (as a floating-point value) or as an hours/minutes/seconds time separated with colons (such as 2:05:01 for 2 hours, 5 minutes, and 1 second).
+Die Zeit kann als Anzahl von Sekunden (als Fließkommawert) oder als Stunden/Minuten/Sekunden-Zeit durch Doppelpunkte getrennt (z.B. 2:05:01 für 2 Stunden, 5 Minuten und 1 Sekunde) angegeben werden.
 
-A few examples:
+Einige Beispiele:
 
 - `http://example.com/video.ogv#t=10,20`
-  - : Spezifiziert, dass das Video den Bereich von 10 Sekunden bis 20 Sekunden abspielen soll.
+  - : Gibt an, dass das Video im Bereich von 10 Sekunden bis 20 Sekunden abgespielt werden soll.
 - `http://example.com/video.ogv#t=,10.5`
-  - : Spezifiziert, dass das Video vom Anfang bis zu 10,5 Sekunden abspielen soll.
+  - : Gibt an, dass das Video von Anfang bis 10,5 Sekunden abgespielt werden soll.
 - `http://example.com/video.ogv#t=,02:00:00`
-  - : Spezifiziert, dass das Video vom Anfang bis zu zwei Stunden abspielen soll.
+  - : Gibt an, dass das Video von Anfang bis zu zwei Stunden abgespielt werden soll.
 - `http://example.com/video.ogv#t=60`
-  - : Spezifiziert, dass das Video bei 60 Sekunden beginnen soll und bis zum Ende des Videos abgespielt werden soll.
+  - : Gibt an, dass das Video ab 60 Sekunden abgespielt werden soll und bis zum Ende des Videos fortgesetzt werden soll.
 
 ## Fehlerbehandlung
 
-Fehler werden an die Kind-{{ HTMLElement("source") }}-Elemente geliefert, die den Fehler verursachenden Quellen entsprechen.
+Fehler werden an die untergeordneten {{ HTMLElement("source") }}-Elemente übermittelt, die den Fehler verursachen.
 
-Dies ermöglicht es Ihnen zu erkennen, welche Quellen nicht geladen werden konnten, was nützlich sein kann. Betrachten Sie dieses HTML:
+Dies ermöglicht es Ihnen zu erkennen, welche Quellen nicht geladen werden konnten, was nützlich sein kann. Betrachten Sie diesen HTML-Code:
 
 ```html
 <video>
@@ -379,7 +377,7 @@ Dies ermöglicht es Ihnen zu erkennen, welche Quellen nicht geladen werden konnt
 </video>
 ```
 
-Da Firefox aufgrund ihrer patentbelasteten Natur auf einigen Plattformen MP4 und 3GP nicht unterstützt, erhalten die {{ HTMLElement("source") }}-Elemente mit den IDs "mp4_src" und "3gp_src" `error`-Ereignisse, bevor die Ogg-Ressource geladen wird. Die Quellen werden in der Reihenfolge versucht, in der sie auftreten, und sobald eine erfolgreich geladen wurde, werden die verbleibenden Quellen überhaupt nicht versucht.
+Da Firefox auf einigen Plattformen MP4 und 3GP aufgrund ihrer patentrechtlichen Natur nicht unterstützt, erhalten die {{ HTMLElement("source") }}-Elemente mit den IDs "mp4_src" und "3gp_src" `error`-Ereignisse, bevor die Ogg-Ressource geladen wird. Die Quellen werden in der Reihenfolge, in der sie erscheinen, ausprobiert, und sobald eine erfolgreich geladen wird, werden die verbleibenden Quellen überhaupt nicht ausprobiert.
 
 ### Überprüfen, ob der Browser die bereitgestellten Formate unterstützt
 
@@ -393,11 +391,11 @@ Unterstützung für Medienformate finden Sie auf [Can I Use](https://caniuse.com
 
 Sie können auch nach [anderen Medienformaten](/de/docs/Web/Media/Guides/Formats/Containers) suchen.
 
-Wenn ein Medienformat unterstützt werden soll, aber die von Ihnen bereitgestellten Dateien nicht abgespielt werden, gibt es zwei mögliche Probleme:
+Wenn ein Medienformat unterstützt werden soll, die von Ihnen bereitgestellten Dateien jedoch nicht abgespielt werden, gibt es zwei mögliche Probleme:
 
-#### 1. Der Medienserver liefert die falschen MIME-Typen mit der Datei
+#### 1. Der Mediaserver liefert die Dateien nicht mit den korrekten Mime-Typen
 
-Obwohl dies in der Regel unterstützt wird, müssen Sie möglicherweise Folgendes zu der `.htaccess`-Datei Ihres Medienservers hinzufügen.
+Obwohl dies normalerweise unterstützt wird, müssen Sie möglicherweise das Folgende zur `.htaccess`-Datei Ihres Mediaservers hinzufügen.
 
 ```plain
 # AddType TYPE/SUBTYPE EXTENSION
@@ -414,27 +412,27 @@ AddType video/webm webm
 AddType video/webm webmv
 ```
 
-#### 2. Ihre Dateien wurden falsch codiert
+#### 2. Ihre Dateien wurden falsch kodiert
 
-Ihre Dateien können falsch codiert worden sein — versuchen Sie, mit einem der folgenden Tools zu codieren, die als ziemlich zuverlässig gelten:
+Es könnte sein, dass Ihre Dateien falsch kodiert wurden — versuchen Sie, diese mit einem der folgenden Tools zu kodieren, die sich als recht zuverlässig erwiesen haben:
 
 - [Audacity](https://sourceforge.net/projects/audacity/) — Kostenloser Audio-Editor und -Rekorder
-- [Miro](https://www.getmiro.com/) — Kostenloser, Open-Source-Musik- und Video-Player
-- [Handbrake](https://handbrake.fr/) — Open Source Video Transcoder
-- [Firefogg](https://www.firefogg.org/) — Video- und Audiocodierung für Firefox
-- [FFmpeg2](https://www.ffmpeg.org/) — Umfassender Kommandozeilen-Encoder
-- [Vid.ly](https://m.vid.ly/) — Video-Player, Transcodierung und Bereitstellung
-- [Internet Archive](https://archive.org/) — Kostenlose Transkodierung und Speicherung
+- [Miro](https://www.getmiro.com/) — Kostenloser, Open-Source-Musik- und Videoplayer
+- [Handbrake](https://handbrake.fr/) — Open Source Video-Transcoder
+- [Firefogg](https://www.firefogg.org/) — Video- und Audio-Kodierung für Firefox
+- [FFmpeg2](https://www.ffmpeg.org/) — Umfassender Befehlszeilen-Encoder
+- [Vid.ly](https://m.vid.ly/) — Videoplayer, Transkodierung und Lieferung
+- [Internet Archive](https://archive.org/) — Kostenloses Transkodieren und Speichern
 
 ### Erkennen, wenn keine Quellen geladen wurden
 
-Um zu erkennen, dass alle Kind-{{ HTMLElement("source") }}-Elemente nicht geladen wurden, überprüfen Sie den Wert des `networkState`-Attributs des Medienelements. Wenn dies `HTMLMediaElement.NETWORK_NO_SOURCE` ist, wissen Sie, dass alle Quellen nicht geladen wurden.
+Um zu erkennen, dass alle untergeordneten {{ HTMLElement("source") }}-Elemente nicht geladen werden konnten, überprüfen Sie den Wert des `networkState`-Attributs des Medienelements. Wenn dieser `HTMLMediaElement.NETWORK_NO_SOURCE` ist, wissen Sie, dass alle Quellen nicht geladen werden konnten.
 
-Wenn Sie an diesem Punkt eine weitere Quelle hinzufügen, indem Sie ein neues {{ HTMLElement("source") }}-Element als Kind des Medienelements einfügen, versucht Gecko, die angegebene Ressource zu laden.
+Falls Sie an diesem Punkt eine weitere Quelle hinzufügen, indem Sie ein neues {{ HTMLElement("source") }}-Element als untergeordnetes Element des Medienelements einfügen, versucht Gecko, die angegebene Ressource zu laden.
 
-### Fallback-Inhalt anzeigen, wenn keine Quelle dekodiert werden konnte
+### Anzeigen von Ersatzinhalten, wenn keine Quelle dekodiert werden konnte
 
-Eine andere Möglichkeit, den Fallback-Inhalt eines Videos anzuzeigen, wenn keine der Quellen im aktuellen Browser dekodiert werden konnte, besteht darin, einen Fehler-Handler am letzten Source-Element hinzuzufügen. Dann können Sie das Video mit seinem Fallback-Inhalt ersetzen:
+Eine weitere Möglichkeit, den Ersatzinhalt eines Videos anzuzeigen, wenn keine der Quellen im aktuellen Browser dekodiert werden konnte, besteht darin, einen Fehler-Handler am letzten Quellelement hinzuzufügen. Dann können Sie das Video durch seinen Ersatzinhalt ersetzen:
 
 ```html
 <video controls>
@@ -450,20 +448,16 @@ Eine andere Möglichkeit, den Fallback-Inhalt eines Videos anzuzeigen, wenn kein
 const v = document.querySelector("video");
 const sources = v.querySelectorAll("source");
 const lastSource = sources[sources.length - 1];
-lastSource.addEventListener(
-  "error",
-  (ev) => {
-    const d = document.createElement("div");
-    d.innerHTML = v.innerHTML;
-    v.parentNode.replaceChild(d, v);
-  },
-  false,
-);
+lastSource.addEventListener("error", (ev) => {
+  const d = document.createElement("div");
+  d.innerHTML = v.innerHTML;
+  v.parentNode.replaceChild(d, v);
+});
 ```
 
-## Audio-/Video-JavaScript-Bibliotheken
+## Audio/Video-JavaScript-Bibliotheken
 
-Es existieren mehrere Audio- und Video-JavaScript-Bibliotheken. Die beliebtesten Bibliotheken ermöglichen Ihnen, ein einheitliches Player-Design über alle Browser auszuwählen und bieten einen Fallback für Browser, die Audio und Video nicht nativ unterstützen. Fallbacks haben historisch jetzt veraltete Plugins wie Adobe Flash oder Microsoft Silverlight verwendet, um in nicht unterstützenden Browsern einen Medienplayer bereitzustellen, obwohl diese auf modernen Computern nicht mehr unterstützt werden. Andere Funktionen, wie das `<track>`-Element für Untertitel, können auch durch Mediatheken bereitgestellt werden.
+Es gibt eine Reihe von Audio- und Video-JavaScript-Bibliotheken. Die beliebtesten Bibliotheken ermöglichen Ihnen, ein konsistentes Player-Design über alle Browser hinweg zu wählen und bieten einen Fallback für Browser, die Audio und Video nicht nativ unterstützen. Fallbacks haben in der Vergangenheit inzwischen veraltete Plugins wie Adobe Flash oder Microsoft Silverlight verwendet, um in nicht unterstützten Browsern einen Mediaplayer bereitzustellen, obwohl diese auf modernen Computern nicht mehr unterstützt werden. Weitere Funktionen wie das [`<track>`](/de/docs/Web/HTML/Reference/Elements/track)-Element für Untertitel können ebenfalls durch Medienbibliotheken bereitgestellt werden.
 
 ### Nur Audio
 
@@ -473,59 +467,59 @@ Es existieren mehrere Audio- und Video-JavaScript-Bibliotheken. Die beliebtesten
 
 ### Nur Video
 
-- [flowplayer](https://flowplayer.com/): Gratis mit einem Logo-Wasserzeichen von Flowplayer. Open Source (GPL-lizenziert.)
-- [JWPlayer](https://jwpconnatix.com/): Registrierung erforderlich zum Herunterladen. Open Source Edition (Creative Commons License.)
-- [SublimeVideo](https://www.sublimevideo.net/): Registrierung erforderlich. Formbasierte Einrichtung mit domainspezifischem Link zur CDN-gehosteten Bibliothek.
-- [Video.js](https://videojs.com/): Gratis und Open Source (Apache 2 lizenziert.)
+- [flowplayer](https://flowplayer.com/): Gratis mit einem Flowplayer-Logo-Wasserzeichen. Open Source (GPL-lizenziert.)
+- [JWPlayer](https://jwpconnatix.com/): Registrierung erforderlich zum Herunterladen. Open Source Edition (Creative Commons Lizenz.)
+- [SublimeVideo](https://www.sublimevideo.net/): Registrierung erforderlich. Formularbasierte Einrichtung mit domainspezifischem Link zu einer CDN-gehosteten Bibliothek.
+- [Video.js](https://videojs.com/): Gratis und Open Source (Apache 2 Lizenziert.)
 
 ### Audio und Video
 
-- [jPlayer](https://jPlayer.org/): Gratis und Open Source (MIT lizenziert.)
-- [mediaelement.js](https://www.mediaelementjs.com/): Gratis und Open Source (MIT lizenziert.)
+- [jPlayer](https://jPlayer.org/): Gratis und Open Source (MIT-Lizenziert.)
+- [mediaelement.js](https://www.mediaelementjs.com/): Gratis und Open Source (MIT-Lizenziert.)
 
 ### Web Audio API
 
-- [AudioContext MonkeyPatch](https://github.com/cwilso/AudioContext-MonkeyPatch): Ein Polyfill für ältere Versionen der Web Audio API; Open Source (Apache 2 lizenziert.)
+- [AudioContext monkeypatch](https://github.com/cwilso/AudioContext-MonkeyPatch): Ein Polyfill für ältere Versionen der Web Audio API; Open Source (Apache 2 Lizenziert.)
 
 ## Leitfäden
 
-- [Erstellen eines plattformübergreifenden Video-Players](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player)
-  - : Ein Leitfaden zur Erstellung eines grundlegenden plattformübergreifenden Video-Players unter Verwendung des {{ htmlelement("video") }}-Elements.
-- [Grundlagen des Stylings von Video-Playern](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Video_player_styling_basics)
-  - : Mit dem im vorherigen Artikel eingerichteten plattformübergreifenden Video-Player befassen wir uns nun mit ein paar grundlegenden, responsiven Styling-Optionen für den Player.
-- [Hinzufügen von Untertiteln und Bildunterschriften zu HTML-Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video)
-  - : Dieser Artikel erklärt, wie man dem HTML-{{ htmlelement("video") }} Bildunterschriften und Untertitel mit [Web_Video_Text_Tracks_Format](/de/docs/Web/API/WebVTT_API) und dem {{ htmlelement("track") }}-Element hinzufügt.
-- [Cross-Browser Audio-Basics](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Cross-browser_audio_basics)
-  - : Dieser Artikel bietet einen grundlegenden Leitfaden zur Erstellung eines HTML-Audio-Players, der plattformübergreifend funktioniert, mit allen zugehörigen Attributen, Eigenschaften und Ereignissen erklärt und einem schnellen Leitfaden zu benutzerdefinierten Steuerungen, die mit der Media-API erstellt wurden.
-- [Puffern, Suchen und Zeitbereiche für Medien](/de/docs/Web/Media/Guides/Audio_and_video_delivery/buffering_seeking_time_ranges)
-  - : Manchmal ist es hilfreich zu wissen, wie viel {{ htmlelement("audio") }} oder {{ htmlelement("video") }} heruntergeladen oder ohne Verzögerung abspielbar ist — ein gutes Beispiel dafür ist die gepufferte Fortschrittsleiste eines Audio- oder Videoplayers. Dieser Artikel diskutiert, wie man eine Puffer-/Suchleiste mit [TimeRanges](/de/docs/Web/API/TimeRanges) aufbaut und andere Funktionen der Media-API.
+- [Erstellen eines plattformübergreifenden Videoplayers](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player)
+  - : Ein Leitfaden zum Erstellen eines grundlegenden plattformübergreifenden Videoplayers unter Verwendung des {{ htmlelement("video") }}-Elements.
+- [Grundlagen zur Videoplayer-Gestaltung](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Video_player_styling_basics)
+  - : Mit dem im vorherigen Artikel eingerichteten plattformübergreifenden Videoplayer, befasst sich dieser Artikel nun mit der Bereitstellung einfacher, responsiver Gestaltung für den Player.
+- [Hinzufügen von Untertiteln zu HTML-Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video)
+  - : Dieser Artikel erklärt, wie Sie Untertitel zu HTML-{{ htmlelement("video") }} hinzufügen, unter Verwendung von [Web_Video_Text_Tracks_Format](/de/docs/Web/API/WebVTT_API) und dem {{ htmlelement("track") }}-Element.
+- [Cross-browser Audio Grundlagen](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Cross-browser_audio_basics)
+  - : Dieser Artikel bietet eine grundlegende Anleitung zum Erstellen eines HTML-Audioplayers, der plattformübergreifend funktioniert, mit einer Erklärung aller zugehörigen Attribute, Eigenschaften und Ereignisse, sowie einem kurzen Leitfaden zu benutzerdefinierten Steuerelementen, die mit der Media API erstellt wurden.
+- [Medienpufferung, Suchfunktion und Zeitbereiche](/de/docs/Web/Media/Guides/Audio_and_video_delivery/buffering_seeking_time_ranges)
+  - : Manchmal ist es nützlich zu wissen, wie viel {{ htmlelement("audio") }} oder {{ htmlelement("video") }} heruntergeladen oder ohne Verzögerung abspielbar ist - ein gutes Beispiel dafür ist die gepufferte Fortschrittsleiste eines Audio- oder Videoplayers. Dieser Artikel diskutiert, wie man eine Puffer-/Suchleiste mit [TimeRanges](/de/docs/Web/API/TimeRanges) und anderen Funktionen der Media API erstellt.
 - [HTML playbackRate erklärt](/de/docs/Web/Media/Guides/Audio_and_video_delivery/WebAudio_playbackRate_explained)
-  - : Die `playbackRate`-Eigenschaft ermöglicht es uns, die Geschwindigkeit oder Rate zu ändern, mit der ein Web-Audio- oder -Video abgespielt wird. Dieser Artikel erklärt dies im Detail.
-- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-  - : Erklärt die Grundlagen der Verwendung der Web Audio API, um eine Audioquelle zu erfassen, zu manipulieren und wiederzugeben.
+  - : Die `playbackRate`-Eigenschaft ermöglicht es uns, die Geschwindigkeit oder das Tempo zu ändern, mit dem ein Web-Audio oder -Video abgespielt wird. Dieser Artikel erklärt dies im Detail.
+- [Nutzung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+  - : Erklärt die Grundlagen der Nutzung der Web Audio API zum Abrufen, Manipulieren und Wiedergeben einer Audioquelle.
 
-### Streaming-Medien
+### Streaming von Medien
 
 - [Live-Streaming von Web-Audio und -Video](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Live_streaming_web_audio_and_video)
-  - : Live-Streaming-Technologie wird oft eingesetzt, um Live-Events wie Sport, Konzerte und allgemein TV- und Radioprogramme zu übertragen, die live ausgegeben werden. Oft auf das Streaming verkürzt, ist Live-Streaming der Prozess der Übertragung von Medien 'live' auf Computer und Geräte. Dies ist ein ziemlich komplexes und aufkommendes Thema mit vielen Variablen, deshalb werden wir in diesem Artikel in das Thema einführen und Ihnen zeigen, wie Sie anfangen können.
-- [Einrichten adaptiver Streaming-Medienquellen](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Setting_up_adaptive_streaming_media_sources)
-  - : Nehmen wir an, Sie möchten eine adaptive Streaming-Medienquelle auf einem Server einrichten, die in einem HTML-Medien-Element konsumiert werden soll. Wie würden Sie das machen? Dieser Artikel erklärt es anhand der zwei häufigsten Formate: MPEG-DASH und HLS (HTTP Live Streaming).
-- [DASH Adaptive Streaming für HTML 5 Video](/de/docs/Web/API/Media_Source_Extensions_API/DASH_Adaptive_Streaming)
-  - : Details zur Einrichtung von adaptivem Streaming mit DASH und WebM.
+  - : Livestreaming-Technologie wird oft eingesetzt, um Live-Ereignisse wie Sport, Konzerte und allgemeiner TV- und Radioprogramme, die live ausgestrahlt werden, zu übertragen. Oft einfach zu Streaming verkürzt, ist Livestreaming der Prozess der Übertragung von Medien 'live' zu Computern und Geräten. Dies ist ein recht komplexes und entstehendes Thema mit vielen Variablen, daher geben wir Ihnen in diesem Artikel eine Einführung in das Thema und zeigen Ihnen, wie Sie beginnen können.
+- [Einrichten von adaptiven Streaming-Medienquellen](/de/docs/Web/Media/Guides/Audio_and_video_delivery/Setting_up_adaptive_streaming_media_sources)
+  - : Angenommen, Sie möchten eine adaptive Streaming-Medienquelle auf einem Server einrichten, um sie innerhalb eines HTML-Medienelements zu nutzen. Wie würden Sie das tun? Dieser Artikel erklärt, wie, wobei er zwei der gebräuchlichsten Formate betrachtet: MPEG-DASH und HLS (HTTP Live Streaming).
+- [DASH Adaptive Streaming für HTML-5-Video](/de/docs/Web/API/Media_Source_Extensions_API/DASH_Adaptive_Streaming)
+  - : Beschreibt, wie adaptives Streaming unter Verwendung von DASH und WebM eingerichtet wird.
 
-### Erweiterten Themen
+### Fortschrittliche Themen
 
 - [Web Audio API plattformübergreifende Unterstützung](/de/docs/Web/API/Web_Audio_API/Best_practices#cross_browser_legacy_support)
-  - : Ein Leitfaden zur plattformübergreifenden Entwicklung von Web Audio API-Code.
-- [Einfache Audioaufnahme mit der MediaRecorder API](https://hacks.mozilla.org/2014/06/easy-audio-capture-with-the-mediarecorder-api/)
-  - : Erklärt die Grundlagen der Verwendung der MediaStream Recording API, um direkt einen Medienstream aufzuzeichnen.
+  - : Ein Leitfaden zum Schreiben von plattformübergreifendem Web Audio API-Code.
+- [Einfache Audioerfassung mit der MediaRecorder API](https://hacks.mozilla.org/2014/06/easy-audio-capture-with-the-mediarecorder-api/)
+  - : Erklärt die Grundlagen der Nutzung der MediaStream-Aufnahme-API, um direkt einen Medienstream aufzuzeichnen.
 
-## Referenzen
+## Referenz
 
-- [Das Video-Element](/de/docs/Web/HTML/Reference/Elements/video)
+- [Das video-Element](/de/docs/Web/HTML/Reference/Elements/video)
 - [HTMLVideoElement API](/de/docs/Web/API/HTMLVideoElement)
 - [MediaSource API](/de/docs/Web/API/MediaSource)
 - [Web Audio API](/de/docs/Web/API/Web_Audio_API)
-- [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API)
+- [MediaStream-Aufnahme API](/de/docs/Web/API/MediaStream_Recording_API)
 - [getUserMedia](/de/docs/Web/API/MediaDevices/getUserMedia)
 - [Ereignisindex: Medien](/de/docs/Web/API/Document_Object_Model/Events#media)

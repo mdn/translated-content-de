@@ -3,25 +3,25 @@ title: "Animation: playbackRate-Eigenschaft"
 short-title: playbackRate
 slug: Web/API/Animation/playbackRate
 l10n:
-  sourceCommit: 291a8c75ed553e807895225d51dff7ac24ad1f05
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{APIRef("Web Animations")}}
 
-Die **`Animation.playbackRate`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt die Wiedergabegeschwindigkeit der Animation zurück oder setzt diese.
+Die **`Animation.playbackRate`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt die Wiedergaberate der Animation zurück oder legt sie fest.
 
-Animationen haben eine **Wiedergabegeschwindigkeit**, die einen Skalierungsfaktor von der Änderungsrate der `timeline`-Zeitwerte der Animation zur aktuellen Zeit der Animation bietet. Die Wiedergabegeschwindigkeit ist anfänglich `1`.
+Animationen haben eine **Wiedergaberate**, die einen Skalierungsfaktor vom Änderungsratenwert der [`timeline`](/de/docs/Web/API/DocumentTimeline)-Zeitwerte der Animation zur aktuellen Zeit der Animation bietet. Die Wiedergaberate ist anfangs `1`.
 
 ## Wert
 
-Nimmt eine Zahl an, die 0, negativ oder positiv sein kann. Negative Werte kehren die Animation um. Der Wert ist ein Skalierungsfaktor, also würde beispielsweise ein Wert von 2 die Wiedergabegeschwindigkeit verdoppeln.
+Nimmt eine Zahl an, die 0, negativ oder positiv sein kann. Negative Werte kehren die Animation um. Der Wert ist ein Skalierungsfaktor, daher würde zum Beispiel ein Wert von 2 die Wiedergaberate verdoppeln.
 
 > [!NOTE]
-> Das Setzen der `playbackRate` einer Animation auf `0` pausiert effektiv die Animation (allerdings wird ihr [`playState`](/de/docs/Web/API/Animation/playState) nicht notwendigerweise `paused`).
+> Das Setzen der `playbackRate` einer Animation auf `0` pausiert effektiv die Animation (jedoch wird ihr [`playState`](/de/docs/Web/API/Animation/playState) nicht unbedingt `paused`).
 
 ## Beispiele
 
-Im [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010)-Beispiel führt ein Klick oder Tippen auf die Flasche dazu, dass die Wachstumsanimation von Alice (`aliceChange`) umkehrt und sie schrumpft:
+Im Beispiel [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) führt ein Klick oder Tippen auf die Flasche dazu, dass die Wachstumsanimation von Alice (`aliceChange`) umkehrt und sie schrumpft:
 
 ```js
 const shrinkAlice = () => {
@@ -30,11 +30,11 @@ const shrinkAlice = () => {
 };
 
 // On tap or click, Alice will shrink.
-bottle.addEventListener("mousedown", shrinkAlice, false);
-bottle.addEventListener("touchstart", shrinkAlice, false);
+bottle.addEventListener("mousedown", shrinkAlice);
+bottle.addEventListener("touchstart", shrinkAlice);
 ```
 
-Im Gegensatz dazu führt ein Klick auf den Kuchen dazu, dass sie "wächst", indem `aliceChange` wieder vorwärts abgespielt wird:
+Andererseits führt ein Klick auf den Kuchen dazu, dass sie "wächst" und `aliceChange` wieder vorwärts abspielt:
 
 ```js
 const growAlice = () => {
@@ -43,11 +43,11 @@ const growAlice = () => {
 };
 
 // On tap or click, Alice will grow.
-cake.addEventListener("mousedown", growAlice, false);
-cake.addEventListener("touchstart", growAlice, false);
+cake.addEventListener("mousedown", growAlice);
+cake.addEventListener("touchstart", growAlice);
 ```
 
-In einem anderen Beispiel, dem [Rennen der Roten Königin](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#other_useful_methods), verlangsamen sich Alice und die Rote Königin ständig:
+In einem anderen Beispiel, dem [Red Queen's Race Game](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#other_useful_methods), verlangsamen Alice und die Rote Königin ständig:
 
 ```js
 setInterval(() => {
@@ -58,7 +58,7 @@ setInterval(() => {
 }, 3000);
 ```
 
-Aber ein Klick oder Tippen auf sie führt dazu, dass sie schneller werden, indem ihre `playbackRate` multipliziert wird:
+Aber ein Klick oder Tippen auf sie beschleunigt sie, indem ihre `playbackRate` multipliziert wird:
 
 ```js
 const goFaster = () => {

@@ -1,16 +1,17 @@
 ---
-title: "XMLHttpRequest: overrideMimeType() Methode"
+title: "XMLHttpRequest: overrideMimeType()-Methode"
 short-title: overrideMimeType()
 slug: Web/API/XMLHttpRequest/overrideMimeType
 l10n:
-  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
+  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
 ---
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Methode **`overrideMimeType()`** gibt einen MIME-Typ an, der anstelle des vom Server bereitgestellten Typs verwendet werden soll, wenn die im Anforderungsvorgang übertragenen Daten interpretiert werden.
+Die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Methode
+**`overrideMimeType()`** legt einen MIME-Typ fest, der sich von dem vom Server bereitgestellten unterscheidet und stattdessen beim Interpretieren der übertragenen Daten in einer Anfrage verwendet wird.
 
-Dies kann beispielsweise verwendet werden, um einen Datenstrom zu zwingen, als `"text/xml"` behandelt und geparst zu werden, auch wenn der Server ihn nicht so angibt. Diese Methode muss aufgerufen werden, bevor [`send()`](/de/docs/Web/API/XMLHttpRequest/send) aufgerufen wird.
+Dies kann zum Beispiel verwendet werden, um einen Stream als `"text/xml"` zu behandeln und zu parsen, auch wenn der Server dies nicht als solchen meldet. Diese Methode muss vor dem Aufruf von [`send()`](/de/docs/Web/API/XMLHttpRequest/send) aufgerufen werden.
 
 ## Syntax
 
@@ -21,7 +22,8 @@ overrideMimeType(mimeType)
 ### Parameter
 
 - `mimeType`
-  - : Ein String, der den MIME-Typ angibt, der anstelle des vom Server angegebenen Typs verwendet werden soll. Wenn der Server keinen Typ angibt, nimmt `XMLHttpRequest` `"text/xml"` an.
+  - : Ein String, der den zu verwendenden MIME-Typ angibt, anstelle des vom Server angegebenen. Wenn der Server keinen Typ angibt,
+    nimmt `XMLHttpRequest` `"text/xml"` an.
 
 ### Rückgabewert
 
@@ -29,19 +31,18 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-In diesem Beispiel wird ein MIME-Typ von `"text/plain"` angegeben, der den vom Server angegebenen Typ für die empfangenen Daten überschreibt.
+Dieses Beispiel gibt einen MIME-Typ von `"text/plain"` an und überschreibt damit den vom Server angegebenen Typ für die empfangenen Daten.
 
 > [!NOTE]
 > Wenn der Server keinen
-> [`Content-Type`](/de/docs/Web/HTTP/Reference/Headers/Content-Type)-Header bereitstellt, nimmt [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) an, dass der MIME-Typ
-> `"text/xml"` ist. Wenn der Inhalt kein gültiges XML ist, tritt ein Fehler "XML Parsing Error: not well-formed" auf. Dies können Sie vermeiden, indem Sie `overrideMimeType()` aufrufen, um einen anderen Typ anzugeben.
+> [`Content-Type`](/de/docs/Web/HTTP/Reference/Headers/Content-Type)-Header bereitstellt, nimmt [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) an, dass der MIME-Typ `"text/xml"` ist. Wenn der Inhalt kein gültiges XML ist, tritt ein Fehler "XML Parsing Error: not well-formed" auf. Sie können dies vermeiden, indem Sie `overrideMimeType()` aufrufen, um eine andere Typangabe zu machen.
 
 ```js
 // Interpret the received data as plain text
 
 req = new XMLHttpRequest();
 req.overrideMimeType("text/plain");
-req.addEventListener("load", callback, false);
+req.addEventListener("load", callback);
 req.open("get", url);
 req.send();
 ```

@@ -2,22 +2,22 @@
 title: Verwendung von Klassen
 slug: Web/JavaScript/Guide/Using_classes
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 8c56e742169bd80f27cbc57591f6b3a00e23c873
 ---
 
 {{PreviousNext("Web/JavaScript/Guide/Working_with_objects", "Web/JavaScript/Guide/Using_promises")}}
 
-JavaScript ist eine prototypbasierte Sprache — das Verhalten eines Objekts wird durch seine eigenen Eigenschaften und die Eigenschaften seines Prototyps bestimmt. Mit der Einführung von [Klassen](/de/docs/Web/JavaScript/Reference/Classes) ist die Erstellung von Objekt-Hierarchien und die Vererbung von Eigenschaften und deren Werten jedoch viel mehr im Einklang mit anderen objektorientierten Sprachen wie Java. In diesem Abschnitt werden wir demonstrieren, wie Objekte aus Klassen erstellt werden können.
+JavaScript ist eine prototypbasierte Sprache - das Verhalten eines Objekts wird durch seine eigenen Eigenschaften und die Eigenschaften seines Prototyps bestimmt. Mit der Einführung von [Klassen](/de/docs/Web/JavaScript/Reference/Classes) ist die Erstellung von Objekt-Hierarchien und die Vererbung von Eigenschaften und deren Werten jedoch viel mehr im Einklang mit anderen objektorientierten Sprachen wie Java. In diesem Abschnitt werden wir demonstrieren, wie Objekte aus Klassen erstellt werden können.
 
-In vielen anderen Sprachen sind _Klassen_ oder Konstruktoren klar von _Objekten_ oder Instanzen zu unterscheiden. In JavaScript sind Klassen hauptsächlich eine Abstraktion über den bestehenden prototypischen Vererbungsmechanismus — alle Patterns sind auf Prototyp-Vererbung übertragbar. Klassen selbst sind ebenfalls normale JavaScript-Werte und haben ihre eigenen Prototyp-Ketten. Tatsächlich können die meisten einfachen JavaScript-Funktionen als Konstruktoren verwendet werden — Sie verwenden den `new`-Operator mit einer Konstruktorfunktion, um ein neues Objekt zu erstellen.
+In vielen anderen Sprachen sind _Klassen_ oder Konstruktoren klar von _Objekten_ oder Instanzen unterschieden. In JavaScript sind Klassen hauptsächlich eine Abstraktion über den bestehenden prototypischen Vererbungsmechanismus - alle Muster können in prototypische Vererbung umgewandelt werden. Klassen selbst sind auch normale JavaScript-Werte und haben ihre eigenen Prototyp-Ketten. Tatsächlich können die meisten einfachen JavaScript-Funktionen als Konstruktoren verwendet werden - Sie verwenden den `new` Operator mit einer Konstruktorfunktion, um ein neues Objekt zu erstellen.
 
-In diesem Tutorial werden wir uns mit dem gut abstrahierten Klassenmodell beschäftigen und diskutieren, welche Semantik Klassen bieten. Wenn Sie tief in das zugrunde liegende Prototyp-System eintauchen möchten, können Sie den [Vererbungs- und Prototyp-Ketten](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)-Leitfaden lesen.
+Wir werden in diesem Tutorial mit dem gut abstrahierten Klassenmodell arbeiten und darüber diskutieren, welche Semantiken Klassen bieten. Wenn Sie tief in das zugrunde liegende Prototyp-System eintauchen möchten, können Sie den [Vererbung und die Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) Leitfaden lesen.
 
-Dieses Kapitel setzt voraus, dass Sie bereits mit JavaScript vertraut sind und gewöhnliche Objekte verwendet haben.
+Dieses Kapitel geht davon aus, dass Sie bereits mit JavaScript einigermaßen vertraut sind und bereits normale Objekte verwendet haben.
 
 ## Überblick über Klassen
 
-Wenn Sie praktische Erfahrung mit JavaScript haben oder dem Leitfaden gefolgt sind, haben Sie wahrscheinlich bereits Klassen verwendet, auch wenn Sie keine erstellt haben. Zum Beispiel könnte Ihnen das [bekannt vorkommen](/de/docs/Web/JavaScript/Guide/Representing_dates_times):
+Wenn Sie bereits praktische Erfahrung mit JavaScript haben oder dem Leitfaden gefolgt sind, haben Sie wahrscheinlich schon Klassen verwendet, auch wenn Sie noch keine erstellt haben. Zum Beispiel könnte Ihnen dies [bekannt vorkommen](/de/docs/Web/JavaScript/Guide/Representing_dates_times):
 
 ```js
 const bigDay = new Date(2019, 6, 19);
@@ -27,13 +27,13 @@ if (bigDay.getTime() < Date.now()) {
 }
 ```
 
-In der ersten Zeile haben wir eine Instanz der Klasse [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) erstellt, die wir `bigDay` genannt haben. In der zweiten Zeile haben wir eine {{Glossary("Method", "Methode")}} [`toLocaleDateString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString) auf der `bigDay`-Instanz aufgerufen, die einen String zurückgibt. Dann haben wir zwei Zahlen verglichen: eine, die von der [`getTime()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime)-Methode zurückgegeben wurde, und die andere, die direkt von der `Date`-Klasse _selbst_ aufgerufen wurde, als [`Date.now()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/now).
+In der ersten Zeile haben wir eine Instanz der Klasse [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) erstellt und sie `bigDay` genannt. In der zweiten Zeile riefen wir eine {{Glossary("Method", "Methode")}} [`toLocaleDateString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString) auf der `bigDay`-Instanz auf, die einen String zurückgibt. Dann haben wir zwei Zahlen verglichen: eine, die von der Methode [`getTime()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime) zurückgegeben wurde, die andere direkt von der `Date`-Klasse selbst aufgerufen, als [`Date.now()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/now).
 
-`Date` ist eine eingebaute Klasse von JavaScript. Aus diesem Beispiel können wir einige grundlegende Vorstellungen davon gewinnen, was Klassen tun:
+`Date` ist eine eingebaute Klasse von JavaScript. Aus diesem Beispiel können wir einige grundlegende Ideen darüber gewinnen, was Klassen tun:
 
-- Klassen erstellen Objekte über den [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Operator.
+- Klassen erstellen Objekte durch den [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) Operator.
 - Jedes Objekt hat einige Eigenschaften (Daten oder Methoden), die von der Klasse hinzugefügt werden.
-- Die Klasse speichert selbst einige Eigenschaften (Daten oder Methoden), die normalerweise zur Interaktion mit Instanzen verwendet werden.
+- Die Klasse speichert einige Eigenschaften (Daten oder Methoden) selbst, die normalerweise zur Interaktion mit den Instanzen verwendet werden.
 
 Diese entsprechen den drei Schlüsselfunktionen von Klassen:
 
@@ -81,7 +81,7 @@ class MyClass {
 }
 ```
 
-Wenn Sie aus einer Zeit vor ES6 kommen, sind Sie vielleicht eher mit der Verwendung von Funktionen als Konstruktoren vertraut. Das obige Pattern würde in etwa folgendermaßen mit Funktionskonstruktoren übersetzt werden:
+Wenn Sie aus einer Welt vor ES6 kommen, sind Sie möglicherweise mit der Verwendung von Funktionen als Konstruktoren vertrauter. Das oben gezeigte Muster würde etwa mit Funktionskonstruktoren in Folgendes übersetzt werden:
 
 ```js
 function MyClass() {
@@ -102,11 +102,11 @@ MyClass.prototype.myMethod = function () {
 ```
 
 > [!NOTE]
-> Private Felder und Methoden sind neue Merkmale in Klassen ohne triviale Entsprechung in Funktionskonstruktoren.
+> Private Felder und Methoden sind neue Funktionen in Klassen ohne triviales Äquivalent in Funktionskonstruktoren.
 
-### Klasse konstruieren
+### Konstruieren einer Klasse
 
-Nachdem eine Klasse deklariert wurde, können Sie Instanzen davon mithilfe des [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)-Operators erstellen.
+Nachdem eine Klasse deklariert wurde, können Sie Instanzen davon mit dem [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) Operator erstellen.
 
 ```js
 const myInstance = new MyClass();
@@ -114,15 +114,15 @@ console.log(myInstance.myField); // 'foo'
 myInstance.myMethod();
 ```
 
-Typische Funktionskonstruktoren können sowohl mit `new` konstruiert als auch ohne `new` aufgerufen werden. Der Versuch, eine Klasse ohne `new` aufzurufen, führt jedoch zu einem Fehler.
+Typische Funktionskonstruktoren können sowohl mit `new` konstruiert als auch ohne `new` aufgerufen werden. Der Versuch, eine Klasse ohne `new` zu "aufrufen", führt jedoch zu einem Fehler.
 
 ```js
 const myInstance = MyClass(); // TypeError: Class constructor MyClass cannot be invoked without 'new'
 ```
 
-### Klassendeklaration Hoisting
+### Klassendeklaration und Hoisting
 
-Im Gegensatz zu Funktionsdeklarationen werden Klassendeklarationen nicht {{Glossary("Hoisting", "gehoben")}} (oder, in einigen Interpretationen, gehoben, aber mit der Einschränkung der temporären Totzone), was bedeutet, dass Sie eine Klasse nicht verwenden können, bevor sie deklariert wird.
+Anders als Funktionsdeklarationen werden Klassendeklarationen nicht {{Glossary("Hoisting", "gehoistet")}} (oder, in einigen Interpretationen, gehoistet, aber mit der Einschränkung der temporären Totzone), was bedeutet, dass Sie eine Klasse nicht verwenden können, bevor sie deklariert ist.
 
 ```js
 new MyClass(); // ReferenceError: Cannot access 'MyClass' before initialization
@@ -130,11 +130,11 @@ new MyClass(); // ReferenceError: Cannot access 'MyClass' before initialization
 class MyClass {}
 ```
 
-Dieses Verhalten ähnelt Variablen, die mit [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) und [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) deklariert wurden.
+Dieses Verhalten ist ähnlich wie bei Variablen, die mit [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) und [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) deklariert wurden.
 
 ### Klassenausdrücke
 
-Ähnlich wie bei Funktionen haben Klassendeklarationen auch Ausdrucksgegenstücke.
+Ähnlich wie Funktionen haben Klassendeklarationen auch ihre ausdrucksbezogenen Gegenstücke.
 
 ```js
 const MyClass = class {
@@ -142,7 +142,7 @@ const MyClass = class {
 };
 ```
 
-Klassen-Ausdrücke können auch Namen haben. Der Name des Ausdrucks ist nur für den Körpers der Klasse sichtbar.
+Klassenausdrücke können ebenfalls Namen haben. Der Namen solcher Ausdrücke ist nur für den Körper der Klasse sichtbar.
 
 ```js
 const MyClass = class MyClassLongerName {
@@ -153,9 +153,9 @@ new MyClassLongerName(); // ReferenceError: MyClassLongerName is not defined
 
 ## Konstruktor
 
-Vielleicht ist die wichtigste Aufgabe einer Klasse, als "Fabrik" für Objekte zu fungieren. Wenn wir zum Beispiel den `Date`-Konstruktor verwenden, erwarten wir, dass er ein neues Objekt gibt, das die Datum-Daten darstellt, die wir eingegeben haben — die wir dann mit anderen Methoden bearbeiten können, die die Instanz bereitstellt. In Klassen wird die Instanzerstellung durch den [Konstruktor](/de/docs/Web/JavaScript/Reference/Classes/constructor) vorgenommen.
+Vielleicht die wichtigste Aufgabe einer Klasse ist es, als "Fabrik" für Objekte zu fungieren. Wenn wir zum Beispiel den `Date`-Konstruktor verwenden, erwarten wir, dass er ein neues Objekt gibt, das die Datumsdaten repräsentiert, die wir eingegeben haben - die wir dann mit anderen Methoden manipulieren können, die die Instanz bereitstellt. In Klassen erfolgt die Erstellung der Instanz durch den [Konstruktor](/de/docs/Web/JavaScript/Reference/Classes/constructor).
 
-Als Beispiel würden wir eine Klasse namens `Color` erstellen, die eine bestimmte Farbe darstellt. Benutzer erstellen Farben, indem sie ein {{Glossary("RGB", "RGB")}}-Triplet eingeben.
+Als Beispiel würden wir eine Klasse namens `Color` erstellen, die eine bestimmte Farbe repräsentiert. Benutzer erstellen Farben, indem sie ein {{Glossary("RGB", "RGB")}} Triplet übergeben.
 
 ```js
 class Color {
@@ -166,21 +166,21 @@ class Color {
 }
 ```
 
-Öffnen Sie die Entwicklertools Ihres Browsers, fügen Sie den obigen Code in die Konsole ein und erstellen Sie dann eine Instanz:
+Öffnen Sie die Entwicklerwerkzeuge Ihres Browsers, fügen Sie den obigen Code in die Konsole ein und erstellen Sie dann eine Instanz:
 
 ```js
 const red = new Color(255, 0, 0);
 console.log(red);
 ```
 
-Sie sollten eine Ausgabe ähnlich dieser sehen:
+Sie sollten eine Ausgabe wie diese sehen:
 
 ```plain
 Object { values: (3) […] }
   values: Array(3) [ 255, 0, 0 ]
 ```
 
-Sie haben erfolgreich eine `Color`-Instanz erstellt, und die Instanz hat eine `values`-Eigenschaft, die ein Array der RGB-Werte ist, die Sie eingegeben haben. Das entspricht in etwa dem Folgenden:
+Sie haben erfolgreich eine `Color`-Instanz erstellt, und diese Instanz hat eine `values`-Eigenschaft, die ein Array der von Ihnen übergebenen RGB-Werte ist. Dies ist ziemlich gleichwertig mit dem Folgenden:
 
 ```js
 function createColor(r, g, b) {
@@ -190,7 +190,7 @@ function createColor(r, g, b) {
 }
 ```
 
-Die Syntax des Konstruktors ist genau die gleiche wie bei einer normalen Funktion — das bedeutet, Sie können andere Syntaxen wie [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) verwenden:
+Die Syntax des Konstruktors ist genau die gleiche wie bei einer normalen Funktion - was bedeutet, dass Sie andere Syntaxen verwenden können, wie [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters):
 
 ```js
 class Color {
@@ -211,9 +211,9 @@ const anotherRed = new Color(255, 0, 0);
 console.log(red === anotherRed); // false
 ```
 
-Innerhalb eines Klassenkonstruktors zeigt der Wert von `this` auf die neu erstellte Instanz. Sie können ihm Eigenschaften zuweisen oder vorhandene Eigenschaften lesen (insbesondere Methoden — die wir als nächstes behandeln werden).
+Innerhalb eines Klassenkonstruktors zeigt der Wert von `this` auf die neu erstellte Instanz. Sie können ihm Eigenschaften zuweisen oder vorhandene Eigenschaften lesen (insbesondere Methoden — die wir als Nächstes behandeln).
 
-Der `this`-Wert wird automatisch als Ergebnis von `new` zurückgegeben. Es wird empfohlen, keinen Wert aus dem Konstruktor zurückzugeben — denn wenn Sie einen nicht-primitiven Wert zurückgeben, wird er zum Wert des `new`-Ausdrucks und der Wert von `this` wird verworfen. (Sie können mehr darüber lesen, was `new` tut, in [seiner Beschreibung](/de/docs/Web/JavaScript/Reference/Operators/new#description).)
+Der Wert von `this` wird automatisch als Ergebnis von `new` zurückgegeben. Es wird empfohlen, keinen Wert aus dem Konstruktor zurückzugeben - denn wenn Sie einen nicht-primitiven Wert zurückgeben, wird dieser zum Wert des `new`-Ausdrucks, und der Wert von `this` wird verworfen. (Sie können mehr darüber lesen, was `new` in [seiner Beschreibung](/de/docs/Web/JavaScript/Reference/Operators/new#description) tut.)
 
 ```js
 class MyClass {
@@ -228,11 +228,11 @@ console.log(new MyClass().myField); // undefined
 
 ## Instanzmethoden
 
-Wenn eine Klasse nur einen Konstruktor hat, unterscheidet sie sich nicht wesentlich von einer `createX` Fabrik-Funktion, die nur einfache Objekte erstellt. Der Vorteil von Klassen besteht jedoch darin, dass sie als "Vorlagen" verwendet werden können, die automatisch Methoden an Instanzen zuweisen.
+Wenn eine Klasse nur einen Konstruktor hat, unterscheidet sie sich kaum von einer `createX`-Fabrikfunktion, die nur einfache Objekte erstellt. Die Kraft von Klassen besteht jedoch darin, dass sie als "Vorlagen" verwendet werden können, die automatisch Methoden auf Instanzen zuweisen.
 
-Zum Beispiel können Sie bei `Date`-Instanzen eine Reihe von Methoden verwenden, um unterschiedliche Informationen aus einem einzelnen Datumswert zu erhalten, wie das [Jahr](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getFullYear), den [Monat](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth), den [Wochentag](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay), usw. Sie können diese Werte auch über die `setX`-Gegenstücke wie [`setFullYear`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/setFullYear) setzen.
+Zum Beispiel können Sie bei `Date`-Instanzen eine Reihe von Methoden verwenden, um verschiedene Informationen von einem einzelnen Datumswert zu erhalten, wie das [Jahr](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getFullYear), den [Monat](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getMonth), [Wochentag](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay), usw. Diese Werte können auch über die entsprechenden `setX`-Gegenstücke festgelegt werden, wie [`setFullYear`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/setFullYear).
 
-Für unsere eigene `Color`-Klasse können wir eine Methode namens `getRed` hinzufügen, die den roten Wert der Farbe zurückgibt.
+Für unsere eigene `Color`-Klasse können wir eine Methode namens `getRed` hinzufügen, die den Rotwert der Farbe zurückgibt.
 
 ```js
 class Color {
@@ -261,15 +261,15 @@ class Color {
 }
 ```
 
-Dies funktioniert auch. Ein Problem ist jedoch, dass dies jedes Mal eine neue Funktion erstellt, wenn eine `Color`-Instanz erstellt wird, auch wenn sie alle das gleiche tun!
+Das funktioniert ebenfalls. Ein Problem dabei ist jedoch, dass jedes Mal, wenn eine `Color`-Instanz erstellt wird, eine neue Funktion erstellt wird, auch wenn sie alle das gleiche tun!
 
 ```js
 console.log(new Color().getRed === new Color().getRed); // false
 ```
 
-Im Gegensatz dazu wird, wenn Sie eine Methode verwenden, diese zwischen allen Instanzen geteilt. Eine Funktion kann zwischen allen Instanzen geteilt werden, aber dennoch ihr Verhalten ändern, wenn verschiedene Instanzen sie aufrufen, da der Wert von `this` unterschiedlich ist. Wenn Sie neugierig sind, _wo_ diese Methode gespeichert ist — sie ist im Prototyp aller Instanzen oder `Color.prototype` definiert, was im Detail im [Vererbungs- und Prototyp-Ketten](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain)-Leitfaden erklärt wird.
+Im Gegensatz dazu wird eine Methode, wenn Sie sie verwenden, zwischen allen Instanzen geteilt. Eine Funktion kann zwischen allen Instanzen geteilt werden, aber ihr Verhalten kann sich unterscheiden, wenn verschiedene Instanzen sie aufrufen, da der Wert von `this` unterschiedlich ist. Wenn Sie neugierig sind, wo diese Methode gespeichert ist — sie wird im Prototyp aller Instanzen definiert oder `Color.prototype`, was im [Leitfaden Vererbung und die Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) ausführlicher erklärt wird.
 
-Ähnlich können wir eine neue Methode namens `setRed` erstellen, die den roten Wert der Farbe setzt.
+Ähnlich können wir eine neue Methode namens `setRed` erstellen, die den Rotwert der Farbe setzt.
 
 ```js
 class Color {
@@ -291,7 +291,7 @@ console.log(red.getRed()); // 0; of course, it should be called "black" at this 
 
 ## Private Felder
 
-Sie fragen sich vielleicht: Warum sollten wir uns die Mühe machen, `getRed` und `setRed` Methoden zu verwenden, wenn wir direkt auf das `values`-Array in der Instanz zugreifen können?
+Sie könnten sich fragen: Warum sollten wir uns die Mühe machen, `getRed` und `setRed`-Methoden zu verwenden, wenn wir das `values`-Array direkt auf der Instanz zugreifen können?
 
 ```js
 class Color {
@@ -305,7 +305,7 @@ red.values[0] = 0;
 console.log(red.values[0]); // 0
 ```
 
-Es gibt eine Philosophie in der objektorientierten Programmierung, die als "Kapselung" bezeichnet wird. Das bedeutet, dass Sie nicht auf die zugrunde liegende Implementierung eines Objekts zugreifen sollten, sondern stattdessen gut abstrahierte Methoden verwenden sollten, um mit ihm zu interagieren. Wenn wir zum Beispiel plötzlich entscheiden, Farben als [HSL](/de/docs/Web/CSS/color_value/hsl) statt als RGB darzustellen:
+Es gibt eine Philosophie in der objektorientierten Programmierung, die "Kapselung" genannt wird. Dies bedeutet, dass Sie nicht auf die zugrunde liegende Implementierung eines Objekts zugreifen sollten, sondern stattdessen gut abstrahierte Methoden verwenden sollten, um mit ihm zu interagieren. Wenn wir zum Beispiel plötzlich entscheiden, Farben als [HSL](/de/docs/Web/CSS/color_value/hsl) zu repräsentieren:
 
 ```js
 class Color {
@@ -325,9 +325,9 @@ const red = new Color(255, 0, 0);
 console.log(red.values[0]); // 0; It's not 255 anymore, because the H value for pure red is 0
 ```
 
-Die Annahme des Benutzers, dass `values` die RGB-Werte bedeutet, bricht plötzlich zusammen, und es könnte dazu führen, dass ihre Logik nicht mehr korrekt funktioniert. Wenn Sie also Implementierer einer Klasse sind, möchten Sie die interne Datenstruktur Ihrer Instanz vor Ihrem Benutzer verbergen, um sowohl die API sauber zu halten als auch zu verhindern, dass der Code des Benutzers zusammenbricht, wenn Sie einige "harmlose Refaktorisierungen" vornehmen. In Klassen wird dies durch [_private Felder_](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) erreicht.
+Die Annahme des Benutzers, dass `values` den RGB-Wert bedeutet, bricht plötzlich zusammen, und dies könnte ihre Logik zum Absturz bringen. Wenn Sie also ein Implementierer einer Klasse sind, möchten Sie die interne Datenstruktur Ihrer Instanz vor Ihren Benutzern verbergen, sowohl um die API sauber zu halten als auch um zu verhindern, dass der Code des Benutzers durcheinander gerät, wenn Sie einige "harmlose Refaktorisierungen" vornehmen. In Klassen wird dies durch [_private Felder_](/de/docs/Web/JavaScript/Reference/Classes/Private_elements) erreicht.
 
-Ein privates Feld ist ein Bezeichner, dem ein `#` (Das Rautezeichen) vorangestellt ist. Die Raute ist ein integraler Bestandteil des Feldnamens, was bedeutet, dass ein privates Feld niemals einen Namenkonflikt mit einem öffentlichen Feld oder einer Methode haben kann. Um auf ein privates Feld irgendwo in der Klasse zu verweisen, müssen Sie es _im Klassenkörper deklarieren_ (Sie können kein privates Element im Handumdrehen erstellen). Abgesehen davon ist ein privates Feld nahezu gleichwertig mit einer normalen Eigenschaft.
+Ein privates Feld ist ein Bezeichner, dem ein `#` (Hash-Symbol) vorangestellt ist. Der Hash ist ein integraler Bestandteil des Namens des Feldes, was bedeutet, dass ein privates Feld niemals Namenskollisionen mit einem öffentlichen Feld oder einer Methode haben kann. Um auf ein privates Feld innerhalb der Klasse zu verweisen, müssen Sie es im Klassenkörper _deklarieren_ (Sie können kein privates Element spontan erstellen). Davon abgesehen ist ein privates Feld ziemlich gleichwertig mit einer normalen Eigenschaft.
 
 ```js
 class Color {
@@ -348,18 +348,18 @@ const red = new Color(255, 0, 0);
 console.log(red.getRed()); // 255
 ```
 
-Der Zugriff auf private Felder außerhalb der Klasse ist ein früher Syntaxfehler. Die Sprache kann dies verhindern, weil `#privateField` eine spezielle Syntax ist, sodass sie einige statische Analysen durchführen und alle Verwendungen privater Felder finden kann, bevor der Code überhaupt ausgewertet wird.
+Das Zugreifen auf private Felder außerhalb der Klasse ist ein früher Syntaxfehler. Die Sprache kann dies verhindern, da `#privateField` eine spezielle Syntax ist, sodass sie eine statische Analyse durchführen und alle Verwendungen privater Felder finden kann, noch bevor der Code ausgewertet wird.
 
 ```js-nolint example-bad
 console.log(red.#values); // SyntaxError: Private field '#values' must be declared in an enclosing class
 ```
 
 > [!NOTE]
-> Code, der in der Chrome-Konsole ausgeführt wird, kann auf private Elemente außerhalb der Klasse zugreifen. Dies ist eine nur in den Entwicklertools geltende Entspannung der JavaScript-Syntaxeinschränkung.
+> Code, der in der Chrome-Konsole ausgeführt wird, kann auf private Elemente außerhalb der Klasse zugreifen. Dies ist eine nur in den DevTools vorhandene Lockerung der JavaScript-Syntaxbeschränkung.
 
-Private Felder in JavaScript sind _hart privat_: Wenn die Klasse keine Methoden implementiert, die diese privaten Felder freigeben, gibt es absolut keinen Mechanismus, um sie außerhalb der Klasse zu erhalten. Das bedeutet, dass es sicher ist, beliebige Refaktorisierungen der privaten Felder Ihrer Klasse vorzunehmen, solange das Verhalten der freigelegten Methoden gleich bleibt.
+Private Felder in JavaScript sind _hart privat_: Wenn die Klasse keine Methoden implementiert, die diese privaten Felder freigeben, gibt es absolut keinen Mechanismus, um sie außerhalb der Klasse abzurufen. Dies bedeutet, dass Sie sicher sind, alle Refaktorisierungen der privaten Felder Ihrer Klasse durchzuführen, solange sich das Verhalten der freigelegten Methoden nicht ändert.
 
-Nachdem wir das Feld `values` privat gemacht haben, können wir etwas mehr Logik in die `getRed` und `setRed` Methoden einfügen, anstatt sie einfache Durchreichmethoden sein zu lassen. Wir können zum Beispiel eine Überprüfung in `setRed` hinzufügen, um zu sehen, ob es sich um einen gültigen R-Wert handelt:
+Nachdem wir das `values`-Feld privat gemacht haben, können wir in den `getRed`- und `setRed`-Methoden mehr Logik hinzufügen, anstatt sie einfache Durchgangsmethoden zu machen. Zum Beispiel können wir in `setRed` eine Überprüfung hinzufügen, ob es sich um einen gültigen R-Wert handelt:
 
 ```js
 class Color {
@@ -382,7 +382,7 @@ const red = new Color(255, 0, 0);
 red.setRed(1000); // RangeError: Invalid R value
 ```
 
-Wenn wir die `values`-Eigenschaft freilegen, können unsere Benutzer diese Überprüfung leicht umgehen, indem sie direkt auf `values[0]` zuweisen und ungültige Farben erstellen. Aber mit einer gut gekapselten API können wir unseren Code robuster machen und Logikfehler nachgelagerter Prozesse verhindern.
+Wenn wir die `values`-Eigenschaft exponiert lassen, können unsere Benutzer diese Überprüfung leicht umgehen, indem sie direkt `values[0]` zuweisen und ungültige Farben erstellen. Aber mit einer gut gekapselten API können wir unseren Code robuster machen und Logikfehler weiter unten verhindern.
 
 Eine Klassenmethode kann die privaten Felder anderer Instanzen lesen, solange sie zur gleichen Klasse gehören.
 
@@ -405,7 +405,7 @@ const crimson = new Color(220, 20, 60);
 red.redDifference(crimson); // 35
 ```
 
-Wenn `anotherColor` jedoch keine Color-Instanz ist, existiert `#values` nicht. (Selbst wenn eine andere Klasse ein gleichnamiges `#values` privates Feld hat, bezieht es sich nicht auf dasselbe und kann hier nicht zugegriffen werden.) Der Zugriff auf ein nicht existentes privates Element führt zu einem Fehler, anstatt `undefined` wie normale Eigenschaften zurückzugeben. Wenn Sie nicht wissen, ob ein privates Feld in einem Objekt existiert und Sie ohne `try`/`catch` darauf zugreifen möchten, um den Fehler zu behandeln, können Sie den [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator verwenden.
+Wenn `anotherColor` jedoch keine Color-Instanz ist, existiert `#values` nicht. (Selbst wenn eine andere Klasse ein identisch benanntes `#values` privates Feld hat, bedeutet das nicht, dass es dasselbe ist und hier darauf zugegriffen werden kann.) Der Zugriff auf ein nicht vorhandenes privates Element führt zu einem Fehler, anstatt `undefined` wie bei normalen Eigenschaften zurückzugeben. Wenn Sie nicht wissen, ob ein privates Feld auf einem Objekt existiert und Sie darauf zugreifen möchten, ohne `try`/`catch` zu verwenden, um den Fehler zu behandeln, können Sie den [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) Operator verwenden.
 
 ```js
 class Color {
@@ -423,9 +423,9 @@ class Color {
 ```
 
 > [!NOTE]
-> Beachten Sie, dass `#` eine spezielle Identifikatorsyntax ist und Sie den Feldnamen nicht verwenden können, als wäre es ein String. `"#values" in anotherColor` würde nach einer Eigenschaft namens `" #values"` suchen, anstatt nach einem privaten Feld.
+> Beachten Sie, dass das `#` eine spezielle Identifier-Syntax ist und Sie den Feldnamen nicht verwenden können, als wäre es ein String. `"#values" in anotherColor` würde nach einem Eigenschaftsnamen suchen, der buchstäblich `"#values"` ist, anstatt ein privates Feld.
 
-Es gibt einige Einschränkungen bei der Verwendung privater Elemente: Der gleiche Name kann nicht zweimal in einer einzelnen Klasse deklariert werden, und sie können nicht gelöscht werden. Beides führt zu frühen Syntaxfehlern.
+Es gibt einige Einschränkungen bei der Verwendung privater Elemente: Der gleiche Name kann nicht zweimal in einer einzigen Klasse deklariert werden, und sie können nicht gelöscht werden. Beide führen zu frühen Syntaxfehlern.
 
 ```js-nolint example-bad
 class BadIdeas {
@@ -438,9 +438,9 @@ class BadIdeas {
 }
 ```
 
-Methoden, [Getter und Setter](#zugriffs-felder) können ebenfalls privat sein. Sie sind nützlich, wenn Sie etwas Komplexes haben, das die Klasse intern tun muss, aber kein anderer Teil des Codes darauf zugreifen darf.
+Methoden, [Getter und Setter](#zugriffsmodifizierer-felder) können ebenfalls privat sein. Sie sind nützlich, wenn Sie etwas Komplexes haben, das die Klasse intern tun muss, aber kein anderer Teil des Codes sollte darauf zugreifen dürfen.
 
-Stellen Sie sich zum Beispiel vor, dass [HTML-benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) erstellt werden, die etwas kompliziertes tun sollen, wenn sie angeklickt/getippt oder anderweitig aktiviert werden. Darüber hinaus sollten die komplizierten Dinge, die passieren, wenn das Element angeklickt wird, auf diese Klasse beschränkt sein, da kein anderer Teil des JavaScript darauf zugreifen (oder darauf zugreifen dürfen sollte).
+Zum Beispiel stellen Sie sich vor, HTML-Custom-Elements zu erstellen, die bei Klick/Tap/anders aktiviert etwas relativ Kompliziertes tun sollen. Darüber hinaus sollten die relativ komplizierten Dinge, die passieren, wenn das Element geklickt wird, auf diese Klasse beschränkt sein, da kein anderer Teil des JavaScript darauf zuzugreifen darf (oder sollte).
 
 ```js
 class Counter extends HTMLElement {
@@ -470,11 +470,11 @@ class Counter extends HTMLElement {
 customElements.define("num-counter", Counter);
 ```
 
-In diesem Fall sind praktisch alle Felder und Methoden privat für die Klasse. Dadurch wird eine Schnittstelle zum Rest des Codes bereitgestellt, die im Wesentlichen wie ein eingebautes HTML-Element aussieht. Kein anderer Teil des Programms hat die Macht, eines der internen Elemente von `Counter` zu beeinflussen.
+In diesem Fall ist fast jedes Feld und jede Methode privat für die Klasse. Es präsentiert somit eine Schnittstelle zum Rest des Codes, die im Wesentlichen mit einem eingebauten HTML-Element vergleichbar ist. Kein anderer Teil des Programms hat die Möglichkeit, irgendeinen der internen Teile von `Counter` zu beeinflussen.
 
-## Zugriffs-Felder
+## Zugriffsmodifizierer-Felder
 
-`color.getRed()` und `color.setRed()` ermöglichen uns das Lesen und Schreiben des roten Werts einer Farbe. Wenn Sie aus Sprachen wie Java kommen, werden Sie sehr vertraut mit diesem Muster sein. Der Gebrauch von Methoden zum einfachen Zugriff auf eine Eigenschaft ist jedoch in JavaScript immer noch etwas unergonomisch. _Accessor Fields_ (Zugriffs-Felder) ermöglichen es uns, etwas zu manipulieren, als ob es eine "tatsächliche Eigenschaft" wäre.
+`color.getRed()` und `color.setRed()` ermöglichen es uns, den Rotwert einer Farbe zu lesen und zu schreiben. Wenn Sie aus einer Sprache wie Java kommen, sind Sie mit diesem Muster sehr vertraut. Die Verwendung von Methoden, um einfach auf eine Eigenschaft zuzugreifen, ist jedoch in JavaScript immer noch etwas unwirksam. _Accessor Fields_ ermöglichen es uns, etwas zu manipulieren, als ob es eine "tatsächliche Eigenschaft" wäre.
 
 ```js
 class Color {
@@ -494,9 +494,9 @@ red.red = 0;
 console.log(red.red); // 0
 ```
 
-Es sieht so aus, als hätte das Objekt eine Eigenschaft namens `red` — aber tatsächlich gibt es keine solche Eigenschaft auf der Instanz! Es gibt nur zwei Methoden, aber sie sind mit `get` und `set` vorangehend, wodurch sie manipuliert werden können, als ob sie Eigenschaften wären.
+Es sieht so aus, als hätte das Objekt eine Eigenschaft namens `red` - aber tatsächlich existiert keine solche Eigenschaft auf der Instanz! Es gibt nur zwei Methoden, aber sie werden mit `get` und `set` vorangestellt, was ermöglicht, dass sie manipuliert werden, als wären sie Eigenschaften.
 
-Wenn ein Feld nur über einen Getter, aber keinen Setter verfügt, wird es effektiv schreibgeschützt.
+Wenn ein Feld nur einen Getter, aber keinen Setter hat, wird es effektiv schreibgeschützt sein.
 
 ```js
 class Color {
@@ -513,11 +513,11 @@ red.red = 0;
 console.log(red.red); // 255
 ```
 
-Im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) wird die Zeile `red.red = 0` einen Typfehler auslösen: "Eigenschaft red von #\<Color> kann nicht gesetzt werden, da sie nur einen Getter hat". Im Nicht-Strict-Mode wird die Zuweisung stillschweigend ignoriert.
+In [strikter Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) wird die Zeile `red.red = 0` einen Typfehler werfen: "Kann Eigenschaft red von #\<Color> nicht setzen, die nur einen Getter hat". Im Nicht-strikten Mode wird die Zuweisung stillschweigend ignoriert.
 
 ## Öffentliche Felder
 
-Private Felder haben auch ihre öffentlichen Gegenstücke, die es jeder Instanz ermöglichen, eine Eigenschaft zu haben. Felder sind in der Regel so konzipiert, dass sie unabhängig von den Parametern des Konstruktors sind.
+Private Felder haben auch ihre öffentlichen Gegenstücke, die es jeder Instanz erlauben, eine Eigenschaft zu haben. Felder sind normalerweise so gestaltet, dass sie unabhängig von den Parametern des Konstruktors sind.
 
 ```js
 class MyClass {
@@ -527,7 +527,7 @@ console.log(new MyClass().luckyNumber); // 0.5
 console.log(new MyClass().luckyNumber); // 0.3
 ```
 
-Öffentliche Felder sind fast gleichbedeutend mit dem Zuordnen einer Eigenschaft zu `this`. Zum Beispiel kann das obige Beispiel auch in folgendes umgewandelt werden:
+Öffentliche Felder sind fast gleichwertig mit dem Zuweisen einer Eigenschaft zu `this`. Zum Beispiel kann das obige Beispiel auch in folgendes umgewandelt werden:
 
 ```js
 class MyClass {
@@ -539,12 +539,12 @@ class MyClass {
 
 ## Statische Eigenschaften
 
-Mit dem `Date`-Beispiel sind wir auch auf die Methode [`Date.now()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/now) gestoßen, die das aktuelle Datum zurückgibt. Diese Methode gehört zu keiner Date-Instanz — sie gehört zur Klasse selbst. Allerdings wird sie auf der `Date`-Klasse platziert anstatt als globale `DateNow()`-Funktion veröffentlicht zu werden, weil sie hauptsächlich dann nützlich ist, wenn man sich mit Date-Instanzen beschäftigt.
+Mit dem `Date`-Beispiel sind wir auch auf die Methode [`Date.now()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/now) gestoßen, die das aktuelle Datum zurückgibt. Diese Methode gehört zu keiner Date-Instanz - sie gehört zur Klasse selbst. Sie wird jedoch auf die `Date`-Klasse gestellt, anstatt als globale `DateNow()`-Funktion exponiert zu sein, da sie hauptsächlich nützlich ist, wenn es um Date-Instanzen geht.
 
 > [!NOTE]
-> Das Präfixn von Hilfsmethoden mit dem, womit sie sich beschäftigen, wird "namespacing" genannt und wird als gute Praxis betrachtet. Zum Beispiel hat JavaScript zusätzlich zur älteren, nicht vorgezeichneten [`parseInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/parseInt) Funktion auch die vorgezeichnete [`Number.parseInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt) Methode hinzugefügt, um anzudeuten, dass sie sich mit Zahlen beschäftigt.
+> Das Präfixieren von Dienstprogrammmethoden mit dem, womit sie sich befassen, nennt man "Namenräumung" und wird als gute Praxis angesehen. Zum Beispiel fügte JavaScript zusätzlich zur älteren, nicht-geprüften [`parseInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/parseInt) Methode später die geprüfte [`Number.parseInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt) Methode hinzu, um anzuzeigen, dass sie für Zahlen gedacht ist.
 
-[_Statische Eigenschaften_](/de/docs/Web/JavaScript/Reference/Classes/static) sind eine Gruppe von Klassenmerkmalen, die auf der Klasse selbst definiert sind, anstatt auf den einzelnen Instanzen der Klasse. Zu diesen Merkmalen gehören:
+[_Statische Eigenschaften_](/de/docs/Web/JavaScript/Reference/Classes/static) sind eine Gruppe von Klassenfunktionen, die auf der Klasse selbst definiert sind, anstatt auf einzelnen Instanzen der Klasse. Zu diesen Eigenschaften gehören:
 
 - Statische Methoden
 - Statische Felder
@@ -563,16 +563,16 @@ Color.isValid(255, 0, 0); // true
 Color.isValid(1000, 0, 0); // false
 ```
 
-Statische Eigenschaften sind sehr ähnlich zu ihren Instanz-Gegenstücken, außer dass:
+Statische Eigenschaften sind ihren Instanz-Gegenstücken sehr ähnlich, mit dem Unterschied, dass:
 
-- Sie alle mit `static` vorgezeichnet sind, und
-- Sie sind nicht von Instanzen aus zugänglich.
+- Sie alle mit `static` vorangestellt sind, und
+- Sie nicht von Instanzen aus zugänglich sind.
 
 ```js
 console.log(new Color(0, 0, 0).isValid); // undefined
 ```
 
-Es gibt auch ein spezielles Konstrukt, das als [_statischer Initialisierungsblock_](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) bekannt ist, welcher ein Codeblock ist, der ausgeführt wird, wenn die Klasse zuerst geladen wird.
+Es gibt auch ein spezielles Konstrukt, das einen [_statischen Initialisierungsblock_](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) darstellt, was ein Block von Code ist, der ausgeführt wird, wenn die Klasse zum ersten Mal geladen wird.
 
 ```js
 class MyClass {
@@ -584,13 +584,13 @@ class MyClass {
 console.log(MyClass.myStaticProperty); // 'foo'
 ```
 
-Statische Initialisierungsblöcke sind fast gleichbedeutend mit dem sofortigen Ausführen eines Codes nach einer Klassendeklaration. Der einzige Unterschied ist, dass sie Zugriff auf statische private Elemente haben.
+Statische Initialisierungsblöcke sind fast gleichwertig mit der sofortigen Ausführung von Code nach einer Klassendeklaration. Der einzige Unterschied besteht darin, dass sie Zugriff auf statische private Elemente haben.
 
-## Erweitert und Vererbung
+## Vererbung und Erweiterungen
 
-Ein Schlüsselmerkmal, das Klassen mit sich bringen (zusätzlich zu ergonomischer Kapselung mit privaten Feldern), ist _Vererbung_, was bedeutet, dass ein Objekt einen großen Teil der Verhaltensweisen eines anderen Objekts "ausleihen" kann, während bestimmte Teile mit seiner eigenen Logik überschrieben oder erweitert werden.
+Eine Schlüsselfunktion, die Klassen mit sich bringen (neben der ergonomischen Kapselung mit privaten Feldern), ist _Vererbung_, was bedeutet, dass ein Objekt einen großen Teil des Verhaltens eines anderen Objekts "ausleihen" kann, während es bestimmte Teile mit seiner eigenen Logik überschreibt oder erweitert.
 
-Nehmen wir zum Beispiel an, unser `Color`-Klasse muss nun Transparenz unterstützen. Wir könnten versucht sein, ein neues Feld hinzuzufügen, das die Transparenz angibt:
+Wenn zum Beispiel unsere `Color`-Klasse jetzt Transparenz unterstützen soll, könnten wir versucht sein, ein neues Feld hinzuzufügen, das ihre Transparenz anzeigt:
 
 ```js
 class Color {
@@ -610,9 +610,9 @@ class Color {
 }
 ```
 
-Dies bedeutet jedoch, dass jede Instanz — selbst die große Mehrheit, die nicht transparent ist (diejenigen mit einem Alphawert von 1) — den zusätzlichen Alpha-Wert haben muss, was nicht sehr elegant ist. Außerdem wird unsere `Color`-Klasse, wenn die Funktionen weiter wachsen, sehr aufgebläht und schwer zu pflegen.
+Dies würde jedoch bedeuten, dass jede Instanz - selbst die große Mehrheit, die nicht transparent ist (also mit einem Alphawert von 1) - den zusätzlichen Alphawert haben müsste, was nicht sehr elegant wäre. Außerdem, wenn die Funktionen weiter wachsen, wird unsere `Color`-Klasse sehr aufgebläht und schwer zu warten sein.
 
-Stattdessen würden wir in der objektorientierten Programmierung eine _abgeleitete Klasse_ erstellen. Die abgeleitete Klasse hat Zugriff auf alle öffentlichen Eigenschaften der übergeordneten Klasse. In JavaScript werden abgeleitete Klassen mit einer [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends) Klausel deklariert, die die Klasse angibt, von der sie erbt.
+Stattdessen würden wir in der objektorientierten Programmierung eine _abgeleitete Klasse_ erstellen. Die abgeleitete Klasse hat Zugriff auf alle öffentlichen Eigenschaften der Elternklasse. In JavaScript werden abgeleitete Klassen mit einer [`extends`](/de/docs/Web/JavaScript/Reference/Classes/extends)-Klausel deklariert, die angibt, von welcher Klasse sie erbt.
 
 ```js
 class ColorWithAlpha extends Color {
@@ -633,24 +633,24 @@ class ColorWithAlpha extends Color {
 }
 ```
 
-Es gibt einige Dinge, die sofort auffallen. Zuerst ist, dass wir im Konstruktor `super(r, g, b)` aufrufen. Es ist eine Sprachanforderung, `super()` aufzurufen, bevor auf `this` zugegriffen wird. Der `super()`-Aufruf ruft den Konstruktor der übergeordneten Klasse auf, um `this` zu initialisieren — hier ungefähr gleichbedeutend mit `this = new Color(r, g, b)`. Sie können Code vor `super()` haben, aber Sie dürfen nicht auf `this` zugreifen, bevor `super()` — die Sprache verhindert, dass auf das nicht initialisierte `this` zugegriffen wird.
+Es gibt einige Dinge, die sofort auffallen. Erstens, dass wir im Konstruktor `super(r, g, b)` aufrufen. Es ist eine Sprachanforderung, `super()` zu rufen, bevor `this` zugegriffen wird. Der `super()`-Aufruf ruft den Konstruktor der Elternklasse auf, um `this` zu initialisieren - hier ist es ungefähr gleichwertig mit `this = new Color(r, g, b)`. Sie können Code vor `super()` haben, aber Sie können nicht auf `this` vor `super()` zugreifen - die Sprache verhindert, dass Sie auf das nicht initialisierte `this` zugreifen.
 
-Nachdem die übergeordnete Klasse mit der Änderung von `this` fertig ist, kann die abgeleitete Klasse ihre eigene Logik anwenden. Hier haben wir ein privates Feld namens `#alpha` hinzugefügt und bieten auch ein Paar Getter/Setter zum Interagieren mit ihnen.
+Nachdem die Elternklasse mit der Modifikation von `this` fertig ist, kann die abgeleitete Klasse ihre eigene Logik ausführen. Hier haben wir ein privates Feld namens `#alpha` hinzugefügt und auch ein Paar Getter/Setter bereitgestellt, um mit ihnen zu interagieren.
 
-Eine abgeleitete Klasse erbt alle Methoden von ihrer Elternklasse. Zum Beispiel, obwohl `ColorWithAlpha` keinen `get red()`-Accessor selbst angibt, können Sie dennoch auf `red` zugreifen, weil dieses Verhalten von der Elternklasse angegeben wird:
+Eine abgeleitete Klasse erbt alle Methoden von ihrer Elternklasse. Zum Beispiel, betrachten Sie den `get red()`-Zugriffsmodifizierer, den wir zur `Color` im Abschnitt [Zugriffsmodifizierer-Felder](#zugriffsmodifizierer-felder) hinzugefügt haben - auch wenn wir keinen in `ColorWithAlpha` deklariert haben, können wir immer noch auf `red` zugreifen, da dieses Verhalten durch die Elternklasse angegeben ist:
 
 ```js
 const color = new ColorWithAlpha(255, 0, 0, 0.5);
 console.log(color.red); // 255
 ```
 
-Abgeleitete Klassen können auch Methoden von der Elternklasse überschreiben. Zum Beispiel erbt jede Klasse implizit die [`Object`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object) Klasse, die einige grundlegende Methoden wie [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) definiert. Wenn jedoch die Basis `toString()` Methode berüchtigt nutzlos ist, weil sie in den meisten Fällen `[object Object]` druckt:
+Abgeleitete Klassen können auch Methoden der Elternklasse überschreiben. Zum Beispiel erben alle Klassen implizit die [`Object`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object)-Klasse, die einige grundlegende Methoden, wie [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString), definiert. Die grundlegende `toString()`-Methode ist jedoch notorisch nutzlos, da sie in den meisten Fällen `[object Object]` ausgibt:
 
 ```js
 console.log(red.toString()); // [object Object]
 ```
 
-Stattdessen kann unsere Klasse sie überschreiben, um die RGB-Werte der Farbe zu drucken:
+Stattdessen kann unsere Klasse sie überschreiben, um die RGB-Werte der Farbe auszugeben:
 
 ```js
 class Color {
@@ -664,7 +664,7 @@ class Color {
 console.log(new Color(255, 0, 0).toString()); // '255, 0, 0'
 ```
 
-Innerhalb von abgeleiteten Klassen können Sie auf die Methoden der Elternklasse mit `super` zugreifen. Dies ermöglicht es Ihnen, Verbesserungsmethoden zu erstellen und Code-Duplizierung zu vermeiden.
+Innerhalb abgeleiteter Klassen können Sie auf die Methoden der Elternklasse mit `super` zugreifen. Dies ermöglicht es Ihnen, erweiternde Methoden zu erstellen und Code-Duplikationen zu vermeiden.
 
 ```js
 class ColorWithAlpha extends Color {
@@ -679,7 +679,7 @@ class ColorWithAlpha extends Color {
 console.log(new ColorWithAlpha(255, 0, 0, 0.5).toString()); // '255, 0, 0, 0.5'
 ```
 
-Wenn Sie `extends` verwenden, erben auch die statischen Methoden voneinander, sodass Sie sie ebenfalls überschreiben oder verbessern können.
+Wenn Sie `extends` verwenden, erben auch die statischen Methoden voneinander, sodass Sie sie auch überschreiben oder erweitern können.
 
 ```js
 class ColorWithAlpha extends Color {
@@ -693,7 +693,7 @@ class ColorWithAlpha extends Color {
 console.log(ColorWithAlpha.isValid(255, 0, 0, -1)); // false
 ```
 
-Abgeleitete Klassen haben keinen Zugriff auf die privaten Felder der Elternklasse — dies ist ein weiterer Schlüsselaspekt, dass JavaScript privaten Felder "hart privat" sind. Private Felder sind auf den Klassenkörper selbst beschränkt und gewähren _keinem_ externen Code Zugriff.
+Abgeleitete Klassen haben keinen Zugriff auf die privaten Felder der Elternklasse - dies ist ein weiterer wichtiger Aspekt dafür, dass JavaScript-Private-Felder "hart privat" sind. Private Felder sind auf den Klassenkörper selbst beschränkt und gewähren keinen Zugriff auf _irgendeinen_ externen Code.
 
 ```js-nolint example-bad
 class ColorWithAlpha extends Color {
@@ -703,9 +703,9 @@ class ColorWithAlpha extends Color {
 }
 ```
 
-Eine Klasse kann nur von einer anderen Klasse erben. Dies verhindert Probleme bei der Mehrfachvererbung, wie das [Diamantproblem](https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem). Aufgrund der dynamischen Natur von JavaScript ist es jedoch immer noch möglich, den Effekt der Mehrfachvererbung durch Klassenkomposition und [Mixins](/de/docs/Web/JavaScript/Reference/Classes/extends#mix-ins) zu erzielen.
+Eine Klasse kann nur von einer Klasse erben. Dies vermeidet Probleme in der mehrfachen Vererbung wie das [Diamantproblem](https://de.wikipedia.org/wiki/Mehrfachvererbung#Das_Diamantproblem). Aufgrund der dynamischen Natur von JavaScript ist es jedoch immer noch möglich, den Effekt von mehrfacher Vererbung durch Klassenkomposition und [Mixins](/de/docs/Web/JavaScript/Reference/Classes/extends#mix-ins) zu erreichen.
 
-Instanzen von abgeleiteten Klassen sind auch [Instanzen von](/de/docs/Web/JavaScript/Reference/Operators/instanceof) der Basisklasse.
+Instanzen abgeleiteter Klassen sind auch [Instanzen von](/de/docs/Web/JavaScript/Reference/Operators/instanceof) der Basisklasse.
 
 ```js
 const color = new ColorWithAlpha(255, 0, 0, 0.5);
@@ -715,11 +715,11 @@ console.log(color instanceof ColorWithAlpha); // true
 
 ## Warum Klassen?
 
-Der Leitfaden war bisher pragmatisch: Wir konzentrieren uns darauf, _wie_ Klassen verwendet werden können, aber es bleibt eine Frage unbeantwortet: _warum_ sollte man eine Klasse verwenden? Die Antwort ist: es kommt darauf an.
+Der Leitfaden war bisher pragmatisch: wir konzentrieren uns darauf, _wie_ Klassen verwendet werden können, aber eine Frage bleibt unbeantwortet: _warum_ würde man eine Klasse verwenden? Die Antwort ist: Es kommt darauf an.
 
-Klassen führen ein _Paradigma_ ein, oder eine Möglichkeit, Ihren Code zu organisieren. Klassen sind die Grundlagen der objektorientierten Programmierung, die auf Konzepten wie [Vererbung](<https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)>) und [Polymorphismus](<https://en.wikipedia.org/wiki/Polymorphism_(computer_science)>) (insbesondere _Untertyp-Polymorphismus_) basieren. Viele Menschen sind jedoch philosophisch gegen bestimmte OOP-Praktiken und verwenden Klassen deshalb nicht.
+Klassen führen ein _Paradigma_ ein, oder eine Möglichkeit, Ihren Code zu organisieren. Klassen sind die Grundlagen der objektorientierten Programmierung, die auf Konzepten wie [Vererbung](<https://de.wikipedia.org/wiki/Vererbung_(Objektorientierte_Programmierung)>) und [Polymorphie](<https://de.wikipedia.org/wiki/Polymorphismus_(Informatik)>) (insbesondere _Subtyp-Polymorphie_) basiert sind. Viele Menschen sind jedoch philosophisch gegen bestimmte OOP-Praktiken und verwenden Klassen daher nicht.
 
-Zum Beispiel ist eines der Dinge, die `Date` Objekte berüchtigt machen, dass sie _veränderbar_ sind.
+Ein Beispiel, warum `Date`-Objekte berüchtigt sind, ist, dass sie _veränderlich_ sind.
 
 ```js
 function incrementDay(date) {
@@ -732,15 +732,15 @@ console.log(newDay); // 2019-06-20
 console.log(date); // 2019-06-20
 ```
 
-Veränderbarkeit und interner Zustand sind wichtige Aspekte der objektorientierten Programmierung, machen es jedoch oft schwierig, den Code zu begreifen — weil jede scheinbar unschuldige Operation unerwartete Nebenwirkungen haben und das Verhalten in anderen Teilen des Programms ändern kann.
+Veränderlichkeit und interner Zustand sind wichtige Aspekte der objektorientierten Programmierung, machen jedoch oft den Code schwer nachvollziehbar - da jede scheinbar harmlose Operation unerwartete Nebenwirkungen haben und das Verhalten in anderen Teilen des Programms ändern kann.
 
-Um Code wiederzuverwenden, greifen wir normalerweise darauf zurück, Klassen zu erweitern, was große Hierarchien von Vererbungsmustern schaffen kann.
+Um Code wiederzuverwenden, greifen wir normalerweise darauf zurück, Klassen zu erweitern, was große Hierarchien von Vererbungsmustern erzeugen kann.
 
-![Ein typischer OOP-Vererbungsbaum mit fünf Klassen und drei Ebenen](figure8.1.png)
+![Typischer OOP-Vererbungsbaum mit fünf Klassen und drei Ebenen](figure8.1.png)
 
-Es ist jedoch oft schwierig, Vererbung sauber zu beschreiben, wenn eine Klasse nur eine andere Klasse erweitern kann. Oft wollen wir das Verhalten mehrerer Klassen. In Java wird dies durch Schnittstellen gemacht; in JavaScript kann es durch Mixins gemacht werden. Aber letztlich ist es immer noch nicht sehr praktisch.
+Es ist jedoch oft schwer, Vererbung sauber zu beschreiben, wenn eine Klasse nur eine andere Klasse erweitern kann. Oft wollen wir das Verhalten mehrerer Klassen. In Java wird dies durch Schnittstellen erreicht; in JavaScript kann dies durch Mixins erreicht werden. Aber letztendlich ist es immer noch nicht sehr bequem.
 
-Auf der positiven Seite sind Klassen ein sehr mächtiges Mittel, um unseren Code auf einer höheren Ebene zu organisieren. Zum Beispiel könnten wir ohne die `Color` Klasse ein Dutzend Hilfsfunktionen erstellen müssen:
+Auf der helleren Seite sind Klassen eine sehr leistungsfähige Möglichkeit, unseren Code auf höherer Ebene zu organisieren. Zum Beispiel, ohne die `Color`-Klasse, müssten wir möglicherweise ein Dutzend von Dienstprogrammfunktionen erstellen:
 
 ```js
 function isRed(color) {
@@ -759,14 +759,14 @@ function isValidColor(color) {
 // …
 ```
 
-Aber mit Klassen können wir sie alle unter dem `Color` Namespace zusammenfassen, was die Lesbarkeit verbessert. Außerdem ermöglicht die Einführung von privaten Feldern, bestimmte Daten vor nachgelagerten Benutzern zu verbergen, wodurch eine saubere API geschaffen wird.
+Aber mit Klassen können wir sie alle unter dem `Color`-Namespace zusammenfassen, was die Lesbarkeit verbessert. Zudem ermöglicht die Einführung privater Felder uns, bestimmte Daten vor den nachgelagerten Benutzern zu verbergen, wodurch eine saubere API erstellt wird.
 
-Im Allgemeinen sollten Sie in Betracht ziehen, Klassen zu verwenden, wenn Sie Objekte erstellen möchten, die ihre eigenen internen Daten speichern und ein umfangreiches Verhalten bereitstellen. Nehmen Sie eingebaute JavaScript-Klassen als Beispiele:
+Im Allgemeinen sollten Sie in Betracht ziehen, Klassen zu verwenden, wenn Sie Objekte erstellen möchten, die ihre eigenen internen Daten speichern und eine Menge Verhalten ausstellen. Nehmen Sie die eingebauten JavaScript-Klassen als Beispiele:
 
-- Die [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) und [`Set`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Klassen speichern eine Sammlung von Elementen und ermöglichen es Ihnen, sie per Schlüssel zuzugreifen, indem Sie `get()`, `set()`, `has()`, usw. verwenden.
-- Die [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Klasse speichert ein Datum als Unix-Zeitstempel (eine Zahl) und ermöglicht es Ihnen, bestimmte Datumsbestandteile zu formatieren, zu aktualisieren und zu lesen.
-- Die [`Error`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error) Klasse speichert Informationen über eine bestimmte Ausnahme, einschließlich der Fehlermeldung, des Stack-Traces, der Ursache, usw. Es ist eine der wenigen Klassen, die mit einer reichen Vererbungstruktur kommen: Es gibt mehrere eingebaute Klassen wie [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError) und [`ReferenceError`](/de/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError), die `Error` erweitern. Im Fall von Fehlern erlaubt diese Vererbung, die Semantik von Fehlern zu verfeinern: Jede Fehlerklasse repräsentiert einen bestimmten Fehlertyp, der leicht mit [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof) überprüft werden kann.
+- Die [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) und [`Set`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Klassen speichern eine Sammlung von Elementen und ermöglichen es Ihnen, auf sie mit dem Schlüssel über `get()`, `set()`, `has()`, etc. zuzugreifen.
+- Die [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Klasse speichert ein Datum als Unix-Zeitstempel (eine Zahl) und ermöglicht es Ihnen, einzelne Datumsbestandteile zu formatieren, zu aktualisieren und zu lesen.
+- Die [`Error`](/de/docs/Web/JavaScript/Reference/Global_Objects/Error) Klasse speichert Informationen über eine bestimmte Ausnahme, einschließlich der Fehlermeldung, des Stack-Traces, der Ursache, etc. Es ist eine der wenigen Klassen, die mit einer reichen Vererbungsstruktur geliefert wird: es gibt mehrere eingebaute Klassen wie [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError) und [`ReferenceError`](/de/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError), die `Error` erweitern. Im Fall von Fehlern ermöglicht diese Vererbung die Verfeinerung der Semantik von Fehlern: jede Fehlerklasse repräsentiert einen bestimmten Fehlertyp, der leicht mit [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof) überprüft werden kann.
 
-JavaScript bietet den Mechanismus, Ihren Code in einer kanonischen objektorientierten Weise zu organisieren, jedoch liegt es ganz im Ermessen des Programmierers, ob und wie er ihn verwenden möchte.
+JavaScript bietet den Mechanismus, Ihren Code auf kanonische objektorientierte Weise zu organisieren, aber ob und wie er verwendet wird, liegt vollständig im Ermessen des Programmierers.
 
 {{PreviousNext("Web/JavaScript/Guide/Working_with_objects", "Web/JavaScript/Guide/Using_promises")}}

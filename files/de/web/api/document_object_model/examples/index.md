@@ -1,17 +1,17 @@
 ---
-title: Beispiele für Web- und XML-Entwicklung mit dem DOM
+title: Beispiele für Web- und XML-Entwicklung unter Verwendung des DOM
 slug: Web/API/Document_Object_Model/Examples
 l10n:
-  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{DefaultAPISidebar("DOM")}}
 
-Dieses Kapitel bietet einige längere Beispiele für die Web- und XML-Entwicklung mit dem DOM. Wo immer möglich, verwenden die Beispiele gängige APIs, Tricks und Muster in JavaScript, um das Dokumentobjekt zu manipulieren.
+Dieses Kapitel bietet einige längere Beispiele für Web- und XML-Entwicklung unter Verwendung des DOM. Soweit möglich, verwenden die Beispiele gängige APIs, Tricks und Muster in JavaScript zur Manipulation des Dokument-Objekts.
 
 ## Beispiel 1: Höhe und Breite
 
-Das folgende Beispiel zeigt die Verwendung der Eigenschaften `height` und `width` zusammen mit Bildern unterschiedlicher Abmessungen:
+Das folgende Beispiel zeigt die Verwendung der Eigenschaften `height` und `width` zusammen mit Bildern unterschiedlicher Dimensionen:
 
 ```html
 <p>
@@ -94,9 +94,9 @@ document.getElementById("btn2").addEventListener("click", () => {
 
 {{EmbedLiveSample("example_2_border_styles", "", "200")}}
 
-## Beispiel 3: Stile Manipulieren
+## Beispiel 3: Manipulieren von Stilen
 
-In diesem einfachen Beispiel werden einige grundlegende Stileigenschaften eines HTML-Absatzelements mithilfe des Style-Objekts auf dem Element und dessen CSS-Stileigenschaften abgerufen und festgelegt, die aus dem DOM abgerufen und gesetzt werden können. In diesem Fall manipulieren Sie die einzelnen Stile direkt. Im nächsten Beispiel (siehe Beispiel 4) können Sie Stylesheets und deren Regeln verwenden, um die Stile für ganze Dokumente zu ändern.
+In diesem einfachen Beispiel werden einige grundlegende Stil-Eigenschaften eines HTML-Absatz-Elements über das Style-Objekt auf dem Element und dessen CSS-Stileigenschaften zugegriffen, die aus dem DOM abgerufen und gesetzt werden können. In diesem Fall manipulieren Sie die einzelnen Stile direkt. Im nächsten Beispiel (siehe Beispiel 4) können Sie Stylesheets und deren Regeln verwenden, um Stile für ganze Dokumente zu ändern.
 
 ```html
 <p id="pid">Some text</p>
@@ -122,7 +122,7 @@ document.querySelector("button").addEventListener("click", () => {
 
 ## Beispiel 4: Verwendung von Stylesheets
 
-Die [`styleSheets`](/de/docs/Web/API/Document/styleSheets)-Eigenschaft des [`document`](/de/docs/Web/API/Document)-Objekts gibt eine Liste der Stylesheets zurück, die in diesem Dokument geladen wurden. Sie können auf diese Stylesheets und deren Regeln einzeln zugreifen, indem Sie das Stylesheet, den Stil und die [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekte verwenden, wie in diesem Beispiel gezeigt wird, das alle Stilregel-Selektoren in der Konsole ausgibt.
+Die [`styleSheets`](/de/docs/Web/API/Document/styleSheets)-Eigenschaft des [`document`](/de/docs/Web/API/Document)-Objekts gibt eine Liste der Stylesheets zurück, die in diesem Dokument geladen wurden. Sie können auf diese Stylesheets und deren Regeln individuell über die Stylesheet-, Style- und [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekte zugreifen, wie in diesem Beispiel demonstriert wird, das alle Stilregel-Selektoren in der Konsole ausgibt.
 
 ```js
 for (const styleSheet of document.styleSheets) {
@@ -156,11 +156,11 @@ P
 #LUMPY
 ```
 
-## Beispiel 5: Ereignisausbreitung
+## Beispiel 5: Ereignisweiterleitung
 
-Dieses Beispiel veranschaulicht auf sehr einfache Weise, wie Ereignisse im DOM ausgelöst und behandelt werden. Wenn der BODY dieses HTML-Dokuments geladen wird, wird ein Ereignislistener bei der obersten Zeile der TABLE registriert. Der Ereignislistener behandelt das Ereignis, indem er die Funktion stopEvent ausführt, die den Wert in der unteren Zelle der Tabelle ändert.
+Dieses Beispiel demonstriert, wie Ereignisse im DOM auf sehr einfache Weise ausgelöst und behandelt werden. Wenn der BODY dieses HTML-Dokuments geladen wird, wird ein Ereignislistener bei der obersten Zeile der TABELLE registriert. Der Ereignislistener behandelt das Ereignis, indem er die Funktion stopEvent ausführt, die den Wert in der unteren Zelle der Tabelle ändert.
 
-StopEvent ruft jedoch auch eine Methode des Ereignisobjekts auf, [`event.stopPropagation`](/de/docs/Web/API/Event/stopPropagation), die verhindert, dass das Ereignis weiter im DOM nach oben wandert. Beachten Sie, dass die Tabelle selbst einen [`onclick`](/de/docs/Web/API/Element/click_event)-Ereignishandler hat, der eine Nachricht anzeigen sollte, wenn die Tabelle geklickt wird. Aber die Methode stopEvent hat die Ausbreitung gestoppt, und somit wird nach der Aktualisierung der Daten in der Tabelle die Ereignisphase effektiv beendet, und ein Bestätigungsfenster wird angezeigt, um dies zu bestätigen.
+stopEvent ruft jedoch auch eine Ereignisobjektmethode auf, [`event.stopPropagation`](/de/docs/Web/API/Event/stopPropagation), die verhindert, dass das Ereignis weiter im DOM aufsteigt. Beachten Sie, dass die Tabelle selbst einen [`onclick`](/de/docs/Web/API/Element/click_event)-Ereignishandler hat, der eine Nachricht anzeigen sollte, wenn die Tabelle geklickt wird. Aber die Methode stopEvent hat die Weiterleitung gestoppt, und so wird nach der Aktualisierung der Daten in der Tabelle die Ereignisphase effektiv beendet und ein Hinweis-Dialogfeld angezeigt, um dies zu bestätigen.
 
 ```html
 <table id="t-daddy">
@@ -194,7 +194,7 @@ function stopEvent(event) {
 }
 
 const elem = document.getElementById("tbl1");
-elem.addEventListener("click", stopEvent, false);
+elem.addEventListener("click", stopEvent);
 
 document.getElementById("t-daddy").addEventListener("click", () => {
   console.log("t-daddy clicked");
@@ -205,7 +205,7 @@ document.getElementById("t-daddy").addEventListener("click", () => {
 
 ## Beispiel 6: getComputedStyle
 
-Dieses Beispiel zeigt, wie die Methode [`window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle) verwendet werden kann, um die Stile eines Elements abzurufen, die nicht mit dem `style`-Attribut oder mit JavaScript gesetzt wurden (z.B. `elt.style.backgroundColor="lightblue"`). Diese letzteren Arten von Stilen können mit der direkteren [`elt.style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft abgerufen werden, deren Eigenschaften in der [DOM-CSS-Eigenschaftenliste](/de/docs/Web/CSS/Reference) aufgeführt sind.
+Dieses Beispiel zeigt, wie die Methode [`window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle) verwendet werden kann, um die Stile eines Elements zu erhalten, die nicht mit dem `style`-Attribut oder mit JavaScript gesetzt wurden (z.B. `elt.style.backgroundColor="lightblue"`). Diese letzteren Arten von Stilen können mit der direkteren [`elt.style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft abgerufen werden, dessen Eigenschaften in der [DOM CSS Properties List](/de/docs/Web/CSS/Reference) aufgelistet sind.
 
 `getComputedStyle()` gibt ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt zurück, dessen einzelne Stileigenschaften mit der [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue)-Methode dieses Objekts referenziert werden können, wie das folgende Beispieldokument zeigt.
 
@@ -263,13 +263,13 @@ document.querySelector("button").addEventListener("click", cStyles);
 
 {{EmbedLiveSample("example_6_getComputedStyle", "", "300")}}
 
-## Beispiel 7: Eigenschaften des Ereignisobjekts anzeigen
+## Beispiel 7: Anzeigen von Ereignisobjekteigenschaften
 
-Dieses Beispiel verwendet DOM-Methoden, um alle Eigenschaften des [`onload`](/de/docs/Web/API/Window/load_event)-[`event`](/de/docs/Web/API/Event)-Objekts und deren Werte in einer Tabelle anzuzeigen. Es zeigt auch eine nützliche Technik, eine [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife zu verwenden, um über die Eigenschaften eines Objekts zu iterieren und deren Werte zu erhalten.
+Dieses Beispiel verwendet DOM-Methoden, um alle Eigenschaften des [`onload`](/de/docs/Web/API/Window/load_event)-[`event`](/de/docs/Web/API/Event)-Objekts und deren Werte in einer Tabelle anzuzeigen. Es zeigt auch eine nützliche Technik, eine [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife zu verwenden, um über die Eigenschaften eines Objekts zu iterieren, um deren Werte zu erhalten.
 
-Die Eigenschaften von Ereignisobjekten unterscheiden sich stark zwischen den Browsern, der [WHATWG DOM Standard](https://dom.spec.whatwg.org/) listet die Standard-Eigenschaften auf, jedoch haben viele Browser diese stark erweitert.
+Die Eigenschaften von Ereignisobjekten unterscheiden sich stark zwischen Browsern, der [WHATWG DOM Standard](https://dom.spec.whatwg.org/) listet die Standard-Eigenschaften auf, jedoch haben viele Browser diese stark erweitert.
 
-Geben Sie den folgenden Code in eine leere Textdatei ein und laden Sie ihn in verschiedenen Browsern, Sie werden überrascht sein über die unterschiedliche Anzahl und Namen der Eigenschaften. Möglicherweise möchten Sie auch einige Elemente auf der Seite hinzufügen und diese Funktion von verschiedenen Ereignishandlern aus aufrufen.
+Geben Sie den folgenden Code in eine leere Textdatei ein und laden Sie sie in einer Vielzahl von Browsern, Sie werden überrascht sein über die unterschiedliche Anzahl und Namen der Eigenschaften. Sie können auch einige Elemente auf der Seite hinzufügen und diese Funktion von verschiedenen Ereignishandlern aus aufrufen.
 
 ```html
 <h1>Properties of the DOM <span id="eventType"></span> Event Object</h1>
@@ -335,9 +335,9 @@ showEventProperties(event);
 
 ## Beispiel 8: Verwendung der DOM-Tabellen-Schnittstelle
 
-Die DOM-[`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Schnittstelle bietet einige praktische Methoden zum Erstellen und Manipulieren von Tabellen. Zwei häufig verwendete Methoden sind [`HTMLTableElement.insertRow`](/de/docs/Web/API/HTMLTableElement/insertRow) und [`HTMLTableRowElement.insertCell`](/de/docs/Web/API/HTMLTableRowElement/insertCell).
+Die DOM-`HTMLTableElement`-Schnittstelle bietet einige bequeme Methoden zum Erstellen und Manipulieren von Tabellen. Zwei häufig verwendete Methoden sind [`HTMLTableElement.insertRow`](/de/docs/Web/API/HTMLTableElement/insertRow) und [`HTMLTableRowElement.insertCell`](/de/docs/Web/API/HTMLTableRowElement/insertCell).
 
-Um eine Zeile und einige Zellen zu einer vorhandenen Tabelle hinzuzufügen:
+Um eine Zeile und einige Zellen zu einer bestehenden Tabelle hinzuzufügen:
 
 ```html
 <table id="table0">
@@ -363,8 +363,8 @@ for (let i = 0; i < 2; i++) {
 
 {{EmbedLiveSample("example_8_using_the_dom_table_interface", "", "300")}}
 
-### Anmerkungen
+### Hinweise
 
-- Die [`innerHTML`](/de/docs/Web/API/Element/innerHTML)-Eigenschaft einer Tabelle sollte niemals zum Ändern einer Tabelle verwendet werden, obwohl Sie sie verwenden können, um eine gesamte Tabelle oder den Inhalt einer Zelle zu schreiben.
-- Wenn die Methoden des DOM-Kerns [`document.createElement`](/de/docs/Web/API/Document/createElement) und [`Node.appendChild`](/de/docs/Web/API/Node/appendChild) zum Erstellen von Zeilen und Zellen verwendet werden, erfordert IE, dass sie an ein {{HTMLElement("tbody")}}-Element angehängt werden, während andere Browser das Anhängen an ein {{HTMLElement("table")}}-Element erlauben (die Zeilen werden dem letzten `<tbody>`-Element hinzugefügt).
-- Es gibt eine Reihe anderer praktischer Methoden, die zur [`HTMLTableElement`-Schnittstelle](/de/docs/Web/API/HTMLTableElement#instance_methods) gehören und zur Erstellung und Modifikation von Tabellen verwendet werden können.
+- Die `innerHTML`-Eigenschaft einer Tabelle sollte niemals verwendet werden, um eine Tabelle zu ändern, obwohl Sie damit eine gesamte Tabelle oder den Inhalt einer Zelle schreiben können.
+- Wenn die DOM-Kernmethoden [`document.createElement`](/de/docs/Web/API/Document/createElement) und [`Node.appendChild`](/de/docs/Web/API/Node/appendChild) verwendet werden, um Zeilen und Zellen zu erstellen, erfordert IE, dass sie einem {{HTMLElement("tbody")}}-Element hinzugefügt werden, während andere Browser erlauben, sie einem {{HTMLElement("table")}}-Element hinzuzufügen (die Zeilen werden dem letzten `<tbody>`-Element hinzugefügt).
+- Es gibt eine Reihe weiterer bequemer Methoden, die zur [`HTMLTableElement`-Schnittstelle](/de/docs/Web/API/HTMLTableElement#instance_methods) gehören, die zum Erstellen und Ändern von Tabellen verwendet werden können.

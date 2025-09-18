@@ -1,20 +1,20 @@
 ---
-title: "HTMLVideoElement: enterpictureinpicture-Ereignis"
+title: "HTMLVideoElement: enterpictureinpicture Ereignis"
 short-title: enterpictureinpicture
 slug: Web/API/HTMLVideoElement/enterpictureinpicture_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{APIRef("Picture-in-Picture API")}}
 
-Das `enterpictureinpicture`-Ereignis wird ausgelöst, wenn das [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) erfolgreich in den Bild-in-Bild-Modus wechselt.
+Das `enterpictureinpicture` Ereignis wird ausgelöst, wenn das [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) erfolgreich in den Bild-in-Bild-Modus wechselt.
 
-Dieses Ereignis ist nicht abbruchbar und wird nicht weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignisbehandlereigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("enterpictureinpicture", (event) => { })
@@ -34,7 +34,7 @@ Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten [`Event`](
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `enterpictureinpicture`-Ereignis von HTMLVideoElement hinzu und senden dann eine Nachricht, wenn der Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `enterpictureinpicture` Ereignis des HTMLVideoElement hinzu und senden dann eine Nachricht, wenn der Ereignis-Handler auf das Ereignis reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -46,14 +46,14 @@ function onEnterPip() {
   console.log("Picture-in-Picture mode activated!");
 }
 
-video.addEventListener("enterpictureinpicture", onEnterPip, false);
+video.addEventListener("enterpictureinpicture", onEnterPip);
 
 button.onclick = () => {
   video.requestPictureInPicture();
 };
 ```
 
-Verwendung der `onenterpictureinpicture` Ereignisbehandlereigenschaft:
+Verwendung der `onenterpictureinpicture` Ereignis-Handler-Eigenschaft:
 
 ```js
 const video = document.querySelector("#video");

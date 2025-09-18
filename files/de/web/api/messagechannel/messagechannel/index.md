@@ -3,12 +3,12 @@ title: "MessageChannel: MessageChannel()-Konstruktor"
 short-title: MessageChannel()
 slug: Web/API/MessageChannel/MessageChannel
 l10n:
-  sourceCommit: e4c0939929e1b3e1fa3fd3da82b827fca3ed4c79
+  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
 ---
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Der **`MessageChannel()`**-Konstruktor des [`MessageChannel`](/de/docs/Web/API/MessageChannel)-Interfaces gibt ein neues [`MessageChannel`](/de/docs/Web/API/MessageChannel)-Objekt mit zwei neuen [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten zurück.
+Der **`MessageChannel()`**-Konstruktor der [`MessageChannel`](/de/docs/Web/API/MessageChannel)-Schnittstelle gibt ein neues [`MessageChannel`](/de/docs/Web/API/MessageChannel)-Objekt mit zwei neuen [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten zurück.
 
 ## Syntax
 
@@ -26,11 +26,7 @@ Ein neues [`MessageChannel`](/de/docs/Web/API/MessageChannel)-Objekt.
 
 ## Beispiele
 
-Im folgenden Codeblock sehen Sie, wie ein neuer Kanal mit dem `MessageChannel()`-Konstruktor erstellt wird.
-Wenn das {{HTMLElement("iframe")}} geladen ist,
-übergeben wir [`port2`](/de/docs/Web/API/MessageChannel/port2) an das `<iframe>` mithilfe von [`MessagePort.postMessage`](/de/docs/Web/API/MessagePort/postMessage) zusammen mit einer Nachricht.
-Der `handleMessage`-Handler reagiert dann auf eine Nachricht, die vom `<iframe>` zurückgesendet wird (unter Verwendung von [`onmessage`](/de/docs/Web/API/MessagePort/message_event)) und fügt sie in einen Absatz ein.
-Es wird auf [`port1`](/de/docs/Web/API/MessageChannel/port1) gehört, um zu überprüfen, wann die Nachricht eintrifft.
+Im folgenden Codeblock sehen Sie, wie ein neuer Kanal mit dem `MessageChannel()`-Konstruktor erstellt wird. Wenn das {{HTMLElement("iframe")}} geladen ist, übergeben wir [`port2`](/de/docs/Web/API/MessageChannel/port2) an das `<iframe>` unter Verwendung von [`MessagePort.postMessage`](/de/docs/Web/API/MessagePort/postMessage) zusammen mit einer Nachricht. Der `handleMessage`-Handler reagiert dann auf eine Nachricht, die vom `<iframe>` zurückgesendet wird (unter Verwendung von [`onmessage`](/de/docs/Web/API/MessagePort/message_event)) und fügt diese in einen Absatz ein. Auf den [`port1`](/de/docs/Web/API/MessageChannel/port1) wird gelauscht, um zu prüfen, wann die Nachricht ankommt.
 
 ```js
 const channel = new MessageChannel();
@@ -39,7 +35,7 @@ const para = document.querySelector("p");
 const ifr = document.querySelector("iframe");
 const otherWindow = ifr.contentWindow;
 
-ifr.addEventListener("load", iframeLoaded, false);
+ifr.addEventListener("load", iframeLoaded);
 
 function iframeLoaded() {
   otherWindow.postMessage("Hello from the main page!", "*", [channel.port2]);
@@ -51,9 +47,7 @@ function handleMessage(e) {
 }
 ```
 
-Für ein vollständiges funktionierendes Beispiel
-sehen Sie sich unser [Channel-Messaging-Grundlagen-Demo](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic)
-auf GitHub an ([führen Sie es auch live aus](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
+Für ein vollständiges funktionierendes Beispiel, siehe unser [Kanal-Messaging-Grundlagen-Demo](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub ([testen Sie es auch live](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
 
 ## Spezifikationen
 
@@ -65,4 +59,4 @@ auf GitHub an ([führen Sie es auch live aus](https://mdn.github.io/dom-examples
 
 ## Siehe auch
 
-- [Verwendung der Channel-Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung von Kanal-Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

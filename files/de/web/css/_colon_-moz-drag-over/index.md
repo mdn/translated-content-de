@@ -2,12 +2,12 @@
 title: :-moz-drag-over
 slug: Web/CSS/:-moz-drag-over
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
 ---
 
 {{Non-standard_header}}
 
-Die **`:-moz-drag-over`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die auf ein Element angewendet wird, wenn ein [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis auf ihm ausgelöst wird.
+Die **`:-moz-drag-over`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die ein Element erfasst, wenn ein [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis darauf aufgerufen wird.
 
 ## Syntax
 
@@ -33,19 +33,15 @@ Die **`:-moz-drag-over`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CS
 
 ### JavaScript
 
-Die meisten Elemente sind keine gültigen Orte zum Ablegen von Daten. Um ein Ablegen zu ermöglichen, müssen Sie das Standardverhalten durch Abbrechen der [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)- oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignisse (oder beider) verhindern. In diesem Beispiel müssen wir nur das `dragenter`-Ereignis abbrechen, da es das erste Ereignis ist, das ausgelöst wird, wenn der Browser bewertet, ob ein Element ein Ziel für das Ablegen sein kann. Weitere Informationen finden Sie unter [Drag operations: Specifying drop targets](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#specifying_drop_targets).
+Die meisten Elemente sind keine gültigen Ziele zum Ablegen von Daten. Um ein Ablegen zu ermöglichen, müssen Sie das Standardverhalten durch Abbrechen der [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)- oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignisse (oder beider) verhindern. In diesem Beispiel müssen wir nur das `dragenter`-Ereignis abbrechen, welches das erste Ereignis ist, das ausgelöst wird, wenn der Browser evaluiert, ob ein Element ein Ziel für das Ablegen sein kann. Für weitere Informationen siehe [Drag-Operationen: Ablageziele angeben](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#specifying_drop_targets).
 
 ```js
 const target = document.getElementById("drop-target");
 /* dragenter event fired on the drop target */
-target.addEventListener(
-  "dragenter",
-  (event) => {
-    // prevent default to allow drop
-    event.preventDefault();
-  },
-  false,
-);
+target.addEventListener("dragenter", (event) => {
+  // prevent default to allow drop
+  event.preventDefault();
+});
 ```
 
 ### CSS
@@ -67,7 +63,7 @@ p {
 }
 ```
 
-Das folgende CSS ändert die Farbe des Drop-Ziels in Rot, wenn das ziehbare Element den Ablagebereich überlagert.
+Das folgende CSS ändert die Farbe des Ablageziels in Rot, wenn das ziehbare Element den Ablagebereich überlagert.
 
 ```css
 #drop-target {
@@ -84,7 +80,7 @@ Das folgende CSS ändert die Farbe des Drop-Ziels in Rot, wenn das ziehbare Elem
 
 ## Spezifikationen
 
-Ist nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Siehe auch
 

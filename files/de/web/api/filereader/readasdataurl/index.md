@@ -3,15 +3,15 @@ title: "FileReader: readAsDataURL() Methode"
 short-title: readAsDataURL()
 slug: Web/API/FileReader/readAsDataURL
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`readAsDataURL()`** Methode der [`FileReader`](/de/docs/Web/API/FileReader) Schnittstelle wird verwendet, um den Inhalt des angegebenen [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File) zu lesen. Wenn der Lesevorgang abgeschlossen ist, wird die [`readyState`](/de/docs/Web/API/FileReader/readyState) Eigenschaft zu `DONE`, und das [`loadend`](/de/docs/Web/API/FileReader/loadend_event) Ereignis wird ausgelöst. Zu diesem Zeitpunkt enthält das [`result`](/de/docs/Web/API/FileReader/result) Attribut die Daten als [data: URL](/de/docs/Web/URI/Reference/Schemes/data), die die Daten der Datei als Base64-codierten String darstellt.
+Die **`readAsDataURL()`**-Methode der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle wird verwendet, um den Inhalt des angegebenen [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File) zu lesen. Wenn der Lesevorgang abgeschlossen ist, wird die [`readyState`](/de/docs/Web/API/FileReader/readyState)-Eigenschaft `DONE`, und das [`loadend`](/de/docs/Web/API/FileReader/loadend_event)-Ereignis wird ausgelöst. Zu diesem Zeitpunkt enthält das [`result`](/de/docs/Web/API/FileReader/result)-Attribut die Daten als [data: URL](/de/docs/Web/URI/Reference/Schemes/data), die die Daten der Datei als Base64-kodierten String darstellt.
 
 > [!NOTE]
-> Das [`result`](/de/docs/Web/API/FileReader/result) des Blobs kann nicht direkt als Base64 dekodiert werden, ohne zuerst die Data-URL-Deklaration vor den Base64-codierten Daten zu entfernen. Um nur den Base64-codierten String zu erhalten, entfernen Sie zuerst `data:*/*;base64,` aus dem Ergebnis.
+> Das [`result`](/de/docs/Web/API/FileReader/result) des Blobs kann nicht direkt als Base64 decodiert werden, ohne zuerst die Data-URL-Deklaration zu entfernen, die den Base64-kodierten Daten vorausgeht. Um nur den Base64-kodierten String zu erhalten, entfernen Sie zuerst `data:*/*;base64,` aus dem Ergebnis.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ readAsDataURL(blob)
 ### Parameter
 
 - `blob`
-  - : Der [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File), aus dem gelesen werden soll.
+  - : Der [`Blob`](/de/docs/Web/API/Blob) oder die [`File`](/de/docs/Web/API/File), von dem gelesen werden soll.
 
 ### Rückgabewert
 
@@ -51,14 +51,10 @@ function previewFile() {
   const file = fileInput.files[0];
   const reader = new FileReader();
 
-  reader.addEventListener(
-    "load",
-    () => {
-      // convert image file to base64 string
-      preview.src = reader.result;
-    },
-    false,
-  );
+  reader.addEventListener("load", () => {
+    // convert image file to base64 string
+    preview.src = reader.result;
+  });
 
   if (file) {
     reader.readAsDataURL(file);
@@ -68,7 +64,7 @@ function previewFile() {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Reading a single file", "100%", 240)}}
+{{EmbedLiveSample("Lesen einer einzelnen Datei", "100%", 240)}}
 
 ### Lesen mehrerer Dateien
 
@@ -91,17 +87,13 @@ function previewFiles() {
     if (/\.(?:jpe?g|png|gif)$/i.test(file.name)) {
       const reader = new FileReader();
 
-      reader.addEventListener(
-        "load",
-        () => {
-          const image = new Image();
-          image.height = 100;
-          image.title = file.name;
-          image.src = reader.result;
-          preview.appendChild(image);
-        },
-        false,
-      );
+      reader.addEventListener("load", () => {
+        const image = new Image();
+        image.height = 100;
+        image.title = file.name;
+        image.src = reader.result;
+        preview.appendChild(image);
+      });
 
       reader.readAsDataURL(file);
     }
@@ -118,7 +110,7 @@ picker.addEventListener("change", previewFiles);
 
 #### Ergebnis
 
-{{EmbedLiveSample("Reading multiple files", "100%", 240)}}
+{{EmbedLiveSample("Lesen mehrerer Dateien", "100%", 240)}}
 
 ## Spezifikationen
 
