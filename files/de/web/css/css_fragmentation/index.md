@@ -1,15 +1,15 @@
 ---
-title: CSS Fragmentierung
+title: CSS-Fragmentierung
 slug: Web/CSS/CSS_fragmentation
 l10n:
-  sourceCommit: 624d9809e328dd8fb7fd961b35c6156af2ca5e73
+  sourceCommit: 7860297e91985460147c2bd6ced2bfa8cab5aba7
 ---
 
-Das **CSS-Fragmentierung**-Modul definiert, wie Inhalt angezeigt wird, wenn er gebrochen (fragmentiert) und über mehrere [Seiten](/de/docs/Web/CSS/CSS_paged_media), Regionen oder [Spalten](/de/docs/Web/CSS/CSS_multicol_layout) fließt. Dieses Modul definiert Funktionen für Paginierung, variabel Fragmentgröße und -ausrichtung, Hurenkinder und Waisenkinder.
+Das **CSS-Fragmentierungs**-Modul definiert, wie Inhalte angezeigt werden, wenn sie unterbrochen (fragmentiert) und über mehrere [Seiten](/de/docs/Web/CSS/CSS_paged_media), Regionen oder [Spalten](/de/docs/Web/CSS/CSS_multicol_layout) hinweg fließen. Dieses Modul definiert Funktionen für die Paginierung, das Brechen variabler Fragmentgrößen und -orientierungen sowie für Witwen und Waisen.
 
-Dieses Modul erklärt, wie Inhalte über Fragmentierung-Container hinweg gebrochen werden und wie solche Brüche vom Autor kontrolliert werden können. Der allgemeine Begriff für das Brechen von Inhalten über Container hinweg ist _Fragmentierung_. Fragmentierung tritt auf, wenn ein Inline-Box auf mehrere Zeilen umbricht. Dies kann passieren, wenn Layout-Features wie das [CSS-Multi-Column-Layout](/de/docs/Web/CSS/CSS_multicol_layout) verwendet werden: Zum Beispiel, wenn ein Block sich über mehr als eine Spalte innerhalb eines Spaltenlayout-Containers erstreckt oder einen Seitenumbruch beim Drucken überschreitet. Jedes Stück der Darstellung für das Element wird als _Fragment_ bezeichnet.
+Dieses Modul erklärt, wie Inhalte über Fragmentierungscontainer hinweg gebrochen werden und wie solche Brüche vom Autor kontrolliert werden können. Der generische Begriff für das Brechen von Inhalten über Container hinweg ist _Fragmentierung_. Fragmentierung tritt auf, wenn ein Inline-Box in mehrere Zeilen umbricht. Dies kann passieren, wenn Layout-Funktionen wie das [CSS-Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout) verwendet werden: Zum Beispiel, wenn ein Block in einem Spaltenlayout-Container über mehr als eine Spalte oder beim Drucken über einen Seitenumbruch hinweg reicht. Jedes Stück der Darstellung des Elements wird als _Fragment_ bezeichnet.
 
-Wenn Inhalte physisch gedruckt oder als Druckvorschau angezeigt werden, gibt es Seitenumbrüche. In diesem paginierten Medium, im Gegensatz zu kontinuierlichen Medien, kann der Dokumentinhalt auf eine oder mehrere Seiten oder Fragmente aufgeteilt werden. Um unangenehme Brüche zu vermeiden, wie etwa mitten durch eine Textzeile oder mit einem einsamen Wort auf einer eigenen Seite, können Browser den Inhalt verschieben, der andernfalls über den Seitenumbruch hinweg fallen würde, in einem Prozess, der als _Paginierung_ bezeichnet wird.
+Wenn Inhalte physisch gedruckt oder als Druckvorschau angezeigt werden, gibt es Seitenumbrüche. In diesen Paginierungsmedien, im Gegensatz zu kontinuierlichen Medien, kann der Dokumentinhalt zwischen einer oder mehreren Seiten oder Fragmenten aufgeteilt werden. Um ungeschickte Brüche, wie zum Beispiel innerhalb einer Textzeile oder mit einem einzelnen Wort auf einer eigenen Seite zu vermeiden, können Browser Inhalte verschieben, die sonst über den Seitenumbruch fallen würden. Dieser Prozess wird _Paginierung_ genannt.
 
 ## Referenz
 
@@ -29,7 +29,7 @@ Wenn Inhalte physisch gedruckt oder als Druckvorschau angezeigt werden, gibt es 
 ## Leitfäden
 
 - [Umgang mit Inhaltsumbrüchen im Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout/Handling_content_breaks_in_multicol_layout)
-  - : Einführung in die Fragmentierungsspezifikation und wie kontrolliert wird, wo Spalteninhalte gebrochen werden.
+  - : Einführung in die Fragmentierungsspezifikation und wie gesteuert werden kann, wo Spalteninhalte gebrochen werden.
 
 ## Verwandte Konzepte
 
@@ -38,12 +38,12 @@ Wenn Inhalte physisch gedruckt oder als Druckvorschau angezeigt werden, gibt es 
 - {{cssxref("width")}}, {{cssxref("max-width")}}, und {{cssxref("inline-size")}} CSS-Eigenschaften
 - [Blockformatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context)
 
-[CSS paged media](/de/docs/Web/CSS/CSS_paged_media) Modul
+[CSS Paged Media](/de/docs/Web/CSS/CSS_paged_media) Modul
 
 - {{cssxref("page")}}
 - {{cssxref("@page")}}
 
-[CSS display](/de/docs/Web/CSS/CSS_display) Modul
+[CSS Display](/de/docs/Web/CSS/CSS_display) Modul
 
 - [Hauptbox](/de/docs/Web/CSS/CSS_display/Visual_formatting_model#the_principal_box) Begriff
 - [Blockformatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) Leitfaden
@@ -56,4 +56,4 @@ Wenn Inhalte physisch gedruckt oder als Druckvorschau angezeigt werden, gibt es 
 
 - [`horizontal-viewport-segments`](/de/docs/Web/CSS/@media/horizontal-viewport-segments) und [`vertical-viewport-segments`](/de/docs/Web/CSS/@media/vertical-viewport-segments) `@media` Deskriptoren
 - [Viewport Segments API](/de/docs/Web/API/Viewport_segments_API)
-- [CSS Multi-Column Layout](/de/docs/Web/CSS/CSS_multicol_layout) Modul
+- [CSS-Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout) Modul

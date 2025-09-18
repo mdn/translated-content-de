@@ -2,14 +2,14 @@
 title: CSS-Umgebungsvariablen
 slug: Web/CSS/CSS_environment_variables
 l10n:
-  sourceCommit: 9f1ac4351350c32273d5e0501c2fb895d561a0e8
+  sourceCommit: 7860297e91985460147c2bd6ced2bfa8cab5aba7
 ---
 
-Das **CSS-Umgebungsvariablen**-Modul definiert das Konzept der Umgebungsvariablen und die {{cssxref("env")}}-Funktion. Umgebungsvariablen funktionieren ähnlich wie [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) und die {{cssxref("var")}}-Funktion, außer dass sie global definiert sind; sie sind globale Variablen, die auf das gesamte Dokument bezogen sind. Es handelt sich um Benutzeragenten-Werte, die vom Browser oder Betriebssystem bereitgestellt werden und auf die Sie mit der {{cssxref("env")}}-Funktion zugreifen können, um Ihre Styles an das Gerät oder den Kontext des Benutzers anzupassen.
+Das **CSS-Umgebungsvariablen**-Modul definiert das Konzept von Umgebungsvariablen und die {{cssxref("env")}}-Funktion. Umgebungsvariablen funktionieren ähnlich wie [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) und die {{cssxref("var")}}-Funktion, mit dem Unterschied, dass sie global definiert sind; es handelt sich um globale Variablen, die auf das gesamte Dokument beschränkt sind. Sie sind Werte des Benutzeragenten, bereitgestellt vom Browser oder Betriebssystem, auf die Sie mit der {{cssxref("env")}}-Funktion zugreifen können, um Ihre Styles an das Gerät oder den Kontext des Benutzers anzupassen.
 
-Umgebungsvariablen liefern Werte, die auf der Seite basierend auf Informationen verwendet werden können, auf die der Benutzeragent Zugriff hat, wie die Größe der Titelleiste, die dynamische Tastatur und die sicheren Bereichseinsätze. Sichere Bereichseinsätze definieren ein Rechteck, das auf nicht-rechteckigen Displays garantiert sichtbar ist, basierend auf dem Abstand zu den Rändern des Ansichtsfensters. Sie können die Größen des Benutzeragenten in Ihre Styles einbeziehen, sodass Sie das Layout von wesentlichem Inhalt anhand des verfügbaren Raums innerhalb des sicheren Bereichsrechtecks, neben einer sichtbaren dynamischen Tastatur oder in der Nähe einer sichtbaren Titelleiste, ändern können.
+Umgebungsvariablen liefern Werte, die auf der Seite basierend auf Informationen genutzt werden können, auf die der Benutzeragent Zugriff hat, wie die Größe der Titelleiste, die dynamische Tastatur und sichere Bereichs-Einrastungen. Sichere Bereichs-Einrastungen definieren ein Rechteck, das auf nicht-rechteckigen Displays sichtbar ist, basierend auf seinem Abstand zu den Rändern des Viewports. Sie können die Größen des Benutzeragenten in Ihre Styles einbinden, wodurch Sie das Layout wesentlicher Inhalte basierend auf dem verfügbaren Platz innerhalb des sicheren Bereichsrechtecks, neben einer sichtbaren dynamischen Tastatur oder neben einer sichtbaren Titelleiste, anpassen können.
 
-## Referenz
+## Nachschlagewerk
 
 ### Funktionen
 
@@ -22,13 +22,16 @@ Umgebungsvariablen liefern Werte, die auf der Seite basierend auf Informationen 
 ## Leitfäden
 
 - [Verwendung von Umgebungsvariablen](/de/docs/Web/CSS/CSS_environment_variables/Using_environment_variables)
-  - : Ein Überblick darüber, was Umgebungsvariablen sind, browserdefinierte Umgebungsvariablen und wie man die `env()`-Funktion verwendet.
+  - : Ein Überblick darüber, was Umgebungsvariablen sind, von Browsern definierte Umgebungsvariablen und wie die `env()`-Funktion verwendet wird.
 
 ## Verwandte Konzepte
 
-- [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*)
+- [CSS Media Queries](/de/docs/Web/CSS/CSS_media_queries) Modul
+- [Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*)
 - {{cssxref("var")}}
 - [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard) Schnittstelle
+- [`display_override`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display_override) Manifest-Feld
+  [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) und {{domxref("WindowControlsOverlay"))}} Schnittstelle
 
 ## Spezifikationen
 
@@ -37,5 +40,5 @@ Umgebungsvariablen liefern Werte, die auf der Seite basierend auf Informationen 
 ## Siehe auch
 
 - [CSS-Wertfunktionen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) Leitfaden
-- [CSS-Eigenschaften und Werte-API](/de/docs/Web/CSS/CSS_properties_and_values_API) Modul
-- [CSS-Benutzereigenschaften für Kaskadenvariablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul
+- [CSS Eigenschaften und Werte API](/de/docs/Web/CSS/CSS_properties_and_values_API) Modul
+- [CSS-Benutzerdefinierte Eigenschaften für Kaskadenvariablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul

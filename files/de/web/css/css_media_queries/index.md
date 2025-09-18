@@ -2,18 +2,18 @@
 title: CSS Media Queries
 slug: Web/CSS/CSS_media_queries
 l10n:
-  sourceCommit: bc761c19c07b875eb889d4aad87b18d8443da339
+  sourceCommit: 7860297e91985460147c2bd6ced2bfa8cab5aba7
 ---
 
-Das **CSS Media Queries**-Modul ermöglicht das Testen und Abfragen von Ansichtsfensterwerten sowie von Browser- oder Gerätemerkmalen, um CSS-Stile bedingt basierend auf der aktuellen Benutzerumgebung anzuwenden. Media Queries werden in der CSS-`@media`-Regel und in anderen Kontexten und Sprachen wie HTML und JavaScript verwendet.
+Das **CSS Media Queries** Modul ermöglicht das Testen und Abfragen von Ansichtsfensterwerten sowie von Browser- oder Gerätemerkmalen, um CSS-Stile bedingt basierend auf der aktuellen Benutzerumgebung anzuwenden. Media Queries werden in der CSS-`@media`-Regel und in anderen Kontexten und Sprachen wie HTML und JavaScript verwendet.
 
-Media Queries sind ein zentraler Bestandteil des [responsiven Designs](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design). Sie ermöglichen die bedingte Einstellung von CSS-Stilen abhängig von vorhandenen oder definierten Gerätecharakteristiken. Es ist üblich, ein Media Query basierend auf der {{Glossary("viewport", "Viewport")}}-Größe zu verwenden, um auf Geräten mit unterschiedlichen Bildschirmgrößen geeignete Layouts festzulegen — zum Beispiel drei Spalten auf einem breiten Bildschirm oder eine einzelne Spalte auf einem schmalen Bildschirm.
+Media Queries sind ein wichtiger Bestandteil des [responsive Designs](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design). Sie ermöglichen die bedingte Anpassung von CSS-Stilen abhängig von den vorhandenen oder aufgerufenen Gerätemerkmalen. Oft wird eine Media Query basierend auf der {{Glossary("viewport", "Ansichtsfenstergröße")}} verwendet, um passende Layouts für Geräte mit unterschiedlichen Bildschirmgrößen festzulegen - beispielsweise drei Spalten auf einem breiten Bildschirm oder eine Spalte auf einem schmalen Bildschirm.
 
-Weitere typische Beispiele sind das Erhöhen der Schriftgröße und das Ausblenden von Navigationsmenüs beim Drucken einer Seite, das Anpassen des Abstands zwischen Absätzen, wenn eine Seite im Hoch- oder Querformat betrachtet wird, oder das Vergrößern von Schaltflächen, um eine größere Trefferfläche auf Touchscreens bereitzustellen.
+Weitere übliche Beispiele beinhalten das Vergrößern der Schriftgröße und das Ausblenden von Navigationsmenüs beim Drucken einer Seite, das Anpassen des Abstands zwischen Absätzen, wenn eine Seite im Hoch- oder Querformat betrachtet wird, oder das Vergrößern von Schaltflächen, um auf Touchscreens eine größere Trefferfläche zu bieten.
 
-In [CSS](/de/docs/Web/CSS) verwenden Sie die {{cssxref("@media")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), um Teile eines Stylesheets bedingt zu verwenden, basierend auf dem Ergebnis einer Media Query. Um ein ganzes Stylesheet bedingt anzuwenden, verwenden Sie {{cssxref("@import")}}.
+In [CSS](/de/docs/Web/CSS) verwenden Sie die {{cssxref("@media")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), um abhängig vom Ergebnis einer Media Query Teile eines Stylesheets bedingt anzuwenden. Um ein ganzes Stylesheet bedingt anzuwenden, verwenden Sie {{cssxref("@import")}}.
 
-Beim Entwerfen von wiederverwendbaren HTML-Komponenten können Sie auch [Container Queries](/de/docs/Web/CSS/CSS_containment/Container_queries) verwenden, die es ermöglichen, Stile basierend auf der Größe eines enthaltenen Elements und nicht auf dem Viewport oder anderen Gerätemerkmalen anzuwenden.
+Beim Entwerfen wiederverwendbarer HTML-Komponenten können Sie auch [Container-Queries](/de/docs/Web/CSS/CSS_containment/Container_queries) verwenden, die es ermöglichen, Stile basierend auf der Größe eines enthaltenen Elements anstelle des Ansichtsfensters oder anderer Gerätemerkmale anzuwenden.
 
 ## Referenz
 
@@ -38,6 +38,7 @@ Beim Entwerfen von wiederverwendbaren HTML-Komponenten können Sie auch [Contain
 - {{cssxref("@media/forced-colors", "forced-colors")}}
 - {{cssxref("@media/grid", "grid")}}
 - {{cssxref("@media/height", "height")}}
+- {{cssxref("@media/horizontal-viewport-segments", "horizontal-viewport-segments")}}
 - {{cssxref("@media/hover", "hover")}}
 - {{cssxref("@media/inverted-colors", "inverted-colors")}}
 - {{cssxref("@media/monochrome", "monochrome")}}
@@ -54,13 +55,14 @@ Beim Entwerfen von wiederverwendbaren HTML-Komponenten können Sie auch [Contain
 - {{cssxref("@media/scan", "scan")}}
 - {{cssxref("@media/scripting", "scripting")}}
 - {{cssxref("@media/update", "update")}}
+- {{cssxref("@media/vertical-viewport-segments", "vertical-viewport-segments")}}
 - {{cssxref("@media/video-dynamic-range", "video-dynamic-range")}}
 - {{cssxref("@media/width", "width")}}
 
-Das CSS Media Queries Level 5 Modul führt auch die `environment-blending`, `horizontal-viewport-segments`, `nav-controls`, `vertical-viewport-segments` und `video-color-gamut` `@media`-Deskriptoren ein. Aktuell unterstützen keine Browser diese Funktionen.
+Das CSS Media Queries Level 5 Modul führt auch die `environment-blending`, `nav-controls` und `video-color-gamut` `@media` Deskriptoren ein. Derzeit unterstützen keine Browser diese Funktionen.
 
 > [!NOTE]
-> CSS Media Queries Level 4 hat drei `@media`-Deskriptoren veraltet: {{cssxref("@media/device-aspect-ratio", "device-aspect-ratio")}}, {{cssxref("@media/device-height", "device-height")}}, und {{cssxref("@media/device-width", "device-width")}}.
+> CSS Media Queries Level 4 hat drei `@media` Deskriptoren veraltet: {{cssxref("@media/device-aspect-ratio", "device-aspect-ratio")}}, {{cssxref("@media/device-height", "device-height")}} und {{cssxref("@media/device-width", "device-width")}}.
 
 ### Datentypen und Operatoren
 
@@ -71,41 +73,43 @@ Das CSS Media Queries Level 5 Modul führt auch die `environment-blending`, `hor
 
 ### Glossarbegriffe
 
-- {{Glossary("Media/CSS", "media")}}
-- {{Glossary("Media_query", "media query")}}
+- {{Glossary("Media/CSS", "Media")}}
+- {{Glossary("Media_query", "Media Query")}}
 
-## Leitfäden
+## Leitfaden
 
 - [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-  - : Einführung in Media Queries, deren Syntax, sowie die Operatoren und Medienmerkmale zur Erstellung von Media Query-Ausdrücken.
+  - : Einführung in Media Queries, deren Syntax, sowie die Operatoren und Medienmerkmale, die zur Konstruktion von Media Query-Ausdrücken verwendet werden.
 
 - [Lernen: Grundlagen der Media Queries](/de/docs/Learn_web_development/Core/CSS_layout/Media_queries)
-  - : Einführung in Media Queries und Ansätze zu ihrer Verwendung zur Erstellung von responsiven Designs.
+  - : Einführung in Media Queries und Ansätze für deren Nutzung zur Erstellung responsiver Designs.
 
-- [Testen von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
-  - : Beschreibt, wie man Media Queries im eigenen JavaScript-Code verwendet, um den Zustand eines Geräts zu bestimmen und Listener einzurichten, die den Code benachrichtigen, wenn sich die Ergebnisse von Media Queries ändern (zum Beispiel wenn der Benutzer den Bildschirm dreht oder den Browser neu dimensioniert).
+- [Media Queries testen](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+  - : Beschreibt, wie Sie Media Queries in JavaScript-Code verwenden können, um den Zustand eines Geräts zu bestimmen und Listener zu setzen, die Ihren Code informieren, wenn sich die Ergebnisse von Media Queries ändern (z.B. wenn der Benutzer den Bildschirm dreht oder den Browser verkleinert).
 
 - [Verwendung von Media Queries für Barrierefreiheit](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries_for_accessibility)
-  - : Erfahren Sie, wie Media Queries Benutzern helfen können, Ihre Website besser zu verstehen.
+  - : Erfahren Sie, wie Media Queries den Benutzern helfen können, Ihre Website besser zu verstehen.
 
 - [Drucken](/de/docs/Web/CSS/CSS_media_queries/Printing)
-  - : Tipps und Techniken zur Verbesserung der Druckausgabe von Webinhalten.
+  - : Tipps und Techniken, um die Druckausgabe von Webinhalten zu verbessern.
 
-- [Responsiven Bilder](/de/docs/Web/HTML/Guides/Responsive_images)
-  - : Erfahren Sie, wie Media Queries mit `sizes` verwendet werden, um Lösungen für responsive Bilder auf Websites umzusetzen.
+- [Responsive Bilder](/de/docs/Web/HTML/Guides/Responsive_images)
+  - : Lernen Sie, wie Sie Media Queries mit `sizes` verwenden, um responsive Bildlösungen auf Websites zu implementieren.
 
 ## Verwandte Konzepte
 
 - [CSS Containment](/de/docs/Web/CSS/CSS_containment) Modul
   - {{cssxref("@container")}} At-Regel
-  - [Verwendung von Container Queries](/de/docs/Web/CSS/CSS_containment/Container_queries)
+  - [Verwendung von Container-Queries](/de/docs/Web/CSS/CSS_containment/Container_queries)
   - [Verwendung von Größen- und Stil-Container-Queries](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
-- [CSS Bedingte Regeln](/de/docs/Web/CSS/CSS_conditional_rules) Modul
+- [CSS Conditionals](/de/docs/Web/CSS/CSS_conditional_rules) Modul
   - {{cssxref("@supports")}} At-Regel
-  - [Verwendung von Feature Queries](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)
+  - [Verwendung von Feature-Queries](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)
+- [CSS Umgebungsvariablen](/de/docs/Web/CSS/CSS_environment_variables)
+  - {{cssxref("env()")}} Funktion
 - [CSS Paged Media](/de/docs/Web/CSS/CSS_paged_media) Modul
   - {{cssxref("@page")}} At-Regel
-- [CSS Objekt-Modell](/de/docs/Web/API/CSS_Object_Model) Modul
+- [CSS Objektmodell](/de/docs/Web/API/CSS_Object_Model) Modul
   - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) Schnittstelle
     - [`matches`](/de/docs/Web/API/MediaQueryList/matches) Eigenschaft
     - [`media`](/de/docs/Web/API/MediaQueryList/media) Eigenschaft
@@ -118,7 +122,7 @@ Das CSS Media Queries Level 5 Modul führt auch die `environment-blending`, `hor
 - HTML
   - `sizes` Attribut für [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#sizes), [`<link>`](/de/docs/Web/HTML/Reference/Elements/link#sizes), und [`<source>`](/de/docs/Web/HTML/Reference/Elements/source#sizes) für {{HTMLElement("picture")}}
   - `media` Attribut für [`<link>`](/de/docs/Web/HTML/Reference/Elements/link#media), [`<source>`](/de/docs/Web/HTML/Reference/Elements/source#media), und [`<style>`](/de/docs/Web/HTML/Reference/Elements/style#media) [HTML](/de/docs/Web/HTML)
-  - [Viewport-`<meta>`-Tag](/de/docs/Web/HTML/Guides/Viewport_meta_element)
+  - [Ansichtsfenster-`<meta>`-Tag](/de/docs/Web/HTML/Guides/Viewport_meta_element)
 - SVG [`media`](/de/docs/Web/SVG/Reference/Attribute/media) Attribut
 
 ## Spezifikationen
@@ -127,7 +131,7 @@ Das CSS Media Queries Level 5 Modul führt auch die `environment-blending`, `hor
 
 ## Siehe auch
 
-- [Container Queries](/de/docs/Web/CSS/CSS_containment/Container_queries)
+- [Container-Queries](/de/docs/Web/CSS/CSS_containment/Container_queries)
 - [Verwendung der `srcset`- und `sizes`-Attribute](/de/docs/Web/HTML/Reference/Elements/img#using_the_srcset_and_sizes_attributes)
 - [CSS Paged Media](/de/docs/Web/CSS/CSS_paged_media)
-- Verwenden Sie {{cssxref("@supports")}}, um Stile anzuwenden, die von der Unterstützung des Browsers für verschiedene CSS-Technologien abhängen.
+- Verwenden Sie {{cssxref("@supports")}}, um Stile anzuwenden, die von der Unterstützung verschiedener CSS-Technologien im Browser abhängen.

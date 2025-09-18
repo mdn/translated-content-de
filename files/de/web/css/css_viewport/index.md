@@ -19,7 +19,7 @@ Der {{Glossary("viewport", "Viewport")}} des Anfangsblocks für kontinuierliche 
 
 ### Schnittstellen
 
-- [`Window.Viewport`](/de/docs/Web/API/Window/Viewport)
+- [`Window.Viewport`](/de/docs/Web/API/Window/viewport)
 - [`Viewport`](/de/docs/Web/API/Viewport)
   - [`Viewport.segments`](/de/docs/Web/API/Viewport/segments)
 
