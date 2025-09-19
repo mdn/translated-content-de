@@ -3,14 +3,14 @@ title: "RTCPeerConnection: signalingstatechange-Ereignis"
 short-title: signalingstatechange
 slug: Web/API/RTCPeerConnection/signalingstatechange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
 ---
 
 {{APIRef("WebRTC")}}
 
-Ein **`signalingstatechange`**-Ereignis wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, um darauf hinzuweisen, dass sich ihr Signalisierungsstatus, wie durch die [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState)-Eigenschaft angezeigt, geändert hat.
+Ein **`signalingstatechange`**-Ereignis wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, um sie darüber zu informieren, dass sich ihr Signalisierungsstatus, wie durch die [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState)-Eigenschaft angegeben, geändert hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht übergeordnet.
 
 ## Syntax
 
@@ -28,20 +28,16 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Angenommen, es gibt eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), `pc`, und eine `updateStatus()`-Funktion, die Statusinformationen dem Nutzer präsentiert, zeigt dieser Code, wie ein Ereignishandler eingerichtet wird, um den Nutzer darüber zu informieren, wenn der ICE-Aushandlungsprozess abgeschlossen ist.
+Gegeben eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), `pc`, und eine `updateStatus()`-Funktion, die Statusinformationen dem Benutzer präsentiert, richtet dieser Code einen Ereignishandler ein, um den Benutzer darüber zu informieren, wann der ICE-Aushandlungsprozess abgeschlossen ist.
 
 ```js
-pc.addEventListener(
-  "signalingstatechange",
-  (ev) => {
-    switch (pc.signalingState) {
-      case "stable":
-        updateStatus("ICE negotiation complete");
-        break;
-    }
-  },
-  false,
-);
+pc.addEventListener("signalingstatechange", (ev) => {
+  switch (pc.signalingState) {
+    case "stable":
+      updateStatus("ICE negotiation complete");
+      break;
+  }
+});
 ```
 
 Mit `onsignalingstatechange` sieht es so aus:

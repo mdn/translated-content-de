@@ -1,21 +1,21 @@
 ---
-title: "Herausforderung: Blog-Seitenstile reparieren"
-short-title: "Herausforderung: Blog-Stile reparieren"
+title: "Herausforderung: Beheben von Blogseiten-Stilen"
+short-title: "Herausforderung: Beheben von Blog-Stilen"
 slug: Learn_web_development/Core/Styling_basics/Fixing_blog_styles
 l10n:
-  sourceCommit: 5ed0891989972a0dbfdc5c1d95fa1d52a58395cb
+  sourceCommit: 2e427c5c185433c5a6612c63bf877753a5fedc99
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Test_your_skills/Cascade", "Learn_web_development/Core/Styling_basics/Values_and_units", "Learn_web_development/Core/Styling_basics")}}
 
-In dieser Herausforderung geben wir Ihnen ein einfaches Blogseitenbeispiel, das teilweise gestylt ist. Wir benötigen Ihre Hilfe, um einige Probleme mit dem vorhandenen CSS zu beheben und einige Stile hinzuzufügen, um es zu vervollständigen. Dabei testen wir Ihr Wissen über Selektoren, das Boxmodell und Konflikte/Kaskaden.
+In dieser Herausforderung geben wir Ihnen ein grundlegendes Blogseiten-Beispiel, das teilweise gestylt ist. Wir benötigen Ihre Hilfe, um einige Probleme mit dem vorhandenen CSS zu beheben und einige Stile hinzuzufügen, um es fertigzustellen. Dabei testen wir Ihr Wissen über Selektoren, das Boxmodell und Konflikte/Kaskadierung.
 
 ## Ausgangspunkt
 
-Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche in einem der Code-Panels unten, um das bereitgestellte Beispiel im MDN Playground zu öffnen. Folgen Sie dann den Anweisungen im Abschnitt [Projektbeschreibung](#projektbeschreibung), um die Seite entsprechend zu stylen.
+Um zu beginnen, klicken Sie auf die **Wiedergabe**-Taste in einem der folgenden Code-Panels, um das bereitgestellte Beispiel im MDN Playground zu öffnen. Befolgen Sie dann die Anweisungen im Abschnitt [Projektbeschreibung](#projektbeschreibung), um die Seite entsprechend zu gestalten.
 
 ```html live-sample___blog-start live-sample___blog-finish
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -187,30 +187,30 @@ footer {
 
 ## Projektbeschreibung
 
-Das grundlegende Blogbeispiel, das Sie erhalten haben, ist nicht fertig, und der bestehende Code hat einige Probleme. Folgen Sie den untenstehenden Schritten, um das Projekt abzuschließen.
+Das Ihnen gegebene grundlegende Blog-Beispiel ist noch nicht fertig, und der vorhandene Code hat einige Probleme. Befolgen Sie die folgenden Schritte, um das Projekt abzuschließen.
 
-1. Wir möchten, dass jedes Element auf dieser Seite das alternative Boxmodell verwendet. Fügen Sie eine Regel zum Stylesheet hinzu, die dies umsetzt.
+1. Wir möchten, dass jedes Element auf dieser Seite das alternative Boxmodell verwendet. Fügen Sie der Stylesheet eine Regel hinzu, die dies bewirkt.
 
-2. Es gibt ein Problem mit den Regeln für das Navigationsmenü — die Stile sind größtenteils in Ordnung, aber sie beeinflussen die andere ungeordnete Liste und die Inhaltslinks, sodass sie schlecht aussehen! Können Sie die Selektoren für diese Regeln anpassen, damit sie nur das Navigationsmenü ansprechen?
+2. Es gibt ein Problem mit den Regeln für das Navigationsmenü – die Stile sind größtenteils in Ordnung, aber sie beeinflussen die andere ungeordnete Liste und die Inhaltslinks, so dass sie schlecht aussehen! Können Sie die Selektoren für diese Regeln so anpassen, dass sie nur das Navigationsmenü ansprechen?
 
-3. Tatsächlich gibt es ein weiteres Problem mit dem Navigationsmenü — die `<a>`-Elemente erstrecken sich nicht über die volle Breite ihrer `<li>`-Elementeltern, wie sie es eigentlich sollten. Können Sie die Art und Weise, wie sie angezeigt werden, so anpassen, dass sie die volle Breite einnehmen?
+3. Tatsächlich gibt es ein weiteres Problem mit dem Navigationsmenü – die `<a>`-Elemente erstrecken sich nicht über die gesamte Breite ihrer `<li>`-Element-Eltern, wie sie sollten. Können Sie die Anzeige anpassen, damit sie die volle Breite einnehmen?
 
-4. Sowohl für die Links im Navigationsmenü als auch für die regulären Inhaltslinks setzen wir einen anderen Stil beim Hover, damit Benutzer mit der Maus sehen können, über welchen Link sie fahren. Dies stellt ein Zugänglichkeitsproblem für Tastaturbenutzer dar, die diese Stile nicht sehen können. Können Sie die Selektoren in den relevanten Regeln so ändern, dass diese Stile auch angewendet werden, wenn ein Tastaturbenutzer zu den Links tabbt?
+4. Für sowohl die Navigationsmenü-Links als auch die regulären Inhaltslinks setzen wir einen anderen Stil beim Hover, damit Benutzer mit der Maus sehen können, über welchen Link sie schweben. Dies stellt ein Barrierefreiheitsproblem für Benutzer mit Tastatur dar, die diese Stile nicht sehen können. Können Sie die Selektoren in den relevanten Regeln so ändern, dass diese Stile auch angewendet werden, wenn ein Tastaturbenutzer zu den Links springt?
 
-5. Wir möchten, dass die Einleitung, die Zusammenfassung und der Footer auf allen Seiten `20px` Padding haben. Machen Sie dies durch Hinzufügen einer einzigen Deklaration im Stylesheet.
+5. Wir möchten, dass die Einführung, die Zusammenfassung und die Fußzeile auf allen Seiten `20px` Padding haben. Machen Sie dies, indem Sie irgendwo in der Stylesheet eine einzelne Deklaration hinzufügen.
 
-6. Fügen Sie eine Regel hinzu, die die erste Zeile jedes Absatzes auswählt, der direkt nach einer Überschrift der zweiten Ebene erscheint, und machen Sie diese fett.
+6. Fügen Sie eine Regel hinzu, die die erste Zeile jedes Absatzes auswählt, der direkt nach einer zweiten Überschrift erscheint, und machen Sie diese fett.
 
-7. Als Anschlussfrage zur vorherigen Frage, können Sie sich eine Möglichkeit überlegen, die erste Zeile in jedem Absatz nach einer Überschrift der zweiten Ebene fett zu machen, aber nur, wenn das Elternelement nicht die Einleitung, die Zusammenfassung oder der Footer ist? Sie können dies auf verschiedene Weisen tun, einige sind prägnanter als andere.
+7. In Fortsetzung der vorherigen Frage, können Sie sich eine Methode überlegen, die erste Zeile in jedem Absatz nach einer zweiten Überschrift fett zu markieren, jedoch nur, wenn das Elternelement nicht die Einführung, die Zusammenfassung oder die Fußzeile ist? Sie können dies auf verschiedene Weise tun, einige sind prägnanter als andere.
 
-8. Weiter unten sehen Sie, dass wir `.highlight a` verwenden, um die `<a>`-Elemente in der Einleitung und der Zusammenfassung zu selektieren und sie `lila` zu färben. Aber das ist nicht gut — der Farbkontrast ist schrecklich. Angenommen, Sie dürfen diese Regel nicht ändern oder entfernen, können Sie eine andere Regel darüber in der Quellreihenfolge hinzufügen, die die `<a>`-Elemente `gelb` färbt? Da sie darüber in der Quellreihenfolge steht, muss sie eine höhere Spezifität haben.
+8. Weiter unten sehen Sie, dass wir `.highlight a` verwenden, um die `<a>`-Elemente innerhalb der Einführung und Zusammenfassung auszuwählen und sie `purple` zu färben. Aber das ist nicht gut – der Farbkontrast ist schrecklich. Angesichts der Tatsache, dass Sie diese Regel nicht ändern oder entfernen dürfen, können Sie eine andere Regel weiter oben in der Quellreihenfolge hinzufügen, die die `<a>`-Elemente `yellow` färbt? Da sie weiter oben in der Quellreihenfolge ist, muss sie eine höhere Spezifität haben.
 
-9. Sie sehen, dass wir versuchen, das `<footer>` am Ende des Stylesheets auszuwählen und ihm einen Textschatten, einen Abstand, um es von der Zusammenfassung zu entfernen, und eine andere Hintergrundfarbe zu geben, um es hervorzuheben. Allerdings erhält es nicht die gewünschten Abstand- und Hintergrundfarbstile, da die `.highlight`-Regel eine höhere Spezifität hat, sodass ihre Deklarationen gewinnen. Können Sie den Selektor ändern, um sicherzustellen, dass diese Stile angewendet werden?
+9. Sie werden sehen, dass wir versuchen, das `<footer>` am Ende der Stylesheet auszuwählen und ihm einen Textschatten, etwas Abstand zur Verschiebung vom der Zusammenfassung und eine andere Hintergrundfarbe zu geben, um es hervorzuheben. Es erhält jedoch nicht die gewünschten Rand- und Hintergrundfarbstile, weil die `.highlight`-Regel eine höhere Spezifität hat, sodass deren Deklarationen gewinnen. Können Sie den Selektor so ändern, dass diese Stile angewendet werden?
 
-## Tipps und Hinweise
+## Hinweise und Tipps
 
-- Verwenden Sie den [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), um unbeabsichtigte Fehler in Ihrem CSS zu entdecken — Fehler, die Sie möglicherweise übersehen hätten — damit Sie sie beheben können.
-- Sie müssen das HTML in keinster Weise ändern.
+- Verwenden Sie den [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), um unbeabsichtigte Fehler in Ihrem CSS zu erkennen – Fehler, die Sie sonst vielleicht übersehen hätten – damit Sie sie beheben können.
+- Sie müssen das HTML in keiner Weise ändern.
 
 ## Beispiel
 

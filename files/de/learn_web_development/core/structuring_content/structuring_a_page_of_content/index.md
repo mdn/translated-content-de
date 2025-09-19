@@ -1,24 +1,24 @@
 ---
-title: "Herausforderung: Strukturierung einer Seite mit Inhalten"
+title: "Herausforderung: Strukturieren einer Inhaltsseite"
 short-title: "Herausforderung: Vogelbeobachtungsseite"
 slug: Learn_web_development/Core/Structuring_content/Structuring_a_page_of_content
 l10n:
-  sourceCommit: 6afda999d054c2ba12d13d129b13eb35952b4fbe
+  sourceCommit: 2e427c5c185433c5a6612c63bf877753a5fedc99
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Links", "Learn_web_development/Core/Structuring_content/HTML_images", "Learn_web_development/Core/Structuring_content")}}
 
-Die Strukturierung einer Seite mit Inhalten, bereit zum Layouten mit CSS, ist eine sehr wichtige Fähigkeit, die Sie beherrschen sollten. In dieser Herausforderung wird Ihre Fähigkeit getestet, darüber nachzudenken, wie eine Seite letztendlich aussehen könnte und entsprechende strukturelle Semantiken zu wählen, um ein Layout darauf aufzubauen.
+Das Strukturieren einer Inhaltsseite, die bereit ist, mit CSS formatiert zu werden, ist eine sehr wichtige Fähigkeit, die es zu meistern gilt. In dieser Herausforderung wird Ihr Können getestet, wie Sie eine Seite so strukturieren, dass sie aussehen könnte, und geeignete strukturelle Semantiken auswählen, um darauf ein Layout aufzubauen.
 
 ## Ausgangspunkt
 
-Um diese Herausforderung zu lösen, erwarten wir von Ihnen, dass Sie ein einfaches Website-Projekt erstellen, entweder in einem Ordner auf der Festplatte Ihres Computers oder mit einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des benötigten Codes wird bereits bereitgestellt.
+Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website-Projekt erstellen, entweder in einem Ordner auf Ihrer Festplatte oder mit einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des Codes, den Sie benötigen, wird bereits bereitgestellt.
 
 1. Erstellen Sie einen neuen Ordner an einem geeigneten Ort auf Ihrem Computer mit dem Namen `structuring-html-challenge` (oder öffnen Sie einen Online-Editor und führen Sie die erforderlichen Schritte aus, um ein neues Projekt zu erstellen).
 2. Speichern Sie das folgende HTML-Verzeichnis in einer Datei in Ihrem Ordner mit dem Namen `index.html` (oder fügen Sie es in das HTML-Feld Ihres Online-Editors ein).
 
    ```html
-   <!DOCTYPE html>
+   <!doctype html>
    <html lang="en">
      <head>
        <meta charset="utf-8" />
@@ -198,37 +198,37 @@ Um diese Herausforderung zu lösen, erwarten wir von Ihnen, dass Sie ein einfach
    }
    ```
 
-Später müssen Sie die folgenden URLs in Ihre Seite einfügen.
+Später müssen Sie die folgenden URLs in Ihrer Seite einfügen.
 
 - `dove.png`: [Das Seitenlogo](https://mdn.github.io/shared-assets/images/examples/learn/birds/dove.png)
-- `favorite-bird-1.jpg`: [Vollversion des ersten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-1.jpg)
-- `favorite-bird-1_th.jpg`: [Vorschaubild des ersten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-1_th.jpg)
-- `favorite-bird-2.jpg`: [Vollversion des zweiten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-2.jpg)
-- `favorite-bird-2_th.jpg`: [Vorschaubild des zweiten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-2_th.jpg)
-- `favorite-bird-3.jpg`: [Vollversion des dritten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-3.jpg)
-- `favorite-bird-3_th.jpg`: [Vorschaubild des dritten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-3_th.jpg)
-- `favorite-bird-4.jpg`: [Vollversion des vierten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-4.jpg)
-- `favorite-bird-4_th.jpg`: [Vorschaubild des vierten Sidebar-Bildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-4_th.jpg)
+- `favorite-bird-1.jpg`: [Vollversion des ersten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-1.jpg)
+- `favorite-bird-1_th.jpg`: [Thumbnail des ersten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-1_th.jpg)
+- `favorite-bird-2.jpg`: [Vollversion des zweiten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-2.jpg)
+- `favorite-bird-2_th.jpg`: [Thumbnail des zweiten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-2_th.jpg)
+- `favorite-bird-3.jpg`: [Vollversion des dritten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-3.jpg)
+- `favorite-bird-3_th.jpg`: [Thumbnail des dritten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-3_th.jpg)
+- `favorite-bird-4.jpg`: [Vollversion des vierten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-4.jpg)
+- `favorite-bird-4_th.jpg`: [Thumbnail des vierten Seitenleistenbildes](https://mdn.github.io/shared-assets/images/examples/learn/birds/favorite-bird-4_th.jpg)
 
 ## Projektauftrag
 
-Bei diesem Projekt besteht Ihre Aufgabe darin, die Inhalte für die Homepage einer Vogelbeobachter-Website zu nehmen und strukturelle Elemente hinzuzufügen, damit darauf ein Seitenlayout angewendet werden kann. Sie müssen auch einige Ergänzungen zu den Inhalten vornehmen.
+In diesem Projekt besteht Ihre Aufgabe darin, die Inhalte der Startseite einer Vogelbeobachtungs-Website zu übernehmen und ihr strukturelle Elemente hinzuzufügen, damit ein Seitenlayout darauf angewendet werden kann. Sie müssen auch einige Ergänzungen zum Inhalt vornehmen.
 
 ### Inhaltsergänzungen
 
-1. Fügen Sie im `<h1>`-Element ein `<img>`-Element hinzu, das das Taubenlogo auf der Seite enthält. Geben Sie ihm einen leeren Alternativtext ("").
-2. Die Textteile "Home", "Get started", "Photos", "Gear" und "Forum" sollten in ein Navigationsmenü umgewandelt werden.
+1. Fügen Sie innerhalb des `<h1>`-Elements ein `<img>`-Element hinzu, das das Taubenlogo auf der Seite beinhaltet. Geben Sie ihm einen leeren alternativen Text ("").
+2. Die Textgegenstände "Home", "Get started", "Photos", "Gear" und "Forum" sollten in ein Navigationsmenü umgewandelt werden.
    1. Markieren Sie sie als ungeordnete Liste.
-   2. Umhüllen Sie innerhalb jedes Listenelements den Text mit einem `<a>`-Element, das auf eine URL `#` verweist (was einen Dummy-Link erstellt).
-3. Entfernen Sie den Kommentar `<!-- Link images here. -->`. Ersetzen Sie ihn durch eine Reihe von vier Vorschaubildern der "Lieblingsvögel". Jedes sollte einen geeigneten Alternativtext enthalten, um das Bild zu beschreiben, und in einem `<a>`-Element umhüllt sein, das auf das entsprechende Vollbild verweist.
+   2. Wickeln Sie in jedem Listenelement den Text in ein `<a>`-Element ein, das auf eine URL von `#` verweist (was einen Dummy-Link erstellt).
+3. Entfernen Sie den Kommentar `<!-- Link images here. -->`. Ersetzen Sie ihn durch ein Set von vier Thumbnail-Bildern der "Lieblingsvögel". Jedes sollte einen geeigneten alternativen Text enthalten, um das Bild zu beschreiben, und in ein `<a>`-Element eingewickelt sein, das auf die vollformatige Entsprechung verlinkt.
 
-### Strukturanforderungen
+### Strukturelle Anforderungen
 
 Die Seitenstruktur muss aus Folgendem bestehen:
 
-1. Ein Header, der die oberste Seitenüberschrift und die Navigationsmenü-Liste umschließt.
-2. Ein zusätzlicher Wrapper um die Navigationsmenü-Liste.
-3. Ein Hauptinhaltbereich mit zwei Spalten — einem Hauptartikel, der den Willkommens-Text enthält, und einer Sidebar (aside), die die Vorschaubilder enthält.
+1. Ein Header, der die oberste Seitenüberschrift und die Navigationsmenüliste umschließt.
+2. Ein zusätzlicher Wrapper um die Navigationsmenüliste.
+3. Ein Hauptinhaltsbereich, der zwei Spalten enthält — einen Hauptartikel für den Willkommenstext und eine Seitenleiste (aside), die die Bildthumbnails enthält.
 4. Ein Footer, der die Urheberrechtsinformationen und Credits enthält.
 
 Mit anderen Worten, Sie müssen einen geeigneten Wrapper hinzufügen für:
@@ -237,32 +237,32 @@ Mit anderen Worten, Sie müssen einen geeigneten Wrapper hinzufügen für:
 - Das Navigationsmenü
 - Den Hauptinhalt
 - Den Willkommensartikel
-- Das Bildseitenleisten
+- Die Bildseitenleiste
 - Den Footer
 
-### Gestaltung der Seite
+### Styling der Seite
 
-Bei Bedarf, wenden Sie das bereitgestellte CSS auf die Seite an, indem Sie ein weiteres {{htmlelement("link")}}-Element direkt unter dem bereits im Start-HTML bereitgestellten hinzufügen (einige Online-Editoren wenden das CSS automatisch an).
+Falls erforderlich, wenden Sie das bereitgestellte CSS auf die Seite an, indem Sie ein weiteres {{htmlelement("link")}}-Element direkt unterhalb des bereits im Ausgangs-HTML vorhandenen hinzufügen (einige Online-Code-Editoren wenden das CSS automatisch an).
 
 ## Hinweise und Tipps
 
-- Verwenden Sie den [W3C HTML-Validator](https://validator.w3.org/), um unbeabsichtigte Fehler in Ihrem HTML zu erkennen — damit Sie sie beheben können.
-- Sie müssen keine CSS-Kenntnisse haben, um diese Herausforderung zu bestehen; Sie müssen lediglich das bereitgestellte CSS auf Ihr HTML anwenden.
-- Wenn Sie Probleme haben und sich nicht vorstellen können, welche Elemente wo platziert werden sollen, zeichnen Sie ein einfaches Blockdiagramm des Seitenlayouts und schreiben Sie die Elemente darauf, die Ihrer Meinung nach jeden Block umschließen sollten. Dies ist äußerst hilfreich.
+- Verwenden Sie den [W3C HTML-Validator](https://validator.w3.org/), um unbeabsichtigte Fehler in Ihrem HTML zu finden — so können Sie diese beheben.
+- Sie müssen kein CSS kennen, um diese Herausforderung zu bewältigen; Sie müssen lediglich das bereitgestellte CSS auf Ihr HTML anwenden.
+- Wenn Sie nicht weiterkommen und nicht wissen, welche Elemente Sie wo platzieren sollen, zeichnen Sie ein einfaches Blockdiagramm des Seitenlayouts und notieren Sie die Elemente, von denen Sie denken, dass sie jeden Block umschließen sollten. Dies ist äußerst hilfreich.
 
 ## Beispiel
 
-Der folgende Screenshot zeigt ein Beispiel dafür, wie die Homepage nach der Markierung aussehen könnte. Wenn Sie Schwierigkeiten haben, einige dieser Dinge zu erreichen, sehen Sie sich die Lösung unter dem Live-Beispiel an.
+Das folgende Bild zeigt ein Beispiel, wie die Startseite aussehen könnte, nachdem sie markiert wurde. Wenn Sie Schwierigkeiten haben, wie Sie einige dieser Dinge erreichen können, lesen Sie die Lösung unter dem Live-Beispiel.
 
-![Das fertige Beispiel für die Herausforderung; eine einfache Webseite über Vogelbeobachtung, einschließlich einer Überschrift "Vogelbeobachtung", Vogelbildern und einer Willkommensbotschaft](example-page.png)
+![Das fertige Beispiel für die Herausforderung; eine einfache Webseite über Vogelbeobachtung, einschließlich einer Überschrift "Birdwatching", Vogelbildern und einer Willkommensnachricht](example-page.png)
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte folgendermaßen aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />

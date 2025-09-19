@@ -3,18 +3,18 @@ title: "RTCSctpTransport: statechange-Ereignis"
 short-title: statechange
 slug: Web/API/RTCSctpTransport/statechange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
 ---
 
 {{APIRef("WebRTC")}}
 
-Ein **`statechange`**-Ereignis wird an ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport) gesendet, um eine Benachrichtigung zu geben, wenn sich die [`RTCSctpTransport.state`](/de/docs/Web/API/RTCSctpTransport/state)-Eigenschaft geändert hat.
+Ein **`statechange`**-Ereignis wird an ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport) gesendet, um eine Benachrichtigung bereitzustellen, wenn sich die [`RTCSctpTransport.state`](/de/docs/Web/API/RTCSctpTransport/state)-Eigenschaft geändert hat.
 
-<!-- Dieses Ereignis kann nicht abgebrochen werden und es wird nicht propagiert. -->
+<!-- Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubble aus. -->
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("statechange", (event) => { })
@@ -28,20 +28,16 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Angenommen, Sie haben ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport), `transport`, und eine `updateStatus()`-Funktion, die Verbindungsstatusinformationen dem Benutzer anzeigt. Dieser Code richtet einen Ereignishandler ein, um den Benutzer zu informieren, wenn die Verbindung hergestellt ist.
+Gegeben ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport), `transport`, und eine `updateStatus()`-Funktion, die dem Benutzer Verbindungsstatusinformationen präsentiert, richtet dieser Code einen Ereignishandler ein, um den Benutzer darüber zu informieren, wenn der Transport verbunden ist.
 
 ```js
-pc.addEventListener(
-  "statechange",
-  (event) => {
-    switch (transport.state) {
-      case "connected":
-        updateStatus("Connection started");
-        break;
-    }
-  },
-  false,
-);
+pc.addEventListener("statechange", (event) => {
+  switch (transport.state) {
+    case "connected":
+      updateStatus("Connection started");
+      break;
+  }
+});
 ```
 
 Unter Verwendung von `onstatechange` sieht es so aus:

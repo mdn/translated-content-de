@@ -2,12 +2,12 @@
 title: WebGLContextEvent
 slug: Web/API/WebGLContextEvent
 l10n:
-  sourceCommit: 4533daae74a7fdf41d70af9c66af5764decb4bdb
+  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **WebGLContextEvent**-Schnittstelle ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und dient als Schnittstelle für ein Ereignis, das als Reaktion auf eine Statusänderung im WebGL-Rendering-Kontext generiert wird.
+Die **WebGLContextEvent**-Schnittstelle ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt eine Schnittstelle für ein Ereignis dar, das als Reaktion auf eine Statusänderung des WebGL-Rendering-Kontextes erzeugt wird.
 
 {{InheritanceDiagram}}
 
@@ -16,16 +16,16 @@ Die **WebGLContextEvent**-Schnittstelle ist Teil der [WebGL-API](/de/docs/Web/AP
 - [`WebGLContextEvent()`](/de/docs/Web/API/WebGLContextEvent/WebGLContextEvent)
   - : Erstellt ein neues `WebGLContextEvent`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt Eigenschaften von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 - [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage)
   - : Eine schreibgeschützte Eigenschaft, die zusätzliche Informationen über das Ereignis enthält.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle definiert keine eigenen Methoden, erbt jedoch Methoden von ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle definiert keine eigenen Methoden, erbt jedoch Methoden von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
@@ -35,13 +35,9 @@ Mit Hilfe der [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context)-Erweit
 const canvas = document.getElementById("canvas");
 const gl = canvas.getContext("webgl");
 
-canvas.addEventListener(
-  "webglcontextlost",
-  (e) => {
-    console.log(e);
-  },
-  false,
-);
+canvas.addEventListener("webglcontextlost", (e) => {
+  console.log(e);
+});
 
 gl.getExtension("WEBGL_lose_context").loseContext();
 

@@ -1,19 +1,19 @@
 ---
-title: Hello-Vertex-Attribute
+title: Hallo Vertex-Attribute
 slug: Web/API/WebGL_API/By_example/Hello_vertex_attributes
 l10n:
-  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
+  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
 ---
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Hello_GLSL","Web/API/WebGL_API/By_example/Textures_from_code")}}
 
-Dieses WebGL-Beispiel zeigt, wie man Shader-Programmierung und Benutzerinteraktion kombiniert, indem Benutzereingaben mithilfe von Vertex-Attributen an den Shader gesendet werden.
+Dieses WebGL-Beispiel zeigt, wie Shader-Programmierung mit Benutzerinteraktion kombiniert wird, indem Benutzereingaben mithilfe von Vertex-Attributen an den Shader gesendet werden.
 
 ## Hallo-Welt-Programm in GLSL
 
 {{EmbedLiveSample("Hello_World_program_in_GLSL",660,425)}}
 
-Anleitung, wie man Eingaben an ein Shader-Programm senden kann, indem Daten im GPU-Speicher gespeichert werden.
+Anleitung, um Eingaben an ein Shader-Programm zu senden, indem Daten im GPU-Speicher gespeichert werden.
 
 ```html hidden
 <p>
@@ -135,7 +135,7 @@ function initializeAttributes() {
   gl.vertexAttribPointer(0, 1, gl.FLOAT, false, 0, 0);
 }
 
-window.addEventListener("beforeunload", cleanup, true);
+window.addEventListener("beforeunload", cleanup);
 function cleanup() {
   gl.useProgram(null);
   if (buffer) {

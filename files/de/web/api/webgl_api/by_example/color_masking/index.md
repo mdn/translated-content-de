@@ -2,26 +2,26 @@
 title: Farbmaskierung
 slug: Web/API/WebGL_API/By_example/Color_masking
 l10n:
-  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
+  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
 ---
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Simple_color_animation","Web/API/WebGL_API/By_example/Basic_scissoring")}}
 
-Dieses WebGL-Beispiel ändert zufällige Farben, indem es eine Farbmaskierung anwendet, um den Bereich der dargestellten Farben auf bestimmte Schattierungen zu beschränken.
+Dieses WebGL-Beispiel modifiziert zufällige Farben durch das Anwenden einer Farbmaskierung, um die Anzeigefarben auf bestimmte Farbtöne zu begrenzen.
 
 ## Maskierung zufälliger Farben
 
 {{EmbedLiveSample("Masking_random_colors",660,425)}}
 
-Dieses Beispiel modifiziert die Animation zufälliger Farben, indem eine Farbmaskierung mit [`colorMask()`](/de/docs/Web/API/WebGLRenderingContext/colorMask) angewendet wird. Sie können sich die Farbmaskierungsoperation vorstellen, als ob Sie die farbige Leinwand durch getöntes Glas oder einen Farbfilter betrachten. Indem Sie die blauen und grünen Kanäle maskieren, erlauben Sie nur die Aktualisierung der roten Komponente der Pixel, sodass es so aussieht, als würden Sie durch rotes getöntes Glas schauen.
+Dieses Beispiel modifiziert die zufällige Farbanimation durch das Anwenden einer Farbmaskierung mit [`colorMask()`](/de/docs/Web/API/WebGLRenderingContext/colorMask). Sie können sich die Farbmaskierung so vorstellen, als ob man das farbige Canvas durch ein getöntes Glas oder einen Farbfilter betrachtet. Durch das Maskieren der blauen und grünen Kanäle, wird nur die rote Komponente der Pixel aktualisiert, und es ist daher, als ob man durch ein rotes getöntes Glas schaut.
 
-Farbmaskierung ermöglicht es uns, einige Grundlagen der [Farbtheorie](https://en.wikipedia.org/wiki/Color_theory) zu demonstrieren. Indem wir einige Kanäle maskieren, beeinflussen wir die angezeigten Farben hin zur komplementären Farbe. So würde das Maskieren von sowohl Blau als auch Rot uns Grüntöne geben. Das Maskieren nur des blauen Kanals würde uns Gelbtöne geben (einschließlich Orange-, Braun-, Oliven- und Gelbgrüntöne), das Komplementäre von Blau. Ähnlich würde das Maskieren nur von Grün uns Magentatöne geben (auch Purpur, Karmesin usw.), und das Maskieren nur von Rot würde Zyan-Töne ergeben (auch Meeresgrün, Blau usw.).
+Die Farbmaskierung ermöglicht uns, einige Grundlagen der [Farbtheorie](https://en.wikipedia.org/wiki/Color_theory) zu demonstrieren. Durch das Maskieren einiger Kanäle verschieben wir die angezeigten Farben tatsächlich in Richtung der komplementären Farbe. Das Maskieren sowohl der blauen als auch der roten Kanäle würde uns also Grüntöne ergeben. Das Maskieren nur des blauen Kanals liefert Gelbtöne (einschließlich Orange-, Braun-, Oliven- und Gelbgrüntöne), das Komplementär zu Blau. Ebenso würde das Maskieren nur des grünen Kanals Magentatöne (auch Purpur, Purpurrot usw.) ergeben, und das Maskieren nur des roten Kanals würde Cyan-Töne (auch Meergrün, Blau usw.) ergeben.
 
-Beachten Sie, dass die Aufrufe von `colorMask()` nur erfolgen, wenn der Benutzer auf einen der Umschaltknöpfe klickt. Die Darstellung erfolgt jedoch jede Sekunde mit einem Timer. Der Status der Farbmaske von {{Glossary("WebGL", "WebGL")}} bleibt erhalten, sodass wir `colorMask()` nicht jedes Bild erneut aufrufen müssen, um die Farbmaske einzurichten. Dies ist ein wichtiger Aspekt der WebGL-Zustandsmaschine. Es ermöglicht uns, WebGL in einer einzigen Initialisierungsphase einzurichten und dann einfach Zeichnungsbefehle für jedes Bild auszuführen.
+Beachten Sie, dass die Aufrufe an `colorMask()` nur erfolgen, wenn der Benutzer auf eine der Umschalttasten klickt. Das Rendering erfolgt jedoch jede Sekunde mithilfe des Timers. Der Zustand der Farbmaske in {{Glossary("WebGL", "WebGL")}} bleibt erhalten, sodass wir `colorMask()` nicht in jedem Frame aufrufen müssen, um die Farbmaske einzurichten. Dies ist ein wichtiger Aspekt der WebGL-Zustandsmaschine. Es ermöglicht uns, WebGL in einer einzigen Initialisierungsphase einzurichten und dann einfach Zeichenbefehle für jedes Frame auszuführen.
 
-Farbmaskierung gibt Ihnen eine feine Kontrolle über die Aktualisierung der Pixelwerte auf dem Bildschirm. Indem Sie die Farbbereiche einschränken, die von jedem Zeichnungsbefehl geschrieben werden, können Sie jeden Kanal beispielsweise verwenden, um ein anderes Graustufenbild zu speichern. Alternativ könnten Sie die {{Glossary("RGB", "RGB")}}-Komponenten für Farbe verwenden, aber die Alphakomponente für einige benutzerdefinierte Pixelinformationen Ihrer Erfindung.
+Die Farbmaskierung gibt Ihnen präzise Kontrolle über das Aktualisieren von Pixelwerten auf dem Bildschirm. Indem Sie die Farbanäle beschränken, die von jedem Zeichenbefehl geschrieben werden, können Sie jeden Kanal beispielsweise verwenden, um ein anderes Graustufenbild zu speichern. Alternativ können Sie die {{Glossary("RGB", "RGB")}}-Komponenten für Farbe verwenden, aber die Alphakomponente für einige benutzerdefinierte Pixel-Daten Ihrer Erfindung.
 
-Schließlich lehrt uns Farbmaskierung, dass {{Glossary("WebGL", "WebGL")}} nicht nur eine Zustandsmaschine ist, sondern auch eine _Grafik-Pipeline_. Das bedeutet, dass Grafikoperationen in WebGL in einer bestimmten Reihenfolge durchgeführt werden, wobei das Ergebnis jeder Operation als Eingabe für die nächste dient. Zum Beispiel setzt die Löschoperation den Wert jedes Pixels auf die gewählte Löschfarbe. Die Maskierung erfolgt später in der Pipeline und modifiziert den Pixel-Farbwert, sodass das endgültige Ergebnis auf dem Bildschirm die Löschfarbe ist, getönt durch die Farbmaske.
+Schließlich lehrt uns die Farbmaskierung, dass {{Glossary("WebGL", "WebGL")}} nicht nur eine Zustandsmaschine ist, sondern auch eine _Grafik-Pipeline_. Das bedeutet, dass Grafikoperationen in WebGL in einer bestimmten Reihenfolge ausgeführt werden, wobei die Ausgabe jeder Operation als Eingang der nächsten dient. So setzt beispielsweise die Löschoperation den Wert jedes Pixels auf die gewählte Löschfarbe. Die Maskierung erfolgt später in der Pipeline und modifiziert den Pixel-Farbwert, sodass das endgültige Ergebnis auf dem Bildschirm die Löschfarbe, getönt von der Farbmaske, darstellt.
 
 ```html
 <p>Tinting the displayed colors with color masking.</p>
@@ -65,55 +65,51 @@ button {
 ```
 
 ```js
-window.addEventListener(
-  "load",
-  function setupAnimation(evt) {
-    "use strict";
-    window.removeEventListener(evt.type, setupAnimation, false);
+window.addEventListener("load", function setupAnimation(evt) {
+  "use strict";
+  window.removeEventListener(evt.type, setupAnimation);
 
-    const canvas = document.querySelector("canvas");
-    const gl =
-      canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-    if (!gl) {
-      document.querySelector("p").textContent =
-        "Failed to get WebGL context. Your browser or device may not support WebGL.";
-      return;
-    }
-    gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+  const canvas = document.querySelector("canvas");
+  const gl =
+    canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+  if (!gl) {
+    document.querySelector("p").textContent =
+      "Failed to get WebGL context. Your browser or device may not support WebGL.";
+    return;
+  }
+  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
 
-    const timer = setInterval(drawAnimation, 1000);
+  const timer = setInterval(drawAnimation, 1000);
 
-    const mask = [true, true, true];
-    const redToggle = document.querySelector("#red-toggle");
-    const greenToggle = document.querySelector("#green-toggle");
-    const blueToggle = document.querySelector("#blue-toggle");
-    redToggle.addEventListener("click", setColorMask, false);
-    greenToggle.addEventListener("click", setColorMask, false);
-    blueToggle.addEventListener("click", setColorMask, false);
+  const mask = [true, true, true];
+  const redToggle = document.querySelector("#red-toggle");
+  const greenToggle = document.querySelector("#green-toggle");
+  const blueToggle = document.querySelector("#blue-toggle");
+  redToggle.addEventListener("click", setColorMask);
+  greenToggle.addEventListener("click", setColorMask);
+  blueToggle.addEventListener("click", setColorMask);
 
-    function setColorMask(evt) {
-      const index =
-        (evt.target === greenToggle && 1) ||
-        (evt.target === blueToggle && 2) ||
-        0;
-      mask[index] = !mask[index];
-      evt.target.textContent = mask[index] ? "On" : "Off";
-      gl.colorMask(mask[0], mask[1], mask[2], true);
-      drawAnimation();
-    }
+  function setColorMask(evt) {
+    const index =
+      (evt.target === greenToggle && 1) ||
+      (evt.target === blueToggle && 2) ||
+      0;
+    mask[index] = !mask[index];
+    evt.target.textContent = mask[index] ? "On" : "Off";
+    gl.colorMask(mask[0], mask[1], mask[2], true);
+    drawAnimation();
+  }
 
-    function drawAnimation() {
-      const color = getRandomColor();
-      gl.clearColor(color[0], color[1], color[2], 1.0);
-      gl.clear(gl.COLOR_BUFFER_BIT);
-    }
+  function drawAnimation() {
+    const color = getRandomColor();
+    gl.clearColor(color[0], color[1], color[2], 1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+  }
 
-    function getRandomColor() {
-      return [Math.random(), Math.random(), Math.random()];
-    }
-  },
-  false,
-);
+  function getRandomColor() {
+    return [Math.random(), Math.random(), Math.random()];
+  }
+});
 ```
 
 Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/color-masking) verfügbar.

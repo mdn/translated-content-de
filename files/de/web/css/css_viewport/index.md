@@ -2,14 +2,14 @@
 title: CSS-Viewport
 slug: Web/CSS/CSS_viewport
 l10n:
-  sourceCommit: 9036ccca6d55b90913ca424e6706b0c9ed1fa93b
+  sourceCommit: 2e427c5c185433c5a6612c63bf877753a5fedc99
 ---
 
-Das **CSS-Viewport**-Modul ermöglicht es, die Größe, den Zoomfaktor und die Ausrichtung des Anfangsblocks, oder _Viewport_, des Benutzeragents festzulegen.
+Das **CSS-Viewport**-Modul ermöglicht die Festlegung der Größe, des Zoomfaktors und der Ausrichtung des anfänglichen, enthaltenen Blocks des Benutzeragenten, oder _Viewport_.
 
-Inhalte, die für große Viewports entworfen wurden, können in kleineren Viewports eine Vielzahl von Fehlern aufweisen, einschließlich unbeabsichtigtem Umbruch, abgeschnittenem Inhalt und falsch dimensionierten {{Glossary("scroll_container", "Scroll-Containern")}}. HTML bietet ein [Viewport-Meta-Tag](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport), `<meta name="viewport">`, um Hinweise zur Anfangsgröße des Viewports zu geben. Wenn die Seite nicht für kleine Viewports optimiert ist und dieses Tag weggelassen wird, rendern einige mobile Browser die Seite mit einer festen Anfangsbreite des Containing-Blocks von typischerweise `980px`. Der Inhalt wird dann verkleinert, wodurch die CSS-Pixelgröße kleiner wird als ein tatsächliches Pixel. Die resultierende Seite passt in den verfügbaren Bildschirmbereich, ist jedoch unleserlich, sodass der Benutzer zoomen und scrollen muss, um den Inhalt anzuzeigen.
+Inhalte, die für große Viewports gestaltet sind, können eine Vielzahl von Fehlern aufweisen, wenn sie in kleineren Viewports betrachtet werden. Dazu gehören ungewolltes Umbrechen, abgeschnittene Inhalte und falsch dimensionierte {{Glossary("scroll_container", "Scroll-Container")}}. HTML bietet ein [Viewport-Meta-Tag](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport), `<meta name="viewport">`, um Hinweise zur anfänglichen Größe des Viewports zu geben. Wenn die Website nicht für kleine Viewports optimiert ist und dieses Tag weggelassen wird, rendern einige mobile Browser die Website mit einer festen Anfangsbreite des enthaltenen Blocks, typischerweise `980px`. Der Inhalt wird dann verkleinert, wodurch die CSS-Pixelgröße kleiner als ein tatsächlicher Pixel wird. Die resultierende Seite passt in den verfügbaren Bildschirmraum, ist jedoch unleserlich, was den Benutzer zwingt, zu zoomen und zu schwenken, um den Inhalt zu betrachten.
 
-Der {{Glossary("viewport", "Viewport")}} des Anfangsblocks für kontinuierliche Medien hat die Dimensionen des Viewports. Da der Viewport im Allgemeinen nicht größer ist als das Display, präsentieren Geräte mit kleineren Displays, wie Telefone oder Tablets, typischerweise einen kleineren Viewport als größere Geräte wie Desktops oder Laptops.
+Der {{Glossary("viewport", "Viewport")}} anfänglich enthaltene Block für kontinuierliche Medien hat die Abmessungen des Viewports. Da der Viewport in der Regel nicht größer als das Display ist, präsentieren Geräte mit kleineren Displays, wie Telefone oder Tablets, typischerweise einen kleineren Viewport als größere Geräte wie Desktops oder Laptops.
 
 ## Referenz
 
@@ -32,20 +32,20 @@ Der {{Glossary("viewport", "Viewport")}} des Anfangsblocks für kontinuierliche 
 ## Leitfäden
 
 - [Viewport-Konzepte](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts)
-  - : Das Konzept des Viewports — was er ist, seine Auswirkungen in Bezug auf CSS, SVG und mobile Geräte — und der Unterschied zwischen dem visuellen Viewport und dem Layout-Viewport.
+  - : Das Konzept des Viewports — was es ist, seine Auswirkungen in Bezug auf CSS, SVG und mobile Geräte — und der Unterschied zwischen dem visuellen Viewport und dem Layout-Viewport.
 
 - [Verwendung von Umgebungsvariablen](/de/docs/Web/CSS/CSS_environment_variables/Using_environment_variables)
-  - : Ein Überblick über Umgebungsvariablen, browserdefinierte Umgebungsvariablen und wie die `env()`-Funktion verwendet wird.
+  - : Ein Überblick darüber, was Umgebungsvariablen sind, browserdefinierte Umgebungsvariablen und wie man die `env()`-Funktion verwendet.
 
-- [Verwenden der Viewport-Segments-API](/de/docs/Web/API/Viewport_segments_API/Using)
-  - : Erstellen Sie responsive Designs, die für verschiedene Viewport-Segmentgrößen und Anordnungen optimiert sind, mit der API und Umgebungsvariablen.
+- [Verwendung der Viewport-Segmente-API](/de/docs/Web/API/Viewport_segments_API/Using)
+  - : Erstellen Sie responsive Designs, die für unterschiedliche Größen und Anordnungen von Viewport-Segmenten mit der API und Umgebungsvariablen optimiert sind.
 
 ## Verwandte Konzepte
 
-- [CSS-Media-Queries](/de/docs/Web/CSS/CSS_media_queries)-Modul
+- [CSS-Media-Queries](/de/docs/Web/CSS/CSS_media_queries) Modul
   - {{cssxref("@media")}}
-  - {{cssxref("media/horizontal-viewport-segments", "horizontal-viewport-segments")}} Deskriptor
-  - {{cssxref("media/vertical-viewport-segments", "vertical-viewport-segments")}} Deskriptor
+  - {{cssxref("@media/horizontal-viewport-segments", "horizontal-viewport-segments")}} Deskriptor
+  - {{cssxref("@media/vertical-viewport-segments", "vertical-viewport-segments")}} Deskriptor
 
 - [CSS-Umgebungsvariablen](/de/docs/Web/CSS/CSS_environment_variables)
   - {{cssxref("env()")}}
@@ -59,4 +59,4 @@ Der {{Glossary("viewport", "Viewport")}} des Anfangsblocks für kontinuierliche 
 
 ## Siehe auch
 
-- [CSSOM-Sicht](/de/docs/Web/CSS/CSSOM_view)-Modul
+- [CSSOM-Ansicht](/de/docs/Web/CSS/CSSOM_view) Modul

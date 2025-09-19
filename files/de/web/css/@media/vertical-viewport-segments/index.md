@@ -2,33 +2,33 @@
 title: vertical-viewport-segments
 slug: Web/CSS/@media/vertical-viewport-segments
 l10n:
-  sourceCommit: 7860297e91985460147c2bd6ced2bfa8cab5aba7
+  sourceCommit: 2e427c5c185433c5a6612c63bf877753a5fedc99
 ---
 
-Das **`vertical-viewport-segments`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) erkennt, ob das Gerät eine angegebene Anzahl von Viewport-Segmenten hat, die vertikal (von oben nach unten) angeordnet sind.
+Das **`vertical-viewport-segments`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) erkennt, ob das Gerät eine festgelegte Anzahl von Viewport-Segmenten aufweist, die vertikal (von oben nach unten) angeordnet sind.
 
-In Verbindung mit der [Viewport Segments API](/de/docs/Web/API/Viewport_segments_API) kann das `vertical-viewport-segments` Feature verwendet werden, um responsive Designs zu erstellen, die gut auf Geräten mit mehreren Viewports funktionieren — Geräte mit einem Display, das in logisch separate Viewport-Segmente unterteilt ist, wie zum Beispiel faltbare oder geklappte Geräte.
+In Verbindung mit der [Viewport Segments API](/de/docs/Web/API/Viewport_segments_API) kann das `vertical-viewport-segments` Feature verwendet werden, um responsive Designs zu erstellen, die gut auf Multi-Viewport-Geräten funktionieren — Geräte mit einem Display, das in logisch separate Viewport-Segmente unterteilt ist, wie z.B. faltbare oder klappbare Geräte.
 
 ## Syntax
 
-Das `vertical-viewport-segments` Feature wird als {{cssxref("integer")}} Wert von `1` oder größer angegeben, was die Anzahl der vertikalen Viewport-Segmente des Geräts darstellt.
+Das `vertical-viewport-segments` Feature wird als ein {{cssxref("integer")}} Wert von `1` oder höher angegeben, der die Anzahl der vertikalen Viewport-Segmente repräsentiert, die das Gerät besitzt.
 
 - Der Wert wird `1` sein für:
-  - Ein nicht-faltbares Gerät (zum Beispiel ein Standard-Smartphone oder -Tablet mit einem Bildschirm).
-  - Ein faltbares Gerät, das entweder entfaltet oder geschlossen ist (in der [`continuous` Gerätehaltung](/de/docs/Web/API/Device_Posture_API#continuous)).
-  - Ein zweibildschirmiges geklappte Gerät oder ein faltbares Gerät, das derzeit gefaltet und horizontal ausgerichtet ist, sodass die Segmente nebeneinander liegen.
-- Der Wert wird `2` sein für ein zweibildschirmiges geklappte Gerät oder ein faltbares Gerät, das derzeit gefaltet ist (in der [`folded` Gerätehaltung](/de/docs/Web/API/Device_Posture_API#folded)) und vertikal ausgerichtet ist, sodass die Segmente übereinander liegen.
-- Der Wert kann größer als `2` sein für faltbare Geräte mit mehr als einem Faltvorgang.
+  - Ein nicht faltbares Gerät (z.B. ein standardmäßiges Einzelscreen-Smartphone oder -Tablet).
+  - Ein faltbares Gerät, das entweder entfaltet oder geschlossen ist (in der [`continuous` Device-Posture](/de/docs/Web/API/Device_Posture_API#continuous)).
+  - Ein zweischirmiges klappbares Gerät oder ein derzeit gefaltetes faltbares Gerät, das horizontal orientiert ist, sodass die Segmente nebeneinander sind.
+- Der Wert wird `2` sein für ein zweischirmiges, klappbares Gerät oder ein derzeit gefaltetes faltbares Gerät (in der [`folded` Device-Posture](/de/docs/Web/API/Device_Posture_API#folded)), das vertikal orientiert ist, sodass die Segmente übereinander sind.
+- Der Wert kann größer als `2` sein für faltbare Geräte mit mehr als einer Faltung.
 
 ## Beispiele
 
 ### Grundlegende Nutzung von `vertical-viewport-segments`
 
-In diesem Beispiel verwenden wir eine `vertical-viewport-segments` Media-Query, um den Fall faltbarer Geräte zu behandeln, bei denen die Segmente von oben nach unten angeordnet sind.
+In diesem Beispiel verwenden wir eine `vertical-viewport-segments` Media-Query, um den Fall von faltbaren Geräten zu behandeln, bei denen die Segmente von oben nach unten angeordnet sind.
 
 Wir setzen den oberen Container so, dass er eine Höhe hat, die der Höhe des oberen Segments entspricht (`env(viewport-segment-height 0 0)`), und den unteren Container so, dass er eine Höhe hat, die der Höhe des unteren Segments entspricht (`env(viewport-segment-height 0 1)`).
 
-Um zu berechnen, wie viel Höhe der Faltbereich zwischen den beiden einnimmt, ziehen wir den Versatz der unteren Kante des oberen Containers von der oberen Kante des unteren Containers ab (`calc(env(viewport-segment-top 0 1) - env(viewport-segment-bottom 0 0));`).
+Um zu berechnen, wie viel Höhe der Falz zwischen den beiden einnimmt, subtrahieren wir den unteren Randversatz des oberen Containers vom oberen Randversatz des unteren Containers (`calc(env(viewport-segment-top 0 1) - env(viewport-segment-bottom 0 0));`).
 
 ```css
 .wrapper {
@@ -59,7 +59,7 @@ Um zu berechnen, wie viel Höhe der Faltbereich zwischen den beiden einnimmt, zi
 }
 ```
 
-Sehen Sie sich unser [Viewport Segment API Demonstration](https://mdn.github.io/dom-examples/viewport-segment-api/) für eine funktionierende Demo an ([Quellcode](https://github.com/mdn/dom-examples/tree/main/viewport-segment-api)). Schauen Sie auch in [Using the Viewport Segments API](/de/docs/Web/API/Viewport_segments_API/Using) für eine vollständige Erläuterung der Demo.
+Sehen Sie sich unser [Viewport segment API demo](https://mdn.github.io/dom-examples/viewport-segments-api/) für eine vollständige funktionierende Demo an ([Quellcode](https://github.com/mdn/dom-examples/tree/main/viewport-segments-api)). Schauen Sie sich auch [Using the Viewport Segments API](/de/docs/Web/API/Viewport_segments_API/Using) für eine vollständige Demo-Erklärung an.
 
 ## Spezifikationen
 

@@ -1,14 +1,14 @@
 ---
-title: "WEBGL_lose_context: restoreContext()-Methode"
+title: "WEBGL_lose_context: Methode restoreContext()"
 short-title: restoreContext()
 slug: Web/API/WEBGL_lose_context/restoreContext
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: f71683f74da0078d9371c4d0c1ff9d3898fc7b59
 ---
 
 {{APIRef("WebGL")}}
 
-Die **WEBGL_lose_context.restoreContext()**-Methode ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es Ihnen, das Wiederherstellen des Kontexts eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Objekts zu simulieren.
+Die Methode **WEBGL_lose_context.restoreContext()** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht es Ihnen, das Wiederherstellen des Kontextes eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Objekts zu simulieren.
 
 ## Syntax
 
@@ -22,32 +22,28 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Browser melden WebGL-Fehler möglicherweise nicht standardmäßig. Die Fehlerberichterstattung von WebGL funktioniert durch Aufruf von [`getError()`](/de/docs/Web/API/WebGLRenderingContext/getError) und Überprüfung auf Fehler. Die folgenden Ausnahmen können ausgelöst werden:
+Browser melden WebGL-Fehler möglicherweise standardmäßig nicht. Die Fehlerberichterstattung von WebGL funktioniert, indem [`getError()`](/de/docs/Web/API/WebGLRenderingContext/getError) aufgerufen und auf Fehler überprüft wird. Folgende Ausnahmen können ausgelöst werden:
 
 - `INVALID_OPERATION`
-  - : Wird ausgelöst, wenn der Kontext nicht verloren war.
+  - : Wird ausgelöst, wenn der Kontext nicht verloren gegangen ist.
 
 ## Beispiele
 
 Mit dieser Methode können Sie das
 [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event)
--Ereignis simulieren:
+Ereignis simulieren:
 
 ```js
 const canvas = document.getElementById("canvas");
 const gl = canvas.getContext("webgl");
 
-canvas.addEventListener(
-  "webglcontextrestored",
-  (e) => {
-    console.log(e);
-  },
-  false,
-);
+canvas.addEventListener("webglcontextrestored", (e) => {
+  console.log(e);
+});
 
 gl.getExtension("WEBGL_lose_context").restoreContext();
 ```

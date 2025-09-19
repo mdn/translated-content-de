@@ -2,24 +2,24 @@
 title: Verwendung der Viewport Segments API
 slug: Web/API/Viewport_segments_API/Using
 l10n:
-  sourceCommit: 7860297e91985460147c2bd6ced2bfa8cab5aba7
+  sourceCommit: 2e427c5c185433c5a6612c63bf877753a5fedc99
 ---
 
-{{DefaultAPISidebar("Viewport segments API")}}
+{{DefaultAPISidebar("Viewport Segments API")}}
 
-Dieser Artikel erklärt, wie Sie die [Viewport Segments API](/de/docs/Web/API/Viewport_segments_API) verwenden können, um responsive Designs zu erstellen, die für verschiedene Ansätze von Viewport-Segmentgrößen und -anordnungen optimiert sind.
+Dieser Artikel erklärt, wie Sie die [Viewport Segments API](/de/docs/Web/API/Viewport_segments_API) verwenden, um responsive Designs zu erstellen, die für verschiedene Viewport-Segmentgrößen und -anordnungen optimiert sind.
 
 ## Das Problem mit faltbaren Geräten
 
-Faltbare Geräte umfassen Smartphones, Tablets und Laptops. Einige falten sich nach innen, wobei das Display in das Innere des Geräts gefaltet wird, und andere falten sich nach außen, wobei das Display um das Gerät herum verläuft. Faltbare Geräte gibt es in verschiedenen Formen: Einige haben einen tatsächlichen Faltbildschirm, während andere separate Bildschirme mit einem physischen Scharnier in der Mitte haben. Sie können im Querformat verwendet werden, mit zwei Bildschirmen nebeneinander, und im Hochformat mit einem oberen und einem unteren Bildschirm.
+Faltbare Geräte umfassen Smartphones, Tablets und Laptops. Einige falten sich nach innen, wobei das Display in das Innere des Geräts gefaltet wird, und einige falten sich nach außen, wobei das Display um das Gerät herum verläuft. Faltbare Geräte gibt es in verschiedenen Formen: Einige haben einen tatsächlich faltbaren Bildschirm, während andere separate Bildschirme mit einem physischen Scharnier in der Mitte haben. Sie können im Querformat mit zwei nebeneinander liegenden Bildschirmen oder im Hochformat mit einem oberen und einem unteren Bildschirm verwendet werden.
 
-In jedem Fall sollen die Displays faltbarer Geräte als unterschiedliche Segmente derselben Anzeigeoberfläche fungieren. Während das faltbare Gerät einer Person nahtlos erscheinen und vollständig flach genutzt werden kann, ähnlich wie ein einzelner segmentierter Viewport, kann ein anderes Gerät einen sichtbaren Spalt aufweisen und in einem Winkel genutzt werden, der weniger als ein vollständig geöffnetes, flaches Display beträgt. Dies stellt einige einzigartige Herausforderungen dar. Sie können Ihr Layout für die Anzeige als eine Einheit optimieren, aber wie können Sie sicherstellen, dass Designelemente genau auf die verschiedenen Segmente passen und nicht in zwei Teile geschnitten werden? Und wie verhindern Sie, dass Inhalte durch den physischen Falt-/Verbindungsbereich verdeckt werden?
+Unabhängig vom Fall sollen die Displays faltbarer Geräte als verschiedene Segmente derselben Displayfläche fungieren. Während das faltbare Gerät einer Person nahtlos erscheinen und vollständig flach verwendet werden kann, ähnlich wie ein einzelner segmentierter Viewport, kann ein anderes eine sichtbare Naht haben und in einem Winkel verwendet werden, der weniger als ein vollständig geöffneter, flacher Bildschirm ist. Dies stellt einige einzigartige Herausforderungen dar. Sie können Ihr Layout für das Display als ein einziges Element optimieren, aber wie stellen Sie sicher, dass Designelemente genau auf die verschiedenen Segmente passen und nicht in zwei Teile geschnitten werden? Und wie verhindern Sie, dass Inhalte durch die physische Falte/Verbindung verborgen werden?
 
-Die Viewport segments API bietet Funktionen, die es Ihnen ermöglichen, sowohl in CSS als auch in JavaScript zu erkennen, ob der Bildschirm des Benutzers eine Falte oder Verbindung aufweist, welche Größe die verschiedenen Segmente haben, ob sie gleich groß sind und in welcher Ausrichtung sie sich befinden (nebeneinander oder von oben nach unten). Wir werden Ihnen diese Funktionen in den folgenden Abschnitten vorstellen und dann ein vollständiges Beispiel durchgehen, um sie in Aktion zu zeigen.
+Die Viewport Segments API bietet Funktionen, mit denen Sie (in CSS und JavaScript) erkennen können, ob der Bildschirm des Benutzers eine Falte oder Verbindung hat, welche Größe die verschiedenen Segmente haben, ob sie dieselbe Größe haben und in welcher Ausrichtung sie sich befinden (nebeneinander oder von oben nach unten). Wir stellen Ihnen diese Funktionen in den folgenden Abschnitten vor und zeigen dann ein vollständiges Beispiel, um sie in Aktion zu zeigen.
 
-## Viewport-Segmentmedienfunktionen
+## Medienfunktionen für Viewport-Segmente
 
-Zwei [Media Queries](/de/docs/Web/CSS/CSS_media_queries)-Funktionen sind verfügbar, mit denen getestet werden kann, ob ein Gerät über eine bestimmte Anzahl von Viewport-Segmenten verfügt, die horizontal oder vertikal angeordnet sind. Diese sehen so aus:
+Zwei verfügbare [Media Query](/de/docs/Web/CSS/CSS_media_queries) Funktionen ermöglichen das Testen, ob ein Gerät eine bestimmte Anzahl von Viewport-Segmenten horizontal oder vertikal angeordnet hat. Diese sehen folgendermaßen aus:
 
 ```css
 /* Segments are laid out horizontally. */
@@ -41,11 +41,11 @@ Zwei [Media Queries](/de/docs/Web/CSS/CSS_media_queries)-Funktionen sind verfüg
 }
 ```
 
-Die {{cssxref("@media/horizontal-viewport-segments")}}-Medienfunktion erkennt, ob das Gerät über eine bestimmte Anzahl von horizontal angeordneten Viewport-Segmenten verfügt, während die {{cssxref("@media/vertical-viewport-segments")}}-Medienfunktion erkennt, ob das Gerät über eine bestimmte Anzahl von vertikal angeordneten Viewport-Segmenten verfügt.
+Die Medienfunktion {{cssxref("@media/horizontal-viewport-segments")}} erkennt, ob das Gerät eine bestimmte Anzahl von Viewport-Segmenten horizontal angeordnet hat, während die Medienfunktion {{cssxref("@media/vertical-viewport-segments")}} erkennt, ob das Gerät eine bestimmte Anzahl von Viewport-Segmenten vertikal angeordnet hat.
 
-## Viewport-Segment-Umgebungsvariablen
+## Umgebungsvariablen für Viewport-Segmente
 
-Um ein Layout präzise in die verfügbaren Viewport-Segmente einzupassen, bieten die [viewport segment environment variables](/de/docs/Web/CSS/env#viewport-segment-width) Zugriff auf die Abmessungen und die Platzierung jedes Segments innerhalb des gesamten Viewports. Der Browser stellt [Umgebungsvariablen] zur Verfügung, die den Zugriff auf die Breite und Höhe jedes Segments sowie die Offsetpositionen seiner oberen, rechten, unteren und linken Kante ermöglichen:
+Um ein Layout genau in die verfügbaren Viewport-Segmente einzupassen, bieten die [Umgebungsvariablen für Viewport-Segmente](/de/docs/Web/CSS/env#viewport-segment-width) Zugriff auf die Abmessungen und Platzierung jedes Segments innerhalb des gesamten Viewports. Der Browser stellt [Umgebungsvariablen] bereit, die Zugriff auf die Breite und Höhe jedes Segments sowie die Versatzpositionen ihrer oberen, rechten, unteren und linken Kanten bieten:
 
 - `viewport-segment-width`
 - `viewport-segment-height`
@@ -54,7 +54,7 @@ Um ein Layout präzise in die verfügbaren Viewport-Segmente einzupassen, bieten
 - `viewport-segment-bottom`
 - `viewport-segment-left`
 
-Die {{cssxref("env()")}}-Funktion wird verwendet, um auf diese Variablen zuzugreifen, mit dem Namen der Variablen und zwei ganzen Zahlen, die die Indizes des Segments darstellen, für das der Wert zurückgegeben werden soll. Zum Beispiel:
+Die {{cssxref("env()")}} Funktion wird verwendet, um auf diese Variablen zuzugreifen, wobei der Name der Variablen und zwei Ganzzahlen, die die Indizes des Segments darstellen, für das der Wert zurückgegeben werden soll, angegeben werden. Zum Beispiel:
 
 ```css
 /* Return the width of the top/left segment */
@@ -67,22 +67,21 @@ env(viewport-segment-width 1 0)
 env(viewport-segment-width 0 1)
 ```
 
-Die Indizes sind beide ganze Zahlen von 0 oder größer. Der erste Wert repräsentiert den horizontalen Indexwert des Segments, und der zweite Wert repräsentiert den vertikalen Indexwert des Segments:
+Die Indizes sind beide Ganzzahlen von `0` oder größer. Der erste Wert stellt den horizontalen Indexwert des Segments dar, und der zweite Wert den vertikalen Indexwert des Segments:
 
 ![Zwei Geräte-Segmentlayouts; in einem horizontalen Layout ist 0 0 das erste Segment und 1 0 das zweite Segment. In einem vertikalen Layout sind die Indizes 0 0 und 0 1](env-var-indices.png)
 
-- In einem horizontalen Nebeneinander-Layout wird das linke Segment durch `0 0` dargestellt, und das rechte Segment durch `1 0`.
-- In einem vertikalen Von-oben-nach-unten-Layout wird das obere Segment durch `0 0` und das untere Segment durch `0 1` dargestellt.
+- In einem horizontalen nebeneinander angeordneten Layout wird das linke Segment durch `0 0` dargestellt, und das rechte Segment durch `1 0`.
+- In einem vertikal von oben nach unten angeordneten Layout wird das obere Segment durch `0 0` dargestellt, und das untere Segment durch `0 1`.
 
-In einem Layout können Sie diese Variablen verwenden, um Ihre Container passgenau in die verfügbaren Segmente einzufügen. Zum Beispiel:
+In einem Layout können Sie diese Variablen verwenden, um Ihre Container so einzustellen, dass sie genau in die verfügbaren Segmente passen. Zum Beispiel:
 
 ```css
 @media (horizontal-viewport-segments: 2) {
   .wrapper {
     display: grid;
     grid-template: "left fold right";
-    grid-columns: env(viewport-segment-width 0 0)
-      env(viewport-segment-width 1 0);
+    grid-column: env(viewport-segment-width 0 0) env(viewport-segment-width 1 0);
   }
   .firstSection {
     grid-area: left;
@@ -98,7 +97,7 @@ In einem Layout können Sie diese Variablen verwenden, um Ihre Container passgen
     grid-template:
       "top"
       "bottom";
-    grid-rows: env(viewport-segment-height 0 1) env(viewport-segment-width 0 0);
+    grid-row: env(viewport-segment-height 0 1) env(viewport-segment-width 0 0);
   }
   .firstSection {
     grid-area: top;
@@ -109,38 +108,40 @@ In einem Layout können Sie diese Variablen verwenden, um Ihre Container passgen
 }
 ```
 
-Hier setzen wir den äußeren Wrapper entweder in ein horizontales oder vertikales Rasterlayout, basierend darauf, ob die Viewport-Segmente horizontal oder vertikal angeordnet sind. Wir setzen dann die linken und oberen Zellen als die ersten Segmente und platzieren den zweiten Abschnitt in den rechten oder unteren Rasterzellen.
+Hier setzen wir das äußere Wrapper-Element auf ein horizontales oder vertikales Gitterlayout, basierend darauf, ob die Viewport-Segmente horizontal oder vertikal angeordnet sind. Dann setzen wir die linken und oberen Zellen auf die ersten Segmente und platzieren den zweiten Abschnitt in den rechten oder unteren Gitterzellen.
 
-Wir könnten eine leere mittlere "Falt"-Zelle hinzufügen, um zu verhindern, dass Inhalte durch die Falte verdeckt werden. Wir könnten ihre Dicke berechnen, indem wir die kombinierten Breiten oder Höhen der beiden Seiten von der gesamten Viewport-Größe subtrahieren, oder die mittlere Zelle auf `1fr` setzen.
+Wir könnten eine leere mittlere "Falz"-Zelle hinzufügen, um zu verhindern, dass der Inhalt durch die Falz verdeckt wird. Wir könnten ihre Dicke berechnen, indem wir die kombinierten Breiten oder Höhen der beiden Seiten von der gesamten Viewport-Größe subtrahieren oder die mittlere Zelle auf `1fr` setzen.
 
 ```css
 @media (horizontal-viewport-segments: 2) {
-   .wrapper {
-     grid-template: "left fold right";
-     grid-columns:
-        env(viewport-segment-width 0 0)
-        calc(100vw - (env(viewport-segment-width 0 0) + env(viewport-segment-width 1 0))
-        env(viewport-segment-width 1 0);
-   }
+  .wrapper {
+    grid-template: "left fold right";
+    grid-column: env(viewport-segment-width 0 0)
+      calc(
+        100vw -
+          (env(viewport-segment-width 0 0) + env(viewport-segment-width 1 0))
+      )
+      env(viewport-segment-width 1 0);
+  }
 }
 
 @media (vertical-viewport-segments: 2) {
-   .wrapper {
-     grid-template:
+  .wrapper {
+    grid-template:
       "top"
       "fold"
       "bottom";
-     grid-rows: env(viewport-segment-height 0 1) 1fr env(viewport-segment-width 0 0);
-
-   }
+    grid-row: env(viewport-segment-height 0 1) 1fr
+      env(viewport-segment-width 0 0);
+  }
 }
 ```
 
-## Zugreifen auf Segmentinformationen in JavaScript
+## Zugriff auf Segmentinformationen in JavaScript
 
-Sie können auf Segmentinformationen in JavaScript mithilfe der [`window.viewport.segments`](/de/docs/Web/API/Viewport/segments) -Eigenschaft zugreifen, die ein Array von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten zurückgibt, die Zugang zu den `x`- und `y`-Koordinaten jedes Segments innerhalb des gesamten Viewports sowie deren `width` und `height` bieten.
+Sie können auf Segmentinformationen in JavaScript über die [`window.viewport.segments`](/de/docs/Web/API/Viewport/segments) Eigenschaft zugreifen, die ein Array von [`DOMRect`](/de/docs/Web/API/DOMRect) Objekten zurückgibt, die Zugriff auf die `x`- und `y`-Koordinaten jedes Segments innerhalb des gesamten Viewports sowie deren `width` und `height` bieten.
 
-Zum Beispiel wird dieser Codeausschnitt durch jedes Segment im Viewport schleifen und eine Zeichenkette mit der Indexnummer, Breite und Höhe in die Konsole protokollieren.
+Zum Beispiel wird dieses Snippet durch jedes Segment im Viewport schleifen und eine Zeichenfolge für die Konsole protokollieren, die die Indexnummer, Breite und Höhe beschreibt.
 
 ```js
 const segments = window.viewport.segments;
@@ -154,16 +155,16 @@ segments.forEach((segment) =>
 
 ## Ein vollständiges Beispiel
 
-Lassen Sie uns die Viewport Segment API-Funktionen anhand eines realen Beispiels in Aktion sehen. Sie können unser Beispiel live unter [Viewport segment API demo](https://mdn.github.io/dom-examples/viewport-segment-api/) (sehen Sie sich auch den vollständigen [Code](https://github.com/mdn/dom-examples/tree/main/viewport-segment-api) an) anschauen. Falls möglich, sehen Sie das Demo auf einem echten faltbaren Gerät an. Browser-Entwicklertools, die das visuelle Emulieren der mehreren Segmente faltbarer Geräte ermöglichen, beinhalten in der Regel keine Emulation der physischen Segmentierung.
+Schauen wir uns die Funktionen der Viewport Segment API in einem echten Beispiel an. Unser Beispiel läuft live auf [Viewport segment API demo](https://mdn.github.io/dom-examples/viewport-segments-api/) (sehen Sie auch den vollständigen [Quellcode](https://github.com/mdn/dom-examples/tree/main/viewport-segments-api) an). Wenn möglich, sehen Sie sich die Demo auf einem echten faltbaren Gerät an. Browser-Entwicklungstools, die die visuelle Emulation der mehreren Segmente faltbarer Geräte ermöglichen, beinhalten in der Regel keine Emulation der physischen Segmentierung.
 
 > [!NOTE]
-> Dieses Beispiel wurde aus dem [Origin trial for Foldable APIs](https://developer.chrome.com/blog/foldable-apis-ot) von Alexis Menard und Thomas Steiner adaptiert, ursprünglich veröffentlicht auf `developer.chrome.com` im Jahr 2024 unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/).
+> Dieses Beispiel wurde aus [Origin trial for Foldable APIs](https://developer.chrome.com/blog/foldable-apis-ot) von Alexis Menard und Thomas Steiner adaptiert, ursprünglich veröffentlicht auf `developer.chrome.com` im Jahr 2024 unter der [Creative Commons Attribution 4.0 Lizenz](https://creativecommons.org/licenses/by/4.0/).
 
 Wir werden den Quellcode in den folgenden Abschnitten durchgehen.
 
 ### HTML-Struktur
 
-Die Markup-Struktur enthält einen Wrapper-{{htmlelement("div")}} mit zwei {{htmlelement("section")}}-Elementen, die eine grundlegende Listenansicht und Detailansicht darstellen, sowie ein Falt-`<div>`, das die Falte zwischen den beiden Segmenten auf einem faltbaren Gerät darstellt.
+Das Markup enthält ein Wrapper-{{htmlelement("div")}} mit zwei {{htmlelement("section")}}-Elementen, die eine einfache Listenansicht und eine Detailansicht darstellen, sowie ein Falz-`<div>`, das die Falz zwischen den beiden Segmenten auf einem faltbaren Gerät repräsentiert.
 
 ```html
 <div class="wrapper">
@@ -177,11 +178,11 @@ Die Markup-Struktur enthält einen Wrapper-{{htmlelement("div")}} mit zwei {{htm
 </div>
 ```
 
-### Selektives Anwenden von Layouts für verschiedene Segmentausrichtungen
+### Selektives Anwenden von Layouts für verschiedene Segmentorientierungen
 
-In unserem CSS verwenden wir eine Kombination von Media Queries und Umgebungsvariablen, um responsive Layouts zu erstellen, die bequem in die verfügbaren Segmente passen.
+In unserem CSS verwenden wir eine Kombination aus Media Queries und Umgebungsvariablen, um responsive Layouts zu erstellen, die sich bequem in die verfügbaren Segmente einfügen.
 
-Zunächst verwenden wir {{cssxref("@media/orientation", "orientation")}}-Media Queries, um ein geeignetes Flexbox-Layout für die Wrapper-`<div>`-Kinder in jedem Fall festzulegen — eine `row` für Viewports im `landscape` und eine `column` für Viewports im `portrait`. Beachten Sie, wie wir das Falt-`<div>` in diesen Fällen auch als dünnen Streifen festgelegt haben, um als Trennlinie zwischen den beiden Inhaltselementen zu fungieren — `20px` breit im `landscape`-Layout und `20px` hoch im `portrait`-Layout.
+Zunächst verwenden wir {{cssxref("@media/orientation", "orientation")}} Media Query Tests, um ein geeignetes Flexbox-Layout für die Kinder des Wrapper-`<div>` in jeder Eventualität festzulegen — eine `row` für `landscape` Viewports und eine `column` für `portrait` Viewports. Beachten Sie, wie wir auch das Falz-`<div>` zu einem dünnen Streifen in diesen Fällen gesetzt haben, um als Trennlinie zwischen den beiden Inhaltscontainern zu fungieren — `20px` breit im `landscape`-Layout und `20px` hoch im `portrait`-Layout.
 
 ```css
 .wrapper {
@@ -221,9 +222,9 @@ Zunächst verwenden wir {{cssxref("@media/orientation", "orientation")}}-Media Q
 }
 ```
 
-Als nächstes verwenden wir eine {{cssxref("@media/horizontal-viewport-segments")}}-Media Query, um den Fall von faltbaren Geräten zu handhaben, bei denen die Segmente nebeneinander liegen.
+Als nächstes verwenden wir eine {{cssxref("@media/horizontal-viewport-segments")}} Media Query, um den Fall von faltbaren Geräten zu behandeln, bei denen die Segmente nebeneinander liegen.
 
-Wir setzen den äußeren Wrapper auf ein horizontales Flexbox-Layout, wenn die Viewport-Segmente horizontal angeordnet sind. Wir setzen den linken Container auf eine Breite, die der Breite des linken Segments entspricht (`env(viewport-segment-width 0 0)`), und den rechten Container auf eine Breite, die der Breite des rechten Segments entspricht (`env(viewport-segment-width 1 0)`). Um zu berechnen, wie viel Breite die Falte zwischen den beiden einnimmt, subtrahieren wir den linken Kantenversatz des rechten Containers vom rechten Kantenversatz des linken Containers (`calc(env(viewport-segment-left 1 0) - env(viewport-segment-right 0 0));`).
+Wir setzen den äußeren Wrapper auf ein horizontales Flexbox-Layout, wenn die Viewport-Segmente horizontal angeordnet sind. Wir setzen den linken Container auf eine Breite, die der linken Segmentbreite entspricht (`env(viewport-segment-width 0 0)`), und den rechten Container auf eine Breite, die der rechten Segmentbreite entspricht (`env(viewport-segment-width 1 0)`). Um zu berechnen, wie viel Breite die Falz zwischen den beiden einnimmt, subtrahieren wir den linken Randversatz des rechten Containers vom rechten Randversatz des linken Containers (`calc(env(viewport-segment-left 1 0) - env(viewport-segment-right 0 0));`).
 
 ```css
 @media (horizontal-viewport-segments: 2) {
@@ -249,7 +250,7 @@ Wir setzen den äußeren Wrapper auf ein horizontales Flexbox-Layout, wenn die V
 }
 ```
 
-Schließlich verwenden wir eine {{cssxref("@media/vertical-viewport-segments")}}-Media Query, um den Fall von faltbaren Geräten zu handhaben, bei denen die Segmente von oben nach unten angeordnet sind. Dies folgt dem gleichen Ansatz wie der vorherige Codeausschnitt, mit dem Unterschied, dass wir Höhen statt Breiten einstellen und Höhen-/Top-/Bottom-Umgebungsvariablen verwenden, um die erforderlichen Werte zurückzugeben.
+Schließlich verwenden wir eine {{cssxref("@media/vertical-viewport-segments")}} Media Query, um den Fall von faltbaren Geräten zu behandeln, bei denen die Segmente von oben nach unten liegen. Dies verwendet den gleichen Ansatz wie der vorherige Code-Snippet, außer dass wir die Höhen anstelle der Breiten einstellen und Umgebungsvariablen für Höhe/Oben/Unten verwenden, um die erforderlichen Werte zurückzugeben.
 
 ```css
 @media (vertical-viewport-segments: 2) {
@@ -275,11 +276,11 @@ Schließlich verwenden wir eine {{cssxref("@media/vertical-viewport-segments")}}
 }
 ```
 
-### Berichten der Segmentgröße mit JavaScript
+### Melden der Segmentgröße mit JavaScript
 
-Wir berichten auch die Abmessungen jedes Segments, indem wir die Werte ändern, wenn sich der Bildschirm ändert oder sich die [Gerätehaltung](/de/docs/Web/API/Device_Posture_API) oder die Ausrichtung ändert.
+Wir melden auch die Abmessungen jedes Segments und ändern die Werte, wenn die Bildschirmgröße geändert wird oder die [Gerätehaltung](/de/docs/Web/API/Device_Posture_API) oder Orientierung sich ändert.
 
-Zunächst holen wir Referenzen zum Wrapper-`<div>` und seinen beiden `<section>`-Elementkindern (dies sind die beiden Container, die wir mit CSS in die beiden Segmente platziert haben).
+Zuerst greifen wir auf die Referenzen des Wrapper-`<div>` und seiner beiden `<section>`-Elementkinder zu (dies sind die beiden Container, die wir mit CSS in den beiden Segmenten platziert haben).
 
 ```js
 const wrapperElem = document.querySelector(".wrapper");
@@ -287,7 +288,7 @@ const listViewElem = document.querySelector(".list-view");
 const detailViewElem = document.querySelector(".detail-view");
 ```
 
-Als nächstes definieren wir eine `addSegmentOutput()`-Funktion, die ein `segments`-Array, eine Indexnummer und eine Elementreferenz als Argumente übernimmt. Diese Funktion hängt ein Segmentausgabe-`<div>` an das angegebene Element an. Die Ausgabe enthält eine Überschrift mit der Indexnummer des Viewport-Segments und den Maßen dieses Segments.
+Dann definieren wir eine `addSegmentOutput()` Funktion, die ein `segments`-Array, eine Indexnummer und eine Elementreferenz als Argumente nimmt. Diese Funktion hängt ein Segment-Ausgabe-`<div>` an das referenzierte Element an. Die Ausgabe enthält eine Überschrift mit der Indexnummer des Viewport-Segments und den Abmessungen dieses Segments.
 
 ```js
 function addSegmentOutput(segments, i, elem) {
@@ -303,10 +304,10 @@ function addSegmentOutput(segments, i, elem) {
 }
 ```
 
-Als nächstes definieren wir eine `reportSegments()`-Funktion, die zuvor angehängte Segmentausgabe-`<div>`-Elemente entfernt und das `<div>` löscht, dann die zuvor definierte `addSegmentOutput()`-Funktion basierend auf dem Array der Gerätesegmente ausführt, das mit [`window.viewport.segments`](/de/docs/Web/API/Viewport/segments) abgerufen wird. Wir überprüfen die Anzahl der vorhandenen Segmente:
+Als nächstes definieren wir eine `reportSegments()` Funktion, die alle zuvor angehängten Segment-Ausgabe-`<div>`-Elemente entfernt, das `<div>` löscht und dann die zuvor definierte `addSegmentOutput()` Funktion basierend auf dem Array der Segmente des Geräts aufruft, das über [`window.viewport.segments`](/de/docs/Web/API/Viewport/segments) abgerufen wird. Wir überprüfen die Anzahl der vorhandenen Segmente:
 
-- Wenn nur ein Segment vorhanden ist, führen wir `addSegmentOutput()` einmal aus und fügen dem Wrapper-`<div>` ein Segmentausgabe-`<div>` hinzu. Dies wird die Abmessungen des gesamten Viewports berichten.
-- Wenn zwei Segmente vorhanden sind, führen wir `addSegmentOutput()` zweimal aus und fügen jedem `<section>`-Element ein Segmentausgabe-`<div>` hinzu. Diese berichten über die Abmessungen des Segments, dessen Elternteil das Segmentausgabe-`<div>` ist.
+- Wenn nur ein Segment vorhanden ist, führen wir `addSegmentOutput()` einmal aus und fügen ein Segment-Ausgabe-`<div>` zum Wrapper-`<div>` hinzu. Dies wird die Abmessungen des gesamten Viewports melden.
+- Wenn zwei Segmente vorhanden sind, führen wir `addSegmentOutput()` zweimal aus und fügen ein Segment-Ausgabe-`<div>` zu jedem der `<section>`-Elemente hinzu. Diese werden die Abmessungen des jeweiligen Segments melden.
 
 ```js
 function reportSegments() {
@@ -324,11 +325,11 @@ function reportSegments() {
 }
 ```
 
-Schließlich rufen wir die `reportSegments()`-Funktion auf und fügen Event-Listener hinzu, um sie in verschiedenen Kontexten auszuführen:
+Schließlich rufen wir die `reportSegments()` Funktion auf und fügen Ereignislistener hinzu, um sie in verschiedenen Kontexten auszuführen:
 
-- Wir führen sie einmal im globalen Scope aus, damit die Segmentberichte hinzugefügt werden, sobald die Seite geladen wird.
-- Wir führen sie basierend auf dem [`resize`](/de/docs/Web/API/Window/resize_event)-Event aus, um die Segmentberichte zu aktualisieren, wenn die Fenstergröße geändert wird (einschließlich Änderungen der Ausrichtung).
-  - Wir führen sie basierend auf dem `DevicePosture`'s [`change`](/de/docs/Web/API/DevicePosture/change_event)-Event aus, um die Segmentberichte zu aktualisieren, wenn die Gerätehaltung sich ändert.
+- Wir führen sie einmal im globalen Umfang aus, damit die Segmentberichte hinzugefügt werden, sobald die Seite geladen wird.
+- Wir führen sie basierend auf dem [`resize`](/de/docs/Web/API/Window/resize_event) Ereignis aus, um die Segmentberichte zu aktualisieren, wenn das Fenster in der Größe verändert wird (einschließlich Orientierungsänderungen).
+  - Wir führen sie basierend auf dem `DevicePosture`-[`change`](/de/docs/Web/API/DevicePosture/change_event) Ereignis aus, um die Segmentberichte zu aktualisieren, wenn sich die Haltung des Geräts ändert.
 
 ```js
 reportSegments();
