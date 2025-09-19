@@ -2,36 +2,36 @@
 title: Übertragbare Objekte
 slug: Web/API/Web_Workers_API/Transferable_objects
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: ae801dd2331e159f1abc812b40ef0a57507596f3
 ---
 
 {{DefaultAPISidebar("Web Workers API")}}
 
-**Übertragbare Objekte** sind Objekte, die Ressourcen besitzen, die von einem Kontext auf einen anderen _übertragen_ werden können, um sicherzustellen, dass die Ressourcen jeweils nur in einem Kontext zur Verfügung stehen.
-Nach einer Übertragung ist das ursprüngliche Objekt nicht mehr nutzbar; es verweist nicht mehr auf die übertragene Ressource, und jeder Versuch, das Objekt zu lesen oder zu beschreiben, führt zu einer Ausnahme.
+**Übertragbare Objekte** sind Objekte, die Ressourcen besitzen, die von einem Kontext in einen anderen _übertragen_ werden können. Dies stellt sicher, dass die Ressourcen jeweils nur in einem Kontext verfügbar sind.
+Nach einer Übertragung ist das ursprüngliche Objekt nicht mehr verwendbar; es verweist nicht mehr auf die übertragene Ressource, und ein Versuch, das Objekt zu lesen oder zu schreiben, führt zu einer Ausnahme.
 
-_Übertragbare Objekte_ werden häufig verwendet, um Ressourcen zu teilen, die nur sicher einem einzigen JavaScript-Thread zugänglich gemacht werden können.
+_Übertragbare Objekte_ werden häufig verwendet, um Ressourcen zu teilen, die nur sicher einem einzigen JavaScript-Thread gleichzeitig zugänglich gemacht werden können.
 Zum Beispiel ist ein {{jsxref("ArrayBuffer")}} ein übertragbares Objekt, das einen Speicherblock besitzt.
-Wenn ein solcher Puffer zwischen Threads übertragen wird, wird die zugehörige Speicherressource vom ursprünglichen Puffer getrennt und dem im neuen Thread erstellten Pufferobjekt zugeordnet.
+Wenn ein solches Puffer zwischen Threads übertragen wird, wird die zugehörige Speicherressource vom ursprünglichen Puffer getrennt und an das im neuen Thread erstellte Pufferobjekt angehängt.
 Das Pufferobjekt im ursprünglichen Thread ist nicht mehr verwendbar, da es keine Speicherressource mehr besitzt.
 
-Die Übertragung kann auch verwendet werden, um tiefe Kopien von Objekten mit [`structuredClone()`](/de/docs/Web/API/WorkerGlobalScope/structuredClone) zu erstellen.
-Nach dem Klonvorgang werden die übertragenen Ressourcen verschoben, anstatt in das geklonte Objekt kopiert zu werden.
+Das Übertragen kann auch genutzt werden, wenn tiefe Kopien von Objekten mit [`structuredClone()`](/de/docs/Web/API/WorkerGlobalScope/structuredClone) erstellt werden.
+Nach dem Klonvorgang werden die übertragenen Ressourcen bewegt, anstatt kopiert zu werden, zu dem geklonten Objekt.
 
-Sowohl für `postMessage()` als auch `structuredClone()` müssen die übertragenen Ressourcen am Datenobjekt angehängt sein, ansonsten wären sie auf der Empfängerseite nicht verfügbar, da das übertragbare Array nur angibt, wie bestimmte Ressourcen gesendet werden sollen, sie jedoch nicht tatsächlich sendet (obwohl sie immer getrennt werden).
+Sowohl für `postMessage()` als auch `structuredClone()` müssen übertragene Ressourcen an das Datenobjekt angehängt werden, da sie andernfalls auf der Empfängerseite nicht verfügbar wären, da das übertragbare Array nur angibt, wie bestimmte Ressourcen gesendet werden sollen, jedoch diese nicht tatsächlich sendet (obwohl sie immer getrennt werden würden).
 
-Der Mechanismus, der zur Übertragung der Ressourcen eines Objekts verwendet wird, hängt vom Objekt ab.
-Beispielsweise wird, wenn ein {{jsxref("ArrayBuffer")}} zwischen Threads übertragen wird, die Speicherressource, auf die er zeigt, _im wahrsten Sinne_ zwischen Kontexten in einer schnellen und effizienten Zero-Copy-Operation verschoben.
-Andere Objekte können durch Kopieren der zugehörigen Ressource übertragen und dann aus dem alten Kontext gelöscht werden.
+Der Mechanismus, der verwendet wird, um die Ressourcen eines Objekts zu übertragen, hängt vom Objekt ab.
+Zum Beispiel wird bei der Übertragung eines {{jsxref("ArrayBuffer")}} zwischen Threads die Speicherressource, auf die es verweist, buchstäblich zwischen Kontexte in einem schnellen und effizienten Zero-Copy-Vorgang verschoben.
+Andere Objekte können durch Kopieren der zugehörigen Ressource und anschließendes Löschen aus dem alten Kontext übertragen werden.
 
 Nicht alle Objekte sind übertragbar.
-Eine Liste der übertragbaren Objekte wird [unten zur Verfügung gestellt](#unterstützte_objekte).
+Eine Liste der übertragbaren Objekte wird [unten bereitgestellt](#unterstützte_objekte).
 
-## Übertragung von Objekten zwischen Threads
+## Übertragen von Objekten zwischen Threads
 
-Der folgende Code zeigt, wie die Übertragung funktioniert, wenn eine Nachricht von einem Haupt-Thread an einen [Web-Worker-Thread](/de/docs/Web/API/Web_Workers_API) gesendet wird.
-Das {{jsxref("Uint8Array")}} wird im Worker kopiert (dupliziert), während sein Puffer übertragen wird.
-Nach der Übertragung führt jeder Versuch, `uInt8Array` vom Haupt-Thread aus zu lesen oder zu schreiben, zu einem Fehler, aber Sie können weiterhin die `byteLength` überprüfen, um zu bestätigen, dass sie jetzt null ist.
+Der folgende Code demonstriert, wie Übertragung funktioniert, wenn eine Nachricht von einem Hauptthread zu einem [Web-Worker-Thread](/de/docs/Web/API/Web_Workers_API) gesendet wird.
+Die {{jsxref("Uint8Array")}} wird im Worker kopiert (dupliziert), während ihr Puffer übertragen wird.
+Nach der Übertragung führt jeder Versuch, `uInt8Array` vom Hauptthread zu lesen oder zu schreiben, zu einem Fehler, aber Sie können immer noch die `byteLength` überprüfen, um zu bestätigen, dass sie jetzt null ist.
 
 ```js
 // Create an 8MB "file" and fill it. 8MB = 1024 * 1024 * 8 B
@@ -43,13 +43,14 @@ worker.postMessage(uInt8Array, [uInt8Array.buffer]);
 console.log(uInt8Array.byteLength); // 0
 ```
 
-> [!NOTE] > [Typed Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) wie {{jsxref("Int32Array")}} und {{jsxref("Uint8Array")}}, sind {{Glossary("serializable_object", "serialisierbar")}}, aber nicht übertragbar.
-> Ihr zugrunde liegender Puffer ist jedoch ein {{jsxref("ArrayBuffer")}}, der ein übertragbares Objekt ist.
-> Wir hätten `uInt8Array.buffer` im Datenparameter senden können, aber nicht `uInt8Array` im Übertragsarray.
+> [!NOTE]
+> [Typisierte Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) wie {{jsxref("Int32Array")}} und {{jsxref("Uint8Array")}} sind {{Glossary("serializable_object", "serialisierbar")}}, aber nicht übertragbar.
+> Ihr zugrundeliegender Puffer ist jedoch ein {{jsxref("ArrayBuffer")}}, ein übertragbares Objekt.
+> Wir hätten `uInt8Array.buffer` im Datenparameter senden können, aber nicht `uInt8Array` im Transfer-Array.
 
-## Übertragung während eines Klonvorgangs
+## Übertragen während einer Klonoperation
 
-Der folgende Code zeigt eine `structuredClone()`-Operation, bei der der zugrunde liegende Puffer aus dem ursprünglichen Objekt in den Klon kopiert wird.
+Der folgende Code zeigt eine `structuredClone()`-Operation, bei der der zugrunde liegende Puffer vom ursprünglichen Objekt auf den Klon kopiert wird.
 
 ```js
 const original = new Uint8Array(1024);
@@ -74,33 +75,33 @@ console.log(original.byteLength); // 0
 
 ## Unterstützte Objekte
 
-Schnittstellen, die übertragen werden können, sollten diese Informationen in ihrer Einführung enthalten.
+Schnittstellen, die übertragen werden können, sollten diese Information in ihrer Einführung enthalten.
 
-Einige der Elemente, die von verschiedenen Spezifikationen als _übertragbar_ angegeben werden, sind unten aufgeführt (diese Liste ist möglicherweise nicht erschöpfend!):
+Einige der Elemente, die laut verschiedenen Spezifikationen _übertragen_ werden können, sind unten aufgelistet (diese Liste ist möglicherweise nicht erschöpfend!):
 
 - {{jsxref("ArrayBuffer")}}
-- [`MessagePort`](/de/docs/Web/API/MessagePort)
-- [`ReadableStream`](/de/docs/Web/API/ReadableStream)
-- [`WritableStream`](/de/docs/Web/API/WritableStream)
-- [`TransformStream`](/de/docs/Web/API/TransformStream)
-- [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)
-- [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream)
 - [`AudioData`](/de/docs/Web/API/AudioData)
 - [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)
-- [`VideoFrame`](/de/docs/Web/API/VideoFrame)
-- [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
-- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
 - [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)
-- [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)
 - [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)
+- [`MessagePort`](/de/docs/Web/API/MessagePort)
+- [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)
+- [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
+- [`ReadableStream`](/de/docs/Web/API/ReadableStream)
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
+- [`TransformStream`](/de/docs/Web/API/TransformStream)
+- [`VideoFrame`](/de/docs/Web/API/VideoFrame)
+- [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)
+- [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream)
+- [`WritableStream`](/de/docs/Web/API/WritableStream)
 
 > [!NOTE]
-> Übertragbare Objekte sind in [Web IDL-Dateien](https://github.com/w3c/webref/tree/main/ed/idl) mit dem Attribut `[Transferable]` markiert.
-> Die Browser-Unterstützung kann in den Kompatibilitätsinformationen des jeweiligen Objekts durch die `transferable`-Unterfunktion angezeigt werden (siehe [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel#browser_compatibility) für ein Beispiel).
+> Übertragbare Objekte sind in [Web IDL-Dateien](https://github.com/w3c/webref/tree/main/ed/idl) mit dem Attribut `[Transferable]` gekennzeichnet.
+> Die Unterstützung durch Browser kann in den jeweiligen Kompatibilitätsinformationen des Objekts durch die Unterfunktion `transferable` angegeben werden (siehe [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel#browser_compatibility) für ein Beispiel).
 
 ## Siehe auch
 
-- [Übertragbare Objekte: Blitzschnell!](https://developer.chrome.com/blog/transferable-objects-lightning-fast/)
-- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Transferable Objects: Lightning Fast!](https://developer.chrome.com/blog/transferable-objects-lightning-fast/)
+- [Web Workers Verwenden](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
 - [Übertragbare Objekte in der HTML-Spezifikation](https://html.spec.whatwg.org/multipage/structured-data.html#transferable-objects)
 - [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage)
