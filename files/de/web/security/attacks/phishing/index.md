@@ -48,7 +48,7 @@ Der letzte Punkt kann gegen Phishing helfen. Der Benutzer sieht möglicherweise 
 
 Als Webentwickler können Sie Ihre Benutzer nicht dazu zwingen, einen Passwort-Manager zu verwenden. Wenn Sie jedoch nicht vorsichtig sind, können Sie es unmöglich machen, dass Passwort-Manager mit Ihrer Seite interagieren. Der Artikel [Making password managers play ball with your login form](https://hidde.blog/making-password-managers-play-ball-with-your-login-form/) ist eine hervorragende Zusammenfassung der zu befolgenden Praktiken und der zu vermeidenden Praktiken, wenn Sie möchten, dass Benutzer Passwort-Manager auf Ihrer Website verwenden können. Es ist auch wichtig, Ihre Website mit Passwort-Managern zu testen, sowohl mit in Browsern integrierten als auch mit populären eigenständigen Anwendungen.
 
-Leider sind Benutzer darauf trainiert, zu erwarten, dass Werkzeuge manchmal versagen, und um deren Versagen zu umgehen. Auch wenn ein Benutzer einen Passwort-Manager hat, und er mit Ihrer Website funktioniert, und das Passwort während eines Phishing-Versuchs nicht automatisch ausfüllt, gibt es keine Garantie dafür, dass der Benutzer das Passwort nicht einfach manuell einfügt. 
+Leider sind Benutzer darauf trainiert, zu erwarten, dass Werkzeuge manchmal versagen, und um deren Versagen zu umgehen. Auch wenn ein Benutzer einen Passwort-Manager hat, und er mit Ihrer Website funktioniert, und das Passwort während eines Phishing-Versuchs nicht automatisch ausfüllt, gibt es keine Garantie dafür, dass der Benutzer das Passwort nicht einfach manuell einfügt.
 
 ### Multi-Faktor-Authentifizierung
 
