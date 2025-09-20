@@ -2,46 +2,46 @@
 title: Permissions API
 slug: Web/API/Permissions_API
 l10n:
-  sourceCommit: 83a92f1eaf27dabf71beec6c548afb03171aa194
+  sourceCommit: 01658f45c6d90bd1098ad02f42fd32e95b59beaf
 ---
 
 {{DefaultAPISidebar("Permissions API")}}{{AvailableInWorkers}}
 
-Die **Permissions-API** bietet eine konsistente programmatische Methode, um den Status von API-Berechtigungen abzufragen, die dem aktuellen Kontext wie einer Webseite oder einem Worker zugewiesen sind. Zum Beispiel kann sie verwendet werden, um festzustellen, ob die Berechtigung für den Zugriff auf eine bestimmte Funktion oder API erteilt, verweigert oder spezifische Benutzerberechtigung erforderlich ist.
+Die **Permissions API** bietet eine konsistente programmatische Möglichkeit, den Status von API-Berechtigungen in dem aktuellen Kontext abzufragen, wie z. B. auf einer Webseite oder einem Worker. Sie kann beispielsweise verwendet werden, um festzustellen, ob die Berechtigung für den Zugriff auf eine bestimmte Funktion oder API erteilt, verweigert oder spezifische Benutzerberechtigung erforderlich ist.
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-Historisch gesehen handhaben verschiedene APIs ihre Berechtigungen inkonsistent – zum Beispiel bot die [Benachrichtigungs-API](/de/docs/Web/API/Notifications_API) ihre eigenen Methoden zur Anforderung von Berechtigungen und zum Überprüfen des Berechtigungsstatus, während die [Geolocation-API](/de/docs/Web/API/Geolocation) dies nicht tat. Die Permissions-API stellt Entwicklern die Werkzeuge zur Verfügung, um eine konsistente Benutzererfahrung im Umgang mit Berechtigungen zu implementieren.
+Historisch gesehen behandelten verschiedene APIs ihre eigenen Berechtigungen inkonsistent — zum Beispiel bot die [Notifications API](/de/docs/Web/API/Notifications_API) ihre eigenen Methoden zur Anforderung von Berechtigungen und zur Überprüfung des Berechtigungsstatus an, während die [Geolocation API](/de/docs/Web/API/Geolocation) dies nicht tat. Die Permissions API bietet die Werkzeuge, um Entwicklern zu ermöglichen, eine konsistente Benutzererfahrung im Umgang mit Berechtigungen zu implementieren.
 
-Die Berechtigungen dieser API aggregieren effektiv alle Sicherheitsbeschränkungen für den Kontext, einschließlich der Anforderung, dass eine API in einem sicheren Kontext verwendet wird, der auf das Dokument angewandten [Permissions-Policy](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy)-Beschränkungen, Anforderungen an die Benutzerinteraktion und Benutzereingaben. Wenn eine API beispielsweise durch Berechtigungsrichtlinien eingeschränkt ist, würde die zurückgegebene Berechtigung `denied` sein und der Benutzer würde nicht um Zugriff gebeten.
+Die Berechtigungen dieser API aggregieren effektiv alle Sicherheitsbeschränkungen für den Kontext, einschließlich der Anforderung, dass eine API in einem sicheren Kontext verwendet werden muss, [Permissions-Policy](/de/docs/Web/HTTP/Reference/Headers/Permissions-Policy)-Beschränkungen, die auf das Dokument angewendet werden, Anforderungen für Benutzerinteraktion und Benutzeraufforderungen. So würde beispielsweise, wenn eine API durch Berechtigungsrichtlinien eingeschränkt ist, die zurückgegebene Berechtigung `denied` sein und der Benutzer würde nicht aufgefordert, einen Zugriff zu erlauben.
 
-Die `permissions`-Eigenschaft wurde sowohl im Standard-Browsing-Kontext als auch im Worker-Kontext ([`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) – sodass Berechtigungsprüfungen innerhalb von Workern verfügbar sind) auf dem [`Navigator`](/de/docs/Web/API/Navigator)-Objekt verfügbar gemacht und gibt ein [`Permissions`](/de/docs/Web/API/Permissions)-Objekt zurück, das Zugriff auf die Funktionalität der Permissions-API bietet.
+Die `permissions`-Eigenschaft wurde sowohl im Standard-Browsing-Kontext als auch im Worker-Kontext ([`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) — so sind Berechtigungsprüfungen auch innerhalb von Workern verfügbar) im [`Navigator`](/de/docs/Web/API/Navigator)-Objekt verfügbar gemacht und liefert ein [`Permissions`](/de/docs/Web/API/Permissions)-Objekt, das Zugriff auf die Funktionalität der Permissions API bietet.
 
-Sobald Sie dieses Objekt haben, können Sie die Methode [`Permissions.query()`](/de/docs/Web/API/Permissions/query) verwenden, um ein `Promise` zurückzugeben, das mit dem [`PermissionStatus`](/de/docs/Web/API/PermissionStatus) für eine bestimmte API aufgelöst wird.
+Sobald Sie dieses Objekt haben, können Sie die Methode [`Permissions.query()`](/de/docs/Web/API/Permissions/query) verwenden, um ein Promise zurückzugeben, das mit dem [`PermissionStatus`](/de/docs/Web/API/PermissionStatus) für eine bestimmte API erfüllt wird.
 
-### Berechtigung anfordern
+### Anfordern von Berechtigungen
 
-Wenn der Berechtigungsstatus auf `prompt` gesetzt ist, muss der Benutzer eine Eingabe bestätigen, um Zugang zur Funktion zu gewähren.
+Wenn der Berechtigungsstatus `prompt` lautet, muss der Benutzer eine Aufforderung anerkennen, um Zugriff auf die Funktion zu gewähren.
 
-Der Mechanismus, der diese Aufforderung auslöst, hängt von der spezifischen API ab – er ist nicht als Teil der Permissions-API definiert. Im Allgemeinen wird der Auslöser durch Code ausgelöst, der eine Methode aufruft, um auf die Funktion zuzugreifen oder sie zu öffnen, oder der sich für Benachrichtigungen von der Funktion registriert, die sie anschließend aufruft.
+Der Mechanismus, der diese Aufforderung auslöst, hängt von der spezifischen API ab — er wird nicht als Teil der Permissions API definiert. Im Allgemeinen wird der Auslöser durch Code verursacht, der eine Methode aufruft, um auf die Funktion zuzugreifen oder sie zu öffnen, oder der Anmeldungen für Benachrichtigungen von der Funktion mit sich führt, die sie anschließend darauf zugreift.
 
-Beachten Sie, dass nicht alle Funktionen eine Eingabeaufforderung erfordern. Die Berechtigung könnte durch eine `Permission Policy`, implizit durch {{Glossary("transient_activation", "transient activation")}} oder durch einen anderen Mechanismus gewährt werden.
+Beachten Sie, dass nicht alle Funktionen eine Aufforderung erfordern. Die Berechtigung kann durch eine `Permission Policy`, implizit durch {{Glossary("transient_activation", "transient activation")}}, oder über einen anderen Mechanismus gewährt werden.
 
-### Berechtigung widerrufen
+### Zurückziehen von Berechtigungen
 
-Das Widerrufen von Berechtigungen wird nicht von der API verwaltet. Genauer gesagt wurde eine Methode [`Permissions.revoke()`](/de/docs/Web/API/Permissions/revoke) vorgeschlagen, aber in den Browsern, in denen sie implementiert wurde, wieder entfernt.
+Das Zurückziehen von Berechtigungen wird nicht von der API verwaltet. Genauer gesagt, eine Methode [`Permissions.revoke()`](/de/docs/Web/API/Permissions/revoke) wurde vorgeschlagen, aber seither in denjenigen Browsern entfernt, in denen sie implementiert war.
 
-Benutzer können Berechtigungen für bestimmte Sites manuell über die Browsereinstellungen entfernen:
+Benutzer können die Berechtigung für bestimmte Websites manuell über die Browsereinstellungen entfernen:
 
-- **Firefox**: _Hamburger-Menü > Einstellungen > Datenschutz & Sicherheit > Berechtigungen_ (dann die **Einstellungen**-Schaltfläche für die interessierende Berechtigung auswählen).
-- **Chrome**: _Hamburger-Menü > Einstellungen > Erweiterte Einstellungen anzeigen_. Im Abschnitt _Datenschutz_ auf _Inhaltseinstellungen_ klicken. Im resultierenden Dialogfeld den Abschnitt _Standort_ finden und _Fragen, wenn eine Seite versucht…_ auswählen. Schließlich auf _Ausnahmen verwalten_ klicken und die Berechtigungen entfernen, die Sie den Sites gewährt haben, die Sie interessieren.
+- **Firefox**: _Hamburger-Menü > Einstellungen > Datenschutz & Sicherheit > Berechtigungen_ (dann den **Einstellungen**-Button für die jeweilige Berechtigung auswählen).
+- **Chrome**: _Hamburger-Menü > Einstellungen > Erweiterte Einstellungen anzeigen_. Im Bereich _Datenschutz_ auf _Inhaltseinstellungen_ klicken. In dem erscheinenden Dialogfeld den Abschnitt _Standort_ finden und _Fragen, wenn eine Website versucht..._ auswählen. Schließlich auf _Ausnahmen verwalten_ klicken und die Berechtigungen entfernen, die Sie den betreffenden Websites gewährt haben.
 
 ### Berechtigungsbewusste APIs
 
-Nicht der Berechtigungsstatus aller APIs kann mit der Permissions-API abgefragt werden. Eine nicht erschöpfende Liste von berechtigungsbewussten APIs umfasst:
+Nicht der Berechtigungsstatus aller APIs kann mithilfe der Permissions API abgefragt werden. Eine nicht erschöpfende Liste von berechtigungsbewussten APIs umfasst:
 
 - [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API): `background-sync` (sollte immer gewährt werden)
-- [Clipboard_API](/de/docs/Web/API/Clipboard_API#security_considerations): `clipboard-read`, `clipboard-write`
+- [Clipboard API](/de/docs/Web/API/Clipboard_API#security_considerations): `clipboard-read`, `clipboard-write`
 - [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API): `compute-pressure`
 - [Geolocation API](/de/docs/Web/API/Geolocation_API#security_considerations): `geolocation`
 - [Local Font Access API](/de/docs/Web/API/Local_Font_Access_API): `local-fonts`
@@ -61,20 +61,20 @@ Nicht der Berechtigungsstatus aller APIs kann mit der Permissions-API abgefragt 
 ## Schnittstellen
 
 - [`Permissions`](/de/docs/Web/API/Permissions)
-  - : Bietet die Kernfunktionalität der Permissions-API, wie Methoden zum Abfragen und Widerrufen von Berechtigungen.
+  - : Bietet die Kernfunktionalität der Permissions API, wie Methoden zum Abfragen und Zurückziehen von Berechtigungen.
 - [`PermissionStatus`](/de/docs/Web/API/PermissionStatus)
   - : Bietet Zugriff auf den aktuellen Status einer Berechtigung und einen Ereignishandler, um auf Änderungen des Berechtigungsstatus zu reagieren.
 
 ### Erweiterungen zu anderen Schnittstellen
 
 - [`Navigator.permissions`](/de/docs/Web/API/Navigator/permissions) und [`WorkerNavigator.permissions`](/de/docs/Web/API/WorkerNavigator/permissions) {{ReadOnlyInline}}
-  - : Bietet Zugriff auf das [`Permissions`](/de/docs/Web/API/Permissions)-Objekt aus dem Haupt- und Worker-Kontext.
+  - : Bietet Zugriff auf das [`Permissions`](/de/docs/Web/API/Permissions)-Objekt aus dem Hauptkontext bzw. dem Worker-Kontext.
 
 ## Beispiele
 
-Wir haben ein Beispiel namens Location Finder erstellt. Sie können das Beispiel [live ausführen](https://chrisdavidmills.github.io/location-finder-permissions-api/), [den Quellcode auf GitHub ansehen](https://github.com/chrisdavidmills/location-finder-permissions-api/tree/gh-pages) oder mehr darüber lesen, wie es in unserem Artikel [Die Permissions-API verwenden](/de/docs/Web/API/Permissions_API/Using_the_Permissions_API) funktioniert.
+Wir haben ein Beispiel mit dem Namen Location Finder erstellt. Sie können [das Beispiel live ausführen](https://chrisdavidmills.github.io/location-finder-permissions-api/), [den Quellcode auf GitHub ansehen](https://github.com/chrisdavidmills/location-finder-permissions-api/tree/gh-pages) oder mehr darüber erfahren, wie es funktioniert, in unserem Artikel [Using the Permissions API](/de/docs/Web/API/Permissions_API/Using_the_Permissions_API).
 
-Das Beispiel zu [`Permissions.query()`](/de/docs/Web/API/Permissions/query#test_support_for_various_permissions) zeigt auch Code, der die meisten Berechtigungen im aktuellen Browser überprüft und das Ergebnis protokolliert.
+Das [`Permissions.query()`-Beispiel](/de/docs/Web/API/Permissions/query#test_support_for_various_permissions) zeigt auch Code, der die meisten Berechtigungen im aktuellen Browser testet und das Ergebnis protokolliert.
 
 ## Spezifikationen
 
@@ -86,7 +86,7 @@ Das Beispiel zu [`Permissions.query()`](/de/docs/Web/API/Permissions/query#test_
 
 ## Siehe auch
 
-- [Die Permissions-API verwenden](/de/docs/Web/API/Permissions_API/Using_the_Permissions_API)
-- [Die Permissions-API verwenden, um zu ermitteln, wie oft Benutzer den Zugriff auf die Kamera erlauben oder verweigern](https://blog.addpipe.com/using-permissions-api-to-detect-getusermedia-responses/)
+- [Using the Permissions API](/de/docs/Web/API/Permissions_API/Using_the_Permissions_API)
+- [Using the Permissions API to Detect How Often Users Allow or Deny Camera Access](https://blog.addpipe.com/using-permissions-api-to-detect-getusermedia-responses/)
 - [`Notification.permission`](/de/docs/Web/API/Notification/permission_static)
-- [Datenschutz, Berechtigungen und Informationssicherheit](/de/docs/Web/Privacy)
+- [Privacy, permissions, and information security](/de/docs/Web/Privacy)
