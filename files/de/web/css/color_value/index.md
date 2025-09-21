@@ -2,13 +2,13 @@
 title: <color>
 slug: Web/CSS/color_value
 l10n:
-  sourceCommit: cd3fbb8b10186d3466ab16d590978d5c10882875
+  sourceCommit: a6d1fd388b053e6fc6ce21003348f34d0ef8115f
 ---
 
-Der **`<color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert eine Farbe. Ein `<color>` kann auch einen [Alpha-Kanal](https://en.wikipedia.org/wiki/Alpha_compositing) Transparenzwert enthalten, der angibt, wie die Farbe mit ihrem Hintergrund [komponiert](https://drafts.fxtf.org/compositing-1/#simplealphacompositing) werden soll.
+Der **`<color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert eine Farbe. Ein `<color>` kann auch einen [Alpha-Kanal](https://en.wikipedia.org/wiki/Alpha_compositing) _Transparenzwert_ enthalten, der angibt, wie die Farbe mit ihrem Hintergrund [komponiert](https://drafts.fxtf.org/compositing-1/#simplealphacompositing) werden soll.
 
 > [!NOTE]
-> Auch wenn `<color>`-Werte genau definiert sind, kann ihr tatsächliches Erscheinungsbild von Gerät zu Gerät variieren (manchmal erheblich). Dies liegt daran, dass die meisten Geräte nicht kalibriert sind und einige Browser die [Farbprofile](https://en.wikipedia.org/wiki/ICC_profile) von Ausgabegeräten nicht unterstützen.
+> Obwohl `<color>`-Werte genau definiert sind, kann ihr tatsächliches Aussehen von Gerät zu Gerät variieren (manchmal erheblich). Dies liegt daran, dass die meisten Geräte nicht kalibriert sind und einige Browser die [Farbprofile](https://en.wikipedia.org/wiki/ICC_profile) der Ausgabegeräte nicht unterstützen.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ hsl(150 30% 60% / 80%)
 hwb(12 50% 0%)
 hwb(194 0% 0% / 0.5)
 
-/* LAB (Lightness, A-axis, B-axis) */
+/* Lab (Lightness, A-axis, B-axis) */
 lab(50% 40 59.5)
 lab(50% 40 59.5 / 0.5)
 
@@ -45,7 +45,7 @@ lch(52.2% 72.2 50 / 0.5)
 oklab(59% 0.1 0.1)
 oklab(59% 0.1 0.1 / 0.5)
 
-/* Oklch (Lightness, Chroma, Hue) */
+/* OkLCh (Lightness, Chroma, Hue) */
 oklch(60% 0.15 50)
 oklch(60% 0.15 50 / 0.5)
 
@@ -62,25 +62,25 @@ light-dark(white, black)
 light-dark(rgb(255 255 255), rgb(0 0 0))
 ```
 
-Ein `<color>`-Wert kann auf eine der folgenden Arten angegeben werden:
+Ein `<color>`-Wert kann mit einer der folgenden Methoden spezifiziert werden:
 
-- Durch Schlüsselwörter: {{CSSXref("&lt;named-color&gt;")}} (wie `blue` oder `pink`), {{CSSXref("&lt;system-color&gt;")}} und [`currentColor`](#currentcolor_keyword).
+- Durch Schlüsselwörter: {{CSSXref("&lt;named-color&gt;")}} (wie `blue` oder `pink`), {{CSSXref("&lt;system-color&gt;")}}, und [`currentColor`](#currentcolor_keyword).
 - Durch hexadezimale Notationen: {{CSSXref("&lt;hex-color&gt;")}} (wie `#ff0000`).
 - Durch `<color-function>`, mit Parametern in einem {{Glossary("color_space", "Farbraum")}} unter Verwendung funktionaler Notationen:
   - [sRGB](https://en.wikipedia.org/wiki/SRGB)-Farbraum: {{CSSXref("color_value/hsl", "hsl()")}}, {{CSSXref("color_value/hwb", "hwb()")}}, und {{CSSXref("color_value/rgb", "rgb()")}}.
   - [CIELAB](https://en.wikipedia.org/wiki/CIELAB_color_space)-Farbraum: {{CSSXref("color_value/lab", "lab()")}} und {{CSSXref("color_value/lch", "lch()")}}.
   - [Oklab](https://bottosson.github.io/posts/oklab/)-Farbraum: {{CSSXref("color_value/oklab", "oklab()")}} und {{CSSXref("color_value/oklch", "oklch()")}}.
   - Andere Farbräume: {{CSSXref("color_value/color", "color()")}}, {{CSSXref("color_value/device-cmyk", "device-cmyk()")}}.
-- Durch Verwendung der [relativen Farbsyntax](/de/docs/Web/CSS/CSS_colors/Relative_colors), um eine neue Farbe basierend auf einer vorhandenen Farbe auszugeben. Jede der oben genannten Farbfunktionen kann eine **Ursprungsfarbe** aufnehmen, vorangestellt durch das Schlüsselwort `from` und gefolgt von Definitionen der Kanalwerte für die neue **Ausgabefarbe**.
-- Durch Mischen von zwei Farben: {{CSSXref("color_value/color-mix", "color-mix()")}}.
-- Durch Spezifizierung einer Farbe, für die Sie eine kontrastierende Farbe zurückgegeben haben möchten: {{CSSXref("color_value/contrast-color", "contrast-color()")}}.
-- Durch Angabe von zwei Farben, wobei die erste für helle Farbschemata und die zweite für dunkle Farbschemata verwendet wird: {{CSSXref("color_value/light-dark", "light-dark()")}}.
+- Durch die Verwendung der [relativen Farbsyntax](/de/docs/Web/CSS/CSS_colors/Relative_colors), um eine neue Farbe basierend auf einer vorhandenen Farbe auszugeben. Jede der oben genannten Farbfunktionen kann eine **Ursprungsfarbe** vor dem `from`-Schlüsselwort und gefolgt von Definitionen der Kanalwerte für die neue **Ausgabefarbe** annehmen.
+- Durch das Mischen zweier Farben: {{CSSXref("color_value/color-mix", "color-mix()")}}.
+- Durch Spezifizieren einer Farbe, für die eine kontrastreiche Farbe zurückgegeben werden soll: {{CSSXref("color_value/contrast-color", "contrast-color()")}}.
+- Durch das Festlegen zweier Farben, wobei die erste für helle und die zweite für dunkle Farbschemata verwendet wird: {{CSSXref("color_value/light-dark", "light-dark()")}}.
 
 ### `currentColor` Schlüsselwort
 
-Das Schlüsselwort `currentColor` repräsentiert den Wert der {{Cssxref("color")}}-Eigenschaft eines Elements. Dadurch können Sie den `color`-Wert für Eigenschaften verwenden, die diesen standardmäßig nicht erhalten.
+Das Schlüsselwort `currentColor` repräsentiert den Wert der {{Cssxref("color")}} Eigenschaft eines Elements. Dadurch können Sie den `color`-Wert auf Eigenschaften anwenden, die ihn standardmäßig nicht erhalten.
 
-Wenn `currentColor` als Wert der `color`-Eigenschaft verwendet wird, nimmt es stattdessen seinen Wert vom geerbten Wert der `color`-Eigenschaft.
+Wenn `currentColor` als Wert der `color`-Eigenschaft verwendet wird, übernimmt es stattdessen den vererbten Wert der `color`-Eigenschaft.
 
 ```html
 <div class="container">
@@ -105,9 +105,9 @@ Wenn `currentColor` als Wert der `color`-Eigenschaft verwendet wird, nimmt es st
 
 ### Fehlende Farbkomponenten
 
-Jede Komponente von CSS-Farbfunktionen - mit Ausnahme derjenigen, die die veraltete komma-separierte Syntax verwenden - kann als Schlüsselwort `none` angegeben werden, um eine fehlende Komponente darzustellen.
+Jede Komponente einer CSS-Farbfunktion - außer denen mit der veralteten komma-separierten Syntax - kann als das Schlüsselwort `none` angegeben werden, um eine fehlende Komponente darzustellen.
 
-Das explizite Angeben von [fehltenden Komponenten bei der Farbinterpolation](#interpolation_mit_fehlenden_komponenten) ist nützlich für Fälle, in denen Sie einige Farbkomponenten interpolieren möchten, aber nicht alle. Für alle anderen Zwecke wird eine fehlende Komponente effektiv einen Nullwert in einer geeigneten Einheit haben: `0`, `0%` oder `0deg`. Zum Beispiel sind die folgenden Farben gleichwertig, wenn sie außerhalb der Interpolation verwendet werden:
+Das explizite Angeben von [fehlenden Komponenten bei der Farbinterpolation](#interpolation_mit_fehlenden_komponenten) ist nützlich in Fällen, in denen Sie einige Farbkomponenten interpolieren möchten, andere jedoch nicht. Für alle anderen Zwecke wird eine fehlende Komponente effektiv einen Nullwert in einer angemessenen Einheit haben: `0`, `0%` oder `0deg`. Zum Beispiel sind die folgenden Farben äquivalent, wenn sie außerhalb der Interpolation verwendet werden:
 
 ```css
 /* These are equivalent */
@@ -123,13 +123,13 @@ background-color: hsl(0deg 100% 50%);
 
 Farbinterpolation erfolgt bei [Verläufen](/de/docs/Web/CSS/gradient), [Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) und [Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations).
 
-Beim Interpolieren von `<color>`-Werten werden diese zunächst in einen gegebenen Farbraum konvertiert. Dann werden jede Komponente der [berechneten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) linear interpoliert, wobei die Geschwindigkeit der Interpolation durch die [Easing-Funktion](/de/docs/Web/CSS/easing-function) in Übergängen und Animationen bestimmt wird. Der Interpolationsfarbraum ist standardmäßig Oklab, kann jedoch in einigen farbbezogenen funktionalen Notationen durch {{CSSXref("&lt;color-interpolation-method&gt;")}} überschrieben werden.
+Beim Interpolieren von `<color>`-Werten werden diese zuerst in einen bestimmten Farbraum konvertiert, und jede Komponente der [berechneten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) wird linear interpoliert. Die Geschwindigkeit der Interpolation wird durch die [Easing-Funktion](/de/docs/Web/CSS/easing-function) in Übergängen und Animationen bestimmt. Der Standard-Interpolationsfarbraum ist Oklab, kann jedoch in einigen farbbezogenen Funktionsnotationen durch {{CSSXref("&lt;color-interpolation-method&gt;")}} überschrieben werden.
 
 ### Interpolation mit fehlenden Komponenten
 
-#### Interpolieren von Farben im selben Raum
+#### Farben im gleichen Raum interpolieren
 
-Wenn Farben interpoliert werden, die sich genau im Interpolationsfarbraum befinden, werden fehlende Komponenten aus einer Farbe durch vorhandene Werte derselben Komponenten aus der anderen Farbe ersetzt. Zum Beispiel sind die folgenden zwei Ausdrücke gleichwertig:
+Beim Interpolieren von Farben, die sich genau im Interpolationsfarbraum befinden, werden fehlende Komponenten einer Farbe durch vorhandene Werte derselben Komponenten der anderen Farbe ersetzt. Zum Beispiel sind folgende zwei Ausdrücke äquivalent:
 
 ```css
 color-mix(in oklch, oklch(none 0.2 10), oklch(60% none 30))
@@ -137,11 +137,11 @@ color-mix(in oklch, oklch(60% 0.2 10), oklch(60% 0.2 30))
 ```
 
 > [!NOTE]
-> Wenn eine Komponente bei beiden Farben fehlt, wird diese Komponente nach der Interpolation fehlen.
+> Wenn eine Komponente in beiden Farben fehlt, wird diese Komponente nach der Interpolation fehlen.
 
-#### Interpolieren von Farben aus unterschiedlichen Räumen: analoge Komponenten
+#### Farben aus verschiedenen Räumen interpolieren: analoge Komponenten
 
-Wenn eine zu interpolierende Farbe nicht im Interpolationsfarbraum liegt, werden ihre fehlenden Komponenten auf der Grundlage **analoger Komponenten** derselben Kategorie in die konvertierte Farbe übertragen, wie in der folgenden Tabelle beschrieben:
+Wenn eine zu interpolierende Farbe nicht im Interpolationsfarbraum liegt, werden ihre fehlenden Komponenten in die konvertierte Farbe basierend auf **analogen Komponenten** derselben Kategorie übertragen, wie in der folgenden Tabelle beschrieben:
 
 | Kategorie  | Analoge Komponenten |
 | ---------- | ------------------- |
@@ -159,14 +159,14 @@ Zum Beispiel:
 - `X` (`0.2`) in `color(xyz 0.2 0.1 0.6)` ist analog zu `R` (`50%`) in `rgb(50% 70% 30%)`.
 - `H` (`0deg`) in `hsl(0deg 100% 80%)` ist analog zu `H` (`140`) in `oklch(80% 0.1 140)`.
 
-Verwendung von Oklch als Interpolationsfarbraum und den beiden Farben unten als Beispiel:
+Bei der Verwendung von OkLCh als Interpolationsfarbraum und den beiden Farben unten als Beispiel:
 
 ```css
 lch(80% 30 none)
 color(display-p3 0.7 0.5 none)
 ```
 
-Der Vorverarbeitungsprozess ist:
+Das Vorverarbeitungsverfahren ist:
 
 1. Ersetzen Sie die fehlenden Komponenten in beiden Farben durch einen Nullwert:
 
@@ -182,7 +182,7 @@ Der Vorverarbeitungsprozess ist:
    oklch(63.612% 0.1522 78.748)
    ```
 
-3. Wenn eine Komponente der konvertierten Farben eine analoge Komponente zu einer fehlenden Komponente in der entsprechenden Originalfarbe ist, setzen Sie sie als fehlende Komponente zurück:
+3. Falls eine Komponente der konvertierten Farben einer fehlenden Komponente in der entsprechenden Originalfarbe analog ist, setzen Sie diese wieder als fehlende Komponente:
 
    ```css
    oklch(83.915% 0.0902 none)
@@ -196,9 +196,9 @@ Der Vorverarbeitungsprozess ist:
    oklch(63.612% 0.1522 78.748)
    ```
 
-## Zugänglichkeit
+## Barrierefreiheit
 
-Einige Menschen haben Schwierigkeiten, Farben zu unterscheiden. Die [WCAG 2.2](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Use_of_color) Empfehlung rät dringend davon ab, Farbe als einziges Mittel zur Kommunikation einer bestimmten Nachricht, Aktion oder eines Ergebnisses zu verwenden. Siehe [Farbe und Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast) für mehr Informationen.
+Einige Menschen haben Schwierigkeiten, Farben zu unterscheiden. Die [WCAG 2.2](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Use_of_color)-Empfehlung rät dringend davon ab, Farbe als einziges Mittel zur Vermittlung einer spezifischen Nachricht, Handlung oder eines Ergebnisses zu verwenden. Weitere Informationen finden Sie unter [Farbe und Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast).
 
 ## Formale Syntax
 
@@ -208,7 +208,7 @@ Einige Menschen haben Schwierigkeiten, Farben zu unterscheiden. Die [WCAG 2.2](/
 
 ### Erkunden von Farbwerten
 
-In diesem Beispiel bieten wir ein `<div>` und ein Texteingabefeld an. Beim Eingeben einer gültigen Farbe in das Eingabefeld nimmt das `<div>` diese Farbe an, sodass Sie unsere Farbewerte testen können.
+In diesem Beispiel stellen wir ein `<div>` und ein Texteingabefeld bereit. Wenn Sie eine gültige Farbe in das Eingabefeld eingeben, nimmt das `<div>` diese Farbe an, sodass Sie unsere Farbwerte testen können.
 
 #### HTML
 
@@ -255,7 +255,7 @@ inputElem.addEventListener("input", () => {
 
 {{EmbedLiveSample("exploring_color_values", "100%", 300)}}
 
-### Erzeugung vollständig gesättigter sRGB-Farben
+### Erzeugen vollständig gesättigter sRGB-Farben
 
 Dieses Beispiel zeigt vollständig gesättigte sRGB-Farben im sRGB-Farbraum.
 
@@ -335,7 +335,7 @@ div:nth-child(12) {
 
 ### Erstellen verschiedener Rottöne
 
-Dieses Beispiel zeigt rote Farbtöne unterschiedlicher Abstufungen im sRGB-Farbraum.
+Dieses Beispiel zeigt Rottöne verschiedener Schattierungen im sRGB-Farbraum.
 
 #### HTML
 
@@ -389,9 +389,9 @@ div:nth-child(6) {
 
 {{EmbedLiveSample("creating_different_shades_of_red", "100%", 150)}}
 
-### Erstellen von Rot in unterschiedlicher Sättigung
+### Erstellen von Rot mit unterschiedlicher Sättigung
 
-Dieses Beispiel zeigt rote Farben in unterschiedlichen Sättigungen im sRGB-Farbraum.
+Dieses Beispiel zeigt Rot mit unterschiedlichen Sättigungen im sRGB-Farbraum.
 
 #### HTML
 
@@ -453,10 +453,10 @@ div:nth-child(6) {
 
 ## Siehe auch
 
-- {{CSSXref("opacity")}}: die Eigenschaft, die die Transparenz auf Elementebene definiert
-- {{CSSXref("&lt;hue&gt;")}}: der Datentyp, der den Winkel des Farbtons einer Farbe darstellt
-- {{CSSXref("color")}}, {{CSSXref("background-color")}}, {{CSSXref("border-color")}}, {{CSSXref("box-shadow")}}, {{CSSXref("outline-color")}}, {{CSSXref("text-shadow")}}: gängige Eigenschaften, die `<color>` verwenden
+- {{CSSXref("opacity")}}: Die Eigenschaft, die die Transparenz auf Elementebene definiert
+- {{CSSXref("&lt;hue&gt;")}}: Der Datentyp, der den Farbtonwinkel einer Farbe darstellt
+- {{CSSXref("color")}}, {{CSSXref("background-color")}}, {{CSSXref("border-color")}}, {{CSSXref("box-shadow")}}, {{CSSXref("outline-color")}}, {{CSSXref("text-shadow")}}: Häufige Eigenschaften, die `<color>` verwenden
 - {{CSSXref("color_value/color")}} Funktion
-- [Anwenden von Farbe auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color)
+- [Farben auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)
 - [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
-- [Neue Funktionen, Verläufe und Farbtöne in CSS-Farben (Level 4)](/en-US/blog/css-color-module-level-4/) im MDN-Blog (2023)
+- [Neue Funktionen, Verläufe und Farbtöne in CSS-Farben (Stufe 4)](/en-US/blog/css-color-module-level-4/) im MDN-Blog (2023)

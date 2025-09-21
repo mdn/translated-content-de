@@ -3,77 +3,77 @@ title: CSS-Farbwerte
 short-title: Color values
 slug: Web/CSS/CSS_colors/Color_values
 l10n:
-  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
+  sourceCommit: a6d1fd388b053e6fc6ce21003348f34d0ef8115f
 ---
 
-Um eine Farbe in CSS darzustellen, müssen Sie einen Weg finden, das analoge Konzept der "Farbe" in eine digitale Form umzuwandeln, die ein Computer verwenden kann. Dies erfolgt typischerweise, indem die Farbe in Komponenten zerlegt wird, wie zum Beispiel die Menge der verschiedenen Primärfarben, die gemischt werden, oder Helligkeit und Farbton. Definierte Farbmodelle gewährleisten, dass Farben unabhängig von der Wiedergabestelle gleich aussehen.
+Um eine Farbe in CSS darzustellen, müssen Sie einen Weg finden, das analoge Konzept der "Farbe" in eine digitale Form umzuwandeln, die ein Computer verwenden kann. Dies wird typischerweise dadurch erreicht, dass die Farbe in Komponenten zerlegt wird, z.B. in Mengen von verschiedenen Primärfarben, die gemischt werden, oder Helligkeit und Farbton. Definierte Farbmodelle stellen sicher, dass Farben überall gleich aussehen, egal wo sie dargestellt werden.
 
-Ein Farbmodell ist ein mathematisches Modell, das Farben mit numerischen Werten darstellt. Farbmodelle beschreiben, wie die verfügbaren Farben innerhalb eines Farbraums erstellt werden. {{Glossary("RGB", "RGB")}} war das erste Farbmodell für das Web. Der `sRGB` Farbraum des RGB-Farbmodells — der Standard-Farbraum für Rot, Grün und Blau — wurde 1996 für Computermonitore und das Web entwickelt. Ein {{Glossary("color_space", "Farbraum")}} ist ein System zur Gruppierung von Farben, sodass die Beschreibung einer beliebigen Farbe konsistent erfolgt. Wenn Sie eine Farbe zwischen zwei verschiedenen Farbräumen transformieren, sollte sie in beiden identisch aussehen.
+Ein Farbmodell ist ein mathematisches Modell, das Farben mithilfe von numerischen Werten darstellt. Farbmodelle beschreiben, wie die verfügbaren Farben innerhalb eines Farbraums erstellt werden. {{Glossary("RGB", "RGB")}} war das erste Farbmodell für das Web. Der `sRGB`-Farbraum des RGB-Farbmodells - der Standard-Farbraum in Rot, Grün und Blau - wurde 1996 für Computermonitore und das Web geschaffen. Ein {{Glossary("color_space", "Farbraum")}} ist ein System zur Gruppierung von Farben, sodass jede gegebene Farbe konsistent beschrieben werden kann. Wenn Sie eine Farbe zwischen zwei verschiedenen Farbräumen transformieren, sollte sie in beiden identisch aussehen.
 
-Ursprünglich waren Monitore begrenzt in der Anzahl der Farben, die sie darstellen konnten, und CSS-Farben waren durch diese Einschränkungen begrenzt und haben sich mit den verbesserten Möglichkeiten erweitert. Mit modernen Geräten, die nicht mehr auf RGB beschränkt sind, haben wir jetzt auch Farbmodelle, die auf menschlicher Wahrnehmung basieren und eine viel breitere {{Glossary("gamut", "Gamut")}} von Farben bieten. Wir können jetzt Farbe in CSS auf verschiedene Weise beschreiben, und die Optionen erweitern sich ständig.
+Ursprünglich waren Monitore in ihrer Fähigkeit, viele Farben darzustellen, beschränkt, und CSS-Farben waren durch diese Einschränkungen begrenzt, die sich mit verbesserten Fähigkeiten erweiterten. Da moderne Geräte nicht mehr auf RGB beschränkt sind, haben wir nun auch Farbmodelle, die auf menschlicher Wahrnehmung basieren und ein viel breiteres {{Glossary("gamut", "Gamut")}} an Farben bieten. Wir können jetzt Farben in CSS auf verschiedene Weisen beschreiben, und die Optionen erweitern sich stetig.
 
-Dieser Leitfaden stellt die verschiedenen {{cssxref("&lt;color&gt;")}} Wertetypen vor. Für eine ausführlichere Diskussion sehen Sie sich die unten bereitgestellten Referenzlinks an.
+Dieser Leitfaden führt die verschiedenen {{cssxref("&lt;color&gt;")}} Werttypen ein. Für eine detailliertere Diskussion sehen Sie sich die unten angegebenen Referenzlinks an.
 
 ## Schlüsselwörter
 
-Das Web definiert eine Reihe von Standardfarbnamen, mit denen Sie Schlüsselwörter anstelle von numerischen Darstellungen verwenden können, um Farben zu beschreiben. Dies ist ein einfacherer, wenn auch begrenzterer Ansatz — möglicherweise gibt es kein Schlüsselwort, das genau die Farbe darstellt, die Sie verwenden möchten.
+Das Web definiert eine Reihe von Standardfarbnamen, die es Ihnen ermöglichen, Schlüsselwörter anstelle von numerischen Darstellungen zur Beschreibung von Farben zu verwenden. Dies ist ein einfacherer, wenn auch begrenzter Ansatz – möglicherweise gibt es kein Schlüsselwort, das die exakte Farbe darstellt, die Sie verwenden möchten.
 
-Farb-Schlüsselwörter umfassen Standardprimär- und Sekundärfarben (wie `red`, `blue` oder `orange`), Grautöne (von `black` bis `white`, einschließlich Farben wie `darkgray` und `lightgrey`) und eine Vielzahl anderer Mischfarben, darunter `lightseagreen`, `cornflowerblue` und `rebeccapurple`. Benannte Farben verwenden das {{Glossary("RGB", "RGB")}} Modell und sind mit dem sRGB (`srgb`) Farbraum verbunden.
+Farbschlüsselwörter umfassen Standardprimär- und Sekundärfarben (wie `red`, `blue` oder `orange`), Grautöne (von `black` bis `white`, einschließlich Farben wie `darkgray` und `lightgrey`) und eine Vielzahl anderer Mischfarben, einschließlich `lightseagreen`, `cornflowerblue` und `rebeccapurple`. Benannte Farben verwenden das {{Glossary("RGB", "RGB")}} Modell und sind mit dem sRGB (`srgb`) Farbraum assoziiert.
 
-Es gibt über 160 benannte Farben. Es gibt benannte Farben von besonderem Interesse: [`transparent`](/de/docs/Web/CSS/named-color#transparent) setzt einen transparenten Farbwert, während [`currentColor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) den aktuellen Wert der CSS {{cssxref("color")}} Eigenschaft setzt. Es gibt auch benannte {{cssxref("system-color")}} Farben wie `accentcolortext` und `buttonface`, die die Standardfarbauswahl widerspiegeln, die vom Benutzer, dem Browser oder dem Betriebssystem getroffen wird.
+Es gibt über 160 benannte Farben. Einige benannte Farben sind von besonderem Interesse: [`transparent`](/de/docs/Web/CSS/named-color#transparent) setzt einen transparenten Farbwert, während [`currentColor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) den aktuellen Wert der CSS {{cssxref("color")}}-Eigenschaft setzt. Es gibt auch benannte {{cssxref("system-color")}} Farben, wie `accentcolortext` und `buttonface`, die die Standardfarbauswahl widerspiegeln, die vom Benutzer, dem Browser oder dem Betriebssystem getroffen wurde.
 
-Alle Farbschlüsselwörter sind nicht auf Groß- oder Kleinschreibung angewiesen. Weitere Informationen zu Farbschlüsselwörtern finden Sie im {{cssxref("named-color")}} Datentyp.
+Alle Farbschlüsselwörter sind nicht case-sensitiv. Weitere Informationen zu Farbschlüsselwörtern finden Sie im {{cssxref("named-color")}} Datentyp.
 
 ## RGB-Werte
 
-Es gibt zwei Hauptwege, wie man eine {{Glossary("RGB", "RGB")}} Farbe durch ihre Rot-, Grün- und Blaukomponenten in CSS definieren kann — hexadezimale und `rgb()` Werte. Wie benannte Farben verwenden diese Methoden das {{Glossary("RGB", "RGB")}} Modell und sind mit dem sRGB (`srgb`) Farbraum verbunden. Sie erlauben jedoch die Spezifikation eines viel breiteren Farbspektrums.
+Es gibt zwei Hauptmethoden, um eine {{Glossary("RGB", "RGB")}} Farbe durch ihre roten, grünen und blauen Komponenten in CSS zu definieren — Hexadezimal- und `rgb()`-Werte. Wie benannte Farben verwenden diese Methoden das {{Glossary("RGB", "RGB")}} Modell und sind mit dem sRGB (`srgb`) Farbraum assoziiert. Sie ermöglichen jedoch die Spezifikation eines viel größeren Farbspektrums.
 
-### Hexadezimale Zeichenfolgen-Notation
+### Hexadezimale String-Notation
 
-Hexadezimale (hex) Zeichenfolgen-Notation verwendet einen hexadezimalen Wert, um jede Komponente (Rot, Grün und Blau) einer RGB-Farbe darzustellen. Es kann auch eine vierte Komponente enthalten: der Alphakanal (oder die Deckkraft).
+Die hexadezimale (hex) String-Notation verwendet einen hexadezimalen Wert, um jede Komponente (Rot, Grün und Blau) einer RGB-Farbe darzustellen. Sie kann auch eine vierte Komponente enthalten: den Alphakanal (oder die Transparenz).
 
-Eine Farbe in hexadezimaler Zeichenfolgen-Notation beginnt immer mit dem Zeichen `"#"`. Danach kommen die hexadezimalen Ziffern des Farbcodes. Die Zeichenfolge ist nicht auf Groß- oder Kleinschreibung angewiesen.
+Eine Farbe in hexadezimaler String-Notation beginnt immer mit dem Zeichen `"#"`. Danach folgen die hexadezimalen Ziffern des Farbcodes. Der String ist nicht case-sensitiv.
 
 - `"#rrggbb"`
-  - : Gibt eine vollständig blickdichte Farbe an, deren Rotkomponente die hexadezimale Zahl `0xrr`, die Grünkomponente `0xgg` und die Blaukomponente `0xbb` ist.
+  - : Spezifiziert eine vollständig deckende Farbe, deren rote Komponente die hexadezimale Zahl `0xrr`, die grüne Komponente `0xgg` und die blaue Komponente `0xbb` ist.
 
 - `"#rrggbbaa"`
-  - : Gibt eine Farbe an, deren Rotkomponente die hexadezimale Zahl `0xrr`, die Grünkomponente `0xgg` und die Blaukomponente `0xbb` ist. Der Alphakanal wird durch `0xaa` angegeben; je niedriger dieser Wert ist, desto durchscheinender wird die Farbe.
+  - : Spezifiziert eine Farbe, deren rote Komponente die hexadezimale Zahl `0xrr`, die grüne Komponente `0xgg` und die blaue Komponente `0xbb` ist. Der Alphakanal wird durch `0xaa` spezifiziert; je niedriger dieser Wert ist, desto durchscheinender wird die Farbe.
 
 - `"#rgb"`
-  - : Gibt eine Farbe an, deren Rotkomponente die hexadezimale Zahl `0xrr`, die Grünkomponente `0xgg` und die Blaukomponente `0xbb` ist.
+  - : Spezifiziert eine Farbe, deren rote Komponente die hexadezimale Zahl `0xrr`, die grüne Komponente `0xgg` und die blaue Komponente `0xbb` ist.
 
 - `"#rgba"`
-  - : Gibt eine Farbe an, deren Rotkomponente die hexadezimale Zahl `0xrr`, die Grünkomponente `0xgg` und die Blaukomponente `0xbb` ist. Der Alphakanal wird durch `0xaa` angegeben; je niedriger dieser Wert ist, desto durchscheinender wird die Farbe.
+  - : Spezifiziert eine Farbe, deren rote Komponente die hexadezimale Zahl `0xrr`, die grüne Komponente `0xgg` und die blaue Komponente `0xbb` ist. Der Alphakanal wird durch `0xaa` spezifiziert; je niedriger dieser Wert ist, desto durchscheinender wird die Farbe.
 
-Wie oben gezeigt, können die Rot-, Grün- und Blaukomponenten jeweils als zweistelliger Hexwert dargestellt werden, der eine Zahl zwischen 0 (`00`) und 255 (`FF`) darstellt, oder als einstelliges Hexwert (eine Zahl zwischen 0 (`0`) und 15 (`F`).
+Wie oben gezeigt, können die roten, grünen und blauen Farbkomponenten jeweils als zweistellige Hexadezimalwerte dargestellt werden, die eine Zahl zwischen 0 (`00`) und 255 (`FF`) oder als einstellige Hexadezimalwerte (eine Zahl zwischen 0 (`0`) und 15 (`F`)) darstellen.
 
 > [!NOTE]
-> Das vorangestellte `0x` in den obigen Werten gibt einen hexadezimalen Ganzzahlenliteralen an. Hexadezimale Ganzzahlen können Ziffern (`0` - `9`) und die Buchstaben `a` – `f` und `A` – `F` enthalten. Die Groß- oder Kleinschreibung eines Zeichens ändert seinen Wert nicht. Daher gilt: `0xa` = `0xA` = `10` und `0xf` = `0xF` = `15`.
+> Das vorangestellte `0x` in den obigen Werten zeigt ein hexadezimales Ganzzahlenliteral an. Hexadezimale Ganzzahlen können Ziffern (`0` - `9`) und die Buchstaben `a` – `f` und `A` – `F` enthalten. Die Groß- oder Kleinschreibung eines Zeichens ändert seinen Wert nicht. Daher: `0xa` = `0xA` = `10` und `0xf` = `0xF` = `15`.
 
-Diese beiden Hexfarben sind äquivalente Farbwerte; sie sind beide rot:
+Diese beiden Hex-Farben sind äquivalente Farbwerte; sie sind beide rot:
 
 ```css
 color: #ff0000;
 color: #f00;
 ```
 
-Alle Komponenten _müssen_ mit der gleichen Anzahl von Ziffern angegeben werden. Wenn Sie die einstelliges Notation verwenden, wird die endgültige Farbe berechnet, indem jede Komponente doppelt verwendet wird; also wird `"#D"` zu `"#DD"` beim Zeichnen.
+Alle Komponenten _müssen_ mit derselben Anzahl von Ziffern angegeben werden. Wenn Sie die einstellige Notation verwenden, wird die endgültige Farbe berechnet, indem jede Komponente zweimal verwendet wird; das heißt, `"#D"` wird zu `"#DD"` beim Zeichnen.
 
-Um die Werte zu 25% undurchsichtig zu machen, fügen Sie den Alphakanalwert wie unten gezeigt hinzu:
+Um die Werte 25 % undurchsichtig zu machen, fügen Sie den Alphakanalwert wie unten gezeigt hinzu:
 
 ```css
 color: #ff000044;
 color: #f004;
 ```
 
-Weitere Informationen zur hexadezimalen Zeichenfolgen-Notation für Farben finden Sie im {{cssxref("hex-color")}} Datentyp.
+Weitere Informationen zur hexadezimalen String-Notation für Farben finden Sie im {{cssxref("hex-color")}} Datentyp.
 
-#### HTML Farbeingabetyp
+#### HTML-Farbeingabetyp
 
-Es gibt viele Situationen, in denen Ihre Website es dem Benutzer ermöglichen muss, eine Farbe auszuwählen. Vielleicht haben Sie eine anpassbare Benutzeroberfläche, oder Sie implementieren eine Zeichenanwendung. Vielleicht haben Sie bearbeitbaren Text und müssen dem Benutzer ermöglichen, die Textfarbe zu wählen. Oder vielleicht erlaubt Ihre App dem Benutzer, Ordnern oder Elementen Farben zuzuweisen. Für solche Anwendungsfälle hat das {{HTMLElement("input")}} Element einen `"color"` [`type`](/de/docs/Web/HTML/Reference/Elements/input#type), der ein Farbauswahlsteuerfeld rendert.
+Es gibt viele Situationen, in denen Ihre Website dem Benutzer ermöglichen muss, eine Farbe auszuwählen. Vielleicht haben Sie eine anpassbare Benutzeroberfläche oder implementieren eine Zeichen-App. Vielleicht haben Sie bearbeitbaren Text und müssen dem Benutzer erlauben, die Textfarbe auszuwählen. Oder vielleicht lässt Ihre App den Benutzer Farben auf Ordner oder Elemente zuordnen. Für solche Anwendungsfälle hat das {{HTMLElement("input")}} Element einen `"color"` [`type`](/de/docs/Web/HTML/Reference/Elements/input#type), der ein Farbauswahl-Steuerelement rendert.
 
-Dieses Beispiel erlaubt es Ihnen, eine Farbe auszuwählen. Sobald eine Auswahl getroffen wurde, wird die {{cssxref("border-color")}} auf diese Farbe gesetzt und der Wert angezeigt.
+Dieses Beispiel ermöglicht es Ihnen, eine Farbe auszuwählen. Sobald eine Wahl getroffen wurde, wird die {{cssxref("border-color")}} auf diese Farbe gesetzt, und der Wert wird angezeigt.
 
 ```html
 <div id="box">
@@ -83,7 +83,7 @@ Dieses Beispiel erlaubt es Ihnen, eine Farbe auszuwählen. Sobald eine Auswahl g
 </div>
 ```
 
-Das HTML erstellt eine Box, die ein Farbauswahlsteuerfeld (mit einer Beschriftung, die mit dem {{HTMLElement("label")}} Element erstellt wurde) und ein leeres {{HTMLElement("output")}} Element enthält, in das wir den Farbwert mit JavaScript ausgeben. Der Wert der Farbeingabe ist immer eine hexadezimale Zeichenfolge.
+Das HTML erstellt ein Feld, das ein Farbauswahl-Steuerelement (mit einem Label, das mit dem {{HTMLElement("label")}}-Element erstellt wurde) und ein leeres {{HTMLElement("output")}}-Element enthält, in das wir den Wert der Farbe mithilfe von JavaScript ausgeben. Der Wert des Farbeingabefelds ist immer ein hexadezimaler String.
 
 {{EmbedLiveSample("HTML color input type", 525, 120)}}
 
@@ -101,7 +101,7 @@ Das HTML erstellt eine Box, die ein Farbauswahlsteuerfeld (mit einer Beschriftun
 }
 ```
 
-Das folgende JavaScript aktualisiert die Randfarbe, um der Anfangsfarbe des Farbwählers zu entsprechen, und fügt dann zwei Ereignishandler zum [`<input type="color">`](/de/docs/Web/HTML/Reference/Elements/input/color) Element hinzu, um auf Änderungen seines Wertes zu reagieren.
+Das folgende JavaScript aktualisiert die Farbe des Rahmens, um dem aktuellen Wert des Farbauswahl-Steuerelements zu entsprechen, und fügt dann zwei Ereignis-Handler zum [`<input type="color">`](/de/docs/Web/HTML/Reference/Elements/input/color) Element hinzu, um auf Änderungen seines Wertes zu reagieren.
 
 ```js
 const colorPicker = document.querySelector("#colorPicker");
@@ -119,43 +119,44 @@ colorPicker.addEventListener("change", (event) => {
 });
 ```
 
-Das [`input`](/de/docs/Web/API/Element/input_event) Ereignis wird jedes Mal gesendet, wenn der Wert des Elements geändert wird; das heißt, jedes Mal, wenn der Benutzer die Farbe im Farbwähler anpasst. Jedes Mal, wenn dieses Ereignis eintrifft, setzen wir die Randfarbe der Box so, dass sie dem aktuellen Wert des Farbwählers entspricht.
+Das [`input`](/de/docs/Web/API/Element/input_event) Ereignis wird jedes Mal gesendet, wenn sich der Wert des Elements ändert; das heißt, jedes Mal, wenn der Benutzer die Farbe im Farbauswahl-Steuerelement anpasst. Jedes Mal, wenn dieses Ereignis eintrifft, setzen wir die Randfarbe des Feldes so, dass sie dem aktuellen Wert des Farbauswahl-Steuerelements entspricht.
 
-Das [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignis wird empfangen, wenn der Wert des Farbwählers abgeschlossen ist. Wir reagieren, indem wir die Inhalte von `<output>` auf den Stringwert der ausgewählten Farbe setzen.
+Das [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignis wird empfangen, wenn der Wert des Farbauswahl-Steuerelements endgültig festgelegt ist. Wir reagieren darauf, indem wir den Inhalt des `<output>` auf den string-Wert der ausgewählten Farbe setzen.
 
-### RGB Funktionsnotation
+### RGB-Funktionsnotation
 
-RGB (Rot/Grün/Blau) Funktionsnotation, wie die hexadezimale Zeichenfolgen-Notation, stellt Farben durch ihre Rot-, Grün- und Blaukomponenten (und optional eine Alphakanalkomponente für Deckkraft) dar. Anstatt jedoch eine Zeichenfolge zu verwenden, wird die Farbe mithilfe der CSS-Funktion {{cssxref("color_value/rgb", "rgb()")}} definiert. Diese Funktion akzeptiert 3 oder 4 Eingabeparameter — Rot-, Grün- und Blaukomponenten und optional einen Alphawert.
+RGB (Rot/Grün/Blau) Funktionsnotation, ähnlich wie die hexadezimale String-Notation, stellt Farben unter Verwendung ihrer roten, grünen und blauen Komponenten (und optional einer Alphakanalkomponente für die Deckkraft) dar. Statt jedoch einen String zu verwenden, wird die Farbe mithilfe der CSS-Funktion {{cssxref("color_value/rgb", "rgb()")}} definiert. Diese Funktion akzeptiert 3 oder 4 Eingabeparameter — rote, grüne und blaue Komponentenwerte sowie einen optionalen Alphakanalwert.
 
-Legale Werte für jeden dieser Parameter sind:
+Zulässige Werte für jeden dieser Parameter sind:
 
 - `red`, `green`, und `blue`
   - : Jeder muss ein {{cssxref("&lt;number&gt;")}} Wert zwischen 0 und 255 (einschließlich), ein {{cssxref("&lt;percentage&gt;")}} von 0% bis 100% oder das Schlüsselwort `none` sein, das in diesem Fall `0` entspricht.
 
 - `alpha`
-  - : Der Alphakanal wird als Prozentsatz zwischen `0%` (vollständig transparent) und `100%` (vollständig undurchsichtig) oder eine Zahl zwischen `0.0` (entspricht `0%`) und `1.0` (entspricht `100%`) angegeben.
+  - : Der Alphakanal wird als ein Prozentsatz zwischen `0%` (vollständig transparent) und `100%` (vollständig undurchsichtig) oder eine Zahl zwischen `0.0` (entspricht `0%`) und `1.0` (entspricht `100%`) angegeben.
 
-Zum Beispiel kann ein helles Rot, das zu 50% undurchsichtig ist, als `rgb(255 0 0 / 50%)` oder `rgb(100% 0 0 / 0.5)` dargestellt werden.
+Zum Beispiel kann ein leuchtend rot mit 50% Transparenz als `rgb(255 0 0 / 50%)` oder `rgb(100% 0 0 / 0.5)` dargestellt werden.
 
-Weitere Informationen zur RGB Funktionsnotation finden Sie im {{cssxref("color_value/rgb", "rgb()")}} Farbfunktion.
+Weitere Informationen zur RGB-Funktionsnotation finden Sie in der {{cssxref("color_value/rgb", "rgb()")}} Farbfunktionsreferenz.
 
-## Farb-Funktionen mit einem Farbton-Komponente
+## Farb-Funktionen mit einem Farbton-Komponenten
 
-Die Farb-Funktionen, die eine [`<hue>`](/de/docs/Web/CSS/hue) Komponente enthalten — ein [`<angle>`](/de/docs/Web/CSS/angle) vom Farbmodell des Farbkreises — beinhalten die `srgb` Farbfunktionen `hsl()` und `hwb()`, CIElabs `lch()` Funktion und OKLab's `oklch()` Farbfunktion. Diese Farbfunktionen sind intuitiver, da der Farbton es uns ermöglicht, den Unterschied oder die Ähnlichkeit zwischen Farben wie Rot, Orange, Gelb, Grün, Blau usw. zu erkennen.
+Die Farb-Funktionen, die eine [`<hue>`](/de/docs/Web/CSS/hue) Komponente — ein [`<angle>`](/de/docs/Web/CSS/angle) von diesem Farbrads {{Glossary("color_wheel", "color wheel")}} — haben, umfassen die `srgb` Farbfunktionen `hsl()` und `hwb()`, die CIElab's `lch()` Funktion und die OKLab's `oklch()` Farbfunktion. Diese Farb-Funktionen sind intuitiver, da der Farbton es uns ermöglicht, den Unterschied oder die Ähnlichkeit zwischen Farben wie Rot, Orange, Gelb, Grün, Blau, usw. zu erkennen.
 
-### HSL Funktionsnotation
+### HSL-Funktionsnotation
 
-Die `hsl()` CSS Farbfunktion war die erste auf Farbton basierende Farbfunktion, die in Browsern unterstützt wurde. `hsl()` ist intuitiver als `rgb()` — es ist einfacher, die Wirkung von variierenden Farbton (`h`), Sättigung (`s`) und Helligkeit (`l`) Werten zu bestimmen, als bestimmte Farben über Rot-, Grün- und Blaukanalwerte zu deklarieren. Außerdem ähnelt HSL der HSB (Farbton, Sättigung und Helligkeit) Farbauswahl in Photoshop, was es vielen Menschen sofort vertraut machte, als es erstmals unterstützt wurde.
+Die `hsl()` CSS-Farbfunktion war die erste farbtonbasierte Farb-Funktion, die in Browsern unterstützt wurde. `hsl()` ist intuitiver als `rgb()` — es ist einfacher, die Wirkung der Variierung der Werte für Farbton (`h`), Sättigung (`s`) und Helligkeit (`l`) zu bestimmen, als spezifische Farben über rote, grüne und blaue Kanalwerte zu deklarieren. Darüber hinaus ist HSL dem HSB (Farbton, Sättigung und Helligkeit) Farbwähler in Photoshop ähnlich, was es vielen Menschen sofort vertraut machte, als es erstmals unterstützt wurde.
 
-Die `hsl()` und `hwb()` sRGB Farbfunktionen sind beide zylindrisch. Der Farbton definiert die Farbe als ein [`<angle>`](/de/docs/Web/CSS/angle) auf einem kreisförmigen {{Glossary("color_wheel", "Farbkreis")}}. Das unten stehende Diagramm zeigt einen HSL Farbzylinder. Die Sättigung ist ein Prozentsatz, der beschreibt, wie weit die Farbe auf einer Skala zwischen völlig graustufig und der maximal möglichen Menge des gegebenen Farbtons liegt. Wenn der Wert der Helligkeit zunimmt, wechselt die Farbe von der dunkelsten zur hellsten möglichen Farbe (von Schwarz zu Weiß).
+Die `hsl()` und `hwb()` sRGB-Farb-Funktionen sind beide zylindrisch. Der Farbton definiert die Farbe als einen [`<angle>`](/de/docs/Web/CSS/angle) auf einem zirkularen {{Glossary("color_wheel", "color wheel")}}. Das Diagramm unten zeigt einen HSL-Farbzylinder. Sättigung ist ein Prozentsatz, der definiert, wie weit die Farbe auf einer Skala zwischen komplett graustufig und dem maximal möglichen Grad des gegebenen Farbtons liegt.
+Je höher der Helligkeitswert, desto mehr wechselt die Farbe von der dunkelsten zur hellsten möglichen Farbe (von Schwarz zu Weiß).
 
-![HSL Farbzylinder](640px-hsl_color_solid_cylinder.png)
+![HSL-Farbzylinder](640px-hsl_color_solid_cylinder.png)
 
-Bild mit freundlicher Genehmigung von Benutzer [SharkD](https://commons.wikimedia.org/wiki/User:SharkD) auf [Wikipedia](https://en.wikipedia.org/), verteilt unter der [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) Lizenz.
+Bild mit freundlicher Genehmigung von Benutzer [SharkD](https://commons.wikimedia.org/wiki/User:SharkD) auf [Wikipedia](https://en.wikipedia.org/), veröffentlicht unter der [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) Lizenz.
 
-Der Wert der Hue-Komponente eines HSL (oder HWB) Farbtons ist ein Winkel, der bei 0° als Rot beginnt, dann durch Gelb, Grün, Cyan, Blau und Magenta geht, bevor er bei 360° wieder bei Rot endet. Der Wert kann in jeder von CSS unterstützten {{cssxref("&lt;angle&gt;")}} Einheit angegeben werden, einschließlich Grad (`deg`), Radianten (`rad`), Graden (`grad`) oder Umdrehungen (`turn`). Der Farbtonwert identifiziert, was der Grundton der Farbe ist, steuert jedoch nicht, wie lebendig oder stumpf oder wie hell oder dunkel die Farbe ist.
+Der Wert der Farbton-Komponente (`H`) einer HSL (oder HWB) Farbe ist ein Winkel, der bei 0° als Rot startet, dann durch Gelb, Grün, Cyan, Blau und Magenta geht, bevor er bei 360° wieder bei Rot endet. Der Wert kann in jeder von CSS unterstützten {{cssxref("&lt;angle&gt;")}} Einheit angegeben werden, einschließlich Grad (`deg`), Radiant (`rad`), Graden (`grad`) oder Umdrehungen (`turn`). Der Farbtonwert identifiziert, welche Basisfarbe die Farbe hat, beeinflusst jedoch nicht, wie lebendig oder blass oder wie hell oder dunkel die Farbe ist.
 
-Die Sättigung (`S`) Komponente der Farbe gibt den Prozentsatz der endgültigen Farbe an, der aus dem angegebenen Farbton besteht, wobei 100% vollständig gesättigt und 0% völliger Mangel an Farbe (Graustufen) ist. Die Helligkeit (`L`) Komponente gibt an, wie hell die Farbe auf einer gleitenden Skala zwischen vollständig schwarz (`0%`) und vollständig weiß (`100%`) ist. Sie können auch optional einen Alphakanal einschließen, der von einem Schrägstrich (`/`) vorausgeht, um die Farbe weniger als 100% undurchsichtig zu machen.
+Die Sättigungskomponente (`S`) spezifiziert den Prozentsatz der endgültigen Farbe, der aus dem angegebenen Farbton besteht, wobei 100% vollständig gesättigt und 0% das völlige Fehlen von Farbe (Graustufen) ist. Die Helligkeitskomponente (`L`) spezifiziert, wie hell die Farbe auf einer Skala zwischen völligem Schwarz (`0%`) und vollständig weißem (`100%`) ist. Sie können optional auch einen Alphakanal, dem ein Schrägstrich (`/`) vorangestellt wird, um die Farbe weniger als 100% undurchsichtig zu machen, hinzufügen.
 
 Hier sind einige Beispiel-Farben in HSL-Notation:
 
@@ -220,18 +221,18 @@ for (const color of colors) {
 
 {{EmbedLiveSample("HSL_functional_notation", 300, 200)}}
 
-Der letzte Wert ist halbtransparent; es enthält den optionalen Alphawert, dem ein Schrägstrich vorausgeht.
+Der letzte Wert ist halbtransparent; er enthält den optionalen Alphawert, dem ein Schrägstrich vorangestellt ist.
 
 > [!NOTE]
 > Wenn Sie die Einheit des Farbtons weglassen, wird angenommen, dass es sich um Grad (`deg`) handelt.
 
-### HWB Funktionsnotation
+### HWB-Funktionsnotation
 
-Die [`hwb()`](/de/docs/Web/CSS/color_value/hwb) Farbfunktion verwendet dasselbe Farbsystem wie `hsl()`, mit `0deg` als Rot. Anstatt jedoch `hsls` Helligkeit und Sättigung zu verwenden, gibt die `hwb()` Funktion Weißheit (`W`) und Schwarzheit (`B`) an. Diese Funktion ist ebenfalls recht intuitiv — Sie können einen Farbton auswählen und dann Mengen an Weiß und/oder Schwarz hinzufügen, um die gewünschte Farbe zu erzielen.
+Die [`hwb()`](/de/docs/Web/CSS/color_value/hwb) Farbfunktion verwendet dasselbe Farbton-Koordinatensystem wie `hsl()`, wobei `0deg` Rot ist. Anstelle von `hsl()`'s Helligkeit und Sättigung spezifizieren `hwb()` Funktionen jedoch Weißanteil (`W`) und Schwarzanteil (`B`). Diese Funktion ist auch recht intuitiv — Sie können einen Farbton auswählen und dann Mengen von Weiß oder Schwarz mischen, um die gewünschte Farbe zu erzielen.
 
-`W` und `B` Werte reichen von `0%` bis `100%` (oder `0` bis `1`). Wenn der kombinierte Wert von `W` und `B` 100% (oder `1`) oder größer ist, wird die Farbe grau, ähnlich wie das Setzen des `s` auf `0%` mit `hsl()`. Wie bei `hsl()` kann ein optionaler Alphawert enthalten sein, dem ein Schrägstrich `/` vorausgeht.
+`W` und `B` Werte reichen von `0%` bis `100%` (oder `0` bis `1`). Wenn der kombinierte Wert von `W` und `B` 100% (oder `1`) oder mehr ist, wird die Farbe grau sein, ähnlich dem Setzen von `s` auf `0%` mit `hsl()`. Wie bei `hsl()` kann ein optionaler Alphawert, dem ein Schrägstrich `/` vorangestellt ist, hinzugefügt werden.
 
-Hier sind einige Beispiele für die Verwendung der HWB-Notation:
+Hier sind einige Beispiele für die Nutzung der HWB-Notation:
 
 ```css
 /* These examples all specify varying shades of a lime green. */
@@ -246,7 +247,7 @@ hwb(90 10% 10% / 0.5)
 hwb(90 10% 10% / 50%)
 ```
 
-In den unten stehenden Beispielen setzen wir die gleichen Farbtöne wie in den `hsl()` Beispielen, aber wir fügen jedem Farbton über `hwb()` Weißheit und Schwarzheit hinzu, anstatt Sättigung und Helligkeit:
+In den untenstehenden Beispielen setzen wir dieselben Farbtöne wie in den `hsl()` Beispielen, aber wir fügen dem Farbton `hwb()` anstelle von Sättigung und Helligkeit Weiß und Schwarz hinzu:
 
 ```css hidden live-sample___hwb_functional_notation
 table {
@@ -309,19 +310,19 @@ for (const color of colors) {
 
 {{EmbedLiveSample("HWB_functional_notation", 300, 200)}}
 
-### LCH und OKLCH: CIELAB und Oklab Farbräume
+### LCH und OkLCh: CIELAB und Oklab Farbräume
 
-Während `hsl()` und `hwb()` intuitiv sind, haben sie einen großen Nachteil. Mit diesen Funktionen hat jeder voll gesättigte Farbtonwinkel (`hsl(<angle> 100% 50%)` oder `hwb(<angle> 0% 0%)`) die gleiche Helligkeit, aber das entspricht nicht der menschlichen Wahrnehmung oder der Funktionsweise von Monitoren. Weißen Text auf voll gesättigtem Blau (`hsl(240deg 100% 50%)`) zu setzen, ist lesbar, aber derselbe Text auf voll gesättigtem Gelb (`hsl(60deg 100% 50%)`) wird nicht nur unleserlich sein, sondern möglicherweise auch die Augen Ihrer Benutzer schädigen. In diesen Farbfunktionen ist die Helligkeit einer Farbe relativ zu anderen Farben, nicht zur menschlichen Wahrnehmung. In Wirklichkeit haben nicht alle Farbtöne die gleiche maximale Sättigung.
+Obwohl `hsl()` und `hwb()` intuitiv sind, haben sie einen großen Nachteil. Mit diesen Funktionen hat jeder vollständig gesättigte Farbtonwinkel (`hsl(<angle> 100% 50%)` oder `hwb(<angle> 0% 0%)`) die gleiche Helligkeit, aber das ist nicht, wie die menschliche Sicht oder Monitore arbeiten. Weißen Text auf vollständig gesättigtem Blau (`hsl(240deg 100% 50%)`) zu setzen, ist lesbar, aber derselbe Text auf vollständig gesättigtem Gelb (`hsl(60deg 100% 50%)`) wird nicht nur unlesbar sein, sondern dem Benutzer auch die Augen schmerzen lassen. In diesen Farb-Funktionen ist die Helligkeit einer Farbe relativ zu anderen Farben, nicht zur menschlichen Wahrnehmung. Tatsächlich haben nicht alle Farbtöne die gleiche maximale Sättigung.
 
-Wäre es nicht fantastisch, wenn Sie einfach den Hue-Kanal einer Farbe auf einer Website ändern könnten, ohne den Text unlesbar zu machen? Das können Sie mit Farbfunktionen in den CIELAB- und Oklab-Farbräumen.
+Wäre es nicht fantastisch, wenn Sie einfach den Farbkanal einer Farbe auf einer Seite ändern könnten, ohne dass der Text unleserlich wird? Das können Sie mit Farbfunktionen in den CIELAB- und Oklab-Farbräumen.
 
-Die CIELAB- und Oklab-Farbräume repräsentieren das gesamte Spektrum der Farben, die Menschen sehen können. CIE Lab Farbfunktionen schließen [`lch()`](/de/docs/Web/CSS/color_value/lch) und [`lab()`](/de/docs/Web/CSS/color_value/lab) ein. Oklab Farbfunktionen schließen [`oklch()`](/de/docs/Web/CSS/color_value/oklch) und [`oklab()`](/de/docs/Web/CSS/color_value/oklab) ein. Der Hauptzweck dieser Modelle ist, dass sie gleichmäßig sind, sodass ein gegebener Abstand zwischen zwei Punkten im Farbraum für einen Betrachter gleichermaßen unterschiedlich erscheinen sollte. Oklab ist ein Farbraum, der denselben Modelltyp wie CIELAB verwendet, jedoch mit zusätzlichen numerischen Optimierungsschritten aufgebaut ist, sodass die Werte als genauer als CIELAB gelten. Aufgrund dieser Optimierung sind Farbtöne wahrnehmungsgemäß gleichmäßiger.
+Die CIELAB- und Oklab-Farbräume repräsentieren das gesamte Spektrum der von Menschen wahrnehmbaren Farben. CIE Lab Farbfunktionen umfassen [`lch()`](/de/docs/Web/CSS/color_value/lch) und [`lab()`](/de/docs/Web/CSS/color_value/lab). Oklab Farbfunktionen umfassen [`oklch()`](/de/docs/Web/CSS/color_value/oklch) und [`oklab()`](/de/docs/Web/CSS/color_value/oklab). Der Hauptzweck dieser Modelle ist, dass sie einheitlich sind, sodass eine bestimmte Entfernung zwischen zwei Punkten im Farbraum für einen Betrachter gleich unterschiedlich erscheinen sollte. Oklab ist ein Farbraum, der denselben Modelltyp wie CIELAB verwendet, jedoch mit zusätzlichen numerischen Optimierungsschritten aufgebaut wurde, sodass die Werte als genauer als CIELAB angesehen werden. Aufgrund dieser Optimierung sind Farbtöne wahrnehmungsgleichmäßiger.
 
-Die `lch()` und `oklch()` Funktionen verwenden Helligkeit (`L`), Chroma (`C`) und Farbton (`H`) und werden in diesem Abschnitt weiter erörtert. Die [`lab()` und `oklab()`](#lab_und_oklab) Funktionen arbeiten anders, verwenden Licht (`L`), Rot/Grünheit (entlang der `a`-Achse) und Gelb/Blauheit (entlang der `b`-Achse). Diese Achsen werden als rechteckige Koordinaten bezeichnet. Der Hauptvorteil dieser Farbfunktionen besteht darin, dass die "Helligkeit" wahrgenommen wird; es ist die Helligkeit einer Farbe, wie sie vom menschlichen Auge wahrgenommen wird, und nicht die Helligkeit im Vergleich zu anderen Farben.
+Die `lch()` und `oklch()` Funktionen verwenden Helligkeit (`L`), Chroma (`C`) und Farbton (`H`) und werden in diesem Abschnitt weiter erörtert. Die [`lab()` und `oklab()`](#lab_und_oklab) Funktionen arbeiten anders, indem sie Helligkeit (`L`), Rot/Grün-Achse (entlang der `a`-Achse) und Gelb/Blau-Achse (entlang der `b`-Achse) verwenden. Diese Achsen werden als rechteckige Koordinaten bezeichnet. Der Hauptvorteil dieser Farb-Funktionen ist, dass die "Helligkeit" die wahrgenommen Helligkeit ist; es ist die Helligkeit einer Farbe, wie sie von dem menschlichen Auge wahrgenommen wird, anstatt die Helligkeit im Vergleich zu anderen Farben.
 
-Ähnlich wie bei den sRGB-Farbfarbfunktionen ist der Farbwert (`h`) in `lch()` und `oklch()` eine Zahl, ein Winkel oder das Schlüsselwort `none` (entspricht `0deg`), das den `<hue>` Winkel der Farbe darstellt. Die Farben bei jedem Winkelwert sind jedoch nicht gleich. Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich in den sRGB-, CIELAB- (von `lch()` verwendet) und Oklab- (von `oklch()` verwendet) Farbräumen.
+Ähnlich wie die sRGB Farb-Funktionen für den Farbton ist der Farbton (`h`) Wert in `lch()` und `oklch()` eine Zahl, ein Winkel oder das Schlüsselwort `none` (entspricht `0deg`), das den `<hue>` Winkel der Farbe darstellt. Allerdings sind die Farben bei jedem Winkelwert nicht gleich. Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich in den sRGB-, CIELAB- (verwendet von `lch()`) und Oklab- (verwendet von `oklch()`) Farbräumen.
 
-Die folgenden Verläufe zeigen die Farbton-Farben bei jedem Winkel von `0deg` bis `360deg` in den sRGB-, CIE Lab- und OKlab-Farbräumen:
+Die folgenden Verläufe zeigen die Farben der Farbtöne bei jedem Winkel von `0deg` bis `360deg` in den sRGB-, CIE Lab- und OKlab-Farbräumen:
 
 ```html hidden live-sample___hues
 <p>sRGB (<code>hsl()</code> and <code>hwb()</code>)</p>
@@ -380,17 +381,17 @@ div {
 
 {{embedlivesample("hues", '100', '260') }}
 
-Sie werden möglicherweise feststellen, dass die Helligkeit der letzten Farbverläufe gleichmäßiger über das Spektrum der Farbtöne verteilt ist als der sRGB-Verlauf. Aktivieren Sie das Kontrollkästchen im obigen Beispiel, um den Farbverlaufsfarbton in Graustufen umzuwandeln, um dies deutlicher zu machen.
+Sie bemerken möglicherweise, dass die Helligkeit der späteren Verläufe über das gesamte Spektrum der Farbtöne gleichmäßiger ist als der sRGB-Verlauf. Aktivieren Sie das Kontrollkästchen im obigen Beispiel, um den Farbverlauf der Farbtöne in Graustufen zu konvertieren, um dies offensichtlicher zu machen.
 
-Beachten Sie auch, dass die Verteilung der Blautöne im CIE Lab länger ist als in den anderen beiden. Dies ist der Unterschied zwischen `lch()` und `oklch()`. Die `lch()` Blautönen-Verteilung ist das Ergebnis eines Fehlers, der das Chroma und die Helligkeit der Farbton-Werte zwischen `270deg` und `330deg` verschiebt. Dies wurde im Oklab Farbraum behoben und daher die `oklch()` Farbfunktion.
+Beachten Sie außerdem, dass die Verteilung der Blau-Werte in CIE Lab länger ist als in den anderen beiden. Dies ist der Unterschied zwischen `lch()` und `oklch()`. Die `lch()`-Blau-Verteilung ist auf einen Fehler zurückzuführen, der das Chroma und die Helligkeit der Farbton-Werte zwischen `270deg` und `330deg` verschiebt. Dies wurde im Oklab-Farbraum behoben und daher die `oklch()` Farbnotation.
 
-Wie oben erwähnt, ist der Farbton (`H`) in den `lch()` und `oklch()` als `<angle>`, `number` oder das Schlüsselwort `none`. Die `lightness` ist entweder ein {{cssxref("percentage")}} oder für `lch()` eine Zahl zwischen `0` und `100` und für `oklch()` eine Zahl zwischen `0` und `1`, wobei `0` oder `0%` das völlige Fehlen von Licht, was Schwarz ist.
+Wie oben diskutiert, ist der Farbton (`H`) in der `lch()` und `oklch()` ein `<angle>`, `number` oder das Schlüsselwort `none`. Die `lightness` ist entweder ein {{cssxref("percentage")}} oder für `lch()` eine Zahl zwischen `0` und `100` und für `oklch()` eine Zahl zwischen `0` und `1`, wobei `0` oder `0%` das völlige Fehlen von Licht ist, was schwarz ist.
 
-Der `C` ist ein `<number>`, `<percentage>`, oder das Schlüsselwort `none` (entspricht `0%`) ist das Chroma der Farbe oder die "Menge der Farbe". Dies ähnelt dem `S` Sättigungswert der `hsl()` Farbfunktion. Der Wert `0` ist der völlige Mangel an Chroma oder Sättigung; das Ergebnis ist ein Grau zwischen Weiß und Schwarz einschließlich, abhängig vom Helligkeitswert. Die Zahlenwerte sind theoretisch unbeschränkt, wobei `100%` gleich `150` für `lch()` und `0.4` mit `oklch()` ist.
+Das `C` ist ein `<number>`, `<percentage>`, oder das Schlüsselwort `none` (entspricht `0%`) ist das Chroma oder der "Farbanteil" der Farbe. Dies ist vergleichbar mit dem Sättigungswert `S` der `hsl()`-Farb-Funktion. Der Wert `0` stellt das völlige Fehlen von Chroma oder Sättigung dar; wodurch eine Grauschattierung zwischen weiß und schwarz einschließlich, abhängig vom Helligkeitswert, resultiert. Die Zahlenwerte sind theoretisch unbegrenzt, wobei `100%` gleich `150` für `lch()` und `0.4` bei `oklch()` ist.
 
-Wie bei den anderen Farbfunktionen gibt es auch einen optionalen Alpha-Transparenzwert, dem ein Schrägstrich (`/`) vorausgeht.
+Wie die anderen Farb-Funktionen gibt es auch hier einen optionalen Alphatransparenzwert, dem ein Schrägstrich (`/`) vorangestellt ist.
 
-Das untenstehende Beispiel zeigt die Auswirkung der Änderung des Helligkeitswerts in den `lch()` und `oklch()` Funktionen.
+Das folgende Beispiel zeigt die Wirkung der Änderung des Helligkeitswerts in den `lch()` und `oklch()` Funktionen.
 
 ```css hidden live-sample___lch-colors
 /* Varying shades of pink */
@@ -440,20 +441,20 @@ for (let l = 0; l <= 100; l += 10) {
 
 ## Lab und OKLab
 
-Die [`lab()`](/de/docs/Web/CSS/color_value/lab) Funktionsnotation drückt eine gegebene Farbe im CIE L\*a\*b\* Farbraum aus. Die [`oklab()`](/de/docs/Web/CSS/color_value/oklab) Funktion definiert Farben im OKLab Farbraum. Diese Funktionen repräsentieren das gesamte Spektrum der Farben, die Menschen sehen können, indem sie die Farbe durch die Helligkeit (`L`), einem Rot/Grün-Achsenwert (`a`), einem Blau/Gelb-Achsenwert (`b`) und einem optionalen Alphatransparenzwert spezifiziert.
+Die [`lab()`](/de/docs/Web/CSS/color_value/lab) Funktionsnotation drückt eine gegebene Farbe im CIE L\*a\*b\*-Farbraum aus. Die [`oklab()`](/de/docs/Web/CSS/color_value/oklab) Funktion definiert Farben im OKLab-Farbraum. Diese Funktionen repräsentieren das gesamte Spektrum der von Menschen wahrnehmbaren Farben, indem sie die Helligkeit (`L`), einen Rot/Grün-Achsenwert (`a`), einen Blau/Gelb-Achsenwert (`b`) und einen optionalen Alphatransparenzwert spezifizieren.
 
-Ähnlich wie `lch()` und `oklch()` ist die `lightness` entweder:
+Ähnlich den `lch()` und `oklch()` ist die `lightness` entweder:
 
-- Ein {{cssxref("percentage")}}, wobei `0%` vollständig schwarz und `100%` vollständig weiß ist.
-- Eine Zahl zwischen `0` und `100` für `lab()` und `0` und `1` für `oklab()`, wobei `0` vollständig schwarz und `1`/`100` vollständig weiß ist.
+- Ein {{cssxref("percentage")}}, wobei `0%` völlig schwarz ist und `100%` völlig weiß ist.
+- Eine Zahl zwischen `0` und `100` für `lab()` und `0` und `1` für `oklab()`, wobei `0` völlig schwarz ist und `1`/`100` völlig weiß ist.
 
-Der `a` Wert ist `<number>` zwischen `-125` und `125` für `lab()` oder `-0.4` und `0.4` für `oklab()`, ein `<percentage>` zwischen `-100%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert spezifiziert die Entfernung der Farbe entlang der a-Achse im Farbraum, die definiert, wie grün (bewegend in Richtung -100%) oder rot (bewegend in Richtung +100%) die Farbe ist.
+Der `a` Wert ist `<number>` zwischen `-125` und `125` für `lab()` oder `-0.4` und `0.4` für `oklab()`, ein `<percentage>` zwischen `-100%` und `100%` oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert spezifiziert den Abstand der Farbe entlang der a-Achse im Farbraum, der definiert, wie grün (bewegend zu -100%) oder rot (bewegend zu +100%) die Farbe ist.
 
-Beachten Sie, dass diese Werte vorzeichenbehaftet sind (sowohl positive als auch negative Werte zulassend) und theoretisch unbegrenzt sind, was bedeutet, dass Sie Werte außerhalb der ±125 oder ±0.4 (±100%) Grenzen setzen können. In der Praxis können die Werte jedoch ±160 oder ±0.5 nicht überschreiten.
+Beachten Sie, dass diese Werte signiert sind (was sowohl positive als auch negative Werte erlaubt) und theoretisch unbegrenzt sind, was bedeutet, dass Sie Werte außerhalb der ±125 oder ±0.4 (±100%) Limits setzen können. In der Praxis können Werte jedoch ±160 oder ±0.5 nicht überschreiten.
 
-Der `b` Wert hat die gleichen Einschränkungen. Er bestimmt die Entfernung der Farbe entlang der b-Achse im Farbraum, die definiert, wie blau (bewegend in Richtung -100%) oder gelb (bewegend in Richtung +100%) die Farbe ist.
+Der `b` Wert hat die gleichen Einschränkungen. Er spezifiziert den Abstand der Farbe entlang der b-Achse im Farbraum, der definiert, wie blau (bewegend zu -100%) oder gelb (bewegend zu +100%) die Farbe ist.
 
-Das folgende Beispiel zeigt die Effekte durch das Variieren der `a` Achse über eine `lab()` Funktion und der `b` Achse über eine `oklab()` Funktion.
+Das folgende Beispiel demonstriert die Effekte der Variation der `a` Achse über eine `lab()` Funktion und der `b` Achse über eine `oklab()` Funktion.
 
 ```html hidden live-sample___lab-colors
 <div class="container"></div>
@@ -493,14 +494,14 @@ for (let b = -4; b <= 4; b++) {
 
 {{embedlivesample("lab-colors", '100', '150') }}
 
-## Zusätzliche Farbfunktionsnotationen
+## Zusätzliche funktionsbezogene Farben notationen
 
 ### Die `color()` Funktion
 
-Wenn Sie explizite Kontrolle über Farbräume bei der Definition von Farben haben möchten, können Sie die [`color()`](/de/docs/Web/CSS/color_value/color) Funktion verwenden.
+Wenn Sie explizite Kontrolle über Farbräume wünschen, wenn Sie Farben definieren, können Sie die [`color()`](/de/docs/Web/CSS/color_value/color) Funktion verwenden.
 
-Dies ist nützlich, um eine Farbe für hochauflösende Geräte mit breiteren Farbgamuten zu beschreiben.
-Zum Beispiel, wenn Sie die `display-p3 0 0 1` Farbe zeigen möchten, die außerhalb des sRGB Gamuts liegt, könnten Sie eine `@media` [`color-gamut`](/de/docs/Web/CSS/@media/color-gamut) Regel verwenden, um zu erkennen, ob die Hardware des Clients Farben in diesem Bereich unterstützt, bevor Sie versuchen, sie zu verwenden:
+Dies ist nützlich, um eine Farbe für hochauflösende Geräte mit breiteren Farben {{Glossary("Gamut", "Gamuten")}} zu beschreiben.
+Wenn Sie beispielsweise die `display-p3 0 0 1` Farbe anzeigen möchten, die außerhalb des sRGB Gamuts liegt, könnten Sie eine `@media` [`color-gamut`](/de/docs/Web/CSS/@media/color-gamut) Regel verwenden, um zu erkennen, ob die Hardware des Clients Farben in diesem Bereich unterstützt, bevor sie versucht wird, sie zu verwenden:
 
 ```css
 .vibrant {
@@ -515,29 +516,29 @@ Zum Beispiel, wenn Sie die `display-p3 0 0 1` Farbe zeigen möchten, die außerh
 }
 ```
 
-Das Verständnis von `color()` ist wichtig, wenn es um relative Farben geht, die als nächstes besprochen werden. Die oben diskutierten älteren sRGB Farbnotationsarten — `hsl()`, `hwb()`, und `rgb()` — drücken nicht das vollständige Spektrum der sichtbaren Farben aus, während die `color()` Funktion ein viel breiteres Farbspektrum unterstützt. Daher wird bei der Verwendung der älteren Funktionstypen zur Definition von relativen Farben die ausgegebene Farbe durch das Abfragen der [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style) Eigenschaft oder der [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue) Methode ein `color(srgb ...)` Wert sein.
+Das Verständnis von `color()` ist wichtig, wenn es um relative Farben geht, die als nächstes besprochen werden. Die älteren sRGB Farben-Notationen, die oben besprochen wurden — `hsl()`, `hwb()`, und `rgb()`— drücken nicht das gesamte Spektrum der sichtbaren Farben aus, während die `color()`-Funktion ein viel breiteres Farbgamut unterstützt. Folglich, wenn man die älteren Funktionstypen verwendet, um relative Farben zu definieren, ist die ausgegebene Farbe, die durch Abfragen der [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style) Eigenschaft oder der [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue) Methode zurückgegeben wird, ein `color(srgb ...)` Wert.
 
-Um ein Beispiel für die Umwandlung der `hsl()`, `hwb()`, und `rgb()` Farbfunktionen zu `color()` im `srgb` Farbraum zu sehen, schauen Sie sich unser [Farbwähler-Tool](/de/docs/Web/CSS/CSS_colors/Color_picker) an.
+Um ein Beispiel der Konvertierung der `rgb()`, `hsl()`, `hwb()`, und anderen [Farbformate](/de/docs/Web/CSS/color_value) zu sehen, sehen Sie sich unser [Farbsformat-Konverter Tool](/de/docs/Web/CSS/CSS_colors/Color_format_converter) an.
 
 ### Relative Farben
 
-Jede oben aufgeführte Farbfunktion kann verwendet werden, um [**relative Farben**](/de/docs/Web/CSS/CSS_colors/Relative_colors) zu definieren, die {{cssxref("&lt;color&gt;")}} Werte relativ zu anderen bestehenden Farben definieren, anstatt jedes Mal einen Farbwert von Grund auf neu zu definieren. Dieses leistungsstarke Feature ermöglicht es, Ergänzungen zu bestehenden Farben zu erstellen — wie z. B. hellere, dunklere, gesättigte, semitransparente oder invertierte Varianten einer Originalfarbe. Relative Farben bieten einen effektiven Mechanismus für die Erstellung von Paletten und die Definition von Farbjustierungen. Sehen Sie sich die Seite jeder Farbfunktion an, um mehr über ihre relativen Syntaxen zu lernen.
+Jede der oben aufgeführten Farb-Funktionen kann verwendet werden, um [**relative Farben**](/de/docs/Web/CSS/CSS_colors/Relative_colors) zu definieren, was es ermöglicht, {{cssxref("&lt;color&gt;")}} Werte relativ zu anderen bestehenden Farben zu definieren, anstatt jedes Mal einen Farbwert von Grund auf neu zu definieren. Diese leistungsstarke Funktion ermöglicht die Erstellung von Komplementärfarben zu vorhandenen Farben – wie hellere, dunklere, gesättigte, halbtransparente oder invertierte Varianten einer Originalfarbe. Relative Farben bieten einen effektiven Mechanismus zur Erstellung von Paletten und zur Definition von Farbänderungen. Sehen Sie sich die Seite für jede Farb-Funktion an, um mehr über ihre relativen Syntaxen zu erfahren.
 
 Wie oben erwähnt, wenn Sie `rgb()`, `hsl()`, oder `hwb()` verwenden, um eine relative Farbe auszugeben, wird die ausgegebene Farbe eine `color()` Funktion im `srgb` Farbraum sein.
 
 ### color-mix() Funktion
 
-Die {{cssxref("color_value/color-mix", "color-mix()")}} Funktion nimmt zwei Farbwerte aus einer der oben genannten Syntaxen, optional mit proportionalen Prozentwerten für jede Farbe, und gibt das Ergebnis des Mischens dieser Farben in einem gegebenen Farbraum in einem gegebenen Verhältnis zurück.
+Die {{cssxref("color_value/color-mix", "color-mix()")}} Funktion nimmt zwei Farbwerte in einer der oben genannten Syntaxen, optional mit proportionalen Prozentwerten für jede Farbe, und liefert das Ergebnis des Mischens dieser in einem gegebenen Farbraum zu einem gegebenen Verhältnis zurück.
 
 ### light-dark() Funktion
 
-Die {{cssxref("color_value/light-dark", "light-dark()")}} Funktion ermöglicht es Ihnen, zwei Farbwerte für eine Eigenschaft anzugeben, die für die Verwendung in hellen und dunklen Farbschemata bestimmt ist. Welches gesetzt wird, hängt davon ab, ob der Entwickler ein helles oder dunkles Farbschema festgelegt hat oder der Benutzer dies angefordert hat. Dies ist eine Abkürzungsfunktion, mit der Sie dieselben Ergebnisse wie mit der {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}} Medienabfrage erzielen können, jedoch mit weniger Code.
+Die {{cssxref("color_value/light-dark", "light-dark()")}} Funktion erlaubt es Ihnen, zwei Farbwerte für eine Eigenschaft anzugeben, die für die Verwendung in hellen bzw. dunklen Farbthemen vorgesehen sind. Welche festgelegt wird, hängt davon ab, ob der Entwickler oder der Benutzer ein helles oder dunkles Farbthema angefordert hat. Dies ist eine Abkürzungs-Funktion, mit der Sie mit weniger Code die gleichen Ergebnisse erzielen können wie mit der {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}} Medienabfrage.
 
 ## Siehe auch
 
-- [Anwendung von Farben auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color)
-- [Denken Sie sorgfältig nach, wie Sie Farbe einsetzen](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
-- [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
-- [Verständnis von Farbe und Helligkeit](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
+- [Farbe auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)
+- [Farben weise verwenden](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
+- [Verwendung von relativen Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
+- [Verständnis von Farbe und Leuchtdichte](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
 - [WCAG 1.4.1: Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)
-- [CSS Farbmodul](/de/docs/Web/CSS/CSS_colors)
+- [CSS-Farbmodul](/de/docs/Web/CSS/CSS_colors)

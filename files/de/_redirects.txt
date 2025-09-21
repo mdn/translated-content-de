@@ -12252,7 +12252,8 @@
 /de/docs/Web/CSS/CSS_cascade/specified_value	/de/docs/Web/CSS/CSS_cascade/Value_processing#specified_value
 /de/docs/Web/CSS/CSS_cascade/used_value	/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value
 /de/docs/Web/CSS/CSS_charsets	/de/docs/Web/CSS/CSS_syntax
-/de/docs/Web/CSS/CSS_colors/Color_picker_tool	/de/docs/Web/CSS/CSS_colors/Color_picker
+/de/docs/Web/CSS/CSS_colors/Color_picker	/de/docs/Web/CSS/CSS_colors/Color_format_converter
+/de/docs/Web/CSS/CSS_colors/Color_picker_tool	/de/docs/Web/CSS/CSS_colors/Color_format_converter
 /de/docs/Web/CSS/CSS_container_queries	/de/docs/Web/CSS/CSS_containment/Container_queries
 /de/docs/Web/CSS/CSS_descriptor_definition	/de/docs/Web/CSS
 /de/docs/Web/CSS/CSS_display/flow_layout/Block_and_inline_layout_in_normal_flow	/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow
@@ -12331,7 +12332,7 @@
 /de/docs/Web/CSS/Tools/Border-image_generator	/de/docs/Web/CSS/CSS_backgrounds_and_borders/Border-image_generator
 /de/docs/Web/CSS/Tools/Border-radius_generator	/de/docs/Web/CSS/CSS_backgrounds_and_borders/Border-radius_generator
 /de/docs/Web/CSS/Tools/Box-shadow_generator	/de/docs/Web/CSS/CSS_backgrounds_and_borders/Box-shadow_generator
-/de/docs/Web/CSS/Tools/ColorPicker_Tool	/de/docs/Web/CSS/CSS_colors/Color_picker
+/de/docs/Web/CSS/Tools/ColorPicker_Tool	/de/docs/Web/CSS/CSS_colors/Color_format_converter
 /de/docs/Web/CSS/Understanding_CSS_z-index	/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index
 /de/docs/Web/CSS/Understanding_CSS_z-index/Adding_z-index	/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index
 /de/docs/Web/CSS/Understanding_CSS_z-index/Stacking_and_float	/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements

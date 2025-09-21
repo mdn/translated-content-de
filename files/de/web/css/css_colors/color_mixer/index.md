@@ -1,17 +1,16 @@
 ---
-title: Farb-Mixer
+title: Farbenmischer
 slug: Web/CSS/CSS_colors/Color_mixer
 l10n:
-  sourceCommit: 2e427c5c185433c5a6612c63bf877753a5fedc99
+  sourceCommit: a6d1fd388b053e6fc6ce21003348f34d0ef8115f
 ---
 
-Dieses Werkzeug ermöglicht es Ihnen, zwei Farben in jedem Farbraum mithilfe der {{cssxref("color_value/color-mix")}}-Funktion zu mischen und die resultierende Farbe in jedem CSS-Farbformat zu kopieren. Die zwei Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, und die von der Funktion zurückgegebene gemischte Farbe wird in der Mitte angezeigt. Klicken Sie auf die äußeren Farbfelder, um neue Farben zum Mischen auszuwählen. Verwenden Sie die Schieberegler, um die Prozentsätze jeder Eingabefarbe im Mix zu ändern. Verwenden Sie das Dropdown-Menü, um den Farbraum der Ausgabe der Funktion zu ändern. CSS-Farbwerte für die resultierende Farbe sind unter dem Farbschieberegler auswählbar.
+Dieses Werkzeug ermöglicht es Ihnen, zwei Farben in einem beliebigen Farbraum mithilfe der Funktion {{cssxref("color_value/color-mix")}} zu mischen und die resultierende Farbe in jedem CSS-Farbformat zu kopieren.
+
+Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, und die von der Funktion zurückgegebene Mischfarbe ist in der Mitte sichtbar. Klicken Sie auf die äußeren Farbfelder, um neue Farben zur Mischung auszuwählen. Verwenden Sie die Schieberegler, um die Prozentsätze jeder Eingabefarbe in der Mischung zu ändern. Verwenden Sie das Dropdown-Menü, um den Farbraum der Ausgabe der Funktion zu ändern. Die Werte der resultierenden Farbe in verschiedenen Formaten erscheinen in einer Tabelle nach dem Widget und können kopiert werden. Sie können auch auf den Namen eines Farbformats klicken, um mehr darüber zu erfahren.
 
 ```html hidden live-sample___color-mixer
 <div id="color-mixer">
-  <h3>Color mixer</h3>
-  <p>Click on 'color-one' and 'color-two' to change the input colors.</p>
-
   <div>color-one</div>
   <div>mixed-color</div>
   <div>color-two</div>
@@ -33,19 +32,19 @@ Dieses Werkzeug ermöglicht es Ihnen, zwei Farben in jedem Farbraum mithilfe der
     <label
       id="percentage-one-label"
       for="percentage-one"
-      aria-label="color one percentage"
-      >50%</label
-    >
-    <input id="percentage-one" type="range" name="percent1" step="0.1" />
+      aria-label="color one percentage">
+      50%
+    </label>
+    <input id="percentage-one" type="range" name="percent1" step="0.01" />
   </div>
   <div>
     <label
       id="percentage-two-label"
       for="percentage-two"
-      aria-label="color two percentage"
-      >50%</label
-    >
-    <input id="percentage-two" type="range" name="percent2" step="0.1" />
+      aria-label="color two percentage">
+      50%
+    </label>
+    <input id="percentage-two" type="range" name="percent2" step="0.01" />
   </div>
 
   <label for="color-space">Color space: </label>
@@ -54,10 +53,10 @@ Dieses Werkzeug ermöglicht es Ihnen, zwei Farben in jedem Farbraum mithilfe der
     <option value="srgb-linear">sRGB-linear</option>
     <option value="hsl">HSL</option>
     <option value="hwb">HWB</option>
-    <option value="lch">LCH</option>
-    <option value="oklch">OkLCh</option>
     <option value="lab">Lab</option>
+    <option value="lch">LCH</option>
     <option value="oklab" selected>Oklab</option>
+    <option value="oklch">OkLCh</option>
     <option value="xyz-d50">XYZ-D50</option>
     <option value="xyz-d65">XYZ-D65</option>
   </select>
@@ -92,7 +91,7 @@ Dieses Werkzeug ermöglicht es Ihnen, zwei Farben in jedem Farbraum mithilfe der
             value="1"
             min="0"
             max="1"
-            step="0.1" />
+            step="0.01" />
         </td>
       </tr>
     </table>
@@ -102,51 +101,117 @@ Dieses Werkzeug ermöglicht es Ihnen, zwei Farben in jedem Farbraum mithilfe der
 <hr />
 <table id="output-colors">
   <caption>
-    The output color in various CSS color syntaxes:
+    Mixed color in different formats:
   </caption>
   <tbody>
-    <tr id="hex">
-      <th>Hexadecimal</th>
-      <td><button id="copy-hex-button">Copy</button><span></span></td>
-    </tr>
     <tr id="rgb-function">
-      <th>RGB</th>
+      <th>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb"
+          target="_blank">
+          RGB
+        </a>
+      </th>
       <td><button id="copy-rgb-button">Copy</button><span></span></td>
     </tr>
-    <tr id="color-function">
-      <th>color(srgb)</th>
-      <td><button id="copy-color-button">Copy</button><span></span></td>
+    <tr id="hex">
+      <th>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color"
+          target="_blank"
+          >HEX</a
+        >
+      </th>
+      <td><button id="copy-hex-button">Copy</button><span></span></td>
     </tr>
     <tr id="hsl-function">
-      <th>HSL</th>
+      <th>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl"
+          target="_blank">
+          HSL
+        </a>
+      </th>
       <td><button id="copy-hsl-button">Copy</button><span></span></td>
     </tr>
     <tr id="hwb-function">
-      <th>HWB</th>
+      <th>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hwb"
+          target="_blank">
+          HWB
+        </a>
+      </th>
       <td><button id="copy-hwb-button">Copy</button><span></span></td>
     </tr>
+    <tr id="color-function">
+      <th>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color"
+          target="_blank">
+          color()
+        </a>
+      </th>
+      <td><button id="copy-color-button">Copy</button><span></span></td>
+    </tr>
     <tr id="lab-function">
-      <th>Lab</th>
+      <th>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lab"
+          target="_blank">
+          Lab
+        </a>
+      </th>
       <td><button id="copy-lab-button">Copy</button><span></span></td>
     </tr>
-    <tr id="oklab-function">
-      <th>Oklab</th>
-      <td><button id="copy-oklab-button">Copy</button><span></span></td>
-    </tr>
     <tr id="lch-function">
-      <th>LCH</th>
+      <th>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lch"
+          target="_blank">
+          LCH
+        </a>
+      </th>
       <td><button id="copy-lch-button">Copy</button><span></span></td>
     </tr>
+    <tr id="oklab-function">
+      <th>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklab"
+          target="_blank">
+          Oklab
+        </a>
+      </th>
+      <td><button id="copy-oklab-button">Copy</button><span></span></td>
+    </tr>
     <tr id="oklch-function">
-      <th>OkLCh</th>
+      <th>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch"
+          target="_blank">
+          OkLCh
+        </a>
+      </th>
       <td><button id="copy-oklch-button">Copy</button><span></span></td>
     </tr>
     <tr id="xyz-d50-function">
-      <th>XYZ D50</th>
+      <th>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Glossary/Color_space#xyz-d50"
+          target="_blank">
+          XYZ D50
+        </a>
+      </th>
       <td><button id="copy-xyz-d50-button">Copy</button><span></span></td>
     </tr>
     <tr id="xyz-d65-function">
-      <th>XYZ D65</th>
+      <th>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Glossary/Color_space#xyz"
+          target="_blank">
+          XYZ D65
+        </a>
+      </th>
       <td><button id="copy-xyz-d65-button">Copy</button><span></span></td>
     </tr>
   </tbody>
@@ -204,8 +269,6 @@ dialog#picker-dialog table {
   display: grid;
   grid-template-columns: 150px 1fr 1fr 150px;
   grid-template-areas:
-    "header            header           header              header"
-    "text              text             text                text"
     "color-one-label   mix-label        mix-label           color-two-label"
     "color-background  color-background color-background    color-background"
     "percent-one       percent-one      percent-two         percent-two"
@@ -219,27 +282,18 @@ dialog#picker-dialog table {
 }
 
 #color-mixer > :nth-child(1) {
-  grid-area: header;
-}
-
-#color-mixer > :nth-child(2) {
-  grid-area: text;
-  margin-bottom: 2rem;
-}
-
-#color-mixer > :nth-child(3) {
   grid-area: color-one-label;
 }
 
-#color-mixer > :nth-child(4) {
+#color-mixer > :nth-child(2) {
   grid-area: mix-label;
 }
 
-#color-mixer > :nth-child(5) {
+#color-mixer > :nth-child(3) {
   grid-area: color-two-label;
 }
 
-#color-mixer > :nth-child(6) {
+#color-mixer > :nth-child(4) {
   grid-area: color-background;
   background:
     linear-gradient(
@@ -292,7 +346,7 @@ dialog#picker-dialog table {
   background-color: cyan;
 }
 
-#color-mixer > :nth-child(7) {
+#color-mixer > :nth-child(5) {
   grid-area: percent-one;
   width: 100%;
   display: flex;
@@ -304,33 +358,33 @@ dialog#picker-dialog table {
   text-align: end;
 }
 
-#color-mixer > :nth-child(8) {
+#color-mixer > :nth-child(6) {
   grid-area: percent-two;
   width: 100%;
   display: flex;
 }
 
-#color-mixer > :nth-child(9) {
+#color-mixer > :nth-child(7) {
   grid-area: color-space-label;
   margin: 0.5rem 0 0 auto;
 }
 
-#color-mixer > :nth-child(10) {
+#color-mixer > :nth-child(8) {
   grid-area: color-space;
   margin: 0.5rem auto 0 1rem;
 }
 
-#color-mixer > :nth-child(11) {
+#color-mixer > :nth-child(9) {
   grid-area: interpolation-label;
   margin: 0.5rem 0 0 auto;
 }
 
-#color-mixer > :nth-child(12) {
+#color-mixer > :nth-child(10) {
   grid-area: interpolation;
   margin: 0.5rem auto 0 1rem;
 }
 
-#color-mixer > :nth-child(13) {
+#color-mixer > :nth-child(11) {
   grid-area: mix-output-text;
   margin: 1rem 0;
   padding: 1rem 0;
@@ -459,7 +513,7 @@ function rgbToLinear(c) {
 }
 
 function intToHex(i) {
-  return Math.floor(i).toString(16).padStart(2, "0").toUpperCase();
+  return Math.floor(i).toString(16).padStart(2, "0").toLowerCase();
 }
 
 function rgbToHEXText(c) {
@@ -498,7 +552,7 @@ function rgbaToHEXAText(color) {
 }
 
 function rgbaToHSLA(color) {
-  let { r, g, b, a: alpha } = color;
+  let { r, g, b, alpha } = color;
   // Let's have r, g, b in the range [0, 1]
   r /= 255;
   g /= 255;
@@ -552,7 +606,7 @@ function rgbaToXYZD50(color) {
   b = rgbToLinear(b / 255) * 255;
 
   const xyz = multiplyByMatrix(LRGB_XYZ_D50_MATRIX, [r, g, b]);
-  return { x: xyz[0] / 255, y: xyz[1] / 255, z: xyz[2] / 255, a: alpha };
+  return { x: xyz[0] / 255, y: xyz[1] / 255, z: xyz[2] / 255, alpha };
 }
 
 function rgbaToXYZD50Text(color) {
@@ -570,7 +624,7 @@ function rgbaToXYZD65(color) {
   b = rgbToLinear(b / 255) * 255;
 
   const xyz = multiplyByMatrix(LRGB_XYZ_D65_MATRIX, [r, g, b]);
-  return { x: xyz[0] / 255, y: xyz[1] / 255, z: xyz[2] / 255, a: alpha };
+  return { x: xyz[0] / 255, y: xyz[1] / 255, z: xyz[2] / 255, alpha };
 }
 
 function rgbaToXYZD65Text(color) {
@@ -784,7 +838,7 @@ function init() {
     currentColor.g = parseInt(text.slice(3, 5), 16);
     currentColor.b = parseInt(text.slice(5, 7), 16);
     colorTextInput.value = rgbaToHEXAText(currentColor);
-    colorOpacitySlider.value = 1.0;
+    colorOpacitySlider.value = currentColor.alpha;
   });
 
   colorOpacitySlider.addEventListener("input", (e) => {
@@ -810,7 +864,6 @@ function init() {
 
   document.querySelectorAll("#output-colors button").forEach((button) => {
     button.addEventListener("click", (e) => {
-      // get parent element
       const text = e.target.nextElementSibling.innerText;
       navigator.clipboard.writeText(text);
       e.target.innerText = "Copied!";
@@ -826,7 +879,7 @@ function init() {
 init();
 ```
 
-{{EmbedLiveSample("color-mixer", "", 850, "", "", "", "clipboard-write")}}
+{{EmbedLiveSample("color-mixer", "", 760, "", "", "", "clipboard-write", "allow-popups")}}
 
 ## Siehe auch
 
