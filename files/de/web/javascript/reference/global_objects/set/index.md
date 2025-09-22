@@ -2,28 +2,28 @@
 title: Set
 slug: Web/JavaScript/Reference/Global_Objects/Set
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 7b63b90d24ad8945977bb9dc2735d75f72829bc1
 ---
 
-Das **`Set`**-Objekt ermöglicht das Speichern einzigartiger Werte jeglichen Typs, seien es {{Glossary("Primitive", "primitive Werte")}} oder Objektreferenzen.
+Das **`Set`**-Objekt ermöglicht es Ihnen, eindeutige Werte jedweden Typs zu speichern, sei es {{Glossary("Primitive", "primitive Werte")}} oder Objektverweise.
 
 ## Beschreibung
 
-`Set`-Objekte sind Sammlungen von Werten. Ein Wert im Set **darf nur einmal vorkommen**; er ist einzigartig in der Sammlung des Sets. Sie können durch die Elemente eines Sets in der Einfügereihenfolge iterieren. Die _Einfügereihenfolge_ entspricht der Reihenfolge, in der jedes Element erfolgreich mittels der [`add()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/add)-Methode ins Set eingefügt wurde (das heißt, es gab kein identisches Element bereits im Set bei dem Aufruf von `add()`).
+`Set`-Objekte sind Sammlungen von Werten. Ein Wert im Set **darf nur einmal vorkommen**; er ist einzigartig in der Sammlung des Sets. Sie können durch die Elemente eines Sets in der Reihenfolge der Einfügung iterieren. Die _Einfügereihenfolge_ entspricht der Reihenfolge, in der jedes Element erfolgreich durch die [`add()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/add)-Methode in das Set eingefügt wurde (das heißt, es war kein identisches Element bereits im Set, als `add()` aufgerufen wurde).
 
-Die Spezifikation erfordert, dass Sets so implementiert werden, "dass sie im Durchschnitt Zugriffszeiten bieten, die sublinear zur Anzahl der Elemente in der Sammlung sind". Daher könnte es intern als Hashtabelle (mit O(1) Zugriff), Suchbaum (mit O(log(N)) Zugriff) oder einer anderen Datenstruktur dargestellt werden, solange die Komplexität besser als O(N) ist.
+Die Spezifikation erfordert, dass Sets so implementiert werden, dass "im Durchschnitt Zugriffszeiten geliefert werden, die unterlinear zur Anzahl der Elemente in der Sammlung sind". Daher könnte es intern als Hashtabelle (mit O(1) Nachschlagezeit), als Suchbaum (mit O(log(N)) Nachschlagezeit) oder als andere Datenstruktur dargestellt werden, solange die Komplexität besser als O(N) ist.
 
-### Wertgleichheit
+### Gleichheit von Werten
 
-Die Wertgleichheit basiert auf dem [SameValueZero](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value-zero_equality)-Algorithmus. (Früher wurde [SameValue](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value_equality_using_object.is) verwendet, das `0` und `-0` als unterschiedlich behandelte. Überprüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität).) Dies bedeutet, dass {{jsxref("NaN")}} als gleich zu `NaN` betrachtet wird (obwohl `NaN !== NaN`) und alle anderen Werte gemäß der `===`-Operatorsemantik als gleich betrachtet werden.
+Die Wertgleichheit basiert auf dem [SameValueZero](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value-zero_equality)-Algorithmus. (Früher wurde [SameValue](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value_equality_using_object.is) verwendet, der `0` und `-0` als unterschiedlich behandelte. Überprüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität).) Das bedeutet, dass {{jsxref("NaN")}} als dasselbe wie `NaN` betrachtet wird (auch wenn `NaN !== NaN`) und alle anderen Werte gemäß den Semantiken des `===`-Operators als gleich angesehen werden. Auch für Objektschlüssel basiert die Gleichheit auf der Objektidentität. Sie werden nach Referenz und nicht nach Wert verglichen. Siehe [Verwendung des Map-Objekts](#using_the_map_object) für Beispiele.
 
-### Performance
+### Leistung
 
-Die Methode [`has`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/has) überprüft, ob ein Wert im Set vorhanden ist, wobei ein Ansatz verwendet wird, der im Durchschnitt schneller ist als das Testen der meisten Elemente, die zuvor zum Set hinzugefügt wurden. Insbesondere ist sie im Durchschnitt schneller als die Methode [`Array.prototype.includes`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/includes), wenn ein Array eine `length` hat, die der `size` eines Sets entspricht.
+Die [`has`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/has)-Methode prüft, ob ein Wert im Set ist, unter Verwendung eines Ansatzes, der im Durchschnitt schneller ist als das Testen der meisten bereits dem Set hinzugefügten Elemente. Insbesondere ist sie im Durchschnitt schneller als die [`Array.prototype.includes`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)-Methode, wenn ein Array eine `length` hat, die der `size` eines Sets entspricht.
 
 ### Set-Komposition
 
-Das `Set`-Objekt bietet einige Methoden, die Ihnen ermöglichen, Sets wie bei mathematischen Operationen zu komponieren. Diese Methoden umfassen:
+Das `Set`-Objekt bietet einige Methoden, die es Ihnen erlauben, Sets wie mathematische Operationen zusammenzusetzen. Diese Methoden beinhalten:
 
 <table>
   <thead>
@@ -41,7 +41,7 @@ Das `Set`-Objekt bietet einige Methoden, die Ihnen ermöglichen, Sets wie bei ma
       <td>
         <math><semantics><mrow><mi>A</mi><mo>∖</mo><mi>B</mi></mrow><annotation encoding="TeX">A\setminus B</annotation></semantics></math>
       </td>
-      <td style="margin:0;padding:0"><img src="difference/diagram.svg" alt="Ein Venn-Diagramm, bei dem sich zwei Kreise überlappen. Der Unterschied von A und B ist der Teil von A, der sich nicht mit B überlappt." style="margin:0;border:0;border-radius:0" width="200" /></td>
+      <td style="margin:0;padding:0"><img src="difference/diagram.svg" alt="Ein Venn-Diagramm, in dem sich zwei Kreise überschneiden. Der Unterschied von A und B ist der Teil von A, der sich nicht mit B überschneidet." style="margin:0;border:0;border-radius:0" width="200" /></td>
     </tr>
     <tr>
       <td>{{jsxref("Set/intersection", "A.intersection(B)")}}</td>
@@ -49,7 +49,7 @@ Das `Set`-Objekt bietet einige Methoden, die Ihnen ermöglichen, Sets wie bei ma
       <td>
         <math><semantics><mrow><mi>A</mi><mo>∩</mo><mi>B</mi></mrow><annotation encoding="TeX">A\cap B</annotation></semantics></math>
       </td>
-      <td style="margin:0;padding:0"><img src="intersection/diagram.svg" alt="Ein Venn-Diagramm, bei dem sich zwei Kreise überlappen. Die Schnittmenge von A und B ist der Bereich, in dem sie sich überlappen." style="margin:0;border:0;border-radius:0" width="200" /></td>
+      <td style="margin:0;padding:0"><img src="intersection/diagram.svg" alt="Ein Venn-Diagramm, in dem sich zwei Kreise überschneiden. Die Schnittmenge von A und B ist der Teil, in dem sie sich überschneiden." style="margin:0;border:0;border-radius:0" width="200" /></td>
     </tr>
     <tr>
       <td>{{jsxref("Set/symmetricDifference", "A.symmetricDifference(B)")}}</td>
@@ -57,7 +57,7 @@ Das `Set`-Objekt bietet einige Methoden, die Ihnen ermöglichen, Sets wie bei ma
       <td>
         <math><semantics><mrow><mo stretchy="false">(</mo><mi>A</mi><mo>∖</mo><mi>B</mi><mo stretchy="false">)</mo><mo>∪</mo><mo stretchy="false">(</mo><mi>B</mi><mo>∖</mo><mi>A</mi><mo stretchy="false">)</mo></mrow><annotation encoding="TeX">(A\setminus B)\cup(B\setminus A)</annotation></semantics></math>
       </td>
-      <td style="margin:0;padding:0"><img src="symmetricDifference/diagram.svg" alt="Ein Venn-Diagramm, bei dem sich zwei Kreise überlappen. Die symmetrische Differenz von A und B ist der Bereich, der entweder von A oder B, aber nicht von beiden enthalten wird." style="margin:0;border:0;border-radius:0" width="200" /></td>
+      <td style="margin:0;padding:0"><img src="symmetricDifference/diagram.svg" alt="Ein Venn-Diagramm, in dem sich zwei Kreise überschneiden. Die symmetrische Differenz von A und B ist die Region, die von einem der beiden Kreise, aber nicht von beiden, eingeschlossen wird." style="margin:0;border:0;border-radius:0" width="200" /></td>
     </tr>
     <tr>
       <td>{{jsxref("Set/union", "A.union(B)")}}</td>
@@ -65,7 +65,7 @@ Das `Set`-Objekt bietet einige Methoden, die Ihnen ermöglichen, Sets wie bei ma
       <td>
         <math><semantics><mrow><mi>A</mi><mo>∪</mo><mi>B</mi></mrow><annotation encoding="TeX">A\cup B</annotation></semantics></math>
       </td>
-      <td style="margin:0;padding:0"><img src="union/diagram.svg" alt="Ein Venn-Diagramm, bei dem sich zwei Kreise überlappen. Die Vereinigung von A und B ist der Bereich, der entweder von A oder B, oder beiden enthalten wird." style="margin:0;border:0;border-radius:0" width="200" /></td>
+      <td style="margin:0;padding:0"><img src="union/diagram.svg" alt="Ein Venn-Diagramm, in dem sich zwei Kreise überschneiden. Die Vereinigung von A und B ist die Region, die von einem oder beiden Kreisen eingeschlossen wird." style="margin:0;border:0;border-radius:0" width="200" /></td>
     </tr>
     <tr>
       <td>{{jsxref("Set/isDisjointFrom", "A.isDisjointFrom(B)")}}</td>
@@ -94,17 +94,17 @@ Das `Set`-Objekt bietet einige Methoden, die Ihnen ermöglichen, Sets wie bei ma
   </tbody>
 </table>
 
-Um sie allgemeiner anwendbar zu machen, akzeptieren diese Methoden nicht nur `Set`-Objekte, sondern alles, was [Set-ähnlich](#set-ähnliche_objekte) ist.
+Um sie generalisierbarer zu machen, akzeptieren diese Methoden nicht nur `Set`-Objekte, sondern alles, was [set-ähnlich](#set-ähnliche_objekte) ist.
 
 ### Set-ähnliche Objekte
 
-Alle [Set-Kompositionsmethoden](#set-komposition) erfordern, dass {{jsxref("Operators/this", "this")}} eine tatsächliche `Set`-Instanz ist, aber ihre Argumente müssen nur set-ähnlich sein. Ein _set-ähnliches Objekt_ ist ein Objekt, das Folgendes bereitstellt:
+Alle [Set-Zusammensetzungsmethoden](#set-komposition) erfordern, dass {{jsxref("Operators/this", "this")}} eine tatsächliche `Set`-Instanz ist, aber ihre Argumente müssen nur set-ähnlich sein. Ein _set-ähnliches Objekt_ ist ein Objekt, das Folgendes bereitstellt:
 
 - Eine {{jsxref("Set/size", "size")}}-Eigenschaft, die eine Zahl enthält.
-- Eine {{jsxref("Set/has", "has()")}}-Methode, die ein Element übernimmt und einen Boolean zurückgibt.
+- Eine {{jsxref("Set/has", "has()")}}-Methode, die ein Element nimmt und einen Boolean zurückgibt.
 - Eine {{jsxref("Set/keys", "keys()")}}-Methode, die einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) der Elemente im Set zurückgibt.
 
-Beispielsweise sind {{jsxref("Map")}}-Objekte set-ähnlich, weil sie ebenfalls {{jsxref("Map/size", "size")}}, {{jsxref("Map/has", "has()")}}, und {{jsxref("Map/keys", "keys()")}} haben, sodass sie sich wie Mengen von Schlüsseln verhalten, wenn sie in Set-Methoden verwendet werden:
+Zum Beispiel sind {{jsxref("Map")}}-Objekte set-ähnlich, weil sie auch {{jsxref("Map/size", "size")}}, {{jsxref("Map/has", "has()")}} und {{jsxref("Map/keys", "keys()")}} haben, sodass sie wie Mengen von Schlüsseln funktionieren, wenn sie in Set-Methoden verwendet werden:
 
 ```js
 const a = new Set([1, 2, 3]);
@@ -117,21 +117,21 @@ console.log(a.union(b)); // Set(4) {1, 2, 3, 4}
 ```
 
 > [!NOTE]
-> Das set-ähnliche Protokoll ruft die `keys()`-Methode anstelle von [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/Symbol.iterator) auf, um Elemente zu erzeugen. Dies dient dazu, Karten zu gültigen set-ähnlichen Objekten zu machen, da beim Karten-Iterator _Einträge_ produziert werden, jedoch die `has()`-Methode _Schlüssel_ benötigt.
+> Das set-ähnliche Protokoll ruft die `keys()`-Methode anstelle von [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/Symbol.iterator) auf, um Elemente zu produzieren. Dies geschieht, um Maps als gültige set-ähnliche Objekte zu machen, da der Iterator bei Maps _Einträge_ produziert, die `has()`-Methode jedoch _Schlüssel_ benötigt.
 
 [Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) sind nicht set-ähnlich, da sie keine `has()`-Methode oder die `size`-Eigenschaft haben und ihre `keys()`-Methode Indizes anstelle von Elementen produziert. {{jsxref("WeakSet")}}-Objekte sind ebenfalls nicht set-ähnlich, da sie keine `keys()`-Methode haben.
 
 ### Set-ähnliche Browser-APIs
 
-**`Set`-ähnliche Objekte** (oder "set-ähnliche Objekte" im Browser) sind [Web API](/de/docs/Web/API)-Schnittstellen, die sich in vielen Aspekten wie ein `Set` verhalten.
+**`Set`-ähnliche Objekte** (oder "setlike objects") sind [Web-API](/de/docs/Web/API)-Schnittstellen, die sich in vielerlei Hinsicht wie ein `Set` verhalten.
 
-Genau wie `Set` können die Elemente in der gleichen Reihenfolge iteriert werden, in der sie dem Objekt hinzugefügt wurden.
-`Set`-ähnliche Objekte und `Set` haben auch Eigenschaften und Methoden, die den gleichen Namen und das gleiche Verhalten teilen.
-Im Gegensatz zu `Set` erlauben sie jedoch nur einen spezifischen vordefinierten Typ für jeden Eintrag.
+Genau wie `Set` können Elemente in der gleichen Reihenfolge wie sie dem Objekt hinzugefügt wurden iteriert werden.
+`Set`-ähnliche Objekte und `Set` haben auch Eigenschaften und Methoden, die denselben Namen und dasselbe Verhalten teilen.
+Jedoch erlauben sie im Gegensatz zu `Set` nur einen spezifischen vordefinierten Typ für jeden Eintrag.
 
-Die erlaubten Typen sind in der Spezifikation der IDL-Definition festgelegt.
-Zum Beispiel ist [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures) ein `Set`-ähnliches Objekt, das Zeichenfolgen als Schlüssel/Wert verwenden muss.
-Dies ist in der Spezifikation der unteren IDL definiert:
+Die erlaubten Typen werden in der Spezifikations-IDL-Definition festgelegt.
+Zum Beispiel ist [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures) ein `Set`-ähnliches Objekt, das Strings als Schlüssel/Wert verwenden muss.
+Dies ist in der folgenden Spezifikations-IDL definiert:
 
 ```webidl
 interface GPUSupportedFeatures {
@@ -139,19 +139,19 @@ interface GPUSupportedFeatures {
 };
 ```
 
-`Set`-ähnliche Objekte sind entweder schreibgeschützt oder schreib-/lesbar (siehe das `readonly` Schlüsselwort in der oberen IDL).
+`Set`-ähnliche Objekte sind entweder schreibgeschützt oder schreibbar (siehe das `readonly`-Schlüsselwort in der obigen IDL).
 
 - Schreibgeschützte `Set`-ähnliche Objekte haben die Eigenschaft {{jsxref("Set/size", "size")}}, und die Methoden: {{jsxref("Set/entries", "entries()")}}, {{jsxref("Set/forEach", "forEach()")}}, {{jsxref("Set/has", "has()")}}, {{jsxref("Set/keys", "keys()")}}, {{jsxref("Set/values", "values()")}}, und [`Symbol.iterator()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/Symbol.iterator).
-- Beschreibbare `Set`-ähnliche Objekte haben zusätzlich die Methoden: {{jsxref("Set/clear", "clear()")}}, {{jsxref("Set/delete", "delete()")}}, und {{jsxref("Set/add", "add()")}}.
+- Schreibbare `Set`-ähnliche Objekte haben zusätzlich die Methoden: {{jsxref("Set/clear", "clear()")}}, {{jsxref("Set/delete", "delete()")}}, und {{jsxref("Set/add", "add()")}}.
 
-Die Methoden und Eigenschaften haben das gleiche Verhalten wie die entsprechenden Entitäten in `Set`, außer der Einschränkung auf die Typen des Eintrags.
+Die Methoden und Eigenschaften verhalten sich genauso wie die entsprechenden Entitäten in `Set`, mit Ausnahme der Einschränkung auf die Typen des Eintrags.
 
-Folgende sind Beispiele für schreibgeschützte `Set`-ähnliche Browser-Objekte:
+Die folgenden sind Beispiele für schreibgeschützte `Set`-ähnliche Browser-Objekte:
 
 - [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures)
 - [`XRAnchorSet`](/de/docs/Web/API/XRAnchorSet)
 
-Folgende sind Beispiele für beschreibbare `Set`-ähnliche Browser-Objekte:
+Die folgenden sind Beispiele für schreibbare `Set`-ähnliche Browser-Objekte:
 
 - [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)
 - [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)
@@ -165,53 +165,53 @@ Folgende sind Beispiele für beschreibbare `Set`-ähnliche Browser-Objekte:
 ## Statische Eigenschaften
 
 - [`Set[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/Symbol.species)
-  - : Die Konstrukturfunktion, die verwendet wird, um abgeleitete Objekte zu erstellen.
+  - : Die Konstruktorfunktion, die zum Erstellen abgeleiteter Objekte verwendet wird.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 Diese Eigenschaften sind auf `Set.prototype` definiert und werden von allen `Set`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Set.prototype.constructor")}}
-  - : Die Konstrukturfunktion, die das Instanzobjekt erstellt hat. Für `Set`-Instanzen ist der initiale Wert der {{jsxref("Set/Set", "Set")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Bei `Set`-Instanzen ist der Anfangswert der {{jsxref("Set/Set", "Set")}}-Konstruktor.
 - {{jsxref("Set.prototype.size")}}
   - : Gibt die Anzahl der Werte im `Set`-Objekt zurück.
 - `Set.prototype[Symbol.toStringTag]`
-  - : Der initiale Wert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Set"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Set"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - {{jsxref("Set.prototype.add()")}}
-  - : Fügt ein neues Element mit einem angegebenen Wert in ein `Set`-Objekt ein, falls nicht bereits ein Element mit gleichem Wert im `Set` vorhanden ist.
+  - : Fügt den angegebenen Wert diesem Set hinzu, wenn er noch nicht vorhanden ist.
 - {{jsxref("Set.prototype.clear()")}}
   - : Entfernt alle Elemente aus dem `Set`-Objekt.
 - {{jsxref("Set.prototype.delete()")}}
-  - : Entfernt das mit dem `Wert` assoziierte Element und gibt einen Boolean zurück, der bestätigt, ob ein Element erfolgreich entfernt wurde oder nicht. `Set.prototype.has(value)` wird danach `false` zurückgeben.
+  - : Entfernt den angegebenen Wert aus diesem Set, wenn er im Set ist.
 - {{jsxref("Set.prototype.difference()")}}
-  - : Nimmt ein Set und gibt ein neues Set zurück, das Elemente enthält, die sich in diesem Set befinden, aber nicht im angegebenen Set.
+  - : Nimmt ein Set und gibt ein neues Set zurück, das Elemente in diesem Set, aber nicht im angegebenen Set enthält.
 - {{jsxref("Set.prototype.entries()")}}
-  - : Gibt ein neues Iterator-Objekt zurück, das **ein Array von `[value, value]`** für jedes Element im `Set`-Objekt in Einfügereihenfolge enthält. Dies ist dem {{jsxref("Map")}}-Objekt ähnlich, sodass der _Schlüssel_ jedes Eintrags für ein `Set` der gleiche wie dessen _Wert_ ist.
+  - : Gibt ein neues Iterator-Objekt zurück, das **ein Array von `[value, value]`** für jedes Element im `Set`-Objekt in Einfügereihenfolge enthält. Ähnlich wie beim {{jsxref("Map")}}-Objekt, sodass der _Schlüssel_ jedes Eintrags derselbe wie sein _Wert_ für ein `Set` ist.
 - {{jsxref("Set.prototype.forEach()")}}
-  - : Ruft `callbackFn` einmal für jeden im `Set`-Objekt vorhandenen Wert in Einfügereihenfolge auf. Falls ein `thisArg`-Parameter angegeben wird, wird er als `this`-Wert für jeden Aufruf von `callbackFn` verwendet.
+  - : Ruft `callbackFn` einmal für jeden im `Set`-Objekt vorhandenen Wert in Einfügereihenfolge auf. Wenn ein `thisArg`-Parameter bereitgestellt wird, wird er als `this`-Wert für jede Ausführung von `callbackFn` verwendet.
 - {{jsxref("Set.prototype.has()")}}
-  - : Gibt einen Boolean zurück, der bestätigt, ob ein Element mit dem gegebenen Wert im `Set`-Objekt vorhanden ist oder nicht.
+  - : Gibt ein Boolean zurück, das angibt, ob der angegebene Wert in diesem `Set` existiert oder nicht.
 - {{jsxref("Set.prototype.intersection()")}}
-  - : Nimmt ein Set und gibt ein neues Set zurück, das Elemente enthält, die sowohl in diesem Set als auch im gegebenen Set sind.
+  - : Nimmt ein Set und gibt ein neues Set zurück, das Elemente sowohl in diesem Set als auch im angegebenen Set enthält.
 - {{jsxref("Set.prototype.isDisjointFrom()")}}
-  - : Nimmt ein Set und gibt einen Boolean zurück, der anzeigt, ob dieses Set keine gemeinsamen Elemente mit dem angegebenen Set hat.
+  - : Nimmt ein Set und gibt ein Boolean zurück, das angibt, ob dieses Set keine gemeinsamen Elemente mit dem angegebenen Set hat.
 - {{jsxref("Set.prototype.isSubsetOf()")}}
-  - : Nimmt ein Set und gibt einen Boolean zurück, der anzeigt, ob alle Elemente dieses Sets im angegebenen Set sind.
+  - : Nimmt ein Set und gibt ein Boolean zurück, das angibt, ob alle Elemente dieses Sets im angegebenen Set enthalten sind.
 - {{jsxref("Set.prototype.isSupersetOf()")}}
-  - : Nimmt ein Set und gibt einen Boolean zurück, der anzeigt, ob alle Elemente des angegebenen Sets in diesem Set sind.
+  - : Nimmt ein Set und gibt ein Boolean zurück, das angibt, ob alle Elemente des angegebenen Sets in diesem Set enthalten sind.
 - {{jsxref("Set.prototype.keys()")}}
   - : Ein Alias für {{jsxref("Set.prototype.values()")}}.
 - {{jsxref("Set.prototype.symmetricDifference()")}}
-  - : Nimmt ein Set und gibt ein neues Set zurück, das Elemente enthält, die entweder in diesem Set oder im angegebenen Set sind, aber nicht in beiden.
+  - : Nimmt ein Set und gibt ein neues Set zurück, das Elemente enthält, die entweder in diesem oder im angegebenen Set, aber nicht in beiden enthalten sind.
 - {{jsxref("Set.prototype.union()")}}
-  - : Nimmt ein Set und gibt ein neues Set zurück, das Elemente enthält, die entweder in diesem oder im angegebenen Set oder in beiden sind.
+  - : Nimmt ein Set und gibt ein neues Set zurück, das Elemente enthält, die entweder in diesem oder in beiden Sets und dem angegebenen Set enthalten sind.
 - {{jsxref("Set.prototype.values()")}}
-  - : Gibt ein neues Iterator-Objekt zurück, das die **Werte** für jedes Element im `Set`-Objekt in Einfügereihenfolge liefert.
+  - : Gibt ein neues Iterator-Objekt zurück, das die **Werte** für jedes Element im `Set`-Objekt in Einfügereihenfolge ausgibt.
 - [`Set.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/Symbol.iterator)
-  - : Gibt ein neues Iterator-Objekt zurück, das die **Werte** für jedes Element im `Set`-Objekt in Einfügereihenfolge liefert.
+  - : Gibt ein neues Iterator-Objekt zurück, das die **Werte** für jedes Element im `Set`-Objekt in Einfügereihenfolge ausgibt.
 
 ## Beispiele
 
@@ -248,7 +248,7 @@ mySet1.add(5); // Set(5) { 1, 'some text', {...}, {...}, 5 } - a previously dele
 console.log(mySet1); // Set(5) { 1, "some text", {…}, {…}, 5 }
 ```
 
-### Sets iterieren
+### Iteration über Sets
 
 Die Iteration über ein Set besucht Elemente in Einfügereihenfolge.
 
@@ -378,7 +378,7 @@ mySet.has("value1"); // returns true
 console.log([...mySet]); // Will show you exactly the same Array as myArray
 ```
 
-### Doppelte Elemente aus einem Array entfernen
+### Entfernen doppelter Elemente aus einem Array
 
 ```js
 // Use to remove duplicate elements from an array
@@ -387,7 +387,7 @@ const numbers = [2, 13, 4, 4, 2, 13, 13, 4, 4, 5, 5, 6, 6, 7, 5, 32, 13, 4, 5];
 console.log([...new Set(numbers)]); // [2, 13, 4, 5, 6, 7, 32]
 ```
 
-### Beziehung zu Zeichenfolgen
+### Beziehung zu Strings
 
 ```js
 // Case sensitive (set will contain "F" and "f")
@@ -397,7 +397,7 @@ new Set("Firefox"); // Set(7) [ "F", "i", "r", "e", "f", "o", "x" ]
 new Set("firefox"); // Set(6) [ "f", "i", "r", "e", "o", "x" ]
 ```
 
-### Ein Set verwenden, um die Einzigartigkeit einer Werteliste sicherzustellen
+### Verwendung eines Sets zur Sicherstellung der Einzigartigkeit einer Liste von Werten
 
 ```js
 const array = Array.from(document.querySelectorAll("[id]")).map((e) => e.id);

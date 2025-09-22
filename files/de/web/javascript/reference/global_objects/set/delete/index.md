@@ -3,10 +3,10 @@ title: Set.prototype.delete()
 short-title: delete()
 slug: Web/JavaScript/Reference/Global_Objects/Set/delete
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 7b63b90d24ad8945977bb9dc2735d75f72829bc1
 ---
 
-Die **`delete()`** Methode von {{jsxref("Set")}} Instanzen entfernt einen angegebenen Wert aus dieser Menge, falls er sich in der Menge befindet.
+Die **`delete()`**-Methode von {{jsxref("Set")}}-Instanzen entfernt den angegebenen Wert aus diesem Set, wenn er sich im Set befindet.
 
 {{InteractiveExample("JavaScript Demo: Set.prototype.delete()")}}
 
@@ -34,16 +34,15 @@ setInstance.delete(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, der aus dem `Set` entfernt werden soll.
+  - : Der Wert, der aus dem `Set`-Objekt entfernt werden soll. Objekte werden nach {{Glossary("Object_reference", "Referenz")}} und nicht nach Wert verglichen.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn `value` bereits in
-`Set` enthalten war; andernfalls `false`.
+`true`, wenn ein Wert im `Set`-Objekt erfolgreich entfernt wurde. `false`, wenn der Wert im `Set` nicht gefunden wird.
 
 ## Beispiele
 
-### Die delete() Methode verwenden
+### Verwendung von delete()
 
 ```js
 const mySet = new Set();
@@ -55,9 +54,9 @@ console.log(mySet.delete("foo")); // true; successfully removed.
 console.log(mySet.has("foo")); // false; the "foo" element is no longer present.
 ```
 
-### Ein Objekt aus einem Set löschen
+### Löschen eines Objekts aus einem Set
 
-Da Objekte durch Referenz verglichen werden, müssen Sie sie löschen, indem Sie einzelne Eigenschaften überprüfen, wenn Sie keine Referenz auf das ursprüngliche Objekt haben.
+Da Objekte nach Referenz verglichen werden, müssen Sie sie löschen, indem Sie einzelne Eigenschaften überprüfen, wenn Sie keine Referenz auf das ursprüngliche Objekt haben.
 
 ```js
 const setObj = new Set(); // Create a new set.
@@ -85,4 +84,6 @@ setObj.forEach((point) => {
 ## Siehe auch
 
 - {{jsxref("Set")}}
+- {{jsxref("Set.prototype.add()")}}
 - {{jsxref("Set.prototype.clear()")}}
+- {{jsxref("Set.prototype.has()")}}

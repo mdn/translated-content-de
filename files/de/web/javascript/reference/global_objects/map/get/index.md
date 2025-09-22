@@ -3,10 +3,10 @@ title: Map.prototype.get()
 short-title: get()
 slug: Web/JavaScript/Reference/Global_Objects/Map/get
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 7b63b90d24ad8945977bb9dc2735d75f72829bc1
 ---
 
-Die **`get()`**-Methode von {{jsxref("Map")}}-Instanzen gibt ein spezifisches Element aus dieser Map zurück. Wenn der Wert, der dem angegebenen Schlüssel zugeordnet ist, ein Objekt ist, erhalten Sie eine Referenz zu diesem Objekt und jede Änderung an diesem Objekt ändert dieses auch im `Map`-Objekt.
+Die **`get()`** Methode von {{jsxref("Map")}} Instanzen gibt den Wert zurück, der dem Schlüssel in dieser `Map` entspricht, oder `undefined`, wenn keiner vorhanden ist. Objektwerte werden als dieselbe Referenz zurückgegeben, die ursprünglich gespeichert wurde, nicht als Kopie, daher werden Änderungen am zurückgegebenen Objekt überall dort reflektiert, wo die Referenz gehalten wird, einschließlich innerhalb der `Map`.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.get()")}}
 
@@ -30,12 +30,11 @@ get(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, das aus dem `Map`-Objekt zurückgegeben werden soll.
+  - : Der Schlüssel des Wertes, der aus dem `Map` Objekt zurückgegeben werden soll. Objektschlüssel werden durch {{Glossary("Object_reference", "Referenz")}} und nicht durch Wert verglichen.
 
 ### Rückgabewert
 
-Das Element, das dem angegebenen Schlüssel zugeordnet ist, oder
-{{jsxref("undefined")}}, wenn der Schlüssel im `Map`-Objekt nicht gefunden werden kann.
+Der Wert, der dem angegebenen Schlüssel im `Map` Objekt zugeordnet ist. Wenn der Schlüssel nicht gefunden werden kann, wird {{jsxref("undefined")}} zurückgegeben.
 
 ## Beispiele
 
@@ -49,7 +48,7 @@ console.log(myMap.get("bar")); // Returns "foo"
 console.log(myMap.get("baz")); // Returns undefined
 ```
 
-### Verwendung von get() zum Abrufen einer Referenz auf ein Objekt
+### Verwendung von get(), um eine Referenz zu einem Objekt abzurufen
 
 ```js
 const arr = [];
@@ -62,8 +61,6 @@ console.log(arr); // ["foo"]
 console.log(myMap.get("bar")); // ["foo"]
 ```
 
-Beachten Sie, dass die Map, die eine Referenz auf das ursprüngliche Objekt hält, effektiv bedeutet, dass das Objekt nicht durch den Garbage Collector entfernt werden kann, was zu unerwarteten Speicherproblemen führen kann. Wenn Sie möchten, dass das im Map gespeicherte Objekt die gleiche Lebensdauer wie das ursprüngliche hat, sollten Sie die Verwendung eines {{jsxref("WeakMap")}} in Betracht ziehen.
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -75,5 +72,6 @@ Beachten Sie, dass die Map, die eine Referenz auf das ursprüngliche Objekt häl
 ## Siehe auch
 
 - {{jsxref("Map")}}
+- {{jsxref("Map.prototype.delete()")}}
 - {{jsxref("Map.prototype.set()")}}
 - {{jsxref("Map.prototype.has()")}}

@@ -3,10 +3,10 @@ title: Map.prototype.delete()
 short-title: delete()
 slug: Web/JavaScript/Reference/Global_Objects/Map/delete
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 7b63b90d24ad8945977bb9dc2735d75f72829bc1
 ---
 
-Die **`delete()`** Methode von {{jsxref("Map")}} Instanzen entfernt das angegebene Element aus dieser Map anhand des Schlüssels.
+Die **`delete()`** Methode von {{jsxref("Map")}} Instanzen entfernt den durch den Schlüssel angegebenen Eintrag aus dieser `Map`.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.delete()")}}
 
@@ -31,12 +31,11 @@ mapInstance.delete(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, das aus dem `Map` Objekt entfernt werden soll.
+  - : Der Schlüssel des Eintrags, der aus dem `Map` Objekt entfernt werden soll. Objektschlüssel werden durch {{Glossary("Object_reference", "Referenz")}} verglichen, nicht durch den Wert.
 
 ### Rückgabewert
 
-`true`, wenn ein Element im `Map` Objekt existierte und entfernt wurde, oder
-`false`, wenn das Element nicht existiert.
+`true`, wenn ein Eintrag im `Map`-Objekt erfolgreich entfernt wurde. `false`, wenn der Schlüssel in der `Map` nicht gefunden wird.
 
 ## Beispiele
 
@@ -61,3 +60,7 @@ console.log(myMap.has("bar")); // Returns false. The "bar" element is no longer 
 ## Siehe auch
 
 - {{jsxref("Map")}}
+- {{jsxref("Map.prototype.clear()")}}
+- {{jsxref("Map.prototype.get()")}}
+- {{jsxref("Map.prototype.set()")}}
+- {{jsxref("Map.prototype.has()")}}
