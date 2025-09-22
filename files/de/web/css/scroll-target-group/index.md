@@ -2,10 +2,10 @@
 title: scroll-target-group
 slug: Web/CSS/scroll-target-group
 l10n:
-  sourceCommit: 2e427c5c185433c5a6612c63bf877753a5fedc99
+  sourceCommit: 1d2dd9c951674bf559b9b6d5223704ea3d8d8269
 ---
 
-Die **`scroll-target-group`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, ob ein Element ein Scroll-Marker-Gruppencontainer ist.
+Die **`scroll-target-group`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein Element ein Behälter für eine Scroll-Marker-Gruppe ist.
 
 ## Syntax
 
@@ -22,27 +22,27 @@ scroll-target-group: revert-layer;
 scroll-target-group: unset;
 ```
 
-Die Eigenschaft `scroll-target-group` wird als einer der folgenden Schlüsselwortwerte festgelegt:
+Die `scroll-target-group` Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
 
 ### Werte
 
 - `none`
-  - : Das Element ist kein Scroll-Marker-Gruppencontainer.
+  - : Das Element ist kein Behälter für eine Scroll-Marker-Gruppe.
 - `auto`
-  - : Das Element ist ein Scroll-Marker-Gruppencontainer.
+  - : Das Element ist ein Behälter für eine Scroll-Marker-Gruppe.
 
 ## Beschreibung
 
-Durch das Setzen von `scroll-target-group: auto` auf ein Element wird es als **Scroll-Marker-Gruppencontainer** gekennzeichnet. Dies gruppiert eine Reihe von Navigationselementen, die es Benutzern ermöglichen, zwischen Elementen auf einer Seite zu navigieren (wie z.B. Karussellelemente oder Artikelsektionen) und hervorheben, welches Element aktuell sichtbar ist.
+Wenn Sie `scroll-target-group: auto` auf ein Element setzen, wird es als **Behälter für eine Scroll-Marker-Gruppe** gekennzeichnet. Dies gruppiert eine Reihe von Navigationselementen, die es Nutzern ermöglichen, zwischen Elementen auf einer Seite zu navigieren (wie Karussell-Elementen oder Artikelabschnitten) und hebt hervor, welches Element gerade angezeigt wird.
 
-Alle {{htmlelement("a")}} Elemente mit Fragment-Identifikatoren innerhalb des Containers werden automatisch als Scroll-Marker festgelegt. Das Anker-Element, dessen Scroll-Ziel derzeit sichtbar ist, kann über die {{cssxref(":target-current")}} Pseudo-Klasse gestylt werden.
+Alle {{htmlelement("a")}} Elemente mit Fragment-Identifikatoren innerhalb des Behälters werden automatisch als Scroll-Marker festgelegt. Das Ankerelement, dessen Scrollziel sich derzeit im Blickfeld befindet, kann über die {{cssxref(":target-current")}} Pseudoklasse gestylt werden.
 
 ### Unterschiede zwischen `scroll-target-group` und `scroll-marker-group`
 
-Scroll-Marker-Gruppencontainer, die mit `scroll-target-group` erstellt werden, verhalten sich sehr ähnlich wie die mit der {{cssxref("scroll-marker-group")}} Eigenschaft erstellten, mit einigen Unterschieden:
+Scroll-Marker-Gruppenbehälter, die mit `scroll-target-group` erstellt werden, verhalten sich sehr ähnlich zu denen, die mit der {{cssxref("scroll-marker-group")}} Eigenschaft erstellt werden, mit einigen Unterschieden:
 
-- Mit `scroll-target-group` müssen Sie Ihr eigenes Markup erstellen, um den Scroll-Marker-Gruppencontainer und die Scroll-Marker darzustellen, während `scroll-marker-group` automatisch eine Reihe von Pseudo-Elementen erstellt, um den Container ({{cssxref("::scroll-marker-group")}}) und die Marker (eine oder mehrere Instanzen von {{cssxref("::scroll-marker")}}) darzustellen. Diese haben automatisch die erwarteten Navigationszuordnungen mit dem {{Glossary("scroll_container", "Scroll-Container")}}, auf dem sie generiert werden. Die Verwendung von `scroll-marker-group` bietet eine schnellere Einrichtung, da Sie Ihr eigenes Markup nicht verwenden müssen. Das Erstellen Ihres eigenen Markups und Festlegen als Scroll-Marker-Gruppencontainer über `scroll-target-group` bietet jedoch mehr Kontrolle und Flexibilität.
-- Links, die über `scroll-target-group` als Scroll-Marker bezeichnet werden, haben kein spezielles Navigationsverhalten, wohingegen Marker, die über `scroll-marker-group` generiert werden, automatisch die [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)/[`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) Semantik haben, was bedeutet, dass sie sich wie ein einzelnes Element in der Tab-Reihenfolge verhalten und Benutzer zwischen Scroll-Markern mit den Pfeiltasten wechseln können. Wiederum bietet `scroll-marker-group` nützliches Standardverhalten, jedoch haben Sie die Flexibilität, alternative Semantik und Verhalten für Marker anzugeben, die mit `scroll-target-group` spezifiziert werden.
+- Bei `scroll-target-group` müssen Sie Ihr eigenes Markup erstellen, um den Scroll-Marker-Gruppenbehälter und die Scroll-Marker darzustellen, während `scroll-marker-group` automatisch eine Reihe von Pseudoelementen erstellt, um den Behälter ({{cssxref("::scroll-marker-group")}}) und die Marker (eine oder mehrere Instanzen von {{cssxref("::scroll-marker")}}) darzustellen. Diese haben automatisch die erwarteten Navigationsassoziationen mit dem {{Glossary("scroll_container", "Scrollbehälter")}}, auf dem sie generiert werden. Die Verwendung von `scroll-marker-group` bietet eine schnellere Einrichtung, da Sie nicht Ihr eigenes Markup verwenden müssen. Das Erstellen Ihres eigenen Markups und das Setzen als Scroll-Marker-Gruppenbehälter über `scroll-target-group` bietet jedoch mehr Kontrolle und Flexibilität.
+- Über `scroll-target-group` als Scroll-Marker gekennzeichnete Links haben kein spezielles Navigationsverhalten, während über `scroll-marker-group` generierte Marker automatisch [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)/[`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role) Semantik zugewiesen bekommen, was bedeutet, dass sie sich wie ein einzelnes Element in der Tabreihenfolge verhalten, und Benutzer können mit den Pfeiltasten zwischen den Scroll-Markern wechseln. Auch hier bietet `scroll-marker-group` nützliches Standardverhalten, aber Sie haben die Flexibilität, alternative Semantik und Verhalten für über `scroll-target-group` spezifizierte Marker bereitzustellen.
 
 ## Formale Definition
 
@@ -54,13 +54,13 @@ Scroll-Marker-Gruppencontainer, die mit `scroll-target-group` erstellt werden, v
 
 ## Beispiele
 
-### Grundlegende Verwendung von `scroll-target-group`
+### Grundlegende Nutzung von `scroll-target-group`
 
-Dieses Beispiel zeigt eine Seite mit einem Inhaltsverzeichnis, das zu verschiedenen Abschnitten verlinkt.
+Dieses Beispiel zeigt eine Seite mit einem Inhaltsverzeichnis, das auf verschiedene Abschnitte verlinkt.
 
 #### HTML
 
-Unser Markup enthält eine Reihe von {{htmlelement("section")}} Elementen mit Inhalt und ein Inhaltsverzeichnis, das mit einer geordneten Liste ({{htmlelement("ol")}}/{{htmlelement("li")}}) und {{htmlelement("a")}} Elementen erstellt wird.
+Unser Markup hat eine Reihe von {{htmlelement("section")}} Elementen, die Inhalt enthalten, und ein Inhaltsverzeichnis, das mit einer geordneten Liste ({{htmlelement("ol")}}/{{htmlelement("li")}}) und {{htmlelement("a")}} Elementen erstellt wurde.
 
 ```html
 <nav id="toc">
@@ -75,12 +75,10 @@ Unser Markup enthält eine Reihe von {{htmlelement("section")}} Elementen mit In
 <section id="intro" class="chapter">
   <h1>Prose of the century</h1>
   <p>
-    I'm baby xOXO bespoke cupidatat PBR&B, affogato cronut 3 wolf moon ea
-    narwhal asymmetrical. Af health goth shaman in slow-carb godard echo park.
-    Tofu farm-to-table labore salvia tote bag food truck dolore gluten-free
-    poutine kombucha fanny pack +1 franzen lyft fugiat. Chicharrones next level
-    jianbing, enamel pin seitan cardigan bruh snackwave beard incididunt dolor
-    lumbersexual before they sold out dreamcatcher single-origin coffee.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+    aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+    pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at
+    ultricies tellus laoreet sit amet.
   </p>
 </section>
 <section id="ch1" class="chapter">
@@ -110,99 +108,94 @@ Unser Markup enthält eine Reihe von {{htmlelement("section")}} Elementen mit In
 <section id="intro" class="chapter">
   <h1>My story</h1>
   <p>
-    I'm baby xOXO bespoke cupidatat PBR&B, affogato cronut 3 wolf moon ea
-    narwhal asymmetrical. Af health goth shaman in slow-carb godard echo park.
-    Tofu farm-to-table labore salvia tote bag food truck dolore gluten-free
-    poutine kombucha fanny pack +1 franzen lyft fugiat. Chicharrones next level
-    jianbing, enamel pin seitan cardigan bruh snackwave beard incididunt dolor
-    lumbersexual before they sold out dreamcatcher single-origin coffee.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+    aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+    pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at
+    ultricies tellus laoreet sit amet.
   </p>
 </section>
 <section id="ch1" class="chapter">
   <h2>Chapter 1</h2>
   <p>
-    I'm baby xOXO bespoke cupidatat PBR&B, affogato cronut 3 wolf moon ea
-    narwhal asymmetrical. Af health goth shaman in slow-carb godard echo park.
-    Tofu farm-to-table labore salvia tote bag food truck dolore gluten-free
-    poutine kombucha fanny pack +1 franzen lyft fugiat. Chicharrones next level
-    jianbing, enamel pin seitan cardigan bruh snackwave beard incididunt dolor
-    lumbersexual before they sold out dreamcatcher single-origin coffee.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+    aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+    pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at
+    ultricies tellus laoreet sit amet.
   </p>
   <p>
-    Kombucha laborum tempor iceland pour-over. Keytar in echo park gorpcore
-    bespoke. Art party quinoa stumptown celiac, sed chillwave 3 wolf moon.
-    Scenester fugiat pariatur, seitan selvage excepteur chambray yuccie artisan.
-    Sunt schlitz ugh, et jawn sus four loko pop-up post-ironic photo booth
-    occaecat deep v 8-bit tacos marfa. Tattooed ipsum tbh occaecat umami four
-    loko adaptogen taiyaki truffaut hexagon neutral milk hotel.
+    Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet
+    orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare
+    ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat.
+    Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra
+    congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus
+    varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.
   </p>
   <p>
-    Austin mukbang scenester pabst, kale chips helvetica in selvage tote bag
-    drinking vinegar craft beer pickled meh subway tile +1. Big mood kogi blog,
-    vape hella seitan veniam.
+    Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada
+    ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed
+    est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus
+    tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies
+    lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis
+    vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque
+    penatibus et magnis dis parturient montes, nascetur ridiculus mus.
   </p>
 </section>
 <section id="ch2" class="chapter">
   <h2>Chapter 2</h2>
   <p>
-    Kombucha laborum tempor iceland pour-over. Keytar in echo park gorpcore
-    bespoke. Art party quinoa stumptown celiac, sed chillwave 3 wolf moon.
-    Scenester fugiat pariatur, seitan selvage excepteur chambray yuccie artisan.
-    Sunt schlitz ugh, et jawn sus four loko pop-up post-ironic photo booth
-    occaecat deep v 8-bit tacos marfa. Tattooed ipsum tbh occaecat umami four
-    loko adaptogen taiyaki truffaut hexagon neutral milk hotel.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+    aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+    pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at
+    ultricies tellus laoreet sit amet.
   </p>
   <p>
-    Chillwave gastropub chartreuse deserunt butcher umami meditation ennui. Sus
-    post-ironic affogato irony non succulents la croix labore tousled. Tumblr
-    selvage sartorial taxidermy yes plz fashion axe deserunt. Big mood
-    humblebrag hammock meditation, four dollar toast vice bruh minim tacos
-    chartreuse drinking vinegar sunt yes plz YOLO cred. Synth chartreuse est,
-    wayfarers pop-up ut gorpcore consequat ullamco meh lyft crucifix selvage
-    occaecat.
+    Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet
+    orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare
+    ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat.
+    Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra
+    congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus
+    varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.
   </p>
 </section>
 <section id="ch3" class="chapter">
   <h2>Chapter 3</h2>
   <p>
-    Chillwave gastropub chartreuse deserunt butcher umami meditation ennui. Sus
-    post-ironic affogato irony non succulents la croix labore tousled. Tumblr
-    selvage sartorial taxidermy yes plz fashion axe deserunt. Big mood
-    humblebrag hammock meditation, four dollar toast vice bruh minim tacos
-    chartreuse drinking vinegar sunt yes plz YOLO cred. Synth chartreuse est,
-    wayfarers pop-up ut gorpcore consequat ullamco meh lyft crucifix selvage
-    occaecat.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+    aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+    pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at
+    ultricies tellus laoreet sit amet.
   </p>
   <p>
-    I'm baby xOXO bespoke cupidatat PBR&B, affogato cronut 3 wolf moon ea
-    narwhal asymmetrical. Af health goth shaman in slow-carb godard echo park.
-    Tofu farm-to-table labore salvia tote bag food truck dolore gluten-free
-    poutine kombucha fanny pack +1 franzen lyft fugiat. Chicharrones next level
-    jianbing, enamel pin seitan cardigan bruh snackwave beard incididunt dolor
-    lumbersexual before they sold out dreamcatcher single-origin coffee.
+    Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet
+    orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare
+    ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat.
+    Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra
+    congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus
+    varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.
   </p>
 </section>
 <section id="ch4" class="chapter">
   <h2>Chapter 4</h2>
   <p>
-    Austin mukbang scenester pabst, kale chips helvetica in selvage tote bag
-    drinking vinegar craft beer pickled meh subway tile +1. Big mood kogi blog,
-    vape hella seitan veniam.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+    aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+    pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at
+    ultricies tellus laoreet sit amet.
   </p>
   <p>
-    I'm baby xOXO bespoke cupidatat PBR&B, affogato cronut 3 wolf moon ea
-    narwhal asymmetrical. Af health goth shaman in slow-carb godard echo park.
-    Tofu farm-to-table labore salvia tote bag food truck dolore gluten-free
-    poutine kombucha fanny pack +1 franzen lyft fugiat. Chicharrones next level
-    jianbing, enamel pin seitan cardigan bruh snackwave beard incididunt dolor
-    lumbersexual before they sold out dreamcatcher single-origin coffee.
+    Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet
+    orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare
+    ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat.
+    Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra
+    congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus
+    varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.
   </p>
 </section>
 ```
 
 #### CSS
 
-Wir haben den Großteil des Stylings zur Kürze unterdrückt. Am relevantesten für dieses Beispiel haben wir `scroll-target-group: auto` auf dem `<ol>` gesetzt, um es in einen Scroll-Marker-Gruppencontainer zu verwandeln und den Algorithmus des Browsers zu aktivieren, der berechnet, welches `<a>` Element zum `:target-current` zu einem gegebenen Zeitpunkt wird (das heißt, welches Link-Ziel gerade sichtbar ist). Wir stylen dann die `:target-current` Pseudo-Klasse mit einer `red` {{cssxref("color")}}, sodass sie deutlich hervortritt.
+Wir haben den größten Teil der Formatierung der Kürze halber weggelassen. Für dieses Beispiel am wichtigsten ist, dass wir `scroll-target-group: auto` auf das `<ol>` gesetzt haben, um es in einen Behälter für eine Scroll-Marker-Gruppe zu verwandeln und den Algorithmus des Browsers zu aktivieren, der berechnet, welches `<a>` Element aktuell `:target-current` ist (d.h. welches Linkziel gerade angezeigt wird). Anschließend stylen wir die `:target-current` Pseudoklasse mit einer `red` {{cssxref("color")}}, damit sie deutlich hervorsticht.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -258,17 +251,17 @@ ol {
 
 #### Ergebnis
 
-Versuchen Sie, durch Aktivieren der Links zu navigieren und durch Scrollen. Sie werden sehen, dass sich in jedem Fall die rote Hervorhebung zwischen den Links bewegt, um dem aktuell angezeigten Abschnitt zu entsprechen.
+Versuchen Sie, durch Aktivieren der Links und durch Scrollen zu navigieren. Sie werden sehen, dass sich in jedem Fall die rote Hervorhebung zwischen den Links bewegt, um dem aktuell angezeigten Abschnitt zu entsprechen.
 
 {{EmbedLiveSample("basic-usage", "100%", 500)}}
 
-### CSS-Karussell mit `scroll-target-group` Scroll-Marker
+### CSS-Karussell mit `scroll-target-group` Scroll-Markern
 
-Dieses Beispiel zeigt, wie Scroll-Marker für ein [CSS-Karussell](/de/docs/Web/CSS/CSS_overflow/CSS_carousels) mit `scroll-target-group` erstellt werden. Der Code für dieses Beispiel ähnelt unserem [Karussell mit Einzelseiten](/de/docs/Web/CSS/CSS_overflow/CSS_carousels#carousel_with_single_pages) Beispiel; wir erklären nur die Unterschiede unten.
+Dieses Beispiel zeigt, wie Sie [CSS-Karussell](/de/docs/Web/CSS/CSS_overflow/CSS_carousels) Scroll-Marker mit `scroll-target-group` erstellen. Der Code für dieses Beispiel ist unserem [Karussell mit einzelnen Seiten](/de/docs/Web/CSS/CSS_overflow/CSS_carousels#carousel_with_single_pages) Beispiel ähnlich; wir erklären nur die Unterschiede unten.
 
 #### HTML
 
-Das Markup hat IDs auf den Listenelementen angegeben, die jede Seite definieren, und eine geordnete Liste hinzugefügt, die wir mit CSS in einen Scroll-Marker-Gruppencontainer verwandeln.
+Das Markup hat IDs, die auf den Listenelementen gesetzt sind, welche jede Seite definieren, und eine geordnete Liste hinzugefügt, die wir mit CSS in einen Scroll-Marker-Gruppenbehälter verwandeln werden.
 
 ```html live-sample___carousel
 <h1>CSS carousel single item per page</h1>
@@ -296,9 +289,9 @@ Das Markup hat IDs auf den Listenelementen angegeben, die jede Seite definieren,
 
 #### CSS
 
-Wir erstellen den Scroll-Marker-Gruppencontainer und die Scroll-Marker, indem wir `scroll-target-group` auf das `<ol>` Element setzen. Der Rest des Codes für das Styling dieser ist sehr ähnlich, außer dass wir eigene Elemente (`<ol>` und `<a>`) anvisieren, anstatt der {{cssxref("::scroll-marker-group")}} und {{cssxref("::scroll-marker")}} Pseudo-Elemente.
+Wir erstellen den Scroll-Marker-Gruppenbehälter und die Scroll-Marker, indem wir `scroll-target-group` auf das `<ol>` Element setzen. Der Rest des Codes zum Stylen dieser ist sehr ähnlich, außer dass wir Elemente unserer Wahl (`<ol>` und `<a>`) anvisieren, anstatt der {{cssxref("::scroll-marker-group")}} und {{cssxref("::scroll-marker")}} Pseudoelemente.
 
-Wir vervollständigen den Code, indem wir Stile auf die `:target-current`, `a:hover` und `a:focus` Zustände setzen, um anzuzeigen, welche Seite gerade angezeigt wird und welche Links gerade fokussiert/gehovered werden.
+Wir vervollständigen den Code, indem wir einige Stile für die `:target-current`, `a:hover` und `a:focus` Zustände festlegen, um anzuzeigen, welche Seite gerade angezeigt wird und welche Links gerade fokussiert oder gehäuft werden.
 
 ```css hidden live-sample___carousel
 /* General styles */
@@ -436,7 +429,7 @@ ol a:focus,
 
 #### Ergebnis
 
-Versuchen Sie, auf drei verschiedene Arten zu navigieren: durch Aktivieren der Scroll-Marker-Links, durch horizontales Scrollen oder durch Drücken der Scroll-Schaltflächen auf beiden Seiten. Sie werden feststellen, dass sich in jedem Fall die Hervorhebung zwischen den Links bewegt, um dem Abschnitt zu entsprechen, der gerade angezeigt wird.
+Versuchen Sie auf drei verschiedene Arten zu navigieren: durch Aktivieren der Scroll-Marker-Links, durch horizontales Scrollen oder durch Drücken der Scroll-Schaltflächen auf beiden Seiten. Sie werden sehen, dass sich in jedem Fall die Hervorhebung zwischen den Links bewegt, um dem aktuell angezeigten Abschnitt zu entsprechen.
 
 {{EmbedLiveSample("carousel", "100%", 500)}}
 
@@ -451,7 +444,7 @@ Versuchen Sie, auf drei verschiedene Arten zu navigieren: durch Aktivieren der S
 ## Siehe auch
 
 - {{cssxref("scroll-marker-group")}}
-- {{cssxref("::scroll-marker-group")}} und {{cssxref("::scroll-marker")}} Pseudo-Elemente
-- {{cssxref(":target-current")}} Pseudo-Klasse
-- [Erstellen von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels)
-- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- {{cssxref("::scroll-marker-group")}} und {{cssxref("::scroll-marker")}} Pseudoelemente
+- {{cssxref(":target-current")}} Pseudoklasse
+- [CSS-Karussells erstellen](/de/docs/Web/CSS/CSS_overflow/CSS_carousels)
+- [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul
