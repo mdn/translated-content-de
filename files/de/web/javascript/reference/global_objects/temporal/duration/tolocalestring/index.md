@@ -3,14 +3,14 @@ title: Temporal.Duration.prototype.toLocaleString()
 short-title: toLocaleString()
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/Duration/toLocaleString
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
 {{SeeCompatTable}}
 
-Die **`toLocaleString()`** Methode von {{jsxref("Temporal.Duration")}} Instanzen gibt einen string mit einer sprachabhängigen Darstellung dieser Dauer zurück. In Implementierungen mit Unterstützung für die [`Intl.DurationFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat) delegiert diese Methode an `Intl.DurationFormat`.
+Die **`toLocaleString()`**-Methode von {{jsxref("Temporal.Duration")}}-Instanzen gibt eine Zeichenkette mit einer sprachsensitiven Darstellung dieser Dauer zurück. In Implementierungen mit Unterstützung der [`Intl.DurationFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat) delegiert diese Methode an `Intl.DurationFormat`.
 
-Jedes Mal, wenn `toLocaleString` aufgerufen wird, muss eine Suche in einer großen Datenbank mit Lokalisierungsstrings durchgeführt werden, was potenziell ineffizient ist. Wenn die Methode viele Male mit denselben Argumenten aufgerufen wird, ist es besser, ein {{jsxref("Intl.DurationFormat")}} Objekt zu erstellen und dessen {{jsxref("Intl/DurationFormat/format", "format()")}} Methode zu verwenden, da ein `DurationFormat` Objekt sich die übergebenen Argumente merkt und möglicherweise entscheiden kann, einen Teil der Datenbank zwischenzuspeichern, sodass zukünftige `format` Aufrufe nach Lokalisierungsstrings in einem stärker begrenzten Kontext suchen können.
+Jedes Mal, wenn `toLocaleString` aufgerufen wird, muss eine Suche in einer großen Datenbank von Lokalisierungsstrings durchgeführt werden, was potenziell ineffizient ist. Wenn die Methode mehrfach mit den gleichen Argumenten aufgerufen wird, ist es besser, ein {{jsxref("Intl.DurationFormat")}}-Objekt zu erstellen und dessen {{jsxref("Intl/DurationFormat/format", "format()")}}-Methode zu verwenden, da ein `DurationFormat`-Objekt sich die übergebenen Argumente merkt und entscheiden kann, einen Teil der Datenbank zu cachen, sodass zukünftige `format`-Aufrufe innerhalb eines eingeschränkteren Kontextes nach Lokalisierungsstrings suchen können.
 
 ## Syntax
 
@@ -22,31 +22,31 @@ toLocaleString(locales, options)
 
 ### Parameter
 
-Die `locales` und `options` Parameter passen das Verhalten der Funktion an und ermöglichen es Anwendungen, die Sprache anzugeben, deren Formatierungskonventionen verwendet werden sollen.
+Die Parameter `locales` und `options` passen das Verhalten der Funktion an und ermöglichen es Anwendungen, die Sprache zu spezifizieren, deren Formatierungskonventionen verwendet werden sollen.
 
-In Implementierungen, die die [`Intl.DurationFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat) unterstützen, entsprechen diese Parameter genau den Parametern des [`Intl.DurationFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat) Konstruktors. Implementierungen ohne Unterstützung für `Intl.DurationFormat` geben genau denselben String zurück wie {{jsxref("Temporal/Duration/toString", "toString()")}}, wobei beide Parameter ignoriert werden.
+In Implementierungen, die die [`Intl.DurationFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat) unterstützen, entsprechen diese Parameter genau den Parametern des Konstruktors [`Intl.DurationFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat). Implementierungen ohne `Intl.DurationFormat`-Unterstützung geben exakt den gleichen String wie {{jsxref("Temporal/Duration/toString", "toString()")}} zurück und ignorieren beide Parameter.
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47 Sprach-Tag oder ein Array solcher Strings. Entspricht dem [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat#locales) Parameter des `Intl.DurationFormat()` Konstruktor.
+  - : Ein String mit einem {{Glossary("BCP_47_language_tag", "BCP 47-Sprach-Tag")}} oder ein Array solcher Strings. Entspricht dem [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat#locales)-Parameter des `Intl.DurationFormat()`-Konstruktors.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das das Ausgabeformat anpasst. Entspricht dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat#options) Parameter des `Intl.DurationFormat()` Konstruktor.
+  - : Ein Objekt, das das Ausgabeformat anpasst. Entspricht dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat#options)-Parameter des `Intl.DurationFormat()`-Konstruktors.
 
-Details zu diesen Parametern und wie sie verwendet werden, finden Sie im [`Intl.DurationFormat()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat).
+Details zu diesen Parametern und deren Verwendung finden Sie im [`Intl.DurationFormat()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat).
 
 ### Rückgabewert
 
-Ein string, der die angegebene Dauer gemäß sprachspezifischen Konventionen darstellt.
+Eine Zeichenkette, die die gegebene Dauer gemäß sprachspezifischen Konventionen darstellt.
 
-In Implementierungen mit `Intl.DurationFormat` ist dies gleichbedeutend mit `new Intl.DurationFormat(locales, options).format(duration)`.
+In Implementierungen mit `Intl.DurationFormat` entspricht dies `new Intl.DurationFormat(locales, options).format(duration)`.
 
 > [!NOTE]
-> Meistens ist das von `toLocaleString()` zurückgegebene Format konsistent. Jedoch kann die Ausgabe zwischen Implementierungen unterschiedlich sein, selbst innerhalb derselben Lokalisierung — Ausgabevariationen sind designbedingt und durch die Spezifikation erlaubt. Sie entspricht möglicherweise auch nicht Ihren Erwartungen. Zum Beispiel kann der string geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `toLocaleString()` nicht mit fest codierten Konstanten vergleichen.
+> Meistens ist das von `toLocaleString()` zurückgegebene Format konsistent. Jedoch kann sich die Ausgabe zwischen Implementierungen unterscheiden, selbst innerhalb derselben Locale — Ausgabevariationen sind absichtlich und von der Spezifikation erlaubt. Es könnte auch nicht dem entsprechen, was Sie erwarten. Zum Beispiel könnte die Zeichenkette geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `toLocaleString()` nicht mit festkodierten Konstanten vergleichen.
 
 ## Beispiele
 
 ### Verwendung von toLocaleString()
 
-Die grundlegende Verwendung dieser Methode ohne Angabe einer `locale` gibt einen formatierten string in der Standardlokalisierung und mit Standardoptionen zurück.
+Die grundlegende Nutzung dieser Methode ohne Angabe eines `locale` gibt eine formatierte Zeichenkette in der Standard-Locale und mit Standardoptionen zurück.
 
 ```js
 const duration = Temporal.Duration.from({ hours: 1, minutes: 30, seconds: 15 });

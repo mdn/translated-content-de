@@ -1,12 +1,12 @@
 ---
-title: Intl.RelativeTimeFormat() Konstruktor
+title: Intl.RelativeTimeFormat()-Konstruktor
 short-title: Intl.RelativeTimeFormat()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat
 l10n:
-  sourceCommit: 96336268293d3958a19fa7552d84ec1af96dd59e
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
-Der **`Intl.RelativeTimeFormat()`** Konstruktor erstellt {{jsxref("Intl.RelativeTimeFormat")}} Objekte.
+Der **`Intl.RelativeTimeFormat()`**-Konstruktor erstellt {{jsxref("Intl.RelativeTimeFormat")}}-Objekte.
 
 ## Syntax
 
@@ -17,25 +17,25 @@ new Intl.RelativeTimeFormat(locales, options)
 ```
 
 > [!NOTE]
-> `Intl.RelativeTimeFormat()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> `Intl.RelativeTimeFormat()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) erstellt werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47-Sprach-Tag oder einer {{jsxref("Intl.Locale")}} Instanz, oder ein Array solcher Locale-Identifikatoren. Die Standard-Locale zur Laufzeit wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Locale-Identifikatoren unterstützt wird. Für die allgemeine Form und Interpretation des `locales` Arguments, siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Eine Zeichenkette mit einem {{Glossary("BCP_47_language_tag", "BCP 47-Sprach-Tag")}} oder einer {{jsxref("Intl.Locale")}}-Instanz oder ein Array solcher Sprachbezeichner. Die Standardlocale zur Laufzeit wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Sprachbezeichner unterstützt wird. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 
     Der folgende Unicode-Erweiterungsschlüssel ist erlaubt:
     - `nu`
       - : Siehe [`numberingSystem`](#numberingsystem).
 
-    Dieser Schlüssel kann auch mit `options` (wie unten aufgeführt) gesetzt werden. Wenn beide gesetzt sind, hat die `options` Eigenschaft Vorrang.
+    Dieser Schlüssel kann auch mit `options` gesetzt werden (wie unten angegeben). Wenn beide gesetzt sind, hat die `options`-Eigenschaft Vorrang.
 
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften enthält, in der Reihenfolge, in der sie abgerufen werden (alle sind optional):
     - `localeMatcher`
-      - : Der zu verwendende Algorithmus zum Abgleichen der Locale. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für Informationen zu dieser Option, siehe [Identifikation und Verhandlung von Locale](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+      - : Der zu verwendende Lokalisierungsabgleichs-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für Informationen über diese Option, siehe [Lokalisierung und Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
     - `numberingSystem`
-      - : Das zu verwendende Nummerierungssystem für die Zahlenformatierung, wie `"arab"`, `"hans"`, `"mathsans"`, usw. Für eine Liste unterstützter Nummerierungssystemtypen, siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types); der Standardwert ist abhängig von der Locale. Diese Option kann auch über den `nu` Unicode-Erweiterungsschlüssel gesetzt werden; wenn beide gegeben sind, hat diese `options` Eigenschaft Vorrang.
+      - : Das zu verwendende Nummernsystem für die Zahlenformatierung, wie z.B. `"arab"`, `"hans"`, `"mathsans"`, usw. Eine Liste unterstützter Nummernsystemtypen finden Sie unter [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types); der Standard ist von der Locale abhängig. Diese Option kann auch über den `nu` Unicode-Erweiterungsschlüssel gesetzt werden; wenn beide angegeben sind, hat diese `options`-Eigenschaft Vorrang.
     - `style`
       - : Der Stil der formatierten relativen Zeit. Mögliche Werte sind:
         - `"long"` (Standard)
@@ -43,9 +43,9 @@ new Intl.RelativeTimeFormat(locales, options)
         - `"short"`
           - : Z.B. "in 1 mo."
         - `"narrow"`
-          - : Z.B. "in 1 mo.". Der schmale Stil könnte für einige Locales dem kurzen Stil ähnlich sein.
+          - : Z.B. "in 1 mo.". Der enge Stil könnte für einige Locales dem kurzen Stil ähnlich sein.
     - `numeric`
-      - : Ob numerische Werte in der Ausgabe verwendet werden. Mögliche Werte sind `"always"` und `"auto"`; der Standardwert ist `"always"`. Wenn auf `"auto"` gesetzt, kann die Ausgabe idiomatischere Formulierungen wie `"yesterday"` anstelle von `"1 day ago"` verwenden.
+      - : Ob numerische Werte in der Ausgabe verwendet werden sollen. Mögliche Werte sind `"always"` und `"auto"`; der Standardwert ist `"always"`. Wenn auf `"auto"` gesetzt, kann die Ausgabe idiomatischere Formulierungen wie `"yesterday"` anstelle von `"1 day ago"` verwenden.
 
 ### Ausnahmen
 
@@ -54,7 +54,7 @@ new Intl.RelativeTimeFormat(locales, options)
 
 ## Beispiele
 
-### Grundlegende Formatnutzung
+### Grundlegende Nutzung der Formatierung
 
 Das folgende Beispiel zeigt, wie ein relativer Zeitformatierer mit der englischen Sprache erstellt wird.
 
@@ -75,7 +75,7 @@ rtf.format(1, "day"); // "in 1 day"
 
 ### Verwendung der Auto-Option
 
-Wenn die `numeric: "auto"` Option übergeben wird, erzeugt dies die Zeichenkette `yesterday` oder `tomorrow` anstelle von `1 day ago` oder `in 1 day`. Dies ist nützlich, wenn Sie keine numerischen Werte in der Ausgabe verwenden möchten.
+Wenn die `numeric: "auto"`-Option übergeben wird, wird sie den String `yesterday` oder `tomorrow` anstelle von `1 day ago` oder `in 1 day` erzeugen. Dies ist nützlich, wenn Sie keine numerischen Werte in der Ausgabe verwenden möchten.
 
 ```js
 // Create a relative time formatter in your locale

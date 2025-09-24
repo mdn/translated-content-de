@@ -3,22 +3,22 @@ title: "HTMLAnchorElement: hreflang-Eigenschaft"
 short-title: hreflang
 slug: Web/API/HTMLAnchorElement/hreflang
 l10n:
-  sourceCommit: 5948500efb7d63d514966013adc8ed925ce28f69
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
 {{ApiRef("HTML DOM")}}
 
 Die **`hreflang`**-Eigenschaft des [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interfaces ist ein String, der die Sprache der verlinkten Ressource angibt.
 
-Sie spiegelt das `hreflang`-Attribut des {{HTMLElement("a")}}-Elements wider und ist ein leerer String (`""`), wenn es kein `hreflang`-Attribut gibt.
+Sie spiegelt das `hreflang`-Attribut des {{HTMLElement("a")}}-Elements wider und ist der leere String (`""`), wenn kein `hreflang`-Element vorhanden ist.
 
-Webbrowser und Suchmaschinen können diese Information verwenden, um die Sprache des verlinkten Inhalts besser zu verstehen, sind aber nicht verpflichtet, dieser zu folgen. Der für das `hreflang`-Attribut angegebene Wert entspricht dem im {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definierten Format. Andernfalls wird er ignoriert.
+Webbrowser und Suchmaschinen können diese Information verwenden, um die Sprache des verlinkten Inhalts besser zu verstehen, sind jedoch nicht verpflichtet, ihr zu folgen. Der für das `hreflang`-Attribut bereitgestellte Wert folgt dem {{Glossary("BCP_47_language_tag", "BCP 47-Sprach-Tag")}}-Format. Andernfalls wird er ignoriert.
 
-Webbrowser verlassen sich nach dem Abrufen der verlinkten Ressource nicht ausschließlich auf das `hreflang`-Attribut. Stattdessen verwenden sie Sprachinformationen, die direkt mit der Ressource verknüpft sind (z. B. durch HTTP-Header), um die Sprache zu bestimmen.
+Webbrowser verlassen sich nach dem Abrufen der verlinkten Ressource nicht ausschließlich auf das `hreflang`-Attribut. Stattdessen verwenden sie direkt mit der Ressource assoziierte Sprachinformationen (z. B. über HTTP-Header), um deren Sprache zu bestimmen.
 
 ## Wert
 
-Ein String, der ein Sprach-Tag enthält, oder der leere String (`""`), wenn es kein `hreflang`-Attribut gibt.
+Ein String, der ein Sprach-Tag enthält, oder der leere String (`""`), wenn kein `hreflang`-Element vorhanden ist.
 
 ## Beispiel
 

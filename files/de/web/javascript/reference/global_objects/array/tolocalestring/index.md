@@ -3,10 +3,10 @@ title: Array.prototype.toLocaleString()
 short-title: toLocaleString()
 slug: Web/JavaScript/Reference/Global_Objects/Array/toLocaleString
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
-Die **`toLocaleString()`** Methode von {{jsxref("Array")}} Instanzen gibt einen String zurück, der die Elemente des Arrays repräsentiert. Die Elemente werden durch ihre `toLocaleString`-Methoden in Strings umgewandelt, und diese Strings werden durch einen lokalisierungsabhängigen String (wie ein Komma ",") getrennt.
+Die **`toLocaleString()`** Methode von {{jsxref("Array")}} Instanzen gibt einen String zurück, der die Elemente des Arrays darstellt. Die Elemente werden unter Verwendung ihrer `toLocaleString` Methoden in Strings umgewandelt, und diese Strings werden durch einen lokal spezifischen String (wie ein Komma ",") getrennt.
 
 {{InteractiveExample("JavaScript Demo: Array.prototype.toLocaleString()", "shorter")}}
 
@@ -30,32 +30,32 @@ toLocaleString(locales, options)
 ### Parameter
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47-Sprach-Tag oder ein Array solcher Strings. Für die allgemeine Form und Interpretation des `locales`-Arguments, siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} oder ein Array solcher Strings. Für die allgemeine Form und Interpretation des `locales` Arguments, siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
-  - : Ein Objekt mit Konfigurationseigenschaften. Was hier übergeben werden kann, hängt davon ab, welche Elemente konvertiert werden. Zum Beispiel für Zahlen, siehe {{jsxref("Number.prototype.toLocaleString()")}}.
+  - : Ein Objekt mit Konfigurationseigenschaften. Was hier übergeben werden kann, hängt davon ab, welche Elemente umgewandelt werden. Zum Beispiel, für Zahlen siehe {{jsxref("Number.prototype.toLocaleString()")}}.
 
 ### Rückgabewert
 
-Ein String, der die Elemente des Arrays repräsentiert.
+Ein String, der die Elemente des Arrays darstellt.
 
 ## Beschreibung
 
-Die `Array.prototype.toLocaleString` Methode durchläuft ihren Inhalt, ruft die `toLocaleString` Methode jedes Elements mit den angegebenen `locales` und `options` Parametern auf und verkettet sie mit einem implementationsdefinierten Trennzeichen (wie einem Komma ",").
+Die Methode `Array.prototype.toLocaleString` durchläuft ihren Inhalt, ruft die `toLocaleString` Methode jedes Elements mit den übergebenen `locales` und `options` Parametern auf und verkettet sie mit einem implementierungsdefinierten Separator (wie einem Komma ",").
 
 > [!NOTE]
-> Die `locales` oder `options` Argumente kontrollieren nicht den verwendeten Trennzeichen zwischen Array-Elementen; sie werden einfach an die `toLocaleString()` Methode jedes Elements weitergegeben. Das tatsächliche Trennzeichen (normalerweise ein Komma) hängt ausschließlich von der aktuellen Locale der Host-Umgebung ab. Wenn Sie eine lokalisierte Listenformatierung erwarten, sollten Sie stattdessen {{jsxref("Intl.ListFormat")}} verwenden.
+> Die Argumente `locales` oder `options` steuern nicht den Separator, der zwischen Array-Elementen verwendet wird; sie werden einfach an die `toLocaleString()` Methode jedes Elements weitergegeben. Der tatsächliche Separator (normalerweise ein Komma) ist allein von der aktuellen Locale des Hosts abhängig. Wenn Sie eine lokalisierte Listenformatierung erwarten, ziehen Sie in Betracht, {{jsxref("Intl.ListFormat")}} zu verwenden.
 
-Wenn ein Element `undefined`, `null` ist, wird es in einen leeren String anstelle des Strings `"null"` oder `"undefined"` umgewandelt.
+Wenn ein Element `undefined` oder `null` ist, wird es in einen leeren String umgewandelt, anstatt in die Strings `"null"` oder `"undefined"`.
 
-Beim Verwenden auf [spärlichen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) durchläuft die `toLocaleString()` Methode leere Slots, als ob sie den Wert `undefined` hätten.
+Bei Verwendung auf [dünn besetzten Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) iteriert die Methode `toLocaleString()` über leere Stellen, als ob sie den Wert `undefined` hätten.
 
-Die `toLocaleString()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integer-beschriftete Eigenschaften besitzt.
+Die `toLocaleString()` Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this` Wert eine `length` Eigenschaft und integer-schlüsselbezogene Eigenschaften hat.
 
 ## Beispiele
 
 ### Verwendung von locales und options
 
-Die Elemente des Arrays werden durch ihre `toLocaleString`-Methoden in Strings umgewandelt. Zum Beispiel ruft dieses Snippet implizit die {{jsxref("Number.prototype.toLocaleString()")}} Methode auf, um die Währung für die Strings und Zahlen im `prices` Array anzuzeigen:
+Die Elemente des Arrays werden unter Verwendung ihrer `toLocaleString` Methoden in Strings umgewandelt. Zum Beispiel ruft dieses Snippet implizit die {{jsxref("Number.prototype.toLocaleString()")}} Methode auf, um die Währung für die Strings und Zahlen im `prices` Array anzuzeigen:
 
 ```js
 const prices = ["￥7", 500, 8123, 12];
@@ -64,9 +64,9 @@ prices.toLocaleString("ja-JP", { style: "currency", currency: "JPY" });
 // "￥7,￥500,￥8,123,￥12"
 ```
 
-### Listentrennzeichen
+### Listenseparatoren
 
-Das Listentrennzeichen wird nicht durch den `locales` Parameter beeinflusst. Um es zu konfigurieren, verwenden Sie stattdessen {{jsxref("Intl.ListFormat")}}.
+Der Listenseparator wird nicht durch den `locales` Parameter beeinflusst. Um ihn zu konfigurieren, verwenden Sie stattdessen {{jsxref("Intl.ListFormat")}}.
 
 ```js
 const nums = [8888, 9999];
@@ -80,9 +80,9 @@ console.log(formatter.format(nums.map((x) => x.toLocaleString("zh"))));
 // "8,888、9,999"
 ```
 
-### Verwendung von toLocaleString() auf spärlichen Arrays
+### Verwendung von toLocaleString() auf dünn besetzten Arrays
 
-`toLocaleString()` behandelt leere Slots wie `undefined` und erzeugt ein zusätzliches Trennzeichen:
+`toLocaleString()` behandelt leere Plätze genauso wie `undefined` und erzeugt einen zusätzlichen Separator:
 
 ```js
 console.log([1, , 3].toLocaleString()); // '1,,3'
@@ -90,7 +90,7 @@ console.log([1, , 3].toLocaleString()); // '1,,3'
 
 ### Aufrufen von toLocaleString() auf Nicht-Array-Objekten
 
-Die `toLocaleString()` Methode liest die `length` Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht-negative ganze Zahl kleiner als `length` ist.
+Die `toLocaleString()` Methode liest die `length` Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nichtnegative ganze Zahl kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -114,7 +114,7 @@ console.log(Array.prototype.toLocaleString.call(arrayLike));
 
 ## Siehe auch
 
-- [Indexierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}
 - {{jsxref("Array.prototype.toString()")}}
 - {{jsxref("TypedArray.prototype.toLocaleString()")}}

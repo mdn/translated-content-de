@@ -1,28 +1,24 @@
 ---
-title: "VideoTrack: language-Eigenschaft"
+title: "VideoTrack: `language`-Eigenschaft"
 short-title: language
 slug: Web/API/VideoTrack/language
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **[`VideoTrack`](/de/docs/Web/API/VideoTrack)**
-Eigenschaft **`language`** gibt eine Zeichenkette zurück, die die
-Sprache identifiziert, die im Video-Track verwendet wird.
+Die schreibgeschützte Eigenschaft **[`VideoTrack`](/de/docs/Web/API/VideoTrack)**
+**`language`** gibt einen String zurück, der die im Videospur verwendete Sprache identifiziert.
 
-Bei Spuren, die mehrere Sprachen umfassen
+Für Spuren, die mehrere Sprachen enthalten
 (zum Beispiel ein Film auf Englisch, in dem einige Zeilen in anderen Sprachen gesprochen werden), sollte dies die Hauptsprache des Videos sein.
 
 ## Wert
 
-Eine Zeichenkette, die den BCP 47 ({{RFC(5646)}}) Format-Sprach-Tag der
-Hauptsprache angibt, die im Video-Track verwendet wird, oder eine leere Zeichenkette (`""`), wenn die Sprache nicht angegeben oder unbekannt ist, oder wenn der Track keine Sprache enthält.
+Ein String, der das {{Glossary("BCP_47_language_tag", "BCP 47-Sprach-Tag")}} der in der Videospur verwendeten Hauptsprache angibt, oder ein leerer String (`""`), wenn die Sprache nicht spezifiziert oder bekannt ist oder wenn die Spur keine Sprache enthält.
 
-Zum Beispiel, wenn die Hauptsprache des Tracks US-Englisch ist, würde dieser
-Wert `"en-US"` sein. Für brasilianisches Portugiesisch wäre der Wert
-`"pt-BR"`.
+Zum Beispiel, wenn die Hauptsprache der Spur US-Englisch ist, wäre dieser Wert `"en-US"`. Für brasilianisches Portugiesisch wäre der Wert `"pt-BR"`.
 
 ## Spezifikationen
 

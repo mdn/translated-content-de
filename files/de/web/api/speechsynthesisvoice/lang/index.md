@@ -3,16 +3,16 @@ title: "SpeechSynthesisVoice: lang-Eigenschaft"
 short-title: lang
 slug: Web/API/SpeechSynthesisVoice/lang
 l10n:
-  sourceCommit: b5437b737639d6952d18b95ebd1045ed73e4bfa7
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte **`lang`**-Eigenschaft des [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt ein BCP 47-Sprachtag zurück, das die Sprache der Stimme angibt.
+Die schreibgeschützte **`lang`**-Eigenschaft der [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Schnittstelle gibt einen {{Glossary("BCP_47_language_tag", "BCP 47-Sprachcode")}} zurück, der die Sprache der Stimme angibt.
 
 ## Wert
 
-Ein String, der die Sprache des Geräts repräsentiert.
+Ein String, der die Sprache des Geräts darstellt.
 
 ## Beispiele
 

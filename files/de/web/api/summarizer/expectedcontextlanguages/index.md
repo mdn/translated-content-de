@@ -1,20 +1,20 @@
 ---
-title: "Summarizer: expectedContextLanguages Eigenschaft"
+title: "Summarizer: expectedContextLanguages-Eigenschaft"
 short-title: expectedContextLanguages
 slug: Web/API/Summarizer/expectedContextLanguages
 l10n:
-  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
 {{APIRef("Summarizer API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`expectedContextLanguages`** schreibgeschützte Eigenschaft der [`Summarizer`](/de/docs/Web/API/Summarizer) Schnittstelle gibt die Sprachen zurück, in denen die Kontextstrings geschrieben sein sollten.
+Die schreibgeschützte Eigenschaft **`expectedContextLanguages`** des [`Summarizer`](/de/docs/Web/API/Summarizer)-Interfaces gibt die Sprachen zurück, in denen die Kontextstrings verfasst sein sollten.
 
 ## Wert
 
-Ein Array von Zeichenfolgen, die die erwarteten Sprachen der bereitgestellten Kontextstrings spezifizieren (entweder der [`Summarizer.sharedContext`](/de/docs/Web/API/Summarizer/sharedContext) oder ein `context`, der während eines [`summarize()`](/de/docs/Web/API/Summarizer/summarize) oder [`summarizeStreaming()`](/de/docs/Web/API/Summarizer/summarizeStreaming) Aufrufs angegeben wird).
+Ein Array von Zeichenketten, die die erwarteten Sprachen der bereitgestellten Kontextstrings angeben (entweder der [`Summarizer.sharedContext`](/de/docs/Web/API/Summarizer/sharedContext) oder ein `context`, das während eines Aufrufs von [`summarize()`](/de/docs/Web/API/Summarizer/summarize) oder [`summarizeStreaming()`](/de/docs/Web/API/Summarizer/summarizeStreaming) angegeben wird).
 
-Die Zeichenfolgen sollten gültige [BCP 47 Sprach-Tags](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) sein (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) festgelegt).
+Die Zeichenketten sollten gültige {{Glossary("BCP_47_language_tag", "BCP 47-Sprach-Tags")}} sein.
 
 ## Beispiele
 
@@ -39,4 +39,4 @@ console.log(summarizer.expectedContextLanguages[0]);
 ## Siehe auch
 
 - [Verwendung der Summarizer API](/de/docs/Web/API/Summarizer_API/Using)
-- [Web AI Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev
+- [Web AI-Demos](https://chrome.dev/web-ai-demos/) auf chrome.dev

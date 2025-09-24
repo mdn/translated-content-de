@@ -3,10 +3,10 @@ title: Intl.ListFormat.prototype.resolvedOptions()
 short-title: resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/resolvedOptions
 l10n:
-  sourceCommit: 939067a53bb5bb3787f2d536b83df2252d4e838e
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
-Die Methode **`resolvedOptions()`** von {{jsxref("Intl.ListFormat")}} Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die Optionen widerspiegeln, die während der Initialisierung dieses `ListFormat`-Objekts berechnet wurden.
+Die Methode **`resolvedOptions()`** von {{jsxref("Intl.ListFormat")}} Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `ListFormat`-Objekts berechneten Optionen widerspiegeln.
 
 {{InteractiveExample("JavaScript Demo: Intl.ListFormat.prototype.resolvedOptions()")}}
 
@@ -39,11 +39,11 @@ Keine.
 Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `ListFormat`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften, in der Reihenfolge, in der sie aufgelistet sind:
 
 - `locale`
-  - : Das BCP 47-Sprach-Tag für die tatsächlich verwendete Locale, bestimmt durch den [Locale-Aushandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Kein Unicode-Erweiterungsschlüssel wird in der Ausgabe enthalten sein.
+  - : Das {{Glossary("BCP_47_language_tag", "BCP 47-Sprachtag")}} für das tatsächlich verwendete Gebietsschema, bestimmt durch den [Locale-Aushandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Kein Unicode-Erweiterungsschlüssel wird in der Ausgabe enthalten sein.
 - `type`
-  - : Der Wert, der für diese Eigenschaft im `options`-Argument bereitgestellt wurde, wobei die Standards nach Bedarf ausgefüllt werden. Er ist entweder `"conjunction"`, `"disjunction"` oder `"unit"`. Der Standard ist `"conjunction"`.
+  - : Der für diese Eigenschaft im `options`-Argument bereitgestellte Wert, mit Standardwerten, die bei Bedarf ausgefüllt werden. Es ist entweder `"conjunction"`, `"disjunction"` oder `"unit"`. Der Standardwert ist `"conjunction"`.
 - `style`
-  - : Der Wert, der für diese Eigenschaft im `options`-Argument bereitgestellt wurde, wobei die Standards nach Bedarf ausgefüllt werden. Er ist entweder `"long"`, `"short"` oder `"narrow"`. Der Standard ist `"long"`.
+  - : Der für diese Eigenschaft im `options`-Argument bereitgestellte Wert, mit Standardwerten, die bei Bedarf ausgefüllt werden. Es ist entweder `"long"`, `"short"` oder `"narrow"`. Der Standardwert ist `"long"`.
 
 ## Beispiele
 

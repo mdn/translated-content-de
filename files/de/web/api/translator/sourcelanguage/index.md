@@ -3,18 +3,18 @@ title: "Translator: sourceLanguage-Eigenschaft"
 short-title: sourceLanguage
 slug: Web/API/Translator/sourceLanguage
 l10n:
-  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
 {{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die schreibgeschützte **`sourceLanguage`**-Eigenschaft der [`Translator`](/de/docs/Web/API/Translator)-Schnittstelle gibt die erwartete Sprache des übersetzenden Eingabetexts zurück.
+Die schreibgeschützte Eigenschaft **`sourceLanguage`** der [`Translator`](/de/docs/Web/API/Translator)-Schnittstelle gibt die erwartete Sprache des zu übersetzenden Eingabetextes zurück.
 
-Die `sourceLanguage` einer `Translator`-Instanz wird beim Erstellen über einen [`create()`](/de/docs/Web/API/Translator/create_static)-Aufruf festgelegt.
+Die `sourceLanguage` eines `Translator`-Instanzen wird festgelegt, wenn sie über einen [`create()`](/de/docs/Web/API/Translator/create_static)-Aufruf erstellt wird.
 
 ## Wert
 
-Ein String, der die Quellsprache angibt. Dies wird ein gültiger [BCP 47-Sprachcode](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) sein (wie in [RFC 5646](https://datatracker.ietf.org/doc/html/rfc5646) spezifiziert).
+Ein String, der die Ausgangssprache angibt. Dies wird ein gültiger {{Glossary("BCP_47_language_tag", "BCP 47-Sprachcode")}} sein.
 
 ## Beispiele
 

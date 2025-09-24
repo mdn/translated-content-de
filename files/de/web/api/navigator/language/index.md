@@ -3,24 +3,24 @@ title: "Navigator: language-Eigenschaft"
 short-title: language
 slug: Web/API/Navigator/language
 l10n:
-  sourceCommit: 3e1f24c70df1a6f5a76e843369b404ecab19e931
+  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`language`** Lese-only-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt einen String zurück, der die bevorzugte Sprache des Benutzers darstellt, normalerweise die Sprache der Browser-Benutzeroberfläche.
+Die **`language`** schreibgeschützte Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt einen String zurück, der die bevorzugte Sprache des Benutzers darstellt, normalerweise die Sprache der Browser-Benutzeroberfläche.
 
 ## Wert
 
-Ein String, der die Sprachversion darstellt, wie in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definiert. Beispiele für gültige Sprachcodes sind "en", "en-US", "fr", "fr-FR", "es-ES" usw.
+Ein String, der die Sprachversion im {{Glossary("BCP_47_language_tag", "BCP 47-Sprach-Tag")}}-Format darstellt. Beispiele für gültige Sprach-Tags sind `en`, `en-US`, `fr`, `fr-FR`, `es-ES` usw.
 
-Beachten Sie, dass in Safari auf iOS vor Version 10.2 der zurückgegebene Ländercode kleingeschrieben ist: "en-us", "fr-fr" usw.
+Beachten Sie, dass in Safari auf iOS vor Version 10.2 der zurückgegebene Ländercode klein geschrieben ist: "en-us", "fr-fr" usw.
 
 ## Beispiele
 
-### Verwenden von Intl-Konstruktoren zur sprachspezifischen Formatierung
+### Verwendung der Intl-Konstruktoren für sprachspezifisches Formatieren
 
-Die {{jsxref("Intl")}}-Konstruktoren erlauben es, Inhalte gemäß den Regeln einer gegebenen Locale zu formatieren. Sie können `navigator.language` an diese Konstruktoren übergeben, um Inhalte in der Locale zu formatieren, die der bevorzugten Sprache des Benutzers entspricht:
+Die {{jsxref("Intl")}}-Konstruktoren erlauben das Formatieren von Inhalten gemäß den Regeln eines bestimmten Gebietsschemas. Sie können `navigator.language` an diese übergeben, um Inhalte im Gebietsschema der bevorzugten Benutzersprache zu formatieren:
 
 ```js
 const date = new Date("2012-05-24");
