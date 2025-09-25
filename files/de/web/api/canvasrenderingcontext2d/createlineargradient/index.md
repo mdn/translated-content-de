@@ -1,23 +1,21 @@
 ---
-title: "CanvasRenderingContext2D: Methode createLinearGradient()"
+title: "CanvasRenderingContext2D: createLinearGradient() Methode"
 short-title: createLinearGradient()
 slug: Web/API/CanvasRenderingContext2D/createLinearGradient
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die Methode
-**`CanvasRenderingContext2D.createLinearGradient()`**
-der Canvas 2D API erstellt einen Farbverlauf entlang der Linie, die zwei gegebene Koordinaten verbindet.
+Die Methode **`CanvasRenderingContext2D.createLinearGradient()`** des Canvas 2D API erstellt einen Verlauf entlang der Linie, die zwei gegebene Koordinaten verbindet.
 
-![Der Farbverlauf wechselt die Farben entlang der Verlaufslinie, beginnend bei Punkt x0, y0 und bis zu x1, y1, auch wenn diese Punkte die Verlaufslinie über die Ränder des Elements hinaus erweitern, auf dem der Farbverlauf gezeichnet wird.](mdn-canvas-lineargradient.png)
+![Der Verlauf ändert die Farben entlang der Verlaufsline, beginnend am Punkt x0, y0 und gehend bis x1, y1, auch wenn diese Punkte die Verlaufsline über die Kanten des Elements hinaus verlängern, auf dem der Verlauf gezeichnet wird.](mdn-canvas-lineargradient.png)
 
-Diese Methode gibt einen linearen [`CanvasGradient`](/de/docs/Web/API/CanvasGradient) zurück. Um auf eine Form angewendet zu werden, muss der Farbverlauf zuerst den Eigenschaften [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) zugewiesen werden.
+Diese Methode gibt einen linearen [`CanvasGradient`](/de/docs/Web/API/CanvasGradient) zurück. Um auf eine Form angewendet zu werden, muss der Verlauf zunächst den Eigenschaften [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) zugewiesen werden.
 
 > [!NOTE]
-> Farbverlaufskoordinaten sind global, d.h. relativ zum aktuellen Koordinatenraum. Wenn sie auf eine Form angewendet werden, sind die Koordinaten NICHT relativ zu den Koordinaten der Form.
+> Verlaufskoordinaten sind global, d.h. relativ zum aktuellen Koordinatenraum. Wenn sie auf eine Form angewendet werden, sind die Koordinaten NICHT relativ zu den Koordinaten der Form.
 
 ## Syntax
 
@@ -25,33 +23,33 @@ Diese Methode gibt einen linearen [`CanvasGradient`](/de/docs/Web/API/CanvasGrad
 createLinearGradient(x0, y0, x1, y1)
 ```
 
-Die Methode `createLinearGradient()` wird mit vier Parametern spezifiziert, die die Start- und Endpunkte der Verlaufslinie definieren.
+Die Methode `createLinearGradient()` wird durch vier Parameter spezifiziert, die die Start- und Endpunkte der Verlaufsline definieren.
 
 ### Parameter
 
 - `x0`
-  - : Die x-Achsen-Koordinate des Startpunktes.
+  - : Die x-Achsen-Koordinate des Startpunkts.
 - `y0`
-  - : Die y-Achsen-Koordinate des Startpunktes.
+  - : Die y-Achsen-Koordinate des Startpunkts.
 - `x1`
-  - : Die x-Achsen-Koordinate des Endpunktes.
+  - : Die x-Achsen-Koordinate des Endpunkts.
 - `y1`
-  - : Die y-Achsen-Koordinate des Endpunktes.
+  - : Die y-Achsen-Koordinate des Endpunkts.
 
 ### Rückgabewert
 
-Ein linearer [`CanvasGradient`](/de/docs/Web/API/CanvasGradient), der mit der angegebenen Linie initialisiert wurde.
+Ein linearer [`CanvasGradient`](/de/docs/Web/API/CanvasGradient), initialisiert mit der angegebenen Linie.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn nicht endliche Werte als Parameter übergeben werden.
+  - : Wird ausgelöst, wenn nicht-endliche Werte als Parameter übergeben werden.
 
 ## Beispiele
 
-### Ein Rechteck mit einem linearen Farbverlauf füllen
+### Füllen eines Rechtecks mit einem linearen Verlauf
 
-Dieses Beispiel initialisiert einen linearen Farbverlauf mit der Methode `createLinearGradient()`. Drei Farbstopps zwischen den Start- und Endpunkten des Gradienten werden dann erstellt. Schließlich wird der Farbverlauf dem Canvas-Kontext zugewiesen und ein gefülltes Rechteck wird gerendert.
+In diesem Beispiel wird ein linearer Verlauf mit der Methode `createLinearGradient()` initialisiert. Drei Farbstopps zwischen den Start- und Endpunkten des Verlaufs werden dann erstellt. Schließlich wird der Verlauf dem Canvas-Kontext zugewiesen und als gefülltes Rechteck gerendert.
 
 #### HTML
 

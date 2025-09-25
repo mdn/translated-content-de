@@ -3,12 +3,14 @@ title: "CanvasRenderingContext2D: canvas-Eigenschaft"
 short-title: canvas
 slug: Web/API/CanvasRenderingContext2D/canvas
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.canvas`**-Eigenschaft, Teil der [Canvas API](/de/docs/Web/API/Canvas_API), ist eine schreibgeschützte Referenz auf das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)-Objekt, das mit einem bestimmten Kontext verknüpft ist. Sie kann [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein, wenn kein zugehöriges {{HTMLElement("canvas")}}-Element vorhanden ist.
+Die **`CanvasRenderingContext2D.canvas`** Eigenschaft, Teil der
+[Canvas API](/de/docs/Web/API/Canvas_API), ist ein schreibgeschützter Verweis auf das
+[`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)-Objekt, das mit einem bestimmten Kontext verknüpft ist. Sie kann [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein, wenn kein zugehöriges {{HTMLElement("canvas")}}-Element existiert.
 
 ## Wert
 
@@ -16,13 +18,14 @@ Ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)-Objekt.
 
 ## Beispiele
 
-Angenommen, dieses {{HTMLElement("canvas")}}-Element:
+Angenommen, Sie haben dieses {{HTMLElement("canvas")}}-Element:
 
 ```html
 <canvas id="canvas"></canvas>
 ```
 
-… dann können Sie über die `canvas`-Eigenschaft eine Referenz auf das Canvas-Element innerhalb des `CanvasRenderingContext2D` erhalten:
+… Sie können eine Referenz auf das Canvas-Element innerhalb des
+`CanvasRenderingContext2D` über die `canvas`-Eigenschaft erhalten:
 
 ```js
 const canvas = document.getElementById("canvas");

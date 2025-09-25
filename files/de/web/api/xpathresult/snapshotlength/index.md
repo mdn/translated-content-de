@@ -3,12 +3,13 @@ title: "XPathResult: snapshotLength-Eigenschaft"
 short-title: snapshotLength
 slug: Web/API/XPathResult/snapshotLength
 l10n:
-  sourceCommit: b8cd964ef488e9691252e02f6ad1ebd3293b8eaa
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef("DOM XPath")}} {{AvailableInWorkers}}
+{{APIRef("DOM")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`snapshotLength`**-Eigenschaft des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces repräsentiert die Anzahl der Knoten im Ergebnis-Snapshot.
+Die schreibgeschützte **`snapshotLength`**-Eigenschaft des
+[`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces repräsentiert die Anzahl der Knoten im Ergebnis-Snapshot.
 
 ## Wert
 
@@ -18,7 +19,9 @@ Ein ganzzahliger Wert, der die Anzahl der Knoten im Ergebnis-Snapshot darstellt.
 
 #### TYPE_ERR
 
-Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `UNORDERED_NODE_SNAPSHOT_TYPE` oder `ORDERED_NODE_SNAPSHOT_TYPE` ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `TYPE_ERR` ausgelöst.
+Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht
+`UNORDERED_NODE_SNAPSHOT_TYPE` oder `ORDERED_NODE_SNAPSHOT_TYPE` ist, wird ein
+[`DOMException`](/de/docs/Web/API/DOMException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 

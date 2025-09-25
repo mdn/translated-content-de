@@ -3,14 +3,14 @@ title: "HTMLIFrameElement: src-Eigenschaft"
 short-title: src
 slug: Web/API/HTMLIFrameElement/src
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Die **`HTMLIFrameElement.src`** ist ein String, der das HTML-Attribut [`src`](/de/docs/Web/HTML/Reference/Elements/iframe#src) widerspiegelt und die Adresse des einzubettenden Inhalts enthält.
+Die **`HTMLIFrameElement.src`** ist ein String, der das [`src`](/de/docs/Web/HTML/Reference/Elements/iframe#src) HTML-Attribut widerspiegelt und die Adresse des einzubettenden Inhalts enthält.
 
-Beachten Sie, dass das programmgesteuerte Entfernen des `src`-Attributs eines `<iframe>` (z. B. über [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)) dazu führt, dass `about:blank` im Frame geladen wird.
+Beachten Sie, dass das programmgesteuerte Entfernen des `src`-Attributs eines `<iframe>` (z.B. über [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)) dazu führt, dass `about:blank` im Frame geladen wird.
 
 ## Beispiel
 

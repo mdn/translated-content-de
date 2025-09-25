@@ -3,10 +3,10 @@ title: DataView.prototype.byteLength
 short-title: byteLength
 slug: Web/JavaScript/Reference/Global_Objects/DataView/byteLength
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 377c7d317e7ffd477bc8b1273f0e215978b76dd1
 ---
 
-Die Zugriffseigenschaft **`byteLength`** von Instanzen des {{jsxref("DataView")}} gibt die Länge (in Bytes) dieser Ansicht zurück.
+Die **`byteLength`** Zugriffs-Eigenschaft von {{jsxref("DataView")}}-Instanzen gibt die Länge (in Bytes) dieser Ansicht zurück.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.byteLength")}}
 
@@ -23,7 +23,7 @@ console.log(view1.byteLength + view2.byteLength); // 16 + 4
 
 ## Beschreibung
 
-Die `byteLength`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion auf `undefined` festgelegt ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen eines `DataView` festgelegt und kann nicht geändert werden. Wenn der `DataView` keinen Offset oder eine `byteLength` spezifiziert, wird die `byteLength` des referenzierten `ArrayBuffer` oder `SharedArrayBuffer` zurückgegeben.
+Die `byteLength`-Eigenschaft ist eine Zugriffs-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Wenn der `DataView` [length-tracking](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#behavior_when_viewing_a_resizable_buffer) ist, hängt seine Länge von der Länge des zugrunde liegenden Puffers ab und kann sich ändern, wenn der Puffer neu dimensioniert wird. Andernfalls wird der Wert beim Erstellen des `DataView` festgelegt und kann nicht geändert werden. Unabhängig davon, ob length-tracking oder nicht, wird `byteLength` 0, wenn der zugrunde liegende Puffer so neu dimensioniert wird, dass der angezeigte Bereich nicht mehr gültig ist.
 
 ## Beispiele
 
@@ -39,6 +39,14 @@ dataview2.byteLength; // 5 (as specified when constructing the DataView)
 
 const dataview3 = new DataView(buffer, 2);
 dataview3.byteLength; // 6 (due to the offset of the constructed DataView)
+
+const buffer2 = new ArrayBuffer(16, { maxByteLength: 32 });
+const dataviewLengthTracking = new DataView(buffer2, 4);
+dataviewLengthTracking.byteLength; // 12 (16 - 4)
+buffer2.resize(20);
+dataviewLengthTracking.byteLength; // 16 (20 - 4)
+buffer2.resize(3);
+dataviewLengthTracking.byteLength; // 0 (viewed range is no longer valid)
 ```
 
 ## Spezifikationen
@@ -51,6 +59,7 @@ dataview3.byteLength; // 6 (due to the offset of the constructed DataView)
 
 ## Siehe auch
 
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("SharedArrayBuffer")}}

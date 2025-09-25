@@ -3,18 +3,18 @@ title: "HTMLCanvasElement: contextrestored Ereignis"
 short-title: contextrestored
 slug: Web/API/HTMLCanvasElement/contextrestored_event
 l10n:
-  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Das **`contextrestored`** Ereignis der [Canvas-API](/de/docs/Web/API/Canvas_API) wird ausgelöst, wenn der Benutzeragent den unterstützenden Speicher für ein [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) wiederherstellt.
+Das **`contextrestored`**-Ereignis der [Canvas-API](/de/docs/Web/API/Canvas_API) wird ausgelöst, wenn der Benutzeragent den Speichervorrat für einen [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) wiederherstellt.
 
-Sie können Ihren Kontext nach Empfang dieses Ereignisses neu zeichnen, Ressourcen erneut abrufen und den Zustand neu initialisieren.
+Nach Erhalt dieses Ereignisses können Sie den Kontext neu zeichnen, Ressourcen erneut abrufen und den Zustand Ihres Kontexts neu initialisieren.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("contextrestored", (event) => { })
@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Das folgende Codefragment erkennt das wiederhergestellte Kontextereignis.
+Das folgende Codefragment erkennt das wiederhergestellte Kontextevent.
 
 ```js
 const canvas = document.getElementById("canvas");

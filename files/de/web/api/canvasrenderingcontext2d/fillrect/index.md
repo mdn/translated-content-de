@@ -3,18 +3,14 @@ title: "CanvasRenderingContext2D: fillRect()-Methode"
 short-title: fillRect()
 slug: Web/API/CanvasRenderingContext2D/fillRect
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die
-**`CanvasRenderingContext2D.fillRect()`**
-Methode der Canvas 2D API zeichnet ein Rechteck, das entsprechend dem aktuellen
-[`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) gefüllt ist.
+Die **`CanvasRenderingContext2D.fillRect()`**-Methode der Canvas 2D-API zeichnet ein Rechteck, das gemäß dem aktuellen [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) gefüllt ist.
 
-Diese Methode zeichnet direkt auf die Leinwand, ohne den aktuellen Pfad zu verändern, daher haben nachfolgende Aufrufe von [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder
-[`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) keinen Einfluss darauf.
+Diese Methode zeichnet direkt auf die Leinwand, ohne den aktuellen Pfad zu verändern, sodass nachfolgende [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill)- oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke)-Aufrufe keinen Effekt darauf haben werden.
 
 ## Syntax
 
@@ -22,25 +18,22 @@ Diese Methode zeichnet direkt auf die Leinwand, ohne den aktuellen Pfad zu verä
 fillRect(x, y, width, height)
 ```
 
-Die `fillRect()`-Methode zeichnet ein gefülltes Rechteck, dessen Startpunkt bei
-`(x, y)` liegt und dessen Größe durch `width` und
-`height` festgelegt wird. Der Füllstil wird durch das aktuelle `fillStyle`-
-Attribut bestimmt.
+Die `fillRect()`-Methode zeichnet ein gefülltes Rechteck, dessen Ausgangspunkt bei `(x, y)` liegt und dessen Größe durch `width` und `height` angegeben wird. Der Füllstil wird durch das aktuelle `fillStyle`-Attribut bestimmt.
 
 ### Parameter
 
 - `x`
-  - : Die x-Achsen-Koordinate des Startpunkts des Rechtecks.
+  - : Die x-Achsen-Koordinate des Ausgangspunkts des Rechtecks.
 - `y`
-  - : Die y-Achsen-Koordinate des Startpunkts des Rechtecks.
+  - : Die y-Achsen-Koordinate des Ausgangspunkts des Rechtecks.
 - `width`
-  - : Die Breite des Rechtecks. Positive Werte sind nach rechts, negative nach links.
+  - : Die Breite des Rechtecks. Positive Werte sind nach rechts und negative nach links.
 - `height`
-  - : Die Höhe des Rechtecks. Positive Werte sind nach unten, negative nach oben.
+  - : Die Höhe des Rechtecks. Positive Werte sind nach unten und negative nach oben.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -69,9 +62,9 @@ ctx.fillRect(20, 10, 150, 100);
 
 {{ EmbedLiveSample('A_simple_filled_rectangle', 700, 180) }}
 
-### Das gesamte Canvas füllen
+### Die gesamte Leinwand füllen
 
-Dieses Code-Snippet füllt die gesamte Leinwand mit einem Rechteck. Dies ist oft nützlich, um einen Hintergrund zu erstellen, auf den andere Dinge gezeichnet werden können. Um dies zu erreichen, werden die Dimensionen des Rechtecks so eingestellt, dass sie den `width`- und `height`-Attributen des {{HtmlElement("canvas")}}-Elements entsprechen.
+Dieser Codeausschnitt füllt die gesamte Leinwand mit einem Rechteck. Dies ist oft nützlich, um einen Hintergrund zu erstellen, auf dem dann andere Dinge gezeichnet werden können. Um dies zu erreichen, werden die Abmessungen des Rechtecks auf die `width`- und `height`-Attribute des {{HtmlElement("canvas")}}-Elements gesetzt.
 
 ```js
 const canvas = document.getElementById("canvas");

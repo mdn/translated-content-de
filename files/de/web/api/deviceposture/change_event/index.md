@@ -1,18 +1,18 @@
 ---
-title: "DevicePosture: change Ereignis"
+title: "DevicePosture: change-Ereignis"
 short-title: change
 slug: Web/API/DevicePosture/change_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}{{SeeCompatTable}}
+{{APIRef("Device Posture API")}}{{SeeCompatTable}}
 
-Das **`change`** Ereignis der [`DevicePosture`](/de/docs/Web/API/DevicePosture) Schnittstelle wird ausgelöst, wenn sich die Haltung des Geräts ändert, zum Beispiel wenn ein faltbares Gerät von der Haltung `folded` zu `continuous` wechselt.
+Das **`change`**-Ereignis des [`DevicePosture`](/de/docs/Web/API/DevicePosture)-Interface wird ausgelöst, wenn sich die Haltung des Geräts ändert, zum Beispiel wenn ein faltbares Gerät von der Haltung `folded` zu `continuous` wechselt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("change", (event) => { })
@@ -47,6 +47,6 @@ navigator.devicePosture.addEventListener("change", reportPostureOutput);
 
 ## Siehe auch
 
-- CSS {{cssxref("@media/device-posture", "device-posture")}} `@media` Funktion
+- CSS {{cssxref("@media/device-posture", "device-posture")}} `@media`-Feature
 - [Device Posture API](/de/docs/Web/API/Device_Posture_API)
-- [Origin trial for Foldable APIs](https://developer.chrome.com/blog/foldable-apis-ot) auf developer.chrome.com (2024)
+- [Origin-Trial für Foldable APIs](https://developer.chrome.com/blog/foldable-apis-ot) auf developer.chrome.com (2024)

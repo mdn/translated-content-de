@@ -1,28 +1,35 @@
 ---
-title: "XPathResult: Eigenschaft singleNodeValue"
+title: "XPathResult: singleNodeValue-Eigenschaft"
 short-title: singleNodeValue
 slug: Web/API/XPathResult/singleNodeValue
 l10n:
-  sourceCommit: b8cd964ef488e9691252e02f6ad1ebd3293b8eaa
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef("DOM XPath")}}
+{{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`singleNodeValue`** des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt einen [`Node`](/de/docs/Web/API/Node)-Wert oder `null` zurück, falls kein Knoten eines Ergebnisses mit [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType), das `ANY_UNORDERED_NODE_TYPE` oder `FIRST_ORDERED_NODE_TYPE` ist, übereinstimmt.
+Die schreibgeschützte **`singleNodeValue`**-Eigenschaft der
+[`XPathResult`](/de/docs/Web/API/XPathResult)-Schnittstelle gibt einen [`Node`](/de/docs/Web/API/Node)-Wert zurück oder
+`null`, falls kein Knoten eines Ergebnisses mit
+[`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `ANY_UNORDERED_NODE_TYPE` oder
+`FIRST_ORDERED_NODE_TYPE` übereinstimmt.
 
 ## Wert
 
-Der Rückgabewert ist der [`Node`](/de/docs/Web/API/Node)-Wert des `XPathResult`, der durch [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegeben wird.
+Der Rückgabewert ist der [`Node`](/de/docs/Web/API/Node)-Wert des `XPathResult`,
+zurückgegeben von [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate).
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
-Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `ANY_UNORDERED_NODE_TYPE` oder `FIRST_ORDERED_NODE_TYPE` ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `TYPE_ERR` ausgelöst.
+Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht
+`ANY_UNORDERED_NODE_TYPE` oder `FIRST_ORDERED_NODE_TYPE` ist, wird eine
+[`DOMException`](/de/docs/Web/API/DOMException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Verwendung der Eigenschaft `singleNodeValue`.
+Das folgende Beispiel zeigt die Verwendung der `singleNodeValue`-Eigenschaft.
 
 ### HTML
 

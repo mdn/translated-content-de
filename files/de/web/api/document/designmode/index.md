@@ -1,14 +1,14 @@
 ---
-title: "Document: designMode Eigenschaft"
+title: "Dokument: designMode Eigenschaft"
 short-title: designMode
 slug: Web/API/Document/designMode
 l10n:
-  sourceCommit: 62cedc63226017e9e7d0718b6fea3529ca8dbf37
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("DOM")}}
 
-**`document.designMode`** steuert, ob das gesamte Dokument bearbeitbar ist. Gültige Werte sind `"on"` und `"off"`. Laut der Spezifikation sollte diese Eigenschaft standardmäßig auf `"off"` gesetzt sein. Firefox hält sich an diesen Standard. Frühere Versionen von Chrome und IE haben standardmäßig `"inherit"` verwendet. Ab Chrome 43 ist der Standard `"off"`, und `"inherit"` wird nicht mehr unterstützt. In IE6-10 wird der Wert großgeschrieben.
+**`document.designMode`** steuert, ob das gesamte Dokument bearbeitbar ist. Gültige Werte sind `"on"` und `"off"`. Laut der Spezifikation sollte diese Eigenschaft standardmäßig auf `"off"` gesetzt sein. Firefox folgt diesem Standard. Die früheren Versionen von Chrome und IE sind standardmäßig auf `"inherit"` eingestellt. Ab Chrome 43 ist der Standard `"off"` und `"inherit"` wird nicht mehr unterstützt. In IE6-10 wird der Wert großgeschrieben.
 
 ## Wert
 

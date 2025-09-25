@@ -1,20 +1,20 @@
 ---
-title: "Node: selectstart-Ereignis"
+title: "Knoten: selectstart-Ereignis"
 short-title: selectstart
 slug: Web/API/Node/selectstart_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Selection API")}}
 
 Das **`selectstart`**-Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn ein Benutzer eine neue Auswahl beginnt.
 
-Wenn das Ereignis abgebrochen wird, ändert sich die Auswahl nicht.
+Wenn das Ereignis abgebrochen wird, wird die Auswahl nicht geändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("selectstart", (event) => { })

@@ -3,20 +3,20 @@ title: "Navigator: windowControlsOverlay-Eigenschaft"
 short-title: windowControlsOverlay
 slug: Web/API/Navigator/windowControlsOverlay
 l10n:
-  sourceCommit: 05187b0fecf39b9176d4a101623589309cf44dd0
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{SecureContext_Header}}{{APIRef("")}}
+{{SecureContext_Header}}{{APIRef("Window Controls Overlay API")}}
 
-Die schreibgeschützte **`windowControlsOverlay`**-Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt die [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Schnittstelle zurück, die Informationen über die Geometrie der Titelleiste in Desktop-Progressive Web Apps bereitstellt, die die [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) verwenden.
+Die **`windowControlsOverlay`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces ist schreibgeschützt und gibt das [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Interface zurück, welches Informationen über die Geometrie der Titelleiste in Desktop-Progressive-Web-Apps bereitstellt, die die [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) verwenden.
 
-Progressive Web Apps, die auf Desktop-Betriebssystemen installiert sind, können die Window Controls Overlay-Funktion aktivieren, indem sie den Wert `window-controls-overlay` im `display_override`-Mitglied des Web App Manifests verwenden.
+Progressive Web Apps, die auf Desktop-Betriebssystemen installiert sind, können sich durch die Verwendung des `window-controls-overlay`-Werts im [`display_override`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display_override)-Mitglied des Web-App-Manifests für das Window Controls Overlay-Feature entscheiden.
 
-Dadurch wird die standardmäßige Fenstertitelleiste ausgeblendet und die App erhält Zugriff auf den gesamten Bereich des App-Fensters.
+Dadurch wird die Standard-Titelleiste des Fensters ausgeblendet und der App der Zugriff auf den gesamten Bereich des App-Fensters ermöglicht.
 
 ## Wert
 
-Die [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Schnittstelle.
+Das [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Interface.
 
 ## Beispiele
 

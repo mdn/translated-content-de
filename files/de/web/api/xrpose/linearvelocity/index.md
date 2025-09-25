@@ -3,21 +3,18 @@ title: "XRPose: linearVelocity-Eigenschaft"
 short-title: linearVelocity
 slug: Web/API/XRPose/linearVelocity
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}{{SecureContext_Header}}
+{{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft `linearVelocity` der
-[`XRPose`](/de/docs/Web/API/XRPose)-Schnittstelle ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die lineare Geschwindigkeit in Metern pro Sekunde relativ zur Basis-<code>XRSpace</code> beschreibt.
+Die `linearVelocity`-Eigenschaft der [`XRPose`](/de/docs/Web/API/XRPose)-Schnittstelle ist eine schreibgeschützte [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), die die lineare Geschwindigkeit in Metern pro Sekunde relativ zur Basis[`XRSpace`](/de/docs/Web/API/XRSpace) beschreibt.
 
 ## Wert
 
-Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die lineare Geschwindigkeit in Metern
-pro Sekunde relativ zur Basis <code>XRSpace</code> beschreibt. Gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)
-zurück, wenn der Benutzeragent diesen Wert nicht ermitteln kann.
+Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die lineare Geschwindigkeit in Metern pro Sekunde relativ zur Basis[`XRSpace`](/de/docs/Web/API/XRSpace) beschreibt. Gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück, wenn der Benutzer-Agent diesen Wert nicht bereitstellen kann.
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 

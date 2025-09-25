@@ -3,19 +3,19 @@ title: "XPathResult: stringValue-Eigenschaft"
 short-title: stringValue
 slug: Web/API/XPathResult/stringValue
 l10n:
-  sourceCommit: b8cd964ef488e9691252e02f6ad1ebd3293b8eaa
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef("DOM XPath")}} {{AvailableInWorkers}}
+{{APIRef("DOM")}} {{AvailableInWorkers}}
 
 Die schreibgeschützte **`stringValue`**-Eigenschaft des
-[`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt den String-Wert eines Ergebnisses zurück, dessen
+[`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt den Zeichenfolgenwert eines Ergebnisses zurück, wenn
 [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `STRING_TYPE` ist.
 
 ## Wert
 
-Der Rückgabewert ist der String-Wert des von
-[`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegebenen `XPathResult`.
+Der Rückgabewert ist der Zeichenfolgenwert des `XPathResult`, das von
+[`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegeben wird.
 
 ### Ausnahmen
 

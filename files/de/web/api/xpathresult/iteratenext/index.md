@@ -1,16 +1,14 @@
 ---
-title: "XPathResult: iterateNext() Methode"
+title: "XPathResult: iterateNext()-Methode"
 short-title: iterateNext()
 slug: Web/API/XPathResult/iterateNext
 l10n:
-  sourceCommit: b8cd964ef488e9691252e02f6ad1ebd3293b8eaa
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef("DOM XPath")}}
+{{APIRef("DOM")}}
 
-Die **`iterateNext()`**-Methode der
-[`XPathResult`](/de/docs/Web/API/XPathResult)-Schnittstelle durchläuft ein Node-Set-Ergebnis und gibt den
-nächsten Knoten daraus zurück oder `null`, wenn keine weiteren Knoten vorhanden sind.
+Die **`iterateNext()`**-Methode des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces iteriert über ein Knotensatz-Ergebnis und gibt den nächsten Knoten daraus zurück oder `null`, wenn keine weiteren Knoten vorhanden sind.
 
 ## Syntax
 
@@ -24,24 +22,21 @@ Keine.
 
 ### Rückgabewert
 
-Der nächste [`Node`](/de/docs/Web/API/Node) innerhalb des Node-Sets des `XPathResult`.
+Der nächste [`Node`](/de/docs/Web/API/Node) innerhalb des Knotensatzes des `XPathResult`.
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
-Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht
-`UNORDERED_NODE_ITERATOR_TYPE` oder `ORDERED_NODE_ITERATOR_TYPE` ist, wird eine
-[`DOMException`](/de/docs/Web/API/DOMException) vom Typ `TYPE_ERR` ausgelöst.
+Wenn [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `UNORDERED_NODE_ITERATOR_TYPE` oder `ORDERED_NODE_ITERATOR_TYPE` ist, wird ein [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `TYPE_ERR` ausgelöst.
 
 #### INVALID_STATE_ERR
 
-Falls das Dokument verändert wurde, seit das Ergebnis zurückgegeben wurde, wird eine
-[`DOMException`](/de/docs/Web/API/DOMException) vom Typ `INVALID_STATE_ERR` ausgelöst.
+Wenn das Dokument seit der Rückgabe des Ergebnisses verändert wurde, wird ein [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `INVALID_STATE_ERR` ausgelöst.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Nutzung der `iterateNext()`-Methode.
+Das folgende Beispiel zeigt die Verwendung der `iterateNext()`-Methode.
 
 ### HTML
 

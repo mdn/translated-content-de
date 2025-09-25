@@ -3,21 +3,21 @@ title: "HTMLElement: load-Ereignis"
 short-title: load
 slug: Web/API/HTMLElement/load_event
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Das **`load`**-Ereignis wird für Elemente ausgelöst, die eine Ressource enthalten, wenn die Ressource erfolgreich geladen wurde. Derzeit umfasst die Liste der unterstützten HTML-Elemente: {{HTMLElement("body")}}, {{HTMLElement("embed")}}, {{HTMLElement("iframe")}}, {{HTMLElement("img")}}, {{HTMLElement("link")}}, {{HTMLElement("object")}}, {{HTMLElement("script")}}, {{HTMLElement("style")}} und {{HTMLElement("track")}}.
+Das **`load`**-Ereignis wird für Elemente ausgelöst, die eine Ressource enthalten, wenn die Ressource erfolgreich geladen wurde. Derzeit sind die unterstützten HTML-Elemente: {{HTMLElement("body")}}, {{HTMLElement("embed")}}, {{HTMLElement("iframe")}}, {{HTMLElement("img")}}, {{HTMLElement("link")}}, {{HTMLElement("object")}}, {{HTMLElement("script")}}, {{HTMLElement("style")}} und {{HTMLElement("track")}}.
 
 > [!NOTE]
-> Das `load`-Ereignis auf [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement#event_handlers) ist tatsächlich ein Alias für das [`window.onload`](/de/docs/Web/API/Window/load_event)-Ereignis. Daher wird das `load`-Ereignis nur auf dem `<body>`-Element ausgelöst, wenn alle Ressourcen des Dokuments geladen oder fehlgeschlagen sind. Zur Klarheit wird jedoch empfohlen, den Ereignishandler direkt an das `window`-Objekt zu binden, anstatt an `HTMLBodyElement`.
+> Das `load`-Ereignis auf [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement#event_handlers) ist tatsächlich ein Alias für das [`window.onload`](/de/docs/Web/API/Window/load_event)-Ereignis. Daher wird das `load`-Ereignis nur auf dem `<body>`-Element ausgelöst, wenn alle Ressourcen des Dokuments geladen oder fehlerhaft sind. Aus Gründen der Klarheit wird jedoch empfohlen, den Ereignishandler direkt an das `window`-Objekt anzuhängen statt an `HTMLBodyElement`.
 
-Dieses Ereignis ist nicht abbruchfähig und löst keine Ereignisblase aus.
+Dieses Ereignis ist nicht abbrechbar und löst keine Bubbling aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("load", (event) => { })
@@ -75,5 +75,5 @@ function reload() {
 ## Siehe auch
 
 - Verwandte Ereignisse
-  - Fenster: [`load`](/de/docs/Web/API/Window/load_event) Ereignis
-  - Fenster: [`error`](/de/docs/Web/API/Window/error_event) Ereignis
+  - Window: [`load`](/de/docs/Web/API/Window/load_event)-Ereignis
+  - Window: [`error`](/de/docs/Web/API/Window/error_event)-Ereignis

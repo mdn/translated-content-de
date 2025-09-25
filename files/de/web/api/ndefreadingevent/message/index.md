@@ -3,10 +3,10 @@ title: "NDEFReadingEvent: message-Eigenschaft"
 short-title: message
 slug: Web/API/NDEFReadingEvent/message
 l10n:
-  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{securecontext_header}}{{APIRef}}{{SeeCompatTable}}
+{{APIRef("Web NFC API")}}{{securecontext_header}}{{SeeCompatTable}}
 
 Die **`message`**-Eigenschaft des [`NDEFReadingEvent`](/de/docs/Web/API/NDEFReadingEvent)-Interfaces gibt ein [`NDEFMessage`](/de/docs/Web/API/NDEFMessage)-Objekt zurück, das die empfangene Nachricht enthält.
 
@@ -16,7 +16,7 @@ Ein [`NDEFMessage`](/de/docs/Web/API/NDEFMessage)-Objekt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie eine praktische Funktion erstellt wird, die ein einzelnes Tag liest und dann das Abfragen stoppt, um durch das Vermeiden unnötiger Arbeit Akkulaufzeit zu sparen. Das Beispiel könnte leicht erweitert werden, um nach einer bestimmten Anzahl von Millisekunden zu stoppen.
+Dieses Beispiel zeigt, wie Sie eine praktische Funktion erstellen, die ein einziges Tag liest und dann das Abfragen stoppt, um durch die Reduzierung unnötiger Arbeiten die Batterielebensdauer zu verlängern. Das Beispiel könnte leicht erweitert werden, um nach einer bestimmten Anzahl von Millisekunden eine Zeitüberschreitung zu erreichen.
 
 ```js
 const ndefReader = new NDEFReader();

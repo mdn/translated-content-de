@@ -3,16 +3,16 @@ title: "Dokument: scrollend-Ereignis"
 short-title: scrollend
 slug: Web/API/Document/scrollend_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("CSSOM view API")}}
 
-Das **`scrollend`**-Ereignis wird ausgelöst, wenn das Dokumentansicht das Scrollen abgeschlossen hat.
-Das Scrollen gilt als abgeschlossen, wenn die Scrollposition keine weiteren ausstehenden Aktualisierungen mehr hat und der Benutzer seine Geste abgeschlossen hat.
+Das **`scrollend`**-Ereignis wird ausgelöst, wenn die Dokumentansicht das Scrollen abgeschlossen hat.
+Das Scrollen gilt als abgeschlossen, wenn die Scrollposition keine ausstehenden Aktualisierungen mehr hat und der Benutzer seine Geste beendet hat.
 
-Scrollpositionsaktualisierungen umfassen sanftes oder sofortiges Scrollen mit dem Mausrad, Scrollen mit der Tastatur, scroll-snap-Ereignisse oder andere APIs und Gesten, die dazu führen, dass die Scrollposition aktualisiert wird.
-Benutzergesten wie das Streichen mit Berührung oder Scrollen mit dem Trackpad sind erst abgeschlossen, wenn Zeiger oder Tasten losgelassen wurden.
+Scrollpositionsaktualisierungen umfassen sanftes oder sofortiges Mausradscrollen, Tastaturscrollen, Scroll-Snap-Ereignisse oder andere APIs und Gesten, die die Scrollposition aktualisieren.
+Benutzergesten wie Touch-Panning oder Trackpad-Scrolling sind erst abgeschlossen, wenn Zeiger oder Tasten losgelassen wurden.
 Wenn sich die Scrollposition nicht geändert hat, wird kein scrollend-Ereignis ausgelöst.
 
 Um zu erkennen, wann das Scrollen innerhalb eines Elements abgeschlossen ist, siehe das [`scrollend`](/de/docs/Web/API/Element/scrollend_event)-Ereignis von `Element`.
@@ -33,10 +33,10 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Verwenden von Document `scrollend` mit einem Ereignis-Listener
+### Verwendung von Document `scrollend` mit einem Ereignis-Listener
 
 Das folgende Beispiel zeigt, wie das `scrollend`-Ereignis mit einem Ereignis-Listener verwendet wird, um zu erkennen, wann der Benutzer das Scrollen des Dokuments beendet hat.
-Im Beispiel gibt es Inhalte im eingebetteten iframe, die höher und breiter sind als das iframe selbst, sodass das Scrollen innerhalb des iframes in beiden Richtungen möglich ist.
+Im Beispiel gibt es Inhalte im eingebetteten iframe, die höher und breiter als das iframe selbst sind, sodass das Scrollen innerhalb des iframes in beide Richtungen möglich ist.
 Wenn der Benutzer das Scrollen beendet, wird das `scrollend`-Ereignis ausgelöst:
 
 ```css hidden
@@ -89,11 +89,11 @@ document.addEventListener("scrollend", (event) => {
 
 {{EmbedLiveSample("Using_document_scrollend_with_an_event_listener", "100%", 200)}}
 
-### Verwenden der `onscrollend`-Ereignishandlereigenschaft
+### Verwendung der `onscrollend`-Ereignishandler-Eigenschaft
 
-Das folgende Beispiel zeigt, wie die `scrollend`-Ereignishandlereigenschaft verwendet wird, um zu erkennen, wann der Benutzer das Scrollen des Dokuments beendet hat.
-Im Beispiel gibt es Inhalte im eingebetteten iframe, die höher und breiter sind als das iframe selbst, sodass das Scrollen innerhalb des iframes in beiden Richtungen möglich ist.
-Dies baut auf dem ersten Beispiel auf, verwendet jedoch `document.onscrollend` anstelle eines Ereignis-Listeners:
+Das folgende Beispiel zeigt, wie die `scrollend`-Ereignishandler-Eigenschaft verwendet wird, um zu erkennen, wann der Benutzer das Scrollen des Dokuments beendet hat.
+Im Beispiel gibt es Inhalte im eingebetteten iframe, die höher und breiter als das iframe selbst sind, sodass das Scrollen innerhalb des iframes in beide Richtungen möglich ist.
+Dieses Beispiel baut auf dem ersten Beispiel auf, verwendet jedoch `document.onscrollend` anstelle eines Ereignis-Listeners:
 
 ```css hidden
 * {
@@ -153,6 +153,6 @@ document.onscrollend = (event) => {
 
 ## Siehe auch
 
-- [Dokument `scroll`-Ereignis](/de/docs/Web/API/Document/scroll_event)
+- [Document `scroll`-Ereignis](/de/docs/Web/API/Document/scroll_event)
 - [Element `scrollend`-Ereignis](/de/docs/Web/API/Element/scrollend_event)
 - [Element `scroll`-Ereignis](/de/docs/Web/API/Element/scroll_event)

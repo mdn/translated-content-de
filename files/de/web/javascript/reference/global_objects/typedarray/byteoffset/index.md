@@ -3,14 +3,14 @@ title: TypedArray.prototype.byteOffset
 short-title: byteOffset
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/byteOffset
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 377c7d317e7ffd477bc8b1273f0e215978b76dd1
 ---
 
-Die Zugriffs-Eigenschaft **`byteOffset`** von {{jsxref("TypedArray")}}-Instanzen gibt den Versatz (in Bytes) dieses typisierten Arrays vom Anfang seines {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
+Die **`byteOffset`**-Zugriffseigenschaft von {{jsxref("TypedArray")}}-Instanzen gibt den Offset (in Bytes) dieses typisierten Arrays vom Anfang seines {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
 
 ## Beschreibung
 
-Die Eigenschaft `byteOffset` ist eine Zugriffs-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein _TypedArray_ erstellt wird und kann nicht geändert werden. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
+Die `byteOffset`-Eigenschaft ist eine Zugriffseigenschaft, deren set-Zugriffsfunktionswert `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn das typisierte Array erstellt wird und kann nicht verändert werden. Der `byteOffset` wird jedoch 0, wenn der zugrunde liegende Puffer so neu dimensioniert wird, dass der betrachtete Bereich nicht mehr gültig ist.
 
 ## Beispiele
 
@@ -24,6 +24,12 @@ uint8array1.byteOffset; // 0 (no offset specified)
 
 const uint8array2 = new Uint8Array(buffer, 3);
 uint8array2.byteOffset; // 3 (as specified when constructing Uint8Array)
+
+const buffer2 = new ArrayBuffer(16, { maxByteLength: 32 });
+const uint8lengthTracking = new Uint8Array(buffer2, 4);
+uint8lengthTracking.byteOffset; // 4
+buffer2.resize(3);
+uint8lengthTracking.byteOffset; // 0 (viewed range is no longer valid)
 ```
 
 ## Spezifikationen
@@ -36,5 +42,5 @@ uint8array2.byteOffset; // 3 (as specified when constructing Uint8Array)
 
 ## Siehe auch
 
-- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}

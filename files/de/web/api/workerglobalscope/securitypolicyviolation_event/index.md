@@ -1,20 +1,20 @@
 ---
-title: "WorkerGlobalScope: securitypolicyviolation Event"
+title: "WorkerGlobalScope: securitypolicyviolation Ereignis"
 short-title: securitypolicyviolation
 slug: Web/API/WorkerGlobalScope/securitypolicyviolation_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}{{AvailableInWorkers("worker")}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers("worker")}}
 
-Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) in einem Worker verletzt wird.
+Das **`securitypolicyviolation`** Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/Guides/CSP) in einem Worker verletzt wird.
 
-Der Handler kann mithilfe der `onsecuritypolicyviolation`-Ereignishandler-Eigenschaft oder mit [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zugewiesen werden.
+Der Handler kann mit der `onsecuritypolicyviolation` Ereignis-Handler-Eigenschaft oder mit [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zugewiesen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
 ```js-nolint
 addEventListener("securitypolicyviolation", (event) => { })
@@ -30,7 +30,7 @@ Ein [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEve
 
 ## Beispiele
 
-Der folgende Code zeigt, wie Sie eine Ereignishandler-Funktion mithilfe der `onsecuritypolicyviolation`-Ereignishandler-Eigenschaft hinzufügen oder die Methode `addEventListener()` aufrufen können.
+Der folgende Code zeigt, wie Sie eine Ereignis-Handler-Funktion unter Verwendung der `onsecuritypolicyviolation` Ereignis-Handler-Eigenschaft hinzufügen oder die `addEventListener()` Methode aufrufen können.
 
 ```js
 self.onsecuritypolicyviolation = (e) => {
@@ -52,6 +52,6 @@ self.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- Das [`securitypolicyviolation`](/de/docs/Web/API/Document/securitypolicyviolation_event)-Ereignis der [`Document`](/de/docs/Web/API/Document)-Schnittstelle
-- Das [`securitypolicyviolation`](/de/docs/Web/API/Element/securitypolicyviolation_event)-Ereignis der [`Element`](/de/docs/Web/API/Element)-Schnittstelle
+- Das [`securitypolicyviolation`](/de/docs/Web/API/Document/securitypolicyviolation_event) Ereignis der [`Document`](/de/docs/Web/API/Document) Schnittstelle
+- Das [`securitypolicyviolation`](/de/docs/Web/API/Element/securitypolicyviolation_event) Ereignis der [`Element`](/de/docs/Web/API/Element) Schnittstelle
 - [HTTP > Content Security Policy](/de/docs/Web/HTTP/Guides/CSP)

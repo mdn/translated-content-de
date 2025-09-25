@@ -1,12 +1,12 @@
 ---
-title: "NDEFReadingEvent: serialNumber-Eigenschaft"
+title: "NDEFReadingEvent: serialNumber Eigenschaft"
 short-title: serialNumber
 slug: Web/API/NDEFReadingEvent/serialNumber
 l10n:
-  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{securecontext_header}}{{APIRef}}{{SeeCompatTable}}
+{{APIRef("Web NFC API")}}{{securecontext_header}}{{SeeCompatTable}}
 
 Die **`serialNumber`**-Eigenschaft der [`NDEFReadingEvent`](/de/docs/Web/API/NDEFReadingEvent)-Schnittstelle gibt die Seriennummer des Geräts zurück, die zur Kollisionsvermeidung und Identifikation verwendet wird, oder einen leeren String, wenn keine Seriennummer verfügbar ist.
 
@@ -16,7 +16,7 @@ Ein String, der die Seriennummer des Geräts enthält.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie eine praktische Funktion erstellen, die ein einzelnes Tag liest und dann das Abfragen stoppt, um die Batterielebensdauer zu verlängern, indem unnötige Arbeit vermieden wird. Das Beispiel könnte leicht erweitert werden, um nach einer bestimmten Anzahl von Millisekunden zu stoppen.
+Dieses Beispiel zeigt, wie eine praktische Funktion erstellt wird, die ein einziges Tag liest und dann das Abfragen stoppt, um Energie zu sparen, indem unnötige Arbeit vermieden wird. Das Beispiel könnte leicht erweitert werden, um nach einer bestimmten Anzahl von Millisekunden abzubrechen.
 
 ```js
 const ndefReader = new NDEFReader();

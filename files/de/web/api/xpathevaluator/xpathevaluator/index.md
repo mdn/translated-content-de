@@ -3,10 +3,10 @@ title: "XPathEvaluator: XPathEvaluator() Konstruktor"
 short-title: XPathEvaluator()
 slug: Web/API/XPathEvaluator/XPathEvaluator
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef('DOM XPath')}}
+{{APIRef("DOM")}}
 
 Der **`XPathEvaluator()`** Konstruktor erstellt einen neuen [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator).
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator) Objekt.
+Ein neues [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator)-Objekt.
 
 ## Beispiele
 
 ### Anzahl der `<div>` Elemente zählen
 
-Das folgende Beispiel zeigt die Verwendung des `XPathEvaluator` Schnittstelle.
+Das folgende Beispiel zeigt die Verwendung der `XPathEvaluator` Schnittstelle.
 
 #### HTML
 

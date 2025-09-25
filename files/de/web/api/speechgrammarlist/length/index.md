@@ -3,12 +3,12 @@ title: "SpeechGrammarList: length-Eigenschaft"
 short-title: length
 slug: Web/API/SpeechGrammarList/length
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: ee348fc4da928b445f95660fae094269604b1b9c
 ---
 
-{{APIRef("Web Speech API")}}{{ SeeCompatTable() }}
+{{APIRef("Web Speech API")}}{{deprecated_header}}
 
-Die schreibgeschützte **`length`**-Eigenschaft des [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList)-Interfaces gibt die Anzahl der [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte zurück, die in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) enthalten sind.
+Die schreibgeschützte **`length`**-Eigenschaft der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList)-Schnittstelle gibt die Anzahl der [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte zurück, die in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) enthalten sind.
 
 ## Wert
 

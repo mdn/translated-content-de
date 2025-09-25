@@ -3,16 +3,16 @@ title: "TextTrackList: change-Ereignis"
 short-title: change
 slug: Web/API/TextTrackList/change_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Das **`change`**-Ereignis wird ausgelöst, wenn eine Textspur aktiv oder inaktiv gemacht wird oder eine [`TextTrackList`](/de/docs/Web/API/TextTrackList) anderweitig geändert wird.
+Das **`change`**-Ereignis wird ausgelöst, wenn eine Textspur aktiv oder inaktiv gemacht wird oder eine [`TextTrackList`](/de/docs/Web/API/TextTrackList) anderweitig verändert wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("change", (event) => { })
@@ -35,7 +35,7 @@ mediaElement.textTracks.addEventListener("change", (event) => {
 });
 ```
 
-Verwendung der `onchange` Ereignis-Handler-Eigenschaft:
+Verwendung der `onchange`-Ereignishandler-Eigenschaft:
 
 ```js
 const mediaElement = document.querySelector("video, audio");
@@ -55,7 +55,7 @@ mediaElement.textTracks.onchange = (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event), [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
-- Dieses Ereignis bei [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) Ziele: [`change`](/de/docs/Web/API/VideoTrackList/change_event)
-- Dieses Ereignis bei [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) Ziele: [`change`](/de/docs/Web/API/AudioTrackList/change_event)
+- Dieses Ereignis auf [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) zielt auf: [`change`](/de/docs/Web/API/VideoTrackList/change_event)
+- Dieses Ereignis auf [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) zielt auf: [`change`](/de/docs/Web/API/AudioTrackList/change_event)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

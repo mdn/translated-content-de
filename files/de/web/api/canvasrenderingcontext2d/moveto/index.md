@@ -3,15 +3,12 @@ title: "CanvasRenderingContext2D: moveTo() Methode"
 short-title: moveTo()
 slug: Web/API/CanvasRenderingContext2D/moveTo
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die
-**`CanvasRenderingContext2D.moveTo()`**
-Methode der Canvas 2D API beginnt einen neuen Unterpfad an dem durch die angegebenen
-`(x, y)` Koordinaten spezifizierten Punkt.
+Die **`CanvasRenderingContext2D.moveTo()`**-Methode der Canvas 2D-API beginnt einen neuen Unterpfad an dem Punkt, der durch die angegebenen `(x, y)`-Koordinaten spezifiziert wird.
 
 ## Syntax
 
@@ -22,20 +19,19 @@ moveTo(x, y)
 ### Parameter
 
 - `x`
-  - : Die x-Achsen (horizontale) Koordinate des Punkts.
+  - : Die x-Achse (horizontale) Koordinate des Punktes.
 - `y`
-  - : Die y-Achsen (vertikale) Koordinate des Punkts.
+  - : Die y-Achse (vertikale) Koordinate des Punktes.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ### Erstellen mehrerer Unterpfade
 
-Dieses Beispiel verwendet `moveTo()`, um zwei Unterpfade innerhalb eines einzelnen Pfades zu erstellen.
-Beide Unterpfade werden dann mit einem einzigen `stroke()` Aufruf gerendert.
+Dieses Beispiel verwendet `moveTo()`, um zwei Unterpfade innerhalb eines einzelnen Pfades zu erstellen. Beide Unterpfade werden dann mit einem einzigen `stroke()`-Aufruf gerendert.
 
 #### HTML
 
@@ -45,8 +41,7 @@ Beide Unterpfade werden dann mit einem einzigen `stroke()` Aufruf gerendert.
 
 #### JavaScript
 
-Die erste Linie beginnt bei (50, 50) und endet bei (200, 50). Die zweite Linie beginnt bei (50,
-90\) und endet bei (280, 120).
+Die erste Linie beginnt bei (50, 50) und endet bei (200, 50). Die zweite Linie beginnt bei (50, 90) und endet bei (280, 120).
 
 ```js
 const canvas = document.getElementById("canvas");

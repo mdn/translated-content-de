@@ -3,10 +3,10 @@ title: "SpeechGrammar: src-Eigenschaft"
 short-title: src
 slug: Web/API/SpeechGrammar/src
 l10n:
-  sourceCommit: 706cbf21987296c604cc96b7f95095ed7aba6bb8
+  sourceCommit: ee348fc4da928b445f95660fae094269604b1b9c
 ---
 
-{{APIRef("Web Speech API")}}{{deprecated_header}}{{non-standard_header}}
+{{APIRef("Web Speech API")}}{{deprecated_header}}
 
 Die **`src`**-Eigenschaft des [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Interfaces wird verwendet, um einen String zu erhalten oder festzulegen, der die Grammatik innerhalb des `SpeechGrammar`-Objekts enthält.
 

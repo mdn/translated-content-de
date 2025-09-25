@@ -1,16 +1,17 @@
 ---
-title: "CanvasRenderingContext2D: lineTo()-Methode"
+title: "CanvasRenderingContext2D: lineTo() Methode"
 short-title: lineTo()
 slug: Web/API/CanvasRenderingContext2D/lineTo
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die Methode **`lineTo()`** der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D), die Teil der Canvas 2D API ist, fügt dem aktuellen Unterpfad eine gerade Linie hinzu, indem der letzte Punkt des Unterpfads mit den angegebenen `(x, y)`-Koordinaten verbunden wird.
+Die [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) Methode
+**`lineTo()`**, Teil der Canvas 2D API, fügt dem aktuellen Unterpfad eine gerade Linie hinzu, indem sie den letzten Punkt des Unterpfads mit den angegebenen `(x, y)`-Koordinaten verbindet.
 
-Wie andere Methoden, die den aktuellen Pfad ändern, rendert diese Methode nichts direkt. Um den Pfad auf eine Leinwand zu zeichnen, können Sie die Methoden [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) verwenden.
+Wie andere Methoden, die den aktuellen Pfad verändern, rendert diese Methode nichts direkt. Um den Pfad auf eine Leinwand zu zeichnen, können Sie die Methoden [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) verwenden.
 
 ## Syntax
 
@@ -21,19 +22,19 @@ lineTo(x, y)
 ### Parameter
 
 - `x`
-  - : Die x-Koordinate des Endpunkts der Linie.
+  - : Die x-Achsen-Koordinate des Endpunkts der Linie.
 - `y`
-  - : Die y-Koordinate des Endpunkts der Linie.
+  - : Die y-Achsen-Koordinate des Endpunkts der Linie.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Zeichnen einer geraden Linie
+### Eine gerade Linie zeichnen
 
-Dieses Beispiel zeigt, wie man eine gerade Linie mit der Methode `lineTo()` zeichnet.
+Dieses Beispiel zeichnet eine gerade Linie mit der `lineTo()` Methode.
 
 #### HTML
 
@@ -59,9 +60,9 @@ ctx.stroke(); // Render the path
 
 {{ EmbedLiveSample('Drawing_a_straight_line', 700, 180) }}
 
-### Zeichnen verbundener Linien
+### Verbundene Linien zeichnen
 
-Jeder Aufruf von `lineTo()` (und ähnlichen Methoden) fügt automatisch dem aktuellen Unterpfad hinzu, was bedeutet, dass alle Linien gemeinsam gestroket oder gefüllt werden. Dieses Beispiel zeichnet den Buchstaben 'M' mit einer einzigen zusammenhängenden Linie.
+Jeder Aufruf von `lineTo()` (und ähnlichen Methoden) wird automatisch zum aktuellen Unterpfad hinzugefügt, was bedeutet, dass alle Linien zusammen gestrichen oder gefüllt werden. Dieses Beispiel zeichnet einen Buchstaben 'M' mit einer einzigen zusammenhängenden Linie.
 
 #### HTML
 

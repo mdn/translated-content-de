@@ -3,10 +3,10 @@ title: "CanvasRenderingContext2D: resetTransform() Methode"
 short-title: resetTransform()
 slug: Web/API/CanvasRenderingContext2D/resetTransform
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
 Die
 **`CanvasRenderingContext2D.resetTransform()`**
@@ -30,8 +30,8 @@ Keine ({{jsxref("undefined")}}).
 
 ### Zurücksetzen der Matrix
 
-Dieses Beispiel zeichnet ein gedrehtes Rechteck nach der Modifizierung der Matrix und setzt dann die
-Matrix mithilfe der `resetTransform()`-Methode zurück.
+Dieses Beispiel zeichnet ein rotiertes Rechteck nach Modifizierung der Matrix und setzt dann die
+Matrix mithilfe der `resetTransform()` Methode zurück.
 
 #### HTML
 
@@ -41,8 +41,8 @@ Matrix mithilfe der `resetTransform()`-Methode zurück.
 
 #### JavaScript
 
-Die [`rotate()`](/de/docs/Web/API/CanvasRenderingContext2D/rotate)-Methode dreht die
-Transformationsmatrix um 45°. Die [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect)-Methode zeichnet ein gefülltes Rechteck, das entsprechend dieser Matrix angepasst ist.
+Die [`rotate()`](/de/docs/Web/API/CanvasRenderingContext2D/rotate) Methode rotiert die
+Transformationsmatrix um 45°. Die [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) Methode zeichnet ein gefülltes Rechteck, angepasst gemäß dieser Matrix.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -63,9 +63,9 @@ ctx.resetTransform();
 ### Fortfahren mit einer regulären Matrix
 
 Wann immer Sie mit dem Zeichnen transformierter Formen fertig sind, sollten Sie
-`resetTransform()` aufrufen, bevor Sie etwas anderes rendern. In diesem Beispiel werden die ersten
-zwei Formen mit einer Verformungstransformation gezeichnet, und die letzten zwei mit der
-Einheits- (regulären) Transformation.
+`resetTransform()` aufrufen, bevor Sie irgendetwas anderes rendern. In diesem Beispiel werden die ersten
+zwei Formen mit einer Scherentransformation gezeichnet, und die letzten zwei mit der
+Einheitstransformation (regelmäßig).
 
 #### HTML
 
@@ -94,13 +94,13 @@ ctx.fillRect(40, 90, 50, 20);
 
 #### Ergebnis
 
-Die verzerrten Rechtecke sind grau, und die nicht verzerrten Rechtecke sind rot.
+Die gescherte Rechtecke sind grau, und die nicht gescherte Rechtecke sind rot.
 
 {{ EmbedLiveSample('Continuing_with_a_regular_matrix', 700, 180) }}
 
 ## Polyfill
 
-Sie können auch die [`setTransform()`](/de/docs/Web/API/CanvasRenderingContext2D/setTransform)-Methode verwenden, um die aktuelle Transformation auf die Einheitsmatrix zurückzusetzen, wie folgt:
+Sie können auch die [`setTransform()`](/de/docs/Web/API/CanvasRenderingContext2D/setTransform) Methode verwenden, um die aktuelle Transformation auf die Einheitsmatrix zurückzusetzen, wie folgt:
 
 ```js
 ctx.setTransform(1, 0, 0, 1, 0, 0);

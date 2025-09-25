@@ -3,16 +3,16 @@ title: "AudioProcessingEvent: playbackTime-Eigenschaft"
 short-title: playbackTime
 slug: Web/API/AudioProcessingEvent/playbackTime
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}{{Deprecated_header}}
+{{APIRef("Web Audio API")}}{{Deprecated_header}}
 
-Die **`playbackTime`**-Schreibgeschützte-Eigenschaft der [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent)-Schnittstelle repräsentiert die Zeit, zu der das Audio abgespielt wird. Sie befindet sich im selben Koordinatensystem wie die Zeit, die vom [`AudioContext`](/de/docs/Web/API/AudioContext) verwendet wird.
+Die **`playbackTime`**-Eigenschaft, die nur-lesbarer Teil der [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent)-Schnittstelle ist, repräsentiert die Zeit, zu der das Audio abgespielt wird. Sie befindet sich im selben Koordinatensystem wie die Zeit, die vom [`AudioContext`](/de/docs/Web/API/AudioContext) verwendet wird.
 
 ## Wert
 
-Eine Zahl, die kein ganzzahliger Wert sein muss.
+Eine Zahl, die keine ganze Zahl sein muss.
 
 ## Beispiele
 

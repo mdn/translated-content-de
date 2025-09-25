@@ -3,22 +3,22 @@ title: "Element: click event"
 short-title: click
 slug: Web/API/Element/click_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("UI Events")}}
 
-Ein Element erhält ein **`click`**-Ereignis, wenn eines der folgenden Szenarien eintritt:
+Ein Element erhält ein **`click`**-Ereignis, wenn eines der folgenden Ereignisse eintritt:
 
-- Eine Taste eines Zeigegeräts (z. B. die primäre Maustaste) wird gedrückt und losgelassen, während sich der Zeiger im Inneren des Elements befindet.
-- Auf dem Element wird eine Touch-Geste ausgeführt.
-- Jede Benutzerinteraktion, die einem Klick entspricht, wie das Drücken der <kbd>Space</kbd>- oder <kbd>Enter</kbd>-Taste, während das Element fokussiert ist. Beachten Sie, dass dies nur für Elemente gilt, die über einen Standard-Tastaturereignishandler verfügen, und daher andere Elemente ausschließt, die durch Einstellen des [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attributs fokussierbar gemacht wurden.
+- Eine Schaltfläche eines Zeigegeräts (wie die Primärtaste einer Maus) wird gedrückt und losgelassen, während sich der Zeiger innerhalb des Elements befindet.
+- Eine Berührungsgeste wird auf dem Element ausgeführt.
+- Jede Benutzerinteraktion, die einem Klick entspricht, wie das Drücken der <kbd>Leertaste</kbd> oder der <kbd>Eingabetaste</kbd>, während das Element fokussiert ist. Beachten Sie, dass dies nur für Elemente mit einem Standardtastenereignis-Handler gilt und daher andere Elemente ausschließt, die durch Setzen des [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attributs fokussierbar gemacht wurden.
 
-Wird die Taste auf einem Element gedrückt und der Zeiger bewegt sich außerhalb des Elements, bevor die Taste losgelassen wird, wird das Ereignis auf dem spezifischsten übergeordneten Element ausgelöst, das beide Elemente enthält.
+Wenn die Taste auf einem Element gedrückt wird und der Zeiger außerhalb des Elements bewegt wird, bevor die Taste losgelassen wird, wird das Ereignis auf dem spezifischsten übergeordneten Element ausgelöst, das beide Elemente enthält.
 
-`click` wird ausgelöst, nachdem sowohl das [`mousedown`](/de/docs/Web/API/Element/mousedown_event)- als auch das [`mouseup`](/de/docs/Web/API/Element/mouseup_event)-Ereignis in dieser Reihenfolge ausgelöst wurden.
+`click` wird nach den Ereignissen [`mousedown`](/de/docs/Web/API/Element/mousedown_event) und [`mouseup`](/de/docs/Web/API/Element/mouseup_event) in dieser Reihenfolge ausgelöst.
 
-Das Ereignis ist ein geräteunabhängiges Ereignis – es kann durch Berührung, Tastatur, Maus und jeden anderen Mechanismus, den unterstützende Technologien bereitstellen, aktiviert werden.
+Das Ereignis ist ein geräteunabhängiges Ereignis — das bedeutet, es kann durch Berührung, Tastatur, Maus und jede andere von unterstützender Technologie bereitgestellte Mechanismus aktiviert werden.
 
 ## Syntax
 
@@ -41,40 +41,40 @@ Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`MouseEvent`](/de
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`Event`](/de/docs/Web/API/Event)._
+_Dieses Interface erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`Event`](/de/docs/Web/API/Event)._
 
 - [`PointerEvent.altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Repräsentiert den Winkel zwischen der Achse eines Wandlers (eines Zeigers oder Stifts) und der X-Y-Ebene eines Geräteschirms.
+  - : Repräsentiert den Winkel zwischen der Achse eines Wandlers (einem Zeiger oder Stift) und der X-Y-Ebene eines Gerätsbildschirms.
 - [`PointerEvent.azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle) {{ReadOnlyInline}} {{experimental_inline}}
-  - : Repräsentiert den Winkel zwischen der Y-Z-Ebene und der Ebene, die sowohl die Wandlerachse (eines Zeigers oder Stifts) als auch die Y-Achse enthält.
+  - : Repräsentiert den Winkel zwischen der Y-Z-Ebene und der Ebene, die sowohl die Achse des Wandlers (einem Zeiger oder Stift) als auch die Y-Achse enthält.
 - [`PointerEvent.pointerId`](/de/docs/Web/API/PointerEvent/pointerId) {{ReadOnlyInline}}
   - : Eine eindeutige Kennung für den Zeiger, der das Ereignis verursacht.
 - [`PointerEvent.width`](/de/docs/Web/API/PointerEvent/width) {{ReadOnlyInline}}
-  - : Die Breite (Größe auf der X-Achse), in CSS-Pixel, der Kontaktgeometrie des Zeigers.
+  - : Die Breite (Größe entlang der X-Achse), in CSS-Pixeln, der Kontaktgeometrie des Zeigers.
 - [`PointerEvent.height`](/de/docs/Web/API/PointerEvent/height) {{ReadOnlyInline}}
-  - : Die Höhe (Größe auf der Y-Achse), in CSS-Pixel, der Kontaktgeometrie des Zeigers.
+  - : Die Höhe (Größe entlang der Y-Achse), in CSS-Pixeln, der Kontaktgeometrie des Zeigers.
 - [`PointerEvent.pressure`](/de/docs/Web/API/PointerEvent/pressure) {{ReadOnlyInline}}
-  - : Der normalisierte Druck des Zeigereingangs im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen und maximalen Druck darstellen, den die Hardware erkennen kann.
+  - : Der normalisierte Druck des Zeigereingabewertes im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen und maximalen Druck darstellen, den die Hardware erkennen kann.
 - [`PointerEvent.tangentialPressure`](/de/docs/Web/API/PointerEvent/tangentialPressure) {{ReadOnlyInline}}
-  - : Der normalisierte tangentiale Druck des Zeigereingangs (auch bekannt als Fassdruck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress)) im Bereich von `-1` bis `1`, wobei `0` die neutrale Position der Steuerung ist.
+  - : Der normalisierte Tangentialdruck des Zeigereingabewertes (auch bekannt als Fassdruck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress)) im Bereich von `-1` bis `1`, wobei `0` die neutrale Position der Steuerung ist.
 - [`PointerEvent.tiltX`](/de/docs/Web/API/PointerEvent/tiltX) {{ReadOnlyInline}}
-  - : Der Ebenenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Stift-Stylus) als auch die Y-Achse enthält.
+  - : Der Winkel in der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Achse des Zeigers (z.B. eines Stiftzeigers) als auch die Y-Achse enthält.
 - [`PointerEvent.tiltY`](/de/docs/Web/API/PointerEvent/tiltY) {{ReadOnlyInline}}
-  - : Der Ebenenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der X–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Stift-Stylus) als auch die X-Achse enthält.
+  - : Der Winkel in der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der X–Z-Ebene und der Ebene, die sowohl die Achse des Zeigers (z.B. eines Stiftzeigers) als auch die X-Achse enthält.
 - [`PointerEvent.twist`](/de/docs/Web/API/PointerEvent/twist) {{ReadOnlyInline}}
-  - : Die Drehung des Zeigers (z.B. Stift-Stylus) im Uhrzeigersinn um seine Hauptachse in Grad, mit einem Wert im Bereich von `0` bis `359`.
+  - : Die Drehung im Uhrzeigersinn des Zeigers (z.B. eines Stiftzeigers) um seine Hauptachse in Grad, mit einem Wert im Bereich von `0` bis `359`.
 - [`PointerEvent.pointerType`](/de/docs/Web/API/PointerEvent/pointerType) {{ReadOnlyInline}}
   - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Berührung, etc.).
 - [`PointerEvent.isPrimary`](/de/docs/Web/API/PointerEvent/isPrimary) {{ReadOnlyInline}}
   - : Gibt an, ob der Zeiger den primären Zeiger dieses Zeigertyps darstellt.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Das [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Objekt, das in den Ereignishandler für `click` übergeben wird, hat seine [`detail`](/de/docs/Web/API/UIEvent/detail)-Eigenschaft auf die Anzahl der Klicks auf das [`target`](/de/docs/Web/API/Event/target) gesetzt. Mit anderen Worten, `detail` wird 2 für einen Doppelklick, 3 für einen Dreifachklick und so weiter. Dieser Zähler wird nach einem kurzen Intervall ohne Klicks zurückgesetzt; die spezifische Dauer dieses Intervalls kann je nach Browser und Plattform variieren. Das Intervall wird wahrscheinlich auch durch Benutzerpräferenzen beeinflusst; z. B. können Zugriffsoptionen dieses Intervall verlängern, um es einfacher zu machen, mehrere Klicks mit adaptiven Schnittstellen auszuführen.
+Das in den Ereignishandler für `click` übergebene [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Objekt hat seine [`detail`](/de/docs/Web/API/UIEvent/detail)-Eigenschaft auf die Anzahl der Klicks auf das [`target`](/de/docs/Web/API/Event/target) gesetzt. Mit anderen Worten, `detail` wird bei einem Doppelklick 2, bei einem Dreifachklick 3 und so weiter sein. Dieser Zähler wird nach einem kurzen Zeitraum ohne Klicks zurückgesetzt; die genauen Zeiten, wie lange dieser Zeitraum dauert, können zwischen Browsern und Plattformen variieren. Wahrscheinlich wird dieses Intervall auch durch Benutzereinstellungen beeinflusst; beispielsweise könnten Barrierefreiheitsoptionen dieses Intervall verlängern, um es einfacher zu machen, mehrere Klicks mit adaptiven Schnittstellen auszuführen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Anzahl der aufeinanderfolgenden Klicks auf einen {{HtmlElement("button")}}.
+Dieses Beispiel zeigt die Anzahl der aufeinanderfolgenden Klicks auf einen {{HtmlElement("button")}} an.
 
 ### HTML
 
@@ -94,7 +94,7 @@ button.addEventListener("click", (event) => {
 
 ### Ergebnis
 
-Versuchen Sie, schnelle, aufeinanderfolgende Klicks auf den Button auszuführen, um die Klickanzahl zu erhöhen. Wenn Sie eine Pause zwischen den Klicks einlegen, wird die Anzahl zurückgesetzt.
+Versuchen Sie, schnelle, wiederholte Klicks auf den Button auszuführen, um die Klickanzahl zu erhöhen. Wenn Sie eine Pause zwischen den Klicks machen, wird die Anzahl zurückgesetzt.
 
 {{EmbedLiveSample("Examples")}}
 

@@ -1,20 +1,20 @@
 ---
-title: "HTMLElement: drop Event"
+title: "HTMLElement: drop event"
 short-title: drop
 slug: Web/API/HTMLElement/drop_event
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML Drag and Drop API")}}
 
-Das **`drop`**-Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl auf ein gültiges Ziel fallen gelassen wird. Damit das `drop`-Ereignis immer wie erwartet ausgelöst wird, sollten Sie stets einen Aufruf von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) in den Code einfügen, der das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis behandelt.
+Das **`drop`** Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl auf ein gültiges Ziel fallen gelassen wird. Um sicherzustellen, dass das `drop` Ereignis immer wie erwartet ausgelöst wird, sollten Sie immer einen [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) Aufruf in dem Teil Ihres Codes einfügen, der das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignis behandelt.
 
-Dieses Ereignis kann abgebrochen werden und kann bis zum [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window)-Objekten hochsteigen.
+Dieses Ereignis ist abfangbar und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hochblubbern.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlereigenschaft.
 
 ```js-nolint
 addEventListener("drop", (event) => { })
@@ -30,7 +30,7 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften aus der Elternschnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
@@ -39,15 +39,15 @@ _Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften aus
 
 ### Ein minimales Drag-and-Drop-Beispiel
 
-In diesem Beispiel haben wir ein verschiebbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und es loszulassen.
+In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und dort loszulassen.
 
 Wir verwenden hier drei Ereignisbehandler:
 
-- Im `dragstart`-Ereignisbehandler erhalten wir eine Referenz auf das Element, das der Benutzer gezogen hat.
-- Im `dragover`-Ereignisbehandler für den Zielcontainer rufen wir `event.preventDefault()` auf, was es ermöglicht, `drop`-Ereignisse zu empfangen.
-- Im `drop`-Ereignisbehandler für die Ablagezone behandeln wir das Verschieben des verschiebbaren Elements vom ursprünglichen Container zur Ablagezone.
+- Im `dragstart` Ereignisbehandler erhalten wir eine Referenz auf das vom Benutzer gezogene Element.
+- Im `dragover` Ereignisbehandler für den Zielcontainer rufen wir `event.preventDefault()` auf, was es ermöglicht, `drop` Ereignisse zu empfangen.
+- Im `drop` Ereignisbehandler für die Abwurfzone handhaben wir das Verschieben des ziehbaren Elements vom ursprünglichen Container zur Abwurfzone.
 
-Für ein vollständigeres Beispiel für Drag-and-Drop siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
+Für ein vollständigeres Beispiel zu Drag and Drop, siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event) Ereignis.
 
 #### HTML
 
@@ -122,7 +122,7 @@ target.addEventListener("drop", (event) => {
 
 ## Siehe auch
 
-- Weitere Drag-and-Drop-Ereignisse:
+- Andere Drag-and-Drop-Ereignisse:
   - [`drag`](/de/docs/Web/API/HTMLElement/drag_event)
   - [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)
   - [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)

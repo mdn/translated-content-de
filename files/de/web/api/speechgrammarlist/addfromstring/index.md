@@ -3,12 +3,12 @@ title: "SpeechGrammarList: addFromString() Methode"
 short-title: addFromString()
 slug: Web/API/SpeechGrammarList/addFromString
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: ee348fc4da928b445f95660fae094269604b1b9c
 ---
 
-{{APIRef("Web Speech API")}}{{ SeeCompatTable() }}
+{{APIRef("Web Speech API")}}{{deprecated_header}}
 
-Die **`addFromString()`** Methode der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) Schnittstelle nimmt eine Grammatik, die in einem bestimmten String innerhalb des Code-Basis enthalten ist (z.B. in einer Variablen gespeichert), und fügt sie der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar) Objekt hinzu.
+Die **`addFromString()`**-Methode des [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList)-Interfaces nimmt eine in einem bestimmten String im Code vorhandene Grammatik (z.B. in einer Variablen gespeichert) und fügt sie der `SpeechGrammarList` als ein neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
 
 ## Syntax
 
@@ -20,9 +20,9 @@ addFromString(string, weight)
 ### Parameter
 
 - `string`
-  - : Ein String, der die hinzuzufügende Grammatik darstellt.
+  - : Ein String, der die hinzuzufügende Grammatik repräsentiert.
 - `weight` {{optional_inline}}
-  - : Ein Gleitkommawert, der das Gewicht der Grammatik relativ zu anderen Grammatiken in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) darstellt. Das Gewicht gibt die Bedeutung dieser Grammatik oder die Wahrscheinlichkeit an, dass sie vom Spracherkennungsdienst erkannt wird. Der Wert kann zwischen `0.0` und `1.0` liegen; Wenn nicht angegeben, wird der Standardwert `1.0` verwendet.
+  - : Ein Float-Wert, der das Gewicht der Grammatik im Verhältnis zu anderen Grammatiken in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) repräsentiert. Das Gewicht steht für die Wichtigkeit dieser Grammatik oder die Wahrscheinlichkeit, dass sie vom Spracherkennungsdienst erkannt wird. Der Wert kann zwischen `0.0` und `1.0` liegen; falls nicht angegeben, wird standardmäßig `1.0` verwendet.
 
 ### Rückgabewert
 

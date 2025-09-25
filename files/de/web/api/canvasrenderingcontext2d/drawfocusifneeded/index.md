@@ -1,16 +1,14 @@
 ---
-title: "CanvasRenderingContext2D: drawFocusIfNeeded()-Methode"
+title: "CanvasRenderingContext2D: drawFocusIfNeeded() Methode"
 short-title: drawFocusIfNeeded()
 slug: Web/API/CanvasRenderingContext2D/drawFocusIfNeeded
 l10n:
-  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die
-**`CanvasRenderingContext2D.drawFocusIfNeeded()`**-Methode der Canvas 2D API zeichnet einen Fokusring um den aktuellen oder gegebenen Pfad, wenn das
-angegebene Element fokussiert ist.
+Die **`CanvasRenderingContext2D.drawFocusIfNeeded()`**-Methode der Canvas 2D API zeichnet einen Fokusrahmen um den aktuellen oder gegebenen Pfad, wenn das angegebene Element fokussiert ist.
 
 ## Syntax
 
@@ -22,9 +20,9 @@ drawFocusIfNeeded(path, element)
 ### Parameter
 
 - `element`
-  - : Das Element, bei dem überprüft werden soll, ob es fokussiert ist oder nicht.
+  - : Das Element, um zu überprüfen, ob es fokussiert ist oder nicht.
 - `path`
-  - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad zur Verwendung.
+  - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad, der verwendet werden soll.
 
 ### Rückgabewert
 
@@ -32,10 +30,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Verwaltung des Button-Fokus
+### Administration des Button-Fokus
 
-Dieses Beispiel zeichnet zwei Buttons auf einer Leinwand. Die `drawFocusIfNeeded()`-Methode
-wird verwendet, um bei Bedarf einen Fokusring zu zeichnen.
+Dieses Beispiel zeichnet zwei Buttons auf eine Leinwand. Die `drawFocusIfNeeded()`-Methode wird verwendet, um bei Bedarf einen Fokusrahmen zu zeichnen.
 
 #### HTML
 
@@ -122,4 +119,4 @@ function drawButton(el, x, y) {
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

@@ -1,17 +1,14 @@
 ---
-title: "CanvasRenderingContext2D: Methode quadraticCurveTo()"
+title: "CanvasRenderingContext2D: quadraticCurveTo()-Methode"
 short-title: quadraticCurveTo()
 slug: Web/API/CanvasRenderingContext2D/quadraticCurveTo
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die Methode
-**`CanvasRenderingContext2D.quadraticCurveTo()`**
-der Canvas 2D API fügt dem aktuellen Unterpfad eine quadratische {{Glossary("Bezier_curve", "Bézier-Kurve")}} hinzu. Sie benötigt zwei Punkte: Der erste ist ein Kontrollpunkt und der zweite ist
-der Endpunkt. Der Startpunkt ist der zuletzt festgelegte Punkt im aktuellen Pfad, der mit [`moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) geändert werden kann, bevor die quadratische Bézier-Kurve erstellt wird.
+Die **`CanvasRenderingContext2D.quadraticCurveTo()`**-Methode der Canvas 2D API fügt dem aktuellen Unterpfad eine quadratische {{Glossary("Bezier_curve", "Bézier-Kurve")}} hinzu. Sie benötigt zwei Punkte: Der erste ist ein Kontrollpunkt und der zweite ist der Endpunkt. Der Startpunkt ist der aktuellste Punkt im aktuellen Pfad, der vor dem Erstellen der quadratischen Bézier-Kurve mit [`moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) geändert werden kann.
 
 ## Syntax
 
@@ -74,15 +71,13 @@ ctx.fill();
 
 #### Ergebnis
 
-In diesem Beispiel ist der Kontrollpunkt rot und die
-Start- und Endpunkte sind blau.
+In diesem Beispiel ist der Kontrollpunkt rot und die Anfangs- und Endpunkte sind blau.
 
 {{ EmbedLiveSample('How_quadraticCurveTo_works', 315, 165) }}
 
 ### Eine einfache quadratische Kurve
 
-Dieses Beispiel zeichnet eine einfache quadratische Bézier-Kurve mit
-`quadraticCurveTo()`.
+Dieses Beispiel zeichnet eine einfache quadratische Bézier-Kurve mit `quadraticCurveTo()`.
 
 #### HTML
 

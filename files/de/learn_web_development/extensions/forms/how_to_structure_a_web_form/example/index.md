@@ -2,7 +2,7 @@
 title: Beispiel
 slug: Learn_web_development/Extensions/Forms/How_to_structure_a_web_form/Example
 l10n:
-  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
+  sourceCommit: 3681b0af6ad675c0be657f6d74933f439099e76b
 ---
 
 Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [Anleitung zur Strukturierung eines HTML-Formulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form).
@@ -14,10 +14,7 @@ Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [
 ```html-nolint
 <form method="post">
   <h1>Payment form</h1>
-  <p>
-    Required fields are followed by
-    <strong><span aria-label="required">*</span></strong>.
-  </p>
+  <p>Please complete all required (*) fields.</p>
   <section>
     <h2>Contact information</h2>
     <fieldset>
@@ -44,24 +41,15 @@ Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [
       </ul>
     </fieldset>
     <p>
-      <label for="name">
-        <span>Name: </span>
-        <strong><span aria-label="required">*</span></strong>
-      </label>
+      <label for="name">Name *:</label>
       <input type="text" id="name" name="username" required />
     </p>
     <p>
-      <label for="mail">
-        <span>Email: </span>
-        <strong><span aria-label="required">*</span></strong>
-      </label>
+      <label for="mail"><span>Email *:</span></label>
       <input type="email" id="mail" name="user-mail" required />
     </p>
     <p>
-      <label for="pwd">
-        <span>Password: </span>
-        <strong><span aria-label="required">*</span></strong>
-      </label>
+      <label for="pwd">Password *:</label>
       <input type="password" id="pwd" name="password" required />
     </p>
   </section>
@@ -78,21 +66,15 @@ Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [
       </select>
     </p>
     <p>
-      <label for="number">
-        <span>Card number:</span>
-        <strong><span aria-label="required">*</span></strong>
-      </label>
+      <label for="number">Card number *:</label>
       <input type="tel" id="number" name="card-number" />
     </p>
     <p>
-      <label for="expiration">
-        <span>Expiration date:</span>
-        <strong><span aria-label="required">*</span></strong>
-      </label>
+      <label for="expiration">Expiration date *:</label>
       <input
         type="text"
         id="expiration"
-        required="true"
+        required
         placeholder="MM/YY"
         pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$" />
     </p>

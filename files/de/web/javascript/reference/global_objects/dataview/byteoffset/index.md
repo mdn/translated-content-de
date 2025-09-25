@@ -3,10 +3,10 @@ title: DataView.prototype.byteOffset
 short-title: byteOffset
 slug: Web/JavaScript/Reference/Global_Objects/DataView/byteOffset
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 377c7d317e7ffd477bc8b1273f0e215978b76dd1
 ---
 
-Die **`byteOffset`** Accessor-Eigenschaft von {{jsxref("DataView")}}-Instanzen gibt den Offset (in Bytes) dieser Ansicht vom Anfang ihres {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
+Die **`byteOffset`**-Zugriffseigenschaft von {{jsxref("DataView")}}-Instanzen gibt den Offset (in Bytes) dieses View im Vergleich zum Beginn seines {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück.
 
 {{InteractiveExample("JavaScript Demo: DataView.prototype.byteOffset")}}
 
@@ -22,7 +22,7 @@ console.log(view.byteOffset);
 
 ## Beschreibung
 
-Die `byteOffset`-Eigenschaft ist eine Accessor-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein `DataView` konstruiert wird und kann nicht geändert werden.
+Die `byteOffset`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen des `DataView` festgelegt und kann nicht geändert werden. Der `byteOffset` wird jedoch zu 0, wenn der zugrundeliegende Puffer so weit verkleinert wird, dass der angezeigte Bereich nicht mehr gültig ist.
 
 ## Beispiele
 
@@ -35,6 +35,12 @@ dataview.byteOffset; // 0 (no offset specified)
 
 const dataview2 = new DataView(buffer, 3);
 dataview2.byteOffset; // 3 (as specified when constructing the DataView)
+
+const buffer2 = new ArrayBuffer(16, { maxByteLength: 32 });
+const dataviewLengthTracking = new DataView(buffer2, 4);
+dataviewLengthTracking.byteOffset; // 4
+buffer2.resize(3);
+dataviewLengthTracking.byteOffset; // 0 (viewed range is no longer valid)
 ```
 
 ## Spezifikationen
@@ -47,6 +53,7 @@ dataview2.byteOffset; // 3 (as specified when constructing the DataView)
 
 ## Siehe auch
 
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("SharedArrayBuffer")}}

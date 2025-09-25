@@ -1,14 +1,14 @@
 ---
-title: "TextTrackList: removetrack-Ereignis"
+title: "TextTrackList: removetrack Ereignis"
 short-title: removetrack
 slug: Web/API/TextTrackList/removetrack_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Das **`removetrack`**-Ereignis wird ausgelöst, wenn ein Track aus einer [`TextTrackList`](/de/docs/Web/API/TextTrackList) entfernt wird.
+Das **`removetrack`** Ereignis wird ausgelöst, wenn ein Track aus einer [`TextTrackList`](/de/docs/Web/API/TextTrackList) entfernt wird.
 
 ## Syntax
 
@@ -28,10 +28,10 @@ Ein [`TrackEvent`](/de/docs/Web/API/TrackEvent). Erbt von [`Event`](/de/docs/Web
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgelisteten Eigenschaften sind auch Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`track`](/de/docs/Web/API/TrackEvent/track) {{ReadOnlyInline}}
-  - : Das [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt, auf das sich das Ereignis bezieht.
+  - : Das [`TextTrack`](/de/docs/Web/API/TextTrack) Objekt, auf das sich das Ereignis bezieht.
 
 ## Beispiele
 
@@ -45,7 +45,7 @@ mediaElement.textTracks.addEventListener("removetrack", (event) => {
 });
 ```
 
-Verwendung der `onremovetrack`-Ereignishandler-Eigenschaft:
+Verwendung der `onremovetrack` Ereignishandler-Eigenschaft:
 
 ```js
 const mediaElement = document.querySelector("video, audio");

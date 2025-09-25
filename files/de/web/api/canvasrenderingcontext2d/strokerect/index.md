@@ -1,20 +1,16 @@
 ---
-title: "CanvasRenderingContext2D: strokeRect() Methode"
+title: "CanvasRenderingContext2D: strokeRect()-Methode"
 short-title: strokeRect()
 slug: Web/API/CanvasRenderingContext2D/strokeRect
 l10n:
-  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die
-**`CanvasRenderingContext2D.strokeRect()`**
-Methode der Canvas 2D API zeichnet ein Rechteck, das entsprechend dem aktuellen [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) und anderen
-Kontexteinstellungen umrandet (gestrokt) ist.
+Die **`CanvasRenderingContext2D.strokeRect()`**-Methode der Canvas 2D API zeichnet ein Rechteck, das gemäß dem aktuellen [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) und anderen Kontexteinstellungen umrandet (konturiert) wird.
 
-Diese Methode zeichnet direkt auf das Canvas, ohne den aktuellen Pfad zu ändern. Daher haben nachfolgende Aufrufe von [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder
-[`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) keinen Einfluss darauf.
+Diese Methode zeichnet direkt auf die Zeichenfläche, ohne den aktuellen Pfad zu ändern, sodass nachfolgende Aufrufe von [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) keinen Einfluss darauf haben.
 
 ## Syntax
 
@@ -22,7 +18,7 @@ Diese Methode zeichnet direkt auf das Canvas, ohne den aktuellen Pfad zu ändern
 strokeRect(x, y, width, height)
 ```
 
-Die `strokeRect()`-Methode zeichnet ein gestroktes Rechteck, dessen Startpunkt bei `(x, y)` liegt und dessen Größe durch `width` und `height` angegeben ist.
+Die `strokeRect()`-Methode zeichnet ein konturiertes Rechteck, dessen Startpunkt bei `(x, y)` liegt und dessen Größe durch `width` und `height` festgelegt ist.
 
 ### Parameter
 
@@ -31,9 +27,9 @@ Die `strokeRect()`-Methode zeichnet ein gestroktes Rechteck, dessen Startpunkt b
 - `y`
   - : Die y-Achsen-Koordinate des Startpunkts des Rechtecks.
 - `width`
-  - : Die Breite des Rechtecks. Positive Werte sind nach rechts, negative nach links.
+  - : Die Breite des Rechtecks. Positive Werte gehen nach rechts und negative nach links.
 - `height`
-  - : Die Höhe des Rechtecks. Positive Werte sind nach unten, negative nach oben.
+  - : Die Höhe des Rechtecks. Positive Werte gehen nach unten und negative nach oben.
 
 ### Rückgabewert
 
@@ -41,9 +37,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Ein einfaches gestroktes Rechteck
+### Ein einfaches konturiertes Rechteck
 
-Dieses Beispiel zeichnet ein Rechteck mit einem grünen Umriss mithilfe der `strokeRect()`-Methode.
+Dieses Beispiel zeichnet ein Rechteck mit einer grünen Umrandung unter Verwendung der `strokeRect()`-Methode.
 
 #### HTML
 
@@ -66,7 +62,7 @@ ctx.strokeRect(20, 10, 160, 100);
 
 {{ EmbedLiveSample('A_simple_stroked_rectangle', 700, 180) }}
 
-### Anwendung verschiedener Kontexteinstellungen
+### Anwenden verschiedener Kontexteinstellungen
 
 Dieses Beispiel zeichnet ein Rechteck mit einem Schlagschatten und dicken, abgeschrägten Umrissen.
 

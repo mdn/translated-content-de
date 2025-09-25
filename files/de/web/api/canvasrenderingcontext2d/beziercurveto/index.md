@@ -1,16 +1,14 @@
 ---
-title: "CanvasRenderingContext2D: Methode bezierCurveTo()"
+title: "CanvasRenderingContext2D: bezierCurveTo()-Methode"
 short-title: bezierCurveTo()
 slug: Web/API/CanvasRenderingContext2D/bezierCurveTo
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die Methode
-**`CanvasRenderingContext2D.bezierCurveTo()`**
-der Canvas 2D API fügt dem aktuellen Unterpfad eine kubische {{Glossary("Bezier_curve", "Bézier-Kurve")}} hinzu. Sie benötigt drei Punkte: die ersten beiden sind Kontrollpunkte und der dritte ist der Endpunkt. Der Startpunkt ist der zuletzt definierte Punkt im aktuellen Pfad, der durch die Verwendung von [`moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) vor dem Erstellen der Bézier-Kurve geändert werden kann.
+Die **`CanvasRenderingContext2D.bezierCurveTo()`**-Methode der Canvas 2D API fügt dem aktuellen Unterpfad eine kubische {{Glossary("Bezier_curve", "Bézier-Kurve")}} hinzu. Sie benötigt drei Punkte: Die ersten beiden sind Kontrollpunkte und der dritte ist der Endpunkt. Der Startpunkt ist der letzte Punkt im aktuellen Pfad, welcher durch die Verwendung von [`moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) vor dem Erstellen der Bézier-Kurve geändert werden kann.
 
 ## Syntax
 
@@ -85,7 +83,7 @@ ctx.fill();
 
 #### Ergebnis
 
-In diesem Beispiel sind die Kontrollpunkte rot und die Start- und Endpunkte blau.
+In diesem Beispiel sind die Kontrollpunkte rot und die Start- und Endpunkte sind blau.
 
 {{ EmbedLiveSample('How_bezierCurveTo_works', 315, 165) }}
 
@@ -101,7 +99,7 @@ Dieses Beispiel zeichnet eine einfache Bézier-Kurve mit `bezierCurveTo()`.
 
 #### JavaScript
 
-Die Kurve beginnt an dem durch `moveTo()` angegebenen Punkt: (30, 30). Der erste Kontrollpunkt befindet sich bei (120, 160) und der zweite bei (180, 10). Die Kurve endet bei (220, 140).
+Die Kurve beginnt bei dem durch `moveTo()` spezifizierten Punkt: (30, 30). Der erste Kontrollpunkt befindet sich bei (120, 160), und der zweite bei (180, 10). Die Kurve endet bei (220, 140).
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -127,5 +125,5 @@ ctx.stroke();
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - {{Glossary("Bezier_curve", "Bézier-Kurve")}}

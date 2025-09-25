@@ -3,16 +3,16 @@ title: "HTMLMediaElement: loadstart Ereignis"
 short-title: loadstart
 slug: Web/API/HTMLMediaElement/loadstart_event
 l10n:
-  sourceCommit: e68530dbce2b661c8860e9c6a1c70b1caca5a199
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
 Das **`loadstart`** Ereignis wird ausgelöst, wenn der Browser begonnen hat, eine Ressource zu laden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("loadstart", (event) => { })

@@ -3,18 +3,18 @@ title: "Element: animationcancel event"
 short-title: animationcancel
 slug: Web/API/Element/animationcancel_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Web Animations")}}
 
-Das **`animationcancel`**-Ereignis wird ausgelöst, wenn eine [CSS-Animation](/de/docs/Web/CSS/CSS_animations) unerwartet abbricht. Mit anderen Worten, jedes Mal, wenn sie ohne das Senden eines [`animationend`](/de/docs/Web/API/Element/animationend_event)-Ereignisses aufhört zu laufen. Dies könnte passieren, wenn der Wert von {{cssxref("animation-name")}} so geändert wird, dass die Animation entfernt wird, oder wenn der animierende Knoten mithilfe von CSS ausgeblendet wird. Daher entweder direkt oder weil einer seiner enthaltenen Knoten ausgeblendet wird.
+Das **`animationcancel`**-Ereignis wird ausgelöst, wenn eine [CSS-Animation](/de/docs/Web/CSS/CSS_animations) unerwartet abbricht. Mit anderen Worten, immer wenn sie aufhört zu laufen, ohne ein [`animationend`](/de/docs/Web/API/Element/animationend_event)-Ereignis zu senden. Dies kann passieren, wenn der Wert von {{cssxref("animation-name")}} geändert wird, sodass die Animation entfernt wird, oder wenn der animierende Knoten über CSS verborgen wird. Entweder direkt oder weil einer seiner enthaltenen Knoten verborgen ist.
 
-Ein Ereignishandler für dieses Ereignis kann hinzugefügt werden, indem die `onanimationcancel`-Eigenschaft gesetzt oder [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwendet wird.
+Ein Ereignis-Handler für dieses Ereignis kann hinzugefügt werden, indem die `onanimationcancel`-Eigenschaft gesetzt oder `addEventListener()` verwendet wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("animationcancel", (event) => { })
@@ -33,15 +33,15 @@ Ein [`AnimationEvent`](/de/docs/Web/API/AnimationEvent). Erbt von [`Event`](/de/
 _Erbt auch Eigenschaften von seinem Eltern-`Event`._
 
 - [`AnimationEvent.animationName`](/de/docs/Web/API/AnimationEvent/animationName) {{ReadOnlyInline}}
-  - : Ein String, der den Wert von {{cssxref("animation-name")}} enthält, der die Animation erzeugt hat.
+  - : Ein String, der den Wert von {{cssxref("animation-name")}} enthält, der die Animation generiert hat.
 - [`AnimationEvent.elapsedTime`](/de/docs/Web/API/AnimationEvent/elapsedTime) {{ReadOnlyInline}}
-  - : Ein `float`, der angibt, wie lange die Animation in Sekunden gelaufen ist, als dieses Ereignis ausgelöst wurde, abzüglich der Zeit, in der die Animation pausiert war. Bei einem `animationstart`-Ereignis ist `elapsedTime` `0.0`, es sei denn, es gab einen negativen Wert für {{cssxref("animation-delay")}}, in diesem Fall wird das Ereignis mit `elapsedTime` ausgelöst, das `(-1 * delay)` enthält.
+  - : Ein `float`, der die Laufzeit der Animation in Sekunden angibt, wenn dieses Ereignis ausgelöst wird, ohne die Pausenzeiten zu berücksichtigen. Bei einem `animationstart`-Ereignis ist `elapsedTime` `0.0`, es sei denn, es gab einen negativen Wert für {{cssxref("animation-delay")}}, in diesem Fall wird das Ereignis mit `elapsedTime`, das `(-1 * Verzögerung)` enthält, ausgelöst.
 - [`AnimationEvent.pseudoElement`](/de/docs/Web/API/AnimationEvent/pseudoElement) {{ReadOnlyInline}}
-  - : Ein String, beginnend mit `'::'`, der den Namen des [Pseudo-Elements](/de/docs/Web/CSS/Pseudo-elements) enthält, auf dem die Animation ausgeführt wird. Wenn die Animation nicht auf einem Pseudo-Element, sondern auf dem Element läuft, ein leerer String: `''`.
+  - : Ein String, beginnend mit `'::'`, der den Namen des [Pseudoelements](/de/docs/Web/CSS/Pseudo-elements) enthält, auf dem die Animation läuft. Wenn die Animation nicht auf einem Pseudoelement, sondern auf dem Element läuft, ein leerer String: `''`.
 
 ## Beispiele
 
-Dieser Code erhält ein Element, das derzeit animiert wird, und fügt einen Listener für das `animationcancel`-Ereignis hinzu. Anschließend wird die {{cssxref("display")}}-Eigenschaft des Elements auf `none` gesetzt, was das `animationcancel`-Ereignis auslösen wird.
+Dieser Code holt ein Element, das derzeit animiert wird, und fügt einen Listener für das `animationcancel`-Ereignis hinzu. Es setzt dann die {{cssxref("display")}}-Eigenschaft des Elements auf `none`, was das `animationcancel`-Ereignis auslösen wird.
 
 ```js
 const animated = document.querySelector(".animated");
@@ -53,7 +53,7 @@ animated.addEventListener("animationcancel", () => {
 animated.style.display = "none";
 ```
 
-Dasselbe, aber mit der `onanimationcancel`-Eigenschaft anstelle von `addEventListener()`:
+Dasselbe, aber unter Verwendung der `onanimationcancel`-Eigenschaft anstelle von `addEventListener()`:
 
 ```js
 const animated = document.querySelector(".animated");
@@ -166,6 +166,6 @@ applyAnimation.addEventListener("click", () => {
 ## Siehe auch
 
 - [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [CSS-Animationen verwenden](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
 - [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
 - Verwandte Ereignisse: [`animationstart`](/de/docs/Web/API/Element/animationstart_event), [`animationend`](/de/docs/Web/API/Element/animationend_event), [`animationiteration`](/de/docs/Web/API/Element/animationiteration_event)

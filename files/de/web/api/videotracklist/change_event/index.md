@@ -3,16 +3,16 @@ title: "VideoTrackList: change-Ereignis"
 short-title: change
 slug: Web/API/VideoTrackList/change_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Das `change`-Ereignis wird ausgelöst, wenn ein Video-Track aktiv oder inaktiv gemacht wird, zum Beispiel durch Ändern der [`selected`](/de/docs/Web/API/VideoTrack/selected) Eigenschaft des Tracks.
+Das `change`-Ereignis wird ausgelöst, wenn ein Videospur aktiviert oder deaktiviert wird, zum Beispiel durch Ändern der [`selected`](/de/docs/Web/API/VideoTrack/selected)-Eigenschaft der Spur.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("change", (event) => { })
@@ -22,7 +22,7 @@ onchange = (event) => { }
 
 ## Ereignistyp
 
-Ein generisches [`Event`](/de/docs/Web/API/Event) ohne hinzugefügte Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiele
 
@@ -42,7 +42,7 @@ toggleTrackButton.addEventListener("click", () => {
 });
 ```
 
-Verwendung der `onchange` Event-Handler-Eigenschaft:
+Verwendung der `onchange`-Ereignis-Handler-Eigenschaft:
 
 ```js
 const videoElement = document.querySelector("video");
@@ -69,6 +69,6 @@ toggleTrackButton.addEventListener("click", () => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event), [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
-- Dieses Ereignis auf [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) zielt auf: [`change`](/de/docs/Web/API/AudioTrackList/change_event)
+- Dieses Ereignis bei [`AudioTrackList`](/de/docs/Web/API/AudioTrackList)-Zielen: [`change`](/de/docs/Web/API/AudioTrackList/change_event)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

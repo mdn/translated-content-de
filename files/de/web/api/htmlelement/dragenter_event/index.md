@@ -1,20 +1,20 @@
 ---
-title: "HTMLElement: dragenter-Event"
+title: "HTMLElement: dragenter-Ereignis"
 short-title: dragenter
 slug: Web/API/HTMLElement/dragenter_event
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("HTML Drag and Drop API")}}
 
-Das `dragenter`-Event wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Zielgebiet erreicht. Das Zielobjekt ist die _unmittelbare Benutzerselektion_ (das Element, das direkt vom Benutzer als Zielgebiet angegeben wird) oder das {{HTMLElement("body")}}-Element.
+Das `dragenter`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl in ein gültiges Zielobjekt eintritt. Das Zielobjekt ist die _direkte Benutzerauswahl_ (das vom Benutzer direkt als Zielobjekt angegebene Element) oder das {{HTMLElement("body")}}-Element.
 
-Dieses Event kann abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) propagieren.
+Dieses Ereignis kann abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) nach oben blubbern.
 
 ## Syntax
 
-Verwenden Sie den Event-Namen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("dragenter", (event) => { })
@@ -22,28 +22,28 @@ addEventListener("dragenter", (event) => { })
 ondragenter = (event) => { }
 ```
 
-## Event-Typ
+## Ereignistyp
 
 Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("DragEvent")}}
 
-## Event-Eigenschaften
+## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
 
 ## Beispiele
 
-### Stilgestaltung von Drop-Zonen bei dragenter
+### Stilierung von Zielzonen bei dragenter
 
-In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und es wieder loszulassen.
+In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und es freizugeben.
 
-Wir hören auf das `dragenter`-Event, um dem anderen Container einen violetten Hintergrund zu geben, während sich das ziehbare Element darüber befindet, um anzuzeigen, dass das Element auf den Container fallen gelassen werden könnte.
+Wir lauschen auf das `dragenter`-Ereignis, um dem anderen Container einen lila Hintergrund zu geben, während das ziehbare Element über ihm ist, um zu signalisieren, dass das ziehbare Element auf den Container abgelegt werden könnte.
 
-In diesem Teilbeispiel haben wir jedoch das Fallenlassen noch nicht implementiert. Für ein vollständiges Beispiel von Drag and Drop, siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Event.
+In diesem Teilbeispiel haben wir jedoch das Ablegen noch nicht implementiert: für ein vollständiges Drag-and-Drop-Beispiel sehen Sie die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
 #### HTML
 
@@ -113,7 +113,7 @@ target.addEventListener("dragleave", (event) => {
 
 ## Siehe auch
 
-- Weitere Drag-and-Drop-Events:
+- Andere Drag-and-Drop-Ereignisse:
   - [`drag`](/de/docs/Web/API/HTMLElement/drag_event)
   - [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)
   - [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)

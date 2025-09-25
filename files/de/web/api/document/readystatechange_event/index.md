@@ -3,14 +3,14 @@ title: "Dokument: readystatechange-Ereignis"
 short-title: readystatechange
 slug: Web/API/Document/readystatechange_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("DOM")}}
 
-Das **`readystatechange`**-Ereignis wird ausgelöst, wenn sich das [`readyState`](/de/docs/Web/API/Document/readyState)-Attribut eines Dokuments geändert hat.
+Das **`readystatechange`**-Ereignis wird ausgelöst, wenn sich das [`readyState`](/de/docs/Web/API/Document/readyState)-Attribut eines Dokuments ändert.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht propagiert.
+Dieses Ereignis ist nicht abbrechbar und wird nicht nach oben weitergegeben.
 
 ## Syntax
 

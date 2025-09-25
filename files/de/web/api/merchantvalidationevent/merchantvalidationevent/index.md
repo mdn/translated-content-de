@@ -3,12 +3,12 @@ title: "MerchantValidationEvent: MerchantValidationEvent() Konstruktor"
 short-title: MerchantValidationEvent()
 slug: Web/API/MerchantValidationEvent/MerchantValidationEvent
 l10n:
-  sourceCommit: 458eb9af74287fd15ef8ba9f4ba9aa3423c4cac3
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{deprecated_header}}{{securecontext_header}}{{APIRef}}
+{{APIRef("Payment Request API")}}{{deprecated_header}}{{securecontext_header}}
 
-Der **`MerchantValidationEvent()`** Konstruktor erstellt ein neues [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent) Objekt. Sie sollten diese Ereignisse nicht selbst erstellen; behandeln Sie stattdessen einfach das [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) Ereignis.
+Der **`MerchantValidationEvent()`** Konstruktor erstellt ein neues [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent) Objekt. Sie sollten diese Ereignisse nicht selbst erstellen müssen; stattdessen sollten Sie das [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) Ereignis behandeln.
 
 ## Syntax
 
@@ -23,26 +23,26 @@ new MerchantValidationEvent(type, options)
   - : Ein String mit dem Namen des Ereignisses.
     Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn immer auf `merchantvalidation`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ folgende Eigenschaften haben kann:
     - `methodName` {{optional_inline}}
-      - : Ein String, der die Zahlungsartenkennung für den verwendeten Zahlungsdienst enthält. Dies ist standardmäßig ein leerer String.
+      - : Ein String, der die Zahlungsartenkennung für den verwendeten Payment-Handler enthält. Standardmäßig ist dies ein leerer String.
     - `validationURL` {{optional_inline}}
-      - : Die URL, von der spezifische Verifizierungsinformationen des Zahlungsdienstes abgerufen werden, um den Händler zu validieren. Dies ist standardmäßig ein leerer String.
+      - : Die URL, von der Zahlungsspezifische Verifizierungsinformationen abgerufen werden, um den Händler zu validieren. Standardmäßig ist dies ein leerer String.
 
 ### Rückgabewert
 
-Ein neues [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent) Objekt, das die Informationen bereitstellt, die dem clientseitigen Code zur Verfügung gestellt werden müssen, um sie dem {{Glossary("user_agent", "User-Agent")}} durch Aufruf von [`complete()`](/de/docs/Web/API/MerchantValidationEvent/complete) zu präsentieren.
+Ein neues [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent) Objekt, das die Informationen bereitstellt, die an den clientseitigen Code übermittelt werden müssen, um sie dem {{Glossary("user_agent", "User Agent")}} durch Aufruf von [`complete()`](/de/docs/Web/API/MerchantValidationEvent/complete) zu präsentieren.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn der als `validationURL` angegebene String nicht als URL geparst werden konnte.
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der angegebene `methodName` nicht einem bekannten und unterstützten Händler entspricht oder keine korrekt formatierte standardisierte Zahlungsartenkennung ist.
+  - : Wird ausgelöst, wenn das angegebene `methodName` nicht mit einem bekannten und unterstützten Händler übereinstimmt oder keine wohlgeformte Standard-Zahlungsmethodenkennung ist.
 
 ## Spezifikationen
 
-_Dieses Feature ist veraltet und gehört zu keiner Spezifikation._
+_Diese Funktion ist veraltet und Teil keiner Spezifikation._
 
 ## Browser-Kompatibilität
 

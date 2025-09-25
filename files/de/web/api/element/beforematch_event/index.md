@@ -1,18 +1,18 @@
 ---
-title: "Element: beforematch Ereignis"
+title: "Element: beforematch-Event"
 short-title: beforematch
 slug: Web/API/Element/beforematch_event
 l10n:
-  sourceCommit: b114c920cc7dea474cfe05b7bacd053a1b2d411f
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("DOM")}}
 
-Ein Element empfängt ein **`beforematch`** Ereignis, wenn es sich im Zustand _versteckt bis gefunden_ befindet und der Browser im Begriff ist, seinen Inhalt anzuzeigen, weil der Benutzer den Inhalt über die Funktion "Auf der Seite suchen" oder durch Fragment-Navigation gefunden hat.
+Ein Element erhält ein **`beforematch`**-Event, wenn es sich im _versteckt bis gefunden_-Zustand befindet und der Browser im Begriff ist, dessen Inhalt anzuzeigen, weil der Benutzer den Inhalt über die „Auf Seite suchen“-Funktion oder über Fragmentnavigation gefunden hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("beforematch", (event) => { })
@@ -24,24 +24,24 @@ onbeforematch = (event) => { }
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Das HTML-Attribut [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden) akzeptiert den Wert `until-found`: Wenn dieser Wert angegeben ist, wird das Element versteckt, aber sein Inhalt wird für die "Auf der Seite suchen"-Funktion des Browsers oder für die Fragment-Navigation zugänglich. Wenn diese Funktionen ein Scrollen zu einem Element in einem "versteckt bis gefunden"-Teilbaum veranlassen, wird der Browser:
+Das HTML-Attribut [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden) akzeptiert den Wert `until-found`: Wenn dieser Wert angegeben ist, wird das Element versteckt, aber sein Inhalt ist über die „Auf Seite suchen“-Funktion des Browsers oder über die Fragmentnavigation zugänglich. Wenn diese Funktionen dazu führen, dass zu einem Element in einem „versteckt bis gefunden“-Teilbaum gescrollt wird, wird der Browser folgendes tun:
 
-1. Ein `beforematch` Ereignis auf dem versteckten Element auslösen
-2. Das `hidden` Attribut vom Element entfernen
+1. Ein `beforematch`-Event auf dem versteckten Element auslösen
+2. Das `hidden`-Attribut vom Element entfernen
 3. Zum Element scrollen
 
 ## Beispiele
 
 ### Verwendung von beforematch
 
-In diesem Beispiel haben wir zwei {{HTMLElement("div")}} Elemente.
-Das erste ist sichtbar, während das zweite die Attribute `hidden="until-found"` und `id="until-found-box"` besitzt.
-Das Element mit der `until-found-box` ID hat einen gepunkteten roten Rand und einen grauen Hintergrund.
+In diesem Beispiel haben wir zwei {{HTMLElement("div")}}-Elemente.
+Das erste ist sichtbar, während das zweite die Attribute `hidden="until-found"` und `id="until-found-box"` hat.
+Das Element mit der `until-found-box`-ID hat einen roten gepunkteten Rahmen und einen grauen Hintergrund.
 
-Wir haben auch einen Link, der auf das `"until-found-box"` Fragment zielt, und JavaScript, das auf das Auslösen des `beforematch` Ereignisses bei diesem versteckten Element wartet.
-Der Ereignishandler ändert den Textinhalt des Kastens, um eine Aktion zu veranschaulichen, die erfolgen kann, wenn der Zustand _versteckt bis gefunden_ im Begriff ist, entfernt zu werden.
+Wir haben auch einen Link, der das Fragment `"until-found-box"` anvisiert, und JavaScript, das auf das Feuer des `beforematch`-Events bei diesem versteckten Element hört.
+Der Ereignishandler ändert den Textinhalt der Box, um eine Aktion zu veranschaulichen, die auftreten kann, wenn der _versteckt bis gefunden_-Zustand entfernt werden soll.
 
 #### HTML
 
@@ -94,14 +94,14 @@ document.querySelector("#reset").addEventListener("click", () => {
 
 #### Ergebnis
 
-Wenn Sie auf die Schaltfläche "Zum versteckten Inhalt gehen" klicken, wird zum Element im Zustand _versteckt bis gefunden_ navigiert.
-Das `beforematch` Ereignis wird ausgelöst, der Textinhalt wird aktualisiert und dann wird der Inhalt des Elements angezeigt (das `hidden` Attribut wird entfernt).
+Wenn Sie auf die Schaltfläche „Zum versteckten Inhalt gehen“ klicken, navigieren Sie zu dem Element im _versteckt bis gefunden_-Zustand.
+Das `beforematch`-Ereignis wird ausgelöst, der Textinhalt wird aktualisiert, und dann wird der Inhalt des Elements angezeigt (das `hidden`-Attribut wird entfernt).
 
-Um das Beispiel erneut auszuführen, klicken Sie auf "Neu laden".
+Um das Beispiel erneut auszuführen, klicken Sie auf „Neu laden“.
 
 {{EmbedLiveSample("Using beforematch", "", 300)}}
 
-Wenn Ihr Browser den `"until-found"` enumerierten Wert des `hidden` Attributs nicht unterstützt, wird das zweite `<div>` verborgen sein (da `hidden` vor der Hinzufügung des `until-found` Wertes ein boolescher Wert war).
+Wenn Ihr Browser den `"until-found"`-enumerierten Wert des `hidden`-Attributs nicht unterstützt, wird das zweite `<div>` ausgeblendet (da `hidden` vor der Hinzufügung des `until-found`-Wertes einen booleschen Wert hatte).
 
 ## Spezifikationen
 

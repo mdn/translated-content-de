@@ -1,14 +1,14 @@
 ---
-title: "Document: defaultView-Eigenschaft"
+title: "Dokument: Eigenschaft defaultView"
 short-title: defaultView
 slug: Web/API/Document/defaultView
 l10n:
-  sourceCommit: 0a881eea07f0cec6ca4ed85a24af43b367a9f80d
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{ApiRef}}
+{{APIRef("DOM")}}
 
-In Browsern gibt **`document.defaultView`** das [`window`](/de/docs/Web/API/Window)-Objekt zurück, das mit {{Glossary("Browsing_context", "einem Dokument")}} verknüpft ist, oder `null`, wenn keines verfügbar ist.
+In Browsern gibt **`document.defaultView`** das [`window`](/de/docs/Web/API/Window)-Objekt zurück, das mit {{Glossary("Browsing_context", "einem Dokument")}} verknüpft ist, oder `null`, falls keines verfügbar ist.
 
 Diese Eigenschaft ist schreibgeschützt.
 

@@ -3,12 +3,12 @@ title: "SpeechGrammarList: SpeechGrammarList() Konstruktor"
 short-title: SpeechGrammarList()
 slug: Web/API/SpeechGrammarList/SpeechGrammarList
 l10n:
-  sourceCommit: 1a91b0b63f0cbaca9125bd48d4e5bc8afed2a7a3
+  sourceCommit: ee348fc4da928b445f95660fae094269604b1b9c
 ---
 
-{{APIRef("Web Speech API")}}{{ SeeCompatTable() }}
+{{APIRef("Web Speech API")}}{{deprecated_header}}
 
-Der **`SpeechGrammarList()`** Konstruktor erstellt eine neue Instanz eines `SpeechGrammarList` Objekts.
+Der **`SpeechGrammarList()`**-Konstruktor erstellt eine neue `SpeechGrammarList`-Objektinstanz.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ## Beispiele
 
-In unserem einfachen [Sprachfarbwechsler](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speech-color-changer)-Beispiel erstellen wir eine neue Instanz eines `SpeechRecognition` Objekts mit dem [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition) Konstruktor, erstellen eine neue [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList), fügen unser Grammatik-String mit der Methode [`SpeechGrammarList.addFromString`](/de/docs/Web/API/SpeechGrammarList/addFromString) hinzu und setzen sie als Grammatik, die von der `SpeechRecognition` Instanz erkannt wird, mithilfe der [`SpeechRecognition.grammars`](/de/docs/Web/API/SpeechRecognition/grammars) Eigenschaft.
+In unserem einfachen Beispiel [Speech color changer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speech-color-changer) erstellen wir eine neue `SpeechRecognition`-Objektinstanz mit dem [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition) Konstruktor, erstellen eine neue [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList), fügen unseren Grammatik-String mit der Methode [`SpeechGrammarList.addFromString`](/de/docs/Web/API/SpeechGrammarList/addFromString) hinzu und setzen sie als die Grammatik, die von der `SpeechRecognition`-Instanz erkannt wird, mithilfe der Eigenschaft [`SpeechRecognition.grammars`](/de/docs/Web/API/SpeechRecognition/grammars).
 
 ```js
 const grammar =

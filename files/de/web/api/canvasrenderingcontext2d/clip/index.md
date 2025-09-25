@@ -3,22 +3,22 @@ title: "CanvasRenderingContext2D: clip()-Methode"
 short-title: clip()
 slug: Web/API/CanvasRenderingContext2D/clip
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.clip()`**-Methode der Canvas 2D API wandelt den aktuellen oder gegebenen Pfad in die aktuelle Schnittregion um. Die vorherige Schnittregion, falls vorhanden, wird mit dem aktuellen oder gegebenen Pfad geschnitten, um die neue Schnittregion zu erstellen.
+Die **`CanvasRenderingContext2D.clip()`**-Methode der Canvas 2D API verwandelt den aktuellen oder angegebenen Pfad in die aktuelle Schnittregion. Die vorherige Schnittregion, falls vorhanden, wird mit dem aktuellen oder angegebenen Pfad geschnitten, um die neue Schnittregion zu erstellen.
 
-Im Bild unten stellt die rote Umrandung eine Schnittregion in Form eines Sterns dar. Nur die Teile des Schachbrettmusters, die sich innerhalb der Schnittregion befinden, werden gezeichnet.
+Im Bild unten stellt die rote Umrandung eine Schnittregion dar, die wie ein Stern geformt ist. Nur die Teile des Schachbrettmusters, die sich innerhalb der Schnittregion befinden, werden gezeichnet.
 
 ![Sternförmige Schnittregion](canvas_clipping_path.png)
 
 > [!NOTE]
-> Beachten Sie, dass die Schnittregion nur aus Formen konstruiert wird, die dem Pfad hinzugefügt werden. Es funktioniert nicht mit direkt auf die Leinwand gezeichneten Formprimitiven wie [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect). Stattdessen müssten Sie [`rect()`](/de/docs/Web/API/CanvasRenderingContext2D/rect) verwenden, um eine rechteckige Form zum Pfad hinzuzufügen, bevor Sie `clip()` aufrufen.
+> Beachten Sie, dass die Schnittregion nur aus Formen konstruiert wird, die dem Pfad hinzugefügt wurden. Es funktioniert nicht mit Formprimativen, die direkt auf die Leinwand gezeichnet werden, wie z.B. [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect). Stattdessen müssten Sie [`rect()`](/de/docs/Web/API/CanvasRenderingContext2D/rect) verwenden, um eine rechteckige Form zum Pfad hinzuzufügen, bevor Sie `clip()` aufrufen.
 
 > [!NOTE]
-> Clip-Pfade können nicht direkt zurückgesetzt werden. Sie müssen Ihren Canvas-Zustand mit [`save()`](/de/docs/Web/API/CanvasRenderingContext2D/save) speichern, bevor Sie `clip()` aufrufen, und ihn wiederherstellen, sobald Sie mit dem Zeichnen im abgeschnittenen Bereich fertig sind, indem Sie [`restore()`](/de/docs/Web/API/CanvasRenderingContext2D/restore) verwenden.
+> Schnittpfade können nicht direkt rückgängig gemacht werden. Sie müssen Ihren Canvas-Zustand mit [`save()`](/de/docs/Web/API/CanvasRenderingContext2D/save) speichern, bevor Sie `clip()` aufrufen, und ihn wiederherstellen, nachdem Sie das Zeichnen im geschnittenen Bereich abgeschlossen haben, mit [`restore()`](/de/docs/Web/API/CanvasRenderingContext2D/restore).
 
 ## Syntax
 
@@ -32,25 +32,24 @@ clip(path, fillRule)
 ### Parameter
 
 - `fillRule`
-
-  - : Der Algorithmus, um zu bestimmen, ob ein Punkt innerhalb oder außerhalb der Schnittregion liegt. Mögliche Werte:
+  - : Der Algorithmus, mit dem bestimmt wird, ob ein Punkt innerhalb oder außerhalb der Schnittregion liegt. Mögliche Werte:
     - `nonzero`
-      - : Die [Non-Zero-Windungsregel](https://en.wikipedia.org/wiki/Nonzero-rule). Standardregel.
+      - : Die [Non-Zero-Winding-Regel](https://en.wikipedia.org/wiki/Nonzero-rule). Standardregel.
     - `evenodd`
-      - : Die [Even-Odd-Windungsregel](https://en.wikipedia.org/wiki/Even%E2%80%93odd_rule).
+      - : Die [Even-Odd-Winding-Regel](https://en.wikipedia.org/wiki/Even%E2%80%93odd_rule).
 
 - `path`
-  - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad, der als Schnittregion verwendet wird.
+  - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad, der als Schnittregion verwendet werden soll.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ### Eine einfache Schnittregion
 
-Dieses Beispiel verwendet die `clip()`-Methode, um eine Schnittregion entsprechend der Form eines Kreisbogen zu erstellen. Zwei Rechtecke werden dann gezeichnet; nur die Teile innerhalb der Schnittregion werden wiedergegeben.
+Dieses Beispiel verwendet die `clip()`-Methode, um eine Schnittregion entsprechend der Form eines kreisförmigen Bogens zu erstellen. Zwei Rechtecke werden dann gezeichnet; nur die Teile innerhalb der Schnittregion werden gerendert.
 
 #### HTML
 
@@ -60,7 +59,7 @@ Dieses Beispiel verwendet die `clip()`-Methode, um eine Schnittregion entspreche
 
 #### JavaScript
 
-Die Schnittregion ist ein voller Kreis mit seinem Mittelpunkt bei (100, 75) und einem Radius von 50.
+Die Schnittregion ist ein voller Kreis mit seinem Zentrum bei (100, 75) und einem Radius von 50.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -82,9 +81,9 @@ ctx.fillRect(0, 0, 100, 100);
 
 {{ EmbedLiveSample('A_simple_clipping_region', 700, 180) }}
 
-### Einen Pfad und eine fillRule angeben
+### Festlegen eines Pfades und eines fillRule
 
-In diesem Beispiel werden zwei Rechtecke in einem Path2D-Objekt gespeichert, das dann als aktuelle Schnittregion mit der `clip()`-Methode festgelegt wird. Die `"evenodd"`-Regel erzeugt ein Loch, wo sich die Schnittrechtecke überschneiden; standardmäßig (mit der `"nonzero"`-Regel) würde es kein Loch geben.
+Dieses Beispiel speichert zwei Rechtecke in einem Path2D-Objekt, das dann mit der `clip()`-Methode zur aktuellen Schnittregion gemacht wird. Die `"evenodd"`-Regel erzeugt ein Loch, wo sich die Schnittrechtecke überschneiden; standardmäßig (mit der `"nonzero"`-Regel) gäbe es kein Loch.
 
 #### HTML
 
@@ -115,7 +114,7 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 ### Erstellen einer komplexen Schnittregion
 
-Dieses Beispiel verwendet zwei Pfade, ein Rechteck und ein Quadrat, um eine komplexe Schnittregion zu erstellen. Die `clip()`-Methode wird zweimal aufgerufen: zuerst, um die aktuelle Schnittregion auf den Kreis mit einem `Path2D`-Objekt zu setzen, und dann erneut, um die Kreisschnittregion mit einem Quadrat zu erweitern. Die endgültige Schnittregion ist eine Form, die die Schnittmenge von Kreis und Quadrat darstellt.
+Dieses Beispiel verwendet zwei Pfade, ein Rechteck und ein Quadrat, um eine komplexe Schnittregion zu erstellen. Die `clip()`-Methode wird zweimal aufgerufen, zuerst um die aktuelle Schnittregion mit einem `Path2D`-Objekt auf den Kreis festzulegen, dann erneut, um die Kreis-Schnittregion mit einem Quadrat zu schneiden. Die endgültige Schnittregion ist eine Form, die die Schnittmenge des Kreises und des Quadrats darstellt.
 
 #### HTML
 
@@ -159,4 +158,4 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

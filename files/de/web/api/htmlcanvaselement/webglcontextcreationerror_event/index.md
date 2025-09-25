@@ -3,20 +3,20 @@ title: "HTMLCanvasElement: webglcontextcreationerror Ereignis"
 short-title: webglcontextcreationerror
 slug: Web/API/HTMLCanvasElement/webglcontextcreationerror_event
 l10n:
-  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("WebGL API")}}
 
-Das **`webglcontextcreationerror`** Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der Benutzer-Agent nicht in der Lage ist, einen [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Kontext zu erstellen.
+Das **`webglcontextcreationerror`**-Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der User-Agent nicht in der Lage ist, einen [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Kontext zu erstellen.
 
-Dieses Ereignis hat eine [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage) Eigenschaft, die eine plattformabhängige Zeichenkette mit weiteren Informationen über das Scheitern enthalten kann.
+Dieses Ereignis besitzt eine [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage)-Eigenschaft, die eine plattformabhängige Zeichenkette mit weiteren Informationen über den Fehler enthalten kann.
 
-Dieses Ereignis bildet keine Blasen.
+Dieses Ereignis wird nicht propagiert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("webglcontextcreationerror", (event) => { })
@@ -26,7 +26,7 @@ onwebglcontextcreationerror = (event) => { }
 
 ## Ereignistyp
 
-Ein [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent). Wird von [`Event`](/de/docs/Web/API/Event) geerbt.
+Ein [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("WebGLContextEvent")}}
 

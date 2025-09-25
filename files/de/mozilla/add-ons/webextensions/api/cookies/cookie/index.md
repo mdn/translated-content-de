@@ -2,50 +2,50 @@
 title: cookies.Cookie
 slug: Mozilla/Add-ons/WebExtensions/API/cookies/Cookie
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 4f75a883f60a0ebd730def108aa66251942bb833
 ---
 
-Der `Cookie`-Typ der {{WebExtAPIRef("cookies")}} API repräsentiert Informationen über ein HTTP-Cookie.
+Der `Cookie`-Typ der {{WebExtAPIRef("cookies")}} API repräsentiert Informationen über einen HTTP-Cookie.
 
 ## Typ
 
-Werte dieses Typs sind Objekte, die folgende Eigenschaften enthalten können:
+Werte dieses Typs sind Objekte, die diese Eigenschaften enthalten können:
 
 - `domain`
-  - : Ein `string`, der die Domain repräsentiert, zu der das Cookie gehört (z.B. "www.google.com" oder "example.com").
+  - : Ein `string`, der die Domain repräsentiert, zu der der Cookie gehört (z. B. "www.google.com" oder "example.com").
 - `expirationDate` {{optional_inline}}
-  - : Eine `number`, die das Ablaufdatum des Cookies als Anzahl der Sekunden seit dem UNIX-Epoch darstellt. Nicht vorhanden bei Session-Cookies.
+  - : Eine `number`, die das Ablaufdatum des Cookies als Sekunden nach dem UNIX-Epoch darstellt. Schließt Millisekunden im Bruchteil ein. Nicht für Sitzungscookies angegeben.
 - `firstPartyDomain`
-  - : Ein `string`, der die mit dem Cookie assoziierte First-Party-Domain repräsentiert. Dies ist ein leerer String, wenn das Cookie gesetzt wurde, während die First-Party-Isolation deaktiviert war. Siehe [First-party isolation](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation).
+  - : Ein `string`, der die mit dem Cookie verbundene Erstpartei-Domain darstellt. Dies ist ein leerer String, wenn der Cookie gesetzt wurde, während die Isolation von Erstparteien ausgeschaltet war. Siehe [Erstparteien-Isolation](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation).
 - `hostOnly`
-  - : Ein `boolean`, `true`, wenn es sich bei dem Cookie um ein host-only Cookie handelt (d.h. der Host der Anfrage muss genau mit der Domain des Cookies übereinstimmen), oder `false` andernfalls.
+  - : Ein `boolean`, `true` wenn der Cookie ein Host-Only-Cookie ist (d.h. der Host der Anfrage muss genau mit der Domain des Cookies übereinstimmen), oder `false` andernfalls.
 - `httpOnly`
-  - : Ein `boolean`, `true`, wenn das Cookie als HttpOnly markiert ist (d.h. das Cookie ist für clientseitige Skripte nicht zugänglich), oder `false` andernfalls.
+  - : Ein `boolean`, `true` wenn der Cookie als HttpOnly markiert ist (d.h. der Cookie ist für clientseitige Skripte unzugänglich), oder `false` andernfalls.
 - `name`
-  - : Ein `string`, der den Namen des Cookies repräsentiert.
+  - : Ein `string`, der den Namen des Cookies darstellt.
 - `partitionKey` {{optional_inline}}
-  - : Ein `object`, das die Beschreibung der [storage partition](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) enthält, in der sich das Cookie befindet. Dieses Objekt wird weggelassen (null), wenn das Cookie nicht in partitioniertem Speicher ist. Dieses Objekt enthält die folgenden Eigenschaften:
+  - : Ein `object`, das die Beschreibung der [Speicherpartition](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) enthält, in der sich der Cookie befindet. Dieses Objekt wird weggelassen (null), wenn der Cookie nicht in partioniertem Speicher ist. Dieses Objekt enthält die folgenden Eigenschaften:
     - `topLevelSite`
-      - : Ein `string`, der die First-Party-URL der Speicherpartition des Cookies repräsentiert, falls das Cookie in einem nach Top-Level-Site partitionierten Speicher ist.
+      - : Ein `string`, der die Erstpartei-URL der Speicherpartition des Cookies darstellt, wenn der Cookie in einem nach Top-Level-Site partitionierten Speicher ist.
 
 - `path`
-  - : Ein `string`, der den Pfad des Cookies repräsentiert.
+  - : Ein `string`, der den Pfad des Cookies darstellt.
 - `secure`
-  - : Ein `boolean`, `true`, wenn das Cookie als sicher markiert ist (d.h. sein Geltungsbereich ist auf sichere Kanäle, typischerweise HTTPS, beschränkt), oder `false` andernfalls.
+  - : Ein `boolean`, `true` wenn der Cookie als sicher markiert ist (d.h. sein Gültigkeitsbereich ist auf sichere Kanäle beschränkt, typischerweise HTTPS), oder `false` andernfalls.
 - `session`
-  - : Ein `boolean`, `true`, wenn das Cookie ein Session-Cookie ist, oder `false`, wenn es sich um ein persistentes Cookie mit einem Ablaufdatum handelt.
+  - : Ein `boolean`, `true` wenn der Cookie ein Sitzungscookie ist, oder `false` wenn es ein persistenter Cookie mit Ablaufdatum ist.
 - `sameSite`
   - : Ein {{WebExtAPIRef("cookies.SameSiteStatus")}}-Wert, der den SameSite-Status des Cookies angibt.
 - `storeId`
-  - : Ein `string`, der die ID des Cookie-Speichers repräsentiert, der dieses Cookie enthält, wie sie von {{WebExtAPIRef("cookies.getAllCookieStores()")}} bereitgestellt wird.
+  - : Ein `string`, der die ID des Cookie-Speichers darstellt, der diesen Cookie enthält, wie von {{WebExtAPIRef("cookies.getAllCookieStores()")}} bereitgestellt.
 - `value`
-  - : Ein `string`, der den Wert des Cookies repräsentiert.
+  - : Ein `string`, der den Wert des Cookies darstellt.
 
 ## Beispiele
 
-Die meisten Methoden der Cookies-API beinhalten ein `Cookie`-Objekt als Eingabeparameter oder als Teil des Rückgabewerts. Ein Aufruf von {{WebExtAPIRef("cookies.getAll()")}} gibt zum Beispiel ein Array von `Cookie`-Objekten zurück.
+Die meisten Methoden der Cookies-API verwenden ein `Cookie`-Objekt als Eingabeparameter oder als Teil des Rückgabewertes. Beispielsweise gibt ein Aufruf von {{WebExtAPIRef("cookies.getAll()")}} ein Array von `Cookie`-Objekten zurück.
 
-Dieses Beispiel fragt nach allen Cookies und protokolliert dann einige der Werte aus jedem der resultierenden `Cookie`-Objekte:
+Dieses Beispiel fragt nach allen Cookies und protokolliert dann einige der Werte jedes der resultierenden `Cookie`-Objekte:
 
 ```js
 function logCookies(cookies) {
@@ -68,7 +68,7 @@ gettingAll.then(logCookies);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#type-Cookie) API von Chromium. Diese Dokumentation leitet sich von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#type-Cookie) API von Chromium. Diese Dokumentation ist von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

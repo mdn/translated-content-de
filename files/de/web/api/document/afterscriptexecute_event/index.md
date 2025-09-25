@@ -1,18 +1,18 @@
 ---
-title: "Dokument: afterscriptexecute-Ereignis"
+title: "Dokument: `afterscriptexecute`-Ereignis"
 short-title: afterscriptexecute
 slug: Web/API/Document/afterscriptexecute_event
 l10n:
-  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}{{non-standard_header}}{{deprecated_header}}
+{{APIRef("DOM")}}{{non-standard_header}}{{deprecated_header}}
 
-Das `afterscriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element das Ausführen seines Skripts abgeschlossen hat. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, zum Beispiel mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
+Das `afterscriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element das Ausführen seines Skripts beendet hat. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, wie zum Beispiel mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("afterscriptexecute", (event) => { })
@@ -40,7 +40,7 @@ document.onafterscriptexecute = finished;
 
 ## Spezifikationen
 
-Nicht Teil einer Spezifikation.
+Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 

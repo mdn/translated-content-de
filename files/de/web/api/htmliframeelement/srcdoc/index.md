@@ -3,12 +3,12 @@ title: "HTMLIFrameElement: srcdoc-Eigenschaft"
 short-title: srcdoc
 slug: Web/API/HTMLIFrameElement/srcdoc
 l10n:
-  sourceCommit: 88467d31d2ad7bdfade8b38ec69f6702fee080d1
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef('HTMLIFrameElement')}}
+{{APIRef("HTML DOM")}}
 
-Die **`srcdoc`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) spezifiziert den Inhalt der Seite.
+Die **`srcdoc`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) legt den Inhalt der Seite fest.
 
 ## Beispiele
 

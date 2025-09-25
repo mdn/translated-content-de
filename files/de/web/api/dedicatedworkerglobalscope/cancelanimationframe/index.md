@@ -3,14 +3,14 @@ title: "DedicatedWorkerGlobalScope: cancelAnimationFrame() Methode"
 short-title: cancelAnimationFrame()
 slug: Web/API/DedicatedWorkerGlobalScope/cancelAnimationFrame
 l10n:
-  sourceCommit: 3eb0169d65709102b1599f5a86fd4a508b5f3798
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}{{AvailableInWorkers("dedicated")}}
+{{APIRef("Web Workers API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`cancelAnimationFrame()`** Methode des [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Interfaces storniert eine zuvor über einen Aufruf von [`requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) geplante Animationsframe-Anforderung.
+Die **`cancelAnimationFrame()`** Methode der [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) Schnittstelle storniert eine zuvor durch einen Aufruf von [`requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) geplante Animationsframe-Anforderung.
 
-Der Aufruf der `cancelAnimationFrame()` Methode erfordert, dass der aktuelle Worker ein zugeordnetes Eigentümer-[`window`](/de/docs/Web/API/Window) hat. Das bedeutet, dass der aktuelle Worker von einem [`window`](/de/docs/Web/API/Window) oder von einem dedizierten Worker, der ebenfalls ein zugeordnetes Eigentümer-[`window`](/de/docs/Web/API/Window) hat, erstellt werden muss.
+Das Aufrufen der `cancelAnimationFrame()` Methode erfordert, dass der aktuelle Worker ein zugeordnetes Eigentümer-[`window`](/de/docs/Web/API/Window) hat. Das bedeutet, dass der aktuelle Worker von einem [`window`](/de/docs/Web/API/Window) oder von einem dedizierten Worker, der ebenfalls ein zugeordnetes Eigentümer-[`window`](/de/docs/Web/API/Window) hat, erstellt worden sein muss.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ cancelAnimationFrame(handle)
 ### Parameter
 
 - `handle`
-  - : Die von einem Aufruf von [`requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) zurückgegebene ID; der Aufruf muss im selben Worker erfolgt sein.
+  - : Die ID, die durch einen Aufruf von [`requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) zurückgegeben wurde; der Aufruf muss im selben Worker erfolgt sein.
 
 ### Rückgabewert
 
@@ -36,13 +36,13 @@ Keiner ({{jsxref("undefined")}}).
 
 Hier ist ein vollständiges Beispiel, das zeigt, wie `requestAnimationFrame()` in einem dedizierten Worker mit einem `OffscreenCanvas` verwendet wird.
 
-Das HTML sollte enthalten:
+Das HTML sollte Folgendes enthalten:
 
 ```html
 <canvas width="100" height="100"></canvas>
 ```
 
-Es sollte mit folgendem JavaScript verknüpft sein:
+Es sollte auf folgendes JavaScript verlinken:
 
 ```js
 const worker = new Worker("worker.js");
@@ -114,11 +114,11 @@ self.addEventListener("message", (e) => {
 });
 ```
 
-Im Haupt-Thread beginnen wir damit, die Kontrolle über ein {{HTMLElement("canvas")}}-Element an ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) zu übergeben, indem wir [`HTMLCanvasElement.transferControlToOffscreen()`](/de/docs/Web/API/HTMLCanvasElement/transferControlToOffscreen) verwenden und eine Nachricht senden, um die Arbeit mit dem Offscreen-Canvas zu `"starten"`.
+Im Hauptthread beginnen wir, indem wir die Kontrolle über ein {{HTMLElement("canvas")}} Element an ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) übertragen, mittels [`HTMLCanvasElement.transferControlToOffscreen()`](/de/docs/Web/API/HTMLCanvasElement/transferControlToOffscreen), und senden eine Nachricht, um die Arbeit mit dem Offscreen-Canvas im Worker zu `"starten"`.
 
-In der Worker-Datei (`worker.js`) behandeln wir die Animationslogik. Beim Empfang der `"start"`-Nachricht beginnt der Worker mit der Animation und bewegt das Rechteck von links nach rechts. Beim Empfang einer `"stop"`-Nachricht wird die Animation gestoppt.
+In der Worker-Datei (`worker.js`) bearbeiten wir die Animationslogik. Beim Empfang der `"start"` Nachricht startet der Worker die Animation und bewegt das Rechteck von links nach rechts. Beim Empfang einer `"stop"` Nachricht wird die Animation gestoppt.
 
-Schließlich kann der Haupt-Thread eine `"stop"`-Nachricht an den Worker senden, um die Animation nach einer Verzögerung zu stoppen, damit die Animation sichtbar ist, bevor sie endet.
+Schließlich kann der Hauptthread eine `"stop"` Nachricht an den Worker senden, um die Animation nach einer Verzögerung zu stoppen, sodass die Animation sichtbar wird, bevor sie gestoppt wird.
 
 ## Spezifikationen
 

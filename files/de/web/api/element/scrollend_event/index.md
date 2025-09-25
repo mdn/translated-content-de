@@ -1,22 +1,22 @@
 ---
-title: "Element: scrollend Event"
+title: "Element: scrollend-Ereignis"
 short-title: scrollend
 slug: Web/API/Element/scrollend_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("CSSOM view API")}}
 
-Das **`scrollend`**-Ereignis wird ausgelöst, wenn das Scrollen eines Elements abgeschlossen ist. Das Scrollen gilt als abgeschlossen, wenn die Scrollposition keine ausstehenden Aktualisierungen mehr hat und der Benutzer seine Geste beendet hat.
+Das **`scrollend`**-Ereignis wird ausgelöst, wenn das Scrollen eines Elements abgeschlossen ist. Scrollen gilt als abgeschlossen, wenn die Scrollposition keine ausstehenden Updates mehr hat und der Benutzer seine Geste abgeschlossen hat.
 
-Zu den Aktualisierungen der Scrollposition gehören sanftes oder sofortiges Scrollen mit dem Mausrad, Scrollen über die Tastatur, Scroll-Snap-Ereignisse oder andere APIs und Gesten, die das Aktualisieren der Scrollposition verursachen. Benutzeraktionen wie Touch-Panning oder das Scrollen mit dem Trackpad gelten erst als abgeschlossen, wenn Zeiger oder Tasten losgelassen wurden. Wenn sich die Scrollposition nicht geändert hat, wird kein scrollend-Ereignis ausgelöst.
+Scrollpositions-Updates beinhalten glattes oder sofortiges Scrollen mit dem Mausrad, Scrollen mit der Tastatur, Scroll-Snap-Ereignisse oder andere APIs und Gesten, die dazu führen, dass sich die Scrollposition aktualisiert. Benutzer-Gesten wie Touch-Panning oder Trackpad-Scrollen sind erst dann abgeschlossen, wenn Zeiger oder Tasten losgelassen wurden. Wenn sich die Scrollposition nicht geändert hat, wird kein scrollend-Ereignis ausgelöst.
 
 Um zu erkennen, wann das Scrollen innerhalb eines Dokuments abgeschlossen ist, siehe das [`scrollend`](/de/docs/Web/API/Document/scrollend_event)-Ereignis von `Document`.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("scrollend", (event) => { })
@@ -30,9 +30,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-### Verwenden von `scrollend` mit einem Event Listener
+### Verwendung von `scrollend` mit einem Ereignis-Listener
 
-Das folgende Beispiel zeigt, wie das `scrollend`-Ereignis verwendet wird, um zu erkennen, wann der Benutzer das Scrollen beendet hat:
+Das folgende Beispiel zeigt, wie man das `scrollend`-Ereignis verwendet, um zu erkennen, wann der Benutzer das Scrollen beendet hat:
 
 ```css hidden
 #scroll-box {
@@ -86,7 +86,7 @@ element.addEventListener("scrollend", (event) => {
 
 ### Verwendung der `onscrollend`-Ereignishandler-Eigenschaft
 
-Das folgende Beispiel zeigt, wie die `onscrollend`-Ereignishandler-Eigenschaft verwendet wird, um zu erkennen, wann der Benutzer das Scrollen beendet hat:
+Das folgende Beispiel zeigt, wie man die `onscrollend`-Ereignishandler-Eigenschaft verwendet, um zu erkennen, wann der Benutzer das Scrollen beendet hat:
 
 ```css hidden
 #scroll-box {

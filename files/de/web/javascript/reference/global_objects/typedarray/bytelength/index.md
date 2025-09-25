@@ -3,10 +3,10 @@ title: TypedArray.prototype.byteLength
 short-title: byteLength
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/byteLength
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: 377c7d317e7ffd477bc8b1273f0e215978b76dd1
 ---
 
-Die **`byteLength`** Zugriffs-Eigenschaft von {{jsxref("TypedArray")}} Instanzen gibt die Länge (in Bytes) dieses typisierten Arrays zurück.
+Die **`byteLength`** Zugriffs- Eigenschaft von {{jsxref("TypedArray")}} Instanzen gibt die Länge (in Bytes) dieses typisierten Arrays zurück.
 
 {{InteractiveExample("JavaScript Demo: TypedArray.prototype.byteLength", "shorter")}}
 
@@ -21,7 +21,7 @@ console.log(uint8.byteLength);
 
 ## Beschreibung
 
-Die `byteLength` Eigenschaft ist eine Zugriffs-Eigenschaft, deren set-Zugriffsfunktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen eines _TypedArray_ festgelegt und kann nicht geändert werden. Wenn das _TypedArray_ keinen `byteOffset` oder eine `length` angibt, wird die `length` des referenzierten `ArrayBuffer` zurückgegeben. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
+Die `byteLength`-Eigenschaft ist eine Zugriffs-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Wenn das typisierte Array [längenüberwachend](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#behavior_when_viewing_a_resizable_buffer) ist, hängt seine Länge von der Länge des zugrunde liegenden Puffers ab und kann sich ändern, wenn der Puffer in der Größe verändert wird. Andernfalls wird der Wert beim Erstellen des typisierten Arrays festgelegt und kann nicht geändert werden. Unabhängig davon, ob es sich um eine längenüberwachende Darstellung handelt oder nicht, wird die `byteLength` zu 0, wenn der zugrunde liegende Puffer so verändert wird, dass der betrachtete Bereich nicht mehr gültig ist.
 
 ## Beispiele
 
@@ -36,8 +36,16 @@ uint8.byteLength; // 8 (matches the byteLength of the buffer)
 const uint8newLength = new Uint8Array(buffer, 1, 5);
 uint8newLength.byteLength; // 5 (as specified when constructing the Uint8Array)
 
-const uint8offSet = new Uint8Array(buffer, 2);
-uint8offSet.byteLength; // 6 (due to the offset of the constructed Uint8Array)
+const uint8offset = new Uint8Array(buffer, 2);
+uint8offset.byteLength; // 6 (due to the offset of the constructed Uint8Array)
+
+const buffer2 = new ArrayBuffer(16, { maxByteLength: 32 });
+const uint8lengthTracking = new Uint8Array(buffer2, 4);
+uint8lengthTracking.byteLength; // 12 (16 - 4)
+buffer2.resize(20);
+uint8lengthTracking.byteLength; // 16 (20 - 4)
+buffer2.resize(3);
+uint8lengthTracking.byteLength; // 0 (viewed range is no longer valid)
 ```
 
 ## Spezifikationen

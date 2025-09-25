@@ -3,19 +3,15 @@ title: "CanvasRenderingContext2D: beginPath()-Methode"
 short-title: beginPath()
 slug: Web/API/CanvasRenderingContext2D/beginPath
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die Methode
-**`CanvasRenderingContext2D.beginPath()`**
-der Canvas 2D API startet einen neuen Pfad, indem die Liste der Unterpfade geleert wird. Rufen Sie
-diese Methode auf, wenn Sie einen neuen Pfad erstellen möchten.
+Die **`CanvasRenderingContext2D.beginPath()`**-Methode der Canvas 2D API startet einen neuen Pfad, indem sie die Liste der Unterpfade leert. Rufen Sie diese Methode auf, wenn Sie einen neuen Pfad erstellen möchten.
 
 > [!NOTE]
-> Um einen neuen Unterpfad zu erstellen, der dem aktuellen
-> Canvas-Zustand entspricht, können Sie [`CanvasRenderingContext2D.moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) verwenden.
+> Um einen neuen Unterpfad zu erstellen, d.h. einen, der dem aktuellen Canvas-Zustand entspricht, können Sie [`CanvasRenderingContext2D.moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) verwenden.
 
 ## Syntax
 
@@ -33,9 +29,9 @@ Kein Wert ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Erstellen von getrennten Pfaden
+### Erstellen von unterschiedlichen Pfaden
 
-Dieses Beispiel erstellt zwei Pfade, die jeweils eine einzelne Linie enthalten.
+Dieses Beispiel erstellt zwei Pfade, von denen jeder eine einzelne Linie enthält.
 
 #### HTML
 
@@ -45,8 +41,7 @@ Dieses Beispiel erstellt zwei Pfade, die jeweils eine einzelne Linie enthalten.
 
 #### JavaScript
 
-Die Methode `beginPath()` wird vor Beginn jeder Linie aufgerufen, damit diese
-mit unterschiedlichen Farben gezeichnet werden können.
+Die `beginPath()`-Methode wird vor Beginn jeder Linie aufgerufen, damit sie in unterschiedlichen Farben gezeichnet werden können.
 
 ```js
 const canvas = document.getElementById("canvas");

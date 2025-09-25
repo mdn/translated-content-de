@@ -3,46 +3,46 @@ title: "CanvasRenderingContext2D: fontVariantCaps-Eigenschaft"
 short-title: fontVariantCaps
 slug: Web/API/CanvasRenderingContext2D/fontVariantCaps
 l10n:
-  sourceCommit: 3928d2b1004e2435e063ef4b037e06e1906d62f3
+  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
 ---
 
-{{APIRef}}
+{{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.fontVariantCaps`**-Eigenschaft der [Canvas API](/de/docs/Web/API/Canvas_API) gibt eine alternative Kapitalkapitalisierung des gerenderten Textes an.
+Die **`CanvasRenderingContext2D.fontVariantCaps`**-Eigenschaft der [Canvas API](/de/docs/Web/API/Canvas_API) gibt eine alternative Großschreibung des gerenderten Textes an.
 
 Dies entspricht der CSS-Eigenschaft [`font-variant-caps`](/de/docs/Web/CSS/font-variant-caps).
 
 ## Wert
 
-Der alternative Kapitalkapitalisierungswert der Schrift, einer der folgenden:
+Der alternative Großschreibungswert der Schriftart, der einer der folgenden sein kann:
 
 - `normal` (Standard)
-  - : Deaktiviert die Verwendung alternativer Glyphen.
+  - : Deaktiviert die Verwendung von alternativen Glyphen.
 - `small-caps`
-  - : Ermöglicht die Darstellung von Kapitälchen (OpenType-Funktion: `smcp`).
+  - : Aktiviert die Anzeige von Kapitälchen (OpenType-Feature: `smcp`).
     Kapitälchen-Glyphen verwenden typischerweise die Form von Großbuchstaben, sind jedoch auf die Größe von Kleinbuchstaben reduziert.
 - `all-small-caps`
-  - : Ermöglicht die Darstellung von Kapitälchen sowohl für Groß- als auch für Kleinbuchstaben (OpenType-Funktionen: `c2sc`, `smcp`).
+  - : Aktiviert die Anzeige von Kapitälchen sowohl für Groß- als auch für Kleinbuchstaben (OpenType-Features: `c2sc`, `smcp`).
 - `petite-caps`
-  - : Ermöglicht die Darstellung von Petit-Großbuchstaben (OpenType-Funktion: `pcap`).
+  - : Aktiviert die Anzeige von kleinen Kapitälchen (OpenType-Feature: `pcap`).
 - `all-petite-caps`
-  - : Ermöglicht die Darstellung von Petit-Großbuchstaben sowohl für Groß- als auch für Kleinbuchstaben (OpenType-Funktionen: `c2pc`, `pcap`).
+  - : Aktiviert die Anzeige von kleinen Kapitälchen sowohl für Groß- als auch Kleinbuchstaben (OpenType-Features: `c2pc`, `pcap`).
 - `unicase`
-  - : Ermöglicht die Darstellung einer Mischung aus Kapitälchen für Großbuchstaben mit normalen Kleinbuchstaben (OpenType-Funktion: `unic`).
+  - : Aktiviert die Anzeige einer Mischung von kleinen Großbuchstaben für Großbuchstaben mit normalen Kleinbuchstaben (OpenType-Feature: `unic`).
 - `titling-caps`
-  - : Ermöglicht die Darstellung von Titelkapitälchen (OpenType-Funktion: `titl`).
-    Großbuchstabenglyphen sind oft für die Verwendung mit Kleinbuchstaben ausgelegt.
-    Wenn sie in vollständig großgeschriebenen Titelzeilen verwendet werden, können sie zu stark wirken.
-    Titelkapitälchen sind speziell für diese Situation konzipiert.
+  - : Aktiviert die Anzeige von Titelgroßbuchstaben (OpenType-Feature: `titl`).
+    Großbuchstabenglyphen werden häufig für die Verwendung mit Kleinbuchstaben entworfen.
+    Wenn sie in komplett großgeschriebenen Titelsequenzen verwendet werden, können sie zu stark erscheinen.
+    Titelgroßbuchstaben sind speziell für diese Situation gestaltet.
 
-Die Eigenschaft kann verwendet werden, um den Kapitalkapitalisierungswert der Schrift abzurufen oder festzulegen.
+Die Eigenschaft kann verwendet werden, um den Großschreibungswert der Schriftart abzurufen oder festzulegen.
 
-Beachten Sie, dass es bei einigen dieser Varianten Barrierefreiheitsbedenken gibt, die im entsprechenden Thema [`font-variant-caps`](/de/docs/Web/CSS/font-variant-caps#accessibility) beschrieben sind.
+Beachten Sie, dass es Zugänglichkeitsbedenken bei einigen dieser Optionen gibt, die im entsprechenden Thema [`font-variant-caps`](/de/docs/Web/CSS/font-variant-caps#accessibility) erläutert werden.
 
 ## Beispiele
 
-In diesem Beispiel zeigen wir den Text „Hello World“ unter Verwendung jedes der unterstützten Werte der `fontVariantCaps`-Eigenschaft an.
-Der Wert wird auch in jedem Fall angezeigt, indem die Eigenschaft gelesen wird.
+In diesem Beispiel zeigen wir den Text "Hello World" unter Verwendung jedes der unterstützten Werte der `fontVariantCaps`-Eigenschaft an.
+Der Wert wird auch bei jedem Fall durch das Auslesen der Eigenschaft angezeigt.
 
 ### HTML
 
