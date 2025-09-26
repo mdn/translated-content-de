@@ -3,12 +3,12 @@ title: "WebSocket: WebSocket() Konstruktor"
 short-title: WebSocket()
 slug: Web/API/WebSocket/WebSocket
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 9584088475846ff014dadddf8f6eff25c0796bbb
 ---
 
 {{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Der **`WebSocket()`** Konstruktor gibt ein neues [`WebSocket`](/de/docs/Web/API/WebSocket)-Objekt zurück und versucht sofort, eine Verbindung zu der angegebenen WebSocket-URL herzustellen.
+Der **`WebSocket()`** Konstruktor gibt ein neues [`WebSocket`](/de/docs/Web/API/WebSocket) Objekt zurück und versucht sofort, eine Verbindung zur angegebenen WebSocket-URL herzustellen.
 
 ## Syntax
 
@@ -20,40 +20,38 @@ new WebSocket(url, protocols)
 ### Parameter
 
 - `url`
-
-  - : Die URL des Ziel-WebSocket-Servers, zu dem verbunden werden soll.
-    Die URL muss eines der folgenden Schemen verwenden: `ws`, `wss`, `http`, oder `https`, und darf kein [URL-Fragment](/de/docs/Web/URI/Reference/Fragment) enthalten.
-    Wenn eine relative URL angegeben wird, ist sie relativ zur Basis-URL des aufrufenden Skripts.
+  - : Die URL des Ziel-WebSocket-Servers, zu dem eine Verbindung hergestellt werden soll.
+    Die URL muss eines der folgenden Schemas verwenden: `ws`, `wss`, `http` oder `https` und darf kein [URL-Fragment](/de/docs/Web/URI/Reference/Fragment) enthalten.
+    Wenn eine relative URL angegeben wird, bezieht sie sich auf die Basis-URL des aufrufenden Skripts.
 
 - `protocols` {{optional_inline}}
-
-  - : Ein einzelner String oder ein Array von Strings, die die [Subprotokolle](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#subprotocols) darstellen, die der Client in der Reihenfolge der Präferenz verwenden möchte.
+  - : Ein einzelner String oder ein Array von Strings, das die [Sub-Protokolle](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#subprotocols) darstellt, die der Client in der Reihenfolge der Präferenz verwenden möchte.
     Wenn es weggelassen wird, wird standardmäßig ein leeres Array verwendet, d.h. `[]`.
 
-    Ein einzelner Server kann mehrere WebSocket-Subprotokolle implementieren und verschiedene Arten von Interaktionen basierend auf dem angegebenen Wert handhaben.
+    Ein einzelner Server kann mehrere WebSocket-Subprotokolle implementieren und unterschiedliche Arten von Interaktionen je nach dem angegebenen Wert behandeln.
     Beachten Sie jedoch, dass pro Verbindung nur ein Subprotokoll ausgewählt werden kann.
 
-    Die zulässigen Werte sind jene, die im {{httpheader("Sec-WebSocket-Protocol")}} HTTP-Header angegeben werden können.
-    Diese sind Werte, die aus dem [IANA WebSocket Subprotocol Name Registry](https://www.iana.org/assignments/websocket/websocket.xml#subprotocol-name) ausgewählt wurden, wie `soap`, `wamp`, `ship` und so weiter, oder können einen benutzerdefinierten Namen haben, der von Client und Server gemeinsam verstanden wird.
+    Die erlaubten Werte sind diejenigen, die im {{httpheader("Sec-WebSocket-Protocol")}} HTTP-Header angegeben werden können.
+    Diese sind aus dem [IANA WebSocket Subprotocol Name Registry](https://www.iana.org/assignments/websocket/websocket.xml#subprotocol-name) ausgewählt, wie z.B. `soap`, `wamp`, `ship` und so weiter, oder ein benutzerdefinierter Name, der zwischen Client und Server gemeinsam verstanden wird.
 
     > [!NOTE]
-    > Die Verbindung wird nicht hergestellt, bis das Subprotokoll mit dem Server ausgehandelt ist.
-    > Das ausgewählte Protokoll kann dann von [`WebSocket.protocol`](/de/docs/Web/API/WebSocket/protocol) abgelesen werden: Es wird der leere String sein, wenn eine Verbindung nicht hergestellt werden kann.
+    > Die Verbindung wird erst hergestellt, wenn das Subprotokoll mit dem Server ausgehandelt ist.
+    > Das ausgewählte Protokoll kann dann von [`WebSocket.protocol`](/de/docs/Web/API/WebSocket/protocol) gelesen werden: Es wird der leere String sein, wenn keine Verbindung hergestellt werden kann.
 
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
     - das Parsen von [`url`](#url) fehlschlägt
-    - [`url`](#url) ein anderes Schema als `ws`, `wss`, `http`, oder `https` hat
+    - [`url`](#url) ein Schema hat, das nicht `ws`, `wss`, `http` oder `https` ist
     - [`url`](#url) ein [Fragment](/de/docs/Web/URI/Reference/Fragment) enthält
-    - irgendwelche der Werte in [`protocols`](#protocols) mehr als einmal vorkommen oder anderweitig die Anforderungen an die Elemente, die den Wert der [`Sec-WebSocket-Protocol`](/de/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism#sec-websocket-protocol)-Felder bilden, gemäß der WebSocket-Protokollspezifikation nicht erfüllen
+    - einer der Werte in [`protocols`](#protocols) mehr als einmal vorkommt oder anderweitig nicht die Anforderungen für Elemente erfüllt, die den Wert der Felder von [`Sec-WebSocket-Protocol`](/de/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism#sec-websocket-protocol) gemäß der WebSocket-Protokoll-Spezifikation bestimmen
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen, wie Sie eine Verbindung zu einem `WebSocket` herstellen könnten.
+Die unten stehenden Beispiele zeigen, wie Sie eine Verbindung zu einem `WebSocket` herstellen könnten.
 
-Der folgende Code zeigt, wie wir eine Verbindung zu einem Socket unter Verwendung einer URL mit dem Schema `wss` herstellen können:
+Der folgende Code zeigt, wie wir eine Verbindung zu einem Socket unter Verwendung einer URL mit dem `wss` Schema herstellen können:
 
 ```js
 const wssWebSocket = new WebSocket("wss://websocket.example.org");
@@ -64,8 +62,8 @@ console.log(wssWebSocket.url); // 'wss://websocket.example.org'
 wssWebSocket.close();
 ```
 
-Der Code zum Verbinden mit einer HTTPS-URL ist nahezu gleich.
-Intern löst der Browser dies zu einer „WSS“-Verbindung auf, sodass die [`WebSocket.url`](/de/docs/Web/API/WebSocket/url) das Schema „wss:“ haben wird.
+Der Code für die Verbindung zu einer HTTPS-URL ist fast derselbe.
+Im Hintergrund löst der Browser dies in eine "WSS"-Verbindung auf, sodass das [`WebSocket.url`](/de/docs/Web/API/WebSocket/url) das Schema "wss:" haben wird.
 
 ```js
 const httpsWebSocket = new WebSocket("https://websocket.example.org");
@@ -97,4 +95,4 @@ relativeWebSocket.close();
 
 ## Siehe auch
 
-- [RFC 6455](https://www.rfc-editor.org/rfc/rfc6455.html) (die WebSocket Protokollspezifikation)
+- [RFC 6455](https://www.rfc-editor.org/rfc/rfc6455.html) (die WebSocket-Protokoll-Spezifikation)

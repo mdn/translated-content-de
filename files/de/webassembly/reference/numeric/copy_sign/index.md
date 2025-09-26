@@ -1,8 +1,8 @@
 ---
-title: Kopiere das Vorzeichen
+title: Vorzeichen übernehmen
 slug: WebAssembly/Reference/Numeric/Copy_sign
 l10n:
-  sourceCommit: c0fc8c988385a0ce8ff63887f9a3263caf55a1f9
+  sourceCommit: 5152b4a494b53dc720e7e336d6c530c03176c75b
 ---
 
 Die **`copysign`**-Anweisungen werden verwendet, um nur das Vorzeichenbit von einer Zahl auf eine andere zu kopieren.
@@ -17,7 +17,7 @@ Die **`copysign`**-Anweisungen werden verwendet, um nur das Vorzeichenbit von ei
     f32.const 10
     f32.const -2
 
-    f32.copysign ;; copy just the sing bit from second to the first number
+    f32.copysign ;; copy just the sign bit from second to the first number
     call $log ;; log the result
   )
   (start $main)
