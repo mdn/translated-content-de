@@ -2,40 +2,40 @@
 title: WeakMap
 slug: Web/JavaScript/Reference/Global_Objects/WeakMap
 l10n:
-  sourceCommit: 7b63b90d24ad8945977bb9dc2735d75f72829bc1
+  sourceCommit: a1f1a8348bdf6dd80af9e1ac7b5b748ef74df12d
 ---
 
-Ein **`WeakMap`** ist eine Sammlung von Schlüssel/Wert-Paaren, deren Schlüssel Objekte oder [nicht registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein müssen, mit Werten eines beliebigen [JavaScript-Typs](/de/docs/Web/JavaScript/Guide/Data_structures), und die keine starken Referenzen auf ihre Schlüssel erstellt. Das heißt, die Anwesenheit eines Objekts als Schlüssel in einer `WeakMap` verhindert nicht, dass das Objekt vom Garbage Collector entfernt wird. Sobald ein Objekt, das als Schlüssel verwendet wird, gesammelt wurde, werden die entsprechenden Werte in jeder `WeakMap` ebenfalls zum Kandidaten für die Garbage Collection — vorausgesetzt, sie werden nicht anderweitig stark referenziert. Der einzige primitive Typ, der als `WeakMap`-Schlüssel verwendet werden kann, ist das Symbol — genauer gesagt, [nicht registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) —, da nicht registrierte Symbole garantiert einzigartig sind und nicht neu erstellt werden können.
+Ein **`WeakMap`** ist eine Sammlung von Schlüssel/Wert-Paaren, deren Schlüssel Objekte oder [nicht registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein müssen, mit Werten eines beliebigen [JavaScript-Typs](/de/docs/Web/JavaScript/Guide/Data_structures). Sie erstellt keine starken Referenzen zu ihren Schlüsseln. Das bedeutet, dass die Präsenz eines Objekts als Schlüssel in einer `WeakMap` nicht verhindert, dass das Objekt vom Müllsammler eingesammelt wird. Sobald ein als Schlüssel verwendetes Objekt eingesammelt wurde, werden die entsprechenden Werte in jeder `WeakMap` ebenfalls Kandidaten für die Müllsammlung — solange sie nicht stark an anderer Stelle referenziert werden. Der einzige primitive Typ, der als `WeakMap`-Schlüssel verwendet werden kann, ist Symbol — genauer gesagt, [nicht registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) — da nicht registrierte Symbole garantiert einzigartig sind und nicht neu erstellt werden können.
 
-`WeakMap` erlaubt es, Daten mit Objekten zu assoziieren, ohne zu verhindern, dass die Schlüsselobjekte gesammelt werden, selbst wenn die Werte die Schlüssel referenzieren. Eine `WeakMap` erlaubt jedoch keine Überwachung der Lebensdauer der Schlüssel, weshalb sie keine Enumeration zulässt; wenn eine `WeakMap` eine Methode bereitstellen würde, um eine Liste ihrer Schlüssel zu erhalten, wäre diese Liste von dem Zustand der Garbage Collection abhängig, was für Nicht-Determinismus sorgen würde. Wenn Sie eine Liste der Schlüssel benötigen, sollten Sie eine {{jsxref("Map")}} anstelle einer `WeakMap` verwenden.
+`WeakMap` ermöglicht es, Daten mit Objekten zu verknüpfen, ohne dass die Schlüsselobjekte vom Einsammeln ausgeschlossen werden, selbst wenn die Werte auf die Schlüssel verweisen. Jedoch erlaubt eine `WeakMap` nicht, die Lebensdauer ihrer Schlüssel zu beobachten, weshalb sie keine Aufzählung zulässt; wenn eine `WeakMap` eine Methode bereitstellen würde, um eine Liste ihrer Schlüssel zu erhalten, würde die Liste vom Zustand der Müllsammlung abhängen und Nicht-Determinismus einführen. Wenn Sie eine Liste von Schlüsseln wünschen, sollten Sie eine {{jsxref("Map")}} anstelle einer `WeakMap` verwenden.
 
-Sie können mehr über `WeakMap` im Abschnitt [WeakMap-Objekt](/de/docs/Web/JavaScript/Guide/Keyed_collections#weakmap_object) des [Schlüssel-Sammlungen](/de/docs/Web/JavaScript/Guide/Keyed_collections) Leitfadens erfahren.
+Sie können mehr über `WeakMap` im Abschnitt [WeakMap-Objekt](/de/docs/Web/JavaScript/Guide/Keyed_collections#weakmap_object) des [Leitfadens zu Keyed Collections](/de/docs/Web/JavaScript/Guide/Keyed_collections) erfahren.
 
 ## Beschreibung
 
-Schlüssel von WeakMaps müssen sammelbar sein. Die meisten {{Glossary("Primitive", "primitiven Datentypen")}} können willkürlich erstellt werden und haben keine Lebensdauer, daher können sie nicht als Schlüssel verwendet werden. Objekte und [nicht registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) können als Schlüssel verwendet werden, weil sie sammelbar sind.
+Schlüssel von WeakMaps müssen vom Müllsammler aufräumbar sein. Die meisten {{Glossary("Primitive", "primitiven Datentypen")}} können beliebig erstellt werden und haben keine Lebensdauer, daher können sie nicht als Schlüssel verwendet werden. Objekte und [nicht registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) können als Schlüssel verwendet werden, da sie vom Müllsammler aufgeräumt werden können.
 
 ### Schlüsselgleichheit
 
-Wie bei regulären `Map`-Objekten basiert die Wertgleichheit auf dem [SameValueZero](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value-zero_equality) Algorithmus, der dem `===` Operator entspricht, da `WeakMap` nur Objekte und Symbole als Schlüssel halten kann. Das bedeutet, dass bei Objektschlüsseln die Gleichheit auf Objektidentität basiert. Sie werden durch {{Glossary("Object_reference", "Referenzen")}} und nicht durch den Wert verglichen.
+Wie bei einer regulären `Map` basiert die Wertgleichheit auf dem [SameValueZero](/de/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness#same-value-zero_equality)-Algorithmus, der dem `===`-Operator entspricht, da `WeakMap` nur Objekt- und Symbolschlüssel aufnehmen kann. Dies bedeutet, dass für Objektschlüssel die Gleichheit auf der Objektidentität basiert. Sie werden anhand der {{Glossary("Object_reference", "Referenz")}} und nicht nach Wert verglichen.
 
 ### Warum WeakMap?
 
-Eine Map-API _könnte_ in JavaScript mit zwei Arrays (eines für die Schlüssel, eines für die Werte), die von den vier API-Methoden geteilt werden, implementiert werden. Elemente in dieser Map zu setzen, würde bedeuten, einen Schlüssel und einen Wert gleichzeitig ans Ende jedes dieser Arrays anzuhängen. Infolgedessen würden die Indizes des Schlüssels und des Werts in beiden Arrays übereinstimmen. Das Abrufen von Werten aus der Map würde das Durchlaufen aller Schlüssel zur Suche eines passenden Wertes bedeuten und dann diesen Index verwenden, um den entsprechenden Wert aus dem Array der Werte abzurufen.
+Eine Map-API _könnte_ in JavaScript mit zwei Arrays (eines für Schlüssel, eines für Werte) implementiert werden, die von den vier API-Methoden geteilt werden. Elemente in diese Map zu setzen würde das gleichzeitige Hinzufügen eines Schlüssels und eines Werts am Ende jedes dieser Arrays beinhalten. Die Indizes des Schlüssels und des Werts würden dann beiden Arrays entsprechen. Werte aus der Map abzurufen würde das Durchlaufen aller Schlüssel erfordern, um eine Übereinstimmung zu finden, und diese Übereinstimmung dann nutzen, um den entsprechenden Wert aus dem Array mit Werten abzurufen.
 
-Eine solche Implementierung hätte zwei Hauptnachteile:
+Eine solche Implementierung würde zwei Hauptnachteile haben:
 
-1. Der erste ist ein `O(n)`-Set und eine Suche (_n_ ist die Anzahl der Schlüssel in der Map), da beide Operationen durch die Liste der Schlüssel iterieren müssen, um einen passenden Wert zu finden.
-2. Der zweite Nachteil ist ein Speicherleck, weil die Arrays sicherstellen, dass die Referenzen zu jedem Schlüssel und jedem Wert auf unbestimmte Zeit aufrechterhalten werden. Diese Referenzen verhindern, dass die Schlüssel gesammelt werden, auch wenn es keine anderen Referenzen zu dem Objekt gibt. Dies würde auch verhindern, dass die entsprechenden Werte gesammelt werden.
+1. Der erste ist ein `O(n)` Setzen und Suchen (_n_ ist die Anzahl der Schlüssel in der Map), da beide Operationen durch die Liste der Schlüssel laufen müssen, um einen passenden Wert zu finden.
+2. Der zweite Nachteil ist ein Speicherleck, da die Arrays sicherstellen, dass Referenzen zu jedem Schlüssel und jedem Wert unbegrenzt beibehalten werden. Diese Referenzen verhindern, dass die Schlüssel vom Müllsammler aufgeräumt werden, auch wenn es keine weiteren Referenzen auf das Objekt gibt. Dies würde auch verhindern, dass die entsprechenden Werte vom Müllsammler aufgeräumt werden.
 
-Im Gegensatz dazu referenziert in einer `WeakMap` ein Schlüsselobjekt seinen Inhalt stark, solange der Schlüssel nicht vom Garbage Collector entfernt wird, und schwach danach. Eine `WeakMap`:
+Im Gegensatz dazu verweist in einer `WeakMap` ein Schlüsselobjekt stark auf seine Inhalte, solange der Schlüssel nicht vom Müllsammler eingesammelt wird, und ab dann schwach. Daher:
 
-- Verhindert keine Garbage Collection, die schließlich die Referenzen zum Schlüsselobjekt entfernt
-- Ermöglicht die Garbage Collection von Werten, wenn ihre Schlüsselobjekte nicht von anderswo her referenziert werden als von einer `WeakMap`
+- verhindert eine `WeakMap` nicht die Müllsammlung, die letztendlich die Referenzen zum Schlüsselobjekt entfernt
+- ermöglicht die Müllsammlung von Werten, wenn ihre Schlüsselobjekte nicht anderswo als in einer `WeakMap` referenziert werden
 
-Eine `WeakMap` kann ein besonders nützliches Konstrukt sein, wenn Schlüssel auf Informationen über den Schlüssel abgebildet werden, die nur dann wertvoll sind, wenn der Schlüssel nicht vom Garbage Collector entfernt wurde.
+Eine `WeakMap` kann ein besonders nützliches Konstrukt sein, um Schlüssel mit Informationen über den Schlüssel zu verknüpfen, die nur wertvoll _sind_, wenn der Schlüssel nicht vom Müllsammler eingesammelt wurde.
 
-Aber weil eine `WeakMap` keine Überwachung der Lebensdauer ihrer Schlüssel zulässt, sind ihre Schlüssel nicht durchlaufbar. Es gibt keine Methode, um eine Liste der Schlüssel zu erhalten. Wenn es eine gäbe, würde die Liste vom Zustand der Garbage Collection abhängen, was für Nicht-Determinismus sorgen würde. Wenn Sie eine Liste der Schlüssel benötigen, sollten Sie eine {{jsxref("Map")}} verwenden.
+Da jedoch eine `WeakMap` nicht die Lebensdauer ihrer Schlüssel beobachtbar macht, sind ihre Schlüssel nicht aufzählbar. Es gibt keine Methode, um eine Liste der Schlüssel zu erhalten. Wenn es eine gäbe, würde die Liste vom Zustand der Müllsammlung abhängen und Nicht-Determinismus einführen. Wenn Sie eine Liste von Schlüsseln wünschen, sollten Sie eine {{jsxref("Map")}} verwenden.
 
 ## Konstruktor
 
@@ -47,20 +47,24 @@ Aber weil eine `WeakMap` keine Überwachung der Lebensdauer ihrer Schlüssel zul
 Diese Eigenschaften sind auf `WeakMap.prototype` definiert und werden von allen `WeakMap`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "WeakMap.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `WeakMap`-Instanzen ist der Anfangswert der {{jsxref("WeakMap/WeakMap", "WeakMap")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `WeakMap`-Instanzen ist der Anfangswert der {{jsxref("WeakMap/WeakMap", "WeakMap")}}-Konstruktor.
 - `WeakMap.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist der String `"WeakMap"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"WeakMap"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
 ## Instanz-Methoden
 
 - {{jsxref("WeakMap.prototype.delete()")}}
-  - : Entfernt den durch den Schlüssel spezifizierten Eintrag aus dieser `WeakMap`.
+  - : Entfernt den Eintrag, der durch den Schlüssel in dieser `WeakMap` angegeben ist.
 - {{jsxref("WeakMap.prototype.get()")}}
-  - : Gibt den Wert zurück, der dem Schlüssel in dieser `WeakMap` entspricht, oder `undefined`, wenn keiner vorhanden ist.
+  - : Gibt den Wert zurück, der dem Schlüssel in dieser `WeakMap` entspricht, oder `undefined`, wenn keiner existiert.
+- {{jsxref("WeakMap.prototype.getOrInsert()")}}
+  - : Gibt den Wert zurück, der dem angegebenen Schlüssel in dieser `WeakMap` entspricht. Wenn der Schlüssel nicht vorhanden ist, fügt er einen neuen Eintrag mit dem Schlüssel und einem gegebenen Standardwert ein und gibt den eingefügten Wert zurück.
+- {{jsxref("WeakMap.prototype.getOrInsertComputed()")}}
+  - : Gibt den Wert zurück, der dem angegebenen Schlüssel in dieser `WeakMap` entspricht. Wenn der Schlüssel nicht vorhanden ist, fügt er einen neuen Eintrag mit dem Schlüssel und einem Standardwert, der von einer gegebenen Rückruffunktion berechnet wird, ein und gibt den eingefügten Wert zurück.
 - {{jsxref("WeakMap.prototype.has()")}}
-  - : Gibt einen Boolean zurück, der anzeigt, ob ein Eintrag mit dem angegebenen Schlüssel in dieser `WeakMap` existiert oder nicht.
+  - : Gibt einen booleschen Wert zurück, der angibt, ob ein Eintrag mit dem angegebenen Schlüssel in dieser `WeakMap` existiert oder nicht.
 - {{jsxref("WeakMap.prototype.set()")}}
-  - : Fügt einen neuen Eintrag mit einem angegebenen Schlüssel und Wert zu dieser `WeakMap` hinzu oder aktualisiert einen bestehenden Eintrag, wenn der Schlüssel bereits existiert.
+  - : Fügt dieser `WeakMap` einen neuen Eintrag mit einem angegebenen Schlüssel und Wert hinzu oder aktualisiert einen bestehenden Eintrag, wenn der Schlüssel bereits existiert.
 
 ## Beispiele
 
@@ -123,13 +127,13 @@ class ClearableWeakMap {
 }
 ```
 
-### Emulation privater Mitglieder
+### Emulierung privater Mitglieder
 
-Entwickler können eine `WeakMap` verwenden, um private Daten mit einem Objekt zu assoziieren, mit folgenden Vorteilen:
+Entwickler können eine `WeakMap` verwenden, um private Daten mit einem Objekt zu verknüpfen, mit den folgenden Vorteilen:
 
-- Im Vergleich zu einer {{jsxref("Map")}} hält eine WeakMap keine starken Referenzen zu dem Objekt, das als Schlüssel verwendet wird, sodass die Metadaten die gleiche Lebensdauer wie das Objekt selbst teilen und Memory Leaks vermieden werden.
-- Im Vergleich zur Verwendung nicht enumerierbarer und/oder {{jsxref("Symbol")}} Eigenschaften ist eine WeakMap extern zum Objekt und es gibt keine Möglichkeit, dass Benutzer-Code die Metadaten durch reflektierende Methoden wie {{jsxref("Object.getOwnPropertySymbols")}} abruft.
-- Im Vergleich zu einem [Closure](/de/docs/Web/JavaScript/Guide/Closures) kann dieselbe WeakMap für alle Instanzen, die von einem Konstruktor erstellt wurden, wiederverwendet werden, was sie speichereffizienter macht, und ermöglicht verschiedenen Instanzen derselben Klasse, die privaten Mitglieder voneinander zu lesen.
+- Im Vergleich zu einer {{jsxref("Map")}} hält eine `WeakMap` keine starken Referenzen zu dem als Schlüssel verwendeten Objekt, sodass die Metadaten die gleiche Lebensdauer wie das Objekt selbst haben und Speicherlecks vermieden werden.
+- Im Vergleich zur Verwendung nicht aufzählbarer und/oder {{jsxref("Symbol")}}-Eigenschaften ist eine `WeakMap` extern zum Objekt, und es gibt keine Möglichkeit für Benutzercode, die Metadaten über reflektive Methoden wie {{jsxref("Object.getOwnPropertySymbols")}} abzurufen.
+- Im Vergleich zu einem [Closure](/de/docs/Web/JavaScript/Guide/Closures) kann die gleiche `WeakMap` für alle Instanzen, die von einem Konstruktor erstellt werden, wiederverwendet werden, wodurch sie speichereffizienter ist, und erlaubt es verschiedenen Instanzen derselben Klasse, die privaten Mitglieder voneinander zu lesen.
 
 ```js
 let Thing;
@@ -170,7 +174,7 @@ thing.showPrivate();
 // 1
 ```
 
-Dies ist grob äquivalent zu folgendem, unter Verwendung von [privaten Feldern](/de/docs/Web/JavaScript/Reference/Classes/Private_elements):
+Dies ist grob äquivalent zu dem Folgenden, unter Verwendung von [privaten Feldern](/de/docs/Web/JavaScript/Reference/Classes/Private_elements):
 
 ```js
 class Thing {
@@ -200,9 +204,9 @@ thing.showPrivate();
 
 ### Zuordnung von Metadaten
 
-Eine `WeakMap` kann verwendet werden, um Metadaten mit einem Objekt zu assoziieren, ohne die Lebensdauer des Objekts selbst zu beeinflussen. Dies ähnelt sehr dem Beispiel mit den privaten Mitgliedern, da private Mitglieder auch als externe Metadaten modelliert werden, die nicht an der [prototypischen Vererbung](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) teilnehmen.
+Eine `WeakMap` kann verwendet werden, um Metadaten mit einem Objekt zu verknüpfen, ohne die Lebensdauer des Objekts selbst zu beeinflussen. Dies ist dem Beispiel mit privaten Mitgliedern sehr ähnlich, da private Mitglieder ebenfalls als externe Metadaten modelliert sind, die nicht an der [prototypischen Vererbung](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) teilnehmen.
 
-Dieser Anwendungsfall kann auf bereits erstellte Objekte erweitert werden. Zum Beispiel könnten wir im Web zusätzliche Daten mit einem DOM-Element verknüpfen wollen, das das DOM-Element später abrufen kann. Ein üblicher Ansatz ist es, die Daten als Eigenschaft anzuhängen:
+Dieser Anwendungsfall kann auf bereits erstellte Objekte erweitert werden. Zum Beispiel können wir im Web zusätzliche Daten mit einem DOM-Element verknüpfen, auf das das DOM-Element später zugreifen kann. Ein gängiger Ansatz ist, die Daten als Eigenschaft anzuhängen:
 
 ```js
 const buttons = document.querySelectorAll(".button");
@@ -220,10 +224,10 @@ buttons.forEach((button) => {
 
 Dieser Ansatz funktioniert, hat jedoch einige Fallstricke:
 
-- Die `clicked` Eigenschaft ist enumerierbar, daher wird sie in [`Object.keys(button)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys), [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) Schleifen usw. angezeigt. Dies kann durch Verwendung von {{jsxref("Object.defineProperty()")}} gemildert werden, macht jedoch den Code ausführlicher.
-- Die `clicked` Eigenschaft ist eine normale String-Eigenschaft und kann somit von anderem Code gelesen und überschrieben werden. Dies kann durch Verwendung eines {{jsxref("Symbol")}} Schlüssels gemildert werden, aber der Schlüssel wäre weiterhin über {{jsxref("Object.getOwnPropertySymbols()")}} zugänglich.
+- Die `clicked`-Eigenschaft ist aufzählbar, sodass sie in [`Object.keys(button)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys), [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleifen usw. angezeigt wird. Dies kann durch Verwendung von {{jsxref("Object.defineProperty()")}} gemildert werden, macht den Code jedoch ausführlicher.
+- Die `clicked`-Eigenschaft ist eine normale String-Eigenschaft, sodass sie von anderem Code abgerufen und überschrieben werden kann. Dies kann durch Verwendung eines {{jsxref("Symbol")}}-Schlüssels gemildert werden, aber der Schlüssel wäre immer noch über {{jsxref("Object.getOwnPropertySymbols()")}} zugänglich.
 
-Die Verwendung einer `WeakMap` behebt dies:
+Die Verwendung einer `WeakMap` behebt diese:
 
 ```js
 const buttons = document.querySelectorAll(".button");
@@ -240,11 +244,11 @@ buttons.forEach((button) => {
 });
 ```
 
-Hier kennt nur der Code, der Zugriff auf `clicked` hat, den angeklickten Zustand jedes Buttons und externer Code kann die Zustände nicht ändern. Außerdem werden, wenn einer der Buttons aus dem DOM entfernt wird, die zugehörigen Metadaten automatisch von der Speicherbereinigung erfasst.
+Hier kennt nur Code, der Zugriff auf `clicked` hat, den geklickten Status jedes Buttons, und externer Code kann die Zustände nicht ändern. Zusätzlich wird, wenn einer der Buttons aus dem DOM entfernt wird, die zugehörigen Metadaten automatisch vom Müllsammler entfernt.
 
 ### Caching
 
-Sie können Objekte, die an eine Funktion übergeben werden, mit dem Ergebnis der Funktion verknüpfen, so dass, wenn dasselbe Objekt erneut übergeben wird, das zwischengespeicherte Ergebnis zurückgegeben werden kann, ohne die Funktion erneut auszuführen. Das ist nützlich, wenn die Funktion pure ist (d.h. keine äußeren Objekte verändert oder andere beobachtbare Nebenwirkungen verursacht).
+Sie können Objekte, die an eine Funktion übergeben werden, mit dem Ergebnis der Funktion verknüpfen, sodass beim erneuten Übergeben des gleichen Objekts das zwischengespeicherte Ergebnis zurückgegeben werden kann, ohne dass die Funktion erneut ausgeführt wird. Dies ist nützlich, wenn die Funktion rein ist (d.h. sie ändert keine externen Objekte oder verursacht keine anderen beobachtbaren Nebeneffekte).
 
 ```js
 const cache = new WeakMap();
@@ -258,7 +262,7 @@ function handleObjectValues(obj) {
 }
 ```
 
-Dies funktioniert nur, wenn die Eingabe Ihrer Funktion ein Objekt ist. Außerdem bleibt das Ergebnis für immer im Cache, solange der Schlüssel (Eingabe) vorhanden ist, selbst wenn die Eingabe nie wieder übergeben wird. Eine effektivere Methode ist die Verwendung einer {{jsxref("Map")}} in Kombination mit {{jsxref("WeakRef")}} Objekten, mit der Sie jeden Eingabewerttyp mit seinem jeweiligen (möglicherweise großen) Berechnungsergebnis verknüpfen können. Weitere Details finden Sie im Beispiel [WeakRefs und FinalizationRegistry](/de/docs/Web/JavaScript/Guide/Memory_management#weakrefs_and_finalizationregistry).
+Dies funktioniert nur, wenn die Eingabe Ihrer Funktion ein Objekt ist. Selbst wenn die Eingabe nie erneut übergeben wird, bleibt das Ergebnis für immer im Cache, solange der Schlüssel (die Eingabe) existiert. Eine effektivere Methode ist die Verwendung einer {{jsxref("Map")}} in Verbindung mit {{jsxref("WeakRef")}}-Objekten, die es Ihnen ermöglicht, jeden Eingabewert mit seinem jeweiligen (potenziell großen) Berechnungsergebnis zu verknüpfen. Siehe das Beispiel [WeakRefs und FinalizationRegistry](/de/docs/Web/JavaScript/Guide/Memory_management#weakrefs_and_finalizationregistry) für weitere Details.
 
 ## Spezifikationen
 
@@ -271,7 +275,7 @@ Dies funktioniert nur, wenn die Eingabe Ihrer Funktion ein Objekt ist. Außerdem
 ## Siehe auch
 
 - [Polyfill von `WeakMap` in `core-js`](https://github.com/zloirock/core-js#weakmap)
-- [Schlüssel-Sammlungen](/de/docs/Web/JavaScript/Guide/Keyed_collections#weakmap_object)
+- [Keyed collections](/de/docs/Web/JavaScript/Guide/Keyed_collections#weakmap_object)
 - {{jsxref("Map")}}
 - {{jsxref("Set")}}
 - {{jsxref("WeakSet")}}
