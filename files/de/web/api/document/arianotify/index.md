@@ -1,14 +1,14 @@
 ---
-title: "Dokumentation: ariaNotify() Methode"
+title: "Dokument: ariaNotify() Methode"
 short-title: ariaNotify()
 slug: Web/API/Document/ariaNotify
 l10n:
-  sourceCommit: 93e3c303704c560ce28cc7764ff0069e67c48e79
+  sourceCommit: 11e09e7c584658fbfbecd2f00ae66e546cd54cc0
 ---
 
-{{ApiRef("DOM")}}
+{{ApiRef("DOM")}}{{SeeCompatTable}}{{non-standard_header}}
 
-Die **`ariaNotify()`** Methode der [`Document`](/de/docs/Web/API/Document) Schnittstelle spezifiziert, dass eine gegebene Textzeichenkette von einem {{Glossary("screen_reader", "Screenreader")}} angekündigt werden soll, falls verfügbar und aktiviert.
+Die **`ariaNotify()`** Methode der Schnittstelle [`Document`](/de/docs/Web/API/Document) gibt an, dass ein bestimmter Text von einem {{Glossary("screen_reader", "Screenreader")}} angekündigt werden soll, falls verfügbar und aktiviert.
 
 ## Syntax
 
@@ -20,15 +20,15 @@ ariaNotify(announcement, options)
 ### Parameter
 
 - `announcement`
-  - : Eine Zeichenkette, die den Text angibt, der angekündigt werden soll.
+  - : Ein String, der den anzukündigenden Text spezifiziert.
 - `options` {{optional_inline}}
-  - : Ein Optionsobjekt enthält die folgenden Eigenschaften:
+  - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
     - `priority`
       - : Ein enumerierter Wert, der die Priorität der Ankündigung angibt. Mögliche Werte sind:
         - `normal`
-          - : Die Ankündigung hat normale Priorität. Sie wird gesprochen, nachdem jede laufende Ankündigung eines Screenreaders beendet ist.
+          - : Die Ankündigung hat normale Priorität. Sie wird nach jeder Ankündigung, die ein Screenreader gerade macht, gesprochen.
         - `high`
-          - : Die Ankündigung hat hohe Priorität. Sie wird sofort gesprochen und unterbricht jede laufende Ankündigung eines Screenreaders.
+          - : Die Ankündigung hat hohe Priorität. Sie wird sofort gesprochen und unterbricht jede Ankündigung, die ein Screenreader gerade macht.
 
 ### Rückgabewert
 
@@ -36,56 +36,56 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Die **`ariaNotify()`** Methode kann verwendet werden, um programmgesteuert eine Screenreader-Ankündigung auszulösen. Diese Methode bietet eine ähnliche Funktionalität wie [ARIA Live-Regionen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions), mit einigen Vorteilen:
+Die **`ariaNotify()`** Methode kann verwendet werden, um programmgesteuert eine Screenreader-Ankündigung auszulösen. Diese Methode bietet ähnliche Funktionalität wie [ARIA-Live-Bereiche](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions), mit einigen Vorteilen:
 
-- Live-Regionen können nur Ankündigungen nach Änderungen im DOM machen, während eine `ariaNotify()` Ankündigung jederzeit gemacht werden kann.
-- Live-Region-Ankündigungen beinhalten das Vorlesen des aktualisierten Inhalts des geänderten DOM-Knotens, während `ariaNotify()` Ankündigungsinhalte unabhängig vom DOM-Inhalt definiert werden können.
+- Live-Bereiche können nur Ankündigungen machen, die nach Änderungen am DOM auftreten, während eine `ariaNotify()`-Ankündigung jederzeit erfolgen kann.
+- Live-Bereich-Ankündigungen beinhalten das Vorlesen des aktualisierten Inhalts des geänderten DOM-Knotens, während der Inhalt der `ariaNotify()`-Ankündigung unabhängig vom DOM-Inhalt definiert werden kann.
 
-Entwickler umgehen oft die Einschränkungen von Live-Regionen, indem sie versteckte DOM-Knoten mit Live-Regionen darauf verwenden, deren Inhalte mit dem anzukündigenden Inhalt aktualisiert werden. Dies ist ineffizient und fehleranfällig, und `ariaNotify()` bietet eine Möglichkeit, solche Probleme zu vermeiden.
+Entwickler umgehen oft die Einschränkungen von Live-Bereichen, indem sie versteckte DOM-Knoten mit Live-Bereichen festlegen und deren Inhalte mit dem anzukündigenden Inhalt aktualisieren. Dies ist ineffizient und fehleranfällig, und `ariaNotify()` bietet eine Möglichkeit, solche Probleme zu vermeiden.
 
-Einige Screenreader lesen mehrere `ariaNotify()` Ankündigungen nacheinander vor, aber dies kann nicht über alle Screenreader und Plattformen hinweg garantiert werden. Normalerweise wird nur die jüngste Ankündigung gesprochen. Es ist zuverlässiger, mehrere Ankündigungen in eine zu kombinieren.
+Einige Screenreader lesen mehrere `ariaNotify()`-Ankündigungen nacheinander vor, aber dies kann nicht bei allen Screenreadern und Plattformen garantiert werden. Normalerweise wird nur die letzte Ankündigung gesprochen. Es ist zuverlässiger, mehrere Ankündigungen in einer zu kombinieren.
 
-Zum Beispiel seien die folgenden Aufrufe:
+Zum Beispiel die folgenden Aufrufe:
 
 ```js
 document.ariaNotify("Hello there.");
 document.ariaNotify("The time is now 8 o'clock.");
 ```
 
-besser kombiniert:
+wären besser kombiniert:
 
 ```js
 document.ariaNotify("Hello there. The time is now 8 o'clock.");
 ```
 
-`ariaNotify()` Ankündigungen erfordern keine {{Glossary("transient_activation", "transiente Aktivierung")}}; Sie sollten darauf achten, Screenreader-Benutzer nicht mit zu vielen Benachrichtigungen zu überhäufen, da dies eine schlechte Benutzererfahrung erzeugen könnte.
+`ariaNotify()`-Ankündigungen erfordern keine {{Glossary("transient_activation", "vorübergehende Aktivierung")}}; Sie sollten darauf achten, Screenreader-Nutzer nicht mit zu vielen Benachrichtigungen zu überschwemmen, da dies eine schlechte Benutzererfahrung darstellen könnte.
 
 ### Ankündigungsprioritäten
 
-Eine `ariaNotify()` Ankündigung mit `priority: high` wird vor einer `ariaNotify()` Ankündigung mit `priority: normal` angekündigt.
+Eine `ariaNotify()`-Ankündigung mit `priority: high` wird vor einer `ariaNotify()`-Ankündigung mit `priority: normal` angekündigt.
 
-`ariaNotify()` Ankündigungen sind im Großen und Ganzen ARIA Live-Region Ankündigungen wie folgt gleichwertig:
+`ariaNotify()`-Ankündigungen sind ungefähr gleichwertig mit ARIA-Live-Bereich-Ankündigungen wie folgt:
 
 - `ariaNotify()` `priority: high`: `aria-live="assertive"`.
 - `ariaNotify()` `priority: normal`: `aria-live="polite"`.
 
-Jedoch werden `aria-live` Ankündigungen Vorrang vor `ariaNotify()` Ankündigungen haben.
+Allerdings haben `aria-live`-Ankündigungen Vorrang vor `ariaNotify()`-Ankündigungen.
 
-### Sprachauswahl
+### Sprachwahl
 
-Screenreader wählen eine geeignete Stimme, mit der sie `ariaNotify()` Ankündigungen lesen (in Bezug auf Akzent, Aussprache, etc.), basierend auf der Sprache, die im `{{htmlelement("html")}}` Element mit dem [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) Attribut spezifiziert wird, oder der Standardsprache des Benutzeragenten, falls kein `lang` Attribut gesetzt ist.
+Screenreader wählen eine geeignete Stimme (bezüglich Akzent, Aussprache usw.), mit der sie `ariaNotify()`-Ankündigungen vorlesen, basierend auf der im {{htmlelement("html")}}-Element angegebenen Sprache im [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) Attribut oder der Standardsprache des User-Agents, wenn kein `lang`-Attribut gesetzt ist.
 
-### Integration der Berechtigungspolitik
+### Integration der Berechtigungsrichtlinie
 
-Die Verwendung von `ariaNotify()` in einem Dokument oder {{htmlelement("iframe")}} kann durch eine {{httpheader("Permissions-Policy/aria-notify", "aria-notify")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) gesteuert werden.
+Die Nutzung von `ariaNotify()` in einem Dokument oder einem {{htmlelement("iframe")}} kann durch eine {{httpheader("Permissions-Policy/aria-notify", "aria-notify")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) gesteuert werden.
 
-Konkret bedeutet das, dass, wenn eine definierte Richtlinie die Nutzung blockiert, alle mit `ariaNotify()` erstellten Ankündigungen stillschweigend fehlschlagen (sie werden nicht gesendet).
+Speziell, wenn eine definierte Richtlinie die Nutzung blockiert, schlagen alle mit `ariaNotify()` erstellten Ankündigungen stillschweigend fehl (sie werden nicht gesendet).
 
 ## Beispiele
 
-### Grundlegende `ariaNotify()` Verwendung
+### Grundlegende `ariaNotify()`-Verwendung
 
-Dieses Beispiel enthält einen {{htmlelement("button")}}, der eine Screenreader-Ankündigung auslöst, wenn er geklickt wird.
+Dieses Beispiel enthält einen {{htmlelement("button")}}, der eine Screenreader-Ankündigung auslöst, wenn er angeklickt wird.
 
 ```html live-sample___basic-arianotify
 <button>Press</button>
@@ -116,17 +116,17 @@ Die Ausgabe ist wie folgt:
 
 {{EmbedLiveSample("basic-arianotify", "100%", 60, , , , "aria-notify")}}
 
-Versuchen Sie, einen Screenreader zu aktivieren und dann die Taste zu drücken. Sie sollten "Hi there, I'm Ed Winchester." vom Screenreader gesprochen hören.
+Versuchen Sie, einen Screenreader zu aktivieren und dann den Knopf zu drücken. Sie sollten hören, wie "Hi there, I'm Ed Winchester." vom Screenreader gesprochen wird.
 
-### Beispiel einer barrierefreien Einkaufsliste
+### Beispiel für eine barrierefreie Einkaufsliste
 
-Dieses Beispiel ist eine Einkaufsliste, die es Ihnen erlaubt, Artikel hinzuzufügen und zu entfernen und die Gesamtkosten aller Artikel festzuhalten. Wenn ein Artikel hinzugefügt oder entfernt wird, lesen Screenreader eine Ankündigung vor, um zu sagen, welcher Artikel hinzugefügt/entfernt wurde und wie hoch die aktualisierte Summe ist.
+Dieses Beispiel ist eine Einkaufsliste, die es Ihnen ermöglicht, Artikel hinzuzufügen und zu entfernen, und die die Gesamtkosten aller Artikel berechnet. Wenn ein Artikel hinzugefügt oder entfernt wird, lesen Screenreader eine Ankündigung vor, um zu sagen, welcher Artikel hinzugefügt/entfernt wurde und wie hoch die aktualisierten Gesamtkosten sind.
 
 #### HTML
 
-Unser HTML enthält ein {{htmlelement("form")}} mit zwei {{htmlelement("input")}} Elementen — ein `text`-Feld zum Eingeben der Artikelnamen und ein `number`-Feld zum Eingeben der Preise. Beide Eingabefelder sind [`required`](/de/docs/Web/HTML/Reference/Attributes/required), und das `number`-Feld hat einen [`step`](/de/docs/Web/HTML/Reference/Attributes/step) Wert von `0.01`, um den Eingang von Nicht-Preis-Werten (wie großen Dezimalzahlen) zu verhindern.
+Unser HTML enthält ein {{htmlelement("form")}} mit zwei {{htmlelement("input")}}-Elementen — ein `text`-Eingabefeld zum Eingeben von Artikelnamen und ein `number`-Eingabefeld zum Eingeben von Preisen. Beide Eingaben sind [`required`](/de/docs/Web/HTML/Reference/Attributes/required), und das `number`-Eingabefeld hat einen [`step`](/de/docs/Web/HTML/Reference/Attributes/step) Wert von `0.01`, um zu verhindern, dass Nicht-Preis-Werte (wie große Dezimalzahlen) eingegeben werden.
 
-Unterhalb des Formulars haben wir eine [ungeordnete Liste](/de/docs/Web/HTML/Reference/Elements/ul), um hinzugefügte Artikel anzuzeigen, und ein {{htmlelement("p")}} Element, um die Gesamtkosten anzuzeigen.
+Unter dem Formular haben wir eine [ungeordnete Liste](/de/docs/Web/HTML/Reference/Elements/ul) zur Darstellung der hinzugefügten Artikel und ein {{htmlelement("p")}}-Element zur Anzeige der Gesamtkosten.
 
 ```html live-sample___shopping-list
 <h1><code>ariaNotify</code> demo: shopping list</h1>
@@ -200,7 +200,7 @@ li button {
 
 #### JavaScript
 
-Unser Skript beginnt mit mehreren Konstantendefinitionen, um Referenzen auf das `<form>`, unsere beiden `<input>` Elemente und unsere `<ul>` und `<p>` Elemente zu speichern. Wir enthalten auch eine `total` Variable, um den Gesamtpreis aller Artikel zu speichern.
+Unser Skript beginnt mit mehreren Konstantendefinitionen, um Referenzen zum `<form>`, unseren zwei `<input>`-Elementen und unseren `<ul>` und `<p>`-Elementen zu speichern. Wir fügen auch eine `total`-Variable hinzu, um den Gesamtpreis aller Artikel zu speichern.
 
 ```js live-sample___shopping-list
 const form = document.querySelector("form");
@@ -212,7 +212,7 @@ const totalOutput = document.querySelector("p");
 let total = 0;
 ```
 
-Im nächsten Codeblock definieren wir eine Funktion namens `updateTotal()`, die eine Aufgabe hat — den im `<p>` Element angezeigten Preis auf den aktuellen Wert der `total` Variablen zu aktualisieren:
+In unserem nächsten Codeblock definieren wir eine Funktion namens `updateTotal()`, die eine Aufgabe hat – den Preis im `<p>`-Element auf den aktuellen Wert der `total`-Variable zu aktualisieren:
 
 ```js live-sample___shopping-list
 function updateTotal() {
@@ -220,9 +220,9 @@ function updateTotal() {
 }
 ```
 
-Als Nächstes definieren wir eine Funktion namens `addItemToList()`. Innerhalb des Funktionskörpers erstellen wir zuerst ein {{htmlelement("li")}} Element, um einen neu hinzugefügten Artikel zu speichern. Wir speichern den Artikelnamen und den Preis in [`data-*`](/de/docs/Web/HTML/Reference/Global_attributes/data-*) Attributen am Element und stellen sicher, dass sein Textinhalt einer Zeichenkette entspricht, die den Artikel und Preis enthält. Wir erstellen außerdem ein {{htmlelement("button")}} Element mit dem Text "Remove &lt;item-name>", fügen dann das Listenelement zur ungeordneten Liste und die Taste zum Listenelement hinzu.
+Als nächstes definieren wir eine Funktion namens `addItemToList()`. Innerhalb des Funktionskörpers erstellen wir zuerst ein {{htmlelement("li")}}-Element, um einen neu hinzugefügten Artikel zu speichern. Wir speichern den Artikelnamen und den Preis in [`data-*`](/de/docs/Web/HTML/Reference/Global_attributes/data-*) Attributen auf dem Element und setzen dessen Textinhalt auf einen String, der den Artikel und Preis enthält. Wir erstellen auch ein {{htmlelement("button")}}-Element mit dem Text "Remove &lt;item-name>", fügen dann das Listenelement der ungeordneten Liste hinzu und den Button dem Listenelement.
 
-Der zweite Hauptteil des Funktionskörpers ist eine Definition eines `click` Ereignis-Listeners auf der Taste. Wenn die Taste geklickt wird, holen wir zuerst eine Referenz auf das übergeordnete Knotenobjekt der Taste — das Listenelement, in dem sie sich befindet. Wir subtrahieren dann die Zahl, die im `data-price` Attribut des Listenelements enthalten ist, von der `total` Variablen, rufen die `updateTotal()` Funktion auf, um den angezeigten Gesamtpreis zu aktualisieren, und rufen `ariaNotify()` auf, um den entfernten Artikel und den neuen Gesamtbetrag anzukündigen. Schließlich entfernen wir das Listenelement aus dem DOM.
+Der zweite Hauptteil des Funktionskörpers ist eine `click`-Ereignislistenerdefinition auf dem Button. Wenn der Button geklickt wird, greifen wir zuerst auf eine Referenz zum Elternelement des Buttons zu - dem Listenelement, in dem es sich befindet. Wir subtrahieren dann die im `data-price` Attribut des Listenelements enthaltene Zahl von der `total`-Variable, rufen die `updateTotal()` Funktion auf, um den angezeigten Gesamtpreis zu aktualisieren, rufen dann `ariaNotify()` auf, um den entfernten Artikel und den neuen Gesamtbetrag anzukündigen. Schließlich entfernen wir das Listenelement aus dem DOM.
 
 ```js live-sample___shopping-list
 function addItemToList(item, price) {
@@ -253,7 +253,7 @@ function addItemToList(item, price) {
 }
 ```
 
-Unser letzter Codeblock fügt einen `submit` Ereignis-Listener zum `<form>` hinzu. Innerhalb des Handlers rufen wir zuerst [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf das Ereignisobjekt auf, um das Absenden des Formulares zu stoppen. Dann rufen wir `addItemToList()` auf, um den neuen Artikel und seinen Preis in der Liste anzuzeigen, addieren den Preis zur `total` Variablen, rufen `updateTotal()` auf, um den angezeigten Gesamtbetrag zu aktualisieren, und rufen `ariaNotify()` auf, um den hinzugefügten Artikel und den neuen Gesamtbetrag anzukündigen. Schließlich leeren wir die aktuellen Eingabefeldwerte, um den nächsten Artikel hinzufügen zu können.
+Unser letzter Codeblock fügt dem `<form>` einen `submit`-Ereignislistener hinzu. Innerhalb der Handlerfunktion rufen wir zuerst [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf dem Ereignisobjekt auf, um das Absenden des Formulars zu verhindern. Dann rufen wir `addItemToList()` auf, um den neuen Artikel und seinen Preis in der Liste anzuzeigen, den Preis zur `total`-Variable hinzuzufügen, `updateTotal()` aufzurufen, um den angezeigten Gesamtbetrag zu aktualisieren, und dann `ariaNotify()` aufzurufen, um den hinzugefügten Artikel und den neuen Gesamtbetrag anzukündigen. Schließlich löschen wir die aktuellen Eingabefeldwerte, um sie für den nächsten hinzuzufügenden Artikel bereit zu machen.
 
 ```js live-sample___shopping-list
 form.addEventListener("submit", (e) => {
@@ -296,4 +296,4 @@ Versuchen Sie, einen Screenreader zu aktivieren und dann einige Artikel hinzuzuf
 ## Siehe auch
 
 - [`Element.ariaNotify()`](/de/docs/Web/API/Element/ariaNotify)
-- [ARIA Live-Regionen](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions)
+- [ARIA-Live-Bereiche](/de/docs/Web/Accessibility/ARIA/Guides/Live_regions)

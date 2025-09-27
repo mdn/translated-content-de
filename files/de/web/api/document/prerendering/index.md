@@ -3,20 +3,20 @@ title: "Dokument: prerendering-Eigenschaft"
 short-title: prerendering
 slug: Web/API/Document/prerendering
 l10n:
-  sourceCommit: 9c2dabaabc326c4a3fed27f6e9bcb3605958e516
+  sourceCommit: 11e09e7c584658fbfbecd2f00ae66e546cd54cc0
 ---
 
-{{ APIRef("Speculation Rules API") }}{{seecompattable}}{{non-standard_header}}
+{{ APIRef("Speculation Rules API") }}{{seecompattable}}
 
-Die **`prerendering`** schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt `true` zurück, wenn das Dokument derzeit im Prozess des Vorabladens (prerendering) ist, wie über die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) initiiert.
+Die schreibgeschützte Eigenschaft **`prerendering`** des [`Document`](/de/docs/Web/API/Document) Interface gibt `true` zurück, wenn das Dokument derzeit im Prozess des Prerendings ist, wie über die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) initiiert.
 
 ## Wert
 
-Ein Boolean. Gibt `true` zurück, wenn das Dokument derzeit im Prozess des Vorabladens ist, und `false`, wenn es nicht der Fall ist. `false` wird für Dokumente zurückgegeben, die das Vorabladen abgeschlossen haben, und für Dokumente, die nicht vorabgeladen wurden.
+Ein boolescher Wert. Gibt `true` zurück, wenn das Dokument derzeit im Prozess des Prerendings ist, und `false`, wenn es dies nicht ist. `false` wird für Dokumente zurückgegeben, die das Prerendering abgeschlossen haben, und für Dokumente, die nicht prerendert wurden.
 
 ## Beispiele
 
-Um eine Aktivität während des Vorabladens der Seite auszuführen, können Sie die `prerendering`-Eigenschaft überprüfen. Sie könnten beispielsweise einige Analysen durchführen:
+Um eine Aktivität auszuführen, während die Seite prerendert wird, können Sie die `prerendering`-Eigenschaft überprüfen. Sie könnten zum Beispiel einige Analysen durchführen:
 
 ```js
 if (document.prerendering) {
@@ -24,7 +24,7 @@ if (document.prerendering) {
 }
 ```
 
-Wenn ein vorabgeladenes Dokument aktiviert wird, wird [`PerformanceNavigationTiming.activationStart`](/de/docs/Web/API/PerformanceNavigationTiming/activationStart) auf einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert gesetzt, der die Zeit zwischen dem Start des Vorabladens und der tatsächlichen Aktivierung des Dokuments darstellt. Die folgende Funktion kann sowohl für vorabladende als auch für vorabgeladene Seiten prüfen:
+Wenn ein prerendertes Dokument aktiviert wird, wird [`PerformanceNavigationTiming.activationStart`](/de/docs/Web/API/PerformanceNavigationTiming/activationStart) auf einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) Wert gesetzt, der die Zeit zwischen dem Start des Prerendings und der tatsächlichen Aktivierung des Dokuments darstellt. Die folgende Funktion kann sowohl für prerendernde _als auch_ für prerendert fortgeschrittene Seiten überprüfen:
 
 ```js
 function pagePrerendered() {
@@ -35,7 +35,7 @@ function pagePrerendered() {
 }
 ```
 
-Wenn die vorabgeladene Seite durch die Betrachtung der Seite durch den Benutzer aktiviert wird, wird das [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event)-Ereignis ausgelöst. Dies kann verwendet werden, um Aktivitäten zu aktivieren, die zuvor standardmäßig beim Laden der Seite gestartet würden, die Sie jedoch verzögern möchten, bis die Seite tatsächlich vom Benutzer betrachtet wird. Der folgende Code richtet einen Ereignis-Listener ein, um eine Funktion auszuführen, sobald das Vorabladen auf einer vorabgeladenen Seite abgeschlossen ist oder diese sofort auf einer nicht vorabgeladenen Seite auszuführen:
+Wenn die prerendert-Seite durch das Betrachten durch den Benutzer aktiviert wird, wird das [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event) Ereignis ausgelöst. Dies kann verwendet werden, um Aktivitäten zu aktivieren, die zuvor standardmäßig beim Laden der Seite gestartet würden, die Sie jedoch verzögern möchten, bis die Seite tatsächlich vom Benutzer betrachtet wird. Der folgende Code richtet einen Ereignis-Listener ein, um eine Funktion auszuführen, sobald das Prerendering beendet ist, auf einer prerendert-Seite, oder führt sie sofort auf einer nicht prerendert-Seite aus:
 
 ```js
 if (document.prerendering) {
@@ -48,9 +48,9 @@ if (document.prerendering) {
 ```
 
 > [!NOTE]
-> Siehe die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) Übersichtsseite und insbesondere den Abschnitt [Unsichere spekulative Ladebedingungen](/de/docs/Web/API/Speculation_Rules_API#unsafe_speculative_loading_conditions) für weitere Informationen zu den Arten von Aktivitäten, die Sie möglicherweise verzögern möchten.
+> Weitere Informationen darüber, welche Art von Aktivitäten Sie möglicherweise verzögern möchten, finden Sie auf der [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) Startseite und insbesondere im Abschnitt [Unsichere spekulative Ladebedingungen](/de/docs/Web/API/Speculation_Rules_API#unsafe_speculative_loading_conditions).
 
-Um zu messen, wie oft ein Vorabladen aktiviert wird, kombinieren Sie alle drei APIs: `document.prerendering`, um Fälle zu erkennen, in denen die Seite derzeit vorabgeladen wird, `prerenderingchange`, um in diesem Fall auf Aktivierungen zu achten, und `activationStart`, um Fälle zu überprüfen, in denen die Seite in der Vergangenheit vorabgeladen wurde.
+Um zu messen, wie oft ein Prerender aktiviert wird, kombinieren Sie alle drei APIs: `document.prerendering`, um Fälle zu erkennen, in denen die Seite derzeit prerendert wird, `prerenderingchange`, um auf Aktivierungen in diesem Fall zu achten, und `activationStart`, um Fälle zu überprüfen, in denen die Seite in der Vergangenheit prerendert wurde.
 
 ```js
 if (document.prerendering) {
