@@ -3,12 +3,12 @@ title: "CommandEvent: CommandEvent() Konstruktor"
 short-title: CommandEvent()
 slug: Web/API/CommandEvent/CommandEvent
 l10n:
-  sourceCommit: af550427ce6ddc8b22dae1f6c8a109ed4a5fbd91
+  sourceCommit: 66ca26b10d8a8d7c8c287728cd60108b65a1f331
 ---
 
 {{APIRef("Invoker Commands API")}}
 
-Der **`CommandEvent()`** Konstruktor erstellt ein neues [`CommandEvent`](/de/docs/Web/API/CommandEvent)-Objekt.
+Der **`CommandEvent()`** Konstruktor erstellt ein neues [`CommandEvent`](/de/docs/Web/API/CommandEvent) Objekt.
 
 ## Syntax
 
@@ -21,17 +21,17 @@ new CommandEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es wird zwischen Groß- und Kleinschreibung unterschieden und Browser setzen es auf `beforeinput` oder `input`.
+    Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn auf `command`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_, die folgenden Eigenschaften haben kann:
     - `source` {{optional_inline}}
-      - : Ein [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), das den Button darstellt, mit dem interagiert wurde, um dieses Ereignis auszulösen. Dies kann jedes Element sein, aber wir empfehlen, nur einen Button als Quelle zu verwenden, um Überraschungen zu vermeiden.
+      - : Ein [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), das den Button darstellt, mit dem interagiert wurde, um dieses Ereignis auszulösen. Dies kann jedes Element sein, aber wir empfehlen, nur Buttons als Quelle zu verwenden, um Überraschungen zu vermeiden.
     - `command` {{optional_inline}}
-      - : Ein String, der den Befehl enthält, den das kontrollierte Element ausführen soll. Beim manuellen Erstellen eines `CommandEvent` ist es möglich, jeden beliebigen String-Wert zu verwenden, aber es wird empfohlen, einen der eingebauten Namen zu verwenden oder mit zwei Bindestrichen (`--`) zu präfixen, um die Zukunftskompatibilität zu gewährleisten.
+      - : Ein String, der den Befehl für das gesteuerte Element enthält. Beim manuellen Instanziieren eines `CommandEvent` ist es möglich, jeden String-Wert zu verwenden, aber es wird empfohlen, einen der integrierten Namen zu verwenden oder mit zwei Bindestrichen (`--`) zu versehen, um die zukunftssichere Kompatibilität zu gewährleisten.
 
 ### Rückgabewert
 
-Ein neues [`CommandEvent`](/de/docs/Web/API/CommandEvent)-Objekt.
+Ein neues [`CommandEvent`](/de/docs/Web/API/CommandEvent) Objekt.
 
 ## Spezifikationen
 
