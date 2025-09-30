@@ -3,33 +3,37 @@ title: "SpeechRecognitionErrorEvent: error-Eigenschaft"
 short-title: error
 slug: Web/API/SpeechRecognitionErrorEvent/error
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`error`** schreibgeschützte Eigenschaft des [`SpeechRecognitionErrorEvent`](/de/docs/Web/API/SpeechRecognitionErrorEvent)-Interface gibt den Typ des aufgetretenen Fehlers zurück.
+Die **`error`**-Eigenschaft mit Schreibschutz des [`SpeechRecognitionErrorEvent`](/de/docs/Web/API/SpeechRecognitionErrorEvent)-Interfaces gibt den Typ des aufgetretenen Fehlers zurück.
 
 ## Wert
 
-Ein String, der den Fehlertyp benennt. Die möglichen Fehlertypen sind:
+Ein enumerierter Wert, der den Fehlertyp darstellt. Mögliche Werte sind:
 
-- `no-speech`
-  - : Es wurde keine Sprache erkannt.
 - `aborted`
-  - : Die Spracheingabe wurde auf irgendeine Weise abgebrochen, möglicherweise durch ein anwenderspezifisches Verhalten wie eine Schaltfläche, die der Benutzer drücken kann, um die Spracheingabe abzubrechen.
+  - : Die Spracheingabe wurde auf irgendeine Weise abgebrochen, möglicherweise durch ein benutzerspezifisches Verhalten wie eine Taste, die der Benutzer drücken kann, um die Spracheingabe abzubrechen.
 - `audio-capture`
   - : Die Audioaufnahme ist fehlgeschlagen.
-- `network`
-  - : Die für den Abschluss der Erkennung erforderliche Netzwerkkommunikation ist fehlgeschlagen.
-- `not-allowed`
-  - : Der Benutzeragent hat aus Sicherheits-, Datenschutz- oder Benutzervorlieben-Gründen jegliche Spracheingabe nicht zugelassen.
-- `service-not-allowed`
-  - : Der Benutzeragent hat den angeforderten Sprachdienst nicht zugelassen, entweder weil der Benutzeragent ihn nicht unterstützt oder aus Sicherheits-, Datenschutz- oder Benutzervorlieben-Gründen. In diesem Fall würde ein anderer, besser geeigneter Sprachdienst verwendet werden.
-- `bad-grammar`
-  - : Es gab einen Fehler in der Sprachgrammatik oder den semantischen Tags oder das gewählte Grammatikformat oder semantische Tag-Format wurde nicht unterstützt.
+- `bad-grammar` {{deprecated_inline}} {{non-standard_inline}}
+  - : Es gab einen Fehler in der Spracherkennungsgrammatik oder den semantischen Tags, oder das gewählte Grammatik- oder semantische Tag-Format wurde nicht unterstützt.
+    > [!NOTE]
+    > Dieser Fehler ist nicht mehr Teil der Spezifikation der Web Speech API; das Konzept der Grammatik wurde aus der Web Speech API entfernt. Verwandte Funktionen bleiben in der Spezifikation und werden weiterhin von unterstützenden Browsern zur Rückwärtskompatibilität erkannt, haben jedoch keinen Einfluss auf die Spracherkennungsdienste.
 - `language-not-supported`
-  - : Der Benutzeragent unterstützt die in der [`lang`](/de/docs/Web/API/SpeechRecognition/lang)-Attributwert des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts angegebene Sprache nicht. Der Satz der unterstützten Sprachen ist browserabhängig und es gibt keine Möglichkeit von Frontend-Code aus, programmgesteuert zu bestimmen, welche Sprachen der Browser eines Nutzers für die Spracherkennung unterstützt.
+  - : Der User-Agent unterstützt die im [`lang`](/de/docs/Web/API/SpeechRecognition/lang)-Attribut des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts angegebene Sprache nicht. Der Satz der unterstützten Sprachen hängt vom Browser ab, und es gibt keine Möglichkeit, programmgesteuert aus dem Front-End-Code zu bestimmen, welche Sprachen ein Benutzerbrowser für die Spracherkennung unterstützt.
+- `network`
+  - : Die zur Abschließung der Erkennung erforderliche Netzwerkkommunikation ist fehlgeschlagen.
+- `no-speech`
+  - : Es wurde keine Sprache erkannt.
+- `not-allowed`
+  - : Der User-Agent hat aus Gründen der Sicherheit, Privatsphäre oder Benutzerpräferenz jegliche Spracheingabe untersagt.
+- `phrases-not-supported`
+  - : Das Spracherkennungsmodell unterstützt keine [`phrases`](/de/docs/Web/API/SpeechRecognition/phrases) für [kontextuelles Biasing](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#contextual_biasing_in_speech_recognition).
+- `service-not-allowed`
+  - : Der User-Agent hat den angeforderten Spracherkennungsdienst abgelehnt, entweder weil der User-Agent ihn nicht unterstützt oder aus Gründen der Sicherheit, Privatsphäre oder Benutzerpräferenz. In diesem Fall würde die Nutzung eines anderen, besser geeigneten Spracherkennungsdienstes ermöglicht.
 
 ## Beispiele
 

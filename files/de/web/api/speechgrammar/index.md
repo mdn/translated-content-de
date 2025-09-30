@@ -2,24 +2,27 @@
 title: SpeechGrammar
 slug: Web/API/SpeechGrammar
 l10n:
-  sourceCommit: ee348fc4da928b445f95660fae094269604b1b9c
+  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
 ---
 
 {{APIRef("Web Speech API")}}{{deprecated_header}}
 
-Die **`SpeechGrammar`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Menge von Wörtern oder Wortmustern, die der Erkennungsdienst erkennen soll.
+Das **`SpeechGrammar`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Menge von Wörtern oder Wortmustern, die der Erkennungsdienst erkennen soll.
 
-Grammatik wird unter Verwendung des [JSpeech Grammatikformats](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert. Andere Formate könnten in Zukunft ebenfalls unterstützt werden.
+Grammatik wird im [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert.
+
+> [!NOTE]
+> Das Konzept der Grammatik wurde aus der Web Speech API entfernt. Verwandte Funktionen sind in der Spezifikation weiterhin vorhanden und werden von unterstützenden Browsern aus Gründen der Rückwärtskompatibilität erkannt, haben jedoch keine Auswirkungen auf Spracherkennungsdienste.
 
 ## Konstruktor
 
 - [`SpeechGrammar()`](/de/docs/Web/API/SpeechGrammar/SpeechGrammar) {{Non-standard_Inline}} {{deprecated_inline}}
   - : Erstellt ein neues `SpeechGrammar`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`SpeechGrammar.src`](/de/docs/Web/API/SpeechGrammar/src) {{deprecated_inline}}
-  - : Setzt und gibt einen String zurück, der die Grammatik innerhalb der Instanz des `SpeechGrammar`-Objekts enthält.
+  - : Setzt und gibt einen String zurück, der die Grammatik innerhalb der `SpeechGrammar`-Objektinstanz enthält.
 - [`SpeechGrammar.weight`](/de/docs/Web/API/SpeechGrammar/weight) {{Optional_Inline}} {{deprecated_inline}}
   - : Setzt und gibt das Gewicht des `SpeechGrammar`-Objekts zurück.
 

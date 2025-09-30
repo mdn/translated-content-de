@@ -2,14 +2,17 @@
 title: SpeechGrammarList
 slug: Web/API/SpeechGrammarList
 l10n:
-  sourceCommit: ee348fc4da928b445f95660fae094269604b1b9c
+  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
 ---
 
 {{APIRef("Web Speech API")}}{{deprecated_header}}
 
-Die **`SpeechGrammarList`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Liste von [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekten, die Wörter oder Muster von Wörtern enthalten, die der Erkennungsdienst erkennen soll.
+Das **`SpeechGrammarList`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) stellt eine Liste von [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekten dar, die Wörter oder Muster von Wörtern enthalten, die der Erkennungsdienst erkennen soll.
 
-Grammatiken werden im [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert. Andere Formate könnten in Zukunft ebenfalls unterstützt werden.
+Grammatik wird mit dem [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert.
+
+> [!NOTE]
+> Das Konzept der Grammatik wurde aus der Web Speech API entfernt. Verwandte Funktionen bleiben in der Spezifikation und werden weiterhin von unterstützenden Browsern zur Rückwärtskompatibilität erkannt, haben jedoch keinen Einfluss auf Sprachdienste.
 
 ## Konstruktor
 
@@ -19,20 +22,18 @@ Grammatiken werden im [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**J
 ## Instanz-Eigenschaften
 
 - [`SpeechGrammarList.length`](/de/docs/Web/API/SpeechGrammarList/length) {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt die Anzahl der [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte zurück, die in der `SpeechGrammarList` enthalten sind.
+  - : Gibt die Anzahl der [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte in der `SpeechGrammarList` zurück.
 
 ## Instanz-Methoden
 
 - [`SpeechGrammarList.item()`](/de/docs/Web/API/SpeechGrammarList/item) {{deprecated_inline}}
-  - : Standardgetter — ermöglicht es, einzelne [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte aus der `SpeechGrammarList` mit Array-Syntax abzurufen.
+  - : Standard-Getter — ermöglicht das Abrufen einzelner [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte aus der `SpeechGrammarList` unter Verwendung der Array-Syntax.
 - [`SpeechGrammarList.addFromURI()`](/de/docs/Web/API/SpeechGrammarList/addFromURI) {{deprecated_inline}}
-  - : Nimmt eine Grammatik von einem bestimmten URI und fügt sie der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
+  - : Nimmt eine unter einer spezifischen URI vorhandene Grammatik und fügt sie der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
 - [`SpeechGrammarList.addFromString()`](/de/docs/Web/API/SpeechGrammarList/addFromString) {{deprecated_inline}}
-  - : Fügt eine Grammatik in einem String der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
+  - : Fügt eine Grammatik in Form eines Strings der `SpeechGrammarList` als neues [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt hinzu.
 
 ## Beispiele
-
-In unserem einfachen [Speech-Color-Changer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speech-color-changer)-Beispiel erstellen wir eine neue Instanz eines `SpeechRecognition`-Objekts mithilfe des [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition)-Konstruktors, erstellen eine neue `SpeechGrammarList`, fügen unsere Grammatikzeichenfolge mit der [`SpeechGrammarList.addFromString`](/de/docs/Web/API/SpeechGrammarList/addFromString)-Methode hinzu und setzen sie als die Grammatik, die von der `SpeechRecognition`-Instanz erkannt wird, indem wir die [`SpeechRecognition.grammars`](/de/docs/Web/API/SpeechRecognition/grammars)-Eigenschaft verwenden.
 
 ```js
 const grammar =

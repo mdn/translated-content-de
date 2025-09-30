@@ -3,29 +3,23 @@ title: "SpeechRecognition: lang-Eigenschaft"
 short-title: lang
 slug: Web/API/SpeechRecognition/lang
 l10n:
-  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
+  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`lang`**-Eigenschaft des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces gibt die Sprache der aktuellen `SpeechRecognition` zurück und legt sie fest. Wenn sie nicht spezifiziert ist, wird standardmäßig der Wert des HTML-Attributs [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) verwendet, oder die Spracheinstellung des User-Agents, falls auch diese nicht gesetzt ist.
+Die **`lang`**-Eigenschaft des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces gibt die Sprache des aktuellen `SpeechRecognition` zurück und setzt sie. Ist diese nicht angegeben, wird standardmäßig der Wert des HTML-Attributs [`lang`](/de/docs/Web/HTML/Reference/Global_attributes/lang) verwendet, oder die Spracheinstellung des Benutzeragents, falls auch diese nicht gesetzt ist.
 
 ## Wert
 
-Ein String, der das {{Glossary("BCP_47_language_tag", "BCP 47 language tag")}} für die aktuelle `SpeechRecognition` darstellt.
+Ein String, der die Sprache für die aktuelle `SpeechRecognition` darstellt. Der Wert sollte ein gültiges {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} sein.
 
 ## Beispiele
 
 Dieser Code stammt aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
-const grammar =
-  "#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;";
 const recognition = new SpeechRecognition();
-const speechRecognitionList = new SpeechGrammarList();
-speechRecognitionList.addFromString(grammar, 1);
-recognition.grammars = speechRecognitionList;
-// recognition.continuous = false;
 recognition.lang = "en-US";
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;

@@ -1,17 +1,14 @@
 ---
-title: "SpeechRecognitionResult: item()-Methode"
+title: "SpeechRecognitionResult: item() Methode"
 short-title: item()
 slug: Web/API/SpeechRecognitionResult/item
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
 ---
 
 {{APIRef("Web Speech API")}}
 
-Der **`item`**-Getter des
-[`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Interfaces ist ein Standard-Getter, der es ermöglicht,
-[`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekte innerhalb des Ergebnisses über
-Array-Syntax zuzugreifen.
+Der **`item`** Getter des [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Interfaces ist ein Standard-Getter, der es ermöglicht, [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)-Objekte innerhalb des Ergebnisses über die Array-Syntax zuzugreifen.
 
 ## Syntax
 
@@ -22,7 +19,7 @@ item(index)
 ### Parameter
 
 - `index`
-  - : Index des Elements, das abgerufen werden soll.
+  - : Index des zu holenden Elements.
 
 ### Rückgabewert
 
@@ -30,19 +27,10 @@ Ein [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternati
 
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem Beispiel [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
+Dieser Code ist ein Auszug aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 recognition.onresult = (event) => {
-  // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
-  // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
-  // It has a getter so it can be accessed like an array
-  // The first [0] returns the SpeechRecognitionResult at position 0.
-  // Each SpeechRecognitionResult object contains SpeechRecognitionAlternative objects
-  // that contain individual results.
-  // These also have getters so they can be accessed like arrays.
-  // The second [0] returns the SpeechRecognitionAlternative at position 0.
-  // We then return the transcript property of the SpeechRecognitionAlternative object
   const color = event.results[0][0].transcript;
   diagnostic.textContent = `Result received: ${color}.`;
   bg.style.backgroundColor = color;

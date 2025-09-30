@@ -32,9 +32,9 @@ Ein [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent). Erbt vo
 
 _Zusätzlich zu den unten aufgelisteten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- [`SpeechRecognitionEvent.emma`](/de/docs/Web/API/SpeechRecognitionEvent/emma) {{ReadOnlyInline}}
+- [`SpeechRecognitionEvent.emma`](/de/docs/Web/API/SpeechRecognitionEvent) {{ReadOnlyInline}}
   - : Gibt eine Extensible MultiModal Annotation Markup Language (EMMA) — XML — Darstellung des Ergebnisses zurück.
-- [`SpeechRecognitionEvent.interpretation`](/de/docs/Web/API/SpeechRecognitionEvent/interpretation) {{ReadOnlyInline}}
+- [`SpeechRecognitionEvent.interpretation`](/de/docs/Web/API/SpeechRecognitionEvent) {{ReadOnlyInline}}
   - : Gibt die semantische Bedeutung dessen zurück, was der Benutzer gesagt hat.
 - [`SpeechRecognitionEvent.resultIndex`](/de/docs/Web/API/SpeechRecognitionEvent/resultIndex) {{ReadOnlyInline}}
   - : Gibt den niedrigsten Indexwert im [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-"Array" zurück, der tatsächlich geändert wurde.
