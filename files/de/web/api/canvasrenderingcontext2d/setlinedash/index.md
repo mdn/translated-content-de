@@ -3,15 +3,15 @@ title: "CanvasRenderingContext2D: setLineDash()-Methode"
 short-title: setLineDash()
 slug: Web/API/CanvasRenderingContext2D/setLineDash
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`setLineDash()`**-Methode des [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Interfaces der Canvas 2D API legt das Strichmuster fest, das beim Zeichnen von Linien verwendet wird. Sie verwendet ein Array von Werten, die abwechselnde Längen von Linien und Lücken angeben, die das Muster beschreiben.
+Die **`setLineDash()`**-Methode der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Schnittstelle des 2D-Canvas-API setzt das Linienmuster, das beim Zeichnen von Linien verwendet wird. Sie verwendet ein Array von Werten, die abwechselnde Längen von Linien und Lücken angeben, die das Muster beschreiben.
 
 > [!NOTE]
-> Um wieder durchgehende Linien zu verwenden, setzen Sie die Strichliste auf ein leeres Array.
+> Um wieder feste Linien zu verwenden, setzen Sie die Strichmusterliste auf ein leeres Array.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ setLineDash(segments)
 ### Parameter
 
 - `segments`
-  - : Ein {{jsxref("Array")}} von Zahlen, die die Abstände angeben, um abwechselnd eine Linie und eine Lücke zu zeichnen (in Koordinatenraumeinheiten). Wenn die Anzahl der Elemente im Array ungerade ist, werden die Elemente des Arrays kopiert und aneinander gehängt. Zum Beispiel wird `[5, 15, 25]` zu `[5, 15, 25, 5, 15, 25]`. Wenn das Array leer ist, wird die Strichliste gelöscht und die Linienstriche kehren zu durchgehenden Linien zurück.
+  - : Ein {{jsxref("Array")}} von Zahlen, die die Abstände angeben, um abwechselnd eine Linie und eine Lücke zu zeichnen (in Koordinatenraumeinheiten). Wenn die Anzahl der Elemente im Array ungerade ist, werden die Elemente des Arrays kopiert und angehängt. Zum Beispiel wird `[5, 15, 25]` zu `[5, 15, 25, 5, 15, 25]`. Wenn das Array leer ist, wird die Linie-Strichliste gelöscht und Linienstriche sind wieder fest.
 
 ### Rückgabewert
 
@@ -32,7 +32,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Einfaches Beispiel
 
-Dieses Beispiel verwendet die `setLineDash()`-Methode, um eine gestrichelte Linie über einer durchgehenden Linie zu zeichnen.
+Dieses Beispiel verwendet die `setLineDash()`-Methode, um oberhalb einer festen Linie eine gestrichelte Linie zu zeichnen.
 
 #### HTML
 
@@ -67,7 +67,7 @@ ctx.stroke();
 
 ### Einige gängige Muster
 
-Dieses Beispiel zeigt eine Vielzahl von gängigen Strichmustern.
+Dieses Beispiel veranschaulicht eine Vielzahl von gängigen Strichmustern.
 
 #### HTML
 
@@ -77,9 +77,13 @@ Dieses Beispiel zeigt eine Vielzahl von gängigen Strichmustern.
 
 #### JavaScript
 
-Die `drawDashedLine()`-Funktion, die unten erstellt wird, vereinfacht das Zeichnen mehrerer gestrichelter Linien. Sie erhält ein Muster-Array als einzigen Parameter.
+Die unten erstellte `drawDashedLine()`-Funktion vereinfacht das Zeichnen mehrerer gestrichelter Linien. Sie erhält ein Muster-Array als einzigen Parameter.
 
 ```js
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+let y = 15;
+
 function drawDashedLine(pattern) {
   ctx.beginPath();
   ctx.setLineDash(pattern);
@@ -88,10 +92,6 @@ function drawDashedLine(pattern) {
   ctx.stroke();
   y += 20;
 }
-
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-let y = 15;
 
 drawDashedLine([]);
 drawDashedLine([1, 1]);
@@ -116,6 +116,6 @@ drawDashedLine([12, 3, 3]); // Equals [12, 3, 3, 12, 3, 3]
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.getLineDash()`](/de/docs/Web/API/CanvasRenderingContext2D/getLineDash)
 - [`CanvasRenderingContext2D.lineDashOffset`](/de/docs/Web/API/CanvasRenderingContext2D/lineDashOffset)

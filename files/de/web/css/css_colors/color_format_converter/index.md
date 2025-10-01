@@ -2,14 +2,14 @@
 title: Farbformat-Konverter
 slug: Web/CSS/CSS_colors/Color_format_converter
 l10n:
-  sourceCommit: a6d1fd388b053e6fc6ce21003348f34d0ef8115f
+  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
 ---
 
-Dieses Tool ermöglicht es Ihnen, eine Farbe einzugeben oder auszuwählen und deren entsprechenden Wert in einem beliebigen CSS-[Farbformat](/de/docs/Web/CSS/color_value) zu kopieren. Sie können den generierten Farbwert überall dort verwenden, wo der {{cssxref("color_value", "&lt;color&gt;")}} Datentyp in CSS unterstützt wird. Dieses Tool kann Ihnen auch helfen, die Syntax der verschiedenen Farbnotationen zu verstehen.
+Dieses Tool ermöglicht es Ihnen, eine Farbe einzugeben oder auszuwählen und deren entsprechenden Wert in jedem CSS-[Farbformat](/de/docs/Web/CSS/color_value) zu kopieren. Sie können den generierten Farbwert überall dort verwenden, wo der {{cssxref("color_value", "&lt;color&gt;")}} Datentyp in CSS unterstützt wird. Dieses Tool kann Ihnen auch helfen, die Syntax der verschiedenen Farbnotationen zu verstehen.
 
-## Anleitung zur Nutzung des Tools
+## Anleitung zur Verwendung des Tools
 
-Geben Sie eine Farbe in einem beliebigen Format ein oder wählen Sie eine im sRGB-{{Glossary("color_space", "Farbraum")}} aus. Sie können auch die Deckkraft (Alpha-Kanal) anpassen.
+Geben Sie eine Farbe in einem beliebigen Format ein oder wählen Sie eine im sRGB-{{Glossary("color_space", "Farbraum")}} aus. Sie können auch die Opazität (Alpha-Kanal) anpassen.
 
 Klicken Sie auf die **Kopieren**-Schaltfläche neben dem entsprechenden Farbformat, um dessen Wert schnell zu kopieren. Sie können auch auf einen Farbformatnamen klicken, um mehr darüber zu erfahren.
 
@@ -305,7 +305,7 @@ function multiplyByMatrix(matrix, tuple) {
 }
 
 function rgbToLinear(c) {
-  return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+  return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
 }
 
 function intToHex(i) {
@@ -328,9 +328,9 @@ function rgbaToHEXAText(color) {
 function rgbaToHSLA(color) {
   let { r, g, b, alpha } = color;
   // Let's have r, g, b in the range [0, 1]
-  r = r / 255;
-  g = g / 255;
-  b = b / 255;
+  r /= 255;
+  g /= 255;
+  b /= 255;
   const min = Math.min(r, g, b);
   const max = Math.max(r, g, b);
   const delta = max - min;
@@ -413,7 +413,7 @@ const D65 = [0.3457 / 0.3585, 1, 0.2958 / 0.3585];
 function xyzToLab(color) {
   let { x, y, z, alpha } = color;
   [x, y, z] = [x, y, z].map((v, i) => {
-    v = v / D65[i];
+    v /= D65[i];
     return v > 0.0088564516 ? Math.cbrt(v) : v * 903.2962962962963 + 16 / 116;
   });
   return { l: 116 * y - 16, a: 500 * (x - y), b: 200 * (y - z), alpha };
@@ -560,10 +560,10 @@ init();
 
 ## Siehe auch
 
-- [Farbe mit CSS-Eigenschaften anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)
+- [Anwenden von Farben mit CSS-Eigenschaften](/de/docs/Web/CSS/CSS_colors/Applying_color)
 - [CSS-Farbwerte](/de/docs/Web/CSS/CSS_colors/Color_values)
-- [Farbe weise verwenden](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
-- [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
+- [Farben klug verwenden](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
+- [Relative Farben verwenden](/de/docs/Web/CSS/CSS_colors/Relative_colors)
 - [Verständnis von Farbe und Helligkeit](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
 - [WCAG 1.4.1: Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)
 - [Lernen: Hintergründe und Rahmen mit CSS stylen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)

@@ -2,10 +2,10 @@
 title: unicode-range
 slug: Web/CSS/@font-face/unicode-range
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7e1296fc0722c86fb7e15487b5e9626597c7a2a0
 ---
 
-Der **`unicode-range`** CSS-Deskriptor legt den spezifischen Bereich von Zeichen fest, der aus einer mit der {{cssxref("@font-face")}}-Regel definierten Schriftart verwendet werden soll und für die aktuelle Seite verfügbar gemacht wird. Wenn auf der Seite kein Zeichen in diesem Bereich verwendet wird, wird die Schriftart nicht heruntergeladen; wird mindestens eines verwendet, wird die gesamte Schriftart heruntergeladen.
+Der **`unicode-range`** [CSS](/de/docs/Web/CSS) Deskriptor legt den spezifischen Bereich von Zeichen fest, die aus einer Schriftart verwendet werden sollen, die mit der {{cssxref("@font-face")}}-Regel definiert wurde und auf der aktuellen Seite zur Verfügung steht. Wenn die Seite kein Zeichen in diesem Bereich verwendet, wird die Schriftart nicht heruntergeladen; bei Verwendung von mindestens einem Zeichen wird die gesamte Schriftart heruntergeladen.
 
 ## Syntax
 
@@ -22,14 +22,14 @@ unicode-range: U+0025-00FF, U+4??; /* multiple values */
 
 - **_einzelner Codepunkt_**
   - : Ein einzelner Unicode-Zeichen-Codepunkt, zum Beispiel `U+26`.
-- **_Codepunktbereich_**
-  - : Ein Bereich von Unicode-Codepunkten. `U+0025-00FF` bedeutet zum Beispiel _alle Zeichen im Bereich von `U+0025` bis `U+00FF` einschließen_.
+- **_Codepunkt-Bereich_**
+  - : Ein Bereich von Unicode-Codepunkten. Beispielsweise bedeutet `U+0025-00FF`, _alle Zeichen im Bereich von `U+0025` bis `U+00FF` einzuschließen_.
 - **_Wildcard-Bereich_**
-  - : Ein Bereich von Unicode-Codepunkten, der Wildcards enthält, das heißt, der das `'?'`-Zeichen verwendet, sodass `U+4??` zum Beispiel bedeutet, _alle Zeichen im Bereich von `U+400` bis `U+4FF` einschließen_.
+  - : Ein Bereich von Unicode-Codepunkten, der Wildcard-Zeichen enthält, also das Zeichen `'?'` verwendet. Zum Beispiel bedeutet `U+4??`, _alle Zeichen im Bereich von `U+400` bis `U+4FF` einzuschließen_.
 
 ## Beschreibung
 
-Der Zweck dieses Deskriptors ist es, die Schriftressourcen so zu segmentieren, dass ein Browser nur die Schriftressource herunterladen muss, die für den Textinhalt einer bestimmten Seite benötigt wird. Ein Beispiel wäre eine Website mit vielen Lokalisierungen, die separate Schriftressourcen für Englisch, Griechisch und Japanisch bereitstellen könnte. Für Benutzer, die die englische Version einer Seite anzeigen, müssten die Schriftressourcen für die griechischen und japanischen Schriften nicht heruntergeladen werden, was Bandbreite spart.
+Zweck dieses Deskriptors ist es, die Schriftressourcen so zu segmentieren, dass ein Browser nur die Schriftressource herunterladen muss, die für den Textinhalt einer bestimmten Seite benötigt wird. Zum Beispiel könnte eine Website mit vielen Lokalisierungen separate Schriftressourcen für Englisch, Griechisch und Japanisch bereitstellen. Für Nutzer, die die englische Version einer Seite betrachten, müssten die Schriftressourcen für Griechisch und Japanisch nicht heruntergeladen werden, was Bandbreite spart.
 
 ## Formale Definition
 
@@ -41,11 +41,11 @@ Der Zweck dieses Deskriptors ist es, die Schriftressourcen so zu segmentieren, d
 
 ## Beispiele
 
-### Verwendung einer anderen Schriftart für ein einzelnes Zeichen
+### Eine andere Schriftart für ein einzelnes Zeichen verwenden
 
-In diesem Beispiel erstellen wir ein einzelnes {{HTMLElement("div")}}-Element mit einer Textzeichenfolge, die ein Et-Zeichen enthält, das wir mit einer anderen Schriftart gestalten möchten. Um es offensichtlich zu machen, verwenden wir eine serifenlose Schrift, _Helvetica_, für den Text und eine Serifenschrift, _Times New Roman_, für das Et-Zeichen.
+In diesem Beispiel erstellen wir ein einzelnes {{HTMLElement("div")}}-Element mit einer Textzeichenfolge, die ein kaufmännisches Und-Zeichen enthält, das wir mit einer anderen Schriftart gestalten möchten. Zur Verdeutlichung verwenden wir eine serifenlose Schrift, _Helvetica_, für den Text und eine Serifenschrift, _Times New Roman_, für das kaufmännische Und-Zeichen.
 
-Im CSS definieren wir tatsächlich ein völlig separates {{cssxref("@font-face")}}, das nur ein einzelnes Zeichen enthält, was bedeutet, dass nur dieses Zeichen mit dieser Schriftart gestaltet wird. Wir hätten dies auch erreichen können, indem wir das Et-Zeichen in ein {{HTMLElement("span")}} einwickeln und nur dort eine andere Schriftart anwenden, aber das wäre ein zusätzliches Element und Regelset.
+Im CSS definieren wir im Grunde eine komplett separate {{cssxref("@font-face")}}, die nur ein einzelnes Zeichen enthält, was bedeutet, dass nur dieses Zeichen mit dieser Schriftart gestaltet wird. Wir könnten dies auch erreichen, indem wir das kaufmännische Und-Zeichen in ein {{HTMLElement("span")}} einwickeln und nur darauf eine andere Schriftart anwenden, aber das wäre ein zusätzliches Element und eine Regel.
 
 #### HTML
 

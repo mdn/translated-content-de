@@ -3,13 +3,13 @@ title: "Element: releasePointerCapture() Methode"
 short-title: releasePointerCapture()
 slug: Web/API/Element/releasePointerCapture
 l10n:
-  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
+  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
 ---
 
 {{APIRef("DOM")}}
 
-Die **`releasePointerCapture()`** Methode der
-[`Element`](/de/docs/Web/API/Element) Schnittstelle gibt die [_Pointer-Erfassung_](/de/docs/Web/API/Pointer_events#pointer_capture) frei (stoppt sie), die zuvor für einen bestimmten ([`PointerEvent`](/de/docs/Web/API/PointerEvent)) _Pointer_ gesetzt wurde.
+Die **`releasePointerCapture()`** Methode des
+[`Element`](/de/docs/Web/API/Element)-Interfaces löst (stoppt) die zuvor für ein bestimmtes ([`PointerEvent`](/de/docs/Web/API/PointerEvent)) _Pointer_-Ereignis gesetzte [_Pointer-Capture_](/de/docs/Web/API/Pointer_events#pointer_capture).
 
 ## Syntax
 
@@ -21,7 +21,7 @@ releasePointerCapture(pointerId)
 
 - `pointerId`
   - : Die [`pointerId`](/de/docs/Web/API/PointerEvent/pointerId) eines
-    [`PointerEvent`](/de/docs/Web/API/PointerEvent) Objekts.
+    [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Objekts.
 
 ### Rückgabewert
 
@@ -30,11 +30,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `pointerId` keinem aktiven Pointer entspricht.
+  - : Wird ausgelöst, wenn `pointerId` mit keinem aktiven Pointer übereinstimmt.
 
 ## Beispiele
 
-Dieses Beispiel setzt die Pointer-Erfassung auf einem {{HtmlElement("div")}}, wenn Sie darauf drücken. So können Sie das Element horizontal verschieben, selbst wenn Ihr Pointer seine Grenzen überschreitet.
+Dieses Beispiel setzt die Pointer-Capture auf ein {{HtmlElement("div")}}, wenn Sie darauf drücken. Dies ermöglicht das horizontale Verschieben des Elements, selbst wenn der Zeiger sich außerhalb seiner Grenzen bewegt.
 
 ### HTML
 
@@ -58,6 +58,8 @@ div {
 ### JavaScript
 
 ```js
+const slider = document.getElementById("slider");
+
 function beginSliding(e) {
   slider.onpointermove = slide;
   slider.setPointerCapture(e.pointerId);
@@ -71,8 +73,6 @@ function stopSliding(e) {
 function slide(e) {
   slider.style.transform = `translate(${e.clientX - 70}px)`;
 }
-
-const slider = document.getElementById("slider");
 
 slider.onpointerdown = beginSliding;
 slider.onpointerup = stopSliding;
@@ -94,4 +94,4 @@ slider.onpointerup = stopSliding;
 
 - [`Element.hasPointerCapture()`](/de/docs/Web/API/Element/hasPointerCapture)
 - [`Element.setPointerCapture()`](/de/docs/Web/API/Element/setPointerCapture)
-- [Pointer Events](/de/docs/Web/API/Pointer_events)
+- [Pointer-Ereignisse](/de/docs/Web/API/Pointer_events)

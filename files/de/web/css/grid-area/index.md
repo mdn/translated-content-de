@@ -2,10 +2,10 @@
 title: grid-area
 slug: Web/CSS/grid-area
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7e1296fc0722c86fb7e15487b5e9626597c7a2a0
 ---
 
-Die **`grid-area`** CSS-[Shorthand-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) legt die Größe und Position eines Grid-Elements innerhalb eines {{Glossary("grid", "Grids")}} fest, indem sie eine Linie, einen Umfang oder nichts (automatisch) zu seiner Position im Grid beiträgt und somit die Grenzen seines {{Glossary("grid_areas", "Grid-Bereichs")}} spezifiziert.
+Die **`grid-area`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) spezifiziert die Größe und Position eines Rasterelements innerhalb eines {{Glossary("grid", "Rasters")}}, indem es eine Linie, eine Spanne oder nichts (automatisch) zu seiner Rasterplatzierung beiträgt und so die Ränder seines {{Glossary("grid_areas", "Rasterbereichs")}} festlegt.
 
 {{InteractiveExample("CSS Demo: grid-area")}}
 
@@ -58,19 +58,19 @@ grid-area: 2 / 1 / 2 / 4;
 }
 ```
 
-Wenn vier `<grid-line>`-Werte angegeben werden, wird `grid-row-start` auf den ersten Wert gesetzt, `grid-column-start` auf den zweiten Wert, `grid-row-end` auf den dritten Wert und `grid-column-end` auf den vierten Wert.
+Wenn vier `<grid-line>` Werte angegeben sind, wird `grid-row-start` auf den ersten Wert gesetzt, `grid-column-start` auf den zweiten Wert, `grid-row-end` auf den dritten Wert und `grid-column-end` auf den vierten Wert.
 
-Wenn `grid-column-end` weggelassen wird, wird `grid-column-end` auf dieses `<custom-ident>` gesetzt, falls `grid-column-start` ein {{cssxref("&lt;custom-ident&gt;")}} ist; andernfalls wird es auf `auto` gesetzt.
+Wenn `grid-column-end` weggelassen wird, wird `grid-column-end` auf das `<custom-ident>` gesetzt, wenn `grid-column-start` ein {{cssxref("&lt;custom-ident&gt;")}} ist; andernfalls wird es auf `auto` gesetzt.
 
-Wenn `grid-row-end` weggelassen wird, wird `grid-row-end` auf dieses `<custom-ident>` gesetzt, falls `grid-row-start` ein `<custom-ident>` ist; andernfalls wird es auf `auto` gesetzt.
+Wenn `grid-row-end` weggelassen wird, wird `grid-row-end` auf das `<custom-ident>` gesetzt, wenn `grid-row-start` ein `<custom-ident>` ist; andernfalls wird es auf `auto` gesetzt.
 
-Wenn `grid-column-start` weggelassen wird, werden alle vier Langformen auf diesen Wert gesetzt, falls `grid-row-start` ein `<custom-ident>` ist. Andernfalls wird es auf `auto` gesetzt.
+Wenn `grid-column-start` weggelassen wird, werden alle vier Langformen auf diesen Wert gesetzt, wenn `grid-row-start` ein `<custom-ident>` ist. Andernfalls wird es auf `auto` gesetzt.
 
-Die `grid-area`-Eigenschaft kann auch auf einen {{cssxref("&lt;custom-ident&gt;")}} gesetzt werden, der als Name für den Bereich fungiert, der dann mit {{cssxref("grid-template-areas")}} platziert werden kann.
+Die `grid-area` Eigenschaft kann auch auf ein {{cssxref("&lt;custom-ident&gt;")}} gesetzt werden, das als Name für den Bereich dient, der dann mittels {{cssxref("grid-template-areas")}} platziert werden kann.
 
 ## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - [`grid-row-start`](/de/docs/Web/CSS/grid-row-start)
 - [`grid-column-start`](/de/docs/Web/CSS/grid-column-start)
@@ -110,28 +110,28 @@ grid-area: unset;
 ### Werte
 
 - `auto`
-  - : Ist ein Schlüsselwort, das angibt, dass die Eigenschaft nichts zur Platzierung des Grid-Elements beiträgt und auf eine automatische Platzierung oder einen Standardumfang von `1` hinweist.
+  - : Ist ein Schlüsselwort, das angibt, dass die Eigenschaft nichts zur Platzierung des Rasterelements beiträgt und eine automatische Platzierung oder eine Standardspanne von `1` anzeigt.
 - `<custom-ident>`
-  - : Wenn es eine benannte Linie mit dem Namen `<custom-ident>-start` oder `<custom-ident>-end` gibt, trägt sie die erste solche Linie zur Platzierung des Grid-Elements bei.
+  - : Falls eine benannte Linie mit dem Namen `<custom-ident>-start` oder `<custom-ident>-end` existiert, trägt sie die erste solche Linie zur Platzierung des Rasterelements bei.
 
     > [!NOTE]
-    > Benannte Grid-Bereiche generieren automatisch implizit benannte Linien dieser Form, sodass die Angabe `grid-area: foo;` die Start-/Endkante dieses benannten Grid-Bereichs wählt (es sei denn, es wurde vorher explizit eine andere Linie mit dem Namen `foo-start`/`foo-end` angegeben).
+    > Benannte Rasterbereiche generieren automatisch implizit benannte Linien dieser Form. Wird also `grid-area: foo;` angegeben, wählt dies die Start-/Endkante des benannten Rasterbereichs (es sei denn, eine andere Linie mit dem Namen `foo-start`/`foo-end` wurde vorher explizit angegeben).
 
-    Andernfalls wird dies so behandelt, als ob die Ganzzahl `1` zusammen mit dem `<custom-ident>` angegeben worden wäre.
+    Andernfalls wird dies so behandelt, als wäre die Ganzzahl `1` zusammen mit dem `<custom-ident>` angegeben worden.
 
 - `<integer> && <custom-ident>?`
-  - : Trägt die n-te Grid-Linie zur Platzierung des Grid-Elements bei. Wenn eine negative Ganzzahl angegeben wird, zählt sie stattdessen rückwärts, beginnend von der Endkante des expliziten Grids.
+  - : Trägt die n-te Rasterlinie zur Platzierung des Rasterelements bei. Wenn eine negative Ganzzahl angegeben ist, wird stattdessen rückwärts gezählt, beginnend vom Endrand des expliziten Rasters.
 
-    Wenn ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen vorhanden sind, wird davon ausgegangen, dass alle impliziten Grid-Linien diesen Namen zum Zweck der Positionsbestimmung haben.
+    Falls ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben ist, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Rasterlinien diesen Namen zu Zwecken der Bestimmung dieser Position haben.
 
     Ein {{cssxref("&lt;integer&gt;")}}-Wert von `0` ist ungültig.
 
 - `span && [ <integer> || <custom-ident> ]`
-  - : Trägt einen Grid-Umfang zur Platzierung des Grid-Elements bei, sodass die entsprechende Kante des Grid-Bereichs des Grid-Elements _n_ Linien von der gegenüberliegenden Kante entfernt ist.
+  - : Trägt eine Rasterspanne zur Platzierung des Rasterelements bei, sodass die entsprechende Kante des Rasterbereichs _n_ Linien von der gegenüberliegenden Kante entfernt ist.
 
-    Wenn ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen vorhanden sind, wird davon ausgegangen, dass alle impliziten Grid-Linien auf der Seite des expliziten Grids in Suchrichtung diesen Namen zum Zweck der Zählung dieses Umfangs haben.
+    Falls ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben ist, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Rasterlinien auf der Seite des expliziten Rasters, die der Suchrichtung entspricht, diesen Namen zu Zwecken der Zählung dieser Spanne haben.
 
-    Wenn die {{cssxref("&lt;integer&gt;")}} weggelassen wird, lautet der Standardwert `1`. Negative Ganzzahlen oder 0 sind ungültig.
+    Wenn das {{cssxref("&lt;integer&gt;")}} ausgelassen wird, ist es standardmäßig `1`. Negative Ganzzahlen oder 0 sind ungültig.
 
 ## Formale Definition
 
@@ -143,7 +143,7 @@ grid-area: unset;
 
 ## Beispiele
 
-### Festlegen von Grid-Bereichen
+### Rasterbereiche festlegen
 
 #### HTML
 
@@ -199,5 +199,5 @@ grid-area: unset;
 - {{cssxref("grid-column-start")}}
 - {{cssxref("grid-column-end")}}
 - {{cssxref("grid-template-areas")}}
-- [Grid template areas](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
-- Video: [Grid template areas](https://gridbyexample.com/video/grid-template-areas/)
+- [Raster-Template-Bereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
+- Video: [Raster-Template-Bereiche](https://gridbyexample.com/video/grid-template-areas/)

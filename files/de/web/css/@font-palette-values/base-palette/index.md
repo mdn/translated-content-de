@@ -2,10 +2,10 @@
 title: base-palette
 slug: Web/CSS/@font-palette-values/base-palette
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7e1296fc0722c86fb7e15487b5e9626597c7a2a0
 ---
 
-Der **`base-palette`** CSS-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird verwendet, um den Namen oder Index einer vordefinierten Palette anzugeben, die verwendet wird, um eine neue Palette zu erstellen. Falls die angegebene `base-palette` nicht existiert, wird die bei Index 0 definierte Palette verwendet.
+Der **`base-palette`** [CSS](/de/docs/Web/CSS) {{Glossary("CSS_Descriptor", "Deskriptor")}} wird verwendet, um den Namen oder Index einer vordefinierten Palette festzulegen, die zur Erstellung einer neuen Palette verwendet werden soll. Wenn die angegebene `base-palette` nicht existiert, wird die Palette mit dem Index 0 verwendet.
 
 ## Syntax
 
@@ -15,7 +15,7 @@ Der **`base-palette`** CSS-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird ver
 }
 ```
 
-Der `base-palette`-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird mit einem nullbasierten Index der vom Schriftgestalter erstellten Paletten angegeben.
+Der `base-palette` {{Glossary("CSS_Descriptor", "Deskriptor")}} wird mit einem nullbasierten Index der vom Schriftgestalter erstellten Paletten angegeben.
 
 ### Werte
 
@@ -34,7 +34,7 @@ Der `base-palette`-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird mit einem n
 
 ### Ändern der Standard-Palette in einer Schriftart
 
-Unter Verwendung der [Rocher Color Font](https://www.harbortype.com/fonts/rocher-color/) zeigt dieses Beispiel zwei Fälle des Wechsels der Standard-Palette in der Schriftart zu einer alternativen Palette, die vom Schriftgestalter erstellt wurde.
+Dieses Beispiel zeigt anhand der [Rocher Color Font](https://www.harbortype.com/fonts/rocher-color/) zwei Instanzen, bei denen die Standard-Palette in der Schriftart zu einer vom Schriftgestalter erstellten alternativen Palette gewechselt wird.
 
 #### HTML
 
@@ -77,7 +77,7 @@ h2 {
 
 #### Ergebnis
 
-![Beispiel, das 3 verschiedene Basis-Paletten der Rocher-Farbschrift zeigt](./rocher-color-font-alt-base-palettes.jpg)
+![Beispiel, das 3 verschiedene Base-Paletten der Rocher-Farbschrift zeigt](./rocher-color-font-alt-base-palettes.jpg)
 
 ## Spezifikationen
 

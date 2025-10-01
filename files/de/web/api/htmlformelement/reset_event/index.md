@@ -1,14 +1,14 @@
 ---
-title: "HTMLFormElement: reset-Event"
+title: "HTMLFormElement: reset-Ereignis"
 short-title: reset
 slug: Web/API/HTMLFormElement/reset_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`reset`**-Ereignis wird ausgelöst, wenn ein {{HTMLElement("form")}}-Element zurückgesetzt wird.
+Das **`reset`**-Ereignis wird ausgelöst, wenn ein {{HTMLElement("form")}} zurückgesetzt wird.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf das Zurücksetzen von Formularen zu hören und das aktuelle [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp) zu protokollieren, wann immer dies geschieht.
+Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf Zurücksetzungen des Formulars zu hören und protokolliert den aktuellen [`Event.timeStamp`](/de/docs/Web/API/Event/timeStamp), wann immer dies eintritt.
 
 ### HTML
 
@@ -42,12 +42,13 @@ Dieses Beispiel verwendet [`EventTarget.addEventListener()`](/de/docs/Web/API/Ev
 ### JavaScript
 
 ```js
+const form = document.getElementById("form");
+const log = document.getElementById("log");
+
 function logReset(event) {
   log.textContent = `Form reset! Timestamp: ${event.timeStamp}`;
 }
 
-const form = document.getElementById("form");
-const log = document.getElementById("log");
 form.addEventListener("reset", logReset);
 ```
 

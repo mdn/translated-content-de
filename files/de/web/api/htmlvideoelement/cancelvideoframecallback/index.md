@@ -1,14 +1,14 @@
 ---
-title: "HTMLVideoElement: cancelVideoFrameCallback()-Methode"
+title: "HTMLVideoElement: cancelVideoFrameCallback() Methode"
 short-title: cancelVideoFrameCallback()
 slug: Web/API/HTMLVideoElement/cancelVideoFrameCallback
 l10n:
-  sourceCommit: 759102220c07fb140b3e06971cd5981d8f0f134f
+  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`cancelVideoFrameCallback()`**-Methode des [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Interfaces storniert einen zuvor registrierten Video-Frame-Callback.
+Die **`cancelVideoFrameCallback()`** Methode der [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) Schnittstelle storniert einen zuvor registrierten Video-Frame-Callback.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ cancelVideoFrameCallback(id)
 ### Parameter
 
 - `id`
-  - : Eine Zahl, die die ID des Video-Frame-Callbacks darstellt, den Sie stornieren möchten. Dies wird der Wert sein, der durch den entsprechenden Aufruf von [`HTMLVideoElement.requestVideoFrameCallback`](/de/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback) zurückgegeben wurde.
+  - : Eine Nummer, die die ID des Video-Frame-Callbacks darstellt, den Sie stornieren möchten. Dies wird der Wert sein, der von dem entsprechenden [`HTMLVideoElement.requestVideoFrameCallback`](/de/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback) Aufruf zurückgegeben wird.
 
 ### Rückgabewert
 
@@ -29,9 +29,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Einen Video-Frame-Callback stornieren
 
-Dieses Beispiel zeigt, wie Sie `cancelVideoFrameCallback()` verwenden, um einen zuvor registrierten Video-Frame-Callback zu stornieren.
+Dieses Beispiel zeigt, wie `cancelVideoFrameCallback()` verwendet wird, um einen zuvor registrierten Video-Frame-Callback zu stornieren.
 
 ```js
+// Initial registration of the callback to run on the first frame
+let videoCallbackId = video.requestVideoFrameCallback(updateCanvas);
+
 const updateCanvas = (now, metadata) => {
   // Do something with the frame
 
@@ -42,9 +45,6 @@ const updateCanvas = (now, metadata) => {
   // so you can cancel the callback successfully
   videoCallbackId = video.requestVideoFrameCallback(updateCanvas);
 };
-
-// Initial registration of the callback to run on the first frame
-let videoCallbackId = video.requestVideoFrameCallback(updateCanvas);
 
 // …
 
@@ -62,6 +62,6 @@ video.cancelVideoFrameCallback(videoCallbackId);
 
 ## Siehe auch
 
-- Das {{HTMLElement("video")}}-Element
+- Das {{HTMLElement("video")}} Element
 - [`HTMLVideoElement.requestVideoFrameCallback()`](/de/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback)
-- [Durchführung effizienter video-frame-basierter Operationen auf Video mit `requestVideoFrameCallback()`](https://web.dev/articles/requestvideoframecallback-rvfc) auf developer.chrome.com (2023)
+- [Effiziente pro-Video-Frame-Operationen auf Video mit `requestVideoFrameCallback()` durchführen](https://web.dev/articles/requestvideoframecallback-rvfc) auf developer.chrome.com (2023)

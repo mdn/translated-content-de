@@ -2,10 +2,10 @@
 title: descent-override
 slug: Web/CSS/@font-face/descent-override
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: 7e1296fc0722c86fb7e15487b5e9626597c7a2a0
 ---
 
-Der **`descent-override`** CSS-Deskriptor der {{cssxref("@font-face")}} At-Regel definiert das Descent-Metrikum für die Schriftart. Das Descent-Metrikum ist die Höhe unterhalb der Grundlinie, die CSS zur Anordnung von Zeilenboxen in einem Inline-Formatierungskontext verwendet.
+Der **`descent-override`** [CSS](/de/docs/Web/CSS) Descriptor der {{cssxref("@font-face")}} Regel definiert die Descents-Metrik für die Schriftart. Die Descents-Metrik ist die Höhe unterhalb der Grundlinie, die CSS verwendet, um Linienboxen in einem Inline-Formatierungskontext anzuordnen.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ descent-override: 90%;
 ### Werte
 
 - `normal`
-  - : Der Standardwert. Bei Verwendung wird der Metrikwert aus der Schriftartdatei entnommen.
+  - : Der Standardwert. Wenn verwendet, wird der Metrikwert aus der Schriftartdatei entnommen.
 - `<percentage>`
   - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert.
 
@@ -33,7 +33,7 @@ descent-override: 90%;
 
 ### Überschreiben von Metriken einer Ersatzschriftart
 
-Die `descent-override`-Eigenschaft kann hilfreich sein, wenn die Metriken einer Ersatzschriftart überschrieben werden sollen, um besser mit denen einer primären Webschriftart übereinzustimmen.
+Die `descent-override`-Eigenschaft kann hilfreich sein, wenn die Metriken einer Ersatzschriftart überschrieben werden sollen, um besser mit denen einer primären Webschrift übereinzustimmen.
 
 ```css
 @font-face {
@@ -69,4 +69,4 @@ Die `descent-override`-Eigenschaft kann hilfreich sein, wenn die Metriken einer 
 - {{cssxref("@font-face/line-gap-override", "line-gap-override")}}
 - {{cssxref("@font-face/src", "src")}}
 - {{cssxref("@font-face/size-adjust", "size-adjust")}}
-- {{cssxref("@font-face/unicode-range", "unicode-range")}} Deskriptor
+- {{cssxref("@font-face/unicode-range", "unicode-range")}} Descriptor

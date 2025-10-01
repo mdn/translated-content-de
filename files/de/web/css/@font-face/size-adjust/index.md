@@ -2,12 +2,12 @@
 title: size-adjust
 slug: Web/CSS/@font-face/size-adjust
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: 7e1296fc0722c86fb7e15487b5e9626597c7a2a0
 ---
 
-Der **`size-adjust`** CSS-Deskriptor für die {{cssxref("@font-face")}} Regel definiert einen Multiplikator für Glyphenumrisse und Metriken, die mit dieser Schriftart verbunden sind. Dies erleichtert es, die Designs verschiedener Schriftarten beim Rendern in derselben Schriftgröße zu harmonisieren.
+Der **`size-adjust`** [CSS](/de/docs/Web/CSS)-Deskriptor für die {{cssxref("@font-face")}} At-Regel definiert einen Multiplikator für Glyphenkonturen und Metriken, die mit dieser Schriftart verbunden sind. Dies erleichtert es, die Designs verschiedener Schriftarten zu harmonisieren, wenn sie in derselben Schriftgröße gerendert werden.
 
-Der `size-adjust` Deskriptor verhält sich ähnlich wie die {{cssxref("font-size-adjust")}} Eigenschaft. Er berechnet eine Anpassung pro Schriftart, indem er die x-Höhen abgleicht.
+Der `size-adjust`-Deskriptor verhält sich ähnlich wie die {{cssxref("font-size-adjust")}}-Eigenschaft. Er berechnet eine Anpassung pro Schriftart durch das Anpassen der ex-Höhen.
 
 ## Syntax
 
@@ -18,9 +18,9 @@ size-adjust: 90%;
 ### Werte
 
 - `<percentage>`
-  - : Ein {{cssxref("&lt;percentage&gt;")}} Wert mit einem Anfangswert von 100%.
+  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert mit einem anfänglichen Wert von 100 %.
 
-Alle Metriken, die mit dieser Schriftart verbunden sind, werden mit dem angegebenen Prozentsatz skaliert. Dies umfasst Glyphenfortschritte, Baselinien-Tabellen und Überschreibungen, die durch {{cssxref("@font-face")}} Deskriptoren bereitgestellt werden.
+Alle mit dieser Schriftart verbundenen Metriken werden mit dem angegebenen Prozentsatz skaliert. Dies umfasst Glyphenvorschübe, Baseline-Tabellen und durch {{cssxref("@font-face")}}-Deskriptoren bereitgestellte Überschreibungen.
 
 ## Formale Definition
 
@@ -34,7 +34,7 @@ Alle Metriken, die mit dieser Schriftart verbunden sind, werden mit dem angegebe
 
 ### Überschreiben von Metriken einer Ersatzschriftart
 
-Die `size-adjust` Eigenschaft kann hilfreich sein, wenn Sie die Metriken einer Ersatzschriftart überschreiben, um diese besser an eine primäre Webschriftart anzupassen.
+Die `size-adjust`-Eigenschaft kann hilfreich sein, wenn die Metriken einer Ersatzschriftart überschrieben werden, um besser mit denen einer primären Webschriftart übereinzustimmen.
 
 ```css
 @font-face {
@@ -59,13 +59,13 @@ Die `size-adjust` Eigenschaft kann hilfreich sein, wenn Sie die Metriken einer E
 
 ## Siehe auch
 
-- {{cssxref("@font-face/font-display", "font-display")}} Deskriptor
-- {{cssxref("@font-face/font-family", "font-family")}} Deskriptor
-- {{cssxref("@font-face/font-weight", "font-weight")}} Deskriptor
-- {{cssxref("@font-face/font-style", "font-style")}} Deskriptor
-- {{cssxref("@font-face/font-stretch", "font-stretch")}} Deskriptor
+- {{cssxref("@font-face/font-display", "font-display")}}-Deskriptor
+- {{cssxref("@font-face/font-family", "font-family")}}-Deskriptor
+- {{cssxref("@font-face/font-weight", "font-weight")}}-Deskriptor
+- {{cssxref("@font-face/font-style", "font-style")}}-Deskriptor
+- {{cssxref("@font-face/font-stretch", "font-stretch")}}-Deskriptor
 - {{cssxref("font-feature-settings", "font-feature-settings")}}
-- {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}} Deskriptor
-- {{cssxref("@font-face/src", "src")}} Deskriptor
-- {{cssxref("@font-face/unicode-range", "unicode-range")}} Deskriptor
-- {{cssxref('font-size-adjust')}} Eigenschaft
+- {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}}-Deskriptor
+- {{cssxref("@font-face/src", "src")}}-Deskriptor
+- {{cssxref("@font-face/unicode-range", "unicode-range")}}-Deskriptor
+- {{cssxref('font-size-adjust')}}-Eigenschaft

@@ -3,12 +3,12 @@ title: "SourceBuffer: abort-Ereignis"
 short-title: abort
 slug: Web/API/SourceBuffer/abort_event
 l10n:
-  sourceCommit: 42ea605d69523989e468990fcd9e17abe934ec98
+  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`abort`**-Ereignis des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces wird ausgelöst, wenn das Auffüllen des Puffers abgebrochen wird, weil die Methoden [`SourceBuffer.abort()`](/de/docs/Web/API/SourceBuffer/abort) oder [`SourceBuffer.removeSourceBuffer()`](/de/docs/Web/API/SourceBuffer/removeSourceBuffer) aufgerufen werden, während der Algorithmus [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) noch läuft. Die [`updating`](/de/docs/Web/API/SourceBuffer/updating)-Eigenschaft wechselt von `true` zu `false`. Dieses Ereignis wird vor dem [`updateend`](/de/docs/Web/API/SourceBuffer/updateend_event)-Ereignis ausgelöst.
+Das **`abort`**-Ereignis der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle wird ausgelöst, wenn das Anfügen an den Puffer abgebrochen wird, weil die Methode [`SourceBuffer.abort()`](/de/docs/Web/API/SourceBuffer/abort) oder [`SourceBuffer.remove()`](/de/docs/Web/API/SourceBuffer/remove) aufgerufen wird, während der Algorithmus [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) noch läuft. Die Eigenschaft [`updating`](/de/docs/Web/API/SourceBuffer/updating) wechselt von `true` zu `false`. Dieses Ereignis wird vor dem [`updateend`](/de/docs/Web/API/SourceBuffer/updateend_event)-Ereignis ausgelöst.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Abbrechen eines Anhängevorgangs
+### Abbrechen eines Anfüge-Vorgangs
 
-Dieses Beispiel zeigt, wie ein Anhängevorgang abgebrochen und das `abort`-Ereignis behandelt wird.
+Dieses Beispiel zeigt, wie ein Anfüge-Vorgang abgebrochen wird und das `abort`-Ereignis behandelt wird.
 
 ```js
 const sourceBuffer = source.addSourceBuffer(mimeCodec);

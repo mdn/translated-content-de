@@ -2,10 +2,10 @@
 title: font
 slug: Web/CSS/font
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7e1296fc0722c86fb7e15487b5e9626597c7a2a0
 ---
 
-Die **`font`** CSS-[Shorthand-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt alle verschiedenen Eigenschaften der Schriftart eines Elements. Alternativ setzt sie die Schriftart eines Elements auf eine Systemschrift.
+Die **`font`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt alle verschiedenen Eigenschaften einer Schriftart eines Elements. Alternativ stellt es die Schriftart eines Elements auf eine Systemschriftart ein.
 
 {{InteractiveExample("CSS Demo: font")}}
 
@@ -70,11 +70,11 @@ section {
 }
 ```
 
-Wie bei jeder Shorthand-Eigenschaft wird jeder nicht angegebene individuelle Wert auf seinen entsprechenden Initialwert gesetzt (möglicherweise überschreibt er Werte, die zuvor mit nicht-kurzschreibweise Eigenschaften festgelegt wurden). Obwohl nicht direkt durch `font` einstellbar, werden die Langformen {{cssxref("font-size-adjust")}} und {{cssxref("font-kerning")}} ebenfalls auf ihre Anfangswerte zurückgesetzt.
+Wie bei jeder Kurzschreibweise wird jeder einzelne Wert, der nicht angegeben ist, auf seinen entsprechenden Anfangswert gesetzt (möglicherweise werden zuvor gesetzte Werte durch nicht-Kurzschreibweise überschrieben). Obwohl nicht direkt durch `font` einstellbar, werden die Langformen {{cssxref("font-size-adjust")}} und {{cssxref("font-kerning")}} ebenfalls auf ihre Anfangswerte zurückgesetzt.
 
-## Zusammengesetzte Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für folgende CSS-Eigenschaften:
 
 - {{cssxref("font-family")}}
 - {{cssxref("font-size")}}
@@ -103,17 +103,17 @@ font: ultra-condensed small-caps 1.2em "Fira Sans", sans-serif;
 font: caption;
 ```
 
-Die `font`-Eigenschaft kann entweder als ein einzelnes Schlüsselwort angegeben werden, das eine Systemschrift auswählt, oder als eine Kurzform für verschiedene schriftbezogene Eigenschaften.
+Die `font`-Eigenschaft kann entweder als ein einzelnes Schlüsselwort angegeben werden, das eine Systemschriftart auswählt, oder als eine Kurzform für verschiedene schriftbezogene Eigenschaften.
 
-Wenn `font` als System-Schlüsselwort angegeben wird, muss es eines der folgenden sein: `caption`, `icon`, `menu`, `message-box`, `small-caption`, `status-bar`.
+Wenn `font` als Systemschlüsselwort angegeben wird, muss es eines der folgenden sein: `caption`, `icon`, `menu`, `message-box`, `small-caption`, `status-bar`.
 
-Wenn `font` als Kurzform für mehrere schriftbezogene Eigenschaften angegeben wird, dann:
+Wenn `font` als Kurzform für mehrere schriftbezogene Eigenschaften angegeben wird, dann gilt:
 
-- muss es Werte enthalten für:
+- es muss Werte enthalten für:
   - {{cssxref("&lt;font-size&gt;")}}
   - {{cssxref("&lt;font-family&gt;")}}
 
-- kann es optional Werte enthalten für:
+- es kann optional Werte enthalten für:
   - {{cssxref("&lt;font-style&gt;")}}
   - {{cssxref("&lt;font-variant&gt;")}}
   - {{cssxref("&lt;font-weight&gt;")}}
@@ -121,9 +121,9 @@ Wenn `font` als Kurzform für mehrere schriftbezogene Eigenschaften angegeben wi
   - {{cssxref("&lt;line-height&gt;")}}
 
 - `font-style`, `font-variant` und `font-weight` müssen `font-size` vorausgehen.
-- `font-variant` darf nur die in CSS 2.1 definierten Werte angeben, das heißt `normal` und `small-caps`.
-- `font-stretch` darf nur ein einzelnes Schlüsselwort sein.
-- `line-height` muss `font-size` unmittelbar folgen, vorausgegangen von "/", so: `16px/3`.
+- `font-variant` darf nur die in CSS 2.1 definierten Werte normal und small-caps spezifizieren.
+- `font-stretch` darf nur ein einzelner Schlüsselwortwert sein.
+- `line-height` muss direkt `font-size` folgen, getrennt durch "/", wie folgt: `16px/3`.
 - `font-family` muss der letzte angegebene Wert sein.
 
 ### Werte
@@ -146,17 +146,17 @@ Wenn `font` als Kurzform für mehrere schriftbezogene Eigenschaften angegeben wi
 #### Systemschriftwerte
 
 - `caption`
-  - : Die Systemschrift, die für beschriftete Steuerelemente verwendet wird (z. B. Schaltflächen, Dropdowns, usw.).
+  - : Die Systemschriftart, die für beschriftete Steuerelemente verwendet wird (z.B. Schaltflächen, Dropdowns, etc.).
 - `icon`
-  - : Die Systemschrift, die zum Beschriften von Symbolen verwendet wird.
+  - : Die Systemschriftart, die zum Beschriften von Symbolen verwendet wird.
 - `menu`
-  - : Die Systemschrift, die in Menüs verwendet wird (z. B. Dropdown-Menüs und Menüliste).
+  - : Die Systemschriftart, die in Menüs verwendet wird (z.B. Dropdown-Menüs und Menüliste).
 - `message-box`
-  - : Die Systemschrift, die in Dialogfeldern verwendet wird.
+  - : Die Systemschriftart, die in Dialogfeldern verwendet wird.
 - `small-caption`
-  - : Die Systemschrift, die zum Beschriften kleiner Steuerelemente verwendet wird.
+  - : Die Systemschriftart, die zum Beschriften kleiner Steuerelemente verwendet wird.
 - `status-bar`
-  - : Die Systemschrift, die in Fensterstatusleisten verwendet wird.
+  - : Die Systemschriftart, die in Fensterstatusleisten verwendet wird.
 - Mit Präfix versehene Systemschrift-Schlüsselwörter
   - : Browser implementieren häufig mehrere weitere, mit Präfix versehene, Schlüsselwörter: Gecko implementiert `-moz-window`, `-moz-document`, `-moz-desktop`, `-moz-info`, `-moz-dialog`, `-moz-button`, `-moz-pull-down-menu`, `-moz-list` und `-moz-field`.
 
@@ -170,7 +170,7 @@ Wenn `font` als Kurzform für mehrere schriftbezogene Eigenschaften angegeben wi
 
 ## Beispiele
 
-### Schrift-Eigenschaften festlegen
+### Festlegen von Schriftarteigenschaften
 
 ```css
 /* Set the font size to 12px and the line height to 14px.
@@ -525,4 +525,4 @@ document.querySelectorAll("input[type='radio']").forEach((el) => {
 
 - {{cssxref("font-style")}}
 - {{cssxref("font-weight")}}
-- [Lernen: Grundlegendes Text- und Schriftstyling](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [Lernen: Grundlegende Text- und Schriftformatierung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)

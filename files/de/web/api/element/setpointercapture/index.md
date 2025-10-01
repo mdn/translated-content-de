@@ -3,16 +3,14 @@ title: "Element: setPointerCapture() Methode"
 short-title: setPointerCapture()
 slug: Web/API/Element/setPointerCapture
 l10n:
-  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
+  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
 ---
 
 {{APIRef("DOM")}}
 
-Die **`setPointerCapture()`** Methode des
-[`Element`](/de/docs/Web/API/Element) Interfaces wird verwendet, um ein bestimmtes Element als _Capture-Ziel_ zukünftiger Zeigerereignisse zu designieren. Nachfolgende Ereignisse für den Zeiger werden an das Capture-Element gerichtet, bis das Capture freigegeben wird (via
-[`Element.releasePointerCapture()`](/de/docs/Web/API/Element/releasePointerCapture) oder wenn das [`pointerup`](/de/docs/Web/API/Element/pointerup_event) Ereignis ausgelöst wird).
+Die **`setPointerCapture()`** Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle wird verwendet, um ein bestimmtes Element als _Capture-Ziel_ für zukünftige Pointer-Ereignisse festzulegen. Nachfolgende Ereignisse für den Pointer werden auf das Capture-Element gerichtet, bis das Capture freigegeben wird (über [`Element.releasePointerCapture()`](/de/docs/Web/API/Element/releasePointerCapture) oder das [`pointerup`](/de/docs/Web/API/Element/pointerup_event) Ereignis ausgelöst wird).
 
-Für einen Überblick und Beispiele, wie Pointer Capture funktioniert, siehe [Pointer Events](/de/docs/Web/API/Pointer_events#pointer_capture).
+Siehe [Pointer-Ereignisse](/de/docs/Web/API/Pointer_events#pointer_capture) für einen Überblick und Beispiele, wie Pointer-Capture funktioniert.
 
 ## Syntax
 
@@ -24,7 +22,7 @@ setPointerCapture(pointerId)
 
 - `pointerId`
   - : Die [`pointerId`](/de/docs/Web/API/PointerEvent/pointerId) eines
-    [`PointerEvent`](/de/docs/Web/API/PointerEvent) Objekts.
+    [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Objekts.
 
 ### Rückgabewert
 
@@ -33,11 +31,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn `pointerId` keinem aktiven Zeiger entspricht.
+  - : Wird ausgelöst, wenn `pointerId` keinem aktiven Pointer entspricht.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Pointer Capture auf einem {{HtmlElement("div")}} gesetzt, wenn Sie darauf drücken. Dies ermöglicht es Ihnen, das Element horizontal zu verschieben, selbst wenn Ihr Zeiger außerhalb seiner Grenzen bewegt wird.
+Dieses Beispiel setzt Pointer-Capture auf ein {{HtmlElement("div")}}, wenn darauf gedrückt wird. Dadurch können Sie das Element horizontal verschieben, selbst wenn Ihr Pointer sich außerhalb seiner Grenzen bewegt.
 
 ### HTML
 
@@ -62,6 +60,8 @@ div {
 ### JavaScript
 
 ```js
+const slider = document.getElementById("slider");
+
 function beginSliding(e) {
   slider.onpointermove = slide;
   slider.setPointerCapture(e.pointerId);
@@ -75,8 +75,6 @@ function stopSliding(e) {
 function slide(e) {
   slider.style.transform = `translate(${e.clientX - 70}px)`;
 }
-
-const slider = document.getElementById("slider");
 
 slider.onpointerdown = beginSliding;
 slider.onpointerup = stopSliding;
@@ -98,4 +96,4 @@ slider.onpointerup = stopSliding;
 
 - [`Element.hasPointerCapture()`](/de/docs/Web/API/Element/hasPointerCapture)
 - [`Element.releasePointerCapture()`](/de/docs/Web/API/Element/releasePointerCapture)
-- [Pointer Events](/de/docs/Web/API/Pointer_events)
+- [Pointer-Ereignisse](/de/docs/Web/API/Pointer_events)

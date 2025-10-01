@@ -2,10 +2,10 @@
 title: line-gap-override
 slug: Web/CSS/@font-face/line-gap-override
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: 7e1296fc0722c86fb7e15487b5e9626597c7a2a0
 ---
 
-Der **`line-gap-override`** CSS-Deskriptor für die {{cssxref("@font-face")}} at-rule definiert die Line-Gap-Metrik für die Schriftart. Die Line-Gap-Metrik ist der von der Schriftart empfohlene Zeilenabstand oder externe Führungszeilenabstand.
+Der **`line-gap-override`** [CSS](/de/docs/Web/CSS) Deskriptor für die {{cssxref("@font-face")}} at-rule definiert die Zeilenabstandsmetrik für die Schriftart. Die Zeilenabstandsmetrik ist der von der Schriftart empfohlene Zeilenabstand oder das externe Führen.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ line-gap-override: 90%;
 
 ### Überschreiben von Metriken einer Ersatzschriftart
 
-Die `line-gap-override`-Eigenschaft kann hilfreich sein, wenn die Metriken einer Ersatzschriftart überschrieben werden, um besser mit denen einer primären Web-Schriftart übereinzustimmen.
+Die `line-gap-override` Eigenschaft kann helfen, wenn Metriken einer Ersatzschriftart überschrieben werden sollen, um besser zu einer primären Webschriftart zu passen.
 
 ```css
 @font-face {
