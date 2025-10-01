@@ -1,14 +1,14 @@
 ---
-title: "SpeechRecognition: start()-Methode"
+title: "SpeechRecognition: start() Methode"
 short-title: start()
 slug: Web/API/SpeechRecognition/start
 l10n:
-  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
+  sourceCommit: 11478c4adedc859a4fe3e3c4004fcfd96ebc1eba
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`start()`**-Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) startet den Spracherkennungsdienst, um eingehendes Audio (von einem Mikrofon oder einer Audiospur) zu hören, und gibt die Ergebnisse dieser Erkennung zurück.
+Die **`start()`** Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) startet den Spracherkennungsdienst, um eingehende Audiodaten (von einem Mikrofon oder einer Audiospur) zu hören und gibt die Ergebnisse dieser Erkennung zurück.
 
 ## Syntax
 
@@ -19,8 +19,8 @@ start(audioTrack)
 
 ### Parameter
 
-- `audioTrack` {{optional_inline}}
-  - : Eine [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Instanz, auf der die Spracherkennung durchgeführt werden soll. Wird nichts angegeben, versucht der Dienst, Audio vom Mikrofon des Benutzers zu erkennen.
+- `audioTrack` {{optional_inline}} {{experimental_inline}}
+  - : Eine [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) Instanz, auf der die Spracherkennung durchgeführt werden soll. Wenn nicht angegeben, versucht der Dienst, Audiodaten vom Mikrofon des Benutzers zu erkennen.
 
 ### Rückgabewert
 
@@ -29,15 +29,15 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn ein `audioTrack` angegeben ist und einer oder beide der folgenden Bedingungen zutrifft:
-    - Die [`kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft des Tracks ist nicht `audio`.
-    - Die [`readyState`](/de/docs/Web/API/MediaStreamTrack/readyState)-Eigenschaft des Tracks ist nicht `live`.
+  - : Wird ausgelöst, wenn ein `audioTrack` angegeben ist und eines oder beide der folgenden Kriterien zutreffen:
+    - Die Eigenschaft [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) des Tracks ist nicht `audio`.
+    - Die Eigenschaft [`readyState`](/de/docs/Web/API/MediaStreamTrack/readyState) des Tracks ist nicht `live`.
 
 ## Beispiele
 
-### Erkennung von Sprache über ein Mikrofon
+### Sprache von einem Mikrofon erkennen
 
-In unserem [Sprachfarbwechsler](https://mdn.github.io/dom-examples/web-speech-api/speech-color-changer)-Beispiel erstellen wir eine neue `SpeechRecognition`-Objektinstanz mit dem [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition)-Konstruktor. Später erstellen wir einen `click`-Ereignishandler auf einem `<button>`, sodass beim Klicken der Spracherkennungsdienst gestartet wird und Audioeingaben vom Mikrofon des Benutzers erwartet werden:
+In unserem Beispiel [Speech color changer](https://mdn.github.io/dom-examples/web-speech-api/speech-color-changer) erstellen wir eine neue `SpeechRecognition` Objektinstanz mithilfe des [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition) Konstruktors. Später erstellen wir einen `click` Ereignishandler auf einem `<button>`, sodass, wenn darauf geklickt wird, wir den Spracherkennungsdienst starten und auf Audioeingaben vom Mikrofon des Benutzers warten:
 
 ```js
 const recognition = new SpeechRecognition();
@@ -52,7 +52,7 @@ startBtn.onclick = () => {
 };
 ```
 
-Wenn ein Ergebnis erfolgreich erkannt wurde, wird das [`result`](/de/docs/Web/API/SpeechRecognition/result_event)-Ereignis ausgelöst. Wir extrahieren die gesprochene Farbe aus dem Ereignisobjekt, indem wir das [`transcript`](/de/docs/Web/API/SpeechRecognitionAlternative/transcript) des ersten [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative) des ersten [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) in der zurückgegebenen [`results`](/de/docs/Web/API/SpeechRecognitionEvent/results)-Liste erfassen. Dann setzen wir die Hintergrundfarbe des {{htmlelement("html")}}-Elements auf diese Farbe.
+Wenn ein Ergebnis erfolgreich erkannt wurde, wird das [`result`](/de/docs/Web/API/SpeechRecognition/result_event) Ereignis ausgelöst. Wir extrahieren die gesprochene Farbe aus dem Ereignisobjekt, indem wir das [`transcript`](/de/docs/Web/API/SpeechRecognitionAlternative/transcript) des ersten [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative) des ersten [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) in der zurückgegebenen [`results`](/de/docs/Web/API/SpeechRecognitionEvent/results) Liste abrufen. Wir setzen dann die Hintergrundfarbe des {{htmlelement("html")}} Elements auf diese Farbe.
 
 ```js
 recognition.onresult = (event) => {
@@ -62,9 +62,9 @@ recognition.onresult = (event) => {
 };
 ```
 
-### Erkennung von Sprache aus einer Audiospur
+### Sprache von einer Audiospur erkennen
 
-Dieser Code (aus unserem [Erkennungs-Demo für Audiospuren](https://mdn.github.io/dom-examples/web-speech-api/audio-track-recognition/) entnommen) zeigt, wie Sprache aus einer Audiospur erkannt wird. Zunächst erstellen wir eine neue [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Instanz und setzen deren [`lang`](/de/docs/Web/API/SpeechRecognition/lang) auf `en-US`. Wir greifen dann auf ein {{htmlelement("button")}}-Element und ein {{htmlelement("p")}}-Element zu, um Ergebnisse und Diagnoseinformationen auszugeben.
+Dieser Code (aus unserem [Demonstrationsprojekt zur Erkennung aus Audiospuren](https://mdn.github.io/dom-examples/web-speech-api/audio-track-recognition/)) zeigt, wie man Sprache von einer Audiospur erkennt. Zunächst erstellen wir eine neue [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) Instanz und setzen dessen [`lang`](/de/docs/Web/API/SpeechRecognition/lang) auf `en-US`. Danach holen wir eine Referenz zu einem {{htmlelement("button")}} Element und einem {{htmlelement("p")}} Element, um Ergebnisse und Diagnoseinformationen auszugeben.
 
 ```js
 const recognition = new SpeechRecognition();
@@ -74,9 +74,9 @@ const startBtn = document.querySelector("button");
 const diagnostic = document.querySelector(".output");
 ```
 
-Als Nächstes fügen wir einen `click`-Ereignishandler zum `<button>` hinzu. Wenn es angeklickt wird, erstellen wir ein neues {{htmlelement("audio")}}-Element mit dem [`Audio()`](/de/docs/Web/API/HTMLAudioElement/Audio)-Konstruktor und laden eine MP3-Datei hinein. Sobald die MP3-Datei abspielbereit ist (bestimmt durch das [`canplay`](/de/docs/Web/API/HTMLMediaElement/canplay_event)-Ereignis), erfassen wir sie als [`MediaStream`](/de/docs/Web/API/MediaStream) mit der [`captureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream)-Methode, extrahieren dann die Audio-`MediaStreamTrack` mit [`getAudioTracks()`](/de/docs/Web/API/MediaStream/getAudioTracks).
+Anschließend fügen wir einen `click` Ereignishandler zum `<button>` hinzu. Wenn darauf geklickt wird, erstellen wir ein neues {{htmlelement("audio")}} Element mit dem [`Audio()`](/de/docs/Web/API/HTMLAudioElement/Audio) Konstruktor und laden eine MP3-Datei hinein. Sobald die MP3 abspielbereit ist (bestimmt durch das [`canplay`](/de/docs/Web/API/HTMLMediaElement/canplay_event) Ereignis), erfassen wir es als [`MediaStream`](/de/docs/Web/API/MediaStream) mit der [`captureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream) Methode und extrahieren dann dessen Audio [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) mit [`getAudioTracks()`](/de/docs/Web/API/MediaStream/getAudioTracks).
 
-Wir spielen dann das Audio ab (erforderlich für die Erkennung) und übergeben die `MediaStreamTrack`-Instanz an die `start()`-Methode, um die Erkennung zu starten.
+Wir spielen dann das Audio ab (erforderlich für die Erkennung) und übergeben den `MediaStreamTrack` an die `start()` Methode, um die Erkennung zu starten.
 
 ```js
 startBtn.addEventListener("click", () => {
@@ -93,7 +93,7 @@ startBtn.addEventListener("click", () => {
 });
 ```
 
-Um das erkannte Audio auszugeben, hören wir auf das [`result`](/de/docs/Web/API/SpeechRecognition/result_event)-Ereignis. Wenn dieses ausgelöst wird, erfassen wir das [`transcript`](/de/docs/Web/API/SpeechRecognitionAlternative/transcript) des ersten [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative) des ersten [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) in der zurückgegebenen [`results`](/de/docs/Web/API/SpeechRecognitionEvent/results)-Liste. Wir geben das Transkript direkt an das `<p>`-Element aus und protokollieren dessen Vertrauensbewertung in die Konsole.
+Um das erkannte Audio auszugeben, lauschen wir dem [`result`](/de/docs/Web/API/SpeechRecognition/result_event) Ereignis. Wenn dieses ausgelöst wird, rufen wir das [`transcript`](/de/docs/Web/API/SpeechRecognitionAlternative/transcript) des ersten [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative) des ersten [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) in der zurückgegebenen [`results`](/de/docs/Web/API/SpeechRecognitionEvent/results) Liste ab. Wir geben das Transcript selbst an das Ausgabe-`<p>` und protokollieren dessen Zuverlässigkeitsbewertung in der Konsole.
 
 ```js
 recognition.addEventListener("result", (event) => {

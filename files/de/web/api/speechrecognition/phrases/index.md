@@ -3,12 +3,12 @@ title: "SpeechRecognition: phrases-Eigenschaft"
 short-title: phrases
 slug: Web/API/SpeechRecognition/phrases
 l10n:
-  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
+  sourceCommit: 11478c4adedc859a4fe3e3c4004fcfd96ebc1eba
 ---
 
-{{APIRef("Web Speech API")}}
+{{APIRef("Web Speech API")}}{{SeeCompatTable}}
 
-Die **`phrases`**-Eigenschaft des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces legt ein Array von [`SpeechRecognitionPhrase`](/de/docs/Web/API/SpeechRecognitionPhrase)-Objekten fest, die für das [kontextuelle Biasing](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#contextual_biasing_in_speech_recognition) verwendet werden sollen.
+Die **`phrases`**-Eigenschaft des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces setzt ein Array von [`SpeechRecognitionPhrase`](/de/docs/Web/API/SpeechRecognitionPhrase)-Objekten, die für das [kontextbezogene Biasing](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#contextual_biasing_in_speech_recognition) verwendet werden.
 
 ## Wert
 
@@ -32,7 +32,7 @@ const phraseObjects = phraseData.map(
 );
 ```
 
-Nachdem eine [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Instanz erstellt wurde, fügen wir unsere kontextuellen Biasing-Phrasen ein, indem wir das `phraseObjects`-Array als Wert der `SpeechRecognition.phrases`-Eigenschaft setzen:
+Nachdem wir eine [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Instanz erstellt haben, fügen wir dann unsere kontextbezogenen Biasing-Phrasen ein, indem wir das `phraseObjects`-Array als Wert der `SpeechRecognition.phrases`-Eigenschaft setzen:
 
 ```js
 const recognition = new SpeechRecognition();
@@ -45,7 +45,7 @@ recognition.phrases = phraseObjects;
 // …
 ```
 
-Dieser Code ist aus unserem [On-Device Speech Color Changer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/on-device-speech-color-changer) ([Demo live ausführen](https://mdn.github.io/dom-examples/web-speech-api/on-device-speech-color-changer/)) entnommen. Siehe [Using the Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API) für eine vollständige Erklärung.
+Dieser Code ist ein Auszug aus unserem [On-Device Sprachfarbenänderer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/on-device-speech-color-changer) ([Führen Sie die Demo live aus](https://mdn.github.io/dom-examples/web-speech-api/on-device-speech-color-changer/)). Sehen Sie sich [die Verwendung der Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API) für eine vollständige Erklärung an.
 
 ## Spezifikationen
 

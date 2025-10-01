@@ -2,25 +2,25 @@
 title: SpeechRecognitionPhrase
 slug: Web/API/SpeechRecognitionPhrase
 l10n:
-  sourceCommit: 0a00e01a8c8097ea9786710c3fc703d18f0af951
+  sourceCommit: 11478c4adedc859a4fe3e3c4004fcfd96ebc1eba
 ---
 
-{{APIRef("Web Speech API")}}
+{{APIRef("Web Speech API")}}{{SeeCompatTable}}
 
-Die **`SpeechRecognitionPhrase`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Phrase, die dem Spracherkennungs-Engine zur [kontextuellen Verzerrung](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#contextual_biasing_in_speech_recognition) übergeben werden kann.
+Das **`SpeechRecognitionPhrase`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert einen Ausdruck, der an die Spracherkennung zur [kontextuellen Bevorzugung](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#contextual_biasing_in_speech_recognition) übergeben werden kann.
 
 ## Instanz-Eigenschaften
 
-- [`SpeechRecognitionPhrase.boost`](/de/docs/Web/API/SpeechRecognitionPhrase/boost) {{ReadOnlyInline}}
-  - : Eine Gleitkommazahl, die die Höhe der Verstärkung darstellt, die Sie auf die entsprechende `phrase` anwenden möchten.
-- [`SpeechRecognitionPhrase.phrase`](/de/docs/Web/API/SpeechRecognitionPhrase/phrase) {{ReadOnlyInline}}
-  - : Ein String, der das Wort oder die Phrase enthält, die im Bias der Erkennungs-Engine verstärkt werden soll.
+- [`SpeechRecognitionPhrase.boost`](/de/docs/Web/API/SpeechRecognitionPhrase/boost) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Eine Gleitkommazahl, die die Höhe der Verstärkung darstellt, die Sie auf den entsprechenden `phrase` anwenden möchten.
+- [`SpeechRecognitionPhrase.phrase`](/de/docs/Web/API/SpeechRecognitionPhrase/phrase) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Ein String, der das Wort oder den Ausdruck enthält, das/die Sie im Erkennungs-Engine-Bias verstärkt haben möchten.
 
 ## Beispiele
 
 ### Grundlegende Nutzung
 
-Der folgende Code erstellt zunächst ein Array, das die zu verstärkenden Phrasen und deren [`boost`](/de/docs/Web/API/SpeechRecognitionPhrase/boost)-Werte enthält. Wir konvertieren diese Daten in ein `ObservableArray` von `SpeechRecognitionPhrase`-Objekten, indem wir die ursprünglichen Array-Elemente in [`SpeechRecognitionPhrase()`](/de/docs/Web/API/SpeechRecognitionPhrase/SpeechRecognitionPhrase)-Konstruktoraufrufen abbilden:
+Der folgende Code erstellt zunächst ein Array mit den zu verstärkenden Ausdrücken und ihren [`boost`](/de/docs/Web/API/SpeechRecognitionPhrase/boost)-Werten. Wir konvertieren diese Daten in ein `ObservableArray` von `SpeechRecognitionPhrase`-Objekten, indem wir die ursprünglichen Array-Elemente auf Aufrufe des [`SpeechRecognitionPhrase()`](/de/docs/Web/API/SpeechRecognitionPhrase/SpeechRecognitionPhrase)-Konstruktors abbilden:
 
 ```js
 const phraseData = [
@@ -34,7 +34,7 @@ const phraseObjects = phraseData.map(
 );
 ```
 
-Nach der Erstellung einer [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Instanz fügen wir unsere kontextuellen Verzerrungsphrasen hinzu, indem wir das `phraseObjects`-Array als Wert der [`SpeechRecognition.phrases`](/de/docs/Web/API/SpeechRecognition/phrases)-Eigenschaft festlegen:
+Nach der Erstellung einer [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Instanz fügen wir unsere kontextuell bevorzugten Ausdrücke hinzu, indem wir das `phraseObjects`-Array als Wert der [`SpeechRecognition.phrases`](/de/docs/Web/API/SpeechRecognition/phrases)-Eigenschaft setzen:
 
 ```js
 const recognition = new SpeechRecognition();
@@ -47,7 +47,7 @@ recognition.phrases = phraseObjects;
 // …
 ```
 
-Dieser Code ist aus unserem [On-Device-Sprachfarbwechsler](https://github.com/mdn/dom-examples/tree/main/web-speech-api/on-device-speech-color-changer) ([Demo live ausführen](https://mdn.github.io/dom-examples/web-speech-api/on-device-speech-color-changer/)) entnommen. Eine vollständige Erklärung finden Sie unter [Verwendung der Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API).
+Dieser Code stammt aus unserem [on-device speech color changer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/on-device-speech-color-changer) ([Demo live ausführen](https://mdn.github.io/dom-examples/web-speech-api/on-device-speech-color-changer/)). Siehe [Using the Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API) für eine vollständige Erklärung.
 
 ## Spezifikationen
 
