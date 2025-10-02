@@ -3,20 +3,23 @@ title: "DataTransfer: types-Eigenschaft"
 short-title: types
 slug: Web/API/DataTransfer/types
 l10n:
-  sourceCommit: ade5e1ca5c5c57d5cb53beb994bede7b20181233
+  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte **`DataTransfer.types`**-Eigenschaft gibt die verfügbaren Typen zurück, die in den [`items`](/de/docs/Web/API/DataTransfer/items) vorhanden sind.
+Die **`DataTransfer.types`** schreibgeschützte Eigenschaft gibt die verfügbaren Typen zurück, die in den [`items`](/de/docs/Web/API/DataTransfer/items) vorhanden sind.
 
 ## Wert
 
-Ein Array der Datenformate. Jedes Format ist ein String, der in der Regel ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn der Drag-Vorgang keine Daten enthält, ist diese Liste leer. Wenn Dateien im Drag-Vorgang enthalten sind, wird einer der Typen der String `Files` sein.
+Ein Array der Datenformate. Jedes Format ist eine Zeichenkette,
+die in der Regel ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn der Ziehvorgang
+keine Daten enthielt, wird diese Liste leer sein. Wenn Dateien in den
+Ziehvorgang einbezogen sind, ist einer der Typen die Zeichenkette `Files`.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der `types` und
+Dieses Beispiel zeigt die Verwendung der `types`- und
 [`items`](/de/docs/Web/API/DataTransfer/items)-Eigenschaften.
 
 ```html
@@ -98,6 +101,6 @@ target.addEventListener("dragover", (ev) => {
 
 ## Siehe auch
 
-- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
+- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Zugoperationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Arbeiten mit dem Drag-Daten-Store](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

@@ -3374,7 +3374,7 @@
 /de/docs/DragDrop/DataTransfer	/de/docs/Web/API/DataTransfer
 /de/docs/DragDrop/Drag_Operations	/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations
 /de/docs/DragDrop/Drag_and_Drop	/de/docs/Web/API/HTML_Drag_and_Drop_API
-/de/docs/DragDrop/Recommended_Drag_Types	/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types
+/de/docs/DragDrop/Recommended_Drag_Types	/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store
 /de/docs/Drawing_Graphics_with_Canvas	/de/docs/Web/API/Canvas_API/Tutorial
 /de/docs/Drawing_text_using_a_canvas	/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text
 /de/docs/ECMA-262	/de/docs/Web/JavaScript/Reference/JavaScript_technologies_overview
@@ -9119,6 +9119,7 @@
 /de/docs/Web/API/HTMLVideoElement/onleavepictureinpicture	/de/docs/Web/API/HTMLVideoElement/leavepictureinpicture_event
 /de/docs/Web/API/HTMLVideoElement/requestPictureInPicture()	/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture
 /de/docs/Web/API/HTML_DOM	/de/docs/Web/API/HTML_DOM_API
+/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types	/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store
 /de/docs/Web/API/HashChangeEvent/HashChangeEvent.oldURL	/de/docs/Web/API/HashChangeEvent/oldURL
 /de/docs/Web/API/Headers/getAll	/de/docs/Web/API/Headers/get
 /de/docs/Web/API/History.length	/de/docs/Web/API/History/length
@@ -12991,7 +12992,7 @@
 /de/docs/Web/Guide/HTML/Inline_event_handler	/de/docs/Learn_web_development/Core/Scripting/Events#Inline_event_handlers_—_don't_use_these
 /de/docs/Web/Guide/HTML/Introduction	/de/docs/Learn_web_development/Core/Structuring_content
 /de/docs/Web/Guide/HTML/Obsolete_things_to_avoid	/de/docs/Learn_web_development/Core/Structuring_content
-/de/docs/Web/Guide/HTML/Recommended_Drag_Types	/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types
+/de/docs/Web/Guide/HTML/Recommended_Drag_Types	/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store
 /de/docs/Web/Guide/HTML/The_Importance_of_Correct_HTML_Commenting	/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax#HTML_comments
 /de/docs/Web/Guide/HTML/Tips_for_authoring_fast-loading_HTML_pages	/de/docs/Web/HTML/How_to/Author_fast-loading_HTML_pages
 /de/docs/Web/Guide/HTML/Using_HTML5_audio_and_video	/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio

@@ -3,37 +3,37 @@ title: "DataTransfer: dropEffect-Eigenschaft"
 short-title: dropEffect
 slug: Web/API/DataTransfer/dropEffect
 l10n:
-  sourceCommit: ade5e1ca5c5c57d5cb53beb994bede7b20181233
+  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransfer.dropEffect`**-Eigenschaft steuert das Feedback (typischerweise visuell), das dem Benutzer während einer Drag-and-Drop-Operation gegeben wird. Sie beeinflusst, welcher Cursor während des Ziehens angezeigt wird. Zum Beispiel kann der Browser-Cursor anzeigen, welche Art von Operation stattfinden wird, wenn der Benutzer über ein Ziel-Drop-Element schwebt.
+Die **`DataTransfer.dropEffect`**-Eigenschaft steuert das Feedback (typischerweise visuell), das der Benutzer während einer Drag-and-Drop-Operation erhält. Es wird beeinflussen, welcher Cursor während des Ziehens angezeigt wird. Zum Beispiel kann der Cursor des Browsers anzeigen, welche Art von Operation stattfindet, wenn der Benutzer über ein Ziel-Drop-Element schwebt.
 
-Wenn das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt erstellt wird, wird `dropEffect` auf einen Zeichenkettenwert gesetzt. Beim Abrufen wird der aktuelle Wert zurückgegeben. Beim Setzen, wenn der neue Wert einer der unten aufgeführten Werte ist, wird der aktuelle Wert der Eigenschaft auf den neuen Wert gesetzt und andere Werte werden ignoriert.
+Wenn das [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt erstellt wird, wird `dropEffect` auf einen String-Wert gesetzt. Beim Abrufen gibt es seinen aktuellen Wert zurück. Beim Setzen wird der Eigenschaftswert auf den neuen Wert festgelegt, wenn dieser einer der unten aufgeführten Werte ist; andere Werte werden ignoriert.
 
-Für die [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)- und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignisse wird `dropEffect` basierend darauf initialisiert, welche Aktion der Benutzer anfordert. Wie dies bestimmt wird, ist plattformspezifisch, aber typischerweise kann der Benutzer Modifier-Tasten wie die Alt-Taste drücken, um die gewünschte Aktion anzupassen. Innerhalb von Ereignis-Handlern für [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)- und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignisse sollte `dropEffect` modifiziert werden, wenn eine andere Aktion als die gewünschte Aktion des Benutzers gewünscht wird.
+Für die [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignisse wird `dropEffect` basierend darauf initialisiert, welche Aktion der Benutzer anfordert. Wie dies bestimmt wird, ist plattformspezifisch, aber typischerweise kann der Benutzer Modifikatortasten wie die Alt-Taste drücken, um die gewünschte Aktion anzupassen. Innerhalb von Ereignishandlern für die [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignisse sollte `dropEffect` geändert werden, wenn eine andere Aktion als die vom Benutzer angeforderte gewünscht wird.
 
-Für die [`drop`](/de/docs/Web/API/HTMLElement/drop_event)- und [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignisse wird `dropEffect` auf die gewünschte Aktion gesetzt, die der Wert sein wird, den `dropEffect` nach dem letzten [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)- oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis hatte. In einem [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis sollte zum Beispiel, wenn der gewünschte `dropEffect` "move" ist, die gezogenen Daten aus der Quelle entfernt werden.
+Für die [`drop`](/de/docs/Web/API/HTMLElement/drop_event) und [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) Ereignisse wird `dropEffect` auf die gewünschte Aktion gesetzt, die der Wert war, den `dropEffect` nach dem letzten [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) oder [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignis hatte. Bei einem [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) Ereignis sollte beispielsweise, wenn der gewünschte `dropEffect` "move" ist, die zu ziehenden Daten aus der Quelle entfernt werden.
 
 ## Wert
 
-Ein String, der die Drag-Operationseffekt darstellt. Die möglichen Werte sind:
+Ein String, der den Effekt der Ziehoperation darstellt. Die möglichen Werte sind:
 
 - `copy`
-  - : Eine Kopie des Ursprungsobjekts wird an der neuen Position erstellt.
+  - : Eine Kopie des Quellobjekts wird am neuen Ort erstellt.
 - `move`
-  - : Ein Objekt wird an eine neue Position verschoben.
+  - : Ein Objekt wird an einen neuen Ort verschoben.
 - `link`
-  - : Ein Link zur Quelle wird an der neuen Position erstellt.
+  - : Eine Verknüpfung zum Quellobjekt am neuen Ort wird erstellt.
 - `none`
-  - : Das Objekt darf nicht abgelegt werden.
+  - : Das Objekt kann nicht fallen gelassen werden.
 
-Das Zuweisen eines anderen Wertes zu `dropEffect` hat keine Wirkung und der alte Wert bleibt bestehen.
+Das Zuweisen eines anderen Wertes zu `dropEffect` hat keine Wirkung, und der alte Wert bleibt erhalten.
 
 ## Beispiel
 
-Dieses Beispiel zeigt die Verwendung der `dropEffect`- und [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed)-Eigenschaften.
+Dieses Beispiel zeigt die Verwendung der Eigenschaften `dropEffect` und [`effectAllowed`](/de/docs/Web/API/DataTransfer/effectAllowed).
 
 ### HTML
 
@@ -115,6 +115,6 @@ target.addEventListener("dragover", (ev) => {
 
 ## Siehe auch
 
-- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
 - [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
+- [Arbeiten mit dem Drag-Datenspeicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

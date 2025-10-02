@@ -3,20 +3,23 @@ title: "DataTransfer: items-Eigenschaft"
 short-title: items
 slug: Web/API/DataTransfer/items
 l10n:
-  sourceCommit: ade5e1ca5c5c57d5cb53beb994bede7b20181233
+  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte `items`-Eigenschaft der [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Schnittstelle ist eine [`Liste`](/de/docs/Web/API/DataTransferItemList) der [Data-Transfer-Items](/de/docs/Web/API/DataTransferItem) in einer Drag-Operation. Die Liste enthält ein Element für jedes Objekt in der Operation, und wenn die Operation keine Elemente hatte, ist die Liste leer.
+Die schreibgeschützte `items`-Eigenschaft der [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Schnittstelle ist eine
+[`Liste`](/de/docs/Web/API/DataTransferItemList) von [Datenübertragungs-Elementen](/de/docs/Web/API/DataTransferItem) in einem Ziehvorgang. Die Liste enthält ein Element für jedes Element im Vorgang und ist leer, wenn der Vorgang keine Elemente hatte.
 
 ## Wert
 
-Ein [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt, das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekte enthält, die die in einer Drag-Operation gezogenen Elemente repräsentieren. Es gibt genau ein Listenelement für jedes gezogene Objekt. Wenn die Drag-Operation keine Daten hatte, ist die Liste leer.
+Ein [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt, das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)
+Objekte enthält, die die Elemente darstellen, die in einem Ziehvorgang gezogen werden, wobei die Liste ein Element für jedes
+Objekt enthält, das gezogen wird. Wenn der Ziehvorgang keine Daten hatte, ist die Liste leer.
 
 ## Beispiele
 
-### Protokollierung der gezogenen Elemente
+### Protokollierung gezogener Elemente
 
 Dieses Beispiel verwendet `items`, um Informationen über gezogene Elemente zu protokollieren.
 
@@ -103,5 +106,5 @@ reset.addEventListener("click", () => document.location.reload());
 ## Siehe auch
 
 - [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
+- [Ziehvorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Arbeiten mit dem Drag-Daten-Speicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

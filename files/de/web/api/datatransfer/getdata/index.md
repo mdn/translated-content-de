@@ -1,14 +1,14 @@
 ---
-title: "DataTransfer: getData() Methode"
+title: "DataTransfer: getData()-Methode"
 short-title: getData()
 slug: Web/API/DataTransfer/getData
 l10n:
-  sourceCommit: ade5e1ca5c5c57d5cb53beb994bede7b20181233
+  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`DataTransfer.getData()`**-Methode ruft Drag-Daten (als Zeichenkette) für den angegebenen Typ ab. Wenn der Drag-Vorgang keine Daten einschließt, gibt diese Methode eine leere Zeichenkette zurück.
+Die **`DataTransfer.getData()`**-Methode ruft die Drag-Daten (als Zeichenkette) für den angegebenen Typ ab. Wenn die Drag-Operation keine Daten enthält, gibt diese Methode eine leere Zeichenkette zurück.
 
 Beispieldatentypen sind `text/plain` und `text/uri-list`.
 
@@ -21,17 +21,17 @@ getData(format)
 ### Parameter
 
 - `format`
-  - : Eine Zeichenkette, die den Typ der abzurufenden Daten darstellt.
+  - : Eine Zeichenkette, die den abzurufenden Datentyp darstellt.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die die Drag-Daten für das angegebene `format` darstellt. Wenn der Drag-Vorgang keine Daten hat oder der Vorgang keine Daten für das angegebene `format` hat, gibt diese Methode eine leere Zeichenkette zurück.
+Eine Zeichenkette, die die Drag-Daten für das angegebene `format` darstellt. Wenn die Drag-Operation keine Daten hat oder die Operation keine Daten für das angegebene `format` hat, gibt diese Methode eine leere Zeichenkette zurück.
 
-Beachten Sie, dass `DataTransfer.getData()` möglicherweise keinen erwarteten Wert zurückgibt, da es nur das Lesen und Schreiben von Daten für bestimmte Events erlaubt. Während der `dragstart`- und `drop`-Events ist es sicher, auf die Daten zuzugreifen. Für alle anderen Events sollten die Daten als nicht verfügbar betrachtet werden. Trotzdem können die Elemente und ihre Formate weiterhin aufgezählt werden.
+Beachten Sie, dass `DataTransfer.getData()` möglicherweise keinen erwarteten Wert zurückgibt, da es nur während bestimmter Ereignisse erlaubt ist, Daten zu lesen und zu schreiben. Während der `dragstart`- und `drop`-Ereignisse ist es sicher, auf die Daten zuzugreifen. Bei allen anderen Ereignissen sollten die Daten als nicht verfügbar betrachtet werden. Trotzdem können die Elemente und ihre Formate weiterhin aufgelistet werden.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objektmethoden `getData()` und [`setData()`](/de/docs/Web/API/DataTransfer/setData).
+Dieses Beispiel zeigt die Verwendung der Methoden `getData()` und [`setData()`](/de/docs/Web/API/DataTransfer/setData) des [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekts.
 
 ### HTML
 
@@ -100,5 +100,5 @@ function drop(dropEvent) {
 ## Siehe auch
 
 - [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
+- [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Arbeiten mit dem Drag-Daten-Store](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

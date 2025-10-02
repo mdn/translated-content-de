@@ -3,25 +3,25 @@ title: "DataTransfer: files-Eigenschaft"
 short-title: files
 slug: Web/API/DataTransfer/files
 l10n:
-  sourceCommit: 9d5666d2ea7b54460f81857d59f80992fd8237c9
+  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte **`files`**-Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten ist eine [Liste der Dateien](/de/docs/Web/API/FileList) in der Drag-Operation. Wenn die Operation keine Dateien enthält, ist die Liste leer.
+Die schreibgeschützte **`files`**-Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten ist eine [Liste der Dateien](/de/docs/Web/API/FileList) in der Drag-Operation. Wenn die Operation keine Dateien umfasst, ist die Liste leer.
 
 Diese Funktion kann verwendet werden, um Dateien vom Desktop eines Benutzers in den Browser zu ziehen.
 
 > [!NOTE]
-> Die `files`-Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten kann nur innerhalb der [`drop`](/de/docs/Web/API/HTMLElement/drop_event) und [`paste`](/de/docs/Web/API/Element/paste_event)-Ereignisse zugegriffen werden. Für alle anderen Ereignisse wird die `files`-Eigenschaft leer sein, da ihr zugrunde liegender Datenspeicher sich in einem [geschützten Modus](https://html.spec.whatwg.org/multipage/dnd.html#the-drag-data-store) befindet.
+> Die `files`-Eigenschaft von [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekten kann nur innerhalb der [`drop`](/de/docs/Web/API/HTMLElement/drop_event)- und [`paste`](/de/docs/Web/API/Element/paste_event)-Ereignisse zugegriffen werden. Für alle anderen Ereignisse wird die `files`-Eigenschaft leer sein, da ihr zugrunde liegendes Datenlager sich im [geschützten Modus](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store#protected_mode) befindet.
 
 ## Wert
 
-Eine [`FileList`](/de/docs/Web/API/FileList) der Dateien in einer Drag-Operation, ein Listeneintrag für jede Datei in der Operation. Wenn die Drag-Operation keine Dateien enthielt, ist die Liste leer.
+Ein [`FileList`](/de/docs/Web/API/FileList) der Dateien in einer Drag-Operation, ein Listenelement für jede Datei in der Operation. Hatte die Drag-Operation keine Dateien, ist die Liste leer.
 
 ## Beispiele
 
-### Die Dateiliste lesen
+### Lesen der Dateienliste
 
 Dieses Beispiel erstellt einen einfachen Bereich, in den Sie Dateien ziehen können, und zeigt einige Metadaten an.
 
