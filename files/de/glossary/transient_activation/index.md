@@ -2,23 +2,32 @@
 title: Transiente Aktivierung
 slug: Glossary/Transient_activation
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 2baf3fbe98ef76049f9eb78700ab5a7d71cea05b
 ---
 
-**Transiente Aktivierung** (oder "transiente Benutzeraktivierung") ist ein Fensterstatus, der anzeigt, dass ein Benutzer kürzlich eine Taste gedrückt, eine Maus bewegt, ein Menü benutzt oder eine andere Benutzerinteraktion durchgeführt hat.
+**Transiente Aktivierung** (oder "transient user activation") ist ein Fensterzustand, der anzeigt, dass ein Benutzer kürzlich direkt und bedeutungsvoll mit dem Fenster interagiert hat.
 
-Dieser Status wird manchmal als Mechanismus verwendet, um sicherzustellen, dass eine Web-API nur dann funktionieren kann, wenn sie durch Benutzerinteraktion ausgelöst wird. Zum Beispiel können Skripte nicht willkürlich ein Popup-Fenster starten, das _transiente Aktivierung_ erfordert – es muss von einem Ereignishandler eines UI-Elements ausgelöst werden.
+Der Zustand wird nach jeder Benutzerinteraktion aktiviert, wenn das Fenster den Fokus hat, was dazu führt, dass der Browser eines oder mehrere der folgenden Ereignisse generiert:
 
-Siehe [Funktionen, die durch Benutzeraktivierung gesichert sind](/de/docs/Web/Security/User_activation) für Beispiele von APIs, die _transiente Aktivierung_ benötigen.
+- Ein `mousedown` oder `pointerdown` Ereignis für eine Maus.
+- Ein `pointerup` Ereignis für jede andere Art von Zeiger.
+- Ein `touchend` Ereignis.
+- Ein `keydown` Ereignis, mit Ausnahme der Escape- oder Browser-Shortcut-Tasten.
 
-Siehe die [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive) Eigenschaft, um programmatisch auf den aktuellen transienten Aktivierungszustand des Fensters zuzugreifen.
+Das Fenster wird nicht durch Ereignisse Benutzer-aktiviert, die nicht unbedingt durch eine absichtliche Interaktion mit dem Fenster verursacht werden, wie Mausbewegungsereignisse oder `wheel` Ereignisse.
 
-> [!NOTE]
-> Transiente Aktivierung läuft nach einem Timeout ab (sofern sie nicht durch weitere Interaktion erneuert wird) und kann auch von einigen APIs "verbraucht" werden. Siehe {{Glossary("Sticky_activation", "Sticky-Aktivierung")}} für eine Benutzeraktivierung, die sich nicht zurücksetzt, nachdem sie einmal gesetzt wurde.
+Die transiente Aktivierung läuft nach einem Timeout ab (falls sie nicht durch weitere Interaktion erneuert wird), und kann auch nach der Verwendung einiger eingeschränkter Funktionen (wie [`Window.open()`](/de/docs/Web/API/Window/open)) verbraucht/deaktiviert werden.
+
+Transiente Aktivierung wird häufig als Mechanismus verwendet, um sicherzustellen, dass eine Web-API nur funktionieren kann, wenn sie durch Benutzerinteraktion ausgelöst wird.
+Zum Beispiel können Skripte nicht willkürlich ein Popup starten, das _transiente Aktivierung_ erfordert ⁠— es muss über einen Ereignishandler eines UI-Elements ausgelöst werden.
+Siehe [Funktionen, die eine Benutzeraktivierung erfordern](/de/docs/Web/Security/User_activation) für Informationen zu APIs, die _transiente Aktivierung_ erfordern.
+
+Die [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive) Eigenschaft kann programmatisch verwendet werden, um den aktuellen transienten Aktivierungszustand des Fensters zu überprüfen.
 
 ## Siehe auch
 
-- [HTML Living Standard > Transiente Aktivierung](https://html.spec.whatwg.org/multipage/interaction.html#transient-activation)
+- [Vergleich zwischen transienter und persistenter Aktivierung](/de/docs/Web/Security/User_activation#comparison_between_transient_and_sticky_activation) in _Funktionen, die eine Benutzeraktivierung erfordern_
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Sticky_activation", "Sticky-Aktivierung")}}
+  - {{Glossary("Sticky_activation", "Persistente Aktivierung")}}
 - [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive)
+- [HTML Living Standard > Transiente Aktivierung](https://html.spec.whatwg.org/multipage/interaction.html#transient-activation)
