@@ -5596,7 +5596,7 @@
 /de/docs/Learn/Performance/Perceived_performance	/de/docs/Learn_web_development/Extensions/Performance/Perceived_performance
 /de/docs/Learn/Performance/Populating_the_page:_how_browsers_work	/de/docs/Web/Performance/Guides/How_browsers_work
 /de/docs/Learn/Performance/Understanding_latency	/de/docs/Web/Performance/Guides/Understanding_latency
-/de/docs/Learn/Performance/Web_Performance_Basics	/de/docs/Learn_web_development/Extensions/Performance/Web_Performance_Basics
+/de/docs/Learn/Performance/Web_Performance_Basics	/de/docs/Learn_web_development/Extensions/Performance/Best_practices
 /de/docs/Learn/Performance/Web_performance_overview	/de/docs/Learn_web_development/Extensions/Performance/What_is_web_performance
 /de/docs/Learn/Performance/What_is_web_performance	/de/docs/Learn_web_development/Extensions/Performance/What_is_web_performance
 /de/docs/Learn/Performance/business_case_for_performance	/de/docs/Learn_web_development/Extensions/Performance/business_case_for_performance
@@ -5842,6 +5842,8 @@
 /de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_HTML5_controls	/de/docs/Learn_web_development/Extensions/Forms
 /de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_Other_controls	/de/docs/Learn_web_development/Extensions/Forms
 /de/docs/Learn_web_development/Extensions/Forms/Test_your_skills:_Styling_basics	/de/docs/Learn_web_development/Extensions/Forms
+/de/docs/Learn_web_development/Extensions/Performance/Resources	/de/docs/Learn_web_development/Extensions/Performance/Best_practices
+/de/docs/Learn_web_development/Extensions/Performance/Web_Performance_Basics	/de/docs/Learn_web_development/Extensions/Performance/Best_practices
 /de/docs/Learn_web_development/Extensions/Security_privacy	/de/docs/Web/Security
 /de/docs/Learn_web_development/Extensions/Transform_animate	/de/docs/Learn_web_development/Extensions
 /de/docs/Learn_web_development/Getting_started/Basic_setup	/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software

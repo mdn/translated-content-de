@@ -1,65 +1,65 @@
 ---
-title: Performance-Budgets
+title: Leistungsbudgets
 slug: Web/Performance/Guides/Performance_budgets
 l10n:
-  sourceCommit: 702cd9e4d2834e13aea345943efc8d0c03d92ec9
+  sourceCommit: f85d2e26b062decf7a2bb9179c3a93003f4067a9
 ---
 
-Ein Performance-Budget ist ein Limit, um Rückschritte zu verhindern. Es kann für eine Datei, einen Dateityp, alle auf einer Seite geladenen Dateien, eine spezifische Metrik (z. B. {{Glossary("Time_to_interactive", "Time to Interactive")}}), eine benutzerdefinierte Metrik (z. B. Time to Hero Element) oder einen Schwellenwert über einen bestimmten Zeitraum gelten.
+Ein Leistungsbudget ist ein Limit, um Rückschritte zu verhindern. Es kann für eine Datei, einen Dateityp, alle auf einer Seite geladene Dateien, eine spezifische Metrik (z. B. {{Glossary("Time_to_interactive", "Time to Interactive")}}), eine benutzerdefinierte Metrik (z. B. Time to Hero Element) oder ein Schwellenwert über einen bestimmten Zeitraum gelten.
 
-## Warum benötige ich ein Performance-Budget?
+## Warum benötige ich ein Leistungsbudget?
 
-Ein Budget existiert, um Ihre erreichbaren Ziele zu reflektieren. Es ist ein Kompromiss zwischen Benutzererfahrung und anderen Leistungsindikatoren (z. B. Konversionsrate).
+Ein Budget existiert, um Ihre erreichbaren Ziele widerzuspiegeln. Es ist ein Kompromiss zwischen Benutzererfahrung und anderen Leistungsindikatoren (z. B. Konversionsrate).
 
 Diese Ziele können sein:
 
 - Zeitbasiert (z. B. {{Glossary("Time_to_interactive", "Time to Interactive")}}, {{Glossary("First_contentful_paint", "First Contentful Paint")}}).
-- Mengenbasiert (z. B. Anzahl der JS-Dateien/insgesamt Bildgröße).
-- Regelbasiert (z. B. PageSpeed-Index, Lighthouse-Score).
+- Mengenbasiert (z. B. Anzahl der JS-Dateien/gesamt Bildgröße).
+- Regelbasiert (z. B. PageSpeed-Index, Lighthouse-Bewertung).
 
-Ihr Hauptziel ist es, Rückschritte zu verhindern, aber sie können auch Einblicke bieten, um Trends zu prognostizieren (z. B. Im September wurden 50 % des Budgets in einer Woche verbraucht).
+Ihr Hauptziel ist es, Rückschritte zu verhindern, aber sie können auch Einblicke bieten, um Trends vorherzusagen (d.h. im September wurden 50 % des Budgets in einer Woche ausgegeben).
 
-Zusätzlich kann es Entwicklungsbedürfnisse aufdecken (z. B. Eine große Bibliothek mit kleineren Alternativen wird oft gewählt, um ein häufiges Problem zu lösen).
+Darüber hinaus kann es Entwicklungsbedarfe aufdecken (d.h. Eine große Bibliothek mit kleineren Alternativen wird oft gewählt, um ein häufiges Problem zu lösen).
 
-## Wie definiere ich ein Performance-Budget?
+## Wie definiere ich ein Leistungsbudget?
 
-Ein Budget sollte zwei Ebenen umfassen:
+Ein Budget sollte 2 Ebenen beinhalten:
 
 - Warnung.
 - Fehler.
 
-Die Warnstufe ermöglicht es Ihnen, proaktiv zu sein und technischen Schulden zu planen, ohne die Entwicklung oder Bereitstellungen zu blockieren.
+Das Warnniveau ermöglicht es Ihnen, proaktiv zu sein und technische Schulden zu planen, ohne die Entwicklung oder Bereitstellung zu blockieren.
 
-Die Fehlerstufe ist ein oberes Grenzlimit, bei dem Änderungen negative und bemerkbare Auswirkungen haben werden.
+Das Fehlniveau ist ein oberes Grenzlimit, bei dem Änderungen negative und merkbare Auswirkungen haben werden.
 
-Um zu beginnen, müssen Sie zuerst die Geräte und Verbindungsgeschwindigkeiten messen, von denen Ihre Benutzer kommen (z. B. Ein \~$_200_ Android-Gerät über eine 3G-Verbindung), indem Sie mehrere [Werkzeuge](/de/docs/Learn_web_development/Extensions/Performance/Web_Performance_Basics) verwenden. Diese zeitbasierten Metriken werden in Dateigrößen-Budgets übersetzt.
+Der erste Schritt ist, die Geräte und Verbindungsgeschwindigkeiten zu messen, von denen Ihre Nutzer kommen (z. B. Ein \~$_200_ Android-Gerät über eine 3G-Verbindung), indem Sie mehrere [Tools](/de/docs/Learn_web_development/Extensions/Performance/Best_practices) verwenden. Diese zeitbasierten Metriken werden in Dateigrößenbudgets übersetzt.
 
-Ein Standardbasiswert zur Reduzierung der Absprungrate ist, [Time to Interactive unter 5 Sekunden in 3G/4G und unter 2 Sekunden für nachfolgende Ladezeiten](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/) zu erreichen. Basierend auf den spezifischen Zielen und Inhalten Ihrer Website könnten Sie jedoch andere Metriken in den Fokus rücken.
+Ein standardmäßiger Basiswert zur Reduzierung der Absprungrate besteht darin, [die Time to Interactive unter 5 Sekunden bei 3G/4G und unter 2 Sekunden für nachfolgende Ladevorgänge](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/) zu erreichen. Je nach den spezifischen Zielen und dem Inhalt Ihrer Website können Sie sich jedoch auf andere Metriken konzentrieren.
 
-Für eine textlastige Website wie einen Blog oder eine Nachrichten-Website könnte die {{Glossary("First_contentful_paint", "First Contentful Paint")}} Metrik das Benutzerverhalten genauer widerspiegeln. (z. B. Wie schnell können Benutzer mit dem Lesen beginnen), was Dateispezifische Budgets informiert (z. B. Schriftgröße) und deren Optimierungen. (z. B. Verwendung von [font-display](/de/docs/Web/CSS/@font-face/font-display), um die [wahrgenommene Performance](/de/docs/Learn_web_development/Extensions/Performance/Perceived_performance) zu verbessern).
+Für eine textlastige Seite wie einen Blog oder eine Nachrichten-Website könnte die {{Glossary("First_contentful_paint", "First Contentful Paint")}} Metrik das Nutzerverhalten genauer widerspiegeln. (d.h. wie schnell können Nutzer mit dem Lesen beginnen), was über spezifische Dateibudgets (z. B. Schriftgröße) und deren Optimierungen informiert. (z. B. die Verwendung von [font-display](/de/docs/Web/CSS/@font-face/font-display), um die [Empfundene Leistung](/de/docs/Learn_web_development/Extensions/Performance/Perceived_performance) zu verbessern).
 
-Der ultimative Wert eines Performance-Budgets besteht darin, die Auswirkungen der Leistung auf Geschäfts- oder Produktziele zu korrelieren. Bei der Definition von Metriken sollten Sie sich auf die [Benutzererfahrung](https://extensionworkshop.com/documentation/develop/user-experience-best-practices/) konzentrieren, die nicht nur die Absprungs- oder Konversionsrate bestimmen wird, sondern auch, wie wahrscheinlich es ist, dass der Benutzer zurückkehren wird.
+Der ultimative Wert eines Leistungsbudgets liegt darin, die Auswirkungen der Leistung auf Geschäfts- oder Produktziele zu korrelieren. Bei der Definition von Metriken sollten Sie sich auf die [User Experience](https://extensionworkshop.com/documentation/develop/user-experience-best-practices/) konzentrieren, die nicht nur die Absprungs- oder Konversionsrate bestimmt, sondern auch, wie wahrscheinlich es ist, dass der Nutzer zurückkehrt.
 
-## Wie implementiere ich ein Performance-Budget?
+## Wie implementiere ich ein Leistungsbudget?
 
-Während der Entwicklung gibt es einige Tools, um Überprüfungen an neuen oder geänderten Assets durchzuführen:
+Während der Entwicklung gibt es einige Tools, um neue oder geänderte Assets zu überprüfen:
 
-- Ein Modul-Bundler (z. B. [webpack](https://webpack.js.org/)) hat [Leistungsmerkmale](https://webpack.js.org/configuration/performance/), die Sie benachrichtigen, wenn Assets festgelegte Grenzen überschreiten.
-- [Bundlesize](https://github.com/siddharthkp/bundlesize) ermöglicht es Ihnen, Dateigrößenprüfungen in Ihrer kontinuierlichen Integrationspipeline (CI) zu definieren und auszuführen.
+- Ein Modul-Bundler (z. B. [webpack](https://webpack.js.org/)), hat [Leistungsfunktionen](https://webpack.js.org/configuration/performance/), die Sie benachrichtigen, wenn Assets die festgelegten Limits überschreiten.
+- [Bundlesize](https://github.com/siddharthkp/bundlesize) ermöglicht es Ihnen, Dateigrößenprüfungen in Ihrer kontinuierlichen Integration (CI) Pipeline zu definieren und auszuführen.
 
-Dateigrößenprüfungen sind die erste Verteidigungslinie gegen Rückschritte, aber die Größe zurück in Zeitmetriken zu übertragen kann schwierig sein, da Entwicklungsumgebungen möglicherweise 3rd-Party-Skripte und Optimierungen, die üblicherweise von einem {{Glossary("CDN", "CDN")}} bereitgestellt werden, fehlen.
+Dateigrößenprüfungen sind die erste Verteidigungslinie gegen Rückschritte, aber die Übersetzung von Größe zurück in Zeitmetriken kann schwierig sein, da Entwicklungsumgebungen möglicherweise Drittanbieter-Skripte und Optimierungen, die normalerweise von einem {{Glossary("CDN", "CDN")}} bereitgestellt werden, fehlen.
 
-Der erste Schritt besteht darin, eine Entwicklungsbasislinie für jeden Branch zu definieren, um diese zu vergleichen, und die Präzision des Unterschieds zwischen Entwicklung und Produktion kann als Ziel verwendet werden, um die Live-Umgebung besser anzupassen.
+Der erste Schritt besteht darin, eine Entwicklungsgrundlinie für jeden Branch zu definieren, mit der verglichen werden kann, und die Präzision des Unterschieds zwischen Entwicklung und Produktion kann als Ziel verwendet werden, um die Live-Umgebung besser abzugleichen.
 
-Der [Lighthouse Bot](https://github.com/GoogleChromeLabs/lighthousebot) integriert sich mit [Travis CI](https://www.travis-ci.com/) und kann verwendet werden, um [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) und [Webpage Test](https://www.webpagetest.org/) Metriken von einer Entwicklungs-URL zu sammeln. Der Bot wird basierend auf den bereitgestellten Mindestwerten bestanden oder fehlschlagen.
+Der [Lighthouse Bot](https://github.com/GoogleChromeLabs/lighthousebot) integriert sich mit [Travis CI](https://www.travis-ci.com/) und kann verwendet werden, um [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) und [Webpage Test](https://www.webpagetest.org/) Metriken von einer Entwicklungs-URL zu sammeln. Der Bot wird basierend auf den bereitgestellten Mindestbewertungen bestehen oder fehlschlagen.
 
-## Wie wird ein Performance-Budget durchgesetzt?
+## Wie erzwinge ich ein Leistungsbudget?
 
-Je früher Sie eine mögliche Ergänzung, die das Budget überschreitet, identifizieren können, desto besser können Sie den aktuellen Zustand Ihrer Website analysieren und Optimierungen oder unnötigen Code erkennen.
+Je eher Sie eine potenzielle Ergänzung identifizieren können, die das Budget überschreitet, desto besser können Sie den aktuellen Zustand Ihrer Website analysieren und Optimierungen oder unnötigen Code identifizieren.
 
-Jedoch sollten Sie mehrere Budgets haben und dynamisch sein. Sie sollen Ihre laufenden Ziele reflektieren, aber Risiken und Experimente zulassen. Zum Beispiel könnten Sie ein Feature einführen, das die gesamte Ladezeit erhöht, aber versucht, das Benutzerengagement zu steigern. (z. B. Wie lange ein Benutzer auf einer Seite oder Website bleibt).
+Sie sollten jedoch mehrere Budgets haben und dynamisch sein. Sie sollen Ihre laufenden Ziele widerspiegeln, aber Risiken und Experimente zulassen. Beispielsweise könnten Sie eine Funktion einführen, die die Gesamt-Ladezeit erhöht, aber versucht, die Benutzerbindung zu erhöhen. (d.h. wie lange ein Benutzer auf einer Seite oder Website bleibt).
 
-Ein Performance-Budget hilft Ihnen, optimales Verhalten für Ihre aktuellen Benutzer zu schützen, während es Ihnen ermöglicht, neue Märkte zu erschließen und maßgeschneiderte Erlebnisse zu liefern.
+Ein Leistungsbudget hilft Ihnen, ein optimales Verhalten für Ihre aktuellen Nutzer zu schützen und gleichzeitig neue Märkte zu erschließen und maßgeschneiderte Erlebnisse zu liefern.
 
 ## Siehe auch
 
