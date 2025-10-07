@@ -1,23 +1,23 @@
 ---
-title: "Herausforderung: Größenanpassung und Dekoration eines Inhaltsbereichs"
-short-title: "Herausforderung: Größenanpassung und Dekoration"
+title: "Herausforderung: Größe und Dekoration eines Inhaltsbereichs"
+short-title: "Herausforderung: Größe und Dekoration"
 slug: Learn_web_development/Core/Styling_basics/Size_decorate_content_panel
 l10n:
-  sourceCommit: 2e427c5c185433c5a6612c63bf877753a5fedc99
+  sourceCommit: 001a6992ec60f0dccd073a3db223c320835188ad
 ---
 
-{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Test_your_skills/Backgrounds_and_borders", "Learn_web_development/Core/Styling_basics/Overflow", "Learn_web_development/Core/Styling_basics")}}
+{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Test_your_skills/Overflow", "Learn_web_development/Core/Styling_basics/Images_media_forms", "Learn_web_development/Core/Styling_basics")}}
 
-In dieser Herausforderung erhalten Sie eine leicht gestylte Seitenstruktur, die einen Inhaltsbereich mit Texten und Bildern darstellt, mit einer Überschrift oben und einer Schaltflächenleiste unten. Wir möchten, dass Sie den Anweisungen folgen, um ihn zu dimensionieren und zu dekorieren, und dabei ein interessantes Layout zu erzeugen. Unterwegs werden wir Ihr Wissen über CSS-Werte und -Einheiten, Größenanpassung sowie Hintergründe und Ränder testen.
+In dieser Herausforderung erhalten Sie eine leicht gestaltete Seitenstruktur, die ein Inhaltsfeld mit Text und Bildern rendert, mit einer Überschrift oben und einer Schaltflächenleiste unten. Wir möchten, dass Sie den Anweisungen folgen, um es zu skalieren und zu dekorieren, und dabei ein interessantes Layout zu erstellen. Auf dem Weg testen wir Ihr Wissen über CSS-Werte und -Einheiten, Größe, Überlauf sowie Hintergründe und Ränder.
 
 ## Ausgangspunkt
 
-Wir werden Sie bitten, diese Herausforderung in Ihrer lokalen Entwicklungsumgebung zu lösen; idealerweise sollten Sie das Beispiel in einem vollständigen Browserfenster betrachten, um sicherzustellen, dass Sie auf dem richtigen Weg sind.
+Wir möchten, dass Sie diese Herausforderung in Ihrer lokalen Entwicklungsumgebung lösen; idealerweise sollten Sie das Beispiel in einem vollständigen Browserfenster anzeigen, um sicherzustellen, dass Sie in die richtige Richtung gehen.
 
-1. Erstellen Sie einen neuen Ordner auf Ihrem Computer mit dem Namen `size-decorate-content-panel`.
-2. Erstellen Sie innerhalb des Ordners eine `index.html` Datei und fügen Sie den folgenden Inhalt ein:
+1. Erstellen Sie einen neuen Ordner auf Ihrem Computer namens `size-decorate-content-panel`.
+2. Erstellen Sie in diesem Ordner eine `index.html` Datei und fügen Sie den folgenden Inhalt ein:
 
-   ```html-nolint
+   ```html-nolint live-sample___content-pane-start live-sample___content-pane-finish
    <!doctype html>
    <html lang="en">
      <head>
@@ -86,9 +86,9 @@ Wir werden Sie bitten, diese Herausforderung in Ihrer lokalen Entwicklungsumgebu
    </html>
    ```
 
-3. Erstellen Sie innerhalb des Ordners eine `style.css` Datei und fügen Sie den folgenden Inhalt ein:
+3. Erstellen Sie in diesem Ordner eine `style.css` Datei und fügen Sie den folgenden Inhalt ein:
 
-   ```css
+   ```css live-sample___content-pane-start
    /* Type and text */
 
    * {
@@ -137,7 +137,6 @@ Wir werden Sie bitten, diese Herausforderung in Ihrer lokalen Entwicklungsumgebu
    }
 
    .content {
-     overflow: auto;
    }
 
    .controls {
@@ -151,24 +150,24 @@ Wir werden Sie bitten, diese Herausforderung in Ihrer lokalen Entwicklungsumgebu
    }
    ```
 
-4. Speichern Sie Ihre Dateien und laden Sie `index.html` in einem Browser, um sie zu testen.
+4. Speichern Sie Ihre Dateien und laden Sie `index.html` in einem Browser, bereit zum Testen.
 
-## Projektbeschreibung
+## Projektbrief
 
-Folgen Sie den unten stehenden Schritten, um das Projekt abzuschließen, den Inhaltsbereich angemessen zu dimensionieren und die erforderlichen Dekorationen hinzuzufügen.
+Folgen Sie den unten stehenden Schritten, um das Projekt abzuschließen, indem Sie das Inhaltsfenster entsprechend skalieren und die erforderlichen Dekorationen hinzufügen.
 
 ### Überschriften
 
 1. Verwenden Sie generierten Inhalt, um ein Buch-Emoji (📖) am Anfang der obersten Überschrift erscheinen zu lassen. Fügen Sie `20px` Abstand zwischen dem Emoji und dem Überschriftentext hinzu.
-2. Derzeit sind die Überschriften in `em` Größen definiert. Wir möchten, dass Sie die Größen so ändern, dass sie responsive sind, basierend auf der Breite des Ansichtsfensters, aber auch zoombar bleiben. Erreichen Sie dies, indem Sie die Größen jeder Überschriftenebene auf einen geeigneten Prozentsatz der Ansichtsfensterbreite plus einem kleineren `em` Wert setzen.
+2. Derzeit sind die Überschriften in `em` berechnet. Ändern Sie die Größenanpassung so, dass sie reaktionsfähig ist, sich basierend auf der Ansichtsfensterbreite ändert, aber auch weiterhin zoombar bleibt. Um dies zu erreichen, machen Sie die Größenanpassung jeder Überschriftenebene gleich einem geeigneten Prozentsatz der Ansichtsfensterbreite plus einem kleineren `em`-Wert.
 
-### Container-Größenanpassung
+### Containergroße
 
-1. Stellen Sie die Breite des `<section>` Wrapper-Elements mit der Klasse `pane` auf `60%`, geben Sie ihm jedoch eine maximale Breite von `1000px` und eine Mindestbreite von `480px`. Versuchen Sie, eine CSS-Funktion zu finden, die es Ihnen ermöglicht, dies mit einer einzigen Deklaration einzustellen.
-2. Zentrieren Sie die `pane` `<section>` horizontal auf der Seite mit `auto`-Rändern.
-3. Setzen Sie das `<h1>` und das `<div>` mit der Klasse `controls` auf beide `100px` Höhe. Das `<div>` mit der Klasse `content` soll `100%` der `<body>`-Höhe sein, abzüglich der Höhe des `<h1>` und des `<div class="controls">`. Dies sollte Ihnen ein UI geben, das sich immer auf die Höhe des Ansichtsfensters erstreckt, mit einem flexiblen Inhaltscontainer und einer festen Höhe für die Überschrift und die Schaltflächenleiste.
-4. Die Schaltflächen sehen etwas dünn aus und sind schwer zu lesen. Geben Sie ihnen eine Höhe von `100%` ihres Containers und einer Schriftgröße von `1.2em`.
-5. Geben Sie der `pane` `<section>` und dem `content` `<div>` vertikales Padding von `0` auf beiden Seiten und horizontales Padding von `20px` auf beiden Seiten.
+1. Machen Sie die Breite des `<section>`-Wrapper-Elements mit einer Klasse von `pane` gleich `60%`, aber geben Sie ihm eine maximale Breite von `1000px` und eine minimale Breite von `480px`. Sehen Sie, ob Sie eine CSS-Funktion finden können, die es Ihnen ermöglicht, dies mit einer einzigen Deklaration festzulegen.
+2. Zentrieren Sie die `pane`-`<section>` horizontal auf der Seite mit `auto`-Rändern.
+3. Setzen Sie das `<h1>` und das `<div>` mit der Klasse `controls` auf jeweils `100px` Höhe. Setzen Sie das `<div>` mit der Klasse `content` auf `100%` der `<body>`-Höhe minus der Höhe von `<h1>` und `<div class="controls">`. Dies sollte Ihnen eine Benutzeroberfläche geben, die immer die Höhe des Ansichtsfensters einnimmt, mit einem flexiblen Inhaltscontainer und einer festen Höhe für die Überschrift und die Schaltflächenleiste.
+4. Die Schaltflächen sehen etwas dünn und schwer lesbar aus. Geben Sie ihnen eine Höhe von `100%` ihres Containers und eine Schriftgröße von `1.2em`.
+5. Geben Sie der `pane`-`<section>` und dem `content`-`<div>` vertikale Abstände von `0` auf beiden Seiten und horizontale Abstände von `20px` auf beiden Seiten.
 
 ### Bildplatzierung
 
@@ -177,85 +176,35 @@ Folgen Sie den unten stehenden Schritten, um das Projekt abzuschließen, den Inh
 
 ### Dekoration
 
-1. Wenden Sie einen Farbverlauf auf die `pane` `<section>` an, der sanft von `#9fb4c7` oben zu `#7f7caf` unten übergeht.
-2. Geben Sie den Bildern einen `1px solid`-Rahmen und dem `content` `<div>` einen `2px solid`-Rahmen. Geben Sie den Rahmen die Farbe `#28587b`.
-3. Geben Sie dem `content` `<div>` eine Hintergrundfarbe von `#eeeeff` und ein Hintergrundbild von `https://mdn.github.io/shared-assets/images/examples/big-star.png`. Das Hintergrundbild sollte sich nicht wiederholen und sollte `10px` vom oberen Rand des Containers und `20px` von der rechten entfernt platziert werden.
-4. Geben Sie den Schaltflächen eine Textfarbe von `weiß` und eine Hintergrundfarbe von `rgb(40 88 123 / 0.8)`. Bei Hover oder Fokus sollen die Schaltflächen zu einer vollständig opaken Version derselben Hintergrundfarbe wechseln.
-5. Setzen Sie einen `10px`-Rahmenradius auf das `content` `<div>` und die Schaltflächen.
+1. Wenden Sie einen Farbverlauf auf die `pane`-`<section>` an, der sich sanft von `#9fb4c7` oben nach `#7f7caf` unten verändert.
+2. Geben Sie den Bildern einen `1px solid`-Rand und dem `content`-`<div>` einen `2px solid`-Rand. Geben Sie den Rändern eine Farbe von `#28587b`.
+3. Geben Sie dem `content`-`<div>` eine Hintergrundfarbe von `#eeeeff` und ein Hintergrundbild von `https://mdn.github.io/shared-assets/images/examples/big-star.png`. Das Hintergrundbild sollte sich nicht wiederholen, sollte auf `40px` mal `40px` dimensioniert sein und `5px` vom oberen Rand des Containers und `15px` vom rechten Rand platziert sein.
+4. Geben Sie den Schaltflächen eine Textfarbe von `white` und eine Hintergrundfarbe von `rgb(40 88 123 / 0.8)`. Beim Hover oder Fokus sollten die Schaltflächen zu einer vollständig undurchsichtigen Version der gleichen Hintergrundfarbe wechseln.
+5. Setzen Sie einen `10px`-Randradius am `content`-`<div>` und den Schaltflächen.
 
-## Hinweise und Tipps
+### Überlauf
 
-- Verwenden Sie den [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), um unbeabsichtigte Fehler in Ihrem CSS zu erkennen - Fehler, die Sie möglicherweise übersehen hätten -, damit Sie diese beheben können.
+An diesem Punkt sollten Sie noch ein Problem mit der Benutzeroberfläche bemerken – der im `content`-`<div>` enthaltene Inhalt überläuft dessen Container, und die gesamte Seite scrollt, um Ihnen den Zugriff darauf zu ermöglichen. Wir möchten, dass der `content`-`<div>` stattdessen scrollt. Wie können Sie dies erreichen?
+
+## Tipps und Hinweise
+
+- Verwenden Sie den [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), um unbeabsichtigte Fehler in Ihrem CSS zu erkennen – Fehler, die Sie möglicherweise übersehen haben – damit Sie sie beheben können.
 - Sie müssen das HTML in keiner Weise ändern.
 
 ## Beispiel
 
-So sollte das fertige Projekt aussehen (wir haben es bei `90%` Breite gerendert, nicht `60%`, damit es im schmalen Ausgabebereich besser aussieht):
+Der Ausgangszustand des Projekts wird wie folgt gerendert:
+
+{{EmbedLiveSample("content-pane-start", "100%", 500)}}
+
+Das fertige Projekt sollte so aussehen (wir haben es mit `90%` Breite gerendert, nicht `60%`, damit es im schmalen Ausgabefenster besser aussieht):
 
 {{EmbedLiveSample("content-pane-finish", "100%", 500)}}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung zu zeigen</summary>
+<summary>Klicken Sie hier, um eine mögliche Lösung anzuzeigen</summary>
 
-Das fertige CSS sieht wie folgt aus:
-
-```html hidden live-sample___content-pane-finish
-<section class="pane">
-  <h1>Content pane</h1>
-  <div class="content">
-    <h2>Some exciting content</h2>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Proin tortor purus
-      <a href="#">platea sit eu id</a> nisi litora libero. Neque vulputate
-      consequat ac amet augue blandit maximus aliquet congue. Pharetra
-      vestibulum posuere ornare <a href="#">faucibus fusce dictumst</a> orci
-      aenean eu facilisis ut volutpat commodo senectus purus himenaeos fames
-      primis convallis nisi.
-    </p>
-    <img
-      src="https://mdn.github.io/shared-assets/images/examples/leopard.jpg"
-      alt="Closeup of a large wild cat's eyes and nose" />
-    <p>
-      Phasellus fermentum malesuada phasellus netus dictum aenean placerat
-      egestas amet.
-      <a href="#">Ornare taciti semper dolor tristique</a> morbi. Sem leo
-      tincidunt aliquet semper eu lectus scelerisque quis. Sagittis vivamus
-      mollis nisi mollis enim fermentum laoreet.
-    </p>
-
-    <h2>More exciting content</h2>
-
-    <p>
-      Curabitur semper venenatis lectus viverra ex dictumst nulla maximus.
-      Primis iaculis elementum conubia feugiat venenatis dolor augue ac blandit
-      nullam ac <a href="#">phasellus turpis</a> feugiat mollis. Duis lectus
-      porta mattis imperdiet vivamus augue litora lectus arcu. Justo torquent
-      pharetra volutpat ad blandit bibendum
-      <a href="#">accumsan nec elit cras</a> luctus primis ipsum gravida class
-      congue.
-    </p>
-    <img
-      src="https://mdn.github.io/shared-assets/images/examples/balloons-landscape.jpg"
-      alt="Three colorful hot air balloons floating across a blue, nearly cloudless sky" />
-    <p>
-      Vehicula etiam elementum finibus enim duis feugiat commodo adipiscing
-      tortor <a href="#">tempor elit</a>. Et mollis consectetur habitant turpis
-      tortor consectetur adipiscing vulputate dolor lectus iaculis convallis
-      adipiscing. Nam hendrerit
-      <a href="#">dignissim condimentum ullamcorper diam</a> morbi eget
-      consectetur odio in sagittis.
-    </p>
-  </div>
-  <div class="controls">
-    <button>One</button>
-    <button>Two</button>
-    <button>Three</button>
-    <button>Four</button>
-  </div>
-</section>
-```
+Das fertige CSS sieht so aus:
 
 ```css live-sample___content-pane-finish
 /* Type and text */
@@ -336,9 +285,9 @@ h1,
 }
 
 .content {
-  /* Set background color and image on the content div */
+  /* Set background color and image on the content div, and size the image */
   background: url("https://mdn.github.io/shared-assets/images/examples/big-star.png")
-    no-repeat top 10px right 20px #eeeeff;
+    no-repeat top 5px right 15px / 40px #eef;
   /* Set vertical padding of 0 on both sides and horizontal padding
   of 20px on both sides */
   padding: 0 20px;
@@ -347,6 +296,7 @@ h1,
   height: calc(100% - 200px);
   /* Set border on the content div */
   border: 2px solid #28587b;
+  /* Stop the content from overflowing its container; make it scroll instead */
   overflow: auto;
 }
 
@@ -389,4 +339,4 @@ button {
 
 </details>
 
-{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Test_your_skills/Backgrounds_and_borders", "Learn_web_development/Core/Styling_basics/Overflow", "Learn_web_development/Core/Styling_basics")}}
+{{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Test_your_skills/Overflow", "Learn_web_development/Core/Styling_basics/Images_media_forms", "Learn_web_development/Core/Styling_basics")}}

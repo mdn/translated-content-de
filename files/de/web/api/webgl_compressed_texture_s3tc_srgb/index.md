@@ -3,32 +3,32 @@ title: WEBGL_compressed_texture_s3tc_srgb Erweiterung
 short-title: WEBGL_compressed_texture_s3tc_srgb
 slug: Web/API/WEBGL_compressed_texture_s3tc_srgb
 l10n:
-  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
+  sourceCommit: 3cbd2b2b2eb0be9425949c20ca5d398645f7c0e9
 ---
 
 {{APIRef("WebGL")}}
 
 Die **`WEBGL_compressed_texture_s3tc_srgb`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt vier [S3TC-komprimierte Texturformate](https://en.wikipedia.org/wiki/S3_Texture_Compression) für den sRGB-Farbraum bereit.
 
-Komprimierte Texturen reduzieren die Menge an Speicher, die benötigt wird, um eine Textur auf der GPU zu speichern, was höhere Auflösungen oder mehr Texturen derselben Auflösung ermöglicht.
+Komprimierte Texturen reduzieren den benötigten Speicherplatz für das Speichern einer Textur auf der GPU, wodurch höher aufgelöste Texturen oder mehr Texturen mit der gleichen Auflösung möglich sind.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind verfügbar über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension). Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist sowohl für die [WebGL1](/de/docs/Web/API/WebGLRenderingContext) als auch für die [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) Kontexte verfügbar.
+> Diese Erweiterung ist sowohl für [WebGL1](/de/docs/Web/API/WebGLRenderingContext) als auch für [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) Kontexte verfügbar.
 
 ## Konstanten
 
 Die komprimierten Texturformate werden durch vier Konstanten bereitgestellt und können in zwei Funktionen verwendet werden: [`compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) und [`compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D).
 
 - `ext.COMPRESSED_SRGB_S3TC_DXT1_EXT`
-  - : Ein DXT1-komprimiertes Bild in einem sRGB-Bildformat.
+  - : Ein DXT1-komprimiertes Bild im sRGB-Bildformat.
 - `ext.COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT`
-  - : Ein DXT1-komprimiertes Bild in einem sRGB-Bildformat mit einem Ein/Aus-Alpha-Wert.
+  - : Ein DXT1-komprimiertes Bild im sRGB-Bildformat mit einem Ein-/Aus-Alpha-Wert.
 - `ext.COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT`
-  - : Ein DXT3-komprimiertes Bild in einem sRGBA-Bildformat.
+  - : Ein DXT3-komprimiertes Bild im sRGBA-Bildformat.
 - `ext.COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT`
-  - : Ein DXT5-komprimiertes Bild in einem sRGBA-Bildformat.
+  - : Ein DXT5-komprimiertes Bild im sRGBA-Bildformat.
 
 ## Beispiele
 
@@ -62,7 +62,7 @@ gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 
 ## Siehe auch
 
-- [S3 Texture Compression – OpenGL Wiki](https://www.khronos.org/opengl/wiki/S3_Texture_Compression#sRGB_and_S3TC)
+- [S3 Texture Compression – OpenGL wiki](https://wikis.khronos.org/opengl/S3_Texture_Compression#sRGB_and_S3TC)
 - [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
 - [`WebGLRenderingContext.compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D)
 - [`WebGLRenderingContext.compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D)

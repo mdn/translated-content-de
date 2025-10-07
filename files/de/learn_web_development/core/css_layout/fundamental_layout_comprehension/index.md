@@ -1,21 +1,21 @@
 ---
-title: "Herausforderung: Grundlegendes Layoutverständnis"
-short-title: "Herausforderung: Grundlegendes Layout"
+title: "Herausforderung: Fundamentales Layout-Verständnis"
+short-title: "Herausforderung: Grundlagen des Layouts"
 slug: Learn_web_development/Core/CSS_layout/Fundamental_Layout_Comprehension
 l10n:
-  sourceCommit: ed70efeffb9717915f028104c5b33e7326a00d96
+  sourceCommit: 3cbd2b2b2eb0be9425949c20ca5d398645f7c0e9
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/CSS_layout/Test_your_skills/Grid", "Learn_web_development/Core/CSS_layout/Responsive_Design", "Learn_web_development/Core/CSS_layout")}}
 
-Diese Herausforderung testet Ihr Wissen über die Layout-Features, die wir bisher in diesem Modul behandelt haben, nämlich Flexbox, Floats, Grid und Positionierung. Am Ende haben Sie ein Webseiten-Layout mit all diesen grundlegenden Werkzeugen entwickelt.
+Diese Herausforderung wird Ihr Wissen über die bisher im Modul behandelten Layout-Funktionen testen, nämlich `flexbox`, `floats`, `grid` und `positioning`. Am Ende werden Sie ein Webseiten-Layout mit all diesen grundlegenden Werkzeugen entwickelt haben.
 
 ## Ausgangspunkt
 
-Wir werden Sie dazu bringen, diese Herausforderung in Ihrer lokalen Entwicklungsumgebung zu lösen; idealerweise sollten Sie das Beispiel in einem vollständigen Browserfenster betrachten, um sicherzustellen, dass die Layout-Features wie erwartet funktionieren.
+Wir werden Sie dazu bringen, diese Herausforderung in Ihrer lokalen Entwicklungsumgebung zu lösen; idealerweise sollten Sie das Beispiel in einem vollständigen Browserfenster betrachten, um sicherzustellen, dass die Layout-Funktionen wie erwartet funktionieren.
 
 1. Erstellen Sie einen neuen Ordner auf Ihrem Computer namens `layout-challenge`.
-2. Erstellen Sie in diesem Ordner eine `index.html` Datei und fügen Sie den folgenden Inhalt ein:
+2. Erstellen Sie in diesem Ordner eine Datei namens `index.html` und fügen Sie den folgenden Inhalt ein:
 
    ```html
    <!DOCTYPE html>
@@ -45,61 +45,62 @@ Wir werden Sie dazu bringen, diese Herausforderung in Ihrer lokalen Entwicklungs
            <h1>An Exciting Blog Post</h1>
            <img src="images/square6.jpg" alt="placeholder" class="feature" />
            <p>
-             Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi
-             welsh onion daikon amaranth tatsoi tomatillo melon azuki bean
-             garlic.
+             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non
+             justo at erat egestas porttitor vel nec tortor. Mauris in molestie
+             ipsum. Vivamus diam elit, ornare ornare nisi vitae, ullamcorper
+             pharetra ligula. In vel lacus quis nulla sollicitudin pellentesque.
            </p>
 
            <p>
-             Turnip greens yarrow ricebean rutabaga endive cauliflower sea
-             lettuce kohlrabi amaranth water spinach avocado daikon napa
-             asparagus winter purslane kale. Celery potato scallion desert
-             raisin horseradish spinach carrot soko. Lotus root water spinach
-             fennel kombu maize bamboo shoot green bean swiss chard seakale
-             pumpkin onion chickpea gram corn pea. Brussels sprout coriander
-             water chestnut gourd swiss chard wakame kohlrabi beetroot carrot
-             watercress. Corn amaranth salsify bunya nuts nori azuki bean
-             chickweed potato bell pepper artichoke.
+             Nunc vitae eleifend odio, eget tincidunt sem. Cras et varius justo.
+             Nulla sollicitudin quis urna vitae efficitur. Pellentesque
+             hendrerit molestie arcu sit amet lacinia. Vivamus vulputate sed
+             purus at eleifend. Phasellus malesuada sem vel libero hendrerit,
+             sed finibus massa porta. Vestibulum luctus scelerisque libero, sit
+             amet sagittis eros sollicitudin ac. Class aptent taciti sociosqu ad
+             litora torquent per conubia nostra, per inceptos himenaeos.
            </p>
 
            <p>
-             Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot
-             courgette tatsoi pea sprouts fava bean collard greens dandelion
-             okra wakame tomato. Dandelion cucumber earthnut pea peanut soko
-             zucchini.
+             Phasellus tincidunt eros iaculis, feugiat mi at, eleifend mauris.
+             Quisque porttitor lacus eu massa condimentum, eu tincidunt nisl
+             consequat. Nunc egestas lacus dolor, id scelerisque ante tincidunt
+             ac. In risus massa, sodales ac enim eu, iaculis eleifend lorem.
            </p>
 
            <p>
-             Nori grape silver beet broccoli kombu beet greens fava bean potato
-             quandong celery. Bunya nuts black-eyed pea prairie turnip leek
-             lentil turnip greens parsnip. Sea lettuce lettuce water chestnut
-             eggplant winter purslane fennel azuki bean earthnut pea sierra
-             leone bologi leek soko chicory celtuce parsley jícama salsify.
+             Maecenas euismod condimentum enim, non rhoncus neque tempor ut.
+             Vestibulum eget nisi ornare, vehicula felis id, aliquet nibh. Donec
+             in mauris in diam aliquam commodo nec ac nunc. Aliquam nisl risus,
+             eleifend a iaculis id, tempor vel tortor. Nam ullamcorper dictum
+             tellus id rhoncus. Sed quis nulla in mi aliquam euismod nec eu
+             metus.
            </p>
 
            <p>
-             Celery quandong swiss chard chicory earthnut pea potato. Salsify
-             taro catsear garlic gram celery bitterleaf wattle seed collard
-             greens nori. Grape wattle seed kombu beetroot horseradish carrot
-             squash brussels sprout chard.
+             Nam orci nulla, convallis aliquet ante ut, lobortis hendrerit
+             risus. Nulla malesuada porta turpis in consequat. Duis suscipit
+             nulla a mauris pellentesque vehicula. Fusce euismod, mi malesuada
+             venenatis vestibulum, metus erat faucibus dui, vel rutrum turpis
+             nibh ut diam.
            </p>
 
            <p>
-             Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi
-             welsh onion daikon amaranth tatsoi tomatillo melon azuki bean
-             garlic.
+             Nam ornare et mauris eget tincidunt. Nam ornare et mauris eget
+             tincidunt. Donec et ipsum a orci elementum commodo et ut ex.
+             Vivamus porttitor sem in purus maximus, eu imperdiet felis
+             lobortis.
            </p>
 
            <p>
-             Turnip greens yarrow ricebean rutabaga endive cauliflower sea
-             lettuce kohlrabi amaranth water spinach avocado daikon napa
-             asparagus winter purslane kale. Celery potato scallion desert
-             raisin horseradish spinach carrot soko. Lotus root water spinach
-             fennel kombu maize bamboo shoot green bean swiss chard seakale
-             pumpkin onion chickpea gram corn pea. Brussels sprout coriander
-             water chestnut gourd swiss chard wakame kohlrabi beetroot carrot
-             watercress. Corn amaranth salsify bunya nuts nori azuki bean
-             chickweed potato bell pepper artichoke.
+             Pellentesque ullamcorper dolor ut ullamcorper convallis. Duis a
+             orci aliquet, pretium neque ut, auctor purus. Proin viverra
+             tincidunt nisi id fringilla. Maecenas interdum risus in ultricies
+             finibus. Vestibulum volutpat tincidunt libero, a feugiat leo
+             suscipit in. Sed eget lacus rutrum, semper ligula a, vestibulum
+             ipsum. Mauris in odio fringilla, accumsan eros blandit, mattis
+             odio. Ut viverra mollis augue, vitae ullamcorper velit hendrerit
+             eu. Curabitur mi lacus, condimentum in auctor sed, ornare sed leo.
            </p>
          </article>
 
@@ -118,7 +119,7 @@ Wir werden Sie dazu bringen, diese Herausforderung in Ihrer lokalen Entwicklungs
    </html>
    ```
 
-3. Erstellen Sie in diesem Ordner eine `style.css` Datei und fügen Sie den folgenden Inhalt ein:
+3. Erstellen Sie in dem Ordner eine Datei namens `style.css` und fügen Sie den folgenden Inhalt ein:
 
    ```css
    * {
@@ -126,8 +127,8 @@ Wir werden Sie dazu bringen, diese Herausforderung in Ihrer lokalen Entwicklungs
    }
 
    body {
-     background-color: #fff;
-     color: #333;
+     background-color: white;
+     color: #333333;
      margin: 0;
      font: 1.2em / 1.6 sans-serif;
    }
@@ -151,7 +152,7 @@ Wir werden Sie dazu bringen, diese Herausforderung in Ihrer lokalen Entwicklungs
    }
 
    nav {
-     background-color: #000;
+     background-color: black;
      padding: 0.5em;
    }
 
@@ -162,7 +163,7 @@ Wir werden Sie dazu bringen, diese Herausforderung in Ihrer lokalen Entwicklungs
    }
 
    nav a {
-     color: #fff;
+     color: white;
      text-decoration: none;
      padding: 0.5em 1em;
    }
@@ -178,39 +179,39 @@ Wir werden Sie dazu bringen, diese Herausforderung in Ihrer lokalen Entwicklungs
    }
    ```
 
-4. Erstellen Sie in diesem Ordner einen Unterordner namens `images` und speichern Sie die folgenden Bilddateien darin:
+4. Erstellen Sie in dem Ordner einen Unterordner namens `images` und speichern Sie die folgenden Bilddateien darin:
    - [`square1.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square1.jpg)
    - [`square2.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square2.jpg)
    - [`square3.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square3.jpg)
    - [`square4.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square4.jpg)
    - [`square5.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square5.jpg)
    - [`square6.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/balloons/square6.jpg)
-5. Speichern Sie Ihre Dateien und laden Sie `index.html` in einem Browser, bereit für Tests. Der Ausgangspunkt der Seite hat eine grundlegende Formatierung, aber kein Layout und sollte ungefähr so aussehen:
+5. Speichern Sie Ihre Dateien und laden Sie `index.html` in einem Browser, um zu testen. Der Ausgangspunkt der Seite hat eine grundlegende Gestaltung, jedoch kein Layout und sollte in etwa so aussehen:
 
-   ![Ausgangspunkt der Layout-Aufgabe. Die Elemente sind nicht ordentlich angeordnet. Es gibt einen Website-Titel, über einer schwarzen Navigationsleiste mit 5 linksbündigen Links, gefolgt vom Blog-Titel und Blog-Inhalt. Zwischen dem Blog-Titel und dem Blog-Inhalt gibt es ein Foto, das linksbündig ist.](layout-task-start.png)
+   ![Ausgangspunkt der Layout-Aufgabe. Die Elemente sind nicht ordentlich angeordnet. Es gibt einen Website-Titel, über einer schwarzen Navigationsleiste mit 5 links ausgerichteten Links, gefolgt vom Blogtitel und dem Bloginhalt. Zwischen dem Blogtitel und dem Bloginhalt befindet sich ein Foto, das linksbündig ist.](layout-task-start.png)
 
-## Projektvorgaben
+## Projektbrief
 
-Sie haben einige rohe HTML-, grundlegende CSS- und Bilder erhalten - jetzt müssen Sie ein Layout für das Design erstellen.
+Sie haben rohes HTML, grundlegendes CSS und Bilder erhalten — nun müssen Sie ein Layout für das Design erstellen.
 
 Die Aufgaben, die Sie erreichen müssen, sind:
 
-1. Zeigen Sie die Navigationselemente in einer Reihe an, mit einem gleichen Abstand zwischen den Elementen und einem kleineren Abstand am Anfang und Ende der Reihe.
-2. Gestalten Sie die Navigationsleiste so, dass sie normal mit dem Inhalt scrollt, aber dann an der oberen Seite des Ansichtsfensters fixiert wird, wenn sie dieses erreicht.
-3. Lassen Sie das "Feature"-Bild im Artikel so erscheinen, dass der Text rechts und unten darum herumfließt, mit einem geeigneten Abstand zwischen dem Bild und dem Text.
-4. Stellen Sie die {{htmlelement("article")}} und {{htmlelement("aside")}} Elemente als ein zweispaltiges Layout dar, wobei erstere dreimal so breit sein soll wie letztere. Die Spalten sollen flexibel sein, damit sie schmaler werden, wenn das Browserfenster schmaler wird. Fügen Sie einen Abstand von 20 Pixeln zwischen den beiden Spalten ein.
-5. Die Fotografien sollten als ein zweispaltiges Grid mit gleich großen Spalten und einem Abstand von 5 Pixeln zwischen den Bildern angezeigt werden.
+1. Die Navigationspunkte in einer Reihe anzeigen, mit gleichem Abstand zwischen den Punkten und einem kleineren Abstand an beiden Enden der Reihe.
+2. Die Navigationsleiste so gestalten, dass sie sich bei normalen Scrollen mit dem Inhalt bewegt, aber dann am oberen Rand des Ansichtsfensters kleben bleibt, wenn sie diesen erreicht.
+3. Das "Feature"-Bild innerhalb des Artikels soll von Text rechts und unten umgeben sein, mit einem geeigneten Abstand zwischen dem Bild und dem Text.
+4. Die `article` und `aside` Elemente als ein zweispaltiges Layout darstellen, wobei das erstere dreimal so breit wie das letztere ist. Die Spalten sollten eine flexible Größe haben, sodass sie schmaler werden, wenn das Browserfenster schmaler wird. Ein 20-Pixel-Abstand sollte zwischen den beiden Spalten vorhanden sein.
+5. Die Fotos sollten als zweispaltiges Raster mit gleich großen Spalten und einem 5-Pixel-Abstand zwischen den Bildern angezeigt werden.
 
 ## Hinweise und Tipps
 
-- Sie müssen das HTML nicht bearbeiten, um diese Herausforderung zu meistern.
-- Es gibt mehrere Möglichkeiten, einige der Aufgaben in den Projektvorgaben zu erreichen, und oft gibt es keine einzige richtige oder falsche Möglichkeit. Probieren Sie einige verschiedene Ansätze aus und sehen Sie, was am besten funktioniert. Machen Sie Notizen, während Sie experimentieren.
+- Sie müssen das HTML nicht bearbeiten, um diese Herausforderung abzuschließen.
+- Es gibt einige Möglichkeiten, um einige der Aufgaben im Projektbrief zu erreichen, und es gibt oft nicht nur einen richtigen oder falschen Weg, Dinge zu tun. Probieren Sie einige verschiedene Ansätze aus und sehen Sie, was am besten funktioniert. Machen Sie sich Notizen, während Sie experimentieren.
 
 ## Beispiel
 
-Der folgende Screenshot zeigt ein Beispiel dafür, wie das fertige Layout für das Design aussehen sollte:
+Der folgende Screenshot zeigt ein Beispiel, wie das fertige Layout für das Design aussehen sollte:
 
-![Fertiges Layout-Aufgaben-Website. Die Elemente sind ordentlich angeordnet. Es gibt einen Website-Titel, über einer schwarzen Navigationsleiste mit 5 gleichmäßig verteilten Links. Unter der Navigationsleiste befinden sich zwei Abschnitte. Auf der linken Seite befindet sich ein Blog-Beitrag: Ein Blog-Titel gefolgt vom Beitrag-Inhalt. Der Blog-Inhalt fließt um ein Foto herum, das linksbündig ist. Auf der rechten Seite gibt es einen 'Fotografie'-Titel über einer Gruppe von Bildern, die in einem zweispaltigen Grid angeordnet sind.](layout-task-complete.png)
+![Fertiges Layout der Webseiten-Aufgabe. Die Elemente sind ordentlich angeordnet. Es gibt einen Website-Titel, über einer schwarzen Navigationsleiste, die 5 gleichmäßig verteilte Links enthält. Unter der Navigationsleiste gibt es zwei Abschnitte. Auf der linken Seite gibt es einen Blogbeitrag: Ein Blogtitel, gefolgt vom Inhalt des Beitrags. Der Bloginhalt umfließt ein Foto, das linksbündig ist. Auf der rechten Seite gibt es einen 'Fotografie'-Titel über einer Gruppe von Bildern, die in einem zweispaltigen Raster layoutiert sind.](layout-task-complete.png)
 
 <details>
 <summary>Klicken Sie hier, um eine mögliche Lösung anzuzeigen</summary>
@@ -223,8 +224,8 @@ Das fertige CSS sieht so aus:
 }
 
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: white;
+  color: #333333;
   margin: 0;
   font: 1.2em / 1.6 sans-serif;
 }
@@ -252,7 +253,7 @@ img {
 }
 
 nav {
-  background-color: #000;
+  background-color: black;
   padding: 0.5em;
   /* 2. Make navigation bar stick to top of viewport */
   top: 0;
@@ -270,7 +271,7 @@ nav ul {
 }
 
 nav a {
-  color: #fff;
+  color: white;
   text-decoration: none;
   padding: 0.5em 1em;
 }
