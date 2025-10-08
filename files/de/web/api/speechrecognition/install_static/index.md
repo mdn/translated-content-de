@@ -1,18 +1,18 @@
 ---
-title: "SpeechRecognition: install() statische Methode"
+title: "SpeechRecognition: `install()` statische Methode"
 short-title: install()
 slug: Web/API/SpeechRecognition/install_static
 l10n:
-  sourceCommit: 3cbd2b2b2eb0be9425949c20ca5d398645f7c0e9
+  sourceCommit: fe2f6d4bc116bb285b4d697c5da988bcf7a7dee8
 ---
 
-{{APIRef("Web Speech API")}}
+{{APIRef("Web Speech API")}}{{SeeCompatTable}}
 
-Die **`install()`** statische Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) installiert die erforderlichen Sprachpakete für die [geräteseitige Spracherkennung](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#on-device_speech_recognition) in den angegebenen Sprachen.
+Die **`install()`** statische Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) installiert die erforderlichen Sprachpakete für die [sprachgesteuerte Erkennung auf dem Gerät](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API#on-device_speech_recognition) in den angegebenen Sprachen.
 
-Um zu überprüfen, ob die Sprachpakete bereits verfügbar sind, verwenden Sie die [`SpeechRecognition.available()`](/de/docs/Web/API/SpeechRecognition/available_static) Methode.
+Um zu prüfen, ob die Sprachpakete bereits verfügbar sind, verwenden Sie die Methode [`SpeechRecognition.available()`](/de/docs/Web/API/SpeechRecognition/available_static).
 
-Der Zugriff auf die `install()` Methode wird durch die {{httpheader("Permissions-Policy/on-device-speech-recognition", "on-device-speech-recognition")}} {{httpheader("Permissions-Policy")}} Direktive kontrolliert. Insbesondere dort, wo eine definierte Richtlinie die Nutzung blockiert, wird jeder Versuch, die Methode aufzurufen, fehlschlagen.
+Der Zugriff auf die `install()` Methode wird durch die {{httpheader("Permissions-Policy/on-device-speech-recognition", "on-device-speech-recognition")}} {{httpheader("Permissions-Policy")}} Direktive gesteuert. Insbesondere, wenn eine definierte Richtlinie die Nutzung blockiert, schlagen alle Versuche, die Methode aufzurufen, fehl.
 
 ## Syntax
 
@@ -25,11 +25,11 @@ install(options)
 - `options`
   - : Ein Objekt, das Optionen für die Installation angibt. Mögliche Eigenschaften sind:
     - `langs`
-      - : Ein Array von einem oder mehreren Zeichenfolgen, die {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tags")}} enthalten, von denen jedes eine Sprache repräsentiert, für die Sie das Sprachpaket installieren möchten.
+      - : Ein Array mit einem oder mehreren Zeichenfolgen, die {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tags")}} enthalten, wobei jede Zeichenfolge eine Sprache darstellt, für die Sie das Sprachpaket installieren möchten.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der mit einem booleschen Wert aufgelöst wird, der angibt, ob das Sprachpaket erfolgreich installiert wurde. Die Bedingungen, die zu jedem Rückgabewert führen, sind wie folgt:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem boolean-Wert auflöst, der angibt, ob das Sprachpaket erfolgreich installiert wurde. Die Bedingungen, die zu jedem Rückgabewert führen, sind wie folgt:
 
 - `true`
   - : Alle Installationsversuche für die angeforderten Sprachen waren erfolgreich oder die Sprachen waren bereits installiert.
@@ -41,20 +41,20 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der m
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Das aktuelle Dokument ist nicht vollständig aktiv.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Eine oder mehrere der in `langs` angegebenen Zeichenfolgen sind keine gültigen BCP 47 Sprach-Tags.
+  - : Eine oder mehrere der in `langs` angegebenen Zeichenfolgen sind kein gültiges BCP 47 Sprach-Tag.
 
 ## Beispiele
 
-### Überprüfung der geräteseitigen Verfügbarkeit und Installation von Sprachpaketen
+### Überprüfung der Verfügbarkeit auf dem Gerät und Installation von Sprachpaketen
 
-Damit die geräteseitige Spracherkennung funktioniert, muss der Browser ein Sprachpaket für die Sprache installiert haben, die Sie erkennen möchten. Wenn Sie die `start()` Methode ausführen, nachdem Sie `processLocally = true` angegeben haben, aber das richtige Sprachpaket nicht installiert ist, schlägt der Funktionsaufruf mit einem [`language-not-supported`](/de/docs/Web/API/SpeechRecognitionErrorEvent/error#language-not-supported) Fehler fehl.
+Damit die sprachgesteuerte Erkennung auf dem Gerät funktioniert, muss der Browser ein Sprachpaket für die zu erkennende Sprache installiert haben. Wenn Sie die `start()` Methode nach Festlegung von `processLocally = true` ausführen, aber das richtige Sprachpaket nicht installiert ist, schlägt der Funktionsaufruf mit einem Fehler [`language-not-supported`](/de/docs/Web/API/SpeechRecognitionErrorEvent/error#language-not-supported) fehl.
 
 Um das richtige Sprachpaket zu installieren, befolgen Sie diese zwei Schritte:
 
-1. Überprüfen Sie, ob das Sprachpaket auf dem Computer des Nutzers verfügbar ist, mit der [`SpeechRecognition.available()`](/de/docs/Web/API/SpeechRecognition/available_static) Methode.
+1. Überprüfen Sie mit der Methode [`SpeechRecognition.available()`](/de/docs/Web/API/SpeechRecognition/available_static), ob das Sprachpaket auf dem Computer des Benutzers verfügbar ist.
 2. Installieren Sie das Sprachpaket, wenn es nicht verfügbar ist, mit der `install()` Methode.
 
-Diese Schritte werden mit dem folgenden Code-Snippet durchgeführt:
+Diese Schritte werden mit folgendem Code-Snippet behandelt:
 
 ```js
 startBtn.addEventListener("click", () => {
@@ -84,15 +84,15 @@ startBtn.addEventListener("click", () => {
 });
 ```
 
-Zuerst führen wir die `available()` Methode aus und geben eine Sprache an (`langs: ["en-US"]`), für die die Verfügbarkeit überprüft werden soll, und `processLocally: true`. Wir testen drei verschiedene Möglichkeiten des Rückgabewertes:
+Zunächst führen wir die `available()` Methode aus, wobei wir eine Sprache (`langs: ["en-US"]`) angeben, um die Verfügbarkeit zu prüfen, und `processLocally: true`. Wir testen auf drei verschiedene Möglichkeiten des Rückgabewerts:
 
-- Wenn der resultierende Wert `unavailable` ist, bedeutet dies, dass kein geeignetes Sprachpaket zum Herunterladen verfügbar ist. Wir geben auch eine entsprechende Nachricht an die Ausgabe aus.
+- Wenn der resultierende Wert `unavailable` ist, bedeutet dies, dass kein geeignetes Sprachpaket zum Herunterladen verfügbar ist. Wir drucken auch eine entsprechende Nachricht in die Ausgabe.
 - Wenn der resultierende Wert `available` ist, bedeutet dies, dass das Sprachpaket lokal verfügbar ist, sodass die Erkennung beginnen kann. In diesem Fall führen wir `start()` aus und loggen eine Nachricht in die Konsole, wenn die App bereit ist, Sprache zu empfangen.
-- Wenn der Wert etwas anderes ist (`downloadable` oder `downloading`), geben wir eine Diagnose-Nachricht aus, um den Nutzer darüber zu informieren, dass ein Download des Sprachpakets beginnt, und führen dann die `install()` Methode aus, um den Download zu verarbeiten.
+- Wenn der Wert etwas anderes ist (`downloadable` oder `downloading`), drucken wir eine Diagnosemeldung, um den Benutzer darüber zu informieren, dass der Download eines Sprachpakets gestartet wird, und führen dann die `install()` Methode aus, um den Download zu handhaben.
 
-Die `install()` Methode funktioniert ähnlich wie die `available()` Methode, außer dass ihr Optionsobjekt nur das `langs` Array akzeptiert. Wenn sie ausgeführt wird, startet sie den Download des `en-US` Sprachpakets und gibt ein {{jsxref("Promise")}} zurück, das mit einem booleschen Wert aufgelöst wird, der angibt, ob die angegebenen Sprachpakete erfolgreich heruntergeladen und installiert wurden (`true`) oder nicht (`false`).
+Die `install()` Methode funktioniert ähnlich wie die `available()` Methode, außer dass ihr Optionsobjekt nur das `langs` Array enthält. Bei Ausführung beginnt sie mit dem Herunterladen des `en-US` Sprachpakets und gibt ein {{jsxref("Promise")}} zurück, das mit einem boolean auflöst, der angibt, ob die angegebenen Sprachpakete erfolgreich heruntergeladen und installiert wurden (`true`) oder nicht (`false`).
 
-Dieser Code ist aus unserem [geräteseitigen Sprachfarbwechsler](https://github.com/mdn/dom-examples/tree/main/web-speech-api/on-device-speech-color-changer) ([führen Sie die Demo live aus](https://mdn.github.io/dom-examples/web-speech-api/on-device-speech-color-changer/)). Siehe [Verwendung der Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API) für eine vollständige Erklärung.
+Dieser Code stammt aus unserem [sprachgesteuerten Farbwechsler auf dem Gerät](https://github.com/mdn/dom-examples/tree/main/web-speech-api/on-device-speech-color-changer) ([Demo live ausführen](https://mdn.github.io/dom-examples/web-speech-api/on-device-speech-color-changer/)). Sehen Sie sich [Using the Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API) für eine vollständige Erklärung an.
 
 ## Spezifikationen
 
@@ -105,6 +105,6 @@ Dieser Code ist aus unserem [geräteseitigen Sprachfarbwechsler](https://github.
 ## Siehe auch
 
 - [Web Speech API](/de/docs/Web/API/Web_Speech_API)
-- [Verwendung der Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API)
+- [Using the Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API)
 - [`SpeechRecognition.processLocally`](/de/docs/Web/API/SpeechRecognition/processLocally)
 - [`SpeechRecognition.available()`](/de/docs/Web/API/SpeechRecognition/available_static)
