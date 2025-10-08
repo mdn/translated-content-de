@@ -33,17 +33,20 @@ jobs:
           repository: mdn/yari
           path: mdn/yari
           ref: test-de
+          persist-credentials: false
 
       - name: Checkout (content)
         uses: actions/checkout@v5
         with:
           repository: mdn/content
           path: mdn/content
+          persist-credentials: false
 
       - name: Checkout (translated-content-de)
         uses: actions/checkout@v5
         with:
           path: mdn/translated-content-de
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
