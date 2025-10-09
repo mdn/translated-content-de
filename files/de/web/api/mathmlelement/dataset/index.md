@@ -3,14 +3,14 @@ title: "MathMLElement: dataset-Eigenschaft"
 short-title: dataset
 slug: Web/API/MathMLElement/dataset
 l10n:
-  sourceCommit: cd701f10306c8b0b9690532ff808df826818a04f
+  sourceCommit: 5f4ef6f614202ab1b748708d3e1d95e396f6ee63
 ---
 
 {{APIRef("MathML")}}
 
-Die **`dataset`** schreibgeschützte Eigenschaft der [`MathMLElement`](/de/docs/Web/API/MathMLElement)-Schnittstelle bietet Lese- und Schreibzugriff auf [benutzerdefinierte Datenattribute](/de/docs/Web/MathML/Reference/Global_attributes/data-*) (`data-*`) auf Elementen. Sie stellt eine Abbildung von Strings ([`DOMStringMap`](/de/docs/Web/API/DOMStringMap)) bereit, mit einem Eintrag für jedes `data-*`-Attribut.
+Die **`dataset`**-Eigenschaft der [`MathMLElement`](/de/docs/Web/API/MathMLElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die Lese- und Schreibzugriff auf [benutzerdefinierte Datenattribute](/de/docs/Web/MathML/Reference/Global_attributes/data-*) (`data-*`) auf Elementen bietet. Sie stellt eine Zeichenfolgenzuordnung ([`DOMStringMap`](/de/docs/Web/API/DOMStringMap)) dar, die einen Eintrag für jedes `data-*`-Attribut enthält.
 
-Die `dataset`-Eigenschaft selbst kann gelesen, aber nicht direkt beschrieben werden. Stattdessen müssen alle Schreibvorgänge an die einzelnen Eigenschaften innerhalb des `dataset` erfolgen, die ihrerseits die Datenattribute repräsentieren.
+Die `dataset`-Eigenschaft selbst kann gelesen, aber nicht direkt beschrieben werden. Stattdessen müssen alle Schreibvorgänge an die einzelnen Eigenschaften innerhalb des `dataset` erfolgen, die wiederum die Datenattribute darstellen.
 
 ## Wert
 
@@ -23,7 +23,7 @@ Eine [`DOMStringMap`](/de/docs/Web/API/DOMStringMap).
   <math>
     <msup id="equation" data-value="-1" data-equation="euler">
       <mi>e</mi>
-      <mi>iπ</mi>
+      <mrow><mi>i</mi> <mi>π</mi></mrow>
     </msup>
     <mo>+</mo>
     <mn>1</mn>

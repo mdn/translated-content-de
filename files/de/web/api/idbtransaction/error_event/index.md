@@ -1,21 +1,21 @@
 ---
-title: "IDBTransaction: error event"
+title: "IDBTransaction: error-Ereignis"
 short-title: error
 slug: Web/API/IDBTransaction/error_event
 l10n:
-  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
+  sourceCommit: 144fc1770b3eaa69bb5be691f505565b6dd9a68e
 ---
 
 {{ APIRef("IndexedDB") }}
 
-Das `error`-Ereignis wird bei `IDBTransaction` ausgelöst, wenn eine Anforderung einen Fehler zurückgibt und das Ereignis zum Transaktionsobjekt hochblubbert.
+Das `error`-Ereignis wird auf `IDBTransaction` ausgelöst, wenn eine Anfrage einen Fehler zurückgibt und das Ereignis bis zum Transaktionsobjekt hinaufblubbert.
 
 > [!NOTE]
-> Um alle Möglichkeiten zu erfassen, wie eine Transaktion fehlschlagen kann, sollten Sie stattdessen in Erwägung ziehen, das [`abort`-Ereignis](/de/docs/Web/API/IDBTransaction/abort_event) zu überwachen.
+> Um alle Möglichkeiten zu behandeln, wie eine Transaktion fehlschlagen kann, sollten Sie stattdessen das [`abort`](/de/docs/Web/API/IDBTransaction/abort_event)-Ereignis beobachten.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js-nolint
 addEventListener("error", (event) => { })
@@ -29,13 +29,13 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Bubbling
 
-Dieses Ereignis blubbert bis zu [`IDBDatabase`](/de/docs/Web/API/IDBDatabase). Die `event.target`-Eigenschaft bezieht sich auf das [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Objekt, das hochblubbert.
+Dieses Ereignis blubbert bis zu [`IDBDatabase`](/de/docs/Web/API/IDBDatabase) hinauf. Die Eigenschaft `event.target` verweist auf das [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Objekt, das nach oben blubbert.
 
-Für weitere Informationen siehe [Event Bubbling](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling).
+Für mehr Informationen siehe [Event bubbling](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling).
 
 ## Beispiele
 
-In diesem Beispiel wird eine Datenbank geöffnet und es wird versucht, einen Datensatz hinzuzufügen, wobei auf das `error`-Ereignis für die `add()`-Operation gehört wird (dies tritt auf, wenn zum Beispiel ein Datensatz mit dem angegebenen `taskTitle` bereits existiert):
+Dieses Beispiel öffnet eine Datenbank und versucht, einen Datensatz hinzuzufügen, wobei das `error`-Ereignis für die `add()`-Operation beobachtet wird (dies tritt z.B. ein, wenn bereits ein Datensatz mit dem gegebenen `taskTitle` existiert):
 
 ```js
 // Open the database
@@ -81,7 +81,7 @@ dBOpenRequest.onsuccess = (event) => {
 };
 ```
 
-Dasselbe Beispiel unter Verwendung der `onerror`-Eigenschaft anstelle von `addEventListener()`:
+Dasselbe Beispiel mit der `onerror`-Eigenschaft anstelle von `addEventListener()`:
 
 ```js
 // Open the database
@@ -109,10 +109,6 @@ dBOpenRequest.onsuccess = (event) => {
   // open a read/write db transaction, ready for adding the data
   const transaction = db.transaction(["toDoList"], "readwrite");
 
-  transaction.onerror = () => {
-    console.log(`Error adding new item: ${newItem.taskTitle}`);
-  };
-
   const objectStore = transaction.objectStore("toDoList");
   const newItem = {
     taskTitle: "my task",
@@ -121,6 +117,10 @@ dBOpenRequest.onsuccess = (event) => {
     day: 10,
     month: "January",
     year: 2020,
+  };
+
+  transaction.onerror = () => {
+    console.log(`Error adding new item: ${newItem.taskTitle}`);
   };
 
   const objectStoreRequest = objectStore.add(newItem);
@@ -137,4 +137,4 @@ dBOpenRequest.onsuccess = (event) => {
 
 ## Siehe auch
 
-- [Using IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
