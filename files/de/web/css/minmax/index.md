@@ -2,10 +2,10 @@
 title: minmax()
 slug: Web/CSS/minmax
 l10n:
-  sourceCommit: ef337c3cd46f1e8f50a1a2903fad7f4b34f91919
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`minmax()`** [CSS-Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert einen Größenbereich, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Sie wird mit [CSS-Grids](/de/docs/Web/CSS/CSS_grid_layout) verwendet.
+Die **`minmax()`** [CSS-Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) definiert einen Größenbereich, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Sie wird mit [CSS-Grids](/de/docs/Web/CSS/CSS_grid_layout) verwendet.
 
 {{InteractiveExample("CSS Demo: minmax()")}}
 
@@ -79,35 +79,35 @@ minmax(max-content, 200px)
 minmax(auto, 300px)
 ```
 
-Eine Funktion, die zwei Parameter, _min_ und _max_, annimmt.
+Eine Funktion mit zwei Parametern, _min_ und _max_.
 
-Jeder Parameter kann eine `<length>`, ein `<percentage>`, ein `<flex>`-Wert oder einer der Schlüsselwortwerte `max-content`, `min-content` oder `auto` sein.
+Jeder Parameter kann eine \<length>, ein \<percentage>, ein \<flex>-Wert oder einer der Schlüsselwortwerte `max-content`, `min-content` oder `auto` sein.
 
-Wenn _max_ < _min_ ist, wird _max_ ignoriert und `minmax(min,max)` wird als _min_ behandelt. Als Maximum setzt ein {{cssxref("flex_value","&lt;flex&gt;")}}-Wert den Flex-Faktor eines Grid-Tracks; es ist als Minimum ungültig.
+Wenn _max_ < _min_ ist, wird _max_ ignoriert und `minmax(min,max)` wird als _min_ behandelt. Als Maximum setzt ein {{cssxref("flex_value", "&lt;flex&gt;")}}-Wert den Flex-Faktor eines Grid-Tracks; es ist als Minimum ungültig.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Eine nicht negative Länge.
+  - : Eine nicht-negative Länge.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ein nicht negativer Prozentsatz relativ zur Inline-Größe des Grid-Containers in Spalten-Grid-Tracks und zur Blockgröße des Grid-Containers in Zeilen-Grid-Tracks. Wenn die Größe des Grid-Containers von der Größe seiner Tracks abhängt, muss das `<percentage>` als `auto` behandelt werden. Der {{Glossary("user_agent", "User-Agent")}} kann die intrinsischen Größenbeiträge des Tracks zur Größe des Grid-Containers anpassen und die endgültige Größe des Tracks um den minimal erforderlichen Betrag erhöhen, um den Prozentsatz zu berücksichtigen.
+  - : Ein nicht-negativer Prozentsatz relativ zur Inlinegröße des Grid-Containers in Spalten-Grid-Tracks und der Blockgröße des Grid-Containers in Zeilen-Grid-Tracks. Wenn die Größe des Grid-Containers von der Größe seiner Tracks abhängt, muss das `<percentage>` als `auto` behandelt werden. Der {{Glossary("user_agent", "User-Agent")}} kann die intrinsischen Größenbeiträge des Tracks zur Größe des Grid-Containers anpassen und die endgültige Größe des Tracks um den minimalen Betrag erhöhen, der zur Einhaltung des Prozentsatzes erforderlich wäre.
 - {{cssxref("&lt;flex&gt;")}}
-  - : Eine nicht negative Dimension mit der Einheit `fr`, die den Flex-Faktor des Tracks angibt. Jeder `<flex>`-Track nimmt einen Teil des verbleibenden Raums proportional zu seinem Flex-Faktor ein.
+  - : Eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor des Tracks angibt. Jeder `<flex>`-größenabhängige Track nimmt einen Anteil des verbleibenden Raums proportional zu seinem Flex-Faktor ein.
 - {{cssxref("max-content")}}
-  - : Repräsentiert den größten max-content-Beitrag der Grid-Elemente, die den Grid-Track belegen.
+  - : Repräsentiert den größten Max-Content-Beitrag der Grid-Elemente, die den Grid-Track besetzen.
 - {{cssxref("min-content")}}
-  - : Repräsentiert den größten min-content-Beitrag der Grid-Elemente, die den Grid-Track belegen.
+  - : Repräsentiert den größten Min-Content-Beitrag der Grid-Elemente, die den Grid-Track besetzen.
 - `auto`
-  - : Als `min` repräsentiert es die größte Mindestgröße (wie durch {{cssxref("min-width")}}/{{cssxref("min-height")}} angegeben) der Grid-Elemente, die den Grid-Track belegen.
-    Als `max` ist es identisch mit `max-content`. Im Gegensatz zu `max-content` erlaubt es jedoch die Erweiterung des Tracks durch die Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} wie `normal` und `stretch`.
+  - : Als `min` repräsentiert es die größte Mindestgröße (wie angegeben durch {{cssxref("min-width")}}/{{cssxref("min-height")}}) der den Grid-Track besetzenden Grid-Elemente.
+    Als `max` ist es identisch mit `max-content`. Im Gegensatz zu `max-content` ermöglicht es jedoch die Erweiterung des Tracks durch die Werte der Properties {{cssxref("align-content")}} und {{cssxref("justify-content")}} wie `normal` und `stretch`.
 
 ## Formale Syntax
 
 {{CSSSyntax}}
 
-### CSS-Eigenschaften
+### CSS properties
 
-Die `minmax()`-Funktion kann verwendet werden innerhalb von:
+Die `minmax()`-Funktion kann verwendet werden innerhalb:
 
 - {{CSSxRef("grid-template-columns")}}
 - {{CSSxRef("grid-template-rows")}}
@@ -160,6 +160,6 @@ Die `minmax()`-Funktion kann verwendet werden innerhalb von:
 
 ## Siehe auch
 
-- [Grundkonzepte des Grid-Layouts: Track-Größenänderung mit minmax()](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#track_sizing_and_minmax)
+- [Grundkonzepte des Grid-Layouts: Track-Sizing mit minmax()](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#track_sizing_and_minmax)
 - [CSS-Grids, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes)
-- Video: [Introducing minmax()](https://gridbyexample.com/video/series-minmax/)
+- Video: [Einführung in minmax()](https://gridbyexample.com/video/series-minmax/)

@@ -2,12 +2,12 @@
 title: <position-area>
 slug: Web/CSS/position-area_value
 l10n:
-  sourceCommit: 766cd31774c37ec58b8c33b5b8f0a8a33a469eb6
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Der **`<position-area>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) definiert die Zelle oder die überspannten Zellen eines **position-area grids**, eines 3x3 Rasters, dessen zentrale Zelle ein Ankerelement ist.
+Der **`<position-area>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) definiert die Zelle oder die gespannten Zellen eines **position-area grids**, eines 3x3-Rasters, dessen zentrale Zelle ein Ankerelement ist.
 
-Die `<position-area>` Schlüsselwortwerte können als Wert der {{cssxref("position-area")}} Eigenschaft festgelegt werden, um ein ankerpositioniertes Element an einem bestimmten Ort relativ zu seinem zugehörigen Ankerelement zu platzieren.
+Die `<position-area>` Schlüsselwortwerte können als Wert der {{cssxref("position-area")}}-Eigenschaft gesetzt werden, um ein ankerpositioniertes Element relativ zu seinem zugehörigen Ankerelement an einer bestimmten Stelle zu platzieren.
 
 ## Syntax
 
@@ -33,18 +33,18 @@ Die `<position-area>` Schlüsselwortwerte können als Wert der {{cssxref("positi
 
 ## Beschreibung
 
-Positionsbereiche basieren auf dem Konzept eines **position-area grids**, einem 3x3 Kachelraster bestehend aus vier Rasterlinien, zwei auf jeder Achse, wobei ein Ankerelement die zentrale Kachel ist:
+Positionsbereiche basieren auf dem Konzept eines **position-area grids**, eines 3x3-Rasters von Kacheln, das aus vier Gitterlinien besteht, zwei auf jeder Achse, wobei ein Ankerelement die zentrale Kachel ist:
 
 ![Das position-area grid, wie unten beschrieben](position-area.png)
 
-Wenn sie als Wert der `position-area` Eigenschaft eines positionierten Elements verwendet werden, werden die Abmessungen der zentralen Kachel durch den [enthältenden Block](/de/docs/Web/CSS/CSS_display/Containing_block) des Standardelements des Ankers definiert. Die Abmessungen des äußeren Rändern des Rasters werden durch den enthältenden Block des positionierten Elements definiert. Logische Schlüsselbegriffe sind in der Regel basierend auf dem Schreibmodus und der Richtung des enthältenden Blocks, außer für die `self-*` Schlüsselbegriffe, die vom Schreibmodus des ankerpositionierten Elements berechnet werden.
+Wenn sie als Wert der `position-area`-Eigenschaft eines positionierten Elements verwendet werden, werden die Dimensionen der mittleren Kachel durch den [enthaltenden Block](/de/docs/Web/CSS/CSS_display/Containing_block) des Standardankerelements des Elements definiert. Die Dimensionen der Außenkante des Gitters werden durch den enthaltenden Block des positionierten Elements bestimmt. Logische Schlüsselwörter basieren im Allgemeinen auf dem Schreibmodus und der Ausrichtung des enthaltenden Blocks, mit Ausnahme der `self-*` Schlüsselwörter, die aus dem Schreibmodus des ankerpositionierten Elements berechnet werden.
 
-Die Kacheln des Rasters sind in Zeilen und Spalten unterteilt:
+Die Gitterkacheln sind in Zeilen und Spalten unterteilt:
 
-- Die drei Zeilen werden durch die physischen Werte `top`, `center` und `bottom` repräsentiert. Sie haben auch logische Äquivalente wie `block-start`, `center` und `block-end` und Koordinatenäquivalente — `y-start`, `center` und `y-end`.
-- Die drei Spalten werden durch die physischen Werte `left`, `center` und `right` repräsentiert. Sie haben auch logische Äquivalente wie `inline-start`, `center` und `inline-end` und Koordinatenäquivalente — `x-start`, `center` und `x-end`.
+- Die drei Zeilen werden durch die physischen Werte `top`, `center` und `bottom` dargestellt. Sie haben auch logische Entsprechungen wie `block-start`, `center` und `block-end` und Koordinatenäquivalente — `y-start`, `center` und `y-end`.
+- Die drei Spalten werden durch die physischen Werte `left`, `center` und `right` dargestellt. Sie haben auch logische Entsprechungen wie `inline-start`, `center` und `inline-end` und Koordinatenäquivalente — `x-start`, `center` und `x-end`.
 
-`<position-area>` Werte enthalten ein oder zwei Schlüsselwörter, die einen bestimmten Bereich des position-area grids definieren. Die Festlegung eines `position-area` Wertes auf einem positionierten Element platziert dessen enthältenden Block im angegebenen Rasterbereich:
+`<position-area>` Werte enthalten ein oder zwei Schlüsselwörter, die einen bestimmten Bereich des position-area grids definieren. Das Setzen eines `position-area` Wertes auf einem positionierten Element platziert dessen enthaltenden Block im angegebenen Gridbereich:
 
 ```css
 /* Examples: Two keywords to place the element in a single specific tile */
@@ -78,252 +78,299 @@ position-area: start; /* equiv: start start */
 position-area: end; /* equiv: end end */
 ```
 
-Die verschiedenen Arten von Schlüsselwörtern, die verwendet werden können, sind:
+Die verschiedenen Arten von Schlüsselwörtern, die verwendet werden können, umfassen:
 
-- [Physische Raster-Schlüsselwörter](#physische_raster-schlüsselwörter)
-- [Generische logische Zeilen- und Spaltenschlüsselwörter](#generische_logische_zeilen-_und_spaltenschlüsselwörter)
-- [Explizite inline- und block-logische Schlüsselwörter](#explizite_inline-_und_block-logische_schlüsselwörter)
-- [Koordinaten-Raster-Schlüsselwörter](#koordinaten-raster-schlüsselwörter)
+- [Physische Grid-Schlüsselwörter](#physische_grid_schluesselwoerter)
+- [Generische logische Zeilen- und Spaltenschlüsselwörter](#generische_logische_zeilen_und_spaltenschluesselwoerter)
+- [Explizite Inline- und Blocklogische Schlüsselwörter](#explizite_inline_und_blocklogische_schluesselwoerter)
+- [Koordinaten-Grid-Schlüsselwörter](#koordinaten_grid_schluesselwoerter)
 
 > [!NOTE]
-> Im Allgemeinen können Sie nicht verschiedene Typen in einem Wert mischen, z.B. physische und logische. Dies führt zu ungültigen Werten. Zum Beispiel ist `position-area: bottom inline-end` kein gültiger Wert, da es physische und logische Schlüsselwörter mischt.
+> Im Allgemeinen können Sie nicht verschiedene Arten in einem Wert mischen, z.B. physische und logische. Ein solcher Versuch führt zu ungültigen Werten. Zum Beispiel ist `position-area: bottom inline-end` kein gültiger Wert, da es physische und logische Schlüsselwörter mischt.
 
-## Physische Raster-Schlüsselwörter
+## Physische Grid-Schlüsselwörter
 
-Die physikalischen Raster-Schlüsselwörter geben eine Zelle oder einen Abschnitt des `position-area` Rasters mit physikalischen Werten an. Diese Werte werden nicht von {{cssxref("writing-mode")}} oder {{cssxref("direction")}} Einstellungen beeinflusst.
+Die physischen Grid-Schlüsselwörter spezifizieren eine Zelle oder einen Bereich des `position-area` Grids unter Verwendung physischer Werte. Diese Werte werden nicht durch {{cssxref("writing-mode")}} oder {{cssxref("direction")}} Einstellungen beeinflusst.
 
-Mit physischen Zeilen- und Spalten-Schlüsselwörtern können Sie ein Schlüsselwort aus jeder der beiden Listen unten auswählen, um eine einzelne spezifische Kachel auszuwählen:
+Mit physischen Zeilen- und Spaltenschlüsselwörtern können Sie ein Schlüsselwort aus jeder der beiden untenstehenden Listen auswählen, um eine einzelne spezifische Gitterkachel auszuwählen:
 
-- `top`, `center` oder `bottom`: Die obere, mittlere oder untere Zeile des Rasters.
-- `left`, `center` oder `right`: Die linke, mittlere oder rechte Spalte des Rasters.
+- `top`, `center` oder `bottom`: Die obere, mittlere oder untere Zeile des Gitters.
+- `left`, `center` oder `right`: Die linke, mittlere oder rechte Spalte des Gitters.
 
-Zum Beispiel wählt `top left` die obere linke Kachel, während `center right` die mittlere Kachel der rechten Spalte auswählt.
+Beispielsweise wählt `top left` die obere linke Kachel aus, während `center right` die Mittelkachel der rechten Spalte auswählt.
 
-### Physikalische Spannweiten-Raster-Schlüsselwörter
+### Physische Spannweite-Grid-Schlüsselwörter
 
-Die physikalischen Spannweiten-Schlüsselwörter — in Kombination mit einem physischen Zeilen- oder Spalten-Schlüsselwort — geben eine zweite Kachel des Rasters an, in die der Positionsbereich expandieren soll. Wenn eine solche Kombination als Wert der `position-area` Eigenschaft festgelegt wird, wird ein ausgewähltes Element zunächst in der Mitte der angegebenen Zeile oder Spalte platziert; es erstreckt sich dann in die Richtung, die im Spannweiten-Schlüsselwort spezifiziert ist, und erstreckt sich über zwei Rasterkacheln:
+Die physischen Spannweite-Schlüsselwörter — kombiniert mit einem physischen Zeilen- oder Spaltenschlüsselwort — spezifizieren eine zweite Gitterkachel, in die sich der Positionsbereich ausdehnen soll. Wenn eine solche Kombination als Wert der `position-area` Eigenschaft gesetzt wird, wird das ausgewählte Element zunächst in der Mitte der angegebenen Zeile oder Spalte platziert; es erweitert sich dann in die im Spannweite-Schlüsselwort angegebene Richtung und erstreckt sich über zwei Gitterkacheln:
 
 - `span-left`
-  - : Überspannt die mittlere Spalte und die linke Spalte des Rasters.
+  - : Überspannt die mittlere Spalte und die linke Spalte des Gitters.
 
 - `span-right`
-  - : Überspannt die mittlere Spalte und die rechte Spalte des Rasters.
+  - : Überspannt die mittlere Spalte und die rechte Spalte des Gitters.
 
 - `span-top`
-  - : Überspannt die mittlere Zeile und die obere Zeile des Rasters.
+  - : Überspannt die mittlere Zeile und die obere Zeile des Gitters.
 
 - `span-bottom`
-  - : Überspannt die mittlere Zeile und die untere Zeile des Rasters.
+  - : Überspannt die mittlere Zeile und die untere Zeile des Gitters.
 
 - `span-all`
-  - : Gültig mit allen Schlüsselworttypen, erstreckt sich über die aufgeführte Zelle sowie die angrenzenden Zellen in derselben Zeile oder Spalte. Siehe [`span-all`](#span-all_2) unten.
+  - : Gültig für alle Schlüsselworttypen, überspannt die angegebene Zelle sowie die angrenzenden Zellen in derselben Zeile oder Spalte. Siehe [`span-all`](#span-all_2) unten.
 
-Zum Beispiel, `top span-left` erstreckt sich über die obere-mittlere und obere-linke Kachel des Rasters.
+Zum Beispiel, `top span-left` überspannt die obere-mittlere und obere-linke Gitterzelle.
 
 > [!NOTE]
-> Der Versuch, ein Zeilen- oder Spalten-Schlüsselwort mit einem unangemessenen Spannweiten-Schlüsselwort zu kombinieren, führt zu einem ungültigen Wert. Zum Beispiel, `right span-right` ist ungültig — Sie können nicht die mittlere rechte Kachel auswählen und dann versuchen, weiter nach rechts zu spannen.
+> Der Versuch, ein Zeilen- oder Spaltenschlüsselwort mit einem unpassenden Spannweite-Schlüsselwort zu kombinieren, führt zu einem ungültigen Wert. Zum Beispiel ist `right span-right` ungültig — Sie können nicht die mittel-rechte Gitterkachel auswählen und dann versuchen, weiter nach rechts zu erstrecken.
 
-### Physische Raster-Schlüsselwort-Standards
+### Physische Grid-Schlüsselwort-Standardeinstellungen
 
-Wenn nur ein einzelnes physikalisches Schlüsselwort im `position-area` Wert spezifiziert ist, wird der andere Wert wie folgt impliziert:
+Wenn im `position-area` Wert nur ein einziges physisches Schlüsselwort angegeben ist, wird der andere Wert wie folgt impliziert:
 
-- `left`, `right`, `top`, oder `bottom`
-  - : Der andere Wert wird als [`span-all`](#span-all_2) angenommen, was dazu führt, dass sich das Element über alle drei Kacheln der Spalte oder der Zeile erstreckt, in die es ursprünglich platziert wurde. Zum Beispiel, `left` ist gleichbedeutend mit `left span-all`.
+- `left`, `right`, `top` oder `bottom`
+  - : Der andere Wert standardmäßig zu [`span-all`](#span-all_2), wodurch das Element alle drei Kacheln der Spalte oder Zeile, in der es ursprünglich platziert wurde, überspannt. Zum Beispiel entspricht `left` `left span-all`.
 
-- `center`, `span-left`, `span-right`, `span-top`, oder `span-bottom`
-  - : Der andere Wert wird zu `center` angenommen. Zum Beispiel, `span-left` ist gleichbedeutend mit `center span-left` und `center` ist gleichbedeutend mit `center center`.
+- `center`, `span-left`, `span-right`, `span-top` oder `span-bottom`
+  - : Der andere Wert standardmäßig zu `center`. Zum Beispiel entspricht `span-left` `center span-left` und `center` `center center`.
 
-## Logische Raster-Schlüsselwörter
+## Logische Grid-Schlüsselwörter
 
-Die logischen Raster-Schlüsselwörter spezifizieren einen Bereich des position-area grids unter Verwendung logischer Werte. Mit diesen Werten werden die Position und Richtung durch {{cssxref("writing-mode")}} und {{cssxref("direction")}} Einstellungen entweder auf dem enthältenden Block des Elements oder, im Falle der `self` Schlüsselwörter, auf dem positionierten Element selbst beeinflusst. Es gibt zwei Arten von logischen Schlüsselwörtern; generisch und explizit.
+Die logischen Grid-Schlüsselwörter spezifizieren einen Bereich des position area grids unter Verwendung logischer Werte. Mit diesen Werten werden die Position und Richtung durch die {{cssxref("writing-mode")}} und {{cssxref("direction")}} Einstellungen entweder des enthaltenden Blocks des Elements oder, im Fall der `self` Schlüsselwörter, das positionierte Element selbst beeinflusst. Es gibt zwei Arten von logischen Schlüsselwörtern; generisch und explizit.
 
 ### Generische logische Zeilen- und Spaltenschlüsselwörter
 
-Die generischen logischen Schlüsselwörter verwenden dieselben Begriffe für die Inline- und Block-Richtungen, wobei die Richtung durch die Position des Schlüsselbegriffs innerhalb eines Paares von `<position-area>` Werten bestimmt wird. Der erste Wert definiert die Block-Richtungsposition und der zweite Wert definiert den Inline-Wert. Sie können ein oder zwei Schlüsselbegriffe aus der folgenden Liste angeben. Die Angabe von zwei aus dieser Liste definiert eine einzelne spezifische Rasterkachel. Die Position oder Richtung des Schlüsselwortes ist:
+Die generischen logischen Schlüsselwörter verwenden dieselben Begriffe für Inline- und Blockrichtungen, wobei die Richtung durch die Position des Schlüsselbegriffes innerhalb eines Paares von `<position-area>` Werten bestimmt wird. Der erste Wert definiert die Blockrichtung und der zweite die Inline-Wert. Sie können ein oder zwei Schlüsselbegriffe aus der folgenden Liste angeben. Wenn Sie zwei aus dieser Liste angeben, definieren Sie eine einzelne spezifische Gitterkachel. Die Schlüsselwortposition oder Richtung ist:
 
 - `start`
-  - : Der Beginn der Block- oder Inline-Richtung des Rasters, berechnet vom Schreibmodus des enthältenden Blocks.
+  - : Der Anfang der Block- oder Inline-Richtung des Gitters, berechnet aus dem Schreibmodus des enthaltenden Blocks.
 
 - `end`
-  - : Das Ende der Block- oder Inline-Richtung des Rasters, berechnet vom Schreibmodus des enthältenden Blocks.
+  - : Das Ende der Block- oder Inline-Richtung des Gitters, berechnet aus dem Schreibmodus des enthaltenden Blocks.
 
 - `self-start`
-  - : Der Beginn der Block- oder Inline-Richtung des Rasters, berechnet vom eigenen Schreibmodus des Elements.
+  - : Der Anfang der Block- oder Inline-Richtung des Gitters, berechnet aus dem eigenen Schreibmodus des Elements.
 
 - `self-end`
-  - : Das Ende der Block- oder Inline-Richtung des Rasters, berechnet vom eigenen Schreibmodus des Elements.
+  - : Das Ende der Block- oder Inline-Richtung des Gitters, berechnet aus dem eigenen Schreibmodus des Elements.
 
 - `center`
-  - : Das Zentrum der Blockrichtung des Rasters (wenn dieses Schlüsselwort zuerst angegeben wird) oder der Inline-Richtung (wenn dieses Schlüsselwort als zweites angegeben wird).
+  - : Die Mitte der Blockrichtung des Gitters (dieses Schlüsselwort wird zuerst angegeben) oder Inline-Richtung (dieses Schlüsselwort wird als zweites angegeben).
 
-Zum Beispiel beschreiben `start end` und `self-start self-end` beide die Position am Beginn der Blockrichtung und das Ende der Inlinerichtung. Bei `writing-mode: horizontal-tb` gesetzt, ist dies oben rechts des Ankers, während bei `writing-mode: vertical-rl` dies unten rechts des Ankers ist.
+Beispielsweise beschreiben `start end` und `self-start self-end` beide die Position am Start der Blockrichtung und dem Ende der Inline-Richtung. Mit `writing-mode: horizontal-tb` eingestellt, ist dies die obere rechte Ecke des Ankerelements, während es mit `writing-mode: vertical-rl` die untere rechte Ecke des Ankers ist.
 
-#### Generische logische Spannweiten-Zeilen- und Spaltenschlüsselwörter
+#### Generische logische Spannweite-Row- und -Column-Schlüsselwörter
 
-Die generischen logischen Spannweiten-Schlüsselwörter — kombiniert mit einem logischen Zeilen- oder Spalten-Schlüsselwort — spezifizieren eine zweite Kachel des Rasters, in die sich der Positionsbereich ausdehnen soll. Wenn eine solche Kombination als Wert der `position-area` Eigenschaft festgelegt wird, wird ein ausgewähltes Element zunächst in der Mitte der angegebenen Zeile oder Spalte platziert, und es erstreckt sich dann in die Richtung, die im Spannweiten-Schlüsselwort spezifiziert ist, und erstreckt sich über zwei Rasterkacheln:
+Die generischen logischen Spannweite-Schlüsselwörter — kombiniert mit einem logischen Zeilen- oder Spaltenschlüsselwort — spezifizieren eine zweite Gitterkachel, in die der Positionsbereich sich erweitert. Wenn eine solche Kombination als `position-area` Eigenschaftswert festgelegt wird, wird ein ausgewähltes Element zunächst in der Mitte der angegebenen Zeile oder Spalte platziert und erstreckt sich dann in die im Spannweite-Schlüsselwort angegebene Richtung, unter Verwendung von zwei Gitterkacheln:
 
 - `span-start`
-  - : Überspannt die mittlere Kachel und die Startkachel der Grid-Zeile/-Spalte, wobei sich die Richtung auf den Schreibmodus des enthältenden Blocks des Elements bezieht.
+  - : Überspannt die mittlere Kachel und die Startkachel der Gitterzeile/-spalte, wobei sich die Richtung auf den Schreibmodus des enthaltenden Blocks des Elements bezieht.
 
 - `span-end`
-  - : Überspannt die mittlere Kachel und die Endkachel der Grid-Zeile/-Spalte, wobei sich die Richtung auf den Schreibmodus des enthältenden Blocks des Elements bezieht.
+  - : Überspannt die mittlere Kachel und die Endkachel der Gitterzeile/-spalte, wobei sich die Richtung auf den Schreibmodus des enthaltenden Blocks des Elements bezieht.
 
 - `span-self-start`
-  - : Überspannt die mittlere Kachel und die Startkachel der Grid-Zeile/-Spalte für den eigenen Schreibmodus des positionierten Elements.
+  - : Überspannt die mittlere Kachel und die Startkachel der Gitterzeile/-spalte für den eigenen Schreibmodus des positionierten Elements.
 
 - `span-self-end`
-  - : Überspannt die mittlere Kachel und die Endkachel der Grid-Zeile/-Spalte, berechnet vom eigenen Schreibmodus des Elements.
+  - : Überspannt die mittlere Kachel und die Endkachel der Gitterzeile/-spalte, berechnet aus dem eigenen Schreibmodus des Elements.
 
-Zum Beispiel, `start span-end` und `self-start span-self-end` geben beide einen position-area Bereich an, der in der Mitte der Startblock-Zeile beginnt und sich über die Kacheln in dieser Zeile erstreckt, die sich in den Inline-Center- und End-Spalten befinden. Bei `writing-mode: horizontal-tb` gesetzt, würde dies über die obere Mitte und oben rechts des Ankers verlaufen, während bei `writing-mode: vertical-rl` gesetzt, der Bereich über die rechte Mitte und unten rechts verlaufen würde.
+Beispielsweise spezifizieren `start span-end` und `self-start span-self-end` beide einen Gitterpositionsbereich, der in der Mitte der Startblockzeile beginnt, und erstreckt sich über die Kacheln in dieser Zeile, die sich in den Inline-Zentren und -Endspalten befinden. Mit `writing-mode: horizontal-tb` eingestellt, würde dies über die obere Mitte und das obere rechte des Ankers erstrecken, während es mit `writing-mode: vertical-rl` eingestellt ist, würde es das Element über die rechte Mitte und das untere rechte erstrecken.
 
-### Explizite inline- und block-logische Schlüsselwörter
+### Explizite Inline- und Blocklogische Schlüsselwörter
 
-Die expliziten inline- und block-logischen Zeilen- und Spalten-Schlüsselwörter beziehen sich ausdrücklich auf eine Block- (Zeilen-) oder Inline- (Spalte-) Position. Sie können ein Schlüsselwort für die Blockrichtung und eines für die Inlinerichtung angeben, um eine einzelne spezifische Rasterkachel auszuwählen. Anders als bei generischen logischen Schlüsselwerten spielt die Reihenfolge der Schlüsselwörter keine Rolle. Allerdings führt die Deklaration von zwei Schlüsselwörtern in derselben Achse zu einem ungültigen Wert.
+Die expliziten Inline- und Blocklogischen Zeilen- und Spaltenschlüsselwörter beziehen sich ausdrücklich auf die Position einer Block- (Zeile) oder Inline- (Spalte). Sie können ein Schlüsselwort für die Blockrichtung und eines für die Inlinerichtung angeben, um eine einzelne spezifische Gitterkachel auszuwählen. Im Gegensatz zu generischen logischen Schlüsselwortwerten spielt bei expliziten Schlüsselwörtern die Reihenfolge keine Rolle. Das Deklarieren von zwei Schlüsselwörtern auf derselben Achse invalidiert jedoch den Wert.
 
 - `block-start`
-  - : Der Beginn der Blockrichtung des Rasters, berechnet vom Schreibmodus des enthältenden Blocks.
+  - : Der Anfang der Blockrichtung des Gitters, berechnet aus dem Schreibmodus des enthaltenden Blocks.
 
 - `block-end`
-  - : Das Ende der Blockrichtung des Rasters, berechnet vom Schreibmodus des enthältenden Blocks.
+  - : Das Ende der Blockrichtung des Gitters, berechnet aus dem Schreibmodus des enthaltenden Blocks.
 
 - `inline-start`
-  - : Der Beginn der Inline-Richtung des Rasters, berechnet vom Schreibmodus des enthältenden Blocks.
+  - : Der Anfang der Inlinerichtung des Gitters, berechnet aus dem Schreibmodus des enthaltenden Blocks.
 
 - `inline-end`
-  - : Das Ende der Inline-Richtung des Rasters, berechnet vom Schreibmodus des enthältenden Blocks.
+  - : Das Ende der Inlinerichtung des Gitters, berechnet aus dem Schreibmodus des enthaltenden Blocks.
 
-Zum Beispiel spezifiziert `block-start inline-end` die Kachel am Beginn der Blockrichtung und dem Ende der Inlinerichtung. Mit `writing-mode: horizontal-tb` gesetzt, wäre dies die Kachel oben rechts des Ankers, während mit `writing-mode: vertical-rl` gesetzt, dies die Kachel unten rechts wäre.
+Beispielsweise spezifiziert `block-start inline-end` die Kachel am Anfang der Blockrichtung und dem Ende der Inlinerichtung. Mit `writing-mode: horizontal-tb` eingestellt, wäre dies die Kachel am oberen rechten Rand des Ankers, während dies bei `writing-mode: vertical-rl` die Kachel am unteren rechten wäre.
 
 > [!NOTE]
-> Die Spezifikation definiert `self` Äquivalente dieser Schlüsselwörter — `block-self-start`, `block-self-end`, `inline-self-start`, und `inline-self-end`. Diese werden jedoch derzeit in keinem Browser unterstützt.
+> Die Spezifikation definiert `self` Äquivalente dieser Schlüsselwörter — `block-self-start`, `block-self-end`, `inline-self-start` und `inline-self-end`. Diese werden jedoch derzeit in keinem Browser unterstützt.
 
-#### Explizite inline- und block-logische Spannweiten-Schlüsselwörter
+#### Explizite Inline- und Blocklogische Spannweite-Schlüsselwörter
 
-Die expliziten logischen Spannweiten-Schlüsselwörter — kombiniert mit einem logischen Zeilen- oder Spalten-Schlüsselwort — spezifizieren eine zweite Kachel des Rasters, in die sich der Positionsbereich ausdehnen soll. Wenn eine solche Kombination als Wert der `position-area` Eigenschaft festgelegt wird, wird ein ausgewähltes Element zunächst in der Mitte der angegebenen Zeile oder Spalte, basierend auf dem Schreibmodus des enthältenden Blocks, platziert, und es erstreckt sich dann in die Richtung, die im Spannweiten-Schlüsselwort spezifiziert ist, und erstreckt sich über zwei Rasterkacheln:
+Die expliziten logischen Spannweiten-Schlüsselwörter — kombiniert mit einem logischen Zeilen- oder Spaltenschlüsselwort — spezifizieren eine zweite Gitterkachel, in die sich der Positionsbereich ausdehnen soll. Wenn eine solche Kombination als Wert der `position-area` Eigenschaft gesetzt wird, wird ein ausgewähltes Element zunächst in der Mitte der angegebenen Zeile oder Spalte platziert, basierend auf dem Schreibmodus des enthaltenden Blocks, und es erstreckt sich dann in die im Spannweite-Schlüsselwort angegebene Richtung, spannt sich über zwei Gitterkacheln:
 
 - `span-block-start`
-  - : Überspannt die mittlere Kachel und die block-start-Kachel der angegebenen Inline-Spalte.
+  - : Überspannt die mittlere Kachel und die block-start Kachel der angegebenen Inline-Spalte.
 
 - `span-block-end`
-  - : Überspannt die mittlere Kachel und die block-end-Kachel der angegebenen Inline-Spalte.
+  - : Überspannt die mittlere Kachel und die block-end Kachel der angegebenen Inline-Spalte.
 
 - `span-inline-start`
-  - : Überspannt die mittlere Kachel und die inline-start-Kachel der angegebenen Block-Zeile.
+  - : Überspannt die mittlere Kachel und die inline-start Kachel der angegebenen Blockzeile.
 
 - `span-inline-end`
-  - : Überspannt die mittlere Kachel und die inline-end-Kachel der angegebenen Block-Zeile.
+  - : Überspannt die mittlere Kachel und die inline-end Kachel der angegebenen Blockzeile.
 
-Zum Beispiel, `block-end span-inline-start` wählt die mittlere Kachel der Endblock-Zeile aus und erstreckt sich über die Kacheln in dieser Zeile, die sich in den Inline-Center- und Start-Spalten befinden. Mit `writing-mode: horizontal-tb` gesetzt, würde der Positionsrasterbereich die Kacheln der unteren Mitte und unten links umfassen, während mit `writing-mode: vertical-rl` gesetzt, würde er die linke Mitte und oben links umfassen.
+Beispielsweise wählt `block-end span-inline-start` die mittlere Kachel der Endblockzeile aus und erstreckt sich über die Kacheln in dieser Zeile, die sich in den Inline-Zentren- und Startspalten befinden. Mit `writing-mode: horizontal-tb` eingestellt, würde dies die untere Mitte und die untere linke Gitterkachel überspannen, während mit `writing-mode: vertical-rl` eingestellt, würde es die linke Mitte und die obere linke Gitterkachel überspannen.
 
 > [!NOTE]
 > Die Spezifikation definiert `self` Äquivalente dieser Schlüsselwörter, zum Beispiel — `span-self-block-start`, `span-self-block-end`, `span-self-inline-start`, und `span-self-inline-end`. Diese werden jedoch derzeit in keinem Browser unterstützt.
 
 > [!NOTE]
-> Der Versuch, ein Zeilen- oder Spalten-Schlüsselwort mit einem unangemessenen Spannweiten-Schlüsselwort zu kombinieren, führt zu einem ungültigen Property-Wert. Zum Beispiel, `block-end span-block-end` ist ungültig — Sie können nicht die zentrale block-end-Zeile auswählen und dann versuchen, eine weitere Kachel über die Block-End-Richtung hinaus zu spannen.
+> Der Versuch, ein Zeilen- oder Spaltenschlüsselwort mit einem ungeeigneten Spannweite-Schlüsselwort zu kombinieren, führt zu einem ungültigen Eigenschaftswert. Zum Beispiel ist `block-end span-block-end` ungültig — Sie können nicht die mittlere block-end-Zeile auswählen und dann versuchen, eine Kachel weiter in die Richtung block-end zu spannen.
 
-### Logische Raster-Schlüsselwort-Standards
+### Logische Grid-Schlüsselwort-Standardeinstellungen
 
-Wenn nur ein einzelnes logisches `<position-area>` Schlüsselwort spezifiziert ist, wird der andere Wert wie folgt impliziert:
+Wenn nur ein einziges logisches `<position-area>` Schlüsselwort angegeben ist, wird der andere Wert wie folgt impliziert:
 
-- `start`, `end`, `self-start`, oder `self-end`
-  - : Der andere Wert wird zu demselben wie der erste Wert angenommen und wählt die Rasterzelle in der Startzeile und -spalte oder der Endzeile und -spalte aus.
+- `start`, `end`, `self-start` oder `self-end`
+  - : Der andere Wert standardmäßig zum gleichen Wert wie der erste, Auswahl der Gitternzelle in der Startzeile und -spalte oder der Endzeile und -spalte.
 
-- `span-start`, `span-self-start`, `span-end`, oder `span-self-end`
-  - : Der andere Wert wird zu `center` angenommen. Zum Beispiel, `span-start` ist gleichbedeutend mit `span-start center`.
+- `span-start`, `span-self-start`, `span-end`, `span-self-end`
+  - : Der andere Wert standardmäßig zu `center`. Zum Beispiel ist `span-start` gleichwertig mit `span-start center`.
 
 - `block-start`, `block-end`, `inline-start`, `inline-end`
-  - : Der andere Wert wird als [`span-all`](#span-all_2) angenommen, um alle drei Kacheln der Spalte oder Zeile zu erstrecken, in denen es platziert wurde. Zum Beispiel, `block-start` ist gleichbedeutend mit `block-start span-all`.
+  - : Der andere Wert standardmäßig zu [`span-all`](#span-all_2), überspannend alle drei Kacheln der gesetzten Spalte oder Zeile. Zum Beispiel entspricht `block-start` `block-start span-all`.
 
 - `span-block-start`, `span-block-end`, `span-inline-start`, `span-inline-end`
-  - : Der andere Wert wird zu `center` angenommen. Zum Beispiel, `span-inline-start` ist gleichbedeutend mit `span-inline-start center`.
+  - : Der andere Wert standardmäßig zu `center`. Zum Beispiel, `span-inline-start` entspricht `span-inline-start center`.
 
-## Koordinaten-Raster-Schlüsselwörter
+## Koordinaten-Grid-Schlüsselwörter
 
-Diese Schlüsselwörter spezifizieren die Zellen des `position-area` Rasters unter Verwendung von x- und y-Koordinatenwerten. Seine Position/Richtung wird durch {{cssxref("writing-mode")}} und/oder {{cssxref("direction")}} Einstellungen entweder auf einem Element's [enthältendem Block](/de/docs/Web/CSS/CSS_display/Containing_block) oder, im Falle der `self` Schlüsselwörter, auf dem Element selbst beeinflusst.
+Diese Schlüsselwörter spezifizieren die Zellen des `position-area` Grids unter Verwendung von x- und y-Koordinatenwerten. Ihre Position/Richtung wird durch {{cssxref("writing-mode")}} und/oder {{cssxref("direction")}} Einstellungen entweder auf einem enthaltenden Block eines Elements oder, im Fall der `self` Schlüsselwörter, das Element selbst beeinflusst.
 
-Jedoch werden die Rasterzellen nach physischen Achsen anstelle von Block/Inline-Richtungen definiert:
+Die Gitterzellen werden jedoch gemäß physikalischer Achsen und nicht nach Block-/Inline-Richtungen definiert:
 
-- Bei `writing-mode: horizontal-tb` und `vertical-lr`, verläuft die x-Achse von links nach rechts und die y-Achse von oben nach unten.
-- Bei `writing-mode: horizontal-tb; direction: rtl` und `writing-mode: vertical-rl`, verläuft die x-Achse von rechts nach links und die y-Achse von oben nach unten.
+- Bei `writing-mode: horizontal-tb` und `vertical-lr` läuft die x-Achse von links nach rechts und die y-Achse von oben nach unten.
+- Bei `writing-mode: horizontal-tb; direction: rtl` und `writing-mode: vertical-rl` läuft die x-Achse von rechts nach links und die y-Achse von oben nach unten.
 
-Mit Koordinaten-Zeilen- und Spalten-Schlüsselwörtern können Sie ein Schlüsselwort aus der x-Achse und eines aus der y-Achse auswählen, um eine einzelne spezifische Rasterkachel zu definieren.
+Mit koordinierten Zeilen- und Spaltenschlüsselwörtern können Sie ein Schlüsselwort von der x-Achse und eines von der y-Achse angeben, um eine einzelne spezifische Gitterkachel festzulegen.
 
-Die x-Achsen-Schlüsselwörter umfassen:
+Die Schlüsselwörter der x-Achse umfassen:
 
 - `x-start`
-  - : Die Start-Zelle entlang der x-Achse des Rasters, berechnet vom Schreibmodus des enthältenden Blocks.
+  - : Die Startkachel entlang der x-Achse des Grids, berechnet aus dem Schreibmodus des enthaltenden Blocks.
 
 - `x-end`
-  - : Die End-Zelle entlang der x-Achse des Rasters, berechnet vom Schreibmodus des enthältenden Blocks.
+  - : Die Endkachel entlang der x-Achse des Grids, berechnet aus dem Schreibmodus des enthaltenden Blocks.
 
 - `x-self-start`
-  - : Die Start-Zelle entlang der x-Achse des Rasters, berechnet vom eigenen Schreibmodus des Elements.
+  - : Die Startkachel entlang der x-Achse des Grids, berechnet aus dem eigenen Schreibmodus des Elements.
 
 - `x-self-end`
-  - : Die End-Zelle entlang der x-Achse des Rasters, berechnet vom eigenen Schreibmodus des Elements.
+  - : Die Endkachel entlang der x-Achse des Grids, berechnet aus dem eigenen Schreibmodus des Elements.
 
 - `center`
-  - : Die Mitte der x-Achse des Rasters, berechnet vom eigenen Schreibmodus des Elements.
+  - : Die Mitte der x-Achse des Grids, berechnet aus dem eigenen Schreibmodus des Elements.
 
-Die y-Achsen-Schlüsselwörter umfassen:
+Die Schlüsselwörter der y-Achse umfassen:
 
 - `y-start`
-  - : Die Start-Zelle entlang der y-Achse des Rasters, berechnet vom Schreibmodus des enthältenden Blocks.
+  - : Die Startkachel entlang der y-Achse des Grids, berechnet aus dem Schreibmodus des enthaltenden Blocks.
 
 - `y-end`
-  - : Die End-Zelle entlang der y-Achse des Rasters, berechnet vom Schreibmodus des enthältenden Blocks.
+  - : Die Endkachel entlang der y-Achse des Grids, berechnet aus dem Schreibmodus des enthaltenden Blocks.
 
 - `y-self-start`
-  - : Die Start-Zelle entlang der y-Achse des Rasters, berechnet vom eigenen Schreibmodus des Elements.
+  - : Die Startkachel entlang der y-Achse des Grids, berechnet aus dem eigenen Schreibmodus des Elements.
 
 - `y-self-end`
-  - : Die End-Zelle entlang der y-Achse des Rasters, berechnet vom eigenen Schreibmodus des Elements.
+  - : Die Endkachel entlang der y-Achse des Grids, berechnet aus dem eigenen Schreibmodus des Elements.
 
 - `center`
-  - : Die Mitte der y-Achse des Rasters, berechnet vom eigenen Schreibmodus des Elements.
+  - : Die Mitte der y-Achse des Grids, berechnet aus dem eigenen Schreibmodus des Elements.
 
-Zum Beispiel, `x-end y-start` und `x-self-end y-self-start` wählen beide die Rasterzelle am Ende der x-Achse und Beginn der y-Achse aus. Bei `writing-mode: horizontal-tb` gesetzt, wäre dies die Zelle oben rechts des Ankers, während bei `writing-mode: vertical-rl` die oben links ist.
+Beispielsweise wählen `x-end y-start` und `x-self-end y-self-start` beide die Gitterzelle am Ende der x-Achse und am Anfang der y-Achse aus. Mit `writing-mode: horizontal-tb` eingestellt, wäre dies die Zelle oben rechts des Ankers, während es mit `writing-mode: vertical-rl` oben links ist.
 
-### Koordinaten-Spannweiten-Schlüsselwörter
+### Koordinaten-Spannweite-Schlüsselwörter
 
-Wenn sie mit einem Koordinaten-Zeilen- oder Spalten-Schlüsselwort kombiniert sind, spezifizieren die Koordinaten-Spannweiten-Schlüsselwörter eine zweite Rasterkachel, in welche sich der Positionsbereich ausdehnen soll. Wenn eine solche Kombination als Wert der `position-area` Eigenschaft festgelegt wird, wird ein ausgewähltes Element zunächst in der Mitte der angegebenen Zeile oder Spalte platziert, und es erstreckt sich dann in die Richtung, die im Spannweiten-Schlüsselwort spezifiziert ist, und erstreckt sich über zwei Rasterkacheln:
+Diese Schlüsselwörter spezifizieren die Zellen des `position-area` Grids unter Verwendung von x- und y-Koordinatenwerten. Ihre Position/Richtung wird durch {{cssxref("writing-mode")}} und/oder {{cssxref("direction")}} Einstellungen entweder auf einem enthaltenden Block eines Elements oder, im Fall der `self` Schlüsselwörter, das Element selbst beeinflusst.
+
+Die Gitterzellen werden jedoch gemäß physikalischer Achsen und nicht nach Block-/Inline-Richtungen definiert:
+
+- Bei `writing-mode: horizontal-tb` und `vertical-lr` läuft die x-Achse von links nach rechts und die y-Achse von oben nach unten.
+- Bei `writing-mode: horizontal-tb; direction: rtl` und `writing-mode: vertical-rl` läuft die x-Achse von rechts nach links und die y-Achse von oben nach unten.
+
+Mit koordinierten Zeilen- und Spaltenschlüsselwörtern können Sie ein Schlüsselwort von der x-Achse und eines von der y-Achse angeben, um eine einzelne spezifische Gitterkachel festzulegen.
+
+Die Schlüsselwörter der x-Achse umfassen:
+
+- `x-start`
+  - : Die Startkachel entlang der x-Achse des Grids, berechnet aus dem Schreibmodus des enthaltenden Blocks.
+
+- `x-end`
+  - : Die Endkachel entlang der x-Achse des Grids, berechnet aus dem Schreibmodus des enthaltenden Blocks.
+
+- `x-self-start`
+  - : Die Startkachel entlang der x-Achse des Grids, berechnet aus dem eigenen Schreibmodus des Elements.
+
+- `x-self-end`
+  - : Die Endkachel entlang der x-Achse des Grids, berechnet aus dem eigenen Schreibmodus des Elements.
+
+- `center`
+  - : Die Mitte der x-Achse des Grids, berechnet aus dem eigenen Schreibmodus des Elements.
+
+Die Schlüsselwörter der y-Achse umfassen:
+
+- `y-start`
+  - : Die Startkachel entlang der y-Achse des Grids, berechnet aus dem Schreibmodus des enthaltenden Blocks.
+
+- `y-end`
+  - : Die Endkachel entlang der y-Achse des Grids, berechnet aus dem Schreibmodus des enthaltenden Blocks.
+
+- `y-self-start`
+  - : Die Startkachel entlang der y-Achse des Grids, berechnet aus dem eigenen Schreibmodus des Elements.
+
+- `y-self-end`
+  - : Die Endkachel entlang der y-Achse des Grids, berechnet aus dem eigenen Schreibmodus des Elements.
+
+- `center`
+  - : Die Mitte der y-Achse des Grids, berechnet aus dem eigenen Schreibmodus des Elements.
+
+Beispielsweise wählen `x-end y-start` und `x-self-end y-self-start` beide die Gitterzelle am Ende der x-Achse und am Anfang der y-Achse aus. Mit `writing-mode: horizontal-tb` eingestellt, wäre dies die Zelle oben rechts des Ankers, während es mit `writing-mode: vertical-rl` oben links ist.
+
+### Koordinaten-Spannweite-Schlüsselwörter
+
+Wenn sie mit einem koordinierten Zeilen- oder Spaltenschlüsselwort kombiniert werden, spezifizieren die Koordinaten-Spannweite-Schlüsselwörter eine zweite Gitterkachel, in die sich der Positionsbereich ausdehnen soll. Wenn eine solche Kombination als Wert der `position-area` Eigenschaft festgelegt wird, wird ein ausgewähltes Element zunächst in der Mitte der angegebenen Zeile oder Spalte platziert und dann in die im Spannweite-Schlüsselwort angegebene Richtung erstreckt, wobei zwei Gitterkacheln genutzt werden:
 
 - `span-x-start`
-  - : Überspannt die mittlere Kachel und die x-start-Kachel der angegebenen y-Achsen-Zeile.
+  - : Überspannt die mittlere Kachel und die x-start Kachel der angegebenen y-Achsenzeile.
 
 - `span-x-end`
-  - : Überspannt die mittlere Kachel und die x-end-Kachel der angegebenen y-Achsen-Zeile.
+  - : Überspannt die mittlere Kachel und die x-end Kachel der angegebenen y-Achsenzeile.
 
 - `span-y-start`
-  - : Überspannt die mittlere Kachel und die y-start-Kachel der angegebenen x-Achsen-Spalte.
+  - : Überspannt die mittlere Kachel und die y-start Kachel der angegebenen x-Achsenspalte.
 
 - `span-y-end`
-  - : Überspannt die mittlere Kachel und die y-end-Kachel der angegebenen x-Achsen-Spalte.
+  - : Überspannt die mittlere Kachel und die y-end Kachel der angegebenen x-Achsenspalte.
 
-Zum Beispiel, `y-end span-x-end` wählt die Kachel in der Mitte der End-y-Zeile aus und erstreckt sich über die Kacheln in dieser Zeile, die sich in der x-Mitte und x-End-Spalten befinden. Mit `writing-mode: horizontal-tb` gesetzt, würde der Positionsrasterbereich die Kacheln der unteren Mitte und unten rechts umfassen, während mit `writing-mode: vertical-rl` gesetzt, würde er die untere Mitte und unten links umfassen.
+Beispielsweise wählt `y-end span-x-end` die mittlere Kachel der End-y-Zeile aus und erstreckt sich über die Kacheln in dieser Zeile, die sich in den x-Zentren- und Endspalten befinden. Mit `writing-mode: horizontal-tb` eingestellt, würde der Positionierungsbereich die Gitterkacheln in der unteren Mitte und unten rechts überspannen, während es mit `writing-mode: vertical-rl` eingestellt, würde es die untere Mitte und unten links Kacheln überspannen.
 
 > [!NOTE]
-> Die Spezifikation definiert keine separaten `self` Koordinaten-Spannweiten-Schlüsselwörter, aber diese werden nicht benötigt — die Spannweiten-Schlüsselwörter können mit beiden Koordinaten-Zeilen- und Spalten-Schlüsselwörtern verwendet werden.
+> Die Spezifikation definiert keine separaten Koordinaten-`self` Spannweite-Schlüsselwörter, aber diese sind nicht notwendig — die Spannweite-Schlüsselwörter können sowohl mit koordinierten Zeilen- als auch Spaltenschlüsselwörtern verwendet werden.
 
-### Koordinaten-Raster-Schlüsselwort-Standards
+### Standardwerte der Koordinaten-Grid-Schlüsselwörter
 
-Wenn nur ein einzelnes Koordinaten-Raster `<position-area>` Schlüsselwort spezifiziert ist, wird der andere Wert wie folgt impliziert:
+Wenn nur ein einziges Koordinaten-Grid-`<position-area>` Schlüsselwort angegeben ist, wird der andere Wert wie folgt impliziert:
 
 - `x-start`, `x-self-start`, `x-end`, `x-self-end`, `y-start`, `y-self-start`, `y-end`, oder `y-self-end`
-  - : Der andere Wert wird als [`span-all`](#span-all_2) angenommen, indem die Rasterkacheln über alle drei Kacheln der Spalte oder Zeile, in die es platziert wurde, ausgespannt werden. Zum Beispiel, `x-start` ist gleichbedeutend mit `x-start span-all`.
+  - : Der andere Wert standardmäßig zu [`span-all`](#span-all_2), Auswahl der Gitterzellen, die alle drei Kacheln der Spalte oder Zeile, in der es ursprünglich platziert wurde, überspannen. Zum Beispiel entspricht `x-start` `x-start span-all`.
 
 - `span-x-start`, `span-x-end`, `span-y-start`, oder `span-y-end`
-  - : Der andere Wert wird zu `center` angenommen. Zum Beispiel, `span-start` ist gleichbedeutend mit `span-start center`.
+  - : Der andere Wert standardmäßig zu `center`. Zum Beispiel entspricht `span-start` `span-start center`.
 
 ## `span-all`
 
-`span-all` ist ein spezielles Schlüsselwort, das mit allen in den obigen Abschnitten aufgelisteten Zeilen- und Spalten-Schlüsselwörtern verwendet werden kann. Wenn Sie zwei Werte angeben — ein Zeilen-/Spalten-Schlüsselwort und `span-all`, wird das Element in der angegebenen Zeile oder Spalte platziert, und es erstreckt sich dann über alle Kacheln in dieser Zeile oder Spalte.
+`span-all` ist ein spezielles Schlüsselwort, das mit allen der oben aufgeführten Zeilen- und Spaltenschlüsselwörter verwendbar ist. Wenn Sie zwei Werte angeben — ein Zeilen-/Spaltenschlüsselwort und `span-all`, wird das Element in der angegebenen Zeile oder Spalte platziert, und es erstreckt sich dann über alle Kacheln in dieser Zeile oder Spalte.
 
 ## Beispiele
 
 Siehe die {{cssxref("position-area")}} Eigenschaftsseite.
 
-Für detaillierte Informationen zu Ankerfunktionen und -verwendung, siehe das [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul und den Leitfaden [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using).
+Für detaillierte Informationen zu Ankerfunktionen und ihrer Nutzung, siehe die [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul-Landingpage und den [Anleitung zur Nutzung der CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using).
 
 ## Spezifikationen
 
@@ -339,6 +386,6 @@ Für detaillierte Informationen zu Ankerfunktionen und -verwendung, siehe das [C
 - {{cssxref("anchor-name")}}
 - {{cssxref("position-anchor")}}
 - [`anchor()`](/de/docs/Web/CSS/anchor) Funktion
-- [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Leitfaden
-- [Fallback-Optionen und bedingtes Ausblenden bei Überlauf](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) Leitfaden
+- [Anleitung zur Nutzung der CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
+- [Fallback-Optionen und bedingtes Verbergen für Overflow](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) Anleitung
 - [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul

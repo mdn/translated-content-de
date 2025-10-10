@@ -2,10 +2,10 @@
 title: min()
 slug: Web/CSS/min
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`min()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ermöglicht es Ihnen, den kleinsten (am negativsten) Wert aus einer Liste von kommagetrennten Ausdrücken als Wert einer CSS-Eigenschaft festzulegen. Die `min()`-Funktion kann überall dort verwendet werden, wo ein {{CSSxRef("&lt;length&gt;")}}, {{CSSxRef("&lt;frequency&gt;")}}, {{CSSxRef("&lt;angle&gt;")}}, {{CSSxRef("&lt;time&gt;")}}, {{CSSxRef("&lt;percentage&gt;")}}, {{CSSxRef("&lt;number&gt;")}} oder {{CSSxRef("&lt;integer&gt;")}} erlaubt ist.
+Die **`min()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) ermöglicht es Ihnen, den kleinsten (bzw. negativsten) Wert aus einer Liste von durch Kommas getrennten Ausdrücken als Wert einer CSS-Eigenschaft zu definieren. Die `min()`-Funktion kann überall dort verwendet werden, wo ein {{CSSxRef("&lt;length&gt;")}}, {{CSSxRef("&lt;frequency&gt;")}}, {{CSSxRef("&lt;angle&gt;")}}, {{CSSxRef("&lt;time&gt;")}}, {{CSSxRef("&lt;percentage&gt;")}}, {{CSSxRef("&lt;number&gt;")}}, oder {{CSSxRef("&lt;integer&gt;")}} erlaubt ist.
 
 {{InteractiveExample("CSS Demo: min()")}}
 
@@ -32,7 +32,7 @@ width: min(150vw, 100px);
 </section>
 ```
 
-Im obigen ersten Beispiel wird die Breite maximal 200px betragen, sie wird jedoch kleiner sein, wenn das Viewport weniger als 400px breit ist (in diesem Fall wäre 1vw 4px, also wären 50vw 200px). Diese Technik verwendet eine absolute Einheit, um einen festen Maximalwert für die Eigenschaft anzugeben, und eine relative Einheit, um den Wert an kleinere Viewports anzupassen.
+Im ersten obigen Beispiel wird die Breite maximal 200px betragen, aber kleiner sein, wenn das Viewport weniger als 400px breit ist (in diesem Fall wäre 1vw 4px, also wären 50vw 200px). Diese Technik verwendet eine absolute Einheit, um einen festen Maximalwert für die Eigenschaft festzulegen, und eine relative Einheit, um den Wert zu verringern, um kleinere Viewports anzupassen.
 
 ## Syntax
 
@@ -43,19 +43,19 @@ max(1px, 2px, 3px)
 
 ### Parameter
 
-Die `min()`-Funktion nimmt ein oder mehrere kommagetrennte Ausdrücke als Parameter an, wobei das kleinste (am negativsten) Ausdrucksergebnis als Wert verwendet wird.
+Die `min()`-Funktion nimmt ein oder mehrere durch Kommas getrennte Ausdrücke als Parameter an, wobei der kleinste (bzw. negativste) Ausdruckswert als Wert verwendet wird.
 
-Die Ausdrücke können mathematische Ausdrücke (unter Verwendung arithmetischer Operatoren), literale Werte oder andere Ausdrücke wie {{CSSxRef("attr", "attr()")}} sein, die zu einem gültigen Argumenttyp auswerten (wie {{CSSxRef("&lt;length&gt;")}}).
+Die Ausdrücke können mathematische Ausdrücke (unter Verwendung von arithmetischen Operatoren), literale Werte oder andere Ausdrücke sein, wie z. B. {{CSSxRef("attr", "attr()")}}, die zu einem gültigen Argumenttyp auswerten (wie {{CSSxRef("&lt;length&gt;")}}).
 
-Sie können unterschiedliche Einheiten für jeden Wert in Ihrem Ausdruck verwenden, wenn Sie möchten. Sie können auch Klammern verwenden, um die Berechnungsreihenfolge festzulegen, wenn nötig.
+Sie können für jeden Wert in Ihrem Ausdruck unterschiedliche Einheiten verwenden, wenn Sie möchten. Sie können auch Klammern verwenden, um die Reihenfolge der Berechnungen festzulegen, wenn dies erforderlich ist.
 
-### Anmerkungen
+### Hinweise
 
-- Mathematische Ausdrücke, die Prozentsätze für Breiten und Höhen von Tabellenspalten, Tabellenspalten-Gruppen, Tabellenzeilen, Tabellenzeilen-Gruppen und Tabellenzellen in sowohl automatischen als auch festen Layout-Tabellen beinhalten, _können_ so behandelt werden, als ob `auto` angegeben worden wäre.
-- Es ist erlaubt, `max()` und andere `min()`-Funktionen als Ausdruckswerte zu verschachteln. Die Ausdrücke sind vollständige mathematische Ausdrücke, sodass Sie direkte Addition, Subtraktion, Multiplikation und Division ohne Verwendung der `calc()`-Funktion selbst verwenden können.
-- Der Ausdruck kann Werte kombinieren, die die Operatoren Addition ( + ), Subtraktion ( - ), Multiplikation ( \* ) und Division ( / ) verwenden, unter Anwendung der Standards der Operatorpriorität. Achten Sie darauf, auf jeder Seite der + und - Operatoren ein Leerzeichen zu setzen. Die Operanden im Ausdruck können jeden `<length>`-Syntaxwert verwenden.
-- Sie können (und müssen oft) `min()` und `max()`-Werte kombinieren oder `min()` innerhalb einer `clamp()`- oder `calc()`-Funktion verwenden.
-- Sie können mehr als zwei Argumente bereitstellen, wenn Sie mehrere Einschränkungen anwenden möchten.
+- Mathematische Ausdrücke, die Prozentsätze für Breiten und Höhen auf Tabellenspalten, Tabellenspalten-Gruppen, Tabellenzeilen, Tabellenzeilen-Gruppen und Tabellenzellen in sowohl automatischen als auch festgelegten Layout-Tabellen enthalten, _können_ so behandelt werden, als wäre `auto` angegeben worden.
+- Es ist erlaubt, `max()` und andere `min()`-Funktionen als Ausdruckswerte zu verschachteln. Die Ausdrücke sind vollständige mathematische Ausdrücke, sodass Sie direkte Addition, Subtraktion, Multiplikation und Division verwenden können, ohne die `calc()`-Funktion selbst zu verwenden.
+- Der Ausdruck kann Werte kombinieren, die die Operatoren Addition ( + ), Subtraktion ( - ), Multiplikation ( \* ) und Division ( / ) verwenden, gemäß den Standardregeln für die Operatorenreihenfolge. Stellen Sie sicher, dass Sie auf beiden Seiten der + und - Operanden einen Leerraum lassen. Die Operanden im Ausdruck können jeden `<length>` Syntaxwert haben.
+- Sie können (und müssen oft) `min()` und `max()` Werte kombinieren oder `min()` innerhalb einer `clamp()` oder `calc()` Funktion verwenden.
+- Sie können mehr als zwei Argumente angeben, wenn Sie mehrere Einschränkungen anwenden müssen.
 
 ## Formale Syntax
 
@@ -63,18 +63,18 @@ Sie können unterschiedliche Einheiten für jeden Wert in Ihrem Ausdruck verwend
 
 ## Barrierefreiheit
 
-Wenn `min()` zum Setzen einer maximalen Schriftgröße verwendet wird, stellen Sie sicher, dass die Schriftart immer noch mindestens 200% vergrößert werden kann, um die Lesbarkeit zu gewährleisten (ohne unterstützende Technologien wie eine Zoomfunktion).
+Wenn Sie `min()` verwenden, um eine maximale Schriftgröße zu setzen, stellen Sie sicher, dass die Schriftart immer noch mindestens 200% für die Lesbarkeit skaliert werden kann (ohne unterstützende Technologien wie eine Zoomfunktion).
 
-- [MDN Verstehen der WCAG, Richtlinien 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Erklärung des Erfolgskriteriums 1.4.4 | W3C Verstehen von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN Understanding WCAG, Leitfaden 1.4 Erläuterungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Understanding Success Criterion 1.4.4 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Beispiele
 
 ### Festlegen einer maximalen Größe für ein Label und ein Eingabefeld
 
-Ein weiterer Anwendungsfall für `min()` ist das Festlegen einer maximalen Größe für responsives Formularelemente: Das Ermöglichen, dass die Breite von Labels und Eingaben schrumpft, wenn die Breite des Formulars schrumpft.
+Ein weiterer Anwendungsfall für `min()` ist das Setzen einer maximalen Größe bei responsiven Formularelementen: Dadurch können die Breiten von Labels und Eingabefeldern verkleinert werden, wenn die Breite des Formulars abnimmt.
 
-Hier ein Blick auf einige CSS-Beispiele:
+Werfen wir einen Blick auf einige CSS:
 
 ```css
 input,
@@ -93,7 +93,7 @@ form {
 }
 ```
 
-Hierbei nehmen das Formular selbst sowie der Rand, die Umrandung und der Abstand 100% der Breite des übergeordneten Elements ein. Wir erklären, dass die Eingabe und das Label im geringeren Maße 40% der Formularbreite bis zu dem Padding oder 400px breit sind, je nachdem, was kleiner ist. Mit anderen Worten, die breitesten, die das Label und die Eingabe sein können, sind 400px. Die schmalste Breite beträgt 40% der Formularbreite, was auf dem Bildschirm einer Smartwatch sehr klein ist.
+Hier wird das Formular selbst, zusammen mit Rand, Rahmen und Auffüllung, 100% der Breite seines übergeordneten Elements sein. Wir deklarieren, dass das Eingabefeld und das Label entweder 40% der Formularbreite ausfüllen oder bis zu 400px breit sein können, je nachdem, welches kleiner ist. Mit anderen Worten, die größte Breite, die das Label und Eingabefeld haben können, ist 400px. Die kleinste Breite beträgt 40% der Formularbreite, was auf einem Smartwatch-Bildschirm sehr klein ist.
 
 ```html
 <form>

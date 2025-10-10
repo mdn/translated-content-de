@@ -2,13 +2,13 @@
 title: matrix()
 slug: Web/CSS/transform-function/matrix
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`matrix()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine homogene 2D-Transformationsmatrix. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`matrix()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) definiert eine homogene 2D-Transformationsmatrix. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 > [!NOTE]
-> Die `matrix(a, b, c, d, tx, ty)` Funktion ist eine Abkürzung für `matrix3d(a, b, 0, 0, c, d, 0, 0, 0, 0, 1, 0, tx, ty, 0, 1)`.
+> Die `matrix(a, b, c, d, tx, ty)` Funktion ist eine Kurzschreibweise für `matrix3d(a, b, 0, 0, c, d, 0, 0, 0, 0, 1, 0, tx, ty, 0, 1)`.
 
 {{InteractiveExample("CSS Demo: matrix()")}}
 
@@ -46,7 +46,7 @@ matrix(a, b, c, d, tx, ty)
 
 ### Werte
 
-Die `matrix()` Funktion wird mit sechs Werten spezifiziert. Die konstanten Werte sind implizit und werden nicht als Parameter übergeben; die anderen Parameter sind in spaltenweiser Reihenfolge beschrieben.
+Die `matrix()` Funktion wird mit sechs Werten angegeben. Die konstanten Werte werden impliziert und nicht als Parameter übergeben; die anderen Parameter werden in spaltenmajorer Reihenfolge beschrieben.
 
 - _a_ _b_ _c_ _d_
   - : Sind {{cssxref("&lt;number&gt;")}}s, die die lineare Transformation beschreiben.
@@ -91,7 +91,8 @@ Die `matrix()` Funktion wird mit sechs Werten spezifiziert. Die konstanten Werte
   </tbody>
 </table>
 
-Die Werte repräsentieren die folgenden Funktionen: `matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())`.
+Die Werte repräsentieren die folgenden Funktionen:
+`matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())`.
 
 ## Formale Syntax
 
@@ -136,7 +137,7 @@ div {
 ## Siehe auch
 
 - {{cssxref("transform")}}
-- Einzelne Transformations-Eigenschaften:
+- Individuelle Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

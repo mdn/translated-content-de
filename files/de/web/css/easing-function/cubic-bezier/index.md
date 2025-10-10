@@ -2,11 +2,11 @@
 title: cubic-bezier()
 slug: Web/CSS/easing-function/cubic-bezier
 l10n:
-  sourceCommit: 861dc1b515e6dd9ff835b841cdba50388ffa746c
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`cubic-bezier()`**- [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) erzeugt einen glatten Übergang mithilfe einer kubischen {{Glossary("Bezier_curve", "Bézier-Kurve")}}.
-Als [`<easing-function>`](/de/docs/Web/CSS/easing-function) kann sie verwendet werden, um den Start und das Ende der {{Glossary("interpolation", "Interpolation")}} zu glätten.
+Die **`cubic-bezier()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) erstellt einen sanften Übergang unter Verwendung einer kubischen {{Glossary("Bezier_curve", "Bézier-Kurve")}}.
+Als [`<easing-function>`](/de/docs/Web/CSS/easing-function) kann sie verwendet werden, um den Anfang und das Ende der {{Glossary("interpolation", "Interpolation")}} zu glätten.
 
 ## Syntax
 
@@ -18,45 +18,45 @@ cubic-bezier(0, 0, 1, 1)
 
 ### Parameter
 
-Die Funktion akzeptiert die folgenden vier Parameter, die die Koordinaten von zwei Kontrollpunkten darstellen:
+Die Funktion akzeptiert die folgenden vier Parameter, die die Koordinaten von zwei Kontrollpunkten repräsentieren:
 
 - `<x1>`
-  - : Eine {{cssxref("&lt;number&gt;")}}, die die x-Achsen-Koordinate des ersten Kontrollpunkts repräsentiert.
+  - : Eine {{cssxref("&lt;number&gt;")}}, die die x-Achsen-Koordinate des ersten Kontrollpunktes darstellt.
     Sie muss im Bereich `[0, 1]` liegen.
 - `<y1>`
-  - : Eine {{cssxref("&lt;number&gt;")}}, die die y-Achsen-Koordinate des ersten Kontrollpunkts repräsentiert.
+  - : Eine {{cssxref("&lt;number&gt;")}}, die die y-Achsen-Koordinate des ersten Kontrollpunktes darstellt.
 - `<x2>`
-  - : Eine {{cssxref("&lt;number&gt;")}}, die die x-Achsen-Koordinate des zweiten Kontrollpunkts repräsentiert.
+  - : Eine {{cssxref("&lt;number&gt;")}}, die die x-Achsen-Koordinate des zweiten Kontrollpunktes darstellt.
     Sie muss im Bereich `[0, 1]` liegen.
 - `<y2>`
-  - : Eine {{cssxref("&lt;number&gt;")}}, die die y-Achsen-Koordinate des zweiten Kontrollpunkts repräsentiert.
+  - : Eine {{cssxref("&lt;number&gt;")}}, die die y-Achsen-Koordinate des zweiten Kontrollpunktes darstellt.
 
 ## Beschreibung
 
-Die kubischen Bézier-Funktionen, oft als "glatte" Easing-Funktionen bezeichnet, korrelieren einen Eingabefortschritt mit einem Ausgabefortschritt, beide ausgedrückt als {{cssxref("&lt;number&gt;")}}s, wobei `0.0` den Anfangszustand und `1.0` den Endzustand darstellt.
+Die kubischen Bézier-Funktionen, oft als "smooth" Easing-Funktionen bezeichnet, korrelieren einen Eingangsfortschritt mit einem Ausgangsfortschritt, beide ausgedrückt als {{cssxref("&lt;number&gt;")}}s, wobei `0.0` den Anfangszustand und `1.0` den Endzustand darstellt.
 Wenn die kubische Bézier-Kurve ungültig ist, ignoriert CSS die gesamte Eigenschaft.
 
-Eine kubische Bézier-Kurve wird durch vier Punkte definiert: P0, P1, P2 und P3. Die Punkte P0 und P3 repräsentieren den Start und das Ende der Kurve. In CSS ist der Startpunkt P0 fest bei `(0, 0)` und der Endpunkt P3 fest bei `(1, 1)`, während die Zwischenpunkte P1 und P2 durch die Funktionsparameter `(<x1>, <y1>)` und `(<x2>, <y2>)` bestimmt werden. Die x-Achse repräsentiert den Eingabefortschritt und die y-Achse den Ausgabefortschritt.
+Eine kubische Bézier-Kurve wird durch vier Punkte definiert: P0, P1, P2 und P3. Die Punkte P0 und P3 repräsentieren den Anfang und das Ende der Kurve. In CSS ist der Anfangspunkt P0 fest auf `(0, 0)` und der Endpunkt P3 fest auf `(1, 1)`, während die Zwischenpunkte P1 und P2 durch die Funktionsparameter `(<x1>, <y1>)` und `(<x2>, <y2>)` definiert sind. Die x-Achse repräsentiert den Eingangsfortschritt und die y-Achse den Ausgangsfortschritt.
 
-![Diagramm des Eingabefortschritts zum Ausgabefortschritt mit einer S-förmigen Linie, die sich von der Ursprung bis zum Punkt (1, 1) mit den Bézier-Kontrollpunkten P1(0.1, 0.6) und P2(0.7, 0.2) biegt.](cubic-bezier.svg)
+![Darstellung des Eingangsfortschritts zum Ausgangsfortschritt, zeigt eine S-förmige Linie, die von der Ursprungsposition zu (1, 1) verläuft, mit den Bézier-Kontrollpunkten P1(0.1, 0.6) und P2(0.7, 0.2).](cubic-bezier.svg)
 
-Nicht alle kubischen Bézier-Kurven sind als Easing-Funktionen geeignet, weil nicht alle [mathematische Funktionen](https://en.wikipedia.org/wiki/Function_%28mathematics%29) sind; d.h. Kurven, die für eine gegebene x-Achsen-Koordinate null oder einen Wert haben. Mit P0 und P3 als von CSS festgelegt ist eine kubische Bézier-Kurve eine Funktion und damit gültig, wenn und nur wenn die x-Achsen-Koordinaten von P1 und P2 beide im Bereich `[0, 1]` liegen.
+Nicht alle kubischen Bézier-Kurven sind als Easing-Funktionen geeignet, da nicht alle [mathematische Funktionen](https://de.wikipedia.org/wiki/Funktion_%28Mathematik%29) sind; d.h. Kurven, die für eine gegebene x-Achsen-Koordinate null oder einen Wert haben. Mit P0 und P3 festgelegt, wie von CSS definiert, ist eine kubische Bézier-Kurve eine Funktion und deshalb gültig, wenn und nur wenn die x-Achsen-Koordinaten von P1 und P2 beide im Bereich `[0, 1]` liegen.
 
-Kubische Bézier-Kurven mit der Ordinate von P1 oder P2 außerhalb des Bereichs `[0, 1]` können dazu führen, dass der Wert über den Endzustand hinausgeht und dann zurückkehrt. In Animationen erzeugt dies eine Art "Abpralleffekt".
+Kubische Bézier-Kurven mit der Ordinate von P1 oder P2 außerhalb des Bereichs `[0, 1]` können dazu führen, dass der Wert über den Endzustand hinausgeht und dann zurückkehrt. In Animationen erzeugt dies eine Art "Bounce"-Effekt.
 
-![Diagramme der Easing-Funktion cubic-bezier(0.3, 0.2, 0.2, 1.4), von denen eines den Ausgabefortschritt zeigt, der über 1 hinausgeht, beginnend ab einem bestimmten Eingabefortschritt, das andere zeigt den Ausgabefortschritt, der 1 erreicht und dann dort bleibt.](cubic-bezier_out_of_range.svg)
+![Darstellungen der Easing-Funktion cubic-bezier(0.3, 0.2, 0.2, 1.4), von denen eine den Ausgangsfortschritt zeigt, der ab einem bestimmten Eingangsfortschritt über 1 hinausgeht, die andere zeigt, wie der Ausgangsfortschritt 1 erreicht und dann dort bleibt.](cubic-bezier_out_of_range.svg)
 
-Jedoch werden bestimmte Eigenschaften die Ausgabe einschränken, wenn sie außerhalb eines erlaubten Bereichs liegt. Zum Beispiel wird eine Farbkomponente größer als `255` oder kleiner als `0` in {{CSSXref("color_value/rgb", "rgb()")}} auf den nächstgelegenen erlaubten Wert (`255` und `0` jeweils) gekürzt. Manche `cubic-bezier()`-Werte weisen diese Eigenschaft auf.
+Jedoch werden bei bestimmten Eigenschaften die Ausgaben begrenzt, wenn sie außerhalb eines zulässigen Bereichs liegen. Beispielsweise wird eine Farbkomponente größer als `255` oder kleiner als `0` in {{CSSXref("color_value/rgb", "rgb()")}} auf den nächstgelegenen erlaubten Wert beschränkt (`255` bzw. `0`). Einige `cubic-bezier()` Werte weisen diese Eigenschaft auf.
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Abpralleffekt
+### Bounce-Effekt
 
-In diesem Beispiel springt der rote Ball aus der Box, wenn er von seiner ursprünglichen Position aus übergeht. Das liegt daran, dass einer der P2-Werte, `2.3`, über den Bereich `[0, 1]` hinausgeht.
+In diesem Beispiel springt der rote Ball aus der Box, wenn er von seiner ursprünglichen Position übergeht. Dies liegt daran, dass einer der P2-Werte, `2.3`, über den Bereich `[0, 1]` hinausgeht.
 
 ```html hidden
 <div tabindex="0">
@@ -95,7 +95,7 @@ span {
 
 {{EmbedLiveSample("Bouncing effect")}}
 
-### Verwendung der cubic-bezier() Funktion
+### Verwendung der Funktion cubic-bezier()
 
 Diese kubischen Bézier-Kurven sind gültig für die Verwendung in CSS:
 
@@ -140,5 +140,5 @@ cubic-bezier(-1.9, 0.3, -0.2, 2.1)
 ## Siehe auch
 
 - Andere Easing-Funktionen: {{cssxref("easing-function/linear", "linear()")}} und {{cssxref("easing-function/steps", "steps()")}}
-- [CSS Easing-Funktionen](/de/docs/Web/CSS/CSS_easing_functions) Modul
+- Modul [CSS Easing-Funktionen](/de/docs/Web/CSS/CSS_easing_functions)
 - [cubic-bezier.com](https://cubic-bezier.com/) von Lea Verou

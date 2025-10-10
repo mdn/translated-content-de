@@ -2,10 +2,10 @@
 title: repeating-radial-gradient()
 slug: Web/CSS/gradient/repeating-radial-gradient
 l10n:
-  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`repeating-radial-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) erstellt ein Bild, das aus sich wiederholenden Verläufen besteht, die von einem Ursprung aus strahlen. Sie ist ähnlich der {{cssxref("gradient/radial-gradient", "radial-gradient()")}} und nimmt dieselben Argumente an, wiederholt jedoch die Farbstopps unendlich in alle Richtungen, um den gesamten Container abzudecken, ähnlich der {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}. Das Ergebnis der Funktion ist ein Objekt des Datentyps {{cssxref("&lt;gradient&gt;")}}, der eine spezielle Art von {{cssxref("&lt;image&gt;")}} ist.
+Die **`repeating-radial-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) erstellt ein Bild, das aus sich wiederholenden Verläufen besteht, die von einem Ursprung ausgehen. Sie ist ähnlich wie {{cssxref("gradient/radial-gradient", "radial-gradient()")}} und nimmt die gleichen Argumente, wiederholt jedoch die Farbstopps unendlich in alle Richtungen, um ihren gesamten Container zu füllen, ähnlich wie {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}. Das Ergebnis der Funktion ist ein Objekt vom Datentyp {{cssxref("&lt;gradient&gt;")}}, das eine spezielle Art von {{cssxref("&lt;image&gt;")}} ist.
 
 {{InteractiveExample("CSS Demo: repeating-radial-gradient()")}}
 
@@ -39,11 +39,11 @@ background: repeating-radial-gradient(
 }
 ```
 
-Bei jeder Wiederholung werden die Positionen der Farbstopps um ein Vielfaches der Abmessungen des grundlegenden radialen Verlaufs verschoben (den Abstand zwischen dem letzten und dem ersten Farbstopp). Somit fällt die Position jedes endenden Farbstopps mit einem startenden Farbstopp zusammen; wenn die Farbwerte unterschiedlich sind, führt dies zu einem scharfen visuellen Übergang, der gemildert werden kann, indem die erste Farbe als letzte Farbe wiederholt wird.
+Mit jeder Wiederholung werden die Positionen der Farbstopps um ein Vielfaches der Abmessungen des grundlegenden radialen Verlaufs verschoben (der Abstand zwischen dem letzten Farbstop und dem ersten). Somit fällt die Position jedes endenden Farbstopps mit einem startenden zusammen; wenn die Farbwerte unterschiedlich sind, führt dies zu einem scharfen visuellen Übergang, was durch Wiederholung der ersten Farbe als letzte Farbe abgemildert werden kann.
 
-Wie jeder Verlauf hat ein wiederholter radialer Verlauf [keine intrinsischen Abmessungen](/de/docs/Web/CSS/image#description), d.h. er hat keine natürliche oder bevorzugte Größe und kein bevorzugtes Verhältnis. Seine konkrete Größe entspricht der Größe des Elements, auf das er angewendet wird.
+Wie bei jedem Verlauf hat ein sich wiederholender radialer Verlauf [keine intrinsischen Abmessungen](/de/docs/Web/CSS/image#description); das heißt, er hat keine natürliche oder bevorzugte Größe, noch ein bevorzugtes Verhältnis. Seine konkrete Größe entspricht der Größe des Elements, auf das es angewendet wird.
 
-Da `<gradient>`s zum `<image>` Datentyp gehören, können sie nur dort verwendet werden, wo `<image>`s verwendet werden können. Aus diesem Grund funktioniert `repeating-radial-gradient()` nicht bei {{cssxref("background-color")}} und anderen Eigenschaften, die den Datentyp {{cssxref("&lt;color&gt;")}} verwenden.
+Da `<gradient>`s zum Datentyp `<image>` gehören, können sie nur dort verwendet werden, wo `<image>`s verwendet werden können. Aus diesem Grund funktioniert `repeating-radial-gradient()` nicht bei {{cssxref("background-color")}} und anderen Eigenschaften, die den Datentyp {{cssxref("&lt;color&gt;")}} verwenden.
 
 ## Syntax
 
@@ -60,27 +60,27 @@ repeating-radial-gradient(circle at center, red 0, blue, green 30px)
 repeating-radial-gradient(farthest-corner at 20% 20%, red 0, green, red 20%)
 ```
 
-### Werte
+### Values
 
 - {{cssxref("&lt;position&gt;")}}
-  - : Die Position des Verlaufs, interpretiert in derselben Weise wie {{cssxref("background-position")}} oder {{cssxref("transform-origin")}}. Wenn nicht angegeben, ist der Standardwert `center`.
+  - : Die Position des Verlaufs, interpretiert in gleicher Weise wie {{cssxref("background-position")}} oder {{cssxref("transform-origin")}}. Wenn nicht angegeben, ist `center` der Standardwert.
 - `<shape>`
-  - : Die Form des Verlaufs. Der Wert kann `circle` sein (bedeutet, dass die Form des Verlaufs ein Kreis mit konstantem Radius ist) oder `ellipse` (bedeutet, dass die Form eine achsengerechte Ellipse ist). Wenn nicht angegeben, ist der Standardwert `ellipse`.
+  - : Die Form des Verlaufs. Der Wert kann `circle` (bedeutet, dass die Form des Verlaufs ein Kreis mit konstantem Radius ist) oder `ellipse` (bedeutet, dass die Form eine achsenparallele Ellipse ist) sein. Wenn nicht angegeben, ist `ellipse` der Standardwert.
 - `<extent-keyword>`
   - : Ein Schlüsselwort, das beschreibt, wie groß die endende Form sein muss. Die möglichen Werte sind:
 
     | Schlüsselwort     | Beschreibung                                                                                                                                                                                                      |
     | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `closest-side`    | Die endende Form des Verlaufs trifft auf die Boxseite, die dem Zentrum am nächsten liegt (bei Kreisen) oder trifft auf die vertikalen und horizontalen Seiten, die dem Zentrum am nächsten liegen (bei Ellipsen). |
-    | `closest-corner`  | Die endende Form des Verlaufs ist so bemessen, dass sie genau die Ecke der Box trifft, die am nächsten zum Zentrum liegt.                                                                                         |
-    | `farthest-side`   | Ähnlich wie `closest-side`, außer dass die endende Form so bemessen ist, dass sie die Seite der Box trifft, die am weitesten vom Zentrum entfernt ist (oder die vertikalen und horizontalen Seiten).              |
-    | `farthest-corner` | Die endende Form des Verlaufs ist so bemessen, dass sie genau die Ecke der Box trifft, die am weitesten vom Zentrum entfernt ist.                                                                                 |
+    | `closest-side`    | Die endende Form des Verlaufs trifft auf die dem Zentrum nächstgelegene Seite des Kastens (für Kreise) oder trifft auf beide vertikalen und horizontalen Seiten, die dem Zentrum am nächsten sind (für Ellipsen). |
+    | `closest-corner`  | Die endende Form des Verlaufs ist so bemessen, dass sie genau die nächste Ecke des Kastens von seinem Zentrum aus erreicht.                                                                                       |
+    | `farthest-side`   | Ähnlich wie `closest-side`, außer dass die endende Form so bemessen ist, dass sie die dem Zentrum fernstliegende Seite des Kastens erreicht (oder vertikale und horizontale Seiten).                              |
+    | `farthest-corner` | Die endende Form des Verlaufs ist so bemessen, dass sie genau die fernstliegende Ecke des Kastens von seinem Zentrum aus erreicht.                                                                                |
 
     > [!NOTE]
-    > Frühe Implementierungen dieser Funktion enthielten andere Schlüsselwörter (`cover` und `contain`) als Synonyme für die standardmäßigen `farthest-corner` und `closest-side`. Verwenden Sie nur die Standard-Schlüsselwörter, da einige Implementierungen diese älteren Varianten bereits nicht mehr unterstützen.
+    > Frühe Implementierungen dieser Funktion enthielten andere Schlüsselwörter (`cover` und `contain`) als Synonyme für die Standardbegriffe `farthest-corner` und `closest-side` bzw. Verwenden Sie nur die Standardbegriffe, da einige Implementierungen diese älteren Varianten bereits entfernt haben.
 
 - `<color-stop>`
-  - : Ein `color-stop` {{cssxref("&lt;color&gt;")}} Wert, gefolgt von einer optionalen Stopp-Position (entweder ein {{cssxref("&lt;percentage&gt;")}} oder ein {{cssxref("&lt;length&gt;")}} entlang der Verlaufsachse). Ein Prozentsatz von `0%` oder eine Länge von `0` repräsentiert das Zentrum des Verlaufs; der Wert `100%` repräsentiert den Schnittpunkt der endenden Form mit dem virtuellen Verlaufsstrahl. Zwischenliegende Prozentwerte werden linear auf dem virtuellen Verlaufsstrahl positioniert.
+  - : Der {{cssxref("&lt;color&gt;")}}-Wert eines Farbstopps, gefolgt von einer optionalen Stopp-Position (entweder ein {{cssxref("&lt;percentage&gt;")}} oder ein {{cssxref("&lt;length&gt;")}} entlang der Verlaufslinie). Ein Prozentsatz von `0%` oder eine Länge von `0` stellt das Zentrum des Verlaufs dar; der Wert `100%` stellt die Schnittstelle der endenden Form mit dem virtuellen Verlaufstrahl dar. Prozentwerte dazwischen sind linear auf dem virtuellen Verlaufstrahl positioniert.
 
 ## Formale Syntax
 
@@ -88,7 +88,7 @@ repeating-radial-gradient(farthest-corner at 20% 20%, red 0, green, red 20%)
 
 ## Beispiele
 
-### Schwarz-Weiß-Verlauf
+### Schwarz-Weiße Verlauf
 
 ```html hidden
 <div class="radial-gradient"></div>
@@ -146,7 +146,7 @@ repeating-radial-gradient(farthest-corner at 20% 20%, red 0, green, red 20%)
 
 {{EmbedLiveSample('Farthest-corner', 120, 120)}}
 
-Der elliptische Verlauf wird 20% vom oberen linken Rand zentriert sein und wird sich 10-mal zwischen dem Zentrum und der am weitesten entfernten Ecke (der unteren rechten Ecke) wiederholen. Browser, die die Mehrfachpositionsfarbe stehen unterstützen, werden eine rot-grün gestreifte Ellipse anzeigen. Browser, die die Syntax noch nicht unterstützen, sehen einen Verlauf, der von Rot zu Schwarz und dann von Blau zu Grün geht.
+Der elliptische Verlauf wird zu 20% vom oberen linken Punkt zentriert und wiederholt sich 10 Mal zwischen dem Zentrum und der fernstliegenden Ecke (der unteren rechten Ecke). Browser, die Mehrfachpositions-Farbstopps unterstützen, zeigen eine rot-grün gestreifte Ellipse an. Browser, die die Syntax noch nicht unterstützen, sehen einen Verlauf, der von Rot zu Schwarz und dann von Blau zu Grün geht.
 
 ### Interpolation mit Farbton
 
@@ -176,7 +176,7 @@ div {
 }
 ```
 
-In diesem Beispiel für Interpolation wird das [hsl](/de/docs/Web/CSS/color_value/hsl) Farbsystem verwendet und der [Farbton](/de/docs/Web/CSS/hue) wird interpoliert.
+In diesem Beispiel zur Interpolation wird das [hsl](/de/docs/Web/CSS/color_value/hsl) Farbsystem verwendet, und der [Farbton](/de/docs/Web/CSS/hue) wird interpoliert.
 
 ```css
 .shorter {
@@ -196,12 +196,12 @@ In diesem Beispiel für Interpolation wird das [hsl](/de/docs/Web/CSS/color_valu
 }
 ```
 
-Die Box auf der linken Seite verwendet [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe von Rot zu Blau entlang des kürzeren Bogens auf dem {{Glossary("Color_wheel", "Farbkreis")}} geht. Die Box auf der rechten Seite verwendet [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau entlang des längeren Bogens geht und dabei Grün, Gelb und Orange durchläuft.
+Das linke Kästchen verwendet [shorter interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe über den kürzeren Bogen auf dem {{Glossary("Color_wheel", "Farbkreis")}} von Rot zu Blau wechselt. Das rechte Kästchen verwendet [longer interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe über den längeren Bogen von Rot zu Blau verläuft und dabei durch Grüntöne, Gelbtöne und Orangetöne geht.
 
 {{EmbedLiveSample("Interpolating with hue", 240, 200)}}
 
 > [!NOTE]
-> Weitere Beispiele finden Sie unter [Using CSS gradients](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients).
+> Bitte sehen Sie [Using CSS gradients](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients) für mehr Beispiele.
 
 ## Spezifikationen
 

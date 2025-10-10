@@ -2,10 +2,10 @@
 title: <hex-color>
 slug: Web/CSS/hex-color
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Der **`<hex-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) ist eine Notation zur Beschreibung der _hexadezimalen Farbsyntax_ einer {{Glossary("RGB", "sRGB")}}-Farbe unter Verwendung ihrer primären Farbkomponenten (rot, grün, blau), die als hexadezimale Zahlen geschrieben werden, sowie ihrer Transparenz.
+Der **`<hex-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) ist eine Notation zur Beschreibung der _hexadezimalen Farbsyntax_ einer {{Glossary("RGB", "sRGB")}}-Farbe unter Verwendung ihrer Primärfarben-Komponenten (Rot, Grün, Blau), die als hexadezimale Zahlen sowie ihrer Transparenz geschrieben werden.
 
 Ein `<hex-color>`-Wert kann überall dort verwendet werden, wo ein [`<color>`](/de/docs/Web/CSS/color_value) verwendet werden kann.
 
@@ -21,22 +21,22 @@ Ein `<hex-color>`-Wert kann überall dort verwendet werden, wo ein [`<color>`](/
 ### Wert
 
 - `R` oder `RR`
-  - : Die _rote_ Komponente der Farbe, als nicht zwischen Groß- und Kleinschreibung unterscheidende hexadezimale Zahl zwischen `0` und `ff` (255). Wenn nur eine Zahl angegeben ist, wird sie verdoppelt: `1` bedeutet `11`.
+  - : Die _rote_ Komponente der Farbe, als groß-/klein-schreibungsunabhängige hexadezimale Zahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie verdoppelt: `1` bedeutet `11`.
 - `G` oder `GG`
-  - : Die _grüne_ Komponente der Farbe, als nicht zwischen Groß- und Kleinschreibung unterscheidende hexadezimale Zahl zwischen `0` und `ff` (255). Wenn nur eine Zahl angegeben ist, wird sie verdoppelt: `c` bedeutet `cc`.
+  - : Die _grüne_ Komponente der Farbe, als groß-/klein-schreibungsunabhängige hexadezimale Zahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie verdoppelt: `c` bedeutet `cc`.
 - `B` oder `BB`
-  - : Die _blaue_ Komponente der Farbe, als nicht zwischen Groß- und Kleinschreibung unterscheidende hexadezimale Zahl zwischen `0` und `ff` (255). Wenn nur eine Zahl angegeben ist, wird sie verdoppelt: `9` bedeutet `99`.
+  - : Die _blaue_ Komponente der Farbe, als groß-/klein-schreibungsunabhängige hexadezimale Zahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie verdoppelt: `9` bedeutet `99`.
 - `A` oder `AA` {{optional_inline}}
-  - : Die _alpha_ Komponente der Farbe, die ihre Transparenz angibt, als nicht zwischen Groß- und Kleinschreibung unterscheidende hexadezimale Zahl zwischen `0` und `ff` (255). Wenn nur eine Zahl angegeben ist, wird sie verdoppelt: `e` bedeutet `ee`. `0` oder `00` repräsentiert eine vollständig transparente Farbe und `f` oder `ff` eine vollständig opake.
+  - : Die _alpha_ Komponente der Farbe, die ihre Transparenz angibt, als groß-/klein-schreibungsunabhängige hexadezimale Zahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie verdoppelt: `e` bedeutet `ee`. `0` oder `00` steht für eine vollständig transparente Farbe, und `f` oder `ff` für eine vollständig opake.
 
 > [!NOTE]
-> Die Syntax unterscheidet nicht zwischen Groß- und Kleinschreibung: `#00ff00` ist dasselbe wie `#00FF00`.
+> Die Syntax ist groß-/klein-schreibungsunabhängig: `#00ff00` ist dasselbe wie `#00FF00`.
 
 ## Beispiele
 
 ### Hexadezimales Hot Pink
 
-In diesem Beispiel sind vier Hot Pink Quadrate enthalten, mit vollständig opaken oder halbtransparenten Hintergründen, die unter Verwendung von vier unterschiedlich langen und nicht von der Groß- und Kleinschreibung abhängigen Hex-Farbsyntaxen erstellt wurden.
+Dieses Beispiel enthält vier Hot Pink-Quadrate mit vollständig opaken oder semi-transparenten Hintergründen, die mit vier unterschiedlich langen, groß-/klein-schreibungsunabhängigen Hex-Farbsyntaxes erstellt wurden.
 
 #### HTML
 
@@ -61,7 +61,7 @@ In diesem Beispiel sind vier Hot Pink Quadrate enthalten, mit vollständig opake
 
 #### CSS
 
-Die Hot Pink Hintergrundfarben werden unter Verwendung der drei-, vier-, sechs- und achtstelligen Hex-Notation erstellt, unter Verwendung von Groß- und Kleinbuchstaben.
+Die Hot Pink-Hintergrundfarben werden mit den drei-, vier-, sechs- und achtstelligen Hex-Notationen erstellt, unter Verwendung von Groß- und Kleinbuchstaben.
 
 ```css hidden
 body {
@@ -113,4 +113,4 @@ div {
 - [`<color>`](/de/docs/Web/CSS/color_value) Datentyp
 - {{cssxref("named-color")}} Datentyp
 - [`rgb()`](/de/docs/Web/CSS/color_value/rgb) Farb-Funktion
-- [CSS Farbe](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul

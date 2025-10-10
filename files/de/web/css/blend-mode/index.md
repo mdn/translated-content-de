@@ -2,74 +2,74 @@
 title: <blend-mode>
 slug: Web/CSS/blend-mode
 l10n:
-  sourceCommit: 0ca040b6a9cfd931558bd1d3a402707abddc1924
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Der **`<blend-mode>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) beschreibt, wie Farben erscheinen sollen, wenn sich Elemente überlappen. Er wird in den Eigenschaften {{cssxref("background-blend-mode")}} und {{cssxref("mix-blend-mode")}} verwendet.
+Der **`<blend-mode>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) beschreibt, wie Farben erscheinen sollen, wenn sich Elemente überlappen. Er wird in den Eigenschaften {{cssxref("background-blend-mode")}} und {{cssxref("mix-blend-mode")}} verwendet.
 
 ## Syntax
 
-Der `<blend-mode>` Datentyp wird mit einem Schlüsselwortwert definiert, der aus der nachstehenden Liste ausgewählt wird.
+Der `<blend-mode>` Datentyp wird unter Verwendung eines Schlüsselwortwertes definiert, der aus der unten stehenden Liste ausgewählt wird.
 
 ### Werte
 
 - `normal`
-  - : Die endgültige Farbe ist die obere Farbe, unabhängig von der unteren Farbe.
-    Der Effekt ähnelt zwei undurchsichtigen Papierstücken, die sich überlappen.
+  - : Die Endfarbe ist die obere Farbe, unabhängig davon, welche Farbe die untere hat.
+    Der Effekt ist wie bei zwei undurchsichtigen Papierstücken, die sich überlappen.
 - `multiply`
-  - : Die endgültige Farbe ist das Ergebnis der Multiplikation der oberen und unteren Farben.
-    Eine schwarze Ebene führt zu einer schwarzen Endebene, und eine weiße Ebene führt zu keiner Änderung.
-    Der Effekt ähnelt zwei Bildern, die auf transparentem Film überlappen.
+  - : Die Endfarbe ist das Ergebnis der Multiplikation der oberen und unteren Farben.
+    Eine schwarze Schicht führt zu einer schwarzen Endschicht, und eine weiße Schicht führt zu keiner Veränderung.
+    Der Effekt ist wie bei zwei Bildern, die auf transparentem Film gedruckt werden und sich überlappen.
 - `screen`
-  - : Die endgültige Farbe ist das Ergebnis der Invertierung der Farben, deren Multiplikation und der Invertierung des Wertes.
-    Eine schwarze Ebene führt zu keiner Änderung, und eine weiße Ebene führt zu einer weißen Endebene.
-    Der Effekt ähnelt zwei Bildern, die auf eine Leinwand projiziert werden.
+  - : Die Endfarbe ist das Ergebnis der Invertierung der Farben, ihrer Multiplikation und der Invertierung dieses Wertes.
+    Eine schwarze Schicht führt zu keiner Veränderung, und eine weiße Schicht führt zu einer weißen Endschicht.
+    Der Effekt ist wie bei zwei Bildern, die auf eine Projektionsleinwand scheinen.
 - `overlay`
-  - : Die endgültige Farbe ist das Ergebnis von `multiply`, wenn die untere Farbe dunkler ist, oder `screen`, wenn die untere Farbe heller ist.
-    Dieser Mischmodus ist gleichbedeutend mit `hard-light`, jedoch mit vertauschten Ebenen.
+  - : Die Endfarbe wird durch `multiply` erzielt, wenn die untere Farbe dunkler ist, oder durch `screen`, wenn die untere Farbe heller ist.
+    Dieser Mischmodus entspricht `hard-light`, aber mit vertauschten Ebenen.
 - `darken`
-  - : Die endgültige Farbe besteht aus den dunkelsten Werten jedes Farbkanals.
+  - : Die Endfarbe besteht aus den dunkelsten Werten jedes Farbkanals.
 - `lighten`
-  - : Die endgültige Farbe besteht aus den hellsten Werten jedes Farbkanals.
+  - : Die Endfarbe besteht aus den hellsten Werten jedes Farbkanals.
 - `color-dodge`
-  - : Die endgültige Farbe ist das Ergebnis der Division der unteren Farbe durch die Inverse der oberen Farbe.
-    Eine schwarze Vordergrundfarbe führt zu keiner Änderung. Eine Vordergrundfarbe mit der Inverse der Hintergrundfarbe führt zu einer vollständig beleuchteten Farbe.
-    Dieser Mischmodus ähnelt `screen`, jedoch muss der Vordergrund nur so hell sein wie die Inverse der Hintergrundfarbe, um eine vollständig beleuchtete Farbe zu erzeugen.
+  - : Die Endfarbe ist das Ergebnis der Division der unteren Farbe durch das Inverse der oberen Farbe.
+    Ein schwarzer Vordergrund führt zu keiner Veränderung. Ein Vordergrund mit der inversen Farbe des Hintergrunds führt zu einer vollständig beleuchteten Farbe.
+    Dieser Mischmodus ist ähnlich wie `screen`, aber der Vordergrund muss nur so hell wie das Inverse des Hintergrunds sein, um eine vollständig beleuchtete Farbe zu erzeugen.
 - `color-burn`
-  - : Die endgültige Farbe ist das Ergebnis der Invertierung der unteren Farbe, der Division des Wertes durch die obere Farbe und der Invertierung dieses Wertes.
-    Ein weißer Vordergrund führt zu keiner Änderung. Eine Vordergrundfarbe mit der Inverse der Hintergrundfarbe führt zu einem schwarzen Endbild.
-    Dieser Mischmodus ähnelt `multiply`, jedoch muss der Vordergrund nur so dunkel sein wie die Inverse der Hintergrundfarbe, um das Endbild schwarz zu machen.
+  - : Die Endfarbe ergibt sich aus der Invertierung der unteren Farbe, Division des Wertes durch die obere Farbe und Invertierung dieses Wertes.
+    Ein weißer Vordergrund führt zu keiner Veränderung. Ein Vordergrund mit der inversen Farbe des Hintergrunds führt zu einem schwarzen Endbild.
+    Dieser Mischmodus ist ähnlich wie `multiply`, aber der Vordergrund muss nur so dunkel wie das Inverse des Hintergrunds sein, um das Endbild schwarz zu machen.
 - `hard-light`
-  - : Die endgültige Farbe ist das Ergebnis von `multiply`, wenn die obere Farbe dunkler ist, oder `screen`, wenn die obere Farbe heller ist.
-    Dieser Mischmodus ist gleichbedeutend mit `overlay`, jedoch mit vertauschten Ebenen.
-    Der Effekt ähnelt einem _harten_ Scheinwerferlicht auf den Hintergrund.
+  - : Die Endfarbe wird durch `multiply` erzielt, wenn die obere Farbe dunkler ist, oder durch `screen`, wenn die obere Farbe heller ist.
+    Dieser Mischmodus entspricht `overlay`, aber mit vertauschten Ebenen.
+    Der Effekt ist ähnlich dem Strahlen eines _harten_ Scheinwerfers auf den Hintergrund.
 - `soft-light`
-  - : Die endgültige Farbe ist ähnlich wie `hard-light`, jedoch weicher.
+  - : Die Endfarbe ähnelt `hard-light`, aber weicher.
     Dieser Mischmodus verhält sich ähnlich wie `hard-light`.
-    Der Effekt ähnelt einem _diffusen_ Scheinwerferlicht auf den Hintergrund.
+    Der Effekt ist ähnlich dem Strahlen eines _diffusen_ Scheinwerfers auf den Hintergrund.
 - `difference`
-  - : Die endgültige Farbe ist das Ergebnis der Subtraktion der dunkleren von den beiden Farben von der helleren.
-    Eine schwarze Ebene hat keinen Effekt, während eine weiße Ebene die Farbe der anderen Ebene invertiert.
+  - : Die Endfarbe ist das Ergebnis der Subtraktion der dunkleren der beiden Farben von der helleren.
+    Eine schwarze Schicht hat keinen Effekt, während eine weiße Schicht die Farbe der anderen Schicht umkehrt.
 - `exclusion`
-  - : Die endgültige Farbe ist ähnlich wie `difference`, jedoch mit weniger Kontrast.
-    Wie bei `difference` hat eine schwarze Ebene keinen Effekt, während eine weiße Ebene die Farbe der anderen Ebene invertiert.
+  - : Die Endfarbe ähnelt `difference`, aber mit weniger Kontrast.
+    Ebenso wie bei `difference` hat eine schwarze Schicht keinen Effekt, während eine weiße Schicht die Farbe der anderen Schicht umkehrt.
 - `hue`
-  - : Die endgültige Farbe hat den _Farbton_ der oberen Farbe, während die _Sättigung_ und _Helligkeit_ der unteren Farbe verwendet wird.
+  - : Die Endfarbe hat den _Farbton_ der oberen Farbe, während sie die _Sättigung_ und _Helligkeit_ der unteren Farbe verwendet.
 - `saturation`
-  - : Die endgültige Farbe hat die _Sättigung_ der oberen Farbe, während der _Farbton_ und die _Helligkeit_ der unteren Farbe verwendet wird.
-    Ein reiner grauer Hintergrund, der keine Sättigung hat, wird keinen Effekt haben.
+  - : Die Endfarbe hat die _Sättigung_ der oberen Farbe, während sie den _Farbton_ und die _Helligkeit_ der unteren Farbe verwendet.
+    Ein reiner grauer Hintergrund, der keine Sättigung hat, hat keinen Effekt.
 - `color`
-  - : Die endgültige Farbe hat den _Farbton_ und die _Sättigung_ der oberen Farbe, während die _Helligkeit_ der unteren Farbe verwendet wird.
-    Der Effekt bewahrt Graustufen und kann verwendet werden, um den Vordergrund einzufärben.
+  - : Die Endfarbe hat den _Farbton_ und die _Sättigung_ der oberen Farbe, während sie die _Helligkeit_ der unteren Farbe verwendet.
+    Der Effekt erhält Graustufen und kann verwendet werden, um den Vordergrund einzufärben.
 - `luminosity`
-  - : Die endgültige Farbe hat die _Helligkeit_ der oberen Farbe, während der _Farbton_ und die _Sättigung_ der unteren Farbe verwendet wird.
-    Dieser Mischmodus ist gleichbedeutend mit `color`, jedoch mit vertauschten Ebenen.
+  - : Die Endfarbe hat die _Helligkeit_ der oberen Farbe, während sie den _Farbton_ und die _Sättigung_ der unteren Farbe verwendet.
+    Dieser Mischmodus entspricht `color`, jedoch mit vertauschten Ebenen.
 
 ## Beschreibung
 
-Für jedes Pixel zwischen den angewendeten Ebenen nimmt ein Mischmodus die Farben des Vordergrunds und des Hintergrunds, führt eine Berechnung durch und gibt einen neuen Farbwert zurück.
+Für jedes Pixel unter den Ebenen, auf die es angewendet wird, nimmt ein Mischmodus die Farben des Vorder- und Hintergrunds, führt eine Berechnung durch und gibt einen neuen Farbwert zurück.
 
-Änderungen zwischen Mischmodi werden nicht interpoliert. Jede Änderung erfolgt unmittelbar.
+Änderungen zwischen Mischmodi werden nicht interpoliert. Jede Änderung tritt sofort ein.
 
 ## Formale Syntax
 
@@ -92,7 +92,7 @@ Für jedes Pixel zwischen den angewendeten Ebenen nimmt ein Mischmodus die Farbe
 }
 ```
 
-Setzen Sie andere Werte für `background-blend-mode`, Sie erhalten unterschiedliche Ergebnisse.
+Stellen Sie andere Werte für `background-blend-mode` ein, um unterschiedliche Ergebnisse zu erzielen.
 
 {{ EmbedLiveSample('Example using "normal"', "100%", "300") }}
 
@@ -169,7 +169,7 @@ list.forEach((item) => {
 });
 ```
 
-Erstellen Sie mehrere `div`-Elemente, indem Sie eine Liste durchsuchen und für jedes einen unterschiedlichen `backgroundBlendMode`-Wert setzen.
+Erstellen Sie mehrere `div`-Elemente, indem Sie eine Liste durchlaufen, und setzen Sie für jedes ein anderes `backgroundBlendMode`-Wert.
 
 {{ EmbedLiveSample('Comparison between different values with `background-blend-mode`', "100%", "780") }}
 
@@ -283,13 +283,13 @@ list.forEach((item) => {
 });
 ```
 
-Im folgenden Beispiel erstellen wir mehrere `<div>`-Elemente, indem wir eine Liste durchsuchen und für jedes unterschiedliche `mixBlendMode`-Werte setzen.
+Im folgenden Beispiel erstellen wir mehrere `<div>`-Elemente, indem wir eine Liste durchlaufen und für jedes einen anderen `mixBlendMode`-Wert setzen.
 
 {{ EmbedLiveSample('Comparison between different values with `mix-blend-mode`', "100%", "820") }}
 
 ### Vergleich der Mischmodi
 
-Im folgenden Beispiel haben wir ein `<div>` mit zwei darauf gesetzten Hintergrundbildern – ein Firefox-Logo über einem linearen Verlauf. Darunter haben wir ein `<select>`-Menü bereitgestellt, mit dem Sie den auf das `<div>` angewendeten `background-blend-mode` ändern können, damit Sie die verschiedenen Effekte der Mischmodi vergleichen können.
+Im folgenden Beispiel haben wir ein `<div>` mit zwei darauf gesetzten Hintergrundbildern – ein Firefox-Logo über einem linearen Verlauf. Darunter haben wir ein `<select>`-Menü bereitgestellt, das es Ihnen ermöglicht, den auf das `<div>` angewendeten `background-blend-mode` zu ändern, sodass Sie die verschiedenen Effekte der Mischmodi vergleichen können.
 
 #### HTML
 
@@ -354,7 +354,7 @@ selectElem.addEventListener("change", () => {
 
 ## Siehe auch
 
-- Das [CSS Compositing and Blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul, das die `<blend-mode>` Werte definiert.
+- Das [CSS Compositing und Blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul, das die `<blend-mode>` Werte definiert.
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("background-blend-mode")}}, {{cssxref("mix-blend-mode")}}
 
 Beschreibung zu verschiedenen Mischmodi auf anderen Websites:

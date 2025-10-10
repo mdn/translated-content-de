@@ -2,10 +2,11 @@
 title: <hue>
 slug: Web/CSS/hue
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Der **`<hue>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert den Farbton-Winkel einer Farbe. Er wird in Farb-Funktionen verwendet, die einen Farbton als Einzelwert akzeptieren, insbesondere in den funktionalen Notationen [`hsl()`](/de/docs/Web/CSS/color_value/hsl), [`hwb()`](/de/docs/Web/CSS/color_value/hwb), [`lch()`](/de/docs/Web/CSS/color_value/lch) und [`oklch()`](/de/docs/Web/CSS/color_value/oklch).
+Der **`<hue>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) repräsentiert den Farbtonwinkel einer Farbe.
+Er wird in den Farb-Funktionen verwendet, die einen Farbton als Einzelwert akzeptieren, insbesondere in den funktionalen Notationen [`hsl()`](/de/docs/Web/CSS/color_value/hsl), [`hwb()`](/de/docs/Web/CSS/color_value/hwb), [`lch()`](/de/docs/Web/CSS/color_value/lch) und [`oklch()`](/de/docs/Web/CSS/color_value/oklch).
 
 ## Syntax
 
@@ -14,19 +15,19 @@ Ein `<hue>` kann entweder ein `<angle>` oder eine `<number>` sein.
 ### Werte
 
 - {{CSSXref("&lt;angle&gt;")}}
-  - : Ein Winkel, ausgedrückt in Grad, Gradianten, Radianten oder Drehungen, unter Verwendung von `deg`, `grad`, `rad` oder `turn`.
+  - : Ein Winkel, ausgedrückt in Grad, Graden, Radianten oder Umdrehungen, mit `deg`, `grad`, `rad` oder `turn` entsprechend.
 - `<number>`
-  - : Eine reelle Zahl, die die Grad des Farbton-Winkels repräsentiert.
+  - : Eine reelle Zahl, die die Grad des Farbtonwinkels darstellt.
 
-Da ein `<angle>` periodisch ist, wird `<hue>` auf den Bereich `[0deg, 360deg)` normalisiert. Es wrappt implizit, sodass `480deg` dasselbe ist wie `120deg`, `-120deg` dasselbe ist wie `240deg`, `-1turn` dasselbe ist wie `1turn`, und so weiter.
+Da ein `<angle>` periodisch ist, wird `<hue>` auf den Bereich `[0deg, 360deg)` normalisiert. Es wird implizit umwickelt, sodass `480deg` dasselbe wie `120deg` ist, `-120deg` dasselbe wie `240deg` ist, `-1turn` dasselbe wie `1turn` ist, und so weiter.
 
 ## Beschreibung
 
-![Ein sRGB-Farbkreis](color_wheel.svg)
+![Ein sRGB-Farbrad](color_wheel.svg)
 
-Der oben gezeigte Farbkreis zeigt Farbtöne bei allen Winkeln im [sRGB](https://en.wikipedia.org/wiki/SRGB) {{Glossary("color_space", "Farbraum")}}. Insbesondere ist _rot_ bei `0deg`, _gelb_ bei `60deg`, _limettengrün_ bei `120deg`, _cyan_ bei `180deg`, _blau_ bei `240deg` und _magenta_ bei `300deg`.
+Das obige Farbrad zeigt Farbtöne bei allen Winkeln im [sRGB](https://en.wikipedia.org/wiki/SRGB) {{Glossary("color_space", "Farbraum")}}. Insbesondere ist _rot_ bei `0deg`, _gelb_ bei `60deg`, _lime_ bei `120deg`, _cyan_ bei `180deg`, _blau_ bei `240deg` und _magenta_ bei `300deg`.
 
-Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich je nach Farbraum. Zum Beispiel ist der Farbton-Winkel von sRGB-Grün `120deg` im sRGB-Farbraum, aber `134.39deg` im CIELAB-Farbraum.
+Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich je nach Farbraum. Zum Beispiel ist der Farbtonwinkel von sRGB Grün `120deg` im sRGB-Farbraum, aber `134,39deg` im CIELAB-Farbraum.
 
 Die folgende Tabelle listet typische Farben bei verschiedenen Winkeln in den Farbräumen sRGB (verwendet von {{CSSXref("color_value/hsl", "hsl()")}} und {{CSSXref("color_value/hwb", "hwb()")}}), CIELAB (verwendet von {{CSSXref("color_value/lch", "lch()")}}) und Oklab (verwendet von {{CSSXref("color_value/oklch", "oklch()")}}) auf:
 
@@ -125,7 +126,7 @@ Die folgende Tabelle listet typische Farben bei verschiedenen Winkeln in den Far
 
 ### Ändern des Farbtons einer Farbe mit einem Schieberegler
 
-Das folgende Beispiel zeigt den Effekt der Änderung des `hue`-Werts in der [`hsl()`](/de/docs/Web/CSS/color_value/hsl)-Funktionsnotation auf eine Farbe.
+Das folgende Beispiel zeigt die Wirkung des Änderns des `hue`-Wertes der [`hsl()`](/de/docs/Web/CSS/color_value/hsl)-Funktionsnotation auf eine Farbe.
 
 #### HTML
 
@@ -178,9 +179,10 @@ hue.addEventListener("input", () => {
 
 {{EmbedLiveSample("changing_the_hue_of_a_color_using_a_slider", "100%", "200")}}
 
-### Annäherung von Rottönen in verschiedenen Farbräumen
+### Annäherung an Rottöne in verschiedenen Farbräumen
 
-Das folgende Beispiel zeigt eine ähnliche rote Farbe in verschiedenen Farbräumen. Die Werte in den `lch()`- und `oklch()`-Funktionen sind zur besseren Lesbarkeit gerundet.
+Das folgende Beispiel zeigt eine ähnliche rote Farbe in verschiedenen Farbräumen.
+Die Werte in den `lch()`- und `oklch()`-Funktionen sind zur besseren Lesbarkeit gerundet.
 
 #### HTML
 

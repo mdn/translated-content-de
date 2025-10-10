@@ -2,10 +2,10 @@
 title: invert()
 slug: Web/CSS/filter-function/invert
 l10n:
-  sourceCommit: 1d2dd9c951674bf559b9b6d5223704ea3d8d8269
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`invert()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) invertiert die Farbwerte im Eingabebild. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`invert()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) invertiert die Farbproben im Eingabebild. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
 {{InteractiveExample("CSS Demo: invert()")}}
 
@@ -58,7 +58,7 @@ invert(60%)
 ### Parameter
 
 - {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} {{Optional_Inline}}
-  - : Gibt die Menge der Umwandlung an. Ein Wert von `100%` ist vollständig invertiert, während ein Wert von `0%` den Eingabezustand unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren des Effekts. Der Anfangswert für die {{Glossary("interpolation", "Interpolation")}} ist `0`. Der Standardwert ist `1`.
+  - : Gibt den Umfang der Umwandlung an. Ein Wert von `100%` ist vollständig invertiert, während ein Wert von `0%` das Eingabebild unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren des Effekts. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Der Standardwert ist `1`.
 
 ## Formale Syntax
 
@@ -66,7 +66,7 @@ invert(60%)
 
 ## SVG-Filter
 
-Das SVG {{SVGElement("feComponentTransfer")}} Filter-Element kann ebenfalls verwendet werden, um Inhalte zu invertieren, indem eine äquivalente Inversion auf verschachtelten {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}} und {{SVGElement("feFuncB")}} Tabellenelementen erstellt wird. Wir setzen den gleichen `tableValue` für die roten, grünen und blauen Filter-Primitives auf denselben Wert, dann können wir den SVG-Effekt durch die ID des {{SVGElement("filter")}} referenzieren:
+Das SVG {{SVGElement("feComponentTransfer")}} Filter-Element kann ebenfalls verwendet werden, um Inhalte zu invertieren, indem eine gleichwertige Inversion auf verschachtelten {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}} und {{SVGElement("feFuncB")}} Tabellenelementen erstellt wird. Wir setzen denselben `tableValue` für die roten, grünen und blauen Filterprimitiven auf denselben Wert, dann können wir auf den SVG-Effekt mit der ID des {{SVGElement("filter")}} verweisen:
 
 ```html
 <svg role="none">
@@ -80,7 +80,7 @@ Das SVG {{SVGElement("feComponentTransfer")}} Filter-Element kann ebenfalls verw
 </svg>
 ```
 
-Die folgenden Deklarationen erzeugen den gleichen Effekt:
+Die folgenden Deklarationen erzeugen denselben Effekt:
 
 ```css
 filter: invert(0.9);
@@ -91,7 +91,7 @@ filter: url("fileName.svg#invert90"); /* external SVG */
 
 ## Beispiele
 
-Dieses Beispiel zeigt drei Bilder zum Vergleich: ein Bild mit einer angewendeten `invert()` Filterfunktion, ein Bild mit der äquivalenten SVG-Funktion und das Originalbild:
+Dieses Beispiel zeigt drei Bilder zum Vergleich: ein Bild mit einer `invert()` Filterfunktion angewendet, ein Bild mit der gleichwertigen SVG-Funktion angewendet, und das Originalbild:
 
 ### SVG
 
@@ -177,7 +177,7 @@ Wir fügen CSS hinzu, das Elemente basierend auf ihrer `filter` oder `svgFilter`
 
 ## Siehe auch
 
-Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, umfassen:
+Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in den Werten der Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet werden können, sind:
 
 - {{cssxref("filter-function/blur", "blur()")}}
 - {{cssxref("filter-function/brightness", "brightness()")}}

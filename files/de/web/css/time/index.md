@@ -2,17 +2,17 @@
 title: <time>
 slug: Web/CSS/time
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Der **`<time>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert einen Zeitwert in Sekunden oder Millisekunden. Er wird in {{cssxref("animation")}}, {{cssxref("transition")}} und verwandten Eigenschaften verwendet.
+Der **`<time>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) repräsentiert einen Zeitwert, der in Sekunden oder Millisekunden ausgedrückt wird. Er wird in {{cssxref("animation")}}, {{cssxref("transition")}} und verwandten Eigenschaften verwendet.
 
 ## Syntax
 
-Der `<time>` Datentyp besteht aus einer {{cssxref("&lt;number&gt;")}} gefolgt von einer der unten aufgeführten Einheiten. Optional kann er von einem einzelnen `+` oder `-` Zeichen vorangestellt werden. Wie bei allen Dimensionen gibt es keinen Abstand zwischen dem Einheitssymbol und der Zahl.
+Der `<time>`-Datentyp besteht aus einem {{cssxref("&lt;number&gt;")}}, gefolgt von einer der unten aufgeführten Einheiten. Optional kann ein einzelnes `+` oder `-` Zeichen vorangestellt werden. Wie bei allen Dimensionen gibt es keinen Leerraum zwischen dem Einheitliteral und der Zahl.
 
 > [!NOTE]
-> Obwohl die Zahl `0` immer dieselbe ist, unabhängig von der Einheit, darf die Einheit nicht weggelassen werden. Mit anderen Worten, `0` ist ungültig und repräsentiert nicht `0s` oder `0ms`.
+> Obwohl die Zahl `0` unabhängig von der Einheit immer gleich ist, darf die Einheit nicht weggelassen werden. Mit anderen Worten, `0` ist ungültig und repräsentiert nicht `0s` oder `0ms`.
 
 ### Einheiten
 
@@ -22,7 +22,7 @@ Der `<time>` Datentyp besteht aus einer {{cssxref("&lt;number&gt;")}} gefolgt vo
   - : Repräsentiert eine Zeit in Millisekunden. Beispiele: `0ms`, `150.25ms`, `-60000ms`.
 
 > [!NOTE]
-> Die Umrechnung zwischen `s` und `ms` folgt der logischen `1s` = `1000ms`.
+> Die Umrechnung zwischen `s` und `ms` folgt der logischen Rechenregel `1s` = `1000ms`.
 
 ## Beispiele
 
@@ -56,4 +56,4 @@ Der `<time>` Datentyp besteht aus einer {{cssxref("&lt;number&gt;")}} gefolgt vo
 ## Siehe auch
 
 - {{cssxref("&lt;time-percentage&gt;")}}
-- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Modul
+- [CSS Werte und Einheiten](/de/docs/Web/CSS/CSS_values_and_units) Modul

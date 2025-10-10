@@ -14,7 +14,7 @@ Die Funktionen des CSS-Bewegungspfadmoduls bieten Offset-Transformationen: Trans
 - Positionierung mit polaren Koordinaten anstatt die Transformation auf die standardmäßigen rechteckigen {{cssxref("transform")}} Funktionskoordinaten zu beschränken.
 - Animation eines Elements entlang eines definierten Pfads.
 
-CSS-Bewegungspfade ermöglichen die Definition komplexer 2D-Raumübergänge durch Nutzung von [CSS shape functions](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions#shape_functions).
+CSS-Bewegungspfade ermöglichen die Definition komplexer 2D-Raumübergänge durch Nutzung von [CSS shape functions](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions#shape_functions).
 
 Zum Beispiel können Sie mit der Eigenschaft {{cssxref("offset-path")}} einen bestimmten Pfad in beliebiger Form definieren, den Sie möchten. Sie können dann ein Element animieren, um sich entlang dieses Pfades zu bewegen, indem Sie die Eigenschaft {{cssxref("offset-distance")}} animieren und es an jedem Punkt mit der Eigenschaft {{cssxref("offset-rotate")}} drehen.
 

@@ -2,15 +2,15 @@
 title: filter
 slug: Web/SVG/Reference/Attribute/filter
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Das **`filter`**-Attribut gibt die Filtereffekte an, die durch das {{SVGElement("filter")}}-Element definiert sind und auf das entsprechende Element angewendet werden sollen.
+Das **`filter`** Attribut gibt die Filtereffekte an, die vom {{SVGElement("filter")}}-Element definiert sind und auf sein Element angewendet werden sollen.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `filter` auch ein entsprechendes CSS-Property: {{cssxref("filter")}}. Wenn beides angegeben ist, hat das CSS-Property Vorrang.
+> Als Präsentationsattribut hat `filter` auch ein entsprechendes CSS-Attribut: {{cssxref("filter")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Technisch kann `filter` auf jedes Element angewendet werden, aber es hat nur Wirkung auf [Container-Elemente](/de/docs/Web/SVG/Reference/Element#container_elements) ohne das {{SVGElement("defs")}}-Element, alle [Grafik-Elemente](/de/docs/Web/SVG/Reference/Element#graphics_elements) und das {{SVGElement("use")}}-Element.
+Technisch kann `filter` auf jedes Element angewendet werden, aber es hat nur Auswirkungen auf [Container-Elemente](/de/docs/Web/SVG/Reference/Element#container_elements) ohne das {{SVGElement("defs")}}-Element, alle [Grafikelemente](/de/docs/Web/SVG/Reference/Element#graphics_elements) und das {{SVGElement("use")}}-Element.
 
 ## Beispiel
 
@@ -34,7 +34,7 @@ svg {
 
 {{EmbedLiveSample("Example", "220", "220")}}
 
-## Anmerkungen zur Verwendung
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -43,8 +43,8 @@ svg {
       <td>
         <code>none</code>
         <a
-          href="/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax#single_bar"
-          title="Single bar: genau eines der Entitäten muss vorhanden sein"
+          href="/de/docs/Web/CSS/CSS_values_and_units/Value_definition_syntax#single_bar"
+          title="Einzelner Balken: Genau eines der Einheiten muss vorhanden sein"
           >|</a
         >
         <code>&#x3C;filter-value-list></code>
@@ -61,7 +61,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte siehe die CSS-Eigenschaft {{cssxref("filter")}}.
+Eine Beschreibung der Werte finden Sie in der CSS {{cssxref("filter")}}-Eigenschaft.
 
 ## Spezifikationen
 

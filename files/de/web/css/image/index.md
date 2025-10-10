@@ -2,61 +2,61 @@
 title: <image>
 slug: Web/CSS/image
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Der **`<image>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert ein zweidimensionales Bild.
+Der **`<image>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) repräsentiert ein zweidimensionales Bild.
 
 ## Syntax
 
-Der `<image>` Datentyp kann durch Folgendes dargestellt werden:
+Der `<image>`-Datentyp kann durch eines der folgenden dargestellt werden:
 
-- Ein Bild, das durch den {{cssxref("url_value", "&lt;url&gt;")}} Datentyp beschrieben wird
-- Ein {{CSSxRef("&lt;gradient&gt;")}} Datentyp
-- Ein Teil der Webseite, definiert durch die {{CSSxRef("element","element()")}} Funktion
-- Ein Bild, Bildausschnitt oder einfarbiger Farbabschnitt, definiert durch die {{CSSxRef("image/image","image()")}} Funktion
-- Eine Überblendung von zwei oder mehr Bildern, definiert durch die {{CSSxRef("cross-fade","cross-fade()")}} Funktion.
-- Eine Auswahl von Bildern, basierend auf Auflösung, definiert durch die {{CSSxRef("image/image-set","image-set()")}} Funktion.
-- Generiert von einem [paint worklet](/de/docs/Web/API/CSS_Painting_API) mit der {{CSSxRef("image/paint","paint()")}} Funktion.
+- Ein Bild, gekennzeichnet durch den {{cssxref("url_value", "&lt;url&gt;")}}-Datentyp
+- Ein {{CSSxRef("&lt;gradient&gt;")}}-Datentyp
+- Ein Teil der Webseite, definiert durch die {{CSSxRef("element","element()")}}-Funktion
+- Ein Bild, Bildfragment oder solider Farbfleck, definiert durch die {{CSSxRef("image/image","image()")}}-Funktion
+- Eine Mischung aus zwei oder mehr Bildern, definiert durch die {{CSSxRef("cross-fade","cross-fade()")}}-Funktion.
+- Eine Auswahl von Bildern, die basierend auf der Auflösung gewählt werden, definiert durch die {{CSSxRef("image/image-set","image-set()")}}-Funktion.
+- Generiert von einem [paint worklet](/de/docs/Web/API/CSS_Painting_API) mit der {{CSSxRef("image/paint","paint()")}}-Funktion.
 
 ## Beschreibung
 
-CSS kann die folgenden Arten von Bildern handhaben:
+CSS kann die folgenden Arten von Bildern verarbeiten:
 
-- Bilder mit _intrinsischen Abmessungen_ (einer natürlichen Größe), wie ein JPEG, PNG oder andere [Rasterformate](https://en.wikipedia.org/wiki/Raster_graphics).
-- Bilder mit _mehrfachen intrinsischen Abmessungen_, die in mehreren Versionen innerhalb einer einzigen Datei vorhanden sind, wie einige .ico Formate. (In diesem Fall sind die intrinsischen Abmessungen die des größten Bildes mit dem am ähnlichsten zum umgebenden Rahmen passenden {{Glossary("aspect_ratio", "Seitenverhältnis")}}).
-- Bilder ohne intrinsische Abmessungen, aber mit einem _intrinsischen Seitenverhältnis_ zwischen Breite und Höhe, wie ein SVG oder ein anderes [Vektorformat](https://en.wikipedia.org/wiki/Vector_graphics).
-- Bilder mit _weder intrinsischen Abmessungen noch einem intrinsischen Seitenverhältnis_, wie ein CSS-Gradient.
+- Bilder mit _intrinsischen Dimensionen_ (eine natürliche Größe), wie ein JPEG, PNG oder andere [Rasterformate](https://en.wikipedia.org/wiki/Raster_graphics).
+- Bilder mit _mehrfachen intrinsischen Dimensionen_, die in mehreren Versionen in einer einzigen Datei existieren, wie einige .ico-Formate. (In diesem Fall sind die intrinsischen Dimensionen diejenigen des Bildes mit der größten Fläche und dem am meisten dem umgebenden Kasten ähnlichen {{Glossary("aspect_ratio", "Seitenverhältnis")}}.)
+- Bilder ohne intrinsische Dimensionen, aber mit einem _intrinsischen Seitenverhältnis_ zwischen Breite und Höhe, wie ein SVG oder andere [Vektorformate](https://en.wikipedia.org/wiki/Vector_graphics).
+- Bilder ohne _intrinsische Dimensionen_ und ohne ein intrinsisches Seitenverhältnis, wie ein CSS-Gradient.
 
-CSS bestimmt die _konkrete Größe_ eines Objekts durch (1) seine _intrinsischen Abmessungen_; (2) seine _spezifizierte Größe_, definiert durch CSS-Eigenschaften wie {{CSSxRef("width")}}, {{CSSxRef("height")}} oder {{CSSxRef("background-size")}}; und (3) seine _Standardgröße_, bestimmt durch die Art der Eigenschaft, für die das Bild verwendet wird:
+CSS bestimmt die _konkrete Größe_ eines Objekts durch (1) seine _intrinsischen Dimensionen_; (2) seine _definierte Größe_, festgelegt durch CSS-Eigenschaften wie {{CSSxRef("width")}}, {{CSSxRef("height")}} oder {{CSSxRef("background-size")}}; und (3) seine _Standardgröße_, die durch die Art der Eigenschaft bestimmt wird, mit der das Bild verwendet wird:
 
-| Art des Objekts (CSS-Eigenschaft)                                                              | Standardgröße des Objekts                                                                              |
-| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| {{CSSxRef("background-image")}}                                                                | Die Größe des Hintergrundpositionierungsbereichs des Elements                                          |
-| {{CSSxRef("list-style-image")}}                                                                | Die Größe eines `1em` Zeichens                                                                         |
-| {{CSSxRef("border-image-source")}}                                                             | Die Größe des Rahmenbildbereichs des Elements                                                          |
-| {{CSSxRef("cursor")}}                                                                          | Die browserdefinierte Größe, die zur üblichen Cursorgröße auf dem System des Clients passt             |
-| {{CSSxRef("mask-image")}}                                                                      | ?                                                                                                      |
-| {{CSSxRef("shape-outside")}}                                                                   | ?                                                                                                      |
-| {{CSSxRef("mask-border-source")}}                                                              | ?                                                                                                      |
-| {{CSSxRef("symbols", "symbols()")}} für @counter-style                                         | Gefährdetes Merkmal. Wenn unterstützt, die browserdefinierte Größe, die zur üblichen Cursorgröße passt |
-| {{CSSxRef("content")}} für ein Pseudo-Element ({{CSSxRef("::after")}}/{{CSSxRef("::before")}}) | Ein 300px × 150px Rechteck                                                                             |
+| Art des Objekts (CSS-Eigenschaft)                                                              | Standardgröße des Objekts                                                                                                                          |
+| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {{CSSxRef("background-image")}}                                                                | Die Größe des Hintergrundpositionierungsbereichs des Elements                                                                                      |
+| {{CSSxRef("list-style-image")}}                                                                | Die Größe eines `1em`-Zeichens                                                                                                                     |
+| {{CSSxRef("border-image-source")}}                                                             | Die Größe des Bereichs des Randbildes des Elements                                                                                                 |
+| {{CSSxRef("cursor")}}                                                                          | Die vom Browser definierte Größe, die mit der üblichen Cursorgröße auf dem System des Clients übereinstimmt                                        |
+| {{CSSxRef("mask-image")}}                                                                      | ?                                                                                                                                                  |
+| {{CSSxRef("shape-outside")}}                                                                   | ?                                                                                                                                                  |
+| {{CSSxRef("mask-border-source")}}                                                              | ?                                                                                                                                                  |
+| {{CSSxRef("symbols", "symbols()")}} für @counter-style                                         | Gefährdetes Feature. Wenn unterstützt, die vom Browser definierte Größe, die mit der üblichen Cursorgröße auf dem System des Clients übereinstimmt |
+| {{CSSxRef("content")}} für ein Pseudo-Element ({{CSSxRef("::after")}}/{{CSSxRef("::before")}}) | Ein 300px × 150px Rechteck                                                                                                                         |
 
-Die konkrete Objektgröße wird mithilfe des folgenden Algorithmus berechnet:
+Die konkrete Größe des Objekts wird mit dem folgenden Algorithmus berechnet:
 
-- Wenn die spezifizierte Größe _sowohl die Breite als auch die Höhe_ definiert, werden diese Werte als konkrete Objektgröße verwendet.
-- Wenn die spezifizierte Größe _nur die Breite oder nur die Höhe_ definiert, wird der fehlende Wert mithilfe des intrinsischen Verhältnisses bestimmt, falls vorhanden, den intrinsischen Abmessungen, falls der spezifizierte Wert passt, oder der Standardgröße des fehlenden Wertes.
-- Wenn die spezifizierte Größe _weder die Breite noch die Höhe_ definiert, wird die konkrete Objektgröße so berechnet, dass sie dem intrinsischen Seitenverhältnis des Bildes entspricht, aber ohne die Standardgröße in einer Dimension zu überschreiten. Wenn das Bild kein intrinsisches Seitenverhältnis hat, wird das intrinsische Seitenverhältnis des Objekts verwendet, auf das es angewendet wird; wenn dieses Objekt keines hat, werden die fehlenden Breite oder Höhe von der Standardgröße genommen.
+- Wenn die definierte Größe _sowohl die Breite als auch die Höhe_ festlegt, werden diese Werte als konkrete Größe des Objekts verwendet.
+- Wenn die definierte Größe _nur die Breite oder nur die Höhe_ festlegt, wird der fehlende Wert anhand des intrinsischen Verhältnisses, falls vorhanden, der intrinsischen Dimensionen, wenn der definierte Wert übereinstimmt, oder der Standardgröße des Objekts für diesen fehlenden Wert bestimmt.
+- Wenn die definierte Größe _weder die Breite noch die Höhe_ festlegt, wird die konkrete Größe des Objekts so berechnet, dass sie dem intrinsischen Seitenverhältnis des Bildes entspricht, ohne jedoch die Standardgröße des Objekts in einer Dimension zu überschreiten. Wenn das Bild kein intrinsisches Seitenverhältnis hat, wird das intrinsische Seitenverhältnis des Objekts, auf das es angewendet wird, verwendet; wenn dieses Objekt keines hat, werden die fehlende Breite oder Höhe aus der Standardgröße des Objekts genommen.
 
 > [!NOTE]
-> Nicht alle Browser unterstützen jeden Bildtyp bei jeder Eigenschaft. Siehe den [Browser-Kompatibilitätsabschnitt](#browser-kompatibilität) für Details.
+> Nicht alle Browser unterstützen jeden Bildtyp auf jeder Eigenschaft. Siehe den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für Details.
 
 ## Barrierefreiheit
 
-Browser bieten assistiven Technologien keine speziellen Informationen zu Hintergrundbildern. Dies ist vor allem für Screenreader wichtig, da ein Screenreader seine Anwesenheit nicht ankündigt und somit seinen Nutzern nichts vermittelt. Wenn das Bild Informationen enthält, die für das Verständnis des Gesamtzwecks der Seite entscheidend sind, ist es besser, diese semantisch im Dokument zu beschreiben.
+Browser stellen keine speziellen Informationen zu Hintergrundbildern für unterstützende Technologien bereit. Dies ist vor allem für Bildschirmleser wichtig, da ein Bildschirmleser seine Anwesenheit nicht ankündigt und somit nichts an seine Benutzer vermittelt. Wenn das Bild Informationen enthält, die wesentlich für das Verständnis des Gesamtzwecks der Seite sind, ist es besser, es semantisch im Dokument zu beschreiben.
 
-- [MDN Verständnis von WCAG, Richtlinie 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [Verständnis des Erfolgskriteriums 1.1.1 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
+- [MDN Verständnis WCAG, Richtlinie 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [Understanding Success Criterion 1.1.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
 
 ## Formale Syntax
 

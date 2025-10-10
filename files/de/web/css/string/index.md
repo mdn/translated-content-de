@@ -2,29 +2,29 @@
 title: <string>
 slug: Web/CSS/string
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Der **`<string>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert eine Zeichenfolge. Zeichenketten werden in zahlreichen CSS-Eigenschaften verwendet, wie {{CSSxRef("content")}}, {{CSSxRef("font-family")}} und {{CSSxRef("quotes")}}.
+Der **`<string>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) repräsentiert eine Zeichenfolge. Strings werden in zahlreichen CSS-Eigenschaften verwendet, wie zum Beispiel {{CSSxRef("content")}}, {{CSSxRef("font-family")}} und {{CSSxRef("quotes")}}.
 
 ## Syntax
 
 Der `<string>`-Datentyp besteht aus einer beliebigen Anzahl von [Unicode](https://en.wikipedia.org/wiki/Unicode)-Zeichen, die entweder von doppelten (`"`) oder einfachen (`'`) Anführungszeichen umgeben sind.
 
-Die meisten Zeichen können wörtlich dargestellt werden. Alle Zeichen können auch mit ihren entsprechenden [Unicode-Codepoints](https://en.wikipedia.org/wiki/Unicode#Code_point_planes_and_blocks) in Hexadezimalform dargestellt werden. In diesem Fall werden sie von einem Backslash (`\`) eingeleitet. Zum Beispiel repräsentiert `\22` ein doppeltes Anführungszeichen, `\27` ein einfaches Anführungszeichen (`'`) und `\A9` das Copyright-Symbol (`©`).
+Die meisten Zeichen können wörtlich dargestellt werden. Alle Zeichen können auch mit ihren jeweiligen [Unicode-Codepunkten](https://en.wikipedia.org/wiki/Unicode#Code_point_planes_and_blocks) in Hexadezimal dargestellt werden, wobei sie von einem Backslash (`\`) vorangestellt werden. Zum Beispiel repräsentiert `\22` ein doppeltes Anführungszeichen, `\27` ein einfaches Anführungszeichen (`'`) und `\A9` das Copyright-Symbol (`©`).
 
-Wichtig ist, dass bestimmte Zeichen, die sonst ungültig wären, mit einem Backslash entkommen werden können. Dazu gehören doppelte Anführungszeichen innerhalb einer doppelt-angeführten Zeichenkette, einfache Anführungszeichen innerhalb einer einfach-angeführten Zeichenkette und der Backslash selbst. Zum Beispiel erzeugt `\\` einen einzelnen Backslash.
+Wichtig ist, dass bestimmte Zeichen, die ansonsten ungültig wären, mit einem Backslash umgangen werden können. Dazu gehören doppelte Anführungszeichen innerhalb eines doppelt angeführten Strings, einfache Anführungszeichen innerhalb eines einfach angeführten Strings und der Backslash selbst. Zum Beispiel erstellt `\\` einen einzelnen Backslash.
 
-Um neue Zeilen auszugeben, müssen Sie diese mit einem Zeilenvorschubzeichen wie `\A` oder `\00000A` escapen. In Ihrem Code können Zeichenfolgen jedoch über mehrere Zeilen laufen, wobei jede neue Zeile mit einem `\` als letztem Zeichen der Zeile escapen werden muss.
+Um Zeilenumbrüche auszugeben, müssen Sie diese mit einem Zeilenumbruchzeichen wie `\A` oder `\00000A` umgehen. In Ihrem Code können Strings jedoch mehrere Zeilen umfassen, wobei jede neue Zeile mit einem `\` als letztem Zeichen der Zeile umgangen werden muss.
 
-Um jedoch neue Zeilen zu erhalten, müssen Sie auch die {{cssxref("white-space")}}-Eigenschaft auf einen geeigneten Wert setzen.
+Um tatsächliche Zeilenumbrüche zu erhalten, müssen Sie jedoch auch die Eigenschaft {{cssxref("white-space")}} auf einen entsprechenden Wert setzen.
 
 > [!NOTE]
-> {{Glossary("character_reference", "Zeichenreferenzen")}} (wie `&nbsp;` oder `&#8212;`) können in einem CSS-`<string>` nicht verwendet werden.
+> {{Glossary("character_reference", "Character references")}} (wie `&nbsp;` oder `&#8212;`) können in einem CSS-`<string>` nicht verwendet werden.
 
 ## Beispiele
 
-### Beispiele für gültige Zeichenketten
+### Beispiele für gültige Strings
 
 ```css
 /* Basic strings */
@@ -57,6 +57,6 @@ awesome string"
 
 ## Siehe auch
 
-- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Modul
-- [Grundlegende CSS-Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types)
+- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_values_and_units) Modul
+- [CSS grundlegende Datentypen](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types)
 - [Einführung in CSS: Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)

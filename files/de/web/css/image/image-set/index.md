@@ -2,14 +2,14 @@
 title: image-set()
 slug: Web/CSS/image/image-set
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`image-set()`** [CSS](/de/docs/Web/CSS) [funktionale](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) Notation ist eine Methode, mit der der Browser das am besten geeignete CSS-Bild aus einer gegebenen Menge auswählen kann, hauptsächlich für Bildschirme mit hoher Pixeldichte.
+Die **`image-set()`** [CSS](/de/docs/Web/CSS) [funktionale](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) Notation ist eine Methode, mit der der Browser das geeigneteste CSS-Bild aus einem gegebenen Satz auswählt, hauptsächlich für Bildschirme mit hoher Pixeldichte.
 
-Auflösung und Bandbreite variieren je nach Gerät und Netzwerkzugang. Die `image-set()`-Funktion liefert die am besten geeignete Bildauflösung für das Gerät eines Benutzers und bietet eine Reihe von Bildoptionen – jede mit einer zugehörigen Aufklärungsdeklaration – aus denen der Browser die passendste für das Gerät und die Einstellungen auswählt. Auflösung kann als Proxy für die Dateigröße verwendet werden – ein User-Agent mit einer langsamen mobilen Verbindung und einem hochauflösenden Bildschirm kann bevorzugen, niedrigere Auflösungen zu empfangen, anstatt auf das Laden eines höher aufgelösten Bildes zu warten.
+Auflösung und Bandbreite unterscheiden sich je nach Gerät und Netzwerkzugang. Die `image-set()`-Funktion liefert die geeignetste Bildauflösung für das Gerät eines Benutzers, indem sie eine Menge von Bildoptionen bietet – jede mit einer zugeordneten Auflösungserklärung –, aus denen der Browser die für das Gerät und die Einstellungen am geeignetsten auswählt. Die Auflösung kann als Proxy für die Dateigröße verwendet werden – ein User-Agent mit einer langsamen mobilen Verbindung und einem hochauflösenden Bildschirm zieht es möglicherweise vor, Bilder mit niedrigerer Auflösung zu empfangen, anstatt auf das Laden eines Bildes mit höherer Auflösung zu warten.
 
-`image-set()` ermöglicht es dem Autor, Optionen bereitzustellen, anstatt zu bestimmen, was jeder einzelne Benutzer benötigt.
+`image-set()` erlaubt dem Autor, Optionen zu bieten, anstatt zu bestimmen, was jeder einzelne Benutzer benötigt.
 
 ## Syntax
 
@@ -41,11 +41,11 @@ image-set(
 ### Werte
 
 - `<image>`
-  - : Das [`<image>`](/de/docs/Web/CSS/image) kann jeden Bildtyp außer einem Bildsatz sein. Die `image-set()`-Funktion darf nicht in eine andere `image-set()`-Funktion verschachtelt werden.
+  - : Das [`<image>`](/de/docs/Web/CSS/image) kann ein beliebiger Bildtyp sein, mit Ausnahme eines Bildsatzes. Die `image-set()`-Funktion darf nicht innerhalb einer anderen `image-set()`-Funktion verschachtelt werden.
 - `<string>`
   - : Eine URL zu einem Bild.
 - `<resolution>` {{optional_inline}}
-  - : [`<resolution>`](/de/docs/Web/CSS/resolution) Einheiten schließen `x` oder `dppx` für Punkte pro Pixel-Einheit ein, `dpi` für Punkte pro Zoll und `dpcm` für Punkte pro Zentimeter. Jedes Bild innerhalb eines `image-set()` muss eine eindeutige Auflösung haben.
+  - : [`<resolution>`](/de/docs/Web/CSS/resolution) Einheiten umfassen `x` oder `dppx` für Punkt-pro-Pixel-Einheit, `dpi` für Punkte pro Zoll und `dpcm` für Punkte pro Zentimeter. Jedes Bild innerhalb eines `image-set()` muss eine eindeutige Auflösung haben.
 - `type(<string>)` {{optional_inline}}
   - : Ein gültiger MIME-Typ-String, zum Beispiel "image/jpeg".
 
@@ -55,16 +55,16 @@ image-set(
 
 ## Barrierefreiheit
 
-Browser bieten keine speziellen Informationen zu Hintergrundbildern für unterstützende Technologien. Dies ist hauptsächlich für Screenreader wichtig, da ein Screenreader seine Präsenz nicht ankündigt und daher seinen Benutzern nichts vermittelt. Wenn das Bild Informationen enthält, die zum Verständnis des Gesamtzwecks der Seite entscheidend sind, ist es besser, es semantisch im Dokument zu beschreiben.
+Browser stellen assistiven Technologien keine speziellen Informationen zu Hintergrundbildern bereit. Dies ist vor allem für Bildschirmlesegeräte wichtig, da ein Bildschirmlesegerät dessen Vorhandensein nicht ankündigt und daher den Benutzern keine Informationen vermittelt. Wenn das Bild Informationen enthält, die für das Verständnis des Gesamtzwecks der Seite wichtig sind, ist es besser, es semantisch im Dokument zu beschreiben.
 
-- [MDN Verständnis von WCAG, Leitlinie 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [Verständnis des Erfolgskriteriums 1.1.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
+- [MDN Verständnis von WCAG, Richtlinie 1.1 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [Verständnis des Erfolgs-Kriteriums 1.1.1 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html)
 
 ## Beispiele
 
-### Verwendung von image-set() zur Bereitstellung alternativer Hintergrundbildoptionen
+### Verwendung von image-set() zur Bereitstellung alternativer background-image-Optionen
 
-Dieses Beispiel zeigt, wie [`image-set()`](https://drafts.csswg.org/css-images-4/#funcdef-image-set) verwendet wird, um zwei alternative {{cssxref("background-image")}}-Optionen bereitzustellen, die je nach benötigter Auflösung ausgewählt werden: eine normale Version und eine hochauflösende Version.
+Dieses Beispiel zeigt, wie man [`image-set()`](https://drafts.csswg.org/css-images-4/#funcdef-image-set) verwendet, um zwei alternative {{cssxref("background-image")}} Optionen bereitzustellen, die je nach benötigter Auflösung ausgewählt werden: eine normale Version und eine hochauflösende Version.
 
 ```html live-sample___image-set-example
 <div class="box"></div>
@@ -90,7 +90,7 @@ Dieses Beispiel zeigt, wie [`image-set()`](https://drafts.csswg.org/css-images-4
 
 ### Verwendung von image-set() zur Bereitstellung alternativer Bildformate
 
-Im nächsten Beispiel wird die `type()`-Funktion verwendet, um das Bild in den Formaten AVIF und JPEG bereitzustellen. Wenn der Browser Avif unterstützt, wählt er diese Version. Andernfalls verwendet er die JPEG-Version.
+Im nächsten Beispiel wird die `type()`-Funktion verwendet, um das Bild in AVIF- und JPEG-Formaten bereitzustellen. Wenn der Browser avif unterstützt, wird er diese Version wählen. Andernfalls wird er die jpeg-Version verwenden.
 
 ```html live-sample___image-set-type-example
 <div class="box"></div>
@@ -127,6 +127,6 @@ Im nächsten Beispiel wird die `type()`-Funktion verwendet, um das Bild in den F
 - {{cssxref("image")}}
 - {{cssxref("image/image", "image()")}}
 - {{cssxref("element", "element()")}}
-- {{cssxref("url_value", "&lt;url&gt;")}}
-- {{cssxref("&lt;gradient&gt;")}}
+- {{cssxref("url_value", "\<url>")}}
+- {{cssxref("\<gradient>")}}
 - {{cssxref("cross-fade", "cross-fade()")}}

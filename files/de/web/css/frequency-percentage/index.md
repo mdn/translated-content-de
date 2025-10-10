@@ -2,20 +2,20 @@
 title: <frequency-percentage>
 slug: Web/CSS/frequency-percentage
 l10n:
-  sourceCommit: bc761c19c07b875eb889d4aad87b18d8443da339
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Der **`<frequency-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) repräsentiert einen Wert, der entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}} sein kann. Frequenzwerte, wie z.B. die Tonhöhe einer Sprechstimme, werden derzeit in keinem CSS-Attribut verwendet.
+Der **`<frequency-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) repräsentiert einen Wert, der entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}} sein kann. Frequenzwerte, z.B. die Tonhöhe einer Sprechstimme, werden derzeit in keinen CSS-Eigenschaften verwendet.
 
 ## Syntax
 
-Der Wert eines `<frequency-percentage>` ist entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}}; für Details zur Syntax siehe deren individuelle Referenzseiten.
+Der Wert eines `<frequency-percentage>` ist entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}}; siehe deren jeweilige Referenzseiten für Details zu deren Syntaxen.
 
 ## Beschreibung
 
 ### Verwendung in calc()
 
-Wo ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz auf eine Frequenz aufgelöst wird und daher in einem [`calc()`](/de/docs/Web/CSS/calc) Ausdruck verwendet werden kann.
+Wo ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentwert in eine Frequenz aufgelöst wird und daher in einem [`calc()`](/de/docs/Web/CSS/calc) Ausdruck verwendet werden kann.
 
 ## Formale Syntax
 
@@ -61,12 +61,12 @@ Wo ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies
 
 ## Browser-Kompatibilität
 
-Derzeit unterstützt kein Browser dieses Feature.
+Derzeit unterstützen keine Browser dieses Feature.
 
 ## Siehe auch
 
-- [CSS-Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types)
-- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Modul
+- [CSS-Datentypen](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types)
+- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_values_and_units) Modul
 - Verwandte CSS-Datentypen:
   - {{cssxref("frequency", "&lt;frequency&gt;")}}
   - {{cssxref("percentage", "&lt;percentage&gt;")}}

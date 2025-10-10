@@ -2,10 +2,10 @@
 title: perspective()
 slug: Web/CSS/transform-function/perspective
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`perspective()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die den Abstand zwischen dem Benutzer und der z=0-Ebene festlegt, also die Perspektive, aus der der Betrachter sein würde, wenn die 2-dimensionale Oberfläche 3-dimensional wäre. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`perspective()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) definiert eine Transformation, die den Abstand zwischen dem Benutzer und der z=0-Ebene setzt, die Perspektive, aus der der Betrachter schauen würde, wenn die 2-dimensionale Oberfläche 3-dimensional wäre. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: perspective()")}}
 
@@ -99,7 +99,7 @@ transform: perspective(6.5cm);
 }
 ```
 
-Die Funktion `perspective()` ist Teil des {{cssxref('transform')}}-Werts, der auf das transformierte Element angewendet wird. Dies unterscheidet sich von den {{cssxref('perspective')}}- und {{cssxref('perspective-origin')}}-Eigenschaften, die am Elternteil eines in 3-dimensionalem Raum transformierten Kindes angebracht sind.
+Die `perspective()` Transformationsfunktion ist Teil des {{cssxref('transform')}} Werts, der auf das transformierte Element angewendet wird. Dies unterscheidet sich von den {{cssxref('perspective')}} und {{cssxref('perspective-origin')}} Eigenschaften, die dem Elternteil eines in 3-dimensionalem Raum transformierten Kindes zugeordnet sind.
 
 ## Syntax
 
@@ -110,9 +110,9 @@ perspective(d)
 ### Werte
 
 - _d_
-  - : Ist ein {{cssxref("&lt;length&gt;")}}, der den Abstand vom Benutzer zur z=0-Ebene darstellt. Die z=0-Ebene ist die Ebene, auf der alles in einer 2-dimensionalen Ansicht erscheint, oder der Bildschirm. Werte kleiner als `1px` (einschließlich null) werden auf `1px` begrenzt. Negative Werte sind Syntaxfehler.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} und beschreibt den Abstand vom Benutzer zur z=0-Ebene. Die z=0-Ebene ist die Ebene, auf der alles in einer 2-dimensionalen Ansicht erscheint, oder der Bildschirm. Werte kleiner als `1px` (einschließlich Null) werden auf `1px` begrenzt. Negative Werte sind Syntaxfehler.
 
-    Werte ungleich `none` bewirken, dass Elemente mit positiven z-Positionen größer erscheinen und Elemente mit negativen z-Positionen kleiner. Elemente mit z-Positionen, die gleich oder größer als der Perspektivenwert sind, verschwinden, als wären sie hinter dem Benutzer. Große Werte von Perspektive entsprechen einer kleinen Transformation; kleine Werte von `perspective()` entsprechen einer großen Transformation; `perspective(none)` entspricht einer Perspektive aus unendlicher Entfernung und keiner Transformation.
+    Werte, die nicht `none` sind, lassen Elemente mit positiven z-Positionen größer erscheinen und Elemente mit negativen z-Positionen kleiner. Elemente mit z-Positionen, die gleich oder größer als der perspective-Wert sind, verschwinden, als ob sie sich hinter dem Benutzer befinden. Große Werte von perspective repräsentieren eine kleine Transformation; kleine Werte von `perspective()` repräsentieren eine große Transformation; `perspective(none)` repräsentiert Perspektive aus unendlicher Entfernung und keine Transformation.
 
 <table class="standard-table">
   <thead>
@@ -127,7 +127,7 @@ perspective(d)
     <tr>
       <td colspan="2">
         <p>
-          Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
+          Diese Transformation gilt für den 3D-Raum und kann nicht in der Ebene dargestellt werden.
         </p>
       </td>
       <td>
@@ -235,7 +235,7 @@ p + div {
 
 - {{cssxref("transform")}}
 - {{cssxref("&lt;transform-function&gt;")}}
-- Einzelne Transformations-Eigenschaften:
+- Individuelle Transformationseigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

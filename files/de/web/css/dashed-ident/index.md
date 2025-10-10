@@ -2,18 +2,18 @@
 title: <dashed-ident>
 slug: Web/CSS/dashed-ident
 l10n:
-  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Der **`<dashed-ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) bezeichnet einen beliebigen String, der als {{Glossary("identifier", "Identifier")}} verwendet wird.
+Der **`<dashed-ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) bezeichnet eine beliebige Zeichenkette, die als {{Glossary("identifier", "Bezeichner")}} verwendet wird.
 
 ## Syntax
 
-Die Syntax von `<dashed-ident>` ist ähnlich wie die von CSS-Identifikatoren (wie Eigenschaftsnamen), mit der Ausnahme, dass sie [case-sensitive](https://en.wikipedia.org/wiki/Case_sensitivity) ist. Sie beginnt mit zwei Bindestrichen, gefolgt von dem benutzerdefinierten Identifikator.
+Die Syntax von `<dashed-ident>` ähnelt der von CSS-Bezeichnern (wie Eigenschaftsnamen), mit dem Unterschied, dass sie [groß- und kleinschreibungssensitiv](https://en.wikipedia.org/wiki/Case_sensitivity) ist. Sie beginnt mit zwei Bindestrichen, gefolgt von dem benutzerdefinierten Bezeichner.
 
-Der doppelte Bindestrich am Anfang lässt sie leicht erkennbar erscheinen, wenn man durch einen CSS-Codeblock liest und hilft, Namenskonflikte mit standardmäßigen CSS-Schlüsselwörtern zu vermeiden.
+Die doppelten Bindestriche am Anfang machen sie beim Durchsehen eines CSS-Codeblocks leicht erkennbar und helfen, Namenskollisionen mit standardmäßigen CSS-Schlüsselwörtern zu vermeiden.
 
-Genau wie [`<custom-ident>`](/de/docs/Web/CSS/custom-ident) werden `<dashed-ident>`s vom Benutzer definiert, aber im Gegensatz zu `<custom-ident>` wird [CSS](/de/docs/Web/CSS) niemals ein `<dashed-ident>` definieren.
+Genau wie bei [`<custom-ident>`](/de/docs/Web/CSS/custom-ident) werden `<dashed-ident>`s vom Benutzer definiert, aber anders als bei `<custom-ident>` wird `<dashed-ident>` niemals von [CSS](/de/docs/Web/CSS) definiert.
 
 ## Beispiele
 
@@ -46,7 +46,7 @@ h6 {
 
 ### Verwendung mit @color-profile
 
-Wenn `<dashed-ident>` mit der [@color-profile](/de/docs/Web/CSS/@color-profile) At-Regel verwendet wird, wird die At-Regel zuerst deklariert und dann innerhalb einer [CSS color() Funktion](/de/docs/Web/CSS/color_value/color) verwendet.
+Wenn `<dashed-ident>` mit dem [@color-profile](/de/docs/Web/CSS/@color-profile) At-Regel verwendet wird, wird die At-Regel zuerst deklariert und dann innerhalb einer [CSS color() Funktion](/de/docs/Web/CSS/color_value/color) verwendet.
 
 ```css
 @color-profile --my-color-profile {
@@ -60,7 +60,7 @@ Wenn `<dashed-ident>` mit der [@color-profile](/de/docs/Web/CSS/@color-profile) 
 
 ### Verwendung mit @font-palette-values
 
-Wenn `<dashed-ident>` mit der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) At-Regel verwendet wird, wird die At-Regel zuerst deklariert und dann als Wert für die [font-palette](/de/docs/Web/CSS/font-palette) Eigenschaft verwendet.
+Wenn `<dashed-ident>` mit dem [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) At-Regel verwendet wird, wird die At-Regel zuerst deklariert und dann als Wert für die [font-palette](/de/docs/Web/CSS/font-palette) Eigenschaft verwendet.
 
 ```css
 @font-palette-values --my-palette {
@@ -83,7 +83,7 @@ h4 {
 
 ## Browser-Kompatibilität
 
-_Da dieser Typ kein realer Typ ist, sondern ein Komforttyp, der zur Vereinfachung der Definition anderer CSS-Syntax verwendet wird, gibt es keine Browser-Kompatibilitätsinformationen als solche._
+_Da dieser Typ kein realer Typ ist, sondern ein bequemer Typ, der zur Vereinfachung der Definition anderer CSS-Syntax verwendet wird, gibt es keine spezifischen Informationen zur Browser-Kompatibilität._
 
 ## Siehe auch
 

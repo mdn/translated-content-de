@@ -2,10 +2,10 @@
 title: repeat()
 slug: Web/CSS/repeat
 l10n:
-  sourceCommit: ef337c3cd46f1e8f50a1a2903fad7f4b34f91919
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`repeat()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) repräsentiert ein wiederholtes Fragment der [Track-Liste](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout) und ermöglicht es, eine große Anzahl von Spalten oder Zeilen, die ein wiederkehrendes Muster aufweisen, in kompakterer Form zu schreiben.
+Die **`repeat()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) repräsentiert ein wiederholtes Fragment der [Spurliste](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout), wodurch eine große Anzahl von Spalten oder Reihen, die ein wiederkehrendes Muster aufweisen, in kompakterer Form geschrieben werden kann.
 
 {{InteractiveExample("CSS Demo: repeat()")}}
 
@@ -89,24 +89,24 @@ repeat(4, [col-start] fit-content(200px) [col-end])
 repeat(4, 10px [col-start] 30% [col-middle] 400px [col-end])
 ```
 
-Die `repeat()`-Funktion nimmt zwei Argumente:
+Die `repeat()`-Funktion nimmt zwei Argumente an:
 
-- **repeat count**: Das erste Argument gibt an, wie oft die Track-Liste wiederholt werden soll. Es wird mit einem ganzzahligen Wert von 1 oder mehr angegeben, oder mit den Schlüsselwortwerten [`auto-fill`](#auto-fill) oder [`auto-fit`](#auto-fit). Diese Schlüsselwortwerte wiederholen die Track-Sätze so oft, wie es erforderlich ist, um den Grid-Container zu füllen.
-- **tracks**: Das zweite Argument gibt den Satz von Tracks an, der wiederholt wird. Grundsätzlich besteht dies aus einem oder mehreren Werten, wobei jeder Wert die Größe dieses Tracks darstellt. Jede Größe wird entweder mit einem [`<track-size>`](#track-size) Wert oder einem [`<fixed-size>`](#fixed-size) Wert angegeben. Sie können auch einen oder mehrere [Liniennamen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) vor oder nach jedem Track angeben, indem Sie [`<line-names>`](#line-names) Werte vor und/oder nach der Track-Größe angeben.
+- **Wiederholungsanzahl**: Das erste Argument gibt an, wie oft die Spurliste wiederholt werden soll. Es wird mit einem Ganzzahlwert von 1 oder mehr spezifiziert oder mit den Schlüsselwortwerten [`auto-fill`](#auto-fill) oder [`auto-fit`](#auto-fit). Diese Schlüsselwortwerte wiederholen das Set von Spuren so oft, wie nötig, um den Grid-Container zu füllen.
+- **Spuren**: Das zweite Argument gibt das Set von Spuren an, das wiederholt wird. Grundsätzlich besteht dies aus einem oder mehreren Werten, wobei jeder Wert die Größe dieser Spur darstellt. Jede Größe wird entweder unter Verwendung eines [`<track-size>`](#track-size)-Werts oder eines [`<fixed-size>`](#fixed-size)-Werts angegeben. Sie können auch einen oder mehrere [Liniennamen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) vor oder nach jeder Spur angeben, indem Sie [`<line-names>`](#line-names)-Werte vor und/oder nach der Spurgröße bereitstellen.
 
-Wenn Sie [`auto-fill`](#auto-fill) oder [`auto-fit`](#auto-fit) verwenden, um die Wiederholungsanzahl festzulegen, dürfen Sie die Track-Größen nur mit dem [`<fixed-size>`](#fixed-size) Typ angeben, nicht mit dem [`<track-size>`](#track-size) Typ. Dies gibt uns drei Hauptsyntaxformen für `repeat()`:
+Wenn Sie [`auto-fill`](#auto-fill) oder [`auto-fit`](#auto-fit) verwenden, um die Wiederholungsanzahl festzulegen, dürfen Sie Spurgrößen nur mit dem Typ [`<fixed-size>`](#fixed-size) angeben, nicht mit dem Typ [`<track-size>`](#track-size). Dies gibt uns drei Hauptsyntaxformen für `repeat()`:
 
-- `<track-repeat>`, die verwendet:
-  - eine ganze Zahl, um die Wiederholungsanzahl festzulegen
-  - [`<track-size>`](#track-size) Werte, um die Track-Größen festzulegen.
-- `<auto-repeat>`, die verwendet
-  - [`auto-fill`](#auto-fill) oder [`auto-fit`](#auto-fit) zur Festlegung der Wiederholungsanzahl
-  - [`<fixed-size>`](#fixed-size) zur Festlegung der Track-Größen.
-- `<fixed-repeat>`, die verwendet:
-  - eine ganze Zahl, um die Wiederholungsanzahl festzulegen
-  - [`<fixed-size>`](#fixed-size) Werte, um die Track-Größen festzulegen.
+- `<track-repeat>`, das verwendet:
+  - eine Ganzzahl, um die Wiederholungsanzahl festzulegen
+  - [`<track-size>`](#track-size)-Werte, um Spurgrößen festzulegen.
+- `<auto-repeat>`, das verwendet
+  - [`auto-fill`](#auto-fill) oder [`auto-fit`](#auto-fit) für die Wiederholungsanzahl
+  - [`<fixed-size>`](#fixed-size) zur Festlegung der Spurgrößen.
+- `<fixed-repeat>`, das verwendet:
+  - eine Ganzzahl zur Festlegung der Wiederholungsanzahl
+  - [`<fixed-size>`](#fixed-size)-Werte zur Festlegung der Spurgrößen.
 
-Wenn eine Eigenschaftserklärung `<auto-repeat>` verwendet, ist es nur erlaubt, `<fixed-repeat>` für zusätzliche `repeat()`-Aufrufe zu nutzen. Zum Beispiel ist dies ungültig, da es die `<auto-repeat>` Form mit der `<track-repeat>` Form kombiniert:
+Wenn eine Eigenschaftsdeklaration `<auto-repeat>` verwendet, darf nur `<fixed-repeat>` für zusätzliche `repeat()`-Aufrufe verwendet werden. Zum Beispiel ist dies ungültig, da es die Form `<auto-repeat>` mit der Form `<track-repeat>` kombiniert:
 
 ```css example-bad
 .wrapper {
@@ -116,49 +116,49 @@ Wenn eine Eigenschaftserklärung `<auto-repeat>` verwendet, ist es nur erlaubt, 
 }
 ```
 
-Es gibt eine vierte Form, `<name-repeat>`, die verwendet wird, um Liniennamen zu Subgrids hinzuzufügen. Sie wird nur mit dem [`subgrid`](/de/docs/Web/CSS/CSS_grid_layout/Subgrid) Schlüsselwort verwendet und spezifiziert nur Liniennamen, keine Track-Größen.
+Es gibt eine vierte Form, `<name-repeat>`, die verwendet wird, um Liniennamen zu Subgrids hinzuzufügen. Sie wird nur mit dem Schlüsselwort [`subgrid`](/de/docs/Web/CSS/CSS_grid_layout/Subgrid) verwendet und gibt nur Liniennamen an, nicht Spurgrößen.
 
 ### Werte
 
 - `<fixed-size>`
   - : Eine der folgenden Formen:
-    - Ein {{cssxref("&lt;length-percentage&gt;")}} Wert
-    - Eine {{cssxref("minmax", "minmax()")}} Funktion mit:
-      - `min` angegeben als ein {{cssxref("&lt;length-percentage&gt;")}} Wert
-      - `max` angegeben als ein {{cssxref("&lt;length-percentage&gt;")}} Wert, ein {{cssxref("&lt;flex&gt;")}} Wert oder eines der folgenden Schlüsselwörter: [`min-content`](#min-content), [`max-content`](#max-content) oder [`auto`](#auto)
-    - Eine {{cssxref("minmax", "minmax()")}} Funktion mit:
-      - `min` angegeben als ein {{cssxref("&lt;length-percentage&gt;")}} Wert oder eines der folgenden Schlüsselwörter: [`min-content`](#min-content), [`max-content`](#max-content) oder [`auto`](#auto)
-      - `max` angegeben als ein {{cssxref("&lt;length-percentage&gt;")}} Wert.
+    - ein {{cssxref("&lt;length-percentage&gt;")}}-Wert
+    - eine {{cssxref("minmax", "minmax()")}}-Funktion mit:
+      - `min`, angegeben als ein {{cssxref("&lt;length-percentage&gt;")}}-Wert,
+      - `max` angegeben als einer von einem {{cssxref("&lt;length-percentage&gt;")}}-Wert, einem {{cssxref("&lt;flex&gt;")}}-Wert oder eines der folgenden Schlüsselwörter: [`min-content`](#min-content), [`max-content`](#max-content) oder [`auto`](#auto)
+    - eine {{cssxref("minmax", "minmax()")}}-Funktion mit:
+      - `min`, angegeben als ein {{cssxref("&lt;length-percentage&gt;")}}-Wert oder eines der folgenden Schlüsselwörter: [`min-content`](#min-content), [`max-content`](#max-content) oder [`auto`](#auto)
+      - `max`, angegeben als ein {{cssxref("&lt;length-percentage&gt;")}}-Wert.
 - {{cssxref("&lt;flex&gt;")}}
-  - : Eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor des Tracks angibt. Jede `<flex>`-Größe eines Tracks nimmt einen Anteil des verbleibenden Raums proportional zu ihrem Flex-Faktor ein.
+  - : Eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor der Spur angibt. Jede `<flex>`-dimensionierte Spur nimmt einen Teil des restlichen Platzes proportional zu ihrem Flex-Faktor ein.
 - {{cssxref("&lt;length&gt;")}}
-  - : Eine positive ganze Zahl als Länge.
+  - : Eine positive Ganzzahlenlänge.
 - `<line-names>`
-  - : Null oder mehr {{cssxref("&lt;custom-ident&gt;")}} Werte, durch Leerzeichen getrennt und in eckigen Klammern eingeschlossen, so wie: `[first header-start]`.
+  - : Null oder mehr {{cssxref("&lt;custom-ident&gt;")}}-Werte, leerzeichengetrennt und in eckigen Klammern eingeschlossen, wie folgt: `[first header-start]`.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ein nicht-negativer Prozentsatz relativ zur Inline-Größe des Grid-Containers in Spaltengrids und zur Blockgröße des Grid-Containers in Zeilengrids. Wenn die Größe des Grid-Containers von der Größe seiner Tracks abhängt, muss der `<percentage>` als `auto` behandelt werden. Der User-Agent kann die intrinsischen Größenbeiträge des Tracks zur Größe des Grid-Containers anpassen und die endgültige Größe des Tracks um das Minimum erhöhen, das erforderlich ist, um den Prozentsatz zu erfüllen.
+  - : Ein nicht-negativer Prozentsatz relativ zur Inline-Größe des Grid-Containers bei Spaltengitterspuren und der Blockgröße des Grid-Containers bei Reihengitterspuren. Wenn die Größe des Grid-Containers von der Größe seiner Spuren abhängt, muss das `<percentage>` als `auto` behandelt werden. Der User-Agent kann die intrinsischen Größenbeiträge der Spur zur Größe des Grid-Containers anpassen und die endgültige Größe der Spur durch die minimal erforderliche Menge erhöhen, um dem Prozentsatz gerecht zu werden.
 - `<track-size>`
   - : Eine der folgenden Formen:
-    - Ein {{cssxref("&lt;length-percentage&gt;")}} Wert, ein {{cssxref("&lt;flex&gt;")}} Wert oder eines der folgenden Schlüsselwörter: [`min-content`](#min-content), [`max-content`](#max-content) oder [`auto`](#auto)
-    - Eine {{cssxref("minmax", "minmax()")}} Funktion mit:
-      - `min` angegeben als ein {{cssxref("&lt;length-percentage&gt;")}} Wert oder eines der folgenden Schlüsselwörter: [`min-content`](#min-content), [`max-content`](#max-content) oder [`auto`](#auto)
-      - `max` angegeben als ein {{cssxref("&lt;length-percentage&gt;")}} Wert, ein {{cssxref("&lt;flex&gt;")}} Wert oder eines der folgenden Schlüsselwörter: [`min-content`](#min-content), [`max-content`](#max-content) oder [`auto`](#auto)
-    - Eine {{cssxref("fit-content_function", "fit-content()")}} Funktion, die einen {{cssxref("&lt;length-percentage&gt;")}} Wert übergibt.
+    - ein {{cssxref("&lt;length-percentage&gt;")}}-Wert, ein {{cssxref("&lt;flex&gt;")}}-Wert oder eines der folgenden Schlüsselwörter: [`min-content`](#min-content), [`max-content`](#max-content) oder [`auto`](#auto)
+    - eine {{cssxref("minmax", "minmax()")}}-Funktion mit:
+      - `min`, angegeben als ein {{cssxref("&lt;length-percentage&gt;")}}-Wert oder eines der folgenden Schlüsselwörter: [`min-content`](#min-content), [`max-content`](#max-content) oder [`auto`](#auto)
+      - `max`, angegeben als ein {{cssxref("&lt;length-percentage&gt;")}}-Wert, ein {{cssxref("&lt;flex&gt;")}}-Wert oder eines der folgenden Schlüsselwörter: [`min-content`](#min-content), [`max-content`](#max-content) oder [`auto`](#auto)
+    - eine {{cssxref("fit-content_function", "fit-content()")}}-Funktion, die einen {{cssxref("&lt;length-percentage&gt;")}}-Wert übergibt.
 - `auto`
-  - : Als Maximum identisch mit `max-content`. Als Minimum repräsentiert es die größte Mindestgröße (wie angegeben durch {{cssxref("min-width")}}/{{cssxref("min-height")}}) der Grid-Elemente, die den Grid-Track belegen.
+  - : Als Maximum identisch mit `max-content`. Als Minimum repräsentiert sie die größte Mindestgröße (wie durch {{cssxref("min-width")}}/{{cssxref("min-height")}} angegeben) der Grid-Elemente, die den Grid-Track belegen.
 - `auto-fill`
-  - : Wenn der Grid-Container eine definierte oder maximale Größe in der relevanten Achse hat, ist die Anzahl der Wiederholungen die größtmögliche positive ganze Zahl, die nicht dazu führt, dass das Grid seinen Grid-Container überläuft. Unter der Annahme, dass jeder Track seine maximale Sizing-Funktion verwendet (jeder unabhängige Wert, der zur Definition von `grid-template-rows` oder `grid-template-columns` verwendet wird), wenn dies definiert ist. Andernfalls als seine minimale Sizing-Funktion und unter Berücksichtigung von grid-gap. Wenn jede Anzahl von Wiederholungen ein Überlaufen verursachen würde, dann ist die Wiederholung `1`. Andernfalls, wenn der Grid-Container eine definierte minimale Größe in der relevanten Achse hat, ist die Anzahl der Wiederholungen die kleinstmögliche positive ganze Zahl, die dieser Mindestanforderung entspricht. Andernfalls wird die angegebene Track-Liste nur einmal wiederholt.
+  - : Wenn der Grid-Container eine definierte oder maximale Größe entlang der relevanten Achse hat, dann ist die Anzahl der Wiederholungen die größtmögliche positive ganze Zahl, die nicht dazu führt, dass das Grid seinen Grid-Container überläuft. Behandelt jede Spur als ihre maximale Spurgrößenfunktion (jeder unabhängige Wert, der zur Definition von `grid-template-rows` oder `grid-template-columns` verwendet wird), wenn das definiert ist. Andernfalls als ihre minimale Spurgrößenfunktion und unter Berücksichtigung des Gitterabstands. Wenn jede Anzahl von Wiederholungen überlaufen würde, dann ist die Wiederholung `1`. Andernfalls, wenn der Grid-Container eine definierte minimale Größe entlang der relevanten Achse hat, ist die Anzahl der Wiederholungen die kleinste mögliche positive ganze Zahl, die diese Mindestanforderung erfüllt. Andernfalls wiederholt sich die angegebene Spurliste nur einmal.
 - `auto-fit`
-  - : Verhält sich genauso wie `auto-fill`, außer dass alle wiederholten, leeren Tracks nach dem Platzieren der Grid-Elemente zusammengeklappt werden. Ein leerer Track ist einer, in den keine inflow Grid-Elemente platziert oder über ihn gespannt sind. (Dies kann dazu führen, dass alle Tracks zusammengeklappt werden, wenn sie alle leer sind.)
+  - : Verhält sich genauso wie `auto-fill`, außer dass nach dem Platzieren der Grid-Elemente alle leeren wiederholten Spuren kollabieren. Eine leere Spur ist eine, in die keine inflow Grid-Elemente platziert sind oder die sich darüber erstrecken. (Dies kann dazu führen, dass alle Spuren kollabieren, wenn sie alle leer sind.)
 
-    Ein zusammengekappter Track wird als eine einzelne feste Sizing-Funktion von `0px` behandelt, und die Abstände zu beiden Seiten davon fallen zusammen.
+    Eine kollabierte Spur wird so behandelt, als hätte sie eine einzige feste Spurgrößenfunktion von `0px`, und die Abstände auf beiden Seiten davon kollabieren.
 
-    Für die Festlegung der Anzahl der automatisch wiederholten Tracks rundet der User-Agent die Track-Größe auf einen vom User-Agenten festgelegten Wert ab (z. B. `1px`), um eine Division durch null zu vermeiden.
+    Zur Bestimmung der Anzahl der automatisch wiederholten Spuren rundet der User-Agent die Spurgröße auf einen vom User-Agent festgelegten Wert (z. B. `1px`), um eine Division durch null zu vermeiden.
 
 - {{cssxref("max-content")}}
-  - : Repräsentiert den größten max-content Beitrag der Grid-Elemente, die den Grid-Track belegen.
+  - : Repräsentiert den größten `max-content`-Beitrag der Grid-Elemente, die den Grid-Track belegen.
 - {{cssxref("min-content")}}
-  - : Repräsentiert den größten min-content Beitrag der Grid-Elemente, die den Grid-Track belegen.
+  - : Repräsentiert den größten `min-content`-Beitrag der Grid-Elemente, die den Grid-Track belegen.
 
 ## Formale Syntax
 
@@ -166,7 +166,7 @@ Es gibt eine vierte Form, `<name-repeat>`, die verwendet wird, um Liniennamen zu
 
 ## Beispiele
 
-### Spezifizieren von Grid-Spalten mittels repeat()
+### Spezifizierung von Grid-Spalten mit repeat()
 
 #### HTML
 
@@ -221,5 +221,5 @@ Es gibt eine vierte Form, `<name-repeat>`, die verwendet wird, um Liniennamen zu
 - {{cssxref("grid-auto-columns")}}
 - {{cssxref("grid-auto-rows")}}
 - {{cssxref("grid-auto-flow")}}
-- [Linienbasiertes Platzieren mit CSS-Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- [Grid-Template-Bereiche: Grid-Definition Shorthands](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)
+- [Linienbasierte Platzierung mit CSS-Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
+- [Grid-Template-Bereiche: Grid-Definitions-Shorthands](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)

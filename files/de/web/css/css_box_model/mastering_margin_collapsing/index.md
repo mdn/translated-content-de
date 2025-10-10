@@ -1,34 +1,34 @@
 ---
-title: Beherrschung des Margin-Collapsing
+title: Beherrschung des Zusammenfallens von Rändern
 slug: Web/CSS/CSS_box_model/Mastering_margin_collapsing
 l10n:
-  sourceCommit: c9fc9aa7a65c5109e64c0f7b6d9e732dd812973f
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die [oberen](/de/docs/Web/CSS/margin-top) und [unteren](/de/docs/Web/CSS/margin-bottom) Ränder von Blockelementen werden manchmal zu einem einzigen Rand kombiniert (kollabiert), dessen Größe der größte der einzelnen Ränder ist (oder nur einer von ihnen, wenn sie gleich sind), ein Verhalten, das als **Margin-Collapsing** bekannt ist. Beachten Sie, dass die Ränder von [schwebenden](/de/docs/Web/CSS/float) und [absolut positionierten](/de/docs/Web/CSS/position#types_of_positioning) Elementen niemals kollabieren.
+Die [obersten](/de/docs/Web/CSS/margin-top) und [untersten](/de/docs/Web/CSS/margin-bottom) Ränder von Blöcken werden manchmal zu einem einzigen Rand kombiniert (zusammengefallen), dessen Größe die größte der einzelnen Ränder ist (oder nur einer von ihnen, wenn sie gleich sind), ein Verhalten, das als **Zusammenfallen von Rändern** bekannt ist. Beachten Sie, dass die Ränder von [schwebenden](/de/docs/Web/CSS/float) und [absolut positionierten](/de/docs/Web/CSS/position#types_of_positioning) Elementen nie zusammenfallen.
 
-Margin-Collapsing tritt in drei grundlegenden Fällen auf:
+Das Zusammenfallen von Rändern tritt in drei grundlegenden Fällen auf:
 
-- Benachbarte Geschwister
-  - : Die Ränder benachbarter Geschwister werden kollabiert (außer wenn das spätere Geschwisterelement über [cleared](/de/docs/Web/CSS/clear) Floats hinwegbewegt werden muss).
-- Kein Inhalt, der Elternteil und Nachkomme trennt
-  - : Die vertikalen Ränder zwischen einem Eltern-Block und seinen Nachkommen können kollabieren. Dies geschieht, wenn kein trennender Inhalt zwischen ihnen vorhanden ist. Konkret tritt dies in zwei Hauptfällen auf:
-    - Der {{cssxref("margin-top")}} eines Elternteils kollabiert mit dem {{cssxref("margin-top")}} seines ersten Nachkommens, es sei denn, der Elternteil hat eine {{cssxref("border-top")}}, {{cssxref("padding-top")}}, enthält allgemeinen Inline-Inhalt (wie Text) oder es wird _[clearance](/de/docs/Web/CSS/clear)_ angewendet.
-    - Der {{cssxref("margin-bottom")}} eines Elternteils kollabiert mit dem {{cssxref("margin-bottom")}} seines letzten Nachkommens, es sei denn, der Elternteil hat eine definierte {{cssxref("height")}} oder {{cssxref("min-height")}}, eine {{cssxref("border-bottom")}} oder {{cssxref("padding-bottom")}}.
+- Angrenzende Geschwister
+  - : Die Ränder angrenzender Geschwister fallen zusammen (außer wenn das letzte Geschwister um [Floats zu klären](/de/docs/Web/CSS/clear) muss).
+- Kein Inhalt zwischen Eltern und Nachkommen
+  - : Die vertikalen Ränder zwischen einem Elternblock und seinen Nachkommen können zusammenfallen. Dies geschieht, wenn es keinen separierenden Inhalt zwischen ihnen gibt. Insbesondere tritt dies in zwei Hauptfällen auf:
+    - Der {{cssxref("margin-top")}} eines Elternteils fällt mit dem {{cssxref("margin-top")}} seines ersten im Fluss befindlichen Nachkommens zusammen, es sei denn, das Elternteil hat eine {{cssxref("border-top")}}, {{cssxref("padding-top")}}, enthält jeglichen Inline-Inhalt (wie Text) oder hat _[Klärung](/de/docs/Web/CSS/clear)_ angewendet.
+    - Der {{cssxref("margin-bottom")}} eines Elternteils fällt mit dem {{cssxref("margin-bottom")}} seines letzten im Fluss befindlichen Nachkommens zusammen, es sei denn, das Elternteil hat eine definierte {{cssxref("height")}}, {{cssxref("min-height")}}, eine {{cssxref("border-bottom")}} oder {{cssxref("padding-bottom")}}.
 
-    In beiden Fällen wird das Erstellen eines neuen [Block Formatting Context](/de/docs/Web/CSS/CSS_display/Block_formatting_context) am Elternteil verhindern, dass seine Ränder mit denen seiner Kinder kollabieren.
+    In beiden Fällen verhindert das Erstellen eines neuen [Blockformatierungskontextes](/de/docs/Web/CSS/CSS_display/Block_formatting_context) auf dem Elternteil auch, dass seine Ränder mit denen seiner Kinder zusammenfallen.
 
 - Leere Blöcke
-  - : Wenn kein Rand, kein Padding, kein Inline-Inhalt, keine {{cssxref("height")}} oder {{cssxref("min-height")}} vorhanden ist, die den {{cssxref("margin-top")}} eines Blocks von seinem {{cssxref("margin-bottom")}} trennt, dann kollabieren seine oberen und unteren Ränder.
+  - : Wenn kein Rand, Abstand, Inline-Inhalt, {{cssxref("height")}} oder {{cssxref("min-height")}} vorhanden ist, um den {{cssxref("margin-top")}} eines Blocks von seinem {{cssxref("margin-bottom")}} zu trennen, dann fallen seine oberen und unteren Ränder zusammen.
 
-Einige Anmerkungen:
+Einige Dinge, die zu beachten sind:
 
-- Komplexeres Margin-Collapsing (mit mehr als zwei Rändern) tritt auf, wenn die obigen Fälle kombiniert werden.
-- Diese Regeln gelten auch für Ränder mit null, sodass der Rand eines Nachkommen nach außen seinen Elternteil verlässt (gemäß den obigen Regeln), unabhängig davon, ob der Rand des Elternteils null ist.
-- Wenn negative Ränder involviert sind, ist die Größe des kollabierten Randes die Summe des größten positiven Randes und des kleinsten (am negativsten) negativen Randes.
-- Wenn alle Ränder negativ sind, ist die Größe des kollabierten Randes der kleinste (am negativsten) Rand. Dies gilt sowohl für benachbarte als auch für geschachtelte Elemente.
-- Margin-Collapsing ist nur relevant in vertikaler Richtung.
-- Ränder kollabieren nicht in einem Container mit `display` auf `flex` oder `grid`.
+- Komplexeres Zusammenfallen von Rändern (von mehr als zwei Rändern) tritt auf, wenn die oben genannten Fälle kombiniert werden.
+- Diese Regeln gelten auch für Ränder, die Null sind, sodass der Rand eines Nachkommens außerhalb seines Elternteils endet (gemäß den obigen Regeln), unabhängig davon, ob der Rand des Elternteils Null ist oder nicht.
+- Wenn negative Ränder beteiligt sind, ist die Größe des zusammengefallenen Randes die Summe des größten positiven Randes und des kleinsten (negativsten) negativen Randes.
+- Wenn alle Ränder negativ sind, ist die Größe des zusammengefallenen Randes der kleinste (negativste) Rand. Dies gilt sowohl für benachbarte als auch für verschachtelte Elemente.
+- Das Zusammenfallen von Rändern ist nur in vertikaler Richtung relevant.
+- In einem Container mit `display` auf `flex` oder `grid` werden Ränder nicht zusammenfallen.
 
 ## Beispiele
 
@@ -76,7 +76,7 @@ p {
 
 ## Siehe auch
 
-- Grundlegende CSS-Konzepte:
+- CSS-Schlüsselkonzepte:
   - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
   - [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
   - [Kommentare](/de/docs/Web/CSS/CSS_syntax/Comments)
@@ -86,10 +86,10 @@ p {
   - {{Glossary("Layout_mode", "Layout-Modi")}}
   - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
   - Werte
-    - [Anfangswerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value)
+    - [Initialwerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value)
     - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value)
     - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value)
     - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value)
-  - [Wertedefinitionssyntax](/de/docs/Web/CSS/CSS_Values_and_Units/Value_definition_syntax)
-  - [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
+  - [Definition der Wertsyntax](/de/docs/Web/CSS/CSS_values_and_units/Value_definition_syntax)
+  - [Kurzschreibweise für Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
   - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

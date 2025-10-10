@@ -1,17 +1,17 @@
 ---
 title: Textuelle Datentypen
-slug: Web/CSS/CSS_Values_and_Units/Textual_data_types
+slug: Web/CSS/CSS_values_and_units/Textual_data_types
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Jede CSS-Deklaration besteht aus einem Paar von Eigenschaft und Wert. Der Wert kann, je nach Eigenschaft, verschiedene Datentypen umfassen, wie z.B. ein einzelnes Schlüsselwort, eine Ganzzahl, eine Funktion oder eine Kombination von verschiedenen Typen; einige Werte haben Einheiten, andere nicht. Dieser Leitfaden bietet einen Überblick über die textuellen Datentypen. Für detailliertere Informationen zu den einzelnen Wertetypen konsultieren Sie bitte die jeweilige Seite.
+Jede CSS-Deklaration besteht aus einem Paar von Eigenschaft und Wert. Der Wert kann je nach Eigenschaft verschiedene Datentypen enthalten, wie ein einzelnes Schlüsselwort, eine Ganzzahl, eine Funktion oder eine Kombination verschiedener Typen; einige Werte haben Einheiten, während andere keine haben. Dieser Leitfaden bietet einen Überblick über die textuellen Datentypen. Für detailliertere Informationen verweisen wir auf die Seite für jeden Wertetyp.
 
-Textdatentypen sind entweder {{cssxref("&lt;string&gt;")}}, eine in Anführungszeichen gesetzte Zeichenfolge, ein {{cssxref("&lt;ident&gt;")}}, ein "CSS Identifier", der eine nicht in Anführungszeichen gesetzte Zeichenfolge darstellt, oder ein optional in Anführungszeichen gesetzter {{cssxref("url_value", "&lt;url&gt;")}}. Ein `<string>` wird entweder mit einfachen oder doppelten Anführungszeichen markiert. CSS-Identifikatoren, die in den Spezifikationen als `<ident>` oder {{cssxref("&lt;custom-ident&gt;")}} aufgeführt sind, müssen nicht in Anführungszeichen gesetzt werden.
+Textdatentypen sind entweder {{cssxref("&lt;string&gt;")}}, eine in Anführungszeichen gesetzte Zeichenfolge, ein {{cssxref("&lt;ident&gt;")}}, ein „CSS-Identifikator“, der eine nicht in Anführungszeichen gesetzte Zeichenfolge ist, oder ein optional in Anführungszeichen gesetzer {{cssxref("url_value", "&lt;url&gt;")}}. Ein `<string>` wird entweder mit einfachen oder doppelten Anführungszeichen gesetzt. CSS-Identifikatoren, die in den Spezifikationen als `<ident>` oder {{cssxref("&lt;custom-ident&gt;")}} aufgeführt sind, müssen ohne Anführungszeichen sein.
 
-In den CSS-Spezifikationen sind Werte, die vom Webentwickler definiert werden können – wie beispielsweise Keyframe-Animationsnamen, Schriftfamiliennamen oder Rasterbereiche – als {{cssxref("&lt;custom-ident&gt;")}}, {{cssxref("&lt;string&gt;")}} oder beides aufgeführt.
+In den CSS-Spezifikationen sind Werte, die vom Webentwickler definiert werden können — wie Keyframe-Animationsnamen, Schriftfamiliennamen oder Gitterbereiche — als {{cssxref("&lt;custom-ident&gt;")}}, {{cssxref("&lt;string&gt;")}} oder beides aufgeführt.
 
-Wenn sowohl zitierte als auch nicht zitierte benutzerdefinierte Textwerte erlaubt sind, wird die Spezifikation `<custom-ident> | <string>` auflisten, was bedeutet, dass Anführungszeichen optional sind, wie dies bei [Keyframe-Animationsnamen] der Fall ist:
+Wenn sowohl in Anführungszeichen gesetzte als auch nicht in Anführungszeichen gesetzte benutzerdefinierte Textwerte erlaubt sind, wird die Spezifikation `<custom-ident> | <string>` auflisten, was bedeutet, dass Anführungszeichen optional sind, wie es bei [Keyframe-Animationsnamen] der Fall ist:
 
 ```css
 @keyframes validIdent {
@@ -22,7 +22,7 @@ Wenn sowohl zitierte als auch nicht zitierte benutzerdefinierte Textwerte erlaub
 }
 ```
 
-Einige Textwerte sind nicht gültig, wenn sie in Anführungszeichen gesetzt werden. Beispielsweise kann der Wert von {{cssxref("grid-area")}} ein `<custom-ident>` sein, sodass wir einen Rasterbereich namens `content` ohne Anführungszeichen verwenden würden:
+Einige Textwerte sind ungültig, wenn sie in Anführungszeichen eingeschlossen sind. Beispielsweise kann der Wert von {{cssxref("grid-area")}} ein `<custom-ident>` sein, daher würden wir, wenn wir einen Gitterbereich namens `content` hätten, diesen ohne Anführungszeichen verwenden:
 
 ```css
 .item {
@@ -30,7 +30,7 @@ Einige Textwerte sind nicht gültig, wenn sie in Anführungszeichen gesetzt werd
 }
 ```
 
-Im Vergleich dazu muss ein Datentyp, der ein {{cssxref("&lt;string&gt;")}} ist, wie ein Zeichenfolgenwert der {{cssxref("content")}}-Eigenschaft, in Anführungszeichen gesetzt werden:
+Im Vergleich dazu muss ein Datenwert, der ein {{cssxref("&lt;string&gt;")}} ist, wie ein String-Wert der {{cssxref("content")}}-Eigenschaft, in Anführungszeichen gesetzt werden:
 
 ```css
 .item::after {
@@ -38,13 +38,13 @@ Im Vergleich dazu muss ein Datentyp, der ein {{cssxref("&lt;string&gt;")}} ist, 
 }
 ```
 
-Sie können im Allgemeinen jeden Namen erstellen, den Sie möchten, einschließlich der Verwendung von Emojis, aber der Identifikator darf nicht `none`, `unset`, `initial` oder `inherit` sein, nicht mit einer Ziffer oder zwei Bindestrichen beginnen, und im Allgemeinen sollten Sie ihn nicht als eines der vordefinierten CSS-Schlüsselwörter verwenden. Weitere Details finden Sie auf den Referenzseiten für {{cssxref("&lt;custom-ident&gt;")}} und {{cssxref("&lt;string&gt;")}}.
+Während Sie im Allgemeinen jeden Namen erstellen können, den Sie möchten, einschließlich der Verwendung von Emojis, darf der Identifikator nicht `none`, `unset`, `initial` oder `inherit` sein, nicht mit einer Ziffer oder zwei Bindestrichen beginnen, und im Allgemeinen möchten Sie nicht, dass es sich um ein anderes vordefiniertes CSS-Schlüsselwort handelt. Siehe die Referenzseiten {{cssxref("&lt;custom-ident&gt;")}} und {{cssxref("&lt;string&gt;")}} für weitere Details.
 
 ## Vordefinierte Schlüsselwortwerte
 
-Vordefinierte Schlüsselwörter sind Textwerte, die in der Spezifikation für diese Eigenschaft definiert sind. Diese Schlüsselwörter sind ebenfalls CSS-Identifier und werden daher ohne Anführungszeichen verwendet.
+Vordefinierte Schlüsselwörter sind Textwerte, die von der Spezifikation für diese Eigenschaft definiert sind. Diese Schlüsselwörter sind ebenfalls CSS-Identifikatoren und werden daher ohne Anführungszeichen verwendet.
 
-Beim Betrachten der Syntax für CSS-Eigenschaftswerte in einer CSS-Spezifikation oder auf der MDN-Eigenschaftsseite werden zulässige Schlüsselwörter in der folgenden Form aufgelistet. Die folgenden {{Glossary("enumerated", "aufgezählten")}} Werte sind die vordefinierten Schlüsselwortwerte, die für {{cssxref("float")}} erlaubt sind.
+Wenn Sie CSS-Eigenschaftswert-Syntax in einer CSS-Spezifikation oder auf der MDN-Eigenschaftsseite ansehen, werden die zulässigen Schlüsselwörter in der folgenden Form aufgelistet. Die folgenden {{Glossary("enumerated", "aufgezählten")}} Werte sind die vordefinierten Schlüsselwortwerte, die für {{cssxref("float")}} erlaubt sind.
 
 ```plain
 left | right | none | inline-start | inline-end
@@ -60,22 +60,22 @@ Solche Werte werden ohne Anführungszeichen verwendet:
 
 ## CSS-weite Schlüsselwörter
 
-Zusätzlich zu den vordefinierten Schlüsselwörtern, die Teil der Spezifikation für eine Eigenschaft sind, akzeptieren alle CSS-Eigenschaften die CSS-weiten oder "globalen" Eigenschaftswerte {{cssxref("initial")}}, {{cssxref("inherit")}}, {{cssxref("unset")}}, {{cssxref("revert")}} und {{cssxref("revert-layer")}}, die explizit das Standardverhalten spezifizieren.
+Zusätzlich zu den vordefinierten Schlüsselwörtern, die Teil der Spezifikation für eine Eigenschaft sind, akzeptieren alle CSS-Eigenschaften die CSS-weiten oder „globalen“ Eigenschaftswerte {{cssxref("initial")}}, {{cssxref("inherit")}}, {{cssxref("unset")}}, {{cssxref("revert")}} und {{cssxref("revert-layer")}}, die explizit Standardverhaltensweisen angeben.
 
 - {{cssxref("initial")}}
-  - : Repräsentiert den Wert, der als anfänglicher Wert der Eigenschaft festgelegt ist.
+  - : Stellt den als anfänglichen Wert der Eigenschaft spezifizierten Wert dar.
 - {{cssxref("inherit")}}
-  - : Repräsentiert den berechneten Wert der Eigenschaft des Elternelements, vorausgesetzt, sie wird vererbt.
+  - : Stellt den berechneten Wert der Eigenschaft am Eltern-Element dar, sofern es vererbt wird.
 - {{cssxref("unset")}}
-  - : Wirkt wie entweder `inherit` oder `initial`, abhängig davon, ob die Eigenschaft geerbt wird oder nicht.
+  - : Wirkt entweder als `inherit` oder `initial`, abhängig davon, ob die Eigenschaft vererbt wird oder nicht.
 - {{cssxref("revert")}}
-  - : Setzt die Eigenschaft auf ihren geerbten Wert zurück, wenn sie von ihrem Elternteil erbt, oder auf den Standardwert, der durch das Stylesheet des User-Agents (oder durch Benutzerstile, falls vorhanden) festgelegt wird.
+  - : Setzt die Eigenschaft auf ihren geerbten Wert zurück, wenn sie von ihrem Elternteil erbt, oder auf den Standardwert, der durch das Stylesheet des Benutzeragenten festgelegt wird (oder durch Benutzerstile, sofern vorhanden).
 - {{cssxref("revert-layer")}}
-  - : Setzt den Wert einer Eigenschaft in einer [Kaskadenschicht](/de/docs/Web/CSS/@layer) auf den Wert der Eigenschaft in einer CSS-Regel zurück, die das Element in einer vorherigen Kaskadenschicht trifft. Der Wert der Eigenschaft mit diesem Schlüsselwort wird neu berechnet, als ob keine Regeln für das Ziel-Element in der aktuellen Kaskadenschicht festgelegt wären.
+  - : Setzt den Wert einer Eigenschaft in einem [Cascade-Layer](/de/docs/Web/CSS/@layer) auf den Wert der Eigenschaft in einer CSS-Regel zurück, die das Element in einem vorherigen Cascade-Layer matcht. Der Wert der Eigenschaft mit diesem Schlüsselwort wird neu berechnet, als ob keine Regeln auf das Ziel-Element im aktuellen Cascade-Layer angewendet worden wären.
 
 ## URLs
 
-Ein {{cssxref("url_value", "&lt;url&gt;")}}-Typ verwendet funktionale Notation, die ein `<string>` akzeptiert, das eine URL ist. Diese kann eine absolute URL oder eine relative URL sein. Wenn Sie beispielsweise ein Hintergrundbild einfügen möchten, könnten Sie eine der folgenden verwenden:
+Ein {{cssxref("url_value", "&lt;url&gt;")}}-Typ verwendet funktionale Notation, die ein `<string>` akzeptiert, das eine URL ist. Dies kann eine absolute oder eine relative URL sein. Wenn Sie beispielsweise ein Hintergrundbild einfügen möchten, könnten Sie eines der folgenden verwenden:
 
 ```css
 .box {
@@ -87,12 +87,12 @@ Ein {{cssxref("url_value", "&lt;url&gt;")}}-Typ verwendet funktionale Notation, 
 }
 ```
 
-Der Parameter für `url()` kann entweder zitiert oder nicht zitiert sein. Wenn nicht zitiert, wird er als `<url-token>` geparst, der zusätzliche Anforderungen hat, einschließlich des Escapens bestimmter Zeichen. Siehe {{cssxref("url_value", "&lt;url&gt;")}} für weitere Informationen.
+Der Parameter für `url()` kann entweder in Anführungszeichen gesetzt oder nicht gesetzt werden. Wenn er nicht gesetzt ist, wird er als `<url-token>` geparst, was zusätzliche Anforderungen wie das Entkommen bestimmter Zeichen mit sich bringt. Weitere Informationen finden Sie unter {{cssxref("url_value", "&lt;url&gt;")}}.
 
 ## Siehe auch
 
-- [Numerische Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/Numeric_data_types)
-- [CSS-Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types)
-- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)-Modul
+- [Numerische Datentypen](/de/docs/Web/CSS/CSS_values_and_units/Numeric_data_types)
+- [CSS-Datentypen](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types)
+- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_values_and_units) Modul
 - [Lernen: Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
-- [CSS-Kaskade und Vererbung](/de/docs/Web/CSS/CSS_cascade)-Modul
+- [CSS-Kaskade und -Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul

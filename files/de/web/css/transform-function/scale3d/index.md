@@ -2,10 +2,10 @@
 title: scale3d()
 slug: Web/CSS/transform-function/scale3d
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`scale3d()`**-[CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) definiert eine Transformation, die ein Element im 3D-Raum vergrößert oder verkleinert. Da die Vergrößerung durch einen Vektor [sx, sy, sz] definiert ist, kann sie verschiedene Dimensionen in unterschiedlichen Maßstäben skalieren. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scale3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) definiert eine Transformation, die ein Element im 3D-Raum vergrößert oder verkleinert. Da das Maß der Skalierung durch einen Vektor [sx, sy, sz] definiert ist, können verschiedene Dimensionen in unterschiedlichen Maßstäben skaliert werden. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: scale3d()")}}
 
@@ -95,9 +95,9 @@ transform: scale3d(-1.4, 0.4, 0.7);
 }
 ```
 
-Diese Skalierungstransformation ist durch einen dreidimensionalen Vektor charakterisiert. Ihre Koordinaten definieren, wie viel in jeder Richtung skaliert wird. Wenn alle drei Koordinaten gleich sind, ist die Skalierung gleichmäßig (_isotrop_) und das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Elements bleibt erhalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
+Diese Skalierungstransformation wird durch einen dreidimensionalen Vektor charakterisiert. Ihre Koordinaten definieren, wie stark die Skalierung in jede Richtung erfolgt. Wenn alle drei Koordinaten gleich sind, ist die Skalierung gleichmäßig (_isotrop_) und das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Elements bleibt erhalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
 
-Wenn ein Koordinatenwert außerhalb des Bereichs \[-1, 1] liegt, wächst das Element in dieser Dimension; wenn er innerhalb liegt, schrumpft es. Ist der Wert negativ, resultiert dies in einer [Punktspiegelung](https://en.wikipedia.org/wiki/Point_reflection) in dieser Dimension. Ein Wert von 1 hat keine Wirkung.
+Wenn ein Koordinatenwert außerhalb des Bereichs \[-1, 1] liegt, wächst das Element in dieser Dimension; wenn innerhalb, schrumpft es. Wenn er negativ ist, ergibt sich eine [Punktspiegelung](https://en.wikipedia.org/wiki/Point_reflection) in dieser Dimension. Ein Wert von 1 hat keine Auswirkung.
 
 ## Syntax
 
@@ -108,11 +108,11 @@ scale3d(sx, sy, sz)
 ### Werte
 
 - `sx`
-  - : Ist eine {{cssxref("&lt;number&gt;")}}, die die Abszisse (horizontale, x-Komponente) des Skalierungsvektors darstellt.
+  - : Ist eine {{cssxref("&lt;number&gt;")}} die die Abszisse (horizontaler, x-Komponente) des Skalierungsvektors darstellt.
 - `sy`
-  - : Ist eine {{cssxref("&lt;number&gt;")}}, die die Ordinate (vertikale, y-Komponente) des Skalierungsvektors darstellt.
+  - : Ist eine {{cssxref("&lt;number&gt;")}} die die Ordinate (vertikaler, y-Komponente) des Skalierungsvektors darstellt.
 - `sz`
-  - : Ist eine {{cssxref("&lt;number&gt;")}}, die die z-Komponente des Skalierungsvektors darstellt.
+  - : Ist eine {{cssxref("&lt;number&gt;")}} die die z-Komponente des Skalierungsvektors darstellt.
 
 <table class="standard-table">
   <thead>
@@ -126,7 +126,7 @@ scale3d(sx, sy, sz)
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
+        Diese Transformation gilt für den 3D-Raum und kann nicht auf die Ebene abgebildet werden.
       </td>
       <td>
         <math display="block">
@@ -176,7 +176,7 @@ div {
 
 {{EmbedLiveSample("Without_changing_the_origin","200","200")}}
 
-### Übersetzung des Ursprungs der Transformation
+### Verschieben des Ursprungs der Transformation
 
 #### HTML
 
@@ -220,7 +220,7 @@ div {
 - [`scaleZ()`](/de/docs/Web/CSS/transform-function/scaleZ)
 - [`translate3d()`](/de/docs/Web/CSS/transform-function/translate3d)
 - [`rotate3d()`](/de/docs/Web/CSS/transform-function/rotate3d)
-- Einzelne Transformations-Eigenschaften:
+- Individuelle Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

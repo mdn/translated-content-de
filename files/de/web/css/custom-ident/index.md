@@ -2,32 +2,32 @@
 title: <custom-ident>
 slug: Web/CSS/custom-ident
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Der **`<custom-ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) bezeichnet eine beliebige, benutzerdefinierte Zeichenfolge, die als {{Glossary("identifier", "Bezeichner")}} verwendet wird. Er ist case-sensitiv, und bestimmte Werte sind in verschiedenen Kontexten verboten, um Mehrdeutigkeiten zu vermeiden.
+Der **`<custom-ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) bezeichnet eine beliebige, benutzerdefinierte Zeichenfolge, die als {{Glossary("identifier", "Identifikator")}} verwendet wird. Er ist groß-/kleinschreibungssensitiv, und bestimmte Werte sind in verschiedenen Kontexten verboten, um Mehrdeutigkeiten zu vermeiden.
 
 ## Syntax
 
-Die Syntax von `<custom-ident>` ist ähnlich wie bei CSS-Bezeichnern (wie z.B. Eigenschaftsnamen), mit der Ausnahme, dass sie [case-sensitiv](https://en.wikipedia.org/wiki/Case_sensitivity) ist. Sie besteht aus einem oder mehreren Zeichen, wobei die Zeichen aus Folgendem bestehen können:
+Die Syntax von `<custom-ident>` ähnelt CSS-Identifikatoren (wie Eigenschaftsnamen), mit der Ausnahme, dass er [groß-/kleinschreibungssensitiv](https://en.wikipedia.org/wiki/Case_sensitivity) ist. Er besteht aus einem oder mehreren Zeichen, wobei Zeichen eines der folgenden sein können:
 
-- jedem alphabetischen Zeichen (`A` bis `Z` oder `a` bis `z`),
-- jeder Dezimalziffer (`0` bis `9`),
-- einem Bindestrich (`-`),
-- einem Unterstrich (`_`),
-- einem [maskierten Zeichen](#zeichen_maskieren) (vorangestellt mit einem Backslash, `\`),
-- einem [Unicode](https://en.wikipedia.org/wiki/Unicode)-Zeichen (im Format eines Backslashes, `\`, gefolgt von ein bis sechs hexadezimalen Ziffern, die den Unicode-Codepunkt repräsentieren).
+- ein beliebiges alphabetisches Zeichen (`A` bis `Z`, oder `a` bis `z`),
+- eine Dezimalziffer (`0` bis `9`),
+- ein Bindestrich (`-`),
+- ein Unterstrich (`_`),
+- ein [maskiertes Zeichen](#maskierung_von_zeichen) (eingeleitet durch einen Backslash, `\`),
+- ein [Unicode](https://en.wikipedia.org/wiki/Unicode)-Zeichen (im Format eines Backslashes, `\`, gefolgt von ein bis sechs hexadezimalen Ziffern, die seinen Unicode-Codepunkt darstellen)
 
-Beachten Sie, dass `id1`, `Id1`, `iD1` und `ID1` unterschiedliche Bezeichner sind, da sie [case-sensitiv](https://en.wikipedia.org/wiki/Case_sensitivity) sind.
+Beachten Sie, dass `id1`, `Id1`, `iD1` und `ID1` unterschiedliche Identifikatoren sind, da sie [groß-/kleinschreibungssensitiv](https://en.wikipedia.org/wiki/Case_sensitivity) sind.
 
-### Zeichen maskieren
+### Maskierung von Zeichen
 
-Jeder Unicode-Codepunkt kann als Teil eines `<custom-ident>` oder eines in Anführungszeichen gesetzten {{cssxref("string")}} maskiert werden.
+Jeder Unicode-Codepunkt kann als Teil eines `<custom-ident>` oder zitierten {{cssxref("string")}} durch Maskierung eingeschlossen werden.
 
-In CSS gibt es mehrere Möglichkeiten, ein Zeichen zu maskieren. Escape-Sequenzen beginnen mit einem Backslash (`\`) und setzen sich fort mit:
+In CSS gibt es mehrere Möglichkeiten, ein Zeichen zu maskieren. Maskierungsfolgen beginnen mit einem Backslash (`\`) und werden fortgesetzt mit:
 
-- Ein bis sechs hexadezimalen (`ABCDEF0123456789`) Ziffern. Die hexadezimalen Ziffern können optional gefolgt sein von einem Leerzeichen. Die hexadezimale Escape-Sequenz wird durch den Unicode-Codepunkt ersetzt, dessen Wert durch diese Ziffern angegeben ist. Das Leerzeichen ermöglicht es, dass die Sequenzen von tatsächlichen hexadezimalen Ziffern gefolgt werden (im Gegensatz zu ersetzten).
-- Jedem Unicode-Codepunkt, der keine hexadezimale Ziffer oder kein Zeilenumbruchzeichen ist.
+- Ein bis sechs hexadezimale (`ABCDEF0123456789`) Ziffern. Die hexadezimalen Ziffern können optional von einem Leerzeichen gefolgt sein. Die hexadezimale Maskierungssequenz wird durch den Unicode-Codepunkt ersetzt, dessen Wert durch diese Ziffern gegeben ist. Das Leerzeichen erlaubt es, dass die Sequenzen von tatsächlichen hexadezimalen Ziffern (im Gegensatz zu ersetzten) gefolgt werden.
+- Jeder Unicode-Codepunkt, der keine hexadezimale Ziffer oder ein Zeilenumbruch ist.
 
 Beispiele:
 
@@ -35,13 +35,13 @@ Beispiele:
 - "hi.there" kann als `hi\.there` oder `hi\002Ethere` geschrieben werden.
 - "toto?" kann als `toto\?`, `toto\3F` oder `toto\00003F` geschrieben werden.
 
-Um tatsächlich Leerzeichen nach einer Escape-Sequenz einzuschließen, müssen zwei Leerzeichen in der Escape-Sequenz enthalten sein.
+Um tatsächlich ein Leerzeichen nach einer Maskierungssequenz einzuschließen, fügen Sie zwei Leerzeichen in die Maskierungssequenz ein.
 
 ### Verbotene Werte
 
-Ein `<custom-ident>` darf nicht in einfachen oder doppelten Anführungszeichen gesetzt werden, da dies identisch zu einem {{CSSxRef("&lt;string&gt;")}} wäre. Außerdem darf das erste Zeichen keine Dezimalziffer und kein Bindestrich (`-`) gefolgt von einer Dezimalziffer sein.
+Ein `<custom-ident>` darf nicht in einfache oder doppelte Anführungszeichen gesetzt werden, da dies einem {{CSSxRef("&lt;string&gt;")}} identisch wäre. Außerdem darf das erste Zeichen keine Dezimalziffer sein, noch ein Bindestrich (`-`), gefolgt von einer Dezimalziffer.
 
-Um Mehrdeutigkeiten zu vermeiden, verbietet jede Eigenschaft, die `<custom-ident>` verwendet, die Verwendung spezifischer Werte:
+Um Mehrdeutigkeit zu verhindern, verbietet jede Eigenschaft, die `<custom-ident>` verwendet, die Nutzung bestimmter Werte:
 
 - {{CSSxRef("animation-name")}}
   - : Verbietet die globalen CSS-Werte (`unset`, `initial` und `inherit`) sowie `none`.
@@ -53,7 +53,7 @@ Um Mehrdeutigkeiten zu vermeiden, verbietet jede Eigenschaft, die `<custom-ident
     - `inline`
     - `outside`
 
-    Ebenfalls sind einige vordefinierte Werte in verschiedenen Browsern implementiert:
+    Auch werden einige vordefinierte Werte von verschiedenen Browsern implementiert:
     - `disc`
     - `circle`
     - `square`
@@ -119,7 +119,7 @@ Um Mehrdeutigkeiten zu vermeiden, verbietet jede Eigenschaft, die `<custom-ident
 
 ## Beispiele
 
-### Gültige Bezeichner
+### Gültige Identifikatoren
 
 ```plain example-good
 nono79            A mix of alphanumeric characters and numbers
@@ -130,7 +130,7 @@ _internal         An underscore followed by alphanumeric characters
 scooby\.doo       A correctly escaped period
 ```
 
-### Ungültige Bezeichner
+### Ungültige Identifikatoren
 
 ```plain example-bad
 34rem             It must not start with a decimal digit.
@@ -146,7 +146,7 @@ scooby.doo        Only alphanumeric characters, _, and - needn't be escaped.
 
 ## Browser-Kompatibilität
 
-_Da dieser Typ kein realer Typ, sondern ein Komforttyp ist, der verwendet wird, um die Beschreibung der erlaubten Werte zu vereinfachen, gibt es keine Browser-Kompatibilitätsinformationen als solche._
+_Da dieser Typ kein realer Typ ist, sondern ein Bequemlichkeitstyp zur Vereinfachung der Beschreibung der erlaubten Werte, gibt es keine Browser-Kompatibilitätsinformationen als solche._
 
 ## Siehe auch
 

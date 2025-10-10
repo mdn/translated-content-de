@@ -2,12 +2,12 @@
 title: sibling-index()
 slug: Web/CSS/sibling-index
 l10n:
-  sourceCommit: 9ccdb2ddd0d46e6d203044c3fffb50a784528c8c
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
 {{SeeCompatTable}}
 
-Die **`sibling-index()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) gibt eine ganze Zahl zurück, die die Position des aktuellen Elements im DOM-Baum relativ zu allen seinen Geschwisterelementen darstellt. Der zurückgegebene Wert ist die Indexnummer der Position des kontextbezogenen Kindes unter allen Geschwisterelementen innerhalb eines Elternelements, wobei das erste Kind `1` zurückgibt und das letzte Kind [`Element.children`](/de/docs/Web/API/Element/children).length zurückgibt.
+Die **`sibling-index()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) liefert eine ganze Zahl, die die Position des aktuellen Elements im DOM-Baum relativ zu allen seinen Geschwisterelementen darstellt. Der zurückgegebene Wert ist die Indexnummer der Position des kontextuellen Kindes unter allen Geschwisterelementen innerhalb eines Elternelements, wobei das erste Kind `1` zurückgibt und das letzte Kind die Länge von [`Element.children`](/de/docs/Web/API/Element/children).length zurückgibt.
 
 {{InteractiveExample("CSS Demo: sibling-index()")}}
 
@@ -66,7 +66,7 @@ Die **`sibling-index()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CS
 ```
 
 > [!NOTE]
-> Wie die {{CSSxRef(":nth-child()")}} Pseudoklasse beginnt `sibling-index()` bei 1, nicht bei 0.
+> Wie die Pseudo-Klasse {{CSSxRef(":nth-child()")}} beginnt `sibling-index()` bei 1 und nicht bei 0.
 
 ## Syntax
 
@@ -76,17 +76,17 @@ sibling-index()
 
 ### Parameter
 
-Die `sibling-index()` Funktion akzeptiert keine Parameter.
+Die `sibling-index()`-Funktion akzeptiert keine Parameter.
 
 ### Rückgabewert
 
-Eine ganze Zahl; die Position des aktuellen Elements in der Geschwister-Reihenfolge des DOM-Baums.
+Eine ganze Zahl; die Position des aktuellen Elements in der Geschwisterreihenfolge des DOM-Baums.
 
 ## Beispiele
 
 ### Dynamische Listenbreite
 
-Dieses Beispiel zeigt, wie die Breite jedes {{htmlelement("li")}} Elements in der {{htmlelement("ul")}} dynamisch um `50px` erhöht werden kann.
+Dieses Beispiel zeigt, wie die Breite jedes {{htmlelement("li")}}-Elements in der {{htmlelement("ul")}} um `50px` dynamisch erhöht werden kann.
 
 #### HTML
 
@@ -112,13 +112,13 @@ li {
 
 {{EmbedLiveSample("Dynamic list width", "300", "100")}}
 
-### Geordnete Liste
+### Nummerierte Liste
 
-Dieses Beispiel zeigt, wie eine geordnete Liste ohne Verwendung des {{htmlelement("ol")}} Elements mit `sibling-index()` erstellt werden kann. Verwenden Sie immer das semantisch passendste Element für den Kontext; dieses Beispiel zeigt, was mit CSS gemacht werden kann, wenn Sie das HTML nicht ändern können.
+Dieses Beispiel zeigt, wie eine nummerierte Liste unter Verwendung von `sibling-index()` erstellt wird, ohne das {{htmlelement("ol")}}-Element zu verwenden. Verwenden Sie immer das semantisch passendste Element für den Kontext; dieses Beispiel ist enthalten, um zu zeigen, was mit CSS möglich ist, wenn Sie das HTML nicht ändern können.
 
 #### HTML
 
-Wir fügen einen {{htmlelement("nav")}} Container und mehrere {{htmlelement("div")}} Kind-Elemente ein.
+Wir fügen einen {{htmlelement("nav")}}-Container und mehrere {{htmlelement("div")}}-Kinderelemente hinzu.
 
 ```html
 <nav aria-label="Ordered list">
@@ -131,7 +131,7 @@ Wir fügen einen {{htmlelement("nav")}} Container und mehrere {{htmlelement("div
 
 #### CSS
 
-Wir lassen es visuell wie eine nummerierte Liste aussehen, indem der `sibling-index` vor jedem {{htmlelement("div")}} Element mit dem {{CSSxRef("::before")}} Pseudoelement angezeigt wird. Dabei wird der {{CSSxRef("content")}} auf die von der `sibling-index()` Funktion zurückgegebene ganze Zahl gesetzt.
+Wir lassen es als nummerierte Liste erscheinen, indem wir den sibling-index vor jedem {{htmlelement("div")}}-Element mit dem {{CSSxRef("::before")}}-Pseudo-Element anzeigen und den {{CSSxRef("content")}}-Wert auf die von der `sibling-index()` Funktion zurückgegebene Zahl setzen.
 
 ```css
 div {
@@ -149,13 +149,13 @@ div::before {
 
 {{EmbedLiveSample("Ordered List", "300", "100")}}
 
-### Sequentielle Animationen
+### Sequenzielle Animationen
 
-Durch die Kombination von `sibling-index()` mit CSS-Animationen eröffnen sich neue Möglichkeiten. In diesem Beispiel wird die Deckkraft von Elementen in der Reihenfolge des DOM durch Setzen einer {{cssxref("animation-delay")}} basierend auf ihrer Reihenfolge verändert.
+Die Kombination von `sibling-index()` mit CSS-Animationen eröffnet neue Möglichkeiten. In diesem Beispiel wird die Deckkraft von Elementen in sequentieller Reihenfolge angepasst, indem eine {{cssxref("animation-delay")}} basierend auf ihrer Reihenfolge im DOM gesetzt wird.
 
 #### HTML
 
-Wir fügen ein Containerelement mit vier Kind-Elementen ein:
+Wir fügen ein Container-Element mit vier Kindern hinzu:
 
 ```html
 <ul>
@@ -168,7 +168,7 @@ Wir fügen ein Containerelement mit vier Kind-Elementen ein:
 
 #### CSS
 
-Wir wenden die `fade-in` Animation auf jedes Element an. Wir verwenden die `sibling-index()` Funktion innerhalb einer {{cssxref("calc()")}} Funktion, um die Dauer der `animation-delay` basierend auf der Position des Quell-Elements im Quellauftrag festzulegen. Der {{cssxref("animation-fill-mode")}} wendet den `0%` Keyframe der Animation an, bis die `animation-duration` abgelaufen ist.
+Wir wenden die `fade-in`-Animation auf jedes Element an. Wir nutzen die `sibling-index()`-Funktion innerhalb einer {{cssxref("calc()")}}-Funktion, um die Dauer der `animation-delay` basierend auf der Position des Quell-Elements in der Quellordnung festzulegen. Die {{cssxref("animation-fill-mode")}} wendet den `0%`-Keyframe der Animation an, bis die `animation-duration` abläuft.
 
 ```css
 ul {

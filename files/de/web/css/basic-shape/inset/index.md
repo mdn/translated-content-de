@@ -2,10 +2,10 @@
 title: inset()
 slug: Web/CSS/basic-shape/inset
 l10n:
-  sourceCommit: e82803beedb7f1d8a8e918c1071752f18e1e3f28
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`inset()`** [CSS](/de/docs/Web/CSS) Funktion definiert ein Rechteck in den angegebenen Abstandsmaßen von jeder Seite der Referenzbox. Es handelt sich um eine grundlegende Formfunktion, die verwendet wird, um einen der {{cssxref("&lt;basic-shape&gt;")}} [Datentypen](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_data_types) zu definieren.
+Die **`inset()`** [CSS](/de/docs/Web/CSS) Funktion definiert ein Rechteck mit den angegebenen Abstandsmaßen von jeder Seite des Referenzrahmens. Sie ist eine grundlegende Formfunktion, die verwendet wird, um einen der {{cssxref("&lt;basic-shape&gt;")}} [Datentypen](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) zu definieren.
 
 {{InteractiveExample("CSS Demo: inset()")}}
 
@@ -52,12 +52,12 @@ shape-outside: inset(20px 50px 10px 0 round 50px);
 ### Werte
 
 - `<length-percentage>{1,4}`
-  - : Wenn alle vier Argumente angegeben sind, repräsentieren sie die Abstände von oben, rechts, unten und links von der Referenzbox nach innen, die die Positionen der Kanten des eingefügten Rechtecks definieren. Diese Argumente folgen der Syntax der Margin-Kurzform, die es ermöglicht, alle vier Einfügeabstände mit einem, zwei oder vier Werten zu setzen.
+  - : Wenn alle vier Argumente angegeben sind, repräsentieren sie die Abstände von oben, rechts, unten und links vom Referenzrahmen nach innen und definieren die Positionen der Ränder des Inset-Rechtecks. Diese Argumente folgen der Syntax der Margin-Kurznotation, die es Ihnen ermöglicht, alle vier Abstände mit einem, zwei oder vier Werten festzulegen.
 
-    Wenn ein Paar von Einfügeabständen für eine Dimension mehr als 100% dieser Dimension ausmacht, werden beide Werte proportional reduziert, sodass ihre Summe 100% ergibt. Zum Beispiel hat der Wert `inset(90% 10% 60% 10%)` eine obere Einfügung von `90%` und eine untere Einfügung von `60%`. Diese Werte werden proportional auf `inset(60% 10% 40% 10%)` reduziert. Formen wie diese, die keinen Bereich umschließen und keinen {{cssxref("shape-margin")}} haben, beeinflussen das Umfließen nicht.
+    Falls ein Paar von Abständen für eine Dimension mehr als 100% dieser Dimension ergibt, werden beide Werte proportional reduziert, sodass ihre Summe 100% ergibt. Zum Beispiel hat der Wert `inset(90% 10% 60% 10%)` einen oberen Abstand von `90%` und einen unteren Abstand von `60%`. Diese Werte werden proportional zu `inset(60% 10% 40% 10%)` reduziert. Solche Formen, die kein Gebiet einschließen und keine {{cssxref("shape-margin")}} haben, beeinflussen den Zeilenumbruch nicht.
 
 - `<border-radius>`
-  - : Das optionale [`<border-radius>`](/de/docs/Web/CSS/border-radius) Argument(e) definieren abgerundete Ecken für das eingefügte Rechteck unter Verwendung der Kurzform-Syntax für `border-radius`.
+  - : Die optionalen [`<border-radius>`](/de/docs/Web/CSS/border-radius) Argumente definieren abgerundete Ecken für das Inset-Rechteck unter Verwendung der border-radius Kurzsyntax.
 
 ## Formale Syntax
 
@@ -65,9 +65,9 @@ shape-outside: inset(20px 50px 10px 0 round 50px);
 
 ## Beispiele
 
-### Einfaches Inset-Beispiel
+### Einfaches Beispiel für inset
 
-Im Beispiel unten haben wir eine `inset()` Form, die verwendet wird, um Inhalte über das gefloatete Element zu ziehen. Ändern Sie die Versatzwerte, um zu sehen, wie sich die Form verändert.
+Im folgenden Beispiel haben wir eine `inset()` Form verwendet, um Inhalte über das schwebende Element zu ziehen. Ändern Sie die Offset-Werte, um zu sehen, wie sich die Form ändert.
 
 ```html
 <div class="box">
@@ -105,7 +105,7 @@ Im Beispiel unten haben wir eine `inset()` Form, die verwendet wird, um Inhalte 
 }
 ```
 
-{{EmbedLiveSample("Einfaches Inset-Beispiel", '100%', 280)}}
+{{EmbedLiveSample("Einfaches Beispiel für inset", '100%', 280)}}
 
 ## Spezifikationen
 
@@ -118,5 +118,5 @@ Im Beispiel unten haben wir eine `inset()` Form, die verwendet wird, um Inhalte 
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("clip-path")}}, {{cssxref("shape-outside")}}
-- [CSS shapes](/de/docs/Web/CSS/CSS_shapes) Modul
+- [CSS Shapes](/de/docs/Web/CSS/CSS_shapes) Modul
 - [Leitfaden zu grundlegenden Formen](/de/docs/Web/CSS/CSS_shapes/Basic_shapes)

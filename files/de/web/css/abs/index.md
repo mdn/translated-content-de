@@ -2,10 +2,10 @@
 title: abs()
 slug: Web/CSS/abs
 l10n:
-  sourceCommit: b09d6e2402f997214bb80c93aba8ea1148e120d5
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`abs()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) gibt den Absolutwert des Arguments zurück, und zwar vom selben Typ wie die Eingabe.
+Die **`abs()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) gibt den Absolutwert des Arguments zurück, als der gleiche Typ wie der Eingabewert.
 
 ## Syntax
 
@@ -17,16 +17,16 @@ abs(var(--gradientAngle))
 
 ### Parameter
 
-Die `abs()` Funktion akzeptiert einen Parameter.
+Die `abs()`-Funktion akzeptiert einen Parameter.
 
 - `<calc-sum>`
-  - : Ein Ausdruck oder eine Berechnung, die sich zu einer {{cssxref("number")}}, einer {{cssxref("dimension")}}, einem {{cssxref("percentage")}} oder einem {{cssxref("calc-keyword")}} auflöst.
+  - : Ein Ausdruck oder eine Berechnung, die zu einer {{cssxref("number")}}, einer {{cssxref("dimension")}}, einem {{cssxref("percentage")}} oder einem {{cssxref("calc-keyword")}} aufgelöst wird.
 
 ### Rückgabewert
 
 Der Absolutwert von `<calc-sum>`.
 
-- Ist der numerische Wert von `<calc-sum>` positiv oder `0⁺`, gibt die Funktion `<calc-sum>` zurück.
+- Wenn der numerische Wert von `<calc-sum>` positiv oder `0⁺` ist, gibt die Funktion `<calc-sum>` zurück.
 - Andernfalls gibt sie `-1 * <calc-sum>` zurück.
 
 ## Formale Syntax
@@ -37,7 +37,7 @@ Der Absolutwert von `<calc-sum>`.
 
 ### Positive Variablen
 
-Die `abs()` Funktion kann verwendet werden, um sicherzustellen, dass ein Wert immer positiv ist. Im folgenden Beispiel wird eine CSS-Custom-Eigenschaft `--font-size` als Wert von {{CSSxRef("font-size")}} verwendet. Durch das Einbinden dieser Custom-Eigenschaft in `abs()` wird ein negativer Wert in einen positiven umgewandelt.
+Die `abs()`-Funktion kann verwendet werden, um sicherzustellen, dass ein Wert immer positiv ist. Im folgenden Beispiel wird eine benutzerdefinierte CSS-Eigenschaft `--font-size` als Wert von {{CSSxRef("font-size")}} verwendet. Das Einwickeln dieser benutzerdefinierten Eigenschaft in `abs()` wandelt einen negativen Wert in einen positiven um.
 
 ```css
 h1 {
@@ -45,9 +45,9 @@ h1 {
 }
 ```
 
-### Steuerung des Verlaufswinkels
+### Steuerung des Verlaufswinkels der Richtung
 
-Sie können auch die Verlaufsrichtung mit der `abs()` Funktion steuern. Im folgenden Beispiel würde der Verlauf bei einem Winkel von -45deg rot beginnen und zu blau wechseln. Durch die Verwendung von `abs()`, um den Wert positiv zu machen, beginnt der Verlauf blau und wechselt zu rot.
+Sie können mit der `abs()`-Funktion auch die Verlaufsrichtung steuern. Im folgenden Beispiel würde der Verlauf bei einem Winkel von -45deg rot beginnen und zu blau übergehen. Durch die Verwendung von `abs()`, um den Wert positiv zu machen, wird der Verlauf blau beginnen und zu rot übergehen.
 
 ```css
 div {
@@ -56,9 +56,9 @@ div {
 }
 ```
 
-### Rückwärtskompatibler Fallback
+### Rückwärtskompatible Fallback-Lösung
 
-In Browsern, die die CSS `abs()` Funktion nicht unterstützen, können Sie die CSS {{CSSxRef("max")}} Funktion verwenden, um das gleiche Ergebnis zu erzielen:
+In Browsern, die die CSS-`abs()`-Funktion nicht unterstützen, können Sie die CSS-{{CSSxRef("max")}}-Funktion verwenden, um dasselbe Ergebnis zu erzielen:
 
 ```css
 p {
@@ -66,7 +66,7 @@ p {
 }
 ```
 
-Wir verwenden die {{CSSxRef("max")}} Funktion, um den größten (am positivsten) Wert aus einer Liste von zwei Werten zurückzugeben: `var(--lh)` oder `-1 * var(--lh)`. Unabhängig davon, ob `--lh` positiv oder negativ ist, wird der berechnete Rückgabewert immer positiv sein, das heißt, eine absolute Zahl.
+Wir verwenden die {{CSSxRef("max")}}-Funktion, um den größten (am positivsten) Wert aus einer Liste von zwei Werten zurückzugeben: `var(--lh)` oder `-1 * var(--lh)`. Unabhängig davon, ob `--lh` positiv oder negativ ist, wird der berechnete Rückgabewert immer positiv sein, das heißt, eine absolute Zahl.
 
 ## Spezifikationen
 

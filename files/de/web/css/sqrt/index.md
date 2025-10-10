@@ -2,12 +2,12 @@
 title: sqrt()
 slug: Web/CSS/sqrt
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`sqrt()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) ist eine exponentielle Funktion, die die [Quadratwurzel](https://en.wikipedia.org/wiki/Square_root) einer Zahl zurückgibt.
+Die **`sqrt()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) ist eine exponentielle Funktion, die die [Quadratwurzel](https://de.wikipedia.org/wiki/Quadratwurzel) einer Zahl zurückgibt.
 
-Die Funktion `pow(x, 0.5)` ist gleichbedeutend mit `sqrt(x)`.
+Die Funktion `pow(x, 0.5)` ist äquivalent zu `sqrt(x)`.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ width: calc(100px * sqrt(100)); /* 1000px */
 Die Funktion `sqrt(x)` akzeptiert nur einen Wert als Parameter.
 
 - `x`
-  - : Eine Berechnung, die zu einem {{cssxref("&lt;number&gt;")}} größer oder gleich 0 aufgelöst wird.
+  - : Eine Berechnung, die sich zu einem {{cssxref("&lt;number&gt;")}} größer oder gleich 0 auflöst.
 
 ### Rückgabewert
 
@@ -39,9 +39,9 @@ Gibt eine {{cssxref("&lt;number&gt;")}} zurück, die die Quadratwurzel von `x` i
 
 ## Beispiele
 
-### Größen basierend auf Quadratwurzel skalieren
+### Größen skalieren basierend auf der Quadratwurzel
 
-Dieses Beispiel zeigt, wie Sie die `sqrt()`-Funktion nutzen können, um Größen zu berechnen.
+Dieses Beispiel zeigt, wie Sie die Funktion `sqrt()` verwenden können, um Größen zu berechnen.
 
 #### HTML
 
@@ -56,11 +56,11 @@ Dieses Beispiel zeigt, wie Sie die `sqrt()`-Funktion nutzen können, um Größen
 
 #### CSS
 
-Hier verwenden wir [CSS-Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties), um die zu verwendenden Größen zu definieren. Zuerst deklarieren wir die erste Größe (`--size-0`), die dann verwendet wird, um die anderen Größen zu berechnen.
+Hier verwenden wir [CSS Custom Properties](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties), um die zu verwendenden Größen zu definieren. Zuerst deklarieren wir die erste Größe (`--size-0`), die dann verwendet wird, um die anderen Größen zu berechnen.
 
-- `--size-1` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 4 (2) multipliziert wird, was in 100px resultiert.
-- `--size-2` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 9 (3) multipliziert wird, was in 150px resultiert.
-- `--size-3` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 16 (4) multipliziert wird, was in 200px resultiert.
+- `--size-1` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 4 (2) multipliziert wird, was zu 100px führt.
+- `--size-2` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 9 (3) multipliziert wird, was zu 150px führt.
+- `--size-3` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 16 (4) multipliziert wird, was zu 200px führt.
 
 ```css
 :root {

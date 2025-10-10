@@ -3,20 +3,24 @@ title: "CSSUnitValue: unit-Eigenschaft"
 short-title: unit
 slug: Web/API/CSSUnitValue/unit
 l10n:
-  sourceCommit: 83dd1960e946e82f2cf830ac5df5703df501f73b
+  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte Eigenschaft **`CSSUnitValue.unit`** des [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue)-Interfaces gibt einen String zurück, der den Einheitstyp angibt.
+Die **`CSSUnitValue.unit`** schreibgeschützte Eigenschaft
+des [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Interfaces gibt einen Zeichenfolgenwert zurück,
+der den Einheitstyp angibt.
 
 ## Wert
 
-Ein String.
+Eine Zeichenfolge.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt einen [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen `CSSUnitValue`-Konstruktoren und fragt dann die `CSSUnitValue.unit` ab.
+Das folgende Beispiel erstellt ein [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus individuellen
+`CSSUnitValue` Konstruktoren und fragt dann die
+`CSSUnitValue.unit` ab.
 
 ```js
 const pos = new CSSPositionValue(
@@ -39,6 +43,6 @@ console.log(pos.y.unit); // "em"
 ## Siehe auch
 
 - [`CSSUnitValue.value`](/de/docs/Web/API/CSSUnitValue/value)
-- [Dimensionen in CSS-Werten und -Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units/Numeric_data_types#dimensions)
+- [Dimensionen in CSS-Werten und -Einheiten](/de/docs/Web/CSS/CSS_values_and_units/Numeric_data_types#dimensions)
 - [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)
