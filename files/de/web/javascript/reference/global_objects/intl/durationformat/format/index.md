@@ -3,10 +3,10 @@ title: Intl.DurationFormat.prototype.format()
 short-title: format()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/format
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: c43e46090257fbfd33c4dd5cac0cdbd1d5d1c274
 ---
 
-Die **`format()`**-Methode von {{jsxref("Intl.DurationFormat")}} Instanzen formatiert eine Dauer entsprechend der Lokalisierungs- und Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts.
+Die **`format()`** Methode von {{jsxref("Intl.DurationFormat")}} Instanzen formatiert eine Dauer entsprechend der Lokalisierung und den Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts.
 
 ## Syntax
 
@@ -17,20 +17,20 @@ format(duration)
 ### Parameter
 
 - `duration`
-  - : Das zu formatierende Dauerobjekt. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `years`, `months`, `weeks`, `days`, `hours`, `minutes`, `seconds`, `milliseconds`, `microseconds`, `nanoseconds`. Der Wert jeder Eigenschaft sollte eine Ganzzahl sein, und ihre Vorzeichen sollten konsistent sein. Dies kann ein {{jsxref("Temporal.Duration")}} Objekt sein; siehe die {{jsxref("Temporal.Duration")}} Dokumentation für weitere Informationen über diese Eigenschaften.
+  - : Das zu formatierende Dauerobjekt. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `years`, `months`, `weeks`, `days`, `hours`, `minutes`, `seconds`, `milliseconds`, `microseconds`, `nanoseconds`. Der Wert jeder Eigenschaft sollte eine ganze Zahl sein, und ihre Vorzeichen sollten konsistent sein. Dies kann ein {{jsxref("Temporal.Duration")}} Objekt sein; sehen Sie in der {{jsxref("Temporal.Duration")}} Dokumentation nach, um mehr über diese Eigenschaften zu erfahren.
 
 ### Rückgabewert
 
-Ein String, der die gegebene `duration` gemäß den Lokalisierungs- und Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts formatiert darstellt.
+Ein String, der die angegebene `duration` gemäß der Lokalisierung und den Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts formatiert darstellt.
 
 > [!NOTE]
-> Meistens ist das von `format()` zurückgegebene Format konsistent. Der Output kann jedoch zwischen Implementierungen variieren, auch innerhalb derselben Lokalisierung — Variationen im Output sind beabsichtigt und durch die Spezifikation erlaubt. Es könnte auch nicht dem entsprechen, was Sie erwarten. Zum Beispiel könnte der String geschützte Leerzeichen nutzen oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest kodierten Konstanten vergleichen.
+> Die vom `format()` zurückgegebene Formatierung ist meistens konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, sogar innerhalb derselben Lokalisierung — solche Abweichungen sind beabsichtigt und von der Spezifikation erlaubt. Die Ausgabe entspricht möglicherweise auch nicht Ihren Erwartungen. Zum Beispiel könnte der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest kodierten Konstanten vergleichen.
 
 ## Beispiele
 
 ### Verwendung von format()
 
-Das folgende Beispiel zeigt, wie ein Dauerformatierer mit der englischen Sprache erstellt wird.
+Das folgende Beispiel zeigt, wie ein Dauerformatter mit der englischen Sprache erstellt wird.
 
 ```js
 const duration = {
@@ -59,7 +59,7 @@ new Intl.DurationFormat("en", { style: "narrow" }).format(duration);
 // "1y 2mo 3w 3d 4h 5m 6s 7ms 8μs 9ns"
 ```
 
-### Verwendung von format() mit verschiedenen Lokalisierungen und Stilen
+### Verwendung von format() mit unterschiedlichen Lokalisierungen und Stilen
 
 ```js
 const duration = {
@@ -78,7 +78,7 @@ new Intl.DurationFormat("en", { style: "short" }).format(duration);
 
 // With style set to "short" and locale set to "pt"
 new Intl.DurationFormat("pt", { style: "narrow" }).format(duration);
-// "1h 46min 40s"
+// "1 h 46 min 40 s"
 
 // With style set to "digital" and locale set to "en"
 new Intl.DurationFormat("en", { style: "digital" }).format(duration);

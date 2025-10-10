@@ -1,13 +1,13 @@
 ---
-title: Tabellen stylen
+title: Styling von Tabellen
 slug: Learn_web_development/Core/Styling_basics/Tables
 l10n:
-  sourceCommit: 78bdd004c24d256efc8372f18204ea58f83a1b5e
+  sourceCommit: 5089ffcfd84543fbeed2754a82b77db25030c0a8
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Test_your_skills/Images", "Learn_web_development/Core/Styling_basics/Debugging_CSS", "Learn_web_development/Core/Styling_basics")}}
 
-Eine HTML-Tabelle zu stylen ist nicht die aufregendste Aufgabe der Welt, aber manchmal müssen wir es alle tun. Dieser Artikel erklärt, wie man HTML-Tabellen ansprechend gestaltet und hebt einige spezifische Techniken zum Tabellenstyling hervor.
+Das Styling von HTML-Tabellen gehört nicht zu den glamourösesten Aufgaben der Welt, aber manchmal müssen wir es doch tun. Dieser Artikel erklärt, wie man HTML-Tabellen ansprechend gestaltet, und hebt einige spezifische Techniken zur Tabellenformatierung hervor.
 
 <table>
   <tbody>
@@ -17,16 +17,17 @@ Eine HTML-Tabelle zu stylen ist nicht die aufregendste Aufgabe der Welt, aber ma
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
           >Grundlegende HTML-Syntax</a
         > und <a href="/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics"
-          >HTML-Tabellen</a>, CSS <a href="/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units">Werte und Einheiten</a> und <a href="/de/docs/Learn_web_development/Core/Styling_basics/Sizing">Größenanpassung</a>.
+          >HTML-Tabellen</a
+        >, CSS <a href="/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units">Werte und Einheiten</a> und <a href="/de/docs/Learn_web_development/Core/Styling_basics/Sizing">Größenanpassung</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Umgang mit Abständen in Tabellen, einschließlich des Zusammenfallens von Rahmen.</li>
-          <li>Deutliches Hervorheben verschiedener Tabellenbereiche einschließlich Überschriften, Beschriftung, Kopfzeile, Hauptteil und Fußzeile.</li>
-          <li>Wie man Zebramuster implementiert und warum sie nützlich sind.</li>
+          <li>Umgang mit Abständen in Tabellen, einschließlich Border-Collapsing.</li>
+          <li>Deutliche Hervorhebung verschiedener Tabellenbereiche einschließlich Überschriften, Caption, Kopfzeile, Hauptteil und Fußzeile.</li>
+          <li>Wie man Zebra-Streifen implementiert und warum sie nützlich sind.</li>
         </ul>
       </td>
     </tr>
@@ -35,9 +36,9 @@ Eine HTML-Tabelle zu stylen ist nicht die aufregendste Aufgabe der Welt, aber ma
 
 ## Eine typische HTML-Tabelle
 
-Lassen Sie uns mit einem Blick auf eine typische HTML-Tabelle beginnen. Nun, ich sage typisch — die meisten HTML-Tabellenbeispiele handeln von Schuhen, dem Wetter oder Mitarbeitern; wir haben uns entschieden, es interessanter zu machen und es auf berühmte Punkbands aus dem Vereinigten Königreich zu beziehen. Der Markup sieht folgendermaßen aus:
+Beginnen wir mit einem Blick auf eine typische HTML-Tabelle. Nun, „typisch“ ist vielleicht übertrieben — die meisten HTML-Tabellen-Beispiele handeln von Schuhen, dem Wetter oder Angestellten. Wir haben uns entschieden, es interessanter zu machen, indem es um berühmte Punk-Bands aus Großbritannien geht. Der Markup sieht folgendermaßen aus:
 
-```html live-sample___unstyled live-sample___styled
+```html live-sample___unstyled live-sample___punk-style live-sample___best-practice-style
 <table>
   <caption>
     A summary of the UK's most famous punk bands
@@ -109,13 +110,13 @@ Lassen Sie uns mit einem Blick auf eine typische HTML-Tabelle beginnen. Nun, ich
 </table>
 ```
 
-Die Tabelle ist schön markiert, leicht stylbar und zugänglich dank Merkmalen wie [`scope`](/de/docs/Web/HTML/Reference/Elements/th#scope), {{htmlelement("caption")}}, {{htmlelement("thead")}}, {{htmlelement("tbody")}}, usw. Leider sieht sie nicht besonders gut aus. Mit nur dem Standard-Browser-Styling wirkt sie beengt, schwer lesbar und etwas langweilig:
+Die Tabelle ist schön markiert, leicht stilisierbar und zugänglich, dank Features wie [`scope`](/de/docs/Web/HTML/Reference/Elements/th#scope), {{htmlelement("caption")}}, {{htmlelement("thead")}}, {{htmlelement("tbody")}}, etc. Leider sieht sie nicht besonders ansprechend aus. Mit nur den Standardeinstellungen des Browsers sieht sie beengt, schwer lesbar und ein wenig langweilig aus:
 
-{{embedlivesample("unstyled")}}
+{{embedlivesample("unstyled", "", "200")}}
 
-Wir müssen etwas CSS verwenden, um dies zu beheben. Sie können eine Tabelle auf jede gewünschte Weise mit CSS stylen. Zum Beispiel haben wir dieses ziemlich "punkige" Design erstellt:
+Wir müssen etwas CSS verwenden, um das zu verbessern. Sie können eine Tabelle nach Belieben mit CSS stylen. Zum Beispiel haben wir dieses ziemlich „punkige“ Design entworfen:
 
-```css hidden live-sample___styled
+```css hidden live-sample___punk-style
 /* font import */
 @import "https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap";
 
@@ -221,17 +222,17 @@ caption {
 }
 ```
 
-{{embedlivesample("styled", "", "500")}}
+{{embedlivesample("punk-style", "", "500")}}
 
-Allerdings ist dieses Design recht grell. In diesem Artikel werden wir Ihnen zeigen, wie Sie es mit einigen bewährten Praktiken für das Design von Tabellen markieren — wie in [Web Typography: designing tables to be read not looked at](https://alistapart.com/article/web-typography-tables/) beschrieben.
+Dieses Design ist jedoch ziemlich grell. In diesem Artikel werden wir Ihnen zeigen, wie Sie es mit einigen Best Practices für Tabellendesign auszeichnen können — wie in [Web Typography: designing tables to be read not looked at](https://alistapart.com/article/web-typography-tables/) beschrieben.
 
 ## Einstieg in das Styling unserer Tabelle
 
-Lassen Sie uns gemeinsam das Styling unseres Tabellenbeispiels durchgehen.
+Lassen Sie uns gemeinsam das Beispiel für das Styling unserer Tabelle durchgehen.
 
-1. Erstellen Sie zunächst eine lokale Kopie des [Beispiel-Markups](https://github.com/mdn/learning-area/blob/main/css/styling-boxes/styling-tables/punk-bands-unstyled.html) und speichern Sie sie in einem Arbeitsverzeichnis auf Ihrem lokalen Computer.
-2. Erstellen Sie als nächstes eine neue Datei namens `style.css` und speichern Sie sie im selben Verzeichnis wie Ihre anderen Dateien.
-3. Verlinken Sie das CSS mit dem HTML, indem Sie die folgende Zeile HTML in Ihrem {{htmlelement("head")}} platzieren:
+1. Machen Sie zunächst eine lokale Kopie des [zuvor gezeigten](/de/docs/Learn_web_development/Core/Styling_basics/Tables#a_typical_html_table) Beispielmarkups und speichern Sie es in einem Arbeitsverzeichnis auf Ihrem Computer.
+2. Erstellen Sie als Nächstes eine neue Datei namens `style.css` und speichern Sie sie im selben Verzeichnis wie Ihre anderen Dateien.
+3. Verlinken Sie das CSS mit dem HTML, indem Sie die folgende Zeile HTML in Ihrem {{htmlelement("head")}}-Element einfügen:
 
    ```html
    <link href="style.css" rel="stylesheet" />
@@ -239,9 +240,9 @@ Lassen Sie uns gemeinsam das Styling unseres Tabellenbeispiels durchgehen.
 
 Laden Sie Ihr HTML in einen Browser, um zu sehen, wie es standardmäßig aussieht.
 
-## Aktualisieren der Schriftart
+## Aktualisierung der Schriftart
 
-Dies ist ein kleiner Punkt und nicht direkt relevant für das Styling von Tabellen, aber wir fanden die Standardschriftart für eine Tabelle über Punkbands etwas zu formell. Beginnen Sie Ihr CSS, indem Sie die folgende Regel hinzufügen:
+Dies ist ein kleiner Punkt und nicht strikt relevant für das Styling von Tabellen, aber wir fanden, dass die Standardschriftart etwas zu formell für eine Tabelle über Punk-Bands wirkte. Beginnen Sie Ihr CSS, indem Sie die folgende Regel hinzufügen:
 
 ```css
 html {
@@ -251,14 +252,13 @@ html {
 
 ## Abstände
 
-Das Erste, was wir an unserer Tabelle ändern müssen, ist der Abstand - der Standard-Tabellenstil ist so beengt! Um dies zu beheben, fügen Sie am Ende Ihrer `style.css` Datei das folgende CSS hinzu:
+Das Erste, was wir mit unserer Tabelle machen müssen, ist, die Abstände zu regeln — das Standard-Tabellenstyling ist so beengt! Fügen Sie dazu das folgende CSS am Ende Ihrer `style.css`-Datei hinzu:
 
 ```css
 table {
   table-layout: fixed;
-  width: 80%;
-  min-width: 1000px;
-  margin: 0 auto;
+  width: 90%;
+  margin: 10px auto;
   border-collapse: collapse;
 }
 
@@ -268,20 +268,20 @@ td {
 }
 ```
 
-Die wichtigsten Punkte, die beachtet werden sollten, sind:
+Die wichtigsten Punkte sind wie folgt:
 
-- Ein {{cssxref("table-layout")}} Wert von `fixed` ist im Allgemeinen eine gute Idee, um auf Ihrer Tabelle festzulegen, da er die Tabelle standardmäßig etwas vorhersehbarer macht. Normalerweise neigen Tabellen dazu, Spalten entsprechend dem Inhalt zu bemessen, was zu seltsamen Ergebnissen führen kann. Mit `table-layout: fixed` können Sie Ihre Spalten nach der Breite ihrer Überschriften bemessen und deren Inhalt entsprechend anpassen. Chris Coyier bespricht diese Technik ausführlicher in [Fixed Table Layouts](https://css-tricks.com/fixing-tables-long-strings/).
+- Ein {{cssxref("table-layout")}}-Wert von `fixed` ist im Allgemeinen eine gute Idee, da er die Tabelle von vornherein etwas vorhersehbarer macht. Normalerweise werden Tabellenspalten entsprechend dem Inhalt, den sie enthalten, bemessen, was einige seltsame Ergebnisse erzeugt. Mit `table-layout: fixed` können Sie Ihre Spalten nach der Breite ihrer Überschriften bemessen und dann mit ihrem Inhalt entsprechend umgehen. Chris Coyier diskutiert diese Technik ausführlicher in [Fixed Table Layouts](https://css-tricks.com/fixing-tables-long-strings/).
 
-- Wir haben das feste Layout mit einer {{cssxref("width")}} von `80%`, einer {{cssxref("min-width")}} von `1000px` und einem {{cssxref("margin")}} von `0 auto` kombiniert. Diese Einstellungen bedeuten, dass die Tabelle in breiteren Ansichten größtenteils ausgefüllt und horizontal zentriert wird, während die Tabelle in schmaleren Ansichten auf eine lesbare Breite reduziert wird und außerhalb des Bildschirms reicht. Mobilnutzer können dann beispielsweise durch die Tabelle scrollen, um sie vollständig zu lesen. Dies ist besser, als die Tabelle an die Breite eines schmalen Bildschirms anzupassen, wo sie gedrängt und schwer lesbar wirkt.
+- Wir haben das feste Layout mit einer {{cssxref("width")}} von `90%` und einem {{cssxref("margin")}} von `10px auto` gekoppelt. Diese Einstellungen bedeuten, dass die Tabelle größtenteils die Ansicht ausfüllt und horizontal zentriert wird.
 
-- Ein {{cssxref("border-collapse")}} Wert von `collapse` ist eine standardmäßige Best Practice für jeden Tabellenstyling-Versuch. Standardmäßig haben Sie, wenn Sie Rahmen auf Tabellenelemente setzen, zwischen ihnen einen Abstand, wie das untenstehende Bild zeigt: ![eine 2x2 Tabelle mit Standardabständen zwischen den Rahmen, die keinen Rahmenzusammenfall zeigen](no-border-collapse.png) Dies sieht nicht sehr schön aus (obwohl es vielleicht der gewünschte Look ist, wer weiß?). Mit `border-collapse: collapse;` eingestellt, fallen die Rahmen zu einem zusammen, was viel besser aussieht: ![eine 2x2 Tabelle mit dem auf collapse gesetzten border-collapse-Wert zeigt zusammenfallende Rahmen](border-collapse.png)
-- Wir haben ein wenig {{cssxref("padding")}} bei den {{htmlelement("th")}} und {{htmlelement("td")}} Elementen festgelegt — dies gibt den Datenobjekten etwas Platz zum Atmen und lässt die Tabelle viel lesbarer aussehen.
+- Ein {{cssxref("border-collapse")}}-Wert von `collapse` ist gängige Best Practice für jede Tabellenformatierung. Standardmäßig haben alle Tabellenelemente mit gesetzten Rändern eine Abtrennung zwischen ihnen, wie das untenstehende Bild zeigt: ![eine 2x2-Tabelle mit den Standardabständen zwischen den Rändern, die kein Border-Collapse zeigen](no-border-collapse.png) Das sieht nicht sehr schön aus (obwohl es vielleicht der gewünschte Look ist, wer weiß?). Mit `border-collapse: collapse;` setzen sich die Ränder zu einem zusammen, was deutlich besser aussieht: ![eine 2x2-Tabelle mit gesetztem border-collapse auf collapse, das zeigt, dass sich die Ränder zu einem vereinen](border-collapse.png)
+- Wir haben etwas {{cssxref("padding")}} bei den {{htmlelement("th")}}- und {{htmlelement("td")}}-Elementen gesetzt — das gibt den Daten etwas Raum zum Atmen und macht die Tabelle viel lesbarer.
 
 Speichern Sie Ihren Code und aktualisieren Sie Ihren Browser, um die Ergebnisse zu sehen.
 
 ## Ausrichtung
 
-Als nächstes werden wir die Ausrichtung der verschiedenen Datentypen innerhalb ihrer Zellen behandeln. Beste Praktiken besagen, dass Sie Text links und Zahlen rechts ausrichten sollten; das folgende CSS erreicht das, fügen Sie es jetzt am Ende Ihrer CSS-Datei hinzu.
+Als Nächstes kümmern wir uns um die Ausrichtung der verschiedenen Datentypen in ihren Zellen. Best Practices legen nahe, dass Sie Text links und Zahlen rechts ausrichten sollten. Das folgende CSS erreicht genau das, fügen Sie es daher jetzt am Ende Ihrer CSS-Datei hinzu.
 
 ```css
 tr :nth-child(2),
@@ -305,11 +305,11 @@ tfoot tr :nth-child(2) {
 }
 ```
 
-Wir haben die {{cssxref(":nth-child")}} Pseudoklasse verwendet, einen nützlichen Selektor, der es Ihnen ermöglicht, ein bestimmtes nummeriertes Kind eines Elements oder eine bestimmte Sequenz auszuwählen. Hier verwenden wir ihn, um spezifische `<td>` Elemente innerhalb der <th> Elemente auszuwählen.
+Wir haben die {{cssxref(":nth-child")}}-Pseudo-Klasse verwendet, einen nützlichen Selektor, der es Ihnen ermöglicht, ein bestimmtes nummeriertes Kind eines Elements oder eine bestimmte Sequenz auszuwählen. Hier verwenden wir ihn, um spezifische `<td>`-Elemente innerhalb der <th>-Elemente auszuwählen.
 
-Beachten Sie, wie wir auch spezifische Breiten auf den Tabellenzeilen festgelegt haben, wobei die Zeilen, die Text enthalten, viel breiter als die Zeilen, die Zahlen enthalten, gesetzt sind. Dies ist eine gute Idee — die Zeilen mit mehr Inhalt benötigen mehr Platz, um ihr volles Potenzial zu entfalten und den Inhalt in einer Zeile anzuzeigen. Die Zeilen mit weniger Inhalt benötigen nicht so viel Platz, um ihre Daten anzuzeigen, und wenn Sie ihnen viel Platz geben, geht der Dateninhalt im Raum verloren und wird schwerer zu lesen.
+Beachten Sie, wie wir auch spezifische Breiten für die Tabellenspalten festgelegt haben, wobei die Reihen, die Text enthalten, viel breiter gesetzt sind als die, die Zahlen enthalten. Das ist eine gute Idee — die Reihen mit mehr Inhalt benötigen mehr Platz, um möglichst den gesamten Inhalt in einer Zeile anzuzeigen. Die Reihen mit weniger Inhalt brauchen nicht so viel Platz, und tatsächlich geht der Inhalt bei viel Platz etwas verloren und ist daher schwerer zu lesen.
 
-Wir sollten auch sicherstellen, dass unsere Datenobjekte an die Oberkante ihrer Zellen ausgerichtet sind und nicht mittig. Um dies zu erreichen verwenden wir die {{cssxref("vertical-align")}} Eigenschaft. Aktualisieren Sie Ihre bestehende `th, td` Regel zu folgendem:
+Wir sollten auch sicherstellen, dass unsere Datenobjekte am oberen Rand ihrer Zellen und nicht in der Mitte ausgerichtet sind. Um dies zu erreichen, können wir die {{cssxref("vertical-align")}}-Eigenschaft verwenden. Aktualisieren Sie Ihre bestehende `th, td`-Regel auf die folgende:
 
 ```css
 th,
@@ -319,11 +319,11 @@ td {
 }
 ```
 
-Speichern und aktualisieren Sie erneut, um die Wirkung Ihrer neuesten CSS-Updates zu sehen.
+Speichern und aktualisieren Sie erneut, um die Wirkung Ihrer neuesten CSS-Aktualisierungen zu sehen.
 
-## Hinzufügen von Rahmen
+## Hinzufügen von Rändern
 
-Die Tabelle sieht schon viel besser aus, aber wir sollten einige Rahmen hinzufügen, um die visuelle Trennung zwischen der Tabellendaten und der Totalzeile unten zu unterstützen. Um dies zu tun, fügen Sie folgende Regeln Ihrem CSS hinzu:
+Die Tabelle sieht schon viel besser aus, aber wir sollten einige Ränder hinzufügen, um visuelle Trennungen zwischen der Tabellen-<caption>, den Daten und der Gesamtsumme am unteren Rand zu schaffen. Um dies zu tun, fügen Sie die folgenden Regeln Ihrem CSS hinzu:
 
 ```css
 tfoot {
@@ -331,25 +331,24 @@ tfoot {
 }
 ```
 
-Aktualisieren Sie als nächstes Ihre vorhandene `table` Regel zu folgendem:
+Aktualisieren Sie als Nächstes Ihre bestehende `table`-Regel auf die folgende:
 
 ```css
 table {
   table-layout: fixed;
-  width: 80%;
-  min-width: 1000px;
-  margin: 0 auto;
+  width: 90%;
+  margin: 10px auto;
   border-collapse: collapse;
   border-top: 1px solid #999999;
   border-bottom: 1px solid #999999;
 }
 ```
 
-Speichern und aktualisieren; Ihre Tabelle sollte nun ziemlich lesbar aussehen!
+Speichern und aktualisieren Sie; Ihre Tabelle sollte nun ziemlich lesbar aussehen!
 
-## Zebra-Streifen
+## Zebra-Streifung
 
-Wir wollten einen separaten Abschnitt widmen, um zu zeigen, wie man **Zebra-Streifen** implementiert — abwechselnde Farbzeilen, die es erleichtern, die verschiedenen Datenzeilen in Ihrer Tabelle zu erfassen und zu lesen. Fügen Sie das folgende CSS am Ende Ihrer `style.css` Datei hinzu:
+Wir wollten einen separaten Abschnitt dafür widmen, Ihnen zu zeigen, wie man **Zebra-Streifen** implementiert — abwechselnde Zeilenfarben, die es erleichtern, die unterschiedlichen Datenzeilen in Ihrer Tabelle zu lesen und zu interpretieren. Fügen Sie das folgende CSS am Ende Ihrer `style.css`-Datei hinzu:
 
 ```css
 tbody tr:nth-child(odd) {
@@ -357,13 +356,13 @@ tbody tr:nth-child(odd) {
 }
 ```
 
-Früher haben Sie gesehen, wie der {{cssxref(":nth-child")}} Selektor verwendet wurde, um spezifische Kinderelemente auszuwählen. Er kann auch mit einer Formel als Parameter angegeben werden, um eine Sequenz von Elementen auszuwählen. Die Formel `2n+1` würde alle ungeraden Kinder (1, 3, 5, etc.) auswählen und die Formel `2n` würde alle geraden Kinder (2, 4, 6, etc.) auswählen. Wir haben das Keyword `odd` in unserem Code verwendet, das eine Abkürzung für die `2n+1` Formel ist (`even` ist eine Abkürzung für `2n`).
+Früher haben Sie den {{cssxref(":nth-child")}}-Selektor gesehen, der verwendet wurde, um spezifische Kindelemente auszuwählen. Er kann auch eine Formel als Parameter erhalten, sodass er eine Sequenz von Elementen auswählt. Die Formel `2n+1` würde alle ungeraden Kinder auswählen (1, 3, 5, etc.) und die Formel `2n` alle geraden Kinder (2, 4, 6, etc.). Wir haben das Schlüsselwort `odd` in unserem Code verwendet, was eine Abkürzung für die `2n+1`-Formel ist (`even` ist eine Abkürzung für `2n`).
 
-Auch hier gilt: nicht vergessen zu speichern und zu aktualisieren, um das Ergebnis zu sehen.
+Vergessen Sie nicht, zu speichern und zu aktualisieren, um das Ergebnis zu sehen.
 
-## Stylen der Beschriftung
+## Styling der Caption
 
-Es gibt noch eine letzte Sache an unserer Tabelle zu tun — die Beschriftung stylen. Um dies zu tun, fügen Sie am Ende Ihrer `style.css` Datei Folgendes hinzu:
+Es gibt eine letzte Sache, die wir mit unserer Tabelle machen müssen — das Styling der Caption. Fügen Sie dazu das folgende am Ende Ihrer `style.css`-Datei hinzu:
 
 ```css
 caption {
@@ -374,21 +373,83 @@ caption {
 }
 ```
 
-Hier gibt es nichts Bemerkenswertes, außer der {{cssxref("caption-side")}} Eigenschaft, die den Wert `bottom` hat. Dies bewirkt, dass die Beschriftung am unteren Rand der Tabelle positioniert wird.
+Hier gibt es nichts Besonderes, außer der {{cssxref("caption-side")}}-Eigenschaft, die mit einem Wert von `bottom` festgelegt wurde. Dies positioniert die Caption am unteren Rand der Tabelle.
 
-## Tipps für schnelles Tabellenstyling
+## Fertige Tabelle
 
-Bevor wir weitermachen, möchten wir Ihnen eine kurze Liste der nützlichsten oben beschriebenen Punkte zur Verfügung stellen:
+Ihr fertiges Tabellendesign sollte folgendermaßen aussehen:
 
-- Machen Sie Ihren Tabellenmarkup so einfach wie möglich und halten Sie es flexibel.
-- Verwenden Sie {{cssxref("table-layout", "table-layout: fixed")}}, um ein vorhersehbareres Tabellenlayout zu erstellen, das es Ihnen ermöglicht, Spaltenbreiten einfach festzulegen, indem Sie {{cssxref("width")}} auf deren Überschriften ({{htmlelement("th")}}) setzen.
-- Verwenden Sie {{cssxref("border-collapse", "border-collapse: collapse")}}, um die Rahmen der Tabellenelemente ineinander übergehen zu lassen, was ein ordentlicheres und leichter zu kontrollierendes Aussehen erzeugt.
-- Verwenden Sie {{htmlelement("thead")}}, {{htmlelement("tbody")}}, und {{htmlelement("tfoot")}}, um Ihre Tabelle in logische Abschnitte zu unterteilen und zusätzliche Stellen zu bieten, um CSS anzuwenden. Dies erleichtert es, bei Bedarf Stile übereinander zu schichten.
-- Verwenden Sie Zebra-Streifen, um alternative Zeilen leichter lesbar zu machen.
-- Verwenden Sie {{cssxref("text-align")}}, um Ihre {{htmlelement("th")}} und {{htmlelement("td")}} Texte auszurichten und die Übersichtlichkeit zu verbessern.
+```css hidden live-sample___best-practice-style
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  table-layout: fixed;
+  width: 90%;
+  margin: 10px auto;
+  border-collapse: collapse;
+  border-top: 1px solid #999999;
+  border-bottom: 1px solid #999999;
+}
+
+th,
+td {
+  vertical-align: top;
+  padding: 0.6em;
+}
+
+tr :nth-child(2),
+tr :nth-child(3) {
+  text-align: right;
+  width: 15%;
+}
+
+tr :nth-child(1),
+tr :nth-child(4) {
+  text-align: left;
+  width: 35%;
+}
+
+tfoot tr :nth-child(1) {
+  text-align: right;
+}
+
+tfoot tr :nth-child(2) {
+  text-align: left;
+}
+
+tfoot {
+  border-top: 1px solid #999999;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #eeeeee;
+}
+
+caption {
+  padding: 1em;
+  font-style: italic;
+  caption-side: bottom;
+  letter-spacing: 1px;
+}
+```
+
+{{embedlivesample("best-practice-style", "", "520")}}
+
+## Schnelle Tipps zum Tabellenstyling
+
+Bevor wir fortfahren, dachten wir, dass wir Ihnen eine schnelle Liste der nützlichsten Punkte, die oben illustriert wurden, geben könnten:
+
+- Machen Sie Ihr Tabellenmarkup so einfach wie möglich und halten Sie es flexibel.
+- Verwenden Sie {{cssxref("table-layout", "table-layout: fixed")}}, um ein vorhersehbareres Tabellenlayout zu erstellen, das Ihnen ermöglicht, Spaltenbreiten einfach über das Setzen von {{cssxref("width")}} auf ihren Überschriften ({{htmlelement("th")}}) festzulegen.
+- Verwenden Sie {{cssxref("border-collapse", "border-collapse: collapse")}}, um die Ränder der Tabellenelemente ineinanderfallen zu lassen, was ein aufgeräumteres und leichter kontrollierbares Aussehen erzeugt.
+- Verwenden Sie {{htmlelement("thead")}}, {{htmlelement("tbody")}}, und {{htmlelement("tfoot")}}, um Ihre Tabelle in logische Abschnitte zu unterteilen und zusätzliche Stellen anzubieten, an denen Sie CSS anwenden können, sodass es einfacher ist, bei Bedarf Stile übereinander zu legen.
+- Verwenden Sie Zebra-Streifen, um abwechselnde Zeilen leichter lesbar zu machen.
+- Verwenden Sie {{cssxref("text-align")}}, um Ihr {{htmlelement("th")}}- und {{htmlelement("td")}}-Text auszurichten, um die Dinge aufgeräumter und leichter nachvollziehbar zu machen.
 
 ## Zusammenfassung
 
-Nachdem wir uns nun mit dem Styling von Tabellen beschäftigt haben, brauchen wir etwas Anderes, um unsere Zeit zu füllen. Der nächste Artikel erkundet das Debugging von CSS — wie man Probleme wie Layouts, die nicht so aussehen, wie sie sollten, oder Eigenschaften, die nicht angewendet werden, wenn Sie es erwarten, löst. Dazu gehört auch die Verwendung von Browser-DevTools, um Lösungen für Ihre Probleme zu finden.
+Mit dem Styling von Tabellen hinter uns brauchen wir etwas anderes, um unsere Zeit zu füllen. Der nächste Artikel erforscht das Debuggen von CSS — wie man Probleme löst, wie z.B. Layouts, die nicht so aussehen, wie sie sollten, oder Eigenschaften, die nicht angewendet werden, wenn Sie denken, dass sie sollten. Dies beinhaltet Informationen über die Verwendung der Browser-Entwicklertools, um Lösungen für Ihre Probleme zu finden.
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Test_your_skills/Images", "Learn_web_development/Core/Styling_basics/Debugging_CSS", "Learn_web_development/Core/Styling_basics")}}

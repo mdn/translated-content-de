@@ -1,21 +1,21 @@
 ---
-title: "Herausforderung: Gruselige Krabbeltier-Startseite"
+title: "Herausforderung: Unheimliche Krabbeltiere-Startseite"
 short-title: "Herausforderung: Startseite"
 slug: Learn_web_development/Core/Structuring_content/Splash_page
 l10n:
-  sourceCommit: 2e427c5c185433c5a6612c63bf877753a5fedc99
+  sourceCommit: 03482f82cba9c871042bbf4972b754f65eb3cb90
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Test_your_skills/Audio_and_video", "Learn_web_development/Core/Structuring_content/HTML_table_basics", "Learn_web_development/Core/Structuring_content")}}
 
-In dieser Herausforderung testen wir Ihr Wissen über einige der in den letzten Lektionen besprochenen Techniken, indem Sie Bilder und ein Video zu einer Startseite hinzufügen, die sich mit Insekten und anderen Krabbeltieren beschäftigt.
+In dieser Herausforderung testen wir Ihr Wissen über einige der in den letzten Lektionen besprochenen Techniken, indem Sie einige Bilder und ein Video zu einer Startseite hinzufügen, die sich ganz um Insekten und andere Krabbeltiere dreht.
 
 ## Ausgangspunkt
 
-Um diese Herausforderung zu lösen, sollten Sie ein einfaches Website-Projekt erstellen, entweder in einem Ordner auf Ihrer Festplatte oder mit einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des benötigten Codes wird bereits zur Verfügung gestellt.
+Um diese Herausforderung zu lösen, erwarten wir, dass Sie ein einfaches Website-Projekt erstellen, entweder in einem Ordner auf der Festplatte Ihres Computers oder mit einem Online-Editor wie [CodePen](https://codepen.io/) oder [JSFiddle](https://jsfiddle.net/). Ein Großteil des benötigten Codes wird bereits bereitgestellt.
 
-1. Erstellen Sie einen neuen Ordner an einem geeigneten Ort auf Ihrem Computer mit dem Namen `splash-page-challenge` (oder öffnen Sie einen Online-Editor und führen Sie die erforderlichen Schritte zur Erstellung eines neuen Projekts durch).
-2. Speichern Sie das folgende HTML-Listing in einer Datei in Ihrem Ordner mit dem Namen `index.html` (oder fügen Sie es in das HTML-Feld Ihres Online-Editors ein).
+1. Erstellen Sie einen neuen Ordner an einem geeigneten Ort auf Ihrem Computer mit dem Namen `splash-page-challenge` (oder öffnen Sie einen Online-Editor und unternehmen Sie die erforderlichen Schritte, um ein neues Projekt zu erstellen).
+2. Speichern Sie die folgende HTML-Auflistung in einer Datei in Ihrem Ordner namens `index.html` (oder fügen Sie sie in den HTML-Bereich Ihres Online-Editors ein).
 
    ```html
    <!doctype html>
@@ -107,7 +107,7 @@ Um diese Herausforderung zu lösen, sollten Sie ein einfaches Website-Projekt er
              image number 29046158 at Waarneming.nl, a source of nature
              observations in the Netherlands.This tag does not indicate the
              copyright status of the attached work. A normal copyright tag is
-             still required. See Commons:Licensing for more information., This
+             still required. See Commons:Licensing for more information. This
              site now requires authentication, however, the same image and
              copyright information is also available via
              <a href="https://world.observation.org/foto/view/29046158"
@@ -178,7 +178,7 @@ Um diese Herausforderung zu lösen, sollten Sie ein einfaches Website-Projekt er
              image number 5105758 at Waarneming.nl, a source of nature
              observations in the Netherlands.This tag does not indicate the
              copyright status of the attached work. A normal copyright tag is
-             still required. See Commons:Licensing for more information., CC BY
+             still required. See Commons:Licensing for more information. CC BY
              3.0,
              <a href="https://commons.wikimedia.org/w/index.php?curid=27659589"
                >https://commons.wikimedia.org/w/index.php?curid=27659589</a
@@ -248,7 +248,7 @@ Um diese Herausforderung zu lösen, sollten Sie ein einfaches Website-Projekt er
    </html>
    ```
 
-3. Speichern Sie das folgende CSS-Listing in einer Datei in Ihrem Ordner mit dem Namen `style.css` (oder fügen Sie es in das CSS-Feld Ihres Online-Editors ein).
+3. Speichern Sie die folgende CSS-Auflistung in einer Datei in Ihrem Ordner namens `style.css` (oder fügen Sie sie in den CSS-Bereich Ihres Online-Editors ein).
 
    ```css
    /* type */
@@ -344,7 +344,7 @@ Um diese Herausforderung zu lösen, sollten Sie ein einfaches Website-Projekt er
    }
    ```
 
-Später müssen Sie die folgenden URLs in Ihre Seite einfügen.
+Später müssen Sie die folgenden URLs in Ihre Seite aufnehmen.
 
 - `bee.jpg`: [Bild für den Abschnitt "Bienen, Wespen, Ameisen (Hymenoptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/bee.jpg).
 - `beetle.png`: [Bild für den Abschnitt "Käfer (Coleoptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/beetle.png).
@@ -354,38 +354,38 @@ Später müssen Sie die folgenden URLs in Ihre Seite einfügen.
 - `true_bug.jpg`: [Bild für den Abschnitt "Wanzen (Hemiptera)"](https://mdn.github.io/shared-assets/images/examples/learn/crawlies/true_bug.jpg).
 - `bug_video_640.mp4`: [Header-Video](https://mdn.github.io/shared-assets/videos/learn/bug_video_640.mp4).
 
-## Projektbeschreibung
+## Projektanweisung
 
-In dieser Bewertung präsentieren wir Ihnen eine fast fertige Startseite über verschiedene Krabbeltiere. Leider wurden noch keine Bilder oder Videos hinzugefügt — das ist Ihre Aufgabe! Sie müssen einige Medien hinzufügen, um die Seite interessanter zu gestalten. Die folgenden Unterabschnitte beschreiben, was Sie tun müssen.
+In dieser Bewertung präsentieren wir Ihnen eine fast fertige Startseite über verschiedene Krabbeltiere. Leider wurden noch keine Bilder oder Videos hinzugefügt — das ist Ihre Aufgabe! Sie müssen einige Medien hinzufügen, um die Seite interessanter zu gestalten. Die folgenden Unterabschnitte erläutern, was Sie tun müssen.
 
-### Ein Video zum Header hinzufügen
+### Hinzufügen eines Videos zum Header
 
-Fügen Sie direkt unter dem `<h1>` ein `<video>`-Element hinzu, das unser Header-Video in die Seite einbettet. Wir möchten, dass es Folgendes tut:
+Fügen Sie direkt unter dem `<h1>` ein `<video>`-Element hinzu, das unser Header-Video in die Seite einbindet. Wir möchten, dass es Folgendes tut:
 
-- Den [Medientyp](/de/docs/Web/HTTP/Guides/MIME_types) des Videos angeben.
-- Das Video beim Laden automatisch wiedergeben (damit dies in mindestens einigen Browsern funktioniert, müssen Sie ebenfalls angeben, dass das Video stummgeschaltet werden soll).
+- Geben Sie den [Medientyp](/de/docs/Web/HTTP/Guides/MIME_types) des Videos an.
+- Das Video soll bei Ladevorgang automatisch abgespielt werden (damit das in zumindest einigen Browsern funktioniert, müssen Sie auch angeben, dass das Video stummgeschaltet sein soll).
 - Endlos schleifen, anstatt nur einmal abzuspielen.
-- Den Video-Inhalt vorladen.
-- Keine Steuerelemente anzeigen.
+- Vorkonfigurieren des Videoinhalts.
+- Keine Steuerungselemente anzeigen.
 
-### Bilder zu den Abschnitten hinzufügen
+### Hinzufügen von Abschnittsbildern
 
-In den erweiterten Informationsbereichen zu jedem Insekten-Typ möchten wir, dass Sie unter jedem `<h2>` ein Bildelement hinzufügen, das das entsprechende Bild für jeden Abschnitt einbettet. Geben Sie jedem Bild einen passenden Alternativtext zum Nutzen von Bildschirmlesern (und für den Fall, dass das Bild nicht geladen wird) und beschränken Sie die Abmessungen jedes Bildes auf 250 x 180.
+In den erweiterten Informationsabschnitten zu jedem Insektstyp, fügen Sie unter jedem `<h2>` ein Bildelement hinzu, das das entsprechende Bild für jeden Abschnitt einbindet. Geben Sie jedem Bild einen geeigneten alternativen Text, um Bildschirmleseprogramm-Benutzern (und für den Fall, dass das Bild nicht geladen wird) zu helfen, und beschränken Sie jede Bildgröße auf 250 x 180.
 
-Zusätzlich möchten wir, dass Sie eine Bildunterschrift für jedes Bild einschließen; überlegen Sie, welches Containerelement benötigt wird, um die beiden semantisch zu verknüpfen. Die Bildunterschrift sollte nicht einfach den Alternativtext wiederholen, sondern sollte zusammen mit dem Alternativtext und dem Bild funktionieren.
+Darüber hinaus möchten wir, dass Sie eine Bildunterschrift für jedes Bild einfügen; überlegen Sie, welches Containerelement benötigt wird, um die beiden semantisch miteinander zu verknüpfen. Lassen Sie die Bildunterschrift nicht nur den alternativen Text wiederholen; sie sollte zusammen mit dem alternativen Text und dem Bild funktionieren.
 
-### Fügen Sie dem Navigationsmenü und `<h2>`s Bug-Emojis oder -Symbole hinzu
+### Hinzufügen von Insekten-Emojis oder -Icons zum Navigationsmenü und zu `<h2>`
 
-Zum Spaß möchten wir, dass Sie am Anfang jedes Navigationseintrags und das gleiche Symbol am Anfang jedes entsprechenden `<h2>`s Ikonen hinzufügen. Sie könnten dies mit eingebetteten Bildern tun, aber es ist einfacher, passende Emojis zu finden und sie direkt dem HTML-Text hinzuzufügen.
+Zum Spaß möchten wir, dass Sie Icons zum Beginn jedes Navigationslistenelements hinzufügen, und das gleiche Icon zu Beginn jedes entsprechenden `<h2>`. Sie könnten dies mit eingebetteten Bildern tun, aber es ist einfacher, passende Emojis zu finden und diese einfach in den HTML-Text selbst einzufügen.
 
 ## Tipps und Hinweise
 
-- Sie können den [W3C HTML Validator](https://validator.w3.org/) verwenden, um Fehler in Ihrem HTML zu finden.
-- Sie brauchen keine CSS-Kenntnisse für diese Bewertung; Sie müssen nur die bereitgestellte HTML-Datei bearbeiten. Der CSS-Teil ist bereits für Sie erledigt.
+- Sie können den [W3C HTML-Validator](https://validator.w3.org/) verwenden, um Fehler in Ihrem HTML zu erkennen.
+- Sie müssen kein CSS kennen, um diese Bewertung zu absolvieren; Sie müssen lediglich die bereitgestellte HTML-Datei bearbeiten. Der CSS-Teil ist bereits für Sie erledigt.
 
 ## Beispiel
 
-Der folgende Screenshot zeigt, wie die Startseite aussehen sollte. Wenn Sie auf Schwierigkeiten stoßen, sehen Sie sich die Lösung unterhalb des Live-Beispiels an.
+Der folgende Screenshot zeigt, wie die Startseite aussehen sollte. Wenn Sie Probleme haben, einige dieser Anforderungen zu erfüllen, sehen Sie sich die Lösung unter dem Live-Beispiel an.
 
 ![Unser Beispiel für eine Startseite](finished-splash-example.png)
 
@@ -508,7 +508,7 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
           image number 29046158 at Waarneming.nl, a source of nature
           observations in the Netherlands.This tag does not indicate the
           copyright status of the attached work. A normal copyright tag is still
-          required. See Commons:Licensing for more information., This site now
+          required. See Commons:Licensing for more information. This site now
           requires authentication, however, the same image and copyright
           information is also available via
           <a href="https://world.observation.org/foto/view/29046158"
@@ -591,11 +591,11 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
         <p class="copyright">
           Image created by user Dick Belgers at Waarneming.nl, a source of
-          nature observations in the Netherlands. - This image is uploaded as
+          nature observations in the Netherlands. This image is uploaded as
           image number 5105758 at Waarneming.nl, a source of nature observations
-          in the Netherlands.This tag does not indicate the copyright status of
+          in the Netherlands. This tag does not indicate the copyright status of
           the attached work. A normal copyright tag is still required. See
-          Commons:Licensing for more information., CC BY 3.0,
+          Commons:Licensing for more information. CC BY 3.0,
           <a href="https://commons.wikimedia.org/w/index.php?curid=27659589"
             >https://commons.wikimedia.org/w/index.php?curid=27659589</a
           >.
