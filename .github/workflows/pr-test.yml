@@ -35,6 +35,7 @@ jobs:
         with:
           repository: mdn/translated-content-de
           path: mdn/translated-content-de
+          persist-credentials: false
 
       - name: Get changed files
         id: check
@@ -88,6 +89,7 @@ jobs:
         with:
           repository: mdn/content
           path: mdn/content
+          persist-credentials: false
 
       - name: Checkout (translated-content)
         uses: actions/checkout@v5
@@ -95,6 +97,7 @@ jobs:
         with:
           repository: mdn/translated-content
           path: mdn/translated-content
+          persist-credentials: false
 
       - name: Move de into translated-content
         if: steps.check.outputs.HAS_FILES == 'true'
