@@ -2,10 +2,10 @@
 title: tan()
 slug: Web/CSS/tan
 l10n:
-  sourceCommit: da5384d0d11e250ab735379eaa6856468ffd52cd
+  sourceCommit: 11ef719d1a0bd75b1600d39abd6dfbdcd835c1e2
 ---
 
-Die **`tan()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) ist eine trigonometrische Funktion, die den Tangens einer Zahl zurückgibt, welcher ein Wert zwischen `−unendlich` und `unendlich` ist. Die Funktion enthält eine einzige Berechnung, die entweder in ein {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Radiant interpretiert wird.
+Die **`tan()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) ist eine trigonometrische Funktion, die die Tangente einer Zahl zurückgibt, also einen Wert zwischen `−infinity` und `infinity`. Die Funktion enthält eine einzelne Berechnung, die entweder zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} aufgelöst werden muss, indem das Ergebnis des Arguments als Bogenmaß interpretiert wird.
 
 ## Syntax
 
@@ -26,18 +26,18 @@ width: calc(100px * tan(e));
 
 ### Parameter
 
-Die Funktion `tan(angle)` akzeptiert nur einen Wert als Parameter.
+Die `tan(angle)` Funktion akzeptiert nur einen Wert als Parameter.
 
 - `angle`
-  - : Eine Berechnung, die sich in ein {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;angle&gt;")}} auflöst. Bei Angabe von einheitenlosen Zahlen werden diese als Anzahl von Radianten interpretiert, die ein {{cssxref("&lt;angle&gt;")}} darstellen.
+  - : Eine Berechnung, die zu einer {{cssxref("&lt;number&gt;")}} oder einem {{cssxref("&lt;angle&gt;")}} führt. Bei der Angabe von nummerischen Werten ohne Einheit werden diese als Bogenmaß interpretiert, welches ein {{cssxref("&lt;angle&gt;")}} darstellt.
 
 ### Rückgabewert
 
-Der Tangens von einem `angle` gibt immer eine Zahl zwischen `−∞` und `+∞` zurück.
+Die Tangente eines `angle` wird immer eine Zahl zwischen `−∞` und `+∞` zurückgeben.
 
-- Wenn `angle` `infinity`, `-infinity` oder `NaN` ist, ist das Ergebnis `NaN`.
+- Wenn `angle` `infinity`, `-infinity`, oder `NaN` ist, ist das Ergebnis `NaN`.
 - Wenn `angle` `0⁻` ist, ist das Ergebnis `0⁻`.
-- Wenn `angle` einer der Asymptotenwerte ist (wie `90deg`, `270deg`, usw.), ist das Ergebnis _ausdrücklich undefiniert_. Autoren _dürfen sich nicht_ darauf verlassen, dass `tan()` einen bestimmten Wert für diese Eingaben zurückgibt.
+- Wenn `angle` einer der Asymptotenwerte ist (wie `90deg`, `270deg`, etc.), ist das Ergebnis _explizit undefiniert_. Autoren _dürfen sich nicht_ darauf verlassen, dass `tan()` für diese Eingaben einen bestimmten Wert zurückgibt.
 
 ## Formale Syntax
 
@@ -45,7 +45,7 @@ Der Tangens von einem `angle` gibt immer eine Zahl zwischen `−∞` und `+∞` 
 
 ## Beispiele
 
-### Zeichnen von Parallelogrammen
+### Parallelogramme zeichnen
 
 Die `tan()` Funktion kann verwendet werden, um ein Parallelogramm mit einem gegebenen Begrenzungsrahmen zu zeichnen.
 
@@ -106,4 +106,4 @@ body {
 - {{CSSxRef("acos")}}
 - {{CSSxRef("atan")}}
 - {{CSSxRef("atan2")}}
-- [Verwendung von CSS-typisierter Arithmetik](/de/docs/Web/CSS/CSS_values_and_units/Using_CSS_typed_arithmetic)
+- [Verwendung von CSS-typisierte Arithmetik](/de/docs/Web/CSS/CSS_values_and_units/Using_CSS_typed_arithmetic)
