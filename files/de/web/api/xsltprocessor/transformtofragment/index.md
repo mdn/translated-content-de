@@ -3,12 +3,12 @@ title: "XSLTProcessor: transformToFragment() Methode"
 short-title: transformToFragment()
 slug: Web/API/XSLTProcessor/transformToFragment
 l10n:
-  sourceCommit: 523438dbaa2f80c46f89cd2e98782c9b86a6caa7
+  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
 ---
 
-{{APIRef("XSLT")}}
+{{APIRef("DOM")}}
 
-Die Methode `transformToFragment()` des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces transformiert eine bereitgestellte [`Node`](/de/docs/Web/API/Node)-Quelle in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) unter Verwendung des mit dem `XSLTProcessor` verbundenen XSLT-Stylesheets.
+Die `transformToFragment()`-Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Schnittstelle transformiert eine bereitgestellte [`Node`](/de/docs/Web/API/Node)-Quelle in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) unter Verwendung des mit dem `XSLTProcessor` verbundenen XSLT-Stylesheets.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ transformToFragment(source, document)
 - `source`
   - : Die [`Node`](/de/docs/Web/API/Node)-Quelle, auf die das XSLT-Stylesheet angewendet werden soll.
 - `document`
-  - : Das [`Document`](/de/docs/Web/API/Document), dem das Dokumentfragment zugeordnet wird. (Jedes Dokumentfragment ist mit einem Dokument verknüpft, zu dem es hinzugefügt werden kann).
+  - : Das [`Document`](/de/docs/Web/API/Document), mit dem das Dokumentfragment verknüpft wird. (Jedes Dokumentfragment ist mit einem Dokument verknüpft, zu dem es hinzugefügt werden kann).
 
 ### Rückgabewert
 
@@ -31,7 +31,7 @@ Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment).
 
 ### Verwenden von transformToFragment()
 
-Dieses Beispiel demonstriert, wie `transformToFragment()` verwendet wird, um XML-Daten in HTML zu transformieren, die dann direkt als Dokumentfragment in den DOM eingefügt werden können.
+Dieses Beispiel zeigt, wie `transformToFragment()` verwendet wird, um XML-Daten in HTML zu transformieren, das dann direkt als Dokumentfragment in den DOM eingefügt werden kann.
 
 #### HTML
 

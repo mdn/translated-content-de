@@ -1,12 +1,12 @@
 ---
-title: "XSLTProcessor: removeParameter() Methode"
+title: "XSLTProcessor: removeParameter()-Methode"
 short-title: removeParameter()
 slug: Web/API/XSLTProcessor/removeParameter
 l10n:
-  sourceCommit: 621aef687d0f68ccd09832157a84c75e6f9edb3b
+  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
 ---
 
-{{APIRef("XSLT")}}
+{{APIRef("DOM")}}
 
 Die `removeParameter()`-Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Schnittstelle entfernt den Parameter (`<xsl:param>`) und dessen Wert aus dem Stylesheet, das im Prozessor importiert wurde.
 
@@ -19,7 +19,7 @@ removeParameter(namespaceURI, localName)
 ### Parameter
 
 - `namespaceURI`
-  - : Der Namespace, der mit dem Parameternamen verknüpft ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso behandelt wie der leere String (`""`).
+  - : Der Namespace, der mit dem Parameternamen verknüpft ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird wie der leere String (`""`) behandelt.
 - `localName`
   - : Der Name des Parameters im zugehörigen Namespace.
 
@@ -31,9 +31,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung von removeParameter()
 
-Zuerst wird der `showItems`-Parameter auf `"yes"` gesetzt, was das Anzeigen der Listenelemente in der Ausgabe ermöglicht.
+Zuerst wird der `showItems`-Parameter auf `"yes"` gesetzt, was es ermöglicht, die Listenelemente in der Ausgabe anzuzeigen.
 
-Danach wird der `showItems`-Parameter mit `removeParameter()` entfernt, und die Transformation wird erneut durchgeführt, wodurch keine Elemente angezeigt werden.
+Danach wird der `showItems`-Parameter mit `removeParameter()` entfernt, und die Transformation wird erneut durchgeführt, was dazu führt, dass keine Elemente angezeigt werden.
 
 #### HTML
 

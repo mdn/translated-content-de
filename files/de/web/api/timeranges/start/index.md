@@ -3,12 +3,12 @@ title: "TimeRanges: start()-Methode"
 short-title: start()
 slug: Web/API/TimeRanges/start
 l10n:
-  sourceCommit: c1cb822be8f98ffb74da278fa1a01dc27d3a57b9
+  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("HTML DOM")}}
 
-Die **`start()`**-Methode des [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Interfaces gibt den Zeitversatz (in Sekunden) zurück, bei dem ein spezifizierter Zeitbereich beginnt.
+Die **`start()`**-Methode des [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Interfaces gibt den Zeitversatz (in Sekunden) zurück, zu dem ein spezifizierter Zeitraum beginnt.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Eine Zahl.
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene Index keinem existierenden Bereich entspricht.
+  - : Wird ausgelöst, wenn der angegebene Index keinem bestehenden Bereich entspricht.
 
 ## Beispiele
 
@@ -50,7 +50,7 @@ if (buf.length === 1) {
 }
 ```
 
-Dieses Beispiel betrachtet die Zeitbereiche und prüft, ob das gesamte Video geladen wurde.
+Dieses Beispiel überprüft die Zeitbereiche und schaut nach, ob das gesamte Video geladen wurde.
 
 ## Spezifikationen
 

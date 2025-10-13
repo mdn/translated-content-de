@@ -3,21 +3,21 @@ title: Das Box-Modell
 short-title: Box model
 slug: Learn_web_development/Core/Styling_basics/Box_model
 l10n:
-  sourceCommit: 237ed1e35898ed5c26017d77157048368f4b5992
+  sourceCommit: 6f0bcfb2316085efc3f9704fc0eac46f87c3315c
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Test_your_skills/Selectors", "Learn_web_development/Core/Styling_basics/Test_your_skills/Box_model", "Learn_web_development/Core/Styling_basics")}}
 
-Alles in CSS hat eine Box um sich herum, und das Verständnis dieser Boxen ist der Schlüssel, um komplexere Layouts mit CSS zu erstellen oder Elemente zueinander auszurichten. In dieser Lektion werfen wir einen Blick auf das CSS _Box-Modell_. Sie werden verstehen, wie es funktioniert und die damit verbundenen Begriffe kennenlernen.
+Alles in CSS hat ein Kästchen darum, und das Verständnis dieser Kästchen ist der Schlüssel, um mit CSS komplexere Layouts zu erstellen oder Elemente in Relation zueinander auszurichten. In dieser Lektion werden wir uns das CSS _Box-Modell_ ansehen. Sie werden verstehen, wie es funktioniert und welcher Fachbegriffe damit verbunden sind.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse in HTML (studieren Sie
+        HTML-Grundlagen (studieren Sie
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
-          >Basissyntax von HTML</a
+          >Grundlegende HTML-Syntax</a
         >)
       </td>
     </tr>
@@ -26,61 +26,61 @@ Alles in CSS hat eine Box um sich herum, und das Verständnis dieser Boxen ist d
       <td>
         <ul>
           <li>Block- und Inline-Elemente</li>
-          <li>Die verschiedenen Boxen, aus denen ein Element besteht, und wie man sie stylt – Inhalt, Rand (margin), Randlinie (border), Abstand (padding).</li>
+          <li>Die verschiedenen Kästchen, aus denen ein Element besteht, und wie man sie stilisiert — Inhalt, Rand, Rahmen, Abstand.</li>
           <li>Das alternative Box-Modell (zugänglich über <code>box-sizing: border-box</code>) und wie es sich vom regulären Box-Modell unterscheidet.</li>
-          <li>Rand-Kollaps.</li>
-          <li>Grundlegende Anzeige-Werte und wie sie das Verhalten der Boxen beeinflussen – <code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>none</code>.</li>
+          <li>Kollabierende Ränder.</li>
+          <li>Grundlegende Anzeigewerte und wie sie das Verhalten von Boxen beeinflussen — <code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>none</code>.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Block- und Inline-Boxen
+## Block- und Inline-Kästchen
 
-In CSS gibt es verschiedene Arten von Boxen, die im Allgemeinen in die Kategorien **Block-Boxen** und **Inline-Boxen** passen. Der Typ bezieht sich darauf, wie sich die Box im Hinblick auf den Seitenfluss und in Bezug zu anderen Boxen auf der Seite verhält. Boxen haben einen **inneren Anzeige-Typ** und einen **äußeren Anzeige-Typ**.
+In CSS haben wir mehrere Arten von Kästchen, die im Allgemeinen in die Kategorien **Block-Kästchen** und **Inline-Kästchen** passen. Der Typ bezieht sich darauf, wie sich das Kästchen im Seitenfluss und in Bezug zu anderen Kästchen auf der Seite verhält. Kästchen haben einen **inneren Anzeigetyp** und einen **äußeren Anzeigetyp**.
 
-Im Allgemeinen können Sie verschiedene Werte für den Anzeige-Typ mit der {{cssxref("display")}}-Eigenschaft festlegen.
+Im Allgemeinen können Sie verschiedene Werte für den Anzeigetyp mit der {{cssxref("display")}} Eigenschaft festlegen.
 
-Wenn eine Box den Anzeigewert `block` hat, dann:
+Wenn ein Kästchen einen Anzeigewert von `block` hat, dann:
 
-- Die Box wird auf eine neue Zeile umbrechen.
-- Die Eigenschaften {{cssxref("width")}} und {{cssxref("height")}} werden berücksichtigt.
-- Abstand, Rand und Randlinie verursachen, dass andere Elemente von der Box weggedrückt werden.
-- Wenn {{cssxref("width")}} nicht angegeben ist, wird sich die Box in die Inline-Richtung ausdehnen, um den im Container verfügbaren Platz zu füllen. In den meisten Fällen wird die Box so breit wie ihr Container und füllt 100 % des verfügbaren Platzes aus.
+- Wird das Kästchen in einer neuen Zeile beginnen.
+- Die {{cssxref("width")}} und {{cssxref("height")}} Eigenschaften werden berücksichtigt.
+- Abstände, Rand und Rahmen bewirken, dass andere Elemente vom Kästchen weggeschoben werden.
+- Wenn {{cssxref("width")}} nicht angegeben ist, wird sich das Kästchen in der Inline-Richtung erstrecken, um den verfügbaren Raum in seinem Container auszufüllen. In den meisten Fällen wird das Kästchen so breit wie sein Container und füllt 100% des verfügbaren Raums aus.
 
-Einige HTML-Elemente, wie `<h1>` und `<p>`, verwenden `block` als ihren äußeren Anzeige-Typ standardmäßig.
+Einige HTML-Elemente, wie `<h1>` und `<p>`, verwenden standardmäßig `block` als ihren äußeren Anzeigetyp.
 
-Wenn eine Box den Anzeigewert `inline` hat, dann:
+Wenn ein Kästchen einen Anzeigewert von `inline` hat, dann:
 
-- Die Box wird nicht auf eine neue Zeile umbrechen.
-- Die Eigenschaften {{cssxref("width")}} und {{cssxref("height")}} werden nicht angewendet.
-- Oben- und untenliegende Abstände, Rand und Randlinien werden angewendet, bewirken aber nicht, dass andere Inline-Boxen von der Box weg bewegt werden.
-- Links- und rechtsseitige Abstände, Rand und Randlinien werden angewendet und bewirken, dass andere Inline-Boxen von der Box weg bewegt werden.
+- Wird das Kästchen nicht in einer neuen Zeile beginnen.
+- Die {{cssxref("width")}}, {{cssxref("height")}}, und obere und untere Ränder haben keine Wirkung.
+- **Oben und unten** Abstände und Rahmen ändern die Größe des Kästchens, ohne die Position des umgebenden Inhalts zu beeinflussen, was zu Überlappungen führen kann.
+- **Links und rechts** Abstände, Ränder und Rahmen beeinflussen die Position des umgebenden Inline-Inhalts.
 
-Einige HTML-Elemente, wie `<a>`, `<span>`, `<em>` und `<strong>`, verwenden `inline` als ihren äußeren Anzeige-Typ standardmäßig.
+Einige HTML-Elemente, wie `<a>`, `<span>`, `<em>` und `<strong>` verwenden standardmäßig `inline` als ihren äußeren Anzeigetyp.
 
-Block- und Inline-Layout ist die standardmäßige Art, wie sich Dinge im Web verhalten. Standardmäßig und ohne weitere Anweisungen werden die Elemente innerhalb einer Box auch im **[normalen Fluss](/de/docs/Learn_web_development/Core/CSS_layout/Introduction#normal_layout_flow)** angeordnet und verhalten sich als Block- oder Inline-Boxen.
+Block- und Inline-Layout ist die standardmäßige Arbeitsweise im Web. Standardmäßig und ohne weitere Anweisung werden die Elemente innerhalb eines Kästchens auch im **[normalen Fluss](/de/docs/Learn_web_development/Core/CSS_layout/Introduction#normal_layout_flow)** angeordnet und verhalten sich wie Block- oder Inline-Kästchen.
 
 ## Innere und äußere Anzeigetypen
 
-`block` und `inline` Anzeigewerte werden als **äußere Anzeige**-Typen bezeichnet — sie beeinflussen, wie die Box in Bezug auf andere Boxen um sie herum angeordnet wird. Boxen haben auch einen **inneren Anzeige**-Typ, der diktiert, wie Elemente innerhalb dieser Box angeordnet sind.
+`block` und `inline` Anzeigewerte werden als **äußere Anzeigetypen** bezeichnet — sie beeinflussen, wie das Kästchen in Bezug zu anderen Kästchen um es herum angeordnet ist. Kästchen haben auch einen **inneren Anzeigetyp**, der vorschreibt, wie Elemente in diesem Kästchen angeordnet sind.
 
-Sie können den inneren Anzeige-Typ ändern, indem Sie einen inneren Anzeigewert festlegen, z.B. `display: flex;`. Das Element verwendet weiterhin den äußeren Anzeige-Typ `block`, aber dies ändert den inneren Anzeige-Typ zu `flex`. Alle direkten Kinder dieser Box werden Flex-Elemente und verhalten sich gemäß der [Flexbox]-Spezifikation(/de/docs/Learn_web_development/Core/CSS_layout/Flexbox).
+Sie können den inneren Anzeigetyp ändern, indem Sie einen inneren Anzeigewert festlegen, zum Beispiel `display: flex;`. Das Element verwendet weiterhin den äußeren Anzeigetyp `block`, aber dies ändert den inneren Anzeigetyp zu `flex`. Alle direkten Kinder dieses Kästchens werden zu Flex-Elementen und verhalten sich entsprechend der [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox)-Spezifikation.
 
-Wenn Sie sich näher mit CSS-Layout befassen, werden Sie [`flex`](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) und verschiedene andere innere Werte treffen, die Ihre Boxen haben können, z.B. [`grid`](/de/docs/Learn_web_development/Core/CSS_layout/Grids).
+Wenn Sie lernen, sich mit CSS-Layout im Detail zu befassen, werden Sie auf [`flex`](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) stoßen, sowie auf verschiedene andere innere Werte, die Ihre Kästchen haben können, zum Beispiel [`grid`](/de/docs/Learn_web_development/Core/CSS_layout/Grids).
 
-Machen Sie sich nicht zu viele Gedanken über die innere und äußere Terminologie im Moment; dies geschieht intern, und wir erwähnen es hier, falls Sie darauf an anderer Stelle stoßen. Im Allgemeinen werden Sie nur mit einzelnen `display`-Werten umgehen und nicht viel darüber nachdenken müssen.
+Machen Sie sich jetzt noch keine großen Sorgen über die innere und äußere Terminologie; dies ist das, was intern passiert, und wir erwähnen es hier, falls Sie es anderswo sehen. Im Allgemeinen werden Sie nur mit einzelnen `display`-Werten umgehen, und es wird nicht notwendig sein, viel darüber nachzudenken.
 
 ## Beispiele für verschiedene Anzeigetypen
 
-Das folgende Beispiel hat drei verschiedene HTML-Elemente, die alle einen äußeren Anzeigetyp von `block` haben.
+Das Beispiel unten hat drei verschiedene HTML-Elemente, die alle einen äußeren Anzeigetyp von `block` haben.
 
-- Ein Absatz mit einer in CSS hinzugefügten Randlinie. Der Browser rendert dies als Block-Box. Der Absatz beginnt in einer neuen Zeile und erstreckt sich horizontal über die gesamte verfügbare Breite.
+- Ein Absatz mit einem Rahmen, der in CSS hinzugefügt wurde. Der Browser rendert dies als Block-Kästchen. Der Absatz beginnt in einer neuen Zeile und erstreckt sich horizontal, um die gesamte verfügbare Breite auszufüllen.
 
-- Eine Liste, die mit `display: flex` gestaltet ist. Dies stellt ein Flex-Layout für die Kinder des Containers her, die Flex-Elemente sind, die standardmäßig in einer Reihe angeordnet sind. Die Liste selbst ist eine Block-Box und – wie der Absatz – breitet sich auf die gesamte Containerbreite aus und wird in einer neuen Zeile umgebrochen.
+- Eine Liste, die mit `display: flex` layoutet ist. Dies etabliert ein Flex-Layout für die Kinder des Containers, die Flex-Elemente sind, die standardmäßig in einer Reihe angeordnet sind. Die Liste selbst ist ein Block-Kästchen und — wie der Absatz — erweitert sie sich auf die volle Containerbreite und bricht in eine neue Zeile um.
 
-- Ein Block-Absatz, in dem sich zwei `<span>`-Elemente befinden. Diese Elemente wären normalerweise `inline`, jedoch hat eines der Elemente eine Klasse `block` und wird auf `display: block` gesetzt. Dadurch beginnt dieses einzelne Wort in einer neuen Zeile, die sich über die volle Breite seines Elternteils erstreckt.
+- Ein Block-Absatz, in dem sich zwei `<span>` Elemente befinden. Diese Elemente wären normalerweise `inline`, jedoch hat eines der Elemente eine Klasse von `block` und wird auf `display: block` gesetzt. Dadurch beginnt dieses einzelne Wort in einer neuen Zeile, die sich über die volle Breite seines Eltern-Elements erstreckt.
 
 ```html live-sample___block
 <p>I am a paragraph. A short one.</p>
@@ -123,15 +123,15 @@ ul {
 
 {{EmbedLiveSample("block", "", "220px")}}
 
-Im nächsten Beispiel können wir sehen, wie sich `inline`-Elemente verhalten.
+Im nächsten Beispiel können wir sehen, wie sich `inline` Elemente verhalten.
 
-- Die `<span>`-Elemente im ersten Absatz sind standardmäßig inline und erzwingen daher keine Zeilenumbrüche.
+- Die `<span>` Elemente im ersten Absatz sind standardmäßig inline und erzwingen daher keine Zeilenumbrüche.
 
-- Das `<ul>`-Element, das auf `display: inline-flex` gesetzt ist, erzeugt eine Inline-Box, die einige Flex-Elemente enthält.
+- Das `<ul>` Element, das auf `display: inline-flex` gesetzt ist, erstellt ein Inline-Kästchen, das einige Flex-Elemente enthält.
 
-- Die beiden Absätze sind beide auf `display: inline` gesetzt. Der Inline-Flex-Container und die Absätze laufen alle zusammen auf einer Linie, anstatt in neue Zeilen zu brechen (wie sie es tun würden, wenn sie als Block-Elemente angezeigt würden).
+- Die beiden Absätze sind beide auf `display: inline` gesetzt. Der Inline-Flex-Container und die Absätze laufen alle in einer Zeile zusammen, anstatt eine neue Zeile zu brechen (wie sie es tun würden, wenn sie als Block-Elemente angezeigt werden würden).
 
-Um zwischen den Anzeigemodi zu wechseln, können Sie `display: inline` zu `display: block` oder `display: inline-flex` zu `display: flex` ändern:
+Um zwischen den Anzeigemodi zu wechseln, können Sie `display: inline` in `display: block` oder `display: inline-flex` in `display: flex` ändern:
 
 ```html live-sample___inline
 <p>
@@ -174,32 +174,32 @@ ul {
 
 {{EmbedLiveSample("inline")}}
 
-Die wesentliche Sache, an die man sich jetzt erinnern sollte, ist: Das Ändern des Werts der `display`-Eigenschaft kann ändern, ob der äußere Anzeigetyp einer Box block oder inline ist. Dies ändert die Art und Weise, wie sie im Layout neben anderen Elementen angezeigt wird.
+Der wichtigste Punkt, den Sie sich merken sollten, ist: Die Änderung des Wertes der `display`-Eigenschaft kann ändern, ob der äußere Anzeigetyp eines Kästchens block oder inline ist. Dies ändert die Art und Weise, wie es zusammen mit anderen Elementen im Layout angezeigt wird.
 
 ## Was ist das CSS-Box-Modell?
 
-Das CSS-Box-Modell als Ganzes gilt für Block-Boxen und definiert, wie die verschiedenen Teile einer Box – Rand (margin), Randlinie (border), Abstand (padding) und Inhalt – zusammenarbeiten, um eine Box zu erstellen, die Sie auf einer Seite sehen können. Inline-Boxen nutzen nur _einen Teil_ des im Box-Modell definierten Verhaltens.
+Das CSS-Box-Modell als Ganzes betrifft Block-Kästchen und definiert, wie die verschiedenen Teile eines Kästchens — Rand, Rahmen, Abstand und Inhalt — zusammenarbeiten, um ein Kästchen zu erstellen, das Sie auf einer Seite sehen können. Inline-Kästchen verwenden nur _einen Teil_ des im Box-Modell definierten Verhaltens.
 
-Zur Komplexität gibt es ein Standard- und ein alternatives Box-Modell. Standardmäßig verwenden Browser das Standard-Box-Modell.
+Um die Komplexität zu erhöhen, gibt es ein Standard- und ein alternatives Box-Modell. Standardmäßig verwenden Browser das Standard-Box-Modell.
 
-### Teile einer Box
+### Teile eines Kästchens
 
-Das CSS-Block-Modell besteht aus den folgenden Teilen:
+Das CSS-Block-Kästchen besteht aus:
 
-- **Inhaltsbox**: Der Bereich, in dem Ihr Inhalt angezeigt wird; Größe kann über Eigenschaften wie {{cssxref("width")}} und {{cssxref("height")}} bestimmt werden.
-- **Abstandsbox (Padding)**: Der Abstand sitzt als weißer Raum um den Inhalt herum; Größe kann über {{cssxref("padding")}} und verwandte Eigenschaften bestimmt werden.
-- **Randlinien-Box (Border)**: Die Randlinienbox umgibt den Inhalt und jeden Abstand; Größe kann über {{cssxref("border")}} und verwandte Eigenschaften bestimmt werden.
-- **Randbox (Margin)**: Der Rand ist die äußerste Schicht, die den Inhalt, den Abstand und die Randlinien als Weißraum zwischen dieser Box und anderen Elementen umgibt; Größe kann über {{cssxref("margin")}} und verwandte Eigenschaften bestimmt werden.
+- **Inhaltskästchen**: Der Bereich, in dem Ihr Inhalt angezeigt wird; er wird mit Eigenschaften wie {{cssxref("width")}} und {{cssxref("height")}} dimensioniert.
+- **Abstandskästchen**: Der Abstand sitzt als Freiraum um den Inhalt herum; bearbeiten Sie ihn mit {{cssxref("padding")}} und verwandten Eigenschaften.
+- **Rahmenkästchen**: Der Rahmen umgibt den Inhalt und jeden Abstand; dimensionieren Sie ihn mit {{cssxref("border")}} und verwandten Eigenschaften.
+- **Randkästchen**: Der Rand ist die äußerste Schicht, die den Inhalt, Abstand und Rahmen umgibt, als Weißraum zwischen diesem Kästchen und anderen Elementen; dimensionieren Sie ihn mit {{cssxref("margin")}} und verwandten Eigenschaften.
 
-Das folgende Diagramm zeigt diese Schichten:
+Das untenstehende Diagramm zeigt diese Schichten:
 
 ![Diagramm des Box-Modells](box-model.png)
 
 ### Das Standard-CSS-Box-Modell
 
-Im Standard-Box-Modell definieren die Werte der Eigenschaften `width` und `height` einer Box die `width` und `height` der _Inhaltsbox_. Jede Abstände und Randlinien werden dann zu diesen Dimensionen hinzugefügt, um die gesamte Größe der Box zu erhalten, die den Platz einnimmt (siehe das Bild unten).
+Im Standard-Box-Modell definieren, wenn Sie `width`- und `height`-Eigenschaften auf einem Kästchen setzen, diese Werte die `width` und `height` des _Inhaltskästchens_. Jeder Abstand und Rahmen wird dann zu diesen Abmessungen hinzugefügt, um die Gesamtgröße des vom Kästchen eingenommenen Raums zu erhalten (siehe Bild unten).
 
-Wenn wir annehmen, dass eine Box folgende CSS hat:
+Wenn wir annehmen, dass ein Kästchen das folgende CSS hat:
 
 ```css
 .box {
@@ -211,18 +211,18 @@ Wenn wir annehmen, dass eine Box folgende CSS hat:
 }
 ```
 
-Der _tatsächliche_ Platz, den die Box einnimmt, wird `410px` breit (350 + 25 + 25 + 5 + 5) und `210px` hoch (150 + 25 + 25 + 5 + 5) sein.
+Der _tatsächliche_ Platz, den das Kästchen einnimmt, wird `410px` breit (350 + 25 + 25 + 5 + 5) und `210px` hoch (150 + 25 + 25 + 5 + 5) sein.
 
-![Bild der Größe der Box, wenn das Standard-Box-Modell verwendet wird.](standard-box-model.png)
+![Zeigt die Größe des Kästchens, wenn das Standard-Box-Modell verwendet wird.](standard-box-model.png)
 
 > [!NOTE]
-> Der Rand wird nicht zur tatsächlichen Größe der Box gezählt — natürlich beeinflusst er den gesamten Platz, den die Box auf der Seite einnimmt, aber nur den Raum außerhalb der Box. Der Bereich der Box endet an der Randlinie — er erstreckt sich nicht in den Rand hinein.
+> Der Rand wird nicht zur tatsächlichen Größe des Kästchens gezählt — sicher, er beeinflusst den gesamten Raum, den das Kästchen auf der Seite einnehmen wird, aber nur den Raum außerhalb des Kästchens. Der Bereich des Kästchens endet am Rahmen — er erstreckt sich nicht in den Rand.
 
 ### Das alternative CSS-Box-Modell
 
-Im alternativen Box-Modell ist jede Breite die Breite der sichtbaren Box auf der Seite. Die Inhaltsbereichsbreite ist diese Breite minus der Breite für den Abstand und die Randlinie (siehe Bild unten). Dies ist praktisch, da es nicht nötig ist, die Randlinie und den Abstand zu addieren, um die tatsächliche Größe der Box zu erhalten.
+Im alternativen Box-Modell ist jede Breite die Breite des sichtbaren Kästchens auf der Seite. Die Breite des Inhaltsbereichs ist jene Breite minus der Breite für den Abstand und den Rahmen (siehe Bild unten). Dies ist praktisch, da es nicht nötig ist, Rahmen und Abstand zusammenzuzählen, um die tatsächliche Größe des Kästchens zu erhalten.
 
-Um das alternative Modell für ein Element zu aktivieren, setzen Sie `box-sizing: border-box` darauf:
+Um das alternative Modell für ein Element einzuschalten, setzen Sie `box-sizing: border-box` darauf:
 
 ```css
 .box {
@@ -230,7 +230,7 @@ Um das alternative Modell für ein Element zu aktivieren, setzen Sie `box-sizing
 }
 ```
 
-Wenn wir annehmen, dass die Box die gleiche CSS wie oben hat:
+Wenn wir annehmen, das Kästchen hat dasselbe CSS wie oben:
 
 ```css
 .box {
@@ -242,11 +242,11 @@ Wenn wir annehmen, dass die Box die gleiche CSS wie oben hat:
 }
 ```
 
-Der _tatsächliche_ Platz, den die Box einnimmt, wird jetzt `350px` in der Inline-Richtung und `150px` in der Block-Richtung sein.
+Der _tatsächliche_ Raum, den das Kästchen jetzt einnimmt, wird in der Inline-Richtung `350px` und in der Block-Richtung `150px` sein.
 
-![Bild der Größe der Box, wenn das alternative Box-Modell verwendet wird.](alternate-box-model.png)
+![Zeigt die Größe des Kästchens, wenn das alternative Box-Modell verwendet wird.](alternate-box-model.png)
 
-Um das alternative Box-Modell für alle Ihre Elemente zu verwenden (was eine häufige Wahl unter Entwicklern ist), setzen Sie die `box-sizing`-Eigenschaft auf das `<html>`-Element und setzen Sie alle anderen Elemente so, dass sie diesen Wert erben:
+Um das alternative Box-Modell für alle Ihre Elemente zu verwenden (was eine gängige Wahl unter Entwicklern ist), setzen Sie die `box-sizing` Eigenschaft auf das `<html>` Element und alle anderen Elemente erben diesen Wert:
 
 ```css
 html {
@@ -260,12 +260,12 @@ html {
 }
 ```
 
-Um das zugrunde liegende Konzept zu verstehen, können Sie den [CSS Tricks-Artikel zum Box-Sizing](https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/) lesen.
+Um die zugrunde liegende Idee zu verstehen, können Sie [den Artikel auf CSS Tricks über box-sizing](https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/) lesen.
 
-## Spielen mit Box-Modellen
+## Mit Box-Modellen spielen
 
-Im Beispiel unten können Sie zwei Boxen sehen. Beide haben eine Klasse `.box`, die ihnen die gleiche `width`, `height`, `margin`, `border` und `padding` gibt. Der einzige Unterschied ist, dass die zweite Box so eingestellt wurde, dass sie das alternative Box-Modell verwendet.
-Können Sie die Größe der zweiten Box ändern (indem Sie CSS zur `.alternate`-Klasse hinzufügen), sodass sie in Breite und Höhe der ersten Box entspricht?
+Im Beispiel unten können Sie zwei Kästchen sehen. Beide haben eine Klasse von `.box`, die ihnen dieselbe `width`, `height`, `margin`, `border`, und `padding` gibt. Der einzige Unterschied ist, dass das zweite Kästchen auf das alternative Box-Modell gesetzt wurde.
+Können Sie die Größe des zweiten Kästchens ändern (indem Sie CSS zur `.alternate`-Klasse hinzufügen), um es in Breite und Höhe dem ersten Kästchen anzupassen?
 
 ```html live-sample___box-models
 <div class="box">I use the standard box model.</div>
@@ -290,34 +290,34 @@ Können Sie die Größe der zweiten Box ändern (indem Sie CSS zur `.alternate`-
 {{EmbedLiveSample("box-models", "", "400px")}}
 
 > [!NOTE]
-> Eine Lösung für diese Aufgabe finden Sie [in unserem css-examples Repo](https://github.com/mdn/css-examples/blob/main/learn/solutions.md#the-box-model).
+> Sie können eine Lösung für diese Aufgabe [in unserem css-examples Repo](https://github.com/mdn/css-examples/blob/main/learn/solutions.md#the-box-model) finden.
 
-### Verwenden der DevTools des Browsers zur Anzeige des Box-Modells
+### Verwenden von Browser DevTools, um das Box-Modell anzuzeigen
 
-Ihre [Entwickler-Tools des Browsers](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) können das Verständnis des Box-Modells erheblich erleichtern — sie können Ihnen die Größe des Elements plus seinen Rand, Abstand und Randlinie anzeigen. Das Inspektieren eines Elements auf diese Weise ist eine großartige Möglichkeit herauszufinden, ob Ihre Box wirklich die Größe hat, die Sie denken!
+Ihre [Entwickler-Tools des Browsers](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) können das Verständnis des Box-Modells erheblich erleichtern — sie können Ihnen die Größe des Elements plus dessen Rand, Abstand und Rahmen anzeigen. Das Inspektieren eines Elements auf diese Weise ist eine großartige Möglichkeit, herauszufinden, ob Ihr Kästchen wirklich die Größe hat, die Sie glauben, dass es hat!
 
-![Das Box-Modell eines Elements mit Firefox DevTools inspizieren](box-model-devtools.png)
+![Inspektion des Box-Modells eines Elements mit Firefox DevTools](box-model-devtools.png)
 
-## Ränder, Abstände und Randlinien
+## Ränder, Abstände und Rahmen
 
-Sie haben bereits die Eigenschaften {{cssxref("margin")}}, {{cssxref("padding")}} und {{cssxref("border")}} in der obigen Beispiel gesehen. Die in diesem Beispiel verwendeten Eigenschaften sind **Shorthands** und ermöglichen es uns, alle vier Seiten der Box auf einmal festzulegen. Diese Shorthand-Eigenschaften haben auch gleichwertige Langform-Eigenschaften, die die Steuerung über die verschiedenen Seiten der Box einzeln ermöglichen.
+Sie haben bereits die Eigenschaften {{cssxref("margin")}}, {{cssxref("padding")}}, und {{cssxref("border")}} in Aktion im obigen Beispiel gesehen. Die in diesem Beispiel verwendeten Eigenschaften sind **Kurzschreibweisen** und ermöglichen es uns, alle vier Seiten des Kästchens auf einmal einzustellen. Diese Kurzschreibformen haben auch entsprechende Langschreibformen, die die Kontrolle über die verschiedenen Seiten des Kästchens einzeln ermöglichen.
 
 Lassen Sie uns diese Eigenschaften im Detail erkunden.
 
 ### Rand
 
-Der Rand ist ein unsichtbarer Raum um Ihre Box. Er drückt andere Elemente von der Box weg. Ränder können positive oder negative Werte haben. Das Setzen eines negativen Rands auf einer Seite der Box kann dazu führen, dass sie sich über andere Dinge auf der Seite überlappt. Ob Sie das Standard- oder das alternative Box-Modell verwenden, der Rand wird immer nach der Berechnung der Größe der sichtbaren Box hinzugefügt.
+Der Rand ist ein unsichtbarer Raum um Ihr Kästchen. Er schiebt andere Elemente vom Kästchen weg. Ränder können positive oder negative Werte haben. Das Setzen eines negativen Rands auf eine Seite Ihres Kästchens kann dazu führen, dass es über andere Dinge auf der Seite überlappt. Unabhängig davon, ob Sie das Standard- oder das alternative Box-Modell verwenden, wird der Rand immer nach der Berechnung der Größe des sichtbaren Kästchens hinzugefügt.
 
-Wir können alle Ränder eines Elements auf einmal mit der {{cssxref("margin")}}-Eigenschaft steuern oder jede Seite einzeln mit den entsprechenden Langform-Eigenschaften:
+Wir können alle Ränder eines Elements auf einmal mit der {{cssxref("margin")}} Eigenschaft steuern oder jede Seite einzeln mit den entsprechenden Langschreib-Eigenschaften:
 
 - {{cssxref("margin-top")}}
 - {{cssxref("margin-right")}}
 - {{cssxref("margin-bottom")}}
 - {{cssxref("margin-left")}}
 
-#### Spielen mit Rändern
+#### Mit Rändern spielen
 
-Bearbeiten Sie das untenstehende Beispiel. Versuchen Sie, die Randwerte zu ändern, um zu sehen, wie die Box herumgeschoben wird, da der Rand Raum erschafft oder entfernt (wenn es sich um einen negativen Rand handelt) zwischen diesem Element und dem was es enthält.
+Bearbeiten Sie das Beispiel unten. Versuchen Sie, die Randwerte zu ändern, um zu sehen, wie das Kästchen aufgrund des Rands umhergeschoben wird, der Platz schafft oder entfernt (falls es sich um einen negativen Rand handelt) zwischen diesem Element und dem enthaltenen Element.
 
 ```html live-sample___margin
 <div class="container">
@@ -348,15 +348,15 @@ Bearbeiten Sie das untenstehende Beispiel. Versuchen Sie, die Randwerte zu ände
 
 #### Rand-Kollaps
 
-Abhängig davon, ob zwei Elemente, deren Ränder sich berühren, positive oder negative Ränder haben, werden die Ergebnisse unterschiedlich sein:
+Je nachdem, ob zwei Elemente, deren Ränder sich berühren, positive oder negative Ränder haben, werden die Ergebnisse unterschiedlich sein:
 
-- Zwei positive Ränder werden kombiniert, um einen Rand zu werden. Seine Größe wird gleich dem größten individuellen Rand sein.
-- Zwei negative Ränder werden zusammenfallen und der kleinste (am weitesten von null entfernt) Wert wird verwendet.
-- Wenn ein Rand negativ ist, wird sein Wert von dem Gesamtwert _subtrahiert_.
+- Zwei positive Ränder werden kombiniert zu einem einzigen Rand. Seine Größe entspricht dem größten individuellen Rand.
+- Zwei negative Ränder werden kollabieren und der kleinste (am weitesten von null entfernt) Wert wird verwendet.
+- Wenn ein Rand negativ ist, wird sein Wert von der Gesamtgröße _abgezogen_.
 
-Im folgenden Beispiel haben wir zwei Absätze. Der obere Absatz hat einen `margin-bottom` von 50 Pixel, der andere hat einen `margin-top` von 30 Pixel. Die Ränder sind zusammengefallen, so dass der tatsächliche Rand zwischen den Boxen 50 Pixel ist und nicht die Summe der beiden Ränder.
+Im Beispiel unten haben wir zwei Absätze. Der obere Absatz hat einen `margin-bottom` von 50 Pixeln, der andere hat einen `margin-top` von 30 Pixeln. Die Ränder sind kollabiert, sodass der tatsächliche Abstand zwischen den Kästchen 50 Pixel beträgt und nicht die Summe der beiden Ränder.
 
-Sie können dies testen, indem Sie den `margin-top` des zweiten Absatzes auf `0` setzen. Der sichtbare Rand zwischen den beiden Absätzen wird sich nicht ändern — er behält die 50 Pixel, die im `margin-bottom` des ersten Absatzes festgelegt sind. Wenn Sie ihn auf `-10px` setzen, werden Sie sehen, dass der Gesamtrand `40px` wird — er subtrahiert von den `50px`.
+Sie können dies testen, indem Sie den `margin-top` des zweiten Absatzes auf `0` setzen. Der sichtbare Rand zwischen den beiden Absätzen wird sich nicht ändern — er behält die in `margin-bottom` des ersten Absatzes festgelegten 50 Pixel bei. Wenn Sie ihn auf `-10px` setzen, werden Sie sehen, dass der Gesamtabstand `40px` beträgt — er zieht von den `50px` ab.
 
 ```html live-sample___margin-collapse
 <div class="container">
@@ -387,15 +387,15 @@ p {
 
 {{EmbedLiveSample("margin-collapse", "", "280px")}}
 
-Eine Anzahl von Regeln bestimmt, wann Ränder kollabieren und wann nicht. Für weitere Informationen siehe die detaillierte Seite über [Beherrschen des Randkollapses](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing). Die Hauptsache, an die man sich erinnern sollte, ist, dass Randkollaps eine Sache ist, die passiert, wenn Sie Raum mit Rändern erstellen und nicht den Raum erhalten, den Sie erwarten.
+Eine Reihe von Regeln diktieren, wann Ränder kollabieren und wann nicht. Für weitere Informationen siehe die detaillierte Seite über [das Beherrschen des Rand-Kollapses](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing). Das Wichtigste, an das man sich erinnern sollte, ist, dass Margin collapsing eine Sache ist, die passiert, wenn man mit Rändern Platz schafft und nicht den erwarteten Raum bekommt.
 
-### Randlinien
+### Rahmen
 
-Die Randlinie wird zwischen dem Rand und dem Abstand einer Box gezeichnet. Wenn Sie das Standard-Box-Modell verwenden, wird die Größe der Randlinie zur `width` und `height` der Inhaltsbox hinzugefügt. Wenn Sie das alternative Box-Modell verwenden, dann wird die Inhaltsbox umso kleiner, je größer die Randlinie ist, da die Randlinie einen Teil dieser verfügbaren `width` und `height` der Elementbox einnimmt.
+Der Rahmen wird zwischen dem Rand und dem Abstand eines Kästchens gezeichnet. Wenn Sie das Standard-Box-Modell verwenden, wird die Größe des Rahmens zur `width` und `height` des Inhaltskästchens hinzugefügt. Wenn Sie das alternative Box-Modell verwenden, dann je größer der Rahmen ist, desto kleiner ist das Inhaltskästchen, da der Rahmen einen Teil dieser verfügbaren `width` und `height` des Elemente-Kästchens einnimmt.
 
-Zum Stylen von Randlinien gibt es eine große Anzahl von Eigenschaften — es gibt vier Randlinien, und jede Randlinie hat einen Stil, eine Breite und eine Farbe, die wir manipulieren möchten.
+Für das Styling von Rahmen gibt es eine große Anzahl von Eigenschaften — es gibt vier Rahmen, und jeder Rahmen hat einen Stil, eine Breite und eine Farbe, die wir möglicherweise manipulieren möchten.
 
-Sie können die Breite, den Stil oder die Farbe aller vier Randlinien auf einmal mit der {{cssxref("border")}}-Eigenschaft festlegen.
+Sie können die Breite, den Stil oder die Farbe aller vier Rahmen auf einmal mit der {{cssxref("border")}} Eigenschaft festlegen.
 
 Um die Eigenschaften jeder Seite einzeln festzulegen, verwenden Sie:
 
@@ -410,7 +410,7 @@ Um die Breite, den Stil oder die Farbe aller Seiten festzulegen, verwenden Sie:
 - {{cssxref("border-style")}}
 - {{cssxref("border-color")}}
 
-Um die Breite, den Stil oder die Farbe einer einzelnen Seite festzulegen, verwenden Sie eine der detaillierteren Langform-Eigenschaften:
+Um die Breite, den Stil oder die Farbe einer einzelnen Seite festzulegen, verwenden Sie eine der detaillierteren Langschreib-Eigenschaften:
 
 - {{cssxref("border-top-width")}}
 - {{cssxref("border-top-style")}}
@@ -425,9 +425,9 @@ Um die Breite, den Stil oder die Farbe einer einzelnen Seite festzulegen, verwen
 - {{cssxref("border-left-style")}}
 - {{cssxref("border-left-color")}}
 
-#### Spielen mit Randlinien
+#### Mit Rahmen spielen
 
-Im Beispiel unten haben wir verschiedene Shorthands und Langhands verwendet, um Randlinien zu erstellen. Bearbeiten Sie die verschiedenen Eigenschaften, um zu überprüfen, dass Sie verstehen, wie sie funktionieren. Die MDN-Seiten für die Randlinieneigenschaften geben Ihnen Informationen über die verschiedenen verfügbaren Randlinienstile.
+Im Beispiel unten haben wir verschiedene Kurz- und Langschreibweisen verwendet, um Rahmen zu erstellen. Bearbeiten Sie die verschiedenen Eigenschaften, um zu überprüfen, ob Sie verstehen, wie sie funktionieren. Die MDN-Seiten zu den Rahmen-Eigenschaften geben Ihnen Informationen über die verschiedenen verfügbaren Rahmenstile.
 
 ```html live-sample___border
 <div class="container">
@@ -459,20 +459,20 @@ body {
 
 {{EmbedLiveSample("border", "", "220px")}}
 
-### Abstand (Padding)
+### Abstand
 
-Der Abstand befindet sich zwischen der Randlinie und dem Inhaltsbereich und wird verwendet, um den Inhalt von der Randlinie weg zu verschieben. Im Gegensatz zu Rändern können Sie keine negativen Abstände haben. Jeder auf Ihr Element angewendete Hintergrund wird hinter dem Abstand angezeigt.
+Der Abstand sitzt zwischen dem Rahmen und dem Inhaltsbereich und wird verwendet, um den Inhalt vom Rahmen wegzuschieben. Im Gegensatz zu Rändern können Sie keinen negativen Abstand haben. Jeder Hintergrund, der auf Ihr Element angewendet wird, wird hinter dem Abstand angezeigt.
 
-Die {{cssxref("padding")}}-Eigenschaft steuert den Abstand auf allen Seiten eines Elements. Um jede Seite einzeln zu steuern, verwenden Sie diese Langform-Eigenschaften:
+Die {{cssxref("padding")}}-Eigenschaft kontrolliert den Abstand auf allen Seiten eines Elements. Um jede Seite einzeln zu kontrollieren, verwenden Sie diese Langschreib-Eigenschaften:
 
 - {{cssxref("padding-top")}}
 - {{cssxref("padding-right")}}
 - {{cssxref("padding-bottom")}}
 - {{cssxref("padding-left")}}
 
-#### Spielen mit Abständen
+#### Mit Abständen spielen
 
-Im Beispiel unten bearbeiten Sie die Werte für den Abstand der Klasse `.box` und sehen Sie, wie dies ändert, wo der Text im Verhältnis zur Box beginnt. Sie können auch den Abstand der Klasse `.container` ändern, um Platz zwischen dem Container und der Box zu schaffen. Sie können den Abstand eines beliebigen Elements ändern, um Platz zwischen seiner Randlinie und dem darzustellen, was sich im Inneren des Elements befindet.
+Im Beispiel unten bearbeiten Sie die Werte für den Abstand der Klasse `.box` und sehen, wie dies ändert, wo der Text in Bezug auf das Kästchen beginnt. Sie können auch den Abstand auf der Klasse `.container` ändern, um Platz zwischen dem Container und dem Kästchen zu schaffen. Sie können den Abstand auf jedem Element ändern, um Platz zwischen dessen Rahmen und dem, was sich im Inneren des Elements befindet, zu schaffen.
 
 ```html live-sample___padding
 <div class="container">
@@ -502,11 +502,11 @@ body {
 
 {{EmbedLiveSample("padding", "", "220px")}}
 
-## Das Box-Modell und Inline-Boxen
+## Das Box-Modell und Inline-Kästchen
 
-All das oben Gesagte gilt vollständig für Block-Boxen. Einige der Eigenschaften können auch auf Inline-Boxen angewendet werden, wie diejenigen, die durch ein `<span>`-Element erstellt werden.
+All das oben Gesagte gilt vollständig für Block-Kästchen. Einige der Eigenschaften können auch auf Inline-Kästchen angewendet werden, wie sie durch ein `<span>`-Element erstellt werden.
 
-Im folgenden Beispiel haben wir ein `<span>` innerhalb eines Absatzes. Wir haben ihm eine `width`, `height`, `margin`, `border` und `padding` zugewiesen. Sie können sehen, dass die Breite, Höhe und vertikalen Ränder das `<span>` nicht beeinflussen. Der vertikale Abstand und die Randlinie ändern die Größe der Inline-Box, beeinträchtigen aber nicht die Position des umgebenden Inhalts. Stattdessen überlappen der vertikale Abstand und die Randlinie andere Wörter im Absatz. Nur der horizontale Abstand, die Ränder und die Randlinien beeinflussen die Position des Texts, der das `<span>` umgibt.
+Im Beispiel unten haben wir ein `<span>`-Element innerhalb eines Absatzes. Wir haben eine `width`, `height`, `margin`, `border` und `padding` darauf angewendet. Sie können sehen, dass die Breite, Höhe und die oberen und unteren Ränder das `<span>` nicht beeinflussen. Die oberen und unteren Abstände und Rahmen verändern die Größe des Inline-Kästchens, aber beeinflussen nicht die Position des umgebenden Inhalts. Stattdessen überlappen die oberen und unteren Abstände und Rahmen andere Wörter im Absatz. Nur die linken und rechten Abstände, Ränder und Rahmen beeinflussen die Position des Textes, der das `<span>` umgibt.
 
 ```html live-sample___inline-box-model
 <p>
@@ -538,18 +538,18 @@ span {
 
 ## Verwendung von display: inline-block
 
-`display: inline-block` ist ein spezieller Wert von `display`, der einen Mittelweg zwischen `inline` und `block` bietet. Verwenden Sie ihn, wenn Sie nicht möchten, dass ein Element in eine neue Zeile bricht, aber möchten, dass es `width` und `height` respektiert und das Überlappen wie oben vermieden wird.
+`display: inline-block` ist ein spezieller Wert von `display`, der einen Mittelweg zwischen `inline` und `block` bietet. Verwenden Sie es, wenn Sie nicht möchten, dass ein Element in einer neuen Zeile beginnt, aber trotzdem `width` und `height` respektiert werden sollen und Sie die oben gesehene Überlappung vermeiden möchten.
 
-Ein Element mit `display: inline-block` macht einen Teil der blockartigen Dinge, die wir bereits kennen:
+Ein Element mit `display: inline-block` tut ein Teil der Block-Dinge, die wir bereits kennen:
 
-- Die Eigenschaften `width` und `height` werden respektiert.
-- `padding`, `margin` und `border` werden bewirken, dass andere Elemente von der Box weggeschoben werden.
+- Die `width`- und `height`-Eigenschaften werden respektiert.
+- `padding`, `margin`, und `border` werden andere Elemente vom Kästchen wegschieben.
 
-Es bricht jedoch nicht in eine neue Zeile und wird nur größer als sein Inhalt, wenn Sie explizit `width` und `height`-Eigenschaften hinzufügen.
+Es bricht jedoch nicht in eine neue Zeile um und wird nur größer als sein Inhalt, wenn Sie ausdrücklich `width` und `height`-Eigenschaften hinzufügen.
 
-### Spielen mit inline-block
+### Mit Inline-Block spielen
 
-Im nächsten Beispiel haben wir `display: inline-block` zu unserem `<span>`-Element hinzugefügt. Versuchen Sie, dies in `display: block` zu ändern oder die Zeile komplett zu entfernen, um den Unterschied in den Anzeigemodellen zu sehen:
+Im nächsten Beispiel haben wir `display: inline-block` zu unserem `<span>`-Element hinzugefügt. Versuchen Sie, dies zu `display: block` zu ändern oder die Zeile komplett zu entfernen, um den Unterschied in den Anzeigemodellen zu sehen:
 
 ```html live-sample___inline-block
 <p>
@@ -580,11 +580,11 @@ span {
 
 {{EmbedLiveSample("inline-block", "", "240px")}}
 
-Wo dies nützlich sein kann, ist, wenn Sie einen Linkbereich durch Hinzufügen von `padding` vergrößern möchten. `<a>` ist ein Inline-Element wie `<span>`; Sie können `display: inline-block` verwenden, um das Hinzufügen von Abstand zu ermöglichen, was das Klicken des Links für den Benutzer erleichtert.
+Dies kann nützlich sein, wenn Sie einem Link eine größere Trefferfläche geben möchten, indem Sie `padding` hinzufügen. `<a>` ist ein Inline-Element wie `<span>`; Sie können `display: inline-block` verwenden, um den Abstand darauf festlegen zu können, was es für einen Benutzer einfacher macht, auf den Link zu klicken.
 
-Sie sehen dies ziemlich häufig in Navigationsleisten. Die untenstehende Navigation wird in einer Reihe mit Flexbox angezeigt und wir haben dem `<a>`-Element Abstand hinzugefügt, da wir die `background-color` ändern möchten, wenn das `<a>`-Element überfahren wird. Der Abstand scheint die Randlinie des `<ul>`-Elements zu überlappen. Dies liegt daran, dass das `<a>` ein Inline-Element ist.
+Sie sehen dies ziemlich häufig in Navigationsleisten. Die folgende Navigation wird in einer Zeile mit Flexbox angezeigt, und wir haben dem `<a>`-Element einen Abstand hinzugefügt, da wir die `background-color` ändern möchten, wenn das `<a>` überfahren wird. Der Abstand scheint sich über den Rahmen des `<ul>`-Elements zu überlappen. Dies liegt daran, dass das `<a>` ein Inline-Element ist.
 
-Fügen Sie `display: inline-block;` zur Regel mit dem `.links-list a`-Selektor hinzu, und Sie werden sehen, wie dies das Problem durch das Respektieren des Abstands durch andere Elemente behebt:
+Fügen Sie `display: inline-block;` zur Regel mit dem Selektor `.links-list a` hinzu, und Sie werden sehen, wie dies das Problem behebt, indem es den Abstand von anderen Elementen respektieren lässt:
 
 ```html live-sample___inline-block-nav
 <nav>
@@ -625,8 +625,8 @@ li {
 
 ## Zusammenfassung
 
-Das ist das meiste, was Sie über das Box-Modell wissen müssen. Sie können in Zukunft zu dieser Lektion zurückkehren, wenn Sie sich jemals verwirrt fühlen, wie groß Boxen in Ihrem Layout sind.
+Das ist das meiste, was Sie über das Box-Modell verstehen müssen. Möglicherweise möchten Sie zu dieser Lektion zurückkehren, falls Sie jemals verwirrt darüber sind, wie groß Kästchen in Ihrem Layout sind.
 
-Im nächsten Artikel geben wir Ihnen einige Tests, die Sie verwenden können, um zu überprüfen, wie gut Sie die Informationen, die wir Ihnen über das CSS-Box-Modell gegeben haben, verstanden und behalten haben.
+Im nächsten Artikel werden wir Ihnen einige Tests geben, die Sie verwenden können, um zu überprüfen, wie gut Sie die Informationen über das CSS-Box-Modell verstanden und behalten haben.
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Test_your_skills/Selectors", "Learn_web_development/Core/Styling_basics/Test_your_skills/Box_model", "Learn_web_development/Core/Styling_basics")}}

@@ -1,14 +1,14 @@
 ---
-title: "XSLTProcessor: reset()-Methode"
+title: "XSLTProcessor: Methode reset()"
 short-title: reset()
 slug: Web/API/XSLTProcessor/reset
 l10n:
-  sourceCommit: 01bad23f0d2ef51538bdb071282c56faf79395c6
+  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
 ---
 
-{{APIRef("XSLT")}}
+{{APIRef("DOM")}}
 
-Die `reset()`-Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces entfernt alle Parameter (`<xsl:param>`) und das XSLT-Stylesheet aus dem Prozessor. Der `XSLTProcessor` befindet sich dann in seinem ursprünglichen Zustand, wie er bei der Erstellung war.
+Die `reset()`-Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces entfernt alle Parameter (`<xsl:param>`) und das XSLT-Stylesheet aus dem Prozessor. Der `XSLTProcessor` befindet sich dann in seinem ursprünglichen Zustand, in dem er erstellt wurde.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ### Verwendung von reset()
 
-Dieses Beispiel zeigt, wie die `reset()`-Methode es ermöglicht, dass dieselbe `XSLTProcessor`-Instanz für mehrere Transformationen mit unterschiedlichen Stylesheets wiederverwendet werden kann.
+Dieses Beispiel zeigt, wie die `reset()`-Methode es ermöglicht, dass dieselbe `XSLTProcessor`-Instanz für mehrere Transformationen mit verschiedenen Stylesheets wiederverwendet werden kann.
 
 #### HTML
 

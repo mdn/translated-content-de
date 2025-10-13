@@ -2,29 +2,29 @@
 title: XML parsen und serialisieren
 slug: Web/XML/Guides/Parsing_and_serializing_XML
 l10n:
-  sourceCommit: 26e46f8c13ebea65dc65a6e99e51e8fa4d5d619d
+  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
 ---
 
-Manchmal müssen Sie {{Glossary("XML", "XML")}}-Inhalte parsen und in einen {{Glossary("DOM", "DOM")}}-Baum umwandeln oder umgekehrt, einen bestehenden DOM-Baum in XML serialisieren. In diesem Artikel betrachten wir die Objekte, die von der Webplattform bereitgestellt werden, um die gängigen Aufgaben des Serialisierens und Parsens von XML zu erleichtern.
+Manchmal müssen Sie Inhalte in {{Glossary("XML", "XML")}} parsen und in einen {{Glossary("DOM", "DOM")}}-Baum umwandeln oder umgekehrt einen bestehenden DOM-Baum in XML serialisieren. In diesem Artikel schauen wir uns die Objekte an, die die Web-Plattform bereitstellt, um die üblichen Aufgaben des XML-Serialisierens und -Parsens zu erleichtern.
 
 - [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)
-  - : Serialisiert DOM-Bäume und wandelt sie in Strings um, die XML enthalten.
+  - : Serialisiert DOM-Bäume und wandelt sie in Zeichenfolgen um, die XML enthalten.
 - [`DOMParser`](/de/docs/Web/API/DOMParser)
-  - : Konstruiert einen DOM-Baum, indem er einen String, der XML enthält, analysiert und entsprechend den Eingabedaten ein [`XMLDocument`](/de/docs/Web/API/XMLDocument) oder [`Document`](/de/docs/Web/API/Document) zurückgibt.
+  - : Erstellt einen DOM-Baum, indem eine Zeichenfolge, die XML enthält, geparst wird, und gibt ein [`XMLDocument`](/de/docs/Web/API/XMLDocument) oder ein [`Document`](/de/docs/Web/API/Document) zurück, je nach Eingabedaten.
 - [`fetch()`](/de/docs/Web/API/Window/fetch)
-  - : Lädt Inhalte von einer URL. XML-Inhalte werden als Textstring zurückgegeben, den Sie mit `DOMParser` parsen können.
+  - : Lädt Inhalte von einer URL. XML-Inhalte werden als Zeichenfolge zurückgegeben, die Sie mit `DOMParser` parsen können.
 - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
   - : Der Vorgänger von `fetch()`. Im Gegensatz zur `fetch()`-API kann `XMLHttpRequest` eine Ressource als `Document` über seine [`responseXML`](/de/docs/Web/API/XMLHttpRequest/responseXML)-Eigenschaft zurückgeben.
 - [XPath](/de/docs/Web/XML/XPath)
-  - : Eine Technologie zur Erstellung von Strings, die Adressen für bestimmte Teile eines XML-Dokuments enthalten und zum Auffinden von XML-Knoten basierend auf diesen Adressen verwendet werden.
+  - : Eine Technologie zum Erstellen von Zeichenfolgen, die Adressen für bestimmte Teile eines XML-Dokuments enthalten, und zum Lokalisieren von XML-Knoten basierend auf diesen Adressen.
 
-## Ein XML-Dokument erstellen
+## Erstellen eines XML-Dokuments
 
 Verwenden Sie eine der folgenden Methoden, um ein XML-Dokument zu erstellen (das eine Instanz von [`Document`](/de/docs/Web/API/Document) ist).
 
-### Strings in DOM-Bäume parsen
+### Parsen von Zeichenfolgen in DOM-Bäume
 
-Dieses Beispiel wandelt ein XML-Fragment in einem String in einen DOM-Baum um, indem es einen [`DOMParser`](/de/docs/Web/API/DOMParser) verwendet:
+Dieses Beispiel konvertiert ein XML-Fragment in einer Zeichenfolge in einen DOM-Baum mithilfe eines [`DOMParser`](/de/docs/Web/API/DOMParser):
 
 ```js
 const xmlStr = '<q id="a"><span id="b">hey!</span></q>';
@@ -39,11 +39,11 @@ if (errorNode) {
 }
 ```
 
-### URL-adressierbare Ressourcen in DOM-Bäume parsen
+### Parsen von URL-adressierbaren Ressourcen in DOM-Bäume
 
 #### Verwendung von fetch
 
-Hier ist Beispielcode, der eine URL-adressierbare XML-Datei liest und in einen DOM-Baum parst:
+Hier ist ein Codebeispiel, das eine URL-adressierbare XML-Datei liest und in einen DOM-Baum parst:
 
 ```js
 fetch("example.xml")
@@ -55,22 +55,22 @@ fetch("example.xml")
   });
 ```
 
-Dieser Code holt die Ressource als Textstring und verwendet dann [`DOMParser.parseFromString()`](/de/docs/Web/API/DOMParser/parseFromString), um ein [`XMLDocument`](/de/docs/Web/API/XMLDocument) zu konstruieren.
+Dieser Code holt die Ressource als Zeichenfolge ab und verwendet dann [`DOMParser.parseFromString()`](/de/docs/Web/API/DOMParser/parseFromString), um ein [`XMLDocument`](/de/docs/Web/API/XMLDocument) zu erstellen.
 
-Wenn das Dokument {{Glossary("HTML", "HTML")}} ist, gibt der oben gezeigte Code ein [`Document`](/de/docs/Web/API/Document) zurück. Ist das Dokument XML, ist das resultierende Objekt tatsächlich ein `XMLDocument`. Die beiden Typen sind im Wesentlichen gleich; der Unterschied ist größtenteils historisch, obwohl die Unterscheidung auch einige praktische Vorteile bietet.
+Wenn das Dokument {{Glossary("HTML", "HTML")}} ist, gibt der obige Code ein [`Document`](/de/docs/Web/API/Document) zurück. Wenn das Dokument XML ist, ist das resultierende Objekt tatsächlich ein `XMLDocument`. Die beiden Typen sind im Wesentlichen gleich; der Unterschied ist größtenteils historisch, obwohl die Unterscheidung auch einige praktische Vorteile hat.
 
 > [!NOTE]
-> Es gibt tatsächlich ein [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)-Interface, aber es ist nicht unbedingt ein unabhängiger Typ. In einigen Browsern ist es das, während es in anderen ein Alias für das `Document`-Interface ist.
+> Es gibt tatsächlich auch eine [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)-Schnittstelle, aber sie ist nicht unbedingt ein eigenständiger Typ. In einigen Browsern ist sie das, während sie in anderen ein Alias für die `Document`-Schnittstelle ist.
 
-## Ein XML-Dokument serialisieren
+## Serialisieren eines XML-Dokuments
 
-Angenommen, Sie haben ein [`Document`](/de/docs/Web/API/Document), können Sie den DOM-Baum des Dokuments mit der Methode [`XMLSerializer.serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString) zurück in XML serialisieren.
+Angenommen, Sie haben ein [`Document`](/de/docs/Web/API/Document), können Sie den DOM-Baum des Dokuments mithilfe der Methode [`XMLSerializer.serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString) wieder in XML serialisieren.
 
-Verwenden Sie die folgenden Ansätze, um die Inhalte des im vorherigen Abschnitt erstellten XML-Dokuments zu serialisieren.
+Verwenden Sie die folgenden Methoden, um die Inhalte des XML-Dokuments zu serialisieren, das Sie im vorherigen Abschnitt erstellt haben.
 
-### DOM-Bäume zu Strings serialisieren
+### Serialisieren von DOM-Bäumen zu Zeichenfolgen
 
-Erstellen Sie zunächst einen DOM-Baum, wie in [Die Verwendung des Document Object Model](/de/docs/Web/API/Document_Object_Model/Using_the_Document_Object_Model) beschrieben. Alternativ verwenden Sie einen DOM-Baum, der von [`fetch()`](/de/docs/Web/API/Window/fetch) erhalten wurde.
+Erstellen Sie zuerst einen DOM-Baum, wie im [Verwenden des Document Object Model](/de/docs/Web/API/Document_Object_Model) beschrieben. Alternativ können Sie einen DOM-Baum verwenden, der von [`fetch()`](/de/docs/Web/API/Window/fetch) erhalten wurde.
 
 Um den DOM-Baum `doc` in XML-Text zu serialisieren, rufen Sie [`XMLSerializer.serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString) auf:
 
@@ -79,17 +79,17 @@ const serializer = new XMLSerializer();
 const xmlStr = serializer.serializeToString(doc);
 ```
 
-### HTML-Dokumente serialisieren
+### Serialisieren von HTML-Dokumenten
 
-Wenn der DOM, den Sie haben, ein HTML-Dokument ist, können Sie `serializeToString()` verwenden, aber es gibt eine weitere Option, die viele einfacher finden: Verwenden Sie die Eigenschaft [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) (wenn Sie nur die Nachkommen des angegebenen Knotens möchten) oder die Eigenschaft [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML), wenn Sie den Knoten und alle seine Nachkommen möchten.
+Wenn der DOM, den Sie haben, ein HTML-Dokument ist, können Sie `serializeToString()` verwenden, aber es gibt eine andere Option, die viele als einfacher empfinden: Verwenden Sie die Eigenschaft [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) (wenn Sie nur die Nachkommen des angegebenen Knotens möchten) oder die Eigenschaft [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML), wenn Sie den Knoten und alle seine Nachkommen wünschen.
 
 ```js
 const docInnerHtml = document.documentElement.innerHTML;
 ```
 
-Als Ergebnis enthält `docInnerHtml` einen String, der das HTML der Inhalte des Dokuments enthält; das heißt, den Inhalt des {{HTMLElement("body")}}-Elements.
+Das Ergebnis ist, dass `docInnerHtml` eine Zeichenfolge enthält, die das HTML der Inhalte des Dokuments enthält; das heißt, die Inhalte des {{HTMLElement("body")}}-Elements.
 
-Sie können HTML erhalten, das zu `<body>` _und_ seinen Nachkommen gehört, mit diesem Code:
+Sie können HTML erhalten, das dem `<body>` _und_ seinen Nachkommen entspricht, mit diesem Code:
 
 ```js
 const docOuterHtml = document.documentElement.outerHTML;
@@ -100,4 +100,4 @@ const docOuterHtml = document.documentElement.outerHTML;
 - [XPath](/de/docs/Web/XML/XPath)
 - [`fetch()`](/de/docs/Web/API/Window/fetch)
 - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
-- [`Document`](/de/docs/Web/API/Document), [`XMLDocument`](/de/docs/Web/API/XMLDocument) und [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)
+- [`Document`](/de/docs/Web/API/Document), [`XMLDocument`](/de/docs/Web/API/XMLDocument), und [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)
