@@ -2,10 +2,10 @@
 title: "<code>: Das Inline-Code-Element"
 slug: Web/HTML/Reference/Elements/code
 l10n:
-  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
+  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
 ---
 
-Das **`<code>`** [HTML](/de/docs/Web/HTML)-Element zeigt seinen Inhalt in einem Stil an, der darauf hinweist, dass der Text ein kurzes Fragment von Computercode ist. Standardmäßig wird der Textinhalt mit der Standard-Schriftart des {{Glossary("user_agent", "User Agents")}} im Monospace angezeigt.
+Das **`<code>`** [HTML](/de/docs/Web/HTML) Element zeigt seinen Inhalt so an, dass angezeigt wird, dass der Text ein kurzes Fragment von Computercode ist. Standardmäßig wird der Textinhalt mit der Standard-Monospace-Schriftart des {{Glossary("user_agent", "Benutzeragenten")}} angezeigt.
 
 {{InteractiveExample("HTML Demo: &lt;code&gt;", "tabbed-shorter")}}
 
@@ -20,7 +20,7 @@ Das **`<code>`** [HTML](/de/docs/Web/HTML)-Element zeigt seinen Inhalt in einem 
 code {
   background-color: #eeeeee;
   border-radius: 3px;
-  font-family: courier, monospace;
+  font-family: "Courier New", monospace;
   padding: 0 3px;
 }
 ```
@@ -31,7 +31,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 ## Beispiele
 
-Ein Absatz mit Text, der `<code>` enthält:
+Ein Absatztext, der `<code>` enthält:
 
 ```html
 <p>
@@ -46,9 +46,9 @@ Ein Absatz mit Text, der `<code>` enthält:
 
 ## Hinweise
 
-Um mehrere Zeilen von Code darzustellen, umschließen Sie das `<code>`-Element mit einem {{HTMLElement("pre")}}-Element. Das `<code>`-Element allein stellt nur eine einzelne Code-Phrase oder Code-Zeile dar.
+Um mehrere Zeilen von Code darzustellen, platzieren Sie das `<code>` Element innerhalb eines {{HTMLElement("pre")}} Elements. Das `<code>` Element allein stellt nur einen einzigen Codeausdruck oder eine einzige Codezeile dar.
 
-Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die standardmäßig vom Browser verwendete Schriftart zu überschreiben. Vom Benutzer festgelegte Präferenzen können gegenüber der angegebenen CSS Vorrang haben.
+Eine CSS-Regel kann für den `code` Selektor definiert werden, um die Standardschriftart des Browsers zu überschreiben. Von der Benutzerin oder dem Benutzer festgelegte Präferenzen könnten die angegebene CSS übergehen.
 
 ## Technische Zusammenfassung
 
@@ -57,23 +57,23 @@ Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die standardm�
     <tr>
       <th scope="row">
         <a href="/de/docs/Web/HTML/Guides/Content_categories"
-          >Content-Kategorien</a
+          >Inhaltskategorien</a
         >
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flow-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierung-Inhalt</a
-        >, greifbarer Inhalt.
+          >Phrasing-Inhalt</a
+        >, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierung-Inhalt</a
+          >Phrasing-Inhalt</a
         >.
       </td>
     </tr>
@@ -86,12 +86,12 @@ Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die standardm�
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierung-Inhalt</a
+          >Phrasing-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">code</a
@@ -106,9 +106,8 @@ Eine CSS-Regel kann für den `code`-Selektor definiert werden, um die standardm�
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4)
-        implementiert Firefox die
-        [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)-Schnittstelle für dieses Element.
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4) implementiert Firefox die
+        [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement) Schnittstelle für dieses Element.
       </td>
     </tr>
   </tbody>

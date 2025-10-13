@@ -2,14 +2,14 @@
 title: corner-end-start-shape
 slug: Web/CSS/corner-end-start-shape
 l10n:
-  sourceCommit: 2a64c5583a2c61c729ffe1ee1e7709a5898f57b0
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-end-start-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form der block-end und inline-start Ecke eines Kastens innerhalb seines {{cssxref("border-radius")}} Bereichs.
+Die **`corner-end-start-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die Form der Block-Ende- und Inline-Start-Ecke eines Kastens, innerhalb seines {{cssxref("border-radius")}} Bereichs.
 
-Für eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele siehe die {{cssxref("corner-shape")}} Kurzform-Eigenschaftsseite.
+Für eine vollständige Beschreibung des Verhaltens der Eckenform und mehrere Beispiele, siehe die Seite zur {{cssxref("corner-shape")}} Kurzschreibweise.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ corner-end-start-shape: unset;
 
 ### Werte
 
-Die `corner-end-start-shape` Eigenschaft wird mit einem {{cssxref("&lt;corner-shape-value>")}} Wert angegeben.
+Die `corner-end-start-shape` Eigenschaft wird mit einem {{cssxref("&lt;corner-shape-value>")}} Wert spezifiziert.
 
 ## Formale Definition
 
@@ -58,11 +58,11 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `60px / 20%` und eine `corner-end-start-shape` von `bevel` an.
+Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir fügen auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `60px / 20%` und eine `corner-end-start-shape` von `bevel` hinzu.
 
 ```css hidden live-sample___basic-usage
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   width: 240px;
   margin: 20px auto;
 }
@@ -106,10 +106,10 @@ Das gerenderte Ergebnis sieht so aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}} Kurzform-Eigenschaft
+- {{cssxref("corner-shape")}} Kurzschreibweise
 - {{cssxref("corner-start-start-shape")}}, {{cssxref("corner-start-end-shape")}}, und {{cssxref("corner-end-end-shape")}}
 - {{cssxref("corner-top-left-shape")}}, {{cssxref("corner-top-right-shape")}}, {{cssxref("corner-bottom-left-shape")}}, und {{cssxref("corner-bottom-right-shape")}}
-- {{cssxref("border-radius")}} Kurzform-Eigenschaft
+- {{cssxref("border-radius")}} Kurzschreibweise
 - {{cssxref("border-end-start-radius")}}
 - [CSS borders and box decorations](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
 - [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul

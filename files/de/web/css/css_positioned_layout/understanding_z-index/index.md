@@ -2,30 +2,30 @@
 title: Verständnis von z-index
 slug: Web/CSS/CSS_positioned_layout/Understanding_z-index
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
-In den einfachsten Fällen, wenn Text, Bilder und andere Elemente auf der Seite ohne Überlappung angeordnet sind, können [HTML](/de/docs/Web/HTML)-Seiten als zweidimensional betrachtet werden. In solchen Fällen gibt es einen einzigen Darstellungsfluss, und alle Elemente sind sich des von anderen eingenommenen Raums bewusst. CSS ist nicht so einfach — CSS Positionierung, Transformation, Einschluss und andere Funktionen können dazu führen, dass Elemente sich überlappen. In diesem Leitfaden stellen wir die Eigenschaft {{cssxref("z-index")}} vor, die es Ihnen ermöglicht, Elemente vor oder hinter anderen Elementen im selben [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) zu platzieren.
+In den einfachsten Fällen, wenn Text, Bilder und andere Elemente auf der Seite ohne Überlappungen angeordnet sind, können [HTML](/de/docs/Web/HTML)-Seiten als zweidimensional betrachtet werden. In solchen Fällen gibt es einen einzelnen Rendering-Fluss, und alle Elemente sind sich des von anderen eingenommenen Raums bewusst. CSS ist nicht so einfach — CSS-Positionierung, Transformierungen, Einhaltung und andere Funktionen können dazu führen, dass sich Elemente überlagern. In diesem Leitfaden stellen wir die {{cssxref("z-index")}}-Eigenschaft vor, mit der Sie Elemente vor oder hinter anderen Elementen im selben [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) platzieren können.
 
-## Schichten auf der z-Achse
+## Ebenen auf der z-Achse
 
-Die auf einer Seite dargestellten Elemente bestehen aus einer Reihe von Boxen. Jede Box hat eine Position in drei Dimensionen. Zusätzlich zu ihren Inline- und Block-Positionen liegen Boxen entlang einer dritten Dimension, die als _z-Achse_ bekannt ist. Die Steuerung der Position eines Elements auf der z-Achse wird besonders relevant, wenn sich Boxen von Elementen visuell überlappen. Mehrere Eigenschaftswerte können bewirken, dass sich Elemente überlappen. Die Eigenschaft {{cssxref("z-index")}} bietet Ihnen eine Möglichkeit, zu steuern, wie sie sich überlappen!
+Die auf einer Seite dargestellten Elemente bestehen aus einer Reihe von Boxen. Jede Box hat eine Position in drei Dimensionen. Zusätzlich zu ihren Inline- und Block-Positionen liegen die Boxen entlang einer dritten Dimension, bekannt als die _z-Achse_. Die Steuerung der z-Achsen-Position eines Elements wird besonders relevant, wenn sich die Boxen von Elementen visuell überlappen. Mehrere Eigenschaftswerte können dazu führen, dass sich Elemente überlappen. Die {{cssxref("z-index")}}-Eigenschaft bietet Ihnen eine Möglichkeit, zu steuern, wie sie sich überlappen!
 
-Standardmäßig werden die Boxen von Elementen auf Schicht 0 gerendert. Die `z-index`-Eigenschaft ermöglicht es Ihnen, Elemente auf verschiedenen Schichten entlang der z-Achse zu positionieren, zusätzlich zur Standarddarstellungsschicht. Die Position jedes Elements entlang der imaginären z-Achse (z-Index-Wert) wird als Ganzzahl (positiv, negativ oder null) ausgedrückt und steuert die Stapelreihenfolge während der Darstellung. Größere Zahlen bedeuten, dass Elemente dem Beobachter näher sind.
+Standardmäßig werden Elementboxen auf Schicht 0 gerendert. Die `z-index`-Eigenschaft ermöglicht es Ihnen, Elemente auf verschiedenen Ebenen entlang der z-Achse zu positionieren, zusätzlich zur Standard-Rendering-Schicht. Die Position jedes Elements entlang der imaginären z-Achse (z-index-Wert) wird als Ganzzahl (positiv, negativ oder null) ausgedrückt und steuert die Stapelreihenfolge während des Renderings. Größere Zahlen bedeuten, dass die Elemente dem Betrachter näher sind.
 
-Falls Sie mit dem Begriff 'z-Achse' nicht vertraut sind, stellen Sie sich die Seite als einen Stapel von Schichten vor, die alle eine zugewiesene Nummer haben. Schichten werden in nummerischer Reihenfolge gerendert, wobei größere Zahlen über kleineren Zahlen erscheinen (im nachstehenden Tabellenbeispiel steht _X_ für eine beliebige positive Ganzzahl):
+Wenn Sie mit dem Begriff 'z-Achse' nicht vertraut sind, stellen Sie sich die Seite als Stapel von Ebenen vor, von denen jede eine zugewiesene Nummer hat. Die Ebenen werden in numerischer Reihenfolge gerendert, wobei größere Zahlen über kleineren Zahlen erscheinen (_X_ in der unten stehenden Tabelle repräsentiert eine beliebige positive Ganzzahl):
 
-| Schicht          | Beschreibung                             |
-| ---------------- | ---------------------------------------- |
-| Unterste Schicht | Am weitesten vom Beobachter entfernt     |
-| Schicht -X       | Schichten mit negativen `z-index` Werten |
-| Schicht 0        | Standarddarstellungsschicht              |
-| Schicht X        | Schichten mit positiven `z-index` Werten |
-| Oberste Schicht  | Am nächsten zum Beobachter               |
+| Ebene          | Beschreibung                          |
+| -------------- | ------------------------------------- |
+| Unterste Ebene | Am weitesten vom Betrachter entfernt  |
+| Ebene -X       | Ebenen mit negativen `z-index`-Werten |
+| Ebene 0        | Standard-Rendering-Schicht            |
+| Ebene X        | Ebenen mit positiven `z-index`-Werten |
+| Oberste Ebene  | Am nächsten zum Betrachter            |
 
 ## Elemente im normalen Fluss
 
-Standardmäßig, wenn keine `z-index`-Eigenschaft angegeben ist, werden Elemente auf der Standarddarstellungsschicht (Schicht 0) gerendert.
+Standardmäßig, wenn keine `z-index`-Eigenschaft angegeben ist, werden die Elemente auf der Standard-Rendering-Schicht (Ebene 0) gerendert.
 
 Betrachten Sie die folgenden drei Elemente:
 
@@ -35,7 +35,7 @@ Betrachten Sie die folgenden drei Elemente:
 <div id="div3">#3</div>
 ```
 
-Ohne angewendete Positionierungseigenschaften fließen diese Elemente normal in Dokumentenreihenfolge, eines nach dem anderen, ohne sich zu überlappen.
+Ohne jegliche angewendete Positionierungseigenschaften fließen diese Elemente in Dokumentenreihenfolge normal nacheinander, ohne Überlappung.
 
 ```css live-sample___example1 live-sample___example2 live-sample___example3 live-sample___example4
 div {
@@ -45,7 +45,7 @@ div {
   line-height: 100px;
   font-size: 40px;
   text-align: center;
-  font-family: arial, helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 #div1 {
@@ -61,12 +61,12 @@ div {
 }
 ```
 
-{{EmbedLiveSample("Beispiel1", 600, 340)}}
+{{EmbedLiveSample("Example1", 600, 340)}}
 
-## Standardmäßiges Schichtverhalten
+## Standard-Layer-Verhalten
 
 Um die Elemente zu stapeln, können wir sie [positionieren](/de/docs/Web/CSS/position#types_of_positioning).
-Wenn wir absolute Positionierung verwenden, um sie an (fast) derselben Stelle zu platzieren, folgt die Standardstapelordnung der Quellreihenfolge: Das erste Element im HTML erscheint auf der untersten Schicht und das letzte Element erscheint auf der obersten Schicht.
+Wenn wir absolute Positionierung verwenden, um sie (fast) an derselben Stelle zu platzieren, folgt die Standardstapelordnung der Quellreihenfolge: Das erste Element im HTML erscheint auf der untersten Ebene und das letzte Element auf der obersten Ebene.
 
 ```css live-sample___example2 live-sample___example3 live-sample___example4
 div {
@@ -89,13 +89,13 @@ div {
 }
 ```
 
-{{EmbedLiveSample("Beispiel2", 600, 130)}}
+{{EmbedLiveSample("Example2", 600, 130)}}
 
-## Umsortierung der Schichten
+## Neuordnung der Ebenen
 
-Wir können die CSS-Eigenschaft {{cssxref("z-index")}} verwenden, um jedes Element entlang der z-Achse zu positionieren und dadurch die Stapelreihenfolge effektiv neu zu ordnen.
+Wir können die CSS-{{cssxref("z-index")}}-Eigenschaft verwenden, um jedes Element entlang der z-Achse zu positionieren und damit die Stapelreihenfolge effektiv neu zu ordnen.
 
-Indem wir `z-index`-Werte hinzufügen, ändern wir die Standardreihenfolge der Schichten:
+Durch das Hinzufügen von `z-index`-Werten ändern wir die Standardebenenreihenfolge:
 
 ```css live-sample___example3 live-sample___example4
 #div1 {
@@ -111,15 +111,15 @@ Indem wir `z-index`-Werte hinzufügen, ändern wir die Standardreihenfolge der S
 }
 ```
 
-{{EmbedLiveSample("Beispiel3", 600, 130)}}
+{{EmbedLiveSample("Example3", 600, 130)}}
 
-Das Element mit dem niedrigsten `z-index`-Wert erscheint auf der untersten Schicht. Das Element mit dem höchsten `z-index`-Wert erscheint auf der obersten Schicht. In diesem Beispiel ist `-9` der niedrigste Wert, sodass `#div2` hinter allen anderen ist. Das erste Element in der Quellreihenfolge, `#div1`, hat den größten Wert, sodass es über allen anderen erscheint.
+Das Element mit dem niedrigsten `z-index`-Wert erscheint auf der untersten Ebene. Das Element mit dem höchsten `z-index`-Wert erscheint auf der obersten Ebene. In diesem Beispiel ist `-9` der niedrigste Wert, daher befindet sich `#div2` hinter allen anderen. Das erste Element in der Quellreihenfolge, `#div1`, hat den größten Wert, daher erscheint es oben auf allen anderen.
 
-## Auswirkungen von Stacking-Kontexten
+## Einfluss von Stacking-Kontexten
 
-Die Verwendung von `z-index` mag auf den ersten Blick recht einfach erscheinen: eine einzelne Eigenschaft, zugewiesen an eine einzelne Ganzzahl mit einem scheinbar verständlichen Verhalten. Wenn `z-index` auf komplexe Hierarchien von HTML-Elementen angewendet wird, finden viele das resultierende Verhalten schwer verständlich oder vorhersehbar.
+Die Verwendung von `z-index` mag zunächst recht einfach erscheinen: eine einzelne Eigenschaft, der eine einzelne Ganzzahl zugewiesen ist, mit einem scheinbar verständlichen Verhalten. Wenn `z-index` auf komplexe Hierarchien von HTML-Elementen angewendet wird, finden viele das resultierende Verhalten schwer verständlich oder vorhersehbar.
 
-Wenn die Elemente keine Geschwister sind, kann das Stapelverhalten komplizierter werden, da jedes Element zu einem unterschiedlichen [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) gehören kann. Dies wird im folgenden Beispiel gezeigt.
+Wenn die Elemente keine Geschwister sind, kann das Stapelverhalten komplizierter werden, da jedes Element zu einem anderen [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) gehören kann. Dies wird im folgenden Beispiel gezeigt.
 
 ```html live-sample___example4
 <section>
@@ -136,18 +136,18 @@ section {
 }
 ```
 
-{{EmbedLiveSample("Beispiel4", 600, 130)}}
+{{EmbedLiveSample("Example4", 600, 130)}}
 
-Obwohl der `z-index`-Wert von `#div3` (`0`) größer ist als der von `#div2` (`-9`), erscheint `#div2` über `#div3`, weil `#div1` und `#div2` in einem separaten Stacking-Kontext verschachtelt sind, der durch `<section>` erstellt wird. Das `<section>`-Element und `#div3` sind Geschwister, und da der `z-index` des `<section>`-Elements größer ist als der von `#div3` (`2` gegenüber `0`), wird `#div3` hinter `<section>` und all dem Inhalt von `<section>` platziert. Für detailliertere Informationen zum Thema siehe unseren [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) Leitfaden.
+Obwohl der `z-index`-Wert von `#div3` (`0`) größer ist als der von `#div2` (`-9`), erscheint `#div2` über `#div3`, weil `#div1` und `#div2` in einem separaten Stacking-Kontext verschachtelt sind, der von `<section>` erstellt wird. Das `<section>`-Element und `#div3` sind Geschwister, und da der z-index des `<section>`-Elements größer ist als der von `#div3` (`2` gegenüber `0`), wird `#div3` hinter `<section>` und allen Inhalten von `<section>` platziert. Für detailliertere Informationen zu diesem Thema lesen Sie unseren [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)-Leitfaden.
 
 ## Fazit
 
-Wie wir in diesem Leitfaden gesehen haben, bietet `z-index` eine Möglichkeit, zu steuern, wie Elemente entlang der z-Achse gestapelt werden. Sie haben gelernt, wie die Ganzzahlenwerte der `z-index`-Eigenschaft verwendet werden können, um die Stapelreihenfolge zu ändern. Wie das letzte Beispiel jedoch zeigt, können Stapelreihenfolgen kompliziert sein. Stapelreihenfolgen folgen einer Reihe von komplexen Stapelregeln, um sicherzustellen, dass alle Browser denselben Inhalt auf konsistente und vorhersehbare Weise stapeln. Es ist wichtig zu verstehen, [welche Funktionen Stacking-Kontexte erstellen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context#features_creating_stacking_contexts) und wie [verschachtelte Stacking-Kontexte](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context#nested_stacking_contexts) die Schichtreihenfolge beeinflussen.
+Wie wir in diesem Leitfaden gesehen haben, bietet `z-index` eine Möglichkeit, zu steuern, wie Elemente entlang der z-Achse gestapelt werden. Sie haben gelernt, wie die Ganzzahlen der `z-index`-Eigenschaft verwendet werden können, um die Stapelreihenfolge zu ändern. Wie im letzten Beispiel gezeigt, können Stapelreihenfolgen jedoch kompliziert sein. Stapelreihenfolgen folgen einer Reihe komplexer Stapelregeln, um sicherzustellen, dass alle Browser denselben Inhalt auf die gleiche Weise stapeln, und dadurch Konsistenz und Vorhersehbarkeit bieten. Es ist wichtig, die [Merkmale, die Stacking-Kontexte erstellen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context#features_creating_stacking_contexts), und wie [verschachtelte Stacking-Kontexte](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context#nested_stacking_contexts) die Reihenfolge der Ebenen beeinflussen, zu verstehen.
 
 ## Siehe auch
 
-- [Stapelung ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
-- [Stapelung von schwebenden Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
+- [Stapeln ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
+- [Stapeln von schwebenden Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
 - [Verwendung von `z-index`](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index)
 - [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- [CSS-positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- Modul [CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout)

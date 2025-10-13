@@ -2,10 +2,10 @@
 title: text-shadow
 slug: Web/CSS/text-shadow
 l10n:
-  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
+  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
 ---
 
-Die **`text-shadow`** [CSS](/de/docs/Web/CSS) Eigenschaft fügt Texten Schatten hinzu. Sie akzeptiert eine durch Kommata getrennte Liste von Schatten, die auf den Text und alle seine [`Dekorationen`](/de/docs/Web/CSS/text-decoration) angewendet werden sollen. Jeder Schatten wird durch eine Kombination von X- und Y-Versatz, Unschärferadius und Farbe beschrieben.
+Die **`text-shadow`** [CSS](/de/docs/Web/CSS) Eigenschaft fügt Text Schatten hinzu. Sie akzeptiert eine durch Kommata getrennte Liste von Schatten, die auf den Text und alle seine [`Dekorationen`](/de/docs/Web/CSS/text-decoration) angewendet werden. Jeder Schatten wird durch eine Kombination von X- und Y-Versatz vom Element, Unschärferadius und Farbe beschrieben.
 
 {{InteractiveExample("CSS Demo: text-shadow")}}
 
@@ -48,7 +48,7 @@ text-shadow:
 ```css interactive-example
 p {
   font:
-    1.5em Georgia,
+    1.5em "Georgia",
     serif;
 }
 ```
@@ -80,22 +80,22 @@ text-shadow: revert-layer;
 text-shadow: unset;
 ```
 
-Diese Eigenschaft wird als eine durch Kommata getrennte Liste von Schatten angegeben.
+Diese Eigenschaft wird als durch Kommata getrennte Liste von Schatten angegeben.
 
-Jeder Schatten wird als zwei oder drei `<length>` Werte spezifiziert, optional gefolgt von einem `<color>` Wert. Die ersten beiden `<length>` Werte sind die `<offset-x>` und `<offset-y>` Werte. Der dritte, optionale, `<length>` Wert ist der `<blur-radius>`. Der `<color>` Wert ist die Farbe des Schattens.
+Jeder Schatten wird als zwei oder drei `<length>` Werte angegeben, gefolgt optional von einem `<color>` Wert. Die ersten beiden `<length>` Werte sind die `<offset-x>` und `<offset-y>` Werte. Der dritte, optionale, `<length>` Wert ist der `<blur-radius>`. Der `<color>` Wert ist die Farbe des Schattens.
 
-Wenn mehr als ein Schatten angegeben wird, werden die Schatten von vorne nach hinten angewendet, mit dem zuerst angegebenen Schatten oben.
+Wenn mehr als ein Schatten angegeben wird, werden Schatten von vorne nach hinten angewendet, wobei der zuerst angegebene Schatten oben liegt.
 
-Diese Eigenschaft gilt für sowohl {{cssxref("::first-line")}} als auch {{cssxref("::first-letter")}} [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements).
+Diese Eigenschaft gilt sowohl für {{cssxref("::first-line")}} als auch für {{cssxref("::first-letter")}} [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements).
 
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Optional. Die Farbe des Schattens. Sie kann entweder vor oder nach den Versatzwerten angegeben werden. Wenn sie nicht angegeben ist, liegt es im Ermessen des Benutzeragenten, den Wert der Farbe zu bestimmen. Wenn Konsistenz über verschiedene Browser hinweg gewünscht ist, sollten Sie sie explizit definieren.
+  - : Optional. Die Farbe des Schattens. Sie kann entweder vor oder nach den Versatzwerten angegeben werden. Wenn nicht angegeben, bleibt der Wert der Farbe dem Benutzeragenten überlassen, daher sollten Sie sie explizit festlegen, um Konsistenz über verschiedene Browser hinweg zu gewährleisten.
 - `<offset-x> <offset-y>`
-  - : Erforderlich. Diese {{cssxref("&lt;length&gt;")}} Werte geben den Abstand des Schattens vom Text an. `<offset-x>` gibt den horizontalen Abstand an; ein negativer Wert platziert den Schatten links vom Text. `<offset-y>` gibt den vertikalen Abstand an; ein negativer Wert platziert den Schatten über dem Text. Wenn beide Werte `0` sind, wird der Schatten direkt hinter dem Text platziert, obwohl er aufgrund des Effekts von `<blur-radius>` teilweise sichtbar sein kann.
+  - : Erforderlich. Diese {{cssxref("&lt;length&gt;")}} Werte geben den Abstand des Schattens vom Text an. `<offset-x>` gibt den horizontalen Abstand an; ein negativer Wert platziert den Schatten links vom Text. `<offset-y>` gibt den vertikalen Abstand an; ein negativer Wert platziert den Schatten oberhalb des Textes. Wenn beide Werte `0` sind, wird der Schatten direkt hinter dem Text platziert, wobei er möglicherweise aufgrund des Effekts des `<blur-radius>` teilweise sichtbar ist.
 - `<blur-radius>`
-  - : Optional. Dies ist ein {{cssxref("&lt;length&gt;")}} Wert. Je höher der Wert, desto größer die Unschärfe; der Schatten wird breiter und heller. Wenn nicht angegeben, ist der Standardwert `0`.
+  - : Optional. Dies ist ein {{cssxref("&lt;length&gt;")}} Wert. Je höher der Wert, desto größer die Unschärfe; der Schatten wird breiter und heller. Wenn nicht angegeben, beträgt der Standardwert `0`.
 
 ## Formale Definition
 
@@ -134,7 +134,7 @@ Diese Eigenschaft gilt für sowohl {{cssxref("::first-line")}} als auch {{cssxre
     0 0 0.2em blue;
   color: white;
   font:
-    1.5em Georgia,
+    1.5em "Georgia",
     serif;
 }
 ```
@@ -162,4 +162,4 @@ Diese Eigenschaft gilt für sowohl {{cssxref("::first-line")}} als auch {{cssxre
 - {{cssxref("&lt;color&gt;")}}
 - {{cssxref("box-shadow")}}
 - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}
-- [CSS Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) Modul
+- [CSS-Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) Modul

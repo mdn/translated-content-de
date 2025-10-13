@@ -2,10 +2,10 @@
 title: word-spacing
 slug: Web/CSS/word-spacing
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
-Die **`word-spacing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Länge des Abstands zwischen Wörtern und zwischen Tags fest.
+Die **`word-spacing`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Länge des Abstands zwischen Wörtern und zwischen Tags fest.
 
 {{InteractiveExample("CSS Demo: word-spacing")}}
 
@@ -38,13 +38,13 @@ word-spacing: -0.4ch;
 ```css interactive-example
 @font-face {
   src: url("/shared-assets/fonts/variable-fonts/AmstelvarAlpha-VF.ttf");
-  font-family: Amstelvar;
+  font-family: "Amstelvar";
   font-style: normal;
 }
 
 section {
   font-size: 1.2em;
-  font-family: Amstelvar, serif;
+  font-family: "Amstelvar", serif;
 }
 ```
 
@@ -69,18 +69,18 @@ word-spacing: unset;
 ### Werte
 
 - `normal`
-  - : Der normale Wortabstand, wie er durch die aktuelle Schriftart und/oder den Browser definiert ist.
+  - : Der normale Zwischenwortabstand, wie er durch die aktuelle Schriftart und/oder den Browser definiert ist.
 - {{cssxref("length")}}
-  - : Gibt zusätzlichen Abstand zum eigentlichen Wortabstand an, der durch die Schriftart definiert ist.
+  - : Gibt zusätzlichen Abstand an, der zum intrinsischen Zwischenwortabstand der Schriftart hinzugefügt wird.
 
 ## Barrierefreiheit
 
-Ein großer positiver oder negativer `word-spacing`-Wert kann die Lesbarkeit der Sätze, auf die das Styling angewendet wird, beeinträchtigen. Bei einem sehr großen positiven Wert werden die Wörter so weit auseinander liegen, dass es nicht mehr wie ein Satz wirkt. Bei einem großen negativen Wert überlappen sich die Wörter so stark, dass Anfang und Ende jedes Wortes nicht erkennbar sind.
+Ein großer positiver oder negativer `word-spacing` Wert macht die Sätze, auf die das Styling angewendet wird, unlesbar. Bei Text, der mit einem sehr großen positiven Wert gestylt ist, sind die Wörter so weit voneinander entfernt, dass es nicht mehr wie ein Satz erscheint. Bei Text, der mit einem großen negativen Wert gestylt ist, überlappen sich die Wörter so stark, dass Anfang und Ende jedes Wortes nicht mehr erkennbar sind.
 
-Lesbare `word-spacing`-Werte müssen fallweise bestimmt werden, da verschiedene Schriftfamilien unterschiedliche Zeichenbreiten haben. Es gibt keinen festen Wert, der sicherstellt, dass alle Schriftfamilien automatisch ihre Lesbarkeit behalten.
+Lesbarer `word-spacing` muss fallspezifisch bestimmt werden, da verschiedene Schriftfamilien unterschiedliche Zeichenbreiten haben. Es gibt keinen einzigen Wert, der sicherstellt, dass alle Schriftfamilien automatisch ihre Lesbarkeit behalten.
 
-- [MDN Verständnis der WCAG, Erläuterungen zu Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.8 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN Verständnis der WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.8 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
 ## Beispiele
 

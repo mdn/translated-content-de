@@ -1,25 +1,25 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Bilder und Formularelemente"
+title: "Testen Sie Ihr Wissen: Bilder und Formularelemente"
 short-title: "Test: Bilder und Formulare"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Images
 l10n:
-  sourceCommit: 78bdd004c24d256efc8372f18204ea58f83a1b5e
+  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Images_media_forms", "Learn_web_development/Core/Styling_basics/Tables", "Learn_web_development/Core/Styling_basics")}}
 
-Das Ziel dieses Fähigkeitentests ist zu bewerten, ob Sie verstehen, wie spezielle Elemente wie [Bilder, Medien und Formularelemente in CSS behandelt werden](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms).
+Ziel dieses Tests ist es, zu überprüfen, ob Sie verstehen, wie spezielle Elemente wie [Bilder, Medien und Formularelemente in CSS behandelt werden](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms).
 
 > [!NOTE]
-> Um Unterstützung zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung der Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
+> Um Hilfe zu erhalten, lesen Sie unseren [Anleitung zur Nutzung von "Testen Sie Ihr Wissen"](/de/docs/Learn_web_development#test_your_skills). Sie können uns auch über unsere [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Aufgabe 1
 
-In dieser Aufgabe haben Sie ein Bild, das über den Rahmen hinausragt. Wir möchten, dass das Bild verkleinert wird, um in den Rahmen zu passen, ohne zusätzlichen weißen Raum, aber es macht uns nichts aus, wenn ein Teil des Bildes abgeschnitten wird. Aktualisieren Sie das CSS, um dies zu erreichen.
+In dieser Aufgabe haben Sie ein Bild, das über den Rahmen hinausragt. Wir möchten, dass das Bild verkleinert wird, um in den Rahmen zu passen, ohne zusätzlichen Leerraum. Es ist in Ordnung, wenn ein Teil des Bildes abgeschnitten wird. Aktualisieren Sie das CSS, um dies zu erreichen.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
-![Ein Bild in einem Rahmen](mdn-images-object-fit.png)
+![Ein Bild in einem Kasten](mdn-images-object-fit.png)
 
 ```html live-sample___object-fit
 <div class="box">
@@ -47,7 +47,7 @@ img {
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Es ist in Ordnung, wenn einige Teile des Bildes abgeschnitten werden.
-Die Verwendung von `object-fit: cover` ist die beste Wahl, Sie müssen auch die Breite und Höhe auf `100%` setzen:
+Die Verwendung von `object-fit: cover` ist die beste Wahl, außerdem müssen Sie die Breite und Höhe auf `100%` setzen:
 
 ```css
 img {
@@ -63,16 +63,16 @@ img {
 
 In dieser Aufgabe haben Sie ein einfaches Formular.
 
-Um die Aufgabe abzuschließen:
+Um die Aufgabe zu lösen:
 
-1. Verwenden Sie Attributselektoren, um das Suchfeld und den Button innerhalb von `.my-form` zu selektieren.
-2. Sorgen Sie dafür, dass das Formularfeld und der Button die gleiche Schriftgröße wie der Rest des Formulars verwenden.
-3. Geben Sie dem Formularfeld und dem Button `10px` Rahmenabstand.
-4. Geben Sie dem Button einen Hintergrund in `rebeccapurple`, weiße Vordergrundfarbe, keinen Rahmen und abgerundete Ecken von 5px.
+1. Verwenden Sie Attributselektoren, um das Suchfeld und den Button innerhalb von `.my-form` anzusprechen.
+2. Sorgen Sie dafür, dass das Formularfeld und der Button die gleiche Textgröße wie der Rest des Formulars verwenden.
+3. Geben Sie dem Formularfeld und dem Button `10px` Padding.
+4. Geben Sie dem Button einen Hintergrund von `rebeccapurple`, einen weißen Vordergrund, keinen Rahmen und abgerundete Ecken von 5px.
 
-Ihr Endergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
-![Ein einzeiliges Formular](mdn-images-form.png)
+![Ein Ein-Zeilen-Formular](mdn-images-form.png)
 
 ```html live-sample___forms-1
 <form action="" class="my-form" method="post">
@@ -99,7 +99,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Hier ist eine Beispiel-Lösung für die Aufgabe:
+Hier ist ein Beispiel für die Lösung der Aufgabe:
 
 ```css
 .my-form {
@@ -126,13 +126,13 @@ Hier ist eine Beispiel-Lösung für die Aufgabe:
 
 ## Aufgabe 3
 
-Unsere zweite Bewertung zur Formular-Styling ist ziemlich frei gestaltbar, und Sie haben viel Flexibilität bei dem, was Sie hier am Ende tun. Ihr CSS muss die unten beschriebenen Anforderungen erfüllen.
+Unsere zweite Bewertung des Formulardesigns ist ziemlich frei und Sie haben viel Flexibilität bei dem, was Sie hier letztendlich tun. Ihr CSS muss jedoch die unten beschriebenen Anforderungen erfüllen.
 
-Um die Aufgabe abzuschließen:
+Um die Aufgabe zu lösen:
 
-1. Fügen Sie eine Art leichtes "Reset" hinzu, um Schriftarten, Rahmenabstand, Margin und Größenkonsistenz zu Beginn, wie im [Normalisieren des Formularverhaltens](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms#normalizing_form_behavior) beschrieben, zu machen.
-2. Ergänzen Sie dies um einige schöne, konsistente Styles für Inputs und Button.
-3. Verwenden Sie eine Art von Layouttechnik, um Inputs und Labels sauber auszurichten.
+1. Fügen Sie eine Art leichtgewichtigen "Reset" hinzu, um Schriftarten, Padding, Ränder und Größen zu vereinheitlichen, wie in [Normalizing form behavior](/de/docs/Learn_web_development/Core/Styling_basics/Images_media_forms#normalizing_form_behavior) beschrieben.
+2. Ergänzen Sie dies mit einem schönen, konsistenten Styling für die Eingaben und den Button.
+3. Verwenden Sie eine Art Layout-Technik, um die Eingaben und Labels ordentlich auszurichten.
 
 ```html hidden live-sample___forms-2
 <form>
@@ -175,9 +175,9 @@ body {
   background-color: white;
   color: #333333;
   font:
-    1em / 1.4 Helvetica Neue,
-    Helvetica,
-    Arial,
+    1em / 1.4 "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   padding: 1em;
   margin: 0;
@@ -189,12 +189,12 @@ body {
 /* Add your code here */
 ```
 
-{{EmbedLiveSample("forms-2", "100%", 250)}}
+{{ EmbedLiveSample("forms-2", "100%", 250) }}
 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges CSS könnte etwa so aussehen:
+Ihr fertiges CSS könnte ungefähr so aussehen:
 
 ```css
 /* ... */

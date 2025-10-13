@@ -2,14 +2,14 @@
 title: side
 slug: Web/SVG/Reference/Attribute/side
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
 ---
 
 {{SeeCompatTable}}
 
-Das **`side`** Attribut bestimmt die Seite eines Pfades, auf der der Text platziert wird (relativ zur Pfadrichtung).
+Das **`side`** Attribut bestimmt die Seite eines Pfades, auf der der Text platziert wird (relativ zur Richtung des Pfades).
 
-Sie können dieses Attribut mit folgenden SVG-Elementen verwenden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("textPath")}}
 
@@ -24,8 +24,8 @@ svg {
 
 text {
   font:
-    25px Arial,
-    Helvetica,
+    25px "Helvetica",
+    "Arial",
     sans-serif;
 }
 ```
@@ -58,7 +58,7 @@ text {
 
 {{EmbedLiveSample("Example", "420", "220")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -78,9 +78,9 @@ text {
 </table>
 
 - `left`
-  - : Dieser Wert platziert den Text auf der linken Seite des Pfades (relativ zur Pfadrichtung).
+  - : Dieser Wert platziert den Text auf der linken Seite des Pfades (relativ zur Richtung des Pfades).
 - `right`
-  - : Dieser Wert platziert den Text auf der rechten Seite des Pfades (relativ zur Pfadrichtung). Dies kehrt effektiv die Pfadrichtung um.
+  - : Dieser Wert platziert den Text auf der rechten Seite des Pfades (relativ zur Richtung des Pfades). Dies kehrt die Pfadrichtung effektiv um.
 
 ## Spezifikationen
 

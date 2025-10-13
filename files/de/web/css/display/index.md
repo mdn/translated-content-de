@@ -2,12 +2,12 @@
 title: display
 slug: Web/CSS/display
 l10n:
-  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
-Die **`display`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob ein Element als [Block- oder Inline-Box](/de/docs/Web/CSS/CSS_display/Flow_layout) behandelt wird und welches Layout für seine Kinder verwendet wird, wie z.B. [Fluss-Layout](/de/docs/Web/CSS/CSS_display/Flow_layout), [Gitter](/de/docs/Web/CSS/CSS_grid_layout) oder [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout).
+Die **`display`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, ob ein Element als [Block- oder Inline-Box](/de/docs/Web/CSS/CSS_display/Flow_layout) behandelt wird und welches Layout für dessen Kinder verwendet wird, z. B. [Flow-Layout](/de/docs/Web/CSS/CSS_display/Flow_layout), [Grid](/de/docs/Web/CSS/CSS_grid_layout) oder [Flex](/de/docs/Web/CSS/CSS_flexible_box_layout).
 
-Formal setzt die **`display`**-Eigenschaft die inneren und äußeren _Anzeigearten_ eines Elements. Der äußere Typ bestimmt die Teilnahme eines Elements am [Fluss-Layout](/de/docs/Web/CSS/CSS_display/Flow_layout); der innere Typ bestimmt das Layout der Kinder. Einige Werte von `display` sind vollständig in ihren eigenen individuellen Spezifikationen definiert; beispielsweise wird das Detail dessen, was passiert, wenn `display: flex` deklariert wird, in der CSS Flexible Box Model-Spezifikation definiert.
+Formal legt die **`display`**-Eigenschaft die inneren und äußeren _Anzeigetypen_ eines Elements fest. Der äußere Typ bestimmt die Teilnahme eines Elements am [Flow-Layout](/de/docs/Web/CSS/CSS_display/Flow_layout); der innere Typ legt das Layout der Kinder fest. Einige Werte von `display` sind in ihren eigenen Spezifikationen vollständig definiert; beispielsweise wird das Detail dessen, was passiert, wenn `display: flex` deklariert wird, in der CSS Flexible Box Model-Spezifikation definiert.
 
 {{InteractiveExample("CSS Demo: display")}}
 
@@ -112,26 +112,26 @@ display: revert-layer;
 display: unset;
 ```
 
-Die CSS-`display`-Eigenschaft wird mit Schlüsselwortwerten spezifiziert.
+Die CSS-`display`-Eigenschaft wird unter Verwendung von Schlüsselwortwerten angegeben.
 
 ## Gruppierte Werte
 
 Die Schlüsselwortwerte können in sechs Wertkategorien gruppiert werden.
 
-### Außen
+### Outside
 
 - {{CSSxRef("&lt;display-outside&gt;")}}
-  - : Diese Schlüsselwörter legen den äußeren Anzeigetyp des Elements fest, was im Wesentlichen seine Rolle im Fluss-Layout ist:
+  - : Diese Schlüsselwörter legen den äußeren Anzeigetyp des Elements fest, im Wesentlichen seine Rolle im Flow-Layout:
     - `block`
       - : Das Element erzeugt eine Block-Box, die sowohl vor als auch nach dem Element Zeilenumbrüche im normalen Fluss erzeugt.
     - `inline`
-      - : Das Element erzeugt eine oder mehrere Inline-Boxen, die vor oder nach sich selbst keine Zeilenumbrüche erzeugen. Im normalen Fluss wird das nächste Element auf derselben Zeile sein, wenn Platz vorhanden ist.
+      - : Das Element erzeugt eine oder mehrere Inline-Boxen, die vor oder nach sich selbst keine Zeilenumbrüche erzeugen. Im normalen Fluss wird das nächste Element in derselben Zeile sein, wenn Platz vorhanden ist.
 
 > [!NOTE]
-> Wenn Browser, die die Mehrfach-Schlüsselwort-Syntax unterstützen, auf eine `display`-Eigenschaft stoßen, die nur einen **äußeren** Wert hat (z.B. `display: block` oder `display: inline`), wird der innere Wert auf `flow` gesetzt (z.B. `display: block flow` und `display: inline flow`).
+> Wenn Browser, die die Mehrfach-Schlüsselwort-Syntax unterstützen, eine Display-Eigenschaft mit nur einem **äußeren** Wert (z.B. `display: block` oder `display: inline`) vorfinden, wird der innere Wert auf `flow` gesetzt (z.B. `display: block flow` und `display: inline flow`).
 
 > [!NOTE]
-> Um sicherzustellen, dass Layouts in älteren Browsern funktionieren, können Sie die Ein-Wert-Syntax verwenden, z.B. könnte `display: inline flex` das folgende Fallback haben
+> Um sicherzustellen, dass Layouts in älteren Browsern funktionieren, können Sie die Ein-Wert-Syntax verwenden. Zum Beispiel könnte `display: inline flex` das folgende Fallback haben
 >
 > ```css
 > .container {
@@ -140,118 +140,116 @@ Die Schlüsselwortwerte können in sechs Wertkategorien gruppiert werden.
 > }
 > ```
 >
-> Siehe [Verwendung der Mehrfach-Schlüsselwort-Syntax mit CSS display](/de/docs/Web/CSS/CSS_display/multi-keyword_syntax_of_display) für weitere Informationen.
+> Weitere Informationen finden Sie unter [Verwendung der Mehrfach-Schlüsselwort-Syntax mit CSS-Display](/de/docs/Web/CSS/CSS_display/multi-keyword_syntax_of_display).
 
-### Innerhalb
+### Inside
 
 - {{CSSxRef("&lt;display-inside&gt;")}}
-  - : Diese Schlüsselwörter spezifizieren den inneren Anzeigetyp des Elements, der die Art des Formatierungskontexts definiert, in dem seine Inhalte layoutet werden (vorausgesetzt, es ist ein nicht-ersetztes Element):
+  - : Diese Schlüsselwörter legen den inneren Anzeigetyp des Elements fest, der den Formatierungskontext definiert, in dem seine Inhalte angeordnet sind (angenommen, es ist ein nicht ersetztes Element):
     - `flow`
-      - : Das Element layoutet seine Inhalte mit Fluss-Layout (Block-und-Inline-Layout).
+      - : Das Element legt seine Inhalte mit dem Flow-Layout (Block-und-Inline-Layout) an.
 
-        Wenn sein äußerer Anzeigetyp `inline` ist und es an einem Block- oder Inline-Formatierungskontext teilnimmt, dann erzeugt es eine Inline-Box. Andernfalls erzeugt es eine Block-Box.
+        Wenn der äußere Anzeigetyp `inline` ist und es an einem Block- oder Inline-Formatierungskontext teilnimmt, generiert es eine Inline-Box. Andernfalls generiert es eine Block-Box.
 
-        Abhängig vom Wert anderer Eigenschaften (wie {{CSSxRef("position")}}, {{CSSxRef("float")}} oder {{CSSxRef("overflow")}}) und davon, ob es selbst an einem Block- oder Inline-Formatierungskontext teilnimmt, stellt es entweder einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) (BFC) für seine Inhalte her oder integriert seine Inhalte in den Eltern-Formatierungskontext.
+        Je nach Wert anderer Eigenschaften (wie {{CSSxRef("position")}}, {{CSSxRef("float")}}, oder {{CSSxRef("overflow")}}) und ob es selbst an einem Block- oder Inline-Formatierungskontext teilnimmt, etabliert es entweder einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) (BFC) für seine Inhalte oder integriert seine Inhalte in den Formatierungskontext des Elternteils.
 
     - `flow-root`
-      - : Das Element erzeugt eine Block-Box, die einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) herstellt und definiert, wo die Formatierungswurzel liegt.
+      - : Das Element erzeugt eine Block-Box, die einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) etabliert und definiert, wo die Wurzel des Formatierens liegt.
     - `table`
-      - : Diese Elemente verhalten sich wie HTML {{HTMLElement("table")}}-Elemente. Es definiert eine Block-Box.
+      - : Diese Elemente verhalten sich wie HTML-{{HTMLElement("table")}}-Elemente. Es definiert eine Block-Level-Box.
     - `flex`
-      - : Das Element verhält sich wie ein Block-Element und layoutet seinen Inhalt gemäß dem [Flexbox-Modell](/de/docs/Web/CSS/CSS_flexible_box_layout).
+      - : Das Element verhält sich wie ein Block-Level-Element und legt seinen Inhalt gemäß dem [Flexbox-Modell](/de/docs/Web/CSS/CSS_flexible_box_layout) an.
     - `grid`
-      - : Das Element verhält sich wie ein Block-Element und layoutet seinen Inhalt gemäß dem [Gitter-Modell](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout).
+      - : Das Element verhält sich wie ein Block-Level-Element und legt seinen Inhalt gemäß dem [Grid-Modell](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout) an.
     - `ruby`
-      - : Das Element verhält sich wie ein Inline-Element und layoutet seinen Inhalt gemäß dem Ruby-Formatierungsmodell. Es verhält sich wie die entsprechenden HTML-{{HTMLElement("ruby")}}-Elemente.
+      - : Das Element verhält sich wie ein Inline-Level-Element und legt seinen Inhalt gemäß dem Ruby-Formatiermodell an. Es verhält sich wie die entsprechenden HTML-{{HTMLElement("ruby")}}-Elemente.
 
 > [!NOTE]
-> Wenn Browser auf eine `display`-Eigenschaft stoßen, die nur einen **inneren** Wert hat (z.B. `display: flex` oder `display: grid`), wird der äußere Wert auf `block` gesetzt (z.B. `display: block flex` und `display: block grid`).
+> Wenn Browser, die die Mehrfach-Schlüsselwort-Syntax unterstützen, eine Display-Eigenschaft mit nur einem **inneren** Wert (z.B. `display: flex` oder `display: grid`) vorfinden, wird der äußere Wert auf `block` gesetzt (z.B. `display: block flex` und `display: block grid`).
 
-### Listenelement
+### List Item
 
 - {{CSSxRef("&lt;display-listitem&gt;")}}
-  - : Das Element erzeugt eine Block-Box für den Inhalt und eine separate Inline-Box für das Listenelement.
+  - : Das Element erzeugt eine Block-Box für den Inhalt und eine separate Listeneintrag-Inline-Box.
 
-Ein einzelner Wert von `list-item` wird dazu führen, dass sich das Element wie ein Listenelement verhält.
-Dies kann zusammen mit {{CSSxRef("list-style-type")}} und {{CSSxRef("list-style-position")}} verwendet werden.
+Ein einzelner Wert von `list-item` wird dazu führen, dass sich das Element wie ein Listeneintrag verhält. Dies kann zusammen mit {{CSSxRef("list-style-type")}} und {{CSSxRef("list-style-position")}} verwendet werden.
 
-`list-item` kann auch mit jedem {{CSSxRef("&lt;display-outside&gt;")}}-Schlüsselwort und dem `flow` oder `flow-root` {{CSSxRef("&lt;display-inside&gt;")}}-Schlüsselwort kombiniert werden.
+`list-item` kann auch mit jedem {{CSSxRef("&lt;display-outside&gt;")}}-Schlüsselwort und dem Schlüsselwort `flow` oder `flow-root` {{CSSxRef("&lt;display-inside&gt;")}} kombiniert werden.
 
 > [!NOTE]
-> In Browsern, die die Mehrfach-Schlüsselwort-Syntax unterstützen, wird, falls kein innerer Wert angegeben ist, standardmäßig `flow` verwendet.
-> Wenn kein äußerer Wert angegeben ist, wird der Hauptkasten einen äußeren Anzeigetyp von `block` haben.
+> In Browsern, die die Mehrfach-Schlüsselwort-Syntax unterstützen, wird, wenn kein innerer Wert angegeben ist, dieser standardmäßig auf `flow` gesetzt.
+> Wenn kein äußerer Wert angegeben ist, erhält die Hauptbox einen äußeren Anzeigetyp von `block`.
 
-### Intern
+### Internal
 
 - {{CSSxRef("&lt;display-internal&gt;")}}
-  - : Einige Layout-Modelle wie `table` und `ruby` haben eine komplexe interne Struktur mit mehreren unterschiedlichen Rollen, die ihre Kinder und Nachkommen erfüllen können.
-    Dieser Abschnitt definiert diese "internen" Anzeigewerte, die nur innerhalb dieses bestimmten Layout-Modus eine Bedeutung haben.
+  - : Einige Layout-Modelle wie `table` und `ruby` haben eine komplexe interne Struktur mit mehreren verschiedenen Rollen, die ihre Kinder und Nachkommen erfüllen können.
+    Dieser Abschnitt definiert diese "internen" Anzeigewerte, die nur in diesem bestimmten Layout-Modus eine Bedeutung haben.
     - `table-row-group`
-      - : Diese Elemente verhalten sich wie {{HTMLElement("tbody")}} HTML-Elemente.
+      - : Diese Elemente verhalten sich wie HTML-{{HTMLElement("tbody")}}-Elemente.
     - `table-header-group`
-      - : Diese Elemente verhalten sich wie {{HTMLElement("thead")}} HTML-Elemente.
+      - : Diese Elemente verhalten sich wie HTML-{{HTMLElement("thead")}}-Elemente.
     - `table-footer-group`
-      - : Diese Elemente verhalten sich wie {{HTMLElement("tfoot")}} HTML-Elemente.
+      - : Diese Elemente verhalten sich wie HTML-{{HTMLElement("tfoot")}}-Elemente.
     - `table-row`
-      - : Diese Elemente verhalten sich wie {{HTMLElement("tr")}} HTML-Elemente.
+      - : Diese Elemente verhalten sich wie HTML-{{HTMLElement("tr")}}-Elemente.
     - `table-cell`
-      - : Diese Elemente verhalten sich wie {{HTMLElement("td")}} HTML-Elemente.
+      - : Diese Elemente verhalten sich wie HTML-{{HTMLElement("td")}}-Elemente.
     - `table-column-group`
-      - : Diese Elemente verhalten sich wie {{HTMLElement("colgroup")}} HTML-Elemente.
+      - : Diese Elemente verhalten sich wie HTML-{{HTMLElement("colgroup")}}-Elemente.
     - `table-column`
-      - : Diese Elemente verhalten sich wie {{HTMLElement("col")}} HTML-Elemente.
+      - : Diese Elemente verhalten sich wie HTML-{{HTMLElement("col")}}-Elemente.
     - `table-caption`
-      - : Diese Elemente verhalten sich wie {{HTMLElement("caption")}} HTML-Elemente.
+      - : Diese Elemente verhalten sich wie HTML-{{HTMLElement("caption")}}-Elemente.
     - `ruby-base`
-      - : Diese Elemente verhalten sich wie {{HTMLElement("rb")}} HTML-Elemente.
+      - : Diese Elemente verhalten sich wie HTML-{{HTMLElement("rb")}}-Elemente.
     - `ruby-text`
-      - : Diese Elemente verhalten sich wie {{HTMLElement("rt")}} HTML-Elemente.
+      - : Diese Elemente verhalten sich wie HTML-{{HTMLElement("rt")}}-Elemente.
     - `ruby-base-container`
       - : Diese Elemente werden als anonyme Boxen generiert.
     - `ruby-text-container`
-      - : Diese Elemente verhalten sich wie {{HTMLElement("rtc")}} HTML-Elemente.
+      - : Diese Elemente verhalten sich wie HTML-{{HTMLElement("rtc")}}-Elemente.
 
 ### Box
 
 - {{CSSxRef("&lt;display-box&gt;")}}
-  - : Diese Werte definieren, ob ein Element überhaupt Anzeigeboxen erzeugt.
+  - : Diese Werte definieren, ob ein Element überhaupt Anzeigeboxen generiert.
     - `contents`
-      - : Diese Elemente erzeugen selbst keine spezifische Box. Sie werden durch ihre Pseudo-Box und ihre Kinder-Boxen ersetzt. Bitte beachten Sie, dass die CSS Display Level 3 Spezifikation definiert, wie der `contents`-Wert "ungewöhnliche Elemente" beeinflussen sollte — Elemente, die nicht rein durch CSS-Box-Konzepte gerendert werden, wie ersetzte Elemente. Siehe [Anhang B: Auswirkungen von display: contents auf ungewöhnliche Elemente](https://drafts.csswg.org/css-display/#unbox) für weitere Details.
+      - : Diese Elemente erzeugen selbst keine spezifische Box. Sie werden durch ihre Pseudo-Box und ihre Kind-Boxen ersetzt. Bitte beachten Sie, dass die CSS Display Level 3-Spezifikation definiert, wie der Wert `contents` sich auf "ungewöhnliche Elemente" – Elemente, die nicht rein durch CSS-Box-Konzepte gerendert werden, wie ersetzte Elemente – auswirken sollte. Siehe [Anhang B: Auswirkungen von display: contents auf ungewöhnliche Elemente](https://drafts.csswg.org/css-display/#unbox) für weitere Details.
 
     - `none`
-      - : Schaltet die Anzeige eines Elements aus, sodass es keinen Einfluss auf das Layout hat (das Dokument wird gerendert, als ob das Element nicht existiert). Alle Nachkommenelemente haben ebenfalls ihre Anzeige ausgeschaltet.
-        Um ein Element den Platz einnehmen zu lassen, den es normalerweise einnehmen würde, aber ohne tatsächlich etwas zu rendern, verwenden Sie stattdessen die {{CSSxRef("visibility")}}-Eigenschaft.
+      - : Schaltet die Anzeige eines Elements aus, sodass es keinen Einfluss auf das Layout hat (das Dokument wird gerendert, als ob das Element nicht existieren würde). Alle Nachkommenelemente haben ebenfalls ihre Anzeige ausgeschaltet.
+        Um ein Element den Platz einnehmen zu lassen, den es normalerweise einnehmen würde, jedoch ohne tatsächlich etwas anzuzeigen, verwenden Sie stattdessen die Eigenschaft {{CSSxRef("visibility")}}.
 
-### Vorgefertigt
+### Precomposed
 
 - {{CSSxRef("&lt;display-legacy&gt;")}}
-  - : CSS 2 verwendete eine Einzelschlüsselwort-vorgefertigte Syntax für die `display`-Eigenschaft, die separate Schlüsselwörter für Block- und Inline-Varianten desselben Layoutmodus erforderte.
+  - : CSS 2 verwendete eine Ein-Schlüsselwort-vorkomponierte Syntax für die `display`-Eigenschaft, die separate Schlüsselwörter für Block-Level- und Inline-Level-Varianten desselben Layout-Modus erforderte.
     - `inline-block`
-      - : Das Element erzeugt eine Block-Box, die zusammen mit umgebenden Inhalten geflossen wird, als ob es eine einzige Inline-Box wäre (verhält sich ähnlich wie ein ersetztes Element).
+      - : Das Element erzeugt eine Block-Box, die wie eine einzelne Inline-Box mit umgebendem Inhalt geflossen wird (verhält sich ähnlich wie ein ersetztes Element).
 
-        Es entspricht `inline flow-root`.
+        Es ist äquivalent zu `inline flow-root`.
 
     - `inline-table`
-      - : Der `inline-table`-Wert hat keine direkte Zuordnung in HTML. Es verhält sich wie ein HTML-{{HTMLElement("table")}}-Element, jedoch als Inline-Box statt als Block-Level-Box. Innerhalb der Tabellen-Box befindet sich ein Block-Level-Kontext.
+      - : Der Wert `inline-table` hat keine direkte Zuordnung in HTML. Es verhält sich wie ein HTML-{{HTMLElement("table")}}-Element, jedoch als Inline-Box, anstelle einer Block-Level-Box. Innerhalb der Tabellenbox befindet sich ein Block-Level-Kontext.
 
-        Es entspricht `inline table`.
+        Es ist äquivalent zu `inline table`.
 
     - `inline-flex`
-      - : Das Element verhält sich wie ein Inline-Element und layoutet seinen Inhalt gemäß dem Flexbox-Modell.
+      - : Das Element verhält sich wie ein Inline-Level-Element und legt seinen Inhalt gemäß dem Flexbox-Modell an.
 
-        Es entspricht `inline flex`.
+        Es ist äquivalent zu `inline flex`.
 
     - `inline-grid`
-      - : Das Element verhält sich wie ein Inline-Element und layoutet seinen Inhalt gemäß dem Gittermodell.
+      - : Das Element verhält sich wie ein Inline-Level-Element und legt seinen Inhalt gemäß dem Grid-Modell an.
 
-        Es entspricht `inline grid`.
+        Es ist äquivalent zu `inline grid`.
 
-### Welche Syntax sollte man verwenden?
+### Welche Syntax sollten Sie verwenden?
 
-Das [CSS Display Modul](/de/docs/Web/CSS/CSS_display) beschreibt eine Mehrfach-Schlüsselwort-Syntax für Werte, die Sie mit der `display`-Eigenschaft verwenden können, um **äußere** und **innere** Anzeige ausdrücklich zu definieren.
-Die Einzel-Schlüsselwort-Werte (vorgefertigte `<display-legacy>`-Werte) werden aus Gründen der Rückwärtskompatibilität unterstützt.
+Das [CSS-Display-Modul](/de/docs/Web/CSS/CSS_display) beschreibt eine Mehrfach-Schlüsselwort-Syntax für Werte, die Sie mit der `display`-Eigenschaft verwenden können, um explizit den **äußeren** und **inneren** Anzeigetyp zu definieren. Die Einzel-Schlüsselwort-Werte (vorkomponierte `<display-legacy>`-Werte) werden aus Gründen der Abwärtskompatibilität unterstützt.
 
-Zum Beispiel können Sie mit zwei Werten einen Inline-Flex-Container wie folgt spezifizieren:
+Zum Beispiel können Sie mit zwei Werten einen Inline-Flex-Container wie folgt angeben:
 
 ```css
 .container {
@@ -259,7 +257,7 @@ Zum Beispiel können Sie mit zwei Werten einen Inline-Flex-Container wie folgt s
 }
 ```
 
-Dies kann auch unter Verwendung des alten Einzelwerts spezifiziert werden:
+Dies kann auch mit dem alten Einzelwert angegeben werden:
 
 ```css
 .container {
@@ -267,92 +265,92 @@ Dies kann auch unter Verwendung des alten Einzelwerts spezifiziert werden:
 }
 ```
 
-Weitere Informationen zu diesen Änderungen finden Sie im [Verwendung der Mehrfach-Schlüsselwort-Syntax mit CSS display](/de/docs/Web/CSS/CSS_display/multi-keyword_syntax_of_display)-Leitfaden.
+Weitere Informationen zu diesen Änderungen finden Sie im [Leitfaden zur Verwendung der Mehrfach-Schlüsselwort-Syntax mit CSS-Display](/de/docs/Web/CSS/CSS_display/multi-keyword_syntax_of_display).
 
 ## Beschreibung
 
-Die individuellen Seiten für die unterschiedlichen Arten von Werten, die `display` gesetzt werden können, enthalten mehrere Beispiele für diese Werte in Aktion — siehe den [Syntax](#syntax)-Abschnitt. Zusätzlich finden Sie das folgende Material, das die verschiedenen Werte von `display` im Detail behandelt.
+Die einzelnen Seiten für die verschiedenen Arten von Werten, die für `display` festgelegt werden können, enthalten mehrere Beispiele für diese Werte in Aktion – siehe den Abschnitt [Syntax](#syntax). Siehe außerdem das folgende Material, das die verschiedenen Werte von Display ausführlich behandelt.
 
 ### Mehrfach-Schlüsselwort-Werte
 
-- [Verwendung der Mehrfach-Schlüsselwort-Syntax mit CSS display](/de/docs/Web/CSS/CSS_display/multi-keyword_syntax_of_display)
+- [Verwendung der Mehrfach-Schlüsselwort-Syntax mit CSS-Display](/de/docs/Web/CSS/CSS_display/multi-keyword_syntax_of_display)
 
-### CSS-Fluss-Layout (display: block, display: inline)
+### CSS Flow Layout (display: block, display: inline)
 
 - [Block- und Inline-Layout im normalen Fluss](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow)
-- [Fluss-Layout und Überlauf](/de/docs/Web/CSS/CSS_display/Flow_layout_and_overflow)
-- [Fluss-Layout und Schreibmodi](/de/docs/Web/CSS/CSS_display/Flow_layout_and_writing_modes)
+- [Flow-Layout und Überlauf](/de/docs/Web/CSS/CSS_display/Flow_layout_and_overflow)
+- [Flow-Layout und Schreibmodi](/de/docs/Web/CSS/CSS_display/Flow_layout_and_writing_modes)
 - [Einführung in Formatierungskontexte](/de/docs/Web/CSS/CSS_display/Introduction_to_formatting_contexts)
 - [Im Fluss und außerhalb des Flusses](/de/docs/Web/CSS/CSS_display/In_flow_and_out_of_flow)
 
 ### display: flex
 
-- [Grundlagen des Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-- [Steuern der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
-- [Beherrschen des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
-- [Reihenfolge der Flex-Elemente](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)
-- [Beziehung von Flexbox zu anderen Layoutmethoden](/de/docs/Web/CSS/CSS_flexible_box_layout/Relationship_of_flexbox_to_other_layout_methods)
+- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+- [Elemente in einem Flex-Container ausrichten](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
+- [Verhältnis von Flex-Elementen entlang der Hauptachse steuern](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
+- [Meisterung des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
+- [Flex-Elemente anordnen](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)
+- [Beziehung von Flexbox zu anderen Layout-Methoden](/de/docs/Web/CSS/CSS_flexible_box_layout/Relationship_of_flexbox_to_other_layout_methods)
 - [Typische Anwendungsfälle von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Typical_use_cases_of_flexbox)
 
 ### display: grid
 
-- [Grundlagen des Gitter-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-- [Beziehung zu anderen Layoutmethoden](/de/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods)
+- [Grundlegende Konzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+- [Beziehung zu anderen Layout-Methoden](/de/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods)
 - [Linienbasierte Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- [Gittervorlagenbereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
-- [Layout mit benannten Gitterlinien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines)
-- [Automatische Platzierung im Gitterlayout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout)
-- [Ausrichtung von Elementen in einem CSS-Gitterlayout](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)
-- [Gitter, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes)
-- [CSS-Gitterlayout und Barrierefreiheit](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility)
-- [Umsetzen gängiger Layouts mit Gittern](/de/docs/Web/CSS/CSS_grid_layout/Realizing_common_layouts_using_grids)
+- [Rastervorlagenbereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
+- [Layout mit benannten Rasterlinien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines)
+- [Automatische Platzierung im Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout)
+- [Elemente im CSS-Grid-Layout ausrichten](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)
+- [Raster, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes)
+- [CSS-Grid-Layout und Barrierefreiheit](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility)
+- [Übliche Layouts mit Rastern realisieren](/de/docs/Web/CSS/CSS_grid_layout/Realizing_common_layouts_using_grids)
 
-### Anzeige animieren
+### Animation von display
 
-[Unterstützende Browser](#browser-kompatibilität) animieren `display` mit einem [diskreten Animationstyp](/de/docs/Web/CSS/CSS_animated_properties#discrete). Das bedeutet im Allgemeinen, dass die Eigenschaft zwischen zwei Werten bei 50% der Animation zwischen den beiden wechselt.
+[Unterstützende Browser](#browser-kompatibilität) animieren `display` mit einem [diskreten Animationstyp](/de/docs/Web/CSS/CSS_animated_properties#discrete). Dies bedeutet im Allgemeinen, dass die Eigenschaft während des Animierens zwischen zwei Werten bei 50% wechselt.
 
-Es gibt eine Ausnahme, nämlich wenn von oder zu `display: none` animiert wird. In diesem Fall wird der Browser zwischen den beiden Werten wechseln, sodass der animierte Inhalt während der gesamten Animationsdauer angezeigt wird. Zum Beispiel:
+Es gibt eine Ausnahme, wenn zu oder von `display: none` animiert wird. In diesem Fall wechselt der Browser zwischen den beiden Werten, sodass der animierte Inhalt über die gesamte Animationsdauer angezeigt wird. Zum Beispiel:
 
-- Wenn `display` von `none` zu `block` (oder einem anderen sichtbaren `display`-Wert) animiert wird, wird der Wert bei `0%` der Animationsdauer auf `block` wechseln, sodass er die gesamte Zeit sichtbar ist.
-- Wenn `display` von `block` (oder einem anderen sichtbaren `display`-Wert) zu `none` animiert wird, wird der Wert bei `100%` der Animationsdauer auf `none` wechseln, sodass er die gesamte Zeit sichtbar ist.
+- Wenn `display` von `none` zu `block` (oder einem anderen sichtbaren `display`-Wert) animiert wird, wechselt der Wert bei `0%` der Animationsdauer zu `block`, sodass er die ganze Zeit sichtbar ist.
+- Wenn `display` von `block` (oder einem anderen sichtbaren `display`-Wert) zu `none` animiert wird, wechselt der Wert bei `100%` der Animationsdauer zu `none`, sodass er die ganze Zeit sichtbar ist.
 
-Dieses Verhalten ist nützlich, um Ein- und Ausstieganimationen zu erstellen, bei denen Sie zum Beispiel einen Container mit `display: none` aus dem DOM entfernen möchten, aber ihn mit [`opacity`](/de/docs/Web/CSS/opacity) ausblenden möchten, anstatt sofort zu verschwinden.
+Dieses Verhalten ist nützlich, um Ein-/Austrittsanimationen zu erstellen, bei denen Sie zum Beispiel einen Container aus dem DOM mit `display: none` entfernen möchten, aber ihn mit [`opacity`](/de/docs/Web/CSS/opacity) ausblenden möchten, anstatt sofort zu verschwinden.
 
-Wenn Sie `display` mit [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) animieren, müssen Sie den Anfangswert von `display` in einem expliziten Keyframe angeben (zum Beispiel mit `0%` oder `from`). Siehe [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) für ein Beispiel.
+Wenn Sie `display` mit [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) animieren, müssen Sie den anfänglichen `display`-Wert in einem expliziten Keyframe bereitstellen (z. B. mit `0%` oder `from`). Siehe [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) für ein Beispiel.
 
 Wenn Sie `display` mit [CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions) animieren, sind zwei zusätzliche Funktionen erforderlich:
 
-- [`@starting-style`](/de/docs/Web/CSS/@starting-style) stellt Anfangswerte für Eigenschaften bereit, von denen Sie ausgehend animieren möchten, wenn das animierte Element erstmals angezeigt wird. Dies ist notwendig, um unerwartetes Verhalten zu vermeiden. Standardmäßig werden CSS-Übergänge nicht ausgelöst, wenn das Element zum ersten Mal aktualisiert wird oder wenn sich der `display`-Typ von `none` zu einem anderen Typ ändert.
-- [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) muss in der {{cssxref("transition-property")}}-Deklaration (oder dem {{cssxref("transition")}}-Kurzschlüssel) gesetzt werden, um `display`-Übergänge zu ermöglichen.
+- [`@starting-style`](/de/docs/Web/CSS/@starting-style) stellt Startwerte für Eigenschaften bereit, von denen Sie bei der ersten Anzeige des animierten Elements aus wechseln möchten. Dies ist notwendig, um unerwartetes Verhalten zu vermeiden. Standardmäßig werden CSS-Übergänge nicht beim ersten Stilaktualisierung eines Elements ausgelöst oder wenn sich der `display`-Typ von `none` zu einem anderen Typ ändert.
+- [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) muss in der {{cssxref("transition-property")}}-Erklärung (oder der {{cssxref("transition")}}-Kurzform) festgelegt werden, um `display`-Übergänge zu aktivieren.
 
-Für Beispiele, wie die `display`-Eigenschaft übergeht, siehe die Seiten [`@starting-style`](/de/docs/Web/CSS/@starting-style#examples) und [`transition-behavior`](/de/docs/Web/CSS/transition-behavior#examples).
+Beispiele zum Übergang der `display`-Eigenschaft finden Sie auf den Seiten zu [`@starting-style`](/de/docs/Web/CSS/@starting-style#examples) und [`transition-behavior`](/de/docs/Web/CSS/transition-behavior#examples).
 
 ## Barrierefreiheit
 
 ### display: none
 
-Die Verwendung eines `display`-Wertes von `none` auf einem Element wird es aus dem [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) entfernen. Dies wird dazu führen, dass das Element und alle seine Nachkommen nicht mehr von Bildschirmlesetechnologien angekündigt werden.
+Die Verwendung eines `display`-Wertes von `none` auf einem Element entfernt dieses aus dem [Barrierefreiheit-Baum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis). Dies führt dazu, dass das Element und alle seine nachgeordneten Elemente nicht mehr von Bildschirmlesetechnologien angekündigt werden.
 
-Wenn Sie das Element visuell ausblenden möchten, ist eine barrierefreiere Alternative, [eine Kombination von Eigenschaften](https://webaim.org/techniques/css/invisiblecontent/) zu verwenden, um es visuell vom Bildschirm zu entfernen, es jedoch dennoch für unterstützende Technologien wie Bildschirmleser verfügbar zu machen.
+Wenn Sie das Element visuell ausblenden möchten, ist eine barrierefreiere Alternative, [eine Kombination von Eigenschaften zu verwenden](https://webaim.org/techniques/css/invisiblecontent/), um es visuell vom Bildschirm zu entfernen, es aber dennoch assistierenden Technologien wie Bildschirmlesegeräten zur Verfügung zu stellen.
 
-Während `display: none` Inhalte aus dem Barrierefreiheitsbaum ausblendet, werden Elemente, die ausgeblendet sind, aber von sichtbaren Elementen mit `aria-describedby` oder `aria-labelledby`-Attributen referenziert werden, unterstützenden Technologien weiterhin zugänglich gemacht.
+Während `display: none` Inhalte aus dem Barrierefreiheit-Baum ausblendet, werden Elemente, die ausgeblendet sind, aber von den Attributen `aria-describedby` oder `aria-labelledby` sichtbarer Elemente referenziert werden, assistiven Technologien zugänglich gemacht.
 
 ### display: contents
 
-Aktuelle Implementierungen in einigen Browsern werden aus dem [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) jedes Element mit einem `display`-Wert von `contents` entfernen (aber Nachkommen bleiben erhalten). Dies wird dazu führen, dass das Element selbst nicht mehr von Bildschirmlesegeräten angekündigt wird. Dies ist jedoch laut der [CSS-Spezifikation](https://drafts.csswg.org/css-display/#valdef-display-contents) nicht richtiges Verhalten.
+Aktuelle Implementierungen in einigen Browsern werden jedes Element mit einem `display`-Wert von `contents` aus dem [Barrierefreiheit-Baum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) entfernen (aber Nachfolgerelemente bleiben erhalten). Dies führt dazu, dass das Element selbst nicht mehr von Bildschirmlesetechnologien angekündigt wird. Dies ist ein fehlerhaftes Verhalten laut [CSS-Spezifikation](https://drafts.csswg.org/css-display/#valdef-display-contents).
 
-- [Barrierefreies Markup mit display: contents verbessern | Hidde de Vries](https://hidde.blog/more-accessible-markup-with-display-contents/)
+- [Markups mehr barrierefrei mit display: contents | Hidde de Vries](https://hidde.blog/more-accessible-markup-with-display-contents/)
 - [Display: Contents ist kein CSS-Reset | Adrian Roselli](https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html)
 
 ### Tabellen
 
-In einigen Browsern wird das Ändern des `display`-Wertes eines {{HTMLElement("table")}}-Elements zu `block`, `grid` oder `flex` seine Darstellung im [Barrierefreiheitsbaum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) verändern. Dies führt dazu, dass die Tabelle nicht mehr korrekt von Bildschirmlesetechnologien angekündigt wird.
+In einigen Browsern wird durch Ändern des `display`-Wertes eines {{HTMLElement("table")}}-Elements zu `block`, `grid` oder `flex` seine Darstellung im [Barrierefreiheit-Baum](/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility#accessibility_apis) verändert. Dies führt dazu, dass die Tabelle nicht mehr ordnungsgemäß von Bildschirmlesetechnologien angekündigt wird.
 
-- [Kurze Anmerkung zu den Auswirkungen von CSS-Anzeigeeigenschaften auf Tabellensemantik — Die Paciello Group](https://www.tpgi.com/short-note-on-what-css-display-properties-do-to-table-semantics/)
-- [Versteckter Inhalt für bessere Zugänglichkeit | Go Make Things](https://gomakethings.com/hidden-content-for-better-a11y/)
-- [MDN-Verständnis-WCAG, Leitlinien 1.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.3_%e2%80%94_create_content_that_can_be_presented_in_different_ways)
-- [Verständnis des Erfolgsprinzips 1.3.1 | W3C-Verständnis-WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html)
+- [Kurze Notiz darüber, was CSS-Anzeigewerte mit Tabellen-Semantiken machen — The Paciello Group](https://www.tpgi.com/short-note-on-what-css-display-properties-do-to-table-semantics/)
+- [Versteckte Inhalte für bessere Barrierefreiheit | Go Make Things](https://gomakethings.com/hidden-content-for-better-a11y/)
+- [MDN Verständnis der WCAG, Leitlinie 1.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.3_%e2%80%94_create_content_that_can_be_presented_in_different_ways)
+- [Verständnis des Erfolgskriteriums 1.3.1 | W3C Verständnis der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html)
 
 ## Formale Definition
 
@@ -366,9 +364,9 @@ In einigen Browsern wird das Ändern des `display`-Wertes eines {{HTMLElement("t
 
 ### Vergleich von display-Werten
 
-In diesem Beispiel haben wir zwei Block-Level-Container-Elemente, jedes mit drei Inline-Kindern. Darunter haben wir ein Auswahlmenü, das es Ihnen ermöglicht, verschiedene `display`-Werte auf die Container anzuwenden, sodass Sie vergleichen und kontrastieren können, wie die verschiedenen Werte das Layout des Elements und seiner Kinder beeinflussen.
+In diesem Beispiel haben wir zwei Block-Level-Container-Elemente, jeweils mit drei Inline-Kindern. Darunter haben wir ein Auswahlmenü, das es Ihnen ermöglicht, verschiedene `display`-Werte auf die Container anzuwenden, sodass Sie vergleichen und kontrastieren können, wie die verschiedenen Werte das Layout des Elements und dessen Kinder beeinflussen.
 
-Wir haben {{cssxref("padding")}} und {{cssxref("background-color")}} auf den Containern und ihren Kindern hinzugefügt, damit es einfacher ist zu sehen, welchen Effekt die Anzeigewerte haben.
+Wir haben {{cssxref("padding")}} und {{cssxref("background-color")}} auf die Container und ihre Kinder angewendet, damit es einfacher ist, den Effekt der Verzeigewerte zu sehen.
 
 #### HTML
 
@@ -424,7 +422,7 @@ Wir haben {{cssxref("padding")}} und {{cssxref("background-color")}} auf den Con
 
 ```css
 html {
-  font-family: helvetica, arial, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   letter-spacing: 1px;
   padding-top: 10px;
 }
@@ -472,7 +470,7 @@ updateDisplay();
 
 {{EmbedLiveSample('display_value_comparison','100%', 440)}}
 
-Beachten Sie, dass einige Mehrfach-Schlüsselwort-Werte zur Veranschaulichung hinzugefügt werden, die die folgenden Entsprechungen haben:
+Beachten Sie, dass einige Mehrfach-Schlüsselwort-Werte zur Veranschaulichung hinzugefügt wurden, die die folgenden Entsprechungen haben:
 
 - `block` = `block flow`
 - `inline` = `inline flow`
@@ -487,7 +485,7 @@ Beachten Sie, dass einige Mehrfach-Schlüsselwort-Werte zur Veranschaulichung hi
 - `inline-flex` = `inline flex`
 - `inline-grid` = `inline grid`
 
-Weitere Beispiele finden Sie auf den Seiten für jeden einzelnen Anzeigetyp unter [Gruppierte Werte](#gruppierte_werte).
+Sie können mehr Beispiele auf den Seiten für jeden separaten Anzeigetyp unter [Gruppierte Werte](#gruppierte_werte) finden.
 
 ## Spezifikationen
 

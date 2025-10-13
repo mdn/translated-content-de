@@ -2,16 +2,16 @@
 title: Farbformat-Konverter
 slug: Web/CSS/CSS_colors/Color_format_converter
 l10n:
-  sourceCommit: 6ba4f3b350be482ba22726f31bbcf8ad3c92a9c6
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
-Dieses Tool ermöglicht es Ihnen, eine Farbe einzugeben oder auszuwählen und deren entsprechenden Wert in jedem CSS-[Farbformat](/de/docs/Web/CSS/color_value) zu kopieren. Sie können den generierten Farbwert überall dort verwenden, wo der {{cssxref("color_value", "&lt;color&gt;")}} Datentyp in CSS unterstützt wird. Dieses Tool kann Ihnen auch helfen, die Syntax der verschiedenen Farbnotationen zu verstehen.
+Dieses Tool ermöglicht es Ihnen, eine Farbe einzugeben oder auszuwählen und ihren entsprechenden Wert in jedem CSS-[Farbformat](/de/docs/Web/CSS/color_value) zu kopieren. Sie können den generierten Farbwert überall dort verwenden, wo der {{cssxref("color_value", "&lt;color&gt;")}} Datentyp in CSS unterstützt wird. Dieses Tool kann Ihnen auch helfen, die Syntax der verschiedenen Farbdarstellungen zu verstehen.
 
-## Anleitung zur Verwendung des Tools
+## Anleitung zur Nutzung des Tools
 
-Geben Sie eine Farbe in einem beliebigen Format ein oder wählen Sie eine im sRGB-{{Glossary("color_space", "Farbraum")}} aus. Sie können auch die Opazität (Alpha-Kanal) anpassen.
+Geben Sie eine Farbe in einem beliebigen Format ein oder wählen Sie eine im sRGB-{{Glossary("color_space", "Farbraum")}} aus. Sie können auch die Deckkraft (Alphakanal) anpassen.
 
-Klicken Sie auf die **Kopieren**-Schaltfläche neben dem entsprechenden Farbformat, um dessen Wert schnell zu kopieren. Sie können auch auf einen Farbformatnamen klicken, um mehr darüber zu erfahren.
+Klicken Sie auf die Schaltfläche **Kopieren** neben dem entsprechenden Farbformat, um dessen Wert schnell zu kopieren. Sie können auch auf einen Farbnamen klicken, um mehr darüber zu erfahren.
 
 ```html hidden live-sample___color-picker
 <div class="container">
@@ -163,7 +163,7 @@ dialog {
   border-radius: 5px;
   box-shadow: 3px 3px 10px rgb(0 0 0 / 0.2);
   background-color: white;
-  font-family: segue, arial, helvetica, sans-serif;
+  font-family: "Segue", "Helvetica", "Arial", sans-serif;
   margin-top: 5vh;
   width: 550px;
 }
@@ -560,11 +560,11 @@ init();
 
 ## Siehe auch
 
-- [Anwenden von Farben mit CSS-Eigenschaften](/de/docs/Web/CSS/CSS_colors/Applying_color)
+- [Farbe mit CSS-Eigenschaften anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)
 - [CSS-Farbwerte](/de/docs/Web/CSS/CSS_colors/Color_values)
-- [Farben klug verwenden](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
+- [Farbe sinnvoll verwenden](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
 - [Relative Farben verwenden](/de/docs/Web/CSS/CSS_colors/Relative_colors)
-- [Verständnis von Farbe und Helligkeit](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
+- [Farben und Leuchtdichte verstehen](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
 - [WCAG 1.4.1: Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)
-- [Lernen: Hintergründe und Rahmen mit CSS stylen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
+- [Lernen: Hintergründe und Rahmen mit CSS gestalten](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
 - [Barrierefreiheit lernen: Farbe und Farbkontrast](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript#color_and_color_contrast)

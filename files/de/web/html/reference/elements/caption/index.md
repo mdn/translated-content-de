@@ -1,11 +1,11 @@
 ---
-title: "<caption>: Das Tabellen-Caption-Element"
+title: "<caption>: Das Tabellenüberschriftselement"
 slug: Web/HTML/Reference/Elements/caption
 l10n:
-  sourceCommit: c403dd32f627cd972048db05db04ef76f3ab84fe
+  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
 ---
 
-Das **`<caption>`**-[HTML](/de/docs/Web/HTML)-Element spezifiziert die Überschrift (oder den Titel) einer Tabelle und verleiht der Tabelle einen {{Glossary("accessible_name", "zugänglichen Namen")}} oder eine {{Glossary("accessible_description", "zugängliche Beschreibung")}}.
+Das **`<caption>`**-[HTML](/de/docs/Web/HTML)-Element spezifiziert die Beschriftung (oder den Titel) einer Tabelle und gibt der Tabelle einen {{Glossary("accessible_name", "zugänglichen Namen")}} oder eine {{Glossary("accessible_description", "zugängliche Beschreibung")}}.
 
 {{InteractiveExample("HTML Demo: &lt;caption&gt;", "tabbed-taller")}}
 
@@ -76,7 +76,7 @@ tr:nth-child(odd) td {
 
 .heman {
   font:
-    1.4rem molot,
+    1.4rem "molot",
     sans-serif;
   text-shadow:
     1px 1px 1px white,
@@ -85,7 +85,7 @@ tr:nth-child(odd) td {
 
 .skeletor {
   font:
-    1.7rem rapscallion,
+    1.7rem "rapscallion",
     fantasy;
   letter-spacing: 3px;
   text-shadow:
@@ -96,34 +96,34 @@ tr:nth-child(odd) td {
 
 ## Attribute
 
-Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ### Veraltete Attribute
 
-Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind nachfolgend dokumentiert, um bei der Aktualisierung bestehender Codes als Referenz und aus historischen Gründen zu dienen.
+Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind hier dokumentiert, um bei der Aktualisierung vorhandenen Codes als Referenz zu dienen und aus historischem Interesse.
 
 - `align` {{deprecated_inline}}
-  - : Gibt an, auf welcher Seite der Tabelle die Überschrift angezeigt werden soll. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `left`, `top`, `right` oder `bottom`. Verwenden Sie stattdessen die {{cssxref("caption-side")}}- und {{cssxref("text-align")}}-CSS-Eigenschaften, da dieses Attribut veraltet ist.
+  - : Gibt an, auf welcher Seite der Tabelle die Beschriftung angezeigt werden soll. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `left`, `top`, `right` oder `bottom`. Verwenden Sie stattdessen die {{cssxref("caption-side")}}- und {{cssxref("text-align")}}-CSS-Eigenschaften, da dieses Attribut veraltet ist.
 
-## Anwendungshinweise
+## Nutzungshinweise
 
-- Wenn enthalten, muss das `<caption>`-Element das erste Kind des übergeordneten {{htmlelement("table")}}-Elements sein.
-- Wenn eine `<table>` innerhalb einer {{HTMLElement("figure")}} als einziger Inhalt des figürlichen Elements eingebettet ist, sollte diese über eine {{HTMLElement("figcaption")}} der `<figure>` anstelle als `<caption>` innerhalb der `<table>` beschriftet werden.
-- Jede angewendete {{cssxref("background-color")}} auf eine Tabelle wird nicht auf deren Caption angewendet. Fügen Sie dem `<caption>`-Element auch eine `background-color` hinzu, wenn Sie die gleiche Farbe hinter beiden Elementen haben möchten.
+- Wenn eingeschlossen, muss das `<caption>`-Element das erste Kind seines übergeordneten {{htmlelement("table")}}-Elements sein.
+- Wenn eine `<table>` innerhalb einer {{HTMLElement("figure")}} als einziges Inhaltselement geschachtelt ist, sollte sie über eine {{HTMLElement("figcaption")}} für die `<figure>` beschriftet werden, anstatt als ein innerhalb der `<table>` geschachteltes `<caption>`.
+- Jede auf eine Tabelle angewendete {{cssxref("background-color")}} wird nicht auf deren Beschriftung angewendet. Fügen Sie dem `<caption>`-Element ebenfalls eine `background-color` hinzu, wenn Sie möchten, dass dieselbe Farbe hinter beiden erscheint.
 
 ## Beispiel
 
-Siehe {{HTMLElement("table")}} für ein vollständiges Tabellenbeispiel, das gängige Standards und bewährte Praktiken einführt.
+Siehe {{HTMLElement("table")}} für ein vollständiges Tabellenbeispiel, das gängige Standards und bewährte Verfahren einführt.
 
-### Tabelle mit Überschrift
+### Tabelle mit Beschriftung
 
-Dieses Beispiel zeigt eine grundlegende Tabelle, die eine Überschrift enthält, die die dargestellten Daten beschreibt.
+Dieses Beispiel zeigt eine einfache Tabelle, die eine Beschriftung enthält, die die dargestellten Daten beschreibt.
 
-Ein solcher "Titel" ist nützlich für Benutzer, die schnell die Seite durchgehen, und er ist besonders nützlich für sehbehinderte Benutzer, die so schnell die Relevanz der Tabelle erkennen können, ohne dass ein Bildschirmlesegerät den Inhalt vieler Zellen durchgehen muss, nur um herauszufinden, worum es bei der Tabelle geht.
+Ein solcher "Titel" ist hilfreich für Benutzer, die die Seite schnell scannen, und es ist besonders vorteilhaft für sehbehinderte Benutzer, da sie so die Relevanz der Tabelle schnell erkennen können, ohne dass ein Bildschirmlesegerät den Inhalt vieler Zellen lesen muss, nur um herauszufinden, worum es in der Tabelle geht.
 
 #### HTML
 
-Ein `<caption>`-Element wird als erstes Kind der {{HTMLElement("table")}} verwendet, mit einem Textinhalt, der einem Titel ähnelt, um die Tabellendaten zu beschreiben. Drei Zeilen, die erste eine Kopfzeile, mit zwei Spalten werden unter Verwendung der {{HTMLElement("tr")}}, {{HTMLElement("th")}}- und {{HTMLElement("td")}}-Elemente nach dem `<caption>` erstellt.
+Ein `<caption>`-Element wird als erstes Kind des {{HTMLElement("table")}}-Elements verwendet, mit einem Textinhalt ähnlich einem Titel, um die Tabellendaten zu beschreiben. Nach dem `<caption>` werden drei Zeilen, die erste ist eine Kopfzeile, mit zwei Spalten unter Verwendung der {{HTMLElement("tr")}}, {{HTMLElement("th")}} und {{HTMLElement("td")}}-Elemente erstellt.
 
 ```html
 <table>
@@ -147,7 +147,7 @@ Ein `<caption>`-Element wird als erstes Kind der {{HTMLElement("table")}} verwen
 
 #### CSS
 
-Ein wenig grundlegendes CSS wird verwendet, um das `<caption>` auszurichten und hervorzuheben.
+Einige grundlegende CSS-Stile werden verwendet, um die `<caption>` auszurichten und hervorzuheben.
 
 ```css
 caption {
@@ -203,19 +203,19 @@ td {
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Entlassung</th>
+      <th scope="row">Weglassung des Tags</th>
       <td>
-        Das End-Tag kann weggelassen werden, wenn das Element nicht sofort von einem ASCII-Leerzeichen oder einem Kommentar gefolgt wird.
+        Das End-Tag kann weggelassen werden, wenn das Element nicht unmittelbar von ASCII-Leerzeichen oder einem Kommentar gefolgt wird.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Erlaubte Elternteile</th>
       <td>
         Ein {{HTMLElement("table")}}-Element, als erster Nachfahre.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/structural_roles#structural_roles_with_html_equivalents">caption</a></code>
       </td>
@@ -225,7 +225,7 @@ td {
       <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
-      <th scope="row">DOM-Schnittstelle</th>
+      <th scope="row">DOM-Interface</th>
       <td>[`HTMLTableCaptionElement`](/de/docs/Web/API/HTMLTableCaptionElement)</td>
     </tr>
   </tbody>
@@ -241,7 +241,7 @@ td {
 
 ## Siehe auch
 
-- [Lernen: HTML-Tabellen-Grundlagen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
+- [Lernen: Grundlagen der HTML-Tabellen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
 - {{HTMLElement("col")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("table")}}, {{HTMLElement("tbody")}}, {{HTMLElement("td")}}, {{HTMLElement("tfoot")}}, {{HTMLElement("th")}}, {{HTMLElement("thead")}}, {{HTMLElement("tr")}}: Andere tabellenbezogene Elemente
-- {{cssxref("caption-side")}}: CSS-Eigenschaft zum Positionieren des `<caption>` relativ zu seinem übergeordneten {{HTMLElement("table")}}
-- {{cssxref("text-align")}}: CSS-Eigenschaft zur horizontalen Ausrichtung des Textinhalts des `<caption>`
+- {{cssxref("caption-side")}}: CSS-Eigenschaft, um das `<caption>` relativ zu seinem übergeordneten {{HTMLElement("table")}} zu positionieren
+- {{cssxref("text-align")}}: CSS-Eigenschaft, um den Textinhalt des `<caption>` horizontal auszurichten

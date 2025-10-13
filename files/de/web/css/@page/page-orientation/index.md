@@ -2,15 +2,15 @@
 title: page-orientation
 slug: Web/CSS/@page/page-orientation
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: a3eec14af0580dad6eae65980686cee6cafc2c68
 ---
 
-Der **`page-orientation`** [CSS](/de/docs/Web/CSS) Deskriptor für die {{cssxref("@page")}} at-rule steuert die Drehung einer gedruckten Seite. Es behandelt den Ablauf von Inhalten über Seiten hinweg, wenn die Ausrichtung einer Seite geändert wird. Dieses Verhalten unterscheidet sich von dem [`size`](/de/docs/Web/CSS/@page/size) Deskriptor dadurch, dass ein Benutzer die Richtung definieren kann, in die die Seite gedreht werden soll.
+Der **`page-orientation`** [CSS](/de/docs/Web/CSS) Deskriptor für die {{cssxref("@page")}} At-Regel steuert die Drehung einer gedruckten Seite. Er regelt den Fluss von Inhalten über Seiten hinweg, wenn die Ausrichtung einer Seite geändert wird. Dieses Verhalten unterscheidet sich vom [`size`](/de/docs/Web/CSS/@page/size) Deskriptor, da ein Benutzer die Richtung definieren kann, in die die Seite gedreht wird.
 
-Dieser Deskriptor hilft bei der Gestaltung und Ausrichtung von gedruckten Dokumenten, insbesondere wenn Dokumente doppelseitig gedruckt werden. Ein Benutzer kann festlegen, wie die Seiten beim Drucken gedreht werden. Dies ist besonders nützlich, um Inhalte wie Tabellen, die möglicherweise breiter als der restliche Inhalt sind, in einer anderen Ausrichtung darzustellen.
+Dieser Deskriptor hilft bei der Gestaltung und Ausrichtung von gedruckten Dokumenten, insbesondere wenn Dokumente beidseitig gedruckt werden. Ein Benutzer kann festlegen, wie die Seiten beim Drucken gedreht werden. Dies ist besonders nützlich, um Inhalte wie Tabellen, die möglicherweise breiter als der Rest des Inhalts sind, in einer anderen Ausrichtung darzustellen.
 
 > [!NOTE]
-> [Randboxen](/de/docs/Web/CSS/@page#margin_at-rules) und andere positionale Elemente haben keine spezielle Interaktion mit diesem Deskriptor. Ränder werden wie gewohnt im ungedrehten Zustand der Seite angeordnet und dann zusammen mit allem anderen gedreht.
+> [Randboxen](/de/docs/Web/CSS/@page#margin_at-rules) und andere positionale Elemente haben keine besondere Interaktion mit diesem Deskriptor. Ränder werden wie gewohnt auf der nicht gedrehten Seite angelegt und dann zusammen mit allem anderen gedreht.
 
 ## Syntax
 
@@ -34,11 +34,11 @@ Dieser Deskriptor hilft bei der Gestaltung und Ausrichtung von gedruckten Dokume
 ## Werte
 
 - `upright`
-  - : Es wird keine Ausrichtung angewendet und die Seite wird normal angeordnet und formatiert.
+  - : Es wird keine Ausrichtung angewendet und die Seite wird wie gewohnt gestaltet und formatiert.
 - `rotate-left`
-  - : Nachdem eine Seite angeordnet wurde, muss sie um eine Vierteldrehung nach links (gegen den Uhrzeigersinn) gedreht angezeigt werden.
+  - : Nachdem eine Seite gestaltet wurde, muss sie um eine Vierteldrehung nach links (gegen den Uhrzeigersinn) angezeigt werden.
 - `rotate-right`
-  - : Nachdem die Seite angeordnet wurde, muss sie um eine Vierteldrehung nach rechts (im Uhrzeigersinn) gedreht angezeigt werden.
+  - : Nachdem die Seite gestaltet wurde, muss sie um eine Vierteldrehung nach rechts (im Uhrzeigersinn) angezeigt werden.
 
 ## Formale Definition
 
@@ -88,13 +88,13 @@ p {
     display: none;
   }
   section {
-    font-family: Roboto, sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 1.5rem;
   }
 }
 ```
 
-Der zweite Teil des CSS-Codes deklariert eine benannte Seitenregel, die oben für die Selektoren definiert wurde, wie `<section class="left">…</section>`.
+Im zweiten Teil des CSS-Codes wird eine oben definierte benannte Seiteregel für die Selektoren deklariert, wie z.B. `<section class="left">…</section>`.
 
 ```css live-sample___rotating-pages
 @media print {
@@ -332,7 +332,7 @@ printButton.addEventListener("click", () => {
 });
 ```
 
-Klicken Sie auf die Schaltfläche Drucken, um die Seitenausrichtung beim Drucken zu sehen.
+Klicken Sie auf die Drucktaste, um die Seitenausrichtung beim Druck zu sehen.
 
 {{EmbedLiveSample('rotating-pages', '100%', '540', , , , , "allow-modals")}}
 

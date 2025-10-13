@@ -3,29 +3,28 @@ title: "HTMLImageElement: sizes-Eigenschaft"
 short-title: sizes
 slug: Web/API/HTMLImageElement/sizes
 l10n:
-  sourceCommit: bc9f7bec1ab48f29d241e38a9f1598f783f6b60a
+  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Eigenschaft **`sizes`** ermöglicht es Ihnen, die Layoutbreite des [Bildes](/de/docs/Web/HTML/Reference/Elements/img) für jede der aufgelisteten Medienbedingungen anzugeben. Dies bietet die Möglichkeit, automatisch zwischen verschiedenen Bildern zu wählen—sogar Bildern mit unterschiedlichen Ausrichtungen oder Seitenverhältnissen—wenn sich der Dokumentenzustand ändert, um verschiedene Medienbedingungen zu erfüllen.
+Die [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Eigenschaft **`sizes`** ermöglicht es Ihnen, die Layoutbreite des [Bildes](/de/docs/Web/HTML/Reference/Elements/img) für jede Liste von Medienbedingungen anzugeben. Dies bietet die Möglichkeit, automatisch zwischen verschiedenen Bildern zu wählen – sogar Bildern mit unterschiedlichen Ausrichtungen oder Seitenverhältnissen – wenn sich der Dokumentzustand ändert, um verschiedenen Medienbedingungen zu entsprechen.
 
-Jede Bedingung wird im selben Bedingungsformat angegeben, das auch von [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) verwendet wird.
+Jede Bedingung wird mit demselben bedingten Format angegeben, das auch von [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) verwendet wird.
 
 ## Wert
 
-Ein String, der eine durch Kommas getrennte Liste von Quellen-Größen-Beschreibungen enthält, gefolgt von einer optionalen Fallback-Größe. Jede Quellen-Größen-Beschreibung besteht aus einer Medienbedingung, gefolgt von mindestens einem Leerzeichen, dann dem Quellen-Größenwert, der für das Bild verwendet werden soll, wenn die Medienbedingung zu `true` evaluiert wird.
-Sie können den Wert `auto` verwenden, um die gesamte Liste der Größen oder den ersten Eintrag in der Liste zu ersetzen. Weitere Informationen über die Syntax des `sizes`-Attributs finden Sie unter [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#sizes).
+Ein String, der eine durch Kommas getrennte Liste von Quellgrößenbeschreibungen enthält, gefolgt von einer optionalen Rückfallgröße. Jede Quellgrößenbeschreibung besteht aus einer Medienbedingung, dann mindestens einem Leerzeichen, dann dem Quellgrößenwert, der für das Bild verwendet werden soll, wenn die Medienbedingung als `true` bewertet wird. Sie können den Wert `auto` verwenden, um die gesamte Liste der Größen oder den ersten Eintrag in der Liste zu ersetzen. Für weitere Informationen zur Syntax des `sizes`-Attributs, siehe [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#sizes).
 
 ## Beispiele
 
 ### Auswahl eines Bildes, das zur Fensterbreite passt
 
-In diesem Beispiel wird ein blog-ähnliches Layout erstellt, das einen Text und ein Bild anzeigt, für das drei Größenangaben je nach Fensterbreite angegeben sind. Auch drei Versionen des Bildes sind verfügbar, deren Breiten angegeben sind. Der Browser verwendet all diese Informationen und wählt ein Bild und eine Breite aus, die am besten den spezifizierten Werten entsprechen.
+In diesem Beispiel wird ein blogartiges Layout erstellt, das einige Texte und ein Bild anzeigt, für welches drei Größenpunkte je nach Fensterbreite angegeben werden. Drei Versionen des Bildes stehen ebenfalls zur Verfügung, mit ihren Breiten angegeben. Der Browser nimmt all diese Informationen und wählt ein Bild und eine Breite aus, die am besten zu den angegebenen Werten passt.
 
-Wie genau die Bilder verwendet werden, kann vom Browser und der Pixeldichte des Anzeigegeräts des Benutzers abhängen.
+Wie genau die Bilder verwendet werden, kann vom Browser und der Pixeldichte des Displays des Benutzers abhängen.
 
-Schaltflächen am unteren Rand des Beispiels ermöglichen es Ihnen, die `sizes`-Eigenschaft geringfügig zu verändern und die größte der drei Breiten für das Bild zwischen 40em und 50em zu wechseln.
+Schaltflächen am unteren Ende des Beispiels erlauben es Ihnen, die `sizes`-Eigenschaft tatsächlich leicht zu ändern, indem Sie die größte der drei Breiten für das Bild zwischen 40em und 50em umschalten.
 
 #### HTML
 
@@ -70,9 +69,9 @@ article {
   padding: 1.5em;
   font:
     16px "Open Sans",
-    Verdana,
-    Arial,
-    Helvetica,
+    "Verdana",
+    "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -87,7 +86,7 @@ article img {
 
 #### JavaScript
 
-Der JavaScript-Code behandelt die beiden Schaltflächen, die es Ihnen ermöglichen, die dritte Breitenoption zwischen 40em und 50em zu wechseln; dies wird durch die Behandlung des [`click`](/de/docs/Web/API/Element/click_event)-Ereignisses erreicht, indem die JavaScript-String-Methode {{jsxref("String.replace", "replace()")}} verwendet wird, um den relevanten Teil des `sizes`-Strings zu ersetzen.
+Der JavaScript-Code behandelt die beiden Schaltflächen, die es Ihnen ermöglichen, die dritte Breitenoption zwischen 40em und 50em umzuschalten; dies wird durch die Behandlung des [`click`](/de/docs/Web/API/Element/click_event) Ereignisses erreicht, wobei die JavaScript-String-Methode {{jsxref("String.replace", "replace()")}} verwendet wird, um den relevanten Teil des `sizes`-Strings zu ersetzen.
 
 ```js
 const image = document.querySelector("article img");
@@ -109,7 +108,7 @@ break50.addEventListener(
 
 {{EmbedLiveSample("Selecting an image to fit window width", "", 1050)}}
 
-Die Seite ist am besten {{LiveSampleLink('Selecting an image to fit window width', 'in einem eigenen Fenster zu betrachten')}}, damit Sie die Größen vollständig anpassen können.
+Die Seite ist am besten {{LiveSampleLink('Selecting an image to fit window width', 'in einem eigenen Fenster zu betrachten')}}, sodass Sie die Größen vollständig anpassen können.
 
 ## Spezifikationen
 

@@ -3,33 +3,45 @@ title: "HTMLImageElement: crossOrigin-Eigenschaft"
 short-title: crossOrigin
 slug: Web/API/HTMLImageElement/crossOrigin
 l10n:
-  sourceCommit: 0145c6497d2f2206dca1326593fe308f7b771a08
+  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interface verfügt über das Attribut **`crossOrigin`**, das als Zeichenkette die Cross-Origin Resource Sharing ({{Glossary("CORS", "CORS")}})-Einstellung angibt, die beim Abrufen des Bildes verwendet werden soll.
+Das [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)
+Interface hat ein **`crossOrigin`**-Attribut, das ein String ist und die Cross-Origin Resource Sharing ({{Glossary("CORS", "CORS")}})-Einstellungen angibt, die beim Abrufen des Bildes verwendet werden sollen.
 
 ## Wert
 
-Eine Zeichenkette mit einem Schlüsselwort, das den CORS-Modus angibt, der beim Abrufen der Bildressource verwendet werden soll. Wenn Sie `crossOrigin` nicht angeben, wird das Bild ohne CORS abgerufen (der Abrufmodus `no-cors`).
+Ein String eines Schlüsselworts, das den CORS-Modus festlegt, der beim Abrufen der Bildressource verwendet werden soll. Wenn Sie `crossOrigin` nicht angeben, wird das Bild ohne CORS abgerufen (der Abruf im `no-cors`-Modus).
 
-Erlaubte Werte sind:
+Zugelassene Werte sind:
 
 - `anonymous`
-  - : Anfragen des {{HTMLElement("img")}}-Elements haben ihren [`mode`](/de/docs/Web/API/Request/mode) auf `cors` gesetzt und ihren [`credentials`](/de/docs/Web/API/Request/credentials)-Modus auf `same-origin`. Das bedeutet, dass CORS aktiviert ist und Anmeldeinformationen gesendet werden, _wenn_ das Bild von derselben Herkunft abgerufen wird, von der das Dokument geladen wurde.
+  - : Anfragen vom {{HTMLElement("img")}}-Element haben ihren
+    [`mode`](/de/docs/Web/API/Request/mode) auf `cors` gesetzt und ihren [`credentials`](/de/docs/Web/API/Request/credentials)
+    Modus auf `same-origin`. Das bedeutet, dass CORS aktiviert ist
+    und Anmeldeinformationen gesendet werden _wenn_ das Bild von derselben Herkunft abgerufen wird,
+    von der das Dokument geladen wurde.
 - `use-credentials`
-  - : Anfragen des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) verwenden den `cors`-Modus und den `include` credentials-Modus; alle Bildanfragen des Elements verwenden CORS, unabhängig davon, von welcher Domain der Abruf stammt.
+  - : Anfragen vom [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) verwenden den `cors`-Modus
+    und den `include`-Anmeldeinformationen-Modus; alle Bildanfragen des Elements verwenden
+    CORS, unabhängig davon, von welcher Domain der Abruf stammt.
 
-Wenn `crossOrigin` eine leere Zeichenkette (`""`) ist, wird der `anonymous`-Modus ausgewählt.
+Wenn `crossOrigin` ein leerer String (`""`) ist,
+wird der `anonymous`-Modus ausgewählt.
 
 ## Beispiele
 
-In diesem Beispiel wird ein neues {{HTMLElement("img")}}-Element erstellt und dem Dokument hinzugefügt, wobei das Bild im anonymen Zustand geladen wird; das Bild wird unter Verwendung von CORS geladen und Anmeldeinformationen werden für alle Cross-Origin-Ladevorgänge verwendet.
+In diesem Beispiel wird ein neues {{HTMLElement("img")}}-Element erstellt und dem
+Dokument hinzugefügt, wobei das Bild im anonymen Zustand geladen wird; das Bild wird mit
+CORS geladen und Anmeldeinformationen werden für alle abgerufenen geladenen Ursprünge verwendet.
 
 ### JavaScript
 
-Der folgende Code zeigt das Setzen der `crossOrigin`-Eigenschaft auf einem `<img>`-Element zur Konfiguration des CORS-Zugriffs für den Abruf eines neu erstellten Bildes.
+Der folgende Code demonstriert das Setzen der `crossOrigin`-Eigenschaft auf einem
+`<img>`-Element, um den CORS-Zugriff für den Abruf eines
+neu erstellten Bildes zu konfigurieren.
 
 ```js
 const container = document.querySelector(".container");
@@ -69,7 +81,8 @@ loadImage("clock-demo-400px.png");
 ```css
 body {
   font:
-    1.125rem/1.5 Helvetica,
+    1.125rem/1.5 "Helvetica",
+    "Arial",
     sans-serif;
 }
 
@@ -86,7 +99,7 @@ img {
 
 output {
   background: rgb(100 100 100 / 100%);
-  font-family: Courier, monospace;
+  font-family: "Courier New", monospace;
   width: 95%;
 }
 ```

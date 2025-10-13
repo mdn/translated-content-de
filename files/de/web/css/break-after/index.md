@@ -2,10 +2,10 @@
 title: break-after
 slug: Web/CSS/break-after
 l10n:
-  sourceCommit: 5eb1c147189824b5d2ff915da1b444aeafd51c6f
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
-Die **`break-after`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt, wie Seiten-, Spalten- oder Regionenumbrüche nach einer generierten Box verhalten sollen. Wenn keine generierte Box vorhanden ist, wird die Eigenschaft ignoriert.
+Die **`break-after`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie Seiten-, Spalten- oder Regionenwechsel nach einer generierten Box behandelt werden sollen. Wenn keine generierte Box vorhanden ist, wird die Eigenschaft ignoriert.
 
 {{InteractiveExample("CSS Demo: break-after")}}
 
@@ -88,60 +88,60 @@ break-after: revert-layer;
 break-after: unset;
 ```
 
-Jeder mögliche Umbruchpunkt (mit anderen Worten, jede Elementgrenze) wird von drei Eigenschaften beeinflusst: dem `break-after` Wert des vorherigen Elements, dem {{cssxref("break-before")}} Wert des nächsten Elements und dem {{cssxref("break-inside")}} Wert des umschließenden Elements.
+Jeder mögliche Umbruchpunkt (anders ausgedrückt, jede Elementgrenze) wird von drei Eigenschaften beeinflusst: dem `break-after`-Wert des vorherigen Elements, dem {{cssxref("break-before")}}-Wert des nächsten Elements und dem {{cssxref("break-inside")}}-Wert des umschließenden Elements.
 
-Um zu bestimmen, ob ein Umbruch erfolgen muss, werden folgende Regeln angewendet:
+Um zu bestimmen, ob ein Umbruch erfolgen muss, werden die folgenden Regeln angewendet:
 
-1. Wenn einer der drei betroffenen Werte ein _erzwungener Umbruchwert_ (`always`, `left`, `right`, `page`, `column` oder `region`) ist, hat dieser Vorrang. Wenn mehr als einer von ihnen ein solcher Umbruch ist, wird derjenige des Elements, das zuletzt im Fluss erscheint, genommen (d.h. der `break-before` Wert hat Vorrang vor dem `break-after` Wert, der wiederum Vorrang vor dem `break-inside` Wert hat).
-2. Wenn einer der drei betroffenen Werte ein _Umbruch-vermeidungs-Wert_ (`avoid`, `avoid-page`, `avoid-region` oder `avoid-column`) ist, wird an diesem Punkt kein solcher Umbruch angewendet.
+1. Wenn einer der drei betreffenden Werte ein _erzwungener Umbruchwert_ ist (`always`, `left`, `right`, `page`, `column` oder `region`), hat dieser Vorrang. Wenn mehr als einer von ihnen ein solcher Umbruch ist, wird derjenige des Elements genommen, das zuletzt im Fluss erscheint (das heißt, der `break-before`-Wert hat Vorrang vor dem `break-after`-Wert, der wiederum Vorrang vor dem `break-inside`-Wert hat).
+2. Wenn einer der drei betreffenden Werte ein _Vermeidungs-Umbruchwert_ ist (`avoid`, `avoid-page`, `avoid-region` oder `avoid-column`), wird kein solcher Umbruch an diesem Punkt angewendet.
 
-Sobald erzwungene Umbrüche angewendet wurden, können weiche Umbrüche hinzugefügt werden, falls nötig, jedoch nicht an Elementgrenzen, die in einem entsprechenden `avoid` Wert enden.
+Sobald erzwungene Umbrüche angewendet wurden, können bei Bedarf weiche Umbrüche hinzugefügt werden, jedoch nicht an Elementgrenzen, die sich auf einen entsprechenden `avoid`-Wert auflösen.
 
 ### Werte
 
-#### Allgemeine Umbruchwerte
+#### Generische Umbruchwerte
 
 - `auto`
-  - : Erlaubt, erzwingt aber nicht, dass ein Umbruch (Seite, Spalte oder Region) direkt nach der Hauptbox eingefügt wird.
+  - : Erlaubt, erzwingt jedoch nicht, dass ein Umbruch (Seite, Spalte oder Region) direkt nach der Hauptbox eingefügt wird.
 - `avoid`
-  - : Verhindert, dass ein Umbruch (Seite, Spalte oder Region) direkt nach der Hauptbox eingefügt wird.
+  - : Vermeidet, dass ein Umbruch (Seite, Spalte oder Region) direkt nach der Hauptbox eingefügt wird.
 - `always`
-  - : Erzwingt einen Seitenumbruch direkt nach der Hauptbox. Der Typ dieses Umbruchs ist der des unmittelbar umgebenden Fragmentierungskontexts. Wenn wir uns in einem Container mit mehreren Spalten befinden, erzwingt dies einen Spaltenumbruch, in paginierten Medien (aber nicht in einem Container mit mehreren Spalten) einen Seitenumbruch.
+  - : Erzwingt einen Seitenumbruch direkt nach der Hauptbox. Die Art dieses Umbruchs entspricht dem unmittelbar umgebenden Fragmentierungskontext. Wenn wir uns innerhalb eines Multicol-Containers befinden, würde es einen Spaltenumbruch erzwingen, innerhalb paginierter Medien (aber nicht innerhalb eines Multicol-Containers) einen Seitenumbruch.
 - `all`
-  - : Erzwingt einen Seitenumbruch direkt nach der Hauptbox. Bricht durch alle möglichen Fragmentierungskontexte. Ein Umbruch in einem Container mit mehreren Spalten, der sich in einem Seitencontainer befand, würde einen Spalten- und Seitenumbruch erzwingen.
+  - : Erzwingt einen Seitenumbruch direkt nach der Hauptbox. Bricht durch alle möglichen Fragmentierungskontexte. Ein Umbruch innerhalb eines Multicol-Containers, der sich innerhalb eines Seitencontainers befand, würde einen Spalten- und Seitenumbruch erzwingen.
 
 #### Seitenumbruchwerte
 
 - `avoid-page`
-  - : Verhindert jeden Seitenumbruch direkt nach der Hauptbox.
+  - : Vermeidet einen Seitenumbruch direkt nach der Hauptbox.
 - `page`
   - : Erzwingt einen Seitenumbruch direkt nach der Hauptbox.
 - `left`
-  - : Erzwingt ein oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer linken Seite macht. Es ist die Seite, die sich auf der linken Seite des Buchrückens befindet oder die Rückseite der Seite im Duplexdruck.
+  - : Erzwingt einen oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer linken Seite macht. Es ist die Seite, die auf der linken Seite des Buchrückens oder der Rückseite der Seite im Duplexdruck platziert ist.
 - `right`
-  - : Erzwingt ein oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer rechten Seite macht. Es ist die Seite, die sich auf der rechten Seite des Buchrückens befindet oder die Vorderseite der Seite im Duplexdruck.
+  - : Erzwingt einen oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer rechten Seite macht. Es ist die Seite, die auf der rechten Seite des Buchrückens oder der Vorderseite der Seite im Duplexdruck platziert ist.
 - `recto`
-  - : Erzwingt ein oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer Recto-Seite macht. (Eine Recto-Seite ist eine rechte Seite in einer von links nach rechts angeordneten Doppelseite oder eine linke Seite in einer von rechts nach links angeordneten Doppelseite.)
+  - : Erzwingt einen oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer Rectoseite macht. (Eine Rectoseite ist eine rechte Seite in einer links-nach-rechts-Ausbreitung oder eine linke Seite in einer rechts-nach-links-Ausbreitung.)
 - `verso`
-  - : Erzwingt ein oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer Verso-Seite macht. (Eine Verso-Seite ist eine linke Seite in einer von links nach rechts angeordneten Doppelseite oder eine rechte Seite in einer von rechts nach links angeordneten Doppelseite.)
+  - : Erzwingt einen oder zwei Seitenumbrüche direkt nach der Hauptbox, je nachdem, welcher die nächste Seite zu einer Versoseite macht. (Eine Versoseite ist eine linke Seite in einer links-nach-rechts-Ausbreitung oder eine rechte Seite in einer rechts-nach-links-Ausbreitung.)
 
 #### Spaltenumbruchwerte
 
 - `avoid-column`
-  - : Verhindert jeden Spaltenumbruch direkt nach der Hauptbox.
+  - : Vermeidet einen Spaltenumbruch direkt nach der Hauptbox.
 - `column`
   - : Erzwingt einen Spaltenumbruch direkt nach der Hauptbox.
 
-#### Regionen-Umbruchwerte
+#### Regionenabbruchwerte
 
 - `avoid-region`
-  - : Verhindert jeden Regionen-Umbruch direkt nach der Hauptbox.
+  - : Vermeidet einen Regionenabbruch direkt nach der Hauptbox.
 - `region`
-  - : Erzwingt einen Regionen-Umbruch direkt nach der Hauptbox.
+  - : Erzwingt einen Regionenabbruch direkt nach der Hauptbox.
 
-## Seitenumbruch-Aliase
+## Seitenumbruch-Aliasse
 
-Aus Kompatibilitätsgründen sollte die veraltete {{cssxref("page-break-after")}} Eigenschaft von Browsern als Alias von `break-after` betrachtet werden. Dies stellt sicher, dass Websites, die `page-break-after` verwenden, wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als Alias behandelt werden:
+Aus Kompatibilitätsgründen sollte die veraltete {{cssxref("page-break-after")}}-Eigenschaft von Browsern als Alias von `break-after` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-after` verwenden, weiterhin wie vorgesehen funktionieren. Ein Unterset von Werten sollte wie folgt als Alias verwendet werden:
 
 | page-break-after | break-after |
 | ---------------- | ----------- |
@@ -152,7 +152,7 @@ Aus Kompatibilitätsgründen sollte die veraltete {{cssxref("page-break-after")}
 | `always`         | `page`      |
 
 > [!NOTE]
-> Der `always` Wert von `page-break-*` wurde von Browsern als Seitenumbruch implementiert und nicht als Spaltenumbruch. Daher erfolgt die Alias-Zuordnung zu `page` und nicht zum `always` Wert in der Level 4 Spezifikation.
+> Der `always`-Wert von `page-break-*` wurde von Browsern als Seitenumbruch und nicht als Spaltenumbruch implementiert. Daher erfolgt die Aliasbildung zu `page`, anstatt zum `always`-Wert in der Level-4-Spezifikation.
 
 ## Formale Definition
 
@@ -164,11 +164,11 @@ Aus Kompatibilitätsgründen sollte die veraltete {{cssxref("page-break-after")}
 
 ## Beispiele
 
-### Aufteilen in ordentliche Spalten
+### In ordentliche Spalten aufteilen
 
-Im folgenden Beispiel haben wir einen Container, der eine `<h1>` enthält, die sich über alle Spalten erstreckt (erreicht durch `column-span: all`) und eine Reihe von `<h2>`s und Absätzen, die mit `column-width: 200px` in mehrere Spalten aufgeteilt sind.
+Im folgenden Beispiel haben wir einen Container, der ein `<h1>` enthält, das alle Spalten überspannt (erreicht durch `column-span: all`) und eine Reihe von `<h2>`-Elementen und Absätzen, die in mehreren Spalten mit `column-width: 200px` angeordnet sind.
 
-Standardmäßig wurden die Unterüberschriften und Absätze ziemlich unordentlich angeordnet, weil die Überschriften nicht an einem einheitlichen Ort waren. Wir haben jedoch `break-after: column` auf die `<p>`-Elemente angewendet, um nach jedem einen Spaltenumbruch zu erzwingen, was bedeutet, dass Sie am Anfang jeder Spalte ein `<h2>` ordentlich erhalten.
+Standardmäßig waren die Zwischenüberschriften und Absätze eher unordentlich angeordnet, weil die Überschriften nicht einheitlich platziert waren. Wir haben jedoch `break-after: column` auf die `<p>`-Elemente angewendet, um einen Spaltenumbruch nach jedem zu erzwingen, was dazu führt, dass ein `<h2>` ordentlich am oberen Rand jeder Spalte steht.
 
 #### HTML
 
@@ -219,7 +219,7 @@ Standardmäßig wurden die Unterüberschriften und Absätze ziemlich unordentlic
 
 ```css
 html {
-  font-family: helvetica, arial, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 h1 {
@@ -259,5 +259,5 @@ article {
 
 ## Siehe auch
 
-- [Lernen: Layout mit mehreren Spalten](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
-- [Kästen mit CSS-Fragmentierung brechen](https://www.smashingmagazine.com/2019/02/css-fragmentation/)
+- [Lernen: Mehrspaltenlayout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- [Boxes mit CSS-Fragmentierung aufbrechen](https://www.smashingmagazine.com/2019/02/css-fragmentation/)

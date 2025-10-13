@@ -2,10 +2,10 @@
 title: font-family
 slug: Web/CSS/@font-palette-values/font-family
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: a3eec14af0580dad6eae65980686cee6cafc2c68
 ---
 
-Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) {{Glossary("CSS_Descriptor", "Deskriptor")}} **`font-family`** wird verwendet, um anzugeben, auf welche font-family-Palettenwerte angewendet werden sollen. Dies muss genau mit den Werten übereinstimmen, die beim Setzen der CSS-[font-family](/de/docs/Web/CSS/font-family) verwendet werden.
+Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) {{Glossary("CSS_Descriptor", "Deskriptor")}} **`font-family`** wird verwendet, um anzugeben, auf welche Font-Family-Palettenwerte angewendet werden sollen. Diese müssen genau mit den Werten übereinstimmen, die beim Festlegen der CSS [font-family](/de/docs/Web/CSS/font-family) verwendet werden.
 
 ## Syntax
 
@@ -16,7 +16,7 @@ Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) {{Glossary("CS
 }
 ```
 
-Andere nachfolgende Palettenwerte gelten nur für die angegebene Schriftfamilie. Sie können [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) für andere Schriftfamilien erstellen, indem Sie die gleichen [&lt;dashed-ident&gt;s](/de/docs/Web/CSS/dashed-ident) verwenden. Das bedeutet, dass Sie, wenn Sie mehrere Farbschriften haben, denselben Identifikator für jede verwenden können.
+Andere nachfolgende Palettenwerte gelten nur für die angegebene Schriftartfamilie. Sie können [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) für andere Schriftartfamilien erstellen, indem Sie denselben [&lt;dashed-ident&gt;s](/de/docs/Web/CSS/dashed-ident) verwenden. Dies bedeutet, dass wenn Sie mehrere Farbschriftarten haben, Sie denselben Bezeichner für jede verwenden können.
 
 ### Werte
 
@@ -33,9 +33,9 @@ Andere nachfolgende Palettenwerte gelten nur für die angegebene Schriftfamilie.
 
 ## Beispiele
 
-### Verwendung übereinstimmender Familiennamen
+### Verwendung von übereinstimmenden Familiennamen
 
-In diesem Beispiel wird, wenn der `font-family`-Deskriptor in der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) at-Regel verwendet wird, derselbe Wert wie für die `font-family` verwendet, wie er deklariert ist.
+In diesem Beispiel wird der `font-family` Deskriptor in der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) At-Regel verwendet, und es wird derselbe Wert für die `font-family` verwendet, wie wenn sie deklariert wird.
 
 #### HTML
 
@@ -68,9 +68,9 @@ h2.extra-spicy {
 
 {{EmbedLiveSample("Using matching family names")}}
 
-### Verwendung desselben Palettenidentifikators für mehrere Schriftfamilien
+### Verwendung desselben Palettenidentifikators für mehrere Schriftarten-Familien
 
-In diesem Beispiel werden zwei [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) at-Regeln für zwei Schriftfamilien festgelegt, aber beide at-Regeln verwenden denselben dashed-ident Identifikator, `--Dark Mode`. Dies hilft, die [font-palette](/de/docs/Web/CSS/font-palette) Eigenschaft für mehrere Elemente, in diesem Fall `h1` und `h2`, gleichzeitig zu setzen. Dies kann nützlich sein, wenn Sie die Schriftfarben aktualisieren möchten, um zum Branding Ihrer Website zu passen.
+In diesem Beispiel sind zwei [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) At-Regeln für zwei Schriftartfamilien festgelegt, aber beide At-Regeln verwenden denselben gedoppelten Bezeichner, `--Dark-Mode`. Dies hilft, die [font-palette](/de/docs/Web/CSS/font-palette) Eigenschaft für mehrere Elemente, `h1` und `h2` in diesem Fall, gleichzeitig zu setzen. Dies kann nützlich sein, wenn Sie die Schriftfarben auf das Branding Ihrer Website abstimmen möchten.
 
 ```css
 @font-palette-values --Dark-Mode {
@@ -79,7 +79,7 @@ In diesem Beispiel werden zwei [@font-palette-values](/de/docs/Web/CSS/@font-pal
 }
 
 @font-palette-values --Dark-Mode {
-  font-family: Bixa;
+  font-family: "Bixa";
   /* palette settings for Bixa */
 }
 
@@ -93,7 +93,7 @@ h1 {
 }
 
 h2 {
-  font-family: Bixa, fantasy;
+  font-family: "Bixa", fantasy;
 }
 ```
 

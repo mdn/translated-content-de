@@ -2,7 +2,7 @@
 title: Beispiel 2
 slug: Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls/Example_2
 l10n:
-  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
+  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
 ---
 
 Dies ist das zweite Beispiel, das erklärt, [wie man benutzerdefinierte Formular-Widgets erstellt](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls).
@@ -77,7 +77,7 @@ Dies ist das zweite Beispiel, das erklärt, [wie man benutzerdefinierte Formular
 
 .select {
   font-size: 0.625em; /* 10px */
-  font-family: Verdana, Arial, sans-serif;
+  font-family: "Verdana", "Arial", sans-serif;
 
   box-sizing: border-box;
 

@@ -2,7 +2,7 @@
 title: CSSFontFaceRule
 slug: Web/API/CSSFontFaceRule
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
 ---
 
 {{APIRef("CSSOM")}}
@@ -28,7 +28,7 @@ Dieses Beispiel verwendet das CSS, das als Beispiel auf der Seite {{cssxref("@fo
 
 ```css
 @font-face {
-  font-family: MyHelvetica;
+  font-family: "MyHelvetica";
   src:
     local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"),
     url("MgOpenModernaBold.ttf");

@@ -2,10 +2,10 @@
 title: break-inside
 slug: Web/CSS/break-inside
 l10n:
-  sourceCommit: 5eb1c147189824b5d2ff915da1b444aeafd51c6f
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
-Die **`break-inside`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Seiten-, Spalten- oder Regionenumbrüche in einem generierten Kasten behandelt werden sollen. Wenn kein generierter Kasten vorhanden ist, wird die Eigenschaft ignoriert.
+Die **`break-inside`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Seiten-, Spalten- oder Regionenumbrüche innerhalb einer generierten Box verhalten sollen. Wenn keine generierte Box vorhanden ist, wird die Eigenschaft ignoriert.
 
 {{InteractiveExample("CSS Demo: break-inside")}}
 
@@ -79,31 +79,31 @@ break-inside: revert-layer;
 break-inside: unset;
 ```
 
-Jeder mögliche Umbruchpunkt (also jede Elementgrenze) wird durch drei Eigenschaften beeinflusst: den Wert von {{cssxref("break-after")}} des vorherigen Elements, den Wert von {{cssxref("break-before")}} des nächsten Elements und den `break-inside` Wert des beinhaltenden Elements.
+Jeder mögliche Umbruchpunkt (mit anderen Worten, jedes Elementgrenze) wird von drei Eigenschaften beeinflusst: dem Wert von {{cssxref("break-after")}} des vorherigen Elements, dem Wert von {{cssxref("break-before")}} des nachfolgenden Elements und dem `break-inside` Wert des enthaltenen Elements.
 
-Um festzustellen, ob ein Umbruch erfolgen muss, werden die folgenden Regeln angewendet:
+Um zu bestimmen, ob ein Umbruch erfolgen muss, gelten folgende Regeln:
 
-1. Wenn einer der drei betreffenden Werte ein _erzwungener Umbruchwert_ ist (`always`, `left`, `right`, `page`, `column` oder `region`), hat dieser Vorrang. Wenn mehr als einer davon ein solcher Umbruch ist, wird der Wert des Elements verwendet, das zuletzt im Fluss erscheint. Somit hat der `break-before` Wert Vorrang vor dem `break-after` Wert, der wiederum Vorrang vor dem `break-inside` Wert hat.
-2. Wenn einer der drei betreffenden Werte ein _Umbruch vermeiden_ Wert ist (`avoid`, `avoid-page`, `avoid-region` oder `avoid-column`), wird an dieser Stelle kein solcher Umbruch vorgenommen.
+1. Wenn einer der drei betreffenden Werte ein _erzwungener Umbruchwert_ (`always`, `left`, `right`, `page`, `column` oder `region`) ist, hat dieser Vorrang. Wenn mehr als einer dieser Umbruch ist, wird der Wert des im Fluss zuletzt erscheinenden Elements verwendet. Somit hat der `break-before` Wert Vorrang vor dem `break-after` Wert, welcher wiederum Vorrang vor dem `break-inside` Wert hat.
+2. Wenn einer der drei betreffenden Werte ein _Umbruch-vermeidender Wert_ (`avoid`, `avoid-page`, `avoid-region` oder `avoid-column`) ist, wird an dieser Stelle kein solcher Umbruch angewendet.
 
-Sobald erzwungene Umbrüche angewendet wurden, können bei Bedarf weiche Umbrüche hinzugefügt werden, jedoch nicht an den Elementgrenzen, die in einem entsprechenden `avoid` Wert aufgelöst werden.
+Sobald erzwungene Umbrüche angewendet wurden, können bei Bedarf weiche Umbrüche hinzugefügt werden, jedoch nicht an Elementgrenzen, die in einem entsprechenden `avoid` Wert aufgelöst werden.
 
 ### Werte
 
 - `auto`
-  - : Erlaubt, erzwingt aber nicht, dass ein Umbruch (Seite, Spalte oder Region) innerhalb des Hauptkastens eingefügt wird.
+  - : Erlaubt, erzwingt jedoch nicht, das Einfügen eines Umbruchs (Seite, Spalte oder Region) innerhalb der Hauptbox.
 - `avoid`
-  - : Vermeidet jeden Umbruch (Seite, Spalte oder Region) innerhalb des Hauptkastens.
+  - : Vermeidet das Einfügen eines Umbruchs (Seite, Spalte oder Region) innerhalb der Hauptbox.
 - `avoid-page`
-  - : Vermeidet jeden Seitenumbruch innerhalb des Hauptkastens.
+  - : Vermeidet einen Seitenumbruch innerhalb der Hauptbox.
 - `avoid-column`
-  - : Vermeidet jeden Spaltenumbruch innerhalb des Hauptkastens.
+  - : Vermeidet einen Spaltenumbruch innerhalb der Hauptbox.
 - `avoid-region`
-  - : Vermeidet jeden Regionenumbruch innerhalb des Hauptkastens.
+  - : Vermeidet einen Regionenumbruch innerhalb der Hauptbox.
 
-## Seitenumbruch-Aliase
+## Synonyme für Seitenumbrüche
 
-Aus Kompatibilitätsgründen sollte die veraltete {{cssxref("page-break-inside")}} Eigenschaft von Browsern als Alias von `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, weiterhin wie geplant funktionieren. Ein Teil der Werte sollte wie folgt als Alias verwendet werden:
+Aus Kompatibilitätsgründen sollte die veraltete {{cssxref("page-break-inside")}} Eigenschaft von Browsern als Synonym für `break-inside` behandelt werden. Dies stellt sicher, dass Websites, die `page-break-inside` verwenden, weiterhin wie vorgesehen funktionieren. Ein Teil der Werte sollte wie folgt als synonym behandelt werden:
 
 | page-break-inside | break-inside |
 | ----------------- | ------------ |
@@ -120,11 +120,11 @@ Aus Kompatibilitätsgründen sollte die veraltete {{cssxref("page-break-inside")
 
 ## Beispiele
 
-### Vermeidung eines Umbruchs in einer Abbildung
+### Vermeidung von Umbrüchen innerhalb einer Abbildung
 
-Im folgenden Beispiel haben wir einen Container, der eine `<h1>` Überschrift enthält, die alle Spalten überspannt (erreicht durch `column-span: all`), sowie eine Reihe von Absätzen, die in mehreren Spalten mit `column-width: 200px` angeordnet sind. Wir haben auch ein `<figure>`, das ein Bild und eine Beschriftung enthält.
+Im folgenden Beispiel haben wir einen Container, der ein `<h1>` enthält, das sich über alle Spalten erstreckt (erreicht durch `column-span: all`) und eine Reihe von Absätzen, die in mehreren Spalten mit `column-width: 200px` angeordnet sind. Wir haben auch eine `<figure>`, die ein Bild und eine Bildunterschrift enthält.
 
-Standardmäßig ist es möglich, dass zwischen dem Bild und seiner Beschriftung ein Umbruch auftritt, was wir nicht wollen. Um dies zu vermeiden, haben wir `break-inside: avoid` auf das `<figure>` gesetzt, wodurch sie immer zusammenbleiben.
+Standardmäßig kann es zu einem Umbruch zwischen Bild und Bildunterschrift kommen, was wir vermeiden möchten. Um dies zu verhindern, haben wir `break-inside: avoid` auf die `<figure>` gesetzt, was dazu führt, dass sie immer zusammen bleiben.
 
 #### HTML
 
@@ -167,7 +167,7 @@ Standardmäßig ist es möglich, dass zwischen dem Bild und seiner Beschriftung 
 
 ```css
 html {
-  font-family: helvetica, arial, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 body {
@@ -226,5 +226,5 @@ article {
 
 ## Siehe auch
 
-- [Erlernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
-- [Bruchstellen mit CSS Fragmentierung]https://www.smashingmagazine.com/2019/02/css-fragmentation/)
+- [Lernen: Mehrspaltige Layouts](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- [Breaking Boxes With CSS Fragmentation](https://www.smashingmagazine.com/2019/02/css-fragmentation/)

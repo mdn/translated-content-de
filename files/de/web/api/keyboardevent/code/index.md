@@ -1,30 +1,30 @@
 ---
-title: "KeyboardEvent: code Eigenschaft"
+title: "KeyboardEvent: code-Eigenschaft"
 short-title: code
 slug: Web/API/KeyboardEvent/code
 l10n:
-  sourceCommit: 976891fb78ba24cb4ac6e58ae8a903b20eae4337
+  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
 ---
 
 {{APIRef("UI Events")}}
 
-Die Eigenschaft `KeyboardEvent.code` repräsentiert eine physische Taste auf der Tastatur (im Gegensatz zu dem Zeichen, das durch das Drücken der Taste erzeugt wird). Mit anderen Worten, diese Eigenschaft gibt einen Wert zurück, der nicht durch die Tastaturbelegung oder den Zustand der Modifier-Tasten verändert wird.
+Die `KeyboardEvent.code`-Eigenschaft repräsentiert eine physische Taste auf der Tastatur (im Gegensatz zu dem Zeichen, das durch Drücken der Taste erzeugt wird). Mit anderen Worten, diese Eigenschaft gibt einen Wert zurück, der nicht durch das Tastaturlayout oder den Zustand der Modifikationstasten verändert wird.
 
-Wenn das Eingabegerät keine physische Tastatur ist, sondern eine virtuelle Tastatur oder ein Barrierefreiheitsgerät, wird der zurückgegebene Wert vom Browser so eingestellt, dass er möglichst genau dem entspricht, was bei einer physischen Tastatur passieren würde, um die Kompatibilität zwischen physischen und virtuellen Eingabegeräten zu maximieren.
+Wenn das Eingabegerät keine physische Tastatur, sondern stattdessen eine virtuelle Tastatur oder ein barrierefreies Gerät ist, wird der zurückgegebene Wert vom Browser so gesetzt, dass er möglichst genau dem entspricht, was bei einer physischen Tastatur passieren würde, um die Kompatibilität zwischen physischen und virtuellen Eingabegeräten zu maximieren.
 
-Diese Eigenschaft ist nützlich, wenn Sie Tasten basierend auf ihrer physischen Position auf dem Eingabegerät behandeln möchten, anstatt der Zeichen, die diesen Tasten zugeordnet sind; dies ist besonders häufig, wenn Code geschrieben wird, um Eingaben für Spiele zu behandeln, die eine gamepad-ähnliche Umgebung unter Verwendung von Tasten auf der Tastatur simulieren. Beachten Sie jedoch, dass Sie den von `KeyboardEvent.code` gemeldeten Wert nicht verwenden können, um das durch den Tastendruck erzeugte Zeichen zu bestimmen, da der Name des Tastencodes möglicherweise nicht mit dem tatsächlichen Zeichen übereinstimmt, das auf der Taste steht oder das vom Computer erzeugt wird, wenn die Taste gedrückt wird.
+Diese Eigenschaft ist nützlich, wenn Sie Tasten basierend auf ihren physischen Positionen auf dem Eingabegerät behandeln möchten, anstatt auf den mit diesen Tasten verbundenen Zeichen; dies ist besonders häufig, wenn Sie Code schreiben, um Eingaben für Spiele zu behandeln, die eine gamepad-ähnliche Umgebung mit Tasten auf der Tastatur simulieren. Seien Sie sich jedoch bewusst, dass Sie den von `KeyboardEvent.code` gemeldeten Wert nicht verwenden können, um das durch den Tastenanschlag erzeugte Zeichen zu bestimmen, da der Name des Tasten-Codes möglicherweise nicht mit dem tatsächlichen Zeichen übereinstimmt, das auf der Taste aufgedruckt oder vom Computer erzeugt wird, wenn die Taste gedrückt wird.
 
-Zum Beispiel wird für die Taste <kbd>Q</kbd> auf einer QWERTY-Tastatur das `code` als `"KeyQ"` zurückgegeben, aber derselbe `code`-Wert repräsentiert die Taste <kbd>'</kbd> auf Dvorak-Tastaturen und die Taste <kbd>A</kbd> auf AZERTY-Tastaturen. Das macht es unmöglich, den Wert von `code` zu verwenden, um den Namen der Taste für Benutzer zu bestimmen, wenn sie nicht die erwartete Tastaturbelegung verwenden.
+Zum Beispiel wird der zurückgegebene `code` mit `"KeyQ"` bezeichnet für die Taste <kbd>Q</kbd> auf einer QWERTY-Tastatur, aber derselbe `code`-Wert repräsentiert auch die Taste <kbd>'</kbd> auf Dvorak-Tastaturen und die Taste <kbd>A</kbd> auf AZERTY-Tastaturen. Das macht es unmöglich, den Wert von `code` zu verwenden, um den Namen der Taste für Benutzer zu bestimmen, wenn sie nicht das erwartete Tastaturlayout verwenden.
 
-Um zu bestimmen, welches Zeichen dem Tastenereignis entspricht, verwenden Sie stattdessen die [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) Eigenschaft.
+Um zu bestimmen, welches Zeichen dem Tastendruck-Ereignis entspricht, verwenden Sie stattdessen die [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key)-Eigenschaft.
 
 ## Wert
 
-Die Code-Werte für Windows, Linux und macOS sind auf der Seite [KeyboardEvent: code values](/de/docs/Web/API/UI_Events/Keyboard_event_code_values) aufgelistet.
+Die `code`-Werte für Windows, Linux und macOS sind auf der Seite [KeyboardEvent: code values](/de/docs/Web/API/UI_Events/Keyboard_event_code_values) aufgeführt.
 
 ## Beispiele
 
-### Nutzung von KeyboardEvent
+### Verarbeitung von KeyboardEvent
 
 #### HTML
 
@@ -40,7 +40,7 @@ Die Code-Werte für Windows, Linux und macOS sind auf der Seite [KeyboardEvent: 
 
 ```css
 #output {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   border: 1px solid black;
   width: 95%;
   margin: auto;
@@ -61,15 +61,15 @@ window.addEventListener("keydown", (event) => {
 });
 ```
 
-#### Ausprobieren
+#### Probieren Sie es aus
 
-Um sicherzustellen, dass die Tastendrücke zum Beispiel gelangen, klicken Sie auf das Ausgabefeld oder fokussieren Sie es unten, bevor Sie Tasten drücken.
+Um sicherzustellen, dass die Tastenanschläge zum Beispiel gehen, klicken oder fokussieren Sie das Ausgabefeld unten, bevor Sie Tasten drücken.
 
 {{ EmbedLiveSample('Exercising_KeyboardEvent', 600, 300) }}
 
-### Behandeln von Tastaturereignissen in einem Spiel
+### Tastenereignisse in einem Spiel behandeln
 
-Dieses Beispiel richtet einen Ereignislistener für [`keydown`](/de/docs/Web/API/Element/keydown_event) Ereignisse ein, die Tastatureingaben für ein Spiel behandeln, das das typische "WASD"-Tastaturlayout für die Steuerung vorwärts, links, rückwärts und rechts verwendet. Dies verwendet physisch dieselben vier Tasten, unabhängig davon, welche tatsächlichen entsprechenden Zeichen vorhanden sind, zum Beispiel, wenn der Benutzer eine AZERTY-Tastatur verwendet.
+Dieses Beispiel richtet einen Ereignislistener für [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignisse ein, die Tastatureingaben für ein Spiel behandeln, das das typische "WASD"-Tastaturlayout für Vorwärts-, Links-, Rückwärts- und Rechtssteuerung verwendet. Dies wird die gleichen vier physischen Tasten verwenden, unabhängig von den tatsächlichen korrespondierenden Zeichen, zum Beispiel falls der Benutzer eine AZERTY-Tastatur verwendet.
 
 #### HTML
 
@@ -106,7 +106,7 @@ Dieses Beispiel richtet einen Ereignislistener für [`keydown`](/de/docs/Web/API
 
 #### JavaScript
 
-Der erste Abschnitt des JavaScript-Codes legt einige Variablen fest, die wir verwenden werden. `shipSize` enthält die Größe des Schiffs, das der Spieler bewegt, zur Bequemlichkeit. `position` wird verwendet, um die Position des Schiffs innerhalb des Spielfelds zu verfolgen. `moveRate` ist die Anzahl der Pixel, die das Schiff bei jedem Tastendruck vorwärts und rückwärts bewegt, und `turnRate` ist, wie viele Grad Rotationskontrollen links und rechts pro Tastendruck gelten. `angle` ist der derzeitige Betrag der auf das Schiff angewendeten Rotation in Grad; er startet bei 0° (zeigt gerade nach oben). Schließlich wird `spaceship` auf das Element mit der ID `"spaceship"` gesetzt, welches das SVG-Polygon repräsentiert, das das vom Spieler kontrollierte Schiff darstellt.
+Der erste Abschnitt des JavaScript-Codes dient dazu, einige Variablen zu etablieren, die wir verwenden werden. `shipSize` enthält die Größe des Schiffs, das der Spieler steuert, zur Bequemlichkeit. `position` wird verwendet, um die Position des Schiffs innerhalb des Spielfeldes zu verfolgen. `moveRate` ist die Anzahl der Pixel, die das Schiff bei jedem Tastenanschlag vorwärts- und rückwärts bewegt wird, und `turnRate` ist, wie viele Grad Drehung die Steuerung links und rechts pro Tastenanschlag anwenden. `angle` ist die aktuelle Drehung des Schiffs in Grad; sie beginnt bei 0° (zeigt gerade nach oben). Schließlich wird `spaceship` so gesetzt, dass es auf das Element mit der ID `"spaceship"` verweist, das das SVG-Polygon darstellt, das das vom Spieler gesteuerte Schiff ist.
 
 ```js
 let shipSize = {
@@ -127,7 +127,7 @@ let angle = 0;
 let spaceship = document.getElementById("spaceship");
 ```
 
-Als nächstes kommt die Funktion `updatePosition()`. Diese Funktion nimmt die Entfernung, die das Schiff bewegt werden soll, als Eingabe, wobei Positives eine Vorwärtsbewegung und Negatives eine Rückwärtsbewegung darstellt. Diese Funktion berechnet die neue Position des Schiffs, gegeben die Bewegung und die aktuelle Richtung, in die das Schiff schaut. Sie sorgt auch dafür, dass das Schiff über die Spielfeldgrenzen hinweg schaltet, anstatt zu verschwinden.
+Als nächstes kommt die Funktion `updatePosition()`. Diese Funktion nimmt als Eingabe die Entfernung, die das Schiff bewegt werden soll, wobei positiv eine Vorwärtsbewegung und negativ eine Rückwärtsbewegung ist. Diese Funktion berechnet die neue Position des Schiffs basierend auf der zurückgelegten Entfernung und der aktuellen Richtung, in die das Schiff zeigt. Sie sorgt auch dafür, dass das Schiff über die Grenzen des Spielfelds hinaus geschwenkt wird, anstatt zu verschwinden.
 
 ```js
 function updatePosition(offset) {
@@ -149,7 +149,7 @@ function updatePosition(offset) {
 }
 ```
 
-Die `refresh()` Funktion übernimmt die Anwendung der Rotation und Position unter Verwendung einer [SVG-Transformation](/de/docs/Web/SVG/Reference/Attribute/transform).
+Die `refresh()`-Funktion kümmert sich um die Anwendung der Drehung und Position mithilfe einer [SVG-Transformation](/de/docs/Web/SVG/Reference/Attribute/transform).
 
 ```js
 function refresh() {
@@ -162,7 +162,7 @@ function refresh() {
 refresh();
 ```
 
-Schließlich wird die `addEventListener()` Methode verwendet, um mit dem Lauschen auf [`keydown`](/de/docs/Web/API/Element/keydown_event) Ereignisse zu beginnen und jede Taste durch Aktualisieren der Schiffsposition und des Rotationswinkels zu behandeln, dann wird `refresh()` aufgerufen, um das Schiff an seiner neuen Position und seinem neuen Winkel zu zeichnen.
+Schließlich wird die `addEventListener()`-Methode verwendet, um das Abhören von [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignissen zu starten, wobei jede Taste behandelt wird, indem die Schiffposition und der Drehwinkel aktualisiert werden, und dann `refresh()` aufgerufen wird, um das Schiff an seiner neuen Position und seinem neuen Winkel zu zeichnen.
 
 ```js
 window.addEventListener("keydown", (event) => {
@@ -203,13 +203,13 @@ window.addEventListener("keydown", (event) => {
 });
 ```
 
-#### Ausprobieren
+#### Probieren Sie es aus
 
-Um sicherzustellen, dass die Tastendrücke in die Beispielcodierung gehen, klicken oder fokussieren Sie das schwarze Spielfeld unten, bevor Sie Tasten drücken.
+Um sicherzustellen, dass die Tastenanschläge zum Beispielcode gehen, klicken oder fokussieren Sie das schwarze Spielfeld unten, bevor Sie Tasten drücken.
 
 {{EmbedLiveSample("Handle_keyboard_events_in_a_game", 420, 460)}}
 
-Es gibt mehrere Möglichkeiten, diesen Code zu verbessern. Die meisten echten Spiele würden auf [`keydown`](/de/docs/Web/API/Element/keydown_event) Ereignisse achten, die Bewegung starten, wenn das passiert, und die Bewegung stoppen, wenn das entsprechende [`keyup`](/de/docs/Web/API/Element/keyup_event) erfolgt, anstatt sich auf Tastenwiederholungen zu verlassen. Das würde sowohl eine flüssigere als auch schnellere Bewegung ermöglichen, aber es würde auch dem Spieler erlauben, sich zu bewegen und gleichzeitig zu steuern. Übergänge oder Animationen könnten verwendet werden, um die Bewegung des Schiffs ebenfalls flüssiger zu machen.
+Es gibt mehrere Möglichkeiten, wie dieser Code verbessert werden kann. Die meisten echten Spiele würden auf [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignisse achten, die Bewegung starten, wenn das passiert, und die Bewegung stoppen, wenn das entsprechende [`keyup`](/de/docs/Web/API/Element/keyup_event) auftritt, anstatt sich auf Tastenwiederholungen zu verlassen. Das würde sowohl geschmeidigere als auch schnellere Bewegungen ermöglichen, aber auch den Spieler erlauben, sich gleichzeitig zu bewegen und zu steuern. Übergänge oder Animationen könnten verwendet werden, um die Bewegung des Schiffs geschmeidiger zu gestalten.
 
 ## Spezifikationen
 

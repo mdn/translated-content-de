@@ -2,16 +2,16 @@
 title: view-timeline-inset
 slug: Web/CSS/view-timeline-inset
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
-Die **`view-timeline-inset`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um ein oder zwei Werte anzugeben, die eine Anpassung an die Position des Scrollport (siehe {{Glossary("Scroll_container", "Scroll-Container")}} für mehr Details) darstellen, in dem das Betreffselement einer _benannten Ansicht-Fortschritts-Timeline_-Animation als sichtbar angesehen wird. Anders ausgedrückt, erlaubt dies Ihnen, Start- und/oder End-Inset- (oder Outset-) Werte anzugeben, die die Position der Timeline versetzen.
+Die **`view-timeline-inset`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um ein oder zwei Werte anzugeben, die eine Anpassung an die Position des Scrollports (siehe {{Glossary("Scroll_container", "Scroll-Container")}} für weitere Details) darstellen, in dem das Zielelement einer _benannten Fortschrittszeitleisten_-Animation als sichtbar angesehen wird. Anders ausgedrückt, ermöglicht dies das Festlegen von Start- und/oder Endinset-(oder Outset-)Werten, die die Position der Zeitleiste versetzen.
 
-Dies kann mit oder anstelle von {{cssxref("animation-range")}} und seinen Langform-Eigenschaften kombiniert werden, die verwendet werden können, um den Anwendungsbereich einer Animation entlang ihrer Timeline festzulegen.
-Siehe [CSS Scroll-getriebene Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) für weitere Details.
+Dies kann zusammen mit oder anstelle von {{cssxref("animation-range")}} und den zugehörigen Langform-Eigenschaften verwendet werden, die verwendet werden können, um den Anwendungsbereich einer Animation entlang ihrer Zeitleiste festzulegen.
+Siehe [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) für weitere Details.
 
 > [!NOTE]
-> Wenn das Scroller-Element in der Achsenrichtung sein Container nicht überläuft oder wenn der Überlauf verborgen oder abgeschnitten ist, wird keine Scroll-Fortschritts-Timeline erstellt.
+> Wenn das Scrollelement sein Container in der Achsendimension nicht überläuft oder wenn das Überlaufen versteckt oder abgeschnitten ist, wird keine Scroll-Fortschrittszeitleiste erstellt.
 
 Die `view-timeline-inset`, {{cssxref("view-timeline-axis")}}, und {{cssxref("view-timeline-name")}} Eigenschaften können auch mit der {{cssxref("view-timeline")}} Kurzform-Eigenschaft gesetzt werden.
 
@@ -34,13 +34,13 @@ view-timeline-inset: 20% 200px;
 Erlaubte Werte für `view-timeline-inset` sind:
 
 - `auto`
-  - : Wenn gesetzt, wird die entsprechende {{cssxref("scroll-padding")}} (oder gleichwertiger Langform-Wert) für diese Kante des Scrollports verwendet. Wenn dies nicht gesetzt ist (oder auf `auto` gesetzt), wird der Wert normalerweise 0 sein, obwohl einige Benutzeragenten Heuristiken verwenden können, um einen anderen Standardwert festzulegen, wenn es angebracht ist.
+  - : Wenn gesetzt, wird das entsprechende {{cssxref("scroll-padding")}} (oder der entsprechende Langform-Wert) für diese Kante des Scrollports verwendet. Wenn dies nicht gesetzt (oder auf `auto` gesetzt) ist, beträgt der Wert normalerweise 0, obwohl einige Benutzeragenten Heuristiken verwenden könnten, um einen anderen Standardwert zu bestimmen, wenn dies angebracht ist.
 - {{cssxref("length-percentage")}}
-  - : Jeder gültige `<length-percentage>` Wert wird als Inset-/Outset-Wert akzeptiert.
-    - Wenn der Wert positiv ist, wird die Position des Start-/Endes der Animation um die angegebene Länge oder Prozentsatz innerhalb des Scrollports verschoben.
-    - Wenn der Wert negativ ist, wird die Position des Start-/Endes der Animation um die angegebene Länge oder Prozentsatz außerhalb des Scrollports verschoben, d.h. es wird mit der Animation beginnen, bevor es im Scrollport erscheint, oder wird nach dem Verlassen des Scrollports beenden.
+  - : Jeder gültige `<length-percentage>`-Wert wird als Inset-/Outset-Wert akzeptiert.
+    - Wenn der Wert positiv ist, wird die Position des Start-/Ende der Animation innerhalb des Scrollports um die angegebene Länge oder den angegebenen Prozentsatz verschoben.
+    - Wenn der Wert negativ ist, wird die Position des Start-/Ende der Animation außerhalb des Scrollports um die angegebene Länge oder den angegebenen Prozentsatz verschoben, d.h. es beginnt zu animieren, bevor es im Scrollport erscheint, oder beendet das Animieren, nachdem es den Scrollport verlassen hat.
 
-Wenn zwei Werte angegeben sind, stellt der erste Wert das Start-Inset/Outset in der relevanten Achse dar (wo die Animation beginnt) und der zweite Wert das End-Inset/Outset (wo die Animation endet). Wenn nur ein Wert angegeben ist, werden Start- und End-Inset/Outset beide auf denselben Wert gesetzt.
+Wenn zwei Werte angegeben werden, repräsentiert der erste Wert das Start-Inset/Outset in der relevanten Achse (wo die Animation beginnt) und der zweite Wert repräsentiert das End-Inset/Outset (wo die Animation endet). Wenn nur ein Wert angegeben wird, werden Start- und End-Inset/Outset auf den gleichen Wert gesetzt.
 
 ## Formale Definition
 
@@ -52,16 +52,16 @@ Wenn zwei Werte angegeben sind, stellt der erste Wert das Start-Inset/Outset in 
 
 ## Beispiele
 
-### Erstellen einer benannten Ansicht-Fortschritts-Timeline mit Inset
+### Erstellen einer benannten Fortschrittszeitleiste mit Inset
 
-Eine Ansicht-Fortschritts-Timeline mit dem Namen `--subject-reveal` wird mit der `view-timeline` Eigenschaft auf einem Betreffselement mit einer `class` von `animation` definiert.
-Dies wird dann als Timeline für dasselbe Element mit `animation-timeline: --subject-reveal;` festgelegt. Das Ergebnis ist, dass das Betreffselement animiert wird, während es sich nach oben durch das Dokument bewegt, während es gescrollt wird.
+Eine Fortschrittszeitleiste namens `--subject-reveal` wird definiert, indem die `view-timeline` Eigenschaft auf einem Zielelement mit einer `class` von `animation` verwendet wird.
+Dies wird dann als Zeitleiste für dasselbe Element mit `animation-timeline: --subject-reveal;` gesetzt. Das Ergebnis ist, dass das Zielelement animiert wird, wenn es nach oben durch das Dokument bewegt wird, während es gescrollt wird.
 
 Eine `view-timeline-inset` Deklaration wird ebenfalls gesetzt, um die Animation später als erwartet beginnen und früher enden zu lassen.
 
 #### HTML
 
-Der HTML-Code für das Beispiel ist unten gezeigt.
+Der HTML-Code für das Beispiel wird unten angezeigt.
 
 ```html
 <div class="content">
@@ -100,7 +100,7 @@ Der HTML-Code für das Beispiel ist unten gezeigt.
 
 #### CSS
 
-Das `subject`-Element und sein enthaltendes `content`-Element sind minimal gestylt, und der Textinhalt bekommt einige grundlegende Schriftart-Einstellungen:
+Das `subject` Element und das umgebende `content` Element werden minimal gestylt, und der Textinhalt erhält einige grundlegende Schriftsatzeinstellungen:
 
 ```css
 .subject {
@@ -118,7 +118,7 @@ Das `subject`-Element und sein enthaltendes `content`-Element sind minimal gesty
 
 p,
 h1 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 h1 {
@@ -131,9 +131,9 @@ p {
 }
 ```
 
-Das `<div>` mit der Klasse `subject` erhält auch eine Klasse von `animation` — hier wird `view-timeline` gesetzt, um eine benannte Ansicht-Fortschritts-Timeline zu definieren. Wir geben ihm auch eine `view-timeline-inset` Deklaration, um die Animation später als erwartet beginnen und früher enden zu lassen. Es wird auch ein `animation-timeline` Name mit demselben Wert gegeben, um anzugeben, dass dies das Element sein wird, das animiert wird, während die Ansicht-Fortschritts-Timeline fortschreitet.
+Das `<div>` mit der Klasse `subject` erhält auch eine Klasse `animation` — hier wird `view-timeline` gesetzt, um eine benannte Fortschrittszeitleiste zu definieren. Wir geben ihm auch eine `view-timeline-inset` Deklaration, um die Animation später als erwartet beginnen und früher enden zu lassen. Es erhält auch einen `animation-timeline` Namen mit demselben Wert, um anzugeben, dass dies das animierte Element ist, während die Fortschrittszeitleiste voranschreitet.
 
-Zuletzt wird eine Animation auf das Element spezifiziert, die seine Opazität und Skalierung animiert, wodurch es verblasst und größer wird, während es den Scroller hinauf bewegt.
+Zuletzt wird eine Animation auf dem Element angegeben, die dessen Opazität und Maßstab animiert, wodurch es verblasst und sich vergrößert, wenn es sich nach oben im Scroller bewegt.
 
 ```css
 .animation {
@@ -161,9 +161,9 @@ Zuletzt wird eine Animation auf das Element spezifiziert, die seine Opazität un
 
 #### Ergebnis
 
-Scrollen Sie, um das animierte Betreffselement zu sehen.
+Scrollen Sie, um zu sehen, wie das Zielelement animiert wird.
 
-{{EmbedLiveSample("Creating a named view progress timeline with inset", "100%", "480px")}}
+{{EmbedLiveSample("Erstellen einer benannten Fortschrittszeitleiste mit Inset", "100%", "480px")}}
 
 ## Spezifikationen
 
@@ -178,4 +178,4 @@ Scrollen Sie, um das animierte Betreffselement zu sehen.
 - {{cssxref("animation-timeline")}}
 - {{cssxref("timeline-scope")}}
 - {{cssxref("view-timeline")}}, {{cssxref("view-timeline-axis")}}, {{cssxref("view-timeline-name")}}
-- [CSS scroll-driven animations](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)

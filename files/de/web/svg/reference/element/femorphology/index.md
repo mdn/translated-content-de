@@ -2,12 +2,12 @@
 title: <feMorphology>
 slug: Web/SVG/Reference/Element/feMorphology
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
 ---
 
-Der **`<feMorphology>`** [SVG](/de/docs/Web/SVG) Filter-Primitive wird verwendet, um das Eingabebild zu erodieren oder zu erweitern. Seine Nützlichkeit liegt besonders in der Verdickung oder Verdünnung von Bildeffekten.
+Das **`<feMorphology>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv wird verwendet, um das Eingabebild zu erodieren oder zu verdicken. Seine Nützlichkeit besteht insbesondere in der Erzeugung von Verbreiterungs- oder Verdünnungseffekten.
 
-Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+Wie andere Filter-Primitiven behandelt es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
 
 ## Verwendungskontext
 
@@ -25,7 +25,7 @@ Dieses Element implementiert die [`SVGFEMorphologyElement`](/de/docs/Web/API/SVG
 
 ## Beispiele
 
-### SVG-Inhalte filtern
+### SVG-Inhalt filtern
 
 #### SVG
 
@@ -47,7 +47,7 @@ Dieses Element implementiert die [`SVGFEMorphologyElement`](/de/docs/Web/API/SVG
 
 ```css
 text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   font-size: 3em;
 }
 
@@ -62,7 +62,7 @@ text {
 
 {{EmbedLiveSample("Filtering_SVG_content", 340, 180)}}
 
-### HTML-Inhalte filtern
+### HTML-Inhalt filtern
 
 #### SVG
 
@@ -86,7 +86,7 @@ text {
 ```css
 p {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   font-size: 3em;
 }
 
@@ -129,4 +129,4 @@ p {
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

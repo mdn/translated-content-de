@@ -2,10 +2,10 @@
 title: ascent-override
 slug: Web/CSS/@font-face/ascent-override
 l10n:
-  sourceCommit: 7e1296fc0722c86fb7e15487b5e9626597c7a2a0
+  sourceCommit: a3eec14af0580dad6eae65980686cee6cafc2c68
 ---
 
-Der **`ascent-override`** [CSS](/de/docs/Web/CSS) Deskriptor für die {{cssxref("@font-face")}} At-Regel definiert die Aufwärts-Metrik für die Schriftart. Die Aufwärts-Metrik ist die Höhe über der Grundlinie, die CSS zur Layoutgestaltung von Textzeilen in einem Inline-Formatierungskontext verwendet.
+Der **`ascent-override`** [CSS](/de/docs/Web/CSS) Deskriptor für die {{cssxref("@font-face")}} At-Regel definiert die Ascent-Metrik für die Schriftart. Die Ascent-Metrik ist die Höhe oberhalb der Grundlinie, die CSS verwendet, um Line-Boxen im Inline-Formatting-Kontext anzuordnen.
 
 ## Syntax
 
@@ -17,9 +17,9 @@ ascent-override: 90%;
 ### Werte
 
 - `normal`
-  - : Der Standardwert. Bei Verwendung wird der Metrikwert aus der Schriftartdatei entnommen.
+  - : Der Standardwert. Wenn verwendet, wird der Metrikwert aus der Schriftartdatei entnommen.
 - `<percentage>`
-  - : Ein {{cssxref("&lt;percentage&gt;")}} Wert.
+  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert.
 
 ## Formale Definition
 
@@ -31,18 +31,18 @@ ascent-override: 90%;
 
 ## Beispiele
 
-### Überschreiben von Metriken einer Ersatzschriftart
+### Überschreiben der Metriken einer Ersatzschriftart
 
-Die `ascent-override`-Eigenschaft kann helfen, wenn die Metriken einer Ersatzschriftart überschrieben werden sollen, um besser mit denen einer primären Webfont übereinzustimmen.
+Die `ascent-override` Eigenschaft kann helfen, wenn die Metriken einer Ersatzschriftart überschrieben werden müssen, um besser mit denen einer primären Web-Schriftart übereinzustimmen.
 
 ```css
 @font-face {
-  font-family: web-font;
+  font-family: "web-font";
   src: url("https://example.com/font.woff");
 }
 
 @font-face {
-  font-family: local-font;
+  font-family: "local-font";
   src: local("Local Font");
   ascent-override: 125%;
 }

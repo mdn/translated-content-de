@@ -2,15 +2,15 @@
 title: view-timeline-axis
 slug: Web/CSS/view-timeline-axis
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
-Die **`view-timeline-axis`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um die Rollbalkenrichtung festzulegen, die für die Bereitstellung der Zeitleiste einer _benannten View-Progress-Timeline_-Animation verwendet wird. Diese Animation wird basierend auf der Veränderung der Sichtbarkeit eines Elements (bekannt als das _Subjekt_) innerhalb eines scrollbaren Elements (_Scroller_) fortgeschritten. `view-timeline-axis` wird auf das Subjekt angewendet. Weitere Details finden Sie unter [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations).
+Die **`view-timeline-axis`**-Eigenschaft des [CSS](/de/docs/Web/CSS) wird verwendet, um die Richtung der Bildlaufleiste anzugeben, die verwendet wird, um die Zeitleiste für eine _benannte Ansicht Fortschrittszeitleiste_-Animation bereitzustellen, die basierend auf der Änderung der Sichtbarkeit eines Elements (bekannt als das _Subjekt_) innerhalb eines scrollbaren Elements (_Scroller_) fortschreitet. `view-timeline-axis` wird auf das Subjekt gesetzt. Weitere Details finden Sie unter [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations).
 
 > [!NOTE]
-> Wenn das Scroller-Element in der Achsendimension seinen Container nicht überläuft oder wenn der Überlauf ausgeblendet oder abgeschnitten ist, wird keine Scroll-Prozesszeitleiste erstellt.
+> Wenn das Scrolling-Element in der Achsrichtung nicht überläuft oder wenn der Überlauf versteckt oder abgeschnitten ist, wird keine Scroll-Fortschrittszeitleiste erstellt.
 
-Die Eigenschaften `view-timeline-axis`, {{cssxref("view-timeline-inset")}} und {{cssxref("view-timeline-name")}} können auch mit der Kurzschreibweise {{cssxref("view-timeline")}} festgelegt werden.
+Die Eigenschaften `view-timeline-axis`, {{cssxref("view-timeline-inset")}} und {{cssxref("view-timeline-name")}} können auch mit der Kurzform-Eigenschaft {{cssxref("view-timeline")}} festgelegt werden.
 
 ## Syntax
 
@@ -25,16 +25,16 @@ view-timeline-axis: x;
 
 ### Werte
 
-Erlaubte Werte für `view-timeline-axis` sind:
+Zulässige Werte für `view-timeline-axis` sind:
 
 - `block`
-  - : Der Rollbalken auf der Blockachse des Scroller-Elements, was die Achse in der Richtung senkrecht zum Textfluss innerhalb einer Zeile ist. Für horizontale Schreibmodi, wie zum Beispiel Standard-Englisch, entspricht dies `y`, während es für vertikale Schreibmodi `x` entspricht. Dies ist der Standardwert.
+  - : Die Bildlaufleiste auf der Block-Achse des Scrolling-Elements, welche die Achse in der Richtung senkrecht zum Textfluss innerhalb einer Zeile ist. Für horizontale Schreibmodi, wie Standard-Englisch, entspricht dies `y`, während es für vertikale Schreibmodi `x` entspricht. Dies ist der Standardwert.
 - `inline`
-  - : Der Rollbalken auf der Inline-Achse des Scroller-Elements, was die Achse in der Richtung parallel zum Textfluss in einer Zeile ist. Für horizontale Schreibmodi entspricht dies `x`, während es für vertikale Schreibmodi `y` entspricht.
+  - : Die Bildlaufleiste auf der Inline-Achse des Scrolling-Elements, welche die Achse in der Richtung parallel zum Textfluss innerhalb einer Zeile ist. Für horizontale Schreibmodi entspricht dies `x`, während es für vertikale Schreibmodi `y` entspricht.
 - `y`
-  - : Der Rollbalken auf der vertikalen Achse des Scroller-Elements.
+  - : Die Bildlaufleiste auf der vertikalen Achse des Scrolling-Elements.
 - `x`
-  - : Der Rollbalken auf der horizontalen Achse des Scroller-Elements.
+  - : Die Bildlaufleiste auf der horizontalen Achse des Scrolling-Elements.
 
 ## Formale Definition
 
@@ -46,15 +46,15 @@ Erlaubte Werte für `view-timeline-axis` sind:
 
 ## Beispiele
 
-### Definition der Achse der View-Progress-Timeline
+### Definieren der Achse der Fortschrittszeitleiste der Ansicht
 
-In diesem Beispiel wird eine View-Progress-Timeline namens `--subject-reveal` definiert, indem die `view-timeline-name` Eigenschaft auf einem Subjektelement mit einer Klasse von "animation" verwendet wird. Diese Zeitleiste wird dann auf die Animation desselben Elements angewendet, indem `animation-timeline: --subject-reveal;` verwendet wird.
+In diesem Beispiel wird eine Fortschrittszeitleiste der Ansicht namens `--subject-reveal` definiert, indem die Eigenschaft `view-timeline-name` auf ein Subjektelement mit der Klasse "animation" angewendet wird. Diese Zeitleiste wird dann auf die Animation desselben Elements angewendet, mit `animation-timeline: --subject-reveal;`.
 
-Um die Wirkung von `view-timeline-axis` zu demonstrieren, wird in diesem Beispiel ein horizontaler (nicht standardmäßiger) Rollbalken verwendet, um die Animation zu steuern.
+Um die Wirkung von `view-timeline-axis` zu demonstrieren, wird in diesem Beispiel eine horizontale (nicht standardmäßige) Bildlaufleiste verwendet, um die Animation zu steuern.
 
 #### HTML
 
-Das HTML für das Beispiel ist unten dargestellt.
+Das HTML für das Beispiel wird unten gezeigt.
 
 ```html
 <div class="content">
@@ -97,11 +97,12 @@ Das HTML für das Beispiel ist unten dargestellt.
 
 #### CSS
 
-Im CSS setzen wir das `subject` Element als Quelle einer View-Progress-Timeline namens `--subject-reveal` unter Verwendung der `view-timeline-name` Eigenschaft. Die Scrollachse wird mit `view-timeline-axis: x;` (Chromium) und `view-timeline-axis: horizontal;` (Firefox) festgelegt — dies bewirkt, dass die _horizontale Rollbalken_-Position des scrollenden Vorgängerelements die Animationszeitleiste bestimmt.
+Im CSS setzen wir das `subject`-Element als Quelle einer Fortschrittszeitleiste der Ansicht namens `--subject-reveal` mithilfe der `view-timeline-name`-Eigenschaft.
+Die Scrollachse wird mit `view-timeline-axis: x;` (Chromium) und `view-timeline-axis: horizontal;` (Firefox) festgelegt — dies führt dazu, dass die _horizontale Bildlaufleiste_ des scrollenden Vorgängerelements die Animationszeitleiste bestimmt.
 
-Das `content` Vorgängerelement wird durch `display: flex;` und `flex-flow: column wrap;` horizontal überlaufen gelassen.
+Das übergeordnete `content`-Element wird dazu gebracht, horizontal zu überlaufen, indem der Inhalt mit `display: flex;` und `flex-flow: column wrap;` angeordnet wird.
 
-Zu beachten ist auch, dass das Subjektelement eine `animation-duration` hat, damit das Beispiel in Firefox funktioniert.
+Es ist auch erwähnenswert, dass das Subjektelement mit einer `animation-duration` versehen ist, damit das Beispiel in Firefox funktioniert.
 
 ```css
 .subject {
@@ -121,7 +122,7 @@ Zu beachten ist auch, dass das Subjektelement eine `animation-duration` hat, dam
 }
 
 p {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 p {
@@ -157,7 +158,7 @@ p {
 
 #### Ergebnis
 
-Scrollen Sie die horizontale Leiste unten, um zu sehen, wie das Subjektelement beim Scrollen animiert wird.
+Scrollen Sie die horizontale Leiste am unteren Rand, um das Subjektelement zu animieren, während Sie scrollen.
 
 {{EmbedLiveSample("Defining_the_axis_of_the_view_progress_timeline", "100%", "450px")}}
 
@@ -174,4 +175,4 @@ Scrollen Sie die horizontale Leiste unten, um zu sehen, wie das Subjektelement b
 - {{cssxref("animation-timeline")}}
 - {{cssxref("timeline-scope")}}
 - {{cssxref("view-timeline")}}, {{cssxref("view-timeline-inset")}}, {{cssxref("view-timeline-name")}}
-- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)

@@ -2,14 +2,14 @@
 title: corner-bottom-right-shape
 slug: Web/CSS/corner-bottom-right-shape
 l10n:
-  sourceCommit: 2a64c5583a2c61c729ffe1ee1e7709a5898f57b0
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-bottom-right-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form der unteren rechten Ecke eines Kastens innerhalb seines {{cssxref("border-radius")}} Bereichs fest.
+Die **`corner-bottom-right-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form der unteren rechten Ecke eines Kastens innerhalb seines {{cssxref("border-radius")}} Bereichs.
 
-Für eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele siehe die Seite zur {{cssxref("corner-shape")}} Kurzschreibweise.
+Für eine vollständige Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele, siehe die Seite zur Kurzschreibweise der Eigenschaft {{cssxref("corner-shape")}}.
 
 ## Syntax
 
@@ -50,7 +50,7 @@ Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Refer
 
 #### HTML
 
-Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} Element.
+Das Markup für dieses Beispiel enthält ein einziges {{htmlelement("div")}} Element.
 
 ```html live-sample___basic-usage
 <div></div>
@@ -58,11 +58,11 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Styles, die wir der Kürze halber ausgeblendet haben. Außerdem wenden wir einen {{cssxref("box-shadow")}}, einen `border-radius` von `30% / 20%` und eine `corner-bottom-right-shape` von `notch` an.
+Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber versteckt haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `30% / 20%` und eine `corner-bottom-right-shape` von `notch` an.
 
 ```css hidden live-sample___basic-usage
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   width: 240px;
   margin: 20px auto;
 }
@@ -92,7 +92,7 @@ div {
 
 #### Ergebnis
 
-Das gerenderte Ergebnis sieht folgendermaßen aus:
+Das gerenderte Ergebnis sieht so aus:
 
 {{EmbedLiveSample("basic-usage", "100%", "240")}}
 

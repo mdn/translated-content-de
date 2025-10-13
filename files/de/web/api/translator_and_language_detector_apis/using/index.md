@@ -1,19 +1,19 @@
 ---
-title: Verwendung der APIs für Übersetzer und Spracherkennung
+title: Verwendung der Übersetzer- und Spracherkennungs-APIs
 slug: Web/API/Translator_and_Language_Detector_APIs/Using
 l10n:
-  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
+  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
 ---
 
 {{DefaultAPISidebar("Translator and Language Detector APIs")}}
 
-Die [APIs für Übersetzer und Spracherkennung](/de/docs/Web/API/Translator_and_Language_Detector_APIs) bieten asynchrone ({{jsxref("Promise")}}-basierte) Mechanismen für eine Website, um Sprachen zu erkennen und Texte über das interne AI-Modell des Browsers zu übersetzen. Dies ist nützlich und effizient, da der Browser den Dienst verwaltet, anstatt dass der Entwickler darauf angewiesen ist, dass der Nutzer AI-Modelle herunterlädt oder einen cloud-basierten Übersetzungsdienst hostet oder bezahlt. Dieser Artikel erklärt, wie Sie diese APIs verwenden.
+Die [Übersetzer- und Spracherkennungs-APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs) bieten asynchrone (auf {{jsxref("Promise")}} basierende) Mechanismen für eine Website, um Sprachen zu erkennen und Text über das interne KI-Modell des Browsers zu übersetzen. Dies ist nützlich und effizient, da der Browser den Dienst abwickelt, anstatt dass der Entwickler darauf angewiesen ist, dass der Benutzer KI-Modelle herunterlädt, oder auf einen cloudbasierten Übersetzungsdienst zurückgreifen oder für diesen bezahlen muss. Dieser Artikel erklärt, wie Sie diese APIs verwenden.
 
-## Erkennung einer Sprache
+## Erkennen einer Sprache
 
-Die gesamte Funktionalität zur Spracherkennung wird über das [`LanguageDetector`](/de/docs/Web/API/LanguageDetector)-Interface bereitgestellt.
+Alle Funktionen zur Spracherkennung werden über die [`LanguageDetector`](/de/docs/Web/API/LanguageDetector)-Schnittstelle aufgerufen.
 
-Der erste Schritt, das AI-Modell eine Sprache erkennen zu lassen, besteht darin, eine Instanz des `LanguageDetector`-Objekts zu erstellen. Dies geschieht mit der statischen Methode [`LanguageDetector.create()`](/de/docs/Web/API/LanguageDetector/create_static), die ein Optionsobjekt als Argument erwartet:
+Der erste Schritt, um das KI-Modell eine Sprache erkennen zu lassen, besteht darin, eine `LanguageDetector`-Objektinstanz zu erstellen. Dies geschieht mit der statischen Methode [`LanguageDetector.create()`](/de/docs/Web/API/LanguageDetector/create_static), welche ein Optionsobjekt als Argument entgegennimmt:
 
 ```js
 const detector = await LanguageDetector.create({
@@ -21,22 +21,22 @@ const detector = await LanguageDetector.create({
 });
 ```
 
-Die Eigenschaft [`expectedInputLanguages`](/de/docs/Web/API/LanguageDetector/expectedInputLanguages) gibt die Sprachen an, die Sie dem Detektor zuführen möchten, um die Genauigkeit der Spracherkennung zu verbessern.
+Die [`expectedInputLanguages`](/de/docs/Web/API/LanguageDetector/expectedInputLanguages)-Eigenschaft gibt die Sprachen an, die Sie in den Detektor eingeben möchten, um die Genauigkeit der Spracherkennung zu verbessern.
 
 > [!NOTE]
-> Verschiedene Implementierungen unterstützen wahrscheinlich unterschiedliche Sprachen.
+> Unterschiedliche Implementierungen unterstützen wahrscheinlich unterschiedliche Sprachen.
 
-Nachdem Sie eine `LanguageDetector`-Instanz erstellt haben, können Sie sie verwenden, um eine Sprache zu erkennen, indem Sie die Instanzmethode [`LanguageDetector.detect()`](/de/docs/Web/API/LanguageDetector/detect) darauf aufrufen und ihr den zu überprüfenden Text als Argument übergeben.
+Wenn Sie eine `LanguageDetector`-Instanz erstellt haben, können Sie diese verwenden, um eine Sprache zu erkennen, indem Sie die Instanzmethode [`LanguageDetector.detect()`](/de/docs/Web/API/LanguageDetector/detect) aufrufen und ihr den zu überprüfenden Text übergeben.
 
 ```js
 const results = await detector.detect(myTextString);
 ```
 
-Diese Methode gibt ein Array von Objekten zurück, die die erkannten möglichen Sprachübereinstimmungen darstellen.
+Diese Methode gibt ein Array von Objekten zurück, die die erkannten potenziellen Sprachübereinstimmungen darstellen.
 Jedes enthält:
 
-- Einen String, der ein {{Glossary("BCP_47_language_tag", "BCP 47 language tag")}} darstellt, das die erkannte Sprache beschreibt.
-- Eine Zahl zwischen 0 und 1, die eine Vertrauensbewertung für diese Übereinstimmung darstellt.
+- Einen String mit einem {{Glossary("BCP_47_language_tag", "BCP 47-Sprachcode")}}, der die erkannte Sprache darstellt.
+- Eine Zahl zwischen 0 und 1, die einen Vertrauenswert für diese Übereinstimmung darstellt.
 
 Zum Beispiel:
 
@@ -54,11 +54,11 @@ results.forEach((result) => {
 ```
 
 > [!NOTE]
-> Das letzte Array-Element stellt immer eine Vertrauensbewertung für die Sprache `und` dar — dies ist eine Abkürzung für "undetermined" (unbestimmt) und repräsentiert die Wahrscheinlichkeit, dass der Text nicht in einer Sprache geschrieben ist, die das Modell kennt.
+> Das letzte Array-Element stellt immer einen Vertrauenswert für die Sprache `und` dar — dies ist eine Abkürzung für "unbestimmt" und stellt die Wahrscheinlichkeit dar, dass der Text nicht in einer Sprache geschrieben ist, die das Modell kennt.
 
-## Erstellung einer Übersetzung
+## Erstellen einer Übersetzung
 
-Die Übersetzung folgt einem sehr ähnlichen Muster wie die Spracherkennung. Ein [`Translator`](/de/docs/Web/API/Translator)-Objekt wird mit der statischen Methode [`Translator.create()`](/de/docs/Web/API/Translator/create_static) erstellt, die ein Optionsobjekt erwartet, das mindestens eine [`sourceLanguage`](/de/docs/Web/API/Translator/sourceLanguage) und [`targetLanguage`](/de/docs/Web/API/Translator/targetLanguage) enthalten muss:
+Die Übersetzung folgt einem sehr ähnlichen Muster wie die Spracherkennung. Eine [`Translator`](/de/docs/Web/API/Translator)-Objektinstanz wird mit der statischen Methode [`Translator.create()`](/de/docs/Web/API/Translator/create_static) erstellt, welche ein Optionsobjekt entgegennimmt, das mindestens eine [`sourceLanguage`](/de/docs/Web/API/Translator/sourceLanguage) und [`targetLanguage`](/de/docs/Web/API/Translator/targetLanguage) enthalten muss:
 
 ```js
 const translator = await Translator.create({
@@ -67,15 +67,15 @@ const translator = await Translator.create({
 });
 ```
 
-Die Übersetzung wird dann erstellt, indem die Instanzmethode [`Translator.translate()`](/de/docs/Web/API/Translator/translate) aufgerufen wird, der der zu übersetzende Textstring als Argument übergeben wird:
+Die Übersetzung wird dann erstellt, indem die Instanzmethode [`Translator.translate()`](/de/docs/Web/API/Translator/translate) aufgerufen wird, der der zu übersetzende Text übergeben wird:
 
 ```js
 const translation = await translator.translate(myTextString);
 ```
 
-Dies gibt einen String zurück, der die Übersetzung enthält.
+Dies gibt einen String mit der Übersetzung zurück.
 
-Es gibt auch eine Streaming-Version der `translate()`-Methode — [`Translator.translateStreaming()`](/de/docs/Web/API/Translator/translateStreaming) — die es ermöglicht, die Übersetzung als [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurückzugeben. Dies kann nützlich sein, wenn sehr große Textkörper übersetzt werden:
+Es gibt auch eine Streaming-Version der Methode `translate()` — [`Translator.translateStreaming()`](/de/docs/Web/API/Translator/translateStreaming) — die es ermöglicht, die Übersetzung als [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurückzugeben. Dies kann nützlich sein, wenn sehr große Textmengen übersetzt werden:
 
 ```js
 const stream = translator.translateStreaming(myTextString);
@@ -89,7 +89,7 @@ console.log("Stream complete");
 console.log(translation);
 ```
 
-## Überprüfung der Unterstützung von Konfigurationen
+## Überprüfung der Konfigurationsunterstützung
 
 Bevor Sie ein `LanguageDetector`- oder `Translator`-Objekt erstellen, können Sie überprüfen, ob Ihre gewünschte Sprachkonfiguration vom aktuellen Browser unterstützt wird, indem Sie die statischen Methoden [`LanguageDetector.availability()`](/de/docs/Web/API/LanguageDetector/availability_static) und [`Translator.availability()`](/de/docs/Web/API/Translator/availability_static) verwenden. Zum Beispiel:
 
@@ -104,18 +104,18 @@ const translatorAvailability = await Translator.availability({
 });
 ```
 
-Diese Methoden geben einen enumerierten Wert zurück, der angibt, ob die Unterstützung für die angegebenen Optionen verfügbar ist oder verfügbar sein wird:
+Diese Methoden geben einen enumerierten Wert zurück, der anzeigt, ob Unterstützung für die angegebenen Optionen verfügbar ist oder verfügbar sein wird:
 
-- `downloadable` bedeutet, dass die Implementierung die angeforderten Optionen unterstützt, aber ein Modell oder einige Fine-Tuning-Daten heruntergeladen werden müssen.
-- `downloading` bedeutet, dass die Implementierung die angeforderten Optionen unterstützt, aber ein laufender Download abgeschlossen werden muss.
-- `available` bedeutet, dass die Implementierung die angeforderten Optionen ohne zusätzliche Downloads unterstützt.
+- `downloadable` bedeutet, dass die Implementierung die angeforderten Optionen unterstützt, jedoch ein Modell oder einige Feinabstimmungsdaten heruntergeladen werden müssen.
+- `downloading` bedeutet, dass die Implementierung die angeforderten Optionen unterstützt, jedoch ein laufender Download abgeschlossen werden muss.
+- `available` bedeutet, dass die Implementierung die angeforderten Optionen unterstützt, ohne dass neue Downloads erforderlich sind.
 - `unavailable` bedeutet, dass die Implementierung die angeforderten Optionen nicht unterstützt.
 
-Wenn ein Download erforderlich ist, wird er automatisch vom Browser gestartet, sobald eine `LanguageDetector`- oder `Translator`-Instanz mithilfe der entsprechenden `create()`-Methode erstellt wird. Sie können den Download-Fortschritt automatisch mit einem [Monitor](#überwachung_des_download-fortschritts) verfolgen.
+Wenn ein Download erforderlich ist, wird er automatisch vom Browser gestartet, sobald eine `LanguageDetector`- oder `Translator`-Instanz unter Verwendung der entsprechenden `create()`-Methode erstellt wird. Sie können den Download-Fortschritt automatisch über einen [Monitor](#überwachen_des_download-fortschritts) verfolgen.
 
-## Abbrechen von Operationen und Zerstören von Instanzen
+## Abbrechen von Vorgängen und Zerstören von Instanzen
 
-Sie können eine ausstehende Erkennungs- oder Übersetzungsoperation mithilfe eines [`AbortController`](/de/docs/Web/API/AbortController) abbrechen, wobei das zugehörige [`AbortSignal`](/de/docs/Web/API/AbortSignal) als `signal`-Eigenschaftswert im Methodenoptionsobjekt enthalten ist. Zum Beispiel würde das Abbrechen einer `Translator.create()`-Operation so aussehen:
+Sie können eine ausstehende Erkennungs- oder Übersetzungsvorgang abbrechen, indem Sie einen [`AbortController`](/de/docs/Web/API/AbortController) verwenden, wobei das zugehörige [`AbortSignal`](/de/docs/Web/API/AbortSignal) im Optionsobjekt der Methode als `signal`-Eigenschaftswert enthalten ist. Zum Beispiel würde das Abbrechen einer `Translator.create()`-Operation so aussehen:
 
 ```js
 const controller = new AbortController();
@@ -138,15 +138,15 @@ translator.destroy();
 detector.destroy();
 ```
 
-Es ist sinnvoll, diese Objekte zu zerstören, wenn sie nicht mehr verwendet werden, da sie erhebliche Ressourcen in Anspruch nehmen.
+Es macht Sinn, diese Objekte zu zerstören, wenn sie nicht mehr verwendet werden sollen, da sie erhebliche Ressourcen in ihrer Verarbeitung binden.
 
-## Überwachung des Download-Fortschritts
+## Überwachen des Download-Fortschritts
 
-Wenn das AI-Modell für eine bestimmte Erkennungs- oder Übersetzungsaufgabe heruntergeladen wird (`availability()` gibt `downloadable` und `downloading` zurück), ist es hilfreich, dem Nutzer ein Feedback zu geben, um ihm mitzuteilen, wie lange er noch warten muss, bis die Operation abgeschlossen ist.
+Wenn das KI-Modell für eine bestimmte Erkennung oder Übersetzung heruntergeladen wird (`availability()` gibt `downloadable` und `downloading` zurück), ist es hilfreich, dem Benutzer Feedback zu geben, um ihm mitzuteilen, wie lange er warten muss, bis der Vorgang abgeschlossen ist.
 
-Die `create()`-Methoden von `Translator` und `LanguageDetector` können eine `monitor`-Eigenschaft annehmen, deren Wert eine Callback-Funktion ist, die eine [`CreateMonitor`](/de/docs/Web/API/CreateMonitor)-Instanz als Argument erhält. `CreateMonitor` hat ein [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis verfügbar, das ausgelöst wird, wenn Fortschritte beim Herunterladen des AI-Modells gemacht werden.
+Die `Translator`- und `LanguageDetector`-`create()`-Methoden können eine `monitor`-Eigenschaft akzeptieren, deren Wert eine Callback-Funktion ist, die eine [`CreateMonitor`](/de/docs/Web/API/CreateMonitor)-Instanz als Argument nimmt. `CreateMonitor` hat ein [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis verfügbar, das ausgelöst wird, wenn Fortschritte beim Herunterladen des KI-Modells gemacht werden.
 
-Sie können dieses Ereignis verwenden, um Fortschrittsdaten zur Ladezeit anzuzeigen:
+Sie können dieses Ereignis nutzen, um Ladefortschrittsdaten sichtbar zu machen:
 
 ```js
 translator = await Translator.create({
@@ -160,15 +160,15 @@ translator = await Translator.create({
 });
 ```
 
-Wenn die angegebenen Sprachen nicht unterstützt werden, wird kein Download gestartet, und ein `NotSupportedError`-[`DOMException`](/de/docs/Web/API/DOMException) wird ausgelöst.
+Wenn die angegebenen Sprachen nicht unterstützt werden, wird kein Download initiiert und ein `NotSupportedError`-`[`DOMException`](/de/docs/Web/API/DOMException)` ausgelöst.
 
-## Nutzungsquoten
+## Nutzungskontingente
 
-Einige Implementierungen haben ein Eingabequotensystem, das regelt, wie viele Operationen eine Website in einem bestimmten Zeitraum anfordern kann. Die Gesamtquote kann über die Eigenschaften [`Translator.inputQuota`](/de/docs/Web/API/Translator/inputQuota)/[`LanguageDetector.inputQuota`](/de/docs/Web/API/LanguageDetector/inputQuota) aufgerufen werden, während die Quotenverwendung für eine bestimmte Übersetzung oder Spracherkennung mit den Methoden [`Translator.measureInputUsage()`](/de/docs/Web/API/Translator/measureInputUsage)/[`LanguageDetector.measureInputUsage()`](/de/docs/Web/API/LanguageDetector/measureInputUsage) zurückgegeben werden kann.
+Einige Implementierungen haben ein Eingabekontingent, das regelt, wie viele Operationen eine Website innerhalb eines bestimmten Zeitraums anfordern kann. Das Gesamtkontingent kann über die Eigenschaften [`Translator.inputQuota`](/de/docs/Web/API/Translator/inputQuota)/[`LanguageDetector.inputQuota`](/de/docs/Web/API/LanguageDetector/inputQuota) abgerufen werden, während die Kontingentnutzung für eine bestimmte Übersetzung oder Spracherkennung über die Methoden [`Translator.measureInputUsage()`](/de/docs/Web/API/Translator/measureInputUsage)/[`LanguageDetector.measureInputUsage()`](/de/docs/Web/API/LanguageDetector/measureInputUsage) zurückgegeben werden kann:
 
-Zum Beispiel gibt der folgende Code-Ausschnitt die gesamte Eingabequote über `Translator.inputQuota` zurück und die Eingabequotennutzung für das Übersetzen eines bestimmten Textstrings über `Translator.measureInputUsage()`.
+Zum Beispiel gibt der unten stehende Codeausschnitt das gesamte Eingabekontingent über `Translator.inputQuota` zurück und die Eingabekontingentnutzung für eine Übersetzung eines bestimmten Textstrings über `Translator.measureInputUsage()`.
 
-Wir prüfen dann, ob die individuelle Eingabenutzung für diesen String größer ist als die insgesamt verfügbare Quote. Wenn dies der Fall ist, werfen wir einen entsprechenden Fehler; andernfalls beginnen wir mit der Übersetzung des Strings mithilfe von [`translate()`](/de/docs/Web/API/Translator/translate).
+Wir prüfen dann, ob die individuelle Eingabeverwendung für diesen String größer ist als das insgesamt verfügbare Kontingent. Falls ja, werfen wir einen passenden Fehler; wenn nicht, beginnen wir mit der Übersetzung des Strings mit [`translate()`](/de/docs/Web/API/Translator/translate).
 
 ```js
 const translator = await Translator.create({
@@ -188,15 +188,15 @@ if (inputUsage > totalInputQuota) {
 }
 ```
 
-Wenn Sie versuchen, eine Spracherkennungs- oder Übersetzungsoperation auszuführen, die die verfügbare Quote überschreitet, wird ein `QuotaExceededError`-[`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+Wenn Sie versuchen, eine Spracherkennungs- oder Übersetzungsoperation auszuführen, die das verfügbare Kontingent überschreitet, wird eine `QuotaExceededError`-`[`DOMException`](/de/docs/Web/API/DOMException)` ausgelöst.
 
 ## Vollständiges Beispiel
 
-Werfen wir einen Blick auf ein vollständiges Beispiel, das die Translator- und Spracherkennungs-APIs in Aktion zeigt.
+Schauen wir uns ein vollständiges Beispiel an, das die Übersetzer- und Spracherkennungs-APIs in Aktion zeigt.
 
 ### HTML
 
-In unserem Markup definieren wir zunächst ein Eingabe-{{htmlelement("form")}}, das es dem Benutzer ermöglicht, den zu übersetzenden Text und die Sprache, in die übersetzt werden soll, festzulegen. Dies umfasst ein {{htmlelement("textarea")}} zur Eingabe des Textes selbst, ein {{htmlelement("output")}}-Element zur Anzeige der erkannten Sprache und ein {{htmlelement("select")}}-Element zur Auswahl einer Übersetzungssprache.
+In unserem Markup definieren wir zuerst ein Eingabe-{{htmlelement("form")}}, das dem Benutzer erlaubt, den zu übersetzenden Text und die Sprache, in die übersetzt werden soll, festzulegen. Dazu gehört ein {{htmlelement("textarea")}} zum Eingeben des Texts selbst, ein {{htmlelement("output")}}-Element zur Anzeige der erkannten Sprache und ein {{htmlelement("select")}}-Element zur Auswahl einer Übersetzungssprache.
 
 ```html live-sample___translator-example
 <h2>Input</h2>
@@ -230,7 +230,7 @@ In unserem Markup definieren wir zunächst ein Eingabe-{{htmlelement("form")}}, 
 </form>
 ```
 
-Die zweite Hälfte unseres Markups beinhaltet ein {{htmlelement("p")}}-Element zur Anzeige der generierten Übersetzung.
+Die zweite Hälfte unseres Markups enthält ein {{htmlelement("p")}}-Element, um die generierte Übersetzung anzuzeigen.
 
 ```html live-sample___translator-example
 <h2>Translation output</h2>
@@ -244,7 +244,7 @@ Die zweite Hälfte unseres Markups beinhaltet ein {{htmlelement("p")}}-Element z
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 body {
@@ -277,11 +277,11 @@ textarea,
 }
 ```
 
-Beachten Sie, dass wir das CSS für dieses Beispiel nicht zeigen, da es für das Verständnis der Translator- und Spracherkennungs-APIs nicht relevant ist.
+Beachten Sie, dass wir das CSS für dieses Beispiel nicht zeigen, da es nicht relevant ist, um die Übersetzer- und Spracherkennungs-APIs zu verstehen.
 
 ### JavaScript
 
-In unserem Script beginnen wir damit, Referenzen zu den `<form>`, `<textarea>`, Submit-`<button>`, Übersetzungsausgabe-`<p>` und Spracherkennungsausgabe-`<output>`-Elementen zu erfassen. Wir deklarieren auch eine Variable namens `detectedLanguage`, um Ergebnisse von Spracherkennungsoperationen zu enthalten.
+In unserem Skript beginnen wir damit, Referenzen zum `<form>`, `<textarea>`, Submit-`<button>`, Übersetzungsausgabe-`<p>` und Spracherkennung-`<output>`-Elementen zu erfassen. Außerdem deklarieren wir eine Variable mit dem Namen `detectedLanguage`, um die Ergebnisse von Spracherkennungsoperationen zu speichern.
 
 ```js live-sample___translator-example
 const form = document.querySelector("form");
@@ -293,9 +293,9 @@ const detectedLanguageOutput = document.querySelector(".detected-language");
 let detectedLanguage = "";
 ```
 
-Als nächstes verwenden wir die Methode [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf zwei Ereignisse zu hören:
+Als Nächstes verwenden wir die Methode [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um zwei Ereignissen zuzuhören:
 
-- `submit`-Ereignisse auf dem `<form>`-Element; wenn das Formular eingereicht wird, wird die Funktion `handleTranslation()` aufgerufen.
+- `submit`-Ereignisse auf dem `<form>`-Element; wenn das Formular abgesendet wird, wird die Funktion `handleTranslation()` aufgerufen.
 - `input`-Ereignisse auf dem `<textarea>`-Element; wenn der aktuelle `<textarea>`-Wert geändert wird, wird die Funktion `detectLanguage()` aufgerufen.
 
 ```js live-sample___translator-example
@@ -303,11 +303,11 @@ form.addEventListener("submit", handleTranslation);
 textarea.addEventListener("input", detectLanguage);
 ```
 
-Die nächste Funktion, `detectLanguage()`, prüft zuerst, ob der Wert des `<textarea>`-Elements mehr als 20 Zeichen beträgt. Wenn ja, führen wir die Spracherkennung durch. Wenn nein, deaktivieren wir den Submit-Button und zeigen eine Nachricht im [`textContent`](/de/docs/Web/API/Node/textContent) des `<output>`-Elements an, die besagt, dass der Text zu kurz ist, um die Sprache zu erkennen. Wir tun dies, weil die Spracherkennung bei einzelnen Wörtern und sehr kurzen Phrasen im Allgemeinen nicht gut funktioniert. Wenn Sie häufig mit kurzem Text arbeiten, testen Sie sorgfältig mit Ihren Prioritätssprachen und geben Sie das Ergebnis als unbekannt zurück, wenn das Vertrauen zu niedrig ist.
+Die als Nächstes definierte Funktion `detectLanguage()` überprüft zuerst, ob der Wert des `<textarea>`-Elements größer als 20 Zeichen ist. Wenn ja, fahren wir mit der Spracherkennung fort. Wenn nicht, deaktivieren wir den Absende-Button und zeigen eine Nachricht im [`textContent`](/de/docs/Web/API/Node/textContent) des `<output>`-Elements an, die besagt, dass der Text zu kurz ist, um die Sprache zu erkennen. Dies tun wir, weil die Spracherkennung im Allgemeinen nicht gut bei einzelnen Wörtern und sehr kurzen Phrasen funktioniert. Wenn Sie häufig mit kurzem Text arbeiten, testen Sie sorgfältig mit Ihren bevorzugten Sprachen und geben Sie das Ergebnis als unbekannt zurück, wenn das Vertrauen zu gering ist.
 
-Beim Erkennen der Sprache des eingegebenen Textes erstellen wir eine `LanguageDetector`-Instanz mit der Methode [`create()`](/de/docs/Web/API/LanguageDetector/create_static), die einen `monitor` einbezieht, um den Download-Fortschritt zu protokollieren, falls das Modell eine Weile zum Herunterladen benötigt. Dann erkennen wir die Sprache mit der Methode [`detect()`](/de/docs/Web/API/LanguageDetector/detect) und übergeben ihr den `<textarea>`-Wert. Wenn die Ergebnisse zurückgegeben werden, schreiben wir die Sprache und das Vertrauen des besten Ergebnisses in das `<output>`-Element. In komplexeren Apps möchten Sie möglicherweise mehrere Ergebnisse melden und dem Benutzer möglicherweise die Auswahl überlassen, um welche Sprache es sich handelt, aber das sollte für das Demo ausreichen.
+Beim Erkennen der Sprache des eingegebenen Textes erstellen wir eine `LanguageDetector`-Instanz mit der Methode [`create()`](/de/docs/Web/API/LanguageDetector/create_static), die einen `monitor` einbezieht, um den Download-Fortschritt zu protokollieren, falls das Modell eine Weile zum Herunterladen benötigt. Wir erkennen dann die Sprache mit der Methode [`detect()`](/de/docs/Web/API/LanguageDetector/detect), indem wir ihr den `<textarea>`-Wert übergeben. Sobald die Ergebnisse zurückgegeben werden, schreiben wir die Sprache und das Vertrauen des Top-Ergebnisses in das `<output>`-Element. In komplexeren Apps möchten Sie möglicherweise mehrere Ergebnisse melden und dem Benutzer die Wahl lassen, in welcher Sprache es sich befindet, aber für die Demo reicht dies aus.
 
-Schließlich setzen wir den Submit-Button auf nicht deaktiviert, sodass das Formular eingereicht werden kann, um die Übersetzung zu starten.
+Schließlich setzen wir den Absende-Button so, dass er nicht deaktiviert ist, damit das Formular abgesendet werden kann, um die Übersetzung zu starten.
 
 ```js live-sample___translator-example
 async function detectLanguage() {
@@ -336,7 +336,7 @@ async function detectLanguage() {
 }
 ```
 
-Nun definieren wir die `handleTranslation()`-Funktion. Nachdem wir die Standardübermittlung des Formulars verhindert haben, erstellen wir eine neue [`FormData`](/de/docs/Web/API/FormData)-Objektinstanz, die unsere `<form>`-Daten-Namens-/Wertpaare enthält. Dann führen wir einen Datenvalidierungstest durch, bei dem geprüft wird, ob die erkannte `<textarea>`-Inhaltsprache mit der gewählten Übersetzungssprache (`translateLanguage`) übereinstimmt. Wenn dies der Fall ist, drucken wir eine Fehlermeldung in das `<p>` mit der Klasse `translate-output`.
+Jetzt definieren wir die Funktion `handleTranslation()`. Nachdem wir das Standardabsenden des Formulars verhindert haben, erstellen wir ein neues [`FormData`](/de/docs/Web/API/FormData)-Objekt, das die Namens-/Wertepaare unserer `<form>`-Daten enthält. Wir führen dann einen Datenvalidierungstest durch und überprüfen, ob die erkannte `<textarea>`-Inhaltssprache mit der ausgewählten Übersetzungssprache (`translateLanguage`) übereinstimmt. Wenn dies der Fall ist, geben wir eine Fehlermeldung innerhalb des `translate-output` `<p>` aus.
 
 ```js live-sample___translator-example
 async function handleTranslation(e) {
@@ -351,11 +351,11 @@ async function handleTranslation(e) {
   translateOutput.innerHTML = "";
 ```
 
-Falls der Test bestanden wird, öffnen wir einen [`try { ... }`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block. Wir beginnen damit, die Verfügbarkeit des Modells für die Übersetzung zwischen der erkannten Eingabe- und der gewählten Zielsprache mithilfe der Methode [`availability()`](/de/docs/Web/API/Translator/availability_static) zu überprüfen:
+Wenn der Test erfolgreich ist, öffnen wir einen [`try { ... }`](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block. Wir beginnen mit der Überprüfung der Verfügbarkeit des Modells zum Übersetzen zwischen den erkannten Eingabe- und ausgewählten Ausgabesprachen mit der Methode [`availability()`](/de/docs/Web/API/Translator/availability_static):
 
-- Wenn es `unavailable` zurückgibt, drucken wir eine entsprechende Fehlermeldung in das `<p>` mit der Klasse `translate-output`.
-- Wenn es `available` zurückgibt, erstellen wir einen Übersetzer mit der Methode [`create()`](/de/docs/Web/API/Translator/create_static), indem wir die erkannte Eingabe- und die gewählte Zielsprache übergeben. Das benötigte AI-Modell ist verfügbar, sodass wir es sofort verwenden können.
-- Wenn es einen anderen Wert zurückgibt (d.h. `downloadable` oder `downloading`), führen wir denselben `create()`-Methodenaufruf aus, schließt jedoch diesmal einen `monitor` ein, der jedes Mal den Prozentsatz des heruntergeladenen Modells in das `<p>` `translate-output` ausgibt, wenn das [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis ausgelöst wird.
+- Wenn es `unavailable` zurückgibt, geben wir eine entsprechende Fehlermeldung innerhalb des `translate-output` `<p>` aus.
+- Wenn es `available` zurückgibt, erstellen wir einen Übersetzer mit der Methode [`create()`](/de/docs/Web/API/Translator/create_static), indem wir ihr die erkannten Eingabe- und ausgewählten Ausgabesprachen übergeben. Das benötigte KI-Modell ist verfügbar, sodass wir es sofort verwenden können.
+- Wenn ein anderer Wert zurückgegeben wird (also `downloadable` oder `downloading`), führen wir denselben `create()`-Methodenaufruf aus, fügen jedoch diesmal einen `monitor` hinzu, der jedes Mal, wenn das [`downloadprogress`](/de/docs/Web/API/CreateMonitor/downloadprogress_event)-Ereignis ausgelöst wird, den Prozentsatz des heruntergeladenen Modells in das `translate-output` `<p>` ausgibt.
 
 ```js live-sample___translator-example
   try {
@@ -388,7 +388,7 @@ Falls der Test bestanden wird, öffnen wir einen [`try { ... }`](/de/docs/Web/Ja
     }
 ```
 
-Als Nächstes setzen wir den Inhalt des `<p>` auf eine ausstehende Nachricht und deaktivieren den Submit-Button, bevor wir [`Translator.translate()`](/de/docs/Web/API/Translator/translate) aufrufen, um die eigentliche Übersetzung durchzuführen, und ihm den `<textarea>`-Wert übergeben. Sobald die Übersetzung abgeschlossen ist, zeigen wir sie im Ausgabe-`<p>` an, bevor wir den Submit-Button wieder aktivieren.
+Als Nächstes setzen wir den Inhalt des `<p>`-Ausgabe auf eine ausstehende Nachricht und deaktivieren den Absende-Button, bevor wir [`Translator.translate()`](/de/docs/Web/API/Translator/translate) aufrufen, um die tatsächliche Übersetzung durchzuführen und ihr den `<textarea>`-Wert übergeben. Sobald die Übersetzung abgeschlossen ist, zeigen wir sie innerhalb des `<p>`-Ausgabe an, bevor wir den Absende-Button wieder nicht deaktivieren.
 
 ```js live-sample___translator-example
 translateOutput.textContent = "...generating translation...";
@@ -400,7 +400,7 @@ translateOutput.textContent = translation;
 submitBtn.disabled = false;
 ```
 
-Schließlich fügen wir dem `try`-Block das entsprechende `catch() { ... }` hinzu. Wenn der Inhalt des `try`-Blocks irgendeine Art von Ausnahme auslöst, zeigen wir diese im Ausgabe-`<p>` an.
+Schließlich fügen wir das Gegenstück `catch() { ... }` zum `try`-Block hinzu. Wenn der Inhalt von `try` irgendeine Art von Ausnahme auslöst, zeigen wir sie innerhalb der `<p>`-Ausgabe an.
 
 ```js live-sample___translator-example
   } catch (e) {
@@ -411,10 +411,10 @@ Schließlich fügen wir dem `try`-Block das entsprechende `catch() { ... }` hinz
 
 ### Ergebnis
 
-Das gerenderte Beispiel sieht wie folgt aus:
+Das gerenderte Beispiel sieht so aus:
 
 {{EmbedLiveSample("translator-example", , "750px", , , , "translator; language-detector", "allow-forms")}}
 
-Versuchen Sie, einen Textkörper in das `<textarea>` einzugeben, und beachten Sie, wie die erkannte Sprache und das Vertrauen nur dann angezeigt werden, wenn die Anzahl der Zeichen größer als 20 ist. Wählen Sie eine Übersetzungssprache, die sich von Ihrem eingegebenen Text unterscheidet, und drücken Sie dann den Submit-Button, um eine AI-generierte Übersetzung zu erstellen.
+Versuchen Sie, einen Textkörper in das `<textarea>` einzugeben, und beachten Sie, wie die erkannte Sprache und das Vertrauen nur gemeldet werden, wenn die Anzahl der Zeichen größer als 20 wird. Wählen Sie eine Übersetzungssprache, die sich von Ihrem eingegebenen Text unterscheidet, und drücken Sie dann den Absende-Button, um eine AI-generierte Übersetzung zu erzeugen.
 
-Einige der Übersetzungssprachauswahlen sind in Ihrem Browser möglicherweise nicht verfügbar, selbst wenn dieser die APIs unterstützt.
+Einige der Übersetzungssprachenauswahlmöglichkeiten sind möglicherweise nicht in Ihrem Browser verfügbar, selbst wenn dieser die APIs unterstützt.

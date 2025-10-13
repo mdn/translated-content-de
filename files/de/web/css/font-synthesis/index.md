@@ -2,10 +2,10 @@
 title: font-synthesis
 slug: Web/CSS/font-synthesis
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: a3eec14af0580dad6eae65980686cee6cafc2c68
 ---
 
-Die **`font-synthesis`** [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) der [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen zu spezifizieren, ob der Browser die fetten, kursiven, Kapitälchen- und/oder Tief- und Hochstellenschriften synthetisieren darf, wenn diese in der angegebenen Schriftfamilie fehlen.
+Die **`font-synthesis`** [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft erlaubt es Ihnen festzulegen, ob der Browser die Schriftarten für fett, kursiv, Kapitälchen und/oder tief- und hochgestellte Schriftarten synthetisieren darf, wenn diese in der angegebenen Schriftfamilie fehlen.
 
 {{InteractiveExample("CSS Demo: font-synthesis")}}
 
@@ -54,7 +54,7 @@ font-synthesis: position;
 
 ```css interactive-example
 @font-face {
-  font-family: Oxygen;
+  font-family: "Oxygen";
   font-style: normal;
   font-weight: 400;
   src: url("https://fonts.gstatic.com/s/oxygen/v14/2sDfZG1Wl4LcnbuKjk0m.woff2")
@@ -109,7 +109,7 @@ font-synthesis: position;
 
 .english {
   font-size: 1.2em;
-  font-family: Oxygen, sans-serif;
+  font-family: "Oxygen", sans-serif;
 }
 
 .chinese {
@@ -140,7 +140,7 @@ font-synthesis: position;
 
 ## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Shorthand für die folgenden CSS-Eigenschaften:
 
 - [font-synthesis-weight](/de/docs/Web/CSS/font-synthesis-weight)
 - [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style)
@@ -169,21 +169,21 @@ font-synthesis: unset;
 ### Werte
 
 - `none`
-  - : Gibt an, dass keine fette, kursive oder Kapitälchenschrift durch den Browser synthetisiert werden darf.
+  - : Gibt an, dass keine fetten, kursiven oder Kapitälchen-Schriftarten vom Browser synthetisiert werden dürfen.
 - `weight`
-  - : Gibt an, dass die fehlende fette Schriftart bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass die fehlende fette Schriftart vom Browser bei Bedarf synthetisiert werden kann.
 - `style`
-  - : Gibt an, dass die kursive Schriftart bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass die kursive Schriftart vom Browser bei Bedarf synthetisiert werden kann.
 - `small-caps`
-  - : Gibt an, dass die Kapitälchenschrift bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass die Kapitälchen-Schriftart vom Browser bei Bedarf synthetisiert werden kann.
 - `position`
-  - : Gibt an, dass die Tief- und Hochstellenschrift bei Bedarf vom Browser synthetisiert werden darf, wenn {{cssxref("font-variant-position")}} verwendet wird.
+  - : Gibt an, dass die tief- und hochgestellte Schriftart vom Browser synthetisiert werden kann, wenn erforderlich, wenn {{cssxref("font-variant-position")}} verwendet wird.
 
 ## Beschreibung
 
-Die meisten standardmäßigen westlichen Schriftarten enthalten kursive und fette Varianten, und einige Schriftarten enthalten Kapitälchen- und Tief-/Hochstellenvarianten. Viele Schriftarten tun dies jedoch nicht. Schriftarten, die für chinesische, japanische, koreanische und andere logografische Schriften verwendet werden, neigen dazu, diese Varianten nicht einzuschließen, und die Synthese könnte die Lesbarkeit beeinträchtigen oder die Bedeutung des Textes ändern. In diesen Fällen kann es wünschenswert sein, die standardmäßige Schriftartensynthese des Browsers abzuschalten.
+Die meisten standardmäßigen westlichen Schriften beinhalten kursive und fette Varianten, und einige Schriftarten beinhalten Varianten für Kapitälchen und tief-/hochgestellte Schriftarten. Allerdings enthalten viele Schriftarten diese nicht. Schriften für chinesische, japanische, koreanische und andere logografische Schriften neigen dazu, diese Varianten nicht zu beinhalten, und deren Synthese könnte die Lesbarkeit beeinträchtigen oder die Bedeutung des Textes verändern. In diesen Fällen kann es wünschenswert sein, die standardmäßige Schriftensynthese des Browsers auszuschalten.
 
-Zum Beispiel können Sie mit der Pseudoklasse [:lang()](/de/docs/Web/CSS/:lang) verhindern, dass der Browser fette und schräge Zeichen für eine Sprache, in diesem Fall Arabisch, synthetisiert:
+Zum Beispiel können Sie mithilfe der [:lang()](/de/docs/Web/CSS/:lang) Pseudoklasse den Browser daran hindern, fette und oblique Zeichen für eine Sprache zu synthetisieren, in diesem Fall Arabisch:
 
 ```css
 *:lang(ar) {
@@ -191,7 +191,7 @@ Zum Beispiel können Sie mit der Pseudoklasse [:lang()](/de/docs/Web/CSS/:lang) 
 }
 ```
 
-Die folgende Tabelle zeigt, wie ein Wert der Kurzform-Eigenschaft `font-synthesis` auf die langformigen Bestandteileigenschaften abgebildet wird.
+Die folgende Tabelle zeigt, wie ein Wert der Shorthand-Eigenschaft `font-synthesis` auf die zusammengesetzten Langform-Eigenschaften abgebildet wird.
 
 | font-synthesis Wert                | [font-synthesis-weight](/de/docs/Web/CSS/font-synthesis-weight) Wert | [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style) Wert | [font-synthesis-small-caps](/de/docs/Web/CSS/font-synthesis-small-caps) Wert | [font-synthesis-position](/de/docs/Web/CSS/font-synthesis-position) Wert |
 | :--------------------------------- | :------------------------------------------------------------------- | :----------------------------------------------------------------- | :--------------------------------------------------------------------------- | :----------------------------------------------------------------------- |
@@ -221,9 +221,9 @@ Die folgende Tabelle zeigt, wie ein Wert der Kurzform-Eigenschaft `font-synthesi
 
 ## Beispiele
 
-### Deaktivierung der Schrifterstellung
+### Ausschalten der Schriftensynthese
 
-Dieses Beispiel zeigt das standardmäßige Verhalten der Schrifterstellung des Browsers und vergleicht es mit dem Fall, wenn das Erstellungsverhalten deaktiviert ist. Beachten Sie, dass das Beispiel zwei importierte Schriftarten verwendet, um dieses Verhalten zu demonstrieren. Möglicherweise können Sie das Abschalten der Schrifterstellung bei Schriften, die standardmäßig auf Ihrem Betriebssystem verfügbar sind, nicht replizieren.
+Dieses Beispiel zeigt das standardmäßige Schriftensyntheseverhalten des Browsers und vergleicht es mit der Deaktivierung dieses Verhaltens. Beachten Sie, dass das Beispiel zwei importierte Schriftarten verwendet, um dieses Verhalten zu demonstrieren. Sie könnten die Deaktivierung der Schriftensynthese mit den standardmäßig auf Ihrem Betriebssystem verfügbaren Schriften möglicherweise nicht replizieren.
 
 #### HTML
 

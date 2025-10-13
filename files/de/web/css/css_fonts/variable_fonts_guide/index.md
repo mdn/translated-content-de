@@ -2,62 +2,62 @@
 title: Variable Fonts
 slug: Web/CSS/CSS_fonts/Variable_fonts_guide
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
 ---
 
-**Variable Fonts** sind eine Weiterentwicklung der OpenType-Schriftartenspezifikation, die es ermöglicht, viele verschiedene Variationen eines Schriftbildes in eine einzelne Datei einzubinden, anstatt für jede Breite, Gewicht oder Stil eine separate Schriftartdatei zu haben. Sie ermöglichen Ihnen den Zugriff auf alle Variationen, die in einer bestimmten Schriftartdatei enthalten sind, über CSS und einen einzelnen {{cssxref("@font-face")}}-Verweis. Dieser Artikel liefert Ihnen alles Wissenswerte, um mit der Verwendung von Variable Fonts zu beginnen.
+**Variable Fonts** sind eine Weiterentwicklung der OpenType-Schriftenspezifikation, die es ermöglicht, viele verschiedene Varianten einer Schriftart in einer einzigen Datei zu speichern, anstatt für jede Breite, Gewichtung oder Stil eine separate Schriftdatei zu haben. Sie können all diese Varianten über CSS und einen einzigen {{cssxref("@font-face")}}-Verweis auf die in einer Schriftdatei enthaltenen Varianten zugreifen. Dieser Artikel gibt Ihnen alles, was Sie wissen müssen, um mit der Verwendung von Variable Fonts zu beginnen.
 
 > [!NOTE]
-> Um Variable Fonts auf Ihrem Betriebssystem zu verwenden, müssen Sie sicherstellen, dass es auf dem neuesten Stand ist. Zum Beispiel benötigen Linux-Betriebssysteme die neueste Version von Linux FreeType, und macOS vor High Sierra (10.13) unterstützt keine Variable Fonts. Wenn Ihr Betriebssystem nicht aktuell ist, können Sie Variable Fonts in Webseiten oder den Firefox Developer Tools nicht verwenden.
+> Um Variable Fonts auf Ihrem Betriebssystem zu verwenden, müssen Sie sicherstellen, dass es auf dem neuesten Stand ist. Beispielsweise benötigen Linux-Betriebssysteme die neueste Version von Linux FreeType, und macOS vor High Sierra (10.13) unterstützt keine Variable Fonts. Wenn Ihr Betriebssystem nicht auf dem neuesten Stand ist, können Sie auf Webseiten oder in den Firefox Developer Tools keine Variable Fonts verwenden.
 
 ## Variable Fonts: Was sie sind und wie sie sich unterscheiden
 
-Um besser zu verstehen, was an Variable Fonts anders ist, lohnt es sich, zu überprüfen, wie nicht-variable Schriftarten sind und wie sie im Vergleich aussehen.
+Um besser zu verstehen, was an Variabelen Fonts anders ist, lohnt es sich, einen Blick darauf zu werfen, wie nicht-variable Fonts aussehen und wie sie im Vergleich abschneiden.
 
-### Normale (oder statische) Schriftarten
+### Standard- (oder statische) Schriftarten
 
-In der Vergangenheit wurde ein Schriftbild als mehrere einzelne Schriftarten produziert, wobei jede Schriftart eine spezielle Breite/Gewicht/Stil-Kombination darstellte. So hatten Sie separate Dateien für 'Roboto Regular', 'Roboto Bold' und 'Roboto Bold Italic' — wodurch Sie 20 oder 30 verschiedene Schriftartdateien benötigen konnten, um ein komplettes Schriftbild darzustellen (bei großen Schriftbildern mit verschiedenen Breiten konnte es mehrere Male mehr sein).
+In der Vergangenheit wurde eine Schriftart als mehrere einzelne Schriften produziert, wobei jede Schrift eine bestimmte Breite/Gewicht/Stil-Kombination repräsentierte. So hätte man separate Dateien für 'Roboto Regular', 'Roboto Bold' und 'Roboto Bold Italic' — was bedeutet, dass man am Ende 20 oder 30 verschiedene Schriftdateien hätte, um eine komplette Schriftart darzustellen (es könnten mehrere Male so viele sein für eine große Schriftart, die auch unterschiedliche Breiten hat).
 
-In einem solchen Szenario benötigen Sie, um ein Schriftbild für den typischen Einsatz auf einer Website für Fließtext zu verwenden, mindestens vier Dateien: normal, kursiv, fett und fett kursiv. Wenn Sie mehr Gewichte, wie ein leichteres für Untertitel oder ein schwereres für zusätzliche Hervorhebung hinzufügen möchten, bedeutet das mehrere weitere Dateien. Das resultiert in mehr HTTP-Anfragen und mehr herunterzuladende Daten (in der Regel rund 20k oder mehr pro Datei).
+In einem solchen Szenario würden Sie für die typische Verwendung einer Schriftart auf einer Website für den Textkörper mindestens vier Dateien benötigen: regular, italic, bold und bold italic. Wenn Sie mehr Gewichtungen hinzufügen möchten, z. B. eine leichtere für Untertitel oder eine schwerere für zusätzliche Betonung, würde das mehrere weitere Dateien bedeuten. Dadurch ergeben sich mehr HTTP-Anfragen und mehr herunterzuladende Daten (normalerweise etwa 20k oder mehr pro Datei).
 
 ### Variable Fonts
 
-Mit einer Variable Font können all diese Permutationen in einer einzigen Datei enthalten sein. Diese Datei wäre größer als eine einzelne Schriftart, aber in den meisten Fällen kleiner oder etwa gleich groß wie die 4 Dateien, die man für Fließtext laden könnte. Der Vorteil bei der Wahl der Variable Font ist, dass Sie Zugriff auf die gesamte Bandbreite von Gewichten, Breiten und Stilen haben, anstatt nur auf die wenigen beschränkt zu sein, die Sie zuvor separat geladen hätten.
+Mit einem Variablen Font können all diese Permutationen in einer einzigen Datei enthalten sein. Diese Datei wäre größer als eine einzelne Schrift, aber in den meisten Fällen kleiner oder etwa gleich groß wie die vier, die Sie für den Textkörper laden könnten. Der Vorteil an der Wahl der Variablen Font ist, dass Sie Zugriff auf die gesamte Bandbreite an Gewichtungen, Breiten und Stilen haben, anstatt auf nur die wenigen beschränkt zu sein, die Sie zuvor separat geladen hätten.
 
-Dies ermöglicht übliche typografische Techniken, wie das Festlegen unterschiedlicher Größenüberschriften in unterschiedlichen Gewichten für bessere Lesbarkeit in jeder Größe oder die Verwendung einer leicht schmaleren Breite für datenintensive Anzeigen. Zum Vergleich: In einem typografischen System eines Magazins ist es üblich, 10–15 oder mehr verschiedene Gewicht- und Breitenkombinationen in der gesamten Publikation zu verwenden — was eine viel breitere Stilpalette bietet als derzeit im Web üblich (oder allein aus Leistungsgründen praktikabel).
+Dies ermöglicht gängige typografische Techniken wie das Setzen unterschiedlicher Größen von Überschriften in unterschiedlichen Gewichtungen für bessere Lesbarkeit in jeder Größe oder die Verwendung einer etwas schmaleren Breite für datendichte Anzeigen. Zum Vergleich: In einem typografischen System für ein Magazin ist es typisch, 10-15 oder mehr unterschiedliche Gewichtungs- und Breitenkombinationen im gesamten Magazin zu verwenden — was zu einem weitaus breiteren Spektrum an Stilen führt als derzeit im Web üblich (oder tatsächlich aus rein Leistungsgründen praktikabel).
 
-#### Eine Anmerkung zu Schriftfamilien, Gewichten und Varianten
+#### Eine Anmerkung zu Schriftfamilien, Gewichtungen und Varianten
 
-Vielleicht haben Sie bemerkt, dass wir darüber gesprochen haben, für jedes Gewicht und jeden Stil eine spezifische Schriftartdatei zu haben (d.h. fett und kursiv und fett kursiv), anstatt sich darauf zu verlassen, dass der Browser sie synthetisiert. Der Grund dafür ist, dass die meisten Schriftbilder sehr spezifische Designs für fettere Gewichte und Kursive haben, die oft völlig andere Zeichen enthalten (Kleinbuchstaben 'a' und 'g's sind beispielsweise oft in Kursive ganz anders). Um das Design der Schriftart am genauesten widerzuspiegeln und Unterschiede zwischen Browsern und ihrer Fähigkeit oder Unfähigkeit, die verschiedenen Stile zu synthetisieren, zu vermeiden, ist es genauer, die spezifischen Schriftartdateien dort zu laden, wo sie bei der Verwendung einer nicht-variablen Schriftart benötigt werden.
+Vielleicht ist Ihnen aufgefallen, dass wir darüber gesprochen haben, eine spezifische Schriftdatei für jede Gewichtung und jeden Stil zu haben (d.h. fett und kursiv und fett kursiv), anstatt sich darauf zu verlassen, dass der Browser sie synthetisiert. Der Grund dafür ist, dass die meisten Schriftarten sehr spezifische Designs für stärkere Gewichtungen und Kursivschnitte haben, die oft völlig unterschiedliche Zeichen enthalten (zum Beispiel sind der Kleinbuchstabe 'a' und 'g' in Kursiv oft ganz anders). Um das Schriftartendesign am genauesten wiederzugeben und Unterschiede zwischen Browsern und wie sie die unterschiedlichen Stile möglicherweise oder möglicherweise nicht synthetisieren, zu vermeiden, ist es genauer, die spezifischen Schriftdateien zu laden, wo nötig, wenn man eine nicht-variable Schrift verwendet.
 
-Sie könnten auch feststellen, dass einige Variable Fonts in zwei Dateien aufgeteilt sind: eine für die aufrechten Variationen und eine für die kursive Variationen. Dies wird manchmal durchgeführt, um die Gesamtdateigröße in Fällen zu reduzieren, in denen die Kursive nicht benötigt oder verwendet werden. In allen Fällen ist es dennoch möglich, sie mit einem gemeinsamen {{cssxref("font-family")}}-Namen zu verlinken, sodass Sie sie mit derselben `font-family` und dem entsprechenden {{cssxref("font-style")}} aufrufen können.
+Es kann auch vorkommen, dass einige Variable Fonts in zwei Dateien aufgeteilt sind: eine für aufrechte Schrift und all ihre Varianten, und eine, die die kursiven Varianten enthält. Dies wird manchmal gemacht, um die Gesamtdateigröße zu reduzieren, falls die Kursivschrift nicht benötigt oder verwendet wird. In allen Fällen ist es dennoch möglich, sie mit einem gemeinsamen {{cssxref("font-family")}}-Namen zu verknüpfen, sodass Sie sie mit derselben `font-family` und dem passenden {{cssxref("font-style")}} aufrufen können.
 
 ## Einführung der 'Variationsachse'
 
-Das Herzstück des neuen Variable-Fonts-Formats ist das Konzept einer **Variationsachse**, welche den zulässigen Bereich dieses bestimmten Aspekts des Schriftartendesigns beschreibt. Die 'Gewichtsachse' beschreibt also, wie leicht oder schwer die Buchstabenformen sein können; die 'Breitenachse' beschreibt, wie schmal oder wie breit sie sein können; die 'Kursiveachse' beschreibt, ob kursive Buchstabenformen vorhanden sind und entsprechend ein- oder ausgeschaltet werden können, usw. Beachten Sie, dass eine Achse ein Bereich oder eine binäre Auswahl sein kann. Das Gewicht könnte von 1–999 reichen, während Kursiv 0 oder 1 (aus oder an) sein könnte.
+Das Herzstück des neuen Formats der Variablen Fonts ist das Konzept einer **Variationsachse**, die den zulässigen Bereich dieses bestimmten Aspekts des Schriftdesigns beschreibt. Die 'Gewichtsachse' beschreibt also, wie leicht oder wie fett die Buchstabenformen sein können; die 'Breitenachse' beschreibt, wie schmal oder wie breit sie sein können; die 'Kursivachse' beschreibt, ob kursivierte Buchstabenformen vorhanden sind und entsprechend ein- oder ausgeschaltet werden können usw. Beachten Sie, dass eine Achse ein Bereich oder eine binäre Wahl sein kann. Gewicht könnte von 1–999 reichen, während kursiv 0 oder 1 sein könnte (aus oder ein).
 
-In der Spezifikation bezeichnet, gibt es zwei Arten von Achsen: **registrierte** und **benutzerdefinierte**:
+Wie in der Spezifikation definiert, gibt es zwei Arten von Achsen: **registrierte** und **benutzerdefinierte**:
 
-- Registrierte Achsen sind diejenigen, die am häufigsten vorkommen und so häufig sind, dass die Autoren der Spezifikation es für sinnvoll hielten, sie zu standardisieren. Die fünf derzeit registrierten Achsen sind Gewicht, Breite, Schräge, kursiv und optische Größe. Die W3C hat sich verpflichtet, sie bestehenden CSS-Attributen zuzuordnen und in einem Fall ein neues einzuführen, wie Sie unten sehen werden.
-- Benutzerdefinierte Achsen sind unbegrenzt: Der Schriftartendesigner kann jede beliebige Achse definieren und festlegen, er muss sie nur mit einem vierbuchstabigen **Tag** identifizieren, um sie im Schriftartendateiformat selbst festzulegen. Diese vierbuchstabigen Tags können in CSS verwendet werden, um einen Punkt entlang dieser Variationsachse anzugeben, wie in den unten gezeigten Code-Beispielen gezeigt wird.
+- Registrierte Achsen sind jene, die am häufigsten vorkommen und häufig genug sind, dass es den Autoren der Spezifikation als lohnenswert erschien, sie zu standardisieren. Die fünf derzeit registrierten Achsen sind Gewicht, Breite, Schräge, Kursivschrift und optische Größe. Das W3C hat sich verpflichtet, sie vorhandenen CSS-Attributen zuzuordnen und in einem Fall ein neues einzuführen, das Sie unten sehen werden.
+- Benutzerdefinierte Achsen sind unbegrenzt: Der Schriftartendesigner kann jede Achse definieren und spezifizieren, die ihm einfällt, und ist lediglich verpflichtet, ihr einen vierstelligen **Tag** zu geben, um sie innerhalb des Schriftdateiformats selbst zu identifizieren. Sie können diese vierstelligen Tags in CSS verwenden, um einen Punkt entlang dieser Variationsachse zu spezifizieren, wie in den untenstehenden Code-Beispielen gezeigt.
 
 ### Registrierte Achsen und bestehende CSS-Attribute
 
-In diesem Abschnitt demonstrieren wir die fünf registrierten Achsen mit Beispielen und dem entsprechenden CSS. Wo möglich, sind sowohl die Standard- als auch die Low-Level-Syntax enthalten. Die Low-Level-Syntax ({{cssxref("font-variation-settings")}}) war der erste Mechanismus, um die frühen Implementierungen von Variable-Fonts-Unterstützung zu testen und ist notwendig, um neue oder benutzerdefinierte Achsen über die fünf registrierten hinaus zu nutzen. Allerdings war es die Absicht der W3C, dass diese Syntax nicht verwendet wird, wenn andere Attribute verfügbar sind. Daher sollte, wo immer möglich, die geeignete Eigenschaft verwendet werden, wobei die Low-Level-Syntax von `font-variation-settings` nur verwendet werden sollte, um Werte oder Achsen festzulegen, die andernfalls nicht verfügbar sind.
+In diesem Abschnitt werden wir die fünf registrierten Achsen mit Beispielen und dem entsprechenden CSS demonstrieren. Wo möglich, sind sowohl die Standard- als auch die Low-Level-Syntax enthalten. Die Low-Level-Syntax ({{cssxref("font-variation-settings")}}) war der erste Mechanismus, der implementiert wurde, um die frühen Implementierungen der Unterstützung für Variable Fonts zu testen und ist notwendig, um neue oder benutzerdefinierte Achsen jenseits der fünf registrierten zu nutzen. Allerdings war die Absicht des W3C, dass diese Syntax nicht verwendet werden sollte, wenn andere Attribute verfügbar sind. Daher sollte, wo immer möglich, die geeignete Eigenschaft verwendet werden, wobei die Low-Level-Syntax von `font-variation-settings` nur zur Einstellung von Werten oder Achsen verwendet werden sollte, die sonst nicht verfügbar sind.
 
 #### Hinweise
 
-1. Bei der Nutzung von `font-variation-settings` ist es wichtig zu beachten, dass Achsennamen groß- und kleinschreibungssensitiv sind. Die Namen der registrierten Achsen müssen in Kleinbuchstaben vorliegen und benutzerdefinierte Achsen in Großbuchstaben. Zum Beispiel:
+1. Bei Verwendung von `font-variation-settings` ist es wichtig zu beachten, dass Achsennamen case-sensitive sind. Die Namen der registrierten Achsen müssen in Kleinbuchstaben und die der benutzerdefinierten in Großbuchstaben geschrieben werden. Zum Beispiel:
 
-`wght` (Weight) ist eine registrierte Achse, und `GRAD` (Grade) ist eine benutzerdefinierte.
+   `wght` (Gewicht) ist eine registrierte Achse, und `GRAD` (Grad) ist eine benutzerdefinierte.
 
-2. Wenn Sie Werte mit `font-variation-settings` festgelegt haben und einen dieser Werte ändern möchten, müssen Sie alle neu deklarieren (ähnlich wie bei der Einstellung von OpenType-Schriftfunktionen mit {{cssxref("font-feature-settings")}}). Sie können diese Einschränkung umgehen, indem Sie [CSS Custom Properties](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) (CSS-Variablen) für die einzelnen Werte verwenden und den Wert einer einzelnen benutzerdefinierten Eigenschaft ändern. Beispielcode folgt am Ende des Leitfadens.
+2. Wenn Sie Werte mit `font-variation-settings` gesetzt haben und einen dieser Werte ändern möchten, müssen Sie alle neu deklarieren (ähnlich wie wenn Sie OpenType-Schriftmerkmale mit {{cssxref("font-feature-settings")}} setzen). Sie können diese Einschränkung umgehen, indem Sie [CSS benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) (CSS-Variablen) für die einzelnen Werte verwenden und den Wert einer einzelnen benutzerdefinierten Eigenschaft ändern. Beispielcode folgt am Ende des Leitfadens.
 
 ### Gewicht
 
-Gewicht (dargestellt durch das `wght`-Tag) definiert die Designachse, wie dünn oder dick (leicht oder schwer, in typografischen Begriffen) die Striche der Buchstabenformen sein können. Schon lange gibt es in CSS die Möglichkeit, dies über die {{cssxref("font-weight")}}-Eigenschaft anzugeben, die numerische Werte im Bereich von 100 bis 900 in Schritten von 100 akzeptiert, sowie Schlüsselwörter wie `normal` oder `bold`, die Aliase für ihre entsprechenden numerischen Werte sind (400 und 700 in diesem Fall). Diese werden weiterhin angewendet, wenn es um nicht-variable oder variable Schriftarten geht, aber bei variablen ist nun jede Zahl von 1 bis 1000 gültig.
+Die Gewichtung (repräsentiert durch das `wght` Tag) definiert die Designachse, wie dünn oder dick (leicht oder schwer, in typografischen Begriffen) die Striche der Buchstabenformen sein können. Seit langer Zeit existiert in CSS die Möglichkeit, dies über die {{cssxref("font-weight")}} Eigenschaft zu spezifizieren, die numerische Werte von 100 bis 900 in 100er-Schritten und Schlüsselwörter wie `normal` oder `bold` annimmt, die Aliase für ihre entsprechenden numerischen Werte (in diesem Fall 400 und 700) sind. Diese werden nach wie vor angewendet, wenn man mit nicht-variablen oder variablen Fonts arbeitet, aber bei Variablen Fonts ist jede Zahl von 1 bis 1000 jetzt gültig.
 
-Es sei darauf hingewiesen, dass es zu diesem Zeitpunkt keine Möglichkeit in der `@font-face`-Deklaration gibt, um einen bestimmten Punkt auf der Variationsachse einer Variablen Schriftart dem Schlüsselwort `bold` (oder einem anderen Schlüsselwort) zu 'zuordnen'. Dies kann generell recht einfach gelöst werden, erfordert jedoch einen zusätzlichen Schritt beim Schreiben Ihres CSS:
+Es sollte beachtet werden, dass es zu diesem Zeitpunkt keine Möglichkeit in der `@font-face`-Deklaration gibt, einen spezifischen Punkt auf der Variationsachse eines Variablen Fonts dem Schlüsselwort `bold` (oder einem anderen Schlüsselwort) zuzuordnen. Dies kann in der Regel relativ einfach gelöst werden, erfordert jedoch einen zusätzlichen Schritt beim Schreiben Ihres CSS:
 
 ```css
 font-weight: 375;
@@ -65,7 +65,7 @@ font-weight: 375;
 font-variation-settings: "wght" 375;
 ```
 
-Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie den CSS-Code, um mit den Font-Gewichtswerten zu spielen.
+Klicken Sie auf "Play" in den Code-Blöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie den CSS-Code, um mit den `font-weight` Werten zu spielen.
 
 ```html hidden live-sample___variable-fonts-weight-example
 <div>
@@ -104,7 +104,7 @@ Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playgro
 p {
   font:
     1.2em "Amstelvar VF",
-    Georgia,
+    "Georgia",
     serif;
   font-size: 4rem;
   margin: 1rem;
@@ -150,10 +150,10 @@ angle.addEventListener("input", (e) => {
 
 ### Breite
 
-Breite (dargestellt durch das `wdth`-Tag) definiert die Designachse, wie schmal oder breit (kondensiert oder erweitert, in typografischen Begriffen) die Buchstabenformen sein können. Dies wird in CSS typischerweise mit der {{cssxref("font-stretch")}}-Eigenschaft festgelegt, wobei die Werte als Prozentsatz über oder unter 'normal' (100%) ausgedrückt werden. Jeder Wert größer als 0 ist technisch gültig — allerdings ist es weit wahrscheinlicher, dass der Bereich näher an der 100%-Marke liegt, wie 75%–125%. Wenn ein bereitgestellter Zahlenwert außerhalb des im Font kodierten Bereichs liegt, sollte der Browser den Font mit dem nächstgelegenen erlaubten Wert rendern.
+Die Breite (repräsentiert durch das `wdth` Tag) definiert die Designachse, wie schmal oder breit (komprimiert oder erweitert, in typografischen Begriffen) die Buchstabenformen sein können. Dies wird typischerweise in CSS mit der {{cssxref("font-stretch")}} Eigenschaft eingestellt, wobei Werte als Prozentsätze über oder unter 'normal' (100%) ausgedrückt werden, jede Zahl größer als 0 ist technisch gültig – obwohl es weit wahrscheinlicher ist, dass der Bereich näher an der 100%-Marke liegt, z.B. 75%-125%. Wenn ein angegebener Zahlenwert außerhalb des im Font codierten Bereichs liegt, sollte der Browser den Font mit dem nächst erlaubten Wert rendern.
 
 > [!NOTE]
-> Das % Symbol wird nicht verwendet, wenn Sie `font-variation-settings` nutzen.
+> Das % Zeichen wird nicht verwendet, wenn `font-variation-settings` genutzt wird.
 
 ```css
 font-stretch: 115%;
@@ -161,7 +161,7 @@ font-stretch: 115%;
 font-variation-settings: "wdth" 115;
 ```
 
-Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie den CSS-Code, um mit den Font-Breitwerten zu spielen.
+Klicken Sie auf "Play" in den Code-Blöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie den CSS-Code, um mit den `font-width` Werten zu spielen.
 
 ```html hidden live-sample___variable-fonts-width-example
 <div>
@@ -201,7 +201,7 @@ Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playgro
 p {
   font:
     1.2em "Amstelvar VF",
-    Georgia,
+    "Georgia",
     serif;
   font-size: 4rem;
   margin: 1rem;
@@ -247,9 +247,9 @@ angle.addEventListener("input", (e) => {
 
 ### Kursiv
 
-Die Kursive (`ital`) Achse kann im Bereich `[0-1]` festgelegt werden, wobei `0` "nicht kursiv", `0.5` "halbwegs kursiv" und `1` "vollständig kursiv" festlegt. Kursive Designs umfassen oft dramatisch andere Buchstabenformen als ihre aufrechten Gegenstücke, sodass bei der Umstellung von aufrecht auf kursiv oft mehrere Glyphen- (oder Zeichen-)Substitutionen auftreten. Kursiv und schräg werden oft etwas austauschbar verwendet, sind jedoch in Wahrheit ganz anders. Schräg (oblique) wird in diesem Zusammenhang mit dem Begriff `slant` definiert (siehe untenstehenden Abschnitt), und eine Schriftart würde normalerweise eines von beiden haben, aber nicht beides.
+Die Kursivachse (`ital`) kann im Bereich `[0-1]` gesetzt werden, wobei `0` "nicht kursiv", `0.5` "halb kursiv" und `1` "voll kursiv" spezifiziert. Kursives Design beinhaltet oft dramatisch unterschiedliche Buchstabenformen verglichen mit aufrechten Formen, sodass bei der Umstellung von aufrecht auf kursiv mehrere Glyphen- (oder Zeichen-) Substitutionen gewöhnlich auftreten. Kursiv und Oblique werden oft etwas austauschbar verwendet, sind aber in Wahrheit ziemlich unterschiedlich. Oblique wird in diesem Zusammenhang mit dem Begriff `slant` definiert (siehe der untenstehende Abschnitt), und eine Schriftart würde typischerweise das eine oder das andere, aber nicht beides haben.
 
-In CSS werden sowohl kursiv als auch schräg mit der {{cssxref("font-style")}}-Eigenschaft auf Text angewendet. Beachten Sie auch die Einführung von `font-synthesis: none;` — was verhindert, dass Browser versehentlich die Variationsachse und eine synthetisierte Kursive anwenden. Dies kann auch verwendet werden, um falsches Fetten zu verhindern.
+In CSS werden sowohl kursiv als auch oblique auf Text mit der {{cssxref("font-style")}} Eigenschaft angewandt. Beachten Sie auch die Einführung von `font-synthesis: none;` — was verhindert, dass Browser die Variationsachse und eine synthetisierte Kursivschrift versehentlich anwenden. Dies kann verwendet werden, um auch Faux-Fettung zu verhindern.
 
 ```css
 font-style: italic;
@@ -259,7 +259,7 @@ font-variation-settings: "ital" 1;
 font-synthesis: none;
 ```
 
-Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie den CSS-Code, um mit den Font-Kursivierungen zu spielen.
+Klicken Sie auf "Play" in den Code-Blöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie den CSS-Code, um mit den Kursiv-Werten zu spielen.
 
 ```html hidden live-sample___variable-fonts-italic-example
 <div>
@@ -300,8 +300,8 @@ Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playgro
 p {
   font:
     1.2em "Jost VF",
-    Helvetica,
-    Arial,
+    "Helvetica",
+    "Arial",
     sans-serif;
   font-size: 4rem;
   margin: 1rem;
@@ -352,11 +352,11 @@ angle.addEventListener("input", (e) => {
 
 {{EmbedLiveSample("variable-fonts-italic-example", "", "450px")}}
 
-### Schrägstellung
+### Schräge
 
-Schrägstellung (repräsentiert durch das `slnt`-Tag), oder wie es oft genannt wird, 'schräg' — unterscheidet sich von echten Kursiven dadurch, dass es den Winkel der Buchstabenformen ändert, aber keine Art von Zeichensubstitution vornimmt. Es ist auch variabel, da es als numerischer Bereich ausgedrückt wird. Dadurch kann die Schrift überall entlang der Achse der Schrägstellung variiert werden. Der erlaubte Bereich reicht von -90 bis 90 Grad.
+Schräge (repräsentiert durch das `slnt` Tag), oder wie sie oft genannt wird, 'oblique', unterscheidet sich von echten Kursivschriften, da sie den Winkel der Buchstabenformen ändert, jedoch keine Art von Zeichenersetzung durchführt. Sie ist ebenfalls variabel, da sie als numerischer Bereich ausgedrückt wird. Dadurch kann die Schrift an beliebiger Stelle entlang der Schrägeachse variiERT werden. Der zulässige Bereich beträgt -90 bis 90 Grad.
 
-Die beiden Eigenschaften, die die Schrägstellung kontrollieren können, sind [`font-style`](/de/docs/Web/CSS/font-style) und [`font-variation-settings`](/de/docs/Web/CSS/font-variation-settings). Die folgenden zwei Eigenschaftsdeklarationen sind gleich:
+Die zwei Eigenschaften, die die Schrägstellung kontrollieren können, sind [`font-style`](/de/docs/Web/CSS/font-style) und [`font-variation-settings`](/de/docs/Web/CSS/font-variation-settings). Die folgenden zwei Eigenschaftsdeklarationen sind gleichwertig:
 
 ```plain
 font-style: oblique 14deg;
@@ -364,9 +364,9 @@ font-style: oblique 14deg;
 font-variation-settings: "slnt" -14;
 ```
 
-Bevorzugen Sie die `font-style`-Eigenschaft gegenüber der `font-variation-settings`-Eigenschaft. Das `deg`-Schlüsselwort wird nicht verwendet, wenn Sie die `font-variation-settings`-Eigenschaft verwenden. Außerdem bedeutet in dem Fall der `font-variation-settings`-Eigenschaft ein positiver Winkel eine gegen den Uhrzeigersinn verlaufende Schrägstellung.
+Bevorzugen Sie die `font-style` Eigenschaft über die `font-variation-settings` Eigenschaft. Das `deg`-Schlüsselwort wird nicht verwendet, wenn die `font-variation-settings`-Eigenschaft verwendet wird. Auch im Fall der `font-variation-settings` Eigenschaft bedeutet ein positiver Winkel eine Gegenuhrzeigerschräge.
 
-Im folgenden Live-Beispiel können Sie die Schrägstellung anpassen.
+Im folgenden Live-Beispiel können Sie die Schräge anpassen.
 
 ```html hidden live-sample___slant-example
 <div>
@@ -443,13 +443,13 @@ angle.addEventListener("input", (e) => {
 
 ### Optische Größe
 
-Dies ist neu bei digitalen Schriftarten und CSS, aber es ist eine jahrhundertealte Technik beim Entwerfen und Erstellen von Bleisatz. Optische Größenanpassung bezieht sich darauf, die Dicke der Striche der Buchstabenformen basierend auf der physischen Größe zu variieren. Wenn die Größe sehr klein war (wie eine Entsprechung zu 10 oder 12px), hatten die Zeichen einen insgesamt dickeren Strich und vielleicht andere kleine Anpassungen, um sicherzustellen, dass sie bei einer physisch kleineren Größe reproduziert und lesbar sind. Umgekehrt, wenn eine viel größere Größe verwendet wurde (wie 48 oder 60px), könnte es viel größere Variationen in der Strichdicke geben, die das Design des Schriftbildes mehr im Einklang mit der ursprünglichen Absicht zeigen.
+Dies ist etwas Neues für digitale Schriften und CSS, aber eine jahrhundertealte Technik beim Entwerfen und Erstellen von Metallschriften. Optische Größe bezieht sich auf die Praxis, die Gesamtdicke der Striche von Buchstabenformen basierend auf der physischen Größe zu variieren. Wenn die Größe sehr klein war (wie das Äquivalent zu 10 oder 12 px), hätten die Zeichen insgesamt einen dickeren Strich, und möglicherweise andere kleine Modifikationen, um sicherzustellen, dass sie gut wiedergegeben werden und lesbar sind bei einer physisch kleineren Größe. Umgekehrt, wenn eine viel größere Größe verwendet wurde (wie 48 oder 60 px), könnte es viel mehr Variation in den dicken und dünnen Strichstärken geben, die das Schriftartdesign mehr im Einklang mit der ursprünglichen Absicht zeigen.
 
-Obwohl dies ursprünglich getan wurde, um den Druckvorgang mit Tinte und Papier zu kompensieren (sehr dünne Linien bei kleinen Größen druckten oft nicht und gaben den Buchstabenformen ein gebrochenes Aussehen), übersetzt es sich gut zu digitalen Bildschirmen, wenn man die Bildschirmqualität und die physische Größenanzeige kompensiert.
+Obwohl dies ursprünglich gemacht wurde, um den Druckprozess mit Tinte und Papier zu kompensieren (sehr dünne Linien bei kleinen Größen druckten oft nicht, was den Buchstabenformen ein zerrissenes Aussehen verlieh), übersetzt sich das gut zu digitalen Anzeigen, wenn es darum geht, die Bildschirmqualität und physische Größenwiedergabe zu kompensieren.
 
-Optische Größeneigenschaften sind im Allgemeinen so ausgelegt, dass sie automatisch entsprechend der `font-size` angewendet werden, können aber auch mit der Low-Level-Syntax von `font-variation-settings` manipuliert werden.
+Optische Größenwerte sind im Allgemeinen dafür gedacht, automatisch entsprechend der `font-size` angewendet zu werden, können aber auch mit Hilfe der Low-Level-Syntax `font-variation-settings` manipuliert werden.
 
-Es gibt ein neues Attribut, {{cssxref("font-optical-sizing")}}, das eingeführt wurde, um Variable Fonts im CSS zu unterstützen. Bei der Verwendung von `font-optical-sizing` sind nur die Werte `auto` oder `none` erlaubt — somit ermöglicht dieses Attribut nur das Ein- oder Ausschalten der optischen Größenanpassung. Wenn jedoch `font-variation-settings: 'opsz' <num>` verwendet wird, kann ein numerischer Wert angegeben werden. In den meisten Fällen würden Sie den `font-size` (die physische Größe, in der der Typ gerendert wird) mit dem `opsz`-Wert abgleichen wollen (was die Art ist, wie optische Größenanpassung bei Verwendung von `auto` angewendet werden soll). Die Option, einen bestimmten Wert bereitzustellen, wird zur Verfügung gestellt, damit, falls es nötig ist, den Standard — aus Gründen der Lesbarkeit, Ästhetik oder einem anderen Grund — zu überschreiben, ein spezifischer Wert angewendet werden kann.
+Es gibt ein neues Attribut, {{cssxref("font-optical-sizing")}}, das in CSS zur Unterstützung von Variablen Fonts erstellt wurde. Bei Verwendung von `font-optical-sizing` sind die einzigen erlaubten Werte `auto` oder `none` – dieses Attribut ermöglicht also nur, die optische Größenanpassung ein- oder auszuschalten. Wenn Sie jedoch `font-variation-settings: 'opsz' <num>` verwenden, können Sie einen numerischen Wert angeben. In den meisten Fällen möchten Sie die `font-size` (die physische Größe, in der die Schrift gerendert wird) mit dem `opsz`-Wert abgleichen (was die Art und Weise ist, wie optische Größenanpassung angewendet werden soll, wenn Sie `auto` verwenden). Die Möglichkeit, einen spezifischen Wert anzugeben, ist vorhanden, damit er, falls nötig, zum Überschreiben des Standards verwendet werden kann – aus Lesbarkeits-, ästhetischen oder anderen Gründen – ein spezifischer Wert angewendet werden kann.
 
 ```css
 font-optical-sizing: auto;
@@ -457,7 +457,7 @@ font-optical-sizing: auto;
 font-variation-settings: "opsz" 36;
 ```
 
-Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie den CSS-Code, um mit den optischen Größenwerten zu spielen.
+Klicken Sie auf "Play" in den Code-Blöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie den CSS-Code, um mit den Werten der optischen Größe zu spielen.
 
 ```html hidden live-sample___optical-sizing-example
 <div>
@@ -502,7 +502,7 @@ Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playgro
 p {
   font:
     1.2em "Amstelvar VF",
-    Georgia,
+    "Georgia",
     serif;
   font-size: 4rem;
   margin: 1rem;
@@ -551,17 +551,17 @@ angle.addEventListener("input", (e) => {
 
 ### Benutzerdefinierte Achsen
 
-Benutzerdefinierte Achsen sind genau das: Sie können jede Designachse sein, die sich der Schriftentwerfer ausdenkt. Es könnte einige geben, die ziemlich gebräuchlich werden - oder gar registriert werden - aber nur die Zeit wird es zeigen.
+Benutzerdefinierte Achsen sind genau das: Sie können jede Achse des Designvariationsprozesses sein, die sich der Schriftartendesigner vorstellt. Es könnte einige geben, die relativ gängig werden — oder sogar registriert — aber nur die Zeit wird es zeigen.
 
 ### Grad
 
-Grad könnte eine der häufigeren benutzerdefinierten Achsen werden, da es eine bekannte Geschichte im Schriftbilddesign hat. Das Entwerfen unterschiedlicher Grade eines Schriftbildes wurde oft als Reaktion auf die beabsichtigte Verwendung und Drucktechnik vorgenommen. Der Begriff 'Grad' bezieht sich auf das relative Gewicht oder die Dichte des Schriftbildesigns, unterscheidet sich jedoch von traditionellem 'Gewicht' darin, dass der physische Raum, den der Text einnimmt, sich nicht ändert, sodass das Ändern des Textgrades das Gesamt-Layout des Textes oder der umliegenden Elemente nicht verändert. Dies macht den Grad zu einer nützlichen Variationsachse, da er variiert oder animiert werden kann, ohne dass eine Umverteilung des Textes selbst verursacht wird.
+Grad kann eine der häufigeren benutzerdefinierten Achsen werden, da sie eine bekannte Geschichte im Schriftartendesign hat. Das Gestalten unterschiedlicher Grade einer Schriftart war oft eine Reaktion auf den beabsichtigten Verwendungszweck und die Drucktechnik. Der Begriff 'Grad' bezieht sich auf das relative Gewicht oder die Dichte des Schriftartdesigns, unterscheidet sich jedoch von der traditionellen 'Gewichtung' darin, dass der physische Raum, den der Text einnimmt, sich nicht ändert, daher ändert das Ändern des Textgrades nicht das Gesamtlayout des Textes oder der umgebenden Elemente. Dies macht den Grad zu einer nützlichen Achse der Variation, da sie variiert oder animiert werden kann, ohne ein Reflow des Textes selbst zu verursachen.
 
 ```css
 font-variation-settings: "GRAD" 88;
 ```
 
-Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie den CSS-Code, um mit den Schriftgradwerten zu spielen.
+Klicken Sie auf "Play" in den Code-Blöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Bearbeiten Sie den CSS-Code, um mit den `font-grade` Werten zu spielen.
 
 ```html hidden live-sample___grade-example
 <div>
@@ -598,7 +598,7 @@ Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playgro
 p {
   font:
     1.2em "Amstelvar VF",
-    Georgia,
+    "Georgia",
     serif;
   font-size: 64px;
   margin: 1rem;
@@ -639,13 +639,13 @@ angle.addEventListener("input", (e) => {
 
 {{EmbedLiveSample("grade-example", "", "300px")}}
 
-### Verwendung einer Variable Font: Änderungen von @font-face
+### Verwendung eines Variablen Fonts: Änderungen bei @font-face
 
-Die Syntax zum Laden von Variable Fonts ist sehr ähnlich wie bei jeder anderen Webschriftart, mit einigen bemerkenswerten Unterschieden, die durch Upgrades zur traditionellen {{cssxref("@font-face")}}-Syntax möglich sind, die jetzt in modernen Browsern verfügbar ist.
+Die Syntax zum Laden von Variablen Fonts ist sehr ähnlich zu jeder anderen Schriftart für das Web, mit einigen bemerkenswerten Unterschieden, die durch Upgrades der traditionellen {{cssxref("@font-face")}}-Syntax jetzt in modernen Browsern verfügbar sind.
 
-Die grundlegende Syntax ist die gleiche, aber die Schrifttechnologie kann spezifiziert werden und erlaubte Bereiche für Deskriptoren wie `font-weight` und `font-stretch` können angegeben werden, anstatt nach dem Namen gemäß der geladenen Schriftartdatei.
+Die grundlegende Syntax ist gleich, aber die Schriftarttechnologie kann spezifiziert werden und zulässige Bereiche für Deskriptoren wie `font-weight` und `font-stretch` können angegeben werden, anstatt benannt zu werden nach der Schriftdatei, die geladen wird.
 
-#### Beispiel für eine Standardschriftart (römisch)
+#### Beispiel für eine standardmäßige aufrechte (Römische) Schrift
 
 ```css
 @font-face {
@@ -659,9 +659,9 @@ Die grundlegende Syntax ist die gleiche, aber die Schrifttechnologie kann spezif
 }
 ```
 
-In diesem Fall gibt die Deklaration `font-style: normal` an, dass diese Schriftdatei verwendet werden sollte, wenn `font-family` auf `MyVariableFontName` gesetzt wird und [`font-style`](/de/docs/Web/CSS/font-style) auf `normal` gesetzt ist. Alternativ könnten Sie `font-style: oblique 0deg` oder `font-style: oblique 0deg 20deg` verwenden, um anzugeben, dass die Schriftart normale aufrechte Zeichen hat (angegeben mit `0deg`).
+In diesem Fall gibt die `font-style: normal` Deklaration an, dass diese Schriftdatei verwendet werden sollte, wenn `font-family` auf `MyVariableFontName` eingestellt ist und [`font-style`](/de/docs/Web/CSS/font-style) auf `normal` gesetzt ist. Alternativ könnten Sie `font-style: oblique 0deg` oder `font-style: oblique 0deg 20deg` verwenden, um anzugeben, dass die Schrift normale aufrechte Glyphen (angezeigt durch `0deg`) hat.
 
-#### Beispiel für eine Schriftart, die nur Kursiv enthält und keine aufrechten Zeichen
+#### Beispiel für eine Schrift, die nur Kursivschrift und keine aufrechten Zeichen enthält
 
 ```css
 @font-face {
@@ -675,9 +675,9 @@ In diesem Fall gibt die Deklaration `font-style: normal` an, dass diese Schriftd
 }
 ```
 
-In diesem Fall gibt die Deklaration `font-style: italic` an, dass diese Schriftdatei verwendet werden sollte, wenn `font-family` auf `MyVariableFontName` gesetzt wird und [`font-style`](/de/docs/Web/CSS/font-style) auf `italic` gesetzt ist. Alternativ könnten Sie `font-style: oblique 14deg` verwenden, um anzugeben, dass die Schriftart kursive Zeichen hat.
+In diesem Fall gibt die `font-style: italic` Deklaration an, dass diese Schriftdatei verwendet werden sollte, wenn `font-family` auf `MyVariableFontName` und [`font-style`](/de/docs/Web/CSS/font-style) auf `italic` eingestellt ist. Alternativ könnten Sie `font-style: oblique 14deg` verwenden, um anzugeben, dass die Schrift Kursivglyphen hat.
 
-#### Beispiel für eine Schriftart, die eine schräge (schrägstehende) Achse enthält
+#### Beispiel für eine Schrift, die eine Schrägeachse (Schrägachse) enthält
 
 ```css
 @font-face {
@@ -691,17 +691,17 @@ In diesem Fall gibt die Deklaration `font-style: italic` an, dass diese Schriftd
 }
 ```
 
-In diesem Fall gibt der Wert `oblique 0deg 12deg` an, dass diese Schriftdatei verwendet werden sollte, wenn in einer Stilregel die `font-family`-Eigenschaft `MyVariableFontName` ist und die [font-style](/de/docs/Web/CSS/font-style) Eigenschaft schräg mit einem Winkel zwischen null und 12 Grad einschließlich ist.
+In diesem Fall gibt der `oblique 0deg 12deg` Wert an, dass diese Schriftdatei verwendet werden sollte, wenn in einer Stilregel die `font-family` Eigenschaft `MyVariableFontName` und die [font-style](/de/docs/Web/CSS/font-style) Eigenschaft schräg mit einem Winkel zwischen null und 12 Grad inklusive ist.
 
 > [!NOTE]
-> Nicht alle Browser haben die vollständige Syntax für das Schriftformat implementiert, also testen Sie sorgfältig. Alle Browser, die Variable Fonts unterstützen, werden sie dennoch rendern, wenn Sie das Format nur auf das Dateiformat setzen, anstatt format-Variationen (d.h. `woff2` statt `woff2-variations`), aber es ist am besten, die richtige Syntax zu verwenden, wenn möglich.
+> Nicht alle Browser haben die vollständige Syntax für das Schriftformat implementiert, testen Sie daher sorgfältig. Alle Browser, die Variable Fonts unterstützen, werden sie trotzdem rendern, wenn Sie das Format nur als Dateiformat setzen, statt Format-Variationen (d.h. `woff2` statt `woff2-variations`), aber es ist am besten, wenn möglich, die richtige Syntax zu verwenden.
 
 > [!NOTE]
-> Das Bereitstellen von Wertebereichen für `font-weight`, `font-stretch` und `font-style` wird den Browser davon abhalten, eine Achse außerhalb dieses Bereichs zu rendern, wenn Sie das entsprechende Attribut verwenden (d.h. `font-weight` oder `font-stretch`), wird Sie jedoch nicht davon abhalten, einen ungültigen Wert über `font-variation-settings` bereitzustellen, also verwenden Sie diese mit Vorsicht.
+> Die Bereitstellung von Wertbereichen für `font-weight`, `font-stretch` und `font-style` verhindert, dass der Browser versucht, eine Achse außerhalb dieses Bereichs darzustellen, wenn Sie das passende Attribut verwenden (d.h. `font-weight` oder `font-stretch`), hindert Sie jedoch nicht daran, einen ungültigen Wert über `font-variation-settings` anzugeben, also verwenden Sie dies mit Vorsicht.
 
 ## Arbeiten mit älteren Browsern
 
-Die Unterstützung von Variable Fonts kann mit CSS-Feature-Abfragen überprüft werden (siehe {{cssxref("@supports")}}), sodass es möglich ist, Variable Fonts in der Produktion einzusetzen und das CSS, das die Variable Fonts aufruft, innerhalb eines Feature-Abfrageblocks einzurahmen.
+Die Unterstützung für Variable Fonts kann mit CSS-Feature-Abfragen überprüft werden (siehe {{cssxref("@supports")}}), sodass es möglich ist, Variable Fonts in der Produktion zu verwenden und das CSS, das die Variable Fonts aufruft, in einen Feature-Abfrageblock zu integrieren.
 
 ```css
 h1 {
@@ -717,7 +717,7 @@ h1 {
 
 ## Beispielseiten
 
-Die folgenden Beispielseiten zeigen zwei verschiedene Möglichkeiten, Ihr CSS zu strukturieren. Die erste verwendet die standardmäßigen Attribute, wo immer möglich. Das zweite Beispiel verwendet CSS-Custom-Properties, um Werte für eine `font-variation-settings` Zeichenkette festzulegen und zeigt, wie Sie einzelne Variable-Werte leichter aktualisieren können, indem Sie eine einzelne Variable überschreiben, anstatt die gesamte Zeichenkette neu zu schreiben. Beachten Sie den Hover-Effekt auf dem `h2`, der nur den Wert der Grade-Achse Custom Property ändert. Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
+Die folgenden Beispielseiten zeigen zwei verschiedene Möglichkeiten, Ihr CSS zu strukturieren. Die erste verwendet die Standardattribute, wo immer möglich. Das zweite Beispiel verwendet CSS Custom Properties, um Werte für eine `font-variation-settings` Zeichenkette festzulegen und zeigt, wie Sie einzelne Variablenwerte einfacher aktualisieren können, indem Sie eine einzelne Variable überschreiben, anstatt die ganze Zeichenkette neu zu schreiben. Beachten Sie den Hover-Effekt bei `h2`, der nur den Achsenwert des Grad benutzerdefinierten Eigenschaftenwerts ändert. Klicken Sie auf "Play" in den Code-Blöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html hidden live-sample___sample-page-example
 <div class="container container1">
@@ -771,7 +771,7 @@ Die folgenden Beispielseiten zeigen zwei verschiedene Möglichkeiten, Ihr CSS zu
 body {
   font:
     1.2em "Amstelvar VF",
-    Georgia,
+    "Georgia",
     serif;
   margin: 20px;
   padding: 0;
@@ -840,11 +840,11 @@ body {
 
 ## Ressourcen
 
-- [W3C CSS Fonts Module 4 Specification](https://drafts.csswg.org/css-fonts-4/) (Entwurfsfassung)
-- [W3C GitHub Issue Queue](https://github.com/w3c/csswg-drafts/issues)
-- [Microsoft Open Type Variations Einführung](https://learn.microsoft.com/en-us/typography/opentype/spec/otvaroverview)
+- [W3C CSS Fonts Module 4 Specification](https://drafts.csswg.org/css-fonts-4/) (Editorenentwurf)
+- [W3C GitHub issue queue](https://github.com/w3c/csswg-drafts/issues)
+- [Microsoft Open Type Variations introduction](https://learn.microsoft.com/en-us/typography/opentype/spec/otvaroverview)
 - [Microsoft OpenType Design-Variation Axis Tag Registry](https://learn.microsoft.com/en-us/typography/opentype/spec/dvaraxisreg)
-- [Wakamai Fondue](https://wakamaifondue.com/) (eine Webseite, die zeigt, was Ihre Schriftart über eine Drag-and-Drop-Inspektionsschnittstelle kann)
-- [Axis Praxis](https://www.axis-praxis.org/) (die ursprüngliche variable Fonts-Spielplatz-Webseite)
-- [V-Fonts.com](https://v-fonts.com/) (ein Katalog von Variable Fonts und wo man sie bekommt)
-- [Font Playground](https://play.typedetail.com/) (ein weiterer Spielplatz für Variable Fonts mit einigen sehr einzigartigen Ansätzen zur Benutzeroberfläche)
+- [Wakamai Fondue](https://wakamaifondue.com/) (eine Website, die Ihnen zeigt, was Ihre Schriftart kann, über eine Drag-and-Drop-Inspektionsoberfläche)
+- [Axis Praxis](https://www.axis-praxis.org/) (die ursprüngliche Spielwiese für Variable Fonts)
+- [V-Fonts.com](https://v-fonts.com/) (ein Katalog von Variablen Fonts und wo man sie bekommt)
+- [Font Playground](https://play.typedetail.com/) (eine weitere Spielwiese für Variable Fonts mit einigen sehr einzigartigen Ansätzen zur Benutzeroberfläche)

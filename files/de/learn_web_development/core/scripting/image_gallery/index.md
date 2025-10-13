@@ -2,18 +2,18 @@
 title: "Herausforderung: Bildergalerie"
 slug: Learn_web_development/Core/Scripting/Image_gallery
 l10n:
-  sourceCommit: 3cbd2b2b2eb0be9425949c20ca5d398645f7c0e9
+  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/DOM_scripting","Learn_web_development/Core/Scripting/Network_requests", "Learn_web_development/Core/Scripting")}}
 
-In dieser Herausforderung werden wir Ihnen zeigen, wie Sie ein häufiges Element erstellen, das Sie auf vielen Websites sehen - eine JavaScript-gestützte Bildergalerie. Dabei werden Sie auf Ihr Wissen über Schleifen, Funktionen, Bedingungen, Ereignisse, DOM-Scripting und Objektgrundlagen getestet.
+In dieser Herausforderung werden wir Sie dazu bringen, ein ziemlich häufiges Element zu erstellen, das Sie auf vielen Websites sehen werden — eine durch JavaScript gesteuerte Bildergalerie. Auf dem Weg dorthin werden Sie in Ihrem Wissen über Schleifen, Funktionen, Bedingungen, Ereignisse, DOM-Scripting und Objektgrundlagen geprüft.
 
 ## Ausgangspunkt
 
-Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche in einem der Code-Panels unten, um das bereitgestellte Beispiel im MDN Playground zu öffnen. Befolgen Sie dann die Anweisungen im Abschnitt [Projektbeschreibung](#projektbeschreibung), um die JavaScript-Funktionalität zu vervollständigen.
+Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche in einem der untenstehenden Code-Panels, um das bereitgestellte Beispiel im MDN Playground zu öffnen. Folgen Sie dann den Anweisungen im Abschnitt [Projektauftrag](#projektauftrag), um die JavaScript-Funktionalität zu vervollständigen.
 
-Das HTML sieht folgendermaßen aus:
+Das HTML sieht wie folgt aus:
 
 ```html live-sample___gallery-start live-sample___gallery-finish
 <h1>Image gallery example</h1>
@@ -30,7 +30,7 @@ Das HTML sieht folgendermaßen aus:
 <div class="thumb-bar"></div>
 ```
 
-Der anfängliche JavaScript-Code sieht so aus:
+Das anfängliche JavaScript sieht so aus:
 
 ```js live-sample___gallery-start
 const displayedImage = document.querySelector(".displayed-img");
@@ -111,23 +111,23 @@ button:focus {
 }
 ```
 
-Wir haben das Galerie-CSS der Kürze halber ausgeblendet, Sie können es jedoch sehen, wenn Sie die App im MDN Playground ansehen.
+Wir haben das CSS der Galerie zur Kürze ausgeblendet, aber Sie können es sehen, wenn Sie die App im MDN Playground anschauen.
 
-## Projektbeschreibung
+## Projektauftrag
 
-Sie haben einige HTML-, CSS- und ein paar Zeilen JavaScript-Code erhalten. Ihre Aufgabe ist es, die folgenden Anweisungen zu befolgen und das erforderliche JavaScript zu schreiben, um daraus eine funktionierende Bildergalerie zu machen.
+Ihnen wurden einige HTML-, CSS- und wenige Zeilen JavaScript-Code bereitgestellt. Ihre Aufgabe ist es, den untenstehenden Anweisungen zu folgen und das notwendige JavaScript zu schreiben, um daraus eine funktionierende Bildergalerie zu machen.
 
-Die Galerie wird aus einem großen Bild und einer Reihe von Miniaturansichten bestehen. Wenn eine Miniaturansicht angeklickt oder mit der Tab-Taste erreicht und dann <kbd>Enter</kbd>/<kbd>Return</kbd> gedrückt wird, sollte die Miniaturansicht als großes Bild angezeigt werden. Das betreffende `<img>`-Element sollte auch mit dem korrekten `alt`-Text aktualisiert werden.
+Die Galerie wird aus einem großen Bild und einer Reihe von Miniaturansichten bestehen. Wenn eine Miniaturansicht angeklickt oder fokussiert und anschließend <kbd>Enter</kbd>/<kbd>Return</kbd> gedrückt wird, soll dieses Miniaturbild als großes Bild angezeigt werden. Das entsprechende `<img>`-Element sollte außerdem mit dem korrekten `alt`-Text aktualisiert werden.
 
-In der oberen linken Ecke befindet sich ein Button, der bei wiederholtem Drücken das große Bild zwischen einem dunkleren und einem helleren Ton umschaltet, indem die Transparenz eines `<div>`-Elements geändert wird, das über das große Bild gelegt wurde.
+In der oberen linken Ecke gibt es eine Schaltfläche, die bei wiederholtem Drücken das große Bild zwischen einem dunkleren und helleren Farbton umschaltet, indem die Transparenz eines überlagerten `<div>`-Elements geändert wird.
 
-Die Bilder, die Sie im Beispiel einfügen müssen, und deren erforderliche `alt`-Texte sind wie folgt:
+Die Bilder, die Sie in das Beispiel einbetten müssen, und ihr erforderlicher `alt`-Text sind wie folgt:
 
-- [`pic1.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/gallery/pic1.jpg): "Nahaufnahme eines menschlichen Auges".
-- [`pic2.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/gallery/pic2.jpg): "Fels, der wie eine Welle aussieht".
-- [`pic3.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/gallery/pic3.jpg): "Violette und weiße Stiefmütterchen".
-- [`pic4.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/gallery/pic4.jpg): "Abschnitt einer Wand aus dem Grab eines Pharaos".
-- [`pic5.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/gallery/pic5.jpg): "Großer Falter auf einem Blatt".
+- [`pic1.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/gallery/pic1.jpg): „Nahaufnahme eines menschlichen Auges“.
+- [`pic2.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/gallery/pic2.jpg): „Felsen, der wie eine Welle aussieht“.
+- [`pic3.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/gallery/pic3.jpg): „Lila und weiße Stiefmütterchen“.
+- [`pic4.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/gallery/pic4.jpg): „Abschnitt einer Wand aus dem Grab eines Pharaos“.
+- [`pic5.jpg`](https://mdn.github.io/shared-assets/images/examples/learn/gallery/pic5.jpg): „Großer Falter auf einem Blatt“.
 
 ### Erstellen Sie ein Datenobjekt
 
@@ -138,34 +138,34 @@ Zuerst möchten wir, dass Sie ein Array von Objekten namens `images` deklarieren
 
 ### Fügen Sie die Bilder zur Miniaturleiste hinzu
 
-Als nächstes möchten wir, dass Sie durch die `images` schleifen und etwas DOM-Scripting verwenden, um sie alle auf der Seite über `<img>`-Elemente einzubetten. Sie sollten als Kinder des `<div>`-Elements mit der Klasse `thumb-bar` enthalten sein, die wir bereits in der Konstante `thumbBar` referenziert haben.
+Als nächstes möchten wir, dass Sie die `images` durchlaufen und mit DOM-Scripting alle Bilder auf der Seite über `<img>`-Elemente einbetten. Sie sollten als Kinder des `<div>`-Elements mit der Klasse `thumb-bar` hinzugefügt werden, auf das wir bereits in der Konstante `thumbBar` verwiesen haben.
 
-1. Erstellen Sie eine Konstante namens `baseURL`, die die Basis-URL jeder Bilddatei enthält (die gesamte URL ohne den Dateinamen).
-2. Erstellen Sie eine `for ... of`-Schleife, um durch die `images` zu schleifen.
+1. Erstellen Sie eine Konstante namens `baseURL`, die die Basis-URL jeder Bilddatei enthält (alles von der URL ohne den Dateinamen).
+2. Erstellen Sie eine `for ... of` Schleife, um die `images` zu durchlaufen.
 3. Erstellen Sie für jedes Bild ein neues `<img>`-Element.
-4. Setzen Sie die `<img>`-Quelle auf die URL des Bildes, die eine Kombination aus `baseURL` und dem `filename` sein sollte, und setzen Sie das `alt`-Attribut auf den `alt`-Text.
-5. Fügen Sie dem `<img>` ein weiteres Attribut hinzu, um es über die Tastatur fokussierbar zu machen.
-6. Hängen Sie das `<img>` an `thumbBar` an.
-7. Fügen Sie dem `<img>` einen `click`-Ereignishandler hinzu, sodass eine Funktion namens `updateDisplayedImage()` ausgeführt wird, wenn es angeklickt wird, wodurch das angeklickte Bild in voller Größe angezeigt wird. Sie werden diese Funktion später erstellen.
-8. Fügen Sie einen weiteren Ereignishandler zu dem `<img>` hinzu, sodass das angeklickte Bild, sobald es über die Tastatur fokussiert ist, durch Drücken der <kbd>Enter</kbd>/<kbd>Return</kbd>-Taste (und keiner anderen Taste) in voller Größe angezeigt werden kann. Dies ist ein erweitertes Ziel, das ein wenig Forschung erfordert, um es herauszufinden.
+4. Setzen Sie die Quelle des `<img>` auf die URL des Bildes, die eine Kombination aus `baseURL` und `filename` sein sollte, und das `alt` Attribut auf den `alt`-Text.
+5. Fügen Sie dem `<img>` ein weiteres Attribut hinzu, damit es über die Tastatur fokussierbar ist.
+6. Fügen Sie das `<img>` zur `thumbBar` hinzu.
+7. Fügen Sie einen `click`-Ereignishandler zum `<img>` hinzu, sodass bei einem Klick eine Funktion namens `updateDisplayedImage()` ausgeführt wird, die das angeklickte Bild in voller Größe anzeigt. Diese Funktion erstellen Sie später.
+8. Fügen Sie einen weiteren Ereignishandler zum `<img>` hinzu, sodass beim Fokussieren über die Tastatur und Drücken der <kbd>Enter</kbd>/<kbd>Return</kbd> Taste (und keiner anderen Taste) das angeklickte Bild in voller Größe angezeigt werden kann. Dies ist ein Stretch-Goal, das etwas Forschung erfordern wird.
 
-### Erstellen Sie die Funktion `updateDisplayedImage()`
+### Erstellen Sie die `updateDisplayedImage()` Funktion
 
-Jetzt ist es an der Zeit, die Funktion zu erstellen, um eine aktivierte Miniaturansicht in voller Größe anzuzeigen. Wir haben einen Verweis auf das Vollbild-`<img>`-Element in der Konstante `displayedImage` gespeichert.
+Jetzt ist es an der Zeit, die Funktion zu erstellen, die ein aktiviertes Thumbnail in voller Größe anzeigt. Wir haben eine Referenz auf das `<img>`-Element in voller Größe in der Konstanten `displayedImage` gespeichert.
 
-1. Definieren Sie die Funktion `updateDisplayedImage()`.
-2. Innerhalb des Funktionskörpers setzen Sie die Quelle von `displayedImage` gleich der Quelle des aktivierten `<img>`.
-3. Setzen Sie den `alt`-Text von `displayedImage` gleich dem `alt`-Text des aktivierten `<img>`.
+1. Definieren Sie die `updateDisplayedImage()`-Funktion.
+2. Setzen Sie innerhalb des Funktionskörpers die Quelle von `displayedImage` auf die Quelle des aktivierten `<img>`.
+3. Setzen Sie den `alt`-Text von `displayedImage` auf den `alt`-Text des aktivierten `<img>`.
 
-### Verdrahten Sie die Dunkel-/Heller-Schaltfläche
+### Verkabeln Sie die Dunkel/Hell-Schaltfläche
 
-Wir haben einen Verweis auf die "Dunkel/Heller"-`<button>` in der Konstante `btn` gespeichert und einen Verweis auf das transparente `<div>`, das wir über dem Vollbild-`<img>` überlagert haben, in der Konstante `overlay`. Wir möchten, dass Sie:
+Wir haben eine Referenz auf die "Dunkel/Hell"-Schaltfläche in der Konstante `btn` und eine Referenz auf das transparente `<div>`, das wir über das `<img>` in voller Größe gelegt haben, in der Konstante `overlay` gespeichert. Wir möchten, dass Sie:
 
-1. Einen `click`-Ereignishandler zu dem `<button>` mit einer anonymen Funktion als Handler-Funktion hinzufügen.
-2. Innerhalb des Funktionskörpers eine bedingte Struktur hinzufügen, die testet, ob das `<button>` ein `class`-Attribut von `dark` hat oder nicht.
-3. Wenn das `<button>` beim Klicken eine `class` von `dark` hat, ändern Sie seinen Textinhalt in `Lighten` und ändern Sie die Hintergrundfarbe des `overlay`-Elements in `rgb(0 0 0 / 0.5)`. Entfernen Sie die `dark`-Klasse des `<button>`-Elements.
-4. Wenn das `<button>` _keine_ `class` von `dark` hat, ändern Sie seinen Textinhalt in `Darken` und ändern Sie die Hintergrundfarbe des `overlay`-Elements in `rgb(0 0 0 / 0)`. Fügen Sie die `dark`-Klasse des `<button>`-Elements hinzu.
-5. Können Sie sich eine Möglichkeit vorstellen, die `dark`-Klasse mit einer einzigen Codezeile umschalten zu können, die nach der bedingten Struktur ausgeführt wird? Dies ist ein weiteres erweitertes Ziel, aber probieren Sie es aus.
+1. Einen `click`-Ereignishandler zur Schaltfläche `<button>` mit einer anonymen Funktion als Handler hinzufügen.
+2. Innerhalb des Funktionskörpers eine bedingte Struktur hinzufügen, die prüft, ob die Schaltfläche `<button>` eine `class` von `dark` hat oder nicht.
+3. Wenn die Schaltfläche `<button>` beim Klicken die Klasse `dark` hat, ändern Sie ihren Textinhalt in `Lighten` und ändern Sie die Hintergrundfarbe des `overlay`-Elements in `rgb(0 0 0 / 0.5)`. Entfernen Sie die Klasse `dark` von der Schaltfläche `<button>`.
+4. Wenn die Schaltfläche `<button>` _keine_ `class` von `dark` beim Klicken hat, ändern Sie ihren Textinhalt in `Darken` und ändern Sie die Hintergrundfarbe des `overlay`-Elements in `rgb(0 0 0 / 0)`. Fügen Sie die Klasse `dark` zur Schaltfläche `<button>` hinzu.
+5. Können Sie sich eine Möglichkeit überlegen, die Klasse `dark` mit einer einzigen Codezeile zu toggeln, die nach der bedingten Struktur ausgeführt wird? Dies ist ein weiteres Stretch-Goal, aber versuchen Sie es.
 
 ## Hinweise und Tipps
 
@@ -178,7 +178,7 @@ Ihre fertige App sollte wie das folgende Live-Beispiel funktionieren:
 {{EmbedLiveSample("gallery-finish", "100%", 700)}}
 
 <details>
-<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+<summary>Klicken Sie hier, um die Lösung zu sehen</summary>
 
 Das fertige JavaScript sollte in etwa so aussehen:
 
@@ -195,7 +195,7 @@ const images = [
   { filename: "pic1.jpg", alt: "Closeup of a human eye" },
   { filename: "pic2.jpg", alt: "Rock that looks like a wave" },
   { filename: "pic3.jpg", alt: "Purple and white pansies" },
-  { filename: "pic4.jpg", alt: "Section of wall from a pharoah's tomb" },
+  { filename: "pic4.jpg", alt: "Section of wall from a pharaoh's tomb" },
   { filename: "pic5.jpg", alt: "Large moth on a leaf" },
 ];
 

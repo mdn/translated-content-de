@@ -1,15 +1,15 @@
 ---
-title: CSS-Ränder und Box-Dekorationen
+title: CSS-Ränder und -Boxdekorationen
 slug: Web/CSS/CSS_borders_and_box_decorations
 l10n:
-  sourceCommit: bfafd2b4bf19e9655e19e5d2f04a2b8cc83c7636
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
-Das **CSS borders and box decorations** Modul bietet Eigenschaften zum Hinzufügen von Rändern, geformten Ecken und Box-Schatten zu Elementen. Dieses Modul erweitert die in dem [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul eingeführten Ränder und Box-Dekorationen, indem es die Eigenschaften {{cssxref("corner-shape")}} und `border-shape`, logische {{cssxref("border-radius")}}-Eigenschaften, Langform-Eigenschaften für die {{cssxref("box-shadow")}}-Eigenschaft und Eigenschaften zum Erstellen von Teilrandbefestigungen hinzufügt.
+Das **CSS-Ränder und -Boxdekorationen** Modul bietet Eigenschaften zum Hinzufügen von Rändern, geformten Ecken und Box-Schatten zu Elementen. Dieses Modul erweitert die in dem Modul [CSS-Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) eingeführten Ränder und Boxdekorationen, indem es die Eigenschaften {{cssxref("corner-shape")}} und `border-shape`, logische {{cssxref("border-radius")}} Eigenschaften, Langform-Eigenschaften für die {{cssxref("box-shadow")}} Eigenschaft und Eigenschaften zur Erstellung von Teilrändern hinzufügt.
 
-## Ränder und Box-Dekorationen in Aktion
+## Ränder und Boxdekorationen in Aktion
 
-Wählen Sie einen `superellipse()` Wert aus dem Dropdown-Menü, um die Randform zu ändern. Verwenden Sie den Schieberegler, um die Randradiusgröße zu ändern. Aktivieren und deaktivieren Sie das Kontrollkästchen, um den Box-Schatten zu verbergen und anzuzeigen.
+Wählen Sie einen `superellipse()`-Wert aus dem Dropdown-Menü, um die Randform zu ändern. Verwenden Sie den Schieberegler, um die Größe des Randradius zu ändern. Aktivieren und deaktivieren Sie das Kontrollkästchen, um den Box-Schatten ein- oder auszublenden.
 
 ```html hidden
 <p>
@@ -81,7 +81,7 @@ body:has(input:checked) div {
 
 @layer pageSetUp {
   html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Helvetica", "Arial", sans-serif;
   }
   body {
     max-width: 600px;
@@ -197,7 +197,7 @@ setCornerShape();
 - {{cssxref("corner-top-right-shape")}}
 - {{cssxref("corner-top-shape")}}
 
-Das CSS borders and box decorations module level 4 führt auch die Eigenschaften `border-shape`, `border-limit` und `border-clip` ein, zusammen mit den Langform-Eigenschaften `border-clip-bottom`, `border-clip-left`, `border-clip-right`, `border-clip-top`. Derzeit unterstützen keine Browser diese Funktionen. Das Modul stellt auch Komponenteneigenschaften für die gut unterstützten {{cssxref("border-radius")}} und {{cssxref("box-shadow")}} Eigenschaften vor, darunter `border-block-end-radius`, `border-block-start-radius`, `border-bottom-radius`, `border-inline-end-radius`, `border-inline-start-radius`, `border-right-radius`, `border-top-radius`, `box-shadow-blur`, `box-shadow-color`, `box-shadow-offset`, `box-shadow-position`, und `box-shadow-spread`. Diese Komponenteneigenschaften sind ebenfalls noch nicht unterstützt.
+Das CSS-Ränder und -Boxdekorationen Modul Level 4 führt auch die `border-shape`, `border-limit` und `border-clip` Eigenschaften sowie die Langform-Eigenschaften `border-clip-bottom`, `border-clip-left`, `border-clip-right`, `border-clip-top` ein. Derzeit unterstützen keine Browser diese Funktionen. Das Modul führt auch Komponenteneigenschaften für die gut unterstützten {{cssxref("border-radius")}} und {{cssxref("box-shadow")}} Eigenschaften ein, einschließlich `border-block-end-radius`, `border-block-start-radius`, `border-bottom-radius`, `border-inline-end-radius`, `border-inline-start-radius`, `border-right-radius`, `border-top-radius`, `box-shadow-blur`, `box-shadow-color`, `box-shadow-offset`, `box-shadow-position` und `box-shadow-spread`. Diese Komponenteneigenschaften werden bislang ebenfalls nicht unterstützt.
 
 ### Datentypen
 
@@ -209,8 +209,8 @@ Das CSS borders and box decorations module level 4 führt auch die Eigenschaften
 
 ## Leitfäden
 
-- [Lernen Sie CSS: Das Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model)
-  - : Lernen Sie, wie Ränder und andere Box-Modell-Eigenschaften das CSS-Box-Modell beeinflussen.
+- [Lernen Sie CSS: das Boxmodell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model)
+  - : Lernen Sie, wie Ränder und andere Boxmodelleigenschaften das CSS-Boxmodell beeinflussen.
 
 ## Verwandte Konzepte
 
@@ -223,7 +223,7 @@ Das CSS borders and box decorations module level 4 führt auch die Eigenschaften
 - [`<position>`](/de/docs/Web/CSS/position) Datentyp
 - [`currentColor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) Schlüsselwort
 
-[CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+[CSS-Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
 
 - {{cssxref("background-attachment")}}
 - {{cssxref("background-clip")}}
@@ -252,6 +252,6 @@ Das CSS borders and box decorations module level 4 führt auch die Eigenschaften
 - {{cssxref("filter")}}
 - {{cssxref("backdrop-filter")}}
 - [`drop-shadow()`](/de/docs/Web/CSS/filter-function/drop-shadow) Filterfunktion
-- [Farbe auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)
+- [Farben auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)
 - [Border-Image-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Border-image_generator)
 - [Border-Radius-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Border-radius_generator)

@@ -2,14 +2,14 @@
 title: corner-start-end-shape
 slug: Web/CSS/corner-start-end-shape
 l10n:
-  sourceCommit: 2a64c5583a2c61c729ffe1ee1e7709a5898f57b0
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-start-end-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form der Ecken eines Blocks an der block-start und inline-end Seite innerhalb seines {{cssxref("border-radius")}} Bereichs.
+Die **`corner-start-end-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form einer Box an der Block-Start- und Inline-End-Ecke innerhalb ihres {{cssxref("border-radius")}} Bereichs.
 
-Für eine vollständige Beschreibung des Verhaltens der Eckformen und mehrere Beispiele, siehe die Seite der {{cssxref("corner-shape")}} Kurzschreibweise Eigenschaft.
+Für eine vollständige Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele siehe die Seite zur {{cssxref("corner-shape")}} Kurzschreibweise.
 
 ## Syntax
 
@@ -44,13 +44,13 @@ Die `corner-start-end-shape` Eigenschaft wird unter Verwendung eines {{cssxref("
 
 ## Beispiele
 
-Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
+Weitere verwandte Beispiele finden Sie auf der Referenzseite {{cssxref("corner-shape")}}.
 
 ### Grundlegende Verwendung von `corner-start-end-shape`
 
 #### HTML
 
-Die Auszeichnung für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} Element.
+Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} Element.
 
 ```html live-sample___basic-usage
 <div></div>
@@ -58,11 +58,11 @@ Die Auszeichnung für dieses Beispiel enthält ein einzelnes {{htmlelement("div"
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Übersichtlichkeit halber versteckt haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `20px 40px 60px 80px` und eine `corner-start-end-shape` von `notch` an.
+Wir geben der Box einige grundlegende Stile, die wir aus Gründen der Kürze verborgen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `20px 40px 60px 80px` und eine `corner-start-end-shape` von `notch` an.
 
 ```css hidden live-sample___basic-usage
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   width: 240px;
   margin: 20px auto;
 }
@@ -106,10 +106,10 @@ Das gerenderte Ergebnis sieht so aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}} Kurzschreibweise Eigenschaft
+- {{cssxref("corner-shape")}} Kurzschreibweise
 - {{cssxref("corner-start-start-shape")}}, {{cssxref("corner-end-start-shape")}}, und {{cssxref("corner-end-end-shape")}}
 - {{cssxref("corner-top-left-shape")}}, {{cssxref("corner-top-right-shape")}}, {{cssxref("corner-bottom-left-shape")}}, und {{cssxref("corner-bottom-right-shape")}}
-- {{cssxref("border-radius")}} Kurzschreibweise Eigenschaft
+- {{cssxref("border-radius")}} Kurzschreibweise
 - {{cssxref("border-start-end-radius")}}
-- [CSS borders and box decorations](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
-- [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS-Border und Box-Dekorationen](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
+- [CSS Hintergründe und Border](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul

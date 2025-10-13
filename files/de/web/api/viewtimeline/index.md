@@ -2,46 +2,46 @@
 title: ViewTimeline
 slug: Web/API/ViewTimeline
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
 ---
 
 {{APIRef("Web Animations")}}
 
-Das **`ViewTimeline`**-Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert eine Ansichtsfortschritts-Timeline (siehe [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) für weitere Details).
+Das **`ViewTimeline`**-Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert eine Ansichtsfortschritts-Timeline (siehe [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) für mehr Details).
 
-Übergeben Sie eine `ViewTimeline`-Instanz an den [`Animation()`](/de/docs/Web/API/Animation/Animation)-Konstruktor oder die [`animate()`](/de/docs/Web/API/Element/animate)-Methode, um sie als die Timeline festzulegen, die den Fortschritt der Animation steuert.
+Übergeben Sie eine `ViewTimeline`-Instanz an den [`Animation()`](/de/docs/Web/API/Animation/Animation)-Konstruktor oder die [`animate()`](/de/docs/Web/API/Element/animate)-Methode, um diese als Timeline anzugeben, die den Fortschritt der Animation steuern wird.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`ViewTimeline()`](/de/docs/Web/API/ViewTimeline/ViewTimeline)
-  - : Erstellt eine neue Instanz des `ViewTimeline`-Objekts.
+  - : Erstellt eine neue `ViewTimeline`-Objektinstanz.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Dieses Interface erbt auch die Eigenschaften seines Elternteils, [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)._
 
 - [`subject`](/de/docs/Web/API/ViewTimeline/subject) {{ReadOnlyInline}}
-  - : Gibt eine Referenz zu dem Subjektelement zurück, dessen Sichtbarkeit innerhalb seines nächstgelegenen vorfahrbaren Scroll-Elements (Scroller) den Fortschritt der Timeline und somit die Animation antreibt.
+  - : Gibt eine Referenz auf das Subjektelement zurück, dessen Sichtbarkeit innerhalb des nächsten vorfahren Scroll-Elementes (Scroller) den Fortschritt der Timeline und damit die Animation steuert.
 - [`startOffset`](/de/docs/Web/API/ViewTimeline/startOffset) {{ReadOnlyInline}}
-  - : Gibt einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurück, der die Startposition (0 % Fortschritt) der Timeline als Versatz vom Anfang des überfüllten Inhaltsbereichs im Scroller darstellt.
+  - : Gibt einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurück, der die Startposition (0% Fortschritt) der Timeline als Offset vom Anfang des überlaufenden Inhaltsabschnitts im Scroller darstellt.
 - [`endOffset`](/de/docs/Web/API/ViewTimeline/endOffset) {{ReadOnlyInline}}
-  - : Gibt einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurück, der die Endposition (100 % Fortschritt) der Timeline als Versatz vom Anfang des überfüllten Inhaltsbereichs im Scroller darstellt.
+  - : Gibt einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurück, der die Endposition (100% Fortschritt) der Timeline als Offset vom Anfang des überlaufenden Inhaltsabschnitts im Scroller darstellt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Dieses Interface erbt die Methoden seines Elternteils, [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)._
 
 ## Beispiele
 
-### Anzeige des Subjekts und der Versätze einer Ansichtsfortschritts-Timeline
+### Anzeigen des Subjekts und der Offsets einer Ansichtsfortschritts-Timeline
 
-In diesem Beispiel animieren wir ein Element mit einer `class` von `subject` entlang einer Ansichtsfortschritts-Timeline – es wird animiert, wenn es nach oben durch das Dokument gescrollt wird. Wir geben auch die Werte von `subject`, `startOffset` und `endOffset` an ein Ausgabeelement in der oberen rechten Ecke aus.
+In diesem Beispiel animieren wir ein Element mit einer `class` von `subject` entlang einer Ansichtsfortschritts-Timeline – es animiert, wenn es beim Scrollen nach oben durch das Dokument bewegt wird. Wir geben auch die Werte `subject`, `startOffset` und `endOffset` an ein Ausgabeelement in der oberen rechten Ecke aus.
 
 #### HTML
 
-Der HTML-Code für das Beispiel wird unten gezeigt.
+Das HTML für das Beispiel ist unten gezeigt.
 
 ```html
 <div class="content">
@@ -82,7 +82,7 @@ Der HTML-Code für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Der CSS-Code für das Beispiel sieht so aus:
+Das CSS für das Beispiel sieht so aus:
 
 ```css
 .subject {
@@ -107,7 +107,7 @@ Der CSS-Code für das Beispiel sieht so aus:
 p,
 h1,
 div {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 h1 {
@@ -122,9 +122,9 @@ p {
 
 #### JavaScript
 
-Im JavaScript schnappen wir uns die Referenzen zu den `subject` und `output`-`<div>`s, dann erstellen wir eine neue `ViewTimeline`, die mit dem `subject`-Element assoziiert ist, um festzulegen, dass der Timeline-Fortschritt auf der Sichtbarkeit dieses Elements durch seinen scrollbaren Vorfahren basiert. Dabei wird eine `block`-Achse festgelegt und `inset`-Werte eingestellt, um die Position des Bereichs anzupassen, in dem das Subjektelement als sichtbar gilt.
+Im JavaScript holen wir uns Referenzen zu den `subject` und `output` `<div>`s, dann erstellen wir eine neue `ViewTimeline`, indem wir sie mit dem `subject`-Element verknüpfen, um anzugeben, dass der Timeline-Fortschritt auf der Sichtbarkeit dieses Elements durch seinen scrollenden Vorfahren basiert. Wir legen eine `block`-Achse und `inset`-Werte fest, um die Position der Box anzupassen, in der das Subjekt sichtbar sein soll.
 
-Danach animieren wir das `subject`-Element mit der Web Animations API. Zuletzt zeigen wir die `subject`, `startOffset` und `endOffset`-Werte im `output`-Element an.
+Dann animieren wir das `subject`-Element mit der Web Animations API. Zuletzt zeigen wir die Werte `subject`, `startOffset` und `endOffset` im `output`-Element an.
 
 ```js
 const subject = document.querySelector(".subject");
@@ -154,7 +154,7 @@ output.textContent += `end offset: ${timeline.endOffset}.`;
 
 #### Ergebnis
 
-Scrollen Sie, um das Subjektelement animiert zu sehen.
+Scrollen Sie, um das Subjektelement in der Animation zu sehen.
 
 {{EmbedLiveSample("Tracking the progress of a view progress timeline", "100%", "480px")}}
 
@@ -169,5 +169,5 @@ Scrollen Sie, um das Subjektelement animiert zu sehen.
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
 - [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)

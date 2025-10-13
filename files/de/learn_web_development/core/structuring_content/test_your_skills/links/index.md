@@ -3,29 +3,29 @@ title: "Testen Sie Ihre Fähigkeiten: Links"
 short-title: "Test: Links"
 slug: Learn_web_development/Core/Structuring_content/Test_your_skills/Links
 l10n:
-  sourceCommit: 65c873fda639b035b94db77dd0f9373f38549aa0
+  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Creating_links", "Learn_web_development/Core/Structuring_content/Structuring_a_page_of_content", "Learn_web_development/Core/Structuring_content")}}
 
-Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie verstehen, wie man [Links in HTML implementiert](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links).
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie verstehen, wie man [Links in HTML implementiert](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links).
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills) Leitfaden zur Nutzung. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihre Fähigkeiten](/de/docs/Learn_web_development#test_your_skills)-Leitfaden. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 > [!NOTE]
-> Einige der Links im Startcode für diese Aufgaben haben das Attribut `target="_blank"` gesetzt, sodass sie beim Klicken die verlinkte Seite in einem neuen Tab öffnen, anstatt im selben Tab. Dies ist nicht unbedingt Best Practice, aber wir haben es hier gemacht, damit die Seiten nicht im MDN Playground-Output-`<iframe>` geöffnet werden und Ihr Beispielcode dabei verschwindet!
+> Einige der Links im Startcode für diese Aufgaben haben das Attribut `target="_blank"`, sodass beim Klicken darauf die verlinkte Seite in einem neuen Tab geöffnet wird, anstatt im gleichen Tab. Dies ist nicht unbedingt Best Practice, aber wir haben es hier getan, damit die Seiten nicht im MDN Playground Ausgabe-`<iframe>` geöffnet werden und Ihr Beispielcode dadurch verloren geht!
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie die Links auf unserer Wale-Informationsseite ergänzen.
+Bei dieser Aufgabe möchten wir, dass Sie helfen, die Links auf unserer Informationsseite über Wale zu vervollständigen.
 
 Um die Aufgabe abzuschließen, aktualisieren Sie die Links wie folgt:
 
-1. Der erste Link sollte sich auf eine Seite namens `whales.html` beziehen, die sich im gleichen Verzeichnis wie die aktuelle Seite befindet.
-2. Geben Sie ihm einen Tooltip, der dem Benutzer beim Darüberfahren mit der Maus mitteilt, dass die Seite Informationen zu Blauwalen und Pottwalen enthält.
-3. Der zweite Link sollte in einen klickbaren Link umgewandelt werden, um eine E-Mail im Standard-Mailprogramm des Benutzers zu öffnen, mit dem Empfänger "whales\@example.com".
-4. Bonuspunkte, wenn Sie auch das Betreffzeilenfeld der E-Mail automatisch mit "Frage zu Walen" ausfüllen.
+1. Der erste Link sollte auf eine Seite namens `whales.html` verlinken, die sich im gleichen Verzeichnis wie die aktuelle Seite befindet.
+2. Geben Sie ihm einen Tooltip, der dem Benutzer beim Überfahren mit der Maus mitteilt, dass die Seite Informationen über Blauwale und Pottwale enthält.
+3. Der zweite Link sollte in einen anklickbaren Link verwandelt werden, um eine E-Mail im Standard-Mailprogramm des Benutzers zu öffnen, wobei der Empfänger auf "whales\@example.com" gesetzt ist.
+4. Bonuspunkte, wenn Sie es auch so einrichten, dass die Betreffzeile der E-Mail automatisch als "Frage über Wale" ausgefüllt wird.
 
 ```html live-sample___links-1
 <h1>Information on Whales</h1>
@@ -46,9 +46,9 @@ body {
   background-color: white;
   color: #333333;
   font:
-    1em / 1.4 Helvetica Neue,
-    Helvetica,
-    Arial,
+    1em / 1.4 "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   padding: 1em;
   margin: 0;
@@ -75,7 +75,7 @@ p {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiger HTML-Code sollte so aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html-nolint
 <h1>Information on Whales</h1>
@@ -97,14 +97,14 @@ Ihr fertiger HTML-Code sollte so aussehen:
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie die vier Links so ausfüllen, dass sie auf die entsprechenden Stellen verweisen.
+In dieser Aufgabe möchten wir, dass Sie die vier Links ausfüllen, damit sie zu den entsprechenden Orten verlinken.
 
 Um die Aufgabe abzuschließen, aktualisieren Sie die Links wie folgt:
 
-1. Der erste Link sollte auf ein Bild namens `blue-whale.jpg` verlinken, das sich in einem Verzeichnis namens `blue` im aktuellen Verzeichnis befindet.
-2. Der zweite Link sollte auf ein Bild namens `narwhal.jpg` verlinken, das sich in einem Verzeichnis namens `narwhal` befindet, das sich eine Verzeichnisebene über dem aktuellen Verzeichnis befindet.
-3. Der dritte Link sollte auf die UK Google Bildersuche verlinken. Die Basis-URL ist `https://www.google.co.uk`, und die Bildersuche befindet sich in einem Unterverzeichnis namens `imghp`.
-4. Der vierte Link sollte auf den Absatz ganz unten auf der aktuellen Seite verlinken. Er hat die ID `bottom`.
+1. Der erste Link sollte zu einem Bild namens `blue-whale.jpg` verlinken, das sich in einem Verzeichnis namens `blue` im aktuellen Verzeichnis befindet.
+2. Der zweite Link sollte zu einem Bild namens `narwhal.jpg` verlinken, das sich in einem Verzeichnis namens `narwhal` befindet, das eine Verzeichnisebene über dem aktuellen Verzeichnis liegt.
+3. Der dritte Link sollte zur UK Google Bilder-Suche verlinken. Die Basis-URL ist `https://www.google.co.uk`, und die Bildsuche befindet sich in einem Unterverzeichnis namens `imghp`.
+4. Der vierte Link sollte zu dem Absatz am Ende der aktuellen Seite verlinken. Er hat die ID `bottom`.
 
 ```html live-sample___links-2
 <h1>List path tests</h1>
@@ -126,9 +126,9 @@ body {
   background-color: white;
   color: #333333;
   font:
-    1em / 1.4 Helvetica Neue,
-    Helvetica,
-    Arial,
+    1em / 1.4 "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   padding: 1em;
   margin: 0;
@@ -155,7 +155,7 @@ div {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiger HTML-Code sollte so aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html-nolint
 <h1>List path tests</h1>
@@ -184,11 +184,11 @@ Ihr fertiger HTML-Code sollte so aussehen:
 
 ## Aufgabe 3
 
-Die folgenden Links verweisen auf eine Infoseite über Narwale, eine Unterstützungsemailadresse und ein PDF-Datenblatt, das 4 MB groß ist.
+Die folgenden Links verweisen auf eine Informationsseite über Narwale, eine Support-E-Mail-Adresse und ein PDF-Datenblatt, das 4MB groß ist.
 
 Um die Aufgabe abzuschließen:
 
-1. Nehmen Sie die vorhandenen Absätze mit schlecht geschriebenem Link-Text und schreiben Sie sie so um, dass sie guten Link-Text enthalten.
+1. Nehmen Sie die vorhandenen Absätze mit schlecht geschriebenem Link-Text und überarbeiten Sie sie so, dass sie einen guten Link-Text enthalten.
 2. Fügen Sie eine Warnung zu allen Links hinzu, die eine Warnung benötigen.
 
 ```html live-sample___links-3
@@ -213,9 +213,9 @@ body {
   background-color: white;
   color: #333333;
   font:
-    1em / 1.4 Helvetica Neue,
-    Helvetica,
-    Arial,
+    1em / 1.4 "Helvetica Neue",
+    "Helvetica",
+    "Arial",
     sans-serif;
   padding: 1em;
   margin: 0;
@@ -236,7 +236,7 @@ p {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiger HTML-Code sollte so aussehen:
+Ihr fertiges HTML sollte so aussehen:
 
 ```html-nolint
 <p>

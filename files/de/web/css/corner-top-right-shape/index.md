@@ -2,14 +2,14 @@
 title: corner-top-right-shape
 slug: Web/CSS/corner-top-right-shape
 l10n:
-  sourceCommit: 2a64c5583a2c61c729ffe1ee1e7709a5898f57b0
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-top-right-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form der oberen rechten Ecke eines Kastens innerhalb seiner {{cssxref("border-radius")}} Fläche fest.
+Die **`corner-top-right-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form der oberen rechten Ecke eines Kastens innerhalb seines {{cssxref("border-radius")}} Bereichs fest.
 
-Für eine vollständige Beschreibung des Verhalten von Eckformen und mehrere Beispiele, siehe die Seite zur Kurzschreibweise der {{cssxref("corner-shape")}} Eigenschaft.
+Für eine vollständige Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele siehe die Seite der {{cssxref("corner-shape")}} Kurzschreibweise.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ corner-top-right-shape: unset;
 
 ### Werte
 
-Die `corner-top-right-shape` Eigenschaft wird mithilfe eines {{cssxref("&lt;corner-shape-value>")}} Wertes angegeben.
+Die `corner-top-right-shape` Eigenschaft wird mit einem Wert von {{cssxref("&lt;corner-shape-value>")}} angegeben.
 
 ## Formale Definition
 
@@ -44,7 +44,7 @@ Die `corner-top-right-shape` Eigenschaft wird mithilfe eines {{cssxref("&lt;corn
 
 ## Beispiele
 
-Weitere verwandte Beispiele finden Sie auf der Referenzseite von {{cssxref("corner-shape")}}.
+Sie finden weitere verwandte Beispiele auf der {{cssxref("corner-shape")}} Referenzseite.
 
 ### Grundlegende Verwendung von `corner-top-right-shape`
 
@@ -58,11 +58,11 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von 60 Pixeln und eine `corner-top-right-shape` von `bevel` an.
+Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Zusätzlich wenden wir einen {{cssxref("box-shadow")}}, einen `border-radius` von 60 Pixeln und eine `corner-top-right-shape` von `bevel` an.
 
 ```css hidden live-sample___basic-usage
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   width: 240px;
   margin: 20px auto;
 }

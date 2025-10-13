@@ -2,13 +2,13 @@
 title: font-palette
 slug: Web/CSS/font-palette
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: a3eec14af0580dad6eae65980686cee6cafc2c68
 ---
 
-Die **`font-palette`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es, eine der vielen Paletten anzugeben, die in einer [Farbfont](https://www.colorfonts.wtf/) enthalten sind, die ein Benutzeragent für die Schriftart verwenden kann. Benutzer können auch die Werte in einer Palette überschreiben oder eine neue Palette erstellen, indem sie die [`@font-palette-values`](/de/docs/Web/CSS/@font-palette-values) At-Regel verwenden.
+Die **`font-palette`** [CSS](/de/docs/Web/CSS)-Eigenschaft erlaubt die Spezifikation einer der vielen Paletten, die in einer [Farb-Schriftart](https://www.colorfonts.wtf/) enthalten sind, die ein User-Agent für die Schriftart verwenden kann. Benutzer können auch die Werte in einer Palette überschreiben oder eine neue Palette erstellen, indem sie die [`@font-palette-values`](/de/docs/Web/CSS/@font-palette-values) Regel verwenden.
 
 > [!NOTE]
-> Eine `font-palette`-Palette hat Vorrang, wenn eine Schriftart eingefärbt wird. Die {{cssxref("color")}}-Eigenschaft wird eine Schriftartenpalette nicht überschreiben, selbst wenn sie mit {{cssxref("important", "!important")}} festgelegt wird.
+> Eine `font-palette`-Palette hat Vorrang bei der Farbgebung einer Schriftart. Die {{cssxref("color")}}-Eigenschaft wird eine Schriftarten-Palette nicht überschreiben, selbst wenn sie mit {{cssxref("important", "!important")}} angegeben wird.
 
 ## Syntax
 
@@ -26,21 +26,21 @@ font-palette: palette-mix(in lch, --blue, --yellow);
 ### Werte
 
 - `normal`
-  - : Gibt an, dass die Standardfarbpalette oder die standardmäßige Glyphenfärbung (vom Schriftartenhersteller festgelegt) für die Schriftart verwendet werden soll. Mit dieser Einstellung wird die Palette im Font an Index 0 gerendert.
+  - : Gibt die Standardfarbpalette oder die Standardglyphenfärbung an (vom Schriftart-Hersteller festgelegt), die für die Schriftart verwendet werden soll. Mit dieser Einstellung wird die Palette in der Schriftart an Index 0 gerendert.
 - `light`
-  - : Gibt an, dass die erste Palette im Font, die als 'light' gekennzeichnet ist, für die Schriftart verwendet werden soll. Einige Fonts enthalten Metadaten, die eine Palette als geeignet für einen hellen (fast weißen) Hintergrund identifizieren. Wenn ein Font diese Metadaten nicht hat, verhält sich der Wert `light` wie `normal`.
+  - : Gibt die erste Palette in der Schriftart an, die als 'light' gekennzeichnet ist und für die Schriftart verwendet werden soll. Einige Schriften enthalten Metadaten, die eine Palette als anwendbar für einen hellen (nahezu weißen) Hintergrund identifizieren. Wenn eine Schrift nicht über diese Metadaten verfügt, verhält sich der `light`-Wert wie `normal`.
 - `dark`
-  - : Gibt an, dass die erste Palette im Font, die als 'dark' gekennzeichnet ist, für die Schriftart verwendet werden soll. Einige Fonts enthalten Metadaten, die eine Palette als geeignet für einen dunklen (fast schwarzen) Hintergrund identifizieren. Wenn ein Font diese Metadaten nicht hat, verhält sich der Wert wie `normal`.
+  - : Gibt die erste Palette in der Schriftart an, die als 'dark' gekennzeichnet ist und für die Schriftart verwendet werden soll. Einige Schriften enthalten Metadaten, die eine Palette als anwendbar für einen dunklen (nahezu schwarzen) Hintergrund identifizieren. Wenn eine Schrift nicht über diese Metadaten verfügt, verhält sich der Wert wie `normal`.
 - `<palette-identifier>`
-  - : Ermöglicht es, eigene Werte für die Schriftpalette anzugeben, indem die [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) At-Regel verwendet wird. Dieser Wert wird im [&lt;dashed-ident&gt;](/de/docs/Web/CSS/dashed-ident) Format angegeben.
+  - : Ermöglicht es Ihnen, eigene Werte für die Schriftarten-Palette zu spezifizieren, indem Sie die [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) Regel verwenden. Dieser Wert wird im [&lt;dashed-ident&gt;](/de/docs/Web/CSS/dashed-ident)-Format angegeben.
 - {{cssxref("font-palette/palette-mix", "palette-mix()")}}
-  - : Erstellt einen neuen `font-palette`-Wert, indem zwei `font-palette`-Werte durch festgelegte Prozentsätze und Farbeninterpolationsmethoden miteinander vermischt werden.
+  - : Erstellt einen neuen `font-palette`-Wert, indem zwei `font-palette`-Werte durch festgelegte Prozentsätze und Farbinterpolationsmethoden gemischt werden.
 
-## Formelle Definition
+## Formale Definition
 
 {{CSSInfo}}
 
-## Formelle Syntax
+## Formale Syntax
 
 {{CSSSyntax}}
 
@@ -48,7 +48,7 @@ font-palette: palette-mix(in lch, --blue, --yellow);
 
 ### Eine dunkle Palette spezifizieren
 
-Dieses Beispiel ermöglicht es, die erste vom Schriftartenhersteller als _dark_ markierte Palette zu verwenden (funktioniert am besten auf einem fast schwarzen Hintergrund).
+Dieses Beispiel erlaubt Ihnen, die erste Palette zu verwenden, die vom Schriftarten-Ersteller als _dark_ (am besten auf einem fast schwarzen Hintergrund) markiert wurde.
 
 ```css
 @media (prefers-color-scheme: dark) {
@@ -58,13 +58,13 @@ Dieses Beispiel ermöglicht es, die erste vom Schriftartenhersteller als _dark_ 
 }
 ```
 
-### Animieren zwischen zwei Paletten
+### Zwischen zwei Paletten animieren
 
-Dieses Beispiel veranschaulicht, wie `font-palette`-Wertänderungen animiert werden können, um eine flüssige Schriftanimation zu erstellen.
+Dieses Beispiel zeigt, wie man `font-palette`-Wertänderungen animiert, um eine sanfte Schriftanimation zu erstellen.
 
 #### HTML
 
-Das HTML enthält einen einzelnen Absatz von Text, der animiert werden soll:
+Das HTML enthält einen einzelnen Absatz von animiertem Text:
 
 ```html
 <p>color-palette<br />animation</p>
@@ -72,18 +72,18 @@ Das HTML enthält einen einzelnen Absatz von Text, der animiert werden soll:
 
 #### CSS
 
-Im CSS importieren wir eine [Farbfont](https://www.colorfonts.wtf/) namens [Nabla](https://nabla.typearture.com/) von [Google Fonts](https://fonts.google.com/?coloronly=true) und definieren zwei benutzerdefinierte `font-palette`-Werte mit der {{cssxref("@font-palette-values")}} At-Regel. Dann erstellen wir {{cssxref("@keyframes")}}, die zwischen diesen beiden Paletten animieren, und wenden diese Animation auf unseren Absatz an.
+Im CSS importieren wir eine [Farb-Schriftart](https://www.colorfonts.wtf/) namens [Nabla](https://nabla.typearture.com/) von [Google Fonts](https://fonts.google.com/?coloronly=true) und definieren zwei benutzerdefinierte `font-palette`-Werte unter Verwendung der {{cssxref("@font-palette-values")}}-Regel. Wir erstellen dann {{cssxref("@keyframes")}}, die zwischen diesen beiden Paletten animieren, und wenden diese Animation auf unseren Absatz an.
 
 ```css
 @import "https://fonts.googleapis.com/css2?family=Nabla&display=swap";
 
 @font-palette-values --blue-nabla {
-  font-family: Nabla;
+  font-family: "Nabla";
   base-palette: 2; /* this is Nabla's blue palette */
 }
 
 @font-palette-values --grey-nabla {
-  font-family: Nabla;
+  font-family: "Nabla";
   base-palette: 3; /* this is Nabla's grey palette */
 }
 
@@ -108,12 +108,12 @@ p {
 
 #### Ergebnis
 
-Die Ausgabe sieht so aus:
+Das Ergebnis sieht folgendermaßen aus:
 
 {{EmbedLiveSample("Animating between two palettes", "100%", 300)}}
 
 > [!NOTE]
-> Browser, die noch `discrete` `font-palette`-Animation implementieren, werden zwischen den beiden Paletten umschalten, anstatt flüssig zu animieren.
+> Browser, die weiterhin `diskrete` `font-palette`-Animationen implementieren, werden zwischen den beiden Paletten wechseln, anstatt sanft zu animieren.
 
 ## Spezifikationen
 

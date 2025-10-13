@@ -1,52 +1,52 @@
 ---
-title: Erstellen von CSS-Karussellen
-short-title: Erstellen von Karussellen
+title: Erstellen von CSS-Karussells
+short-title: Karussells erstellen
 slug: Web/CSS/CSS_overflow/CSS_carousels
 l10n:
-  sourceCommit: ad57cae3faaec374c3e712d6994e7fc3cb9318db
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
-Das Modul [CSS overflow](/de/docs/Web/CSS/CSS_overflow) definiert Funktionen, die es ermöglichen, flexible und zugängliche rein-CSS-Karusselle mit browsergenerierten und entwicklergestalteten Scroll-Schaltflächen und Scroll-Markern zu erstellen. Dieser Leitfaden erklärt, wie man ein Karussell mit diesen Funktionen erstellt.
+Das [CSS-Überlaufmodul](/de/docs/Web/CSS/CSS_overflow) definiert Funktionen, die es ermöglichen, flexible und zugängliche, reine CSS-Karussells mit browsergenerierten und vom Entwickler gestalteten Scroll-Schaltflächen und Scroll-Markierungen zu erstellen. Dieser Leitfaden erklärt, wie man ein Karussell mit diesen Funktionen erstellt.
 
-## Konzepte des Karussells
+## Karussell-Konzepte
 
-**Karusselle** sind ein häufiges Merkmal im Web. Sie nehmen typischerweise die Form eines scrollbaren Inhaltsbereichs an, der mehrere Elemente enthält, wie z.B. Präsentationsfolien, Werbung, Schlagzeilen aus der Nachrichtenwelt oder wesentliche Produktmerkmale.
+**Karussells** sind ein gängiges Merkmal im Web. Sie nehmen in der Regel die Form eines scrollbaren Inhaltsbereichs an, der mehrere Elemente enthält, wie z. B. Präsentationsfolien, Anzeigen, Schlagzeilen oder wichtige Produkteigenschaften.
 
-Benutzer können durch die Elemente navigieren, indem sie Navigationsschaltflächen anklicken oder aktivieren oder durch Wischen. Die Navigation beinhaltet in der Regel:
+Benutzer können durch Klicken oder Aktivieren von Navigationsschaltflächen oder durch Wischen durch die Elemente navigieren. Die Navigation umfasst in der Regel:
 
 - **Scroll-Schaltflächen**
-  - : Allgemein "vorherige" und "nächste" Schaltflächen oder Links.
-- **Scroll-Marker**
-  - : Eine Reihe von Schaltflächen- oder Link-Icons, von denen jedes ein oder mehrere Elemente repräsentiert, abhängig davon, wie viele Elemente an jeder Scroll-Position innerhalb des Karussells angezeigt werden.
+  - : Im Allgemeinen "Vorherige" und "Nächste" Schaltflächen oder Links.
+- **Scroll-Markierungen**
+  - : Eine Serie von Schaltflächen- oder Link-Symbolen, die jeweils ein oder mehrere Elemente darstellen, je nachdem, wie viele Elemente an jeder Scroll-Position innerhalb des Karussells angezeigt werden.
 
-![Ein Karussell mit einem Inhaltsbereich in der Mitte, vorherige und nächste Schaltflächen links und rechts, und Scroll-Markern unten](/shared-assets/images/diagrams/css/carousels/carousel.svg)
+![Ein Karussell mit einem Inhaltsbereich in der Mitte, vorherige und nächste Schaltflächen links und rechts und Scroll-Markierungen unten](/shared-assets/images/diagrams/css/carousels/carousel.svg)
 
-Ein Schlüsselmerkmal von Karussellen ist die **Seitennummerierung** — die Elemente fühlen sich wie separate Inhalte an, die bewegt werden, anstatt eine kontinuierliche Inhaltssektion zu bilden. Sie können ein Element zu einer Zeit oder mehrere Elemente auf jeder Karussell-"Seite" anzeigen. Wenn mehrere Elemente sichtbar sind, könnte mit jedem "nächsten" oder "vorherigen" Tastendruck eine ganz neue Gruppe von Elementen angezeigt werden. Alternativ könnten Sie ein einzelnes neues Element an einem Ende der Liste hinzufügen, während das Element am anderen Ende aus dem sichtbaren Bereich bewegt wird.
+Ein Hauptmerkmal von Karussells ist die **Paginierung** — die Elemente wirken wie separate Inhaltsteile, zwischen denen gewechselt wird, anstatt einen durchgängigen Inhaltsabschnitt zu bilden. Man könnte ein Element nach dem anderen oder mehrere Elemente auf jeder Karussell-"Seite" anzeigen. Wenn mehrere Elemente sichtbar sind, könnte bei jedem Druck auf die "Nächste"- oder "Vorherige"-Schaltfläche eine völlig neue Gruppe von Elementen angezeigt werden. Alternativ könnte man ein einzelnes neues Element an einem Ende der Liste hinzufügen, während das Element am anderen Ende aus dem Sichtfeld verschoben wird.
 
-Karusselle können ziemlich fragil und herausfordernd mit JavaScript zu implementieren sein. Es sind Skripte erforderlich, um Scroll-Marker mit den Elementen zu verknüpfen, die sie darstellen, während die Scroll-Schaltflächen kontinuierlich aktualisiert werden müssen, um sie korrekt zu betreiben. Wenn Karusselle mit JavaScript erstellt werden, muss die Zugänglichkeit des Karussells und der zugehörigen Steuerelemente hinzugefügt werden.
+Karussells können ziemlich empfindlich und schwierig mit JavaScript zu implementieren sein. Sie erfordern Skripte, um Scroll-Markierungen mit den Elementen zu verknüpfen, die sie darstellen, während die Scroll-Schaltflächen kontinuierlich aktualisiert werden müssen, um korrekt zu funktionieren. Wenn Karussells mit JavaScript erstellt werden, muss die Zugänglichkeit des Karussells und der zugehörigen Steuerungen hinzugefügt werden.
 
-Glücklicherweise können wir zugängliche Karusselle mit zugehörigen Steuerelementen ohne die Verwendung von JavaScript erstellen, indem wir CSS-Karussell-Funktionen nutzen.
+Glücklicherweise können wir zugängliche Karussells mit zugehörigen Steuerungen ohne die Verwendung von JavaScript erstellen, indem wir die Funktionen des CSS-Karussells verwenden.
 
 ## CSS-Karussell-Funktionen
 
-Die CSS-Karussell-Funktionen bieten Pseudo-Elemente und Pseudo-Klassen, die die Erstellung von Karussellen allein mit CSS und HTML ermöglichen, wobei der Browser den Großteil des Scrollens und der Linkreferenzen in einer zugänglichen, flexiblen und konsistenten Weise handhabt. Diese Funktionen sind wie folgt:
+Die CSS-Karussell-Funktionen bieten Pseudo-Elemente und Pseudo-Klassen, die es ermöglichen, Karussells ausschließlich mit CSS und HTML zu erstellen, wobei der Browser den größten Teil der Scroll- und Linkverweise auf eine zugängliche, flexible und konsistente Weise übernimmt. Diese Funktionen sind wie folgt:
 
 - {{cssxref("::scroll-button()")}}
-  - : Innerhalb eines {{Glossary("scroll_container", "scroll containers")}} generierte Pseudo-Elemente, die Scroll-Schaltflächen darstellen, die den Container in eine bestimmte Richtung scrollen.
+  - : Innerhalb eines {{Glossary("scroll_container", "Scroll-Containers")}} generiert, repräsentieren diese Pseudo-Elemente Scroll-Schaltflächen, die den Container in eine angegebene Richtung scrollen.
 - {{cssxref("::scroll-marker-group")}}
-  - : Innerhalb eines Scroll-Containers generiert; dient dazu, Scroll-Marker zusammenzufassen und anzuordnen.
+  - : Innerhalb eines Scroll-Containers generiert; wird verwendet, um Scroll-Markierungen zu sammeln und anzuordnen.
 - {{cssxref("::scroll-marker")}}
-  - : Innerhalb der Kinder eines Scroll-Container-Vorfahren oder innerhalb der Spalten eines Scroll-Containers generiert, um deren Scroll-Marker darzustellen. Diese können ausgewählt werden, um den Container zu ihren zugehörigen Kindelementen oder Spalten zu scrollen, und werden innerhalb der {{cssxref("::scroll-marker-group")}} des Scroll-Containers zu Layout-Zwecken zusammengefasst.
+  - : Innerhalb der Kinder eines Scroll-Container-Vorfahren oder innerhalb der Spalten eines Scroll-Containers generiert, um deren Scroll-Markierungen darzustellen. Diese können ausgewählt werden, um den Container zu ihren zugehörigen Kinderelementen oder Spalten zu scrollen, und werden innerhalb der {{cssxref("::scroll-marker-group")}} des Scroll-Containers zum Layout-Zweck gesammelt.
 - {{cssxref(":target-current")}}
-  - : Diese Pseudo-Klasse kann verwendet werden, um den aktuell aktiven Scroll-Marker auszuwählen. Sie kann verwendet werden, um einen Hervorhebungseffekt zum aktuell aktiven Marker hinzuzufügen, was für Benutzerfreundlichkeit und Zugänglichkeit wichtig ist.
+  - : Diese Pseudo-Klasse kann verwendet werden, um die derzeit aktive Scroll-Markierung auszuwählen. Sie kann verwendet werden, um einen Hervorhebungsstil für die derzeit aktive Markierung bereitzustellen, was für die Benutzbarkeit und Zugänglichkeit wichtig ist.
 - {{cssxref("::column")}}
-  - : Dieses Pseudo-Element repräsentiert die individuellen Spalten, die beim Anzeigen von Inhalten in mehreren Spalten durch [CSS multi-column layout](/de/docs/Web/CSS/CSS_multicol_layout) generiert werden. Es kann in Verbindung mit {{cssxref("::scroll-marker")}} genutzt werden, um einen Scroll-Marker für jede Spalte zu erzeugen.
+  - : Dieses Pseudo-Element repräsentiert die einzelnen Spalten, die generiert werden, wenn ein Container auf die Anzeige seines Inhalts in mehreren Spalten über das [CSS-Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout) eingestellt ist. Es kann in Verbindung mit {{cssxref("::scroll-marker")}} verwendet werden, um für jede Spalte eine Scroll-Markierung zu erzeugen.
 
-## Karussell mit Einzel-Seiten
+## Karussell mit einzelnen Seiten
 
-Unser erstes Beispiel ist ein Karussell von Einzel-Seiten, bei dem jedes Element die gesamte Seite einnimmt. Wir haben [Scroll-Marker](#erstellen_von_scroll-markern) als untere Navigation und [Scroll-Schaltflächen](#erstellen_von_scroll-schaltflächen) an den Seiten der Seite, die es dem Benutzer ermöglichen, zu den nächsten und vorherigen Seiten zu wechseln.
+Unser erstes Beispiel ist ein Karussell mit einzelnen Seiten, wobei jedes Element die ganze Seite einnimmt. Wir haben [Scroll-Markierungen](#erstellen_von_scroll-markierungen) als untere Navigation und [Scroll-Schaltflächen](#erstellen_von_scroll-schaltflächen) an den Seiten der Seite, die es dem Benutzer ermöglichen, zu den nächsten und vorherigen Seiten zu navigieren.
 
-Wir verwenden [Flexbox](#karussell-layout_mit_flexbox), um das Karussell zu layouten, [Scroll-Snapping](#einrichten_des_scroll-snappings_auf_der_liste) um klare Seitennummerierung zu erzwingen, und die Positionierung von Ankern, um die [Scroll-Schaltflächen zu positionieren](#positionierung_von_scroll-schaltflächen) und Scroll-Marker relativ zum Karussell anzuordnen.
+Wir werden [flexbox](#karussell-layout_mit_flexbox) verwenden, um das Karussell zu gestalten, [Scroll-Snapping](#festlegen_des_scroll-snappings_auf_der_liste), um eine klare Paginierung zu erzwingen, und Anchor-Positionierung, um die [Scroll-Schaltflächen zu positionieren](#positionierung_von_scroll-schaltflächen) und Scroll-Markierungen relativ zum Karussell zu positionieren.
 
 Das HTML besteht aus einem [Überschriftselement](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) und einer [ungeordneten Liste](/de/docs/Web/HTML/Reference/Elements/ul), wobei jedes [Listenelement](/de/docs/Web/HTML/Reference/Elements/li) einige Beispielinhalte enthält:
 
@@ -70,9 +70,9 @@ Das HTML besteht aus einem [Überschriftselement](/de/docs/Web/HTML/Reference/El
 
 ### Karussell-Layout mit Flexbox
 
-Wir verwenden [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout), um eine einzige Reihe von Elementen zu erstellen; die `<ul>` ist der Flex-Container, und die `<li>`-Kind-Listenelemente werden horizontal angezeigt, wobei jedes Element die volle Breite des Karussells einnimmt.
+Wir verwenden [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout), um eine einzelne Reihe von Elementen zu erstellen; die `<ul>` ist der Flex-Container, und die `<li>`-Kindlistenelemente werden horizontal angezeigt, wobei jedes Element die volle Breite des Karussells einnimmt.
 
-Die ungeordnete Liste wird auf die volle Breite des Viewports eingestellt mit einer {{cssxref("width")}} von `100vw`; es erhält außerdem eine {{cssxref("height")}} von `300px` und etwas {{cssxref("padding")}}. Wir verwenden dann Flexbox, um die Liste zu layouten - setzen einen {{cssxref("display")}}-Wert von `flex`, um die Kind-Listenelemente in einer Reihe anzeigen zu lassen (aufgrund des Standardwerts der {{cssxref("flex-direction")}} von `row`), mit einem {{cssxref("gap")}} von `4vw` zwischen jedem.
+Die ungeordnete Liste wird so gestaltet, dass sie die volle Breite des Ansichtsfensters mit einer Breite {{cssxref("width")}} von `100vw` einnimmt; sie erhält auch eine {{cssxref("height")}} von `300px` und etwas {{cssxref("padding")}}. Wir verwenden dann Flexbox, um die Liste zu layouten — ein {{cssxref("display")}}-Wert von `flex` wird gesetzt, damit die Kinderlistenelemente in einer Reihe angezeigt werden (aufgrund des Standardwerts {{cssxref("flex-direction")}} von `row`), mit einem {{cssxref("gap")}} von `4vw` zwischen ihnen.
 
 ```css hidden live-sample___first-example live-sample___first-example-step1 live-sample___first-example-step2
 * {
@@ -81,7 +81,7 @@ Die ungeordnete Liste wird auf die volle Breite des Viewports eingestellt mit ei
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 h1 {
@@ -100,7 +100,7 @@ ul {
 }
 ```
 
-Nun ist es an der Zeit, die Listenelemente zu stylen. Die ersten Deklarationen bieten rudimentäres Styling. Die wichtige Deklaration ist der {{cssxref("flex")}}-Wert von `0 0 100%`, der jedes Element dazu zwingt, so breit wie der Container zu sein (die `<ul>`). Infolgedessen wird der Inhalt seinen Container überlaufen und das Ansichtsfenster wird horizontal scrollen.
+Jetzt ist es an der Zeit, die Listenelemente zu stylen. Die ersten Deklarationen bieten rudimentäres Styling. Die wichtige Deklaration ist der {{cssxref("flex")}}-Wert von `0 0 100%`, der jedes Element dazu zwingt, so breit wie der Container (die `<ul>`) zu sein. Infolgedessen wird der Inhalt seinen Container überlaufen, und das Ansichtsfenster wird horizontal scrollen.
 
 ```css live-sample___first-example live-sample___first-example-step1 live-sample___first-example-step2
 li {
@@ -117,13 +117,13 @@ li:nth-child(even) {
 }
 ```
 
-Zusätzlich wird jedem geradzahligen Listenelement eine andere Hintergrundfarbe durch {{cssxref(":nth-child()")}} zugewiesen, sodass der Scroll-Effekt leichter zu erkennen ist.
+Zudem erhält jedes gerade Listenelement über {{cssxref(":nth-child()")}} eine andere Hintergrundfarbe, sodass der Scrolleffekt leichter zu erkennen ist.
 
-### Einrichten des Scroll-Snappings auf der Liste
+### Festlegen des Scroll-Snappings auf der Liste
 
-In diesem Abschnitt werden wir einen Overflow-Wert auf der `<ul>` setzen, um einen {{Glossary("scroll_container", "scroll container")}} zu erstellen, dann [CSS scroll snapping](/de/docs/Web/CSS/CSS_scroll_snap) anwenden, um die Liste dazu zu bringen, beim Scrollen des Inhalts auf die Mitte jedes Listenelements zu snappen.
+In diesem Abschnitt werden wir einen Überlaufwert auf der `<ul>` setzen, um sie in einen {{Glossary("scroll_container", "Scroll-Container")}} zu verwandeln, und dann [CSS-Scroll-Snapping](/de/docs/Web/CSS/CSS_scroll_snap) anwenden, um die Liste dazu zu bringen, beim Scrollen des Inhalts in die Mitte jedes Listenelements zu schnappen.
 
-Ein {{cssxref("overflow-x")}}-Wert von `scroll` wird auf die `<ul>` gesetzt, sodass der Inhalt innerhalb der Liste horizontal scrollen kann, anstatt das gesamte Ansichtsfenster zu scrollen. [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap) wird dann verwendet, um auf jede "Seite" zu snappen - ein {{cssxref("scroll-snap-type")}}-Wert von `x mandatory` wird festgelegt, um die Liste in einen {{Glossary("Scroll_snap#scroll_snap_container", "scroll snap container")}} zu verwandeln. Das `x`-Schlüsselwort lässt die {{Glossary("Scroll_snap#snap_target", "snap targets")}} des Containers horizontal snappen, während das `mandatory`-Schlüsselwort bedeutet, dass der Container am Ende einer Scroll-Aktion immer zu einem Snap-Ziel snappt.
+Ein {{cssxref("overflow-x")}}-Wert von `scroll` wird auf die `<ul>` gesetzt, sodass ihr Inhalt horizontal innerhalb der Liste scrollen kann, anstatt dass das gesamte Ansichtsfenster scrollt. Dann wird [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) verwendet, um zu jeder "Seite" zu schnappen — ein {{cssxref("scroll-snap-type")}}-Wert von `x mandatory` wird gesetzt, um die Liste zu einem {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}} zu machen. Das `x`-Schlüsselwort bewirkt, dass die {{Glossary("Scroll_snap#snap_target", "Snap-Ziele")}} des Containers horizontal geschnappt werden, während das `mandatory`-Schlüsselwort bedeutet, dass der Container immer zu einem Snap-Ziel am Ende einer Scroll-Aktion schnappen wird.
 
 ```css live-sample___first-example live-sample___first-example-step1 live-sample___first-example-step2
 ul {
@@ -132,7 +132,7 @@ ul {
 }
 ```
 
-Als Nächstes wird ein {{cssxref("scroll-snap-align")}}-Wert von `center` auf die Listenelemente gesetzt, sodass die Liste beim Scrollen auf die Mitte jedes Listenelements snappt.
+Als nächstes wird auf den Listenelementen ein {{cssxref("scroll-snap-align")}}-Wert von `center` gesetzt, sodass die Liste, wenn sie gescrollt wird, in die Mitte jedes Listenelements schnappen kann.
 
 ```css live-sample___first-example live-sample___first-example-step1 live-sample___first-example-step2
 li {
@@ -140,24 +140,24 @@ li {
 }
 ```
 
-Der bisher gezeigte Code wird wie folgt dargestellt:
+Der bisher gezeigte Code wird wie folgt gerendert:
 
 {{EmbedLiveSample("first-example-step1", "100%", "400px")}}
 
-Versuchen Sie, die Liste durch Wischen oder Verwenden des Scrollbalkens zu scrollen, um den Scroll-Snapping-Effekt zu sehen. Egal wo Sie Ihr Scroll-Bewegung beenden, ein Element wird immer "schnappen".
+Versuchen Sie, die Liste zu scrollen, indem Sie wischen oder die Bildlaufleiste verwenden, um den Scroll-Snap-Effekt zu sehen. Egal wo Sie Ihre Scroll-Bewegung beenden, ein Element wird immer an seinen Platz "schnappen".
 
 > [!NOTE]
-> CSS scroll snapping ist nicht zwingend erforderlich, um die CSS-Karussell-Funktionen zu nutzen. Allerdings funktionieren Karusselle viel besser mit enthaltenem Scroll-Snapping. Ohne Scroll-Snapping werden die Scroll-Schaltflächen und Marker wahrscheinlich nicht sauber zwischen den Seiten navigieren, und das Ergebnis wird unzureichend sein.
+> CSS-Scroll-Snapping ist nicht zwingend erforderlich, um die CSS-Karussell-Funktionen zu nutzen. Allerdings funktionieren Karussells mit Scroll-Snapping viel besser. Ohne Scroll-Snapping werden die Scroll-Schaltflächen und Markierungen wahrscheinlich nicht sauber zwischen den Seiten navigieren, und das Ergebnis wird mangelhaft sein.
 
 ### Erstellen von Scroll-Schaltflächen
 
-In diesem Abschnitt fügen wir "vorherige" und "nächste" Scroll-Schaltflächen zur Demo hinzu, um ein Werkzeug zum Navigieren zwischen Karussell-Seiten bereitzustellen. Dies wird durch das {{cssxref("::scroll-button()")}}-Pseudo-Element erreicht.
+In diesem Abschnitt fügen wir dem Demo "Vorherige" und "Nächste" Scroll-Schaltflächen hinzu, um ein Werkzeug zur Navigation zwischen den Karussellseiten bereitzustellen. Dies wird mit dem {{cssxref("::scroll-button()")}} Pseudo-Element erreicht.
 
-Die `::scroll-button()`-Pseudo-Elemente erzeugen Schaltflächen innerhalb eines Scroll-Containers nur, wenn ihre {{cssxref("content")}}-Eigenschaften auf einen anderen Wert als `none` gesetzt sind. Jedes `::scroll-button()` repräsentiert eine Scroll-Schaltfläche, deren Scroll-Richtung durch das Argument des Selektors spezifiziert wird. Sie können bis zu vier Scroll-Schaltflächen pro Scroll-Container erzeugen, die jeweils den Inhalt des Containers in Richtung des Beginns oder Endes der Block- oder Inline-Achse scrollen.
+Die `::scroll-button()`-Pseudo-Elemente generieren Schaltflächen innerhalb eines Scroll-Containers nur dann, wenn ihre {{cssxref("content")}}-Eigenschaften auf einen anderen Wert als `none` gesetzt sind. Jedes `::scroll-button()` repräsentiert eine Scroll-Schaltfläche, deren Scroll-Richtung durch das Argument des Selektors definiert wird. Sie können bis zu vier Scroll-Schaltflächen pro Scroll-Container generieren, die jeweils den Inhalt des Containers in Richtung des Anfangs- oder Endes der Block- oder Inline-Achse scrollen.
 
-Sie können auch ein Argument von `*` angeben, um alle `::scroll-button()`-Pseudo-Elemente mit Stilen anzusprechen.
+Sie können auch ein Argument von `*` angeben, um alle `::scroll-button()`-Pseudo-Elemente mit Stilen zu versehen.
 
-Zuerst werden alle Scroll-Schaltflächen mit einigen rudimentären Stilen sowie mit Stilen basierend auf verschiedenen Zuständen angesprochen. Es ist wichtig, {{cssxref(":focus")}}-Stile für Tastaturbenutzer zu setzen. Da die Scroll-Schaltflächen auch automatisch auf [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) gesetzt werden, wenn kein weiteres Scrollen in diese Richtung möglich ist, verwenden wir die {{cssxref(":disabled")}}-Pseudo-Klasse, um diesen Zustand anzusprechen.
+Zuerst werden alle Scroll-Schaltflächen mit einigen grundlegenden Stilen sowie Stilen basierend auf verschiedenen Zuständen angesprochen. Es ist wichtig, {{cssxref(":focus")}}-Stile für Tastaturnutzer zu setzen. Zudem, da Scroll-Schaltflächen automatisch auf [`disabled`](/de/docs/Web/HTML/Reference/Attributes/disabled) gesetzt werden, wenn kein weiteres Scrollen in diese Richtung möglich ist, verwenden wir die {{cssxref(":disabled")}}-Pseudo-Klasse, um diesen Zustand anzusprechen.
 
 ```css live-sample___first-example live-sample___first-example-step2
 ul::scroll-button(*) {
@@ -185,9 +185,9 @@ ul::scroll-button(*):disabled {
 ```
 
 > [!NOTE]
-> Wir setzen auch einen {{cssxref("cursor")}}-Wert von `pointer` auf die Scroll-Schaltflächen, um deutlicher zu machen, dass sie interagiert werden können (eine Verbesserung sowohl für die allgemeine {{Glossary("UX", "UX")}} als auch die [kognitive Zugänglichkeit](/de/docs/Web/Accessibility/Guides/Cognitive_accessibility)), der bei `:disabled` wieder aufgehoben wird.
+> Wir setzen auch einen {{cssxref("cursor")}}-Wert von `pointer` auf die Scroll-Schaltflächen, um deutlicher zu machen, dass sie interagiert werden können (eine Verbesserung sowohl für den allgemeinen {{Glossary("UX", "UX")}} als auch für die [kognitive Zugänglichkeit](/de/docs/Web/Accessibility/Guides/Cognitive_accessibility)), und setzen ihn zurück, wenn die Scroll-Schaltflächen auf `:disabled` stehen.
 
-Als Nächstes wird mithilfe der `content`-Eigenschaft ein geeignetes Icon auf den linken und rechten Scroll-Schaltflächen gesetzt, was auch bewirkt, dass die Scroll-Schaltflächen erzeugt werden:
+Als nächstes wird über die `content`-Eigenschaft ein passendes Icon auf die linke und rechte Scroll-Schaltfläche gesetzt, was auch dazu führt, dass die Scroll-Schaltflächen generiert werden:
 
 ```css live-sample___first-example live-sample___first-example-step2
 ul::scroll-button(left) {
@@ -200,13 +200,13 @@ ul::scroll-button(right) {
 ```
 
 > [!NOTE]
-> Die Scroll-Schaltflächen erhalten automatisch einen geeigneten zugänglichen Namen, sodass sie von unterstützenden Technologien korrekt angesagt werden. Beispielsweise haben die obigen Schaltflächen eine implizite [`role`](/de/docs/Web/Accessibility/ARIA/Reference/Roles) von `button` und ihre {{Glossary("accessible_name", "zugänglichen Namen")}} lauten "scroll left" und "scroll right", jeweils.
+> Die Scroll-Schaltflächen erhalten automatisch einen geeigneten zugänglichen Namen, sodass sie von unterstützenden Technologien korrekt angekündigt werden. Zum Beispiel haben die oben genannten Schaltflächen eine implizite [`role`](/de/docs/Web/Accessibility/ARIA/Reference/Roles) von `button` und ihre {{Glossary("accessible_name", "zugänglichen Namen")}} sind "scroll left" und "scroll right".
 
 ### Positionierung von Scroll-Schaltflächen
 
-Wir haben die Scroll-Schaltflächen erstellt. Nun werden wir sie relativ zum Karussell unter Verwendung der [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) positionieren.
+Wir haben die Scroll-Schaltflächen erstellt. Jetzt werden wir sie relativ zum Karussell positionieren, indem wir [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) verwenden.
 
-Zuerst wird auf der Liste ein Referenz-{{cssxref("anchor-name")}} gesetzt. Als Nächstes hat jede Scroll-Schaltfläche ihre {{cssxref("position")}} auf `absolute` gesetzt, und ihre {{cssxref("position-anchor")}}-Eigenschaft auf den gleichen Referenz-Namen, der auf der Liste definiert ist, um die beiden miteinander zu verknüpfen.
+Zuerst wird ein Referenz-{{cssxref("anchor-name")}} auf die Liste gesetzt. Als nächstes hat jede Scroll-Schaltfläche ihre {{cssxref("position")}} auf `absolute` gesetzt, und ihre {{cssxref("position-anchor")}}-Eigenschaft auf denselben Referenznamen, der auf der Liste definiert wurde, um die beiden miteinander zu verbinden.
 
 ```css live-sample___first-example live-sample___first-example-step2
 ul {
@@ -219,7 +219,7 @@ ul::scroll-button(*) {
 }
 ```
 
-Um jede Scroll-Schaltfläche tatsächlich zu positionieren, setzen wir Werte auf ihre {{Glossary("inset_properties", "inset properties")}}. Wir verwenden {{cssxref("anchor()")}}-Funktionen, um die angegebenen Seiten der Schaltflächen relativ zu den Kanten des Karussells zu positionieren. In jedem Fall wird die {{cssxref("calc()")}}-Funktion verwendet, um etwas Platz zwischen dem Rand der Schaltfläche und dem Rand des Karussells hinzuzufügen. Beispielsweise ist der rechte Rand der linken Scroll-Schaltfläche 70 Pixel rechts vom linken Rand des Karussells positioniert.
+Um jede Scroll-Schaltfläche tatsächlich zu positionieren, setzen wir Werte auf ihre {{Glossary("inset_properties", "Einrückungseigenschaften")}}. Wir verwenden {{cssxref("anchor()")}}-Funktionen, um die angegebenen Seiten der Schaltflächen relativ zu den Seiten des Karussells zu positionieren. In jedem Fall wird die {{cssxref("calc()")}}-Funktion verwendet, um einen gewissen Abstand zwischen dem Schaltflächenrand und dem Karussellrand hinzuzufügen. Beispielsweise wird der rechte Rand der linken Scroll-Schaltfläche 70 Pixel rechts vom linken Rand des Karussells positioniert.
 
 ```css live-sample___first-example live-sample___first-example-step2
 ul::scroll-button(left) {
@@ -233,23 +233,23 @@ ul::scroll-button(right) {
 }
 ```
 
-Wenn wir den Scroll-Schaltflächen-Code hinzufügen, erhalten wir das folgende Ergebnis:
+Indem wir den Code für die Scroll-Schaltflächen hinzufügen, erhalten wir folgendes Ergebnis:
 
 {{EmbedLiveSample("first-example-step2", "100%", "400px")}}
 
-Versuchen Sie, die "vorherige" und "nächste" Scroll-Schaltflächen zu drücken, um zu sehen, wie die Seiten gescrollt werden, unter Beachtung des Scroll-Snapping-Verhaltens. Beachten Sie auch, wie die "vorherige" Schaltfläche automatisch deaktiviert wird, wenn die Liste an das Ende des Inhalts gescrollt wird, während die "nächste" Schaltfläche automatisch deaktiviert wird, wenn die Liste an das Ende des Inhalts gescrollt wird.
+Versuchen Sie, die "Vorherige" und "Nächste" Scroll-Schaltflächen zu drücken, um zu sehen, wie die Seiten gescrollt werden, wobei das Scroll-Snapping-Verhalten respektiert wird. Beachten Sie auch, wie die "Vorherige"-Schaltfläche automatisch deaktiviert wird, wenn die Liste bis zum Anfang des Inhalts gescrollt ist, während die "Nächste"-Schaltfläche automatisch deaktiviert wird, wenn die Liste bis zum Ende des Inhalts gescrollt ist.
 
-### Erstellen von Scroll-Markern
+### Erstellen von Scroll-Markierungen
 
-Scroll-Marker sind eine Gruppe von Schaltflächen, von denen jede das Karussell zu einer Position verschiebt, die mit einer der Inhaltsseiten zu tun hat. Sie bieten ein zusätzliches Navigationswerkzeug, das auch Ihre Fortschritte durch die Karussell-Seiten anzeigt.
+Scroll-Markierungen sind eine Gruppe von Schaltflächen, von denen jede das Karussell zu einer Position scrollt, die mit einer der Inhaltsseiten zusammenhängt. Sie bieten ein zusätzliches Navigationswerkzeug, das auch Ihren Fortschritt durch die Karussellseiten anzeigt.
 
-In diesem Abschnitt werden wir dem Karussell Scroll-Marker hinzufügen, die drei Hauptmerkmale umfassen:
+In diesem Abschnitt werden wir Scroll-Markierungen zu dem Karussell hinzufügen, was drei Hauptfunktionen umfasst:
 
-- Die {{cssxref("scroll-marker-group")}}-Eigenschaft wird auf dem Scroll-Container-Element gesetzt. Es muss auf einen anderen Wert als `none` gesetzt werden, damit das {{cssxref("::scroll-marker-group")}}-Pseudo-Element erzeugt wird; sein Wert bestimmt, wo die Scroll-Marker-Gruppe in der Tabulator- und Layoutbox-Reihenfolge des Karussells erscheint (jedoch nicht in der DOM-Struktur) — `before` setzt es am Beginn, vor den Scroll-Schaltflächen, während `after` es am Ende setzt.
-- Das {{cssxref("::scroll-marker-group")}}-Pseudo-Element existiert innerhalb eines Scroll-Containers und wird verwendet, um Scroll-Marker als ganze Gruppe zusammenzufassen, einzuschließen und anzuordnen.
-- {{cssxref("::scroll-marker")}}-Pseudo-Elemente existieren innerhalb der Kinder und {{cssxref("::column")}}-Fragmente eines Scroll-Container-Vorfahren, und repräsentieren deren Scroll-Marker. Diese werden innerhalb des Vorfahren {{cssxref("::scroll-marker-group")}} zu Layout-Zwecken zusammengefasst.
+- Die {{cssxref("scroll-marker-group")}}-Eigenschaft wird auf das Scroll-Container-Element gesetzt. Sie muss auf einen Wert ungleich `none` gesetzt werden, damit das {{cssxref("::scroll-marker-group")}}-Pseudo-Element generiert wird; ihr Wert gibt an, wo die Scroll-Markierungsgruppe in der Tabulator- und Layout-Box-Reihenfolge des Karussells (aber nicht in der DOM-Struktur) erscheint — `before` setzt sie an den Anfang, vor die Scroll-Schaltflächen, während `after` sie ans Ende setzt.
+- Das {{cssxref("::scroll-marker-group")}}-Pseudo-Element existiert innerhalb eines Scroll-Containers und wird verwendet, um Scroll-Markierungen als Gruppe zusammenzufassen, zu enthalten und anzuordnen.
+- {{cssxref("::scroll-marker")}} Pseudo-Elemente existieren innerhalb der Kinder und {{cssxref("::column")}}-Fragmente eines Scroll-Container-Vorfahren und repräsentieren deren Scroll-Markierungen. Diese sind innerhalb der {{cssxref("::scroll-marker-group")}} des Vorfahrens zum Layout-Zweck gesammelt.
 
-Zunächst wird die `scroll-marker-group`-Eigenschaft der Liste auf `after` gesetzt, sodass das `::scroll-marker-group`-Pseudo-Element in der Fokus- und Layoutbox-Reihenfolge nach dem DOM-Inhalt der Liste platziert wird; das bedeutet, dass es nach den Scroll-Schaltflächen kommt:
+Zunächst wird die `scroll-marker-group`-Eigenschaft der Liste auf `after` gesetzt, sodass das `::scroll-marker-group`-Pseudo-Element nach dem DOM-Inhalt der Liste in der Fokus- und Layout-Box-Reihenfolge platziert wird; das bedeutet, es kommt nach den Scroll-Schaltflächen:
 
 ```css live-sample___first-example
 ul {
@@ -258,9 +258,9 @@ ul {
 ```
 
 > [!NOTE]
-> Alternativ kann ein Scroll-Marker-Gruppen-Container von einem vorhandenen Element erstellt werden, das eine Menge von {{htmlelement("a")}}-Elementen enthält, indem {{cssxref("scroll-target-group")}} verwendet wird.
+> Alternativ kann ein Scroll-Markierungsgruppenbehälter von einem vorhandenen Element, das eine Gruppe von {{htmlelement("a")}}-Elementen enthält, mit {{cssxref("scroll-target-group")}} erstellt werden.
 
-Als Nächstes wird das `::scroll-marker-group`-Pseudo-Element der Liste relativ zum Karussell mit CSS-Anker-Positionierung positioniert, ähnlich wie die Scroll-Schaltfläche, außer dass es horizontal auf dem Karussell mit einem {{cssxref("justify-self")}}-Wert von `anchor-center` zentriert ist. Die Gruppe wird mit Flexbox angeordnet, mit einem {{cssxref("justify-content")}}-Wert von `center` und einem {{cssxref("gap")}} von `20px`, sodass ihre Kinder (die `::scroll-marker`-Pseudo-Elemente) in der `::scroll-marker-group` zentriert sind, mit einem Abstand zwischen jedem.
+Als nächstes wird das `::scroll-marker-group`-Pseudo-Element der Liste relativ zum Karussell unter Verwendung der CSS-Anker-Positionierung positioniert, ähnlich wie bei den Scroll-Schaltflächen, außer dass es horizontal zentriert auf dem Karussell mit einem {{cssxref("justify-self")}}-Wert von `anchor-center` ist. Die Gruppe wird mit Flexbox layoutet, mit einem {{cssxref("justify-content")}}-Wert von `center` und einem {{cssxref("gap")}} von `20px`, sodass ihre Kinder (die `::scroll-marker`-Pseudo-Elemente) zentriert innerhalb der `::scroll-marker-group` mit einem Abstand zwischen jedem sind.
 
 ```css live-sample___first-example
 ul::scroll-marker-group {
@@ -275,7 +275,7 @@ ul::scroll-marker-group {
 }
 ```
 
-Als Nächstes kümmern wir uns um das Aussehen und Gefühl der Scroll-Marker selbst; sie können wie anderer [erzeugter Inhalt](/de/docs/Web/CSS/CSS_generated_content) gestaltet werden. Es ist wichtig zu beachten, dass wir einen von `none` abweichenden Wert für die `content`-Eigenschaft setzen müssen, damit die Scroll-Marker tatsächlich erzeugt werden. Wir setzen auch einige rudimentäre Stile, damit die Marker als umrissene Kreise erscheinen:
+Als nächstes behandeln wir das Aussehen und die Anmutung der Scroll-Markierungen selbst; sie können wie jeder andere [generierte Inhalt](/de/docs/Web/CSS/CSS_generated_content) gestylt werden. Es ist wichtig zu beachten, dass wir einen Wert ungleich `none` für die `content`-Eigenschaft setzen müssen, damit die Scroll-Markierungen tatsächlich generiert werden. Wir setzen auch einige rudimentäre Stile, um die Markierungen als umrandete Kreise erscheinen zu lassen:
 
 ```css live-sample___first-example
 li::scroll-marker {
@@ -289,9 +289,9 @@ li::scroll-marker {
 ```
 
 > [!NOTE]
-> Erzeugter Inhalt ist standardmäßig inline; wir können `width` und `height` auf unsere Scroll-Marker anwenden, weil sie als Flex-Elemente angeordnet werden.
+> Generierte Inhalte sind standardmäßig inline; wir können `width` und `height` auf unsere Scroll-Markierungen anwenden, weil sie als Flex-Elemente layoutet werden.
 
-Schließlich für diesen Abschnitt wird die {{cssxref(":target-current")}}-Pseudo-Klasse verwendet, um auszuwählen, welcher Scroll-Marker der momentan sichtbaren "Seite" entspricht, und zeigt an, wie weit der Benutzer durch den Inhalt gescrollt hat. In diesem Fall setzen wir die `background-color` auf `black`, sodass sie als ausgefüllter Kreis gestylt ist.
+Schließlich verwenden wir für diesen Abschnitt die {{cssxref(":target-current")}}-Pseudo-Klasse, um die Scroll-Markierung auszuwählen, die der derzeit sichtbaren "Seite" entspricht, und so hervorzuheben, wie weit der Benutzer durch den Inhalt gescrollt hat. In diesem Fall setzen wir die `background-color` auf `black`, sodass sie als ausgefüllter Kreis gestylt ist.
 
 ```css live-sample___first-example
 li::scroll-marker:target-current {
@@ -300,27 +300,27 @@ li::scroll-marker:target-current {
 ```
 
 > [!NOTE]
-> Wenn ein Scroll-Marker-Gruppen-Container auf einem Scroll-Container mit der `scroll-marker-group`-Eigenschaft erstellt wird, wird der Scroll-Container mit [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)/[`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)-Semantik gerendert. Sie können mit der Tastatur <kbd>Tab</kbd> dorthin gelangen, dann zwischen den verschiedenen "Seiten" mit den Pfeiltasten links und rechts (oder oben und unten) wechseln, was auch den Zustand der zugehörigen Scroll-Marker und Scroll-Schaltflächen nach Bedarf ändert. Die Scroll-Marker können auch auf normale Weise, wie erwartet, tabbed werden.
+> Wenn ein Scroll-Markierungsgruppenbehälter auf einem Scroll-Container mit der `scroll-marker-group`-Eigenschaft erstellt wird, wird der Scroll-Container mit [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)/[`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)-Semantik gerendert. Sie können mit der Tastatur zu ihm navigieren und dann mit den Cursor-Tasten zwischen den verschiedenen "Seiten" wechseln, was auch den Zustand der zugehörigen Scroll-Markierungen und Scroll-Schaltflächen wie erwartet ändert. Die Scroll-Markierungen können auch wie erwartet zwischen einem Tabulatoren normal gewechselt werden.
 
-## Endergebnis des Einzel-Seiten-Karussells
+## Finale Ergebnis des Karussells mit Einzelseiten
 
-All der oben stehende Code fügt sich zusammen, um das folgende Ergebnis zu erzeugen:
+Der gesamte obige Code kombiniert sich zu folgendem Ergebnis:
 
 {{EmbedLiveSample("first-example", "100%", "400px")}}
 
-Seit dem vorherigen Live-Beispiel wurden die Scroll-Marker hinzugefügt — versuchen Sie sie zu drücken, um direkt zu jeder Seite zu springen. Beachten Sie, wie der aktuelle Marker hervorgehoben ist, sodass Sie sehen können, wo Sie in der Seitennummerierung sind. Versuchen Sie auch, zum Scroll-Marker-Group zu tabben, dann benutzen Sie die Pfeiltasten, um durch jede Seite zu wechseln.
+Seit dem vorherigen Live-Beispiel wurden die Scroll-Markierungen hinzugefügt — versuchen Sie, diese zu drücken, um direkt zu jeder Seite zu springen. Beachten Sie, wie die aktuelle Markierung hervorgehoben wird, sodass Sie sehen können, wo Sie sich in der Paginierung befinden. Versuchen Sie auch, zur Scroll-Markierungsgruppe zu tabben und dann die Cursor-Tasten zu verwenden, um durch jede Seite zu wechseln.
 
-Sie können auch zwischen den Seiten navigieren, indem Sie nach links und rechts wischen, die Scroll-Leiste ziehen oder die Scroll-Schaltflächen drücken.
+Sie können auch zwischen den Seiten navigieren, indem Sie nach links und rechts wischen, die Bildlaufleiste ziehen oder die Scroll-Schaltflächen drücken.
 
 ## Responsives Karussell: mehrere Elemente pro Seite
 
-Das zweite Beispiel ist ein Karussell mit mehreren Elementen pro Seite, das ebenfalls [Scroll-Schaltflächen](#erstellen_von_scroll-schaltflächen) und [Scroll-Marker](#erstellen_von_scroll-markern) umfasst, um durch die Seiten zu navigieren. Dieses Beispiel ist ebenfalls responsiv — je nach Breite des Ansichtsfensters erscheinen unterschiedliche Anzahlen von Elementen auf jeder Seite.
+Das zweite Beispiel ist ein Karussell mit mehreren Elementen pro Seite, das ebenfalls [Scroll-Schaltflächen](#erstellen_von_scroll-schaltflächen) und [Scroll-Markierungen](#erstellen_von_scroll-markierungen) enthält, um durch die Seiten zu navigieren. Dieses Beispiel ist ebenfalls responsiv — je nach Ansichtsfensterbreite erscheinen unterschiedlich viele Elemente auf jeder Seite.
 
-Dieses Beispiel ist dem [Karussell mit Einzel-Seiten](#karussell_mit_einzel-seiten) sehr ähnlich, außer dass statt Flexbox für das Layout, [CSS multi-column layout](/de/docs/Web/CSS/CSS_multicol_layout) und das {{cssxref("::column")}}-Pseudo-Element verwendet werden, um beliebige Spalten zu erzeugen, die die volle Breite des Karussells überspannen und mehrere Elemente enthalten können.
+Dieses Beispiel ist dem [Karussell mit Einzelseiten](#karussell_mit_einzelnen_seiten) sehr ähnlich, außer dass anstelle der Flexbox für das Layout [CSS-Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout) und das {{cssxref("::column")}}-Pseudo-Element verwendet werden, um beliebige Spalten zu erstellen, die die volle Breite des Karussells umfassen und mehrere Elemente enthalten können.
 
-Mit diesem Ansatz können wir sicherstellen, dass wenn das Ansichtsfenster wächst oder schrumpft, während die Elementgröße konstant bleibt, wir nie ein teilweise aus dem Sichtbereich herausstehendes Element haben. In diesem Fall werden die Scroll-Marker an den Scroll-Container-Fragmenten und nicht an den Kindern erstellt.
+Mit diesem Ansatz können wir sicherstellen, dass bei Vergrößerung oder Verkleinerung des Ansichtsfensters, während die Elementgröße konstant bleibt, niemals ein unvollständiges Element außerhalb des Scrollport angezeigt wird. In diesem Fall werden die Scroll-Markierungen auf den Scroll-Container-Fragmenten, pro Spalte, anstelle der Kinder, pro Element, erstellt.
 
-Das HTML ist dem des vorherigen Beispiels sehr ähnlich, außer dass es deutlich mehr Listenelemente gibt und, da mehrere Elemente gleichzeitig sichtbar sein werden, wir sie als Elemente und nicht als Seiten kennzeichnen:
+Das HTML ist dem des vorherigen Beispiels sehr ähnlich, außer dass es deutlich mehr Listenelemente gibt und da mehrere Elemente gleichzeitig sichtbar sein werden, bezeichnen wir sie als Elemente statt Seiten:
 
 ```html-nolint
 ...
@@ -330,7 +330,7 @@ Das HTML ist dem des vorherigen Beispiels sehr ähnlich, außer dass es deutlich
 ...
 ```
 
-Dieses Beispiel hat auch sehr ähnliches CSS, mit der Ausnahme der in den folgenden Abschnitten erläuterten Regeln.
+Dieses Beispiel hat auch sehr ähnliche CSS, mit Ausnahme der Regeln, die in den folgenden Abschnitten erklärt werden.
 
 ```html hidden live-sample___second-example
 <h1>CSS carousel multiple items per page</h1>
@@ -385,7 +385,7 @@ Dieses Beispiel hat auch sehr ähnliches CSS, mit der Ausnahme der in den folgen
 
 ### Karussell-Layout mit Spalten
 
-Dieses Beispiel verwendet [CSS multi-column layout](/de/docs/Web/CSS/CSS_multicol_layout) anstelle von Flexbox, um die Karussell-Elemente zu layouten. Der {{cssxref("columns")}}-Wert von `1` zwingt jede Spalte, die volle Breite des Containers einzunehmen, wobei die Inhalte, die gleichzeitig angezeigt werden, eine einzelne Spalte bilden. Ein {{cssxref("text-align")}}-Wert von `center` wird ebenfalls angewendet, wodurch die Inhalte mit der Mitte der Liste zentriert werden.
+In diesem Beispiel verwenden wir anstelle der Flexbox [CSS-Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout), um die Karussell-Elemente zu layouten. Der {{cssxref("columns")}}-Wert von `1` zwingt jede Spalte, die volle Breite des Containers einzunehmen, wobei die Inhalte eine Spalte nach der anderen anzeigen. Auch ein {{cssxref("text-align")}}-Wert von `center` wird angewendet, um die Inhalte mittig in der Liste auszurichten.
 
 ```css hidden live-sample___second-example
 * {
@@ -394,7 +394,7 @@ Dieses Beispiel verwendet [CSS multi-column layout](/de/docs/Web/CSS/CSS_multico
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 h1 {
@@ -417,7 +417,7 @@ ul {
 }
 ```
 
-Wir bieten rudimentäres Box-Styling für die Listenelemente an, dann wenden wir Layout-Stile an, um ein oder mehrere Elemente in die einzelne Inhaltsspalte passen zu lassen, abhängig von der Breite des Ansichtsfensters. Die Anzahl ändert sich dynamisch, wenn die Liste breiter oder schmaler wird.
+Wir bieten rudimentäres Box-Styling für die Listenelemente an und wenden dann Layout-Stile an, um mehrere Elemente in die einzelne Inhalts-Spalte einzufügen, abhängig von der Breite des Ansichtsfensters. Die Anzahl ändert sich dynamisch, wenn die Liste breiter oder schmaler wird.
 
 ```css live-sample___second-example
 li {
@@ -440,13 +440,13 @@ li:nth-child(even) {
 }
 ```
 
-Die wichtigsten Layout-Eigenschaften sind wie folgt:
+Die entscheidenden Layout-Eigenschaften sind wie folgt:
 
-- Ein {{cssxref("display")}}-Wert von `inline-block` wurde gesetzt, um die Listenelemente nebeneinander stehen zu lassen und die Liste horizontal scrollen zu lassen.
-- Eine absolute {{cssxref("width")}} von `200px` wurde darauf gesetzt, um ihre Größe zu steuern, was bedeutet, dass eins oder mehrere in eine Spalte passen, die mit der Breite des Ansichtsfensters wächst oder schrumpft.
-- Ein `text-align`-Wert von `left` wird darauf gesetzt, um das `text-align: center`, das auf den übergeordneten Container gesetzt wurde, zu überschreiben, sodass der Elementinhalt linksbündig ausgerichtet ist.
+- Ein {{cssxref("display")}}-Wert von `inline-block` wurde gesetzt, um die Listenelemente nebeneinander zu platzieren und die Liste horizontal scrollen zu lassen.
+- Eine absolute {{cssxref("width")}} von `200px` wurde auf sie gesetzt, um ihre Größensteuerung zu ermöglichen, sodass eine oder mehrere in eine Spalte passen, die beim Ändern der Breite des Ansichtsfensters wächst und schrumpft.
+- Ein `text-align`-Wert von `left` wird auf sie gesetzt, um das `text-align: center`, das auf den übergeordneten Container gesetzt wurde, zu überschreiben, damit der Elementinhalt linksbündig ausgerichtet wird.
 
-Die {{cssxref("scroll-snap-align")}}-Eigentum ist jetzt auf die {{cssxref("::column")}}-Pseudo-Elemente gesetzt — die die durch die `columns`-Eigenschaft generierten Inhaltsspalten darstellen — anstatt auf die Listenelemente. Wir möchten auf jede komplette Spalte statt auf jedes einzelne Listenelement snappen, sodass bei jeder Scroll-Aktion alle neuen Elemente angezeigt werden.
+Die {{cssxref("scroll-snap-align")}}-Eigenschaft ist jetzt auf den {{cssxref("::column")}}-Pseudo-Elementen gesetzt, die die Inhalts-Spalten darstellen, die durch die `columns`-Eigenschaft erzeugt werden — anstelle der Listenelemente. Wir möchten zu jeder vollständigen Spalte schnappen und nicht zu jedem einzelnen Listenelement, sodass bei jeder Scroll-Aktion alle neuen Elemente angezeigt werden.
 
 ```css live-sample___second-example
 ul::column {
@@ -520,9 +520,9 @@ ul::scroll-marker-group {
 }
 ```
 
-### Spalten-Scroll-Marker
+### Spalten-Scroll-Markierungen
 
-Das CSS zur Erstellung der Scroll-Marker in diesem Beispiel ist nahezu identisch mit dem [vorherigen Beispiel](#erstellen_von_scroll-markern), außer dass die Selektoren unterschiedlich sind — die Scroll-Marker werden auf den generierten `::column`-Pseudo-Elementen anstelle der Listenelemente erstellt. Beachten Sie, dass wir hier zwei Pseudo-Elemente hinzufügen, um Scroll-Marker auf den generierten Spalten zu erzeugen.
+Das CSS zum Erstellen der Scroll-Markierungen in diesem Beispiel ist nahezu identisch mit dem im [vorherigen Beispiel](#erstellen_von_scroll-markierungen), außer dass die Selektoren unterschiedlich sind — die Scroll-Markierungen werden an den generierten `::column`-Pseudo-Elementen statt an den Listenelementen erstellt. Beachten Sie, dass wir hier zwei Pseudo-Elemente einfügen, um Scroll-Markierungen an den generierten Spalten zu erzeugen.
 
 ```css live-sample___second-example
 ul::column::scroll-marker {
@@ -539,19 +539,19 @@ ul::column::scroll-marker:target-current {
 }
 ```
 
-## Endergebnis des responsiven Karussells
+## Finale Ergebnis des responsiven Karussells
 
-Das Responsive Karussell wird wie folgt gerendert:
+Das responsive Karussell wird wie folgt dargestellt:
 
 {{EmbedLiveSample("second-example", "100%", "400px")}}
 
-Versuchen Sie, zwischen den verschiedenen Seiten zu navigieren, indem Sie nach links und rechts wischen, die Scroll-Leiste verwenden, die Scroll-Schaltflächen drücken und die Scroll-Marker drücken. Die Funktionalität ist der des Einzel-Seiten-Flexbox-Beispiels ähnlich, außer dass es jetzt mehrere Listenelemente in jeder navigierten Position gibt; die Scroll-Marker sind auf Spaltenfragmenten gesetzt, die potenziell mehrere Elemente enthalten, anstatt auf jedem Element.
+Versuchen Sie, zwischen den verschiedenen Seiten zu navigieren, indem Sie nach links und rechts wischen, die Bildlaufleiste verwenden, die Scroll-Schaltflächen drücken und die Scroll-Markierungen drücken. Die Funktionalität ist ähnlich wie beim Einzelseiten-Flexbox-Beispiel, außer dass jetzt mehrere Listenelemente in jeder navigierten Position sind; die Scroll-Markierungen sind an Spalten-Fragmenten, die potenziell mehrere Elemente enthalten, anstelle an jedem einzelnen Element eingestellt.
 
-Versuchen Sie außerdem, die Bildschirmbreite zu ändern, und Sie werden sehen, dass sich die Anzahl der Listenelemente, die in die Liste passen, ändert — und daher auch die Anzahl der generierten Spalten. Wenn sich die Anzahl der Spalten ändert, wird auch die Anzahl der Scroll-Marker dynamisch aktualisiert, sodass jede Spalte in der Scroll-Marker-Group vertreten ist.
+Versuchen Sie auch, die Bildschirmbreite zu ändern und Sie werden sehen, dass sich die Anzahl der Listenelemente, die in die Liste passen, ändern — und damit auch die Anzahl der erzeugten Spalten. Da sich die Anzahl der Spalten ändert, aktualisiert sich die Anzahl der Scroll-Markierungen dynamisch, sodass jede Spalte in der Scroll-Markierungsgruppe dargestellt wird.
 
 ## Siehe auch
 
-- [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
-- [CSS Carousel Gallery](https://chrome.dev/carousel/) über chrome.dev (2025)
+- [CSS-Überlaufmodul](/de/docs/Web/CSS/CSS_overflow)
+- [CSS-Anker-Positionierungsmodul](/de/docs/Web/CSS/CSS_anchor_positioning)
+- [CSS-Scroll-Snap-Modul](/de/docs/Web/CSS/CSS_scroll_snap)
+- [CSS-Karussell-Galerie](https://chrome.dev/carousel/) über chrome.dev (2025)

@@ -2,17 +2,17 @@
 title: "<slot>: Das Slot-Element für Webkomponenten"
 slug: Web/HTML/Reference/Elements/slot
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
 ---
 
-Das **`<slot>`** [HTML](/de/docs/Web/HTML)-Element, Teil des [Web Components](/de/docs/Web/API/Web_components)-Technologiepakets, ist ein Platzhalter innerhalb einer Webkomponente, den Sie mit Ihrem eigenen Markup füllen können, was es Ihnen ermöglicht, separate DOM-Bäume zu erstellen und sie zusammen darzustellen.
+Das **`<slot>`** [HTML](/de/docs/Web/HTML)-Element — Teil der [Webkomponenten](/de/docs/Web/API/Web_components)-Technologiesuite — ist ein Platzhalter innerhalb einer Webkomponente, den Sie mit eigenem Markup füllen können. Dadurch lassen sich separate DOM-Bäume erstellen und gemeinsam darstellen.
 
 ## Attribute
 
 Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `name`
-  - : Der Name des Slots. Wenn die Komponente, die den Slot enthält, gerendert wird, wird der Slot mit dem Kindelement des benutzerdefinierten Elements gerendert, das ein übereinstimmendes [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot)-Attribut hat. Ein _benannter Slot_ ist ein `<slot>`-Element mit einem `name`-Attribut. Nicht benannte Slots haben standardmäßig den leeren String als Namen. Namen sollten pro Shadow Root eindeutig sein: Wenn Sie zwei Slots mit demselben Namen haben, werden alle Elemente mit einem passenden `slot`-Attribut dem ersten Slot mit diesem Namen zugewiesen.
+  - : Der Name des Slots. Wenn die Komponente, die den Slot enthält, gerendert wird, wird der Slot mit dem Kindelement des benutzerdefinierten Elements gerendert, das über ein passendes [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot)-Attribut verfügt. Ein _benannter Slot_ ist ein `<slot>`-Element mit einem `name`-Attribut. Nicht benannte Slots tragen den Standardnamen des leeren Strings. Namen sollten innerhalb eines Shadow-Roots eindeutig sein: Wenn Sie zwei Slots mit demselben Namen haben, werden alle Elemente mit einem passenden `slot`-Attribut dem ersten Slot mit diesem Namen zugewiesen.
 
 ## Beispiele
 
@@ -20,7 +20,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 <template id="element-details-template">
   <style>
     details {
-      font-family: "Open Sans Light", Helvetica, Arial, sans-serif;
+      font-family: "Open Sans Light", "Helvetica", "Arial", sans-serif;
     }
     .name {
       font-weight: bold;
@@ -61,7 +61,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 ```
 
 > [!NOTE]
-> Sie können dieses komplette Beispiel in Aktion unter [element-details](https://github.com/mdn/web-components-examples/tree/main/element-details) sehen (sehen Sie es sich [live an](https://mdn.github.io/web-components-examples/element-details/)). Zusätzlich finden Sie eine Erklärung unter [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots).
+> Dieses vollständige Beispiel können Sie in Aktion sehen unter [element-details](https://github.com/mdn/web-components-examples/tree/main/element-details) (sehen Sie es sich [live an](https://mdn.github.io/web-components-examples/element-details/)). Eine Erklärung finden Sie außerdem unter [Templates und Slots verwenden](/de/docs/Web/API/Web_components/Using_templates_and_slots).
 
 ## Technische Zusammenfassung
 
@@ -75,15 +75,15 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließinhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Textinhalt</a
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a
           href="/de/docs/Web/HTML/Guides/Content_categories#transparent_content_model"
@@ -92,25 +92,25 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
       </td>
     </tr>
     <tr>
-      <th scope="row">Ereignisse</th>
+      <th scope="row">Events</th>
       <td>[`slotchange`](/de/docs/Web/API/HTMLSlotElement/slotchange_event)</td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <th scope="row">Auslassung des Tags</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Textinhalt</a
         >
         akzeptiert
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -119,7 +119,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Kein <code>role</code> erlaubt</td>
+      <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -138,8 +138,8 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Glo
 
 ## Siehe auch
 
-- HTML-{{HTMLElement("template")}}-Element
-- HTML-Attribut [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot)
-- CSS-{{CSSXref("::slotted")}}-Pseudo-Element
-- CSS-{{cssxref(":has-slotted")}}-Pseudoklasse
+- HTML {{HTMLElement("template")}}-Element
+- HTML [`slot`](/de/docs/Web/HTML/Reference/Global_attributes/slot)-Attribut
+- CSS {{CSSXref("::slotted")}}-Pseudoelement
+- CSS {{cssxref(":has-slotted")}}-Pseudoklasse
 - [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping)-Modul

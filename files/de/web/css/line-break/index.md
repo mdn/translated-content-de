@@ -2,10 +2,10 @@
 title: line-break
 slug: Web/CSS/line-break
 l10n:
-  sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
+  sourceCommit: a3eec14af0580dad6eae65980686cee6cafc2c68
 ---
 
-Die **`line-break`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Zeilen in chinesischen, japanischen oder koreanischen (CJK) Texten bei der Arbeit mit Interpunktion und Symbolen gebrochen werden.
+Die **`line-break`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, wie Zeilen von chinesischem, japanischem oder koreanischem (CJK) Text unter Berücksichtigung von Satzzeichen und Symbolen gebrochen werden sollen.
 
 {{InteractiveExample("CSS Demo: line-break")}}
 
@@ -35,7 +35,7 @@ line-break: loose;
 
 ```css interactive-example
 #example-element {
-  font-family: "Yu Gothic", YuGothic, Meiryo, "ＭＳ ゴシック", sans-serif;
+  font-family: "Yu Gothic", "YuGothic", "Meiryo", "ＭＳ ゴシック", sans-serif;
   border: 2px dashed #999999;
   text-align: left;
   width: 240px;
@@ -64,15 +64,15 @@ line-break: unset;
 ### Werte
 
 - `auto`
-  - : Bricht den Text mit der Standard-Zeilenumbruchregel.
+  - : Text brechen mit der Standardregel für Zeilenumbrüche.
 - `loose`
-  - : Bricht den Text mit der am wenigsten restriktiven Zeilenumbruchregel. Typischerweise für kurze Zeilen wie in Zeitungen verwendet.
+  - : Text brechen mit der am wenigsten restriktiven Regel für Zeilenumbrüche. Typischerweise verwendet für kurze Zeilen, wie sie in Zeitungen vorkommen.
 - `normal`
-  - : Bricht den Text mit der häufigsten Zeilenumbruchregel.
+  - : Text brechen mit der häufigsten Regel für Zeilenumbrüche.
 - `strict`
-  - : Bricht den Text mit der stringentesten Zeilenumbruchregel.
+  - : Text brechen mit der strengsten Regel für Zeilenumbrüche.
 - `anywhere`
-  - : Es gibt eine weiche Umbruchmöglichkeit um jede typografische Zeichenheit, einschließlich um jedes Interpunktionszeichen oder erhaltene Leerzeichen, oder in der Mitte von Wörtern, ohne Verbote gegen Zeilenumbrüche zu beachten, selbst solche, die durch Zeichen der GL-, WJ- oder ZWJ-Zeichenklasse eingeführt wurden oder durch die {{cssxref("word-break")}} Eigenschaft vorgeschrieben sind. Die verschiedenen Umbruchmöglichkeiten dürfen nicht priorisiert werden. Silbentrennung wird nicht angewendet.
+  - : Es gibt eine weiche Umbruchsmöglichkeit um jede typografische Zeicheneinheit, einschließlich um jedes Satzzeichen oder erhaltene Leerzeichen herum oder inmitten von Wörtern, ungeachtet jeglicher Verbote gegen Zeilenumbrüche, sogar jene, die durch Zeichen mit der GL-, WJ- oder ZWJ-Zeichenklasse oder durch die {{cssxref("word-break")}}-Eigenschaft eingeführt werden. Die verschiedenen Umbruchsmöglichkeiten dürfen nicht priorisiert werden. Silbentrennung wird nicht angewendet.
 
 ## Formale Definition
 
@@ -84,9 +84,9 @@ line-break: unset;
 
 ## Beispiele
 
-### Textumbruch einstellen
+### Einstellen des Textumbruchs
 
-Überprüfen Sie, ob der Text vor "々", "ぁ" und "。" umgebrochen wird.
+Sehen Sie, ob der Text vor "々", "ぁ" und "。" umbrochen wird.
 
 #### HTML
 
@@ -151,4 +151,4 @@ line-break: unset;
 
 ## Siehe auch
 
-- [CSS and international text](https://www.w3.org/International/articles/css3-text/) auf W3C
+- [CSS und internationaler Text](https://www.w3.org/International/articles/css3-text/) auf W3C

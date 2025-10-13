@@ -2,18 +2,18 @@
 title: corner-right-shape
 slug: Web/CSS/corner-right-shape
 l10n:
-  sourceCommit: 2a64c5583a2c61c729ffe1ee1e7709a5898f57b0
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-right-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form beider Ecken am rechten Rand eines Kastens innerhalb ihres {{cssxref("border-radius")}} Bereichs fest.
+Die **`corner-right-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Form beider Ecken an der rechten Kante eines Kastens an, innerhalb ihres {{cssxref("border-radius")}} Bereichs.
 
-Für eine vollständige Beschreibung des Verhaltens von Eckenformen und mehrere Beispiele siehe die Seite der Kurzform-Eigenschaft {{cssxref("corner-shape")}}.
+Für eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele siehe die Seite zur Abkürzungseigenschaft {{cssxref("corner-shape")}}.
 
-## Zusammengesetzte Eigenschaften
+## Bestandteileigenschaften
 
-Die `corner-right-shape` Eigenschaft ist eine Kurzform für die folgenden physischen Eigenschaften:
+Die `corner-right-shape` Eigenschaft ist eine Abkürzung für die folgenden physikalischen Eigenschaften:
 
 - {{cssxref("corner-top-right-shape")}}
 - {{cssxref("corner-bottom-right-shape")}}
@@ -45,10 +45,10 @@ corner-right-shape: unset;
 
 Die `corner-right-shape` Eigenschaft wird unter Verwendung von einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
 
-- Wenn ein **Wert** verwendet wird, gibt er die Form beider **rechten Ecken** an.
-- Wenn **zwei Werte** verwendet werden, gibt der erste die Form der **oberen rechten** Ecke und der zweite die Form der **unteren rechten** Ecke an.
+- Wenn **ein Wert** verwendet wird, gibt er die Form beider **rechten Ecken** an.
+- Wenn **zwei Werte** verwendet werden, spezifiziert der erste die Form der **oberen rechten** Ecke und der zweite die Form der **unteren rechten** Ecke.
 
-## Formaler Definition
+## Formale Definition
 
 {{CSSInfo}}
 
@@ -58,13 +58,13 @@ Die `corner-right-shape` Eigenschaft wird unter Verwendung von einem oder zwei {
 
 ## Beispiele
 
-Andere verwandte Beispiele finden Sie auf der Referenzseite {{cssxref("corner-shape")}}.
+Weitere verwandte Beispiele finden Sie auf der Referenzseite {{cssxref("corner-shape")}}.
 
-### Grundlegende Nutzung von `corner-right-shape`
+### Grundlegende Verwendung von `corner-right-shape`
 
 #### HTML
 
-Das Markup für dieses Beispiel enthält ein einziges {{htmlelement("div")}} Element.
+Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} Element.
 
 ```html live-sample___basic-usage
 <div></div>
@@ -72,11 +72,11 @@ Das Markup für dieses Beispiel enthält ein einziges {{htmlelement("div")}} Ele
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber verborgen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `20% 30% / 50% 40%`, und eine `corner-right-shape` von `square scoop` an.
+Wir geben der Box einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir fügen auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `20% 30% / 50% 40%` und eine `corner-right-shape` von `square scoop` hinzu.
 
 ```css hidden live-sample___basic-usage
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   width: 240px;
   margin: 20px auto;
 }
@@ -106,7 +106,7 @@ div {
 
 #### Ergebnis
 
-Das gerenderte Ergebnis sieht folgendermaßen aus:
+Das gerenderte Ergebnis sieht so aus:
 
 {{EmbedLiveSample("basic-usage", "100%", "240")}}
 
@@ -120,10 +120,10 @@ Das gerenderte Ergebnis sieht folgendermaßen aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}} Kurzform-Eigenschaft
+- {{cssxref("corner-shape")}} Abkürzungseigenschaft
 - {{cssxref("corner-top-shape")}}, {{cssxref("corner-bottom-shape")}}, und {{cssxref("corner-left-shape")}}
 - {{cssxref("corner-block-start-shape")}}, {{cssxref("corner-block-end-shape")}}, {{cssxref("corner-inline-start-shape")}}, und {{cssxref("corner-inline-end-shape")}}
-- {{cssxref("border-radius")}} Kurzform-Eigenschaft
+- {{cssxref("border-radius")}} Abkürzungseigenschaft
 - {{cssxref("border-top-right-radius")}} und {{cssxref("border-bottom-right-radius")}}
 - [CSS borders and box decorations](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
 - [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul

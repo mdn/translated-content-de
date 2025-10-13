@@ -2,14 +2,14 @@
 title: corner-top-left-shape
 slug: Web/CSS/corner-top-left-shape
 l10n:
-  sourceCommit: 2a64c5583a2c61c729ffe1ee1e7709a5898f57b0
+  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-top-left-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form der oberen linken Ecke eines Kastens innerhalb seines {{cssxref("border-radius")}}-Bereichs.
+Die **`corner-top-left-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form der oberen linken Ecke eines Kastens innerhalb seines {{cssxref("border-radius")}} Bereichs.
 
-Für eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele, siehe die Seite zur Kurzschreibweise der Eigenschaft {{cssxref("corner-shape")}}.
+Für eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele siehe die {{cssxref("corner-shape")}} Kurzschreibweise Eigenschaftsseite.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ corner-top-left-shape: unset;
 
 ### Werte
 
-Die `corner-top-left-shape` Eigenschaft wird unter Verwendung eines {{cssxref("&lt;corner-shape-value>")}} Wertes spezifiziert.
+Die `corner-top-left-shape` Eigenschaft wird mit einem {{cssxref("&lt;corner-shape-value>")}} Wert angegeben.
 
 ## Formale Definition
 
@@ -44,7 +44,7 @@ Die `corner-top-left-shape` Eigenschaft wird unter Verwendung eines {{cssxref("&
 
 ## Beispiele
 
-Sie können weitere verwandte Beispiele auf der {{cssxref("corner-shape")}} Referenzseite finden.
+Sie finden andere verwandte Beispiele auf der {{cssxref("corner-shape")}} Referenzseite.
 
 ### Grundlegende Verwendung von `corner-top-left-shape`
 
@@ -58,11 +58,11 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stilmittel, die wir der Kürze halber versteckt haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `25% 100px` und eine `corner-top-left-shape` von `scoop` an.
+Wir geben dem Kasten einige grundlegende Stile, die wir zur Kürze verborgen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `25% 100px` und eine `corner-top-left-shape` von `scoop` an.
 
 ```css hidden live-sample___basic-usage
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
   width: 240px;
   margin: 20px auto;
 }
@@ -106,10 +106,10 @@ Das gerenderte Ergebnis sieht so aus:
 
 ## Siehe auch
 
-- {{cssxref("corner-shape")}} Kurzschreib-Eigenschaft
+- {{cssxref("corner-shape")}} Kurzschreibweise Eigenschaft
 - {{cssxref("corner-top-right-shape")}}, {{cssxref("corner-bottom-left-shape")}}, und {{cssxref("corner-bottom-right-shape")}}
 - {{cssxref("corner-start-start-shape")}}, {{cssxref("corner-start-end-shape")}}, {{cssxref("corner-end-start-shape")}}, und {{cssxref("corner-end-end-shape")}}
-- {{cssxref("border-radius")}} Kurzschreib-Eigenschaft
+- {{cssxref("border-radius")}} Kurzschreibweise Eigenschaft
 - {{cssxref("border-top-left-radius")}}
 - [CSS borders and box decorations](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
 - [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul

@@ -2,10 +2,10 @@
 title: operator
 slug: Web/SVG/Reference/Attribute/operator
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
 ---
 
-Das **`operator`**-Attribut hat zwei Bedeutungen, abhängig vom Kontext, in dem es verwendet wird. Entweder definiert es die Zusammensetzungs- oder Morphing-Operation, die ausgeführt werden soll.
+Das **`operator`**-Attribut hat zwei Bedeutungen, abhängig vom Kontext, in dem es verwendet wird. Entweder definiert es die Compositing- oder Morphing-Operation, die ausgeführt werden soll.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -20,8 +20,8 @@ body,
 svg {
   height: 100%;
   font:
-    20px Arial,
-    Helvetica,
+    20px "Helvetica",
+    "Arial",
     sans-serif;
 }
 ```
@@ -45,7 +45,7 @@ svg {
 
 ## feComposite
 
-Für {{SVGElement("feComposite")}} definiert `operator` die Zusammensetzungsoperation, die ausgeführt werden soll.
+Für {{SVGElement("feComposite")}} definiert `operator` die Compositing-Operation, die ausgeführt werden soll.
 
 <table class="properties">
   <tbody>
@@ -81,17 +81,16 @@ Für {{SVGElement("feComposite")}} definiert `operator` die Zusammensetzungsoper
 - `lighter`
   - : Dieser Wert gibt an, dass die Summe der im `in`-Attribut definierten Quellgrafik und der im `in2`-Attribut definierten Zielgrafik angezeigt wird.
 - `arithmetic`
-
-  - : Dieser Wert gibt an, dass die im `in`-Attribut definierte Quellgrafik und die im `in2`-Attribut definierte Zielgrafik mit der folgenden Formel kombiniert werden:
+  - : Dieser Wert gibt an, dass die im `in`-Attribut definierte Quellgrafik und die im `in2`-Attribut definierte Zielgrafik mithilfe der folgenden Formel kombiniert werden:
 
     `result = k1*i1*i2 + k2*i1 + k3*i2 + k4`
 
     wobei:
-    `i1` und `i2` die entsprechenden Pixelkanalwerte des Eingabebildes angeben, die auf `in` bzw. `in2` abgebildet sind, und {{SVGAttr("k1")}}, {{SVGAttr("k2")}}, {{SVGAttr("k3")}}, und {{SVGAttr("k4")}} die Werte der Attribute mit dem gleichen Namen angeben.
+    `i1` und `i2` die entsprechenden Pixelkanalwerte des Eingabebildes angeben, die `in` und `in2` zugeordnet sind, und {{SVGAttr("k1")}}, {{SVGAttr("k2")}}, {{SVGAttr("k3")}}, und {{SVGAttr("k4")}} die Werte der Attribute mit demselben Namen angeben.
 
 ## feMorphology
 
-Für {{SVGElement("feMorphology")}} definiert `operator`, ob die Quellgrafik erodiert (d.h. verdünnt) oder erweitert (verbreitert) werden soll.
+Für {{SVGElement("feMorphology")}} definiert `operator`, ob die Quelle (d.h. verdünnt) erodiert oder aufgeweitet (aufgefüllt) wird.
 
 <table class="properties">
   <tbody>

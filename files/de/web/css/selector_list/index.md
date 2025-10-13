@@ -1,15 +1,15 @@
 ---
-title: Selektorenliste
+title: Selektorliste
 slug: Web/CSS/Selector_list
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: a3eec14af0580dad6eae65980686cee6cafc2c68
 ---
 
-Die CSS **Selektorenliste** (`,`) wählt alle passenden Knoten aus. Eine Selektorenliste ist eine durch Kommas getrennte Liste von Selektoren.
+Die CSS-**Selektorliste** (`,`) wählt alle übereinstimmenden Knoten aus. Eine Selektorliste ist eine durch Kommas getrennte Liste von Selektoren.
 
 ## Beschreibung
 
-Wenn mehrere Selektoren dieselben Deklarationen teilen, können sie in einer durch Kommas getrennten Liste zusammengefasst werden. Selektorenlisten können auch als Parameter an einige funktionale CSS-Pseudoklassen übergeben werden. Vor und/oder nach dem Komma kann ein Leerzeichen stehen.
+Wenn mehrere Selektoren dieselben Deklarationen teilen, können sie in eine durch Kommas getrennte Liste zusammengefasst werden. Selektorlisten können auch als Parameter an einige funktionale CSS-Pseudoklassen übergeben werden. Vor und/oder nach dem Komma kann ein Leerzeichen eingefügt werden.
 
 Die folgenden drei Deklarationen sind gleichwertig:
 
@@ -37,21 +37,21 @@ div {
 
 ## Beispiele
 
-Wenn dieselben Stile auf Elemente angewendet werden, die unterschiedlichen Kriterien entsprechen, kann das Gruppieren der Selektoren in einer durch Kommas getrennten Liste die Konsistenz verbessern und gleichzeitig die Größe von Stylesheets reduzieren.
+Wenn die gleichen Styles auf Elemente angewendet werden, die unterschiedlichen Kriterien entsprechen, kann das Gruppieren der Selektoren in einer durch Kommas getrennten Liste die Konsistenz verbessern und gleichzeitig die Größe der Stylesheets reduzieren.
 
-### Einzeiliges Gruppieren
+### Gruppierung in einer Zeile
 
-Dieses Beispiel zeigt das Gruppieren von Selektoren in einer einzelnen Zeile unter Verwendung einer durch Kommas getrennten Liste.
+Dieses Beispiel zeigt das Gruppieren von Selektoren in einer Zeile unter Verwendung einer durch Kommas getrennten Liste.
 
 ```css-nolint
 h1, h2, h3, h4, h5, h6 {
-  font-family: Helvetica, Arial;
+  font-family: "Helvetica", "Arial";
 }
 ```
 
-### Mehrzeiliges Gruppieren
+### Gruppierung in mehreren Zeilen
 
-Dieses Beispiel zeigt das Gruppieren von Selektoren in mehreren Zeilen unter Verwendung einer durch Kommas getrennten Liste.
+Dieses Beispiel zeigt das Gruppieren von Selektoren in mehreren Zeilen mit einer durch Kommas getrennten Liste.
 
 ```css
 #main,
@@ -62,15 +62,15 @@ h1 + p {
 }
 ```
 
-## Gültige und ungültige Selektorenlisten
+## Gültige und ungültige Selektorlisten
 
-Ein ungültiger Selektor stellt nichts dar und passt daher zu nichts. Wenn eine Selektorenliste einen ungültigen Selektor enthält, wird der gesamte Stilblock ignoriert, mit Ausnahme der {{CSSxRef(":is", ":is()")}}- und {{CSSxRef(":where", ":where()")}}-Pseudoklassen, die [verzeihende Selektorenlisten](#verzeihende_selektorenliste) akzeptieren.
+Ein ungültiger Selektor repräsentiert nichts und entspricht daher nichts. Wenn eine Selektorliste einen ungültigen Selektor enthält, wird der gesamte Style-Block ignoriert, mit Ausnahme der {{CSSxRef(":is", ":is()")}} und {{CSSxRef(":where", ":where()")}} Pseudoklassen, die [nachsichtige Selektorlisten](#nachsichtige_selektorliste) akzeptieren.
 
-### Ungültige Selektorenliste
+### Ungültige Selektorliste
 
-Ein Nachteil der Verwendung einer Selektorenliste besteht darin, dass ein einziger nicht unterstützter Selektor in der Liste die gesamte Regel ungültig macht.
+Ein Nachteil der Verwendung einer Selektorliste ist, dass ein einziger nicht unterstützter Selektor in der Selektorliste die gesamte Regel ungültig macht.
 
-Betrachten Sie die folgenden beiden CSS-Regelsätze:
+Betrachten Sie die folgenden zwei CSS-Regelsätze:
 
 ```css
 h1 {
@@ -92,11 +92,11 @@ h3 {
 }
 ```
 
-Sie sind nicht gleichwertig. Im ersten Regelsatz werden die Stile auf die `h1`- und `h3`-Elemente angewendet, aber die `h2:invalid-pseudo`-Regel wird nicht geparst. Im zweiten Regelsatz wird die gesamte Regel nicht geparst, da ein Selektor in der Liste ungültig ist. Daher wird kein Stil auf die `h1`- und `h3`-Elemente angewendet, da der gesamte Stilblock ignoriert wird, wenn ein Selektor in einer Liste ungültig ist.
+Sie sind nicht gleichwertig. Im ersten Regelsatz werden Styles auf die `h1`- und `h3`-Elemente angewendet, aber die `h2:invalid-pseudo`-Regel wird nicht geparst. Im zweiten Regelsatz wird, weil ein Selektor in der Liste ungültig ist, die gesamte Regel nicht geparst. Aufgrund dessen wird kein Style auf die `h1`- und `h3`-Elemente angewendet, da bei ungültigen Selektoren in einer Liste von Selektoren der gesamte Style-Block ignoriert wird.
 
-### Verzeihende Selektorenliste
+### Nachsichtige Selektorliste
 
-Ein Weg, das Problem der [ungültigen Selektorenliste](#ungültige_selektorenliste) zu beheben, besteht darin, die {{CSSxRef(":is", ":is()")}}- oder die {{CSSxRef(":where", ":where()")}}-Pseudoklasse zu verwenden, die eine verzeihende Selektorenliste akzeptiert. Jeder Selektor in einer verzeihenden Selektorenliste wird einzeln geparst. Ungültige Selektoren in der Liste werden ignoriert und die gültigen werden verwendet.
+Eine Möglichkeit, das Problem der [ungültigen Selektorliste](#ungültige_selektorliste) zu beheben, besteht darin, die {{CSSxRef(":is", ":is()")}}- oder die {{CSSxRef(":where", ":where()")}}-Pseudoklasse zu verwenden, die eine nachsichtige Selektorliste akzeptieren. Jeder Selektor in einer nachsichtigen Selektorliste wird individuell geparst. Daher werden ungültige Selektoren in der Liste ignoriert und die gültigen verwendet.
 
 Ausgehend vom vorherigen Beispiel sind die folgenden beiden CSS-Regelsätze nun gleichwertig:
 
@@ -118,11 +118,11 @@ h3 {
 }
 ```
 
-Der Unterschied zwischen den beiden besteht darin, dass die Spezifität von `:is()` ihr spezifischstes Argument ist, während der `:where()`-Selektor und der verzeihende Selektorenlisten-Parameter keine Spezifitätsgewichtung hinzufügen.
+Der Unterschied zwischen den beiden ist, dass die Spezifität von `:is()` ihr spezifischstes Argument ist, während der `:where()`-Selektor und der nachsichtige Selektorlistenparameter kein zusätzliches Spezifitätsgewicht hinzufügen.
 
-### Relative Selektorenliste
+### Relative Selektorliste
 
-Eine relative Selektorenliste ist eine durch Kommas getrennte Selektorenliste, die als [relative Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#relative_selector) geparst wird und mit einem expliziten oder impliziten Kombinator beginnt.
+Eine relative Selektorliste ist eine durch Kommas getrennte Selektorliste, die als [relative Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#relative_selector) geparst wird, die mit einem expliziten oder implizierten Kombinator beginnen.
 
 ```css
 h2:has(+ p, + ul.red) {
@@ -130,7 +130,7 @@ h2:has(+ p, + ul.red) {
 }
 ```
 
-Im obigen Beispiel wird der kursivierte Stil auf jede `h2`-Überschrift angewendet, die unmittelbar von `<p>` oder `<ul class="red">` gefolgt wird. Beachten Sie, dass Pseudoelemente und der `:has()`-Selektor innerhalb der [`:has()`](/de/docs/Web/CSS/:has) relativen Selektorenliste nicht gültig sind.
+Im obigen Beispiel wird der kursiv gedruckte Stil auf jeden `h2`-Kopf angewendet, der unmittelbar gefolgt wird von `<p>` oder `<ul class="red">`. Beachten Sie, dass Pseudoelemente und der `:has()`-Selektor innerhalb der [`:has()`](/de/docs/Web/CSS/:has) relativen Selektorliste nicht gültig sind.
 
 ## Spezifikationen
 
@@ -142,7 +142,7 @@ Im obigen Beispiel wird der kursivierte Stil auf jede `h2`-Überschrift angewend
 
 ## Siehe auch
 
-- Die [`:is()`](/de/docs/Web/CSS/:is) und [`:where()`](/de/docs/Web/CSS/:where) Pseudoklassen akzeptieren verzeihende Selektorenlisten.
-- Die [`:not()`](/de/docs/Web/CSS/:not) Pseudoklasse akzeptiert eine reguläre Selektorenliste.
-- Die [`:has()`](/de/docs/Web/CSS/:has) Pseudoklasse akzeptiert eine relative Selektorenliste.
+- Die [`:is()`](/de/docs/Web/CSS/:is) und [`:where()`](/de/docs/Web/CSS/:where) Pseudoklassen akzeptieren nachsichtige Selektorlisten.
+- Die [`:not()`](/de/docs/Web/CSS/:not) Pseudoklasse akzeptiert eine reguläre Selektorliste.
+- Die [`:has()`](/de/docs/Web/CSS/:has) Pseudoklasse akzeptiert eine relative Selektorliste.
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
