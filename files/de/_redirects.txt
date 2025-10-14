@@ -13314,6 +13314,7 @@
 /de/docs/Web/HTML/Global_attributes/translate	/de/docs/Web/HTML/Reference/Global_attributes/translate
 /de/docs/Web/HTML/Global_attributes/virtualkeyboardpolicy	/de/docs/Web/HTML/Reference/Global_attributes/virtualkeyboardpolicy
 /de/docs/Web/HTML/Global_attributes/writingsuggestions	/de/docs/Web/HTML/Reference/Global_attributes/writingsuggestions
+/de/docs/Web/HTML/Guides/Viewport_meta_element	/de/docs/Web/HTML/Reference/Elements/meta/name/viewport
 /de/docs/Web/HTML/Index	/de/docs/Web/HTML
 /de/docs/Web/HTML/Inline_elemente	/de/docs/Glossary/Inline-level_content
 /de/docs/Web/HTML/Inline_elements	/de/docs/Glossary/Inline-level_content
@@ -13341,7 +13342,7 @@
 /de/docs/Web/HTML/Supported_media_formats	/de/docs/Web/Media/Guides/Formats
 /de/docs/Web/HTML/The_Importance_of_Correct_HTML_Commenting	/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax#HTML_comments
 /de/docs/Web/HTML/Using_HTML5_audio_and_video	/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio
-/de/docs/Web/HTML/Viewport_meta_tag	/de/docs/Web/HTML/Guides/Viewport_meta_element
+/de/docs/Web/HTML/Viewport_meta_tag	/de/docs/Web/HTML/Reference/Elements/meta/name/viewport
 /de/docs/Web/HTML/element/content	/de/docs/Web/HTML/Reference/Elements/slot
 /de/docs/Web/HTML/microformats	/de/docs/Web/HTML/Guides/Microformats
 /de/docs/Web/HTTP/Access_control_CORS	/de/docs/Web/HTTP/Guides/CORS

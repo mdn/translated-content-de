@@ -3,15 +3,15 @@ title: X-Frame-Options header
 short-title: X-Frame-Options
 slug: Web/HTTP/Reference/Headers/X-Frame-Options
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: d62b4091759dd4d6d407541575ff6738834830d3
 ---
 
 > [!NOTE]
-> Für umfassendere Optionen als die in diesem Header angebotenen, siehe die {{HTTPHeader("Content-Security-Policy/frame-ancestors", "frame-ancestors")}}-Direktive in einem {{HTTPHeader("Content-Security-Policy")}}-Header.
+> Für umfassendere Optionen als die, die dieser Header bietet, siehe die {{HTTPHeader("Content-Security-Policy/frame-ancestors", "frame-ancestors")}}-Direktive in einem {{HTTPHeader("Content-Security-Policy")}}-Header.
 
-Der HTTP **`X-Frame-Options`** {{Glossary("response_header", "Response-Header")}} kann verwendet werden, um anzugeben, ob ein Browser eine Seite in einem {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("embed")}} oder {{HTMLElement("object")}} rendern darf. Websites können dies nutzen, um [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking)-Angriffe zu vermeiden, indem sie sicherstellen, dass ihre Inhalte nicht in andere Seiten eingebettet werden.
+Der HTTP **`X-Frame-Options`** {{Glossary("response_header", "Response-Header")}} kann verwendet werden, um anzugeben, ob ein Browser eine Seite in einem {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("embed")}} oder {{HTMLElement("object")}} rendern darf. Websites können dies nutzen, um [Clickjacking](/de/docs/Web/Security/Attacks/Clickjacking)-Angriffe zu vermeiden, indem sichergestellt wird, dass ihre Inhalte nicht in andere Websites eingebettet werden.
 
-Die zusätzliche Sicherheit wird nur bereitgestellt, wenn der Benutzer, der das Dokument aufruft, einen Browser verwendet, der `X-Frame-Options` unterstützt.
+Die erhöhte Sicherheit wird nur geboten, wenn der Benutzer, der auf das Dokument zugreift, einen Browser verwendet, der `X-Frame-Options` unterstützt.
 
 <table class="properties">
   <tbody>
@@ -20,7 +20,7 @@ Die zusätzliche Sicherheit wird nur bereitgestellt, wenn der Benutzer, der das 
       <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Anforderungs-Header")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -36,48 +36,48 @@ X-Frame-Options: SAMEORIGIN
 ### Direktiven
 
 - `DENY`
-  - : Die Seite kann in keinem Frame angezeigt werden, unabhängig von der Website, die versucht, dies zu tun. Sowohl der Versuch des Browsers, die Seite in einem Frame zu laden, wird fehlschlagen, wenn er von anderen Seiten geladen wird, als auch der Versuch, dies von derselben Seite aus zu tun, wird scheitern.
+  - : Die Seite kann nicht in einem Frame angezeigt werden, unabhängig davon, welche Seite versucht, dies zu tun. Nicht nur wird der Versuch des Browsers, die Seite in einem Frame zu laden, fehlschlagen, wenn sie von anderen Seiten geladen wird, auch Versuche beim Laden von derselben Seite werden fehlschlagen.
 - `SAMEORIGIN`
-  - : Die Seite kann nur angezeigt werden, wenn alle übergeordneten Frames vom gleichen Ursprung wie die Seite selbst stammen. Sie können die Seite weiterhin in einem Frame verwenden, solange die Seite, die sie in einem Frame einschließt, dieselbe ist wie die, die die Seite bereitstellt.
+  - : Die Seite kann nur angezeigt werden, wenn alle übergeordneten Frames den gleichen {{Glossary("origin", "Origin")}} wie die Seite selbst haben. Sie können die Seite weiterhin in einem Frame verwenden, solange die Seite, die sie in einem Frame einbindet, dieselbe ist, die die Seite bereitstellt.
 - `ALLOW-FROM origin` {{deprecated_inline}}
-  - : Dies ist eine veraltete Direktive. Moderne Browser, die Antwort-Header mit dieser Direktive erkennen, werden den Header vollständig ignorieren. Der {{HTTPHeader("Content-Security-Policy")}} HTTP-Header verfügt über eine {{HTTPHeader("Content-Security-Policy/frame-ancestors", "frame-ancestors")}}-Direktive, die Sie stattdessen verwenden sollten.
+  - : Dies ist eine veraltete Direktive. Moderne Browser, die Antwort-Header mit dieser Direktive erhalten, ignorieren den Header vollständig. Der {{HTTPHeader("Content-Security-Policy")}} HTTP-Header besitzt eine {{HTTPHeader("Content-Security-Policy/frame-ancestors", "frame-ancestors")}}-Direktive, die stattdessen verwendet werden sollte.
 
 ## Beispiele
 
 > [!WARNING]
-> Das Festlegen von `X-Frame-Options` im {{HTMLElement("meta")}}-Element (z. B. `<meta http-equiv="X-Frame-Options" content="deny">`) hat keine Wirkung. `X-Frame-Options` wird nur über HTTP-Header durchgesetzt, wie in den unten stehenden Beispielen gezeigt.
+> Das Setzen von `X-Frame-Options` innerhalb des {{HTMLElement("meta")}}-Elements (z.B. `<meta http-equiv="X-Frame-Options" content="deny">`) hat keine Wirkung. `X-Frame-Options` wird nur über HTTP-Header durchgesetzt, wie in den folgenden Beispielen gezeigt.
 
-### Konfiguration von Apache
+### Konfigurieren von Apache
 
-Um Apache so zu konfigurieren, dass er den `X-Frame-Options`-Header für alle Seiten sendet, fügen Sie dies zur Konfiguration Ihrer Website hinzu:
+Um Apache so zu konfigurieren, dass es den `X-Frame-Options`-Header für alle Seiten sendet, fügen Sie dies Ihrer Site-Konfiguration hinzu:
 
 ```apacheconf
 Header always set X-Frame-Options "SAMEORIGIN"
 ```
 
-Um Apache so zu konfigurieren, dass `X-Frame-Options` auf `DENY` gesetzt wird, fügen Sie dies zur Konfiguration Ihrer Website hinzu:
+Um Apache so zu konfigurieren, dass es `X-Frame-Options` auf `DENY` setzt, fügen Sie dies zur Konfiguration Ihrer Website hinzu:
 
 ```apacheconf
 Header set X-Frame-Options "DENY"
 ```
 
-### Konfiguration von Nginx
+### Konfigurieren von Nginx
 
-Um Nginx so zu konfigurieren, dass er den `X-Frame-Options`-Header sendet, fügen Sie dies entweder Ihrer http-, server- oder location-Konfiguration hinzu:
+Um Nginx so zu konfigurieren, dass es den `X-Frame-Options`-Header sendet, fügen Sie dies entweder zur http-, server- oder location-Konfiguration hinzu:
 
 ```nginx
 add_header X-Frame-Options SAMEORIGIN always;
 ```
 
-Sie können den `X-Frame-Options`-Header mit dem Wert `DENY` setzen:
+Sie können den `X-Frame-Options`-Header auf `DENY` setzen mit:
 
 ```nginx
 add_header X-Frame-Options DENY always;
 ```
 
-### Konfiguration von IIS
+### Konfigurieren von IIS
 
-Um IIS so zu konfigurieren, dass er den `X-Frame-Options`-Header sendet, fügen Sie dies zur `Web.config`-Datei Ihrer Website hinzu:
+Um IIS so zu konfigurieren, dass es den `X-Frame-Options`-Header sendet, fügen Sie dies Ihrer `Web.config`-Datei der Website hinzu:
 
 ```xml
 <system.webServer>
@@ -91,11 +91,11 @@ Um IIS so zu konfigurieren, dass er den `X-Frame-Options`-Header sendet, fügen 
 </system.webServer>
 ```
 
-Weitere Informationen finden Sie im [Microsoft-Supportartikel zur Konfiguration dieser Einstellung über die IIS-Manager-Oberfläche](https://support.microsoft.com/en-US/office/mitigating-framesniffing-with-the-x-frame-options-header-1911411b-b51e-49fd-9441-e8301dcdcd79).
+Für weitere Informationen siehe den [Microsoft Support-Artikel zur Konfiguration mit der IIS Manager-Oberfläche](https://support.microsoft.com/en-US/office/mitigating-framesniffing-with-the-x-frame-options-header-1911411b-b51e-49fd-9441-e8301dcdcd79).
 
-### Konfiguration von HAProxy
+### Konfigurieren von HAProxy
 
-Um HAProxy so zu konfigurieren, dass er den `X-Frame-Options`-Header sendet, fügen Sie dies Ihrer frontend-, listen- oder backend-Konfiguration hinzu:
+Um HAProxy so zu konfigurieren, dass es den `X-Frame-Options`-Header sendet, fügen Sie dies Ihrer Frontend-, Listen- oder Backend-Konfiguration hinzu:
 
 ```plain
 rspadd X-Frame-Options:\ SAMEORIGIN
@@ -107,9 +107,9 @@ Alternativ in neueren Versionen:
 http-response set-header X-Frame-Options SAMEORIGIN
 ```
 
-### Konfiguration von Express
+### Konfigurieren von Express
 
-Um `X-Frame-Options` mit dem Wert `SAMEORIGIN` mithilfe von [Helmet](https://helmetjs.github.io/) zu setzen, fügen Sie Folgendes zur Serverkonfiguration hinzu:
+Um `X-Frame-Options` mit [Helmet](https://helmetjs.github.io/) auf `SAMEORIGIN` zu setzen, fügen Sie folgendes zur Konfiguration Ihres Servers hinzu:
 
 ```js
 import helmet from "helmet";

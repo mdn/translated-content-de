@@ -1,30 +1,30 @@
 ---
-title: HTML-Formulare in älteren Browsern
-short-title: Formulare in älteren Browsern
+title: HTML-Formulare in veralteten Browsern
+short-title: Formulare in veralteten Browsern
 slug: Learn_web_development/Extensions/Forms/HTML_forms_in_legacy_browsers
 l10n:
-  sourceCommit: 3cbd2b2b2eb0be9425949c20ca5d398645f7c0e9
+  sourceCommit: dc9d517589ac7b74bc205f49492b0450dfdb78de
 ---
 
-Alle Webentwickler lernen sehr schnell (und manchmal schmerzhaft), dass das Web ein sehr herausfordernder Ort für sie ist. Unser größter Fluch sind ältere Browser. Früher bedeutete das "Internet Explorer", aber es gibt Millionen von Menschen, die alte Geräte verwenden, insbesondere Mobiltelefone, bei denen weder der Browser noch das Betriebssystem aktualisiert werden können.
+Alle Webentwickler lernen sehr schnell (und manchmal schmerzhaft), dass das Web ein sehr rauer Ort ist. Unser größter Fluch sind veraltete Browser. Früher bedeutete das "Internet Explorer", aber es gibt Millionen von Menschen, die alte Geräte benutzen, insbesondere Mobiltelefone, bei denen weder der Browser noch das Betriebssystem aktualisiert werden können.
 
-Der Umgang mit dieser Wildnis ist Teil des Jobs. Glücklicherweise gibt es ein paar Tricks, die Ihnen helfen können, die meisten Probleme zu lösen, die durch ältere Browser verursacht werden. Wenn ein Browser einen HTML-{{htmlelement('input')}}-Typ nicht unterstützt, schlägt er nicht fehl: Er verwendet einfach den Standardwert `type=text`.
+Mit dieser Wildnis umzugehen, ist Teil der Arbeit. Glücklicherweise gibt es ein paar Tricks, die helfen können, die meisten der durch veraltete Browser verursachten Probleme zu lösen. Wenn ein Browser einen HTML-{{htmlelement('input')}}-Typ nicht unterstützt, schlägt es nicht fehl: es verwendet einfach den Standardwert `type=text`.
 
-## Informieren Sie sich über die Probleme
+## Erfahren Sie mehr über die Probleme
 
-Um gängige Muster zu verstehen, hilft es, Dokumentationen zu lesen. Wenn Sie dies auf [MDN](/) lesen, sind Sie an der richtigen Stelle, um zu beginnen. Überprüfen Sie einfach die Unterstützung der Elemente (oder DOM-Schnittstellen), die Sie verwenden möchten. MDN bietet Kompatibilitätstabellen für die meisten Elemente, Eigenschaften und APIs, die auf einer Webseite verwendet werden können.
+Um allgemeine Muster zu verstehen, hilft es, Dokumentationen zu lesen. Wenn Sie dies gerade auf [MDN](/) lesen, sind Sie an der richtigen Stelle, um zu beginnen. Überprüfen Sie einfach die Unterstützung der Elemente (oder DOM-Schnittstellen), die Sie verwenden möchten. MDN bietet Kompatibilitätstabellen für die meisten Elemente, Eigenschaften und APIs, die in einer Webseite verwendet werden können.
 
-Da [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms) komplexe Interaktionen beinhalten, gibt es eine wichtige Regel: Halten Sie es einfach, auch bekannt als das "[KISS-Prinzip](https://en.wikipedia.org/wiki/KISS_principle)". Es gibt so viele Fälle, in denen wir Formulare wollen, die "schöner" oder "mit erweiterten Funktionen" sind, aber effiziente HTML-Formulare zu erstellen, ist keine Frage von Design oder Technologie. Vielmehr geht es um Einfachheit, Intuitivität und Benutzerfreundlichkeit. Das Tutorial, [Forms Usability auf UX For The Masses,](https://www.uxforthemasses.com/forms-usability/) erklärt es gut.
+Da [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms) komplexe Interaktionen beinhalten, gibt es eine wichtige Regel: Halten Sie es einfach, auch bekannt als das "[KISS-Prinzip](https://en.wikipedia.org/wiki/KISS_principle)". Es gibt so viele Fälle, in denen wir Formulare wollen, die "netter" oder "mit fortgeschrittener Funktionalität" sind, aber effiziente HTML-Formulare zu erstellen, ist keine Frage des Designs oder der Technologie. Vielmehr geht es um Einfachheit, Intuitivität und Benutzerfreundlichkeit. Das Tutorial, [Forms Usability auf UX For The Masses,](https://www.uxforthemasses.com/forms-usability/) erklärt es gut.
 
-### Sanfter Rückgang ist der beste Freund des Webentwicklers
+### Graceful Degradation ist der beste Freund eines Webentwicklers
 
-[Sanfter Rückgang und progressive Verbesserung](https://www.sitepoint.com/progressive-enhancement-graceful-degradation-choice/) sind Entwicklungsmuster, die es Ihnen ermöglichen, großartige Dinge zu bauen, indem Sie gleichzeitig eine breite Palette von Browsern unterstützen. Wenn Sie etwas für einen modernen Browser bauen und sicherstellen möchten, dass es irgendwie auch in älteren Browsern funktioniert, führen Sie einen sanften Rückgang durch.
+[Graceful Degradation und Progressive Enhancement](https://www.sitepoint.com/progressive-enhancement-graceful-degradation-choice/) sind Entwicklungsmuster, die es ermöglichen, großartige Dinge zu erstellen, indem eine breite Palette von Browsern gleichzeitig unterstützt wird. Wenn Sie etwas für einen modernen Browser erstellen und sicherstellen möchten, dass es, auf die eine oder andere Weise, auch in veralteten Browsern funktioniert, betreiben Sie Graceful Degradation.
 
-Schauen wir uns einige Beispiele im Zusammenhang mit HTML-Formularen an.
+Lassen Sie uns einige Beispiele im Zusammenhang mit HTML-Formularen betrachten.
 
-#### HTML-Eingabetypen
+#### HTML Input-Typen
 
-Alle HTML-Eingabetypen sind in allen Browsern verwendbar, auch in sehr alten, da die Art und Weise, wie sie herabstufen, sehr vorhersehbar ist. Wenn ein Browser den Wert des [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attributs eines {{HTMLElement("input")}}-Elements nicht kennt, fällt er zurück, als wäre der Wert `text`.
+Alle HTML-Input-Typen sind in allen Browsern anwendbar, selbst in alten, da ihr Rückfall hochgradig vorhersehbar ist. Wenn ein Browser den Wert des [`type`](/de/docs/Web/HTML/Reference/Elements/input#type)-Attributs eines {{HTMLElement("input")}}-Elements nicht kennt, fällt es zurück, als wäre der Wert `text`.
 
 ```html
 <label for="myColor">
@@ -44,13 +44,13 @@ Alle HTML-Eingabetypen sind in allen Browsern verwendbar, auch in sehr alten, da
     <tr>
       <td>
         <img
-          alt="Bildschirmfoto des Farbeingabewerts in Chrome für Mac OSX"
+          alt="Screenshot des Farbeingabefeldes auf Chrome für macOS"
           src="color-fallback-chrome.png"
         />
       </td>
       <td>
         <img
-          alt="Bildschirmfoto des Farbeingabewerts in Firefox für Mac OSX"
+          alt="Screenshot des Farbeingabefeldes auf Firefox für macOS"
           src="color-fallback-firefox.png"
         />
       </td>
@@ -58,22 +58,22 @@ Alle HTML-Eingabetypen sind in allen Browsern verwendbar, auch in sehr alten, da
   </tbody>
 </table>
 
-#### Formularschaltflächen
+#### Formular-Buttons
 
-Es gibt zwei Möglichkeiten, Schaltflächen innerhalb von HTML-Formularen zu definieren:
+Es gibt zwei Möglichkeiten, Buttons innerhalb von HTML-Formularen zu definieren:
 
 - Das {{HTMLElement("input")}}-Element mit seinem Attribut [`type`](/de/docs/Web/HTML/Reference/Elements/input#type), das auf die Werte `button`, `submit`, `reset` oder `image` gesetzt ist
 - Das {{HTMLElement("button")}}-Element
 
 ##### {{HTMLElement("input")}}
 
-Das {{HTMLElement("input")}}-Element kann die Sache etwas schwierig machen, wenn Sie versuchen, einige CSS durch die Verwendung des Elementselektors anzuwenden:
+Das {{HTMLElement("input")}}-Element kann es etwas schwierig machen, wenn Sie versuchen, CSS mit dem Element-Selektor anzuwenden:
 
 ```html
 <input type="button" value="click me" />
 ```
 
-Wenn wir den Rahmen bei allen Eingaben entfernen, können wir das Standarderscheinungsbild für Eingabeschaltflächen nur mit dem globalen CSS-Wert {{cssxref('revert')}} wiederherstellen.
+Wenn wir den Rand bei allen Inputs entfernen, können wir das Standardaussehen für Input-Buttons nur mit dem globalen CSS-Wert {{cssxref('revert')}} wiederherstellen.
 
 ```css
 input {
@@ -87,19 +87,19 @@ input[type="button"] {
 }
 ```
 
-### Begrenzen Sie Styling in älteren Browsern
+### Begrenzen Sie das Styling in veralteten Browsern
 
-Ein großes Problem bei HTML-Formularen in älteren Browsern ist das Styling mit CSS. Wie an anderer Stelle behandelt, können Sie {{cssxref('appearance', 'appearance: none;')}} deklarieren, um die Standardstile zu entfernen und Ihre eigenen darauf aufzubauen. Allerdings unterstützen ältere Browser die zuvor im Modul behandelten Styling-Techniken weniger als moderne Browser. Es wäre besser, Formularelemente in älteren Browsern ungestylt zu lassen, wenn Sie sie unterstützen müssen. Lesen Sie den nächsten Abschnitt, um Ratschläge zur Erkennung der Unterstützung bestimmter Eingabetypen zu erhalten.
+Eines der großen Probleme mit HTML-Formularen in veralteten Browsern ist, sie mit CSS zu stylen. Wie andernorts behandelt, können Sie {{cssxref('appearance', 'appearance: none;')}} deklarieren, um die Standardstile zu entfernen und Ihre eigenen darauf aufzubauen. Allerdings unterstützen veraltete Browser die früher im Modul behandelten Styling-Techniken weniger als moderne Browser. Es könnte besser sein, Formularsteuerelemente in veralteten Browsern ungestylt zu lassen, wenn Sie sie unterstützen müssen. Siehe den nächsten Abschnitt für Ratschläge zur Erkennung der Unterstützung für bestimmte Input-Typen.
 
-Wenn Sie die Standardstile Ihrer Formularwidgets in älteren Browsern ändern müssen, definieren Sie eine Stilrichtlinie, um Konsistenz zwischen all Ihren Formularelementen zu gewährleisten, damit das Benutzererlebnis nicht zerstört wird. Sie könnten auch einige schwierige Techniken wie [Widgets mit JavaScript neu aufbauen](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls) untersuchen, aber es könnte mehr Mühe machen, als es wert ist.
+Wenn Sie die Standardstile Ihrer Formular-Widgets in veralteten Browsern ändern müssen, definieren Sie einen Styleguide, um Konsistenz zwischen allen Ihren Formularsteuerelementen zu gewährleisten, damit die Benutzererfahrung nicht zerstört wird. Sie könnten auch einige schwierige Techniken wie das [Rekonstruieren von Widgets mit JavaScript](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls) untersuchen, aber es könnte mehr Ärger bringen, als es wert ist.
 
-## Funktionsentdeckung und Polyfills
+## Feature-Erkennung und Polyfills
 
-CSS und JavaScript sind großartige Technologien, aber es ist wichtig sicherzustellen, dass Sie keine älteren Browser kaputtmachen. Bevor Sie Funktionen verwenden, die in den von Ihnen anvisierten Browsern nicht vollständig unterstützt werden, sollten Sie Funktionserkennung verwenden.
+CSS und JavaScript sind großartige Technologien, aber es ist wichtig sicherzustellen, dass Sie keine veralteten Browser kaputt machen. Bevor Sie Funktionen verwenden, die in Ihren gezielten Browsern nicht vollständig unterstützt werden, sollten Sie eine Funktionserkennung durchführen.
 
-### CSS-Funktionserkennung
+### CSS-Feature-Erkennung
 
-Bevor Sie ein ersetztes Formularsteuerungs-Widget stylen, können Sie prüfen, ob der Browser die Funktionen unterstützt, die Sie verwenden möchten {{cssxref('@supports')}}:
+Bevor Sie ein ersetztes Formularsteuerungs-Widget stylen, können Sie überprüfen, ob der Browser die Funktionen unterstützt, die Sie verwenden möchten {{cssxref('@supports')}}:
 
 ```css
 @supports (appearance: none) {
@@ -110,13 +110,13 @@ Bevor Sie ein ersetztes Formularsteuerungs-Widget stylen, können Sie prüfen, o
 }
 ```
 
-Die {{cssxref('appearance')}}-Eigenschaft kann verwendet werden, um ein Element mittels plattformnativer Stile darzustellen oder, wie es mit dem Wert `none` durchgeführt wird, standardmäßig auf plattformnativer basierte Stile zu verzichten.
+Die {{cssxref('appearance')}}-Eigenschaft kann verwendet werden, um ein Element mit plattformnative Styling anzuzeigen oder, wie bei dem Wert `none`, das standardmäßig plattformspezifische Styling zu entfernen.
 
-### JavaScript-Formular-Eingabeerkennung
+### JavaScript-Formulareingabe-Erkennung
 
-Sie können JavaScript verwenden, um zu erkennen, ob ein bestimmter Eingabetyp unterstützt wird. Dies basiert auf der zuvor erwähnten Tatsache — dass jeder Eingabetyp in nicht unterstützenden Browsern auf `<input type="text">` zurückfällt.
+Sie können JavaScript verwenden, um zu erkennen, ob ein bestimmter Eingabetyp unterstützt wird. Dies basiert auf der zuvor genannten Tatsache — dass alle Eingabetypen in nicht unterstützenden Browsern auf `<input type="text">` zurückfallen.
 
-Definieren Sie eine Testfunktion. Die erste Zeile des Funktionskörpers sollte ein Test-`<input>`-Element erstellen. Setzen Sie als Nächstes dessen `type`-Attribut auf den Typ, den Sie testen möchten. Schließlich testen Sie den Wert des `type`-Attributs. In Browsern, die diesen Eingabetyp nicht unterstützen, hat die letzte Zeile keine Auswirkung und `type` wird als `text` zurückgegeben. In der untenstehenden Zeile invertieren wir den Rückgabewert mithilfe des Negationsoperators (`!`), denn wenn `type` nicht `text` ist, dann ist der Typ unterstützt, und wir möchten `true` zurückgeben. Die vollständige Funktion sieht so aus:
+Definieren Sie eine Testfunktion. Die erste Zeile des Funktionskörpers sollte ein Test-`<input>`-Element erstellen. Setzen Sie als Nächstes das `type`-Attribut auf den Typ, den Sie testen möchten. Schließlich testen Sie den Wert des `type`-Attributs. In Browsern, die diesen Eingabetyp nicht unterstützen, hat die letzte Zeile keinen Effekt und das `type`-Attribut wird als `text` zurückgegeben. In der unteren Zeile kehren wir den Rückgabewert mit dem Negationsoperator (`!`) um, weil wenn das `type` nicht `text` ist, der Typ unterstützt wird, also wollen wir `true` zurückgeben. Die vollständige Funktion sieht folgendermaßen aus:
 
 ```js
 function testDatetimeLocalSupport() {
@@ -126,25 +126,25 @@ function testDatetimeLocalSupport() {
 }
 ```
 
-Das obige Beispiel zeigt die grundlegende Idee hinter solchen Tests. Anstatt das Rad neu zu erfinden, sollten Sie jedoch eine Funktionserkennungsbibliothek verwenden, um solche Tests durchzuführen.
+Das obige Beispiel zeigt die grundlegende Idee hinter solchen Tests. Anstatt das Rad neu zu erfinden, sollten Sie jedoch eine Funktions-Erkennungsbibliothek verwenden, um solche Tests durchzuführen.
 
-Basierend auf den Ergebnissen dieses Tests könnten Sie dann beispielsweise JavaScript verwenden, um einen benutzerdefinierten Ersatz für den nicht unterstützten Typ zu erstellen, oder Sie könnten ein Stylesheet, das den nicht unterstützten Typ stylt, nicht anwenden, weil Sie einfache Standardstile für ältere Browser bereitstellen möchten.
+Basierend auf den Ergebnissen dieses Tests könnten Sie dann beispielsweise JavaScript verwenden, um einen benutzerdefinierten Ersatz für den nicht unterstützten Typ zu erstellen, oder ein Stylesheet, das den nicht unterstützten Typ styled, nicht anwenden, weil Sie einfache Standardstile für veraltete Browser bereitstellen möchten.
 
-### Unaufdringliches JavaScript
+### Unauffälliges JavaScript
 
-Eines der größten Probleme ist die Verfügbarkeit von APIs. Aus diesem Grund gilt es als Best Practice, mit "unaufdringlichem" JavaScript zu arbeiten. Es ist ein Entwicklungsmuster, das zwei Anforderungen definiert:
+Eines der größten Probleme ist die Verfügbarkeit von APIs. Aus diesem Grund gilt es als Best Practice, mit "unauffälligem" JavaScript zu arbeiten. Es ist ein Entwicklungsmuster, das zwei Anforderungen definiert:
 
 - Eine strikte Trennung zwischen Struktur und Verhalten.
-- Wenn der Code fehlschlägt, müssen die Inhalte und die grundlegenden Funktionen zugänglich und nutzbar bleiben.
+- Wenn der Code nicht funktioniert, müssen der Inhalt und die Grundfunktionen weiterhin zugänglich und benutzbar sein.
 
-[The principles of unobtrusive JavaScript](https://www.w3.org/wiki/The_principles_of_unobtrusive_JavaScript) (ursprünglich von Peter-Paul Koch für dev.opera.com geschrieben) beschreibt diese Ideen sehr gut.
+[Die Prinzipien von unauffälligem JavaScript](https://www.w3.org/wiki/The_principles_of_unobtrusive_JavaScript) (ursprünglich geschrieben von Peter-Paul Koch für dev.opera.com) beschreiben diese Ideen sehr gut.
 
 ### Achten Sie auf die Leistung
 
-Obwohl einige Polyfills sehr leistungsbewusst sind, kann das Laden zusätzlicher Skripte die Leistung Ihrer Anwendung beeinträchtigen. Dies ist besonders kritisch bei älteren Browsern; viele von ihnen haben eine sehr langsame JavaScript-Engine, die die Ausführung all Ihrer Polyfills für den Benutzer schmerzhaft machen kann. Leistung ist ein eigenes Thema, aber ältere Browser sind sehr empfindlich darauf: Im Grunde sind sie langsam und je mehr Polyfills sie benötigen, desto mehr JavaScript müssen sie verarbeiten. Sie sind daher im Vergleich zu modernen Browsern doppelt belastet. Testen Sie Ihren Code mit älteren Browsern, um zu sehen, wie sie tatsächlich abschneiden. Manchmal führt das Weglassen einiger Funktionen zu einem besseren Benutzererlebnis, als in allen Browsern exakt dieselben Funktionen zu haben. Als letzte Erinnerung: Denken Sie immer an die Endnutzer.
+Auch wenn einige Polyfills sich sehr der Leistung bewusst sind, kann das Laden zusätzlicher Skripte die Leistung Ihrer Anwendung beeinträchtigen. Dies ist insbesondere bei veralteten Browsern kritisch; viele von ihnen haben eine sehr langsame JavaScript-Engine, die die Ausführung all Ihrer Polyfills für den Benutzer schmerzhaft machen kann. Leistung ist ein eigenes Thema, aber veraltete Browser sind sehr empfindlich darauf: im Grunde sind sie langsam und je mehr Polyfills sie benötigen, desto mehr JavaScript müssen sie verarbeiten. Sie sind also doppelt belastet im Vergleich zu modernen Browsern. Testen Sie Ihren Code mit veralteten Browsern, um zu sehen, wie sie tatsächlich funktionieren. Manchmal führt das Fallenlassen einiger Funktionen zu einer besseren Benutzererfahrung, als in allen Browsern die exakt gleiche Funktionalität zu haben. Als letzte Erinnerung, denken Sie immer an die Endbenutzer.
 
 ## Fazit
 
-Wie Sie sehen, ist es wichtig, die Standarddarstellung von Formularsteuerelementen im Browser und Betriebssystem in Betracht zu ziehen. Es gibt viele Techniken, um diese Probleme zu handhaben; jedoch alles davon zu beherrschen, liegt außerhalb des Umfangs dieses Artikels. Die Grundvoraussetzung ist jedoch, zu überlegen, ob es den Aufwand wert ist, die Standardimplementierung zu ändern, bevor Sie sich der Herausforderung stellen.
+Wie Sie sehen, ist es wichtig, das Standarderscheinungsbild von Formularsteuerungen in Browsern und Betriebssystemen zu berücksichtigen. Es gibt viele Techniken, um diese Probleme zu handhaben; jedoch ist die Beherrschung all dieser Techniken jenseits des Umfangs dieses Artikels. Die grundlegende Prämisse ist zu überlegen, ob es die Arbeit wert ist, die Standardimplementierung zu ändern, bevor man sich dieser Herausforderung stellt.
 
-Wenn Sie alle Artikel dieses [HTML Forms-Leitfadens](/de/docs/Learn_web_development/Extensions/Forms) gelesen haben, sollten Sie nun in der Lage sein, Formulare zu verwenden. Wenn Sie neue Techniken oder Hinweise entdecken, helfen Sie bitte, den Leitfaden zu verbessern.
+Wenn Sie alle Artikel dieses [HTML-Formular-Leitfadens](/de/docs/Learn_web_development/Extensions/Forms) gelesen haben, sollten Sie nun in der Lage sein, Formulare sicher zu verwenden. Wenn Sie neue Techniken oder Hinweise entdecken, helfen Sie bitte mit, den Leitfaden zu verbessern.

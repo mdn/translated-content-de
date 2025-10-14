@@ -1,56 +1,56 @@
 ---
 title: Firefox 145 für Entwickler
-short-title: Firefox 145 (Nightly)
+short-title: Firefox 145 (Beta)
 slug: Mozilla/Firefox/Releases/145
 l10n:
-  sourceCommit: f7d0598a727aeebbad5fce854f493023b3693a50
+  sourceCommit: e3e93db9247ff7a0e8c43bf9bab2f5386559be23
 ---
 
-Dieser Artikel liefert Informationen über die Änderungen in Firefox 145, die Entwickler betreffen.
-Firefox 145 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und wird am [11. November 2025](https://whattrainisitnow.com/release/?version=145) veröffentlicht.
+Dieser Artikel bietet Informationen über die Änderungen in Firefox 145, die Entwickler betreffen.
+Firefox 145 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [11. November 2025](https://whattrainisitnow.com/release/?version=145) veröffentlicht.
 
 > [!NOTE]
 > Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Autoren: Bitte alle Überschriften auskommentieren, zu denen Sie Anmerkungen schreiben. -->
+<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Anmerkungen schreiben -->
 
-## Änderungen für Webentwickler
+## Änderungen für Web-Entwickler
 
-<!-- ### Entwickler-Tools -->
+<!-- ### Entwicklerwerkzeuge -->
 
 <!-- ### HTML -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### MathML -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### CSS -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### JavaScript -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### HTTP -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### Sicherheit -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### APIs -->
 
@@ -58,13 +58,13 @@ Firefox 145 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 <!-- #### Medien, WebRTC und Web Audio -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernungen -->
+<!-- #### Entfernt -->
 
-<!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
+<!-- ### WebDriver Konformität (WebDriver BiDi, Marionette) -->
 
 <!-- #### Allgemein -->
 
@@ -74,14 +74,14 @@ Firefox 145 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 ## Änderungen für Add-on-Entwickler
 
-- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} erstellt wurden, werden jetzt validiert, und ungültige Cookies werden abgelehnt. Diese Änderung wurde nur ab Firefox 142 in Nightly implementiert. ([Firefox-Bug 1976509](https://bugzil.la/1976509))
+- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} erstellt wurden, werden jetzt validiert, und ungültige Cookies werden abgelehnt. Diese Änderung wurde nur in Nightly ab Firefox 142 implementiert. ([Firefox-Bug 1976509](https://bugzil.la/1976509))
 
-<!-- ### Entfernungen -->
+<!-- ### Entfernt -->
 
 <!-- ### Sonstiges -->
 
-## Experimentelle Webfunktionen
+## Experimentelle Web-Features
 
-Diese Funktionen werden in Firefox 145 ausgeliefert, sind jedoch standardmäßig deaktiviert.
-Um sie auszuprobieren, suchen Sie den entsprechenden Schalter auf der `about:config`-Seite und setzen Sie ihn auf `true`.
-Weitere derartige Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Features sind in Firefox 145 enthalten, sind jedoch standardmäßig deaktiviert.
+Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Präferenz und setzen Sie sie auf `true`.
+Weitere solche Features finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
