@@ -2,27 +2,24 @@
 title: Document Object Model (DOM)
 slug: Web/API/Document_Object_Model
 l10n:
-  sourceCommit: 87440643d71bf81a5bf4b8fa21db9e3d56ead395
+  sourceCommit: 231152e9a749aaeba8de45f4cc712845a470dda9
 ---
 
 {{DefaultAPISidebar("DOM")}}
 
-Das **Document Object Model** (**DOM**) verbindet Webseiten mit Skripten oder Programmiersprachen, indem es die Struktur eines Dokuments, wie das HTML, das eine Webseite darstellt, im Arbeitsspeicher abbildet. Normalerweise bezieht es sich auf JavaScript, obwohl das Modellieren von HTML-, SVG- oder XML-Dokumenten als Objekte nicht Teil der Kern-JavaScript-Sprache ist.
+Das **Document Object Model** (**DOM**) verbindet Webseiten mit Skripten oder Programmiersprachen, indem es die Struktur eines Dokuments – wie das HTML, das eine Webseite repräsentiert – im Speicher darstellt. In der Regel bezieht es sich auf JavaScript, obwohl das Modellieren von HTML-, SVG- oder XML-Dokumenten als Objekte nicht Teil der Kernsprache von JavaScript ist.
 
-Das DOM stellt ein Dokument als einen logischen Baum dar. Jeder Zweig des Baums endet in einem Knoten und jeder Knoten enthält Objekte. DOM-Methoden ermöglichen den programmierten Zugriff auf den Baum. Mit ihnen kann die Struktur, das Styling oder der Inhalt des Dokuments geändert werden.
+Das DOM stellt ein Dokument als logischen Baum dar. Jeder Ast des Baumes endet in einem Knoten, und jeder Knoten enthält Objekte. DOM-Methoden ermöglichen den programmatischen Zugriff auf den Baum. Mit ihnen können Sie die Struktur, den Stil oder den Inhalt des Dokuments ändern.
 
-An Knoten können auch Ereignishandler angehängt werden. Sobald ein Ereignis ausgelöst wird, werden die Ereignishandler ausgeführt.
+Knoten können auch Ereignishandler zugeordnet sein. Sobald ein Ereignis ausgelöst wird, werden die Ereignishandler ausgeführt.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Das Document Object Model (DOM) ist eine Programmierschnittstelle für Webdokumente.
-Es stellt die Seite so dar, dass Programme die Dokumentstruktur, das Styling und den Inhalt ändern können.
-Das DOM stellt das Dokument als Knoten und Objekte dar;
-auf diese Weise können Programmiersprachen mit der Seite interagieren.
+Das Document Object Model (DOM) ist eine Programmierschnittstelle für Webdokumente. Es stellt die Seite so dar, dass Programme die Dokumentstruktur, den Stil und Inhalt ändern können. Das DOM stellt das Dokument als Knoten und Objekte dar; auf diese Weise können Programmiersprachen mit der Seite interagieren.
 
-Eine Webseite ist ein Dokument, das entweder im Browserfenster angezeigt oder als HTML-Quelle betrachtet werden kann. In beiden Fällen handelt es sich um dasselbe Dokument, aber die Repräsentation durch das Document Object Model (DOM) erlaubt Manipulationen. Als objektorientierte Darstellung der Webseite kann es mit einer Skriptsprache wie JavaScript modifiziert werden.
+Eine Webseite ist ein Dokument, das entweder im Browserfenster angezeigt oder als HTML-Quelle dargestellt werden kann. In beiden Fällen handelt es sich um dasselbe Dokument, aber die Darstellung im Document Object Model (DOM) erlaubt es, es zu manipulieren. Als objektorientierte Repräsentation der Webseite kann es mit einer Skriptsprache wie JavaScript modifiziert werden.
 
-Beispielsweise gibt das DOM an, dass die Methode `querySelectorAll` in diesem Code-Schnipsel eine Liste aller {{HTMLElement("p")}}-Elemente im Dokument zurückgeben muss:
+Zum Beispiel spezifiziert das DOM, dass die `querySelectorAll`-Methode in diesem Code-Snippet eine Liste aller {{HTMLElement("p")}}-Elemente im Dokument zurückgeben muss:
 
 ```js
 const paragraphs = document.querySelectorAll("p");
@@ -31,18 +28,13 @@ const paragraphs = document.querySelectorAll("p");
 alert(paragraphs[0].nodeName);
 ```
 
-Alle Eigenschaften, Methoden und Ereignisse, die zum Manipulieren und Erstellen von Webseiten verfügbar sind, sind in Objekte organisiert. Zum Beispiel ist das `document`-Objekt, das das Dokument selbst darstellt, jedes `table`-Objekt, das die DOM-Schnittstelle [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) für den Zugriff auf HTML-Tabellen implementiert, und so weiter, sind alles Objekte.
+Alle verfügbaren Eigenschaften, Methoden und Ereignisse zur Manipulation und Erstellung von Webseiten sind in Objekten organisiert. Zum Beispiel das `document`-Objekt, das das Dokument selbst darstellt, irgendwelche `table`-Objekte, die die [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) DOM-Schnittstelle zur Zugriff auf HTML-Tabellen implementieren, und so weiter, sind alles Objekte.
 
-Das DOM wird mithilfe mehrerer APIs aufgebaut, die zusammenarbeiten.
-Das Kern-[DOM](/de/docs/Web/API/Document_Object_Model) definiert die Entitäten,
-die jedes Dokument und die darin enthaltenen Objekte beschreiben.
-Dies wird bei Bedarf von anderen APIs erweitert, die neue Funktionen und Fähigkeiten zum DOM hinzufügen.
-Beispielsweise fügt die [HTML DOM API](/de/docs/Web/API/HTML_DOM_API) Unterstützung für die Darstellung von HTML-Dokumenten zum Kern-DOM hinzu,
-und die SVG API fügt Unterstützung für die Darstellung von SVG-Dokumenten hinzu.
+Das DOM wird unter Nutzung mehrerer APIs aufgebaut, die zusammenarbeiten. Das Basis-DOM definiert die Entitäten, die jedes Dokument und die Objekte darin beschreiben. Dies wird nach Bedarf durch andere APIs erweitert, die neue Funktionen und Fähigkeiten zum DOM hinzufügen. Zum Beispiel fügt die [HTML DOM API](/de/docs/Web/API/HTML_DOM_API) Unterstützung für die Darstellung von HTML-Dokumenten zum Basis-DOM hinzu, und die SVG API fügt Unterstützung zur Darstellung von SVG-Dokumenten hinzu.
 
 ### Was ist ein DOM-Baum?
 
-Ein **DOM-Baum** ist eine [Baumstruktur](https://en.wikipedia.org/wiki/Tree_structure), deren Knoten den Inhalt eines HTML- oder XML-Dokuments darstellen. Jedes HTML- oder XML-Dokument hat eine DOM-Baum-Repräsentation. Zum Beispiel betrachten Sie das folgende Dokument:
+Ein **DOM-Baum** ist eine [Baumstruktur](https://en.wikipedia.org/wiki/Tree_structure), deren Knoten den Inhalt eines HTML- oder XML-Dokuments repräsentieren. Jedes HTML- oder XML-Dokument hat eine DOM-Baumarstellung. Zum Beispiel betrachten Sie folgendes Dokument:
 
 ```html
 <html lang="en">
@@ -58,25 +50,19 @@ Ein **DOM-Baum** ist eine [Baumstruktur](https://en.wikipedia.org/wiki/Tree_stru
 
 Es hat einen DOM-Baum, der so aussieht:
 
-![Das DOM als baumartige Darstellung eines Dokuments, das einen Wurzelknoten und Knoten mit Inhalten enthält](using_the_w3c_dom_level_1_core-doctree.jpg)
+![Das DOM als baumartige Darstellung eines Dokuments, das eine Wurzel und Knotenelemente enthält](using_the_w3c_dom_level_1_core-doctree.jpg)
 
-Obwohl der obige Baum dem DOM-Baum des Dokumentes ähnelt, sind sie nicht identisch, da der tatsächliche DOM-Baum [Leerzeichen](/de/docs/Web/CSS/CSS_text/Whitespace) bewahrt.
+Obwohl der obige Baum dem DOM-Baum des obigen Dokuments ähnlich ist, sind sie nicht identisch, da der tatsächliche DOM-Baum [Leerzeichen](/de/docs/Web/CSS/CSS_text/Whitespace) beibehält.
 
-Wenn ein Webbrowser ein HTML-Dokument parst, baut er einen DOM-Baum auf und verwendet diesen dann zur Darstellung des Dokuments.
+Wenn ein Webbrowser ein HTML-Dokument analysiert, baut er einen DOM-Baum und verwendet diesen, um das Dokument anzuzeigen.
 
 ### DOM und JavaScript
 
-Das vorherige kurze Beispiel, wie fast alle Beispiele, ist {{Glossary("JavaScript", "JavaScript")}}. Das heißt, es ist in JavaScript _geschrieben_, aber _verwendet_ das DOM, um auf das Dokument und seine Elemente zuzugreifen. Das DOM ist keine Programmiersprache, aber ohne es hätte die JavaScript-Sprache kein Modell oder Konzept von Webseiten, HTML-Dokumenten, SVG-Dokumenten und deren Bestandteilen. Das Dokument als Ganzes, der Kopf, Tabellen im Dokument, Tabellenüberschriften, Text in den Tabellenzellen und alle anderen Elemente in einem Dokument sind Teile des Dokument-Objektmodells für dieses Dokument. Sie können alle mit dem DOM und einer Skriptsprache wie JavaScript abgerufen und manipuliert werden.
+Das vorhergehende kurze Beispiel, wie fast alle Beispiele, ist {{Glossary("JavaScript", "JavaScript")}}. Das bedeutet, es ist _in_ JavaScript geschrieben, aber _verwendet_ das DOM, um auf das Dokument und seine Elemente zuzugreifen. Das DOM ist keine Programmiersprache, aber ohne sie hätte die JavaScript-Sprache kein Modell oder Konzept von Webseiten, HTML-Dokumenten, SVG-Dokumenten und deren Komponenten. Das Dokument als Ganzes, der Kopf, Tabellen innerhalb des Dokuments, Tabellenüberschriften, Text innerhalb der Tabellenzellen und alle anderen Elemente in einem Dokument sind Teile des Document Object Model für dieses Dokument. Sie können alle mit dem DOM und einer Skriptsprache wie JavaScript zugegriffen und manipuliert werden.
 
-Das DOM ist nicht Teil der JavaScript-Sprache,
-sondern stattdessen eine Web-API, die zum Erstellen von Websites verwendet wird.
-JavaScript kann auch in anderen Kontexten verwendet werden.
-Zum Beispiel führt Node.js JavaScript-Programme auf einem Computer aus,
-bietet jedoch eine andere Reihe von APIs,
-und die DOM-API ist kein Kernbestandteil der Node.js-Laufzeit.
+Das DOM ist kein Teil der JavaScript-Sprache, sondern eine Web-API, die zum Bauen von Webseiten verwendet wird. JavaScript kann auch in anderen Kontexten verwendet werden. Zum Beispiel führt Node.js JavaScript-Programme auf einem Computer aus, stellt aber ein anderes Set von APIs bereit, und die DOM-API ist kein Kernbestandteil der Node.js-Laufzeitumgebung.
 
-Das DOM wurde entworfen, um unabhängig von einer bestimmten Programmiersprache zu sein, wodurch die strukturelle Darstellung des Dokuments über eine einheitliche API verfügbar ist.
-Auch wenn die meisten Webentwickler das DOM nur über JavaScript verwenden, können Implementierungen des DOM für jede Sprache erstellt werden, wie dieses Python-Beispiel zeigt:
+Das DOM wurde entwickelt, um unabhängig von einer bestimmten Programmiersprache zu sein und macht die strukturelle Darstellung des Dokuments aus einer einzigen, konsistenten API zugänglich. Auch wenn die meisten Webentwickler das DOM nur durch JavaScript nutzen, können Implementierungen des DOM für jede Sprache erstellt werden, wie dieses Python-Beispiel zeigt:
 
 ```python
 # Python DOM example
@@ -86,14 +72,13 @@ doc.nodeName # DOM property of document object
 p_list = doc.getElementsByTagName("para")
 ```
 
-Für weitere Informationen darüber, welche Technologien beim Schreiben von JavaScript im Web beteiligt sind, sehen Sie [JavaScript-Technologieübersicht](/de/docs/Web/JavaScript/Reference/JavaScript_technologies_overview).
+Weitere Informationen über die Technologien, die an der Erstellung von JavaScript im Web beteiligt sind, finden Sie im [JavaScript-Technologieüberblick](/de/docs/Web/JavaScript/Reference/JavaScript_technologies_overview).
 
-### Zugriff auf das DOM
+### Zugreifen auf das DOM
 
-Sie müssen nichts Besonderes tun, um mit der Nutzung des DOM zu beginnen.
-Sie verwenden die API direkt in JavaScript aus einem sogenannten _Script_, einem Programm, das von einem Browser ausgeführt wird.
+Sie müssen nichts Besonderes tun, um mit der Verwendung des DOM zu beginnen. Sie verwenden die API direkt in JavaScript innerhalb eines _Skripts_, eines Programms, das von einem Browser ausgeführt wird.
 
-Wenn Sie ein Skript erstellen, ob inline in einem `<script>`-Element oder in der Webseite enthalten, können Sie sofort beginnen, die API für die [`document`](/de/docs/Web/API/Document)- oder [`window`](/de/docs/Web/API/Window)-Objekte zu verwenden, um das Dokument selbst oder eines der verschiedenen Elemente auf der Webseite zu manipulieren (die Nachfolgeelemente des Dokuments). Ihre Programmierung des DOM kann so einfach sein wie das folgende Beispiel, das eine Nachricht auf der Konsole mit der Funktion [`console.log()`](/de/docs/Web/API/console/log_static) anzeigt:
+Wenn Sie ein Skript erstellen, sei es inline in einem `<script>`-Element oder in die Webseite einbezogen, können Sie sofort beginnen, die API für die [`document`](/de/docs/Web/API/Document)- oder [`window`](/de/docs/Web/API/Window)-Objekte zu verwenden, um das Dokument selbst oder irgendeines der verschiedenen Elemente auf der Webseite (die Nachkommenselemente des Dokuments) zu manipulieren. Ihre DOM-Programmierung kann so einfach sein wie das folgende Beispiel, das eine Nachricht auf der Konsole anzeigt, indem die Funktion [`console.log()`](/de/docs/Web/API/console/log_static) verwendet wird:
 
 ```html
 <body onload="console.log('Welcome to my home page!');">
@@ -101,12 +86,9 @@ Wenn Sie ein Skript erstellen, ob inline in einem `<script>`-Element oder in der
 </body>
 ```
 
-Da es im Allgemeinen nicht empfohlen wird, die Struktur der Seite (geschrieben in HTML) und die Manipulation des DOM (geschrieben in JavaScript) zu vermischen,
-werden die JavaScript-Teile hier zusammengefasst und vom HTML getrennt.
+Da es im Allgemeinen nicht empfohlen wird, die Struktur der Seite (geschrieben in HTML) und die Manipulation des DOM (geschrieben in JavaScript) zu mischen, werden die JavaScript-Teile hier zusammengefasst und vom HTML getrennt.
 
-Beispielsweise erstellt die folgende Funktion ein neues {{HTMLElement("Heading_Elements", "h1")}}-Element,
-fügt diesem Element Text hinzu
-und fügt es dann dem Baum des Dokuments hinzu:
+Zum Beispiel erstellt die folgende Funktion ein neues {{HTMLElement("Heading_Elements", "h1")}}-Element, fügt diesem Element Text hinzu und fügt es dann dem Baum des Dokuments hinzu:
 
 ```html
 <html lang="en">
@@ -125,7 +107,7 @@ und fügt es dann dem Baum des Dokuments hinzu:
 
 ## DOM-Schnittstellen
 
-Die folgenden sind alle im DOM-Core-Standard definierten Schnittstellen:
+Die folgenden sind alle von der DOM-Spezifikation definierten Schnittstellen:
 
 - [`AbortController`](/de/docs/Web/API/AbortController)
 - [`AbortSignal`](/de/docs/Web/API/AbortSignal)
@@ -166,15 +148,15 @@ Die folgenden sind alle im DOM-Core-Standard definierten Schnittstellen:
 - [`XPathResult`](/de/docs/Web/API/XPathResult)
 - [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)
 
-Dieser Leitfaden behandelt die Objekte und die tatsächlichen _Dinge_, die Sie verwenden können, um die DOM-Hierarchie zu manipulieren. Es gibt viele Punkte, an denen das Verständnis dafür verwirrend sein kann. Zum Beispiel erhält das Objekt, das das HTML `form`-Element repräsentiert, seine `name`-Eigenschaft von der `HTMLFormElement`-Schnittstelle, aber seine `className`-Eigenschaft von der `HTMLElement`-Schnittstelle. In beiden Fällen befindet sich die gewünschte Eigenschaft in diesem Formularobjekt.
+Dieser Leitfaden behandelt die Objekte und die tatsächlichen _Dinge_, die Sie verwenden können, um die DOM-Hierarchie zu manipulieren. Es gibt viele Punkte, an denen das Verständnis, wie diese funktionieren, verwirrend sein kann. Zum Beispiel erhält das Objekt, das das HTML-`form`-Element darstellt, seine `name`-Eigenschaft von der `HTMLFormElement`-Schnittstelle, aber seine `className`-Eigenschaft von der `HTMLElement`-Schnittstelle. In beiden Fällen befindet sich die gewünschte Eigenschaft in diesem Formularelement.
 
-Aber die Beziehung zwischen Objekten und den Schnittstellen, die sie im DOM implementieren, kann verwirrend sein, und dieser Abschnitt versucht, ein wenig über die tatsächlichen Schnittstellen im DOM-Standard und deren Verfügbarkeit zu sagen.
+Aber die Beziehung zwischen Objekten und den Schnittstellen, die sie im DOM implementieren, kann verwirrend sein, und so versucht dieser Abschnitt, ein wenig über die tatsächlichen Schnittstellen in der DOM-Spezifikation und wie sie bereitgestellt werden, zu erklären.
 
 ### Schnittstellen und Objekte
 
-Viele Objekte implementieren mehrere verschiedene Schnittstellen. Das Tabellenobjekt zum Beispiel implementiert eine spezialisierte [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) Schnittstelle, die solche Methoden wie `createCaption` und `insertRow` umfasst. Aber da es auch ein HTML-Element ist, implementiert `table` die in der DOM-Referenz beschriebenen `Element`-Schnittstelle. Und da ein HTML-Element im Bereich des DOM auch ein Knoten im Baum der Knoten ist, die das Objektmodell für eine HTML- oder XML-Seite bilden, implementiert das Tabellenobjekt auch die grundlegendere `Node`-Schnittstelle, von der `Element` abgeleitet ist.
+Viele Objekte implementieren mehrere verschiedene Schnittstellen. Das Tabellenobjekt zum Beispiel implementiert eine spezialisierte [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Schnittstelle, die Methoden wie `createCaption` und `insertRow` enthält. Aber da es auch ein HTML-Element ist, implementiert `table` die `Element`-Schnittstelle, die im DOM-Reference-Kapitel von [`Element`](/de/docs/Web/API/Element) beschrieben wird. Und schließlich, da ein HTML-Element auch, soweit es das DOM betrifft, ein Knoten im Baum der Knoten ist, die das Objektmodell für eine HTML- oder XML-Seite bilden, implementiert das Tabellenobjekt auch die grundlegendere `Node`-Schnittstelle, von der `Element` abgeleitet ist.
 
-Wenn Sie auf ein `table`-Objekt zugreifen, wie im folgenden Beispiel, verwenden Sie routinemäßig alle drei dieser Schnittstellen austauschbar auf dem Objekt, vielleicht ohne es zu wissen.
+Wenn Sie eine Referenz auf ein `table`-Objekt erhalten, wie im folgenden Beispiel, verwenden Sie routinemäßig alle drei dieser Schnittstellen austauschbar auf dem Objekt, vielleicht ohne es zu wissen.
 
 ```js
 const table = document.getElementById("table");
@@ -189,12 +171,12 @@ for (const attr of tableAttrs) {
 table.summary = "note: increased border";
 ```
 
-### Fundamentale Datentypen
+### Grundlegende Datentypen
 
-Diese Seite versucht, die verschiedenen Objekte und Typen in einfachen Begriffen zu beschreiben. Aber es gibt eine Reihe unterschiedlicher Datentypen, die innerhalb der API übergeben werden und denen Sie sich bewusst sein sollten.
+Diese Seite versucht, die verschiedenen Objekte und Typen in einfachen Worten zu beschreiben. Aber es gibt eine Reihe von verschiedenen Datentypen, die durch die API weitergegeben werden, die Ihnen bewusst sein sollten.
 
 > [!NOTE]
-> Da sich der Großteil des Codes, der das DOM verwendet, auf die Manipulation von HTML-Dokumenten konzentriert, ist es üblich, sich auf die Knoten im DOM als **Elemente** zu beziehen, obwohl streng genommen nicht jeder Knoten ein Element ist.
+> Da der größte Teil des Codes, der das DOM benutzt, sich um die Manipulation von HTML-Dokumenten dreht, ist es üblich, sich auf die Knoten im DOM als **Elemente** zu beziehen, obwohl streng genommen nicht jeder Knoten ein Element ist.
 
 Die folgende Tabelle beschreibt diese Datentypen kurz.
 
@@ -209,18 +191,18 @@ Die folgende Tabelle beschreibt diese Datentypen kurz.
     <tr>
       <td>[`Document`](/de/docs/Web/API/Document)</td>
       <td>
-        Wenn ein Mitglied ein Objekt vom Typ <code>document</code> zurückgibt (z.B. die
+        Wenn ein Mitglied ein Objekt des Typs <code>document</code> zurückgibt (z.B. Die
         <code>ownerDocument</code>-Eigenschaft eines Elements gibt das
-        <code>document</code> zurück, zu dem es gehört), ist dieses Objekt das
-        Wurzel-<code>document</code>-Objekt selbst. Das
-        <a href="/de/docs/Web/API/Document">DOM-<code>document</code>-Referenz</a>
-        Kapitel beschreibt das <code>document</code>-Objekt.
+        <code>document</code> zurück, zu dem es gehört), ist dieses Objekt das root
+        <code>document</code> Objekt selbst. Das
+        <a href="/de/docs/Web/API/Document">DOM <code>document</code> Referenz</a>
+        Kapitel beschreibt das <code>document</code> Objekt.
       </td>
     </tr>
     <tr>
       <td>[`Node`](/de/docs/Web/API/Node)</td>
       <td>
-        Jedes im Dokument befindliche Objekt ist eine Art von Knoten. In einem
+        Jedes Objekt, das sich innerhalb eines Dokuments befindet, ist eine Art von Knoten. In einem
         HTML-Dokument kann ein Objekt ein Elementknoten, aber auch ein Textknoten oder
         Attributknoten sein.
       </td>
@@ -229,28 +211,27 @@ Die folgende Tabelle beschreibt diese Datentypen kurz.
       <td>[`Element`](/de/docs/Web/API/Element)</td>
       <td>
         Der <code>element</code>-Typ basiert auf <code>node</code>. Es bezieht
-        sich auf ein Element oder einen Knoten vom Typ <code>element</code>,
-        der von einem Mitglied der DOM-API zurückgegeben wird. Anstatt zum Beispiel zu sagen, dass die
-        Methode [`document.createElement()`](/de/docs/Web/API/Document/createElement) eine
-        Objektreferenz zu einem <code>node</code> zurückgibt, sagen wir einfach, dass diese Methode
+        sich auf ein Element oder einen Knoten vom Typ <code>element</code>, der von einem
+        Mitglied der DOM-API zurückgegeben wird. Anstatt zu sagen, dass z.B. die
+        [`document.createElement()`](/de/docs/Web/API/Document/createElement)-Methode
+        eine Objekt-Referenz zu einem <code>node</code> zurückgibt, sagen wir einfach, dass diese Methode
         das <code>element</code> zurückgibt, das gerade im DOM erstellt wurde.
         <code>element</code>-Objekte implementieren die DOM
-        <code>Element</code>-Schnittstelle sowie die grundlegendere
+        <code>Element</code>-Schnittstelle und auch die grundlegendere
         <code>Node</code>-Schnittstelle, die beide zusammen in diesem
-        Referenz enthalten sind. In einem HTML-Dokument werden Elemente durch die
-        HTML-DOM-API
-        [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle weiter verbessert sowie
-        andere Schnittstellen, die Fähigkeiten bestimmter Arten von Elementen
-        beschreiben (zum Beispiel [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) für
-        {{HTMLElement("table")}}-Elemente).
+        Referenzdokument enthalten sind. In einem HTML-Dokument werden die Elemente durch die HTML-DOM-API
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle sowie
+        andere Schnittstellen, die die Fähigkeiten spezifischer Arten von Elementen beschreiben
+        (zum Beispiel [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) für
+        {{HTMLElement("table")}}-Elemente), weiter verbessert.
       </td>
     </tr>
     <tr>
       <td>[`Attr`](/de/docs/Web/API/Attr)</td>
       <td>
-        Wenn ein <code>attribute</code> von einem Mitglied zurückgegeben wird (z.B. durch die
-        <code>createAttribute()</code>-Methode), ist es eine Objektreferenz, die
-        eine spezielle (wenn auch kleine) Schnittstelle für Attribute verfügt. Attribute
+        Wenn ein <code>attribute</code> von einem Mitglied (z.B. von der
+        <code>createAttribute()</code>-Methode) zurückgegeben wird, ist es eine Objekt-Referenz, die
+        eine spezielle (wenn auch kleine) Schnittstelle für Attribute exponiert. Attribute
         sind Knoten im DOM, genau wie Elemente, obwohl Sie sie vielleicht selten
         als solche verwenden.
       </td>
@@ -258,9 +239,9 @@ Die folgende Tabelle beschreibt diese Datentypen kurz.
   </tbody>
 </table>
 
-Es gibt auch einige allgemeine terminologische Überlegungen zu beachten. Es ist üblich, sich auf jeden [`Attr`](/de/docs/Web/API/Attr)-Knoten als `Attribut` zu beziehen und auf ein Array von DOM-Knoten als `nodeList`. Sie werden feststellen, dass diese und andere Begriffe in der gesamten Dokumentation eingeführt und verwendet werden.
+Es gibt auch einige allgemeine Begrifflichkeiten, die Sie beachten sollten. Es ist üblich, sich auf jeden [`Attr`](/de/docs/Web/API/Attr)-Knoten als ein `Attribut` zu beziehen, zum Beispiel, und ein Array von DOM-Knoten als `nodeList` zu bezeichnen. Sie werden feststellen, dass diese Begriffe und andere im gesamten Dokument eingeführt und verwendet werden.
 
-Die `document`- und `window`-Objekte sind die Objekte, deren Schnittstellen Sie bei der Programmierung im DOM im Allgemeinen am häufigsten verwenden. Einfach ausgedrückt, repräsentiert das `window`-Objekt etwas Ähnliches wie den Browser, und das `document`-Objekt ist die Wurzel des Dokuments selbst. `Element` erbt von der generischen `Node`-Schnittstelle, und zusammen bieten diese beiden Schnittstellen viele der Methoden und Eigenschaften, die Sie auf einzelnen Elementen verwenden. Diese Elemente können auch spezifische Schnittstellen haben, um mit den Daten umzugehen, die diese Elemente enthalten, wie im `table`-Objekt-Beispiel im vorhergehenden Abschnitt.
+Die `document`- und `window`-Objekte sind die Objekte, deren Schnittstellen Sie in der Regel am häufigsten in der DOM-Programmierung verwenden. Einfach gesagt, repräsentiert das `window`-Objekt etwas wie den Browser, und das `document`-Objekt ist das Root des Dokuments selbst. `Element` erbt von der generischen `Node`-Schnittstelle, und zusammen bieten diese beiden Schnittstellen viele der Methoden und Eigenschaften, die Sie bei Einzelnen Elementen verwenden können. Diese Elemente können auch spezifische Schnittstellen haben, um mit der Art von Daten umzugehen, die diese Elemente halten, wie im `table`-Objekt-Beispiel im vorhergehenden Abschnitt beschrieben.
 
 ### Veraltete DOM-Schnittstellen
 
@@ -285,23 +266,23 @@ Das Document Object Model wurde stark vereinfacht. Um dies zu erreichen, wurden 
 
 ## HTML DOM
 
-Ein Dokument, das HTML enthält, wird mit der [`Document`](/de/docs/Web/API/Document)-Schnittstelle beschrieben, die durch die HTML-Spezifikation erweitert wird, um verschiedene HTML-spezifische Funktionen zu umfassen. Insbesondere wird die [`Element`](/de/docs/Web/API/Element)-Schnittstelle verbessert zu [`HTMLElement`](/de/docs/Web/API/HTMLElement) und verschiedenen Unterklassen, die jeweils eines (oder eine Familie von eng verwandten) Elementen repräsentieren.
+Ein Dokument, das HTML enthält, wird unter Verwendung der [`Document`](/de/docs/Web/API/Document)-Schnittstelle beschrieben, die von der HTML-Spezifikation erweitert wird, um verschiedene HTML-spezifische Funktionen einzuschließen. Insbesondere wird die [`Element`](/de/docs/Web/API/Element)-Schnittstelle erweitert, um [`HTMLElement`](/de/docs/Web/API/HTMLElement) und verschiedene Unterklassen zu werden, die jeweils ein Element oder eine Familie von verwandten Elementen darstellen.
 
-Die HTML-DOM-API bietet Zugriff auf verschiedene Browser-Funktionen wie Tabs und Fenster, CSS-Stile und Stylesheets, Browserverlauf usw. Diese Schnittstellen werden im [HTML DOM API](/de/docs/Web/API/HTML_DOM_API)-Dokumentation weiter erörtert.
+Die HTML-DOM-API bietet Zugriff auf verschiedene Browser-Funktionen wie Tabs und Fenster, CSS-Stile und Stylesheets, Browser-Verlauf, etc. Diese Schnittstellen werden weiter in der [HTML-DOM-API](/de/docs/Web/API/HTML_DOM_API)-Dokumentation diskutiert.
 
 ## SVG DOM
 
-Ähnlich wird ein Dokument mit SVG auch unter Verwendung der [`Document`](/de/docs/Web/API/Document)-Schnittstelle beschrieben, die durch die SVG-Spezifikation erweitert wird, um verschiedene SVG-spezifische Funktionen zu umfassen. Insbesondere wird die [`Element`](/de/docs/Web/API/Element)-Schnittstelle verbessert zu [`SVGElement`](/de/docs/Web/API/SVGElement) und verschiedenen Unterklassen, die jeweils ein Element oder eine Familie von eng verwandten Elementen darstellen. Diese Schnittstellen werden in der [SVG API](/de/docs/Web/API/SVG_API)-Dokumentation weiter erörtert.
+Ebenso wird ein Dokument, das SVG enthält, auch unter Verwendung der [`Document`](/de/docs/Web/API/Document)-Schnittstelle beschrieben, die von der SVG-Spezifikation erweitert wird, um verschiedene SVG-spezifische Funktionen einzuschließen. Insbesondere wird die [`Element`](/de/docs/Web/API/Element)-Schnittstelle erweitert, um [`SVGElement`](/de/docs/Web/API/SVGElement) und verschiedene Unterklassen zu werden, die jeweils ein Element oder eine Familie von verwandten Elementen darstellen. Diese Schnittstellen werden weiter in der [SVG-API](/de/docs/Web/API/SVG_API)-Dokumentation diskutiert.
 
 ## Beispiele
 
-### Textinhalt festlegen
+### Textinhalt setzen
 
-Dieses Beispiel verwendet ein {{HTMLElement("div")}}-Element, das ein {{HTMLElement("textarea")}} und zwei {{HTMLElement("button")}}-Elemente enthält. Wenn der Benutzer auf den ersten Button klickt, setzen wir etwas Text im `<textarea>`. Wenn der Benutzer auf den zweiten Button klickt, löschen wir den Text. Wir verwenden:
+Dieses Beispiel verwendet ein {{HTMLElement("div")}}-Element, das ein {{HTMLElement("textarea")}} und zwei {{HTMLElement("button")}}-Elemente enthält. Wenn der Benutzer den ersten Button anklickt, setzen wir etwas Text in das `<textarea>`. Wenn der Benutzer den zweiten Button anklickt, leeren wir den Text. Wir verwenden:
 
-- [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector), um auf das `<textarea>` und den Button zuzugreifen
-- [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf Buttonklicks zu lauschen
-- [`Node.textContent`](/de/docs/Web/API/Node/textContent), um den Text zu setzen und zu löschen.
+- [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector), um auf das `<textarea>` und die Schaltfläche zuzugreifen
+- [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um Klicks der Schaltflächen zu überwachen
+- [`Node.textContent`](/de/docs/Web/API/Node/textContent), um den Text zu setzen und zu leeren.
 
 #### HTML
 
@@ -345,14 +326,14 @@ clearText.addEventListener("click", () => {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Textinhalt festlegen", "", "150px")}}
+{{EmbedLiveSample("Setting text content", "", "150px")}}
 
-### Ein Kindelement hinzufügen
+### Hinzufügen eines Kindelements
 
-Dieses Beispiel verwendet ein {{HTMLElement("div")}}-Element, das ein {{HTMLElement("div")}} und zwei {{HTMLElement("button")}}-Elemente enthält. Wenn der Benutzer auf den ersten Button klickt, erstellen wir ein neues Element und fügen es als Kind des `<div>` hinzu. Wenn der Benutzer auf den zweiten Button klickt, entfernen wir das Kindelement. Wir verwenden:
+Dieses Beispiel verwendet ein {{HTMLElement("div")}}-Element, das ein {{HTMLElement("div")}} und zwei {{HTMLElement("button")}}-Elemente enthält. Wenn der Benutzer den ersten Button anklickt, erstellen wir ein neues Element und fügen es als Kind des `<div>` hinzu. Wenn der Benutzer den zweiten Button anklickt, entfernen wir das Kindelement. Wir verwenden:
 
-- [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector), um auf das `<div>` und die Buttons zuzugreifen
-- [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf Buttonklicks zu lauschen
+- [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector), um auf das `<div>` und die Schaltflächen zuzugreifen
+- [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um Klicks der Schaltflächen zu überwachen
 - [`Document.createElement`](/de/docs/Web/API/Document/createElement), um das Element zu erstellen
 - [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild), um das Kind hinzuzufügen
 - [`Node.removeChild()`](/de/docs/Web/API/Node/removeChild), um das Kind zu entfernen.
@@ -424,11 +405,11 @@ removeChild.addEventListener("click", () => {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Ein Kindelement hinzufügen", "", "180px")}}
+{{EmbedLiveSample("Adding a child element", "", "180px")}}
 
-### Den Baum lesen und ändern
+### Lesen und Modifizieren des Baumes
 
-Angenommen, der Autor möchte die Kopfzeile des Dokuments in [Was ist ein DOM-Baum?](#what_is_a_dom_tree) ändern und zwei Absätze anstelle von einem schreiben. Das folgende Skript würde dies tun:
+Angenommen, der Autor möchte die Überschrift des Dokuments in [Was ist ein DOM-Baum?](#what_is_a_dom_tree) ändern und zwei Absätze anstelle von einem schreiben. Das folgende Skript würde die Aufgabe erledigen:
 
 #### HTML
 
@@ -477,9 +458,9 @@ document.querySelector("input").addEventListener("click", () => {
 });
 ```
 
-{{ EmbedLiveSample('Den Baum lesen und ändern', 800, 300) }}
+{{EmbedLiveSample('reading_and_modifying_the_tree', 800, 300)}}
 
-### Einen Baum erstellen
+### Erstellen eines Baumes
 
 Sie können den Baum in [Was ist ein DOM-Baum?](#what_is_a_dom_tree) auch vollständig in JavaScript erstellen.
 
@@ -506,9 +487,9 @@ root.appendChild(body);
 
 ### Ereignisweiterleitung
 
-Dieses Beispiel zeigt, wie Ereignisse im DOM auf einfache Weise ausgelöst und behandelt werden. Wenn der BODY dieses HTML-Dokuments geladen wird, wird ein Ereignislistener an der obersten Reihe der TABLE registriert. Der Ereignislistener behandelt das Ereignis, indem er die Funktion stopEvent ausführt, die den Wert in der unteren Zelle der Tabelle ändert.
+Dieses Beispiel zeigt, wie Ereignisse auf sehr einfache Weise im DOM ausgelöst und verarbeitet werden. Wenn der BODY dieses HTML-Dokuments geladen wird, wird ein Ereignislistener mit der obersten Reihe der TABLE registriert. Der Ereignislistener behandelt das Ereignis, indem er die Funktion stopEvent ausführt, die den Wert in der unteren Zelle der Tabelle verändert.
 
-stopEvent ruft jedoch auch eine Ereignisobjektmethode auf, [`event.stopPropagation`](/de/docs/Web/API/Event/stopPropagation), die das Ereignis daran hindert, weiter in das DOM aufzusteigen. Beachten Sie, dass die Tabelle selbst einen [`onclick`](/de/docs/Web/API/Element/click_event)-Ereignishandler hat, der eine Nachricht anzeigen sollte, wenn die Tabelle angeklickt wird. Aber die stopEvent-Methode hat die Propagation gestoppt, und so endet die Ereignisphase effektiv, nachdem die Daten in der Tabelle aktualisiert wurden, und ein Hinweisfenster wird angezeigt, um dies zu bestätigen.
+Allerdings ruft stopEvent auch eine Ereignisobjektmethode auf, [`event.stopPropagation`](/de/docs/Web/API/Event/stopPropagation), die verhindert, dass das Ereignis weiter im DOM propagiert. Beachten Sie, dass die Tabelle selbst einen [`onclick`](/de/docs/Web/API/Element/click_event)-Ereignishandler hat, der eine Nachricht anzeigen sollte, wenn die Tabelle angeklickt wird. Aber die stopEvent-Methode hat die Weiterleitung unterbrochen, und so wird, nachdem die Daten in der Tabelle aktualisiert wurden, die Ereignisphase effektiv beendet, und eine Alert-Box erscheint, um dies zu bestätigen.
 
 ```html
 <table id="t-daddy">
@@ -549,15 +530,15 @@ document.getElementById("t-daddy").addEventListener("click", () => {
 });
 ```
 
-{{EmbedLiveSample("Ereignisweiterleitung", "", "300")}}
+{{EmbedLiveSample("Event propagation", "", "300")}}
 
-### Anzeige von Ereignisobjekteigenschaften
+### Eigenschaften des Ereignisobjekts anzeigen
 
-Dieses Beispiel verwendet DOM-Methoden, um alle Eigenschaften des [`onload`](/de/docs/Web/API/Window/load_event)-[`event`](/de/docs/Web/API/Event)-Objekts und deren Werte in einer Tabelle anzuzeigen. Es zeigt auch eine nützliche Technik zur Verwendung einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife zur Iteration über die Eigenschaften eines Objekts, um deren Werte zu erhalten.
+Dieses Beispiel verwendet DOM-Methoden, um alle Eigenschaften des [`onload`](/de/docs/Web/API/Window/load_event)-[`event`](/de/docs/Web/API/Event)-Objekts und deren Werte in einer Tabelle anzuzeigen. Es zeigt auch eine nützliche Technik, eine [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife zu verwenden, um über die Eigenschaften eines Objekts zu iterieren, um deren Werte zu erhalten.
 
-Die Eigenschaften von Ereignisobjekten unterscheiden sich stark zwischen Browsern, der [WHATWG-DOM-Standard](https://dom.spec.whatwg.org/) listet die Standardeigenschaften auf, aber viele Browser haben diese erheblich erweitert.
+Die Eigenschaften von Ereignisobjekten unterscheiden sich stark zwischen den Browsern; der [WHATWG DOM Standard](https://dom.spec.whatwg.org/) listet die Standard-Eigenschaften auf, viele Browser haben diese jedoch erheblich erweitert.
 
-Legen Sie den folgenden Code in eine leere Textdatei und laden Sie sie in verschiedene Browser, Sie werden überrascht sein über die unterschiedlichen Anzahl und Namen von Eigenschaften. Sie möchten vielleicht auch einige Elemente auf der Seite hinzufügen und diese Funktion von verschiedenen Ereignishandlern aufrufen.
+Setzen Sie den folgenden Code in eine leere Textdatei und laden Sie sie in eine Vielzahl von Browsern, Sie werden überrascht über die unterschiedliche Anzahl und Namen der Eigenschaften sein. Möglicherweise möchten Sie auch einige Elemente auf der Seite hinzufügen und diese Funktion von verschiedenen Ereignishandler aufrufen.
 
 ```html
 <h1>Properties of the DOM <span id="eventType"></span> Event Object</h1>
@@ -619,7 +600,7 @@ function showEventProperties(e) {
 showEventProperties(event);
 ```
 
-{{EmbedLiveSample("Anzeige von Ereignisobjekteigenschaften", "", "300")}}
+{{EmbedLiveSample("Displaying event object properties", "", "300")}}
 
 ## Spezifikationen
 
@@ -627,6 +608,6 @@ showEventProperties(event);
 
 ## Siehe auch
 
-- [CSS Object Model (CSSOM)](/de/docs/Web/API/CSS_Object_Model)
+- [CSS-Objektmodell (CSSOM)](/de/docs/Web/API/CSS_Object_Model)
 - [HTML DOM API](/de/docs/Web/API/HTML_DOM_API)
 - [SVG API](/de/docs/Web/API/SVG_API)

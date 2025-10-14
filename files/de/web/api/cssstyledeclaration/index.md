@@ -2,49 +2,55 @@
 title: CSSStyleDeclaration
 slug: Web/API/CSSStyleDeclaration
 l10n:
-  sourceCommit: aa036e35601a5152c7589054550ac6b69fc98aee
+  sourceCommit: d3bbe8558e181a2b6e04abdedc429fb2a0e4f015
 ---
 
 {{APIRef("CSSOM")}}
 
-Die Schnittstelle **`CSSStyleDeclaration`** repräsentiert ein Objekt, das einen CSS-Deklarationsblock darstellt, und bietet Stilinformationen sowie verschiedene stilbezogene Methoden und Eigenschaften an.
+Die **`CSSStyleDeclaration`**-Schnittstelle ist die Basisklasse für Objekte, die CSS-Deklarationsblöcke mit verschiedenen unterstützten Sets von CSS-Stilinformationen darstellen:
 
-Ein `CSSStyleDeclaration`-Objekt kann über drei verschiedene APIs bereitgestellt werden:
+- [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) — CSS-Stile, die im Stylesheet ([`CSSStyleRule.style`](/de/docs/Web/API/CSSStyleRule/style)) deklariert sind, Inline-Stile für ein Element wie [`HTMLElement`](/de/docs/Web/API/HTMLElement/style), [`SVGElement`](/de/docs/Web/API/SVGElement/style) und [`MathMLElement`](/de/docs/Web/API/MathMLElement/style), oder der berechnete Stil für ein Element, das durch [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) zurückgegeben wird.
+- [`CSSPageDescriptors`](/de/docs/Web/API/CSSPageDescriptors) — Stile für CSS-[at-rules](/de/docs/Web/CSS/CSS_syntax/At-rule).
 
-- Über [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style), das mit den Inline-Stilen eines einzelnen Elements arbeitet (z.B. `<div style="…">`).
-- Über die [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) API. Zum Beispiel gibt `document.styleSheets[0].cssRules[0].style` ein `CSSStyleDeclaration`-Objekt der ersten CSS-Regel im ersten Stylesheet des Dokuments zurück.
-- Über [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle), welches das `CSSStyleDeclaration`-Objekt als eine **schreibgeschützte** Schnittstelle bereitstellt.
+Die Schnittstelle stellt Stilinformationen sowie verschiedene stilbezogene Methoden und Eigenschaften bereit. Beispielsweise bietet sie [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue) zum Abrufen des Wertes einer Dash-named CSS-Eigenschaft, wie `border-top`, die aufgrund der Bindestriche im Namen nicht direkt über die Punktnotation zugänglich ist.
+
+> [!NOTE]
+> Frühere Versionen der Spezifikation verwendeten `CSSStyleDeclaration`, um alle CSS-Deklarationsblöcke darzustellen, und einige Browser und Browserversionen können dies immer noch tun (überprüfen Sie die Browser-Kompatibilitätstabellen für die oben genannten APIs).
+> Im Allgemeinen wird derselbe Website-Code sowohl in alten als auch in neuen Versionen funktional sein, aber einige in einer `CSSStyleDeclaration` zurückgegebene Eigenschaften sind möglicherweise nicht in einem bestimmten Kontext relevant.
 
 ## Attribute
 
 - [`CSSStyleDeclaration.cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText)
-  - : Textuelle Darstellung des Deklarationsblocks, und nur wenn es über [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style) bereitgestellt wird. Das Setzen dieses Attributs ändert den Inline-Stil. Wenn Sie eine Textdarstellung eines berechneten Deklarationsblocks wünschen, können Sie dies mit `JSON.stringify()` erhalten.
+  - : Textdarstellung des Deklarationsblocks, wenn und nur wenn er über [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style) exponiert ist.
+    Das Setzen dieses Attributs ändert den Inline-Stil.
+    Wenn Sie eine Textdarstellung eines berechneten Deklarationsblocks wünschen, können Sie diese mit `JSON.stringify()` erhalten.
 - [`CSSStyleDeclaration.length`](/de/docs/Web/API/CSSStyleDeclaration/length) {{ReadOnlyInline}}
-  - : Die Anzahl der Eigenschaften. Siehe die Methode [`item()`](/de/docs/Web/API/CSSStyleDeclaration/item) unten.
+  - : Die Anzahl der Eigenschaften.
+    Siehe die [`item()`](/de/docs/Web/API/CSSStyleDeclaration/item)-Methode unten.
 - [`CSSStyleDeclaration.parentRule`](/de/docs/Web/API/CSSStyleDeclaration/parentRule) {{ReadOnlyInline}}
-  - : Die enthaltene [`CSSRule`](/de/docs/Web/API/CSSRule).
+  - : Die enthaltende [`CSSRule`](/de/docs/Web/API/CSSRule).
 
-### CSS-Eigenschaften
+### CSS Eigenschaften
 
 - [`CSSStyleDeclaration.cssFloat`](/de/docs/Web/API/CSSStyleDeclaration/cssFloat) {{deprecated_inline}}
-  - : Spezieller Alias für die CSS-Eigenschaft {{CSSxRef("float")}}.
-- `CSSStyleDeclaration` benannte Eigenschaften
-  - : Mit Bindestrich und camel-cased Attribute für alle unterstützten CSS-Eigenschaften.
+  - : Spezieller Alias für die {{CSSxRef("float")}} CSS-Eigenschaft.
+- `CSSStyleDeclaration`-benannte Eigenschaften
+  - : Mit Bindestrich versehene und in CamelCase umgewandelte Attribute für alle unterstützten CSS-Eigenschaften.
 
 ## Instanzmethoden
 
 - [`CSSStyleDeclaration.getPropertyPriority()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyPriority)
-  - : Gibt die optionale Priorität "important" zurück.
+  - : Gibt die optionale Priorität, "wichtig", zurück.
 - [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue)
-  - : Gibt den Eigenschaftswert für einen gegebenen Eigenschaftsnamen zurück.
+  - : Gibt den Eigenschaftswert zu einem Eigenschaftsnamen zurück.
 - [`CSSStyleDeclaration.item()`](/de/docs/Web/API/CSSStyleDeclaration/item)
-  - : Gibt einen CSS-Eigenschaftsnamen anhand seines Indexes zurück oder einen leeren String, wenn der Index außerhalb der Grenzen liegt.
+  - : Gibt einen CSS-Eigenschaftsnamen nach seinem Index zurück oder den leeren String, wenn der Index außerhalb des Bereichs liegt.
 - [`CSSStyleDeclaration.removeProperty()`](/de/docs/Web/API/CSSStyleDeclaration/removeProperty)
   - : Entfernt eine Eigenschaft aus dem CSS-Deklarationsblock.
 - [`CSSStyleDeclaration.setProperty()`](/de/docs/Web/API/CSSStyleDeclaration/setProperty)
   - : Ändert eine bestehende CSS-Eigenschaft oder erstellt eine neue CSS-Eigenschaft im Deklarationsblock.
 - [`CSSStyleDeclaration.getPropertyCSSValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyCSSValue) {{deprecated_inline}}
-  - : **Nur unterstützt über getComputedStyle in Firefox.** Gibt den Eigenschaftswert als [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue) oder `null` für [Kurzschreibweise-Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) zurück.
+  - : **Nur unterstützt über getComputedStyle in Firefox.** Gibt den Eigenschaftswert als [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue) oder `null` für [Shorthand-Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) zurück.
 
 ## Beispiel
 

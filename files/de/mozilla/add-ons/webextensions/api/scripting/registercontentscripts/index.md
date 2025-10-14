@@ -2,17 +2,15 @@
 title: scripting.registerContentScripts()
 slug: Mozilla/Add-ons/WebExtensions/API/scripting/registerContentScripts
 l10n:
-  sourceCommit: 79fdc26fea835d65c9361541bb8ab1896f307475
+  sourceCommit: 425b1e0ef0c91cee5abf780f16452379796c0bd1
 ---
 
-Registriert ein oder mehrere Content-Skripte.
+Registriert ein oder mehrere Inhalts-Skripte.
 
 > [!NOTE]
 > Diese Methode ist in Manifest V3 oder höher in Chrome und Firefox 101 verfügbar. In Firefox 102+ ist diese Methode auch in Manifest V2 verfügbar.
 
-Um diese API zu nutzen, müssen Sie die `"scripting"`- [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) sowie die Berechtigung für die URL der Seite haben, entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder unter Verwendung der [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
-
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Um diese API aufzurufen, müssen Sie die `"scripting"` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben. Um das injizierte Skript auszuführen, muss die Erweiterung über eine Berechtigung für die URL der Seite verfügen, entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder unter Verwendung der [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
 
 ## Syntax
 
@@ -29,11 +27,11 @@ await browser.scripting.registerContentScripts(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird oder zurückgewiesen wird, wenn Fehler auftreten. Fehler können während der Skript-Analyse und Datei-Validierung oder wenn die angegebenen IDs existieren, auftreten. Tritt ein Fehler auf, werden keine Skripte registriert.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird oder abgelehnt wird, wenn Fehler auftreten. Fehler können während der Skript-Analyse und Datei-Validierung auftreten oder wenn die angegebenen IDs existieren. Wenn ein Fehler auftritt, werden keine Skripte registriert.
 
 ## Beispiele
 
-Dieses Beispiel registriert ein Content-Skript, das die Datei `"script.js"` einfügt:
+Dieses Beispiel registriert ein Inhalts-Skript, das die Datei `"script.js"` injiziert:
 
 ```js
 const script = {
@@ -56,4 +54,4 @@ try {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#method-registerContentScripts)-API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#method-registerContentScripts) API.

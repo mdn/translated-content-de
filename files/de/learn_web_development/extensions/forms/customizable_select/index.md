@@ -1,62 +1,61 @@
 ---
-title: Anpassbare Select-Elemente
-short-title: Anpassbare Selects
+title: Anpassbare Auswahlelemente
+short-title: Anpassbare Auswahlen
 slug: Learn_web_development/Extensions/Forms/Customizable_select
 l10n:
-  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
+  sourceCommit: b847909e54b1d39171e52667b79dab19b54fa441
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/Advanced_form_styling", "Learn_web_development/Extensions/Forms/UI_pseudo-classes", "Learn_web_development/Extensions/Forms")}}
 
-Dieser Artikel erklärt, wie vollständig anpassbare {{htmlelement("select")}}-Elemente mithilfe experimenteller Browser-Funktionen erstellt werden können. Dies umfasst die vollständige Kontrolle über die Gestaltung der Select-Schaltfläche, des Dropdown-Pickers, des Pfeilsymbols, des Häkchens für die aktuelle Auswahl und jedes einzelne {{htmlelement("option")}}-Element.
+Dieser Artikel erklärt, wie vollständig anpassbare `<select>`-Elemente mit experimentellen Browser-Features erstellt werden können. Dies umfasst die vollständige Kontrolle über die Gestaltung des Auswahlknopfes, der Dropdown-Auswahl, des Pfeilsymbols, des aktuellen Auswahl-Häkchens und jedes einzelnen `<option>`-Elements.
 
 > [!WARNING]
-> Die in diesem Artikel gezeigten CSS- und HTML-Funktionen haben derzeit nur begrenzte Browser-Unterstützung; überprüfen Sie die Browser-Kompatibilitätstabellen auf den einzelnen Funktionsreferenzseiten für weitere Details. Einige JavaScript-Frameworks blockieren diese Funktionen; in anderen führen sie zu Hydratationsfehlern, wenn Server-Side Rendering (SSR) aktiviert ist.
+> Die in diesem Artikel gezeigten CSS- und HTML-Features haben derzeit begrenzte Browser-Unterstützung; überprüfen Sie die Tabellen zur Browser-Kompatibilität auf den einzelnen Funktionsreferenzseiten für weitere Details. Einige JavaScript-Frameworks blockieren diese Funktionen; in anderen verursachen sie Fehler bei der Hydratation, wenn Server-Side Rendering (SSR) aktiviert ist.
 
 ## Hintergrund
 
-Traditionell war es schwierig, das Aussehen und Verhalten von `<select>`-Elementen anzupassen, da sie interne Komponenten enthalten, die auf Betriebssystemebene gestylt sind und nicht mit CSS gezielt werden können. Dazu gehören der Dropdown-Picker, das Pfeilsymbol und so weiter.
+Traditionell war es schwierig, das Aussehen von `<select>`-Elementen anzupassen, da sie interne Elemente enthalten, die auf Betriebssystemebene gestaltet sind und die mit CSS nicht gezielt angesprochen werden können. Dazu gehören die Dropdown-Auswahl, das Pfeilsymbol usw.
 
-Früher war die beste verfügbare Option – abgesehen von der Verwendung einer benutzerdefinierten JavaScript-Bibliothek – den {{cssxref("appearance")}}-Wert auf `none` beim `<select>`-Element zu setzen, um einige der OS-Ebenen-Stylings zu entfernen, und dann CSS zu verwenden, um die Teile anzupassen, die gestylt werden können. Diese Technik wird im [Fortgeschrittenen Formular-Styling](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling) erklärt.
+Bisher war die beste verfügbare Option – abgesehen von der Verwendung einer benutzerdefinierten JavaScript-Bibliothek – den `appearance`-Wert auf `none` für das `<select>`-Element zu setzen, um einige der OS-Level-Styling zu entfernen und dann CSS zu verwenden, um die Teile anzupassen, die gestylt werden können. Diese Technik wird im [Leitfaden für fortgeschrittenes Formular-Styling](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling) erklärt.
 
-Anpassbare `<select>`-Elemente bieten eine Lösung für diese Probleme. Sie ermöglichen es Ihnen, Beispiele wie das folgende zu erstellen, die nur HTML und CSS verwenden und in unterstützenden Browsern vollständig angepasst sind. Dies umfasst das Layout des `<select>` und des Dropdown-Pickers, das Farbschema, Symbole, Schriftart, Übergänge, Positionierung, Marker zur Anzeige des ausgewählten Symbols und mehr.
+Anpassbare `<select>`-Elemente bieten eine Lösung für diese Probleme. Sie ermöglichen es, Beispiele wie das folgende zu erstellen, die in unterstützenden Browsern vollständig angepasst sind und nur HTML und CSS verwenden. Dies umfasst `<select>`- und Dropdown-Layouts, Farbschemata, Symbole, Schriftarten, Übergänge, Positionierung, Markierungen zur Anzeige des ausgewählten Symbols und mehr.
 
 {{EmbedLiveSample("full-render", "100%", "410px")}}
 
-Zusätzlich bieten sie eine progressive Verbesserung auf Grundlage bestehender Funktionalität, indem sie in nicht unterstützenden Browsern auf „klassische“ Selects zurückfallen.
+Darüber hinaus bieten sie eine progressive Verbesserung der bestehenden Funktionalität und fallen in nicht unterstützenden Browsern auf "klassische" Auswahlen zurück.
 
 Im Folgenden erfahren Sie, wie Sie dieses Beispiel erstellen können.
 
-## Welche Funktionen umfasst ein anpassbares Select?
+## Welche Features umfassen eine anpassbare Auswahl?
 
-Sie können anpassbare `<select>`-Elemente mit den folgenden HTML- und CSS-Funktionen erstellen:
+Sie können anpassbare `<select>`-Elemente mit den folgenden HTML- und CSS-Features erstellen:
 
-- Altbekannte {{htmlelement("select")}}, {{htmlelement("option")}} und {{htmlelement("optgroup")}}-Elemente. Diese funktionieren genauso wie in „klassischen“ Selects, außer dass sie zusätzliche zulässige Inhaltstypen haben.
-- Ein {{htmlelement("button")}}-Element, das als erstes Kind innerhalb des `<select>`-Elements enthalten ist, was in „klassischen“ Selects zuvor nicht erlaubt war. Wenn dies enthalten ist, ersetzt es das standardmäßige „Button“-Rendering des geschlossenen `<select>`-Elements. Dies wird allgemein als **Select-Schaltfläche** bezeichnet (da es die Schaltfläche ist, die Sie drücken müssen, um den Dropdown-Picker zu öffnen).
+- Herkömmliche `<select>`, `<option>` und `<optgroup>`-Elemente. Diese funktionieren genauso wie in "klassischen" Auswahlen, mit der Ausnahme, dass sie zusätzliche zulässige Inhaltstypen haben.
+- Ein `<button>`-Element, das als erstes Kind im `<select>`-Element enthalten ist, was zuvor in "klassischen" Auswahlen nicht erlaubt war. Wenn es enthalten ist, ersetzt es die standardmäßige "Button"-Darstellung des geschlossenen `<select>`-Elements. Dies wird allgemein als **Auswahlknopf** bezeichnet (da es sich um den Knopf handelt, den Sie drücken müssen, um die Dropdown-Auswahl zu öffnen).
   > [!NOTE]
-  > Die Select-Schaltfläche ist standardmäßig [inert](/de/docs/Web/HTML/Reference/Global_attributes/inert), sodass sie, wenn interaktive Kinder (z. B. Links oder Schaltflächen) darin enthalten sind, weiterhin wie eine einzelne Schaltfläche für Interaktionszwecke behandelt wird – z. B. sind die Kinder nicht fokussierbar oder klickbar.
-- Das {{htmlelement("selectedcontent")}}-Element kann optional innerhalb des ersten Kind-`<button>`-Elements des `<select>`-Elements enthalten sein, um den derzeit ausgewählten Wert innerhalb des _geschlossenen_ `<select>`-Elements anzuzeigen.
-  Dies enthält einen Klon des aktuell ausgewählten `<option>`-Elementinhalts (erstellt mit [`cloneNode()`](/de/docs/Web/API/Node/cloneNode) im Hintergrund).
-- Das {{cssxref("::picker()", "::picker(select)")}}-Pseudoelement, das den gesamten Inhalt des Pickers anvisiert. Dies umfasst alle Elemente innerhalb des `<select>`-Elements, mit Ausnahme des ersten Kind-`<button>`.
-- Der {{cssxref("appearance")}}-Eigenschaftswert `base-select`, der das `<select>`-Element und das `::picker(select)`-Pseudoelement in die vom Browser definierten Standardstile und das Verhalten für anpassbare Selects bringe.
-- Die {{cssxref(":open")}}-Pseudoklasse, die die Select-Schaltfläche anvisiert, wenn der Picker (`::picker(select)`) geöffnet ist.
-- Das {{cssxref("::picker-icon")}}-Pseudoelement, das das Symbol in der Select-Schaltfläche anvisiert – den Pfeil, der nach unten zeigt, wenn die Selects geschlossen sind.
-- Die {{cssxref(":checked")}}-Pseudoklasse, die das derzeit ausgewählte `<option>`-Element anvisiert.
-- Das {{cssxref("::checkmark")}}-Pseudoelement, das das Häkchen platziert im derzeit ausgewählten `<option>`-Element anvisiert, um eine visuelle Angabe zu bieten, welches ausgewählt ist.
+  > Der Auswahlknopf ist standardmäßig [inert](/de/docs/Web/HTML/Reference/Global_attributes/inert), sodass, wenn interaktive Kinder (z. B. Links oder Knöpfe) darin enthalten sind, er immer noch als einzelner Knopf für Interaktionszwecke behandelt wird – beispielsweise sind die Kinder-Elemente nicht fokussierbar oder anklickbar.
+- Das `<selectedcontent>`-Element kann optional im ersten Kind des `<select>`-Elements `<button>` enthalten sein, um den aktuell ausgewählten Wert im _geschlossenen_ `<select>`-Element anzuzeigen. Dies enthält einen Klon des aktuell ausgewählten `<option>`-Elementinhalts (erstellt mit [`cloneNode()`](/de/docs/Web/API/Node/cloneNode) im Hintergrund).
+- Das `::picker()`-Pseudo-Element, das den gesamten Inhalt der Auswahl anspricht. Dazu gehören alle Elemente im `<select>`-Element, mit Ausnahme des ersten Kindes `<button>`.
+- Der `appearance`-Eigenschaftswert `base-select`, der das `<select>`-Element und das `::picker(select)`-Pseudo-Element in die browserdefinierten Standardstile und das Verhalten für anpassbare Auswahlen einbezieht.
+- Die `:open`-Pseudo-Klasse, die den Auswahlknopf anspricht, wenn der Picker (`::picker(select)`) geöffnet ist.
+- Das `::picker-icon`-Pseudo-Element, das das Symbol im Auswahlknopf anspricht – der Pfeil, der nach unten zeigt, wenn die Auswahl geschlossen ist.
+- Die `:checked`-Pseudo-Klasse, die das aktuell ausgewählte `<option>`-Element anspricht.
+- Das `::checkmark`-Pseudo-Element, das das Häkchen im aktuell ausgewählten `<option>`-Element anspricht, um eine visuelle Anzeige zu geben, welches ausgewählt ist.
 
-Zusätzlich haben das `<select>`-Element und sein Dropdown-Picker automatisch folgendes Verhalten zugewiesen:
+Darüber hinaus haben das `<select>`-Element und seine Dropdown-Auswahl das folgende Verhalten, das ihnen automatisch zugewiesen wird:
 
-- Sie haben eine Invoker-Popover-Beziehung, wie sie vom [Popover API](/de/docs/Web/API/Popover_API) angegeben wird, was die Möglichkeit bietet, den Picker beim Öffnen über die {{cssxref(":popover-open")}}-Pseudoklasse auszuwählen. Siehe [Verwendung des Popover-APIs](/de/docs/Web/API/Popover_API/Using) für weitere Details zum Popover-Verhalten.
-- Sie haben eine implizite Ankerreferenz, was bedeutet, dass der Picker automatisch mit dem `<select>`-Element über die [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) verbunden ist. Die vom Browser standardmäßigen Stile positionieren den Picker relativ zur Schaltfläche (dem Anker), und Sie können diese Position anpassen, wie im Abschnitt [Positionierung von Elementen relativ zu ihrem Anker](/de/docs/Web/CSS/CSS_anchor_positioning/Using#positioning_elements_relative_to_their_anchor) erklärt wird. Die vom Browser standardmäßigen Stile definieren auch einige Fallback-Positionen, die den Picker neu positionieren, wenn er die Gefahr droht, aus dem Ansichtsfenster überzulaufen. Die Fallback-Positionen werden im Abschnitt [Umgang mit Überlauf: try fallbacks und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) erklärt.
+- Sie haben eine Aufrufer/Popover-Beziehung, wie sie durch die [Popover-API](/de/docs/Web/API/Popover_API) spezifiziert wird, die die Fähigkeit bietet, den Picker offen über die `:popover-open`-Pseudo-Klasse auszuwählen. Siehe [Verwendung der Popover-API](/de/docs/Web/API/Popover_API/Using) für weitere Details zum Popover-Verhalten.
+- Sie haben eine implizite Ankerreferenz, was bedeutet, dass der Picker automatisch mit dem `<select>`-Element über die [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) verknüpft wird. Die browserdefinierten Standardstile positionieren den Picker relativ zum Knopf (dem Anker), und Sie können diese Position anpassen, wie im [Positionieren von Elementen relativ zu ihrem Anker](/de/docs/Web/CSS/CSS_anchor_positioning/Using#positioning_elements_relative_to_their_anchor) erklärt. Die browserdefinierten Standardstile definieren auch einige Fallback-Positionen, die den Picker neu positionieren, falls er Gefahr läuft, den Ansichtsbereich zu überlaufen. Fallback-Positionen werden in [Umgang mit Überlauf: Fallback-Positionen und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) erklärt.
 
 > [!NOTE]
-> Sie können die Browser-Unterstützung für anpassbare `<select>` überprüfen, indem Sie die Browser-Kompatibilitätstabellen auf den Referenzseiten für verwandte Funktionen wie {{htmlelement("selectedcontent")}}, {{cssxref("::picker()", "::picker(select)")}}, und {{cssxref("::checkmark")}} einsehen.
+> Sie können die Browser-Unterstützung für anpassbare `<select>` prüfen, indem Sie die Tabellen zur Browser-Kompatibilität auf den Referenzseiten für verwandte Funktionen wie `<selectedcontent>`, `::picker(select)` und `::checkmark` aufrufen.
 
-Sehen wir uns all die oben genannten Funktionen in Aktion an, indem wir das Beispiel durchgehen, das oben auf der Seite gezeigt wird.
+Schauen wir uns alle oben genannten Features in Aktion an, indem wir das am Anfang der Seite gezeigte Beispiel durchgehen.
 
-## Markup für anpassbare Selects
+## Anpassbare Auswahl-Markup
 
-Unser Beispiel ist ein typisches {{htmlelement("select")}}-Menü, mit dem Sie ein Haustier auswählen können. Das Markup lautet wie folgt:
+Unser Beispiel ist ein typisches `<select>`-Menü, mit dem Sie ein Haustier auswählen können. Das Markup sieht folgendermaßen aus:
 
 ```html live-sample___plain-render live-sample___second-render live-sample___third-render live-sample___fourth-render live-sample___full-render
 <form>
@@ -98,25 +97,24 @@ Unser Beispiel ist ein typisches {{htmlelement("select")}}-Menü, mit dem Sie ei
 ```
 
 > [!NOTE]
-> Das [`aria-hidden="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden)-Attribut ist bei den Symbolen hinzugefügt, damit sie von unterstützenden Technologien ausgeblendet werden, um zu vermeiden, dass die Optionswerte zweimal angesagt werden (zum Beispiel: „Katze Katze“).
+> Das Attribut [`aria-hidden="true"`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-hidden) ist bei den Symbolen enthalten, damit sie vor unterstützenden Technologien verborgen bleiben, um zu vermeiden, dass die Optionen doppelt angesagt werden (zum Beispiel "Katze Katze").
 
-Das Beispiel-Markup ist fast dasselbe wie das Markup für „klassische“ `<select>`, mit den folgenden Unterschieden:
+Das Beispiel-Markup ist fast dasselbe wie das "klassische" `<select>`-Markup, mit den folgenden Unterschieden:
 
-- Die `<button><selectedcontent></selectedcontent></button>`-Struktur stellt die Select-{{htmlelement("button")}} dar.
-  Das Hinzufügen des {{htmlelement("selectedcontent")}}-Elements führt dazu, dass der Browser das derzeit ausgewählte {{htmlelement("option")}} innerhalb des Buttons klont, den Sie dann [mit benutzerdefinierten Stilen versehen](#anpassung_der_styles_der_ausgewählten_option-inhalte_innerhalb_der_select-schaltfläche) können. Wenn diese Struktur nicht in Ihr Markup aufgenommen wird, fällt der Browser zurück, um den Text der ausgewählten Option innerhalb des Standard-Buttons anzuzeigen, und Sie können ihn nicht so leicht stylen.
+- Die Struktur `<button><selectedcontent></selectedcontent></button>` stellt den Auswahl-`<button>` dar. Das Hinzufügen des `<selectedcontent>`-Elements veranlasst den Browser, das aktuell ausgewählte `<option>` im Knopf zu klonen, den Sie dann [mit benutzerdefinierten Stilen versehen können](#anpassen_der_stile_des_ausgewählten_option-inhalts_innerhalb_des_auswahlknopfes). Wenn diese Struktur in Ihrem Markup nicht enthalten ist, fällt der Browser zurück auf die Darstellung des ausgewählten Options-Texts im Standardknopf, und Sie können diesen nicht so einfach stylen.
   > [!NOTE]
-  > Sie _können_ beliebige Inhalte innerhalb des `<button>` hinzufügen, um beliebige Inhalte im geschlossenen `<select>` anzuzeigen, seien Sie jedoch vorsichtig. Was Sie hinzufügen, kann den barrierefreien Wert, der für unterstützende Technologien für das `<select>`-Element sichtbar gemacht wird, ändern.
-- Der restliche `<select>`-Inhalt stellt den Dropdown-Picker dar, der üblicherweise auf die `<option>`-Elemente beschränkt ist, die die verschiedenen Optionen im Picker darstellen. Sie können andere Inhalte im Picker hinzufügen, aber das wird nicht empfohlen.
-- Traditionell konnten `<option>`-Elemente nur Text enthalten, aber in einem anpassbaren Select können Sie andere Markup-Strukturen wie Bilder, andere nicht-interaktive textbasierte semantische Elemente und mehr einschließen. Sie können sogar die {{cssxref("::before")}}- und {{cssxref("::after")}}-Pseudoelemente verwenden, um anderen Inhalt einzuschließen, obwohl Sie beachten sollten, dass dies nicht im übermittelbaren Wert enthalten sein würde. In unserem Beispiel enthält jedes `<option>` zwei {{htmlelement("span")}}-Elemente, die jeweils ein Symbol und ein Textetikett enthalten, sodass jedes individuell gestylt und positioniert werden kann.
+  > Sie _können_ beliebige Inhalte im `<button>` hinzufügen, um in der geschlossenen `<select>` anzuzeigen, was Sie möchten, seien Sie jedoch vorsichtig dabei. Was Sie einschließen, kann den zugänglichen Wert beeinflussen, der unterstützenden Technologien für das `<select>`-Element offengelegt wird.
+- Der Rest der `<select>`-Inhalte stellt die Dropdown-Auswahl dar, die normalerweise auf die `<option>`-Elemente beschränkt ist, die die verschiedenen Auswahlmöglichkeiten im Picker darstellen. Sie können weitere Inhalte im Picker einfügen, es wird jedoch nicht empfohlen.
+- Traditionell konnten `<option>`-Elemente nur Text enthalten, aber in einer anpassbaren Auswahl können Sie andere Markup-Strukturen wie Bilder, andere nicht interaktive Textebene-Semantikelemente und mehr einfügen. Sie können sogar die `::before`- und `::after`-Pseudo-Elemente verwenden, um anderen Inhalt einzufügen, obwohl Sie bedenken sollten, dass dieser nicht im übermittelbaren Wert enthalten wäre. In unserem Beispiel enthält jede `<option>` zwei `<span>`-Elemente, die jeweils ein Symbol und eine Textbezeichnung enthalten, sodass jedes unabhängig gestylt und positioniert werden kann.
 
   > [!NOTE]
-  > Da der `<option>`-Inhalt mehrstufige DOM-Subtrees enthalten kann, nicht nur Textknoten, gibt es Regeln, wie der Browser den [aktuellen `<select>`-Wert](/de/docs/Web/API/HTMLSelectElement/value) über JavaScript extrahieren soll. Der Wert der [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft des ausgewählten `<option>`-Elements wird abgerufen, {{jsxref("String.prototype.trim", "trim()")}} wird darauf angewandt und das Ergebnis wird als `<select>`-Wert festgelegt.
+  > Da der `<option>`-Inhalt mehrstufige DOM-Unterbäume enthalten kann, nicht nur Textknoten, gibt es Regeln, wie der Browser den [aktuellen `<select>`-Wert](/de/docs/Web/API/HTMLSelectElement/value) über JavaScript extrahieren sollte. Der `textContent`-Eigenschaftswert des ausgewählten `<option>`-Elements wird abgerufen, `trim()` wird darauf ausgeführt, und das Ergebnis wird als `<select>`-Wert gesetzt.
 
-Dieses Design ermöglicht es Browsern ohne Unterstützung, auf ein klassisches `<select>`-Erlebnis zurückzufallen. Die `<button><selectedcontent></selectedcontent></button>`-Struktur wird vollständig ignoriert und die nicht-textlichen `<option>`-Inhalte werden entfernt, sodass nur die Textknoten übrig bleiben, aber das Ergebnis wird weiterhin funktionieren.
+Dieses Design ermöglicht es nicht unterstützenden Browsern, auf eine klassische `<select>`-Erfahrung zurückzufallen. Die `<button><selectedcontent></selectedcontent></button>`-Struktur wird völlig ignoriert, und der nicht textuelle `<option>`-Inhalt wird entfernt, sodass nur die Textknoteninhalte übrig bleiben, aber das Ergebnis funktioniert immer noch.
 
-## Opt-In für das benutzerdefinierte Select-Rendering
+## Opt-in zur benutzerdefinierten Auswahl-Darstellung
 
-Um für die benutzerdefinierte Select-Funktionalität und die minimalen Browser-Standardstile zu optieren (und die vom Betriebssystem bereitgestellten Stile zu entfernen), muss Ihr `<select>`-Element und sein Dropdown-Picker (dargestellt durch das `::picker(select)`-Pseudoelement) beide einen {{cssxref("appearance")}}-Wert von `base-select` gesetzt haben:
+Um sich für die benutzerdefinierte Auswahlfunktionalität und die minimalen Browser-Basisstile zu entscheiden (und das von der OS bereitgestellte Styling zu entfernen), müssen sowohl das `<select>`-Element als auch sein Dropdown-Picker (dargestellt durch das `::picker(select)`-Pseudo-Element) einen `appearance`-Wert von `base-select` gesetzt bekommen:
 
 ```css live-sample___plain-render live-sample___second-render live-sample___third-render live-sample___fourth-render live-sample___full-render
 select,
@@ -160,13 +158,13 @@ select {
 }
 ```
 
-Sie können das `<select>`-Element nur für die neue Funktionalität optieren, der Picker bleibt dann im Standard-OS-Styling, aber in den meisten Fällen möchten Sie wahrscheinlich beides optieren. Sie können den Picker nicht optieren, ohne das `<select>`-Element zu optieren.
+Sie können sich dafür entscheiden, nur das `<select>`-Element für die neue Funktionalität zu aktivieren und den Picker mit dem Standard-OS-Styling zu belassen, aber in den meisten Fällen möchten Sie beide aktivieren. Sie können den Picker nicht aktivieren, ohne das `<select>`-Element zu aktivieren.
 
-Sobald dies erledigt ist, ist das Ergebnis eine sehr schlichte Darstellung eines `<select>`-Elements:
+Sobald dies getan ist, wird das `<select>`-Element sehr schlicht gerendert:
 
 {{EmbedLiveSample("plain-render", "100%", "240px")}}
 
-Jetzt können Sie es nach Belieben stylen. Zunächst hat das `<select>`-Element benutzerdefinierte {{cssxref("border")}}, {{cssxref("background")}} (das sich bei {{cssxref(":hover")}} oder {{cssxref(":focus")}} ändert) und {{cssxref("padding")}}-Werte gesetzt, plus eine {{cssxref("transition")}}, damit der Hintergrundwechsel sanft animiert wird:
+Sie können dies nun beliebig stylen. Vorläufig hat das `<select>`-Element benutzerdefinierte `border`, `background` (die sich bei `:hover` oder `:focus` ändert) und `padding`-Werte gesetzt, plus eine `transition`, damit sich die Hintergrundänderung reibungslos animiert:
 
 ```css live-sample___second-render live-sample___third-render live-sample___fourth-render live-sample___full-render
 select {
@@ -184,7 +182,7 @@ select:focus {
 
 ## Styling des Picker-Symbols
 
-Um das Symbol in der Select-Schaltfläche zu stylen – den Pfeil, der nach unten zeigt, wenn das Select geschlossen ist – können Sie es mit dem {{cssxref("::picker-icon")}}-Pseudoelement anvisieren. Der folgende Code gibt dem Symbol eine benutzerdefinierte {{cssxref("color")}} und eine `transition`, sodass Änderungen an seiner {{cssxref("rotate")}}-Eigenschaft sanft animiert werden:
+Um das Symbol im Auswahlknopf – der Pfeil, der nach unten zeigt, wenn die Auswahl geschlossen ist – zu stylen, können Sie es mit dem `::picker-icon`-Pseudo-Element ansprechen. Der folgende Code gibt dem Symbol eine benutzerdefinierte `color` und eine `transition`, sodass Änderungen seines `rotate`-Eigenschaftswerts sanft animiert werden:
 
 ```css live-sample___second-render live-sample___third-render live-sample___fourth-render live-sample___full-render
 select::picker-icon {
@@ -193,7 +191,7 @@ select::picker-icon {
 }
 ```
 
-Als Nächstes wird `::picker-icon` mit der {{cssxref(":open")}}-Pseudoklasse kombiniert – die nur die Select-Schaltfläche anvisiert, wenn der Dropdown-Picker geöffnet ist – um dem Symbol einen `rotate`-Wert von `180deg` zu geben, wenn das `<select>` geöffnet ist.
+Anschließend wird `::picker-icon` mit der `:open`-Pseudo-Klasse kombiniert — die den Auswahlknopf nur dann anspricht, wenn der Drop-Down-Picker geöffnet ist — um dem Symbol einen `rotate`-Wert von `180deg` zu geben, wenn das `<select>` geöffnet ist.
 
 ```css live-sample___second-render live-sample___third-render live-sample___fourth-render live-sample___full-render
 select:open::picker-icon {
@@ -201,15 +199,15 @@ select:open::picker-icon {
 }
 ```
 
-Schauen wir uns die bisherige Arbeit an – beachten Sie, wie der Picker-Pfeil sanft um 180 Grad rotiert, wenn das `<select>` geöffnet und geschlossen wird:
+Schauen wir uns die bisherige Arbeit an — beachten Sie, wie der Picker-Pfeil sich sanft um 180 Grad dreht, wenn sich das `<select>` öffnet und schließt:
 
 {{EmbedLiveSample("second-render", "100%", "250px")}}
 
 ## Styling des Dropdown-Pickers
 
-Der Dropdown-Picker kann mit dem {{cssxref("::picker()", "::picker(select)")}}-Pseudoelement angesteuert werden. Wie bereits erwähnt, enthält der Picker alles innerhalb des `<select>`-Elements, das nicht die Schaltfläche und das `<selectedcontent>` ist. In unserem Beispiel bedeutet dies alle `<option>`-Elemente und deren Inhalte.
+Der Dropdown-Picker kann mit dem `::picker(select)`-Pseudo-Element angesprochen werden. Wie bereits erwähnt, enthält der Picker alles im `<select>`-Element, was nicht der Button und `<selectedcontent>` ist. In unserem Beispiel bedeutet dies alle `<option>`-Elemente und deren Inhalte.
 
-Zuerst wird die Standard-Schwarz-{{cssxref("border")}} des Pickers entfernt:
+Zuerst wird die standardmäßige schwarze `border` des Pickers entfernt:
 
 ```css live-sample___third-render live-sample___fourth-render live-sample___full-render
 ::picker(select) {
@@ -217,7 +215,7 @@ Zuerst wird die Standard-Schwarz-{{cssxref("border")}} des Pickers entfernt:
 }
 ```
 
-Jetzt werden die `<option>`-Elemente gestylt. Sie werden mit [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) angeordnet, wobei sie alle am Anfang des Flexcontainers ausgerichtet sind und ein `20px` {{cssxref("gap")}} zwischen jedem enthalten ist. Jedes `<option>` erhält außerdem dieselben {{cssxref("border")}}, {{cssxref("background")}}, {{cssxref("padding")}}, und {{cssxref("transition")}} wie das `<select>`, um ein konsistentes Aussehen und Gefühl zu schaffen:
+Nun werden die `<option>`-Elemente gestylt. Sie sind mit [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) layoutiert, wobei sie alle zu Beginn des Flex-Containers ausgerichtet sind und einen `20px`-`gap` zwischen jedem haben. Jede `<option>` erhält außerdem dieselben `border`, `background`, `padding` und `transition` wie das `<select>`, um ein einheitliches Aussehen und Gefühl zu bieten:
 
 ```css live-sample___third-render live-sample___fourth-render live-sample___full-render
 option {
@@ -233,9 +231,9 @@ option {
 ```
 
 > [!NOTE]
-> Anpassbare `<select>`-Element-`<option>`s haben standardmäßig `display: flex` gesetzt, aber es ist auch in unserem Stylesheet enthalten, um zu verdeutlichen, was vor sich geht.
+> Anpassbare `<select>`-Elemente haben standardmäßig `display: flex` für ihre `<option>`s gesetzt, aber es ist dennoch in unserem Stylesheet enthalten, um zu verdeutlichen, was vor sich geht.
 
-Als Nächstes wird eine Kombination der {{cssxref(":first-of-type")}}, {{cssxref(":last-of-type")}}, und {{cssxref(":not()")}}-Pseudoklassen verwendet, um eine geeignete {{cssxref("border-radius")}} an den oberen und unteren Ecken des Pickers zu setzen und das {{cssxref("border-bottom")}} von allen `<option>`-Elementen außer dem letzten zu entfernen, damit die Ränder nicht unordentlich und doppelt aussehen:
+Als nächstes wird eine Kombination der `:first-of-type`, `:last-of-type` und `:not()`-Pseudo-Klassen verwendet, um die obersten und untersten `<option>`-Elemente mit einem passenden `border-radius` zu versehen und die `border-bottom` von allen `<option>`-Elementen zu entfernen – außer das letzte, damit die Umrandungen nicht unordentlich und doppelt erscheinen. Wir setzen auch den gleichen `border-radius` auf das äußere `::picker(select)`-Container, sodass wir nicht mit einem unschönen quadratischen weißen Kasten um die Optionen enden, wenn wir entscheiden, eine andere Hintergrundfarbe auf der Seite zu setzen.
 
 ```css live-sample___third-render live-sample___fourth-render live-sample___full-render
 option:first-of-type {
@@ -246,12 +244,16 @@ option:last-of-type {
   border-radius: 0 0 8px 8px;
 }
 
+::picker(select) {
+  border-radius: 8px;
+}
+
 option:not(option:last-of-type) {
   border-bottom: none;
 }
 ```
 
-Dann wird eine andere `background`-Farbe bei den ungeradzahligen `<option>`-Elementen mit {{cssxref(":nth-of-type()", ":nth-of-type(odd)")}} gesetzt, um Zebra-Streifen zu implementieren, und eine andere `background`-Farbe wird auf die `<option>`-Elemente bei Fokus und Hover gesetzt, um während der Auswahl ein nützliches visuelles Highlight zu bieten:
+Als nächstes wird eine andere `background`-Farbe auf die ungeradzahligen `<option>`-Elemente mit `:nth-of-type(odd)` gesetzt, um ein Zebra-Streifenmuster zu implementieren, sowie eine andere `background`-Farbe bei den `<option>`-Elementen in `:focus` und `:hover`, um einen effektiven visuellen Hinweis während der Auswahl zu bieten:
 
 ```css live-sample___third-render live-sample___fourth-render live-sample___full-render
 option:nth-of-type(odd) {
@@ -264,7 +266,7 @@ option:focus {
 }
 ```
 
-Schließlich wird eine größere {{cssxref("font-size")}} auf die `<option>`-Symbole gesetzt (innerhalb von `<span>`-Elementen mit einer Klasse von `icon` enthalten), um sie zu vergrößern, und die {{cssxref("text-box")}}-Eigenschaft wird verwendet, um etwas des ärgerlichen Abstands an den Block-Start- und -Endkanten der Icon-Emojis zu entfernen, damit sie sich besser mit den Textetiketten ausrichten:
+Schließlich wird eine größere `font-size` auf die `<option>`-Symbole (enthalten in `<span>`-Elementen mit einer Klasse von `icon`) gesetzt, um sie größer zu machen, und die `text-box`-Eigenschaft wird verwendet, um einige der störenden Abstände an den Blockanfangs- und Blockend-Kanten der Emoji-Symbole zu entfernen, damit sie besser mit den Textlabels ausgerichtet sind:
 
 ```css live-sample___third-render live-sample___fourth-render live-sample___full-render
 option .icon {
@@ -273,15 +275,15 @@ option .icon {
 }
 ```
 
-Unser Beispiel rendert nun so:
+Unser Beispiel wird jetzt so gerendert:
 
 {{EmbedLiveSample("third-render", "100%", "370px")}}
 
-## Anpassung der Styles der ausgewählten Option-Inhalte innerhalb der Select-Schaltfläche
+## Anpassen der Stile des ausgewählten Option-Inhalts innerhalb des Auswahlknopfes
 
-Wenn Sie eine Haustieroption aus den letzten paar Live-Beispielen auswählen, werden Sie ein Problem bemerken – die Haustier-Symbole verursachen, dass die Select-Schaltfläche in der Höhe zunimmt, was auch die Position des Picker-Symbols ändert, und es gibt keinen Abstand zwischen dem Symbol der Option und dem Label.
+Wenn Sie irgendeine Haustier-Option aus den letzten Live-Beispielen auswählen, werden Sie ein Problem bemerken – die Haustier-Symbole verursachen, dass der Auswahlknopf in der Höhe zunimmt, was auch die Position des Picker-Symbols verändert, und es gibt keinen Abstand zwischen dem Optionssymbol und dem Label.
 
-Dies kann behoben werden, indem das Symbol ausgeblendet wird, wenn es sich innerhalb von `<selectedcontent>` befindet, das die Inhalte der ausgewählten `<option>` darstellt, wie sie innerhalb der Select-Schaltfläche erscheinen. In unserem Beispiel wird es mit {{cssxref("display", "display: none")}} ausgeblendet:
+Dies kann behoben werden, indem das Symbol versteckt wird, wenn es innerhalb von `<selectedcontent>` enthalten ist, was den Inhalt der ausgewählten Option darstellt, wie sie im Auswahlknopf erscheint. In unserem Beispiel wird es mit `display: none` versteckt:
 
 ```css live-sample___fourth-render live-sample___full-render
 selectedcontent .icon {
@@ -289,11 +291,11 @@ selectedcontent .icon {
 }
 ```
 
-Dies wirkt sich nicht auf das Styling der `<option>`-Inhalte aus, wie sie innerhalb des Dropdown-Pickers erscheinen.
+Dies beeinflusst nicht das Styling der Optionsinhalte, wie sie in der Dropdown-Auswahl erscheinen.
 
-## Styling der derzeit ausgewählten Option
+## Styling der aktuell ausgewählten Option
 
-Um die derzeit ausgewählte `<option>` zu stylen, wie sie innerhalb des Dropdown-Pickers erscheint, können Sie diese mit der {{cssxref(":checked")}}-Pseudoklasse anvisieren. Diese wird verwendet, um das {{cssxref("font-weight")}} der ausgewählten `<option>` auf „bold“ zu setzen:
+Um die aktuell ausgewählte Option zu stylen, wie sie in der Dropdown-Auswahl erscheint, können Sie sie mit der `:checked`-Pseudo-Klasse ansprechen. Diese wird verwendet, um die `font-weight`-Eigenschaft des ausgewählten Optionselements auf `bold` zu setzen:
 
 ```css live-sample___fourth-render live-sample___full-render
 option:checked {
@@ -303,11 +305,11 @@ option:checked {
 
 ## Styling des aktuellen Auswahl-Häkchens
 
-Sie haben wahrscheinlich bemerkt, dass, wenn Sie den Picker öffnen, um eine Auswahl zu treffen, das derzeit ausgewählte `<option>` ein Häkchen an seinem Inline-Start-Ende hat. Dieses Häkchen kann mit dem {{cssxref("::checkmark")}}-Pseudoelement angesteuert werden. Beispielsweise möchten Sie vielleicht dieses Häkchen ausblenden (z.B. über `display: none`).
+Sie haben wahrscheinlich bemerkt, dass, wenn Sie den Picker öffnen, um eine Auswahl zu treffen, die derzeit ausgewählte Option ein Häkchen am Anfang der Zeile besitzt. Dieses Häkchen kann mit dem `::checkmark`-Pseudo-Element angesprochen werden. Beispielsweise könnten Sie dieses Häkchen ausblenden (zum Beispiel über `display: none`).
 
-Sie könnten auch etwas Interessanteres damit machen – vorher wurden die `<option>`-Elemente horizontal mit Flexbox angeordnet, wobei die Flex-Items am Anfang der Zeile ausgerichtet wurden. In der folgenden Regel wird das Häkchen vom Anfang der Zeile an das Ende verschoben, indem ein {{cssxref("order")}}-Wert auf größere als `0` gesetzt wird, und es wird am Ende der Zeile mit einem `auto`-{{cssxref("margin-left")}}-Wert ausgerichtet (siehe [Ausrichtung und automatische Margen](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox#alignment_and_auto_margins)).
+Sie könnten auch etwas Interessanteres damit machen – zuvor wurden die Optionselemente horizontal mit Flexbox layoutiert, wobei die Flexitems am Anfang der Zeile ausgerichtet waren. In der unten stehenden Regel wird das Häkchen vom Beginn des Zeilenendes bewegt, indem ihm ein `order`-Wert größer als `0` gegeben und es mit einem `auto` `margin-left`-Wert am Zeilenende ausgerichtet wird (siehe [Ausrichtung und automatische Margen](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox#alignment_and_auto_margins)).
 
-Schließlich wird der Wert der {{cssxref("content")}}-Eigenschaft auf ein anderes Emoji gesetzt, um ein anderes Symbol zur Anzeige festzulegen.
+Schließlich wird der Wert der `content`-Eigenschaft auf ein anderes Emoji gesetzt, um ein anderes Symbol zur Anzeige zu setzen.
 
 ```css live-sample___fourth-render live-sample___full-render
 option::checkmark {
@@ -318,19 +320,19 @@ option::checkmark {
 ```
 
 > [!NOTE]
-> Die `::checkmark`- und `::picker-icon`-Pseudoelemente sind im Barrierefreiheitsbaum nicht enthalten, so dass vom Browser generierter {{cssxref("content")}} auf ihnen nicht von unterstützenden Technologien angesagt wird. Sie sollten dennoch sicherstellen, dass jedes neue Symbol, das Sie setzen, visuell für seinen beabsichtigten Zweck Sinn ergibt.
+> Die `::checkmark`- und `::picker-icon`-Pseudo-Elemente werden nicht in den Barrierefreiheitsbaum aufgenommen, sodass generierter `content`, der auf ihnen gesetzt wird, nicht durch unterstützende Technologien angekündigt wird. Sie sollten dennoch sicherstellen, dass jedes neue Symbol, das Sie setzen, visuell für seinen beabsichtigten Zweck sinnvoll ist.
 
-Lassen Sie uns noch einmal überprüfen, wie das Beispiel gerendert wird. Der aktualisierte Zustand nach den letzten drei Abschnitten ist wie folgt:
+Lassen Sie uns noch einmal einchecken, wie das Beispiel gerendert wird. Der aktualisierte Zustand nach den letzten drei Abschnitten sieht folgendermaßen aus:
 
 {{EmbedLiveSample("fourth-render", "100%", "410px")}}
 
-## Animieren des Pickers mithilfe von Popover-Status
+## Animieren des Pickers mithilfe von Popover-Zuständen
 
-Die Select-`button`- und Dropdown-Picker eines anpassbaren `<select>`-Elements haben automatisch eine Invoker-Popover-Beziehung, wie in [Verwendung des Popover-APIs](/de/docs/Web/API/Popover_API/Using) beschrieben. Es gibt viele Vorteile, die dies `<select>`-Elementen bringt; unser Beispiel nutzt die Fähigkeit, zwischen versteckten und angezeigten Popover-Zuständen mithilfe von Übergängen zu animieren. Die {{cssxref(":popover-open")}}-Pseudoklasse stellt Popovers im angezeigten Zustand dar.
+Der Auswahlknopf und das Dropdown-Element der anpassbaren `<select>`-Elemente erhalten automatisch eine Aufrufer/Popover-Beziehung, wie in [Verwendung der Popover-API](/de/docs/Web/API/Popover_API/Using) beschrieben. Dies bringt viele Vorteile für `<select>`-Elemente; unser Beispiel nutzt die Möglichkeit aus, zwischen den versteckten und angezeigten Popover-Zuständen mit Übergängen zu animieren. Die `:popover-open`-Pseudo-Klasse repräsentiert Popovers im angezeigten Zustand.
 
-Die Technik wird in diesem Abschnitt kurz behandelt – lesen Sie [Popovers animieren](/de/docs/Web/API/Popover_API/Using#animating_popovers) für eine detailliertere Beschreibung.
+Die Technik wird in diesem Abschnitt kurz behandelt — lesen Sie [Animieren von Popovers](/de/docs/Web/API/Popover_API/Using#animating_popovers) für eine detailliertere Beschreibung.
 
-Zunächst wird der Picker mit `::picker(select)` ausgewählt und erhält einen {{cssxref("opacity")}}-Wert von `0` und einen `transition`-Wert von `all 0.4s allow-discrete`. Dies führt dazu, dass alle Eigenschaften, die sich ändern, wenn der Popover-Zustand von versteckt nach gezeigt wechselt, animieren.
+Zuerst wird der Picker mit `::picker(select)` ausgewählt und erhält einen `opacity`-Wert von `0` und einen `transition`-Wert von `all 0.4s allow-discrete`. Dies bewirkt, dass alle Eigenschaften, die sich beim Wechsel des Popover-Zustands von verborgen zu sichtbar ändern, animiert werden.
 
 ```css live-sample___full-render
 ::picker(select) {
@@ -339,17 +341,17 @@ Zunächst wird der Picker mit `::picker(select)` ausgewählt und erhält einen {
 }
 ```
 
-Die Liste der übergangenen Eigenschaften umfasst `opacity`, enthält jedoch auch zwei diskrete Eigenschaften, deren Werte von den Browser-Standardstilen festgelegt werden:
+Die Liste der übergangenen Eigenschaften umfasst `opacity`, sie umfasst jedoch auch zwei diskrete Eigenschaften, deren Werte durch die browserdefinierten Standardstile gesetzt werden:
 
-- {{cssxref("display")}}
-  - : Die `display`-Werte ändern sich von `none` zu `block`, wenn der Popover-Zustand von versteckt zu angezeigt wechselt. Dies muss animiert werden, um sicherzustellen, dass andere Übergänge sichtbar sind.
-- {{cssxref("overlay")}}
-  - : Der `overlay`-Wert ändert sich von `none` zu `auto`, wenn der Popover-Zustand von versteckt zu angezeigt wechselt, um ihn in die {{Glossary("top_layer", "obere Schicht")}} zu befördern, und dann wieder zurück, wenn er versteckt wird, um ihn zu entfernen. Dies muss animiert werden, um sicherzustellen, dass das Entfernen des Popovers aus der obersten Schicht aufgeschoben wird, bis der Übergang abgeschlossen ist, und so sichergestellt wird, dass der Übergang sichtbar bleibt.
+- `display`
+  - : Die `display`-Werte ändern sich von `none` zu `block`, wenn sich der Popover-Zustand von verborgen zu sichtbar ändert. Dies muss animiert werden, um sicherzustellen, dass andere Übergänge sichtbar sind.
+- `overlay`
+  - : Der Wert von `overlay` ändert sich von `none` zu `auto`, wenn sich der Popover-Zustand von verborgen zu sichtbar ändert, um ihn auf die {{Glossary("top_layer", "Top-Schicht")}} zu heben, und dann wieder zurück, wenn er verborgen ist, um ihn zu entfernen. Dies muss animiert werden, um sicherzustellen, dass das Entfernen des Popovers aus der oberen Schicht bis zum Abschluss des Übergangs aufgeschoben wird, um sicherzustellen, dass der Übergang sichtbar ist.
 
 > [!NOTE]
-> Der [`allow-discrete`](/de/docs/Web/CSS/transition-behavior#allow-discrete)-Wert ist erforderlich, um diskrete Eigenschaftsanimationen zu ermöglichen.
+> Der Wert `allow-discrete` ist erforderlich, um diskrete Eigenschaftsanimationen zu aktivieren.
 
-Als nächstes wird der Picker im angezeigten Zustand mit `::picker(select):popover-open` ausgewählt und erhält einen `opacity`-Wert von `1` – dies ist der Endzustand des Übergangs:
+Als Nächstes wird der Picker im angezeigten Zustand mit `::picker(select):popover-open` ausgewählt und erhält einen `opacity`-Wert von `1` — dies ist der Endzustand des Übergangs:
 
 ```css live-sample___full-render
 ::picker(select):popover-open {
@@ -357,7 +359,7 @@ Als nächstes wird der Picker im angezeigten Zustand mit `::picker(select):popov
 }
 ```
 
-Schließlich, da der Picker animiert wird, während er von `display: none` zu einem `display`-Wert wechselt, der ihn sichtbar macht, muss der Startzustand des Übergangs innerhalb eines {{cssxref("@starting-style")}}-Blocks angegeben werden:
+Schließlich muss, da der Picker während des Übergangs von `display: none` zu einem `display`-Wert, der ihn sichtbar macht, animiert wird, der Startzustand des Übergangs in einem `@starting-style`-Block spezifiziert werden:
 
 ```css live-sample___full-render
 @starting-style {
@@ -367,15 +369,15 @@ Schließlich, da der Picker animiert wird, während er von `display: none` zu ei
 }
 ```
 
-Diese Regeln arbeiten zusammen, um den Picker sanft ein- und auszublenden, wenn das `<select>` geöffnet und geschlossen wird.
+Diese Regeln arbeiten zusammen, um den Picker beim Öffnen und Schließen der `<select>`-Elemente sanft ein- und ausblenden zu lassen.
 
-## Positionierung des Pickers mithilfe von Ankerpositionierung
+## Positionieren des Pickers mithilfe der Ankerpositionierung
 
-Die Select-Schaltfläche und der Dropdown-Picker eines anpassbaren `<select>`-Elements haben eine implizite Ankerreferenz und der Picker wird automatisch mit der Select-Schaltfläche über die [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) verbunden. Dies bedeutet, dass keine explizite Verbindung mit den {{cssxref("anchor-name")}}- und {{cssxref("position-anchor")}}-Eigenschaften hergestellt werden muss.
+Der Auswahlknopf und der Dropdown-Picker eines anpassbaren `<select>`-Elements haben eine implizite Ankerreferenz, und der Picker wird automatisch über die [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) mit dem Auswahlknopf verknüpft. Dies bedeutet, dass keine explizite Verknüpfung mit den Eigenschaften `anchor-name` und `position-anchor` hergestellt werden muss.
 
-Darüber hinaus [stellen die Browser-Standardstile eine Standardposition](/de/docs/Web/CSS/::picker#picker_anchor_positioning) bereit, die Sie anpassen können, wie im Abschnitt [Positionierung von Elementen relativ zu ihrem Anker](/de/docs/Web/CSS/CSS_anchor_positioning/Using#positioning_elements_relative_to_their_anchor) erläutert.
+Außerdem bieten die [Standardstile des Browsers eine Standardposition](/de/docs/Web/CSS/::picker#picker_anchor_positioning), die Sie anpassen können, wie im [Positionieren von Elementen relativ zu ihrem Anker](/de/docs/Web/CSS/CSS_anchor_positioning/Using#positioning_elements_relative_to_their_anchor) erklärt.
 
-In unserer Demo wird die Position des Pickers in Relation zu seinem Anker gesetzt, indem die {{cssxref("anchor()")}}-Funktion in seinen {{cssxref("top")}}- und {{cssxref("left")}}-Eigenschaftswerten verwendet wird:
+In unserem Demo wird die Position des Pickers relativ zu seinem Anker durch die Verwendung der `anchor()`-Funktion in den Eigenschaftswerten `top` und `left` festgelegt:
 
 ```css live-sample___full-render
 ::picker(select) {
@@ -384,32 +386,32 @@ In unserer Demo wird die Position des Pickers in Relation zu seinem Anker gesetz
 }
 ```
 
-Dies führt dazu, dass die Oberkante des Pickers immer 1 Pixel unterhalb der Unterkante der Select-Schaltfläche positioniert ist, und die linke Kante des Pickers immer `10%` der Breite der Select-Schaltfläche von ihrer linken Kante entfernt.
+Dies führt dazu, dass die obere Kante des Pickers immer 1 Pixel unterhalb der unteren Kante des Auswahlknopfs positioniert ist, und die linke Kante des Pickers immer `10%` der Breite des Auswahlknopfs vom linken Rand entfernt positioniert ist.
 
 ## Endergebnis
 
-Nach den letzten zwei Abschnitten wird der finale aktualisierte Stand unseres `<select>` wie folgt gerendert:
+Nach den letzten beiden Abschnitten wird der endgültig aktualisierte Zustand unseres `<select>` so gerendert:
 
 {{EmbedLiveSample("full-render", "100%", "410px")}}
 
-## Anpassung anderer klassischer Select-Funktionen
+## Anpassen anderer klassischer Auswahl-Features
 
-Die obigen Abschnitte haben alle neuen Funktionen abgedeckt, die in anpassbaren Selects verfügbar sind, und gezeigt, wie sie sowohl mit klassischen einzeiligen Selects als auch mit verwandten modernen Funktionen wie Popovers und Anker-Positionierung interagieren. Es gibt einige andere `<select>`-Elementfunktionen, die oben nicht erwähnt wurden; dieser Abschnitt spricht darüber, wie sie derzeit neben anpassbaren Selects funktionieren:
+Die obigen Abschnitte haben alle neuen Funktionen behandelt, die in anpassbaren Auswahlen verfügbar sind und gezeigt, wie sie mit sowohl klassischen einzeiligen Auswahlen als auch verwandten modernen Features wie Popovers und Ankerpositionierung interagieren. Es gibt einige andere `<select>`-Elementfunktionen, die oben nicht erwähnt wurden; dieser Abschnitt beschreibt, wie sie derzeit neben anpassbaren Auswahlen arbeiten:
 
-- [`<select multiple>`](/de/docs/Web/HTML/Reference/Attributes/multiple)
-  - : Es ist derzeit keine Unterstützung für das `multiple`-Attribut auf anpassbaren `<select>`-Elementen spezifiziert, aber daran wird in Zukunft gearbeitet.
-- {{htmlelement("optgroup")}}
-  - : Die Standard-Stilierung von `<optgroup>`-Elementen ist dieselbe wie bei klassischen `<select>`-Elementen – fettgedruckt und weniger eingerückt als die enthaltenen Optionen. Sie müssen sicherstellen, dass die `<optgroup>`-Elemente so gestaltet sind, dass sie in das Gesamtdesign passen, und beachten, dass sie sich genauso verhalten werden, wie Container in konventionellem HTML verhalten. In anpassbaren `<select>`-Elementen ist das {{htmlelement("legend")}}-Element als Kind von `<optgroup>` erlaubt, um ein Label bereitzustellen, das einfach anzusteuern und zu stylen ist. Dies ersetzt jeden im `label`-Attribut des `<optgroup>`-Elements gesetzten Text und hat dieselbe Semantik.
+- `<select multiple>`
+  - : Es ist derzeit keine Unterstützung für das `multiple`-Attribut bei anpassbaren `<select>`-Elementen spezifiziert, aber daran wird in Zukunft gearbeitet.
+- `<optgroup>`
+  - : Die Standard-Styling von `<optgroup>`-Elementen ist dasselbe wie in klassischen `<select>`-Elementen — fettgedruckt und weniger eingezogen als die enthaltenen Optionen. Sie müssen sicherstellen, dass Sie die `<optgroup>`-Elemente so stylen, dass sie sich in das Gesamtdesign einfügen, und bedenken, dass sie sich genauso verhalten, wie Container es in herkömmlichem HTML erwarten. In anpassbaren `<select>`-Elementen ist das `<legend>`-Element als Kind von `<optgroup>` erlaubt, um eine leicht anpassbare Beschriftung zu bieten. Dies ersetzt jeden im `label`-Attribut des `<optgroup>`-Elements gesetzten Text und hat die gleichen Semantiken.
 
-## Als nächstes
+## Nächstes Kapitel
 
-Im nächsten Artikel dieses Moduls werden wir die verschiedenen [UI-Pseudoklassen](/de/docs/Learn_web_development/Extensions/Forms/UI_pseudo-classes) erkunden, die uns in modernen Browsern zur Verfügung stehen, um Formulare in verschiedenen Zuständen zu stylen.
+Im nächsten Artikel dieses Moduls werden wir die verschiedenen [UI-Pseudoklassen](/de/docs/Learn_web_development/Extensions/Forms/UI_pseudo-classes) erkunden, die in modernen Browsern verfügbar sind, um Formulare in verschiedenen Zuständen zu stylen.
 
 ## Siehe auch
 
-- {{htmlelement("select")}}, {{htmlelement("option")}}, {{htmlelement("optgroup")}}, {{htmlelement("label")}}, {{htmlelement("button")}}, {{htmlelement("selectedcontent")}}
-- {{cssxref("appearance")}}
-- {{cssxref("::picker()", "::picker(select)")}}, {{cssxref("::picker-icon")}}, {{cssxref("::checkmark")}}
-- {{cssxref(":open")}}, {{cssxref(":checked")}}
+- `<select>`, `<option>`, `<optgroup>`, `<label>`, `<button>`, `<selectedcontent>`
+- `appearance`
+- `::picker(select)`, `::picker-icon`, `::checkmark`
+- `:open`, `:checked`
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Forms/Advanced_form_styling", "Learn_web_development/Extensions/Forms/UI_pseudo-classes", "Learn_web_development/Extensions/Forms")}}
