@@ -2,16 +2,22 @@
 title: ::-moz-meter-bar
 slug: Web/CSS/::-moz-meter-bar
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 829053808519d4e3135e50fea2d6282751ed7d1f
 ---
 
 {{Non-standard_header}}
 
-Der **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS) {{Glossary("Pseudo-element", "Pseudoelement")}} repräsentiert die Messanzeige in einem {{HTMLElement("meter")}}-Element. Es wird verwendet, um Stile auf die Anzeige innerhalb eines Meter-Elements anzuwenden.
+Das **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS) {{Glossary("Pseudo-element", "Pseudo-Element")}} repräsentiert die Anzeige des Messwertes in einem {{HTMLElement("meter")}}-Element. Es wird verwendet, um das Styling der Anzeige innerhalb eines Meter-Elements auszuwählen und anzuwenden.
+
+> [!NOTE]
+> Standardmäßig verwendet das `<meter>`-Element ein natives Styling. Um eigene Styles anzuwenden, setzen Sie zunächst `appearance: none` auf das `<meter>`-Element und stylen Sie anschließend mit `::-moz-meter-bar`.
 
 ## Syntax
 
 ```css
+meter {
+  appearance: none;
+}
 ::-moz-meter-bar {
   /* ... */
 }
@@ -36,6 +42,10 @@ meter {
   height: 20px;
   width: 200px;
   vertical-align: -0.4rem;
+}
+
+.styled {
+  appearance: none;
 }
 
 .styled::-moz-meter-bar {
