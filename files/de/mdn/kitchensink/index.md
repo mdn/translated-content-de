@@ -2,20 +2,20 @@
 title: Der MDN Content Kitchensink
 slug: MDN/Kitchensink
 l10n:
-  sourceCommit: 451c6b58988664128473a881871707c5ec9737f2
+  sourceCommit: 81202c34ccd5a810559ff32aa3b595e2f76b923f
 ---
 
 > [!WARNING]
-> Löschen Sie diese Seite nicht. Sie wird von [mdn/yari](https://github.com/mdn/yari) für die Automatisierung verwendet.
+> Diese Seite nicht löschen. Sie wird von [mdn/yari](https://github.com/mdn/yari) für die Automatisierung verwendet.
 
 ## Über diese Seite
 
-Der **Kitchensink** ist eine Seite, die _versucht_, jedes mögliche Inhaltselement und jeden Yari-Makro zu integrieren.
+Der **kitchensink** ist eine Seite, die _versucht_, jedes mögliche Inhaltselement und jeden Yari-Makro zu integrieren.
 
-Diese Seite versucht, die vollständige Schnittmenge jeder anderen Seite darzustellen. Nicht im Hinblick auf den Text, sondern im Hinblick auf die Stile und Makros.
-Lassen Sie uns mit einigen Notizen beginnen…
+Diese Seite versucht, die vollständige Schnittmenge aller anderen Seiten zu sein. Nicht im Hinblick auf den Text, sondern in Bezug auf die Stile und Makros.
+Beginnen wir mit einigen Hinweisen…
 
-Text, der das `<kbd>`-Tag verwendet: <kbd>Shift</kbd>
+Text, der das `<kbd>` Tag verwendet: <kbd>Shift</kbd>
 
 > [!NOTE]
 > Hier ist eine Blockindikator-Notiz.
@@ -23,17 +23,17 @@ Text, der das `<kbd>`-Tag verwendet: <kbd>Shift</kbd>
 > [!WARNING]
 > Hier ist eine Blockindikator-Warnung.
 
-## Vor-/Zurück-Tasten
+## Vorher-/Nächste-Buttons
 
 {{PreviousMenuNext("Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard", "Games/Techniques/Control_mechanisms/Other", "Games/Techniques/Control_mechanisms")}}
 
-### Noch eine…
+### Noch eins…
 
 {{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Extra_lives", "Games/Tutorials/2D_breakout_game_Phaser/Buttons")}}
 
 ## Code-Snippets
 
-### Unformatierter Text
+### Klartext
 
 ```plain
   ___________________________
@@ -200,15 +200,15 @@ filter: drop-shadow(16px 16px 20px red) invert(75%);
 
 ### Markdown-Tabelle
 
-| Konstantenname               | Wert   | Beschreibung                                                                                       |
-| ---------------------------- | ------ | -------------------------------------------------------------------------------------------------- |
-| `QUERY_COUNTER_BITS_EXT`     | 0x8864 | Die Anzahl der Bits, die verwendet werden, um das Abfrageergebnis für das gegebene Ziel zu halten. |
-| `CURRENT_QUERY_EXT`          | 0x8865 | Die derzeit aktive Abfrage.                                                                        |
-| `QUERY_RESULT_EXT`           | 0x8866 | Das Abfrageergebnis.                                                                               |
-| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein Boolean, der angibt, ob ein Abfrageergebnis verfügbar ist.                                     |
-| `TIME_ELAPSED_EXT`           | 0x88BF | Verstrichene Zeit (in Nanosekunden).                                                               |
-| `TIMESTAMP_EXT`              | 0x8E28 | Die aktuelle Zeit.                                                                                 |
-| `GPU_DISJOINT_EXT`           | 0x8FBB | Ein Boolean, der angibt, ob die GPU eine unzusammenhängende Operation ausgeführt hat.              |
+| Konstanter Name              | Wert   | Beschreibung                                                                                         |
+| ---------------------------- | ------ | ---------------------------------------------------------------------------------------------------- |
+| `QUERY_COUNTER_BITS_EXT`     | 0x8864 | Die Anzahl der Bits, die verwendet werden, um das Abfrageergebnis für das angegebene Ziel zu halten. |
+| `CURRENT_QUERY_EXT`          | 0x8865 | Die derzeit aktive Abfrage.                                                                          |
+| `QUERY_RESULT_EXT`           | 0x8866 | Das Abfrageergebnis.                                                                                 |
+| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein Boolean, der anzeigt, ob ein Abfrageergebnis verfügbar ist.                                      |
+| `TIME_ELAPSED_EXT`           | 0x88BF | Verstrichene Zeit (in Nanosekunden).                                                                 |
+| `TIMESTAMP_EXT`              | 0x8E28 | Die aktuelle Zeit.                                                                                   |
+| `GPU_DISJOINT_EXT`           | 0x8FBB | Ein Boolean, der anzeigt, ob die GPU eine unterbrochene Operation ausgeführt hat.                    |
 
 ### HTML-Tabelle
 
@@ -219,35 +219,35 @@ filter: drop-shadow(16px 16px 20px red) invert(75%);
         <a href="/de/docs/Web/HTML/Guides/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Fließender Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">phrasierter Inhalt</a>, fühlbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content">Flussinhalt</a>,
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseninhalt</a>, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phrasierter Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseninhalt</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl Start- als auch End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl Start- als auch End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">phrasierte Inhalte</a> akzeptiert.
+        Jedes Element, das <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content">Phraseninhalt</a> akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Jede</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -270,17 +270,17 @@ filter: drop-shadow(16px 16px 20px red) invert(75%);
   <tbody>
     <tr>
       <td><code>width</code></td>
-      <td>Eine positive ganze Zahl oder der Text <code>device-width</code></td>
+      <td>Eine positive Ganzzahl, oder der Text <code>device-width</code></td>
       <td>
-        Definiert die Pixelbreite des Viewports, bei der Sie möchten, dass die Website gerendert wird.
+        Definiert die Pixelbreite des Ansichtsfensters, in dem die Website gerendert werden soll.
       </td>
     </tr>
     <tr>
       <td><code>user-scalable</code> {{ReadOnlyInline}}</td>
       <td><code>yes</code> oder <code>no</code></td>
       <td>
-        Wenn auf <code>no</code> gesetzt, kann der Benutzer die Webseite nicht vergrößern. Standard ist <code>yes</code>.
-        Browsereinstellungen können diese Regel ignorieren und iOS10+ ignoriert sie standardmäßig.
+        Wenn auf <code>no</code> gesetzt, kann der Benutzer nicht in die Webseite hineinzoomen.
+        Der Standardwert ist <code>yes</code>. Browsereinstellungen können diese Regel ignorieren, und iOS10+ ignoriert sie standardmäßig.
       </td>
     </tr>
     <tr>
@@ -288,14 +288,15 @@ filter: drop-shadow(16px 16px 20px red) invert(75%);
       <td><code>auto</code>, <code>contain</code> oder <code>cover</code></td>
       <td>
         <p>
-          Der <code>auto</code>-Wert beeinflusst das Initial-Layout-Viewport nicht. Die gesamte Webseite ist sichtbar.
+          Der Wert <code>auto</code> beeinflusst das anfängliche Layout-Ansichtsfenster nicht, und die gesamte Webseite ist sichtbar.
         </p>
         <p>
-          Der <code>contain</code>-Wert bedeutet, dass der Viewport skaliert wird, um das größte innerhalb des Displays eingeschriebene Rechteck zu passen.
+          Der Wert <code>contain</code> bedeutet, dass das Ansichtsfenster so skaliert wird, dass es in das größte innerhalb des Displays eingeschriebene Rechteck passt.
         </p>
         <p>
-          Der <code>cover</code>-Wert bedeutet, dass der Viewport skaliert wird, um das Geräte-Display auszufüllen.
-          Es wird dringend empfohlen, die <a href="/de/docs/Web/CSS/env">sicheren Bereichseinsetzungen</a> Variablen zu verwenden, um sicherzustellen, dass wichtiger Inhalt nicht außerhalb des Displays landet.
+          Der Wert <code>cover</code> bedeutet, dass das Ansichtsfenster skaliert wird, um das Gerätedisplay vollständig auszufüllen.
+          Es wird dringend empfohlen, die Variablen des <a href="/de/docs/Web/CSS/env">sicheren Bereichs</a> zu verwenden,
+          um sicherzustellen, dass wichtiger Inhalt nicht außerhalb des Displays landet.
         </p>
       </td>
     </tr>
@@ -304,23 +305,27 @@ filter: drop-shadow(16px 16px 20px red) invert(75%);
 
 ## Jeder Makro unter der Sonne
 
-**Nun, fast jeder Makro. Hoffentlich nur diejenigen, die aktiv verwendet werden.**
+**Nun, fast jeder Makro. Hoffentlich nur die, die aktiv genutzt werden.**
 
 Ein {{Glossary("HTTP", "HTTP")}}-Fehlercode, der "Bad Gateway" bedeutet.
 
-Ein {{Glossary("Server", "Server")}} kann als Gateway oder Proxy (Vermittler) zwischen einem Client (wie Ihrem Webbrowser) und einem anderen, nachgelagerten Server fungieren. Wenn Sie eine {{Glossary("URL", "URL")}} aufrufen, kann der Gateway-Server Ihre Anfrage an den nachgelagerten Server weiterleiten. "502" bedeutet, dass der nachgelagerte Server eine ungültige Antwort zurückgegeben hat.
+Ein {{Glossary("Server", "Server")}} kann als Gateway oder Proxy (Vermittler) zwischen einem Client (wie Ihrem Webbrowser) und einem anderen, vorgelagerten Server fungieren.
+Wenn Sie versuchen, auf eine {{Glossary("URL", "URL")}} zuzugreifen, kann der Gateway-Server Ihre Anfrage an den vorgelagerten Server weiterleiten.
+"502" bedeutet, dass der vorgelagerte Server eine ungültige Antwort zurückgegeben hat.
 
 - JavaScript {{jsxref("Array")}} auf MDN
 
-Das Lauschen von Mausbewegungen ist noch einfacher als das Lauschen von Tastendrücken: Alles, was wir brauchen, ist der Listener für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis.
+Das Abhören von Mausbewegungen ist sogar noch einfacher als das Abhören von Tastendrücken: Alles, was wir benötigen, ist der Listener für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignis.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-## Achsen-ausgerichtete Begrenzungsbox
+## Achsenparallele Begrenzungsrahmen
 
-Eine der einfacheren Formen der Kollisionsdetektion ist zwischen zwei rechteckigen, achsen-ausgerichteten Objekten - d.h. ohne Rotation. Der Algorithmus funktioniert, indem er sicherstellt, dass kein Abstand zwischen einer der 4 Seiten der Rechtecke besteht. Jeder Abstand bedeutet, dass keine Kollision existiert.
+Eine der einfacheren Formen der Kollisionsdetektion erfolgt zwischen zwei Rechtecken, die achsenparallel sind — das bedeutet ohne Drehung.
+Der Algorithmus funktioniert, indem sichergestellt wird, dass zwischen den 4 Seiten der Rechtecke keine Lücke vorhanden ist.
+Jede Lücke bedeutet, dass keine Kollision vorhanden ist.
 
 ```js
 var rect1 = { x: 5, y: 5, width: 50, height: 50 };
@@ -342,7 +347,7 @@ if (5 < 30 && 55 > 20 && 5 < 20 && 55 > 10) {
 }
 ```
 
-### Rechteck-Code
+### Rect-Code
 
 ```html
 <div id="cr-stage"></div>
@@ -358,24 +363,29 @@ if (5 < 30 && 55 > 20 && 5 < 20 && 55 > 10) {
 ```js
 Crafty.init(200, 200);
 
-var dim1 = {x: 5, y: 5, w: 50, h: 50}
-var dim2 = {x: 20, y: 10, w: 60, h: 40}
+var dim1 = { x: 5, y: 5, w: 50, h: 50 };
+var dim2 = { x: 20, y: 10, w: 60, h: 40 };
 
 var rect1 = Crafty.e("2D, Canvas, Color").attr(dim1).color("red");
 
-var rect2 = Crafty.e("2D, Canvas, Color, Keyboard, Fourway").fourway(2).attr(dim2).color("blue");
+var rect2 = Crafty.e("2D, Canvas, Color, Keyboard, Fourway")
+  .fourway(2)
+  .attr(dim2)
+  .color("blue");
 
 rect2.bind("EnterFrame", function () {
-if (rect1.x > rect2.x + rect2.w &#x26;&#x26;
-rect1.x + rect1.w > rect2.x &#x26;&#x26;
-rect1.y > rect2.y + rect2.h &#x26;&#x26;
-rect1.h + rect1.y > rect2.y) {
-// collision detected!
-this.color("green");
-} else {
-// no collision
-this.color("blue");
-}
+  if (
+    rect1.x > rect2.x + rect2.w &&
+    rect1.x + rect1.w > rect2.x &&
+    rect1.y > rect2.y + rect2.h &&
+    rect1.h + rect1.y > rect2.y
+  ) {
+    // collision detected!
+    this.color("green");
+  } else {
+    // no collision
+    this.color("blue");
+  }
 });
 ```
 
@@ -391,10 +401,10 @@ this.color("blue");
 
 {{EmbedGHLiveSample("web-tech-games/index.html", '100%', 820)}}
 
-- [Barrierefreiheitsressourcen bei MDN](/de/docs/Web/Accessibility)
-- [Web-Barrierefreiheit](https://en.wikipedia.org/wiki/Web_accessibility) auf Wikipedia
+- [Ressourcen zur Barrierefreiheit bei MDN](/de/docs/Web/Accessibility)
+- [Barrierefreiheit im Web](https://en.wikipedia.org/wiki/Web_accessibility) auf Wikipedia
 
-Das [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs)-Makro fügt eine lokalisierte Notizbox ein, die darauf hinweist, dass eine Funktion im Kontext eines [Web worker](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
+Das [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/banners.rs)-Makro fügt ein lokalisiertes Hinweisfeld ein, das angibt, dass eine Funktion in einem [Web worker](/de/docs/Web/API/Web_Workers_API)-Kontext verfügbar ist.
 
 {{AvailableInWorkers}}
 
@@ -411,9 +421,11 @@ Das [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc
 
 <!---->
 
-- Erstellen Sie ein {{htmlelement("canvas")}}-Element und setzen Sie dessen `width`- und `height`-Attribute auf die ursprüngliche, kleinere Auflösung.
-- Setzen Sie dessen CSS-{{cssxref("width")}}- und {{cssxref("height")}}-Eigenschaften auf das 2-fache oder 4-fache des HTML-`width`- und `height`-Werts. Wenn das Canvas beispielsweise mit einer Breite von 128 Pixel erstellt wurde, würden wir die CSS-`width` auf `512px` setzen, wenn wir einen 4x-Skalierung wünschen.
-- Setzen Sie die CSS-`image-rendering`-Eigenschaft des {{htmlelement("canvas")}}-Elements auf einen Wert, der das Bild nicht unscharf macht. Sowohl `crisp-edges` als auch `pixelated` funktionieren. Schauen Sie sich den Artikel über {{cssxref("image-rendering")}} für weitere Informationen zu den Unterschieden zwischen diesen Werten an und welche Präfixe je nach Browser verwendet werden sollten.
+- Erstellen Sie ein {{htmlelement("canvas")}}-Element und setzen Sie seine `width` und `height` Attribute auf die ursprüngliche, kleinere Auflösung.
+- Setzen Sie seine CSS-{{cssxref("width")}} und {{cssxref("height")}}-Eigenschaften auf das 2-fache oder 4-fache des Wertes der HTML-`width` und `height`.
+  Wenn das Canvas mit einer Breite von 128 Pixeln erstellt wurde, würden wir zum Beispiel die CSS-`width` auf `512px` setzen, wenn wir eine 4-fache Skalierung wünschen.
+- Setzen Sie die CSS-Eigenschaft `image-rendering` des {{htmlelement("canvas")}}-Elements auf einen Wert, der das Bild nicht verschwommen erscheinen lässt.
+  Entweder `crisp-edges` oder `pixelated` wird funktionieren. Weitere Informationen zu den Unterschieden zwischen diesen Werten und welche Präfixe je nach Browser zu verwenden sind, finden Sie im Artikel {{cssxref("image-rendering")}}.
 
 <!---->
 
@@ -421,11 +433,11 @@ Das [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc
   - {{Glossary("XMLHttpRequest", "XHR")}}
 
 - [AJAX](https://en.wikipedia.org/wiki/AJAX) auf Wikipedia
-- [Lernen: Network-Anfragen mit JavaScript stellen](/de/docs/Learn_web_development/Core/Scripting/Network_requests)
+- [Lernen: Netzwerkanfragen mit JavaScript stellen](/de/docs/Learn_web_development/Core/Scripting/Network_requests)
 - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
 - [`Fetch API`](/de/docs/Web/API/Fetch_API)
 - [Fetch API verwenden](/de/docs/Web/API/Fetch_API/Using_Fetch)
-- [Synchron vs. Asynchron Kommunikation](https://peoplesofttutorial.com/difference-between-synchronous-and-asynchronous-messaging/)
+- [Synchron vs. Asynchronous Communications](https://peoplesofttutorial.com/difference-between-synchronous-and-asynchronous-messaging/)
 
 <!---->
 
@@ -439,8 +451,8 @@ Das [`AvailableInWorkers`](https://github.com/mdn/rari/blob/main/crates/rari-doc
 ## Typen
 
 - {{WebExtAPIRef("alarms.Alarm")}}
-  - : Informationen zu einem bestimmten Alarm.
+  - : Informationen über einen bestimmten Alarm.
 
 {{Non-standard_Header}}
 {{Deprecated_Header}}
-[![Eisberg Bild](iceberg.jpg)](iceberg.jpg)
+[![Eisberg bild](iceberg.jpg)](iceberg.jpg)
