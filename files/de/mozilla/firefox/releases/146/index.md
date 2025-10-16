@@ -1,22 +1,22 @@
 ---
-title: Firefox 146 für Entwickler
+title: Firefox 146 Versionshinweise für Entwickler (Nightly)
 short-title: Firefox 146 (Nightly)
 slug: Mozilla/Firefox/Releases/146
 l10n:
-  sourceCommit: e3e93db9247ff7a0e8c43bf9bab2f5386559be23
+  sourceCommit: 61912f53d01e935aea926a2226130fb4587414a9
 ---
 
 Dieser Artikel bietet Informationen über die Änderungen in Firefox 146, die Entwickler betreffen.
 Firefox 146 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#nightly) und wird am [9. Dezember 2025](https://whattrainisitnow.com/release/?version=146) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
+> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
 
-<!-- Autoren: Bitte heben Sie alle Überschriften hervor, für die Sie Notizen schreiben -->
+<!-- Autoren: Bitte alle Überschriften kommentieren, für die Sie Notizen schreiben -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Entwicklertools -->
+<!-- ### Entwicklerwerkzeuge -->
 
 <!-- ### HTML -->
 
@@ -78,8 +78,8 @@ Firefox 146 ist die aktuelle [Nightly-Version von Firefox](https://www.firefox.c
 
 <!-- ### Sonstiges -->
 
-## Experimentelle Webfunktionen
+## Experimentelle Web-Funktionen
 
 Diese Funktionen sind in Firefox 146 enthalten, aber standardmäßig deaktiviert.
-Um sie auszuprobieren, suchen Sie nach der entsprechenden Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`.
+Um mit ihnen zu experimentieren, suchen Sie auf der `about:config` Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`.
 Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).

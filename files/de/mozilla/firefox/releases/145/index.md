@@ -1,9 +1,9 @@
 ---
-title: Firefox 145 für Entwickler
+title: Firefox 145 Versionshinweise für Entwickler (Beta)
 short-title: Firefox 145 (Beta)
 slug: Mozilla/Firefox/Releases/145
 l10n:
-  sourceCommit: e3e93db9247ff7a0e8c43bf9bab2f5386559be23
+  sourceCommit: 61912f53d01e935aea926a2226130fb4587414a9
 ---
 
 Dieser Artikel bietet Informationen über die Änderungen in Firefox 145, die Entwickler betreffen.
@@ -12,7 +12,7 @@ Firefox 145 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 > [!NOTE]
 > Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Autoren: Bitte kommentieren Sie alle Überschriften aus, für die Sie Anmerkungen schreiben -->
+<!-- Autoren: Bitte entfernen Sie die Auskommentierung von Überschriften, für die Sie Notizen schreiben -->
 
 ## Änderungen für Web-Entwickler
 
@@ -22,35 +22,35 @@ Firefox 145 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernt -->
+<!-- #### Entfernungen -->
 
 <!-- ### MathML -->
 
-<!-- #### Entfernt -->
+<!-- #### Entfernungen -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernt -->
+<!-- #### Entfernungen -->
 
 <!-- ### CSS -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernt -->
+<!-- #### Entfernungen -->
 
 <!-- ### JavaScript -->
 
 <!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Entfernt -->
+<!-- #### Entfernungen -->
 
 <!-- ### HTTP -->
 
-<!-- #### Entfernt -->
+<!-- #### Entfernungen -->
 
 <!-- ### Sicherheit -->
 
-<!-- #### Entfernt -->
+<!-- #### Entfernungen -->
 
 <!-- ### APIs -->
 
@@ -58,13 +58,13 @@ Firefox 145 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 <!-- #### Medien, WebRTC und Web Audio -->
 
-<!-- #### Entfernt -->
+<!-- #### Entfernungen -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernt -->
+<!-- #### Entfernungen -->
 
-<!-- ### WebDriver Konformität (WebDriver BiDi, Marionette) -->
+<!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
 
 <!-- #### Allgemein -->
 
@@ -74,14 +74,14 @@ Firefox 145 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 ## Änderungen für Add-on-Entwickler
 
-- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} erstellt wurden, werden jetzt validiert, und ungültige Cookies werden abgelehnt. Diese Änderung wurde nur in Nightly ab Firefox 142 implementiert. ([Firefox-Bug 1976509](https://bugzil.la/1976509))
+- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} erstellt werden, werden jetzt validiert, und ungültige Cookies werden abgelehnt. Diese Änderung wurde nur in Nightly ab Firefox 142 implementiert. ([Firefox-Bug 1976509](https://bugzil.la/1976509))
 
-<!-- ### Entfernt -->
+<!-- ### Entfernungen -->
 
 <!-- ### Sonstiges -->
 
-## Experimentelle Web-Features
+## Experimentelle Web-Funktionen
 
-Diese Features sind in Firefox 145 enthalten, sind jedoch standardmäßig deaktiviert.
-Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Präferenz und setzen Sie sie auf `true`.
-Weitere solche Features finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen sind in Firefox 145 enthalten, aber standardmäßig deaktiviert.
+Um sie auszuprobieren, suchen Sie auf der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie diese auf `true`.
+Weitere derartige Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
