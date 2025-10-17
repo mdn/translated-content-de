@@ -2,7 +2,7 @@
 title: HTMLMetaElement
 slug: Web/API/HTMLMetaElement
 l10n:
-  sourceCommit: c7a8b2584452bcd5d2c135b637f4ec659ff74b99
+  sourceCommit: b5a6d8bc5fd751032f70b88e7ec1ec61339937de
 ---
 
 {{ APIRef("HTML DOM") }}
@@ -18,16 +18,15 @@ _Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLE
 - {{HTMLElement("meta#charset")}}
   - : Die Zeichenkodierung für ein HTML-Dokument.
 - [`HTMLMetaElement.content`](/de/docs/Web/API/HTMLMetaElement/content)
-  - : Der 'value'-Teil der Name-Wert-Paare der Dokumentenmetadaten.
+  - : Der 'Wert'-Teil der Name-Wert-Paare der Dokument-Metadaten.
 - [`HTMLMetaElement.httpEquiv`](/de/docs/Web/API/HTMLMetaElement/httpEquiv)
-  - : Der Name der pragma-Direktive, der HTTP-Antwortheader, für ein Dokument.
+  - : Der Name der Pragma-Direktive, des HTTP-Antwort-Headers, für ein Dokument.
 - [`HTMLMetaElement.media`](/de/docs/Web/API/HTMLMetaElement/media)
-  - : Der Medienkontext für eine `theme-color`-Metadateneigenschaft.
+  - : Der Medienkontext für eine `theme-color` Metadaten-Eigenschaft.
 - [`HTMLMetaElement.name`](/de/docs/Web/API/HTMLMetaElement/name)
-  - : Der 'name'-Teil der Name-Wert-Paare, die die benannten Metadaten eines Dokuments definieren.
+  - : Der 'Name'-Teil der Name-Wert-Paare, die die benannten Metadaten eines Dokuments definieren.
 - [`HTMLMetaElement.scheme`](/de/docs/Web/API/HTMLMetaElement/scheme) {{deprecated_inline}}
-  - : Definiert das Schema des Wertes im [`HTMLMetaElement.content`](/de/docs/Web/API/HTMLMetaElement/content)-Attribut.
-    Dies ist veraltet und sollte auf neuen Webseiten nicht verwendet werden.
+  - : Definiert das Schema des Wertes im [`HTMLMetaElement.content`](/de/docs/Web/API/HTMLMetaElement/content)-Attribut. Dies ist veraltet und sollte nicht auf neuen Webseiten verwendet werden.
 
 ## Instanz-Methoden
 
@@ -37,7 +36,7 @@ _Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](
 
 Die folgenden zwei Beispiele zeigen einen allgemeinen Ansatz zur Verwendung der `HTMLMetaElement`-Schnittstelle. Für spezifische Beispiele siehe die Seiten zu den einzelnen Eigenschaften, wie im Abschnitt [Instanz-Eigenschaften](#instanz-eigenschaften) oben beschrieben.
 
-### Festlegen der Metadaten zur Seitenbeschreibung
+### Festlegen der Seitenbeschreibung-Metadaten
 
 Das folgende Beispiel erstellt ein neues `<meta>`-Element mit einem `name`-Attribut, das auf [`description`](/de/docs/Web/HTML/Reference/Elements/meta/name#meta_names_defined_in_the_html_specification) gesetzt ist. Das `content`-Attribut setzt eine Beschreibung des Dokuments und wird dem Dokument `<head>` hinzugefügt:
 
@@ -49,9 +48,9 @@ meta.content =
 document.head.appendChild(meta);
 ```
 
-### Festlegen der Metadaten zum Ansichtsfenster
+### Festlegen der Viewport-Metadaten
 
-Das folgende Beispiel zeigt, wie ein neues `<meta>`-Element mit einem `name`-Attribut erstellt wird, das auf [`viewport`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport) gesetzt ist. Das `content`-Attribut setzt die Größe des Ansichtsfensters und wird dem Dokument `<head>` hinzugefügt:
+Das folgende Beispiel zeigt, wie man ein neues `<meta>`-Element mit einem `name`-Attribut, das auf [`viewport`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport) gesetzt ist, erstellt. Das `content`-Attribut setzt die Viewport-Größe und wird dem Dokument `<head>` hinzugefügt:
 
 ```js
 const meta = document.createElement("meta");
@@ -60,7 +59,7 @@ meta.content = "width=device-width, initial-scale=1";
 document.head.appendChild(meta);
 ```
 
-Für weitere Informationen zum Festlegen des Ansichtsfensters siehe [`<meta name="viewport">`](/de/docs/Reference/Elements/meta/name/viewport).
+Für weitere Informationen zum Einstellen des Viewports siehe [`<meta name="viewport">`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport).
 
 ## Spezifikationen
 

@@ -3,18 +3,18 @@ title: "HTMLButtonElement: command-Eigenschaft"
 short-title: command
 slug: Web/API/HTMLButtonElement/command
 l10n:
-  sourceCommit: 7307f1c0d3ac3ff499467f7a280fb3172e48e27f
+  sourceCommit: b5a6d8bc5fd751032f70b88e7ec1ec61339937de
 ---
 
 {{APIRef("Invoker Commands API")}}
 
-Die **`command`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces erhält und setzt die Aktion, die auf einem Element ausgeführt werden soll, das von diesem Button gesteuert wird. Damit dies Wirkung zeigt, muss [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor) gesetzt sein.
+Die **`command`**-Eigenschaft der [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Schnittstelle ruft die Aktion ab und legt sie fest, die bei einem durch diese Schaltfläche gesteuerten Element ausgeführt werden soll. Damit dies Wirkung zeigt, muss [`commandfor`](/de/docs/Web/HTML/Reference/Elements/button#commandfor) gesetzt sein.
 
 Sie spiegelt das [`command`](/de/docs/Web/HTML/Reference/Elements/button#command)-HTML-Attribut wider.
 
 ## Wert
 
-Ein String. Siehe das [`command`](/de/docs/Web/HTML/Reference/Elements/button#command)-Attribut für gültige Werte.
+Ein String. Siehe das [`command`](/de/docs/Web/HTML/Reference/Elements/button#command) Attribut für gültige Werte.
 
 ## Beispiele
 
@@ -37,9 +37,10 @@ const toggleBtn = document.getElementById("toggleBtn");
 toggleBtn.command = "show-popover";
 ```
 
-### Verwenden benutzerdefinierter Werte für Befehle
+### Verwendung benutzerdefinierter Werte für Befehle
 
-In diesem Beispiel wurden drei Buttons erstellt, die [benutzerdefinierte Werte](/de/docs/Web/HTML/Reference/Elements/button#custom_values) für `command` verwenden. Jeder Button zielt auf dasselbe Bild ab, indem das `commandfor`-Attribut verwendet wird.
+In diesem Beispiel wurden drei Schaltflächen mit [benutzerdefinierten Werten](/de/docs/Web/HTML/Reference/Elements/button#custom_values) für `command` erstellt.
+Jede Schaltfläche zielt auf dasselbe Bild unter Verwendung des `commandfor`-Attributs ab.
 
 ```html
 <div class="controls">
@@ -60,21 +61,22 @@ In diesem Beispiel wurden drei Buttons erstellt, die [benutzerdefinierte Werte](
 }
 ```
 
-Ein Ereignislistener ist an das Bild mit dem [`command` event](/de/docs/Web/API/CommandEvent) angehängt. Wenn einer der Buttons geklickt wird, führt der Listener Code basierend auf dem benutzerdefinierten `command`-Wert aus, der dem Button zugewiesen ist, dreht das Bild und aktualisiert auch seinen `alt`-Text, um den neuen Winkel des Bildes anzuzeigen.
+Ein Event-Listener wird dem Bild mit dem [`command` event](/de/docs/Web/API/CommandEvent) zugeordnet.
+Wenn eine der Schaltflächen angeklickt wird, führt der Listener Code basierend auf dem benutzerdefinierten `command`-Wert aus, der der Schaltfläche zugewiesen ist, dreht das Bild und aktualisiert auch den `alt`-Text, um den neuen Winkel des Bildes anzuzeigen.
 
 ```js
 const image = document.getElementById("the-image");
 
 image.addEventListener("command", (event) => {
-  let rotate = parseInt(event.target.style.rotate || "0");
-  if (event.command == "--reset") {
+  let rotate = parseInt(event.target.style.rotate || "0", 10);
+  if (event.command === "--reset") {
     rotate = 0;
     event.target.style.rotate = `${rotate}deg`;
   } else if (event.command === "--rotate-left") {
-    rotate === -270 ? (rotate = 0) : (rotate = rotate - 90);
+    rotate = rotate === -270 ? 0 : rotate - 90;
     event.target.style.rotate = `${rotate}deg`;
   } else if (event.command === "--rotate-right") {
-    rotate === 270 ? (rotate = 0) : (rotate = rotate + 90);
+    rotate = rotate === 270 ? 0 : rotate + 90;
     event.target.style.rotate = `${rotate}deg`;
   }
   event.target.alt = `dinosaur head rotated ${rotate} degrees`;
@@ -96,4 +98,4 @@ image.addEventListener("command", (event) => {
 - [Invoker Commands API](/de/docs/Web/API/Invoker_Commands_API)
 - [`HTMLButtonElement.commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)
 - [`CommandEvent`](/de/docs/Web/API/CommandEvent)
-- [`<button>` `command`-Attribut](/de/docs/Web/HTML/Reference/Elements/button#command)
+- [`<button>` `command` attribute](/de/docs/Web/HTML/Reference/Elements/button#command)

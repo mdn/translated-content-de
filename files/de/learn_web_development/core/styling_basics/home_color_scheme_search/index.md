@@ -1,21 +1,21 @@
 ---
-title: "Herausforderung: Gestaltung einer App zur Farbsuche für Zuhause"
-short-title: "Herausforderung: Gestaltung der Farbsuche"
+title: "Herausforderung: Styling einer Home-Farbschema-Such-App"
+short-title: "Herausforderung: Styling der Farbschema-Suche"
 slug: Learn_web_development/Core/Styling_basics/Home_color_scheme_search
 l10n:
-  sourceCommit: 56ccb15b023cb11234cd044a68d6d3a93e752326
+  sourceCommit: b5a6d8bc5fd751032f70b88e7ec1ec61339937de
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Tables", "Learn_web_development/Core/Styling_basics/Debugging_CSS", "Learn_web_development/Core/Styling_basics")}}
 
-Die letzte Herausforderung unseres [Styling-Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics)-Moduls ist ein Mockup einer "Home color search app"-Benutzeroberfläche. Die Idee dahinter ist, dass Benutzer eine Farbe eingeben und eine Reihe von Variationen sowie Beispielideen für Farbschemata abrufen können. Ihre Aufgabe ist es, das bereitgestellte Formular, die Tabelle und die Schaltflächen zu gestalten und sicherzustellen, dass die Bilder wie erwartet angezeigt werden.
+Die letzte Herausforderung unseres [Styling-Grundlagen](/de/docs/Learn_web_development/Core/Styling_basics) Moduls bietet einen Prototyp einer "Home-Farbsuche-App"-Benutzeroberfläche. Die Idee besteht darin, den Nutzern die Möglichkeit zu geben, eine Farbe einzugeben und eine Reihe von Variationen zusammen mit Beispielen für Farbschema-Ideen zu erhalten. Ihre Aufgabe ist es, das bereitgestellte Formular, die Tabelle und die Schaltflächen zu stylen und sicherzustellen, dass die Bilder wie erwartet angezeigt werden.
 
 > [!NOTE]
-> Die in dieser Herausforderung verwendeten getönten Bilder wurden vom Original auf Flickr adaptiert: [Chic Living Room](https://flickr.com/photos/145464578@N08/28362250492/), veröffentlicht von [Houseology Interiors](https://flickr.com/photos/145464578@N08/) unter [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/deed.en).
+> Die in dieser Herausforderung verwendeten getönten Bilder wurden aus dem Original auf Flickr angepasst: [Chic Living Room](https://flickr.com/photos/145464578@N08/28362250492/), veröffentlicht von [Houseology Interiors](https://flickr.com/photos/145464578@N08/) unter [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/deed.en).
 
 ## Ausgangspunkt
 
-Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche in einem der unten stehenden Code-Panels, um das bereitgestellte Beispiel im MDN Playground zu öffnen. Folgen Sie dann den Anweisungen im Abschnitt [Projektbrief](#projektbrief), um die Seite entsprechend zu gestalten.
+Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche in einem der unteren Code-Panels, um das bereitgestellte Beispiel im MDN Playground zu öffnen. Folgen Sie dann den Anweisungen im Abschnitt [Projektbeschreibung](#projektbeschreibung), um die Seite entsprechend zu stylen.
 
 ```html live-sample___app-start live-sample___app-finish
 <section>
@@ -110,7 +110,7 @@ Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche in einem der unten st
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 body {
@@ -162,64 +162,64 @@ table img {
 
 {{embedlivesample("app-start", "100%", 650)}}
 
-## Projektbrief
+## Projektbeschreibung
 
-Folgen Sie den untenstehenden Schritten, um das Projekt abzuschließen, indem Sie den Inhaltbereich angemessen dimensionieren und die erforderlichen Dekorationen hinzufügen.
+Befolgen Sie die untenstehenden Schritte, um das Projekt abzuschließen. Passen Sie die Größe des Inhaltsbereichs an und fügen Sie die erforderlichen Dekorationen hinzu.
 
 ### Fügen Sie ein Formular-Reset hinzu
 
-Fügen Sie zuerst einige "Reset"-Stile für die `<button>`- und `<input>`-Elemente hinzu, um ihnen einen konsistenten Ausgangszustand über alle Browser hinweg zu geben.
+Zunächst fügen Sie einige "Reset"-Stile zu den `<button>`- und `<input>`-Elementen hinzu, um ihnen einen konsistenten Ausgangszustand in allen Browsern zu geben.
 
 Konkret:
 
-1. Lassen Sie sie die Schriftfamilie verwenden, die auf der restlichen Seite festgelegt ist.
+1. Lassen Sie sie die auf den Rest der Seite gesetzte Schriftfamilie erben.
 2. Geben Sie ihnen eine Schriftgröße von `100%`.
-3. Entfernen Sie ihre gesamte Polsterung und ihren Rand.
+3. Entfernen Sie alle ihre Abstände und Ränder.
 
-### Gestalten Sie die Formulareingaben
+### Stylen Sie die Formulareingaben
 
 Geben Sie den `<input>`-Elementen:
 
-1. Eine `2px` breite, feste Umrandung mit der Farbe `#999999`.
-2. `10px` Polsterung.
+1. Eine `2px` breite, durchgezogene Umrandung mit der Farbe `#999999`.
+2. `10px` Abstand.
 3. `5px` abgerundete Ecken.
 
-### Gestalten Sie die Schaltflächen
+### Stylen Sie die Schaltflächen
 
 Geben Sie den `<button>`-Elementen:
 
 1. Keine Umrandung.
-2. Eine `black` Hintergrundfarbe und `white` Textfarbe.
+2. Eine `schwarze` Hintergrundfarbe und `weißen` Text.
 3. `5px` abgerundete Ecken.
-4. Vertikale Polsterung von `10px` und horizontale Polsterung von `2em`.
-5. Eine Hintergrundfarbe von `#666666` bei Hover oder Fokus.
-6. Eine Hintergrundfarbe von `#aaaaaa` im deaktivierten Zustand.
+4. Vertikalen Abstand von `10px` und horizontalen Abstand von `2em`.
+5. Eine Hintergrundfarbe von `#666666`, wenn sie fokussiert oder darübergefahren wird.
+6. Eine Hintergrundfarbe von `#aaaaaa`, wenn sie deaktiviert sind.
 
-### Gestalten Sie die Tabelle
+### Stylen Sie die Tabelle
 
-Fügen Sie nun einige Best-Practice-Stile zur Tabelle hinzu, wie Sie es zuvor im Modul gelernt haben, plus ein paar Extras.
+Fügen Sie nun einige bewährte Styling-Praxen zur Tabelle hinzu, wie sie zuvor im Modul gelernt wurden, plus ein paar Extras.
 
 Konkret:
 
-1. Geben Sie der Tabelle ein festes Layout, eine Breite von `100%`, und zusammengesetzte Umrandungen.
-2. Machen Sie die obere und untere Umrandung der Tabelle `1px` dick, fest, und geben Sie ihnen die Farbe `#999999`.
-3. Geben Sie den Tabellenkopfzellen und normalen Zellen `0.6em` Polsterung, und stellen Sie sicher, dass ihr Inhalt vertikal oben in den Zellen ausgerichtet ist.
-4. Geben Sie den Tabellenkopfzellen eine untere Umrandung, die `1px` dick, fest, und in der Farbe `#999999` ist.
+1. Geben Sie der Tabelle ein festes Layout, eine Breite von `100%` und zusammenfallende Rahmen.
+2. Machen Sie die oberen und unteren Ränder der Tabelle `1px` dick, durchgezogen und mit der Farbe `#999999`.
+3. Geben Sie den Tabellenkopf- und Standardzellen `0.6em` Abstand und richten Sie ihren Inhalt vertikal in der oberen Hälfte der Zellen aus.
+4. Geben Sie den Tabellenkopfzellen einen unteren Rand, der `1px` dick, durchgezogen und mit der Farbe `#999999` ist.
 5. Geben Sie allen Tabellenzeilen eine Breite von `20%`, außer der vierten Zeile, die eine Breite von `40%` haben sollte.
-6. Innerhalb des Tabellenkörpers gibt es vier Zeilen. Die zweite Zelle in jeder dieser Zeilen enthält Text für eine `rgb()` Farbe. Geben Sie jeder dieser Zellen eine Hintergrundfarbe, die ihrem Text entspricht.
-7. Erstellen Sie Zebra-Streifen: Geben Sie jeder ungeraden Zeile eine Hintergrundfarbe von `#eeeeee`, nur innerhalb des Tabellenkörpers.
-8. Geben Sie der Caption eine Polsterung von `1em`, einen kursiven Schriftstil und einen Buchstabenabstand von `1px`.
+6. Im Tabellenkörper gibt es vier Zeilen. Die zweite Zelle in jeder dieser Zeilen enthält Text für eine `rgb()`-Farbe. Geben Sie jeder dieser Zellen eine Hintergrundfarbe, die dem Text entspricht.
+7. Erstellen Sie Zebrastreifen: Geben Sie jeder ungeradzahligen Zeile eine Hintergrundfarbe von `#eeeeee`, nur innerhalb des Tabellenkörpers.
+8. Geben Sie der Beschriftung `1em` Abstand, einen kursiven Schriftstil und einen Buchstabenabstand von `1px`.
 
-### Beheben Sie die Bildanzeige
+### Beheben der Bildanzeige
 
-An diesem Punkt gibt es ein Problem mit den Bildern in der Tabelle — wir haben jedes Bild auf `100%` der Breite seines Tabellenzellencontainers und eine spezifische Höhe von `150px` gesetzt, da wir nicht wollten, dass die Tabellenzeilen zu hoch werden. Dies hat jedoch das Seitenverhältnis der Bilder verzerrt und sie sehen etwas zusammengedrückt aus.
+An diesem Punkt gibt es ein Problem mit den Bildern in der Tabelle — wir haben jedes Bild auf `100%` der Breite des Zellencontainers gesetzt und eine spezifische Höhe von `150px`, da wir nicht wollten, dass die Tabellenzeilen zu hoch werden. Dies hat das Seitenverhältnis der Bilder verzerrt und sie etwas zusammengequetscht aussehen lassen.
 
-Wir möchten, dass Sie die Bilder so gestalten, dass:
+Wir möchten, dass Sie die Bilder so stylen, dass:
 
-1. Sie in ihrem intrinsischen Seitenverhältnis angezeigt werden, aber ein Teil des Bildes abgeschnitten wird, damit sie immer noch in die Größe der `<img>`-Elemente passen.
-2. Der untere Teil des Bildes angezeigt wird, aber der obere Teil des Bildes abgeschnitten wird.
+1. Sie in ihrem eigenen Seitenverhältnis angezeigt werden, aber etwas vom Bild abgeschnitten wird, damit sie immer noch in die Größe der `<img>`-Elemente passen.
+2. Der untere Teil des Bildes angezeigt wird, aber der obere Teil abgeschnitten wird.
 
-## Tipps und Hinweise
+## Hinweise und Tipps
 
 - Sie müssen das HTML in keiner Weise ändern.
 
@@ -240,7 +240,7 @@ Eine mögliche Lösung könnte sein:
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 body {
@@ -356,7 +356,7 @@ tr :nth-of-type(4) {
 /* Solution: Provide background colors for the "Raw color" cells */
 
 tr:nth-of-type(1) td:nth-of-type(2) {
-  background-color: rgb(255 192 203);
+  background-color: pink;
 }
 
 tr:nth-of-type(2) td:nth-of-type(2) {
@@ -364,11 +364,11 @@ tr:nth-of-type(2) td:nth-of-type(2) {
 }
 
 tr:nth-of-type(3) td:nth-of-type(2) {
-  background-color: rgb(255 105 180);
+  background-color: hotpink;
 }
 
 tr:nth-of-type(4) td:nth-of-type(2) {
-  background-color: rgb(255 0 255);
+  background-color: magenta;
 }
 
 tbody tr:nth-child(odd) {

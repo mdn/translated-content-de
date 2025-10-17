@@ -1,18 +1,18 @@
 ---
-title: "Herausforderung: Unsinniger Geschichtengenerator"
+title: "Herausforderung: Lustiger Geschichtengenerator"
 short-title: "Herausforderung: Geschichtengenerator"
 slug: Learn_web_development/Core/Scripting/Silly_story_generator
 l10n:
-  sourceCommit: 0ca040b6a9cfd931558bd1d3a402707abddc1924
+  sourceCommit: 50a1895c9c499b1b9207f7af945a0fe45de58cca
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Test_your_skills/Arrays", "Learn_web_development/Core/Scripting/Conditionals", "Learn_web_development/Core/Scripting")}}
 
-In dieser Herausforderung ist es Ihre Aufgabe, einige der Kenntnisse anzuwenden, die Sie in diesem Modul bisher erworben haben, und eine unterhaltsame App zu erstellen, die zufällige, unsinnige Geschichten generiert. Dabei testen wir Ihr Wissen über Variablen, Mathematik, Zeichenketten und Arrays. Viel Spaß!
+In dieser Herausforderung ist es Ihre Aufgabe, einige der Kenntnisse, die Sie bisher in diesem Modul erworben haben, anzuwenden, um eine lustige App zu erstellen, die zufällige witzige Geschichten generiert. Dabei werden wir Ihr Wissen über Variablen, Mathematik, Zeichenketten und Arrays testen. Viel Spaß!
 
 ## Ausgangspunkt
 
-Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche in einem der untenstehenden Code-Fenster, um das bereitgestellte Beispiel im MDN Playground zu öffnen. Folgen Sie dann den Anweisungen im Abschnitt [Projektauftrag](#projektauftrag), um die JavaScript-Funktionalität abzuschließen.
+Um zu beginnen, klicken Sie auf die **Play**-Taste in einem der unten stehenden Code-Panels, um das bereitgestellte Beispiel im MDN Playground zu öffnen. Sie folgen dann den Anweisungen im Abschnitt [Projektbeschreibung](#projektbeschreibung), um die JavaScript-Funktionalität abzuschließen.
 
 ```html live-sample___silly-story-start live-sample___silly-story-finish
 <div>
@@ -71,7 +71,7 @@ p {
 ```
 
 ```js live-sample___silly-story-start
-// 1. COMPLETE VARIABLE DEFINITIONS AND RANDOM FUNCTION
+// Complete variable definitions and random functio
 
 const customName = document.getElementById("custom-name");
 const generateBtn = document.querySelector(".generate");
@@ -82,7 +82,7 @@ function randomValueFromArray(array) {
   return array[random];
 }
 
-// 2. RAW TEXT STRINGS
+// Raw text strings
 
 // Willy the Goblin
 // Big Daddy
@@ -96,7 +96,7 @@ function randomValueFromArray(array) {
 // melted into a puddle on the sidewalk
 // turned into a slug and slithered away
 
-// 3. PARTIAL RETURN RANDOM STRING FUNCTION
+// Partial return random string function
 
 function returnRandomStoryString() {
   // It was 94 Fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.
@@ -104,7 +104,7 @@ function returnRandomStoryString() {
   return storyText;
 }
 
-// 4. EVENT LISTENER AND PARTIAL GENERATE FUNCTION DEFINITION
+// Event listener and partial generate function definition
 
 generateBtn.addEventListener("click", generateStory);
 
@@ -126,64 +126,64 @@ function generateStory() {
 
 {{EmbedLiveSample("silly-story-start", "100%", 300)}}
 
-## Projektauftrag
+## Projektbeschreibung
 
-Ihnen wurden einige Textzeichenketten und JavaScript-Funktionen zur Verfügung gestellt; Sie müssen das notwendige JavaScript schreiben, um daraus ein funktionierendes Programm zu erstellen, das Folgendes tut:
+Ihnen wurden einige Textzeichenketten und JavaScript-Funktionen zur Verfügung gestellt; Sie müssen das notwendige JavaScript schreiben, um dies in ein funktionierendes Programm zu verwandeln, das Folgendes tut:
 
-- Generiert eine unsinnige Geschichte, wenn die Schaltfläche „Zufällige Geschichte generieren“ gedrückt wird.
-- Ersetzt den Standardnamen „Bob“ in der Geschichte durch einen benutzerdefinierten Namen, nur wenn ein benutzerdefinierter Name in das Textfeld „Benutzerdefinierten Namen eingeben“ eingegeben wird, bevor die Generatortaste gedrückt wird.
-- Konvertiert die standardmäßigen US-Gewichts- und Temperaturmengen und -einheiten in der Geschichte in UK-Äquivalente, wenn der UK-Radiobutton vor dem Drücken der Generatortaste ausgewählt ist.
-- Generiert jedes Mal eine neue zufällige unsinnige Geschichte, wenn die Taste gedrückt wird.
+- Generiert eine lustige Geschichte, wenn der "Generiere zufällige Geschichte"-Button gedrückt wird.
+- Ersetzt den Standardnamen "Bob" in der Geschichte durch einen benutzerdefinierten Namen, nur wenn vor dem Drücken des Generieren-Buttons ein benutzerdefinierter Name in das Textfeld "Geben Sie einen benutzerdefinierten Namen ein" eingegeben wird.
+- Konvertiert die Standard-US-Gewichts- und Temperaturangaben und -einheiten in der Geschichte in britische Entsprechungen, wenn das UK-Radioschaltfläche markiert ist, bevor der Generator-Button gedrückt wird.
+- Generiert jedes Mal, wenn der Button gedrückt wird, eine neue zufällige lustige Geschichte.
 
 ### Anfangsvariablen und Funktionen
 
-Im JavaScript, unter dem Kommentar "VOLLSTÄNDIGE VARIABLENDEFINITIONEN UND ZUFALLSFUNKTION", haben Sie drei Konstanten, die Referenzen speichern zu:
+Im JavaScript, unterhalb des Kommentars "Vervollständigen Sie die Variablen-Definitionen und die Zufallsfunktion", haben Sie drei Konstanten, die Verweise speichern auf:
 
-- Dem Textfeld „Benutzerdefinierten Namen eingeben“: `customName`.
-- Der Schaltfläche „Zufällige Geschichte generieren“: `generateBtn`.
-- Dem {{htmlelement("p")}}-Element am Ende des HTML-Körpers, in das die Geschichte kopiert wird: `story`.
+- Das Textfeld "Geben Sie einen benutzerdefinierten Namen ein": `customName`.
+- Den Button "Generiere zufällige Geschichte": `generateBtn`.
+- Das {{htmlelement("p")}}-Element am unteren Ende des HTML-Körpers, in das die Geschichte kopiert wird: `story`.
 
-Zusätzlich gibt es eine Funktion namens `randomValueFromArray()`, die ein Array als Eingabe nimmt und zufällig eines der darin gespeicherten Elemente zurückgibt.
+Zusätzlich haben Sie eine Funktion namens `randomValueFromArray()`, die ein Array als Eingabe nimmt und einen der darin gespeicherten Einträge zufällig zurückgibt.
 
-Unter dem Kommentar "ROHDATEN-ZEICHENKETTEN" haben Sie einige kommentierte Textzeichenketten, die als Eingaben in unser Programm dienen. Bitte entfernen Sie die Kommentarzeichen und speichern Sie diese Zeichenketten innerhalb von Konstanten wie folgt:
+Unterhalb des Kommentars "Rohtextzeichenketten" haben Sie einige kommentierte Textzeichenketten, die als Eingabe in unser Programm dienen sollen. Wir möchten, dass Sie diese Zeichenketten auskommentieren und sie in Konstanten wie folgt speichern:
 
 1. Speichern Sie das erste Set von drei Zeichenketten in einem Array namens `characters`.
 2. Speichern Sie das zweite Set von drei Zeichenketten in einem Array namens `places`.
 3. Speichern Sie das dritte Set von drei Zeichenketten in einem Array namens `events`.
 
-### Vervollständigung der Funktion `returnRandomStoryString()`
+### Vervollständigung der `returnRandomStoryString()` Funktion
 
-Unter dem Kommentar "TEILWEISE RÜCKGABE DER ZUFÄLLIGEN ZEICHENKETTENFUNKTION" haben Sie eine teilweise vervollständigte Funktion `returnRandomStoryString()` mit einer langen, kommentierten Textzeichenkette und einer `return`-Anweisung, die einen Wert namens `storyText` zurückgibt.
+Unterhalb des Kommentars "Partielle Rückgabe zufälliger Zeichenkettenfunktion" haben Sie eine teilweise vervollständigte `returnRandomStoryString()` mit einer langen, auskommentierten Textzeichenkette und einer `return`-Anweisung, die einen Wert namens `storyText` zurückgibt.
 
 Um diese Funktion zu vervollständigen:
 
-1. Entfernen Sie den Kommentar aus der langen Textzeichenkette und speichern Sie sie in einer Variablen namens `storyText`. Dies sollte ein Vorlagen-String sein.
-2. Fügen Sie drei Konstanten namens `randomCharacter`, `randomPlace` und `randomEvent` direkt über dem Vorlagen-String hinzu. Diese sollten gleich drei `randomValueFromArray()`-Aufrufen gesetzt sein, die jeweils eine zufällige Zeichenkette aus den Arrays `characters`, `places` und `events` zurückgeben.
-3. Ersetzen Sie in dem Vorlagen-String die Instanzen von `:insertx:`, `:inserty:`, und `:insertz:` durch eingebettete Ausdrücke, die `randomCharacter`, `randomPlace` und `randomEvent` enthalten.
+1. Kommentieren Sie die lange Textzeichenkette wieder ein und speichern Sie sie in einer Variablen namens `storyText`. Dies sollte ein Template Literal sein.
+2. Fügen Sie drei Konstanten namens `randomCharacter`, `randomPlace` und `randomEvent` direkt oberhalb des Template Literals hinzu. Diese sollten gleich drei `randomValueFromArray()`-Aufrufen gesetzt sein, welche jeweils eine zufällige Zeichenkette aus den `characters`, `places` und `events`-Arrays zurückgeben sollten.
+3. Ersetzen Sie in dem Template Literal die Instanzen von `:insertx:`, `:inserty:` und `:insertz:` durch eingebettete Ausdrücke, die `randomCharacter`, `randomPlace` und `randomEvent` enthalten, beziehungsweise.
 
-### Vervollständigung der Funktion `generateStory()`
+### Vervollständigung der `generateStory()` Funktion
 
-Unter dem Kommentar "EREIGNIS-LISTENER UND TEILWEISE FUNKTIONSDEFINITION" haben Sie einige Code-Elemente:
+Unterhalb des Kommentars "Ereignislistener und partielle Generierungsfunktionsdefinition" haben Sie einige Code-Elemente:
 
-- Eine Zeile, die einen `click`-Ereignis-Listener zur Variablen `generateBtn` hinzufügt, sodass die Funktion `generateStory()` ausgeführt wird, wenn die Schaltfläche, die sie repräsentiert, angeklickt wird.
-- Eine teilweise definierte Funktion `generateStory()`. Für den Rest der Herausforderung füllen Sie die Zeilen in dieser Funktion aus, um sie zu vervollständigen und richtig funktionieren zu lassen.
+- Eine Zeile, die einen `click`-Ereignis-Listener zur `generateBtn`-Variable hinzufügt, sodass, wenn der dargestellte Button geklickt wird, die `generateStory()`-Funktion ausgeführt wird.
+- Eine teilweise vervollständigte Definition der `generateStory()`-Funktion. Bis zum Ende der Herausforderung werden Sie Zeilen innerhalb dieser Funktion ausfüllen müssen, um sie zu vervollständigen und ordnungsgemäß zum Laufen zu bringen.
 
 Folgen Sie diesen Schritten, um die Funktion zu vervollständigen:
 
-1. Erstellen Sie eine neue Variable namens `newStory` und setzen Sie ihren Wert auf einen `returnRandomStoryString()`-Aufruf. Diese Funktion wird benötigt, damit wir jedes Mal, wenn die Taste gedrückt wird, eine neue zufällige Geschichte erstellen können. Wenn wir `newStory` direkt auf `storyText` setzen würden, könnten wir nur einmal eine neue Geschichte generieren.
-2. Fügen Sie innerhalb des ersten `if`-Blocks einen String-Ersetzungsmethodenaufruf hinzu, um den Namen `Bob` in der Zeichenkette `newStory` durch die Variable `name` zu ersetzen. In diesem Block sagen wir: "Wenn ein Wert in das Textfeld `customName` eingegeben wurde, ersetzen Sie `Bob` in der Geschichte durch diesen benutzerdefinierten Namen."
-3. Innerhalb des zweiten `if`-Blocks überprüfen wir, ob der `uk`-Radiobutton ausgewählt wurde. Wenn ja, möchten wir die Gewicht- und Temperaturwerte in der Geschichte von Pfund und Fahrenheit in Steine und Celsius umrechnen. Was Sie tun müssen, ist Folgendes:
-   1. Suchen Sie die Formeln zur Umrechnung von Pfund in Stein und Fahrenheit in Celsius.
-   2. Ersetzen Sie in der Zeile, die die Konstante `weight` definiert, `300` durch eine Berechnung, die 300 Pfund in Steine umwandelt. Verketteln Sie `" stone"` an das Ende des Ergebnisses des gesamten `Math.round()`-Aufrufs.
-   3. Ersetzen Sie in der Zeile, die die Variable `temperature` definiert, `94` durch eine Berechnung, die 94 Fahrenheit in Celsius umwandelt. Verketteln Sie `" Celsius"` an das Ende des Ergebnisses des gesamten `Math.round()`-Aufrufs.
-   4. Fügen Sie direkt unter den beiden Variablendefinitionen zwei weitere String-Ersetzungszeilen hinzu, die `300 pounds` durch den Inhalt der Variablen `weight` und `94 Fahrenheit` durch den Inhalt der Variablen `temperature` ersetzen.
-4. Schließlich setzen Sie in der vorletzten Zeile der Funktion die `textContent`-Eigenschaft der Variable `story` (die den Absatz referenziert) auf `newStory`.
+1. Erstellen Sie eine neue Variable namens `newStory` und setzen Sie deren Wert gleich einem `returnRandomStoryString()`-Aufruf. Diese Funktion ist erforderlich, damit wir jedes Mal, wenn der Button gedrückt wird, eine neue zufällige Geschichte erstellen können. Wenn wir `newStory` direkt auf `storyText` setzen würden, könnten wir nur einmal eine neue Geschichte generieren.
+2. Fügen Sie innerhalb des ersten `if`-Blocks einen Methodenaufruf zur Zeichenkettenersetzung hinzu, um den Namen `Bob` zu ersetzen, der in der `newStory`-Zeichenkette gefunden wird, durch die `name`-Variable. In diesem Block sagen wir: "Wenn ein Wert in das `customName`-Texteingabefeld eingegeben wurde, ersetzen Sie `Bob` in der Geschichte durch den benutzerdefinierten Namen."
+3. Im zweiten `if`-Block prüfen wir, ob das `uk`-Radioschaltfläche ausgewählt wurde. Falls ja, möchten wir die Gewichts- und Temperaturwerte in der Geschichte von Pfund und Fahrenheit in Steine und Celsius umrechnen. Was Sie tun müssen, ist Folgendes:
+   1. Suchen Sie die Formeln zum Umrechnen von Pfund in Stein und Fahrenheit in Celsius.
+   2. Ersetzen Sie innerhalb der Zeile, die die `weight`-Konstante definiert, `300` durch eine Berechnung, die 300 Pfund in Steine umrechnet. Verketteln Sie `" stone"` an das Ende des Ergebnisses des gesamten `Math.round()`-Aufrufs.
+   3. Ersetzen Sie innerhalb der Zeile, die die `temperature`-Variable definiert, `94` durch eine Berechnung, die 94 Fahrenheit in Celsius umrechnet. Verketteln Sie `" Celsius"` an das Ende des Ergebnisses des gesamten `Math.round()`-Aufrufs.
+   4. Fügen Sie direkt unterhalb der beiden Variablendefinitionen zwei weitere Zeichenkettenersetzungszeilen hinzu, die `300 pounds` mit dem Inhalt der `weight`-Variable und `94 Fahrenheit` mit dem Inhalt der `temperature`-Variable ersetzen.
+4. Schließlich setzen Sie in der zweitletzten Zeile der Funktion die `textContent`-Eigenschaft der `story`-Variable (die den Absatz referenziert) gleich `newStory`.
 
 ## Hinweise und Tipps
 
-- Sie müssen den HTML- und CSS-Code in keiner Weise bearbeiten.
-- [`Math.round()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/round) ist eine eingebaute JavaScript-Methode, die das Ergebnis einer Berechnung auf die nächste ganze Zahl rundet.
-- Es gibt drei Instanzen von Zeichenketten, die ersetzt werden müssen. Sie könnten die Methode `replace()` oder eine andere Lösung verwenden.
+- Sie müssen das HTML und CSS in keiner Weise bearbeiten.
+- [`Math.round()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/round) ist eine integrierte JavaScript-Methode, die das Ergebnis einer Berechnung auf die nächste ganze Zahl rundet.
+- Es gibt drei Instanzen von Zeichenketten, die ersetzt werden müssen. Sie könnten die `replace()`-Methode verwenden oder eine andere Lösung.
 
 ## Beispiel
 
@@ -197,7 +197,7 @@ Ihre fertige App sollte wie das folgende Live-Beispiel funktionieren:
 Das fertige JavaScript sollte in etwa so aussehen:
 
 ```js live-sample___silly-story-finish
-// 1. COMPLETE VARIABLE DEFINITIONS AND RANDOM FUNCTION
+// Complete variable definitions and random function
 
 const customName = document.getElementById("custom-name");
 const generateBtn = document.querySelector(".generate");
@@ -208,7 +208,7 @@ function randomValueFromArray(array) {
   return array[random];
 }
 
-// 2. RAW TEXT STRINGS
+// Solution: Raw text strings
 
 const characters = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
 const places = ["the soup kitchen", "Disneyland", "the White House"];
@@ -218,7 +218,7 @@ const events = [
   "turned into a slug and slithered away",
 ];
 
-// 3. PARTIAL RETURN RANDOM STRING FUNCTION
+// Solution: Partial return random string function
 
 function returnRandomStoryString() {
   const randomCharacter = randomValueFromArray(characters);
@@ -230,7 +230,7 @@ function returnRandomStoryString() {
   return storyText;
 }
 
-// 4. EVENT LISTENER AND PARTIAL GENERATE FUNCTION DEFINITION
+// Solution: Event listener and partial generate function definition
 
 generateBtn.addEventListener("click", generateStory);
 

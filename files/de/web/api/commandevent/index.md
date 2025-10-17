@@ -2,14 +2,14 @@
 title: CommandEvent
 slug: Web/API/CommandEvent
 l10n:
-  sourceCommit: 7307f1c0d3ac3ff499467f7a280fb3172e48e27f
+  sourceCommit: b5a6d8bc5fd751032f70b88e7ec1ec61339937de
 ---
 
 {{APIRef("Invoker Commands API")}}
 
-Das **`CommandEvent`** Interface repräsentiert ein Ereignis, das den Benutzer informiert, wenn ein [`button`](/de/docs/Web/API/HTMLButtonElement)-Element mit gültigen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) und [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Attributen dabei ist, ein interaktives Element aufzurufen.
+Das **`CommandEvent`**-Interface repräsentiert ein Ereignis, das den Benutzer benachrichtigt, wenn ein [`button`](/de/docs/Web/API/HTMLButtonElement)-Element mit gültigen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)- und [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Attributen ein interaktives Element aufzurufen beabsichtigt.
 
-Dies ist das Ereignisobjekt für das `command`-Ereignis von `HTMLElement`, welches eine Aktion von einem Invoker Control darstellt, wenn es aufgerufen wird (zum Beispiel, wenn es angeklickt oder gedrückt wird).
+Dies ist das Ereignisobjekt für das `HTMLElement`-[`command`](/de/docs/Web/API/HTMLElement/command_event)-Ereignis, das eine Aktion von einem Invoker Control darstellt, wenn es aufgerufen wird (zum Beispiel, wenn es angeklickt oder gedrückt wird).
 
 {{InheritanceDiagram}}
 
@@ -18,14 +18,14 @@ Dies ist das Ereignisobjekt für das `command`-Ereignis von `HTMLElement`, welch
 - [`CommandEvent()`](/de/docs/Web/API/CommandEvent/CommandEvent)
   - : Erstellt ein `CommandEvent`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Dieses Interface erbt Eigenschaften von seinem Elterninterface, [`Event`](/de/docs/Web/API/Event)._
+_Dieses Interface erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - [`CommandEvent.source`](/de/docs/Web/API/CommandEvent/source) {{ReadOnlyInline}}
-  - : Ein [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), das den Button repräsentiert, der diese Aktion ausgelöst hat.
+  - : Ein [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), das den Button repräsentiert, der diese Ausführung verursacht hat.
 - [`CommandEvent.command`](/de/docs/Web/API/CommandEvent/command) {{ReadOnlyInline}}
-  - : Ein String, der den [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Wert des Quellbuttons repräsentiert.
+  - : Ein String, der den [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Wert des Quell-Buttons darstellt.
 
 ## Beispiele
 
@@ -52,7 +52,7 @@ popover.addEventListener("command", (event) => {
 });
 ```
 
-### Verwendung von benutzerdefinierten Werten für Befehle
+### Verwendung benutzerdefinierter Werte für Befehle
 
 In diesem Beispiel wurden drei Buttons mit [`commands` mit benutzerdefinierten Werten](/de/docs/Web/HTML/Reference/Elements/button#custom_values) erstellt.
 
@@ -75,22 +75,21 @@ In diesem Beispiel wurden drei Buttons mit [`commands` mit benutzerdefinierten W
 }
 ```
 
-Ein Event-Listener wird an das Bild mithilfe des [`command`-Ereignisses](/de/docs/Web/API/CommandEvent) angehängt.
-Wenn einer der Buttons angeklickt wird, führt der Listener Code basierend auf dem benutzerdefinierten `command`-Wert aus, der dem Button zugewiesen ist, rotiert das Bild und aktualisiert auch dessen `alt`-Text, um den neuen Winkel des Bildes anzuzeigen.
+Ein Event-Listener ist an das Bild mit dem [`command`-Ereignis](/de/docs/Web/API/HTMLElement/command_event) angehängt. Wenn einer der Buttons angeklickt wird, führt der Listener Code basierend auf dem benutzerdefinierten `command`-Wert aus, der dem Button zugewiesen wurde, rotiert das Bild und aktualisiert auch den `alt`-Text, um den neuen Winkel des Bildes anzugeben.
 
 ```js
 const image = document.getElementById("the-image");
 
 image.addEventListener("command", (event) => {
-  let rotate = parseInt(event.target.style.rotate || "0");
-  if (event.command == "--reset") {
+  let rotate = parseInt(event.target.style.rotate || "0", 10);
+  if (event.command === "--reset") {
     rotate = 0;
     event.target.style.rotate = `${rotate}deg`;
   } else if (event.command === "--rotate-left") {
-    rotate === -270 ? (rotate = 0) : (rotate = rotate - 90);
+    rotate = rotate === -270 ? 0 : rotate - 90;
     event.target.style.rotate = `${rotate}deg`;
   } else if (event.command === "--rotate-right") {
-    rotate === 270 ? (rotate = 0) : (rotate = rotate + 90);
+    rotate = rotate === 270 ? 0 : rotate + 90;
     event.target.style.rotate = `${rotate}deg`;
   }
   event.target.alt = `dinosaur head rotated ${rotate} degrees`;

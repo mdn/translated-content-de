@@ -2,12 +2,12 @@
 title: object-view-box
 slug: Web/CSS/object-view-box
 l10n:
-  sourceCommit: 01e9f29edc82da8df6d01009d79bf50616ea43f4
+  sourceCommit: b5a6d8bc5fd751032f70b88e7ec1ec61339937de
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`object-view-box`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert ein Rechteck als sichtbaren Bereich (Viewbox) innerhalb eines {{Glossary("replaced_elements", "ersetzten Elements")}} und ermöglicht, dass der Inhalt des ersetzten Elements gezoomt oder verschoben werden kann. Sie funktioniert ähnlich wie das SVG-Attribut {{SVGAttr("viewBox")}}.
+Die **`object-view-box`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert ein Rechteck als sichtbaren Bereich (Viewbox) innerhalb eines {{Glossary("replaced_elements", "ersetzten Elements")}} und ermöglicht es, den Inhalt des ersetzten Elements zu zoomen oder zu schwenken. Sie funktioniert ähnlich wie das SVG-Attribut {{SVGAttr("viewBox")}}.
 
 {{InteractiveExample("CSS Demo: object-view-box")}}
 
@@ -45,7 +45,7 @@ object-view-box: none;
 #example-element {
   height: 100%;
   width: 100%;
-  border: 2px dotted #888;
+  border: 2px dotted #888888;
 }
 
 @supports not (object-view-box: none) {
@@ -86,14 +86,14 @@ object-view-box: unset;
 - `none`
   - : Das Element hat keine Viewbox. Dies ist der Standardwert.
 
-- [`<basic-shape-rect>`](/de/docs/Web/CSS/basic-shape#basic-shape-rect)
-  - : Eine {{cssxref("basic-shape/inset","inset()")}}, {{cssxref("basic-shape/xywh","xywh()")}} oder {{cssxref("basic-shape/rect","rect()")}} Funktion, die eine Viewbox für ein Element mit natürlichen Abmessungen (ersetzte Elemente) spezifiziert. Löst sich sonst in `none` auf.
+- [`<basic-shape-rect>`](/de/docs/Web/CSS/basic-shape#syntax_for_rectangles_basic-shape-rect)
+  - : Eine {{cssxref("basic-shape/inset","inset()")}}, {{cssxref("basic-shape/xywh","xywh()")}}, oder {{cssxref("basic-shape/rect","rect()")}} Funktion, die eine Viewbox für ein Element mit natürlichen Abmessungen (ersetzte Elemente) festlegt. Andernfalls wird es auf `none` aufgelöst.
 
 ## Beschreibung
 
-Die `object-view-box` Eigenschaft kann verwendet werden, um {{Glossary("replaced_elements", "ersetzte Elemente")}}, einschließlich Bildern und Videos, zuzuschneiden oder zu skalieren. Sie funktioniert, indem ein Abschnitt des Inhalts des ersetzten Elements im verfügbaren Raum angezeigt wird, der für dieses Element reserviert ist. Der Abschnitt des ersetzten Elements, der angezeigt wird, wird durch den Wert der Eigenschaft definiert. Der verfügbare reservierte Raum wird durch die Standard-{{Glossary("extrinsic_size", "extrinsische Größe")}} des Elements bestimmt. Der angezeigte Inhaltsabschnitt kann gezoomt, herausgezoomt oder in seiner ursprünglichen Größe präsentiert werden, während das intrinsische {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Inhalts beibehalten wird.
+Die `object-view-box`-Eigenschaft kann verwendet werden, um {{Glossary("replaced_elements", "ersetzte Elemente")}} wie Bilder und Videos zu zuschneiden oder zu skalieren. Sie funktioniert, indem sie einen Abschnitt des Inhalts des ersetzten Elements im verfügbaren Raum zeigt, der für dieses Element reserviert ist. Der angezeigte Abschnitt des ersetzten Elements wird durch den Wert der Eigenschaft definiert. Der verfügbare reservierte Raum wird durch die Standard-{{Glossary("extrinsic_size", "externe Größe")}} des Elements bestimmt. Der angezeigte Unterabschnitt des Inhalts kann vergrößert, verkleinert oder in seiner ursprünglichen Größe angezeigt werden, während das intrinsische {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Inhalts beibehalten wird.
 
-Der Eigenschaftswert ist ein `<basic-shape-rect>`, eine der {{cssxref("basic-shape")}} Funktionen, die auf die Definition einer rechteckigen Form begrenzt ist. Zum Beispiel kann der Wert eine {{cssxref("basic-shape/xywh","xywh()")}} Funktion sein:
+Der Eigenschaftswert ist ein `<basic-shape-rect>`, eine der {{cssxref("basic-shape")}}-Funktionen, die darauf beschränkt sind, eine rechteckige Form zu definieren. Der Wert kann zum Beispiel eine {{cssxref("basic-shape/xywh","xywh()")}} Funktion sein:
 
 ```css
 img {
@@ -101,17 +101,17 @@ img {
 }
 ```
 
-In diesem Fall ist die obere linke Ecke des Abschnitts des Bildes, das angezeigt wird, `410px` vom linken Rand und `0` vom oberen Rand entfernt, wie durch die x- und y-Koordinatenparameter definiert. Die Größe des Abschnitts des Originalbildes, das angezeigt wird, ist `400px` breit und `150px` hoch; die `w` und `h` Komponenten der Funktion. Dieser 400x150-Abschnitt des Bildes wird in dem Raum angezeigt, der für das Bild selbst reserviert war, als die Seite gestaltet wurde. Ob der angezeigte Inhaltsabschnitt seine ursprüngliche intrinsische Größe hat, hereingezoomt oder herausgezoomt wird, hängt davon ab, ob die Viewbox 400px x 150px, kleiner oder größer als die Bildgröße des Elements ist.
+In diesem Fall befindet sich die obere linke Ecke des angezeigten Bildabschnitts `410px` von der linken Kante und `0` von oben entfernt, wie durch die x- und y-Koordinatenparameter definiert. Die Größe des Abschnitts des ursprünglichen Bildes, der angezeigt wird, ist `400px` breit und `150px` hoch; die `w`- und `h`-Komponenten der Funktion. Dieser 400x150 Abschnitt des Bildes wird in dem Raum angezeigt, der für das Bild selbst reserviert war, als die Seite gestaltet wurde. Ob der angezeigte Inhaltsabschnitt in seiner ursprünglichen Größe, vergrößert oder verkleinert dargestellt wird, hängt davon ab, ob die Viewbox 400px x 150px, kleiner oder größer ist als die Größe des Bildelements.
 
-![Das Leopardenbild, das mit der object-view-box Eigenschaft zugeschnitten wurde, mit einer 400px mal 150px Viewbox, die einen nicht skalierten Abschnitt des Bildes zeigt](https://mdn.github.io/shared-assets/images/diagrams/css/object-view-box/object-view-box_xywh.jpg)
+![Das Leopard-Bild zugeschnitten mit der object-view-box Eigenschaft, mit einer 400px mal 150px Viewbox, die einen nicht skalierten Abschnitt des Bildes darstellt.](https://mdn.github.io/shared-assets/images/diagrams/css/object-view-box/object-view-box_xywh.jpg)
 
-In diesem Fall, da die durch die `object-view-box` Eigenschaft definierte rechteckige Viewbox und der rechteckige Bereich des `<img>` Elements die gleiche Größe haben, d.h. 400 x 150 Pixel, wird das ersetzte Element nicht skaliert.
+In diesem Fall, da die durch die `object-view-box`-Eigenschaft definierte rechteckige Viewbox und der rechteckige Bereich des `<img>`-Elements die gleiche Größe haben, nämlich 400 x 150 Pixel, wird das ersetzte Element nicht skaliert.
 
-Reduzieren Sie die `w` und `h` Werte, um einen Hineinzoomeffekt zu erzeugen; da der kleinere Bildabschnitt gestreckt wird, hat er einen Hineinzoomeffekt.
+Reduzieren Sie die `w`- und `h`-Werte, um einen vergrößerten Effekt zu erzeugen; da der kleinere Bildabschnitt gestreckt wird, hat er einen vergrößerten Effekt.
 
-Erhöhen Sie die Werte der `w` und `h` Argumente, um einen Herauszoomeffekt zu erzeugen; da der größere Bildabschnitt verkleinert wird, hat er einen Herauszoomeffekt.
+Erhöhen Sie die `w`- und `h`-Argumentwerte, um einen verkleinerten Effekt zu erzeugen; da der größere Bildabschnitt verkleinert wird, hat er einen verkleinerten Effekt.
 
-Das Animieren der `x` und `y` Koordinaten erzeugt einen Schwenkeffekt, indem die Viewbox des Elements bewegt wird, während das Element selbst an seinem ursprünglichen Ort bleibt.
+Die Animation der `x`- und `y`-Koordinaten erzeugt einen Schwenkeffekt, indem die Viewbox des Elements bewegt wird, während das Element selbst an seiner ursprünglichen Position bleibt.
 
 ## Formale Definition
 
@@ -123,13 +123,13 @@ Das Animieren der `x` und `y` Koordinaten erzeugt einen Schwenkeffekt, indem die
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Dieses Beispiel zeigt die grundlegende Verwendung und die Effekte der `object-view-box` Eigenschaft, mit Beispielen unter Verwendung der drei verschiedenen `<basic-shape-rect>` Funktionen.
+Dieses Beispiel demonstriert die grundlegende Nutzung und die Effekte der `object-view-box`-Eigenschaft mit Beispielen, die die drei verschiedenen `<basic-shape-rect>`-Funktionen verwenden.
 
 #### HTML
 
-Wir haben drei fast identische {{htmlelement("img")}} Elemente, die in {{htmlelement("figure")}} Elemente eingeschlossen sind; der einzige Unterschied sind ihre Klassennamen.
+Wir haben drei fast identische {{htmlelement("img")}}-Elemente, die in {{htmlelement("figure")}}-Elemente eingepackt sind; der einzige Unterschied sind ihre Klassennamen.
 
 ```html
 <figure>
@@ -157,7 +157,7 @@ Wir haben drei fast identische {{htmlelement("img")}} Elemente, die in {{htmlele
 
 #### CSS
 
-Wir gestalten alle Bilder so, dass sie die gleiche Breite und Höhe haben, und setzen dann für jede Klasse, und damit für jedes Bild, einen anderen `object-view-box` Wert. Die intrinsische Größe des bemalten Handbildes ist `298px` mal `332px`. Wir legen die {{cssxref("height")}} und {{cssxref("width")}} fest und setzen die extrinsische Größe auf `200px` mal `200px`.
+Wir gestalten alle Bilder so, dass sie die gleiche Breite und Höhe haben, und setzen dann jede Klasse und damit jedes Bild so, dass sie einen anderen `object-view-box`-Wert haben. Die intrinsische Größe des gemalten Handbildes ist `298px` x `332px`. Wir setzen die {{cssxref("height")}} und {{cssxref("width")}}, um die äußere Größe auf `200px` x `200px` festzulegen.
 
 ```css
 img {
@@ -167,7 +167,7 @@ img {
 }
 ```
 
-Wir setzen drei verschiedene `object-view-box` Eigenschaftswerte unter Verwendung von drei verschiedenen Formfunktionen. Der `intrinsic` Wert der {{cssxref("basic-shape/xywh","xywh()")}} Funktion des Elements zeigt einen `200px` großen quadratischen Abschnitt des Bildinhalts, beginnend `70px` vom linken und `90px` vom oberen Rand. Die `zoom-in` Funktion des {{cssxref("basic-shape/rect","rect()")}} Elements zeigt einen `160px` großen quadratischen Abschnitt des ursprünglichen Elements, der sich von `110px` bis `270px` vom oberen Rand und `90px` bis `250px` vom linken Rand erstreckt. Die `zoom-out` Funktion des ersetzten Elements {{cssxref("basic-shape/inset","inset()")}} zeigt einen `298px` großen quadratischen Abschnitt des ursprünglichen Elements und zeigt die gesamte Breite des Bildes, während oben und unten 17px abgeschnitten werden.
+Wir setzen drei verschiedene `object-view-box`-Eigenschaftswerte mit drei verschiedenen Formfunktionen. Der `intrinsic` Element's {{cssxref("basic-shape/xywh","xywh()")}} Funktionswert zeigt einen `200px` quadratischen Abschnitt des Bildinhalts, beginnend `70px` von der linken und `90px` von der oberen Kante. Der `zoom-in` Element's {{cssxref("basic-shape/rect","rect()")}} Funktionswert zeigt einen `160px` quadratischen Abschnitt des ursprünglichen Elements, der von `110px` bis `270px` von der oberen Kante und `90px` bis `250px` von der linken Kante reicht. Der `zoom-out` ersetzte Element's {{cssxref("basic-shape/inset","inset()")}} Funktionswert zeigt einen `298px` quadratischen Abschnitt des ursprünglichen Elements, wobei die gesamte Breite des Bildes angezeigt wird, während 17px von oben und unten abgeschnitten werden.
 
 ```css
 .intrinsic {
@@ -207,17 +207,17 @@ figcaption {
 
 #### Ergebnisse
 
-{{ EmbedLiveSample("Grundlegende Verwendung", "", "300") }}
+{{ EmbedLiveSample("Basic usage", "", "300") }}
 
-Die `intrinsic` Version zeigt einen nicht skalierten Abschnitt des Bildes. Die `zoom-in` Version zeigt einen kleineren Abschnitt (`160px` Quadrat) des Bildes, der hochskaliert wird, um die `200px` quadratische Viewbox zu füllen. Da der Abschnitt gestreckt wird, sieht er hereingezoomt aus. Die `zoom-out` Version zeigt einen größeren (`298px` Quadrat) Abschnitt des Bildes, der herunterskaliert wird, um die `200px` quadratische Viewbox zu füllen. Da der Abschnitt verkleinert wird, sieht er herausgezoomt aus.
+Die `intrinsic` Version zeigt einen nicht skalierten Abschnitt des Bildes. Die `zoom-in` Version zeigt einen kleineren Abschnitt (`160px` quadratisch) des Bildes, der auf `200px` quadratischen Viewbox skaliert ist. Da der Abschnitt gestreckt wird, sieht er vergrößert aus. Die `zoom-out` Version zeigt einen größeren (`298px` quadratischen) Abschnitt des Bildes, der auf `200px` quadratischen Viewbox verkleinert ist. Da der Abschnitt verkleinert wird, sieht er verkleinert aus.
 
-### Live-Zoom-in mit der object-view-box Eigenschaft
+### Live-Zoom mit der object-view-box Eigenschaft
 
-Dieses Beispiel zeigt die Verwendung der `object-view-box` Eigenschaft, um einen Abschnitt eines ersetzten Elements innerhalb eines statisch dimensionierten HTML-Elements hereinzuzoomen und herauszuzoomen. In diesem Fall dient das Auge des Leoparden innerhalb eines sehr großen Bildes als Brennpunkt des Zoom-Effekts.
+Dieses Beispiel demonstriert die Verwendung der `object-view-box`-Eigenschaft, um einen Abschnitt eines ersetzten Elements innerhalb eines statisch dimensionierten HTML-Elements ein- und auszuzoomen. In diesem Fall dient das Auge des Leopards innerhalb eines sehr großen Bildes als Brennpunkt des Zoom-Effekts.
 
 #### HTML
 
-Wir fügen ein {{htmlelement("img")}} Element und ein [`range`](Web/HTML/Reference/Elements/input/range) {{htmlelement("input")}} Element mit einem zugehörigen {{htmlelement("label")}} ein. Die natürlichen Abmessungen oder die intrinsische Größe des ursprünglichen Leopardenbildes sind `1244px` breit und `416px` hoch, mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} von `3:1`.
+Wir fügen ein {{htmlelement("img")}} Element und ein [`range`](/de/docs/Web/HTML/Reference/Elements/input/range) {{htmlelement("input")}} Element mit einem zugehörigen {{htmlelement("label")}} ein. Die natürlichen Dimensionen oder die intrinsische Größe des ursprünglichen Leopardenbildes sind `1244px` breit und `416px` hoch, mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} von `3:1`.
 
 ```html
 <img
@@ -232,7 +232,7 @@ Wir fügen ein {{htmlelement("img")}} Element und ein [`range`](Web/HTML/Referen
 
 #### CSS
 
-Wir definieren eine `--box-size` benutzerdefinierte Eigenschaft, die als Höhe und Breite in der {{cssxref("basic-shape/xywh", "xywh()")}} Funktion verwendet wird und eine quadratische Viewbox mit einem Seitenverhältnis von `1:1` erstellt. Der Offset-Punkt der Viewbox, der Brennpunkt unseres Zoom-Effekts, wird für die `x` Koordinate auf `500px` und die `y` Koordinate auf `30px` gesetzt, was der oberen linken Ecke des rechten Auges des Leoparden entspricht.
+Wir definieren eine `--box-size`-benutzerdefinierte Eigenschaft, die als Höhe und Breite in der {{cssxref("basic-shape/xywh", "xywh()")}}-Funktion verwendet wird, um eine quadratische Viewbox mit einem Seitenverhältnis von `1:1` zu erstellen. Der Offsetpunkt der Viewbox, der Brennpunkt in unserem Zoom-Effekt, ist auf `500px` für die `x`-Koordinate und `30px` für die `y`-Koordinate festgelegt, was der oberen linken Ecke des rechten Auges des Leoparden entspricht.
 
 ```css hidden
 input {
@@ -272,7 +272,7 @@ img {
 
 #### JavaScript
 
-Wir fügen einen Event-Listener zum Schieberegler hinzu, der den Wert der `--boxSize` benutzerdefinierten Eigenschaft aktualisiert, wenn der Benutzer damit interagiert. Um den Vergrößerungseffekt zu erhöhen, wenn der Schieberegler nach rechts bewegt wird, wird der Wert des Schiebereglers invertiert, indem er von `500px` subtrahiert wird, da eine Reduzierung der Größe der Viewbox den Vergrößerungseffekt erhöht.
+Wir fügen einen Event-Listener zum Slider hinzu, der den Wert der benutzerdefinierten Eigenschaft `--boxSize` aktualisiert, wenn der Benutzer mit ihm interagiert. Um den Zoom-Effekt zu erhöhen, wenn der Slider nach rechts bewegt wird, wird der Wert des Sliders invertiert, indem er von `500px` abgezogen wird, da das Reduzieren der Viewbox-Größe den Zoom-Effekt erhöht.
 
 ```js
 const img = document.querySelector("img");
@@ -291,13 +291,13 @@ update();
 
 #### Ergebnis
 
-{{ EmbedLiveSample("Live-Zoom-in mit der object-view-box Eigenschaft", "", 480) }}
+{{ EmbedLiveSample("Live zoom in using object-view-box property", "", 480) }}
 
-Bewegen Sie den Schieberegler nach rechts, um den Vergrößerungseffekt zu erhöhen, und nach links, um ihn zu verringern. Der Schieberegler beeinflusst nur die Dimensionen der Viewbox, während die x- und y-Werte, der Ursprungspunkt der Viewbox, konstant bleiben. Die Größe des `<img>` Elements ändert sich ebenfalls nicht.
+Bewegen Sie den Slider nach rechts, um den Zoom-Effekt zu verstärken, und nach links, um ihn zu verringern. Der Slider beeinflusst nur die Dimensionen der Viewbox, während die x- und y-Werte, der Ursprungspunkt der Viewbox, konstant bleiben. Auch die Größe des `<img>`-Elements ändert sich nicht.
 
 ### Schwenken mit der object-view-box Eigenschaft
 
-Dieses Beispiel zeigt das Schwenken eines Bildes durch animieren des `object-view-box` Eigenschaftswerts.
+Dieses Beispiel demonstriert das Schwenken eines Bildes durch die Animation des `object-view-box`-Eigenschaftswerts.
 
 #### HTML
 
@@ -311,7 +311,7 @@ Das HTML enthält ein einzelnes Bild.
 
 #### CSS
 
-Wir definieren eine Bildgröße und halten die Viewbox-Dimensionen, die `w` und `h` Komponenten der `xywh()` Funktion, konstant, während wir die obere und linke Position animieren und die Position der `x` und `y` Parameter über fünf Sekunden ändern.
+Wir definieren eine Bildgröße und halten die Dimensionen der Viewbox, die `w`- und `h`-Komponenten der `xywh()`-Funktion, konstant, während wir die oberen und linken Positionen animieren, um die Position der `x`- und `y`-Parameter über fünf Sekunden zu ändern.
 
 ```css
 img {
@@ -348,7 +348,7 @@ img {
 
 #### Ergebnis
 
-{{ EmbedLiveSample("Schwenken mit der object-view-box Eigenschaft", "", 400) }}
+{{ EmbedLiveSample("Panning using the object-view-box property", "", 400) }}
 
 ## Spezifikationen
 
@@ -364,5 +364,5 @@ img {
 - {{cssxref("object-fit")}}
 - {{cssxref("object-position")}}
 - {{cssxref("background-size")}}
-- [Das Seitenverhältnis verstehen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
-- [CSS-Bilder](/de/docs/Web/CSS/CSS_images) Modul
+- [Verständnis des Seitenverhältnisses](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
+- [CSS-Bilder](/de/docs/Web/CSS/CSS_images)-Modul

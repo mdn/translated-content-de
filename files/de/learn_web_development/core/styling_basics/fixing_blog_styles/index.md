@@ -1,18 +1,18 @@
 ---
-title: "Herausforderung: Beheben von Blogseiten-Stilen"
-short-title: "Herausforderung: Beheben von Blog-Stilen"
+title: "Herausforderung: Blogseiten-Stile korrigieren"
+short-title: "Herausforderung: Blogseiten-Stile korrigieren"
 slug: Learn_web_development/Core/Styling_basics/Fixing_blog_styles
 l10n:
-  sourceCommit: 2e427c5c185433c5a6612c63bf877753a5fedc99
+  sourceCommit: 50a1895c9c499b1b9207f7af945a0fe45de58cca
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Test_your_skills/Cascade", "Learn_web_development/Core/Styling_basics/Values_and_units", "Learn_web_development/Core/Styling_basics")}}
 
-In dieser Herausforderung geben wir Ihnen ein grundlegendes Blogseiten-Beispiel, das teilweise gestylt ist. Wir benötigen Ihre Hilfe, um einige Probleme mit dem vorhandenen CSS zu beheben und einige Stile hinzuzufügen, um es fertigzustellen. Dabei testen wir Ihr Wissen über Selektoren, das Boxmodell und Konflikte/Kaskadierung.
+In dieser Herausforderung geben wir Ihnen ein grundlegendes Blogseiten-Beispiel, das teilweise gestylt ist. Wir benötigen Ihre Hilfe, um einige Probleme mit dem vorhandenen CSS zu beheben und einige Stile hinzuzufügen, um es fertigzustellen. Unterwegs überprüfen wir Ihr Wissen über Selektoren, das Boxmodell und Konflikte/Kaskade.
 
 ## Ausgangspunkt
 
-Um zu beginnen, klicken Sie auf die **Wiedergabe**-Taste in einem der folgenden Code-Panels, um das bereitgestellte Beispiel im MDN Playground zu öffnen. Befolgen Sie dann die Anweisungen im Abschnitt [Projektbeschreibung](#projektbeschreibung), um die Seite entsprechend zu gestalten.
+Um zu beginnen, klicken Sie auf die **Play**-Schaltfläche in einem der Code-Panels unten, um das bereitgestellte Beispiel im MDN Playground zu öffnen. Folgen Sie dann den Anweisungen im Abschnitt [Projektauftrag](#projektauftrag), um die Seite entsprechend zu stylen.
 
 ```html live-sample___blog-start live-sample___blog-finish
 <!doctype html>
@@ -185,32 +185,32 @@ footer {
 
 {{embedlivesample("blog-start", "100%", 500)}}
 
-## Projektbeschreibung
+## Projektauftrag
 
-Das Ihnen gegebene grundlegende Blog-Beispiel ist noch nicht fertig, und der vorhandene Code hat einige Probleme. Befolgen Sie die folgenden Schritte, um das Projekt abzuschließen.
+Das grundlegende Blogbeispiel, das Sie erhalten haben, ist nicht fertiggestellt, und der vorhandene Code hat einige Probleme. Befolgen Sie die unten aufgeführten Schritte, um das Projekt abzuschließen.
 
-1. Wir möchten, dass jedes Element auf dieser Seite das alternative Boxmodell verwendet. Fügen Sie der Stylesheet eine Regel hinzu, die dies bewirkt.
+1. Wir möchten, dass jedes Element auf dieser Seite das alternative Boxmodell verwendet. Fügen Sie ein Regel in das Stylesheet hinzu, das dies umsetzt.
 
-2. Es gibt ein Problem mit den Regeln für das Navigationsmenü – die Stile sind größtenteils in Ordnung, aber sie beeinflussen die andere ungeordnete Liste und die Inhaltslinks, so dass sie schlecht aussehen! Können Sie die Selektoren für diese Regeln so anpassen, dass sie nur das Navigationsmenü ansprechen?
+2. Es gibt ein Problem mit den Regeln für das Navigationsmenü — die Stile sind größtenteils in Ordnung, aber sie wirken sich auf die anderen ungeordneten Listen und Inhaltslinks aus und lassen sie schlecht aussehen! Können Sie die Selektoren für diese Regeln so anpassen, dass sie nur das Navigationsmenü betreffen?
 
-3. Tatsächlich gibt es ein weiteres Problem mit dem Navigationsmenü – die `<a>`-Elemente erstrecken sich nicht über die gesamte Breite ihrer `<li>`-Element-Eltern, wie sie sollten. Können Sie die Anzeige anpassen, damit sie die volle Breite einnehmen?
+3. Tatsächlich gibt es ein weiteres Problem mit dem Navigationsmenü — die `<a>`-Elemente erstrecken sich nicht über die volle Breite ihrer `<li>`-Elementeltern, wie sie es sollten. Können Sie die Art ihrer Darstellung so anpassen, dass sie sich über die volle Breite erstrecken?
 
-4. Für sowohl die Navigationsmenü-Links als auch die regulären Inhaltslinks setzen wir einen anderen Stil beim Hover, damit Benutzer mit der Maus sehen können, über welchen Link sie schweben. Dies stellt ein Barrierefreiheitsproblem für Benutzer mit Tastatur dar, die diese Stile nicht sehen können. Können Sie die Selektoren in den relevanten Regeln so ändern, dass diese Stile auch angewendet werden, wenn ein Tastaturbenutzer zu den Links springt?
+4. Für sowohl die Navigationsmenü-Links als auch die regulären Inhaltslinks setzen wir einen anderen Stil beim Hover, damit Mausbenutzer sehen können, über welchen Link sie fahren. Dies stellt ein Zugänglichkeitsproblem für Tastaturnutzer dar, die diese Stile nicht sehen können. Können Sie die Selektoren in den entsprechenden Regeln so ändern, dass diese Stile auch angewendet werden, wenn ein Tastaturnutzer zu den Links navigiert?
 
-5. Wir möchten, dass die Einführung, die Zusammenfassung und die Fußzeile auf allen Seiten `20px` Padding haben. Machen Sie dies, indem Sie irgendwo in der Stylesheet eine einzelne Deklaration hinzufügen.
+5. Wir möchten, dass die Einführung, Zusammenfassung und der Footer auf allen Seiten `20px` Padding haben. Machen Sie dies möglich, indem Sie eine einzelne Deklaration irgendwo im Stylesheet hinzufügen.
 
-6. Fügen Sie eine Regel hinzu, die die erste Zeile jedes Absatzes auswählt, der direkt nach einer zweiten Überschrift erscheint, und machen Sie diese fett.
+6. Fügen Sie eine Regel hinzu, die die erste Zeile jedes Absatzes, der direkt nach einer Überschrift der zweiten Ebene erscheint, auswählt und fett macht.
 
-7. In Fortsetzung der vorherigen Frage, können Sie sich eine Methode überlegen, die erste Zeile in jedem Absatz nach einer zweiten Überschrift fett zu markieren, jedoch nur, wenn das Elternelement nicht die Einführung, die Zusammenfassung oder die Fußzeile ist? Sie können dies auf verschiedene Weise tun, einige sind prägnanter als andere.
+7. Als Fortsetzung der vorherigen Frage, können Sie sich eine Möglichkeit überlegen, die erste Zeile in jedem Absatz nach einer Überschrift der zweiten Ebene fett zu machen, aber nur, wenn das übergeordnete Element nicht die Einführung, Zusammenfassung oder der Footer ist? Sie können dies auf verschiedene Arten tun, einige sind präziser als andere.
 
-8. Weiter unten sehen Sie, dass wir `.highlight a` verwenden, um die `<a>`-Elemente innerhalb der Einführung und Zusammenfassung auszuwählen und sie `purple` zu färben. Aber das ist nicht gut – der Farbkontrast ist schrecklich. Angesichts der Tatsache, dass Sie diese Regel nicht ändern oder entfernen dürfen, können Sie eine andere Regel weiter oben in der Quellreihenfolge hinzufügen, die die `<a>`-Elemente `yellow` färbt? Da sie weiter oben in der Quellreihenfolge ist, muss sie eine höhere Spezifität haben.
+8. Weiter unten sehen Sie, dass wir `.highlight a` verwenden, um die `<a>`-Elemente innerhalb der Einführung und Zusammenfassung auszuwählen und sie `purple` zu färben. Aber das ist nicht gut — der Farbkontrast ist schrecklich. Angenommen, Sie dürfen diese Regel nicht ändern oder entfernen, können Sie eine andere Regel darüber in der Quellreihenfolge hinzufügen, die die `<a>`-Elemente `yellow` färbt? Da sie darüber in der Quellreihenfolge steht, muss sie eine höhere Spezifität haben.
 
-9. Sie werden sehen, dass wir versuchen, das `<footer>` am Ende der Stylesheet auszuwählen und ihm einen Textschatten, etwas Abstand zur Verschiebung vom der Zusammenfassung und eine andere Hintergrundfarbe zu geben, um es hervorzuheben. Es erhält jedoch nicht die gewünschten Rand- und Hintergrundfarbstile, weil die `.highlight`-Regel eine höhere Spezifität hat, sodass deren Deklarationen gewinnen. Können Sie den Selektor so ändern, dass diese Stile angewendet werden?
+9. Sie sehen, dass wir versuchen, das `<footer>` am Ende des Stylesheets auszuwählen und ihm einen Textschatten, etwas Abstand, um es von der Zusammenfassung zu entfernen, und eine andere Hintergrundfarbe zu geben, um es hervorzuheben. Allerdings erhält es nicht die gewünschten Abstand- und Hintergrundfarbstile, weil die `.highlight`-Regel eine höhere Spezifität hat, sodass ihre Deklarationen gewinnen. Können Sie den Selektor ändern, um sicherzustellen, dass diese Stile angewendet werden?
 
 ## Hinweise und Tipps
 
-- Verwenden Sie den [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), um unbeabsichtigte Fehler in Ihrem CSS zu erkennen – Fehler, die Sie sonst vielleicht übersehen hätten – damit Sie sie beheben können.
-- Sie müssen das HTML in keiner Weise ändern.
+- Verwenden Sie den [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), um unbeabsichtigte Fehler in Ihrem CSS zu erkennen — Fehler, die Sie sonst vielleicht übersehen hätten — damit Sie sie beheben können.
+- Es ist nicht erforderlich, das HTML in irgendeiner Weise zu ändern.
 
 ## Beispiel
 
@@ -221,12 +221,12 @@ Das fertige Projekt sollte so aussehen:
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Das fertige CSS sieht folgendermaßen aus:
+Das fertige CSS sieht so aus:
 
 ```css live-sample___blog-finish
 /* Basic type and text */
 
-/* 1. Set alternative box model on all elements */
+/* Solution: Set alternative box model on all elements */
 * {
   box-sizing: border-box;
 }
@@ -249,23 +249,27 @@ a {
   color: red;
 }
 
-/* 4. Set :hover styles to also apply on :focus */
+/* Solution: Update :hover styles to also apply on :focus
+so that keyboard users can see the updated styles when
+they tab to links */
 a:hover,
 a:focus {
   text-decoration: none;
 }
 
-/* 6, 7. bold ::first-line of each <p> adjacent to an <h2>
-Use :not() selector to specify only those inside a
-<section> that doesn't have the highlight class */
+/* Solution: bold ::first-line of each paragraph that appears
+right after a second-level heading, but only when the parent
+element is not the introduction, summary, or footer
+(use :not(.highlight) to specify this second bit) */
 section:not(.highlight) h2 + p::first-line {
   font-weight: bold;
 }
 
 /*
 
-6, 7. OR set it on all first, then remove it from those
-inside a <section class="highlight"> afterwards
+Alternative to the above solution: bold all instances first,
+then remove it from those inside an element with the highlight
+class afterwards
 
 section h2 + p::first-line {
   font-weight: bold;
@@ -279,8 +283,8 @@ section h2 + p::first-line {
 
 /* Nav menu */
 
-/* 2. Set scope of nav styles to only
-elements that are descendants of <nav> */
+/* Solution: Adjust nav rule selectors to only
+target the <nav> menu */
 
 nav ul {
   display: flex;
@@ -298,14 +302,16 @@ nav a {
   text-decoration: none;
   color: black;
   background-color: yellowgreen;
-  /* 3. Set <a> elements to display: block so they span
-  100% of parent width by default */
+  /* Solution: Set nav <a> elements to display: block so they span
+  the full width of their <li> element parents */
   display: block;
   text-align: center;
   padding: 10px;
 }
 
-/* 4. Set :hover styles to also apply on :focus */
+/* Solution: Update :hover styles to also apply on :focus
+so that keyboard users can see the updated styles when
+they tab to links */
 nav a:hover,
 nav a:focus {
   background-color: goldenrod;
@@ -317,13 +323,15 @@ nav a:focus {
   margin-top: 0;
   background-color: darkslategray;
   color: cornsilk;
-  /* 5. highlight class is set on introduction, summary, and footer.
-  This is where to set the padding for all of them */
+  /* Solution: Set 20px of padding on all sides of the
+  introduction, summary, and footer. They all have the
+  highlight class set on them */
   padding: 20px;
 }
 
-/* 8. ID selectors have a higher specificity than class selectors, so will
-override styles even when earlier in the source order */
+/* Solution: Add higher specificity rule above ".highlight a"
+rule to override color setting (ID selectors have a higher
+specificity than class selectors) */
 #introduction a,
 #summary a {
   color: yellow;
@@ -335,8 +343,8 @@ override styles even when earlier in the source order */
 
 /* Footer */
 
-/* 9. Adding .highlight to the selector increases
-the specificity so now this rule's styles win */
+/* Solution: Increase footer rule specificity by adding ".highlight"
+so that its margin-top and background-color styles are applied */
 footer.highlight {
   margin-top: 20px;
   background-color: goldenrod;
