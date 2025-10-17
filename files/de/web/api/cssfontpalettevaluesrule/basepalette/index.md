@@ -3,29 +3,29 @@ title: "CSSFontPaletteValuesRule: basePalette-Eigenschaft"
 short-title: basePalette
 slug: Web/API/CSSFontPaletteValuesRule/basePalette
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: 56bbf59f4ea2566d64ad2e5c669a7a597626b7f3
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`basePalette`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Schnittstelle gibt die mit der Regel verknüpfte Basis-Palette an.
+Die schreibgeschützte **`basePalette`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Schnittstelle gibt die Basis-Palette an, die mit der Regel assoziiert ist.
 
 ## Wert
 
-Ein String, der einen der folgenden Farbwerte darstellen kann:
+Ein String, der einer der folgenden Farbwerte sein kann:
 
 - `light`
-  - : Entspricht der ersten Palette in der Schriftartdatei, die als anwendbar auf einen hellen Hintergrund, also _nahezu weiß_, markiert ist. Wenn es in der Schriftart keine Palette gibt oder keine Palette die erforderlichen Metadaten hat, ist der Wert gleichbedeutend mit `"0"`, das heißt, der ersten Palette in der Schriftart.
+  - : Entspricht der ersten Palette in der Schriftartdatei, die als geeignet für einen hellen Hintergrund markiert ist, also _nahezu weiß_. Wenn keine Palette in der Schriftart vorhanden ist oder keine Palette die erforderlichen Metadaten hat, entspricht der Wert `"0"`, also der ersten Palette in der Schriftart.
 - `dark`
-  - : Entspricht der ersten Palette in der Schriftartdatei, die als anwendbar auf einen dunklen Hintergrund, also _nahezu schwarz_, markiert ist. Wenn es in der Schriftart keine Palette gibt oder keine Palette die erforderlichen Metadaten hat, ist der Wert gleichbedeutend mit `"0"`, das heißt, der ersten Palette in der Schriftart.
-- ein String, der einen Index enthält (wie `"0"`, `"1"`, …)
+  - : Entspricht der ersten Palette in der Schriftartdatei, die als geeignet für einen dunklen Hintergrund markiert ist, also _nahezu schwarz_. Wenn keine Palette in der Schriftart vorhanden ist oder keine Palette die erforderlichen Metadaten hat, entspricht der Wert `"0"`, also der ersten Palette in der Schriftart.
+- ein String, der einen Index enthält (z. B. `"0"`, `"1"`, …)
   - : Entspricht der Palette, die dem Index entspricht. Die erste Palette entspricht `"0"`.
 
 ## Beispiele
 
-### Die zugehörige Basis-Palette auslesen
+### Lesen der zugeordneten Basis-Palette
 
-Dieses Beispiel fügt Regeln in ein zusätzliches Stylesheet hinzu, das dem Dokument hinzugefügt wird, und als letztes Stylesheet im Dokument zurückgegeben wird (`document.styleSheets[document.styleSheets.length-1].cssRules`). So gibt `rules[2]` das erste [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Objekt zurück und `rules[3]` das zweite.
+Die MDN-[Live-Beispiel](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples)-Infrastruktur kombiniert alle CSS-Blöcke im Beispiel zu einem einzigen Inline-Stil mit der ID `css-output`, daher verwenden wir zuerst [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um dieses Stilblatt zu finden. `rules[2]` gibt das erste [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Objekt zurück und `rules[3]` das zweite.
 
 #### HTML
 
@@ -69,7 +69,7 @@ h2 {
 ```js
 const log = document.getElementById("log");
 
-const rules = document.styleSheets[document.styleSheets.length - 1].cssRules;
+const rules = document.getElementById("css-output").sheet.cssRules;
 const twoRule = rules[2]; // A CSSFontPaletteValuesRule interface
 const fiveRule = rules[3]; // A CSSFontPaletteValuesRule interface
 
@@ -91,5 +91,5 @@ log.textContent += `The ${fiveRule.name} @font-palette-values base palette is: $
 
 ## Siehe auch
 
-- {{cssxref("@font-palette-values")}} At-Regel
+- {{cssxref("@font-palette-values")}} Regel
 - {{cssxref("@font-palette-values/base-palette", "base-palette")}} Deskriptor

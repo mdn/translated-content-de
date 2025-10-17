@@ -3,22 +3,22 @@ title: "CSSFontPaletteValuesRule: overrideColors Eigenschaft"
 short-title: overrideColors
 slug: Web/API/CSSFontPaletteValuesRule/overrideColors
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: 56bbf59f4ea2566d64ad2e5c669a7a597626b7f3
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`overrideColors`** Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule) Schnittstelle ist ein String, der eine Liste von Farbindex und Farbpaar enthält, die stattdessen verwendet werden sollen. Sie wird im selben Format angegeben wie der entsprechende {{cssxref("@font-palette-values/override-colors", "override-colors")}} Deskriptor.
+Die schreibgeschützte **`overrideColors`** Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule) Schnittstelle ist ein String, der eine Liste von Farbindex und Farbpaar enthält, die stattdessen verwendet werden sollen. Sie wird im gleichen Format angegeben wie der entsprechende {{cssxref("@font-palette-values/override-colors", "override-colors")}} Deskriptor.
 
 ## Wert
 
-Ein String, der eine kommagetrennte Liste von Farbindex und Farbpaar enthält
+Ein String, der eine durch Kommas getrennte Liste von Farbindex und Farbpaar enthält.
 
 ## Beispiele
 
-### Die überschriebenen Farben lesen
+### Lesen der überschriebenen Farbe
 
-Dieses Beispiel definiert zunächst einige At-Regeln, darunter zwei {{cssxref("@font-palette-values")}}. Da diese Regeln im zuletzt zum Dokument hinzugefügten Stylesheet enthalten sind, ist die Palette die zweite von dem letzten Stylesheet im Dokument zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) (`document.styleSheets[document.styleSheets.length-1].cssRules`).
+Dieses Beispiel definiert zunächst einige at-Regeln, darunter zwei {{cssxref("@font-palette-values")}}. Die MDN [Live-Beispiel](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) Infrastruktur kombiniert alle CSS-Blöcke im Beispiel in einem einzigen Inline-Style mit der ID `css-output`, daher verwenden wir zunächst [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um dieses Stylesheet zu finden.
 
 #### HTML
 
@@ -71,7 +71,7 @@ Dieses Beispiel definiert zunächst einige At-Regeln, darunter zwei {{cssxref("@
 const log = document.getElementById("log");
 const button = document.querySelector("button");
 const hat = document.querySelector(".colored-hat");
-const rules = document.styleSheets[document.styleSheets.length - 1].cssRules;
+const rules = document.getElementById("css-output").sheet.cssRules;
 const greenFontPaletteValuesRule = rules[3];
 const blueFontPaletteValuesRule = rules[2];
 log.textContent = `Overridden colors: ${blueFontPaletteValuesRule.overrideColors}`;
