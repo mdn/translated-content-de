@@ -238,7 +238,7 @@ Standardmäßig werden beim Ziehen eines {{HTMLElement("a")}}-Elements die folge
 
 ### Bilder ziehen
 
-Direktes Bildziehen (d. h. die Daten sind der Pixelinhalt) ist nicht üblich und kann auf bestimmten Plattformen nicht unterstützt werden. Stattdessen werden Bilder in der Regel nur über ihre URLs gezogen. Um dies zu tun, verwenden Sie den Typ `text/uri-list` wie bei anderen URLs. Die Daten sollten die URL des Bildes sein oder eine [`data:`-URL](/de/docs/Web/URI/Reference/Schemes/data), wenn das Bild nicht auf einer Website oder Festplatte gespeichert ist.
+Direktes Bildziehen (d.h. die Daten sind der Pixelinhalt) ist nicht üblich und kann auf bestimmten Plattformen nicht unterstützt werden. Stattdessen werden Bilder in der Regel nur über ihre URLs gezogen. Um dies zu tun, verwenden Sie den Typ `text/uri-list` wie bei anderen URLs. Die Daten sollten die URL des Bildes sein oder eine [`data:`-URL](/de/docs/Web/URI/Reference/Schemes/data), wenn das Bild nicht auf einer Website oder Festplatte gespeichert ist.
 
 Wie bei Links sollten die Daten für den Typ `text/plain` ebenfalls die URL enthalten. Allerdings ist eine `data:`-URL normalerweise in einem Textkontext nicht nützlich, sodass Sie in diesem Fall eventuell die `text/plain`-Daten ausschließen möchten.
 
