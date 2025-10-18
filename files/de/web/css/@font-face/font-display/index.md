@@ -2,10 +2,10 @@
 title: font-display
 slug: Web/CSS/@font-face/font-display
 l10n:
-  sourceCommit: a3eec14af0580dad6eae65980686cee6cafc2c68
+  sourceCommit: 6ed02a2b0e0d891f7d3b4c2a6b1d9cc05c90ed9c
 ---
 
-Der **`font-display`** Deskriptor für die [`@font-face`](/de/docs/Web/CSS/@font-face) at-Regel bestimmt, wie ein Schriftschnitt angezeigt wird, basierend darauf, ob und wann er heruntergeladen und einsatzbereit ist.
+Der **`font-display`** Deskriptor für die [`@font-face`](/de/docs/Web/CSS/@font-face) Regel bestimmt, wie eine Schriftart angezeigt wird, basierend darauf, ob und wann sie heruntergeladen und einsatzbereit ist.
 
 ## Syntax
 
@@ -21,15 +21,15 @@ font-display: optional;
 ### Werte
 
 - `auto`
-  - : Die Strategie der Schriftdarstellung wird vom User-Agent definiert.
+  - : Die Schriftanzeigestrategie wird vom Benutzeragenten definiert.
 - `block`
-  - : Gibt dem Schriftschnitt eine kurze Blockperiode und eine unbegrenzte Wechselperiode.
+  - : Gibt der Schriftart eine kurze Blockperiode und eine unendliche Austauschperiode.
 - `swap`
-  - : Gibt dem Schriftschnitt eine extrem kurze Blockperiode und eine unbegrenzte Wechselperiode.
+  - : Gibt der Schriftart eine extrem kurze Blockperiode und eine unendliche Austauschperiode.
 - `fallback`
-  - : Gibt dem Schriftschnitt eine extrem kurze Blockperiode und eine kurze Wechselperiode.
+  - : Gibt der Schriftart eine extrem kurze Blockperiode und eine kurze Austauschperiode.
 - `optional`
-  - : Gibt dem Schriftschnitt eine extrem kurze Blockperiode und keine Wechselperiode.
+  - : Gibt der Schriftart eine extrem kurze Blockperiode und keine Austauschperiode.
 
 > [!NOTE]
 > In Firefox geben die Präferenzen `gfx.downloadable_fonts.fallback_delay`
@@ -38,11 +38,11 @@ font-display: optional;
 
 ## Beschreibung
 
-Die Zeitleiste für die Schriftdarstellung basiert auf einem Timer, der gestartet wird, sobald der User-Agent versucht, einen gegebenen heruntergeladenen Schriftschnitt zu verwenden. Die Zeitleiste ist in die drei unten stehenden Perioden unterteilt, die das Anzeigeverhalten aller Elemente diktieren, die den Schriftschnitt verwenden:
+Der Zeitplan für die Schriftanzeige basiert auf einem Timer, der zu dem Zeitpunkt beginnt, an dem der Benutzeragent versucht, eine heruntergeladene Schriftart zu verwenden. Der Zeitplan ist in die drei unten genannten Perioden unterteilt, die das Rendering-Verhalten von Elementen bestimmen, die die Schriftart verwenden:
 
-- Schriftblockperiode: Wenn der Schriftschnitt nicht geladen ist, muss jedes Element, das versucht, ihn zu verwenden, eine _unsichtbare_ Fallback-Schrift anzeigen. Wenn der Schriftschnitt während dieser Periode erfolgreich geladen wird, wird er normal verwendet.
-- Schriftwechselperiode: Wenn der Schriftschnitt nicht geladen ist, muss jedes Element, das versucht, ihn zu verwenden, eine Fallback-Schrift anzeigen. Wenn der Schriftschnitt während dieser Periode erfolgreich geladen wird, wird er normal verwendet.
-- Schriftfehlerperiode: Wenn der Schriftschnitt nicht geladen ist, behandelt der User-Agent dies als fehlgeschlagenes Laden, was zu einem normalen Schriftfallback führt.
+- Schriftblockperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das versucht, sie zu verwenden, eine _unsichtbare_ Ersatzschriftart rendern. Wenn die Schriftart während dieser Periode erfolgreich geladen wird, wird sie normal verwendet.
+- Schrifttauschperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das versucht, sie zu verwenden, eine Ersatzschriftart rendern. Wenn die Schriftart während dieser Periode erfolgreich geladen wird, wird sie normal verwendet.
+- Schriftfehlerperiode: Wenn die Schriftart nicht geladen ist, behandelt der Benutzeragent sie als fehlgeschlagenen Ladevorgang und führt den normalen Schriftfalleffekt aus.
 
 ## Formale Definition
 
@@ -54,7 +54,7 @@ Die Zeitleiste für die Schriftdarstellung basiert auf einem Timer, der gestarte
 
 ## Beispiele
 
-### Festlegung der Fallback-Schriftdarstellung
+### Festlegen des Fallback-Schriftanzeigeverhaltens
 
 ```css
 @font-face {
@@ -62,7 +62,7 @@ Die Zeitleiste für die Schriftdarstellung basiert auf einem Timer, der gestarte
   src:
     url("/path/to/fonts/example-font.woff") format("woff"),
     url("/path/to/fonts/example-font.eot") format("embedded-opentype");
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
   font-display: fallback;
 }

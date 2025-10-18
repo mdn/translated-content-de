@@ -2,10 +2,10 @@
 title: override-colors
 slug: Web/CSS/@font-palette-values/override-colors
 l10n:
-  sourceCommit: 7e1296fc0722c86fb7e15487b5e9626597c7a2a0
+  sourceCommit: 6ed02a2b0e0d891f7d3b4c2a6b1d9cc05c90ed9c
 ---
 
-Der **`override-colors`** [CSS](/de/docs/Web/CSS) {{Glossary("CSS_Descriptor", "Deskriptor")}} wird verwendet, um die Farben in der gewählten [base-palette](/de/docs/Web/CSS/@font-palette-values/base-palette) für eine Farbfont zu überschreiben.
+Der **`override-colors`** [CSS](/de/docs/Web/CSS) {{Glossary("CSS_Descriptor", "Deskriptor")}} wird verwendet, um Farben in der ausgewählten [base-palette](/de/docs/Web/CSS/@font-palette-values/base-palette) für eine Farbenschriftart zu überschreiben.
 
 ## Syntax
 
@@ -29,16 +29,16 @@ override-colors:
   2 blue;
 ```
 
-Der `override-colors` {{Glossary("CSS_Descriptor", "Deskriptor")}} nimmt eine durch Kommas getrennte Liste des Farbindex und des neuen Farbwerts an.
+Der `override-colors` {{Glossary("CSS_Descriptor", "Deskriptor")}} akzeptiert eine durch Kommas getrennte Liste des Farbindex und des neuen Farbwertes.
 
-Der Farbindex ist null-basiert und es kann jeder [Farbwert](/de/docs/Web/CSS/color_value) verwendet werden.
+Der Farbindex beginnt bei null und es kann jeder [Farbwert](/de/docs/Web/CSS/color_value) verwendet werden.
 
-Für jedes Schlüssel-Wert-Paar aus Index und Farbe wird die Farbe mit dem Index in der angegebenen [base-palette](/de/docs/Web/CSS/@font-palette-values/base-palette) überschrieben. Wenn die Farbfont keine Farbe an dem angegebenen Index hat, wird sie ignoriert.
+Für jedes Schlüssel-Wert-Paar von Index und Farbe wird die Farbe mit dem Index in der angegebenen [base-palette](/de/docs/Web/CSS/@font-palette-values/base-palette) überschrieben. Wenn die Farbenschriftart an der angegebenen Indexposition keine Farbe hat, wird sie ignoriert.
 
 ### Werte
 
 - `[ <integer [0,∞]> <absolute-color-base> ]`
-  - : Gibt den Index einer Farbe in einer [base-palette](/de/docs/Web/CSS/@font-palette-values/base-palette) und die Farbe an, mit der sie überschrieben werden soll.
+  - : Gibt den Index einer Farbe in einer [base-palette](/de/docs/Web/CSS/@font-palette-values/base-palette) an und die Farbe, mit der sie überschrieben werden soll.
 
 ## Formale Definition
 
@@ -52,7 +52,7 @@ Für jedes Schlüssel-Wert-Paar aus Index und Farbe wird die Farbe mit dem Index
 
 ### Farben von Emojis ändern
 
-Dieses Beispiel zeigt, wie man Farben in der [Noto Color Emoji](https://fonts.google.com/noto/specimen/Noto+Color+Emoji) Farbfont überschreibt, um sie an das Markenbild Ihrer Seite anzupassen.
+Dieses Beispiel zeigt, wie Farben in der [Noto Color Emoji](https://fonts.google.com/noto/specimen/Noto+Color+Emoji) Farbenschriftart überschrieben werden, um sie an die Marke Ihrer Website anzupassen.
 
 #### HTML
 
@@ -83,7 +83,7 @@ Dieses Beispiel zeigt, wie man Farben in der [Noto Color Emoji](https://fonts.go
 @font-face {
   font-family: "Noto Color Emoji";
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   src: url("https://fonts.gstatic.com/l/font?kit=Yq6P-KqIXTD0t4D9z1ESnKM3-HpFabts6diywYkdG3gjD0U&skey=a373f7129eaba270&v=v24")
     format("woff2");
 }
@@ -110,9 +110,9 @@ Dieses Beispiel zeigt, wie man Farben in der [Noto Color Emoji](https://fonts.go
 
 {{EmbedLiveSample("Changing colors of emojis")}}
 
-### Eine Farbe in einer alternativen Base-Palette ändern
+### Eine Farbe in einer alternativen base-palette ändern
 
-Unter Verwendung der [Rocher Color Font](https://www.harbortype.com/fonts/rocher-color/), zeigt dieses Beispiel, wie man eine Farbe in der Font überschreibt.
+Unter Verwendung der [Rocher Color Font](https://www.harbortype.com/fonts/rocher-color/) zeigt dieses Beispiel, wie eine Farbe in der Schriftart überschrieben werden kann.
 
 #### HTML
 
@@ -150,9 +150,9 @@ h2 {
 
 #### Ergebnis
 
-Dieses Beispiel zeigt, dass in `base-palette` `3`, die Farbe am Index 0 mit `rebeccapurple` überschrieben wird.
+Dieses Beispiel zeigt, dass in `base-palette` `3` die Farbe bei Index 0 mit `rebeccapurple` überschrieben wird.
 
-![Beispiel zeigt base-palette und base-palette mit 1 überschriebenen Farbe](override-base-palette-color.jpg)
+![Beispiel, das eine Basis-Palette und eine Basis-Palette mit 1 überschriebenen Farbe zeigt](override-base-palette-color.jpg)
 
 ## Spezifikationen
 

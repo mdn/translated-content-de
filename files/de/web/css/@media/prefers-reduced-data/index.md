@@ -2,33 +2,33 @@
 title: prefers-reduced-data
 slug: Web/CSS/@media/prefers-reduced-data
 l10n:
-  sourceCommit: a3eec14af0580dad6eae65980686cee6cafc2c68
+  sourceCommit: 6ed02a2b0e0d891f7d3b4c2a6b1d9cc05c90ed9c
 ---
 
 {{SeeCompatTable}}
 
 > [!NOTE]
-> Diese Funktion wird von keinem Benutzeragenten unterstützt und ihre Details können sich ändern.
+> Dieses Feature wird von keinem Benutzeragent unterstützt und seine Details können sich ändern.
 
-Das **`prefers-reduced-data`** [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob der Benutzer Inhalte angefordert hat, die weniger Internetverkehr verbrauchen.
+Das **`prefers-reduced-data`** [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob der Benutzer das Web-Inhalte angefordert hat, das weniger Internetverkehr verbraucht.
 
 ## Syntax
 
 - `no-preference`
-  - : Das bedeutet, dass der Benutzer dem System keine Präferenz mitgeteilt hat. Dieser Schlüsselwortwert wird im booleschen Kontext als falsch bewertet.
+  - : Gibt an, dass der Benutzer keine Präferenz gegenüber dem System bekanntgegeben hat. Dieser Schlüsselwortwert wird im booleschen Kontext als falsch bewertet.
 - `reduce`
-  - : Das bedeutet, dass der Benutzer eine Präferenz für leichtere alternative Inhalte ausgedrückt hat.
+  - : Gibt an, dass der Benutzer die Präferenz für leichtere alternative Inhalte geäußert hat.
 
 ## Benutzerpräferenzen
 
-Derzeit implementiert kein Benutzeragent diese Funktion, obwohl verschiedene Betriebssysteme solche Präferenzen unterstützen. Falls diese Medienabfrage jemals implementiert wird, werden Benutzeragenten wahrscheinlich auf die vom Betriebssystem bereitgestellten Einstellungen zurückgreifen.
+Derzeit implementiert kein Benutzeragent dieses Feature, obwohl verschiedene Betriebssysteme solche Präferenzen unterstützen, und wenn diese Medienabfrage jemals implementiert wird, werden Benutzeragenten wahrscheinlich auf die vom Betriebssystem bereitgestellten Einstellungen zurückgreifen.
 
 ## Beispiele
 
 > [!NOTE]
-> Kein Browser implementiert derzeit diese Funktion, daher wird das folgende Beispiel nicht funktionieren.
+> Kein Browser implementiert derzeit dieses Feature, daher wird das folgende Beispiel nicht funktionieren.
 
-In diesem Beispiel wird die Schriftdatei `montserrat-regular.woff2` weder vorgeladen noch heruntergeladen, wenn der Benutzer reduzierte Daten bevorzugt. In diesem Fall wird die "[System Font Stack](https://css-tricks.com/snippets/css/system-font-stack/)" als Ersatzschriftart dienen:
+In diesem Beispiel wird die Schriftartdatei `montserrat-regular.woff2` weder vorab geladen noch heruntergeladen, wenn der Benutzer reduzierte Daten bevorzugt; in diesem Fall dient die "[System Font Stack](https://css-tricks.com/snippets/css/system-font-stack/)" als Ersatzschriftart:
 
 ### HTML
 
@@ -51,7 +51,7 @@ In diesem Beispiel wird die Schriftdatei `montserrat-regular.woff2` weder vorgel
   @font-face {
     font-family: "Montserrat";
     font-style: normal;
-    font-weight: 400;
+    font-weight: normal;
     font-display: swap;
     /* latin */
     src:
