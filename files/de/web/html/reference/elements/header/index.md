@@ -2,10 +2,10 @@
 title: "<header>: Das Header-Element"
 slug: Web/HTML/Reference/Elements/header
 l10n:
-  sourceCommit: 74c54f7a61329fa9dd0981be828e783518502381
+  sourceCommit: 3527b9372ddeb3b301cc826ed2fbcf086b487568
 ---
 
-Das **`<header>`**-Element [HTML](/de/docs/Web/HTML) repräsentiert einleitende Inhalte, typischerweise eine Gruppe von einleitenden oder navigativen Hilfsmitteln. Es kann einige Überschriftselemente enthalten, aber auch ein Logo, ein Suchformular, einen Autorennamen und andere Elemente.
+Das **`<header>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einführende Inhalte, typischerweise eine Gruppe von einleitenden oder Navigationshilfen. Es kann einige Überschriftselemente, aber auch ein Logo, ein Suchformular, einen Autorennamen und andere Elemente enthalten.
 
 {{InteractiveExample("HTML Demo: &lt;header&gt;", "tabbed-standard")}}
 
@@ -52,13 +52,13 @@ header > time {
 
 ## Nutzungshinweise
 
-Wenn nicht eingebettet in [Gliederungsinhalte](/de/docs/Web/HTML/Guides/Content_categories#sectioning_content), {{htmlelement("main")}}, oder ein Element mit derselben ARIA-Rolle wie die implizite ARIA-Rolle dieser Elemente, hat das `<header>`-Element dieselbe Bedeutung wie die seitenweite [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role) Landmark-Rolle. Es definiert ein globales Seiten-Header, das üblicherweise ein Logo, den Firmennamen, eine Suchfunktion und möglicherweise die globale Navigation oder einen Slogan enthält. Es befindet sich in der Regel oben auf der Seite.
+Wenn es nicht innerhalb von [Sectioning-Content](/de/docs/Web/HTML/Guides/Content_categories#sectioning_content), {{htmlelement("main")}}, oder einem Element mit derselben ARIA-Rolle wie die implizite ARIA-Rolle dieser Elemente eingebettet ist, hat das `<header>` Element eine identische Bedeutung zu der site-weiten [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role)-Rolle. Es definiert eine globale Website-Header, welcher normalerweise ein Logo, den Firmennamen, eine Suchfunktion und möglicherweise die globale Navigation oder einen Slogan enthält. Es befindet sich in der Regel am oberen Rand der Seite.
 
-Andernfalls, wenn es innerhalb dieser Elemente eingebettet ist, verliert es seinen Landmark-Status und repräsentiert eine Gruppe von einleitenden oder navigativen Hilfsmitteln für den umgebenden Abschnitt. Es enthält normalerweise die Überschrift des umgebenden Abschnitts (ein `h1` – `h6`-Element) und optional eine Unterüberschrift, dies ist jedoch **nicht** erforderlich.
+Andernfalls, wenn es innerhalb der genannten Elemente verschachtelt ist, verliert es seinen Landmark-Status und repräsentiert eine Gruppe von einleitenden oder Navigationshilfen für den umgebenden Abschnitt. Es enthält in der Regel die Überschrift des umgebenden Abschnitts (ein `h1` – `h6` Element) und eine optionale Unterüberschrift, aber dies ist **nicht** erforderlich.
 
 ### Historische Nutzung
 
-Das `<header>`-Element existierte ursprünglich ganz am Anfang von HTML für Überschriften. Es ist auf [der allerersten Website](https://info.cern.ch/) zu sehen. Zu einem bestimmten Zeitpunkt wurden Überschriften zu [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements), wodurch `<header>` frei wurde, um eine andere Rolle zu übernehmen.
+Das `<header>` Element existierte ursprünglich zu Beginn von HTML für Überschriften. Es ist auf [der allerersten Website](https://info.cern.ch/) zu sehen. Irgendwann wurden Überschriften zu [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements), wodurch `<header>` frei wurde, um eine andere Rolle auszufüllen.
 
 ## Attribute
 
@@ -66,9 +66,9 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Reference
 
 ## Barrierefreiheit
 
-Das `<header>`-Element definiert eine [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role) Landmarke, wenn sein Kontext das {{HTMLElement('body')}}-Element ist.
+Das `<header>` Element definiert ein [`banner`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role)-Landmark, wenn sein Kontext das {{HTMLElement('body')}} Element ist.
 
-Wenn es sich innerhalb eines {{HTMLElement('article')}}, {{HTMLElement('main')}}, {{HTMLElement('section')}}, {{HTMLElement('nav')}}, {{HTMLElement('aside')}}, oder eines Elements mit derselben ARIA-Rolle wie die implizite ARIA-Rolle dieser Elemente befindet, hat das `<header>`-Element stattdessen die [`generic`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role) Rolle und wird nicht mehr als Landmarke angesehen. In diesem Fall kann es nicht mit [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) gekennzeichnet werden.
+Wenn es innerhalb eines {{HTMLElement('article')}}, {{HTMLElement('main')}}, {{HTMLElement('section')}}, {{HTMLElement('nav')}}, {{HTMLElement('aside')}} oder eines Elements mit derselben ARIA-Rolle wie die implizite ARIA-Rolle dieser Elemente platziert ist, hat das `<header>` Element stattdessen die [`generic`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role)-Rolle und wird nicht mehr als Landmark angesehen. In diesem Fall kann es nicht mit [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) gekennzeichnet werden.
 
 ## Beispiele
 
@@ -119,18 +119,18 @@ Wenn es sich innerhalb eines {{HTMLElement('article')}}, {{HTMLElement('main')}}
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow-Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content"
-          >wahrnehmbarer Inhalt</a
+          >fühlbarer Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow-Inhalt</a
+          >Flussinhalt</a
         >, jedoch ohne <code>&#x3C;header></code> oder
         {{HTMLElement("footer")}} Nachkommen.
       </td>
@@ -144,11 +144,11 @@ Wenn es sich innerhalb eines {{HTMLElement('article')}}, {{HTMLElement('main')}}
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Flow-Inhalt</a
-        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;header></code>-Element kein
-        Nachkomme von einem {{HTMLElement("address")}},
-        {{HTMLElement("footer")}} oder einem anderen
-        <code>&lt;header&gt;</code>-Element sein darf.
+          >Flussinhalt</a
+        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;header></code> Element kein
+        Nachkomme eines {{HTMLElement("address")}},
+        {{HTMLElement("footer")}} oder eines anderen
+        <code>&lt;header&gt;</code> Elements sein darf.
       </td>
     </tr>
     <tr>
@@ -159,13 +159,13 @@ Wenn es sich innerhalb eines {{HTMLElement('article')}}, {{HTMLElement('main')}}
         <a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/generic_role"
           >generic</a
         >
-        wenn es ein Nachkomme eines
+        wenn Nachkommen eines
         <code><a href="/de/docs/Web/HTML/Reference/Elements/article">article</a></code
         >, <code><a href="/de/docs/Web/HTML/Reference/Elements/aside">aside</a></code
         >, <code><a href="/de/docs/Web/HTML/Reference/Elements/main">main</a></code
         >, <code><a href="/de/docs/Web/HTML/Reference/Elements/nav">nav</a></code> oder
         <code><a href="/de/docs/Web/HTML/Reference/Elements/section">section</a></code>
-        Elements ist, oder eines Elements mit
+        Elements oder eines Elements mit
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/article_role"
             >article</a
@@ -202,7 +202,7 @@ Wenn es sich innerhalb eines {{HTMLElement('article')}}, {{HTMLElement('main')}}
       </td>
     </tr>
     <tr>
-      <th scope="row">DOM Schnittstelle</th>
+      <th scope="row">DOM-Schnittstelle</th>
       <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
