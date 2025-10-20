@@ -3,22 +3,22 @@ title: "CSSFunctionDescriptors: result-Eigenschaft"
 short-title: result
 slug: Web/API/CSSFunctionDescriptors/result
 l10n:
-  sourceCommit: 792888cd76b95a986a38d6a48bece464731dda51
+  sourceCommit: bb55d1b729e6d8fd2eea3f1f9b402f6788a6d1d9
 ---
 
-{{ APIRef("CSSOM") }}
+{{ APIRef("CSSOM") }}{{SeeCompatTable}}
 
-Die **`result`**-Eigenschaft der [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors)-Schnittstelle gibt einen String zurück, der einen `result`-Deskriptor darstellt, sofern einer in der zugeordneten Menge von Deklarationen existiert.
+Die **`result`**-Eigenschaft des [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors)-Interfaces gibt einen String zurück, der einen `result`-Deskriptor darstellt, sofern einer im zugehörigen Satz von Deklarationen vorhanden ist.
 
 ## Wert
 
 Ein String.
 
-Wenn kein `result`-Deskriptor in der zugeordneten Menge von Deklarationen existiert, wird ein leerer String zurückgegeben.
+Wenn kein `result`-Deskriptor im zugehörigen Satz von Deklarationen vorhanden ist, wird ein leerer String zurückgegeben.
 
 ## Beispiele
 
-Siehe die Hauptseite der [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors) Referenz für ein Beispiel.
+Sehen Sie sich die Hauptreferenzseite zu [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors) für ein Beispiel an.
 
 ## Spezifikationen
 

@@ -2,18 +2,18 @@
 title: type()
 slug: Web/CSS/type
 l10n:
-  sourceCommit: b5a6d8bc5fd751032f70b88e7ec1ec61339937de
+  sourceCommit: bb55d1b729e6d8fd2eea3f1f9b402f6788a6d1d9
 ---
 
 {{seecompattable}}
 
 Die **`type()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) ermöglicht es Ihnen, einen bestimmten Datentyp anzugeben und wird von den folgenden CSS-Funktionen verwendet:
 
-- Die {{cssxref("attr()")}} Funktion, um anzugeben, in welchen Datentyp ein Attributwert konvertiert werden soll.
-- Die {{cssxref("@function")}} at-rule, um die erlaubten Datentypen für Parameter und Ergebnisse von [benutzerdefinierten CSS-Funktionen](/de/docs/Web/CSS/CSS_custom_functions_and_mixins/Using_custom_functions) anzugeben.
+- Die {{cssxref("attr()")}} Funktion, um den Datentyp anzugeben, in den der Attributwert geparst werden soll.
+- Die {{cssxref("@function")}} At-Regel, um die zulässigen Datentypen für [CSS benutzerdefinierte Funktion](/de/docs/Web/CSS/CSS_custom_functions_and_mixins/Using_custom_functions) Parameter und Ergebnisse anzugeben.
 
 > [!NOTE]
-> Der Wert des {{cssxref("@property")}} at-rule {{cssxref("@property/syntax", "syntax")}} Descriptors verwendet die gleiche `<syntax>`, um die erlaubten Datentypen für registrierte [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) zu definieren, aber dies nimmt immer die Form eines Strings an.
+> Der {{cssxref("@property")}} At-Regel {{cssxref("@property/syntax", "syntax")}} Deskriptorwert verwendet das gleiche `<syntax>`, um die zulässigen Datentypen für registrierte [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) zu definieren, jedoch nimmt dies immer die Form eines Strings an.
 
 ## Syntax
 
@@ -83,21 +83,21 @@ Der `<syntax>` Parameter ist ein Ausdruck, der den Datentyp definiert. Dieser ka
     - `<transform-function>`
       - : Akzeptiert jeden gültigen {{cssxref("&lt;transform-function&gt;")}} Wert.
     - `<transform-list>`
-      - : Akzeptiert eine Liste von gültigen {{cssxref("&lt;transform-function&gt;")}} Werten. Es ist gleichwertig zu `"<transform-function>+"`, und darf nicht von einem `+` oder `#` Token gefolgt werden.
+      - : Akzeptiert eine Liste gültiger {{cssxref("&lt;transform-function&gt;")}} Werte. Es ist äquivalent zu `"<transform-function>+"`, und darf nicht von einem `+` oder `#` Token gefolgt werden.
     - `<url>`
       - : Akzeptiert jeden gültigen {{cssxref("url_value", "&lt;url&gt;")}} Wert.
 
 - `*`
   - : Die universelle Syntax.
 
-Sie können `<syntax-type>` Werte kombinieren, indem Sie die folgenden Tokens verwenden:
+Sie können `<syntax-type>` Werte mit den folgenden Tokens kombinieren:
 
 - `+`
   - : Eine durch Leerzeichen getrennte Liste von Werten wird erwartet.
 - `#`
-  - : Eine durch Kommas getrennte Liste von Werten wird erwartet.
+  - : Eine durch Komma getrennte Liste von Werten wird erwartet.
 
-Zusätzlich kann das `|` Token als Trennzeichen verwendet werden, wenn mehrere Werte angegeben oder `<ident>` und `<syntax-type>` Werte für die erwartete Syntax kombiniert werden.
+Zusätzlich kann das `|` Token als Trennzeichen verwendet werden, wenn mehrere Werte oder Kombinationen von `<ident>` und `<syntax-type>` Werten für die erwartete Syntax angegeben werden.
 
 ### Rückgabewert
 
@@ -105,27 +105,27 @@ Eine Datentypdefinition.
 
 ## Beschreibung
 
-Die `type()` Funktion wird verwendet, wenn Sie einen Datentyp definieren müssen. Sie kann als eine Teilmenge der allgemeinen Wertedefinitionssyntax betrachtet werden, die verwendet wird, um die Menge gültiger Werte für jede CSS-Eigenschaft und Funktion zu definieren.
+Die `type()` Funktion wird verwendet, wenn Sie einen Datentyp definieren müssen. Sie kann als Teilmenge der allgemeinen Wertedefinitionssyntax betrachtet werden, die verwendet wird, um die Menge gültiger Werte für jede CSS-Eigenschaft und Funktion zu definieren.
 
-Am häufigsten wird `type()` verwendet, um einen einzelnen Datentyp anzugeben. Das nächste Beispiel verwendet die {{cssxref("attr()")}} Funktion, um die {{cssxref("background-color")}} Eigenschaft gleich dem Wert einer benutzerdefinierten `data-background` Funktion zu setzen. Der erforderliche Datentyp für den Wert wurde als {{cssxref("&lt;color>")}} spezifiziert.
+Am häufigsten wird `type()` verwendet, um einen einzelnen Datentyp anzugeben. Das folgende Beispiel verwendet die {{cssxref("attr()")}} Funktion, um die {{cssxref("background-color")}} Eigenschaft gleich dem Wert einer benutzerdefinierten `data-background` Funktion festzulegen. Der erforderliche Datentyp für den Wert wurde als {{cssxref("&lt;color>")}} angegeben.
 
 ```css
 background-color: attr(data-background type(<color>), red);
 ```
 
-Sie könnten auch eine genaue Schlüsselwort-Anforderung angeben (zum Beispiel `type(blue)`), aber dies wäre zu einschränkend.
+Sie könnten auch eine genaue Schlüsselwortanforderung angeben (zum Beispiel `type(blue)`), aber das wäre zu beschränkend.
 
-Die Angabe von `type(*)` erlaubt jeden gültigen CSS-Wert. Dies ist die universelle Syntax, die nicht vervielfacht oder mit anderen Syntaxkomponenten kombiniert werden kann.
+Die Angabe von `type(*)` erlaubt jeden gültigen CSS-Wert. Dies ist die universelle Syntax, die nicht multipliziert oder mit anderen Syntaxkomponenten kombiniert werden kann.
 
-### Spezifizierung mehrerer erlaubter Typen
+### Mehrere zulässige Typen angeben
 
-Sie können das `|` Token als Trennzeichen verwenden, wenn Sie eine Reihe von erlaubten Datentypen, Schlüsselwörtern oder eine Kombination aus beidem angeben. Zum Beispiel:
+Sie können das `|` Token als Trennzeichen verwenden, wenn Sie eine Reihe von zulässigen Datentypen, Schlüsselwörtern oder eine Kombination aus beidem angeben. Zum Beispiel:
 
 - `type(<length> | <percentage>)`
 - `type(red | green)`
 - `type(<length> | auto)`
 
-Das folgende Beispiel zeigt, wie eine {{cssxref("@function")}} at-rule verwendet werden kann, um eine [benutzerdefinierte Funktion](/de/docs/Web/CSS/CSS_custom_functions_and_mixins/Using_custom_functions) zu definieren, die zwei Farbparameter nimmt und den ersten zurückgibt, es sei denn, die Ansichtsfensterbreite ist kleiner als `700px`, in diesem Fall wird der zweite zurückgegeben. Der erste darf `red` oder `green` sein, während der zweite `blue` sein muss.
+Das folgende Beispiel zeigt, wie eine {{cssxref("@function")}} At-Regel verwendet werden kann, um eine [benutzerdefinierte Funktion](/de/docs/Web/CSS/CSS_custom_functions_and_mixins/Using_custom_functions) zu definieren, die zwei Farbparameter übernimmt und die erste Farbe zurückgibt, es sei denn, die Viewport-Breite ist weniger als `700px`, in welchem Fall sie die zweite zurückgibt. Die erste darf `red` oder `green` sein, während die zweite `blue` sein muss.
 
 ```css
 @function --color-choice(--color1 type(red | green), --color2 blue) {
@@ -137,16 +137,16 @@ Das folgende Beispiel zeigt, wie eine {{cssxref("@function")}} at-rule verwendet
 ```
 
 > [!NOTE]
-> Bei `@function` Datentypen können Sie die `type()` Funktion weglassen und einfach den Wert angeben, wenn nur ein Datentyp oder Schlüsselwort spezifiziert ist. Dies ist der Fall bei der `blue` Typdefinition in der vorherigen benutzerdefinierten Funktion. Dies funktioniert nicht mit der `attr()` Funktion.
+> Im Falle von `@function` Datentypen können Sie die `type()` Funktion weglassen und einfach den Wert einfügen, wenn nur ein Datentyp oder Schlüsselwort angegeben wird. Dies ist der Fall bei der `blue` Typdefinition in der vorherigen benutzerdefinierten Funktion. Dies funktioniert nicht mit der `attr()` Funktion.
 
-### Spezifizierung von Listen von Typen
+### Auflistungen von Typen angeben
 
-Die `+` und `#` Tokens können einem `<syntax-type>` angehängt werden, um anzugeben, dass Sie eine durch Leerzeichen getrennte Liste oder eine durch Kommas getrennte Liste erwarten. Zum Beispiel:
+Die `+` und `#` Tokens können an einen `<syntax-type>` angehängt werden, um anzugeben, dass Sie eine durch Leerzeichen oder Komma getrennte Liste erwarten. Zum Beispiel:
 
 - Ein `<color>+` Parameter erwartet eine durch Leerzeichen getrennte Liste von `<color>` Werten, zum Beispiel `red blue #a60000 rgb(234 45 100)`.
-- Ein `<length>#` Parameter erwartet eine durch Kommas getrennte Liste von `<length>` Werten, zum Beispiel `30px, 1em, 15vw`.
+- Ein `<length>#` Parameter erwartet eine durch Komma getrennte Liste von `<length>` Werten, zum Beispiel `30px, 1em, 15vw`.
 
-Sie können mehrere Tokens kombinieren, indem Sie `|` als Trennzeichen verwenden. Zum Beispiel würde `<color># | <integer>#` eine durch Kommas getrennte Liste von `<color>` Werten oder eine durch Kommas getrennte Liste von `<integer>` Werten erwarten.
+Sie können mehrere Tokens kombinieren, indem Sie `|` als Trennzeichen verwenden. Zum Beispiel würde `<color># | <integer>#` eine durch Komma getrennte Liste von `<color>` Werten oder eine durch Komma getrennte Liste von `<integer>` Werten erwarten.
 
 ## Formale Syntax
 
@@ -154,23 +154,23 @@ Sie können mehrere Tokens kombinieren, indem Sie `|` als Trennzeichen verwenden
 
 ## Beispiele
 
-Sie können weitere Beispiele in der Dokumentation zu {{cssxref("attr()")}} und {{cssxref("@function")}} finden.
+Weitere Beispiele finden Sie in der Dokumentation zu {{cssxref("attr()")}} und {{cssxref("@function")}}.
 
 ### Grundlegende `@function` Datentypdefinition
 
-Dieses Beispiel definiert eine benutzerdefinierte CSS-Funktion, die mehrere Strings kombiniert.
+Dieses Beispiel definiert eine CSS benutzerdefinierte Funktion, die mehrere Strings kombiniert.
 
 #### HTML
 
 Das HTML enthält ein einzelnes {{htmlelement("section")}} Element mit etwas Textinhalt.
 
 ```html live-sample___basic-data-type
-<section>What you goin' ta say?</section>
+<section>What you gonna say?</section>
 ```
 
 #### CSS
 
-Im CSS beginnen wir mit der Spezifikation einer `@function` namens `--combine-strings`. Diese hat einen Parameter namens `--strings`, dessen Datentyp als eine oder mehrere durch Leerzeichen getrennte `<string>` Werte spezifiziert ist. Es gibt die Stringwerte mit einem angehängten Leerzeichen und einem Herz-Emoji zurück.
+Im CSS beginnen wir mit der Spezifikation einer `@function` namens `--combine-strings`. Diese hat einen Parameter namens `--strings`, dessen Datentyp als ein oder mehrere durch Leerzeichen getrennte `<string>` Werte angegeben ist. Sie gibt die String-Werte mit einem Leerzeichen und einem Herz-Emoji am Ende zurück.
 
 ```css-nolint live-sample___basic-data-type
 @function --combine-strings(--strings type(<string>+)) {
@@ -178,7 +178,7 @@ Im CSS beginnen wir mit der Spezifikation einer `@function` namens `--combine-st
 }
 ```
 
-Wir geben dann einige grundlegende Stile für das `<section>` Element an und verwenden die `--combine-strings()` Funktion, um den Wert ihrer {{cssxref("content")}} Eigenschaft zu spezifizieren, einschließlich zweier durch Leerzeichen getrennter Strings als Argument.
+Wir spezifizieren dann einige grundlegende Styles für das `<section>` Element und verwenden die `--combine-strings()` Funktion, um den Wert seiner {{cssxref("content")}} Eigenschaft festzulegen, einschließlich zweier durch Leerzeichen getrennter Strings als Argument.
 
 ```css live-sample___basic-data-type
 section {
@@ -206,6 +206,6 @@ section::after {
 
 ## Siehe auch
 
-- {{cssxref("@function")}} at-rule
+- {{cssxref("@function")}} At-Regel
 - {{cssxref("attr()")}} Funktion
-- [Verwendung von benutzerdefinierten CSS-Funktionen](/de/docs/Web/CSS/CSS_custom_functions_and_mixins/Using_custom_functions)
+- [Verwendung von CSS benutzerdefinierten Funktionen](/de/docs/Web/CSS/CSS_custom_functions_and_mixins/Using_custom_functions)

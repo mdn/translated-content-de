@@ -3,18 +3,18 @@ title: "MediaTrackSupportedConstraints: Eigenschaft restrictOwnAudio"
 short-title: restrictOwnAudio
 slug: Web/API/MediaTrackSupportedConstraints/restrictOwnAudio
 l10n:
-  sourceCommit: a439453bab9f5508b5268a4062a42fc760a2f20b
+  sourceCommit: bb55d1b729e6d8fd2eea3f1f9b402f6788a6d1d9
 ---
 
-{{APIRef("Media Capture and Streams")}}
+{{APIRef("Media Capture and Streams")}}{{SeeCompatTable}}
 
-Das [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuch hat die **`restrictOwnAudio`**-Eigenschaft, die ein schreibgeschützter boolescher Wert ist. Diese Eigenschaft ist (und wird auf `true` gesetzt) nur in dem Objekt vorhanden, das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der {{Glossary("user_agent", "User-Agent")}} die `restrictOwnAudio` Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, sodass dieser Wert niemals `false` sein wird.
+Die **`restrictOwnAudio`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Verzeichnisses ist ein schreibgeschützter boolescher Wert, der nur dann in dem von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegebenen Objekt vorhanden ist (und auf `true` gesetzt wird), wenn der {{Glossary("user_agent", "User Agent")}} die `restrictOwnAudio`-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, daher wird dieser Wert niemals `false` sein.
 
-Sie können auf das Wörterbuch der unterstützten Einschränkungen zugreifen, indem Sie [`navigator.mediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) aufrufen.
+Sie können auf das Verzeichnis der unterstützten Einschränkungen zugreifen, indem Sie [`navigator.mediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) aufrufen.
 
 ## Wert
 
-Diese Eigenschaft ist im Wörterbuch vorhanden (und ihr Wert ist immer `true`), wenn der User-Agent die `restrictOwnAudio` Einschränkung unterstützt. Wenn die Eigenschaft nicht vorhanden ist, fehlt diese Eigenschaft im Wörterbuch der unterstützten Einschränkungen, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, auf ihren Wert zuzugreifen.
+Diese Eigenschaft ist im Verzeichnis vorhanden (und ihr Wert ist immer `true`), wenn der User Agent die `restrictOwnAudio`-Einschränkung unterstützt. Wenn die Eigenschaft nicht vorhanden ist, fehlt diese Eigenschaft im Verzeichnis der unterstützten Einschränkungen, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, auf ihren Wert zuzugreifen.
 
 ## Beispiele
 

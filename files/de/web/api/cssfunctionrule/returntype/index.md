@@ -3,22 +3,22 @@ title: "CSSFunctionRule: returnType-Eigenschaft"
 short-title: returnType
 slug: Web/API/CSSFunctionRule/returnType
 l10n:
-  sourceCommit: 792888cd76b95a986a38d6a48bece464731dda51
+  sourceCommit: bb55d1b729e6d8fd2eea3f1f9b402f6788a6d1d9
 ---
 
-{{ APIRef("CSSOM") }}
+{{ APIRef("CSSOM") }}{{SeeCompatTable}}
 
-Die **`returnType`**-Eigenschaft der [`CSSFunctionRule`](/de/docs/Web/API/CSSFunctionRule)-Schnittstelle gibt einen String zurück, der den Rückgabewerttyp der benutzerdefinierten Funktion darstellt.
+Die **`returnType`**-Eigenschaft der [`CSSFunctionRule`](/de/docs/Web/API/CSSFunctionRule)-Schnittstelle gibt einen String zurück, der den Rückgabewert des benutzerdefinierten Funktions-Typs darstellt.
 
 ## Wert
 
 Ein String.
 
-Wenn kein Rückgabetyp in der zugehörigen {{cssxref("@function")}}-Regel angegeben ist, gibt `returnType` `*` zurück.
+Falls im zugehörigen {{cssxref("@function")}}-At-Regel kein Rückgabewert angegeben ist, gibt `returnType` `*` zurück.
 
 ## Beispiele
 
-Siehe die Hauptreferenzseite zu [`CSSFunctionRule`](/de/docs/Web/API/CSSFunctionRule) für ein Beispiel.
+Sehen Sie sich die Hauptreferenzseite zu [`CSSFunctionRule`](/de/docs/Web/API/CSSFunctionRule) für ein Beispiel an.
 
 ## Spezifikationen
 

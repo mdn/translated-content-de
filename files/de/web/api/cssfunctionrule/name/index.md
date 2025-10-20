@@ -3,12 +3,12 @@ title: "CSSFunctionRule: name-Eigenschaft"
 short-title: name
 slug: Web/API/CSSFunctionRule/name
 l10n:
-  sourceCommit: 792888cd76b95a986a38d6a48bece464731dda51
+  sourceCommit: bb55d1b729e6d8fd2eea3f1f9b402f6788a6d1d9
 ---
 
-{{ APIRef("CSSOM") }}
+{{ APIRef("CSSOM") }}{{SeeCompatTable}}
 
-Die **`name`**-Eigenschaft des [`CSSFunctionRule`](/de/docs/Web/API/CSSFunctionRule)-Interfaces gibt einen String zurück, der den Namen der benutzerdefinierten Funktion repräsentiert.
+Die **`name`**-Eigenschaft der [`CSSFunctionRule`](/de/docs/Web/API/CSSFunctionRule)-Schnittstelle gibt einen String zurück, der den Namen der benutzerdefinierten Funktion darstellt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Ein Beispiel finden Sie auf der Hauptreferenzseite von [`CSSFunctionRule`](/de/docs/Web/API/CSSFunctionRule).
+Siehe die Hauptreferenzseite zu [`CSSFunctionRule`](/de/docs/Web/API/CSSFunctionRule) für ein Beispiel.
 
 ## Spezifikationen
 

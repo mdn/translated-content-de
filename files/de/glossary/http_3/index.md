@@ -2,18 +2,18 @@
 title: HTTP/3
 slug: Glossary/HTTP_3
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 30d3d33b476209c803c07316eaa580474addfff2
 ---
 
-**HTTP/3** ist eine bedeutende Überarbeitung des [HTTP-Netzwerkprotokolls](/de/docs/Web/HTTP) und Nachfolger von {{Glossary("HTTP_2", "HTTP/2")}}.
+**HTTP/3** ist eine bedeutende Revision des [HTTP-Netzwerkprotokolls](/de/docs/Web/HTTP), die auf {{Glossary("HTTP_2", "HTTP/2")}} folgt.
 
-Der auffälligste Unterschied bei HTTP/3 ist, dass es ein Protokoll namens QUIC über {{Glossary("UDP", "UDP")}} anstelle von {{Glossary("TCP", "TCP")}} verwendet.
+Der auffälligste Unterschied in HTTP/3 ist, dass es ein Protokoll namens {{Glossary("QUIC", "QUIC")}} über {{Glossary("UDP", "UDP")}} anstelle von {{Glossary("TCP", "TCP")}} verwendet. Dies verringert die {{Glossary("latency", "Latenz")}} und beseitigt das Problem des {{Glossary("head_of_line_blocking", "Head-of-line-Blocking")}} in HTTP.
 
 ## Siehe auch
 
-- [HTTP-Dokumentation](/de/docs/Web/HTTP)
+- [HTTP](/de/docs/Web/HTTP) auf MDN
 - [HTTP/3](https://en.wikipedia.org/wiki/HTTP/3) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - {{Glossary("HTTP", "HTTP")}}
-  - {{Glossary("HTTP_2", "HTTP 2")}}
-  - {{Glossary("Latency", "Latenz")}}
+  - {{Glossary("HTTP", "HTTP")}}, {{Glossary("HTTP_2", "HTTP 2")}}
+  - {{Glossary("TCP", "TCP")}}, {{Glossary("QUIC", "QUIC")}}, {{Glossary("UDP", "UDP")}}
+  - {{Glossary("Latency", "Latenz")}}, {{Glossary("head_of_line_blocking", "Head-of-line-Blocking")}}

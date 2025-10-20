@@ -1,23 +1,31 @@
 ---
-title: Head-of-line-Blockierung
+title: Head-of-line-Blocking
 short-title: HOL blocking
 slug: Glossary/Head_of_line_blocking
 l10n:
-  sourceCommit: aa751052a9d07bdf29274fbb216f2d6d13993c11
+  sourceCommit: 30d3d33b476209c803c07316eaa580474addfff2
 ---
 
-Im Bereich der Computernetzwerke bezieht sich die **Head-of-line-Blockierung** (_HOL-Blockierung_) auf einen Leistungsengpass, der auftritt, wenn eine Warteschlange von Paketen durch das erste Paket in der Warteschlange blockiert wird, obwohl andere Pakete in der Warteschlange bearbeitet werden könnten.
+In der Computernetzwerktechnik bezieht sich **Head-of-line-Blocking** (_HOL-Blocking_) auf einen Leistungsengpass, der auftritt, wenn eine Warteschlange von {{Glossary("packet", "Paketen")}} durch das erste Paket in der Warteschlange aufgehalten wird, obwohl andere Pakete in der Warteschlange verarbeitet werden könnten.
 
-In HTTP/1.1 tritt die HOL-Blockierung auf, wenn ein Client mehrere Anfragen an einen {{Glossary("server", "Server")}} über eine bestimmte TCP-Verbindung sendet und eine Antwort auf dieser Verbindung aus irgendeinem Grund verzögert wird — etwa durch Netzwerküberlastung, {{Glossary("TCP_slow_start", "TCP-Slow-Start")}} oder durch Probleme während der Übertragung. HTTP/1.1-Anfragen werden pro TCP-Verbindung nacheinander gesendet, sodass eine Verzögerung beim Empfang einer Antwort den nächsten Anfrage-Antwort-Austausch blockiert.
+In HTTP/1.1 werden Anfragen auf einer einzelnen {{Glossary("TCP", "TCP")}}-Verbindung normalerweise nacheinander gesendet – eine neue Anfrage kann nicht über die Verbindung gestellt werden, während auf eine Antwort auf die vorherige Anfrage gewartet wird.
+Dies kann zu HOL-Blocking-Problemen führen, selbst wenn mehrere TCP-Verbindungen zwischen dem Client und dem Server bestehen.
 
-Ein Mechanismus namens _HTTP-Pipelining_ versuchte, dieses Problem zu umgehen, indem ein Client mehrere Anfragen absendete, ohne auf Antworten zu warten. In der Praxis erwies sich Pipelining jedoch als schwierig umzusetzen, daher wird dieser Mechanismus selten, wenn überhaupt, verwendet, und die meisten Browser unterstützen ihn nicht mehr.
+HTTP/1.1 definiert ein optionales Feature namens _HTTP-Pipelining_, das erfolglos versuchte, das HOL-Blocking zu umgehen, indem es ermöglichte, Anfragen zu senden, ohne auf frühere Antworten zu warten.
+Unglücklicherweise bedeutet das Design von HTTP/1.1, dass Antworten in der gleichen Reihenfolge zurückgegeben werden müssen, in der die Anfragen empfangen wurden, sodass HOL-Blocking immer noch auftreten kann, wenn das Abschließen einer Anfrage lange dauert.
+Netzwerkbedingungen wie Staus, Paketverlust (und die daraus resultierenden TCP-Neuübertragungen) oder {{Glossary("TCP_slow_start", "TCP Slow Start")}} können ebenfalls die Übertragung verzögern und dazu führen, dass spätere Antworten durch frühere blockiert werden.
 
-HTTP/2 behebt die HOL-Blockierungsprobleme in HTTP/1.1 durch Anfrage-_Multiplexing_. Multiplexing erlaubt es einer einzigen TCP-Verbindung, Anfragen und Antworten in nummerierten Streams zu verflechten. Ein Client kann viele Anfragen über eine einzige Verbindung senden, ohne auf frühere Antworten zu warten. Es ist zu beachten, dass, obwohl die HOL-Blockierung in HTTP/2 behoben wurde, sie auf der Transportebene ({{Glossary("TCP", "TCP")}}) immer noch ein Problem darstellt.
+{{Glossary("HTTP_2", "HTTP/2")}} reduziert das HOL-Blocking auf Anwendungsebene durch die Einführung von _Multiplexing_ von Anfragen und Antworten.
+Mit dieser Funktion können mehrere Anfragen und Antworten über eine einzige TCP-Verbindung mithilfe unabhängig nummerierter Streams ineinander verschachtelt werden, und die Stream-Priorisierung hilft dem Server zu entscheiden, welche Streams zuerst gesendet werden sollen.
+Paketverluste auf der Transportschicht können dennoch HOL-Blocking über Streams hinweg verursachen, da HTTP/2 über TCP läuft – ein verlorenes TCP-Segment kann alle Streams auf dieser Verbindung blockieren, bis die verlorenen Daten erneut übertragen werden.
+
+{{Glossary("HTTP_3", "HTTP/3")}} beseitigt das HOL-Blocking auf der Transportschicht, indem es {{Glossary("QUIC", "QUIC")}} über {{Glossary("UDP", "UDP")}} verwendet, und somit existiert das HOL-Problem bei HTTP nicht mehr.
+QUIC bietet mehrere unabhängige Streams mit verlustspezifischer Wiederherstellung, sodass Paketverlust nur den Stream betrifft, in dem er auftritt, anstatt die gesamte Verbindung. Dies beseitigt das TCP-HOL-Problem.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe
-  - {{Glossary("HTTP", "HTTP")}}, {{Glossary("HTTP_2", "HTTP/2")}}
-  - {{Glossary("TCP", "TCP")}}
-- [Die Seite füllen: wie Browser funktionieren](/de/docs/Web/Performance/Guides/How_browsers_work)
+  - {{Glossary("HTTP", "HTTP")}}, {{Glossary("HTTP_2", "HTTP/2")}}, {{Glossary("HTTP_3", "HTTP/3")}}
+  - {{Glossary("TCP", "TCP")}}, {{Glossary("QUIC", "QUIC")}}, {{Glossary("UDP", "UDP")}}
+- [Das Befüllen der Seite: wie Browser funktionieren](/de/docs/Web/Performance/Guides/How_browsers_work)
 - [Head-of-line blocking](https://en.wikipedia.org/wiki/Head-of-line_blocking) auf Wikipedia
