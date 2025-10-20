@@ -3,7 +3,7 @@ title: Firefox 145 Versionshinweise für Entwickler (Beta)
 short-title: Firefox 145 (Beta)
 slug: Mozilla/Firefox/Releases/145
 l10n:
-  sourceCommit: 61912f53d01e935aea926a2226130fb4587414a9
+  sourceCommit: 29998b5a6e4b776dbba1893e016452d081f9ee65
 ---
 
 Dieser Artikel bietet Informationen über die Änderungen in Firefox 145, die Entwickler betreffen.
@@ -12,61 +12,65 @@ Firefox 145 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 > [!NOTE]
 > Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
 
-<!-- Autoren: Bitte entfernen Sie die Auskommentierung von Überschriften, für die Sie Notizen schreiben -->
+<!-- Authors: Please uncomment any headings you are writing notes for -->
 
-## Änderungen für Web-Entwickler
+## Änderungen für Webentwickler
 
-<!-- ### Entwicklerwerkzeuge -->
+<!-- ### Developer Tools -->
 
 <!-- ### HTML -->
 
-<!-- Keine bemerkenswerten Änderungen. -->
+<!-- No notable changes. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### MathML -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### SVG -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### CSS -->
 
-<!-- Keine bemerkenswerten Änderungen. -->
+<!-- No notable changes. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### JavaScript -->
 
-<!-- Keine bemerkenswerten Änderungen. -->
+<!-- No notable changes. -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
-<!-- ### HTTP -->
+### HTTP
 
-<!-- #### Entfernungen -->
+- Die HTTP-Header {{httpheader("Integrity-Policy")}} und {{httpheader("Integrity-Policy-Report-Only")}} werden jetzt für Skriptressourcen unterstützt. Diese ermöglichen es Websites, [Subressourcen-Integritätsgarantien](/de/docs/Web/Security/Subresource_Integrity) für _Skripte_ durchzusetzen.
+  Beachten Sie, dass der Schlüssel [`endpoints`](/de/docs/Web/HTTP/Reference/Headers/Integrity-Policy#endpoints) noch nicht unterstützt wird (Verstöße werden in der Konsole protokolliert).
+  ([Firefox-Bug 1984973](https://bugzil.la/1984973)).
 
-<!-- ### Sicherheit -->
+<!-- #### Removals -->
 
-<!-- #### Entfernungen -->
+<!-- ### Security -->
+
+<!-- #### Removals -->
 
 <!-- ### APIs -->
 
 <!-- #### DOM -->
 
-<!-- #### Medien, WebRTC und Web Audio -->
+<!-- #### Media, WebRTC, and Web Audio -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Entfernungen -->
+<!-- #### Removals -->
 
-<!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
+<!-- ### WebDriver conformance (WebDriver BiDi, Marionette) -->
 
-<!-- #### Allgemein -->
+<!-- #### General -->
 
 <!-- #### WebDriver BiDi -->
 
@@ -74,14 +78,14 @@ Firefox 145 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 ## Änderungen für Add-on-Entwickler
 
-- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} erstellt werden, werden jetzt validiert, und ungültige Cookies werden abgelehnt. Diese Änderung wurde nur in Nightly ab Firefox 142 implementiert. ([Firefox-Bug 1976509](https://bugzil.la/1976509))
+- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} erstellt werden, sind jetzt validiert, und ungültige Cookies werden abgelehnt. Diese Änderung wurde zuerst nur in Nightly ab Firefox 142 implementiert. ([Firefox-Bug 1976509](https://bugzil.la/1976509))
 
-<!-- ### Entfernungen -->
+<!-- ### Removals -->
 
-<!-- ### Sonstiges -->
+<!-- ### Other -->
 
-## Experimentelle Web-Funktionen
+## Experimentelle Webfunktionen
 
 Diese Funktionen sind in Firefox 145 enthalten, aber standardmäßig deaktiviert.
-Um sie auszuprobieren, suchen Sie auf der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie diese auf `true`.
-Weitere derartige Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Um mit ihnen zu experimentieren, suchen Sie die entsprechende Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`.
+Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).

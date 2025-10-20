@@ -1,18 +1,20 @@
 ---
-title: "GPUAdapter: isFallbackAdapter Eigenschaft"
+title: "GPUAdapter: isFallbackAdapter-Eigenschaft"
 short-title: isFallbackAdapter
 slug: Web/API/GPUAdapter/isFallbackAdapter
 l10n:
-  sourceCommit: 3b1efe57f3b22a97acb9db335f2848c90cdfe40e
+  sourceCommit: c03dee2dd8e7e28ba041b899de4db10f002d6645
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}{{deprecated_header}}{{non-standard_header}}
 
-Die schreibgeschützte Eigenschaft **`isFallbackAdapter`** der [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Schnittstelle gibt `true` zurück, wenn der Adapter ein [Fallback-Adapter](/de/docs/Web/API/GPU/requestAdapter#fallback_adapters) ist, und `false`, wenn nicht.
+Die schreibgeschützte Eigenschaft **`isFallbackAdapter`** des [`GPUAdapter`](/de/docs/Web/API/GPUAdapter)-Interfaces gibt `true` zurück, wenn der Adapter ein [Fallback-Adapter](/de/docs/Web/API/GPU/requestAdapter#fallback_adapters) ist, und `false`, wenn nicht.
+
+Diese Eigenschaft wurde aus der Web-Plattform entfernt. Verwenden Sie stattdessen [`GPUAdapterInfo.isFallbackAdapter`](/de/docs/Web/API/GPUAdapterInfo/isFallbackAdapter).
 
 ## Wert
 
-Ein Boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 
@@ -27,8 +29,8 @@ async function init() {
     throw Error("Couldn't request WebGPU adapter.");
   }
 
-  const fallback = adapter.isFallbackAdapter;
-  console.log(fallback);
+  const isFallback = adapter.isFallbackAdapter;
+  console.log(isFallback);
 
   // …
 }

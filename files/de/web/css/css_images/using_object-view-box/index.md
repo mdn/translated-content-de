@@ -1,46 +1,46 @@
 ---
-title: Verwendung der CSS-Eigenschaft object-view-box
+title: Verwenden der CSS-Eigenschaft object-view-box
 short-title: Verwendung von object-view-box
 slug: Web/CSS/CSS_images/Using_object-view-box
 l10n:
-  sourceCommit: b5a6d8bc5fd751032f70b88e7ec1ec61339937de
+  sourceCommit: fafde2d3fdc5dd27f070922e00a22d8dc9b1a3f0
 ---
 
-Die {{cssxref("object-view-box")}}-Eigenschaft kann genutzt werden, um einen Viewbox innerhalb von {{Glossary("replaced_elements", "ersetzten Elementen")}} zu definieren, wodurch nur ein Abschnitt des ersetzten Inhalts angezeigt werden kann. Der angezeigte Abschnitt des Elements kann vergrößert, verkleinert oder in Originalgröße dargestellt werden, wobei das intrinsische {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Inhalts beibehalten wird. In diesem Leitfaden untersuchen wir diese Eigenschaft, vergleichen sie mit der ähnlichen {{cssxref("object-fit")}}-Eigenschaft und erkunden ihre Funktionalität durch das Vergrößern und Verkleinern sowie das Verschieben über ein Element.
+Die {{cssxref("object-view-box")}} Eigenschaft kann genutzt werden, um einen Viewbox innerhalb von {{Glossary("replaced_elements", "ersetzten Elementen")}} zu definieren, was die Anzeige nur eines Abschnitts des ersetzten Inhalts ermöglicht. Der angezeigte Unterabschnitt des Elements kann vergrößert, verkleinert oder in Originalgröße angezeigt werden, während das intrinsische {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Inhalts beibehalten wird. In diesem Leitfaden untersuchen wir diese Eigenschaft, vergleichen sie mit der ähnlichen {{cssxref("object-fit")}} Eigenschaft und erforschen ihre Funktionalität durch Vergrößern, Verkleinern und Verschieben innerhalb eines Elements.
 
 ## Intrinsische Größe, extrinsische Größe und `object-fit`
 
 Jedes ersetzte Element hat zwei Größen: eine {{Glossary("extrinsic_size", "extrinsische Größe")}} und eine {{Glossary("intrinsic_size", "intrinsische Größe")}}.
 
-Die extrinsische Größe ist die Dimension des HTML-Elements, in dem der Inhalt basierend auf den Box- und visuellen Formatierungsmodellen gerendert wird. Das [Box-Modell](/de-DE/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) und das [visuelle Formatierungsmodell](/de-DE/docs/Web/CSS/CSS_display/Visual_formatting_model) bestimmen die Größe der dargestellten Elemente basierend auf Inhalt, HTML-Attributen, CSS, das auf die Elemente und ihre Vorfahren angewendet wird, und der Größe des Viewports.
+Die extrinsische Größe ist die Dimension des HTML-Elements, in dem der Inhalt gerendert wird, basierend auf den Box- und visuellen Formatierungsmodellen. Das [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) und das [visuelle Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model) bestimmen die Größe gerenderter Elemente basierend auf Inhalt, HTML-Attributen, angewendetem CSS auf die Elemente und ihre Vorfahren sowie der Viewport-Größe.
 
-Die intrinsische Größe ist die tatsächliche Größe des Inhalts selbst; die Größe, die das Element hat, wenn keine Stile angewendet werden und ohne Layoutbeschränkungen. Während die intrinsische und extrinsische Größe nicht gleich sein müssen, ist es im Allgemeinen wichtig, das intrinsische {{Glossary("aspect_ratio", "Seitenverhältnis")}} eines ersetzten Elements beizubehalten.
+Die intrinsische Größe ist die tatsächliche Größe des Inhalts selbst; die Größe des Elements, wenn keine Stile angewendet werden und ohne Layout-Beschränkungen. Obwohl die intrinsischen und extrinsischen Größen nicht gleich sein müssen, ist es im Allgemeinen wichtig, das intrinsische {{Glossary("aspect_ratio", "Seitenverhältnis")}} eines ersetzten Elements beizubehalten.
 
 ## `object-view-box` versus `object-fit`
 
-CSS verfügt über viele Größenbestimmungs-Eigenschaften. Bei der Größenbestimmung von ersetzten Elementen ermöglicht uns die [`object-fit`](/de-DE/docs/Web/CSS/object-fit)-Eigenschaft, bis zu einem gewissen Grad zu kontrollieren, wie ersetzte Elemente innerhalb eines definierten Rahmens dargestellt werden. Zum Beispiel wird im folgenden Screenshot ein 1200 x 400 Bild mit einem {{htmlelement("img")}}-Element angezeigt. Das `<img>`-Element ist auf 400 x 200 dimensioniert. Der Bildinhalt wird mit der Deklaration `object-fit: none;` positioniert.
+CSS hat viele Eigenschaft für Größen. Bei der Größenbestimmung von ersetzten Elementen ermöglicht uns die [`object-fit`](/de/docs/Web/CSS/object-fit) Eigenschaft, in gewissem Maße zu kontrollieren, wie ersetzte Elemente innerhalb eines definierten Box gerendert werden. Zum Beispiel wird im folgenden Screenshot ein 1200 x 400 Bild unter Verwendung eines {{htmlelement("img")}} Elements angezeigt. Das `<img>` Element ist auf 400 x 200 dimensioniert. Der Bildinhalt wird mit der Deklaration `object-fit: none;` positioniert.
 
-![Ein Bild, das extrinsische und intrinsische Bildgrößen demonstriert; der zentrale 400x200-Abschnitt eines viel größeren 1200x400-Bildes ist in dem 400x200-Viewbox sichtbar, der die Größe des Elements ist, das das Bild darstellt.](extrinsic-intrinsic_sizes.jpg)
+![Ein Bild, das extrinsische und intrinsische Bildgrößen demonstriert; der mittlere 400 x 200 Abschnitt eines viel größeren 1200 x 400 Bildes ist im 400 x 200 Viewbox sichtbar, der die Größe des Elements ist, das das Bild anzeigt.](https://mdn.github.io/shared-assets/images/diagrams/css/object-view-box/extrinsic-intrinsic_sizes.jpg)
 
-Die `object-view-box`-Eigenschaft ist flexibler als die `object-fit`-Eigenschaft und kann mehr Dinge tun. Sie kann zum Beispiel zum Zuschneiden, Vergrößern und Verschieben von Bildern verwendet werden. Die Eigenschaft setzt den sichtbaren Bereich (Viewbox), der definiert, welcher Teil des Inhalts angezeigt werden soll und wie er in die extrinsische Größe passt. Der Viewbox-Wert enthält ein Rechteck und seine Position relativ zum intrinsischen Bereich des Inhalts, aber die _physische Größe der Viewbox bleibt gleich der extrinsischen Größe_. Die Viewbox markiert den Bereich im Inhalt, der angezeigt werden soll, und dann wird der Inhaltsbereich so transformiert, dass er den extrinsischen Dimensionen entspricht, die in das HTML-Element passen.
+Die `object-view-box` Eigenschaft ist flexibler als die `object-fit` Eigenschaft und in der Lage, mehr Aufgaben zu erledigen. Zum Beispiel kann sie verwendet werden, um Bilder zu zuschneiden, zu zoomen und zu verschieben. Die Eigenschaft legt den sichtbaren Bereich (Viewbox) fest, der definiert, welcher Teil des Inhalts gezeigt werden soll und wie er in die extrinsische Größe passt. Der Viewbox-Wert enthält ein Rechteck und seine Position relativ zum intrinsischen Bereich des Inhalts, aber die _physische Größe des Viewbox bleibt gleich der extrinsischen Größe_. Der Viewbox markiert den Bereich im Inhalt, der angezeigt werden soll, und dann wird der Inhaltsbereich angepasst, um den extrinsischen Abmessungen zu entsprechen, die in das HTML-Element passen.
 
-Im folgenden Bild haben wir das gleiche Leopardenbild in einem 400 x 150 Bild-Element. Diesmal haben wir jedoch die `object-view-box`-Eigenschaft verwendet, um den Teil des Bildes zuzuschneiden, der die Augen des Leoparden zeigt.
+Im folgenden Bild haben wir dasselbe Leopardenbild in einem 400 x 150 Bild-Element. Diesmal haben wir jedoch die `object-view-box` Eigenschaft verwendet, um den Teil des Bildes zuzuschneiden, der die Augen des Leoparden zeigt.
 
-![Das Leopardenbild, das mit der object-view-box-Eigenschaft zugeschnitten wurde, mit einer 400px x 150px Viewbox, die einen unvergrößerten Abschnitt des Bildes anzeigt](https://mdn.github.io/shared-assets/images/diagrams/css/object-view-box/object-view-box_xywh.jpg)
+![Das Leopardenbild, zugeschnitten mit der object-view-box Eigenschaft, mit einem 400px x 150px Viewbox, der einen unvergrößerten Abschnitt des Bildes zeigt.](https://mdn.github.io/shared-assets/images/diagrams/css/object-view-box/object-view-box_xywh.jpg)
 
-In diesem Fall, da die Dimensionen des `<img>`-Elements und der Viewbox, die durch die `object-view-box`-Eigenschaft definiert werden, gleich sind, d.h. 400 x 150 Pixel, sind die Seitenverhältnisse beider gleich, und das ersetzte Element wird weder skaliert noch verzerrt.
+In diesem Fall, da die Abmessungen des `<img>` Elements und des von der `object-view-box` Eigenschaft definierten Viewbox gleich sind, d.h. 400 x 150 Pixel, sind die Seitenverhältnisse gleich, und das ersetzte Element wird weder skaliert noch verzerrt.
 
-Das Beibehalten des gleichen {{Glossary("aspect_ratio", "Seitenverhältnisses")}} verhindert Bildverzerrungen. Mit `object-view-box` können wir verschiedene Bildoperationen durchführen, während wir unterschiedliche extrinsische und Viewbox-Größen haben, ohne das ersetzte Element zu verzerren, da es vergrößert oder verkleinert wird.
+Das Beibehalten desselben {{Glossary("aspect_ratio", "Seitenverhältnisses")}} verhindert Bildverzerrungen. Mit `object-view-box` können wir verschiedene Bildoperationen ausführen, während wir unterschiedliche extrinsische und Viewbox-Größen haben, ohne das ersetzte Element zu verzerren, da es sich vergrößert und verkleinert.
 
-## Vergrößern und Verkleinern
+## Raus- und Reinzoomen
 
-Die Reduzierung der Viewbox-Größe erhöht den Bereich des angezeigten ersetzten Elements, da kleinerer Inhalt gestreckt wird, um die Dimensionen des HTML-Elements zu füllen. Durch Verkleinern erhält es einen Verkleinern-Effekt.
+Das Reduzieren der Größe des Viewbox, des angezeigten Bereichs des ersetzten Elements, erhöht den Zoom-in-Effekt, da kleinerer Inhalt gestreckt wird, um die Abmessungen des HTML-Elements zu füllen. Eine Verringerung erzeugt einen Zoom-out-Effekt.
 
-Dieses Beispiel demonstriert die Verwendung der `object-view-box`-Eigenschaft, um einen Abschnitt eines ersetzten Elements in einem statisch dimensionierten HTML-Element zu vergrößern und zu verkleinern. In diesem Fall dient das Auge des Leoparden, innerhalb eines sehr großen Bildes, als Fokuspunkt des Vergrößerungseffekts.
+Dieses Beispiel demonstriert die Verwendung der `object-view-box` Eigenschaft, um einen Abschnitt eines ersetzten Elements in einem statisch dimensionierten HTML-Element hinein- und herauszuzoomen. In diesem Fall dient das Auge des Leoparden in einem sehr großen Bild als Fokuspunkt des Zoom-Effekts.
 
 ### HTML
 
-Wir fügen ein {{htmlelement("img")}}-Element und ein {{htmlelement("input")}}-Element vom Typ [`range`](/de-DE/docs/Web/HTML/Reference/Elements/input/range) hinzu sowie ein zugehöriges {{htmlelement("label")}}. Die natürlichen Dimensionen oder die intrinsische Größe des ursprünglichen Leopardenbildes sind `1244px` breit und `416px` hoch, mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} von `3:1`.
+Wir fügen ein {{htmlelement("img")}} Element und ein [`range`](/de/docs/Web/HTML/Reference/Elements/input/range) {{htmlelement("input")}} Element mit einem zugehörigen {{htmlelement("label")}} hinzu. Die natürlichen Abmessungen oder die intrinsische Größe des ursprünglichen Leopardenbildes sind `1244px` breit und `416px` hoch, mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} von `3:1`.
 
 ```html
 <img
@@ -55,7 +55,7 @@ Wir fügen ein {{htmlelement("img")}}-Element und ein {{htmlelement("input")}}-E
 
 ### CSS
 
-Wir definieren eine benutzerdefinierte Eigenschaft `--box-size`, die als Höhe und Breite in der {{cssxref("basic-shape/xywh", "xywh()")}}-Funktion verwendet wird, wodurch eine quadratische Viewbox mit einem Seitenverhältnis von `1:1` entsteht. Der Offsetpunkt der Viewbox, der Fokuspunkt in unserem Zoom-Effekt, ist auf `500px` für die `x`-Koordinate und `30px` für die `y`-Koordinate gesetzt, was der oberen linken Ecke des rechten Auges des Leoparden entspricht.
+Wir definieren eine `--box-size` benutzerdefinierte Eigenschaft, die als Höhe und Breite in der {{cssxref("basic-shape/xywh", "xywh()")}} Funktion verwendet wird und eine quadratische Viewbox mit einem Seitenverhältnis von `1:1` erstellt. Der Ausgleichspunkt des Viewbox, der Brennpunkt in unserem Zoom-Effekt, ist auf `500px` für die `x` Koordinate und `30px` für die `y` Koordinate eingestellt, was der oberen linken Ecke des rechten Auges des Leoparden entspricht.
 
 ```css hidden
 input {
@@ -95,7 +95,7 @@ img {
 
 ### JavaScript
 
-Wir fügen einen Event-Listener zum Schieberegler hinzu, der den Wert der benutzerdefinierten Eigenschaft `--boxSize` aktualisiert, wenn der Benutzer damit interagiert. Um den Vergrößerungseffekt zu erhöhen, wenn der Schieberegler nach rechts bewegt wird, wird der Wert des Schiebereglers invertiert, indem er von `500px` abgezogen wird, da die Reduzierung der Viewbox-Größe den Vergrößerungseffekt erhöht.
+Wir fügen einen Ereignislistener zu dem Schieberegler hinzu, der den Wert der `--boxSize` benutzerdefinierten Eigenschaft aktualisiert, wenn der Benutzer damit interagiert. Um den Zoom-in-Effekt zu erhöhen, wenn der Schieberegler nach rechts bewegt wird, wird der Wert des Schiebereglers invertiert, indem er von `500px` abgezogen wird, da das Reduzieren der Viewbox-Größe den Zoom-in-Effekt erhöht.
 
 ```js
 const img = document.querySelector("img");
@@ -114,13 +114,13 @@ update();
 
 ### Ergebnis
 
-{{ EmbedLiveSample("Vergrößern und Verkleinern", "", 480) }}
+{{ EmbedLiveSample("Raus- und Reinzoomen", "", 480) }}
 
-Bewegen Sie den Schieberegler nach rechts, um den Vergrößerungseffekt zu erhöhen, und nach links, um ihn zu reduzieren. Der Schieberegler beeinflusst nur die Dimensionen der Viewbox, während die `x`- und `y`-Werte, der Ursprung der Viewbox, konstant bleiben. Die Größe des `<img>`-Elements bleibt ebenfalls konstant.
+Bewegen Sie den Schieberegler nach rechts, um den Zoom-in-Effekt zu erhöhen, und nach links, um ihn zu verringern. Der Schieberegler beeinflusst nur die Abmessungen des Viewbox, während die x- und y-Werte, der Ursprungspunkt des Viewbox, konstant bleiben. Die Größe des `<img>` Elements bleibt ebenfalls konstant.
 
-## Ein Bild verschieben
+## Panning eines Bildes
 
-Wir können einen Verschiebeeffekt erzeugen, indem wir die Koordinaten des Viewbox-Fensters ändern, die `x`- und `y`-Komponenten der `xywh()`-Funktion, während die Größe des sichtbaren Abschnitts konstant bleibt. Zum Beispiel können wir, indem wir die Viewbox-Dimensionen konstant halten und nur die horizontale Position - den `x`-Parameter - ändern, einen horizontalen Verschiebeeffekt erzeugen.
+Wir können einen Pan-Effekt erzeugen, indem wir die Koordinaten des Viewbox-Fensters ändern, die `x` und `y` Komponenten der `xywh()` Funktion, während die Größe des sichtbaren Abschnitts konstant bleibt. Zum Beispiel, indem wir die Viewbox-Abmessungen konstant halten und nur die horizontale Position - den `x` Parameter - ändern, können wir einen horizontalen Pan-Effekt erzeugen.
 
 ```html hidden
 <img
@@ -179,9 +179,9 @@ position.addEventListener("input", update);
 update();
 ```
 
-{{ EmbedLiveSample("Verschiebeeffekt", "", 450) }}
+{{ EmbedLiveSample("Pan-Effekt", "", 450) }}
 
-Bewegen Sie den Schieberegler. Beachten Sie, wie das Erhöhen und Verringern des `x`-Wertes der `xywh()`-Funktion einen Verschiebeeffekt erzeugt.
+Bewegen Sie den Schieberegler. Beachten Sie, wie das Erhöhen und Verringern des `x`-Werts der `xywh()` Funktion einen Pan-Effekt erzeugt.
 
 ## Siehe auch
 
@@ -189,4 +189,4 @@ Bewegen Sie den Schieberegler. Beachten Sie, wie das Erhöhen und Verringern des
 - {{cssxref("object-fit")}}
 - {{cssxref("object-position")}}
 - {{cssxref("background-size")}}
-- [Seitenverhältnis verstehen](/de-DE/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
+- [Verständnis des Seitenverhältnisses](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)

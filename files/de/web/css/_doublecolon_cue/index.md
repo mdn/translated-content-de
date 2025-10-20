@@ -2,11 +2,11 @@
 title: ::cue
 slug: Web/CSS/::cue
 l10n:
-  sourceCommit: 7f460077d6f16c939718e9482a8270166f6d9abd
+  sourceCommit: d8a046a6265c83d821e4923989e284479c10fd75
 ---
 
-Das **`::cue`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) wendet sich an [WebVTT](/de/docs/Web/API/WebVTT_API) Textspuren innerhalb eines ausgewählten Elements.
-Dies kann verwendet werden, um [Untertitel und andere Hinweise zu gestalten](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) in Medien mit VTT-Spuren.
+Das **`::cue`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) entspricht [WebVTT](/de/docs/Web/API/WebVTT_API) Hinweise innerhalb eines ausgewählten Elements.
+Dies kann verwendet werden, um [Untertitel und andere Hinweise](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) in Medien mit VTT-Tracks zu gestalten.
 
 {{InteractiveExample("CSS Demo: ::cue", "tabbed-shorter")}}
 
@@ -36,9 +36,9 @@ video::cue {
 </video>
 ```
 
-Die Eigenschaften werden auf die gesamte Menge der Hinweise angewendet, als ob sie eine einzelne Einheit wären. Die einzige Ausnahme ist, dass `background` und dessen Langformeigenschaften auf jeden Hinweis individuell angewendet werden, um das Erstellen von Boxen und das unerwartete Verdecken von großen Bereichen des Mediums zu vermeiden.
+Die Eigenschaften werden auf die gesamte Menge an Hinweisen angewendet, als ob sie eine einzige Einheit wären. Die einzige Ausnahme ist, dass `background` und seine Langform-Eigenschaften auf jeden Hinweis einzeln angewendet werden, um das Erstellen von Boxen und das unbeabsichtigte Verdecken großer Bereiche der Medien zu vermeiden.
 
-Im obigen Beispiel wählt der Selektor `::cue(u)` alle [`<u>`](/de/docs/Web/HTML/Reference/Elements/u) Elemente innerhalb [des Hinweistextes](https://raw.githubusercontent.com/mdn/interactive-examples/main/live-examples/media/examples/friday.vtt) aus.
+Im obigen Beispiel selektiert der `::cue(u)` Selektor alle [`<u>`](/de/docs/Web/HTML/Reference/Elements/u) Elemente innerhalb [des Hinweistextes](https://github.com/mdn/shared-assets/blob/main/misc/friday.vtt).
 
 ## Syntax
 
@@ -50,7 +50,7 @@ Im obigen Beispiel wählt der Selektor `::cue(u)` alle [`<u>`](/de/docs/Web/HTML
 
 ## Erlaubte Eigenschaften
 
-Regeln, deren Selektoren dieses Element einschließen, dürfen nur die folgenden CSS-Eigenschaften verwenden:
+Regeln, deren Selektoren dieses Element enthalten, dürfen nur die folgenden CSS-Eigenschaften verwenden:
 
 - [`background`](/de/docs/Web/CSS/background)
 - [`background-attachment`](/de/docs/Web/CSS/background-attachment)
@@ -88,9 +88,9 @@ Regeln, deren Selektoren dieses Element einschließen, dürfen nur die folgenden
 
 ## Beispiele
 
-### WebVTT-Hinweise als weiß auf schwarz gestalten
+### WebVTT-Hinweise als Weiß-auf-Schwarz stylen
 
-Der folgende CSS-Stil setzt den Hinweis so, dass der Text weiß und der Hintergrund ein durchscheinendes schwarzes Kästchen ist.
+Das folgende CSS setzt den Hinweis-Stil so, dass der Text weiß ist und der Hintergrund eine durchscheinende schwarze Box ist.
 
 ```css
 ::cue {
@@ -99,9 +99,11 @@ Der folgende CSS-Stil setzt den Hinweis so, dass der Text weiß und der Hintergr
 }
 ```
 
-### WebVTT interne Knotenobjekte gestalten
+### Styling von WebVTT-internen Knotenobjekten
 
-Hinweistext kann _interne Knotenobjekte_ wie die Tags (ähnlich den HTML-Elementen) `<c>`, `<i>`, `<b>`, `<u>`, `<ruby>`, `<rt>`, `<v>`, und `<lang>` enthalten. Der `::cue()` Selektor kann verwendet werden, um Stile auf Inhalte innerhalb dieser Tags anzuwenden, um anzupassen, wie die WebVTT-Spur angezeigt wird. Betrachten Sie den folgenden Hinweistext, der das `<u>` Tag benutzt, um Text zu unterstreichen:
+Hinweistext kann _interne Knotenobjekte_ wie die Tags (ähnlich den HTML-Elementen) `<c>`, `<i>`, `<b>`, `<u>`, `<ruby>`, `<rt>`, `<v>`, und `<lang>` enthalten.
+Der `::cue()` Selektor kann verwendet werden, um Stile auf Inhalte innerhalb dieser Tags anzuwenden, um anzupassen, wie der WebVTT-Track angezeigt wird.
+Betrachten Sie den folgenden Hinweistext, der das `<u>` Tag verwendet, um einige Texte zu unterstreichen:
 
 ```plain
 00:00:01.500 --> 00:00:02.999 line:80%
