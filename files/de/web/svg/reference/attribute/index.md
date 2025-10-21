@@ -1,14 +1,14 @@
 ---
-title: SVG-Attributreferenz
+title: SVG Attributreferenz
 short-title: Attributes
 slug: Web/SVG/Reference/Attribute
 l10n:
-  sourceCommit: f806e0ff9b3ef7f633533b4c6c1657e9430e2f06
+  sourceCommit: 39d45a2e71cee2c107a026a59ba0d9229a511592
 ---
 
-SVG-Elemente können mithilfe von Attributen geändert werden, die Details darüber angeben, wie das Element genau gehandhabt oder gerendert werden soll.
+SVG-Elemente können durch Attribute modifiziert werden, die Details darüber angeben, wie das Element gehandhabt oder dargestellt werden soll.
 
-Nachfolgend finden Sie eine Liste aller verfügbaren Attribute in SVG sowie Links zur Referenzdokumentation, die Ihnen helfen, herauszufinden, welche Elemente sie unterstützen und wie sie funktionieren.
+Unten finden Sie eine Liste aller in SVG verfügbaren Attribute sowie Links zur Referenzdokumentation, um Ihnen zu helfen zu lernen, welche Elemente diese unterstützen und wie sie funktionieren.
 
 ## SVG-Attribute von A bis Z
 
@@ -236,6 +236,7 @@ Nachfolgend finden Sie eine Liste aller verfügbaren Attribute in SVG sowie Link
 - {{SVGAttr("targetY")}}
 - {{SVGAttr("text-anchor")}}
 - {{SVGAttr("text-decoration")}}
+- {{SVGAttr("text-overflow")}}
 - {{SVGAttr("text-rendering")}}
 - {{SVGAttr("textLength")}}
 - {{SVGAttr("to")}}
@@ -257,6 +258,7 @@ Nachfolgend finden Sie eine Liste aller verfügbaren Attribute in SVG sowie Link
 
 ### W
 
+- {{SVGAttr("white-space")}}
 - {{SVGAttr("width")}}
 - {{SVGAttr("word-spacing")}}
 - {{SVGAttr("writing-mode")}}
@@ -291,37 +293,45 @@ Nachfolgend finden Sie eine Liste aller verfügbaren Attribute in SVG sowie Link
 
 ## SVG-Attribute nach Kategorie
 
-### Allgemeine Attribute
+### Basisattribute
 
-- Kernattribute
-  - {{SVGAttr("id")}}
-  - {{SVGAttr("class")}}
-  - {{SVGAttr("style")}}
-  - {{SVGAttr("lang")}}
-  - {{SVGAttr("tabindex")}}
-  - {{SVGAttr("autofocus")}}
-  - {{SVGAttr("xml:lang")}}
-  - {{SVGAttr("xml:space")}}
+Die Basisattribute sind globale Attribute.
 
-- Bedingte Verarbeitungsattribute
-  - {{SVGAttr("requiredExtensions")}}
-  - {{SVGAttr("requiredFeatures")}}
-  - {{SVGAttr("systemLanguage")}}
+- {{SVGAttr("autofocus")}}
+- {{SVGAttr("id")}}
+- {{SVGAttr("class")}}
+- {{SVGAttr("style")}}
+- {{SVGAttr("lang")}}
+- {{SVGAttr("tabindex")}}
+- {{SVGAttr("xml:lang")}}
+- {{SVGAttr("xml:space")}}
+
+### Bedingte Verarbeitungsattribute
+
+Die bedingten Verarbeitungsattribute steuern, ob das Element, auf dem sie erscheinen, verarbeitet wird oder nicht.
+
+- {{SVGAttr("requiredExtensions")}}
+- {{SVGAttr("requiredFeatures")}}
+- {{SVGAttr("systemLanguage")}}
 
 ### XLink-Attribute
 
-- {{SVGAttr("xlink:href")}}{{deprecated_inline}}
-- {{SVGAttr("xlink:type")}}
-- {{SVGAttr("xlink:role")}}
-- {{SVGAttr("xlink:arcrole")}}
-- {{SVGAttr("xlink:title")}}
-- {{SVGAttr("xlink:show")}}
-- {{SVGAttr("xlink:actuate")}}
+Die XLink-Attribute können Ressourcen referenzieren.
+
+- {{SVGAttr("xlink:href")}} {{deprecated_inline}}
+- {{SVGAttr("xlink:type")}} {{deprecated_inline}}
+- {{SVGAttr("xlink:role")}} {{deprecated_inline}}
+- {{SVGAttr("xlink:arcrole")}} {{deprecated_inline}}
+- {{SVGAttr("xlink:title")}} {{deprecated_inline}}
+- {{SVGAttr("xlink:show")}} {{deprecated_inline}}
+- {{SVGAttr("xlink:actuate")}} {{deprecated_inline}}
 
 ### Präsentationsattribute
 
+Alle SVG-Präsentationsattribute können als CSS-Eigenschaften verwendet werden.
+
 > [!NOTE]
-> Alle SVG-Präsentationsattribute können als CSS-Eigenschaften verwendet werden.
+> Ob diese Attribute Präsentationsattribute sind, hängt von dem Element ab, auf dem sie gesetzt sind. Zum Beispiel ist `x` ein Präsentationsattribut für {{svgelem("circle")}}, aber nicht für {{svgelem("tspan")}}; es ist die Koordinate des Anfangspunkts der Textgrundlinie oder die x-Koordinate jedes einzelnen Glyphs, wenn eine Liste von Werten angegeben wird.
 
 - {{SVGAttr("alignment-baseline")}}
 - {{SVGAttr("baseline-shift")}}
@@ -381,6 +391,7 @@ Nachfolgend finden Sie eine Liste aller verfügbaren Attribute in SVG sowie Link
 - {{SVGAttr("stroke-width")}}
 - {{SVGAttr("text-anchor")}}
 - {{SVGAttr("text-decoration")}}
+- {{SVGAttr("text-overflow")}}
 - {{SVGAttr("text-rendering")}}
 - {{SVGAttr("transform")}}
 - {{SVGAttr("transform-origin")}}
@@ -388,25 +399,26 @@ Nachfolgend finden Sie eine Liste aller verfügbaren Attribute in SVG sowie Link
 - {{SVGAttr("vector-effect")}}
 - {{SVGAttr("visibility")}}
 - {{SVGAttr("width")}}
+- {{SVGAttr("white-space")}}
 - {{SVGAttr("word-spacing")}}
 - {{SVGAttr("writing-mode")}}
 - {{SVGAttr("x")}}
 - {{SVGAttr("y")}}
 
-### Filter-Attribute
+### Filterattribute
 
-- Filter-Primitive-Attribute
+- Attribute der Filterelemente (Präsentationsattribute)
   - : {{SVGAttr("height")}}, {{SVGAttr("result")}}, {{SVGAttr("width")}}, {{SVGAttr("x")}}, {{SVGAttr("y")}}
-- Übertragungsfunktionsattribute
+- Übertragungsfunktionen-Attribute
   - : {{SVGAttr("type")}}, {{SVGAttr("tableValues")}}, {{SVGAttr("slope")}}, {{SVGAttr("intercept")}}, {{SVGAttr("amplitude")}}, {{SVGAttr("exponent")}}, {{SVGAttr("offset")}}
 
 ### Animationsattribute
 
-- Animation-Target-Element-Attribute
+- Animationsziel-Elementattribute
   - : {{SVGAttr("href")}}
-- Animationsziel-Attribut
+- Animationsattribut-Zielattribute
   - : {{SVGAttr("attributeType")}}, {{SVGAttr("attributeName")}}
-- Animation-Timing-Attribute
+- Animationszeit-Attribute
   - : {{SVGAttr("begin")}}, {{SVGAttr("dur")}}, {{SVGAttr("end")}}, {{SVGAttr("min")}}, {{SVGAttr("max")}}, {{SVGAttr("restart")}}, {{SVGAttr("repeatCount")}}, {{SVGAttr("repeatDur")}}, {{SVGAttr("fill")}}
 - Animationswert-Attribute
   - : {{SVGAttr("calcMode")}}, {{SVGAttr("values")}}, {{SVGAttr("keyTimes")}}, {{SVGAttr("keySplines")}}, {{SVGAttr("from")}}, {{SVGAttr("to")}}, {{SVGAttr("by")}}
@@ -438,7 +450,6 @@ Nachfolgend finden Sie eine Liste aller verfügbaren Attribute in SVG sowie Link
 - **`onend`**
 - **`onended`**
 - **`onerror`**
-- **`onerror`**
 - **`onfocus`**
 - **`onfocusin`**
 - **`onfocusout`**
@@ -467,8 +478,6 @@ Nachfolgend finden Sie eine Liste aller verfügbaren Attribute in SVG sowie Link
 - **`onrepeat`**
 - **`onreset`**
 - **`onresize`**
-- **`onresize`**
-- **`onscroll`**
 - **`onscroll`**
 - **`onseeked`**
 - **`onseeking`**
@@ -485,6 +494,6 @@ Nachfolgend finden Sie eine Liste aller verfügbaren Attribute in SVG sowie Link
 
 ## Siehe auch
 
-- [SVG-Element-Referenz](/de/docs/Web/SVG/Reference/Element)
+- [SVG-Elementreferenz](/de/docs/Web/SVG/Reference/Element)
 - [SVG-Tutorial](/de/docs/Web/SVG/Tutorials/SVG_from_scratch)
 - [SVG-Schnittstellenreferenz](/de/docs/Web/API/SVG_API#interfaces)

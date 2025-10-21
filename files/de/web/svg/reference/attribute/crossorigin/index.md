@@ -1,21 +1,21 @@
 ---
-title: "SVG-Attribut: crossorigin"
+title: crossorigin
 slug: Web/SVG/Reference/Attribute/crossorigin
 l10n:
-  sourceCommit: 7c03abf6c6abaf0013f6606cae9cb97717415cce
+  sourceCommit: 39d45a2e71cee2c107a026a59ba0d9229a511592
 ---
 
-Das Attribut `crossorigin`, gültig für die {{SVGElement("image")}} und {{SVGElement("feImage")}} Elemente, bietet Unterstützung für die Konfiguration der Cross-Origin Resource Sharing ([CORS](/de/docs/Web/HTTP/Guides/CORS)) Anfragen für die abgerufenen Daten des Elements.
+Das `crossorigin` Attribut, gültig auf den {{SVGElement("image")}} und {{SVGElement("feImage")}} Elementen, unterstützt die Konfiguration von Cross-Origin Resource Sharing ([CORS](/de/docs/Web/HTTP/Guides/CORS)) Anfragen für die abgerufenen Daten des Elements.
 
 Diese Tabelle zeigt mögliche Schlüsselwörter und deren Bedeutung:
 
-| Schlüsselwort     | Beschreibung                                                                                                   |
-| ----------------- | -------------------------------------------------------------------------------------------------------------- |
-| `anonymous`       | Client-CORS-Anfragen für dieses Element haben das `credentials`-Flag auf 'same-origin' gesetzt.                |
-| `use-credentials` | Client-CORS-Anfragen für dieses Element haben das `credentials`-Flag auf 'include' gesetzt.                    |
-| `""`              | Das Attribut mit einem leeren Wert zu setzen, wie `crossorigin` oder `crossorigin=""`, entspricht `anonymous`. |
+| Schlüsselwort     | Beschreibung                                                                                                          |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `anonymous`       | Client-CORS-Anfragen für dieses Element werden das Credentials-Flag auf 'same-origin' gesetzt haben.                  |
+| `use-credentials` | Client-CORS-Anfragen für dieses Element werden das Credentials-Flag auf 'include' gesetzt haben.                      |
+| `""`              | Das Setzen des Attributnamens auf einen leeren Wert, wie `crossorigin` oder `crossorigin=""`, entspricht `anonymous`. |
 
-Es folgt den gleichen Verarbeitungsregeln wie das HTML-Attribut [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin).
+Es folgt denselben Verarbeitungsregeln wie das HTML-Attribut [`crossorigin`](/de/docs/Web/HTML/Reference/Attributes/crossorigin).
 
 ## Beispiel
 
