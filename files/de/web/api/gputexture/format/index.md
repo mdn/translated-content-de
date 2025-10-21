@@ -3,18 +3,18 @@ title: "GPUTexture: format-Eigenschaft"
 short-title: format
 slug: Web/API/GPUTexture/format
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: 78c41c9b5211cc5bfba793c72a9adcac852e07f9
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`format`**-Eigenschaft der [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Schnittstelle repräsentiert das Format der `GPUTexture`.
+Die **`format`**-Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces ist eine schreibgeschützte Eigenschaft, die das Format der `GPUTexture` darstellt.
 
-Dieses wird über die `format`-Eigenschaft im Deskriptor-Objekt festgelegt, das im ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird.
+Diese wird über die `format`-Eigenschaft im Deskriptionsobjekt festgelegt, das im ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird.
 
 ## Wert
 
-Ein enumerierter Wert. Siehe den Abschnitt [Texture formats](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) in der Spezifikation für alle möglichen Werte.
+Ein aufgezählter Wert. Siehe den Abschnitt [Texture formats](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle möglichen Werte. Siehe auch [Tier 1 und Tier 2 Texture-Formate](/de/docs/Web/API/GPUDevice/createTexture#tier_1_and_tier_2_texture_formats).
 
 ## Beispiele
 

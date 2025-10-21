@@ -3,74 +3,74 @@ title: Firefox 145 Versionshinweise für Entwickler (Beta)
 short-title: Firefox 145 (Beta)
 slug: Mozilla/Firefox/Releases/145
 l10n:
-  sourceCommit: 29998b5a6e4b776dbba1893e016452d081f9ee65
+  sourceCommit: dbd78a0ca3a593b11468d2f5872ec49d1591d4e7
 ---
 
 Dieser Artikel bietet Informationen über die Änderungen in Firefox 145, die Entwickler betreffen.
 Firefox 145 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/en-US/channel/desktop/#beta) und wird am [11. November 2025](https://whattrainisitnow.com/release/?version=145) veröffentlicht.
 
 > [!NOTE]
-> Die Versionshinweise für diese Firefox-Version sind noch in Arbeit.
+> Die Versionshinweise für diese Firefox-Version sind noch in Bearbeitung.
 
-<!-- Authors: Please uncomment any headings you are writing notes for -->
+<!-- Autoren: Bitte entfernen Sie die Kommentarzeichen von Überschriften, für die Sie Hinweise schreiben -->
 
 ## Änderungen für Webentwickler
 
-<!-- ### Developer Tools -->
+<!-- ### Entwicklerwerkzeuge -->
 
 <!-- ### HTML -->
 
-<!-- No notable changes. -->
+<!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### MathML -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### SVG -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### CSS -->
 
-<!-- No notable changes. -->
+<!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 <!-- ### JavaScript -->
 
-<!-- No notable changes. -->
+<!-- Keine bemerkenswerten Änderungen. -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
 ### HTTP
 
-- Die HTTP-Header {{httpheader("Integrity-Policy")}} und {{httpheader("Integrity-Policy-Report-Only")}} werden jetzt für Skriptressourcen unterstützt. Diese ermöglichen es Websites, [Subressourcen-Integritätsgarantien](/de/docs/Web/Security/Subresource_Integrity) für _Skripte_ durchzusetzen.
-  Beachten Sie, dass der Schlüssel [`endpoints`](/de/docs/Web/HTTP/Reference/Headers/Integrity-Policy#endpoints) noch nicht unterstützt wird (Verstöße werden in der Konsole protokolliert).
-  ([Firefox-Bug 1984973](https://bugzil.la/1984973)).
+- Die HTTP-Header {{httpheader("Integrity-Policy")}} und {{httpheader("Integrity-Policy-Report-Only")}} werden jetzt für Skript-Ressourcen unterstützt. Diese ermöglichen es Websites, [Subresource-Integritätsgarantien](/de/docs/Web/Security/Subresource_Integrity) für _Skripte_ durchzusetzen. Beachten Sie, dass der [`endpoints`](/de/docs/Web/HTTP/Reference/Headers/Integrity-Policy#endpoints) Schlüssel noch nicht unterstützt wird (Verletzungen werden in der Konsole protokolliert). ([Firefox-Bug 1984973](https://bugzil.la/1984973)).
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
-<!-- ### Security -->
+<!-- ### Sicherheit -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
-<!-- ### APIs -->
+### APIs
 
 <!-- #### DOM -->
 
-<!-- #### Media, WebRTC, and Web Audio -->
+#### Medien, WebRTC und Web Audio
 
-<!-- #### Removals -->
+- [`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame) und [`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame) sind nun {{Glossary("Serializable_object", "serialisierbare Objekte")}}, und [`RTCEncodedAudioFrame()`](/de/docs/Web/API/RTCEncodedAudioFrame/RTCEncodedAudioFrame) sowie [`RTCEncodedVideoFrame()`](/de/docs/Web/API/RTCEncodedVideoFrame/RTCEncodedVideoFrame) Kopierkonstruktoren werden unterstützt. Diese Änderungen ermöglichen es, Frames zu klonen und zwischen Workern und dem Hauptthread zu teilen. ([Firefox-Bug 1868223](https://bugzil.la/1868223) und [Firefox-Bug 1975032](https://bugzil.la/1975032)).
+
+<!-- #### Entfernungen -->
 
 <!-- ### WebAssembly -->
 
-<!-- #### Removals -->
+<!-- #### Entfernungen -->
 
-<!-- ### WebDriver conformance (WebDriver BiDi, Marionette) -->
+<!-- ### WebDriver-Konformität (WebDriver BiDi, Marionette) -->
 
-<!-- #### General -->
+<!-- #### Allgemein -->
 
 <!-- #### WebDriver BiDi -->
 
@@ -78,14 +78,14 @@ Firefox 145 ist die aktuelle [Beta-Version von Firefox](https://www.firefox.com/
 
 ## Änderungen für Add-on-Entwickler
 
-- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} erstellt werden, sind jetzt validiert, und ungültige Cookies werden abgelehnt. Diese Änderung wurde zuerst nur in Nightly ab Firefox 142 implementiert. ([Firefox-Bug 1976509](https://bugzil.la/1976509))
+- Cookies, die mit {{WebExtAPIRef("cookies.set()")}} erstellt wurden, werden jetzt validiert, und ungültige Cookies werden abgelehnt. Diese Änderung wurde nur in Nightly ab Firefox 142 implementiert. ([Firefox-Bug 1976509](https://bugzil.la/1976509))
 
-<!-- ### Removals -->
+<!-- ### Entfernungen -->
 
-<!-- ### Other -->
+<!-- ### Sonstige -->
 
-## Experimentelle Webfunktionen
+## Experimentelle Web-Features
 
-Diese Funktionen sind in Firefox 145 enthalten, aber standardmäßig deaktiviert.
-Um mit ihnen zu experimentieren, suchen Sie die entsprechende Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`.
+Diese Features sind in Firefox 145 enthalten, aber standardmäßig deaktiviert.
+Um mit ihnen zu experimentieren, suchen Sie auf der `about:config` Seite nach der entsprechenden Präferenz und setzen Sie sie auf `true`.
 Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
