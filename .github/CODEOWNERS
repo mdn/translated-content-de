@@ -1,47 +1,28 @@
 # ----------------------------------------------------------------------------
-# MDN Content CODEOWNERS
+# CODEOWNERS
 # ----------------------------------------------------------------------------
-# Order is important. The last matching pattern takes precedence. For more
-# detailed information, see:
-# https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/about-code-owners
+# Order is important. The last matching pattern takes precedence.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 # ----------------------------------------------------------------------------
 
-# ----------------------------------------------------------------------------
-# DEFAULT OWNERS
-# ----------------------------------------------------------------------------
-*    @mdn/core-dev
+* @mdn/engineering
 
-# ----------------------------------------------------------------------------
-# DEFAULT CONTENT OWNER(S)
-# ----------------------------------------------------------------------------
-/files/    @mdn/core-yari-content
+# Content
+/files/     @mdn/content-team
+/files/de/  @mdn/de-content
 
-# ----------------------------------------------------------------------------
-# GERMAN (de) CONTENT OWNER(S)
-# ----------------------------------------------------------------------------
-/files/de/    @mdn/yari-content-de
+# Translation guide
+/docs/      @mdn/content-team
+/docs/de/   @mdn/de-content
 
-# ----------------------------------------------------------------------------
-# TRANSLATION GUIDE OWNER(S)
-# ----------------------------------------------------------------------------
-/docs/        @mdn/core-yari-content
-/docs/de/     @mdn/yari-content-de
+# Issue templates
+/.github/ISSUE_TEMPLATE/page-report-de.yml @mdn/de-content
 
-# ----------------------------------------------------------------------------
-# ISSUE TEMPLATE OWNER(S)
-# ----------------------------------------------------------------------------
-.github/ISSUE_TEMPLATE/page-report-de.yml     @mdn/yari-content-de
+# Miscellaneous
+/.github/            @mdn/engineering
+/.github/CODEOWNERS  @mdn/engineering
+/*                   @mdn/engineering
+/*.md                @mdn/de-content
 
-# ----------------------------------------------------------------------------
-# CONTROL FILES OWNER(S)
-# ----------------------------------------------------------------------------
-# These should be the last matches in this file, since any pull request that
-# tries to change any one or more of these files should be escalated to the
-# owners specified here.
-# ----------------------------------------------------------------------------
-/.github/     @mdn/core-dev
-/*            @mdn/core-dev
-/*.md         @mdn/core-dev @mdn/core-yari-content
-/CONTRIBUTING.md            @mdn/core-yari-content
-/PEERS_GUIDELINES.md        @mdn/core-yari-content
+# Reset until https://github.com/prettier/prettier/issues/11828 is fixed
 /.prettierignore
