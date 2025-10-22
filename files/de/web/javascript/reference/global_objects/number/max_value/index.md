@@ -3,10 +3,10 @@ title: Number.MAX_VALUE
 short-title: MAX_VALUE
 slug: Web/JavaScript/Reference/Global_Objects/Number/MAX_VALUE
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: c1c0f13171a9e266210f0b284243b2996fc3ec91
 ---
 
-Die statische Dateneigenschaft **`Number.MAX_VALUE`** repräsentiert den maximal darstellbaren Zahlenwert in JavaScript.
+Die statische Dateneigenschaft **`Number.MAX_VALUE`** repräsentiert den maximal darstellbaren numerischen Wert in JavaScript.
 
 {{InteractiveExample("JavaScript Demo: Number.MAX_VALUE")}}
 
@@ -33,15 +33,15 @@ console.log(multiply(1.7976931348623157e308, 2));
 
 ## Beschreibung
 
-Werte, die größer als `MAX_VALUE` sind, werden als {{jsxref("Infinity")}} dargestellt und verlieren ihren tatsächlichen Wert.
+Werte, die größer als `MAX_VALUE` sind, werden als {{jsxref("Infinity")}} dargestellt und verlieren ihren tatsächlichen Wert. Wie in {{jsxref("Number.EPSILON")}} erwähnt, hängt die Genauigkeit von Zahlen von ihrer Größenordnung ab. Ganzzahlen können nur bis zu {{jsxref("Number.MAX_SAFE_INTEGER")}}, das ist 2<sup>53</sup> - 1, genau dargestellt werden.
 
-Da `MAX_VALUE` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie sie immer als `Number.MAX_VALUE` und nicht als eine Eigenschaft eines Zahlenwertes.
+Da `MAX_VALUE` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie es immer als `Number.MAX_VALUE` und nicht als eine Eigenschaft eines Zahlenwerts.
 
 ## Beispiele
 
 ### Verwendung von MAX_VALUE
 
-Der folgende Code multipliziert zwei Zahlenwerte. Wenn das Ergebnis kleiner oder gleich `MAX_VALUE` ist, wird die Funktion `func1` aufgerufen; andernfalls wird die Funktion `func2` aufgerufen.
+Der folgende Code multipliziert zwei numerische Werte. Wenn das Ergebnis kleiner oder gleich `MAX_VALUE` ist, wird die Funktion `func1` aufgerufen; andernfalls wird die Funktion `func2` aufgerufen.
 
 ```js
 if (num1 * num2 <= Number.MAX_VALUE) {
@@ -62,4 +62,5 @@ if (num1 * num2 <= Number.MAX_VALUE) {
 ## Siehe auch
 
 - {{jsxref("Number.MIN_VALUE")}}
+- {{jsxref("Number.MAX_SAFE_INTEGER")}}
 - {{jsxref("Number")}}

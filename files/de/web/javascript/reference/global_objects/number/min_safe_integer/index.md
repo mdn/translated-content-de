@@ -3,12 +3,12 @@ title: Number.MIN_SAFE_INTEGER
 short-title: MIN_SAFE_INTEGER
 slug: Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: c1c0f13171a9e266210f0b284243b2996fc3ec91
 ---
 
-Die statische Dateneigenschaft **`Number.MIN_SAFE_INTEGER`** repräsentiert den minimalen sicheren Integer in JavaScript oder -(2<sup>53</sup> - 1).
+Die statische Dateneigenschaft **`Number.MIN_SAFE_INTEGER`** repräsentiert die kleinste sichere Ganzzahl in JavaScript, oder -(2<sup>53</sup> - 1).
 
-Um kleinere Zahlen als diese darzustellen, ziehen Sie in Betracht, {{jsxref("BigInt")}} zu verwenden.
+Um Ganzzahlen darzustellen, die kleiner als dieser Wert sind, sollten Sie {{jsxref("BigInt")}} in Betracht ziehen.
 
 {{InteractiveExample("JavaScript Demo: Number.MIN_SAFE_INTEGER")}}
 
@@ -28,15 +28,17 @@ console.log(x === y);
 
 ## Wert
 
-`-9007199254740991` (-9.007.199.254.740.991 oder etwa -9 Billiarden).
+`-9007199254740991` (-9.007.199.254.740.991 oder ungefähr -9 Billiarden).
 
 {{js_property_attributes(0, 0, 0)}}
 
 ## Beschreibung
 
-Das [Doppelte Genauigkeits-Floating-Point-Format](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) hat nur 52 Bit, um die [Mantisse](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding) darzustellen, sodass es nur sicher Integer zwischen -(2<sup>53</sup> – 1) und 2<sup>53</sup> – 1 darstellen kann. Sicher in diesem Kontext bedeutet, dass Integer genau dargestellt und korrekt verglichen werden können. Zum Beispiel ergibt `Number.MIN_SAFE_INTEGER - 1 === Number.MIN_SAFE_INTEGER - 2` true, was mathematisch inkorrekt ist. Siehe {{jsxref("Number.isSafeInteger()")}} für weitere Informationen.
+Das [Double precision floating-point format](https://en.wikipedia.org/wiki/Double_precision_floating-point_format) hat nur 52 Bits, um die [Mantisse](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding) darzustellen, daher können nur Ganzzahlen zwischen -(2<sup>53</sup> – 1) und 2<sup>53</sup> – 1 sicher dargestellt werden. Sicher bedeutet in diesem Kontext die Fähigkeit, Ganzzahlen exakt darzustellen und korrekt zu vergleichen. Zum Beispiel wird `Number.MIN_SAFE_INTEGER - 1 === Number.MIN_SAFE_INTEGER - 2` als wahr ausgewertet, was mathematisch inkorrekt ist. Weitere Informationen finden Sie unter {{jsxref("Number.isSafeInteger()")}}.
 
-Da `MIN_SAFE_INTEGER` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie es immer als `Number.MIN_SAFE_INTEGER` und nicht als eine Eigenschaft eines Zahlenwertes.
+Wie in {{jsxref("Number.EPSILON")}} erwähnt, hängt die Präzision von Zahlen von ihrer Größe ab. `Number.MIN_SAFE_INTEGER` stellt den kleinsten Wert dar, bei dem Ganzzahl-Operationen exakt durchgeführt werden können, dennoch können sinnvolle Rechenoperationen auf Zahlen durchgeführt werden, die negativer als dieser Wert sind, jedoch ohne Ganzzahl-Präzision. Die größte darstellbare Zahl in JavaScript ist tatsächlich {{jsxref("Number.MAX_VALUE")}}, die ungefähr 1.7976931348623157 × 10<sup>308</sup> ist.
+
+Da `MIN_SAFE_INTEGER` eine statische Eigenschaft von {{jsxref("Number")}} ist, verwenden Sie ihn immer als `Number.MIN_SAFE_INTEGER` und nicht als eine Eigenschaft eines Zahlenwertes.
 
 ## Beispiele
 

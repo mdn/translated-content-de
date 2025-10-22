@@ -2,338 +2,289 @@
 title: Touch events
 slug: Web/API/Touch_events
 l10n:
-  sourceCommit: 116577234db1d6275c74a8bb879fce54d944f4ed
+  sourceCommit: 36761819df2ebdd4e3dcc9ae6007029dec71fac0
 ---
 
 {{DefaultAPISidebar("Touch Events")}}
 
-Um hochwertigen Support für auf Berührungen basierende Benutzeroberflächen bereitzustellen, bieten Touch-Events die Möglichkeit, Finger- (oder Stift-)Aktivitäten auf Touchscreens oder Trackpads zu interpretieren.
+Um qualitativ hochwertige Unterstützung für berührungsbasierte Benutzeroberflächen bereitzustellen, bieten Touch-Events die Möglichkeit, Finger- (oder Stylus-) Aktivitäten auf Touchscreens oder Trackpads zu interpretieren.
 
-Die Touch-Event-Schnittstellen sind relativ niedrige Level-APIs, die verwendet werden können, um anwendungsspezifische Multi-Touch-Interaktionen wie eine Zwei-Finger-Geste zu unterstützen. Eine Multi-Touch-Interaktion beginnt, wenn ein Finger (oder Stift) zuerst die Kontaktfläche berührt. Andere Finger können anschließend die Oberfläche berühren und sich möglicherweise über die Touch-Oberfläche bewegen. Die Interaktion endet, wenn die Finger von der Oberfläche entfernt werden. Während dieser Interaktion empfängt eine Anwendung Touch-Events während der Start-, Bewegungs- und Endphasen.
+Die Schnittstellen für Touch-Events sind relativ Low-Level-APIs, die verwendet werden können, um anwendungsspezifische Multi-Touch-Interaktionen wie eine Zwei-Finger-Geste zu unterstützen. Eine Multi-Touch-Interaktion beginnt, wenn ein Finger (oder Stylus) erstmals die Kontaktfläche berührt. Weitere Finger können anschließend die Oberfläche berühren und optional über die Touch-Oberfläche bewegt werden. Die Interaktion endet, wenn die Finger von der Oberfläche entfernt werden. Während dieser Interaktion erhält eine Anwendung Touch-Events während der Start-, Bewegungs- und Endphasen.
 
-Touch-Events ähneln Maus-Events, unterstützen jedoch gleichzeitige Berührungen an verschiedenen Stellen der Touch-Oberfläche. Die [`TouchEvent`](/de/docs/Web/API/TouchEvent)-Schnittstelle kapselt alle aktuell aktiven Berührungspunkte. Die [`Touch`](/de/docs/Web/API/Touch)-Schnittstelle, die einen einzelnen Berührungspunkt darstellt, enthält Informationen wie die Position des Berührungspunkts relativ zum Browser-Viewport.
+Touch-Events ähneln Mausereignissen, unterstützen jedoch gleichzeitige Berührungen an verschiedenen Orten auf der Touch-Oberfläche. Das [`TouchEvent`](/de/docs/Web/API/TouchEvent)-Interface kapselt alle derzeit aktiven Berührungspunkte. Das [`Touch`](/de/docs/Web/API/Touch)-Interface, das einen einzelnen Berührungspunkt darstellt, enthält Informationen wie die Position des Berührungspunkts relativ zur Browseransicht.
 
 ## Definitionen
 
 - Oberfläche
   - : Die berührungsempfindliche Oberfläche. Dies kann ein Bildschirm oder ein Trackpad sein.
 - Berührungspunkt
-  - : Ein Kontaktpunkt mit der Oberfläche. Dies kann ein Finger (oder Ellbogen, Ohr, Nase, was auch immer, aber typischerweise ein Finger) oder ein Stift sein.
+  - : Ein Berührungspunkt mit der Oberfläche. Dies kann ein Finger (oder Ellbogen, Ohr, Nase, was auch immer, aber typischerweise ein Finger) oder ein Stylus sein.
 
 ## Schnittstellen
 
 - [`TouchEvent`](/de/docs/Web/API/TouchEvent)
-  - : Repräsentiert ein Ereignis, das auftritt, wenn sich der Status der Berührungen auf der Oberfläche ändert.
+  - : Repräsentiert ein Ereignis, das auftritt, wenn sich der Zustand der Berührungen auf der Oberfläche ändert.
 - [`Touch`](/de/docs/Web/API/Touch)
-  - : Repräsentiert einen einzelnen Kontaktpunkt zwischen dem Benutzer und der Touch-Oberfläche.
+  - : Repräsentiert einen einzelnen Berührungspunkt zwischen dem Benutzer und der Touch-Oberfläche.
 - [`TouchList`](/de/docs/Web/API/TouchList)
   - : Repräsentiert eine Gruppe von Berührungen; dies wird verwendet, wenn der Benutzer beispielsweise mehrere Finger gleichzeitig auf der Oberfläche hat.
 
-## Beispiel
+## Beispiele
+
+> [!NOTE]
+> Der untenstehende Text verwendet den Begriff "Finger", um den Kontakt mit der Oberfläche zu beschreiben, aber es könnte natürlich auch ein Stylus oder eine andere Kontaktmethode sein.
+
+### Zeichenanwendung
 
 Dieses Beispiel verfolgt mehrere Berührungspunkte gleichzeitig, sodass der Benutzer in einem {{HTMLElement("canvas")}} mit mehr als einem Finger gleichzeitig zeichnen kann. Es funktioniert nur in einem Browser, der Touch-Events unterstützt.
 
-> [!NOTE]
-> Im folgenden Text wird der Begriff "Finger" verwendet, wenn der Kontakt mit der Oberfläche beschrieben wird, aber es könnte natürlich auch ein Stift oder eine andere Kontaktmethode sein.
+#### Erstellen einer Leinwand
 
-### Erstellen einer Leinwand
+Das HTML besteht aus einem einzigen {{HTMLElement("canvas")}}-Element. Kurven werden als Reaktion auf die Berührungsgesten des Benutzers gezeichnet. Ein Button ist ebenfalls enthalten, um die Leinwand zu löschen.
 
 ```html
 <canvas id="canvas" width="600" height="600">
-  Your browser does not support canvas element.
+  Your browser does not support the canvas element.
 </canvas>
-<br />
-Log:
-<pre id="log"></pre>
+<button id="clear">Clear canvas</button>
 ```
 
 ```css
 #canvas {
   border: 1px solid black;
-}
-
-#log {
-  height: 200px;
-  width: 600px;
-  overflow: scroll;
-  border: 1px solid #cccccc;
+  display: block;
 }
 ```
 
-### Einrichten der Ereignishandler
+#### Verfolgung neuer Berührungen
 
-Der Code richtet alle Ereignis-Listener für unser {{HTMLElement("canvas")}}-Element ein, damit wir die Touch-Events verarbeiten können, sobald sie auftreten.
+Wir werden alle laufenden Berührungen verfolgen und für jede von ihnen Linien zeichnen.
 
 ```js
-const el = document.getElementById("canvas");
-el.addEventListener("touchstart", handleStart);
-el.addEventListener("touchend", handleEnd);
-el.addEventListener("touchcancel", handleCancel);
-el.addEventListener("touchmove", handleMove);
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+// Mapping from the pointerId to the current finger position
+const ongoingTouches = new Map();
 ```
 
-#### Nachverfolgen neuer Berührungen
-
-Wir werden die laufenden Berührungen im Auge behalten.
+Wenn ein [`touchstart`](/de/docs/Web/API/Element/touchstart_event)-Ereignis auftritt, das anzeigt, dass eine neue Berührung auf der Oberfläche stattgefunden hat, wird die untenstehende `handleStart()`-Funktion aufgerufen.
 
 ```js
-const ongoingTouches = [];
-```
+function handleStart(event) {
+  event.preventDefault();
 
-Wenn ein [`touchstart`](/de/docs/Web/API/Element/touchstart_event)-Ereignis auftritt, das anzeigt, dass eine neue Berührung auf der Oberfläche erfolgt ist, wird die unten stehende Funktion `handleStart()` aufgerufen.
-
-```js
-function handleStart(evt) {
-  evt.preventDefault();
-  log("touchstart.");
-  const el = document.getElementById("canvas");
-  const ctx = el.getContext("2d");
-  const touches = evt.changedTouches;
-
-  for (let i = 0; i < touches.length; i++) {
-    const touch = touches[i];
-    log(`touchstart: ${i}.`);
-    ongoingTouches.push(copyTouch(touch));
-    const color = colorForTouch(touch);
-    log(`color of touch with id ${touch.identifier} = ${color}`);
+  for (const changedTouch of event.changedTouches) {
+    const touch = {
+      pageX: changedTouch.pageX,
+      pageY: changedTouch.pageY,
+      color: colorForTouch(changedTouch),
+    };
+    ongoingTouches.set(changedTouch.identifier, touch);
     ctx.beginPath();
-    ctx.arc(touch.pageX, touch.pageY, 4, 0, 2 * Math.PI, false); // a circle at the start
-    ctx.fillStyle = color;
+    ctx.arc(touch.pageX, touch.pageY, 4, 0, 2 * Math.PI, false);
+    ctx.fillStyle = touch.color;
     ctx.fill();
   }
 }
+
+canvas.addEventListener("touchstart", handleStart);
 ```
 
-Diese ruft [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf, um zu verhindern, dass der Browser das Touch-Ereignis weiterverarbeitet (dies verhindert auch, dass ein Mausereignis ebenfalls ausgelöst wird). Dann holen wir uns den Kontext und ziehen die Liste der geänderten Berührungspunkte aus der [`TouchEvent.changedTouches`](/de/docs/Web/API/TouchEvent/changedTouches)-Eigenschaft des Ereignisses.
+Dies ruft [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf, um den Browser daran zu hindern, das Touch-Ereignis weiter zu verarbeiten (dies verhindert auch, dass ein Mausereignis ebenfalls ausgeliefert wird). Dann erhalten wir den Kontext und ziehen die Liste der geänderten Berührungspunkte aus der [`TouchEvent.changedTouches`](/de/docs/Web/API/TouchEvent/changedTouches)-Eigenschaft des Ereignisses.
 
-Danach iterieren wir über alle [`Touch`](/de/docs/Web/API/Touch)-Objekte in der Liste, fügen sie einem Array aktiver Berührungspunkte hinzu und zeichnen den Startpunkt für die Zeichnung als kleinen Kreis. Wir verwenden eine 4-Pixel breite Linie, daher zeigt ein 4-Pixel Radius-Kreis ordentlich an.
+Danach iterieren wir über alle [`Touch`](/de/docs/Web/API/Touch)-Objekte in der Liste, fügen sie einem Array von aktiven Berührungspunkten hinzu und zeichnen den Startpunkt für die Zeichnung als kleinen Kreis; wir verwenden eine 4 Pixel breite Linie, sodass ein Kreis mit einem Radius von 4 Pixeln sauber angezeigt wird.
 
-#### Zeichnen, während sich die Berührungen bewegen
-
-Jedes Mal, wenn sich ein oder mehrere Finger bewegen, wird ein [`touchmove`](/de/docs/Web/API/Element/touchmove_event)-Ereignis ausgelöst, was dazu führt, dass unsere `handleMove()`-Funktion aufgerufen wird. Ihre Aufgabe besteht in diesem Beispiel darin, die zwischengespeicherten Berührungsinformationen zu aktualisieren und eine Linie von der vorherigen Position zur aktuellen Position jeder Berührung zu zeichnen.
-
-```js
-function handleMove(evt) {
-  evt.preventDefault();
-  const el = document.getElementById("canvas");
-  const ctx = el.getContext("2d");
-  const touches = evt.changedTouches;
-
-  for (const touch of touches) {
-    const color = colorForTouch(touch);
-    const idx = ongoingTouchIndexById(touch.identifier);
-
-    if (idx >= 0) {
-      log(`continuing touch ${idx}`);
-      ctx.beginPath();
-      log(
-        `ctx.moveTo( ${ongoingTouches[idx].pageX}, ${ongoingTouches[idx].pageY} );`,
-      );
-      ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
-      log(`ctx.lineTo( ${touch.pageX}, ${touch.pageY} );`);
-      ctx.lineTo(touch.pageX, touch.pageY);
-      ctx.lineWidth = 4;
-      ctx.strokeStyle = color;
-      ctx.stroke();
-
-      ongoingTouches.splice(idx, 1, copyTouch(touch)); // swap in the new touch record
-    } else {
-      log("can't figure out which touch to continue");
-    }
-  }
-}
-```
-
-Diese durchläuft auch die geänderten Berührungen, aber sie sucht in unserem zwischengespeicherten Berührungsinformationsarray nach den vorherigen Informationen zu jeder Berührung, um den Startpunkt für jedes Berührungselement zu bestimmen, das neu gezeichnet werden soll. Dies geschieht, indem auf die [`Touch.identifier`](/de/docs/Web/API/Touch/identifier)-Eigenschaft jeder Berührung geschaut wird. Diese Eigenschaft ist eine eindeutige Nummer für jede Berührung und bleibt während des Kontakts eines jeden Fingers mit der Oberfläche für jedes Ereignis konsistent.
-
-Dadurch können wir die Koordinaten der vorherigen Position jeder Berührung erhalten und die entsprechenden Kontextmethoden verwenden, um ein Liniensegment zu zeichnen, das die beiden Positionen verbindet.
-
-Nachdem die Linie gezeichnet wurde, rufen wir [`Array.splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) auf, um die vorherigen Informationen über den Berührungspunkt durch die aktuellen Informationen im `ongoingTouches`-Array zu ersetzen.
-
-#### Umgang mit dem Ende einer Berührung
-
-Wenn der Benutzer einen Finger von der Oberfläche hebt, wird ein [`touchend`](/de/docs/Web/API/Element/touchend_event)-Ereignis gesendet. Wir handhaben dies, indem wir die unten stehende Funktion `handleEnd()` aufrufen. Ihre Aufgabe besteht darin, das letzte Liniensegment für jede beendete Berührung zu zeichnen und den Berührungspunkt aus der laufenden Berührungsliste zu entfernen.
-
-```js
-function handleEnd(evt) {
-  evt.preventDefault();
-  log("touchend");
-  const el = document.getElementById("canvas");
-  const ctx = el.getContext("2d");
-  const touches = evt.changedTouches;
-
-  for (const touch of touches) {
-    const color = colorForTouch(touch);
-    let idx = ongoingTouchIndexById(touch.identifier);
-
-    if (idx >= 0) {
-      ctx.lineWidth = 4;
-      ctx.fillStyle = color;
-      ctx.beginPath();
-      ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
-      ctx.lineTo(touch.pageX, touch.pageY);
-      ctx.fillRect(touch.pageX - 4, touch.pageY - 4, 8, 8); // and a square at the end
-      ongoingTouches.splice(idx, 1); // remove it; we're done
-    } else {
-      log("can't figure out which touch to end");
-    }
-  }
-}
-```
-
-Dies ist der vorherigen Funktion sehr ähnlich; die einzigen wirklichen Unterschiede bestehen darin, dass wir ein kleines Quadrat zeichnen, um das Ende zu markieren, und dass wir beim Aufruf von [`Array.splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) den alten Eintrag aus der laufenden Berührungsliste entfernen, ohne die aktualisierten Informationen hinzuzufügen. Das Ergebnis ist, dass wir diesen Berührungspunkt nicht mehr nachverfolgen.
-
-#### Umgang mit abgebrochenen Berührungen
-
-Wenn der Finger des Benutzers in die Browser-Benutzeroberfläche gerät oder die Berührung aus einem anderen Grund abgebrochen werden muss, wird das [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event)-Ereignis gesendet, und wir rufen die unten stehende Funktion `handleCancel()` auf.
-
-```js
-function handleCancel(evt) {
-  evt.preventDefault();
-  log("touchcancel.");
-  const touches = evt.changedTouches;
-
-  for (const touch of touches) {
-    let idx = ongoingTouchIndexById(touches[i].identifier);
-    ongoingTouches.splice(idx, 1); // remove it; we're done
-  }
-}
-```
-
-Da die Idee darin besteht, die Berührung sofort abzubrechen, entfernen wir sie aus der laufenden Berührungsliste, ohne ein letztes Liniensegment zu zeichnen.
-
-### Komfortfunktionen
-
-Dieses Beispiel verwendet zwei Komfortfunktionen, die kurz betrachtet werden sollten, um den Rest des Codes klarer zu machen.
-
-#### Auswählen einer Farbe für jede Berührung
-
-Um das Zeichnen jeder Berührung anders aussehen zu lassen, wird die Funktion `colorForTouch()` verwendet, um basierend auf der eindeutigen Kennung der Berührung eine Farbe auszuwählen. Diese Kennung ist eine undurchsichtige Nummer, aber wir können zumindest darauf vertrauen, dass sie sich zwischen den aktuell aktiven Berührungen unterscheidet.
+Um die Zeichnung jeder Berührung unterschiedlich aussehen zu lassen, wird die `colorForTouch()`-Funktion verwendet, um basierend auf der einzigartigen Kennung der Berührung eine Farbe zu wählen. Diese Kennung ist eine intransparente Zahl, aber wir können zumindest darauf vertrauen, dass sie sich zwischen den aktuell aktiven Berührungen unterscheidet.
 
 ```js
 function colorForTouch(touch) {
-  let r = touch.identifier % 16;
-  let g = Math.floor(touch.identifier / 3) % 16;
-  let b = Math.floor(touch.identifier / 7) % 16;
-  r = r.toString(16); // make it a hex digit
-  g = g.toString(16); // make it a hex digit
-  b = b.toString(16); // make it a hex digit
-  const color = `#${r}${g}${b}`;
-  return color;
+  const r = touch.identifier % 16;
+  const g = Math.floor(touch.identifier / 3) % 16;
+  const b = Math.floor(touch.identifier / 7) % 16;
+  // convert to hex digits
+  return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
 }
 ```
 
-Das Ergebnis dieser Funktion ist eine Zeichenkette, die beim Aufrufen von {{HTMLElement("canvas")}}-Funktionen verwendet werden kann, um Zeichnungsfarben festzulegen. Beispielsweise ergibt ein [`Touch.identifier`](/de/docs/Web/API/Touch/identifier)-Wert von 10 die Zeichenkette "#aa3311".
+Das Ergebnis dieser Funktion ist ein String, der beim Aufrufen von {{HTMLElement("canvas")}}-Funktionen zum Festlegen von Zeichenfarben verwendet werden kann. Beispielsweise ergibt ein [`Touch.identifier`](/de/docs/Web/API/Touch/identifier)-Wert von 10 den String "#aa3311".
 
-#### Kopieren eines Berührungsobjekts
+#### Umgang mit dem Ende einer Berührung
 
-Einige Browser (mobile Safari z.B.) verwenden Berührungsobjekte zwischen Ereignissen erneut, daher ist es am besten, die Eigenschaften zu kopieren, die Ihnen wichtig sind, anstatt das gesamte Objekt zu referenzieren.
-
-```js
-function copyTouch({ identifier, pageX, pageY }) {
-  return { identifier, pageX, pageY };
-}
-```
-
-#### Finden einer laufenden Berührung
-
-Die unten stehende Funktion `ongoingTouchIndexById()` durchsucht das `ongoingTouches`-Array, um die Berührung zu finden, die der angegebenen Kennung entspricht, und gibt den Index dieser Berührung im Array zurück.
+Wenn der Benutzer einen Finger von der Oberfläche hebt, wird ein [`touchend`](/de/docs/Web/API/Element/touchend_event)-Ereignis gesendet. Wir behandeln dies durch Aufruf der unten stehenden `handleEnd()`-Funktion. Ihre Aufgabe ist es, das letzte Liniensegment für jede Berührung zu zeichnen, die beendet wurde, und den Berührungspunkt aus der fortlaufenden Berührungskarte zu entfernen.
 
 ```js
-function ongoingTouchIndexById(idToFind) {
-  for (let i = 0; i < ongoingTouches.length; i++) {
-    const id = ongoingTouches[i].identifier;
+function handleEnd(event) {
+  event.preventDefault();
 
-    if (id === idToFind) {
-      return i;
+  for (const changedTouch of event.changedTouches) {
+    const touch = ongoingTouches.get(changedTouch.identifier);
+    if (!touch) {
+      console.error(`End: Could not find touch ${changedTouch.identifier}`);
+      continue;
     }
+    ctx.lineWidth = 4;
+    ctx.fillStyle = touch.color;
+    ctx.beginPath();
+    ctx.moveTo(touch.pageX, touch.pageY);
+    ctx.lineTo(changedTouch.pageX, changedTouch.pageY);
+    ctx.fillRect(changedTouch.pageX - 4, changedTouch.pageY - 4, 8, 8);
+    ongoingTouches.delete(changedTouch.identifier);
   }
-  return -1; // not found
 }
+
+canvas.addEventListener("touchend", handleEnd);
 ```
 
-#### Zeigen, was vor sich geht
+Dies ist der vorherigen Funktion sehr ähnlich; die einzigen wirklichen Unterschiede bestehen darin, dass wir ein kleines Quadrat zeichnen, um das Ende zu markieren und dass wir beim Aufruf von [`Map.delete()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/delete) den alten Eintrag aus der fortlaufenden Berührungskarte entfernen, ohne die aktualisierten Informationen hinzuzufügen. Das Ergebnis ist, dass wir diesen Berührungspunkt nicht mehr verfolgen.
+
+#### Umgang mit abgebrochenen Berührungen
+
+Wenn der Finger des Benutzers in die Browser-UI wandert oder die Berührung aus einem anderen Grund abgebrochen werden muss, wird das [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event)-Ereignis gesendet, und wir rufen die untenstehende `handleCancel()`-Funktion auf.
 
 ```js
-function log(msg) {
-  const container = document.getElementById("log");
-  container.textContent = `${msg} \n${container.textContent}`;
+function handleCancel(event) {
+  event.preventDefault();
+
+  for (const changedTouch of event.changedTouches) {
+    if (!ongoingTouches.has(changedTouch.identifier)) {
+      console.error(`Cancel: Could not find touch ${changedTouch.identifier}`);
+      continue;
+    }
+    ongoingTouches.delete(changedTouch.identifier);
+  }
 }
+
+canvas.addEventListener("touchcancel", handleCancel);
+```
+
+Da die Idee darin besteht, die Berührung sofort abzubrechen, entfernen wir sie aus der fortlaufenden Berührungskarte ohne ein letztes Liniensegment zu zeichnen.
+
+#### Zeichnen beim Bewegen der Berührungen
+
+Jedes Mal, wenn sich ein oder mehrere Finger bewegen, wird ein [`touchmove`](/de/docs/Web/API/Element/touchmove_event)-Ereignis ausgeliefert, was dazu führt, dass unsere `handleMove()`-Funktion aufgerufen wird. Ihre Verantwortung in diesem Beispiel besteht darin, die zwischengespeicherten Berührungsinformationen zu aktualisieren und eine Linie von der vorherigen Position zur aktuellen Position jeder Berührung zu zeichnen.
+
+```js
+function handleMove(event) {
+  event.preventDefault();
+
+  for (const changedTouch of event.changedTouches) {
+    const touch = ongoingTouches.get(changedTouch.identifier);
+
+    if (!touch) {
+      console.error(`Move: Could not find touch ${changedTouch.identifier}`);
+      continue;
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(touch.pageX, touch.pageY);
+    ctx.lineTo(changedTouch.pageX, changedTouch.pageY);
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = touch.color;
+    ctx.stroke();
+
+    const newTouch = {
+      pageX: changedTouch.pageX,
+      pageY: changedTouch.pageY,
+      color: touch.color,
+    };
+
+    ongoingTouches.set(changedTouch.identifier, newTouch);
+  }
+}
+
+canvas.addEventListener("touchmove", handleMove);
+```
+
+Dies iteriert auch über die geänderten Berührungen, sucht jedoch in unserem zwischengespeicherten Informationsarray nach den vorherigen Informationen zu jeder Berührung, um den Startpunkt für das neue Liniensegment jeder Berührung zu bestimmen. Dies erfolgt, indem die [`Touch.identifier`](/de/docs/Web/API/Touch/identifier)-Eigenschaft jeder Berührung betrachtet wird. Diese Eigenschaft ist eine eindeutige Ganzzahl für jede Berührung und bleibt während der Dauer des Kontakts jedes Fingers mit der Oberfläche für jedes Ereignis konsistent.
+
+Dies ermöglicht es uns, die Koordinaten der vorherigen Position jeder Berührung zu erhalten und die entsprechenden Kontextmethoden zu verwenden, um ein Liniensegment zu zeichnen, das die beiden Positionen miteinander verbindet.
+
+Nach dem Zeichnen der Linie rufen wir [`Map.set()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/set) auf, um die vorherigen Informationen über den Berührungspunkt durch die aktuellen Informationen in der `touches`-Karte zu ersetzen.
+
+#### Löschbutton
+
+Fügen Sie schließlich eine Löschfunktion hinzu.
+
+```js
+document.getElementById("clear").addEventListener("click", () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
 ```
 
 ### Ergebnis
 
-Sie können dieses Beispiel auf mobilen Geräten testen, indem Sie den nachstehenden Kasten berühren.
+Sie können dieses Beispiel auf Mobilgeräten testen, indem Sie das Feld unten berühren.
 
-{{EmbedLiveSample('Example','100%', 900)}}
+{{EmbedLiveSample('drawing application','100%', 900)}}
 
 > [!NOTE]
-> Allgemeiner funktioniert das Beispiel auf Plattformen, die Touch-Events bereitstellen.
+> Im Allgemeinen wird das Beispiel auf Plattformen funktionieren, die Touch-Events bieten.
 > Sie können dies auf Desktop-Plattformen testen, die solche Ereignisse simulieren können:
 >
-> - In Firefox "Touch-Simulation" im [Responsive Design-Modus](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/index.html#toggling-responsive-design-mode) aktivieren (möglicherweise müssen Sie die Seite neu laden).
-> - In Chrome den [Gerätemodus](https://developer.chrome.com/docs/devtools/device-mode/) verwenden und den [Gerätetyp](https://developer.chrome.com/docs/devtools/device-mode/#type) auf einen einstellen, der Touch-Events sendet.
+> - Aktivieren Sie in Firefox die "Touch-Simulation" im [Responsive Design Mode](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/index.html#toggling-responsive-design-mode) (es kann sein, dass Sie die Seite neu laden müssen).
+> - Verwenden Sie in Chrome den [Gerätemodus](https://developer.chrome.com/docs/devtools/device-mode/) und setzen Sie den [Gerätetyp](https://developer.chrome.com/docs/devtools/device-mode/#type) auf einen, der Touch-Events sendet.
 
 ## Zusätzliche Tipps
 
-Dieser Abschnitt bietet zusätzliche Tipps zum Umgang mit Touch-Events in Ihrer Webanwendung.
+Dieser Abschnitt bietet zusätzliche Tipps, wie Sie Touch-Events in Ihrer Webanwendung handhaben können.
 
 ### Umgang mit Klicks
 
-Da das Aufrufen von `preventDefault()` bei einem [`touchstart`](/de/docs/Web/API/Element/touchstart_event)- oder dem ersten [`touchmove`](/de/docs/Web/API/Element/touchmove_event)-Ereignis einer Serie verhindert, dass die entsprechenden Mausereignisse ausgelöst werden, ist es üblich, `preventDefault()` bei `touchmove` statt `touchstart` aufzurufen. Auf diese Weise können Mausereignisse trotzdem ausgelöst werden und Dinge wie Links funktionieren weiterhin. Alternativ haben einige Frameworks Touch-Events erneut als Mausereignisse ausgelöst, um denselben Zweck zu erreichen. (Dieses Beispiel ist vereinfacht und kann zu seltsamen Verhaltensweisen führen. Es ist nur als Leitfaden gedacht.)
+Da der Aufruf von `preventDefault()` bei einem [`touchstart`](/de/docs/Web/API/Element/touchstart_event)- oder dem ersten [`touchmove`](/de/docs/Web/API/Element/touchmove_event)-Ereignis einer Serie die entsprechenden Mausereignisse verhindert, ist es üblich, `preventDefault()` bei `touchmove` anstelle von `touchstart` aufzurufen. Auf diese Weise können Mausereignisse weiterhin ausgelöst werden und Dinge wie Links funktionieren weiter. Alternativ haben einige Frameworks begonnen, Touch-Events als Mausereignisse erneut auszulösen, um denselben Zweck zu erreichen. (Dieses Beispiel ist vereinfacht und kann zu seltsamem Verhalten führen. Es ist nur als Leitfaden gedacht.)
 
 ```js
-function onTouch(evt) {
-  evt.preventDefault();
+function onTouch(event) {
+  event.preventDefault();
+
   if (
-    evt.touches.length > 1 ||
-    (evt.type === "touchend" && evt.touches.length > 0)
+    event.touches.length > 1 ||
+    (event.type === "touchend" && event.touches.length > 0)
   )
     return;
 
-  const newEvt = document.createEvent("MouseEvents");
-  let type = null;
-  let touch = null;
+  let type;
+  let touch;
 
-  switch (evt.type) {
+  switch (event.type) {
     case "touchstart":
       type = "mousedown";
-      touch = evt.changedTouches[0];
+      touch = event.changedTouches[0];
       break;
     case "touchmove":
       type = "mousemove";
-      touch = evt.changedTouches[0];
+      touch = event.changedTouches[0];
       break;
     case "touchend":
       type = "mouseup";
-      touch = evt.changedTouches[0];
+      touch = event.changedTouches[0];
       break;
   }
 
-  newEvt.initMouseEvent(
-    type,
-    true,
-    true,
-    evt.originalTarget.ownerDocument.defaultView,
-    0,
-    touch.screenX,
-    touch.screenY,
-    touch.clientX,
-    touch.clientY,
-    evt.ctrlKey,
-    evt.altKey,
-    evt.shiftKey,
-    evt.metaKey,
-    0,
-    null,
-  );
-  evt.originalTarget.dispatchEvent(newEvt);
+  const newEvent = new MouseEvent(type, {
+    bubbles: true,
+    cancelable: true,
+    view: event.originalTarget.ownerDocument.defaultView,
+    detail: 0,
+    screenX: touch.screenX,
+    screenY: touch.screenY,
+    clientX: touch.clientX,
+    clientY: touch.clientY,
+    ctrlKey: event.ctrlKey,
+    altKey: event.altKey,
+    shiftKey: event.shiftKey,
+    metaKey: event.metaKey,
+    button: 0,
+    relatedTarget: null,
+  });
+
+  event.originalTarget.dispatchEvent(newEvent);
 }
 ```
 
-### PreventDefault() nur bei einer zweiten Berührung aufrufen
+### Aufruf von preventDefault() nur bei einer zweiten Berührung
 
-Eine Technik, um Dinge wie `pinchZoom` auf einer Seite zu verhindern, besteht darin, `preventDefault()` bei der zweiten Berührung einer Serie aufzurufen. Dieses Verhalten ist in der Touch-Events-Spezifikation nicht gut definiert und führt zu unterschiedlichem Verhalten in verschiedenen Browsern (d.h. iOS verhindert Zoomen, erlaubt aber weiterhin das Scrollen mit beiden Fingern; Android erlaubt das Zoomen, aber nicht das Scrollen; Opera und Firefox verhindern derzeit alle Scroll- und Zoomeingaben.) Derzeit wird nicht empfohlen, sich auf ein bestimmtes Verhalten in diesem Fall zu verlassen, sondern eher auf das Meta-Viewport-Element, um Zoomen zu verhindern.
+Eine Technik zur Vermeidung von Aktionen wie `pinchZoom` auf einer Seite besteht darin, `preventDefault()` bei der zweiten Berührung einer Serie aufzurufen. Dieses Verhalten ist in der Touch-Events-Spezifikation nicht gut definiert und führt zu unterschiedlichen Verhaltensweisen in verschiedenen Browsern (d.h. iOS wird das Zoomen verhindern, erlaubt jedoch das Scrollen mit beiden Fingern; Android erlaubt Zoomen, jedoch nicht das Scrollen; Opera und Firefox verhindern derzeit alle Scroll- und Zoomvorgänge.) Derzeit wird nicht empfohlen, sich auf ein bestimmtes Verhalten in diesem Fall zu verlassen, sondern vielmehr auf das Meta Viewport, um das Zoomen zu verhindern.
 
 ## Spezifikationen
 
@@ -341,10 +292,10 @@ Eine Technik, um Dinge wie `pinchZoom` auf einer Seite zu verhindern, besteht da
 
 ## Browser-Kompatibilität
 
-Touch-Events sind in der Regel auf Geräten mit Touchscreen verfügbar, aber viele Browser machen die Touch-Events-API auf allen Desktop-Geräten unzugänglich, auch auf denen mit Touchscreens.
+Touch-Events sind in der Regel auf Geräten mit Touchscreen verfügbar, aber viele Browser machen die Touch-Events-API auf allen Desktop-Geräten, auch auf solchen mit Touchscreens, nicht verfügbar.
 
-Der Grund dafür ist, dass einige Websites die Verfügbarkeit von Teilen der Touch-Events-API als Indikator dafür verwenden, dass der Browser auf einem mobilen Gerät ausgeführt wird. Wenn die Touch-Events-API verfügbar ist, nehmen diese Websites an, dass es sich um ein mobiles Gerät handelt und liefern mobil-optimierte Inhalte. Dies kann dann zu einer schlechten Benutzererfahrung für Benutzer von Desktop-Geräten führen, die über Touchscreens verfügen.
+Der Grund dafür ist, dass einige Websites die Verfügbarkeit von Teilen der Touch-Events-API als Indikator dafür verwenden, dass der Browser auf einem mobilen Gerät läuft. Wenn die Touch-Events-API verfügbar ist, gehen diese Websites davon aus, dass es sich um ein mobiles Gerät handelt und liefern mobil optimierte Inhalte. Dies kann dann zu einer schlechten Benutzererfahrung für Nutzer von Desktop-Geräten mit Touchscreens führen.
 
-Um sowohl Berührungs- als auch Mausereignisse auf allen Gerätetypen zu unterstützen, verwenden Sie [Pointer-Events](/de/docs/Web/API/Pointer_events) stattdessen.
+Um sowohl Touch- als auch Maus-Eingaben auf allen Gerätetypen zu unterstützen, verwenden Sie stattdessen [Pointer-Events](/de/docs/Web/API/Pointer_events).
 
 {{Compat}}
