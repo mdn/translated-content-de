@@ -2,10 +2,10 @@
 title: CSS display
 slug: Web/CSS/CSS_display
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 016ecd8ccaed866c4d8d995fb18379c6e48f3b50
 ---
 
-Das **CSS display**-Modul definiert, wie der CSS-Formatierungs-Box-Baum aus dem Dokumentelementbaum generiert wird und definiert Eigenschaften zur Steuerung dessen.
+Das **CSS display** Modul definiert, wie der CSS-Formatierungskastenbaum aus dem Dokumentelementbaum generiert wird und definiert Eigenschaften, die ihn steuern.
 
 ## Referenz
 
@@ -26,12 +26,12 @@ Das **CSS display**-Modul definiert, wie der CSS-Formatierungs-Box-Baum aus dem 
 - {{CSSxRef("&lt;display-internal&gt;")}}
 - {{CSSxRef("&lt;display-legacy&gt;")}}
 
-### Glossar und Begriffe
+### Glossarbegriffe und Definitionen
 
 - {{Glossary("block/css", "Block")}}
 - [Block-Formatierungskontext (BFC)](/de/docs/Web/CSS/CSS_display/Block_formatting_context)
 - {{Glossary("Block-level_content", "Block-Level-Inhalt")}}
-- [Umschließender Block](/de/docs/Web/CSS/CSS_display/Containing_block)
+- [Enthaltender Block](/de/docs/Web/CSS/CSS_display/Containing_block)
 - [Fließlayout](/de/docs/Web/CSS/CSS_display/Flow_layout)
 - {{Glossary("Reading_order", "Lesereihenfolge")}}
 - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}
@@ -39,16 +39,16 @@ Das **CSS display**-Modul definiert, wie der CSS-Formatierungs-Box-Baum aus dem 
 
 ## Leitfäden
 
-- [Verwendung der Mehrfach-Keyword-Syntax mit CSS display](/de/docs/Web/CSS/CSS_display/multi-keyword_syntax_of_display)
-  - : Beschreibt die Mehrfach-Keyword-Syntax und vergleicht diese Syntax mit älteren Einzel-Keyword-Werten.
+- [Die Multi-Keyword-Syntax mit CSS display verwenden](/de/docs/Web/CSS/CSS_display/multi-keyword_syntax_of_display)
+  - : Beschreibt die Multi-Keyword-Syntax und vergleicht diese Syntax mit veralteten Einzel-Keyword-Werten.
 - [Block- und Inline-Layout im normalen Fluss](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow)
   - : Die Grundlagen, wie Block- und Inline-Elemente sich verhalten, wenn sie Teil des normalen Flusses sind.
 - [Fließlayout und Überlauf](/de/docs/Web/CSS/CSS_display/Flow_layout_and_overflow)
-  - : Wie der Überlauf funktioniert, wenn mit normalem Fluss gearbeitet wird.
+  - : Wie Überlauf funktioniert, wenn mit normalem Fluss gearbeitet wird.
 - [Fließlayout und Schreibmodi](/de/docs/Web/CSS/CSS_display/Flow_layout_and_writing_modes)
-  - : Wie sich das Fließlayout verhält, wenn es mit verschiedenen Dokumentenschreibmodi verwendet wird.
+  - : Wie sich das Fließlayout verhält, wenn es mit verschiedenen Dokument-Schreibmodi verwendet wird.
 - [Einführung in Formatierungskontexte](/de/docs/Web/CSS/CSS_display/Introduction_to_formatting_contexts)
-  - : Formatierungskontexte, einschließlich Block, Inline und Flex, deren Verhalten und Verwendung.
+  - : Formatierungskontexte, einschließlich Block-, Inline- und Flex-Kontexte, deren Verhalten und Verwendung.
 - [Im Fluss und außerhalb des Flusses](/de/docs/Web/CSS/CSS_display/In_flow_and_out_of_flow)
   - : Was Elemente aus dem Fluss herausnimmt und die Wirkung der Schaffung neuer Block-Formatierungskontexte.
 
@@ -59,35 +59,35 @@ Das **CSS display**-Modul definiert, wie der CSS-Formatierungs-Box-Baum aus dem 
 - {{cssxref("overflow")}}
 - {{cssxref("transition-behavior")}}
 
-### Glossar und Begriffe
+### Glossarbegriffe und Definitionen
 
 - {{Glossary("Flex", "Flex")}}
-- {{Glossary("Grid", "Raster")}}
+- {{Glossary("Grid", "Grid")}}
 - [Inline-Formatierungskontext](/de/docs/Web/CSS/CSS_inline_layout/Inline_formatting_context)
 - {{Glossary("Inline-level_content", "Inline-Level-Inhalt")}}
 
 ### Leitfäden
 
-- [CSS Flexibles Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
-  - [Grundlegende Konzepte des Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-  - [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-  - [Steuern der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
-  - [Meistern des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
-  - [Anordnung von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)
-  - [Beziehung von Flexbox zu anderen Layout-Methoden](/de/docs/Web/CSS/CSS_flexible_box_layout/Relationship_of_flexbox_to_other_layout_methods)
+- [CSS-Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+  - [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+  - [Ausrichten von Elementen in einem Flexcontainer](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
+  - [Kontrollieren der Verhältnisse von Flexelementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
+  - [Beherrschen des Umbruchs von Flexelementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
+  - [Anordnung von Flexelementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)
+  - [Beziehung von Flexbox zu anderen Layoutmethoden](/de/docs/Web/CSS/CSS_flexible_box_layout/Relationship_of_flexbox_to_other_layout_methods)
   - [Typische Anwendungsfälle von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Typical_use_cases_of_flexbox)
 
-- [CSS Verschachteltes Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout) Modul
-  - [Grundlegende Konzepte des Rasterlayouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-  - [Beziehung des Rasterlayouts zu anderen Layout-Methoden](/de/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods)
-  - [Linienbasierte Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-  - [Rastervorlage-Bereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
-  - [Layout mit benannten Rasterlinien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines)
-  - [Automatische Platzierung im Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout)
-  - [Box-Ausrichtung im Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)
-  - [Raster, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes)
-  - [CSS Rasterlayout und Barrierefreiheit](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility)
-  - [Umsetzung häufiger Layouts mit Rastern](/de/docs/Web/CSS/CSS_grid_layout/Realizing_common_layouts_using_grids)
+- [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+  - [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+  - [Beziehung des Grid-Layouts zu anderen Layoutmethoden](/de/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods)
+  - [Line-basierte Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
+  - [Grid-Template-Bereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
+  - [Layout mit benannten Grid-Linien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines)
+  - [Automatische Platzierung im Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout)
+  - [Kastenausrichtung im Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)
+  - [Grids, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes)
+  - [CSS-Grid-Layout und Barrierefreiheit](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility)
+  - [Häufige Layouts mit Grids realisieren](/de/docs/Web/CSS/CSS_grid_layout/Realizing_common_layouts_using_grids)
 
 ## Spezifikationen
 
@@ -95,7 +95,7 @@ Das **CSS display**-Modul definiert, wie der CSS-Formatierungs-Box-Baum aus dem 
 
 ## Siehe auch
 
-- [CSS Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
 - [CSS Ruby Layout](/de/docs/Web/CSS/CSS_ruby_layout) Modul
-- [CSS Tabellen](/de/docs/Web/CSS/CSS_table) Modul
+- [CSS-Tabelle](/de/docs/Web/CSS/CSS_table) Modul
 - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)

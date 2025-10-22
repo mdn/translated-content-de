@@ -1,33 +1,33 @@
 ---
-title: CSS-Namensräume
+title: CSS-Namespaces
 slug: Web/CSS/CSS_namespaces
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 016ecd8ccaed866c4d8d995fb18379c6e48f3b50
 ---
 
-Das **CSS-Namensräume**-Modul definiert die Syntax für die Verwendung von {{Glossary("namespace", "Namensräumen")}} in CSS.
+Das **CSS-Namespaces**-Modul definiert die Syntax für die Verwendung von {{Glossary("namespace", "Namespaces")}} in CSS.
 
-CSS dient nicht nur zum Styling von HTML. Ein Stylesheet kann verwendet werden, um SVG, MathML, XML oder HTML zu style, von denen jede eine unterschiedliche Namespace oder ein Dokument mit mehreren Namensräumen hat.
+CSS ist nicht nur zum Stylen von HTML da. Ein Stylesheet kann verwendet werden, um SVG, MathML, XML oder HTML zu stylen, von denen jedes einen anderen Namespace hat oder ein Dokument mehrere Namespaces enthalten kann.
 
-Die im Modul definierte [`@namespace`](/de/docs/Web/CSS/@namespace) At-Regel ermöglicht die Unterscheidung zwischen gleichnamigen Elementen in verschiedenen Namensräumen. Element-Tag-Namen sind nicht auf eine einzige Sprache beschränkt. Zum Beispiel ist das `<a>`-Element nicht nur auf HTML beschränkt. Möglicherweise möchten Sie die `<a>`-Elemente innerhalb Ihrer SVGs anders stylen als die Links in Ihrem HTML. Sie möchten wahrscheinlich auch sicherstellen, dass {{domxref("Document.querySelectorAll", "querySelectorAll(\"a\")")}} das richtige Art von Element auswählt. Namensräume können dabei helfen.
+Die in diesem Modul definierte [`@namespace`](/de/docs/Web/CSS/@namespace) At-Regel ermöglicht es, zwischen gleichnamigen Elementen in verschiedenen Namespaces zu unterscheiden. Element-Tagnamen sind nicht einzigartig für eine einzelne Sprache. Zum Beispiel ist das `<a>`-Element nicht auf HTML beschränkt. Sie könnten die `<a>`-Tags in Ihren SVGs anders stylen wollen als die Links in Ihrem HTML. Sie möchten wahrscheinlich auch sicherstellen, dass {{domxref("Document.querySelectorAll", "querySelectorAll(\"a\")")}} die richtige Art von Element auswählt. Namespacing kann dabei helfen.
 
-Die `@namespace`-Regel wird verwendet, um einen Standard-Namespace zu deklarieren und um Namensräume an Namespace-Präfixe zu binden. Das Namensräume-Modul definiert auch die Syntax zur Verwendung dieser Präfixe zur Darstellung von namespace-qualifizierten Namen. Das ist alles. Was ein Name bedeutet oder ob der Name überhaupt gültig ist, hängt vom Kontext und von der Host-Sprache ab.
+Die `@namespace`-Regel wird verwendet, um einen Standard-Namespace zu deklarieren und Namespaces an Namespace-Präfixe zu binden. Das Namespaces-Modul definiert auch die Syntax zur Verwendung dieser Präfixe, um namespace-qualifizierte Namen darzustellen. Das ist alles. Was ein Name bedeutet oder ob der Name überhaupt gültig ist, hängt vom Kontext und der Host-Sprache ab.
 
 ## Referenz
 
-### At-Regeln
+### At-Regeln und Deskriptoren
 
 - {{cssxref("@namespace")}}
 
 ## Leitfäden
 
-- [Namensräume Einsteigerkurs](/de/docs/Web/SVG/Guides/Namespaces_crash_course)
-  - : Umfassende Einführung in das, was ein Namensraum ist und wie er in XML und XML-basierten Markupsprachen verwendet wird.
+- [Namespaces Crashkurs](/de/docs/Web/SVG/Guides/Namespaces_crash_course)
+  - : Tiefergehende Erkundung, was ein Namespace ist und wie sie in XML und XML-basierten Auszeichnungssprachen verwendet werden.
 
 ## Verwandte Konzepte
 
-- CSS [Namespace-Trenner (`|`)](/de/docs/Web/CSS/Namespace_separator) Kombinator
-- CSS [Typsselektoren](/de/docs/Web/CSS/Type_selectors)
+- CSS [Namespace-Trennzeichen (`|`)](/de/docs/Web/CSS/Namespace_separator) Kombinator
+- CSS [Typ-Selektoren](/de/docs/Web/CSS/Type_selectors)
 - CSS [Universalselektor](/de/docs/Web/CSS/Universal_selectors)
 - [`CSSNamespaceRule`](/de/docs/Web/API/CSSNamespaceRule) Schnittstelle
   - [`CSSNamespaceRule.namespaceURI`](/de/docs/Web/API/CSSNamespaceRule/namespaceURI) Eigenschaft
@@ -55,7 +55,7 @@ Die `@namespace`-Regel wird verwendet, um einen Standard-Namespace zu deklariere
 ## Siehe auch
 
 - [`<a>`](/de/docs/Web/SVG/Reference/Element/a#example) SVG-Element
-- [CSS `<url>` Typ](/de/docs/Web/CSS/url_value)
-- [CSS At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
-- [CSS At-Regel-Funktionen](/de/docs/Web/CSS/CSS_syntax/At-rule_functions)
-- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS `<url>`-Typ](/de/docs/Web/CSS/url_value)
+- [CSS-At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rule)
+- [CSS-At-Regel-Funktionen](/de/docs/Web/CSS/CSS_syntax/At-rule_functions)
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)

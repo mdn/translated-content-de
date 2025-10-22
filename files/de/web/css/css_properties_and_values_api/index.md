@@ -2,24 +2,24 @@
 title: CSS-Eigenschaften und Werte API
 slug: Web/CSS/CSS_properties_and_values_API
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 016ecd8ccaed866c4d8d995fb18379c6e48f3b50
 ---
 
-Das **CSS-Eigenschaften und Werte API**-Modul definiert eine Methode zur Registrierung neuer CSS-Eigenschaften, einschließlich der Definition des Datentyps der Eigenschaft, des Verhaltens bei Vererbung und optional eines Anfangswerts.
-Diese API erweitert das Modul [CSS custom properties for cascading variables](/de/docs/Web/CSS/CSS_cascading_variables), das es Autoren ermöglicht, benutzerdefinierte Eigenschaften in CSS mithilfe der [Zwei-Strich-Syntax (`--`)](/de/docs/Web/CSS/--*) zu definieren.
-Die CSS-Eigenschaften und Werte API ist Teil des [CSS Houdini](/de/docs/Web/API/Houdini_APIs) API-Überbaus.
+Das **CSS-Eigenschaften und Werte API** Modul definiert eine Methode zur Registrierung neuer CSS-Eigenschaften, zur Definition des Datentyps der Eigenschaft, des Verhaltens ihrer Vererbung und, optional, zur Festlegung eines Ausgangswertes.
+Dieses API erweitert das Modul [CSS Custom Properties für Kaskadierungsvariablen](/de/docs/Web/CSS/CSS_cascading_variables), das Autoren erlaubt, benutzerdefinierte Eigenschaften in CSS mit der [Zwei-Bindestrich-Syntax (`--`)](/de/docs/Web/CSS/--*) zu definieren.
+Das CSS-Eigenschaften und Werte API ist Teil der [CSS Houdini](/de/docs/Web/API/Houdini_APIs) Gruppe von APIs.
 
-Benutzerdefinierte Eigenschaften ermöglichen das Wiederverwenden von Werten in einem gesamten Projekt, um komplexe oder sich wiederholende Stylesheets zu vereinfachen.
-Grundlegende benutzerdefinierte Eigenschaften werden im Modul [CSS custom properties for cascading variables](/de/docs/Web/CSS/CSS_cascading_variables) definiert.
-Die CSS-Eigenschaften und Werte API erweitert dieses Modul, indem sie es ermöglicht, Metadaten zu benutzerdefinierten Eigenschaften mit CSS durch die [`@property`](/de/docs/Web/CSS/@property)- At-Regel oder alternativ mithilfe der JavaScript-Methode [`CSS.registerProperty`](/de/docs/Web/API/CSS/registerProperty_static) hinzuzufügen.
+Benutzerdefinierte Eigenschaften ermöglichen die Wiederverwendung von Werten in einem Projekt, um komplexe oder sich wiederholende Stylesheets zu vereinfachen.
+Grundlegende benutzerdefinierte Eigenschaften sind im Modul [CSS Custom Properties für Kaskadierungsvariablen](/de/docs/Web/CSS/CSS_cascading_variables) definiert.
+Das CSS-Eigenschaften und Werte API erweitert dieses Modul und ermöglicht das Hinzufügen von Metadaten zu benutzerdefinierten Eigenschaften mit CSS mittels der [`@property`](/de/docs/Web/CSS/@property) Regel oder alternativ mit der [`CSS.registerProperty`](/de/docs/Web/API/CSS/registerProperty_static) Methode von JavaScript.
 
-Egal, ob mit CSS oder JavaScript registriert, das Setzen von Metadaten auf benutzerdefinierten Eigenschaften ermöglicht die Definition eines erwarteten Datentyps, den der Browser je nach Kontext verwenden kann, definiert einen Anfangswert und lässt Sie die Vererbung steuern.
+Ob mit CSS oder JavaScript registriert, ermöglicht das Setzen von Metadaten auf benutzerdefinierten Eigenschaften einen erwarteten Datentyp, den der Browser je nach Kontext verwenden kann, definiert einen Ausgangswert und erlaubt die Kontrolle der Vererbung.
 
-Die Registrierung benutzerdefinierter Eigenschaften über die CSS-Eigenschaften und Werte API ist robuster als die grundlegende Deklaration benutzerdefinierter Eigenschaften für CSS-Kaskadenvariablen, insbesondere hinsichtlich der Übergänge und Animationen von Werten, da Browser zwischen benutzerdefinierten Werten dieser Art interpolieren können, während Eigenschaften, die die [Zwei-Strich-Syntax (`--`)](/de/docs/Web/CSS/--*) verwenden, sich eher wie eine Zeichenkettenersetzung verhalten.
+Die Registrierung benutzerdefinierter Eigenschaften mit der CSS-Eigenschaften und Werte API ist robuster als die grundlegende Deklaration von benutzerdefinierten CSS-Kaskadierungsvariablen, insbesondere bei der Übergangs- und Animationsfähigkeit, da Browser zwischen benutzerdefinierten Werten dieses Typs interpolieren können, während Eigenschaften, die die [Zwei-Bindestrich-Syntax (`--`)](/de/docs/Web/CSS/--*) verwenden, sich eher wie eine Zeichenersetzung verhalten.
 
-## Eigenschaften- und Werte-API in Aktion
+## Eigenschaften und Werte API in Aktion
 
-Um zu sehen, wie benutzerdefinierte Eigenschaften und Werte über die API verwendet werden können, bewegen Sie den Mauszeiger über das Feld unten.
+Um zu sehen, wie benutzerdefinierte Eigenschaften und Werte über die API verwendet werden können, bewegen Sie den Cursor über das Feld unten.
 
 ```js hidden
 CSS.registerProperty({
@@ -55,21 +55,21 @@ CSS.registerProperty({
 <div class="box"><p>Linear gradient with transition</p></div>
 ```
 
-{{EmbedLiveSample("Eigenschaften- und Werte-API in Aktion",600,120)}}
+{{EmbedLiveSample("Properties and values API in action",600,120)}}
 
 Das Feld hat einen [Hintergrund](/de/docs/Web/CSS/background), der aus einem [linearen Verlauf](/de/docs/Web/CSS/gradient/linear-gradient) von `--stop-color` (die benutzerdefinierte Eigenschaft) zu [`lavenderblush`](/de/docs/Web/CSS/named-color) besteht.
-Der Wert von `--stop-color` ist zunächst auf `cornflowerblue` gesetzt, aber wenn Sie den Mauszeiger über das Feld bewegen, [transitioniert](/de/docs/Web/CSS/transition) `--stop-color` über zwei Sekunden zu `aquamarine` (`linear-gradient(to right, aquamarine, lavenderblush)`).
+Der Wert von `--stop-color` ist zunächst auf `cornflowerblue` gesetzt, aber wenn Sie den Cursor über das Feld bewegen, wechselt `--stop-color` in einer [Transition](/de/docs/Web/CSS/transition) über zwei Sekunden zu `aquamarine` (`linear-gradient(to right, aquamarine, lavenderblush)`).
 
 ## Referenz
 
-### At-Regeln
+### At-Rules und Deskriptoren
 
 - {{cssxref("@property")}}
-  - [syntax](/de/docs/Web/CSS/@property#descriptors)-Deskriptor
-    - [`+` und `#`](/de/docs/Web/CSS/@property#descriptors)-Multiplikatoren
-    - [`|`](/de/docs/Web/CSS/@property#descriptors)-Kombinator
-  - [inherits](/de/docs/Web/CSS/@property#descriptors)-Deskriptor
-  - [initial-value](/de/docs/Web/CSS/@property#descriptors)-Deskriptor
+  - [Syntax](/de/docs/Web/CSS/@property#descriptors) Deskriptor
+    - [`+` und `#`](/de/docs/Web/CSS/@property#descriptors) Multiplikatoren
+    - [`|`](/de/docs/Web/CSS/@property#descriptors) Kombinator
+  - [Inherits](/de/docs/Web/CSS/@property#descriptors) Deskriptor
+  - [Initial-Value](/de/docs/Web/CSS/@property#descriptors) Deskriptor
 
 ### Schnittstellen und APIs
 
@@ -78,19 +78,19 @@ Der Wert von `--stop-color` ist zunächst auf `cornflowerblue` gesetzt, aber wen
 
 ## Leitfäden
 
-- [Verwendung der CSS-Eigenschaften und Werte API](/de/docs/Web/API/CSS_Properties_and_Values_API/guide)
+- [Verwendung des CSS-Eigenschaften und Werte API](/de/docs/Web/API/CSS_Properties_and_Values_API/guide)
   - : Erklärt, wie man benutzerdefinierte Eigenschaften in CSS und JavaScript registriert, mit Hinweisen zum Umgang mit undefinierten und ungültigen Werten, Fallbacks und Vererbung.
 - [CSS Houdini](/de/docs/Web/CSS/CSS_properties_and_values_API/Houdini)
-  - : Referenzleitfaden zu Houdini-Ressourcen, einschließlich der CSS-Module, API-Leitfäden und externer Ressourcen.
+  - : Referenzleitfaden zu Houdini-Ressourcen einschließlich der CSS-Module, API-Leitfäden und externer Ressourcen.
 - [Houdini APIs](/de/docs/Web/API/Houdini_APIs)
-  - : Erklärt, was CSS Houdini ist und welche Vorteile es bietet, zusammen mit einer Liste der verfügbaren APIs und deren Status.
+  - : Erklärt, was CSS Houdini ist und welche Vorteile es bietet, zusammen mit einer Liste verfügbarer APIs und deren Status.
 
 ## Verwandte Konzepte
 
 - {{cssxref("var")}}
 - [CSSRule](/de/docs/Web/API/CSSRule)
 - [CSSStyleValue](/de/docs/Web/API/CSSStyleValue)
-- [CSS Scoping](/de/docs/Web/CSS/CSS_scoping)
+- [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping)
 - [Verwendung von Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)
 - [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)
@@ -103,9 +103,9 @@ Der Wert von `--stop-color` ist zunächst auf `cornflowerblue` gesetzt, aber wen
 ## Siehe auch
 
 - [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade)
-- [CSS Scoping](/de/docs/Web/CSS/CSS_scoping)-Modul
+- [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping) Modul
 - [Verwendung von Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)
-- [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)-Modul
-- [Worklet](/de/docs/Web/API/Worklet)-Schnittstelle
+- [CSS Painting API](/de/docs/Web/API/CSS_Painting_API) Modul
+- [Worklet](/de/docs/Web/API/Worklet) Schnittstelle
 - [CSS `env()`](/de/docs/Web/CSS/env)
 - [CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API)

@@ -2,10 +2,10 @@
 title: CSS round display
 slug: Web/CSS/CSS_round_display
 l10n:
-  sourceCommit: 10f562a8a12f7bbf4b35b21de449c721ed756eb4
+  sourceCommit: 016ecd8ccaed866c4d8d995fb18379c6e48f3b50
 ---
 
-Das **CSS round display** Modul definiert CSS-Erweiterungen zur Unterstützung eines runden Displays, wie z.B. bei Armbanduhren, um Entwicklern zu helfen, Webseiten für diese Geräte geeignet zu gestalten.
+Das **CSS round display** Modul definiert CSS-Erweiterungen zur Unterstützung eines runden Displays, wie sie bei Armbanduhren zu finden sind, um Entwicklern zu helfen, Webseiten für diese Geräte zu erstellen.
 
 ## Referenz
 
@@ -13,20 +13,20 @@ Das **CSS round display** Modul definiert CSS-Erweiterungen zur Unterstützung e
 
 Das CSS round display Modul führt die Eigenschaften `border-boundary` und `shape-inside` ein. Derzeit unterstützen keine Browser diese Funktionen.
 
-### Deskriptoren
+### At-Regeln und Deskriptoren
 
-- {{cssxref("@media/shape", "shape")}} ({{cssxref("@media")}} Funktion)
+- {{cssxref("@media/shape", "shape")}} ({{cssxref("@media")}}-Funktion)
 
 ## Leitfäden
 
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-  - : Einführung in Media Queries, deren Syntax und die Operatoren und Medienmerkmale, die zur Konstruktion von Media Query-Ausdrücken verwendet werden.
+- [Medienabfragen verwenden](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+  - : Einführung in Medienabfragen, deren Syntax sowie die Operatoren und Medienfunktionen, die zur Konstruktion von Medienabfrageausdrücken verwendet werden.
 
-- [Überblick über CSS Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
-  - : Definiert grundlegende Formen und wie man sie mit Entwickler-Tools debuggt.
+- [Übersicht über CSS-Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
+  - : Definiert grundlegende Formen und wie man diese mit Entwicklerwerkzeugen debuggen kann.
 
-- [Verwendung von Umgebungsvariablen](/de/docs/Web/CSS/CSS_environment_variables/Using_environment_variables)
-  - : Überblick darüber, was Umgebungsvariablen sind, von Browsern definierte Umgebungsvariablen, und wie man die `env()`-Funktion verwendet.
+- [Umgebungsvariablen verwenden](/de/docs/Web/CSS/CSS_environment_variables/Using_environment_variables)
+  - : Überblick darüber, was Umgebungsvariablen sind, browserdefinierte Umgebungsvariablen und wie die `env()`-Funktion verwendet wird.
 
 ## Verwandte Konzepte
 
@@ -44,6 +44,6 @@ Das CSS round display Modul führt die Eigenschaften `border-boundary` und `shap
 
 - {{cssxref("basic-shape")}} Datentyp
 - {{cssxref("shape-outside")}} Eigenschaft
-- [CSS Formen](/de/docs/Web/CSS/CSS_shapes) Modul
-- [CSS Media Queries](/de/docs/Web/CSS/CSS_media_queries) Modul
-- [CSS Umgebungsvariablen](/de/docs/Web/CSS/CSS_environment_variables) Modul
+- [CSS-Formen](/de/docs/Web/CSS/CSS_shapes) Modul
+- [CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) Modul
+- [CSS-Umgebungsvariablen](/de/docs/Web/CSS/CSS_environment_variables) Modul

@@ -1,11 +1,11 @@
 ---
-title: CSS-Ruby-Layout
+title: CSS Ruby-Layout
 slug: Web/CSS/CSS_ruby_layout
 l10n:
-  sourceCommit: bc761c19c07b875eb889d4aad87b18d8443da339
+  sourceCommit: 016ecd8ccaed866c4d8d995fb18379c6e48f3b50
 ---
 
-Das **CSS-Ruby-Layout** Modul stellt das Rendering-Modell und die Formatierungssteuerungen im Zusammenhang mit der Darstellung von Ruby-Anmerkungen bereit. Ruby-Anmerkungen sind eine Form der Interlinear-Anmerkung, die aus kurzen Textabschnitten neben dem Basistext bestehen. Sie werden typischerweise in ostasiatischen Dokumenten verwendet, um die Aussprache anzugeben oder die Bedeutung zu definieren.
+Das **CSS Ruby-Layout** Modul bietet das Rendering-Modell und Formatierungskontrollen im Zusammenhang mit der Anzeige von Ruby-Annotationen. Ruby-Annotationen sind eine Form der Zeilenannotation, die aus kurzen Textabschnitten neben dem Basistext bestehen. Sie werden typischerweise in ostasiatischen Dokumenten verwendet, um die Aussprache anzugeben oder die Bedeutung zu definieren.
 
 ## Referenz
 
@@ -14,11 +14,11 @@ Das **CSS-Ruby-Layout** Modul stellt das Rendering-Modell und die Formatierungss
 - {{cssxref("ruby-align")}}
 - {{cssxref("ruby-position")}}
 
-Das CSS-Ruby-Layout-Modul führt auch die `ruby-merge` und `ruby-overhang` Eigenschaften ein. Derzeit unterstützen keine Browser diese Funktionen.
+Das CSS Ruby-Layout-Modul führt auch die Eigenschaften `ruby-merge` und `ruby-overhang` ein. Derzeit unterstützen keine Browser diese Funktionen.
 
-### Anzeige-Werte
+### Display-Werte
 
-Das CSS-Ruby-Layout-Modul fügt folgende Werte zur {{cssxref("display")}} Eigenschaft hinzu:
+Das CSS Ruby-Layout-Modul fügt der {{cssxref("display")}} Eigenschaft die folgenden Werte hinzu:
 
 - `ruby`
 - `ruby-base`
@@ -26,16 +26,16 @@ Das CSS-Ruby-Layout-Modul fügt folgende Werte zur {{cssxref("display")}} Eigens
 - `ruby-base-container`
 - `ruby-text-container`
 
-### Glossar und Schlüsselwörter
+### Glossareinträge
 
-- {{Glossary("ruby", "ruby")}}
+- {{Glossary("Ruby", "Ruby")}}
 
 ## Verwandte Konzepte
 
-- [CSS-Anzeige](/de/docs/Web/CSS/CSS_display) Modul
+- [CSS Display](/de/docs/Web/CSS/CSS_display) Modul
   - {{cssxref("display")}}
   - {{CSSxRef("&lt;display-internal&gt;")}}
-- [CSS-Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) Modul
+- [CSS Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) Modul
   - {{cssxref("text-emphasis-color")}}
   - {{cssxref("text-emphasis-position")}}
   - {{cssxref("text-emphasis-style")}}
