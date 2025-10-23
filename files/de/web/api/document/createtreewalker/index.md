@@ -1,14 +1,14 @@
 ---
-title: "Dokumentation: createTreeWalker() Methode"
+title: "Dokument: createTreeWalker()-Methode"
 short-title: createTreeWalker()
 slug: Web/API/Document/createTreeWalker
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: 30ae43a0c98ab92f750fd571d7a3a8ee8b15b4c0
 ---
 
 {{ApiRef("Document")}}
 
-Die **`Document.createTreeWalker()`** Erzeugungsmethode gibt ein neu erstelltes [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Objekt zurück.
+Die **`Document.createTreeWalker()`** Erstellermethode gibt ein neu erstelltes [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Objekt zurück.
 
 ## Syntax
 
@@ -21,12 +21,10 @@ createTreeWalker(root, whatToShow, filter)
 ### Parameter
 
 - `root`
-
-  - : Ein [`Node`](/de/docs/Web/API/Node), der die Wurzel des `TreeWalker`-Objekts darstellt und den Anfangswert von [`TreeWalker.currentNode`](/de/docs/Web/API/TreeWalker/currentNode) bildet.
+  - : Ein [`Node`](/de/docs/Web/API/Node), der die Wurzel des `TreeWalker`-Objekts darstellt, was der Anfangswert von [`TreeWalker.currentNode`](/de/docs/Web/API/TreeWalker/currentNode) ist.
 
 - `whatToShow` {{optional_inline}}
-
-  - : Ein `unsigned long`, das eine Bitmaske darstellt, die durch das Kombinieren der Konstanten-Eigenschaften von [`NodeFilter`](https://dom.spec.whatwg.org/#interface-nodefilter) erstellt wurde. Dies ist ein praktischer Weg, um für bestimmte Arten von Knoten zu filtern. Standardmäßig ist `0xFFFFFFFF` eingestellt, was der `NodeFilter.SHOW_ALL`-Konstanten entspricht.
+  - : Ein `unsigned long`, der eine Bitmaske darstellt, die durch Kombinieren der Konstanten-Eigenschaften von [`NodeFilter`](https://dom.spec.whatwg.org/#interface-nodefilter) erstellt wird. Es ist eine bequeme Möglichkeit zum Filtern bestimmter Knotentypen. Standardmäßig ist es `0xFFFFFFFF`, was der Konstante `NodeFilter.SHOW_ALL` entspricht.
 
     | Konstante                                                | Numerischer Wert | Beschreibung                                                                       |
     | -------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------- |
@@ -45,13 +43,13 @@ createTreeWalker(root, whatToShow, filter)
     | `NodeFilter.SHOW_TEXT`                                   | `0x4`            | Zeigt [`Text`](/de/docs/Web/API/Text)-Knoten an.                                   |
 
     > [!NOTE]
-    > Da der Elter von jedem `Attr`-Knoten immer `null` ist, werden [`TreeWalker.nextNode()`](/de/docs/Web/API/TreeWalker/nextNode) und [`TreeWalker.previousNode()`](/de/docs/Web/API/TreeWalker/previousNode) niemals einen `Attr`-Knoten zurückgeben. Um `Attr`-Knoten zu durchlaufen, verwenden Sie stattdessen [`Element.attributes`](/de/docs/Web/API/Element/attributes).
+    > Die Konstante `NodeFilter.SHOW_ATTRIBUTE` ist nur wirksam, wenn die Wurzel ein Attributknoten ist. Da das übergeordnete Element eines `Attr`-Knotens immer `null` ist, wird [`TreeWalker.nextNode()`](/de/docs/Web/API/TreeWalker/nextNode) und [`TreeWalker.previousNode()`](/de/docs/Web/API/TreeWalker/previousNode) niemals einen `Attr`-Knoten zurückgeben. Um `Attr`-Knoten zu durchlaufen, verwenden Sie stattdessen [`Element.attributes`](/de/docs/Web/API/Element/attributes).
 
 - `filter` {{optional_inline}}
-  - : Eine Callback-Funktion oder ein Objekt mit einer `acceptNode()`-Methode, die `NodeFilter.FILTER_ACCEPT`, `NodeFilter.FILTER_REJECT` oder `NodeFilter.FILTER_SKIP` zurückgibt. Die Funktion oder Methode wird für jeden Knoten im Teilbaum basierend auf `root` aufgerufen, der als eingeschlossen durch das `whatToShow`-Flag akzeptiert wird, um zu bestimmen, ob er in die Liste der durchlaufbaren Knoten aufgenommen wird:
-    - Wenn der Rückgabewert `NodeFilter.FILTER_ACCEPT` ist, wird dieser Knoten eingeschlossen.
-    - Wenn der Rückgabewert `NodeFilter.FILTER_REJECT` ist, wird jeder Knoten im Teilbaum basierend auf diesem Knoten nicht eingeschlossen.
-    - Wenn der Rückgabewert `NodeFilter.FILTER_SKIP` ist, wird dieser Knoten nicht eingeschlossen.
+  - : Eine Rückruffunktion oder ein Objekt mit einer `acceptNode()`-Methode, die `NodeFilter.FILTER_ACCEPT`, `NodeFilter.FILTER_REJECT` oder `NodeFilter.FILTER_SKIP` zurückgibt. Die Funktion oder Methode wird für jeden Knoten im Teilbaum basierend auf `root` aufgerufen, der durch das `whatToShow`-Flag als einbezogen akzeptiert wird, um zu bestimmen, ob er in die Liste der iterierbaren Knoten aufgenommen wird oder nicht:
+    - Wenn der Rückgabewert `NodeFilter.FILTER_ACCEPT` ist, wird dieser Knoten einbezogen.
+    - Wenn der Rückgabewert `NodeFilter.FILTER_REJECT` ist, wird kein Knoten im Teilbaum basierend auf diesem Knoten einbezogen.
+    - Wenn der Rückgabewert `NodeFilter.FILTER_SKIP` ist, wird dieser Knoten nicht einbezogen.
 
 ### Rückgabewert
 
@@ -61,7 +59,7 @@ Ein neues [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Objekt.
 
 ### Verwendung von whatToShow
 
-Dieses Beispiel verwendet `whatToShow`, um Textinhalte in Großbuchstaben zu transformieren. Beachten Sie, dass die Textknoten der Nachkommen des `#root`-Elements ebenfalls durchlaufen werden, obwohl sie keine Kindknoten des `#root`-Elements sind.
+Dieses Beispiel verwendet `whatToShow`, um Textinhalte in Großbuchstaben umzuwandeln. Beachten Sie, dass die Textknoten der Nachkommen des `#root`-Elements ebenfalls durchlaufen werden, obwohl sie keine Kindknoten des `#root`-Elements sind.
 
 #### HTML
 
@@ -100,7 +98,7 @@ while (treeWalker.nextNode()) {
 
 ### Verwendung von filter
 
-Dieses Beispiel verwendet `filter`, um Textinhalte zu maskieren. Für jeden Textknoten wird sein Inhalt mit {{JSXref("encodeURI()")}} maskiert, wenn er ein Nachkomme eines `.escape`-Elements, aber nicht eines `.no-escape`-Elements ist.
+Dieses Beispiel verwendet `filter`, um Textinhalte zu maskieren. Für jeden Textknoten werden seine Inhalte mit {{JSXref("encodeURI()")}} maskiert, wenn er ein Nachkomme eines `.escape`-Elements ist, aber nicht eines `.no-escape`-Elements.
 
 #### HTML
 
