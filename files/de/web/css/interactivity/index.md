@@ -292,7 +292,7 @@ li {
 }
 ```
 
-Schließlich werden die Animationen {{cssxref("@keyframes")}} definiert. `interactivity: inert` wird an den Positionen `entry 0%` und `exit 100%` der View-Timeline gesetzt. Zusammen mit dem `animation-fill-mode: both`-Wert bedeutet dies, dass die Listenelemente vor dem Beginn und nach dem Ende der View-Timeline inert sind, d.h., wenn sie sich außerhalb des Scroll-Containers befinden. Zwischen den Positionen `entry 1%` und `exit 99%` wird `interactivity: auto` auf die Listenelemente gesetzt, was bedeutet, dass sie normal interaktiv sind, wenn sie sich innerhalb des Scroll-Containers befinden.
+Schließlich werden die Animationen {{cssxref("@keyframes")}} definiert. `interactivity: inert` wird an den Positionen `entry 0%` und `exit 100%` der View-Timeline gesetzt. Zusammen mit dem `animation-fill-mode: both`-Wert bedeutet dies, dass die Listenelemente vor dem Beginn und nach dem Ende der View-Timeline inert sind, d.h. wenn sie sich außerhalb des Scroll-Containers befinden. Zwischen den Positionen `entry 1%` und `exit 99%` wird `interactivity: auto` auf die Listenelemente gesetzt, was bedeutet, dass sie normal interaktiv sind, wenn sie sich innerhalb des Scroll-Containers befinden.
 
 ```css live-sample___offscreen-inert
 @keyframes inert-change {
