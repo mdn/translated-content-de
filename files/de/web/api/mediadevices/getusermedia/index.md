@@ -3,20 +3,20 @@ title: "MediaDevices: Methode getUserMedia()"
 short-title: getUserMedia()
 slug: Web/API/MediaDevices/getUserMedia
 l10n:
-  sourceCommit: b20a4643a0777bcb6bdc431b76ebf13eb2f31301
+  sourceCommit: 01da0943d91ad8ff68a91f0273a5e4da87e512fb
 ---
 
 {{securecontext_header}}{{APIRef("Media Capture and Streams")}}
 
-Die **`getUserMedia()`**-Methode der [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Schnittstelle fordert vom Benutzer die Erlaubnis zur Verwendung eines Medieneingangs an, der einen [`MediaStream`](/de/docs/Web/API/MediaStream) mit Spuren erzeugt, die die angeforderten Medientypen enthalten.
+Die **`getUserMedia()`**-Methode der [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Schnittstelle fordert die Erlaubnis des Nutzers an, ein Medieneingabegerät zu verwenden, das einen [`MediaStream`](/de/docs/Web/API/MediaStream) mit Spuren der angeforderten Medientypen erzeugt.
 
-Dieser Stream kann beispielsweise eine Videospur (erzeugt durch eine Hardware- oder virtuelle Videoquelle wie eine Kamera, ein Videoaufzeichnungsgerät, einen Bildschirmfreigabedienst usw.), eine Audiospur (ähnlich durch eine physische oder virtuelle Audioquelle wie ein Mikrofon, einen A/D-Wandler o.ä.) und möglicherweise andere Spurtypen enthalten.
+Dieser Stream kann beispielsweise eine Videospur enthalten (erzeugt durch eine Hardware- oder virtuelle Videoquelle wie eine Kamera, ein Videoaufzeichnungsgerät, einen Bildschirmfreigabeservice usw.), eine Audiospur (ähnlich, erzeugt durch eine physische oder virtuelle Audioquelle wie ein Mikrofon, A/D-Wandler usw.) und möglicherweise andere Spurtypen.
 
-Sie gibt ein {{jsxref("Promise")}} zurück, das in ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt aufgelöst wird.
-Wenn der Benutzer die Erlaubnis verweigert oder keine passenden Medien verfügbar sind, wird das Promise mit `NotAllowedError` oder `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
+Es wird ein {{jsxref("Promise")}} zurückgegeben, das zu einem [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt aufgelöst wird.
+Wenn der Nutzer die Erlaubnis verweigert oder keine passenden Medien verfügbar sind, wird das Versprechen mit einem `NotAllowedError` oder `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
 
 > [!NOTE]
-> Es ist möglich, dass das zurückgegebene Promise _weder_ aufgelöst noch abgelehnt wird, da der Benutzer nicht verpflichtet ist, sich zu entscheiden, und die Anfrage ignorieren kann.
+> Es ist möglich, dass das zurückgegebene Versprechen _weder_ erfüllt noch abgelehnt wird, da der Nutzer nicht unbedingt eine Entscheidung treffen muss und die Anfrage ignorieren kann.
 
 ## Syntax
 
@@ -27,96 +27,96 @@ getUserMedia(constraints)
 ### Parameter
 
 - `constraints`
-  - : Ein Objekt, das die Arten von Medien, die angefordert werden, zusammen mit den Anforderungen für jeden Typ angibt.
+  - : Ein Objekt, das die anzufordernden Medientypen sowie alle Anforderungen für jeden Typ angibt.
 
-    Der `constraints`-Parameter ist ein Objekt mit zwei Mitgliedern: `video` und `audio`, die die angeforderten Medientypen beschreiben.
+    Der Parameter `constraints` ist ein Objekt mit zwei Elementen: `video` und `audio`, die die angeforderten Medientypen beschreiben.
     Entweder oder beide müssen angegeben werden.
-    Wenn der Browser nicht alle Medienspuren mit den angegebenen Typen finden kann, die den gegebenen Einschränkungen entsprechen, wird das zurückgegebene Promise mit `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
+    Wenn der Browser nicht alle Medienspuren der angegebenen Typen finden kann, die den angegebenen Einschränkungen entsprechen, wird das zurückgegebene Versprechen mit `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
 
-    Für sowohl `video` als auch `audio` ist der Wert entweder ein boolescher Wert oder ein Objekt.
+    Sowohl für `video` als auch `audio` ist der Wert entweder ein Boolean oder ein Objekt.
     Der Standardwert ist `false`.
-    - Wenn für einen Medientyp `true` angegeben wird, ist der resultierende Stream _verpflichtet_, diese Art von Spur zu enthalten.
-      Wenn aus irgendeinem Grund keine enthalten werden kann, wird das zurückgegebene Promise abgelehnt.
-    - Wenn für einen Medientyp `false` angegeben wird, _darf_ der resultierende Stream diese Art von Spur nicht enthalten oder das zurückgegebene Promise wird abgelehnt.
-      Da sowohl `video` als auch `audio` standardmäßig `false` sind, wird das zurückgegebene Promise immer abgelehnt, wenn das `constraints`-Objekt keine dieser Eigenschaften enthält oder überhaupt nicht vorhanden ist.
-    - Wenn für einen Medientyp ein Objekt angegeben ist, wird das Objekt als [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuch gelesen.
+    - Wenn `true` für einen Medientyp angegeben ist, muss der resultierende Stream diesen Spurtyp enthalten.
+      Kann kein solcher Typ aus irgendeinem Grund enthalten sein, wird das zurückgegebene Versprechen abgelehnt.
+    - Wenn `false` für einen Medientyp angegeben ist, _darf_ der resultierende Stream diesen Spurtyp nicht enthalten, oder das zurückgegebene Versprechen wird abgelehnt.
+      Da sowohl `video` als auch `audio` standardmäßig auf `false` gesetzt sind, wird das zurückgegebene Versprechen immer abgelehnt, wenn das `constraints`-Objekt keine der Eigenschaften enthält oder überhaupt nicht vorhanden ist.
+    - Wenn ein Objekt für einen Medientyp angegeben ist, wird das Objekt als [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuch gelesen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, dessen Fulfillment-Handler ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt erhält, wenn die angeforderten Medien erfolgreich abgerufen wurden.
+Ein {{jsxref("Promise")}}, dessen Erfüllungshandler ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt erhält, wenn die angeforderten Medien erfolgreich erfasst wurden.
 
 ### Ausnahmen
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Obwohl sowohl der Benutzer als auch das Betriebssystem den Zugriff auf das Hardwaregerät erteilt haben und keine Hardwareprobleme auftraten, die einen `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException) verursachen würden, wird diese Ausnahme ausgelöst, wenn ein Problem aufgetreten ist, das die Verwendung des Geräts verhindert hat.
+  - : Obwohl Nutzer und Betriebssystem beide Zugriff auf das Hardwaregerät gewährt haben und keine Hardwareprobleme auftraten, die einen `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException) verursachen würden, wird ein Fehler ausgelöst, wenn ein Problem auftrat, das die Nutzung des Geräts verhinderte.
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn das aktuelle Dokument nicht vollständig aktiv ist.
+  - : Wird ausgelöst, wenn das aktuelle Dokument nicht vollständig aktiv ist.
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn eines oder mehrere der angeforderten Quellgeräte derzeit nicht verwendet werden können.
-    Dies tritt auf, wenn der Browsing-Kontext unsicher ist (d.h. die Seite wurde mittels HTTP statt HTTPS geladen).
-    Es passiert auch, wenn der Benutzer angegeben hat, dass die aktuelle Browsing-Instanz keinen Zugriff auf das Gerät erhält, der Benutzer den Zugriff für die aktuelle Sitzung verweigert hat oder der Benutzer den Zugriff auf Benutzermediengeräte global verweigert hat.
-    In Browsern, die das Verwalten von Medienberechtigungen mit [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy) unterstützen, wird dieser Fehler zurückgegeben, wenn die Berechtigungsrichtlinie nicht konfiguriert ist, um den Zugriff auf die Eingabequelle(n) zu ermöglichen.
+  - : Wird ausgelöst, wenn eine oder mehrere der angeforderten Quellen zu diesem Zeitpunkt nicht genutzt werden können.
+    Dies tritt auf, wenn der Browsing-Kontext unsicher ist (d.h. die Seite wurde mit HTTP statt HTTPS geladen).
+    Es passiert auch, wenn der Nutzer festgelegt hat, dass die aktuelle Browsersitzung keinen Zugriff auf das Gerät haben darf, der Nutzer den Zugriff für die aktuelle Sitzung verweigert hat oder global alle Zugriffe auf Benutzermediengeräte verweigert hat.
+    Bei Browsern, die die Verwaltung von Medienberechtigungen mit [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) unterstützen, wird dieser Fehler zurückgegeben, wenn die Permissions Policy nicht so konfiguriert ist, dass der Zugriff auf die Eingabequelle(n) erlaubt ist.
 
     > [!NOTE]
-    > Ältere Versionen der Spezifikation verwendeten `SecurityError` hierfür stattdessen; `SecurityError` hat eine neue Bedeutung erhalten.
+    > Ältere Versionen der Spezifikation verwendeten stattdessen `SecurityError`; `SecurityError` hat eine neue Bedeutung erhalten.
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn keine Medienspuren des angegebenen Typs gefunden wurden, die die gegebenen Einschränkungen erfüllen.
+  - : Wird ausgelöst, wenn keine Medien der angegebenen Typen gefunden wurden, die die angegebenen Einschränkungen erfüllen.
 - `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn der Benutzer zwar die Erlaubnis erteilt hat, die passenden Geräte zu verwenden, jedoch ein Hardwarefehler auf Webseite-, Betriebssystem- oder Browserebene aufgetreten ist, der den Zugriff auf das Gerät verhindert hat.
+  - : Wird ausgelöst, wenn, obwohl der Nutzer die Erlaubnis zur Nutzung der passenden Geräte erteilt hat, ein Hardwarefehler auf Betriebssystem-, Browser- oder Webseitenebene auftrat, der den Zugriff auf das Gerät verhinderte.
 - `OverconstrainedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn die angegebenen Einschränkungen zu keinen Kandidatengeräten führten, die die gewünschten Kriterien erfüllten.
-    Der Fehler ist ein Objekt vom Typ `OverconstrainedError` und hat eine `constraint`-Eigenschaft, deren Zeichenfolgenwert der Name einer Einschränkung ist, die nicht erfüllt werden konnte, sowie eine `message`-Eigenschaft, die eine menschenlesbare Zeichenfolge zur Erläuterung des Problems enthält.
+  - : Wird ausgelöst, wenn die angegebenen Einschränkungen dazu führten, dass keine Kandidatengeräte den angeforderten Kriterien entsprachen.
+    Der Fehler ist ein Objekt vom Typ `OverconstrainedError` und hat eine `constraint`-Eigenschaft, deren Zeichenfolgenwert der Name eines nicht erfüllbaren Constraints ist, und eine `message`-Eigenschaft, die eine für Menschen lesbare Zeichenfolge mit einer Erklärung des Problems enthält.
 
     > [!NOTE]
-    > Da dieser Fehler auch auftreten kann, wenn der Benutzer noch keine Erlaubnis zur Verwendung des zugrunde liegenden Geräts erteilt hat, kann er potenziell als {{Glossary("Fingerprinting", "Fingerprinting")}}-Oberfläche genutzt werden.
+    > Da dieser Fehler auftreten kann, selbst wenn der Nutzer noch keine Erlaubnis zur Nutzung des zugrundeliegenden Geräts erteilt hat, kann er potenziell als {{Glossary("Fingerprinting", "Fingerprinting")}}-Oberfläche genutzt werden.
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn die Unterstützung für Benutzermedien im [`Document`](/de/docs/Web/API/Document), auf dem `getUserMedia()` aufgerufen wurde, deaktiviert ist.
-    Der Mechanismus, durch den die Unterstützung für Benutzermedien aktiviert und deaktiviert wird, bleibt dem individuellen Benutzeragenten überlassen.
+  - : Wird ausgelöst, wenn der Support für Benutzermedien im [`Document`](/de/docs/Web/API/Document), auf dem `getUserMedia()` aufgerufen wurde, deaktiviert ist.
+    Der Mechanismus, mit dem der Support für Benutzermedien aktiviert oder deaktiviert wird, liegt im Ermessen des jeweiligen Benutzers.
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn die Liste der angegebenen Einschränkungen leer ist oder alle Einschränkungen auf `false` gesetzt sind.
+  - : Wird ausgelöst, wenn die angegebene Liste der Einschränkungen leer ist oder alle Einschränkungen auf `false` gesetzt sind.
     Dies kann auch passieren, wenn Sie versuchen, `getUserMedia()` in einem unsicheren Kontext aufzurufen, da [`navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices) in einem unsicheren Kontext `undefined` ist.
 
 ## Datenschutz und Sicherheit
 
-Als eine API, die erhebliche Datenschutzbedenken aufwerfen kann, legt die Spezifikation von `getUserMedia()` eine Vielzahl von Datenschutz- und Sicherheitsanforderungen fest, die Browser einhalten müssen.
+Da die API erhebliche Datenschutzbedenken aufwerfen kann, legt die `getUserMedia()`-Spezifikation eine Vielzahl von Datenschutz- und Sicherheitsanforderungen fest, die von den Browsern erfüllt werden müssen.
 
-`getUserMedia()` ist ein leistungsstarkes Feature, das nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) verwendet werden kann; in unsicheren Kontexten ist `navigator.mediaDevices` `undefined`, was den Zugriff auf `getUserMedia()` verhindert.
-Ein sicherer Kontext ist im Wesentlichen eine Seite, die über HTTPS oder das `file:///`-URL-Schema geladen wurde oder eine Seite, die von `localhost` geladen wurde.
+`getUserMedia()` ist eine leistungsstarke Funktion, die nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) genutzt werden kann; in unsicheren Kontexten ist `navigator.mediaDevices` `undefined`, was den Zugriff auf `getUserMedia()` verhindert.
+Ein sicherer Kontext ist im Wesentlichen eine Seite, die über HTTPS oder das `file:///`-URL-Schema geladen ist oder von `localhost`.
 
-Zudem ist immer die Erlaubnis des Benutzers erforderlich, um auf die Audio- und Videoeingänge des Benutzers zuzugreifen.
-Nur das oberste Dokumentkontextfenster für einen gültigen Ursprung kann überhaupt die Erlaubnis zum Verwenden von `getUserMedia()` anfordern, es sei denn, der oberste Kontext gewährt ausdrücklich die Berechtigung für ein bestimmtes {{HTMLElement("iframe")}}, dies zu tun, unter Verwendung der [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy).
-Andernfalls wird der Benutzer niemals um Erlaubnis für die Verwendung der Eingabegeräte gebeten.
+Darüber hinaus ist immer die Erlaubnis des Nutzers erforderlich, um auf seine Audio- und Videoeingaben zuzugreifen.
+Nur das top-level Dokumentfenster eines gültigen Ursprungs kann um Erlaubnis bitten, `getUserMedia()` zu verwenden, es sei denn, der top-level Kontext erteilt ausdrücklich einer bestimmten {{HTMLElement("iframe")}} die Erlaubnis, dies mithilfe der [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) zu tun.
+Andernfalls wird der Benutzer niemals um Erlaubnis zur Nutzung der Eingabegeräte gefragt.
 
-Für zusätzliche Details zu diesen Anforderungen und Regeln, wie sie im Kontext, in dem Ihr Code ausgeführt wird, reflektiert werden, und darüber, wie Browser Datenschutz- und Sicherheitsprobleme des Benutzers verwalten, lesen Sie weiter.
+Für zusätzliche Details zu diesen Anforderungen und Regeln, wie sie sich auf den Kontext auswirken, in dem Ihr Code läuft, und darüber, wie Browser Datenschutz- und Sicherheitsprobleme der Benutzer verwalten, lesen Sie weiter.
 
-### Datenschutz des Benutzers
+### Datenschutz des Nutzers
 
-Als eine API, die erhebliche Datenschutzbedenken aufwerfen kann, wird `getUserMedia()` von der Spezifikation sehr spezifischen Anforderungen an Benachrichtigung und Berechtigungsverwaltung unterworfen.
-Zuerst muss `getUserMedia()` stets die Benutzererlaubnis einholen, bevor es ein Medienerfassungsgerät wie eine Webcam oder ein Mikrofon öffnet.
-Browser können eine Einmal-pro-Domain-Berechtigungsfunktion anbieten, aber sie müssen mindestens beim ersten Mal nachfragen, und der Benutzer muss ausdrücklich eine fortwährende Erlaubnis erteilen, wenn er sich dazu entscheidet.
+Als eine API, die erhebliche Datenschutzbedenken aufwerfen kann, unterliegt `getUserMedia()` der Spezifikation zu sehr spezifischen Anforderungen für Benachrichtigung und Berechtigungsmanagement des Nutzers.
+Zuerst muss `getUserMedia()` immer die Erlaubnis des Nutzers erhalten, bevor es einen Medieneingabegerät wie eine Webcam oder ein Mikrofon öffnet.
+Browser können eine einmalige Erlaubnis pro Domain anbieten, aber sie müssen zumindest beim ersten Mal fragen, und der Nutzer muss ausdrücklich anhaltende Erlaubnis erteilen, wenn er dies wünscht.
 
-Von ebenso hoher Bedeutung sind die Benachrichtigungsregeln.
-Browser müssen ein Anzeigeelement anzeigen, das zeigt, dass eine Kamera oder ein Mikrofon verwendet wird, über jedwelche vorhandenen Hardwareanzeigen hinaus.
-Sie müssen auch ein Anzeigeelement anzeigen, das anzeigt, dass die Erlaubnis zur Verwendung eines Geräts erteilt wurde, selbst wenn das Gerät momentan nicht aktiv aufzeichnet.
+Ebenso wichtig sind die Regeln zur Benachrichtigung.
+Browser müssen ein Symbol anzeigen, das anzeigt, dass eine Kamera oder ein Mikrofon verwendet wird, zusätzlich zu jedem möglicherweise vorhandenen Hardware-Indikator.
+Sie müssen auch ein Symbol anzeigen, das anzeigt, dass die Erlaubnis zur Verwendung eines Geräts zur Eingabe erteilt wurde, auch wenn das Gerät momentan nicht aktiv aufnimmt.
 
-Zum Beispiel zeigt die URL-Leiste in Firefox ein pulsierendes rotes Icon an, um anzuzeigen, dass eine Aufnahme im Gange ist.
-Das Icon ist grau, wenn die Erlaubnis erteilt wurde, die Aufnahme aber momentan nicht im Gange ist.
-Das physische Licht des Geräts wird verwendet, um anzuzeigen, ob die Aufnahme gerade aktiv ist oder nicht.
-Wenn Sie Ihre Kamera stummgeschaltet haben (sogenanntes „facemuting“), erlischt das Kameralicht, um anzuzeigen, dass die Kamera nicht aktiv aufzeichnet, ohne die Erlaubnis zum Fortfahren der Verwendung der Kamera nach Beendigung des Stummschaltens zu widerrufen.
+In Firefox beispielsweise zeigt die URL-Leiste ein pulsierendes rotes Symbol, um anzuzeigen, dass eine Aufnahme im Gange ist.
+Das Symbol ist grau, wenn die Erlaubnis vorhanden ist, die Aufnahme jedoch derzeit nicht im Gange ist.
+Das physikalische Licht des Geräts wird verwendet, um anzuzeigen, ob die Aufnahme aktiv ist oder nicht.
+Wenn Sie Ihre Kamera stummgeschaltet haben (sogenanntes "Facemuting"), erlischt das Aktivitätslicht Ihrer Kamera, um anzuzeigen, dass die Kamera Sie derzeit nicht aktiv aufzeichnet, ohne die Erlaubnis zu widerrufen, die Kamera nach dem Beenden der Stummschaltung erneut zu nutzen.
 
 ### Sicherheit
 
-Es gibt eine Reihe von Möglichkeiten, wie Sicherheitsmanagement und -kontrollen in einem {{Glossary("user_agent", "Benutzeragent")}} dazu führen können, dass `getUserMedia()` einen sicherheitsbezogenen Fehler zurückgibt.
+Es gibt eine Reihe von Möglichkeiten, wie die Sicherheitsverwaltung und -kontrollen in einem {{Glossary("user_agent", "User Agent")}} dazu führen können, dass `getUserMedia()` einen sicherheitsbezogenen Fehler zurückgibt.
 
-#### Berechtigungsrichtlinie
+#### Permissions Policy
 
-Die beiden [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Guides/Permissions_Policy)-Direktiven, die für `getUserMedia()` gelten, sind `camera` und `microphone`.
+Die zwei [Permissions Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy)-Direktiven, die für `getUserMedia()` gelten, sind `camera` und `microphone`.
 
-Zum Beispiel wird dieser HTTP-Header die Verwendung einer Kamera durch das Dokument und alle eingebetteten {{HTMLElement("iframe")}}-Elemente, die vom selben Ursprung geladen werden, aktivieren:
+Beispielsweise wird dieses HTTP-Header die Nutzung einer Kamera durch das Dokument und alle eingebetteten {{HTMLElement("iframe")}}-Elemente, die vom gleichen Ursprung geladen wurden, ermöglichen:
 
 ```http
 Permissions-Policy: camera=(self)
@@ -128,38 +128,38 @@ Dies wird den Zugriff auf das Mikrofon für den aktuellen Ursprung und den spezi
 Permissions-Policy: microphone=(self "https://developer.mozilla.org")
 ```
 
-Wenn Sie `getUserMedia()` innerhalb eines `<iframe>` verwenden, können Sie die Berechtigung nur für diesen Frame anfordern, was offensichtlich sicherer ist als eine allgemeinere Berechtigung anzufordern.
-Hierbei geben wir an, dass wir die Fähigkeit benötigen, sowohl Kamera als auch Mikrofon zu verwenden:
+Wenn Sie `getUserMedia()` innerhalb eines `<iframe>` verwenden, können Sie die Erlaubnis nur für diesen Frame anfordern, was offensichtlich sicherer ist, als eine allgemeinere Erlaubnis anzufordern.
+Hier geben Sie an, dass die Möglichkeit zur Nutzung von sowohl Kamera als auch Mikrofon benötigt wird:
 
 ```html
 <iframe src="https://mycode.example.net/etc" allow="camera; microphone">
 </iframe>
 ```
 
-#### Sicherheitsmaßnahmen auf Basis von Verschlüsselung
+#### Verschlüsselungsbasierte Sicherheit
 
-Die `getUserMedia()`-Methode ist nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) verfügbar.
-Ein sicherer Kontext ist einer, bei dem der Browser mit angemessener Zuversicht davon ausgehen kann, dass er ein Dokument enthält, das sicher geladen wurde, unter Verwendung von HTTPS/TLS, und das nur begrenzt anfällig für unsichere Kontexte ist.
+Die Methode `getUserMedia()` ist nur in [sicheren Kontexten](/de/docs/Web/Security/Secure_Contexts) verfügbar.
+Ein sicherer Kontext ist einer, von dem der Browser mit einiger Sicherheit annehmen kann, dass er ein Dokument enthält, das sicher mit HTTPS/TLS geladen wurde und nur begrenzte Exposition gegenüber unsicheren Kontexten hat.
 Wenn ein Dokument nicht in einem sicheren Kontext geladen wird, ist die [`navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices)-Eigenschaft `undefined`, was den Zugriff auf `getUserMedia()` unmöglich macht.
 
-Der Versuch, `getUserMedia()` in dieser Situation aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+Ein Versuch, in dieser Situation auf `getUserMedia()` zuzugreifen, führt zu einem {{jsxref("TypeError")}}.
 
-#### Sicherheitsmaßnahmen bezogen auf die Dokumentquelle
+#### Sicherheit der Dokumentquelle
 
-Aufgrund der offensichtlichen Sicherheitsbedenken, die mit `getUserMedia()` verbunden sein können, wenn es unerwartet oder ohne sorgfältig verwaltete Sicherheit verwendet wird, kann es nur in sicheren Kontexten verwendet werden.
+Aufgrund der offensichtlichen Sicherheitsbedenken im Zusammenhang mit einer unerwarteten oder unvorsichtigen Nutzung von `getUserMedia()` kann es nur in sicheren Kontexten verwendet werden.
 Es gibt eine Reihe von unsicheren Möglichkeiten, ein Dokument zu laden, das wiederum versuchen könnte, `getUserMedia()` aufzurufen.
-Im Folgenden sind Beispiele für Situationen, in denen `getUserMedia()` nicht aufgerufen werden darf:
+Die folgenden sind Beispiele für Situationen, in denen `getUserMedia()` nicht aufgerufen werden darf:
 
-- Ein Dokument, das in ein sandboxed {{HTMLElement("iframe")}}-Element geladen wurde, kann `getUserMedia()` nicht aufrufen, es sei denn, das `<iframe>` hat sein [`sandbox`](/de/docs/Web/HTML/Reference/Elements/iframe#sandbox)-Attribut auf `allow-same-origin` gesetzt.
-- Ein Dokument, das über eine `data://`- oder `blob://`-URL geladen wurde, die keinen Ursprung hat (wie z.B. wenn eine dieser URLs von einem Benutzer in die Adressleiste eingegeben wird), kann `getUserMedia()` nicht aufrufen.
-  Diese Arten von URLs, die von JavaScript-Code geladen werden, erben die Berechtigungen des Skripts.
-- Jede andere Situation, in der es keinen Ursprung gibt, wie z.B., wenn das [`srcdoc`](/de/docs/Web/HTML/Reference/Elements/iframe#srcdoc)-Attribut verwendet wird, um den Inhalt eines Rahmens zu spezifizieren.
+- Ein Dokument, das in ein sandboxed {{HTMLElement("iframe")}}-Element geladen wird, kann `getUserMedia()` nicht aufrufen, es sei denn, das `<iframe>` hat sein [`sandbox`](/de/docs/Web/HTML/Reference/Elements/iframe#sandbox)-Attribut auf `allow-same-origin` gesetzt.
+- Ein Dokument, das mit einer `data://`- oder `blob://`-URL geladen wird, die keinen Ursprung hat (z. B. wenn eine dieser URLs vom Nutzer in die Adressleiste eingegeben wird), kann `getUserMedia()` nicht aufrufen.
+  Diese Arten von URLs, die aus JavaScript-Code geladen werden, übernehmen die Berechtigungen des Skripts.
+- Jede andere Situation, in der es keinen Ursprung gibt, wie wenn das [`srcdoc`](/de/docs/Web/HTML/Reference/Elements/iframe#srcdoc)-Attribut verwendet wird, um den Inhalt eines Frames zu spezifizieren.
 
 ## Beispiele
 
 ### Verwendung von getUserMedia()
 
-Im Allgemeinen werden Sie auf das [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Singleton-Objekt über [`navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices) zugreifen, wie folgt:
+Im Allgemeinen greifen Sie auf das [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Singleton-Objekt mithilfe von [`navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices) zu, so:
 
 ```js
 async function getMedia(constraints) {
@@ -174,7 +174,7 @@ async function getMedia(constraints) {
 }
 ```
 
-Ähnlich sieht der Code bei Verwendung der rohen Promises direkt so aus:
+Ähnlich sieht der Code aus, wenn die Rohversprechen direkt verwendet werden:
 
 ```js
 navigator.mediaDevices
@@ -188,12 +188,12 @@ navigator.mediaDevices
 ```
 
 > [!NOTE]
-> Wenn das aktuelle Dokument nicht sicher geladen wurde, wird `navigator.mediaDevices` `undefined` sein, und Sie können `getUserMedia()` nicht verwenden.
-> Weitere Informationen hierzu und zu anderen Sicherheitsproblemen im Zusammenhang mit der Verwendung von `getUserMedia()` finden Sie unter [Sicherheit](#sicherheit).
+> Wenn das aktuelle Dokument nicht sicher geladen ist, wird `navigator.mediaDevices` `undefined` sein, und Sie können `getUserMedia()` nicht verwenden.
+> Siehe [Sicherheit](#sicherheit) für weitere Informationen über dieses und andere sicherheitsrelevante Themen im Zusammenhang mit der Verwendung von `getUserMedia()`.
 
-Im Folgenden sind einige Beispiele für den `constraints`-Parameter aufgeführt.
+Unten finden Sie einige Beispiele für den `constraints`-Parameter.
 
-Der folgende Code fordert sowohl Audio als auch Video ohne spezifische Anforderungen an:
+Die folgenden Beispiele fordern sowohl Audio als auch Video ohne spezifische Anforderungen an:
 
 ```js
 getUserMedia({
@@ -202,8 +202,8 @@ getUserMedia({
 });
 ```
 
-Während Informationen über die Kameras und Mikrofone eines Benutzers aus Datenschutzgründen nicht zugänglich sind, kann eine Anwendung die Kamera- und Mikrofonfähigkeiten anfordern, die sie benötigt und wünscht, indem zusätzliche Einschränkungen verwendet werden.
-Das Folgende drückt eine Präferenz für 1280x720-Kameraauflösung aus:
+Während Informationen über die Kameras und Mikrofone eines Nutzers aus Datenschutzgründen nicht zugänglich sind, kann eine Anwendung die gewünschte und benötigte Kamera- und Mikrofonfähigkeiten durch zusätzliche Einschränkungen anfordern.
+Das folgende Beispiel gibt eine Präferenz für eine Kameraauflösung von 1280x720 an:
 
 ```js
 getUserMedia({
@@ -212,9 +212,9 @@ getUserMedia({
 });
 ```
 
-Der Browser wird versuchen, die Einschränkungen zu erfüllen und eine passende Spur zurückzugeben, wenn sie von der zugrunde liegenden Hardware unterstützt wird.
-Wenn sie nicht unterstützt wird, kann der Browser versuchen, einen Stream mit höherer Auflösung von der zugrunde liegenden Hardware zu beschneiden und herunterskaliert zurückzugeben, um die Einschränkungen zu erfüllen (und könnte auch die Bildrate reduzieren, wenn dies eingeschränkt wurde).
-Dieses Verhalten kann erzwungen werden, indem die [`resizeMode`](/de/docs/Web/API/MediaTrackConstraints#resizemode)-Einschränkung auf `crop-and-scale` gesetzt wird (oder deaktiviert wird, indem sie auf `none` gesetzt wird):
+Der Browser wird versuchen, die Einschränkungen zu erfüllen und eine passende Spur zurückgeben, wenn sie von der zugrundeliegenden Hardware unterstützt wird.
+Wenn nicht unterstützt, kann der Browser versuchen, einen höher aufgelösten Stream von der zugrundeliegenden Hardware zu beschneiden und zu skalieren, um die Einschränkung zu erfüllen (und könnte auch die Bildrate reduzieren, wenn dies eingeschränkt wurde).
+Dieses Verhalten kann erzwungen werden, indem die [`resizeMode`](/de/docs/Web/API/MediaTrackConstraints#resizemode)-Einschränkung auf `crop-and-scale` (oder deaktiviert, indem sie auf `none` gesetzt wird) konfiguriert wird:
 
 ```js
 getUserMedia({
@@ -223,10 +223,10 @@ getUserMedia({
 });
 ```
 
-Der Browser kann eine andere Auflösung zurückgeben, wenn keine genaue Übereinstimmung verfügbar ist und die Quelle nicht skaliert werden soll.
+Der Browser kann eine andere Auflösung zurückgeben, wenn keine exakte Übereinstimmung verfügbar ist und die Quelle nicht skaliert werden soll.
 
-Um eine Fähigkeit zu _erzwingen_ und zu scheitern, wenn sie nicht verfügbar ist, verwenden Sie die Schlüsselwörter `min`, `max` oder `exact` (alias `min === max`).
-Das Folgende fordert eine Mindestauflösung von 1280x720:
+Um eine Fähigkeit _zwingend_ zu verlangen und zu versagen, wenn sie nicht verfügbar ist, verwenden Sie die Schlüsselwörter `min`, `max` oder `exact` (a.k.a. `min === max`).
+Das folgende Beispiel verlangt eine Mindestauflösung von 1280x720:
 
 ```js
 getUserMedia({
@@ -238,10 +238,10 @@ getUserMedia({
 });
 ```
 
-Wenn keine Kamera mit dieser oder höherer Auflösung existiert, wird das zurückgegebene Promise mit `OverconstrainedError` abgelehnt, und der Benutzer wird nicht aufgefordert.
+Wenn keine Kamera mit dieser oder einer höheren Auflösung existiert, wird das zurückgegebene Versprechen mit `OverconstrainedError` abgelehnt und der Nutzer wird nicht dazu aufgefordert, die Erlaubnis zu erteilen.
 
-Der Grund für das unterschiedliche Verhalten ist, dass die Schlüsselwörter `min`, `max` und `exact` inhärent verpflichtend sind – wohingegen einfache Werte und ein Schlüsselwort namens `ideal` es nicht sind.
-Hier ist ein vollständiges Beispiel:
+Der Grund für den Unterschied im Verhalten liegt darin, dass die Schlüsselwörter `min`, `max` und `exact` von Natur aus verpflichtend sind – wohingegen normale Werte und ein Schlüsselwort namens `ideal` nicht sind.
+Hier ein vollständiges Beispiel:
 
 ```js
 getUserMedia({
@@ -253,9 +253,9 @@ getUserMedia({
 });
 ```
 
-Ein `ideal`-Wert hat Schwerkraft – was bedeutet, dass der Browser versuchen wird, die Einstellung (und Kamera, wenn Sie mehr als eine haben) mit der kleinsten [Fitness-Distanz](https://w3c.github.io/mediacapture-main/#dfn-fitness-distance) zu den angegebenen idealen Werten zu finden.
+Ein `ideal`-Wert hat bei Verwendung eine gravitative Wirkung – was bedeutet, dass der Browser versuchen wird, die Einstellung (und Kamera, wenn Sie mehr als eine haben) mit der geringsten [Anpassungsdistanz](https://w3c.github.io/mediacapture-main/#dfn-fitness-distance) zu finden.
 
-Einfache Werte sind inhärent ideal, was bedeutet, dass das erste unserer Auflösungsbeispiele oben so hätte geschrieben werden können:
+Normale Werte sind von Natur aus ideal, was bedeutet, dass unser erstes Auflösungsbeispiel auch so hätte geschrieben werden können:
 
 ```js
 getUserMedia({
@@ -268,7 +268,7 @@ getUserMedia({
 ```
 
 Nicht alle Einschränkungen sind Zahlen.
-Zum Beispiel wird auf Mobilgeräten das Folgende die Frontkamera (wenn verfügbar) der Rückkamera vorziehen:
+Zum Beispiel auf Mobilgeräten wird das folgende Beispiel die Frontkamera (falls eine vorhanden ist) gegenüber der Rückkamera bevorzugen:
 
 ```js
 getUserMedia({
@@ -277,7 +277,7 @@ getUserMedia({
 });
 ```
 
-Um die Rückkamera _zu erzwingen_, verwenden Sie:
+Um die Rückkamera _zwingend_ zu verlangen, verwenden Sie:
 
 ```js
 getUserMedia({
@@ -288,8 +288,8 @@ getUserMedia({
 });
 ```
 
-Eine weitere Nicht-Nummer Einschränkung ist die `deviceId`-Einschränkung.
-Wenn Sie eine `deviceId` von [`mediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) haben, können Sie sie verwenden, um ein bestimmtes Gerät anzufordern:
+Eine weitere nicht numerische Einschränkung ist die `deviceId`-Einschränkung.
+Wenn Sie eine `deviceId` von [`mediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) haben, können Sie diese verwenden, um ein bestimmtes Gerät anzufordern:
 
 ```js
 getUserMedia({
@@ -299,8 +299,10 @@ getUserMedia({
 });
 ```
 
-Das Obige wird die angeforderte Kamera zurückgeben oder eine andere Kamera, wenn diese spezielle Kamera nicht mehr verfügbar ist.
-Um die spezifische Kamera _zu erzwingen_, würden Sie verwenden:
+Das obige Beispiel wird die angeforderte Kamera zurückgeben, oder eine andere Kamera, wenn diese spezielle Kamera nicht mehr verfügbar ist.
+Intern verfügbare Informationen der Browser, wie Präferenzen der Nutzer, können auch Ihre Anforderung überschreiben.
+So kann beispielsweise die Kamera, die der Nutzer ausgewählt hat, als er nach Kameraberechtigungen gefragt wurde, Vorrang vor der von Ihnen angeforderten haben.
+Um wiederum eine spezifische Kamera _zwingend_ zu verlangen, würden Sie:
 
 ```js
 getUserMedia({
@@ -340,7 +342,7 @@ navigator.mediaDevices
 
 ### Bildrate
 
-Niedrigere Bildraten können in einigen Fällen wünschenswert sein, zum Beispiel bei WebRTC-Übertragungen mit Bandbreitenbeschränkungen.
+In einigen Fällen können geringere Bildraten wünschenswert sein, wie zum Beispiel bei WebRTC-Übertragungen mit Bandbreitenbeschränkungen.
 
 ```js
 const constraints = {
@@ -364,8 +366,8 @@ const constraints = {
 ```
 
 > [!NOTE]
-> In bestimmten Fällen kann es notwendig sein, den aktuellen Kameramodus freizugeben, bevor Sie zu einem anderen wechseln können.
-> Um den Kameramodus zu wechseln, ist es ratsam, die Medienressourcen freizugeben, indem Sie die "stop()"-Methode auf der Spur aufrufen, bevor Sie einen anderen Modus anfordern.
+> In bestimmten Fällen kann es erforderlich sein, den aktuellen Kamerabetriebsmodus freizugeben, bevor Sie zu einem anderen wechseln können.
+> Um den Kamerabetrieb sicher zu wechseln, ist es ratsam, die Medienressourcen durch Aufrufen der "stop()"-Methode auf der Spur freizugeben, bevor Sie einen anderen Betriebsmodus anfordern.
 
 ## Spezifikationen
 
@@ -377,10 +379,10 @@ const constraints = {
 
 ## Siehe auch
 
-- Die ältere [`Navigator.getUserMedia()`](/de/docs/Web/API/Navigator/getUserMedia)-Legacy-API
-- [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices): Auflisten verfügbarer Mediengeräte
+- Die ältere [`Navigator.getUserMedia()`](/de/docs/Web/API/Navigator/getUserMedia) Legacy-API
+- [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices): Auflistung der verfügbaren Mediengeräte
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Screen Capture API](/de/docs/Web/API/Screen_Capture_API): Erfassen von Bildschirm-Inhalten als [`MediaStream`](/de/docs/Web/API/MediaStream)
-- [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia): Abrufen eines Streams mit Bildschirm-Inhalten
-- [Webcam-Fotos aufnehmen](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos): Ein Tutorial zur Verwendung von `getUserMedia()`, um Standbilder statt Videos aufzunehmen
+- [Screen Capture API](/de/docs/Web/API/Screen_Capture_API): Erfassen von Bildschirminhalten als [`MediaStream`](/de/docs/Web/API/MediaStream)
+- [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia): Abrufen eines Streams mit Bildschirminhalten
+- [Erstellen von Webcam-Fotos](/de/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos): Ein Tutorial zur Verwendung von `getUserMedia()` zum Erstellen von Standbildern statt Videos
