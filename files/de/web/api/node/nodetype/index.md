@@ -3,25 +3,24 @@ title: "Node: nodeType-Eigenschaft"
 short-title: nodeType
 slug: Web/API/Node/nodeType
 l10n:
-  sourceCommit: 88467d31d2ad7bdfade8b38ec69f6702fee080d1
+  sourceCommit: 7a60da1b1ce2d80f2ab0648c5733c30d1a8ac35b
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`nodeType`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces ist eine Ganzzahl,
-die angibt, was der Knoten ist. Sie unterscheidet verschiedene Knotenarten voneinander,
-wie [`Elements`](/de/docs/Web/API/Element), [`Text`](/de/docs/Web/API/Text) und [`Kommentare`](/de/docs/Web/API/Comment).
+Die schreibgeschützte **`nodeType`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces ist ein Integer,
+der festlegt, um welchen Knotentyp es sich handelt. Sie unterscheidet verschiedene Arten von Knoten, wie zum Beispiel [`elements`](/de/docs/Web/API/Element), [`text`](/de/docs/Web/API/Text) und [`comments`](/de/docs/Web/API/Comment).
 
 ## Wert
 
-Eine Ganzzahl, die den Typ des Knotens angibt. Mögliche Werte sind:
+Ein Integer, der den Typ des Knotens angibt. Mögliche Werte sind:
 
 - `Node.ELEMENT_NODE` (`1`)
   - : Ein [`Element`](/de/docs/Web/API/Element)-Knoten wie {{HTMLElement("p")}} oder {{HTMLElement("div")}}.
 - `Node.ATTRIBUTE_NODE` (`2`)
-  - : Ein [`Attribute`](/de/docs/Web/API/Attr) eines [`Elements`](/de/docs/Web/API/Element).
+  - : Ein [`Attribute`](/de/docs/Web/API/Attr) eines [`Element`](/de/docs/Web/API/Element).
 - `Node.TEXT_NODE` (`3`)
-  - : Der tatsächliche [`Text`](/de/docs/Web/API/Text) in einem [`Element`](/de/docs/Web/API/Element) oder [`Attr`](/de/docs/Web/API/Attr).
+  - : Der tatsächliche [`Text`](/de/docs/Web/API/Text) innerhalb eines [`Element`](/de/docs/Web/API/Element) oder [`Attr`](/de/docs/Web/API/Attr).
 - `Node.CDATA_SECTION_NODE` (`4`)
   - : Ein [`CDATASection`](/de/docs/Web/API/CDATASection), wie `<!CDATA[[ … ]]>`
 - `Node.PROCESSING_INSTRUCTION_NODE` (`7`)
@@ -35,12 +34,12 @@ Eine Ganzzahl, die den Typ des Knotens angibt. Mögliche Werte sind:
 - `Node.DOCUMENT_FRAGMENT_NODE` (`11`)
   - : Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Knoten.
 
-Die folgenden Konstanten sind veraltet und werden nicht mehr verwendet: `Node.ENTITY_REFERENCE_NODE` (`5`),
-`Node.ENTITY_NODE` (`6`) und `Node.NOTATION_NODE` (`12`).
+Die folgenden Konstanten wurden veraltet und werden nicht mehr verwendet: `Node.ENTITY_REFERENCE_NODE` (`5`),
+`Node.ENTITY_NODE` (`6`), und `Node.NOTATION_NODE` (`12`).
 
 ## Beispiele
 
-### Verschiedene Arten von Knoten
+### Verschiedene Knotentypen
 
 ```js
 document.nodeType === Node.DOCUMENT_NODE; // true
@@ -57,8 +56,8 @@ p.firstChild.nodeType === Node.TEXT_NODE; // true
 
 ### Kommentare
 
-Dieses Beispiel prüft, ob der erste Knoten innerhalb des Dokument-Elements ein Kommentar ist, und
-zeigt eine Nachricht an, wenn dies nicht der Fall ist.
+Dieses Beispiel überprüft, ob der erste Knoten innerhalb des Dokumentenelements ein Kommentar ist, und
+zeigt eine Nachricht an, wenn nicht.
 
 ```js
 const node = document.documentElement.firstChild;
