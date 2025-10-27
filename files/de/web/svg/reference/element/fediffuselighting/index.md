@@ -2,12 +2,12 @@
 title: <feDiffuseLighting>
 slug: Web/SVG/Reference/Element/feDiffuseLighting
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
 ---
 
-Die **`<feDiffuseLighting>`** [SVG](/de/docs/Web/SVG) Filter-Primitive beleuchtet ein Bild, wobei der Alphakanal als Höhenkarte verwendet wird. Das resultierende Bild, das ein RGBA-opakes Bild ist, hängt von der Lichtfarbe, der Lichtposition und der Oberflächengeometrie der Eingabekarte ab.
+Das **`<feDiffuseLighting>`** [SVG](/de/docs/Web/SVG) Filter-Primitive beleuchtet ein Bild, indem der Alphakanal als Höhenkarte verwendet wird. Das resultierende Bild, welches ein undurchsichtiges RGBA-Bild ist, hängt von der Lichtfarbe, der Lichtposition und der Oberflächengeometrie der Eingabe-Höhenkarte ab.
 
-Die von dieser Filter-Primitive erzeugte Lichtkarte kann mit einem Texturbild unter Verwendung des Multiplikationsterms des `arithmetic` Operators der {{SVGElement("feComposite")}} Filter-Primitive kombiniert werden. Mehrere Lichtquellen können simuliert werden, indem mehrere dieser Lichtkarten miteinander kombiniert werden, bevor sie auf das Texturbild angewendet werden.
+Die durch dieses Filter-Primitive erzeugte Lichtkarte kann mit einem Texturbild kombiniert werden, indem der `multiply`-Begriff des `arithmetic`-Operators des {{SVGElement("feComposite")}} Filter-Primitives verwendet wird. Mehrere Lichtquellen können simuliert werden, indem mehrere dieser Lichtkarten miteinander kombiniert werden, bevor sie auf das Texturbild angewendet werden.
 
 Wie andere Filter-Primitives behandelt es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
@@ -24,11 +24,11 @@ Wie andere Filter-Primitives behandelt es Farbkomponenten standardmäßig im `li
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die Schnittstelle [`SVGFEDiffuseLightingElement`](/de/docs/Web/API/SVGFEDiffuseLightingElement).
+Dieses Element implementiert die [`SVGFEDiffuseLightingElement`](/de/docs/Web/API/SVGFEDiffuseLightingElement) Schnittstelle.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt die Wirkung des `<feDiffuseLighting>` Elements auf einen Kreis mit jeder verfügbaren Lichtquelle. Jedes Mal kommt das Licht aus der oberen linken Ecke.
+Das folgende Beispiel zeigt die Wirkung des `<feDiffuseLighting>`-Elements auf einen Kreis mit jeder verfügbaren Lichtquelle. Jedes Mal kommt das Licht aus der oberen linken Ecke.
 
 ```html
 <svg width="440" height="140" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +120,7 @@ Live-Darstellung:
 
 ## Siehe auch
 
-- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes)
+- [SVG Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}
@@ -140,4 +140,4 @@ Live-Darstellung:
 - {{SVGElement("feSpotLight")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

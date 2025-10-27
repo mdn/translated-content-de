@@ -2,20 +2,20 @@
 title: <feDisplacementMap>
 slug: Web/SVG/Reference/Element/feDisplacementMap
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
 ---
 
-Das **`<feDisplacementMap>`** [SVG](/de/docs/Web/SVG) Filter-Primitive verwendet die Pixelwerte des Bildes aus {{SVGAttr("in2")}}, um das Bild aus {{SVGAttr("in")}} räumlich zu verschieben.
+Der **`<feDisplacementMap>`** [SVG](/de/docs/Web/SVG) Filter-Primitive verwendet die Pixelwerte aus dem Bild von {{SVGAttr("in2")}}, um das Bild von {{SVGAttr("in")}} räumlich zu verschieben.
 
-Die Transformationsformel sieht wie folgt aus:
+Die Formel für die Transformation sieht wie folgt aus:
 
 `P'(x,y) ← P(x + scale * (XC(x,y) - 0.5), y + scale * (YC(x,y) - 0.5))`
 
-wobei `P(x,y)` das Eingabebild {{SVGAttr("in")}} ist und `P'(x,y)` das Ziel ist. `XC(x,y)` und `YC(x,y)` sind die Komponentenwerte des Kanals, der durch {{SVGAttr("xChannelSelector")}} und {{SVGAttr("yChannelSelector")}} festgelegt ist.
+wobei `P(x,y)` das Eingabebild {{SVGAttr("in")}} und `P'(x,y)` das Ziel ist. `XC(x,y)` und `YC(x,y)` sind die Komponentenwerte des Kanals, der durch {{SVGAttr("xChannelSelector")}} und {{SVGAttr("yChannelSelector")}} festgelegt wird.
 
-Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
+Wie andere Filter-Primitive behandelt es Farbkomponenten standardmäßig im Farbraum `linearRGB`. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
 
-## Verwendungszusammenhang
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -69,7 +69,7 @@ Dieses Element implementiert die [`SVGFEDisplacementMapElement`](/de/docs/Web/AP
 
 ## Siehe auch
 
-- [SVG Filter-Primitiv-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes)
+- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}
@@ -88,4 +88,4 @@ Dieses Element implementiert die [`SVGFEDisplacementMapElement`](/de/docs/Web/AP
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

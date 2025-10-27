@@ -2,27 +2,27 @@
 title: IdentityProvider
 slug: Web/API/IdentityProvider
 l10n:
-  sourceCommit: 8cd7f0fdcb2ea8d53ec7dae071eb2eb76bf5bfaf
+  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
 ---
 
 {{APIRef("FedCM API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`IdentityProvider`**-Interface der [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) repräsentiert einen {{Glossary("Identity_provider", "IdP")}} und bietet Zugriff auf zugehörige Informationen und Funktionen.
+Das **`IdentityProvider`**-Interface der [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) repräsentiert einen {{Glossary("Identity_provider", "IdP")}} und bietet Zugriff auf verwandte Informationen und Funktionalitäten.
 
 {{InheritanceDiagram}}
 
 ## Statische Methoden
 
 - [`close()`](/de/docs/Web/API/IdentityProvider/close_static) {{experimental_inline}}
-  - : Bietet ein manuelles Signal an den Browser, dass ein Anmeldevorgang eines IdP abgeschlossen ist. Dies ist notwendig, um beispielsweise den Anmeldedialog des IdP zu schließen, wenn die Anmeldung vollständig abgeschlossen ist und der IdP die Datenerfassung vom Benutzer beendet hat.
+  - : Bietet ein manuelles Signal an den Browser, dass ein IdP-Anmeldefluss abgeschlossen ist. Dies ist beispielsweise notwendig, um das IdP-Anmeldedialogfenster zu schließen, wenn die Anmeldung vollständig abgeschlossen ist und der IdP das Sammeln von Daten vom Benutzer beendet hat.
 - [`getUserInfo()`](/de/docs/Web/API/IdentityProvider/getUserInfo_static) {{experimental_inline}}
-  - : Liefert Informationen über einen zuvor angemeldeten Benutzer bei seiner Rückkehr zu einem IdP, die genutzt werden können, um eine personalisierte Willkommensnachricht und Anmeldeschaltfläche bereitzustellen.
+  - : Gibt Informationen über einen zuvor angemeldeten Benutzer bei seiner Rückkehr zu einem IdP zurück, die genutzt werden können, um eine personalisierte Willkommensnachricht und Anmeldeschaltfläche bereitzustellen.
 
 ## Beispiele
 
 ### Grundlegende Nutzung von `IdentityProvider.getUserInfo()`
 
-Das folgende Beispiel zeigt, wie die [`getUserInfo()`](/de/docs/Web/API/IdentityProvider/getUserInfo_static)-Methode verwendet werden kann, um Informationen über einen zuvor angemeldeten Benutzer von einem spezifischen IdP zurückzugeben.
+Das folgende Beispiel zeigt, wie die Methode [`getUserInfo()`](/de/docs/Web/API/IdentityProvider/getUserInfo_static) verwendet werden kann, um Informationen über einen zuvor angemeldeten Benutzer von einem spezifischen IdP zurückzugeben.
 
 ```js
 // Iframe displaying a page from the https://idp.example origin
@@ -57,4 +57,4 @@ if (userInfo.length > 0) {
 
 ## Siehe auch
 
-- [Federated Credential Management API](https://privacysandbox.google.com/cookies/fedcm) auf privacysandbox.google.com (2023)
+- [Federated Credential Management API](https://developer.chrome.com/docs/identity/fedcm/overview) auf developer.chrome.com (2023)

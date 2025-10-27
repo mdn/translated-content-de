@@ -2,14 +2,14 @@
 title: <feComposite>
 slug: Web/SVG/Reference/Element/feComposite
 l10n:
-  sourceCommit: a1765c2cad20118be0dad322d3548908787b5791
+  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
 ---
 
-Der **`<feComposite>`** [SVG](/de/docs/Web/SVG) Filter-Primitive kombiniert zwei Eingabebilder pixelweise im Bildraum unter Verwendung einer der Porter-Duff-Kompositionsoperationen: `over`, `in`, `atop`, `out`, `xor`, `lighter` oder `arithmetic`.
+Das **`<feComposite>`** [SVG](/de/docs/Web/SVG)-Filter-Primitive führt die Kombination von zwei Eingabebildern pixelweise im Bildraum durch, indem es eine der Porter-Duff-Kompositionsoperationen verwendet: `over`, `in`, `atop`, `out`, `xor`, `lighter` oder `arithmetic`.
 
-Wie andere Filter-Primitive verarbeitet es Farbbestandteile standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+Wie andere Filter-Primitives bearbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
-Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-Logos, das mit einem roten Kreis zusammengesetzt wird:
+Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-Logos, das mit einem roten Kreis kombiniert wird:
 
 <table class="no-markdown">
   <tbody>
@@ -19,12 +19,12 @@ Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-L
     </tr>
     <tr>
       <td>
-        <p>over <img src="operation_over.png" alt="über Operator" /></p>
+        <p>over <img src="operation_over.png" alt="over operator" /></p>
       </td>
       <td>
-        Die durch das {{SVGAttr("in")}} Attribut definierte Ausgangsgrafik
-        (das MDN-Logo) wird über die durch das
-        {{SVGAttr("in2")}} Attribut definierte Zielgrafik (der Kreis) gelegt.
+        Die durch das Attribut {{SVGAttr("in")}} definierte Quellgrafik
+        (das MDN-Logo) wird über die durch das Attribut {{SVGAttr("in2")}} definierte
+        Zielgrafik (der Kreis) gelegt.
         <p>
           Dies ist die <em>Standardoperation</em>, die verwendet wird, wenn
           keine Operation oder eine nicht unterstützte Operation angegeben wird.
@@ -33,83 +33,84 @@ Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-L
     </tr>
     <tr>
       <td>
-        <p>in <img src="operation_in.png" alt="in Operator" /></p>
+        <p>in <img src="operation_in.png" alt="in operator" /></p>
       </td>
       <td>
-        Die Teile der durch das `in` Attribut definierten Ausgangsgrafik,
-        die die in dem `in2` Attribut definierte Zielgrafik überlappen,
+        Die Teile der durch das <code>in</code>-Attribut definierten Quellgrafik,
+        die die durch das <code>in2</code>-Attribut definierte Zielgrafik überlappen,
         ersetzen die Zielgrafik.
       </td>
     </tr>
     <tr>
       <td>
-        <p>out <img src="operation_out.png" alt="out Operator" /></p>
+        <p>out <img src="operation_out.png" alt="out operator" /></p>
       </td>
       <td>
-        Die Teile der durch das `in` Attribut definierten Ausgangsgrafik,
-        die außerhalb der in dem `in2` Attribut definierten Zielgrafik liegen,
+        Die Teile der durch das <code>in</code>-Attribut definierten Quellgrafik,
+        die außerhalb der durch das <code>in2</code>-Attribut definierten Zielgrafik liegen,
         werden angezeigt.
       </td>
     </tr>
     <tr>
       <td>
-        <p>atop <img src="operation_atop.png" alt="atop Operator" /></p>
+        <p>atop <img src="operation_atop.png" alt="atop operator" /></p>
       </td>
       <td>
-        Die Teile der im `in` Attribut definierten Ausgangsgrafik, die die
-        in dem `in2` Attribut definierte Zielgrafik überlappen, ersetzen die
-        Zielgrafik. Die Teile der Zielgrafik, die nicht mit der
-        Ausgangsgrafik überlappen, bleiben unberührt.
+        Die Teile der durch das <code>in</code>-Attribut definierten Quellgrafik,
+        die die durch das <code>in2</code>-Attribut definierte Zielgrafik überlappen,
+        ersetzen die Zielgrafik. Die Teile der Zielgrafik, die nicht mit der
+        Quellgrafik überlappen, bleiben unberührt.
       </td>
     </tr>
     <tr>
       <td>
-        <p>xor <img src="operation_xor.png" alt="xor Operator" /></p>
+        <p>xor <img src="operation_xor.png" alt="xor operator" /></p>
       </td>
       <td>
-        Die nicht überlappenden Regionen der im `in` Attribut definierten
-        Ausgangsgrafik und der im `in2` Attribut definierten Zielgrafik
-        werden kombiniert.
+        Die nicht überlappenden Bereiche der durch das <code>in</code>-Attribut
+        definierten Quellgrafik und der Zielgrafik, die durch das <code>in2</code>-Attribut
+        definiert ist, werden kombiniert.
       </td>
     </tr>
     <tr>
       <td>
         <p>
-          lighter <img src="operation_lighter.png" alt="lighter Operator" />
+          lighter <img src="operation_lighter.png" alt="lighter operator" />
         </p>
       </td>
       <td>
-        Die Summe der im `in` Attribut definierten Ausgangsgrafik und der
-        im `in2` Attribut definierten Zielgrafik wird angezeigt.
+        Die Summe der durch das <code>in</code>-Attribut definierten Quellgrafik
+        und der durch das <code>in2</code>-Attribut definierten Zielgrafik
+        wird angezeigt.
       </td>
     </tr>
     <tr>
       <td>
         <p>
           arithmetic
-          <img src="operation_arithmetic.png" alt="arithmetic Operator" />
+          <img src="operation_arithmetic.png" alt="arithmetic operator" />
         </p>
       </td>
       <td>
         <p>
-          Die `arithmetic` Operation ist nützlich, um die Ausgabe der
-          {{SVGElement("feDiffuseLighting")}} und
-          {{SVGElement("feSpecularLighting")}} Filter mit Texturdaten zu
-          kombinieren. Wenn die `arithmetic` Operation gewählt wird, wird
-          jedes Ergebnis-Pixel mit der folgenden Formel berechnet:
+          Die <code>arithmetic</code>-Operation ist nützlich, um das
+          Ergebnis der {{SVGElement("feDiffuseLighting")}}- und
+          {{SVGElement("feSpecularLighting")}}-Filter mit Texturdaten
+          zu kombinieren. Wenn die <code>arithmetic</code>-Operation gewählt wird,
+          wird jeder Ergebnispixel unter Verwendung der folgenden Formel berechnet:
         </p>
         <pre class="brush: plain">result = k1*i1*i2 + k2*i1 + k3*i2 + k4</pre>
         <p>wobei:</p>
         <ul>
           <li>
-            `i1` und `i2` die entsprechenden Pixelkanalwerte des Eingabebildes
-            darstellen, die jeweils auf {{SVGAttr("in")}} und {{SVGAttr("in2")}} abgebildet
-            werden
+            <code>i1</code> und <code>i2</code> die entsprechenden
+            Pixelkanalwerte des Eingabebildes anzeigen, die den
+            Werten {{SVGAttr("in")}} und {{SVGAttr("in2")}} zugeordnet sind.
           </li>
           <li>
             {{SVGAttr("k1")}}, {{SVGAttr("k2")}},
             {{SVGAttr("k3")}}, und {{SVGAttr("k4")}} die
-            Werte der Attribute mit dem gleichen Namen angeben.
+            Werte der Attribute mit demselben Namen anzeigen.
           </li>
         </ul>
       </td>
@@ -117,27 +118,27 @@ Die folgende Tabelle zeigt jede dieser Operationen anhand eines Bildes des MDN-L
   </tbody>
 </table>
 
-## Nutzungskontext
+## Verwendungszusammenhang
 
 {{svginfo}}
 
 ## Attribute
 
 - {{SVGAttr("in")}}: Erste Eingabe für das gegebene Filter-Primitive.
-- {{SVGAttr("in2")}}: Zweite Eingabe für das gegebene Filter-Primitive (funktioniert gleich wie das `in` Attribut).
+- {{SVGAttr("in2")}}: Zweite Eingabe für das gegebene Filter-Primitive (funktioniert genauso wie das `in`-Attribut).
 - {{SVGAttr("operator")}}: `over` | `in` | `out` | `atop` | `xor` | `lighter` | `arithmetic`
-- {{SVGAttr("k1")}}, {{SVGAttr("k2")}}, {{SVGAttr("k3")}}, {{SVGAttr("k4")}}: Werte, die zur Berechnung des Ergebnis-Pixels in `arithmetic` {{SVGAttr("operator")}} Filter-Primitiven verwendet werden.
+- {{SVGAttr("k1")}}, {{SVGAttr("k2")}}, {{SVGAttr("k3")}}, {{SVGAttr("k4")}}: Werte, die zur Berechnung des Ergebnispixels in `arithmetic`-{{SVGAttr("operator")}}-Filter-Primitives verwendet werden.
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFECompositeElement`](/de/docs/Web/API/SVGFECompositeElement) Schnittstelle.
+Dieses Element implementiert die [`SVGFECompositeElement`](/de/docs/Web/API/SVGFECompositeElement)-Schnittstelle.
 
 ## Beispiel
 
-Dieses Beispiel definiert Filter für jede der unterstützten Operationen (`over`, `atop`, `lighter`, usw.), die ein Eingabe-`SourceGraphic` mit einem Bild des MDN-Logos zusammensetzen. Die Filter werden jeweils auf ein Kreiselement angewendet, das dann als `SourceGraphic` dient.
+Dieses Beispiel definiert Filter für jede der unterstützten Operationen (`over`, `atop`, `lighter`, etc.), die eine Eingabe `SourceGraphic` mit einem Bild des MDN-Logos kombinieren. Die Filter werden jeweils auf ein Kreis-Element angewendet, das dann als `SourceGraphic` verwendet wird.
 
 > [!NOTE]
-> `BackgroundImage` kann nicht als Kompositionsquelle in modernen Browsern verwendet werden, daher können wir keinen Filter definieren, der mit beliebigen Pixeln unterhalb des Filters als eine der Quellen arbeitet. Der hier gewählte Ansatz ist ein [Workaround, weil wir `BackgroundImage` nicht verwenden können](/de/docs/Web/SVG/Reference/Attribute/in#workaround_for_backgroundimage).
+> `BackgroundImage` kann nicht als Kompositionsquelle in modernen Browsern verwendet werden, daher können wir keinen Filter definieren, der unter Verwendung der gerade unter dem Filter befindlichen Pixel als eine der Quellen zusammensetzt. Der hier gewählte Ansatz ist ein [Workaround, weil wir `BackgroundImage` nicht verwenden können](/de/docs/Web/SVG/Reference/Attribute/in#workaround_for_backgroundimage).
 
 ### SVG
 
@@ -269,7 +270,7 @@ svg {
 
 ## Siehe auch
 
-- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes)
+- [SVG-Filter-Primitive Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}
@@ -288,4 +289,4 @@ svg {
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

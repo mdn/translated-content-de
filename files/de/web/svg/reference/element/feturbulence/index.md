@@ -2,12 +2,12 @@
 title: <feTurbulence>
 slug: Web/SVG/Reference/Element/feTurbulence
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
 ---
 
-Das **`<feTurbulence>`** [SVG](/de/docs/Web/SVG) Filter-Primitive erzeugt ein Bild mit der [Perlin-Turbulenzfunktion](https://en.wikipedia.org/wiki/Perlin_noise). Es ermöglicht die Synthese von künstlichen Texturen wie Wolken oder Marmor. Das resultierende Bild füllt die gesamte Filter-Primitive-Subregion aus.
+Das **`<feTurbulence>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv erzeugt ein Bild unter Verwendung der [Perlin-Turbulenzfunktion](https://en.wikipedia.org/wiki/Perlin_noise). Es ermöglicht die Synthese von künstlichen Texturen wie Wolken oder Marmor. Das resultierende Bild füllt die gesamte Unterregion des Filter-Primitivs aus.
 
-Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
+Wie andere Filter-Primitiven verarbeitet es standardmäßig Farbkomponenten im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
 ## Verwendungskontext
 
@@ -63,7 +63,7 @@ Dieses Element implementiert die [`SVGFETurbulenceElement`](/de/docs/Web/API/SVG
 
 ## Siehe auch
 
-- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes), einschließlich {{SVGAttr('result')}}.
+- [SVG Filter-Primitiv-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes), einschließlich {{SVGAttr('result')}}.
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}
@@ -82,4 +82,4 @@ Dieses Element implementiert die [`SVGFETurbulenceElement`](/de/docs/Web/API/SVG
 - {{SVGElement("feOffset")}}
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
-- [SVG-Leitfaden: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

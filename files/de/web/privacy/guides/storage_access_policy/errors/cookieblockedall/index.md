@@ -2,12 +2,12 @@
 title: "Blockiert: Alle Speicherzugriffsanfragen"
 slug: Web/Privacy/Guides/Storage_Access_Policy/Errors/CookieBlockedAll
 l10n:
-  sourceCommit: 04a955e882cfcf4aaa1b19b68b9813a6afcfe540
+  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
 ---
 
 Eine Anfrage zum Zugriff auf Cookies oder Speicher wurde blockiert, da der Browser den gesamten Speicherzugriff blockiert.
 
-## Meldung
+## Nachricht
 
 Firefox:
 
@@ -19,12 +19,12 @@ CookieBlockedAll=Request to access cookies or storage on "X" was blocked because
 
 Die Berechtigung kann geändert oder entfernt werden durch:
 
-- Gehen Sie zu _Einstellungen > Datenschutz & Sicherheit > Erweitertes Schutz vor Aktivitätenverfolgung_.
-- Im Abschnitt _Benutzerdefinierte_ Inhaltsblockierung wählen Sie einen anderen Wert als _Alle Cookies_ für das Element _Cookies_.
+- Gehen Sie zu _Einstellungen > Datenschutz & Sicherheit > Erweiterter Schutz vor Aktivitätenverfolgung_.
+- Wählen Sie im Bereich _Benutzerdefinierte_ Inhaltsblockierung für das Element _Cookies_ einen anderen Wert als _Alle Cookies_ aus.
 
-Wenn die Ressource, die blockiert wird, keine Authentifizierung benötigt, können Sie die Warnmeldung beheben, indem Sie ein `crossorigin="anonymous"` Attribut zu Ihrem Element hinzufügen.
+Wenn die blockierte Ressource keine Authentifizierung erfordert, können Sie die Warnmeldung beheben, indem Sie Ihrem Element ein `crossorigin="anonymous"`-Attribut hinzufügen.
 
 ## Siehe auch
 
-- [Erweitertes Schutz vor Aktivitätenverfolgung in Firefox für Desktop](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-deskto) auf [support.mozilla.org](https://support.mozilla.org/)
-- [Das `crossorigin` Attribut](/de/docs/Web/HTML/Reference/Attributes/crossorigin)
+- [Erweiterter Schutz vor Aktivitätenverfolgung in Firefox für den Desktop](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) auf [support.mozilla.org](https://support.mozilla.org/)
+- [Das `crossorigin`-Attribut](/de/docs/Web/HTML/Reference/Attributes/crossorigin)

@@ -2,14 +2,14 @@
 title: <feBlend>
 slug: Web/SVG/Reference/Element/feBlend
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
 ---
 
-Das **`<feBlend>`** [SVG](/de/docs/Web/SVG) Filter-Primitive kombiniert zwei Objekte anhand eines bestimmten Mischmodus. Dies ist ähnlich zu dem, was in Bildbearbeitungssoftware bekannt ist, wenn zwei Ebenen gemischt werden. Der Modus wird durch das {{SVGAttr("mode")}} Attribut definiert.
+Das **`<feBlend>`** [SVG](/de/docs/Web/SVG)-Filter-Primitiv fügt zwei Objekte zusammen, die durch einen bestimmten Überblendmodus gesteuert werden. Dies ist ähnlich zu dem, was Sie aus Bildbearbeitungssoftware kennen, wenn Sie zwei Ebenen überblenden. Der Modus wird durch das Attribut {{SVGAttr("mode")}} definiert.
 
-Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -21,7 +21,7 @@ Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement) Schnittstelle.
+Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -71,7 +71,7 @@ Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBle
 
 ## Siehe auch
 
-- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes)
+- [SVG-Filter-Primitivattribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}
@@ -90,4 +90,4 @@ Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBle
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Leitfaden: Filter-Effekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

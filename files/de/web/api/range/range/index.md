@@ -3,12 +3,12 @@ title: "Range: Range() Konstruktor"
 short-title: Range()
 slug: Web/API/Range/Range
 l10n:
-  sourceCommit: 6afd6f5230eb0735348582b3519efce8994116ad
+  sourceCommit: 1abe075be40cd938aa9131a42b4e03b21b78627c
 ---
 
 {{ APIRef("DOM") }}
 
-Der **`Range()`** Konstruktor gibt ein neu erstelltes [`Range`](/de/docs/Web/API/Range)-Objekt zurück, dessen Anfang und Ende das globale [`Document`](/de/docs/Web/API/Document)-Objekt ist.
+Der **`Range()`** Konstruktor gibt ein neu erstelltes [`Range`](/de/docs/Web/API/Range) Objekt zurück, dessen Anfang und Ende sich bei Offset 0 des globalen [`document`](/de/docs/Web/API/Window/document) Objekts befinden.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen Bereich mit dem `Range()`-Konstruktor und setzen die Anfangs- und Endpositionen mithilfe der Methoden [`Range.setStartBefore()`](/de/docs/Web/API/Range/setStartBefore) und [`Range.setEndAfter()`](/de/docs/Web/API/Range/setEndAfter). Dann wählen wir den Bereich mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) und [`Selection.addRange()`](/de/docs/Web/API/Selection/addRange) aus.
+In diesem Beispiel erstellen wir einen neuen Bereich mit dem `Range()` Konstruktor und setzen seine Anfangs- und Endpositionen mit den Methoden [`Range.setStartBefore()`](/de/docs/Web/API/Range/setStartBefore) und [`Range.setEndAfter()`](/de/docs/Web/API/Range/setEndAfter). Anschließend wählen wir den Bereich mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) und [`Selection.addRange()`](/de/docs/Web/API/Selection/addRange) aus.
 
 ### HTML
 
@@ -68,6 +68,6 @@ selection.addRange(range);
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellen-Index](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
 - [`Document.createRange()`](/de/docs/Web/API/Document/createRange)
-- [CSS Custom Highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API)-Modul
+- Modul [CSS custom highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API)

@@ -1,14 +1,14 @@
 ---
-title: SVG Attributreferenz
+title: SVG-Attributreferenz
 short-title: Attributes
 slug: Web/SVG/Reference/Attribute
 l10n:
-  sourceCommit: 39d45a2e71cee2c107a026a59ba0d9229a511592
+  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
 ---
 
-SVG-Elemente können durch Attribute modifiziert werden, die Details darüber angeben, wie das Element gehandhabt oder dargestellt werden soll.
+SVG-Elemente können mit Attributen modifiziert werden, die festlegen, wie das Element genau behandelt oder gerendert werden soll.
 
-Unten finden Sie eine Liste aller in SVG verfügbaren Attribute sowie Links zur Referenzdokumentation, um Ihnen zu helfen zu lernen, welche Elemente diese unterstützen und wie sie funktionieren.
+Nachfolgend finden Sie eine Liste aller in SVG verfügbaren Attribute sowie Links zur Referenzdokumentation, die Ihnen helfen sollen, zu erfahren, welche Elemente sie unterstützen und wie sie funktionieren.
 
 ## SVG-Attribute von A bis Z
 
@@ -293,9 +293,9 @@ Unten finden Sie eine Liste aller in SVG verfügbaren Attribute sowie Links zur 
 
 ## SVG-Attribute nach Kategorie
 
-### Basisattribute
+### Kernattribute
 
-Die Basisattribute sind globale Attribute.
+Die Kernattribute sind globale Attribute.
 
 - {{SVGAttr("autofocus")}}
 - {{SVGAttr("id")}}
@@ -306,9 +306,9 @@ Die Basisattribute sind globale Attribute.
 - {{SVGAttr("xml:lang")}}
 - {{SVGAttr("xml:space")}}
 
-### Bedingte Verarbeitungsattribute
+### Bedingungen verarbeitende Attribute
 
-Die bedingten Verarbeitungsattribute steuern, ob das Element, auf dem sie erscheinen, verarbeitet wird oder nicht.
+Die Bedingungen verarbeitenden Attribute steuern, ob das Element, bei dem sie auftreten, verarbeitet wird oder nicht.
 
 - {{SVGAttr("requiredExtensions")}}
 - {{SVGAttr("requiredFeatures")}}
@@ -331,7 +331,7 @@ Die XLink-Attribute können Ressourcen referenzieren.
 Alle SVG-Präsentationsattribute können als CSS-Eigenschaften verwendet werden.
 
 > [!NOTE]
-> Ob diese Attribute Präsentationsattribute sind, hängt von dem Element ab, auf dem sie gesetzt sind. Zum Beispiel ist `x` ein Präsentationsattribut für {{svgelem("circle")}}, aber nicht für {{svgelem("tspan")}}; es ist die Koordinate des Anfangspunkts der Textgrundlinie oder die x-Koordinate jedes einzelnen Glyphs, wenn eine Liste von Werten angegeben wird.
+> Ob es sich bei diesen Attributen um Präsentationsattribute handelt, hängt von dem Element ab, bei dem sie gesetzt sind. Zum Beispiel ist `x` ein Präsentationsattribut für {{svgelement("circle")}}, aber nicht für {{svgelement("tspan")}}; es ist die Koordinate des Startpunkts der Textbasislinie oder die x-Koordinate jedes einzelnen Glyphs, falls eine Liste von Werten angegeben ist.
 
 - {{SVGAttr("alignment-baseline")}}
 - {{SVGAttr("baseline-shift")}}
@@ -407,14 +407,14 @@ Alle SVG-Präsentationsattribute können als CSS-Eigenschaften verwendet werden.
 
 ### Filterattribute
 
-- Attribute der Filterelemente (Präsentationsattribute)
+- Filter-Primitive-Attribute (Präsentationsattribute)
   - : {{SVGAttr("height")}}, {{SVGAttr("result")}}, {{SVGAttr("width")}}, {{SVGAttr("x")}}, {{SVGAttr("y")}}
-- Übertragungsfunktionen-Attribute
+- Transferfunktion-Attribute
   - : {{SVGAttr("type")}}, {{SVGAttr("tableValues")}}, {{SVGAttr("slope")}}, {{SVGAttr("intercept")}}, {{SVGAttr("amplitude")}}, {{SVGAttr("exponent")}}, {{SVGAttr("offset")}}
 
 ### Animationsattribute
 
-- Animationsziel-Elementattribute
+- Animationsziel-Element-Attribute
   - : {{SVGAttr("href")}}
 - Animationsattribut-Zielattribute
   - : {{SVGAttr("attributeType")}}, {{SVGAttr("attributeName")}}
@@ -422,7 +422,7 @@ Alle SVG-Präsentationsattribute können als CSS-Eigenschaften verwendet werden.
   - : {{SVGAttr("begin")}}, {{SVGAttr("dur")}}, {{SVGAttr("end")}}, {{SVGAttr("min")}}, {{SVGAttr("max")}}, {{SVGAttr("restart")}}, {{SVGAttr("repeatCount")}}, {{SVGAttr("repeatDur")}}, {{SVGAttr("fill")}}
 - Animationswert-Attribute
   - : {{SVGAttr("calcMode")}}, {{SVGAttr("values")}}, {{SVGAttr("keyTimes")}}, {{SVGAttr("keySplines")}}, {{SVGAttr("from")}}, {{SVGAttr("to")}}, {{SVGAttr("by")}}
-- Animationsadditions-Attribute
+- Animationszusatz-Attribute
   - : {{SVGAttr("additive")}}, {{SVGAttr("accumulate")}}
 
 ### Ereignisattribute
