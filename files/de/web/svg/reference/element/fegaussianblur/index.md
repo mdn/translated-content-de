@@ -2,12 +2,12 @@
 title: <feGaussianBlur>
 slug: Web/SVG/Reference/Element/feGaussianBlur
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
 ---
 
-Der **`<feGaussianBlur>`** [SVG](/de/docs/Web/SVG)-Filterprimiv verwischt das Eingangsbild um den Betrag, der in {{SVGAttr("stdDeviation")}} angegeben ist, welcher die Glockenkurve definiert.
+Das **`<feGaussianBlur>`** [SVG](/de/docs/Web/SVG)-Filter-Primitiv verwischt das Eingabebild um den in {{SVGAttr("stdDeviation")}} angegebenen Betrag, der die Glockenkurve definiert.
 
-Wie andere Filterprimitive verarbeitet er standardmäßig Farbkomponenten im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+Wie andere Filter-Primitiven verarbeitet es standardmäßig Farbbestandteile im `linearRGB`-{{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
 ## Verwendungskontext
 
@@ -18,6 +18,7 @@ Wie andere Filterprimitive verarbeitet er standardmäßig Farbkomponenten im `li
 - {{SVGAttr("in")}}
 - {{SVGAttr("stdDeviation")}}
 - {{SVGAttr("edgeMode")}}
+- [Filter-Primitiv-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes): {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}}, {{SVGAttr("result")}}
 
 ## DOM-Schnittstelle
 
@@ -49,7 +50,7 @@ Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/S
 
 {{EmbedLiveSample("Basic_example", "", "130")}}
 
-### Schattenwurf-Beispiel
+### Drop-Shadow-Beispiel
 
 #### SVG
 
@@ -86,7 +87,7 @@ Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/S
 
 ## Siehe auch
 
-- [SVG-Filterprimitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
+- [SVG-Filter-Primitivattribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}
@@ -103,4 +104,4 @@ Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/S
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

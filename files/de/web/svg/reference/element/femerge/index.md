@@ -2,16 +2,24 @@
 title: <feMerge>
 slug: Web/SVG/Reference/Element/feMerge
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
 ---
 
-Das **`<feMerge>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht es, Filtereffekte gleichzeitig anstatt nacheinander anzuwenden. Dies wird erreicht, indem andere Filter ihr Ergebnis über das {{ SVGAttr("result") }}-Attribut speichern und dann in einem {{ SVGElement("feMergeNode") }}-Kind darauf zugreifen.
+Das **`<feMerge>`** [SVG](/de/docs/Web/SVG) Element ermöglicht es, Filtereffekte gleichzeitig anstelle von sequenziell anzuwenden. Dies wird erreicht, indem andere Filter ihre Ausgabe über das {{ SVGAttr("result") }} Attribut speichern und diese dann in einem {{ SVGElement("feMergeNode") }} Kind abgerufen wird.
 
-Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `linearRGB`-{{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
+Wie andere Filter-Primitiven, verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
 ## Verwendungskontext
 
 {{svginfo}}
+
+## Attribute
+
+- [Filterprimitive Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes): {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}}, {{SVGAttr("result")}}
+
+## DOM-Schnittstelle
+
+Dieses Element implementiert die [`SVGFEMergeElement`](/de/docs/Web/API/SVGFEMergeElement) Schnittstelle.
 
 ## Beispiel
 
@@ -43,10 +51,6 @@ Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `
 
 {{EmbedLiveSample('Example', 200, 200)}}
 
-## DOM-Schnittstelle
-
-Dieses Element implementiert die [`SVGFEMergeElement`](/de/docs/Web/API/SVGFEMergeElement)-Schnittstelle.
-
 ## Spezifikationen
 
 {{Specifications}}
@@ -57,9 +61,9 @@ Dieses Element implementiert die [`SVGFEMergeElement`](/de/docs/Web/API/SVGFEMer
 
 ## Siehe auch
 
-- [SVG-Filter-Primitiv-Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
-- {{SVGAttr("flood-color")}}-Attribut
-- {{SVGAttr("flood-opacity")}}-Attribut
+- [SVG-Filterprimitiven-Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
+- {{SVGAttr("flood-color")}} Attribut
+- {{SVGAttr("flood-opacity")}} Attribut
 - {{SVGElement("filter")}}
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}
@@ -77,4 +81,4 @@ Dieses Element implementiert die [`SVGFEMergeElement`](/de/docs/Web/API/SVGFEMer
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

@@ -2,10 +2,10 @@
 title: <feOffset>
 slug: Web/SVG/Reference/Element/feOffset
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
 ---
 
-Das **`<feOffset>`** [SVG](/de/docs/Web/SVG)-Filterprimitive ermöglicht das Versetzen eines Eingabebildes relativ zu seiner aktuellen Position. Das gesamte Eingabebild wird um die in den Attributen {{SVGAttr("dx")}} und {{SVGAttr("dy")}} angegebenen Werte verschoben.
+Das **`<feOffset>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ermöglicht das Verschieben eines Eingabebildes relativ zu seiner aktuellen Position. Das gesamte Eingabebild wird um die in den Attributen {{SVGAttr("dx")}} und {{SVGAttr("dy")}} angegebenen Werte verschoben.
 
 ## Nutzungskontext
 
@@ -16,10 +16,11 @@ Das **`<feOffset>`** [SVG](/de/docs/Web/SVG)-Filterprimitive ermöglicht das Ver
 - {{SVGAttr("in")}}
 - {{SVGAttr("dx")}}
 - {{SVGAttr("dy")}}
+- [Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes): {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}}, {{SVGAttr("result")}}
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOffsetElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOffsetElement) Schnittstelle.
 
 ## Beispiel
 
@@ -77,4 +78,4 @@ Dieses Element implementiert die [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOf
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Leitfaden: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

@@ -2,18 +2,18 @@
 title: <feDisplacementMap>
 slug: Web/SVG/Reference/Element/feDisplacementMap
 l10n:
-  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
+  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
 ---
 
-Der **`<feDisplacementMap>`** [SVG](/de/docs/Web/SVG) Filter-Primitive verwendet die Pixelwerte aus dem Bild von {{SVGAttr("in2")}}, um das Bild von {{SVGAttr("in")}} räumlich zu verschieben.
+Das **`<feDisplacementMap>`** [SVG](/de/docs/Web/SVG) Filterprimitiv verwendet die Pixelwerte des Bildes aus {{SVGAttr("in2")}}, um das Bild aus {{SVGAttr("in")}} räumlich zu verschieben.
 
-Die Formel für die Transformation sieht wie folgt aus:
+Die Formel für die Transformation sieht folgendermaßen aus:
 
 `P'(x,y) ← P(x + scale * (XC(x,y) - 0.5), y + scale * (YC(x,y) - 0.5))`
 
-wobei `P(x,y)` das Eingabebild {{SVGAttr("in")}} und `P'(x,y)` das Ziel ist. `XC(x,y)` und `YC(x,y)` sind die Komponentenwerte des Kanals, der durch {{SVGAttr("xChannelSelector")}} und {{SVGAttr("yChannelSelector")}} festgelegt wird.
+wobei `P(x,y)` das Eingabebild ist, {{SVGAttr("in")}}, und `P'(x,y)` das Ziel. `XC(x,y)` und `YC(x,y)` sind die Komponentenwerte des Kanals, der durch {{SVGAttr("xChannelSelector")}} und {{SVGAttr("yChannelSelector")}} bezeichnet wird.
 
-Wie andere Filter-Primitive behandelt es Farbkomponenten standardmäßig im Farbraum `linearRGB`. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
+Wie andere Filterprimitive behandelt es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
 ## Verwendungskontext
 
@@ -26,6 +26,7 @@ Wie andere Filter-Primitive behandelt es Farbkomponenten standardmäßig im Farb
 - {{SVGAttr("scale")}}
 - {{SVGAttr("xChannelSelector")}}
 - {{SVGAttr("yChannelSelector")}}
+- [Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes): {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}}, {{SVGAttr("result")}}
 
 ## DOM-Schnittstelle
 
@@ -88,4 +89,4 @@ Dieses Element implementiert die [`SVGFEDisplacementMapElement`](/de/docs/Web/AP
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

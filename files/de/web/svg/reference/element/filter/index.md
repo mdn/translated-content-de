@@ -2,10 +2,10 @@
 title: <filter>
 slug: Web/SVG/Reference/Element/filter
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
 ---
 
-Das **`<filter>`** [SVG](/de/docs/Web/SVG)-Element definiert einen benutzerdefinierten Filtereffekt, indem es atomare Filterprimitiven gruppiert. Es wird niemals selbst gerendert, muss jedoch vom {{SVGAttr("filter")}} Attribut auf SVG-Elementen oder der {{cssxref("filter")}} {{Glossary("CSS", "CSS")}}-Eigenschaft für SVG/HTML-Elemente verwendet werden.
+Das **`<filter>`** [SVG](/de/docs/Web/SVG)-Element definiert einen benutzerdefinierten Filtereffekt, indem es atomare Filter-Primitives gruppiert. Es wird selbst nie gerendert, muss jedoch durch das Attribut {{SVGAttr("filter")}} auf SVG-Elementen oder die {{cssxref("filter")}} {{Glossary("CSS", "CSS")}}-Eigenschaft für SVG/HTML-Elemente verwendet werden.
 
 ## Verwendungskontext
 
@@ -21,13 +21,18 @@ Das **`<filter>`** [SVG](/de/docs/Web/SVG)-Element definiert einen benutzerdefin
 - {{SVGAttr("primitiveUnits")}}
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
 
+> [!NOTE]
+> Für `<filter>` haben die Attribute `x` und `y` standardmäßig den Wert `-10%`, und die Attribute `width` und `height` standardmäßig den Wert `120%`. Dies liegt daran, dass viele Filtereffekte, wie {{svgelement("feGaussianBlur")}}, über die Grenzen des gefilterten Elements hinausgehen. Die standardmäßige Größe stellt sicher, dass der Filtereffekt nicht abgeschnitten wird.
+
 ## DOM-Schnittstelle
 
 Dieses Element implementiert die [`SVGFilterElement`](/de/docs/Web/API/SVGFilterElement)-Schnittstelle.
 
-## Beispiel
+## Beispiele
 
-### SVG
+### Hinzufügen eines Weichzeichnungseffekts
+
+#### SVG
 
 ```html
 <svg width="230" height="120" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +46,7 @@ Dieses Element implementiert die [`SVGFilterElement`](/de/docs/Web/API/SVGFilter
 </svg>
 ```
 
-### Ergebnis
+#### Ergebnis
 
 {{EmbedLiveSample("Example",235,150)}}
 

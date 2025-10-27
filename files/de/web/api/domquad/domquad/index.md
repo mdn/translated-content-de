@@ -3,14 +3,14 @@ title: "DOMQuad: DOMQuad() Konstruktor"
 short-title: DOMQuad()
 slug: Web/API/DOMQuad/DOMQuad
 l10n:
-  sourceCommit: c486da8298cdfdba0556a190d8e3f92e9aa117bb
+  sourceCommit: ad44886809ba4fac0cda32fd0c83a3dfbae14e57
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Der **`DOMQuad()`** Konstruktor erzeugt und gibt ein neues [`DOMQuad`](/de/docs/Web/API/DOMQuad)-Objekt zurück, unter Verwendung der Werte für einige oder alle seiner Eigenschaften.
+Der **`DOMQuad()`** Konstruktor erstellt und gibt ein neues [`DOMQuad`](/de/docs/Web/API/DOMQuad)-Objekt zurück, basierend auf den Werten für einige oder alle seiner Eigenschaften.
 
-Sie können auch ein `DOMQuad` erstellen, indem Sie die statische Funktion [`DOMQuad.fromRect()`](/de/docs/Web/API/DOMQuad/fromRect_static) oder [`DOMQuad.fromQuad()`](/de/docs/Web/API/DOMQuad/fromQuad_static) aufrufen. Diese Funktion akzeptiert jedes Objekt mit den erforderlichen Parametern, einschließlich eines `DOMQuad`, [`DOMPoint`](/de/docs/Web/API/DOMPoint) oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly).
+Sie können auch ein `DOMQuad` erstellen, indem Sie die statische Funktion [`DOMQuad.fromRect()`](/de/docs/Web/API/DOMQuad/fromRect_static) oder [`DOMQuad.fromQuad()`](/de/docs/Web/API/DOMQuad/fromQuad_static) aufrufen. Diese Funktionen akzeptieren jedes Objekt mit den erforderlichen Parametern, einschließlich eines [`DOMRect`](/de/docs/Web/API/DOMRect), [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) oder eines anderen `DOMQuad`.
 
 ## Syntax
 
@@ -24,18 +24,12 @@ new DOMQuad(p1, p2, p3, p4)
 
 ### Parameter
 
-- `p1` {{optional_inline}}
-  - : Der `p1` [`DOMPoint`](/de/docs/Web/API/DOMPoint) für das neue `DOMQuad`.
-- `p2` {{optional_inline}}
-  - : Der `p2` [`DOMPoint`](/de/docs/Web/API/DOMPoint) für das neue `DOMQuad`.
-- `p3` {{optional_inline}}
-  - : Der `p3` [`DOMPoint`](/de/docs/Web/API/DOMPoint) für das neue `DOMQuad`.
-- `p4` {{optional_inline}}
-  - : Der `p4` [`DOMPoint`](/de/docs/Web/API/DOMPoint) für das neue `DOMQuad`.
+- [`p1`](/de/docs/Web/API/DOMQuad/p1) {{optional_inline}}, [`p2`](/de/docs/Web/API/DOMQuad/p2) {{optional_inline}}, [`p3`](/de/docs/Web/API/DOMQuad/p3) {{optional_inline}}, [`p4`](/de/docs/Web/API/DOMQuad/p4) {{optional_inline}}
+  - : Jeder ein [`DOMPoint`](/de/docs/Web/API/DOMPoint) oder ein Objekt mit denselben Eigenschaften, das eine Ecke des Quads darstellt.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein `DOMQuad` unter Verwendung eines [`DOMPoint`](/de/docs/Web/API/DOMPoint) und drei weiteren als Objekte definierten Punkten.
+Dieses Beispiel erstellt ein `DOMQuad` unter Verwendung eines [`DOMPoint`](/de/docs/Web/API/DOMPoint) und drei weiterer als Objekte definierter Punkte.
 
 ```js
 const point = new DOMPoint(2, 0);

@@ -2,12 +2,12 @@
 title: <feBlend>
 slug: Web/SVG/Reference/Element/feBlend
 l10n:
-  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
+  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
 ---
 
-Das **`<feBlend>`** [SVG](/de/docs/Web/SVG)-Filter-Primitiv fügt zwei Objekte zusammen, die durch einen bestimmten Überblendmodus gesteuert werden. Dies ist ähnlich zu dem, was Sie aus Bildbearbeitungssoftware kennen, wenn Sie zwei Ebenen überblenden. Der Modus wird durch das Attribut {{SVGAttr("mode")}} definiert.
+Das **`<feBlend>`** [SVG](/de/docs/Web/SVG)-Filter-Primitive kombiniert zwei Objekte miteinander gemäß einem bestimmten Mischmodus. Dies ist ähnlich dem, was aus Bildbearbeitungssoftware bekannt ist, wenn zwei Ebenen gemischt werden. Der Modus wird durch das {{SVGAttr("mode")}} Attribut definiert.
 
-Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
 
 ## Nutzungskontext
 
@@ -18,6 +18,7 @@ Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `
 - {{SVGAttr("in")}}
 - {{SVGAttr("in2")}}
 - {{SVGAttr("mode")}}
+- [Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes): {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}}, {{SVGAttr("result")}}
 
 ## DOM-Schnittstelle
 
@@ -71,7 +72,7 @@ Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBle
 
 ## Siehe auch
 
-- [SVG-Filter-Primitivattribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes)
+- [SVG Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}

@@ -2,16 +2,16 @@
 title: <feSpecularLighting>
 slug: Web/SVG/Reference/Element/feSpecularLighting
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
 ---
 
-Die **`<feSpecularLighting>`** [SVG](/de/docs/Web/SVG) Filterprimitive beleuchtet eine Quellgrafik, wobei der Alphakanal als Störungsabbild verwendet wird. Das resultierende Bild ist ein RGBA-Bild, basierend auf der Lichtfarbe. Die Beleuchtungsberechnung folgt der Standard-Spekularkomponente des [Phong-Beleuchtungsmodells](https://de.wikipedia.org/wiki/Phong-Beleuchtungsmodell). Das erzeugte Bild hängt von der Lichtfarbe, der Position des Lichts und der Oberflächengeometrie des Eingabestörungsabbilds ab. Das Ergebnis der Beleuchtungsberechnung wird hinzugefügt. Die Filterprimitive geht davon aus, dass der Betrachter in der z-Richtung im Unendlichen ist.
+Das **`<feSpecularLighting>`** [SVG](/de/docs/Web/SVG) Filter-Primitive beleuchtet eine Quellgrafik, indem der Alphakanal als Bump-Map verwendet wird. Das resultierende Bild ist ein RGBA-Bild basierend auf der Lichtfarbe. Die Lichtberechnung folgt der Standard-Glanzlichtkomponente des [Phong-Beleuchtungsmodells](https://en.wikipedia.org/wiki/Phong_reflection_model). Das resultierende Bild hängt von der Lichtfarbe, der Lichtposition und der Oberflächengeometrie der Eingangs-Bump-Map ab. Das Ergebnis der Lichtberechnung wird hinzugefügt. Das Filter-Primitive nimmt an, dass der Betrachter in der z-Richtung im Unendlichen ist.
 
-Diese Filterprimitive erzeugt ein Bild, das den spekularen Reflexionsteil der Beleuchtungsberechnung enthält. Eine solche Karte ist dazu gedacht, mit einer Textur unter Verwendung des `add`-Begriffs der arithmetischen {{SVGElement("feComposite")}} Methode kombiniert zu werden. Mehrere Lichtquellen können simuliert werden, indem mehrere dieser Lichtkarten addiert werden, bevor sie auf das Texturbild angewendet werden.
+Dieses Filter-Primitive erzeugt ein Bild, das den spekularen Reflexionsteil der Lichtberechnung enthält. Eine solche Karte soll mit einer Textur unter Verwendung des `add`-Begriffs der arithmetischen Methode {{SVGElement("feComposite")}} kombiniert werden. Mehrere Lichtquellen können simuliert werden, indem mehrere dieser Lichtkarten hinzugefügt werden, bevor sie auf das Texturbild angewendet werden.
 
-Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
+Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
 
-## Verwendungszweck
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -22,6 +22,7 @@ Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `
 - {{SVGAttr("specularConstant")}}
 - {{SVGAttr("specularExponent")}}
 - {{SVGAttr("kernelUnitLength")}}
+- [Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes): {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}}, {{SVGAttr("result")}}
 
 ## DOM-Schnittstelle
 
@@ -88,4 +89,4 @@ Dieses Element implementiert die [`SVGFESpecularLightingElement`](/de/docs/Web/A
 - {{SVGElement("feSpotLight")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

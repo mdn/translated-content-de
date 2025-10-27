@@ -2,10 +2,10 @@
 title: <feTile>
 slug: Web/SVG/Reference/Element/feTile
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
 ---
 
-Der **`<feTile>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ermöglicht das Füllen eines Zielrechtecks mit einem wiederholten, gekachelten Muster eines Eingabebildes. Der Effekt ähnelt dem eines {{SVGElement("pattern")}}.
+Das **`<feTile>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ermöglicht das Füllen eines Zielrechtecks mit einem wiederholten, gekachelten Muster eines Eingangsbildes. Der Effekt ist ähnlich dem eines {{SVGElement("pattern")}}.
 
 ## Verwendungskontext
 
@@ -14,10 +14,11 @@ Der **`<feTile>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ermöglicht das Fül
 ## Attribute
 
 - {{SVGAttr("in")}}
+- [Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes): {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}}, {{SVGAttr("result")}}
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFETileElement`](/de/docs/Web/API/SVGFETileElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFETileElement`](/de/docs/Web/API/SVGFETileElement) Schnittstelle.
 
 ## Beispiel
 
@@ -93,4 +94,4 @@ Dieses Element implementiert die [`SVGFETileElement`](/de/docs/Web/API/SVGFETile
 - {{SVGElement("feOffset")}}
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

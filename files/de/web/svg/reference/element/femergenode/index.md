@@ -2,14 +2,22 @@
 title: <feMergeNode>
 slug: Web/SVG/Reference/Element/feMergeNode
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
 ---
 
-Das **`<feMergeNode>`** [SVG](/de/docs/Web/SVG) Element verarbeitet das Ergebnis eines anderen Filters, der von seinem übergeordneten {{ SVGElement("feMerge") }} Element verarbeitet wird.
+Der **`<feMergeNode>`** [SVG](/de/docs/Web/SVG) bezieht das Ergebnis eines anderen Filters, um von seinem übergeordneten Element {{ SVGElement("feMerge") }} verarbeitet zu werden.
 
 ## Verwendungskontext
 
 {{svginfo}}
+
+## Attribute
+
+- {{SVGAttr("in")}}
+
+## DOM-Schnittstelle
+
+Dieses Element implementiert die [`SVGFEMergeNodeElement`](/de/docs/Web/API/SVGFEMergeNodeElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -43,14 +51,6 @@ Das **`<feMergeNode>`** [SVG](/de/docs/Web/SVG) Element verarbeitet das Ergebnis
 ### Ergebnis
 
 {{EmbedLiveSample('Example', 200, 200)}}
-
-## Attribute
-
-- {{ SVGAttr("in") }}
-
-## DOM Schnittstelle
-
-Dieses Element implementiert das [`SVGFEMergeNodeElement`](/de/docs/Web/API/SVGFEMergeNodeElement) Interface.
 
 ## Spezifikationen
 

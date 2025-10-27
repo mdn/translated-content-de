@@ -2,12 +2,10 @@
 title: <feDistantLight>
 slug: Web/SVG/Reference/Element/feDistantLight
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
 ---
 
-Das **`<feDistantLight>`** [SVG](/de/docs/Web/SVG) Filter-Primitive definiert eine entfernte Lichtquelle, die innerhalb eines Beleuchtungs-Filter-Primitives verwendet werden kann: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
-
-Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
+Das **`<feDistantLight>`** [SVG](/de/docs/Web/SVG)-Element definiert eine entfernte Lichtquelle, die in einer Beleuchtungsfilterprimitive verwendet werden kann: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
 
 ## Verwendungskontext
 
@@ -20,7 +18,7 @@ Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEDistantLightElement`](/de/docs/Web/API/SVGFEDistantLightElement) Schnittstelle.
+Dieses Element implementiert die [`SVGFEDistantLightElement`](/de/docs/Web/API/SVGFEDistantLightElement)-Schnittstelle.
 
 ## Spezifikationen
 

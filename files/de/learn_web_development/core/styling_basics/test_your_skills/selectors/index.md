@@ -1,23 +1,23 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Selektoren"
+title: "Testen Sie Ihr Wissen: Selektoren"
 short-title: "Test: Selektoren"
 slug: Learn_web_development/Core/Styling_basics/Test_your_skills/Selectors
 l10n:
-  sourceCommit: 78bdd004c24d256efc8372f18204ea58f83a1b5e
+  sourceCommit: d44daf87d0785ddacb9322e93ce347736c62c2e5
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Combinators", "Learn_web_development/Core/Styling_basics/Box_model", "Learn_web_development/Core/Styling_basics")}}
 
-Das Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen, zu beurteilen, ob Sie [CSS-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) verstehen.
+Ziel dieses Fähigkeitstests ist es, Ihnen zu helfen einzuschätzen, ob Sie [CSS-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) verstehen.
 
-Um diese Aufgaben zu erledigen, sollten Sie nur das CSS bearbeiten, nicht das HTML.
+Zur Bearbeitung dieser Aufgaben sollten Sie nur das CSS bearbeiten, nicht das HTML.
 
 > [!NOTE]
-> Um Hilfe zu erhalten, lesen Sie unseren [Leitfaden zur Nutzung der Fähigkeitstests](/de/docs/Learn_web_development#test_your_skills). Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Um Hilfe zu erhalten, lesen Sie unseren [Testen Sie Ihr Wissen](/de/docs/Learn_web_development#test_your_skills) Nutzungsleitfaden. Sie können sich auch über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-Um die Aufgabe abzuschließen:
+Zur Bearbeitung der Aufgabe:
 
 1. Machen Sie die `<h1>` Überschriften blau.
 2. Geben Sie `<h2>` Überschriften einen blauen Hintergrund und weißen Text.
@@ -25,7 +25,7 @@ Um die Aufgabe abzuschließen:
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Text mit dem angewandten CSS für die Lösung der Aufgabe 1.](selectors1.jpg)
+![Text mit dem CSS angewendet für die Lösung zu Aufgabe 1.](selectors1.jpg)
 
 ```html live-sample___type
 <div class="container">
@@ -56,7 +56,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie müssen die Selektoren `h1`, `h2` und `span` anvisieren, um deren Farbe oder Größe zu ändern.
+Sie müssen die `h1`, `h2` und `span` Selektoren ansprechen, um deren Farbe oder Größe zu ändern.
 
 ```css
 h1 {
@@ -77,16 +77,16 @@ span {
 
 ## Aufgabe 2
 
-Um die Aufgabe abzuschließen:
+Zur Bearbeitung der Aufgabe:
 
 1. Geben Sie dem Element mit der ID `special` einen gelben Hintergrund.
-2. Geben Sie dem Element mit der Klasse `alert` einen `2px` grauen, durchgehenden Rahmen.
-3. Wenn das Element mit der Klasse `alert` auch eine Klasse `stop` hat, machen Sie den Hintergrund rot.
-4. Wenn das Element mit der Klasse `alert` auch eine Klasse `go` hat, machen Sie den Hintergrund grün.
+2. Geben Sie dem Element mit der Klasse `alert` einen `2px` festen grauen Rahmen.
+3. Wenn das Element mit der Klasse `alert` auch die Klasse `stop` hat, machen Sie den Hintergrund rot.
+4. Wenn das Element mit der Klasse `alert` auch die Klasse `go` hat, machen Sie den Hintergrund grün.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Text mit dem angewandten CSS für die Lösung der Aufgabe 2.](selectors2.jpg)
+![Text mit dem CSS angewendet für die Lösung zu Aufgabe 2.](selectors2.jpg)
 
 ```html live-sample___class-id
 <div class="container">
@@ -119,7 +119,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Dies prüft, ob Sie den Unterschied zwischen Klassen- und ID-Selektoren verstehen und auch, wie man mehrere Klassen auf einem Element anvisiert.
+Dies testet, ob Sie den Unterschied zwischen Klassen- und ID-Selektoren verstehen und wie man mehrere Klassen an einem Element ansprechen kann.
 
 ```css
 #special {
@@ -143,15 +143,15 @@ Dies prüft, ob Sie den Unterschied zwischen Klassen- und ID-Selektoren verstehe
 
 ## Aufgabe 3
 
-Um die Aufgabe abzuschließen:
+Zur Bearbeitung der Aufgabe:
 
-1. Gestalten Sie Links so, dass der Link-Zustand orange, besuchte Links grün sind und beim Überfahren das Unterstrichen entfernt wird.
-2. Vergrößern Sie das erste Element innerhalb des Containers auf `font-size: 150%` und machen Sie die erste Zeile dieses Elements rot.
-3. Streifen Sie jede zweite Zeile in der Tabelle, indem Sie diese Zeilen auswählen und ihnen eine Hintergrundfarbe von `#333333` und Vordergrund weiß geben.
+1. Stylen Sie Links, indem Sie den Link-Zustand orange machen, besuchte Links grün und entfernen Sie die Unterstreichung beim Hover.
+2. Machen Sie das erste Element innerhalb des Containers `font-size: 150%` und die erste Zeile dieses Elements rot.
+3. Ziehen Sie jede zweite Zeile in der Tabelle, indem Sie diese Zeilen auswählen und ihnen eine Hintergrundfarbe von `#333333` und weißem Vordergrund geben.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Text mit dem angewandten CSS für die Lösung der Aufgabe 3.](selectors3.jpg)
+![Text mit dem CSS angewendet für die Lösung zu Aufgabe 3.](selectors3.jpg)
 
 ```html live-sample___pseudo
 <div class="container">
@@ -224,7 +224,7 @@ th {
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
 Wenden Sie eine Pseudo-Klasse (`:first-child`) und ein Pseudo-Element (`::first-line`) auf den Inhalt an.
-Gestalten Sie die `:link`, `:visited` und `:hover` Zustände des `a` Elements und erstellen Sie gestreifte Tabellenzeilen mit der `:nth-child` Pseudo-Klasse.
+Stylen Sie die `:link`, `:visited`, und `:hover` Zustände des `a` Elements und erstellen Sie gestreifte Tabellenzeilen mit der `:nth-child` Pseudo-Klasse.
 
 ```css
 .container p:first-child {
@@ -257,14 +257,16 @@ tr:nth-child(even) {
 
 ## Aufgabe 4
 
-Um die Aufgabe abzuschließen:
+Zur Bearbeitung der Aufgabe:
 
 1. Machen Sie jeden Absatz, der direkt auf ein `<h2>` Element folgt, rot.
-2. Entfernen Sie die Aufzählungszeichen und fügen Sie nur den Listenelementen, die direktes Kind des `<ul>` mit der Klasse `list` sind, einen 1px grauen unteren Rand hinzu.
+2. Stylen Sie Listenelemente, die ein direktes Kind des `<ul>` mit der Klasse `list` sind, wie folgt:
+   - Entfernen Sie deren Aufzählungszeichen.
+   - Geben Sie ihnen einen `1px` grauen unteren Rahmen.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Text mit dem angewandten CSS für die Lösung der Aufgabe 4.](selectors4.jpg)
+![Text mit dem CSS angewendet für die Lösung zu Aufgabe 4.](selectors4.jpg)
 
 ```html live-sample___combinators
 <div class="container">
@@ -301,8 +303,8 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Diese Aufgabe überprüft, dass Sie verstehen, wie man verschiedene Kombinatoren verwendet.
-Hier ist eine geeignete Lösung:
+Diese Aufgabe prüft, ob Sie verstehen, wie man verschiedene Kombinatoren verwendet.
+Hier ist eine passende Lösung:
 
 ```css
 h2 + p {
@@ -319,15 +321,15 @@ h2 + p {
 
 ## Aufgabe 5
 
-Um die Aufgabe abzuschließen, bieten Sie Lösungen für die folgenden Herausforderungen mit Attributselektoren an:
+Zur Bearbeitung der Aufgabe, bieten Sie Lösungen für die folgenden Herausforderungen mit Attributselektoren:
 
-1. Anvisieren Sie das `<a>` Element mit einem `title` Attribut und machen Sie den Rand rosa (`border-color: pink`).
-2. Anvisieren Sie das `<a>` Element mit einem `href` Attribut, das das Wort `contact` irgendwo in seinem Wert enthält, und machen Sie den Rand orange (`border-color: orange`).
-3. Anvisieren Sie das `<a>` Element mit einem `href` Wert, der mit `https` beginnt, und geben Sie ihm einen grünen Rand (`border-color: green`).
+1. Sprechen Sie das `<a>` Element mit einem `title` Attribut an und machen Sie die Umrandung pink (`border-color: pink`).
+2. Sprechen Sie das `<a>` Element mit einem `href` Attribut an, das das Wort `contact` irgendwo in seinem Wert enthält, und machen Sie die Umrandung orange (`border-color: orange`).
+3. Sprechen Sie das `<a>` Element mit einem `href` Wert, der mit `https` beginnt, an und geben Sie ihm eine grüne Umrandung (`border-color: green`).
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Vier Links mit verschiedenen farbigen Rändern.](selectors-attribute.png)
+![Vier Links mit unterschiedlichen farbigen Umrandungen.](selectors-attribute.png)
 
 ```html live-sample___attribute-links
 <ul>
@@ -370,13 +372,13 @@ a {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-- Um Elemente mit einem Title-Attribut zu selektieren, können wir innerhalb der eckigen Klammern `title` hinzufügen (`a[title]`), was den zweiten Link auswählt, der der einzige mit einem Title-Attribut ist.
+- Um Elemente mit einem title-Attribut auszuwählen, können wir title in die eckigen Klammern setzen (`a[title]`), was den zweiten Link auswählt, der der einzige mit einem title-Attribut ist.
 
-- Ziel ist es, das `<a>` Element mit einem `href` Attribut auszuwählen, das das Wort "contact" irgendwo in seinem Wert enthält, und den Rand orange zu machen (`border-color: orange`).
-  Es gibt zwei Werte, die wir hier übereinstimmen wollen, den href-Wert `/contact` und auch `../contact`. Wir müssen also den String "contact" irgendwo im Wert mit `*=` abgleichen. Dies wird den dritten und vierten Link auswählen.
+- Sprechen Sie das `<a>` Element mit einem `href` Attribut an, das das Wort "contact" irgendwo in seinem Wert enthält, und machen Sie die Umrandung orange (`border-color: orange`).
+  Hier wollen wir zwei Dinge übereinstimmen, den href-Wert `/contact` und `../contact`. Also müssen wir die Zeichenkette "contact" irgendwo im Wert mit `*=` matchen. Dies wählt die dritten und vierten Links aus.
 
-- Anvisieren Sie das `<a>` Element mit einem href-Wert, der mit `https` beginnt, und geben Sie ihm einen grünen Rand (`border-color: green`).
-  Suchen Sie nach einem `href` Wert, der mit "https" beginnt, und verwenden Sie `^=`, um nur den ersten Link auszuwählen.
+- Sprechen Sie das `<a>` Element mit einem href-Wert, das mit `https` beginnt, an und geben Sie ihm eine grüne Umrandung (`border-color: green`).
+  Suchen Sie nach einem `href` Wert, der mit "https" beginnt, also verwenden Sie `^=` um nur den ersten Link auszuwählen.
 
 ```css
 a[title] {

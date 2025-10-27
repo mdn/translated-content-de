@@ -2,10 +2,10 @@
 title: <feFlood>
 slug: Web/SVG/Reference/Element/feFlood
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
 ---
 
-Das **`<feFlood>`** [SVG](/de/docs/Web/SVG) Filter-Primitive füllt die Filtersubregion mit der Farbe und Deckkraft, die durch {{SVGAttr("flood-color")}} und {{SVGAttr("flood-opacity")}} definiert sind.
+Das **`<feFlood>`** [SVG](/de/docs/Web/SVG) Filter-Primitive füllt die Filtersubregion mit der durch {{SVGAttr("flood-color")}} und {{SVGAttr("flood-opacity")}} definierten Farbe und Deckkraft.
 
 ## Verwendungskontext
 
@@ -15,6 +15,7 @@ Das **`<feFlood>`** [SVG](/de/docs/Web/SVG) Filter-Primitive füllt die Filtersu
 
 - {{SVGAttr("flood-color")}}
 - {{SVGAttr("flood-opacity")}}
+- [Filter-Primitive Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes): {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}}, {{SVGAttr("result")}}
 
 ## DOM-Schnittstelle
 
@@ -56,7 +57,7 @@ Dieses Element implementiert die [`SVGFEFloodElement`](/de/docs/Web/API/SVGFEFlo
 
 ## Siehe auch
 
-- [SVG Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
+- [SVG Filter-Primitive Attribute](/de/docs/Web/SVG/Reference/Attribute#filters_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}
@@ -75,4 +76,4 @@ Dieses Element implementiert die [`SVGFEFloodElement`](/de/docs/Web/API/SVGFEFlo
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

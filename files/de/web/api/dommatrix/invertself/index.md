@@ -1,16 +1,16 @@
 ---
-title: "DOMMatrix: invertSelf() Methode"
+title: "DOMMatrix: invertSelf()-Methode"
 short-title: invertSelf()
 slug: Web/API/DOMMatrix/invertSelf
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: e8ccddf06c8a9d700661ce2239ecaa4bf88a9529
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`invertSelf()`** Methode des [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Interfaces invertiert die ursprüngliche Matrix. Wenn die Matrix nicht invertiert werden kann, werden die neuen Komponenten der Matrix alle auf `NaN` gesetzt und ihre [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D) Eigenschaft wird auf `false` gesetzt.
+Die **`invertSelf()`**-Methode der [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Schnittstelle invertiert die ursprüngliche Matrix. Wenn die Matrix nicht invertiert werden kann, werden alle Komponenten der neuen Matrix auf `NaN` gesetzt und die [`is2D`](/de/docs/Web/API/DOMMatrixReadOnly/is2D)-Eigenschaft wird auf `false` gesetzt.
 
-Um eine Matrix zu invertieren, ohne sie zu verändern, siehe [`DOMMatrixReadOnly.inverse()`](/de/docs/Web/API/DOMMatrixReadOnly/inverse)
+Um eine Matrix zu invertieren, ohne sie zu verändern, siehe [`DOMMatrixReadOnly.inverse()`](/de/docs/Web/API/DOMMatrixReadOnly/inverse).
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix).
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir eine Matrix mit einer Rotation von 30 Grad. Dann invertieren wir sie, was zu einer Rotation von -30 Grad führt.
+In diesem Beispiel erstellen wir eine Matrix mit einer Rotation von 30 Grad. Anschließend invertieren wir sie, was zu einer Rotation von -30 Grad führt.
 
 ```js
 const matrix = new DOMMatrix().rotate(30);

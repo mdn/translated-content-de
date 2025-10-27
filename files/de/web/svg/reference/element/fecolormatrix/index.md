@@ -2,13 +2,13 @@
 title: <feColorMatrix>
 slug: Web/SVG/Reference/Element/feColorMatrix
 l10n:
-  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
+  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
 ---
 
-Das **`<feColorMatrix>`** [SVG](/de/docs/Web/SVG) Filterelement ändert Farben basierend auf einer Transformationsmatrix. Der Farbwert jedes Pixels `[R,G,B,A]` wird durch eine 5 mal 5 Farbmatrix [matrixmutipliziert](https://en.wikipedia.org/wiki/Matrix_multiplication), um eine neue Farbe `[R',G',B',A']` zu erzeugen.
+Das **`<feColorMatrix>`** [SVG](/de/docs/Web/SVG) Filter-Element ändert Farben basierend auf einer Transformationsmatrix. Jeder Pixel-Farbwert `[R,G,B,A]` wird mittels [Matrixmultiplikation](https://en.wikipedia.org/wiki/Matrix_multiplication) mit einer 5x5-Farbmatrix multipliziert, um eine neue Farbe `[R',G',B',A']` zu erzeugen.
 
 > [!NOTE]
-> Das Prime-Symbol **`'`** wird in der Mathematik verwendet, um das Ergebnis einer Transformation anzugeben.
+> Das Prime-Symbol **`'`** wird in der Mathematik verwendet, um das Ergebnis einer Transformation anzuzeigen.
 
 ```plain
 | R' |     | r1 r2 r3 r4 r5 |   | R |
@@ -18,7 +18,7 @@ Das **`<feColorMatrix>`** [SVG](/de/docs/Web/SVG) Filterelement ändert Farben b
 | 1  |     | 0  0  0  0  1  |   | 1 |
 ```
 
-Vereinfacht ausgedrückt, wird unten gezeigt, wie jeder Farbkanal im neuen Pixel berechnet wird. Die letzte Zeile wird ignoriert, da ihre Werte konstant sind.
+Vereinfacht ausgedrückt wird unten gezeigt, wie jeder Farbkanal des neuen Pixels berechnet wird. Die letzte Zeile wird ignoriert, da ihre Werte konstant sind.
 
 ```plain
 R' = r1*R + r2*G + r3*B + r4*A + r5
@@ -27,26 +27,26 @@ B' = b1*R + b2*G + b3*B + b4*A + b5
 A' = a1*R + a2*G + a3*B + a4*A + a5
 ```
 
-Nehmen wir die Menge des Rots im neuen Pixel, oder `R'`:
+Nehmen wir den Rotanteil im neuen Pixel, oder `R'`:
 
-Es ist die Summe aus:
+Er ist die Summe von:
 
-- `r1` mal dem Rot des alten Pixels `R`,
-- `r2` mal dem Grün des alten Pixels `G`,
-- `r3` mal dem Blau des alten Pixels `B`,
-- `r4` mal dem Alpha des alten Pixels `A`,
-- plus einer Verschiebung `r5`.
+- `r1` mal dem alten Rotwert des Pixels `R`,
+- `r2` mal dem alten Grünwert des Pixels `G`,
+- `r3` mal dem alten Blauwert des Pixels `B`,
+- `r4` mal dem alten Alphawert des Pixels `A`,
+- plus einem Verschiebungswert `r5`.
 
-Diese angegebenen Beträge können beliebige reelle Zahlen sein, allerdings wird das finale **R'** zwischen 0 und 1 begrenzt. Dasselbe gilt für **G'**, **B'** und **A'**.
+Diese spezifizierten Beträge können beliebige reelle Zahlen sein, obwohl der finale **R'**-Wert zwischen 0 und 1 begrenzt wird. Das Gleiche gilt für **G'**, **B'** und **A'**.
 
 ```plain
 R'      =      r1 * R      +        r2 * G      +       r3 * B      +       r4 * A       +       r5
 New red = [ r1 * old red ] + [ r2 * old green ] + [ r3 * old Blue ] + [ r4 * old Alpha ] + [ shift of r5 ]
 ```
 
-Wenn wir beispielsweise ein komplett schwarzes Bild röter machen wollen, können wir `r5` zu einer positiven reellen Zahl _x_ machen, wodurch die Röte jedes Pixels im neuen Bild um _x_ erhöht wird.
+Wenn wir zum Beispiel wollen, dass ein komplett schwarzes Bild röter wird, können wir `r5` zu einer positiven reellen Zahl _x_ machen, was die Rötung auf jedem Pixel des neuen Bildes um _x_ erhöht.
 
-Eine **Einheitsmatrix** sieht so aus:
+Eine **Einheitsmatrix** sieht folgendermaßen aus:
 
 ```plain
      R G B A W
@@ -56,19 +56,20 @@ B' | 0 0 1 0 0 |
 A' | 0 0 0 1 0 |
 ```
 
-In ihr ist jeder neue Wert genau 1 mal sein alter Wert, ohne dass etwas anderes hinzugefügt wird. Es wird empfohlen, die Manipulation der Matrix von hier aus zu beginnen.
+In dieser wird jeder neue Wert genau 1-mal mit seinem alten Wert multipliziert, ohne dass etwas hinzugefügt wird. Es wird empfohlen, die Manipulationen der Matrix hier zu beginnen.
 
-Wie andere Filterprimitive verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
+Wie andere Filter-Primitiven behandelt sie Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
 ## Attribute
 
-- {{SVGAttr("in")}}: Werte beinhalten `SourceGraphic`, `SourceAlpha`, `BackgroundImage`, `BackgroundAlpha`, `FillPaint`, `StrokePaint` oder einen Verweis auf ein anderes Filter-Primitiv.
-- {{SVGAttr("type")}}: Werte beinhalten `matrix`, `saturate`, `hueRotate` und `luminanceToAlpha`.
-- {{SVGAttr("values")}}: Der Wert für den im `type`-Attribut festgelegten Matrixtyp.
+- {{SVGAttr("in")}}
+- {{SVGAttr("type")}}: Werte umfassen `matrix`, `saturate`, `hueRotate` und `luminanceToAlpha`
+- {{SVGAttr("values")}}: Der Wert für den im `type`-Attribut gesetzten Matrixtyp
+- [Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes): {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}}, {{SVGAttr("result")}}
 
 ## DOM-Schnittstelle
 
@@ -172,7 +173,7 @@ Dieses Element implementiert die [`SVGFEColorMatrixElement`](/de/docs/Web/API/SV
 
 ## Siehe auch
 
-- [SVG-Filter-Primitivattribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes)
+- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}
@@ -191,4 +192,4 @@ Dieses Element implementiert die [`SVGFEColorMatrixElement`](/de/docs/Web/API/SV
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Filter_effects)

@@ -2,14 +2,14 @@
 title: <feMorphology>
 slug: Web/SVG/Reference/Element/feMorphology
 l10n:
-  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
+  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
 ---
 
-Das **`<feMorphology>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv wird verwendet, um das Eingabebild zu erodieren oder zu verdicken. Seine Nützlichkeit besteht insbesondere in der Erzeugung von Verbreiterungs- oder Verdünnungseffekten.
+Das **`<feMorphology>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv wird verwendet, um das Eingabebild zu erodieren oder zu erweitern. Seine Nützlichkeit liegt insbesondere in verdickenden oder verdünnenden Effekten.
 
-Wie andere Filter-Primitiven behandelt es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
+Wie andere Filter-Primitiven verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
-## Verwendungskontext
+## Anwendungsbereich
 
 {{svginfo}}
 
@@ -18,6 +18,7 @@ Wie andere Filter-Primitiven behandelt es Farbkomponenten standardmäßig im `li
 - {{SVGAttr("in")}}
 - {{SVGAttr("operator")}}
 - {{SVGAttr("radius")}}
+- [Filter-Primitiv-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes): {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}}, {{SVGAttr("result")}}
 
 ## DOM-Schnittstelle
 
