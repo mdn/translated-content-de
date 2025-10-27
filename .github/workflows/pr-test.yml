@@ -211,7 +211,7 @@ jobs:
           # Show the final disk usage size of the build.
           du -sh ${BUILD_OUT_ROOT}
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: steps.check.outputs.HAS_MD_FILES == 'true'
         with:
           name: build
