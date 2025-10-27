@@ -36,7 +36,7 @@ Einige schreibspezifische Beitragsmöglichkeiten erfordern ein vernünftiges Ver
 
 ## Wahl der Aufgaben und der Einstieg
 
-Sobald Sie sich entschieden haben, welche Art von Aufgabe Sie bearbeiten möchten, ist es an der Zeit, sich zum [Aufgabenboard für Mitwirkende](https://github.com/orgs/mdn/projects/25/views/1) zu begeben, ein Issue auszusuchen und uns durch einen Kommentar im Issue und das Taggen des `@mdn/mdn-community-engagement`-Teams zu informieren. Jemand aus dem Team wird mit Kommentaren, Hinweisen oder Anleitungen antworten.
+Sobald Sie sich entschieden haben, welche Art von Aufgabe Sie bearbeiten möchten, ist es an der Zeit, sich zum [Aufgabenboard für Mitwirkende](https://github.com/orgs/mdn/projects/25/views/1) zu begeben, ein Issue auszusuchen und uns durch einen Kommentar im Issue und das Taggen des `@mdn/community`-Teams zu informieren. Jemand aus dem Team wird mit Kommentaren, Hinweisen oder Anleitungen antworten.
 
 Stellen Sie sicher, dass Sie nicht an etwas arbeiten, das bereits in Bearbeitung ist - es kann frustrierend sein, Arbeit zu duplizieren oder zu verlieren. Wenn Sie unsicher sind, stellen Sie Fragen im Issue.
 
