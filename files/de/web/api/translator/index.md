@@ -1,22 +1,22 @@
 ---
-title: Übersetzer
+title: Translator
 slug: Web/API/Translator
 l10n:
-  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
+  sourceCommit: f91ff68767990aea89c9cb21fd8fc6b365cef3cb
 ---
 
 {{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`Translator`**-Schnittstelle der [Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs) enthält alle zugehörigen Übersetzungsfunktionen, einschließlich der Überprüfung der Verfügbarkeit des KI-Modells, der Erstellung einer neuen `Translator`-Instanz, der Nutzung für die Erstellung von Übersetzungen und mehr.
+Das **`Translator`**-Interface der [Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs) enthält alle zugehörigen Übersetzungsfunktionen, einschließlich der Überprüfung der Verfügbarkeit von KI-Modellen, der Erstellung einer neuen `Translator`-Instanz, der Nutzung zur Erstellung einer Übersetzung und mehr.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`inputQuota`](/de/docs/Web/API/Translator/inputQuota) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Das verfügbare Eingabe-Kontingent für den Browser zur Generierung von Übersetzungen.
+  - : Das Eingabelimit, das dem Browser für die Generierung von Übersetzungen zur Verfügung steht.
 - [`sourceLanguage`](/de/docs/Web/API/Translator/sourceLanguage) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die erwartete Sprache des zu übersetzenden Eingabetexts.
+  - : Die erwartete Sprache des zu übersetzenden Eingabetextes.
 - [`targetLanguage`](/de/docs/Web/API/Translator/targetLanguage) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Die Sprache, in die der Eingabetext übersetzt wird.
 
@@ -27,12 +27,12 @@ Die **`Translator`**-Schnittstelle der [Translator and Language Detector APIs](/
 - [`create()`](/de/docs/Web/API/Translator/create_static) {{Experimental_Inline}}
   - : Erstellt eine neue `Translator`-Instanz, aus der Übersetzungen generiert werden können.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`destroy()`](/de/docs/Web/API/Translator/destroy) {{Experimental_Inline}}
-  - : Zerstört die `Translator`-Instanz, auf die sie angewendet wird.
+  - : Gibt die Ressourcen frei, die der `Translator`-Instanz zugewiesen sind, auf der sie aufgerufen wird, und stoppt jegliche weitere Aktivität darauf.
 - [`measureInputUsage()`](/de/docs/Web/API/Translator/measureInputUsage) {{Experimental_Inline}}
-  - : Meldet, wie viel Eingabe-Kontingent durch eine Übersetzungsoperation für einen gegebenen Textinput verwendet würde.
+  - : Meldet, wie viel Eingabelimit von einem Übersetzungsvorgang für einen gegebenen Texteingang verwendet werden würde.
 - [`translate()`](/de/docs/Web/API/Translator/translate) {{Experimental_Inline}}
   - : Gibt einen String zurück, der eine Übersetzung des Eingabestrings enthält.
 - [`translateStreaming()`](/de/docs/Web/API/Translator/translateStreaming) {{Experimental_Inline}}
@@ -40,7 +40,7 @@ Die **`Translator`**-Schnittstelle der [Translator and Language Detector APIs](/
 
 ## Beispiele
 
-Siehe [Verwendung der Translator und Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using) für ein vollständiges Beispiel.
+Sehen Sie [Using the Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using) für ein vollständiges Beispiel.
 
 ### Erstellen einer `Translator`-Instanz
 
@@ -51,14 +51,14 @@ const translator = await Translator.create({
 });
 ```
 
-### Generieren einer Übersetzung
+### Generierung einer Übersetzung
 
 ```js
 const translation = await translator.translate(myTextString);
 console.log(translation);
 ```
 
-### Generieren eines Übersetzungsstroms
+### Generierung eines Übersetzungsstroms
 
 ```js
 const stream = translator.translateStreaming(myTextString);
@@ -82,4 +82,4 @@ console.log(translation);
 
 ## Siehe auch
 
-- [Verwendung der Translator und Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)
+- [Using the Translator and Language Detector APIs](/de/docs/Web/API/Translator_and_Language_Detector_APIs/Using)

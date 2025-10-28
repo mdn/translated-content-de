@@ -2,14 +2,14 @@
 title: ::-moz-progress-bar
 slug: Web/CSS/::-moz-progress-bar
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 1f6d5b39a5883789ece6b570227648113c7021a1
 ---
 
 {{Non-standard_header}}{{SeeCompatTable}}
 
-Das **`::-moz-progress-bar`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die den Fortschrittsbalken innerhalb eines {{HTMLElement("progress")}}-Elements darstellt. (Der Balken repräsentiert den Fortschritt, der gemacht wurde.)
+Der **`::-moz-progress-bar`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die die Fortschrittsanzeige innerhalb eines {{HTMLElement("progress")}}-Elements darstellt. (Der Balken stellt den Fortschritt dar, der gemacht wurde.)
 
-Wenn Sie den nicht abgeschlossenen Teil von {{HTMLElement("progress")}} in Mozilla auswählen möchten, wählen Sie bitte das {{HTMLElement("progress")}} direkt aus.
+Wenn Sie den unfertigen Teil des {{HTMLElement("progress")}} in Mozilla auswählen möchten, wählen Sie bitte direkt das {{HTMLElement("progress")}}-Element aus.
 
 ## Syntax
 
@@ -47,7 +47,7 @@ Wenn Sie den nicht abgeschlossenen Teil von {{HTMLElement("progress")}} in Mozil
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 

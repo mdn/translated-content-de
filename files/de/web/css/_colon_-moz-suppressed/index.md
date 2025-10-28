@@ -2,15 +2,15 @@
 title: :-moz-suppressed
 slug: Web/CSS/:-moz-suppressed
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 1f6d5b39a5883789ece6b570227648113c7021a1
 ---
 
 {{Non-standard_header}}
 
-Die **`:-moz-suppressed`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente selektiert, die Bilder darstellen, die unterdrückt wurden, da das Laden von Bildern von der angegebenen Seite blockiert wurde.
+Die **`:-moz-suppressed`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die Elemente selektiert, die Bilder darstellen, welche unterdrückt wurden, da das Laden von Bildern von der angegebenen Seite blockiert wurde.
 
 > [!NOTE]
-> Dieser Selektor ist hauptsächlich für die Nutzung durch Theme-Entwickler vorgesehen.
+> Dieser Selektor ist hauptsächlich für die Verwendung durch Theme-Entwickler gedacht.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Die **`:-moz-suppressed`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/
 
 ## Beispiele
 
-### Elemente formatieren, die blockiert wurden
+### Gestalten von blockierten Elementen
 
 ```css
 :-moz-suppressed {

@@ -1,14 +1,16 @@
 ---
-title: "LanguageDetector: destroy() Methode"
+title: "LanguageDetector: destroy()-Methode"
 short-title: destroy()
 slug: Web/API/LanguageDetector/destroy
 l10n:
-  sourceCommit: aed56607fa2bc1f0678ea0846a1b62bd9571ff7b
+  sourceCommit: f91ff68767990aea89c9cb21fd8fc6b365cef3cb
 ---
 
 {{APIRef("Translator and Language Detector APIs")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`destroy()`** Methode des [`LanguageDetector`](/de/docs/Web/API/LanguageDetector) Interfaces zerstört die Instanz des `LanguageDetector`, auf die sie angewendet wird. Es ist sinnvoll, diese Objekte zu zerstören, wenn sie nicht mehr verwendet werden sollen, da sie erhebliche Ressourcen in ihrer Handhabung binden.
+Die **`destroy()`**-Methode der [`LanguageDetector`](/de/docs/Web/API/LanguageDetector)-Schnittstelle gibt die Ressourcen frei, die der `LanguageDetector`-Instanz zugewiesen sind, auf der sie aufgerufen wird, und stoppt jegliche weitere Aktivität darauf. Das bedeutet, dass alle laufenden und nachfolgenden Methodenaufrufe, die auf dem `LanguageDetector` ausgeführt werden, mit einem `AbortError` abgelehnt werden.
+
+Es ist sinnvoll, `LanguageDetector`-Objekte zu zerstören, wenn sie nicht mehr verwendet werden, da sie erhebliche Ressourcen in ihrer Handhabung binden.
 
 ## Syntax
 
@@ -22,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Grundlegende Verwendung von `destroy()`
+### Grundlegende Nutzung von `destroy()`
 
 ```js
 const detector = await LanguageDetector.create({

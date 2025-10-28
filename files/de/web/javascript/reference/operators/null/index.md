@@ -2,10 +2,10 @@
 title: "null"
 slug: Web/JavaScript/Reference/Operators/null
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: b94841f0e5f0578297954ef4276a4e2d319a8720
 ---
 
-Der **`null`**-Wert repräsentiert das bewusste Fehlen eines Objektwertes. Es ist einer der {{Glossary("Primitive", "primitiven Werte")}} von JavaScript und wird in booleschen Operationen als {{Glossary("Falsy", "Falsy")}} behandelt.
+Das **`null`** Schlüsselwort bezieht sich auf den [`null`](/de/docs/Web/JavaScript/Guide/Data_structures#null_type) {{Glossary("Primitive", "primitiven Wert")}}, der die absichtliche Abwesenheit eines Objektwerts darstellt.
 
 {{InteractiveExample("JavaScript Demo: null")}}
 
@@ -30,25 +30,22 @@ null
 
 ## Beschreibung
 
-Der Wert `null` wird mit einem Literal geschrieben: `null`.
-`null` ist kein Bezeichner für eine Eigenschaft des globalen Objekts, wie es {{jsxref("undefined")}} sein kann. Stattdessen drückt `null` einen Mangel an Identifikation aus, indem es anzeigt, dass eine Variable auf kein Objekt zeigt. In APIs wird `null` oft an Stellen abgerufen, an denen ein Objekt erwartet werden kann, aber kein relevanter Gegenstand vorhanden ist.
+Das Schlüsselwort `null` ist ein Literal für den Wert `null`. Im Gegensatz zu {{jsxref("undefined")}}, das eine globale Variable ist, ist `null` kein Bezeichner, sondern ein Syntax-Schlüsselwort.
 
-```js
-// foo does not exist. It is not defined and has never been initialized:
-foo; // ReferenceError: foo is not defined
-```
+`null` hat die folgenden Verhaltensweisen:
 
-```js
-// foo is known to exist now but it has no type or value:
-const foo = null;
-foo; // null
-```
+- Ähnlich wie `undefined` wirft der Zugriff auf jede Eigenschaft von `null` einen {{jsxref("TypeError")}}, anstatt `undefined` zurückzugeben oder Prototypketten zu durchsuchen.
+- Ähnlich wie `undefined` wird `null` für boolesche Operationen als {{Glossary("Falsy", "falsy")}} und für [nullish coalescing](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) und [optional chaining](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) als {{Glossary("Nullish", "nullish")}} behandelt.
+- Das Ergebnis von [`typeof null`](/de/docs/Web/JavaScript/Reference/Operators/typeof#typeof_null) ist `"object"`. Dies ist ein Fehler in JavaScript, der aus Gründen der Abwärtskompatibilität nicht behoben werden kann.
+- Im Gegensatz zu `undefined` kann {{jsxref("JSON.stringify()")}} `null` getreu darstellen.
+
+JavaScript ist einzigartig, da es zwei nullish Werte hat: `null` und `undefined`. Semantisch ist ihr Unterschied sehr gering: `undefined` steht für die Abwesenheit eines Wertes, während `null` die Abwesenheit eines _Objekts_ darstellt. Zum Beispiel ist das Ende der [Prototypkette](/de/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain) `null`, weil die Prototypkette aus Objekten besteht; [`document.querySelector()`](/de/docs/Web/API/Document/querySelector) gibt `null` zurück, wenn keine Übereinstimmung gefunden wird, da das Ergebnis ein Objekt wäre, wenn es eine Übereinstimmung gäbe. Wenn Sie eine API entwerfen, sollten Sie wahrscheinlich `null` und `undefined` als gleichwertige Eingaben akzeptieren, da viele Codebasen stilistische Regeln darüber haben, wann standardmäßig `null` oder `undefined` verwendet wird.
 
 ## Beispiele
 
 ### Unterschied zwischen `null` und `undefined`
 
-Beim Überprüfen auf `null` oder `undefined` achten Sie auf die [Unterschiede zwischen Gleichheits- (==) und Identitäts- (===) Operatoren](/de/docs/Web/JavaScript/Reference/Operators), da erstere eine Typkonvertierung durchführen.
+Beim Überprüfen auf `null` oder `undefined`, beachten Sie die [Unterschiede zwischen Gleichheits- (==) und Identitätsoperatoren (===)](/de/docs/Web/JavaScript/Reference/Operators), da der erstere eine Typkonvertierung durchführt.
 
 ```js
 typeof null; // "object" (not "null" for legacy reasons)

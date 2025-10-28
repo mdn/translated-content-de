@@ -2,15 +2,15 @@
 title: :-moz-last-node
 slug: Web/CSS/:-moz-last-node
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 1f6d5b39a5883789ece6b570227648113c7021a1
 ---
 
 {{Non-standard_header}}{{SeeCompatTable}}
 
-Die **`:-moz-last-node`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die ein beliebiges Element darstellt, das das letzte Kindelement eines anderen Elements ist. Sie unterscheidet sich von {{cssxref(":last-child")}}, da sie kein letztes Kind-Element berücksichtigt, das (nicht-weißen) Text danach hat.
+Die **`:-moz-last-node`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die jedes Element repräsentiert, das das letzte Kind eines anderen Elements ist. Sie unterscheidet sich von {{cssxref(":last-child")}}, da sie kein letztes Kindelement mit (nicht-leerem) Text nach sich selbst erfasst.
 
 > [!NOTE]
-> Jeglicher Leerraum am Ende eines Elements wird bei der Bestimmung von `:-moz-last-node` ignoriert.
+> Jeder Leerraum am Ende eines Elements wird bei der Bestimmung von `:-moz-last-node` ignoriert.
 
 ## Syntax
 

@@ -2,15 +2,15 @@
 title: :-moz-broken
 slug: Web/CSS/:-moz-broken
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 1f6d5b39a5883789ece6b570227648113c7021a1
 ---
 
 {{Non-standard_header}}{{deprecated_header}}
 
-Die **`:-moz-broken`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente abgleicht, die defekte Bildlinks darstellen.
+Die **`:-moz-broken`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die Elemente markiert, die defekte Bildlinks darstellen.
 
 > [!NOTE]
-> Dieser Selektor ist hauptsächlich für Theme-Entwickler gedacht.
+> Dieser Selektor ist hauptsächlich für die Verwendung durch Theme-Entwickler gedacht.
 
 ## Syntax
 
@@ -43,7 +43,7 @@ Die **`:-moz-broken`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/P
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -52,4 +52,4 @@ Kein Teil eines Standards.
 ## Siehe auch
 
 - {{cssxref(":-moz-loading")}}, {{cssxref(":-moz-suppressed")}}, {{cssxref(":-moz-user-disabled")}}
-- [Firefox-Bug 11011](https://bugzil.la/11011)
+- [Firefox Bug 11011](https://bugzil.la/11011)

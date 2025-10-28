@@ -2,14 +2,14 @@
 title: -webkit-touch-callout
 slug: Web/CSS/-webkit-touch-callout
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 1f6d5b39a5883789ece6b570227648113c7021a1
 ---
 
 {{Non-standard_header}}
 
-Die `-webkit-touch-callout`-Eigenschaft von [CSS](/de/docs/Web/CSS) steuert die Anzeige des standardmäßigen Auswahlfeldes, das angezeigt wird, wenn Sie ein Berührungsziel gedrückt halten.
+Die `-webkit-touch-callout`-Eigenschaft [CSS](/de/docs/Web/CSS) steuert die Anzeige des standardmäßigen Callouts, der erscheint, wenn Sie ein Touch-Ziel berühren und halten.
 
-Wenn ein Ziel auf iOS berührt und gehalten wird, zeigt Safari ein Auswahlfeld mit Informationen über den Link an. Mit dieser Eigenschaft kann dieses Verhalten deaktiviert werden.
+Wenn ein Ziel auf iOS berührt und gehalten wird, zeigt Safari ein Callout mit Informationen über den Link an. Diese Eigenschaft erlaubt es, dieses Verhalten zu deaktivieren.
 
 ## Syntax
 
@@ -29,21 +29,21 @@ Wenn ein Ziel auf iOS berührt und gehalten wird, zeigt Safari ein Auswahlfeld m
 ### Werte
 
 - `default`
-  - : Das standardmäßige Auswahlfeld wird angezeigt.
+  - : Der Standard-Callout wird angezeigt.
 - `none`
-  - : Das Auswahlfeld ist deaktiviert.
+  - : Der Callout ist deaktiviert.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formelle Syntax
+## Formale Syntax
 
 {{CSSSyntaxRaw(`-webkit-touch-callout = default | none`)}}
 
 ## Beispiele
 
-### Deaktivieren des Berührungsauswahlfeldes
+### Deaktivieren des Touch-Callouts
 
 ```css
 .example {
@@ -53,7 +53,7 @@ Wenn ein Ziel auf iOS berührt und gehalten wird, zeigt Safari ein Auswahlfeld m
 
 ## Spezifikationen
 
-Teil keiner Norm. Apple hat eine [Beschreibung in der Safari CSS-Referenz](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/doc/uid/TP30001266-_webkit_touch_callout).
+Nicht Teil eines Standards. Apple hat eine [Beschreibung in der Safari CSS Reference](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/doc/uid/TP30001266-_webkit_touch_callout).
 
 ## Browser-Kompatibilität
 
@@ -61,5 +61,5 @@ Teil keiner Norm. Apple hat eine [Beschreibung in der Safari CSS-Referenz](https
 
 ## Siehe auch
 
-- [WebKit CSS-Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)
-- [-webkit-touch-callout in der Apple Entwicklerdokumentation](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/doc/uid/TP30001266-_webkit_touch_callout)
+- [WebKit CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
+- [-webkit-touch-callout in der Apple-Entwicklerdokumentation](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/doc/uid/TP30001266-_webkit_touch_callout)

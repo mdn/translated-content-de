@@ -2,12 +2,12 @@
 title: -webkit-tap-highlight-color
 slug: Web/CSS/-webkit-tap-highlight-color
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 1f6d5b39a5883789ece6b570227648113c7021a1
 ---
 
 {{Non-standard_header}}
 
-**`-webkit-tap-highlight-color`** ist eine nicht standardisierte CSS-Eigenschaft, die die Farbe des Hervorhebens festlegt, das über einem Link erscheint, während er angetippt wird. Das Hervorheben zeigt dem Benutzer, dass das Tippen erfolgreich erkannt wird und zeigt an, welches Element angetippt wird.
+**`-webkit-tap-highlight-color`** ist eine nicht standardisierte CSS-Eigenschaft, die die Farbe des Hervorhebens festlegt, das über einem Link erscheint, während er angetippt wird. Diese Hervorhebung zeigt dem Benutzer, dass ihr Tippen erfolgreich erkannt wird und zeigt an, welches Element sie antippen.
 
 ## Syntax
 
@@ -45,7 +45,7 @@ Nicht Teil eines Standards. Apple hat [eine Beschreibung im Safari Web Content G
 
 ## Siehe auch
 
-- [WebKit CSS-Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)
+- [WebKit CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
 - Verwandte CSS-Pseudoklassen:
   - [`:hover`](/de/docs/Web/CSS/:hover)
   - [`:active`](/de/docs/Web/CSS/:active)

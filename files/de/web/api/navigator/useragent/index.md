@@ -3,34 +3,34 @@ title: "Navigator: userAgent-Eigenschaft"
 short-title: userAgent
 slug: Web/API/Navigator/userAgent
 l10n:
-  sourceCommit: cfb7587e3e3122630ad6cbd94d834ecadbe0a746
+  sourceCommit: 0b852c3f5c46b69a57d23e860a833f6830951793
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die schreibgeschützte **`Navigator.userAgent`**-Eigenschaft gibt den User-Agent-String für den aktuellen Browser zurück.
-
-> [!NOTE]
-> Die Spezifikation fordert Browser auf, über dieses Feld so wenig Informationen wie möglich bereitzustellen. Gehen Sie niemals davon aus, dass der Wert dieser Eigenschaft in zukünftigen Versionen desselben Browsers gleich bleibt. Versuchen Sie, ihn überhaupt nicht oder nur für aktuelle und frühere Versionen eines Browsers zu verwenden. Neue Browser können denselben UA oder Teile davon wie ein älterer Browser verwenden: Sie haben wirklich keine Garantie, dass der Browser-Agent tatsächlich derjenige ist, der durch diese Eigenschaft angekündigt wird.
->
-> Bedenken Sie auch, dass Benutzer eines Browsers den Wert dieses Feldes ändern können, wenn sie möchten (UA-Spoofing).
-
-Die Browser-Identifizierung basierend auf der Erkennung des User-Agent-Strings ist **unzuverlässig** und **wird nicht empfohlen**, da der User-Agent-String benutzerkonfigurierbar ist. Zum Beispiel:
-
-- In Firefox können Sie die Präferenz `general.useragent.override` in `about:config` ändern. Einige Firefox-Erweiterungen tun dies; dies ändert jedoch nur den HTTP-Header, der gesendet wird und von `navigator.userAgent` zurückgegeben wird. Es kann andere Methoden geben, die JavaScript-Code verwenden, um den Browser zu identifizieren.
-- Opera 6+ erlaubt es den Benutzern, den Browser-Identifizierungsstring über ein Menü festzulegen.
+Die schreibgeschützte **`Navigator.userAgent`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt die `User-Agent` (UA)-Zeichenkette für den aktuellen Browser zurück.
 
 ## Wert
 
-Ein String, der den vollständigen User-Agent-String angibt, den der Browser sowohl in den {{Glossary("HTTP", "HTTP")}}-Headern als auch als Antwort auf diese und andere verwandte Methoden des [`Navigator`](/de/docs/Web/API/Navigator)-Objekts bereitstellt.
+Ein String.
 
-Der User-Agent-String basiert auf einer formalen Struktur, die in mehrere Informationsstücke zerlegt werden kann. Jedes dieser Informationsstücke stammt von anderen Navigator-Eigenschaften, die ebenfalls durch den Benutzer einstellbar sind. Weitere Informationen zur Form des User-Agent-Strings finden Sie im {{HTTPHeader("User-agent")}}-HTTP-Header.
+## Beschreibung
+
+Die `userAgent`-Eigenschaft liefert die UA-Zeichenkette des aktuellen Browsers. Die UA-Zeichenkette basiert auf einer formalen Struktur, die in mehrere Informationsstücke zerlegt werden kann.
+
+Der Browser stellt die UA-Zeichenkette auch über den {{HTTPHeader("User-Agent")}} HTTP-Header bereit. Teile dieser Informationen sind auch in {{Glossary("HTTP", "HTTP")}}-Headern wie den [User-Agent-Client-Hinweisen](/de/docs/Web/HTTP/Guides/Client_hints) und anderen verwandten API-Funktionen wie [`Navigator.appVersion`](/de/docs/Web/API/Navigator/appVersion) und [`Navigator.platform`](/de/docs/Web/API/Navigator/platform) verfügbar.
+
+Theoretisch sind diese Informationen nützlich, um den Browser zu erkennen und Code bereitzustellen, um Browser-spezifische Fehler oder fehlende Funktionsunterstützung zu umgehen. Dies ist jedoch **unzuverlässig** und **nicht empfohlen**, aus den in [User-Agent reduction](/de/docs/Web/HTTP/Guides/User-agent_reduction) und [Browser detection using the user agent](/de/docs/Web/HTTP/Guides/Browser_detection_using_the_user_agent) angegebenen Gründen.
+
+[Feature Detection](/de/docs/Learn_web_development/Extensions/Testing/Feature_detection) ist eine wesentlich zuverlässigere Strategie.
 
 ## Beispiele
 
 ```js
-alert(window.navigator.userAgent);
-// alerts "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"
+console.log(navigator.userAgent);
+// On Chrome on macOS, logs something like "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" (reduced UA string)
+
+// On Firefox on Windows, logs something like "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"
 ```
 
 ## Spezifikationen

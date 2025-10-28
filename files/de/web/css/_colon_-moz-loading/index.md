@@ -2,15 +2,15 @@
 title: :-moz-loading
 slug: Web/CSS/:-moz-loading
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: 1f6d5b39a5883789ece6b570227648113c7021a1
 ---
 
 {{Non-standard_header}}
 
-Die **`:-moz-loading`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente abgleicht, die nicht angezeigt werden können, weil sie noch nicht zu laden begonnen haben, wie Bilder, die noch nicht begonnen haben, anzukommen. Beachten Sie, dass Bilder, die _gerade_ geladen werden, _nicht_ von dieser Pseudoklasse erfasst werden.
+Die **`:-moz-loading`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die Elemente auswählt, die nicht angezeigt werden können, da sie noch nicht mit dem Laden begonnen haben, wie z.B. Bilder, die noch nicht angekommen sind. Beachten Sie, dass Bilder, die _bereits im Ladevorgang_ sind, _nicht_ von dieser Pseudoklasse erfasst werden.
 
 > [!NOTE]
-> Dieser Selektor ist hauptsächlich für die Verwendung durch Theme-Entwickler vorgesehen.
+> Dieser Selektor ist hauptsächlich für Design-Entwickler gedacht.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Die **`:-moz-loading`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/
 
 ## Beispiele
 
-### Hintergrund für ladeende Bilder festlegen
+### Ein Hintergrund für Bilder, die geladen werden
 
 ```css
 :-moz-loading {
@@ -32,7 +32,7 @@ Die **`:-moz-loading`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Spezifikation.
 
 ## Siehe auch
 

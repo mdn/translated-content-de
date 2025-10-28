@@ -2,18 +2,18 @@
 title: :-moz-locale-dir(ltr)
 slug: Web/CSS/:-moz-locale-dir_ltr
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 1f6d5b39a5883789ece6b570227648113c7021a1
 ---
 
 {{Non-standard_header}}
 
-Der **`:-moz-locale-dir(ltr)`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die ein Element auswählt, wenn die Benutzeroberfläche von links nach rechts angezeigt wird. Dies wird durch die Einstellung `intl.uidirection.locale` bestimmt (wobei `locale` die aktuelle Gebietsschema ist), die auf "ltr" gesetzt ist.
+Die **`:-moz-locale-dir(ltr)`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Reference/Mozilla_extensions), die ein Element auswählt, wenn die Benutzeroberfläche von links nach rechts angezeigt wird. Dies wird durch die Einstellung `intl.uidirection.locale` (wobei `locale` die aktuelle Spracheinstellung ist) bestimmt, die auf "ltr" gesetzt ist.
 
 > [!NOTE]
-> Dieser Selektor wird hauptsächlich von Erweiterungen und Themes verwendet, um die Benutzeroberfläche basierend auf dem Gebietsschema des Benutzers anzupassen. (Dies kann von Fenster zu Fenster und sogar von Tab zu Tab variieren.) Er ermöglicht es auch Erweiterungen, zu funktionieren, selbst wenn sie das Standard-Gebietsschema des Benutzers nicht unterstützen, da sie sowohl links-nach-rechts- als auch rechts-nach-links-Layouts unabhängig von spezifischen Gebietsschemas unterstützen können.
+> Dieser Selektor wird hauptsächlich von Erweiterungen und Themes verwendet, um die Benutzeroberfläche basierend auf der Spracheinstellung des Benutzers anzupassen. (Dies kann von Fenster zu Fenster und sogar von Tabulator zu Tabulator variieren.) Er ermöglicht es Erweiterungen auch zu funktionieren, selbst wenn sie die Standardsprache des Benutzers nicht unterstützen, da sie sowohl Lese- als auch Schreibrichtungen unabhängig von sprachspezifischen Besonderheiten unterstützen können.
 
 > [!WARNING]
-> Dieser Selektor funktioniert nicht ordnungsgemäß von HTML aus; er trifft immer zu, unabhängig davon, ob das UI-Gebietsschema links-nach-rechts oder rechts-nach-links ist.
+> Dieser Selektor funktioniert nicht richtig aus HTML heraus; er stimmt immer überein, unabhängig davon, ob die Benutzeroberfläche von links nach rechts oder von rechts nach links ausgerichtet ist.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Der **`:-moz-locale-dir(ltr)`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/
 
 ## Beispiele
 
-Dieses Beispiel funktioniert nicht, wenn Sie nicht Firefox verwenden, und möglicherweise auch nicht in Firefox aufgrund eines Problems mit dem Selektor, der nicht ordnungsgemäß mit HTML-Inhalten funktioniert. Es wurde für die Verwendung mit `XUL` entworfen.
+Dieses Beispiel funktioniert nicht, wenn Sie nicht Firefox verwenden, und möglicherweise nicht einmal in Firefox aufgrund eines Problems mit dem Selektor, der nicht richtig mit HTML-Inhalten arbeitet. Es wurde für die Verwendung mit `XUL` entwickelt.
 
 ### HTML
 
@@ -47,7 +47,7 @@ p:-moz-locale-dir(ltr) {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Teil eines Standards.
 
 ## Siehe auch
 

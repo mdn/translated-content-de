@@ -459,8 +459,8 @@
 /de/docs/CSS/CSS3_Columns	/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts
 /de/docs/CSS/CSS_Properties_Reference	/de/docs/Web/CSS/Reference#index
 /de/docs/CSS/CSS_Reference	/de/docs/Web/CSS/Reference
-/de/docs/CSS/CSS_Reference/Mozilla_Extensions	/de/docs/Web/CSS/Mozilla_Extensions
-/de/docs/CSS/CSS_Reference/Webkit_Extensions	/de/docs/Web/CSS/WebKit_Extensions
+/de/docs/CSS/CSS_Reference/Mozilla_Extensions	/de/docs/Web/CSS/Reference/Mozilla_extensions
+/de/docs/CSS/CSS_Reference/Webkit_Extensions	/de/docs/Web/CSS/Reference/Webkit_extensions
 /de/docs/CSS/CSS_animated_properties	/de/docs/Web/CSS/CSS_animated_properties
 /de/docs/CSS/CSS_animations	/de/docs/Web/CSS/CSS_animations/Using_CSS_animations
 /de/docs/CSS/CSS_flex-wrap	/de/docs/Web/CSS/flex-wrap
@@ -477,7 +477,7 @@
 /de/docs/CSS/Counters	/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters
 /de/docs/CSS/Currentcolor	/de/docs/Web/CSS/color_value#currentcolor_keyword
 /de/docs/CSS/Descendant_selectors	/de/docs/Web/CSS/Descendant_combinator
-/de/docs/CSS/Draft_Implementations_of_CSS_Features	/de/docs/Web/CSS/Mozilla_Extensions
+/de/docs/CSS/Draft_Implementations_of_CSS_Features	/de/docs/Web/CSS/Reference/Mozilla_extensions
 /de/docs/CSS/FAQ	/de/docs/Web/CSS
 /de/docs/CSS/Flexbox	/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox
 /de/docs/CSS/Flexbox-redirect-1	/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox
@@ -1086,11 +1086,11 @@
 /de/docs/CSSUnitValue	/de/docs/Web/API/CSSUnitValue/CSSUnitValue
 /de/docs/CSS_Counters	/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters
 /de/docs/CSS_Reference	/de/docs/Web/CSS/Reference
-/de/docs/CSS_Reference/Draft_Implementations_of_CSS_Features	/de/docs/Web/CSS/Mozilla_Extensions
-/de/docs/CSS_Reference/Draft_Implementations_of_CSS_Features_in_Mozilla	/de/docs/Web/CSS/Mozilla_Extensions
+/de/docs/CSS_Reference/Draft_Implementations_of_CSS_Features	/de/docs/Web/CSS/Reference/Mozilla_extensions
+/de/docs/CSS_Reference/Draft_Implementations_of_CSS_Features_in_Mozilla	/de/docs/Web/CSS/Reference/Mozilla_extensions
 /de/docs/CSS_Reference/List_of_Proprietary_CSS_Features	/de/docs/Web/CSS/Reference
-/de/docs/CSS_Reference/Mozilla_Extensions	/de/docs/Web/CSS/Mozilla_Extensions
-/de/docs/CSS_Reference:Mozilla_Extensions	/de/docs/Web/CSS/Mozilla_Extensions
+/de/docs/CSS_Reference/Mozilla_Extensions	/de/docs/Web/CSS/Reference/Mozilla_extensions
+/de/docs/CSS_Reference:Mozilla_Extensions	/de/docs/Web/CSS/Reference/Mozilla_extensions
 /de/docs/CSS_Support_Charts	/de/docs/Web/CSS
 /de/docs/CSS_flex-wrap	/de/docs/Web/CSS/flex-wrap
 /de/docs/CSS_transform_functions	/de/docs/Web/CSS/transform
@@ -6694,7 +6694,7 @@
 /de/docs/Mozilla/Thunderbird/Autoconfiguration/FileFormat/Definition	https://www.bucksch.org/1/projects/thunderbird/autoconfiguration/config-file-format.html
 /de/docs/Mozilla/Thunderbird/Autoconfiguration/FileFormat/HowTo	https://www.bucksch.org/1/projects/thunderbird/autoconfiguration/how-to-create-your-own-config-file.html
 /de/docs/Mozilla/Virtualenv	https://github.com/mdn/archived-content/tree/main/files/en-us/mozilla/virtualenv
-/de/docs/Mozilla_CSS_Extensions	/de/docs/Web/CSS/Mozilla_Extensions
+/de/docs/Mozilla_CSS_Extensions	/de/docs/Web/CSS/Reference/Mozilla_extensions
 /de/docs/Mozilla_MathML_Project/Authoring	/de/docs/Web/MathML/Guides/Authoring
 /de/docs/Mozilla_MathML_Project/Authoring_MathML	/de/docs/Web/MathML/Guides/Authoring
 /de/docs/Mozilla_event_reference	/de/docs/Web/API/Document_Object_Model/Events
@@ -11906,7 +11906,7 @@
 /de/docs/Web/CSS/-moz-border-image-slice	/de/docs/Web/CSS/border-image-slice
 /de/docs/Web/CSS/-moz-border-image-source	/de/docs/Web/CSS/border-image-source
 /de/docs/Web/CSS/-moz-border-image-width	/de/docs/Web/CSS/border-image-width
-/de/docs/Web/CSS/-moz-border-left-colors	/de/docs/Web/CSS/Mozilla_Extensions#b
+/de/docs/Web/CSS/-moz-border-left-colors	/de/docs/Web/CSS/Reference/Mozilla_extensions#b
 /de/docs/Web/CSS/-moz-border-radius	/de/docs/Web/CSS/border-radius
 /de/docs/Web/CSS/-moz-border-radius-bottomleft	/de/docs/Web/CSS/border-bottom-left-radius
 /de/docs/Web/CSS/-moz-border-radius-bottomright	/de/docs/Web/CSS/border-bottom-right-radius
@@ -12241,8 +12241,8 @@
 /de/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Using_z-index	/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index
 /de/docs/Web/CSS/CSS_Properties_Reference	/de/docs/Web/CSS/Reference#index
 /de/docs/Web/CSS/CSS_Reference	/de/docs/Web/CSS/Reference
-/de/docs/Web/CSS/CSS_Reference/Mozilla_Extensions	/de/docs/Web/CSS/Mozilla_Extensions
-/de/docs/Web/CSS/CSS_Reference/Webkit_Extensions	/de/docs/Web/CSS/WebKit_Extensions
+/de/docs/Web/CSS/CSS_Reference/Mozilla_Extensions	/de/docs/Web/CSS/Reference/Mozilla_extensions
+/de/docs/Web/CSS/CSS_Reference/Webkit_Extensions	/de/docs/Web/CSS/Reference/Webkit_extensions
 /de/docs/Web/CSS/CSS_Scroll_Snap/Browser_compat	/de/docs/Web/CSS/CSS_scroll_snap
 /de/docs/Web/CSS/CSS_Scroll_Snap/compat	/de/docs/Web/CSS/CSS_scroll_snap
 /de/docs/Web/CSS/CSS_Scroll_Snap_Points	/de/docs/Web/CSS/CSS_scroll_snap
@@ -12307,7 +12307,7 @@
 /de/docs/Web/CSS/Containing_block	/de/docs/Web/CSS/CSS_display/Containing_block
 /de/docs/Web/CSS/Currentcolor	/de/docs/Web/CSS/color_value#currentcolor_keyword
 /de/docs/Web/CSS/Descendant_selectors	/de/docs/Web/CSS/Descendant_combinator
-/de/docs/Web/CSS/Draft_Implementations_of_CSS_Features	/de/docs/Web/CSS/Mozilla_Extensions
+/de/docs/Web/CSS/Draft_Implementations_of_CSS_Features	/de/docs/Web/CSS/Reference/Mozilla_extensions
 /de/docs/Web/CSS/FAQ	/de/docs/Web/CSS
 /de/docs/Web/CSS/Filter_Effects	/de/docs/Web/CSS/CSS_filter_effects
 /de/docs/Web/CSS/Filter_Effects/Using_filter_effects	/de/docs/Web/CSS/CSS_filter_effects/Using_filter_effects
@@ -12327,11 +12327,10 @@
 /de/docs/Web/CSS/Media_Queries/Using_media_queries	/de/docs/Web/CSS/CSS_media_queries/Using_media_queries
 /de/docs/Web/CSS/Media_Queries/Using_media_queries_for_accessibility	/de/docs/Web/CSS/CSS_media_queries/Using_media_queries_for_accessibility
 /de/docs/Web/CSS/Motion_Path	/de/docs/Web/CSS/CSS_motion_path
+/de/docs/Web/CSS/Mozilla_Extensions	/de/docs/Web/CSS/Reference/Mozilla_extensions
 /de/docs/Web/CSS/Other_Resources	/de/docs/Web/CSS
 /de/docs/Web/CSS/Paged_Media	/de/docs/Web/CSS/CSS_paged_media
 /de/docs/Web/CSS/Privacy_and_the_:visited_selector	/de/docs/Web/CSS/CSS_selectors/Privacy_and_the_visited_selector
-/de/docs/Web/CSS/Reference/Mozilla_Extensions	/de/docs/Web/CSS/Mozilla_Extensions
-/de/docs/Web/CSS/Reference/Webkit_Extensions	/de/docs/Web/CSS/WebKit_Extensions
 /de/docs/Web/CSS/Reference/object-position	/de/docs/Web/CSS/object-position
 /de/docs/Web/CSS/Replaced_element	/de/docs/Web/CSS/CSS_images/Replaced_element_properties
 /de/docs/Web/CSS/Scaling_of_SVG_backgrounds	/de/docs/Web/CSS/CSS_backgrounds_and_borders/Scaling_of_SVG_backgrounds
@@ -12363,6 +12362,7 @@
 /de/docs/Web/CSS/Value_definition_syntax	/de/docs/Web/CSS/CSS_values_and_units/Value_definition_syntax
 /de/docs/Web/CSS/Viewport_concepts	/de/docs/Web/CSS/CSSOM_view/Viewport_concepts
 /de/docs/Web/CSS/Visual_formatting_model	/de/docs/Web/CSS/CSS_display/Visual_formatting_model
+/de/docs/Web/CSS/WebKit_Extensions	/de/docs/Web/CSS/Reference/Webkit_extensions
 /de/docs/Web/CSS/_image	/de/docs/Web/CSS/image/image
 /de/docs/Web/CSS/abs()	/de/docs/Web/CSS/abs
 /de/docs/Web/CSS/actual_value	/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value
