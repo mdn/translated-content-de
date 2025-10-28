@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Checkout (yari)
-        uses: actions/checkout@v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           repository: mdn/yari
           path: mdn/yari
@@ -36,20 +36,20 @@ jobs:
           persist-credentials: false
 
       - name: Checkout (content)
-        uses: actions/checkout@v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           repository: mdn/content
           path: mdn/content
           persist-credentials: false
 
       - name: Checkout (translated-content-de)
-        uses: actions/checkout@v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           path: mdn/translated-content-de
           persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version-file: "mdn/yari/.nvmrc"
           package-manager-cache: false
@@ -121,7 +121,10 @@ jobs:
           title: "[${{ matrix.lang }}] sync translated content"
           author: mdn-bot <108879845+mdn-bot@users.noreply.github.com>
           committer: mdn-bot <108879845+mdn-bot@users.noreply.github.com>
-          body: "Yari generated sync. Related upstream commits:\n\n${{ steps.gather.outputs.COMMIT_URLS }}"
+          body: "Yari generated sync. Related upstream commits:
+
+
+            ${{ steps.gather.outputs.COMMIT_URLS }}"
           labels: |
             automated pr
           token: ${{ secrets.AUTOMERGE_TOKEN }}
