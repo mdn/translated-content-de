@@ -1,34 +1,35 @@
 ---
-title: "HTMLElement: Eigenschaft innerText"
+title: "HTMLElement: innerText-Eigenschaft"
 short-title: innerText
 slug: Web/API/HTMLElement/innerText
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 5c513c8e3075989886ae5f3b00d92f2b2988085a
 ---
 
 {{APIRef("HTML DOM")}}
 
 Die **`innerText`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces repräsentiert den gerenderten Textinhalt eines Knotens und seiner Nachkommen.
 
-Als Getter approximiert sie den Text, den der Benutzer erhalten würde, wenn er den Inhalt des Elements mit dem Cursor markierte und dann in die Zwischenablage kopierte. Als Setter wird dies die Kinder des Elements durch den gegebenen Wert ersetzen, wobei jegliche Zeilenumbrüche in {{HTMLElement("br")}}-Elemente umgewandelt werden.
+Als Getter approximiert sie den Text, den der Benutzer erhalten würde, wenn er die Inhalte des Elements mit dem Cursor markiert und dann in die Zwischenablage kopiert.
+Als Setter ersetzt sie die Kinder des Elements mit dem angegebenen Wert und konvertiert dabei alle Zeilenumbrüche in {{HTMLElement("br")}}-Elemente.
 
-> [!NOTE] > `innerText` wird leicht mit [`Node.textContent`](/de/docs/Web/API/Node/textContent) verwechselt, aber es gibt wichtige Unterschiede zwischen den beiden.
-> Grundsätzlich ist `innerText` sich des gerenderten Erscheinungsbildes des Textes bewusst, während `textContent` dies nicht ist.
+> [!NOTE]
+> `innerText` wird leicht mit [`Node.textContent`](/de/docs/Web/API/Node/textContent) verwechselt, aber es gibt wichtige Unterschiede zwischen den beiden.
+> Grundsätzlich ist `innerText` sich des gerenderten Erscheinungsbildes von Text bewusst, während `textContent` dies nicht ist.
 
 ## Wert
 
-Ein String, der den gerenderten Textinhalt eines Elements repräsentiert.
+Ein String, der den gerenderten Textinhalt eines Elements darstellt.
 
-Wenn das Element selbst nicht [gerendert wird](https://html.spec.whatwg.org/multipage/rendering.html#being-rendered) (zum Beispiel, wenn es vom Dokument getrennt oder vor der Ansicht verborgen ist), ist der zurückgegebene Wert derselbe wie die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft.
+Wenn das Element selbst nicht [gerendert wird](https://html.spec.whatwg.org/multipage/rendering.html#being-rendered) (zum Beispiel, wenn es vom Dokument getrennt oder aus der Sicht verborgen ist), ist der zurückgegebene Wert derselbe wie die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft.
 
 > [!WARNING]
-> Das Setzen von `innerText` auf einem Knoten entfernt _alle_ Kinder des Knotens
-> und ersetzt sie durch einen einzelnen Textknoten mit dem gegebenen String-Wert.
+> Das Setzen von `innerText` auf einem Knoten entfernt _alle_ Kinder des Knotens und ersetzt sie durch einen einzelnen Textknoten mit dem angegebenen String-Wert.
 
 ## Beispiele
 
 Dieses Beispiel vergleicht `innerText` mit [`Node.textContent`](/de/docs/Web/API/Node/textContent).
-Beachten Sie, wie `innerText` sich Dinge wie {{htmlElement("br")}}-Elemente bewusst ist und versteckte Elemente ignoriert.
+Beachten Sie, wie `innerText` sich bewusst ist über Dinge wie {{htmlElement("br")}}-Elemente und versteckte Elemente ignoriert.
 
 ### HTML
 
@@ -51,9 +52,9 @@ Beachten Sie, wie `innerText` sich Dinge wie {{htmlElement("br")}}-Elemente bewu
   <span style="display:none">HIDDEN TEXT</span>
 </p>
 <h3>Result of textContent:</h3>
-<textarea id="textContentOutput" rows="6" cols="30" readonly>…</textarea>
+<textarea id="textContentOutput" rows="18" cols="40" readonly>…</textarea>
 <h3>Result of innerText:</h3>
-<textarea id="innerTextOutput" rows="6" cols="30" readonly>…</textarea>
+<textarea id="innerTextOutput" rows="6" cols="40" readonly>…</textarea>
 ```
 
 ### JavaScript
@@ -69,7 +70,7 @@ innerTextOutput.value = source.innerText;
 
 ### Ergebnis
 
-{{EmbedLiveSample("Examples", 700, 450)}}
+{{EmbedLiveSample("Examples", 700, 650)}}
 
 ## Spezifikationen
 
@@ -81,5 +82,6 @@ innerTextOutput.value = source.innerText;
 
 ## Siehe auch
 
+- [`HTMLScriptElement.innerText`](/de/docs/Web/API/HTMLScriptElement/innerText)
 - [`HTMLElement.outerText`](/de/docs/Web/API/HTMLElement/outerText)
 - [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML)

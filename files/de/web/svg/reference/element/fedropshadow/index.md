@@ -2,7 +2,7 @@
 title: <feDropShadow>
 slug: Web/SVG/Reference/Element/feDropShadow
 l10n:
-  sourceCommit: 62476ac3c21417ad3a07e12c9f8eaf92cea8311d
+  sourceCommit: f8939dd06d7b120f77c4b4c70cac591d0eb20beb
 ---
 
 Das **`<feDropShadow>`** [SVG](/de/docs/Web/SVG) Filter-Primitive erzeugt einen Schlagschatten des Eingabebildes. Es kann nur innerhalb eines {{SVGElement('filter')}} Elements verwendet werden.
@@ -10,7 +10,7 @@ Das **`<feDropShadow>`** [SVG](/de/docs/Web/SVG) Filter-Primitive erzeugt einen 
 > [!NOTE]
 > Die Farbe und Deckkraft des Schattens können durch die Präsentationsattribute {{SVGAttr('flood-color')}} und {{SVGAttr('flood-opacity')}} geändert werden.
 
-Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `linearRGB` {{Glossary("color_space", "Farbraum")}}. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu verwenden.
+Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im Farbraum `linearRGB`. Sie können {{svgattr("color-interpolation-filters")}} verwenden, um stattdessen `sRGB` zu nutzen.
 
 ## Verwendungskontext
 
@@ -19,17 +19,17 @@ Wie andere Filter-Primitives verarbeitet es Farbkomponenten standardmäßig im `
 ## Attribute
 
 - {{SVGAttr("dx")}}: Dieses Attribut definiert den x-Versatz des Schattens.
-  _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: `2`; _Animierbar_: **ja**
+  _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: `2`; _Animierbar_: **ja**
 - {{SVGAttr("dy")}}: Dieses Attribut definiert den y-Versatz des Schattens.
-  _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: `2`; _Animierbar_: **ja**
+  _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Guides/Content_type#number); _Standardwert_: `2`; _Animierbar_: **ja**
 - {{SVGAttr("in")}}
-- {{SVGAttr("stdDeviation")}}: Dieses Attribut definiert die Standardabweichung für den Unschärfevorgang im Schlagschatten.
-  _Werttyp_: [**\<number-optional-number>**](/de/docs/Web/SVG/Guides/Content_type#number-optional-number); _Standardwert_: `2`; _Animierbar_: **ja**
+- {{SVGAttr("stdDeviation")}}: Dieses Attribut definiert die Standardabweichung für die Unschärfeoperation im Schatten.
+  _Wertetyp_: [**\<number-optional-number>**](/de/docs/Web/SVG/Guides/Content_type#number-optional-number); _Standardwert_: `2`; _Animierbar_: **ja**
 - [Filter-Primitive-Attribute](/de/docs/Web/SVG/Reference/Attribute#filter_primitive_attributes_presentation_attributes): {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}}, {{SVGAttr("height")}}, {{SVGAttr("result")}}
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEDropShadowElement`](/de/docs/Web/API/SVGFEDropShadowElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFEDropShadowElement`](/de/docs/Web/API/SVGFEDropShadowElement) Schnittstelle.
 
 ## Beispiel
 

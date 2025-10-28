@@ -3,14 +3,14 @@ title: "DOMMatrix: fromFloat64Array() statische Methode"
 short-title: fromFloat64Array()
 slug: Web/API/DOMMatrix/fromFloat64Array_static
 l10n:
-  sourceCommit: 359abb1dcdc87d46d7271fc28c53a998a5523bf1
+  sourceCommit: f8939dd06d7b120f77c4b4c70cac591d0eb20beb
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die statische Methode **`fromFloat64Array()`** des [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Interfaces erstellt ein neues [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt aus einem Array von Gleitkommawerten mit doppelter Genauigkeit (64-Bit).
+Die **`fromFloat64Array()`** statische Methode der [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Schnittstelle erstellt ein neues [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Objekt aus einem Array von Gleitkommazahlen mit Doppelpräzision (64-Bit).
 
-Wenn das Array 6 Werte enthält, ist das Ergebnis eine 2D-Matrix; wenn das Array 16 Werte enthält, ist das Ergebnis eine 3D-Matrix. Andernfalls wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
+Hat das Array 6 Werte, ist das Ergebnis eine 2D-Matrix; hat das Array 16 Werte, ist das Ergebnis eine 3D-Matrix. Andernfalls wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ DOMMatrix.fromFloat64Array(array)
 ### Parameter
 
 - `array`
-  - : Ein {{jsxref("Float64Array")}} mit 6 oder 16 Elementen in spaltenmajorer Reihenfolge.
+  - : Ein {{jsxref("Float64Array")}} mit 6 oder 16 Elementen in spaltenweiser Anordnung.
 
 ### Rückgabewert
 
-Ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt.
+Ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Objekt.
 
 ### Ausnahmen
 
@@ -80,7 +80,7 @@ console.log(matrix3D.m41, matrix3D.m42, matrix3D.m43);
 ## Siehe auch
 
 - [`DOMMatrix()`](/de/docs/Web/API/DOMMatrix/DOMMatrix)
-- [`DOMMatrix.toFloat32Array()`](/de/docs/Web/API/DOMMatrix/toFloat32Array)
-- [`DOMMatrix.toFloat64Array()`](/de/docs/Web/API/DOMMatrix/toFloat64Array)
+- [`DOMMatrixReadOnly.toFloat32Array()`](/de/docs/Web/API/DOMMatrixReadOnly/toFloat32Array)
+- [`DOMMatrixReadOnly.toFloat64Array()`](/de/docs/Web/API/DOMMatrixReadOnly/toFloat64Array)
 - [`DOMMatrix.fromFloat32Array()`](/de/docs/Web/API/DOMMatrix/fromFloat32Array_static)
 - [`DOMMatrix.fromMatrix()`](/de/docs/Web/API/DOMMatrix/fromMatrix_static)

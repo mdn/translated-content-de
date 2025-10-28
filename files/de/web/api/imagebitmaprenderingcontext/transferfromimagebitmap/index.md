@@ -3,14 +3,14 @@ title: "ImageBitmapRenderingContext: transferFromImageBitmap() Methode"
 short-title: transferFromImageBitmap()
 slug: Web/API/ImageBitmapRenderingContext/transferFromImageBitmap
 l10n:
-  sourceCommit: daeff1a2efaae366bcc8b6d911d86985646e665e
+  sourceCommit: 2eaff59544a9626b153bee1042941e63417b6e54
 ---
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`ImageBitmapRenderingContext.transferFromImageBitmap()`** Methode zeigt das angegebene [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) im Canvas an, das mit diesem Rendering-Kontext verbunden ist. Der Besitz des `ImageBitmap` wird ebenfalls auf das Canvas übertragen.
+Die **`ImageBitmapRenderingContext.transferFromImageBitmap()`** Methode zeigt das angegebene [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) auf der mit diesem Rendering-Kontext verbundenen Leinwand an. Das Eigentum des `ImageBitmap` wird ebenfalls auf die Leinwand übertragen.
 
-Diese Methode hieß zuvor `transferImageBitmap()`, wurde jedoch in einer Spezifikationsänderung umbenannt. Der alte Name wird als Alias beibehalten, um Code-Brüche zu vermeiden.
+Diese Methode wurde zuvor `transferImageBitmap()` genannt, jedoch in einer Spezifikationsänderung umbenannt. Der alte Name wird als Alias beibehalten, um Codebrüche zu vermeiden.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ transferFromImageBitmap(bitmap)
 ### Parameter
 
 - `bitmap`
-  - : Ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)-Objekt, das übertragen werden soll.
+  - : Ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) Objekt zum Übertragen oder `null`. Wenn der Wert `null` ist, wird die Leinwand auf leer zurückgesetzt.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
