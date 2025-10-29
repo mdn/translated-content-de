@@ -3,10 +3,10 @@ title: Map.prototype.has()
 short-title: has()
 slug: Web/JavaScript/Reference/Global_Objects/Map/has
 l10n:
-  sourceCommit: 7b63b90d24ad8945977bb9dc2735d75f72829bc1
+  sourceCommit: 0574ac1985889d2ccce1b61e42db98d74ac1bbcb
 ---
 
-Die **`has()`** Methode von {{jsxref("WeakMap")}} Instanzen gibt einen Boolean zurück, der anzeigt, ob ein Eintrag mit dem angegebenen Schlüssel in diesem `WeakMap` existiert oder nicht.
+Die **`has()`**-Methode von {{jsxref("Map")}}-Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Eintrag mit dem angegebenen Schlüssel in dieser `Map` existiert oder nicht.
 
 {{InteractiveExample("JavaScript Demo: Map.prototype.has()")}}
 
@@ -30,11 +30,11 @@ has(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Eintrags, dessen Vorhandensein im `Map` Objekt getestet werden soll. Objekt-Schlüssel werden nach {{Glossary("Object_reference", "Referenz")}} verglichen, nicht nach Wert.
+  - : Der Schlüssel des Eintrags, dessen Vorhandensein im `Map`-Objekt überprüft werden soll. Objekt-Schlüssel werden anhand der {{Glossary("Object_reference", "Referenz")}} und nicht anhand des Werts verglichen.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn ein Eintrag mit dem angegebenen Schlüssel im `Map` Objekt existiert; andernfalls `false`.
+Gibt `true` zurück, wenn ein Eintrag mit dem angegebenen Schlüssel im `Map`-Objekt existiert; andernfalls `false`.
 
 ## Beispiele
 
