@@ -87,4 +87,4 @@ Verwendbar in allen Rollen; mit Ausnahme von Elementen mit der Rolle [`gridcell`
 
 - [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected)
 - {{cssxref(':local-link')}}
-- [Breadcrumb-Navigation mit `aria-current`](/de/docs/Web/CSS/Layout_cookbook/Breadcrumb_Navigation)
+- [Breadcrumb-Navigation mit `aria-current`](/de/docs/Web/CSS/How_to/Layout_cookbook/Breadcrumb_navigation)

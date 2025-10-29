@@ -324,7 +324,7 @@ Viele der Rasterbeispiele, die Sie online finden, gehen davon aus, dass Sie das 
 
 ### Medienobjekt-Beispiel
 
-Als Beispiel können wir ein "[Medienobjekt](/de/docs/Web/CSS/Layout_cookbook/Media_objects)" erstellen. Dies ist eine Komponente mit Platz für ein Bild oder andere Medien auf der einen Seite und Inhalt auf der anderen. Das Bild kann auf der rechten oder linken Seite der Box angezeigt werden.
+Als Beispiel können wir ein "[Medienobjekt](/de/docs/Web/CSS/How_to/Layout_cookbook/Media_objects)" erstellen. Dies ist eine Komponente mit Platz für ein Bild oder andere Medien auf der einen Seite und Inhalt auf der anderen. Das Bild kann auf der rechten oder linken Seite der Box angezeigt werden.
 
 ![Abbildungen, die ein Beispiel für ein Medienobjekt-Design zeigen](4_media_objects.png)
 

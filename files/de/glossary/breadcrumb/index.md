@@ -18,7 +18,7 @@ Brotkrümelspuren ermöglichen es Nutzern, sich ihrer Position innerhalb einer W
 
 ## Siehe auch
 
-- [Brotkrümelnavigation](/de/docs/Web/CSS/Layout_cookbook/Breadcrumb_Navigation)
+- [Brotkrümelnavigation](/de/docs/Web/CSS/How_to/Layout_cookbook/Breadcrumb_navigation)
 - [Google Search Central: Strukturierte Daten zu Brotkrümelnavigation](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb)
 - [APG Leitfaden: Beispiel zur Brotkrümelnavigation](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/)
 - [Verständnis des Erfolgskriteriums 2.4.8 | W3C Understanding WCAG 2.2](https://www.w3.org/WAI/WCAG22/Understanding/location)

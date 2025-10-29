@@ -44,7 +44,7 @@ Die [CSS-Referenz](/de/docs/Web/CSS/Reference) ist eine umfassende Referenz für
 
 ## Kochbuch
 
-Das [CSS-Layout-Kochbuch](/de/docs/Web/CSS/Layout_cookbook) zielt darauf ab, Rezepte für gängige Layoutmuster zu sammeln, Dinge, die Sie möglicherweise auf Ihren Websites implementieren müssen. Neben der Bereitstellung von Code, den Sie als Ausgangspunkt für Ihre Projekte verwenden können, heben diese Rezepte die verschiedenen Möglichkeiten hervor, wie Layout-Spezifikationen verwendet werden können und welche Entscheidungen Sie als Entwickler treffen können.
+Das [CSS-Layout-Kochbuch](/de/docs/Web/CSS/How_to/Layout_cookbook) zielt darauf ab, Rezepte für gängige Layoutmuster zu sammeln, Dinge, die Sie möglicherweise auf Ihren Websites implementieren müssen. Neben der Bereitstellung von Code, den Sie als Ausgangspunkt für Ihre Projekte verwenden können, heben diese Rezepte die verschiedenen Möglichkeiten hervor, wie Layout-Spezifikationen verwendet werden können und welche Entscheidungen Sie als Entwickler treffen können.
 
 ## Werkzeuge für die CSS-Entwicklung
 
