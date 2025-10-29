@@ -33,7 +33,7 @@ Das Setzen der Eigenschaft akzeptiert entweder ein [`TrustedScript`](/de/docs/We
 
 Die **`innerText`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces repräsentiert den Textinhalt innerhalb des {{HTMLElement("script")}}-Elements.
 
-Bei einem ausführbaren Skript (d. h. einem Skript, dessen [`type`](/de/docs/Web/API/HTMLScriptElement/type) angibt, dass es ein Modul oder klassisches Skript ist) handelt es sich bei diesem Text um inline ausführbaren Code.
+Bei einem ausführbaren Skript (d.h. einem Skript, dessen [`type`](/de/docs/Web/API/HTMLScriptElement/type) angibt, dass es ein Modul oder klassisches Skript ist) handelt es sich bei diesem Text um inline ausführbaren Code.
 Für andere Typen könnte es eine Importkarte, Spekulationsregeln oder eine andere Art von Datenblock darstellen.
 
 Beachten Sie, dass wenn die [`src`](/de/docs/Web/API/HTMLScriptElement/src)-Eigenschaft gesetzt ist, der Inhalt der `innerText`-Eigenschaft ignoriert wird.
