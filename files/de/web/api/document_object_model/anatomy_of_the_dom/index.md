@@ -30,7 +30,7 @@ Alle Knoten im DOM werden durch Objekte dargestellt, die das [`Node`](/de/docs/W
 - Die [`parentNode`](/de/docs/Web/API/Node/parentNode) Eigenschaft gibt den Elternknoten zurück oder `null`, wenn der Knoten keinen Elternteil hat.
 - Die [`childNodes`](/de/docs/Web/API/Node/childNodes) Eigenschaft gibt einen [`NodeList`](/de/docs/Web/API/NodeList) der Kindknoten zurück. Die [`firstChild`](/de/docs/Web/API/Node/firstChild) und [`lastChild`](/de/docs/Web/API/Node/lastChild) Eigenschaften geben das erste und letzte Element dieser Liste zurück, oder `null`, wenn keine Kinder vorhanden sind.
 - Die [`getRootNode()`](/de/docs/Web/API/Node/getRootNode) Methode gibt die Wurzel des Baumes zurück, der den Knoten enthält, indem sie wiederholt den Elternknoten verfolgt.
-- Die [`hasChildNodes()`](/de/docs/Web/API/Node/hasChildNodes) Methode gibt `wahr` zurück, wenn es Kindknoten hat, d. h. es ist kein Blatt.
+- Die [`hasChildNodes()`](/de/docs/Web/API/Node/hasChildNodes) Methode gibt `wahr` zurück, wenn es Kindknoten hat, d.h. es ist kein Blatt.
 - Die [`previousSibling`](/de/docs/Web/API/Node/previousSibling) und [`nextSibling`](/de/docs/Web/API/Node/nextSibling) Eigenschaften geben die vorherigen und nächsten Geschwisterknoten zurück oder `null`, wenn es kein solches Geschwister gibt.
 - Die [`contains()`](/de/docs/Web/API/Node/contains) Methode gibt `wahr` zurück, wenn ein gegebener Knoten ein Nachfahre des Knotens ist.
 - Die [`compareDocumentPosition()`](/de/docs/Web/API/Node/compareDocumentPosition) Methode vergleicht zwei Knoten nach Baumreihenfolge. Der Abschnitt [Vergleichen von Knoten](#vergleichen_von_knoten) bespricht diese Methode im Detail.
