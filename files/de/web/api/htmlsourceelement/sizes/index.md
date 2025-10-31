@@ -3,12 +3,12 @@ title: "HTMLSourceElement: sizes-Eigenschaft"
 short-title: sizes
 slug: Web/API/HTMLSourceElement/sizes
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`sizes`**-Eigenschaft der [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Schnittstelle ist ein String, der eine Liste von einer oder mehreren Größen darstellt. Diese Größen beziehen sich auf die Größen zwischen Breakpoints, auf die die Ressource angewendet wird.
+Die **`sizes`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist ein String, der eine Liste von einer oder mehreren Größen darstellt, die Größen zwischen den Breakpoints repräsentieren, auf die sich die Ressource bezieht.
 
 Sie spiegelt das `sizes`-Attribut des {{HTMLElement("source")}}-Elements wider.
 
@@ -19,12 +19,14 @@ Ein String.
 ## Beispiele
 
 ```html
-<source
-  id="el"
-  src="mediumVideo.mov"
-  type="video/quicktime"
-  sizes="(50em <= width <= 60px) 50em,
-         (30em <= width < 50em) 30em" />
+<picture>
+  <source
+    id="el"
+    srcset="medium-pic.jpg"
+    type="image/jpeg"
+    sizes="(50em <= width <= 60px) 50em,
+           (30em <= width < 50em) 30em" />
+</picture>
 ```
 
 ```js

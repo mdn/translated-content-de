@@ -3,14 +3,14 @@ title: "HTMLFormControlsCollection: namedItem() Methode"
 short-title: namedItem()
 slug: Web/API/HTMLFormControlsCollection/namedItem
 l10n:
-  sourceCommit: db32c2f103885a65715e2cce48bda44be03f44f7
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormControlsCollection.namedItem()`** Methode gibt das [`RadioNodeList`](/de/docs/Web/API/RadioNodeList) oder das [`Element`](/de/docs/Web/API/Element) in der Sammlung zurück, dessen `name` oder `id` mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Knoten übereinstimmt.
+Die **`HTMLFormControlsCollection.namedItem()`** Methode gibt die [`RadioNodeList`](/de/docs/Web/API/RadioNodeList) oder das [`Element`](/de/docs/Web/API/Element) in der Sammlung zurück, dessen `name` oder `id` mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Knoten übereinstimmt.
 
-Beachten Sie, dass diese Version von `namedItem()` die von [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) geerbte Version verbirgt. Wie diese, ist es in JavaScript, das Array-Klammer-Syntax mit einem {{jsxref("String")}} zu verwenden, wie `collection["value"]`, gleichbedeutend mit `collection.namedItem("value")`.
+Beachten Sie, dass diese Version von `namedItem()` die von [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) geerbte Methode versteckt. Wie bei dieser ist in JavaScript die Verwendung der Array-Klammer-Syntax mit einem {{jsxref("String")}}, wie `collection["value"]`, gleichbedeutend mit `collection.namedItem("value")`.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ namedItem(name)
 ### Parameter
 
 - `name`
-  - : Ein String, der verwendet wird, um mit den `name` oder `id` Attributen der Steuerelemente in diesem `HTMLFormControlsCollection` Objekt zu vergleichen.
+  - : Ein String, der verwendet wird, um mit den `name` oder `id` Attributen der Steuerelemente in diesem `HTMLFormControlsCollection` Objekt verglichen zu werden.
 
 ### Rückgabewert
 
-- Ein [`RadioNodeList`](/de/docs/Web/API/RadioNodeList), [`Element`](/de/docs/Web/API/Element) oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
+Eine [`RadioNodeList`](/de/docs/Web/API/RadioNodeList), [`Element`](/de/docs/Web/API/Element) oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
 
 ## Beispiele
 

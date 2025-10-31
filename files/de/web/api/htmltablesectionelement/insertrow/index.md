@@ -1,17 +1,17 @@
 ---
-title: "HTMLTableSectionElement: insertRow() Methode"
+title: "HTMLTableSectionElement: insertRow()-Methode"
 short-title: insertRow()
 slug: Web/API/HTMLTableSectionElement/insertRow
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`insertRow()`**-Methode des [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Interfaces fügt eine neue Zeile ({{HtmlElement("tr")}}) in das angegebene Tabellenabschnittselement ({{HTMLElement("thead")}}, {{HTMLElement("tfoot")}} oder {{HTMLElement("tbody")}}) ein und gibt dann eine Referenz auf diese neue Zeile zurück.
+Die **`insertRow()`**-Methode des [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Interfaces fügt eine neue Zeile ({{HtmlElement("tr")}}) in das gegebene Tabellenabschnittelement ({{HTMLElement("thead")}}, {{HTMLElement("tfoot")}} oder {{HTMLElement("tbody")}}) ein und gibt dann eine Referenz auf diese neue Zeile zurück.
 
-> [!NOTE] > `insertRow()` fügt die Zeile direkt in den Abschnitt ein. Die Zeile muss nicht separat angehängt werden, wie es der Fall wäre, wenn
-> [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<tr>`-Element zu erstellen.
+> [!NOTE]
+> `insertRow()` fügt die Zeile direkt in den Abschnitt ein. Die Zeile muss nicht separat angehängt werden, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<tr>`-Element zu erstellen.
 
 ## Syntax
 
@@ -23,8 +23,7 @@ insertRow(index)
 ### Parameter
 
 - `index` {{optional_inline}}
-  - : Der Zeilenindex der neuen Zeile. Wenn `index` `-1` oder gleich der Anzahl der Zeilen ist, wird die Zeile als letzte Zeile angehängt.
-    Wenn `index` weggelassen wird, ist der Standardwert `-1`.
+  - : Der Zeilenindex der neuen Zeile. Wenn `index` `-1` oder gleich der Anzahl der Zeilen ist, wird die Zeile als letzte Zeile angehängt. Wenn `index` weggelassen wird, ist der Standardwert `-1`.
 
 ### Rückgabewert
 
@@ -33,20 +32,22 @@ Ein [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement), das auf die n
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `index` größer als die Anzahl der Zeilen oder kleiner als `-1` ist.
+  - : Wird ausgelöst, wenn `index` größer ist als die Anzahl der Zeilen oder kleiner als `-1`.
 
 ## Beispiele
 
-In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen im Tabellenkörper; außerdem wird ein {{HTMLElement("output")}}-Element mit der Anzahl der aktuell in der Tabelle vorhandenen Zeilen aktualisiert.
+In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen aus dem Tabellenkörperabschnitt; es aktualisiert auch ein {{HTMLElement("output")}}-Element mit der Anzahl der derzeit in der Tabelle vorhandenen Zeilen.
 
 ### HTML
 
 ```html
 <table>
   <thead>
-    <th>Col 1</th>
-    <th>Col 2</th>
-    <th>Col 3</th>
+    <tr>
+      <th>Col 1</th>
+      <th>Col 2</th>
+      <th>Col 3</th>
+    </tr>
   </thead>
   <tbody>
     <tr>

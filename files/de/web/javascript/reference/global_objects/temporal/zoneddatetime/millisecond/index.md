@@ -3,14 +3,14 @@ title: Temporal.ZonedDateTime.prototype.millisecond
 short-title: millisecond
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/millisecond
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{SeeCompatTable}}
 
-Die **`millisecond`** Zugriffs-Eigenschaft von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine ganze Zahl von 0 bis 999 zurück, die die Millisekundenkomponente (10<sup>-3</sup> Sekunde) dieser Zeit darstellt.
+Die **`millisecond`** Zugriffseigenschaft von {{jsxref("Temporal.ZonedDateTime")}} Instanzen gibt eine ganze Zahl von 0 bis 999 zurück, die die Millisekunden-Komponente (10<sup>-3</sup> Sekunden) dieser Zeit darstellt.
 
-Der set-Accessor von `millisecond` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}} Methode, um ein neues `Temporal.ZonedDateTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Zugriffsmodifikator von `millisecond` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die {{jsxref("Temporal/ZonedDateTime/with", "with()")}} Methode, um ein neues `Temporal.ZonedDateTime` Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 Für allgemeine Informationen und weitere Beispiele siehe {{jsxref("Temporal/PlainTime/millisecond", "Temporal.PlainTime.prototype.millisecond")}}.
 

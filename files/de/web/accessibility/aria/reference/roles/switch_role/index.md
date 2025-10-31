@@ -3,10 +3,10 @@ title: "ARIA: switch Rolle"
 short-title: switch
 slug: Web/Accessibility/ARIA/Reference/Roles/switch_role
 l10n:
-  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
-Die ARIA **`switch`** Rolle ist funktional identisch mit der [checkbox](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role) Rolle, mit dem Unterschied, dass sie anstelle der eher allgemein gehaltenen Zustände "checked" und "unchecked" die Zustände "on" und "off" repräsentiert.
+Die ARIA **`switch`** Rolle ist funktional identisch mit der [checkbox](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role) Rolle, mit dem Unterschied, dass anstelle der Zustände "geprüft" und "ungeprüft", die relativ generisch sind, die `switch` Rolle die Zustände "ein" und "aus" repräsentiert.
 
 Dieses Beispiel erstellt ein Widget und weist ihm die ARIA `switch` Rolle zu.
 
@@ -18,81 +18,81 @@ Dieses Beispiel erstellt ein Widget und weist ihm die ARIA `switch` Rolle zu.
   id="speakerPower"
   class="switch">
   <span aria-hidden="true">off</span>
-  <span aria-hidden="true">on</span>
+  <span aria-hidden="false">on</span>
 </button>
 <label for="speakerPower" class="switch">Speaker power</label>
 ```
 
 ## Beschreibung
 
-Die ARIA **`switch`** Rolle ist identisch mit der [checkbox](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role) Rolle, außer dass sie anstelle von "checked" oder "unchecked", entweder "on" oder "off" ist. Wie bei der [checkbox](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role) Rolle ist das Attribut [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) erforderlich. Die beiden möglichen Werte sind `true` und `false`. Im Gegensatz zu einem `<input type="checkbox">` oder `role="checkbox"` gibt es keinen `indeterminate` oder `mixed` Zustand. Die `switch` Rolle unterstützt nicht den Wert `mixed` für das `aria-checked` Attribut; die Zuweisung eines `mixed` Wertes zu einem `switch` setzt den Wert stattdessen auf `false`.
+Die ARIA **`switch`** Rolle ist identisch mit der [checkbox](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role) Rolle, außer dass es anstelle von "checked" oder "unchecked" entweder "on" oder "off" ist. Wie bei der [checkbox](/de/docs/Web/Accessibility/ARIA/Reference/Roles/checkbox_role) Rolle ist das [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) Attribut erforderlich. Die beiden möglichen Werte sind `true` und `false`. Im Gegensatz zu einem `<input type="checkbox">` oder `role="checkbox"` gibt es keinen `indeterminate` oder `mixed` Zustand. Die `switch` Rolle unterstützt den Wert `mixed` für das `aria-checked` Attribut nicht; eine Zuweisung von `mixed` zu einem `switch` setzt den Wert stattdessen auf `false`.
 
-Hilfstechnologien können wählen, `switch` Widgets mit einer speziellen Präsentation darzustellen, um das Konzept eines Ein-/Ausschalters widerzuspiegeln.
+Assistive Technologien können wählen, `switch` Widgets mit einer speziellen Präsentation darzustellen, um die Vorstellung eines Ein-/Ausschalters zu reflektieren.
 
-Da ein Switch ein interaktives Steuerelement ist, muss er fokussierbar und über die Tastatur zugänglich sein. Wenn die Rolle einem nicht fokussierbaren Element zugewiesen ist, verwenden Sie das `tabindex` Attribut, um dies zu ändern. Die erwartete Tastenkombination zum Umschalten des Werts eines Switches ist die <kbd>Leertaste</kbd> Taste. Der Entwickler ist dafür verantwortlich, den Wert des `aria-checked` Attributs dynamisch zu ändern, wenn der Switch umgeschaltet wird.
+Da ein Schalter ein interaktives Bedienelement ist, muss er fokussierbar und per Tastatur zugänglich sein. Wenn die Rolle einem nicht fokussierbaren Element zugewiesen wird, verwenden Sie das `tabindex` Attribut, um dies zu ändern. Die erwartete Tastenkombination zum Umschalten des Wertes eines Schalters ist die <kbd>Space</kbd> Taste. Der Entwickler muss den Wert des `aria-checked` Attributs dynamisch ändern, wenn der Schalter umgeschaltet wird.
 
-### Alle Nachkommen sind präsentational
+### Alle Nachfahren sind präsentatisch
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in eine Plattform-Zugänglichkeits-API übersetzt werden, nur Text enthalten können. Zugänglichkeits-APIs haben keine Möglichkeit, semantische Elemente, die in einem `switch` enthalten sind, darzustellen. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachkommenelemente eines `switch` Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
+Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Zugänglichkeits-API dargestellt werden, nur Text enthalten können. Zugänglichkeits-APIs haben keine Möglichkeit, semantische Elemente in einem `switch` zu repräsentieren. Um mit dieser Einschränkung umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachkomponentelemente eines beliebigen `switch` Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
 
-Betrachten Sie zum Beispiel das folgende `switch` Element, das eine Überschrift enthält.
+Beispielsweise betrachten Sie das folgende `switch` Element, das eine Überschrift enthält.
 
 ```html
 <div role="switch"><h3>Title of my switch</h3></div>
 ```
 
-Da Nachkommen von `switch` präsentational sind, ist der folgende Code äquivalent:
+Da Nachkommen von `switch` präsentatisch sind, ist der folgende Code äquivalent:
 
 ```html
 <div role="switch"><h3 role="presentation">Title of my switch</h3></div>
 ```
 
-Aus Sicht der Benutzer von Hilfstechnologien existiert die Überschrift nicht, da die vorherigen Code-Snippets im {{Glossary("Accessibility_tree", "barrierefreien Baum")}} dem folgenden entsprechen:
+Aus der Perspektive des Benutzers von assistiver Technologie existiert die Überschrift nicht, da die vorherigen Codeausschnitte dem folgenden im {{Glossary("Accessibility_tree", "Zugänglichkeitsbaum")}} entsprechen:
 
 ```html
 <div role="switch">Title of my switch</div>
 ```
 
-### Zugehörige ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige ARIA Rollen, Zustände und Eigenschaften
 
 - [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked) Attribut
-  - : Das `aria-checked` Attribut ist **erforderlich** bei der Verwendung der `switch` Rolle, da es den aktuellen Zustand des Widgets darstellt, auf das die `switch` Rolle angewendet wird. Ein Wert von `true` repräsentiert den "on" Zustand; `false` repräsentiert den "off" Zustand; ein Wert von `mixed` wird von der `switch` Rolle nicht unterstützt und wird als `false` behandelt.
+  - : Das `aria-checked` Attribut ist **erforderlich**, wenn die `switch` Rolle verwendet wird, da es den aktuellen Zustand des Widgets darstellt, dem die `switch` Rolle zugewiesen ist. Ein Wert von `true` repräsentiert den "ein" Zustand; `false` repräsentiert den "aus" Zustand; ein Wert `mixed` wird von der `switch` Rolle nicht unterstützt und als `false` behandelt.
 - [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly) Attribut
-  - : Das `aria-readonly` Attribut wird von der `switch` Rolle unterstützt. Es zeigt an, ob der Zustand des Widgets vom Benutzer bearbeitbar ist oder nicht. Ein Wert von `false` bedeutet, dass der Benutzer den Zustand des Widgets ändern _kann_; ein Wert von `true` bedeutet, dass der Benutzer den Zustand des Widgets _nicht ändern_ kann. Der Standardwert ist `false`.
+  - : Das `aria-readonly` Attribut wird von der `switch` Rolle unterstützt. Es zeigt an, ob der Zustand des Widgets vom Benutzer bearbeitet werden kann. Ein Wert von `false` bedeutet, dass der Benutzer den Zustand des Widgets _ändern_ kann; ein Wert von `true` bedeutet, dass der Benutzer den Zustand des Widgets _nicht ändern_ kann. Der Standardwert ist `false`.
 
 ### Erforderliche JavaScript-Funktionen
 
-- Handler für Klick-Events
-  - : Wenn der Benutzer auf das Switch-Widget klickt, wird ein [Klick-Event](/de/docs/Web/API/Element/click_event) ausgelöst, das gehandhabt werden muss, um den Zustand des Widgets zu ändern.
-- Ändern des `aria-checked` Attributs
-  - : Wenn ein Klick-Event auf dem Switch-Widget ausgelöst wird, muss der Handler den Wert des `aria-checked` Attributs von `true` auf `false` oder umgekehrt ändern.
+- Handler für Klickereignisse
+  - : Wenn der Benutzer auf das Switch-Widget klickt, wird ein [click event](/de/docs/Web/API/Element/click_event) ausgelöst, das behandelt werden muss, um den Zustand des Widgets zu ändern.
+- Änderung des `aria-checked` Attributs
+  - : Wenn ein Klickereignis auf dem Switch-Widget ausgelöst wird, muss der Handler den Wert des `aria-checked` Attributs von `true` auf `false` oder umgekehrt ändern.
 
-## Mögliche Auswirkungen auf Benutzeragenten und Hilfstechnologie
+## Mögliche Auswirkungen auf Benutzeragenten und assistive Technologie
 
-Wenn der `switch` Rolle einem Element hinzugefügt wird, behandelt der {{Glossary("user_agent", "Benutzeragent")}} es so:
+Wenn die `switch` Rolle zu einem Element hinzugefügt wird, behandelt der {{Glossary("user_agent", "Benutzeragent")}} dies folgendermaßen:
 
-- Das Element wird dem Zugangsinfrastruktur des Systems als `switch` Rolle bereitgestellt.
-- Wenn sich der Wert des `aria-checked` Attributs ändert, wird ein zugängliches Ereignis unter Verwendung der Zugänglichkeits-API des Systems ausgelöst, falls eine vorhanden ist und sie die `switch` Rolle unterstützt.
-- Alle Elemente, die Nachkommen eines Elements mit der angewandten `switch` Rolle sind, erhalten automatisch die Rolle `presentation`. Dies verhindert, dass Elemente, die zur Konstruktion des Switches verwendet werden, individuell von Hilfstechnologien angesprochen werden können. Text in diesen Elementen bleibt für den Benutzeragenten sichtbar und kann gelesen oder anderweitig dem Benutzer unterbreitet werden, es sei denn, er ist ausdrücklich mit {{cssxref("display", "display: none")}} oder `aria-hidden="true"` ausgeblendet.
+- Das Element wird dem System-Zugänglichkeitsinfrastruktur als Element mit der `switch` Rolle vorgestellt.
+- Wenn sich der Wert des `aria-checked` Attributs ändert, wird ein zugängliches Ereignis über die System-Zugänglichkeits-API ausgelöst, falls eine vorhanden ist und die `switch` Rolle unterstützt.
+- Allen Elementen, die Nachkommen eines Elements mit der `switch` Rolle sind, wird automatisch die Rolle `presentation` zugewiesen. Dies verhindert, dass Elemente, die zur Konstruktion des Schalters verwendet werden, individuell von assistiven Technologien angesprochen werden. Der Text in diesen Elementen bleibt dem Benutzeragenten sichtbar und kann gelesen oder anderweitig dem Benutzer übermittelt werden, es sei denn, er wird ausdrücklich durch {{cssxref("display", "display: none")}} oder `aria-hidden="true"` versteckt.
 
-Die Hilfstechnologie, sofern sie die `switch` Rolle unterstützt, reagiert folgendermaßen:
+Die assistive Technologie, falls sie die `switch` Rolle unterstützt, reagiert, indem sie folgendes tut:
 
-- Bildschirmleseprogramme sollten das Element als Schalter ankündigen und optional Anweisungen zum Aktivieren des Schalters bereitstellen.
+- Bildschirmlesegeräte sollten das Element als Schalter ankündigen und optional Anweisungen geben, wie der Schalter aktiviert werden kann.
 
 > [!NOTE]
-> Es gibt unterschiedliche Meinungen darüber, wie Hilfstechnologien mit dieser Rolle umgehen sollten; das Obige ist eine empfohlene Praxis und kann sich von anderen Quellen unterscheiden.
+> Es gibt unterschiedliche Meinungen darüber, wie diese Rolle von assistiven Technologien behandelt werden sollte; das obige ist eine empfohlene Praxis und kann von anderen Quellen abweichen.
 
 ## Beispiele
 
-Die folgenden Beispiele sollen Ihnen helfen zu verstehen, wie Sie die `switch` Rolle anwenden und verwenden können.
+Die folgenden Beispiele sollen Ihnen helfen, zu verstehen, wie Sie die `switch` Rolle anwenden und nutzen können.
 
-### Hinzufügen der switch Rolle in ARIA
+### Die switch Rolle in ARIA hinzufügen
 
-Dieses Beispiel erstellt ein Widget und weist ihm die ARIA `switch` Rolle zu. Die Schaltfläche wird mit einem Aussehen gestaltet, das an einen Ein-/Ausschalter erinnert.
+Dieses Beispiel erstellt ein Widget und weist ihm die ARIA `switch` Rolle zu. Die Schaltfläche ist im Stil eines Ein/Aus-Netzschalters gestaltet.
 
 #### HTML
 
-Ein Schalter wird als {{HTMLElement("button")}} Element implementiert, das anfänglich als überprüft markiert ist, da sein `aria-checked` Attribut auf `"true"` gesetzt ist. Der Schalter hat zwei Kindelemente, die die "off" und "on" Beschriftungen enthalten, und wird von einem {{HTMLElement("label")}} begleitet, das den Schalter identifiziert.
+Ein Schalter wird als {{HTMLElement("button")}} Element implementiert, das anfangs überprüft wird, da sein `aria-checked` Attribut auf `"true"` gesetzt ist. Der Schalter hat zwei Kindelemente, die die "off" und "on" Beschriftungen enthalten und wird durch ein {{HTMLElement("label")}} identifiziert, das den Schalter beschreibt.
 
 ```html
 <button role="switch" aria-checked="true" id="speakerPower" class="switch">
@@ -104,7 +104,7 @@ Ein Schalter wird als {{HTMLElement("button")}} Element implementiert, das anfä
 
 #### JavaScript
 
-Dieser JavaScript-Code definiert und wendet eine Funktion zum Behandeln von Klick-Events auf Switch-Widgets an. Die Funktion ändert das `aria-checked` Attribut von `true` auf `false` oder umgekehrt.
+Dieser JavaScript-Code definiert und wendet eine Funktion an, um Klickereignisse auf Switch-Widgets zu behandeln. Die Funktion ändert das `aria-checked` Attribut von `true` auf `false` oder umgekehrt.
 
 ```js
 document.querySelectorAll(".switch").forEach((theSwitch) => {
@@ -124,7 +124,7 @@ function handleClickEvent(evt) {
 
 #### CSS
 
-Der Zweck des CSS ist es, ein Aussehen und Gefühl für den Schalter zu etablieren, das an das Ein-/Ausschalter-Paradigma erinnert.
+Der Zweck des CSS besteht darin, ein Look-and-Feel für den Schalter zu etablieren, das an das Paradigma des Netzschalters erinnert.
 
 ```css
 button.switch {
@@ -170,11 +170,11 @@ label.switch {
 }
 ```
 
-Der interessanteste Teil ist wahrscheinlich die Verwendung von Attributselektoren und den {{cssxref(":first-child")}} und {{cssxref(":last-child")}} Pseudoklassen, um das Erscheinungsbild des Schalters je nach Zustand zu ändern.
+Der interessanteste Teil ist wahrscheinlich die Verwendung von Attributselektoren und den {{cssxref(":first-child")}} und {{cssxref(":last-child")}} Pseudoklassen, um die gesamte Änderung des Erscheinungsbildes des Schalters abhängig davon, ob er ein- oder ausgeschaltet ist, zu leisten.
 
 #### Ergebnis
 
-Das Ergebnis sieht so aus:
+Das Ergebnis sieht folgendermaßen aus:
 
 {{EmbedLiveSample("Adding_the_switch_role_in_ARIA", 600, 40)}}
 

@@ -1,14 +1,17 @@
 ---
-title: "FileSystemEntry: toURL() Methode"
+title: "FileSystemEntry: toURL()-Methode"
 short-title: toURL()
 slug: Web/API/FileSystemEntry/toURL
 l10n:
-  sourceCommit: cbe4c570701052c120808ea54c24c46ec9734084
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{APIRef("File and Directory Entry API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die Methode **`toURL()`** des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) Interfaces erstellt und gibt einen String zurück, der eine URL enthält, die zur Identifizierung des Dateisystemeintrags verwendet werden kann. Dies erfolgt durch die Einführung eines neuen URL-Schemas—`filesystem:`—das als Wert der `src` und `href` Attribute verwendet werden kann.
+Die Methode **`toURL()`** des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Interfaces erstellt und
+gibt einen String zurück, der eine URL enthält, die genutzt werden kann, um den Dateisystemeintrag zu identifizieren.
+Dies geschieht, indem ein neues URL-Schema—`filesystem:`—freigelegt wird, das als
+Wert der `src`- und `href`-Attribute verwendet werden kann.
 
 ## Syntax
 
@@ -20,30 +23,39 @@ toURL(mimeType)
 ### Parameter
 
 - `mimeType` {{optional_inline}}
-  - : Ein optionaler String, der den MIME-Typ angibt, der bei der Interpretation der Datei verwendet werden soll. Dies kann verwendet werden, um mit Dateien umzugehen, deren Typen nicht automatisch vom Benutzeragenten erkannt werden. Wenn dieser Parameter weggelassen wird, verwendet der Benutzeragent seine Standardalgorithmen, um die Datei zu identifizieren.
+  - : Ein optionaler String, der den MIME-Typ angibt, der beim Interpretieren der Datei verwendet werden soll. Dies
+    kann hilfreich sein, um mit Dateien umzugehen, deren Typen vom Benutzeragenten nicht automatisch erkannt werden. Wenn dieser Parameter weggelassen wird, verwendet der Benutzeragent seine Standardalgorithmen zur Erkennung der Datei.
 
 ### Rückgabewert
 
-Ein String, der eine URL enthält, die dann als Dokumentreferenz in HTML-Inhalten verwendet werden kann, oder ein leerer String, wenn die URL nicht generiert werden kann (z.B. wenn die Dateisystemimplementierung `toURL()` nicht unterstützt).
+Ein String, der eine URL enthält, die dann als Dokumentreferenz in HTML-Inhalten verwendet werden kann, oder ein leerer String, wenn die URL nicht generiert werden kann (zum Beispiel, wenn die Dateisystemimplementierung `toURL()` nicht unterstützt).
 
 ## Beispiele
 
-Wenn Sie ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) haben, das einer Bilddatei in einem Dateisystem entspricht, das Ihrer Website oder App zur Verfügung steht, können Sie `toURL()` aufrufen, um ihre URL für die Verwendung in HTML zu erhalten. Wenn sich Ihre Seite unter `http://my-awesome-website.woot` befindet und Sie ein temporäres Dateisystem haben, das eine Bilddatei namens `awesome-sauce.jpg` enthält, könnte die von `toURL()` zurückgegebene URL (abhängig von der Implementierung des Browsers) ungefähr so aussehen: `"filesystem:http://my-awesome-website.woot/temporary/awesome-sauce.jpg"`.
+Wenn Sie einen [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) haben, der einer Bilddatei in einem
+für Ihre Website oder App verfügbaren Dateisystem entspricht, können Sie `toURL()` aufrufen, um
+deren URL zur Verwendung in HTML zu erhalten. Wenn Ihre Website unter
+`http://my-awesome-website.woot` gelegen ist und Sie ein temporäres Dateisystem haben, das
+eine Bilddatei namens `awesome-sauce.jpg` enthält, könnte die von
+`toURL()` zurückgegebene URL (abhängig von der Implementierung des Browsers) etwa
+`"filesystem:http://my-awesome-website.woot/temporary/awesome-sauce.jpg"` lauten.
 
-Code, der dies nutzt, könnte folgendermaßen aussehen:
+Code, der dies verwendet, könnte so aussehen:
 
 ```js
-let img = document.createElement("img");
-
+const img = document.createElement("img");
 img.src = imageFileEntry.toURL();
+img.alt = "";
 document.body.appendChild(img);
 ```
 
-Angenommen, das zuvor erwähnte Szenario vor dem Code wird umgesetzt, würde das Ergebnis HTML wie dieses sein, das an das Ende des Dokuments angehängt wird:
+Angenommen, das oben erwähnte Szenario ist der Fall, wäre das Ergebnis HTML, das
+wie folgt aussieht und an das Ende des Dokuments angehängt wird:
 
 ```html
 <img
-  src="filesystem:http://my-awesome-website.woot/temporary/awesome-sauce.jpg" />
+  src="filesystem:http://my-awesome-website.woot/temporary/awesome-sauce.jpg"
+  alt="" />
 ```
 
 ## Browser-Kompatibilität

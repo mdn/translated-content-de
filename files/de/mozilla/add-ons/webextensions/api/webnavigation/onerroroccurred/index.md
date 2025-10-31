@@ -2,10 +2,10 @@
 title: webNavigation.onErrorOccurred
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/onErrorOccurred
 l10n:
-  sourceCommit: 14c57deab8b4924b564a15f3aef6bfb2a1834a46
+  sourceCommit: dec39bc3ee8676967dac28821f58c7c1d4a32d7d
 ---
 
-Ausgelöst, wenn ein Fehler auftritt und die Navigation abgebrochen wird. Dies kann passieren, wenn entweder ein Netzwerkfehler aufgetreten ist oder der Benutzer die Navigation abgebrochen hat.
+Wird ausgelöst, wenn ein Fehler auftritt und die Navigation abgebrochen wird. Dies kann passieren, wenn entweder ein Netzwerkfehler aufgetreten ist oder der Benutzer die Navigation abgebrochen hat.
 
 ## Syntax
 
@@ -23,9 +23,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`, `addListener(listener, filter)`
   - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Hört auf, auf dieses Ereignis zu hören. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Hören Sie auf, diesem Ereignis zu lauschen. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, sonst `false`.
+  - : Überprüfen Sie, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -36,39 +36,47 @@ Ereignisse haben drei Funktionen:
 
     Die `listener`-Funktion wird mit diesen Argumenten aufgerufen:
     - `details`
-      - : [`object`](#details). Details zum Navigationsevent. **`details`** hat die folgenden Eigenschaften:
+      - : [`object`](#details). Details über das Navigationsevent. **`details`** hat die folgenden Eigenschaften:
         - `tabId`
-          - : `integer`. Die ID des Tabs, in dem die Navigation stattfand.
+          - : `integer`. Die ID des Tabs, in dem sich die Navigation befand.
         - `url`
           - : `string`. Die URL, zu der der gegebene Frame navigierte.
-        - `processId` {{optional_inline}} {{deprecated_inline}}
-          - : `integer`. Dieser Wert wird in modernen Browsern nie gesetzt. Er diente dazu, die ID des Prozesses darzustellen, der den Renderer für diesen Tab ausführte.
         - `frameId`
-          - : `integer`. Frame, in dem die Navigation stattfand.
+          - : `integer`. Frame, in dem sich die Navigation befand.
 
-            `0` zeigt an, dass die Navigation im obersten Browsingkontext des Tabs stattfand, nicht in einem verschachtelten {{HTMLElement("iframe")}}.
+            `0` zeigt an, dass die Navigation im obersten Browsing-Kontext des Tabs und nicht in einem verschachtelten {{HTMLElement("iframe")}} stattfand.
 
             Ein positiver Wert zeigt an, dass die Navigation in einem verschachtelten iframe stattfand.
 
             Frame-IDs sind für einen gegebenen Tab und Prozess eindeutig.
 
+        - `frameType`
+          - : `string`. Der Typ des Frames, in dem die Navigation erfolgte. Gibt die Werte `"outermost_frame"`, `"fenced_frame"` und `"sub_frame"` zurück.
         - `parentFrameId`
-          - : `integer`. ID des übergeordneten Frames. Auf `-1` gesetzt, wenn dies ein oberster Frame ist.
+          - : `integer`. ID des übergeordneten Frames dieses Frames. Setzt auf `-1`, wenn dies ein oberster Frame ist.
+        - `documentId`
+          - : `string`. Eine UUID des geladenen Dokuments.
+        - `parentDocumentId`
+          - : `string`. Eine UUID des übergeordneten Dokuments, das den Frame besitzt. Nicht gesetzt, wenn es keine übergeordnete gibt.
+        - `documentLifecycle`
+          - : `string`. Der Lebenszyklus, in dem sich das Dokument befindet. Gibt die Werte `"prerender"`, `"active"`, `"cached"` und `"pending_deletion"` zurück.
         - `timeStamp`
-          - : `number`. Der Zeitpunkt, zu dem der Fehler auftrat, in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit).
+          - : `number`. Die Zeit, zu der der Fehler aufgetreten ist, in [Millisekunden seit der Unix-Epoche](https://en.wikipedia.org/wiki/Unix_time).
+        - `processId` {{optional_inline}} {{deprecated_inline}}
+          - : `integer`. Dieser Wert wird in modernen Browsern nie gesetzt. Er repräsentierte früher die ID des Prozesses, der den Renderer für diesen Tab ausführt.
         - `error`
-          - : `string`. Der Fehlercode. Dies ist ein interner Fehlercode und es ist nicht garantiert, dass er konsistent bleibt oder von einem Browser zum anderen gleich ist.
+          - : `string`. Der Fehlercode. Dies ist ein interner Fehlercode und wird nicht garantiert gleich zu bleiben oder zwischen verschiedenen Browsern konsistent zu sein.
 
 - `filter` {{optional_inline}}
-  - : `object`. Ein Objekt, das eine einzige Eigenschaft `url` enthält, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}}-Objekten ist.
+  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist.
 
-    Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mit mindestens einem `UrlFilter` im Array übereinstimmen.
+    Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen.
 
     Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
 
 ## Beispiele
 
-Protokolliert die Ziel-URLs für `onErrorOccurred`, wenn der `hostname` der Ziel-URL `"example.com"` enthält oder mit `"developer"` beginnt.
+Protokolliert die Ziel-URLs für `onErrorOccurred`, wenn der Ziel-URL-`hostname` `"example.com"` enthält oder mit `"developer"` beginnt.
 
 ```js
 const filter = {
@@ -90,7 +98,7 @@ browser.webNavigation.onErrorOccurred.addListener(logOnErrorOccurred, filter);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate)-API von Chromium. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

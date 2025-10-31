@@ -3,14 +3,14 @@ title: "HTMLSourceElement: src-Eigenschaft"
 short-title: src
 slug: Web/API/HTMLSourceElement/src
 l10n:
-  sourceCommit: da9701a81a92538abef8763e69d88158e6215703
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`src`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist ein String, der die URL einer Mediendatei angibt, die als Quelle für das Element verwendet werden soll.
+Die **`src`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist ein String, der die URL einer Medienressource angibt, die als Quelle für das Element verwendet werden soll.
 
-Sie spiegelt das `src`-Attribut des {{HTMLElement("source")}}-Elements wider, das in einem {{htmlelement("audio")}}- oder {{htmlelement("video")}}-Element eingebettet ist. Es hat keine Bedeutung und wird ignoriert, wenn es in einem {{htmlelement("picture")}}-Element eingebettet ist.
+Sie spiegelt das `src`-Attribut des {{HTMLElement("source")}}-Elements wider, das in ein {{htmlelement("audio")}}- oder {{htmlelement("video")}}-Element eingebettet ist. Sie hat keine Bedeutung und wird ignoriert, wenn sie in ein {{htmlelement("picture")}}-Element eingebettet ist.
 
 ## Wert
 
@@ -19,11 +19,13 @@ Ein String; die URL einer Quellenressource, die im Element verwendet werden soll
 ## Beispiele
 
 ```html
-<source
-  id="el"
-  src="large.webp"
-  type="video/webp"
-  media="screen and (600px <= width <= 800px)" />
+<video>
+  <source
+    id="el"
+    src="large.webp"
+    type="video/webp"
+    media="screen and (600px <= width <= 800px)" />
+</video>
 ```
 
 ```js

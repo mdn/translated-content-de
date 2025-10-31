@@ -1,17 +1,17 @@
 ---
-title: Verwendung von CSS Custom Functions
+title: Verwendung von benutzerdefinierten CSS-Funktionen
 slug: Web/CSS/CSS_custom_functions_and_mixins/Using_custom_functions
 l10n:
-  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
+  sourceCommit: 55326f330a6ae829494c7606b1bd47b2c0f9d888
 ---
 
-CSS-Custom-Functions ermöglichen es Ihnen, wiederverwendbare CSS-Codeblöcke zu erstellen, die Argumente akzeptieren, komplexe Logik enthalten können (definiert durch Funktionen wie CSS-{{cssxref("if()")}}-Funktionen und {{cssxref("@media")}}-Regeln) und Werte basierend auf dieser Logik zurückgeben. Sie funktionieren ähnlich wie [CSS-Custom-Properties](/de/docs/Web/CSS/Reference/Properties/--*), bieten jedoch mehr Flexibilität.
+Benutzerdefinierte CSS-Funktionen ermöglichen es Ihnen, wiederverwendbare Blöcke von CSS-Code zu erstellen, die Argumente akzeptieren, komplexe Logik enthalten können (definiert durch Funktionen wie CSS {{cssxref("if()")}} und {{cssxref("@media")}} at-Regeln) und basierend auf dieser Logik Werte zurückgeben. Sie funktionieren ähnlich wie [CSS-Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*), bieten jedoch mehr Flexibilität.
 
-In diesem Artikel zeigen wir Ihnen, wie Sie sie verwenden können und präsentieren einige praxisnahe Beispiele.
+In diesem Artikel zeigen wir Ihnen, wie Sie sie verwenden, und präsentieren einige praktische Beispiele.
 
-## Grundlagen der Funktion
+## Grundlegendes zu Funktionen
 
-Eine grundlegende Definition einer CSS-Custom-Function sieht folgendermaßen aus:
+Eine grundlegende Definition einer benutzerdefinierten CSS-Funktion sieht so aus:
 
 ```css
 @function --half-opacity() {
@@ -19,24 +19,24 @@ Eine grundlegende Definition einer CSS-Custom-Function sieht folgendermaßen aus
 }
 ```
 
-Nach der `@function`-Syntax definieren wir einen Namen für die Funktion: `--half-opacity`. Dieser muss vom Typ {{cssxref("&lt;dashed-ident>")}} sein – er muss mit doppeltem Bindestrich beginnen und ist case-sensitiv. Der Funktionsname wird direkt gefolgt von einem Satz Klammern (`()`) und einem Satz geschweifter Klammern (`{}`).
+Nach der `@function`-Syntax definieren wir einen Namen für die Funktion: `--half-opacity`. Dies muss ein {{cssxref("&lt;dashed-ident>")}} Type sein — es muss mit einem Doppeldash beginnen und ist case-sensitive. Der Funktionsname wird unmittelbar gefolgt von einem Satz Klammern (`()`) und einem Satz geschweifter Klammern (`{}`).
 
 > [!NOTE]
-> Wenn mehreren CSS-Funktionen derselbe Name gegeben wird, gewinnt die Funktion in der stärkeren Kaskadierung ({{cssxref("@layer")}}). Wenn alle in derselben Schicht sind, gewinnt die zuletzt definierte Funktion in der Quelldatei.
+> Wenn mehrere CSS-Funktionen denselben Namen haben, gewinnt die Funktion in der stärkeren Kaskade {{cssxref("@layer")}}. Wenn alle in derselben Ebene sind, gewinnt die zuletzt in der Quellreihenfolge definierte Funktion.
 
-Innerhalb der geschweiften Klammern befindet sich der **Funktionstext**, in dem die Logik der Funktion definiert wird. Dieser kann mehrere Deklarationen enthalten, einschließlich benutzerdefinierter Properties (die lokal auf den Funktionstext beschränkt sind), @-Regeln wie {{cssxref("@media")}} und den [`result`](/de/docs/Web/CSS/@function#result_2)-Deskriptor. Der Wert des `result`-Deskriptors wird ausgewertet, um den von der Funktion zurückgegebenen Wert zu bestimmen.
+Innerhalb der geschweiften Klammern befindet sich der **Funktionskörper**, in dem die Logik der Funktion definiert wird. Dieser kann mehrere Deklarationen enthalten, einschließlich benutzerdefinierter Eigenschaften (die lokal auf den Funktionskörper beschränkt sind), at-Regeln wie {{cssxref("@media")}}, und den [`result`](/de/docs/Web/CSS/@function#result_2) Deskriptor. Der Wert des `result`-Deskriptors wird ausgewertet, um den von der Funktion zurückgegebenen Wert zu bestimmen.
 
-Hier setzen wir `result` auf den Wert `0.5`: Die `--half-opacity()`-Funktion wird immer `0.5` zurückgeben.
+Hier setzen wir `result` auf den Wert `0.5`: die Funktion `--half-opacity()` wird immer `0.5` zurückgeben.
 
 ### Warum "result" und nicht "return"?
 
-Der `result`-Deskriptor klingt in seiner Funktionalität ähnlich wie die JavaScript-Funktion [`return`](/de/docs/Web/JavaScript/Reference/Statements/return). Allerdings wird `return` in CSS-Funktionen nicht verwendet. Dies liegt daran, dass CSS-Funktionen im Gegensatz zu JavaScript-`return`-Anweisungen keinen Wert zurückgeben, sobald eine `result`-Deklaration erreicht wird.
+Der `result`-Deskriptor klingt ähnlich der JavaScript-Funktion [`return`](/de/docs/Web/JavaScript/Reference/Statements/return) Anweisung. In CSS-Funktionen wird jedoch `return` nicht verwendet, da im Gegensatz zu JavaScript-`return`-Anweisungen CSS-Funktionen keinen Wert zurückgeben, sobald eine `result`-Deklaration erreicht wird.
 
-Der Funktionstext einer CSS-Funktion wird von Anfang bis Ende ausgewertet. Wenn mehrere `result`-Deklarationen im Text enthalten sind, überschreibt die letzte in der Quelldatei die vorherigen.
+Der Körper einer CSS-Funktion wird von Anfang bis Ende ausgewertet. Wenn mehrere `result`-Deklarationen im Körper enthalten sind, überschreibt die letzte in der Quellreihenfolge die früheren.
 
 ### Aufrufen einer CSS-Funktion
 
-Eine CSS-Funktion kann anstelle eines geeigneten Eigenschaftswerts mit der {{cssxref("&lt;dashed-function>")}}-Syntax aufgerufen werden, die aus dem Funktionsnamen besteht, gefolgt von Klammern, die die an die Funktion zu übergebenden Argumente enthalten, falls vorhanden. Zum Beispiel können wir unsere `--half-opacity()`-Funktion so aufrufen:
+Eine CSS-Funktion kann anstelle eines geeigneten Eigenschaftswertes mit der {{cssxref("&lt;dashed-function>")}}-Syntax aufgerufen werden, die aus dem Funktionsnamen gefolgt von Klammern besteht, die die Argumente enthalten, die an die Funktion übergeben werden sollen, falls vorhanden. Zum Beispiel können wir unsere Funktion `--half-opacity()` so aufrufen:
 
 ```css
 h2 {
@@ -44,13 +44,13 @@ h2 {
 }
 ```
 
-Da diese Funktion immer den Wert `0.5` zurückgibt, entspricht die vorherige Deklaration `opacity: 0.5`. Dies ist nicht sehr nützlich. Sie könnten genauso gut eine benutzerdefinierte Property oder den wörtlichen Wert `0.5` verwenden.
+Da diese Funktion immer den Wert `0.5` zurückgibt, entspricht die vorherige Deklaration `opacity: 0.5`. Dies ist nicht sehr nützlich. Man könnte genauso gut eine benutzerdefinierte Eigenschaft verwenden oder den literalen Wert `0.5`.
 
-Lassen Sie uns weitersehen, wie wir CSS-Funktionen verwenden können.
+Lassen Sie uns fortfahren und sehen, wie wir CSS-Funktionen verwenden können.
 
-## Erkennen von Funktionen in CSS
+## Funktionen zur Feature-Erkennung
 
-Ein praktischer Nutzen von CSS-Funktionen ohne Parameter liegt in der Funktionserkennung. In allen [Beispielen, die wir uns ansehen werden](https://github.com/mdn/dom-examples/tree/main/css-custom-functions) in diesem Artikel, definieren wir eine `--supports()`-Funktion, die so aussieht:
+Eine praktische Anwendung von CSS-Funktionen ohne Parameter ist die Feature-Erkennung. In allen [Beispielen, die wir uns ansehen werden](https://github.com/mdn/dom-examples/tree/main/css-custom-functions) in diesem Artikel definieren wir eine Funktion `--supports()`, die so aussieht:
 
 ```css
 @function --supports() {
@@ -58,7 +58,7 @@ Ein praktischer Nutzen von CSS-Funktionen ohne Parameter liegt in der Funktionse
 }
 ```
 
-Sie können dann ein "Funktion nicht unterstützt"-Banner definieren und dessen {{cssxref("display")}}-Eigenschaft auf `--supports()` setzen:
+Sie können dann ein "Feature nicht unterstützt"-Banner definieren und dessen {{cssxref("display")}}-Eigenschaft auf `--supports()` setzen:
 
 ```html
 <p class="support">
@@ -73,11 +73,11 @@ Sie können dann ein "Funktion nicht unterstützt"-Banner definieren und dessen 
 }
 ```
 
-In Browsern, die Custom-Functions unterstützen, wird `display` auf `none` gesetzt und das Support-Banner ausgeblendet. In nicht unterstützenden Browsern wird die Deklaration `display: --supports()` ungültig und daher ignoriert; das Banner wird also angezeigt.
+In Browsern, die benutzerdefinierte Funktionen unterstützen, wird `display` auf `none` gesetzt und das Support-Banner wird ausgeblendet. In nicht unterstützenden Browsern wird die `display: --supports()`-Deklaration ungültig und daher ignoriert; daher wird das Banner angezeigt.
 
-## Spezifizieren von Funktionsparametern
+## Festlegen von Funktionsparametern
 
-CSS-Funktionsparameter werden als kommagetrennte benutzerdefinierte Properties innerhalb der Klammern nach dem Funktionsnamen angegeben. Zum Beispiel:
+CSS-Funktionsparameter werden als durch Kommas getrennte benutzerdefinierte Eigenschaften in den Klammern nach dem Funktionsnamen angegeben. Zum Beispiel:
 
 ```css
 @function --transparent(--color, --alpha) {
@@ -85,9 +85,9 @@ CSS-Funktionsparameter werden als kommagetrennte benutzerdefinierte Properties i
 }
 ```
 
-Diese Funktion hat den Namen `--transparent` und nimmt zwei benutzerdefinierte Properties als Parameter auf, `--color` und `--alpha`, die lokal innerhalb des Funktionstextes verwendet werden können. Der Text enthält einen `result`-Deskriptor, der die [CSS-relative-Farbsyntax](/de/docs/Web/CSS/CSS_colors/Relative_colors) verwendet, um den Eingabewert `--color` in eine [`oklch()`](/de/docs/Web/CSS/color_value/oklch)-Farbe mit einem Alpha-Kanal-Wert zu konvertieren, wie im Eingabewert `--alpha` angegeben.
+Diese Funktion hat einen Namen `--transparent` und nimmt zwei benutzerdefinierte Eigenschaften als Parameter `--color` und `--alpha`, die lokal innerhalb des Funktionskörpers verwendet werden können. Der Körper enthält einen `result`-Deskriptor, der die [CSS-relative Farbsyntax](/de/docs/Web/CSS/CSS_colors/Relative_colors) verwendet, um den Eingangs-`--color`-Wert in einen [`oklch()`](/de/docs/Web/CSS/color_value/oklch) -Farbwert mit einem Alpha-Kanalwert wie im Eingangs-`--alpha`-Wert angegeben, zu konvertieren.
 
-Sie können diese Funktion überall aufrufen, um eine halbtransparente Version einer vorhandenen Farbe zu erzeugen.
+Sie können diese Funktion dann an beliebiger Stelle aufrufen, um eine halbtransparente Version einer vorhandenen Farbe zu erzeugen.
 
 Zum Beispiel:
 
@@ -98,7 +98,7 @@ section {
 }
 ```
 
-## Spezifizieren von Datentypen
+## Festlegen von Datentypen
 
 Es ist möglich, zulässige Datentypen für die Funktionsparameter und den Rückgabewert anzugeben. Wenn Sie diese nicht angeben, akzeptiert die Funktion jeden Typ für diese Werte.
 
@@ -111,9 +111,9 @@ Lassen Sie uns unsere vorherige Funktion ändern, um Datentypen bereitzustellen:
 }
 ```
 
-Der Datentyp jedes Parameters wird nach dem Parameternamen angegeben, und der Datentyp des `result` wird direkt vor der öffnenden geschweiften Klammer angegeben, gefolgt vom Schlüsselwort `returns`. Die {{cssxref("type()")}}-Funktion wird verwendet, um einen Datentyp anzugeben.
+Der Datentyp jedes Parameters wird nach dem Parameternamen angegeben und der Datentyp des `result` wird direkt vor der öffnenden geschweiften Klammer, vorangestellt durch das `returns`-Schlüsselwort, angegeben. Die {{cssxref("type()")}}-Funktion wird verwendet, um einen Datentyp anzugeben.
 
-Beachten Sie, dass Sie in Fällen, in denen Sie nur einen einzigen Datentyp angeben, die `type()`-Syntax weglassen und den Typ einfach als Abkürzung schreiben können:
+Beachten Sie, dass in Fällen, in denen Sie nur einen einzelnen Datentyp angeben, die `type()`-Syntax weggelassen und der Typ als Abkürzung einfach geschrieben werden kann:
 
 ```css
 @function --transparent(--color <color>, --alpha <number>) returns <color> {
@@ -121,7 +121,7 @@ Beachten Sie, dass Sie in Fällen, in denen Sie nur einen einzigen Datentyp ange
 }
 ```
 
-Jetzt wird die Funktion nur dann einen gültigen Wert erzeugen, wenn die Eingabeargumente ein {{cssxref("&lt;color>")}} und eine {{cssxref("&lt;number>")}} sind und das `result` ein {{cssxref("&lt;color>")}} ist. Wenn nicht, zum Beispiel:
+Jetzt produziert die Funktion nur dann einen gültigen Wert, wenn die Eingabeargumente ein {{cssxref("&lt;color>")}} und eine {{cssxref("&lt;number>")}} sind und das `result` ein {{cssxref("&lt;color>")}} ist. Falls nicht, zum Beispiel:
 
 ```css
 section {
@@ -130,11 +130,11 @@ section {
 }
 ```
 
-wird der Wert zur Laufzeit ungültig (da `50%` kein `<number>`, sondern ein `<percentage>` ist) und der `background-color` wird letztendlich auf `transparent` gesetzt.
+wird der Wert zur Berechnungszeit ungültig werden (da `50%` keine `<number>` sondern ein `<percentage>` ist) und die `background-color` wird letztlich auf `transparent` gesetzt.
 
-### Angabe mehrerer zulässiger Typen
+### Mehrere zulässige Datentypen festlegen
 
-Sie können mehrere akzeptierte Datentypen mit dem Symbol `|` als Trennzeichen spezifizieren, zum Beispiel:
+Sie können mehrere akzeptierte Datentypen durch das Symbol `|` als Trennzeichen festlegen, zum Beispiel:
 
 ```css
 @function --transparent(--color <color>, --alpha type(<number> | <percentage>))
@@ -143,13 +143,13 @@ Sie können mehrere akzeptierte Datentypen mit dem Symbol `|` als Trennzeichen s
 }
 ```
 
-In solchen Fällen muss die vollständige `type()`-Syntax verwendet werden.
+In solchen Fällen muss die volle `type()`-Syntax verwendet werden.
 
-Mit dieser Anpassung ist der Funktionsaufruf `--transparent(var(--base-color), 50%)` nun gültig.
+Mit dieser Anpassung ist der Funktionsaufruf `--transparent(var(--base-color), 50%)` jetzt gültig.
 
-## Standardswerte festlegen
+## Festlegen von Standardwerten
 
-Sie können auch Standardwerte für Parameter angeben, nach einem Doppelpunkt am Ende ihrer Definition. Zum Beispiel:
+Sie können auch Standardwerte für Parameter nach einem Doppelpunkt am Ende ihrer Definition angeben. Zum Beispiel:
 
 ```css
 @function --transparent(--color <color>, --alpha <number>: 0.8) returns <color> {
@@ -167,13 +167,13 @@ section {
 ```
 
 > [!NOTE]
-> Wenn ein ungültiger Wert als Funktionsargument übergeben wird und ein Standardwert in dieser Parameterdefinition angegeben ist, wird der ungültige Wert ignoriert, und der Standardwert wird stattdessen verwendet.
+> Wenn ein ungültiger Wert als Funktionsargument übergeben wird und ein Standardwert in dieser Parameterdefinition angegeben ist, wird der ungültige Wert ignoriert und der Standardwert verwendet.
 
 ### Beispiel für Farb-Anpassungsfunktionen
 
-Sie können die `--transparent()`-Funktion in Aktion in unserem [color-adjust-functions](https://mdn.github.io/dom-examples/css-custom-functions/color-adjust-functions/) Beispiel sehen (sehen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/tree/main/css-custom-functions/color-adjust-functions) an).
+Sie können die Funktion `--transparent()` in unserem [color-adjust-functions](https://mdn.github.io/dom-examples/css-custom-functions/color-adjust-functions/) Beispiel in Aktion sehen (siehe den [Quellcode](https://github.com/mdn/dom-examples/tree/main/css-custom-functions/color-adjust-functions)).
 
-Dieses Beispiel enthält auch Funktionen namens `--lighter()` und `--darker()`, die ähnlich wie `--transparent()` funktionieren, jedoch hellere und dunklere Varianten einer Farbe zurückgeben:
+Dieses Beispiel enthält auch Funktionen, die `--lighter()` und `--darker()` genannt werden und ähnlich wie `--transparent()` funktionieren, aber hellere und dunklere Varianten einer Farbe zurückgeben:
 
 ```css
 @function --transparent(--color <color>, --alpha <number>: 0.8) returns <color> {
@@ -191,7 +191,7 @@ Dieses Beispiel enthält auch Funktionen namens `--lighter()` und `--darker()`, 
 }
 ```
 
-Eine Bibliothek von Funktionen wie diesen kann sehr nützlich werden, um Farbschemata basierend auf einer einzigen Farbe zu definieren:
+Eine Bibliothek von solchen Funktionen kann sehr nützlich sein, um Farbschemata basierend auf einer einzelnen Farbe zu definieren:
 
 ```css
 :root {
@@ -205,13 +205,13 @@ section {
 }
 ```
 
-## Einschluss komplexer Logik
+## Einbeziehen komplexer Logik
 
-Sie können komplexere Logik in Funktionen einbinden, indem Sie Konstrukte wie {{cssxref("@media")}}-Regeln und {{cssxref("if()")}}-Funktionen verwenden.
+Sie können komplexere Logik in Funktionen einbauen, indem Sie Konstrukte wie {{cssxref("@media")}} at-Regeln und {{cssxref("if()")}} Funktionen verwenden.
 
-Unser [responsive-narrow-wide](https://mdn.github.io/dom-examples/css-custom-functions/responsive-narrow-wide/) Beispiel (sehen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/tree/main/css-custom-functions/responsive-narrow-wide) an) enthält eine Funktion namens `--narrow-wide()`, die verwendet werden kann, um zwei Wertoptionen für eine beliebige Eigenschaft bereitzustellen. Eine wird gesetzt, wenn das Ansichtsfenster unter einem bestimmten Grenzwert liegt, und die andere, wenn es darüber liegt.
+Unser Beispiel [responsive-narrow-wide](https://mdn.github.io/dom-examples/css-custom-functions/responsive-narrow-wide/) (siehe den [Quellcode](https://github.com/mdn/dom-examples/tree/main/css-custom-functions/responsive-narrow-wide)) enthält eine Funktion namens `--narrow-wide()`, die verwendet werden kann, um zwei Wertoptionen für jede Eigenschaft bereitzustellen. Eine wird gesetzt, wenn der Viewport unterhalb eines bestimmten Breakpoints liegt, und die andere, wenn er darüber liegt.
 
-Die `--narrow-wide()` Funktion akzeptiert zwei Parameter, `--narrow` und `--wide`. Das zurückgegebene `result` ist die `--wide` Property, es sei denn, das Ansichtsfenster ist weniger als `700px` breit, in diesem Fall wird `--narrow` zurückgegeben.
+Die Funktion `--narrow-wide()` akzeptiert zwei Parameter, `--narrow` und `--wide`. Das zurückgegebene `result` ist die `--wide`-Eigenschaft, es sei denn, der Viewport ist weniger als `700px` breit, in diesem Fall wird `--narrow` zurückgegeben.
 
 ```css
 @function --narrow-wide(--narrow, --wide) {
@@ -222,7 +222,7 @@ Die `--narrow-wide()` Funktion akzeptiert zwei Parameter, `--narrow` und `--wide
 }
 ```
 
-Diese Funktion kann verwendet werden, um responsive Wertoptionen in mehreren Kontexten bereitzustellen:
+Diese Funktion kann verwendet werden, um responsive Wertoptionen in verschiedenen Kontexten bereitzustellen:
 
 ```css
 body {
@@ -244,7 +244,7 @@ p {
 
 ### Verwendung einer `if()` Funktion
 
-Wir könnten die `--narrow-wide()` Funktion umschreiben, um eine `if()` Funktion anstelle davon zu verwenden:
+Wir könnten die Funktion `--narrow-wide()` umschreiben, um eine `if()` Funktion zu verwenden:
 
 ```css
 @function --narrow-wide(--narrow, --wide) {
@@ -252,11 +252,11 @@ Wir könnten die `--narrow-wide()` Funktion umschreiben, um eine `if()` Funktion
 }
 ```
 
-## Komplexe Syntax einmal schreiben, dann wiederverwenden
+## Komplexe Syntax einmal schreiben und dann wiederverwenden
 
-Ein Hauptanwendungsfall für CSS-Funktionen ist, einen komplexen Syntaxabschnitt einmal zu definieren und ihn mehrmals mit einem viel einfacheren Funktionsaufruf wiederverwenden zu können.
+Ein wichtiger Anwendungsfall für CSS-Funktionen ist es, einen komplexen Syntaxabschnitt einmal zu definieren und ihn dann mehrfach mit einem viel einfacheren Funktionsaufruf wiederverwenden zu können.
 
-Unser [gradient-function](https://mdn.github.io/dom-examples/css-custom-functions/gradient-function/) Beispiel (sehen Sie sich den [Quellcode](https://github.com/mdn/dom-examples/tree/main/css-custom-functions/gradient-function) an) bietet ein Beispiel dafür. Es enthält eine Funktion namens `--shippo-pattern()`, die Längen- und Farbargumente akzeptiert und einen komplexen {{cssxref("background")}}-Wert mit mehreren {{cssxref("radial-gradient()")}}-Hintergründen zurückgibt:
+Unser Beispiel [gradient-function](https://mdn.github.io/dom-examples/css-custom-functions/gradient-function/) stellt ein Beispiel dafür dar. Es enthält eine Funktion namens `--shippo-pattern()`, die Längen- und Farbargumente akzeptiert und einen komplexen {{cssxref("background")}}-Wert mit mehreren {{cssxref("radial-gradient()")}}-Hintergründen zurückgibt:
 
 ```css
 @function --shippo-pattern(--size <length>, --tint <color>) {
@@ -269,7 +269,7 @@ Unser [gradient-function](https://mdn.github.io/dom-examples/css-custom-function
 }
 ```
 
-Mit dieser Funktion definiert, können wir jetzt Varianten dieses Hintergrundwerts mit verschiedenen Farbnuancen und Kreisgrößen erstellen:
+Mit dieser definierten Funktion können wir nun Varianten dieses Hintergrundwertes mit unterschiedlichen Farbnuancen und Kreisgrößen erstellen:
 
 ```css
 #one {
@@ -287,8 +287,8 @@ Mit dieser Funktion definiert, können wir jetzt Varianten dieses Hintergrundwer
 
 ## Siehe auch
 
-- [CSS-Custom-Properties](/de/docs/Web/CSS/Reference/Properties/--*)
-- [CSS-Custom-Functions und Mixins](/de/docs/Web/CSS/CSS_custom_functions_and_mixins) Modul
-- [Custom CSS Functions in the Browser](https://www.oddbird.net/2025/04/11/custom-functions/) von Miriam Suzanne (2025)
+- [CSS-Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*)
+- [CSS-Benutzerdefinierte Funktionen und Mixins](/de/docs/Web/CSS/CSS_custom_functions_and_mixins) Modul
+- [Benutzerdefinierte CSS-Funktionen im Browser](https://www.oddbird.net/2025/04/11/custom-functions/) von Miriam Suzanne (2025)
 - [CSS @function + CSS if()](https://www.bram.us/2025/02/18/css-at-function-and-css-if/) von Bramus (2025)
-- [5 Useful CSS functions using the new @function rule](https://una.im/5-css-functions/) von Una Kravets (2025)
+- [5 nützliche CSS-Funktionen unter Verwendung der neuen @function-Regel](https://una.im/5-css-functions/) von Una Kravets (2025)

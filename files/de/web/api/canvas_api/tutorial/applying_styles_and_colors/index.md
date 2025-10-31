@@ -2,31 +2,31 @@
 title: Anwenden von Stilen und Farben
 slug: Web/API/Canvas_API/Tutorial/Applying_styles_and_colors
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial/Drawing_shapes", "Web/API/Canvas_API/Tutorial/Drawing_text")}}
 
-Im Kapitel über das [Zeichnen von Formen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes) haben wir nur die Standardlinien- und Füllstile verwendet. Hier werden wir die Canvas-Optionen erkunden, die uns zur Verfügung stehen, um unsere Zeichnungen etwas attraktiver zu gestalten. Sie lernen, wie Sie Ihren Zeichnungen verschiedene Farben, Linienstile, Verläufe, Muster und Schatten hinzufügen können.
+Im Kapitel über [Zeichnen von Formen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes) haben wir nur die Standardlinien- und Füllstile verwendet. Hier werden wir die Canvas-Optionen erkunden, die uns zur Verfügung stehen, um unseren Zeichnungen ein wenig mehr Attraktivität zu verleihen. Sie werden lernen, wie Sie verschiedene Farben, Linienstile, Verläufe, Muster und Schatten zu Ihren Zeichnungen hinzufügen können.
 
 > [!NOTE]
-> Canvas-Inhalte sind für Screenreader nicht zugänglich. Wenn der Canvas rein dekorativ ist, fügen Sie `role="presentation"` im öffnenden `<canvas>`-Tag hinzu. Andernfalls fügen Sie beschreibenden Text als Wert des [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) Attributs direkt zum Canvas-Element hinzu oder platzieren Sie Fallback-Inhalte innerhalb des öffnenden und schließenden Canvas-Tags. Canvas-Inhalte sind nicht Teil des DOM, aber verschachtelte Fallback-Inhalte schon.
+> Canvas-Inhalt ist für Screenreader nicht zugänglich. Wenn das Canvas rein dekorativ ist, fügen Sie `role="presentation"` zum öffnenden `<canvas>`-Tag hinzu. Andernfalls fügen Sie einen beschreibenden Text als Wert des [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)-Attributs direkt zum Canvas-Element hinzu oder fügen Sie einen Fallback-Inhalt innerhalb des öffnenden und schließenden Canvas-Tags ein. Canvas-Inhalt ist nicht Teil des DOM, aber eingebetteter Fallback-Inhalt ist es.
 
 ## Farben
 
-Bis jetzt haben wir nur Methoden des Zeichenkontextes gesehen. Wenn wir Farben auf eine Form anwenden wollen, stehen uns zwei wichtige Eigenschaften zur Verfügung: `fillStyle` und `strokeStyle`.
+Bisher haben wir nur Methoden des Zeichenkontexts gesehen. Wenn wir Farben auf eine Form anwenden wollen, gibt es zwei wichtige Eigenschaften, die wir verwenden können: `fillStyle` und `strokeStyle`.
 
 - [`fillStyle = color`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle)
-  - : Legt den Stil fest, der beim Ausfüllen von Formen verwendet wird.
+  - : Legt den Stil fest, der beim Füllen von Formen verwendet wird.
 - [`strokeStyle = color`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle)
   - : Legt den Stil für die Umrisse von Formen fest.
 
-`color` ist ein String, der eine CSS {{cssxref("&lt;color&gt;")}}, ein Gradientenobjekt oder ein Musterobjekt darstellt. Auf Gradienten- und Musterobjekte werden wir später eingehen. Standardmäßig sind die Linien- und Füllfarben auf Schwarz (CSS-Farbwert `#000000`) gesetzt.
+`color` ist ein String, der eine CSS {{cssxref("&lt;color&gt;")}}, ein Verlauf-Objekt oder ein Muster-Objekt darstellt. Wir werden später auf Verlauf- und Muster-Objekte eingehen. Standardmäßig sind die Stroke- und Füllfarben auf Schwarz gesetzt (CSS-Farbwert `#000000`).
 
 > [!NOTE]
-> Wenn Sie die Eigenschaft `strokeStyle` und/oder `fillStyle` setzen, wird der neue Wert zum Standard für alle danach gezeichneten Formen. Für jede Form, die eine andere Farbe haben soll, müssen Sie die Eigenschaft `fillStyle` oder `strokeStyle` neu zuweisen.
+> Wenn Sie die Eigenschaft `strokeStyle` und/oder `fillStyle` setzen, wird der neue Wert zum Standard für alle künftig gezeichneten Formen. Für jede Form, die Sie in einer anderen Farbe wünschen, müssen Sie die Eigenschaft `fillStyle` oder `strokeStyle` neu zuweisen.
 
-Die gültigen Zeichenfolgen sollten laut Spezifikation CSS {{cssxref("&lt;color&gt;")}} Werte sein. Jedes der folgenden Beispiele beschreibt die gleiche Farbe.
+Die gültigen Zeichenfolgen, die Sie eingeben können, sollten laut Spezifikation CSS {{cssxref("&lt;color&gt;")}}-Werte sein. Die folgenden Beispiele beschreiben jeweils die gleiche Farbe.
 
 ```js
 // these all set the fillStyle to 'orange'
@@ -39,7 +39,7 @@ ctx.fillStyle = "rgb(255 165 0 / 100%)";
 
 ### Ein `fillStyle`-Beispiel
 
-In diesem Beispiel verwenden wir erneut zwei `for`-Schleifen, um ein Gitter aus Rechtecken zu zeichnen, jedes in einer anderen Farbe. Das resultierende Bild sollte wie der Screenshot aussehen. Hier passiert nichts besonders Spektakuläres. Wir verwenden die beiden Variablen `i` und `j`, um eine eindeutige RGB-Farbe für jedes Quadrat zu erzeugen, und ändern nur die Rot- und Grünwerte. Der Blaukanal hat einen festen Wert. Durch Ändern der Kanäle können Sie alle Arten von Paletten erzeugen. Durch Erhöhen der Schritte können Sie etwas erreichen, das wie die Farbpipetten in Photoshop aussieht.
+In diesem Beispiel verwenden wir erneut zwei `for`-Schleifen, um ein Gitter aus Rechtecken zu zeichnen, von denen jedes eine andere Farbe hat. Das resultierende Bild sollte in etwa wie der Screenshot aussehen. Es passiert hier nichts allzu Spektakuläres. Wir verwenden die beiden Variablen `i` und `j`, um eine einzigartige RGB-Farbe für jedes Quadrat zu erzeugen und verändern dabei nur die Rot- und Grünwerte. Der Blaukanal hat einen festen Wert. Durch die Modifizierung der Kanäle können Sie alle Arten von Paletten erzeugen. Durch Erhöhung der Schritte können Sie etwas erreichen, das wie die Farbpalletten von Photoshop aussieht.
 
 ```js
 function draw() {
@@ -65,13 +65,13 @@ function draw() {
 draw();
 ```
 
-Das Ergebnis sieht so aus:
+Das Ergebnis sieht folgendermaßen aus:
 
 {{EmbedLiveSample("A_fillStyle_example", "", "160")}}
 
 ### Ein `strokeStyle`-Beispiel
 
-Dieses Beispiel ähnelt dem obigen, verwendet jedoch die Eigenschaft `strokeStyle`, um die Farben der Umrisse der Formen zu ändern. Wir verwenden die Methode `arc()`, um Kreise anstelle von Quadraten zu zeichnen.
+Dieses Beispiel ist dem obigen ähnlich, aber hier wird die Eigenschaft `strokeStyle` verwendet, um die Farben der Umrisse der Formen zu ändern. Wir verwenden die Methode `arc()`, um Kreise statt Quadrate zu zeichnen.
 
 ```js
 function draw() {
@@ -97,20 +97,20 @@ function draw() {
 draw();
 ```
 
-Das Ergebnis sieht so aus:
+Das Ergebnis sieht folgendermaßen aus:
 
 {{EmbedLiveSample("A_strokeStyle_example", "", "160")}}
 
 ## Transparenz
 
-Zusätzlich zum Zeichnen undurchsichtiger Formen auf dem Canvas können wir auch halbtransparente (oder durchscheinende) Formen zeichnen. Dies geschieht entweder durch Festlegung der Eigenschaft `globalAlpha` oder durch Zuweisung einer halbtransparenten Farbe zum Linien- und/oder Füllstil.
+Zusätzlich zum Zeichnen von undurchsichtigen Formen auf der Canvas können wir auch halbtransparente (oder durchscheinende) Formen zeichnen. Dies geschieht entweder durch Setzen der `globalAlpha`-Eigenschaft oder durch Zuweisung einer halbtransparenten Farbe zum Stroke- und/oder Füllstil.
 
 - [`globalAlpha = transparencyValue`](/de/docs/Web/API/CanvasRenderingContext2D/globalAlpha)
-  - : Wendet den angegebenen Transparenzwert auf alle künftig gezeichneten Formen auf dem Canvas an. Der Wert muss zwischen 0.0 (vollkommen transparent) und 1.0 (vollkommen undurchsichtig) liegen. Der Standardwert ist 1.0 (vollkommen undurchsichtig).
+  - : Wendet den angegebenen Transparenzwert auf alle zukünftigen auf der Canvas gezeichneten Formen an. Der Wert muss zwischen 0.0 (vollständig transparent) und 1.0 (vollständig undurchsichtig) liegen. Dieser Wert ist standardmäßig 1.0 (vollständig undurchsichtig).
 
-Die `globalAlpha`-Eigenschaft kann nützlich sein, wenn Sie viele Formen auf dem Canvas mit ähnlicher Transparenz zeichnen möchten, aber ansonsten ist es im Allgemeinen nützlicher, die Transparenz auf individuellen Formen zu setzen, wenn Sie ihre Farben setzen.
+Die `globalAlpha`-Eigenschaft kann nützlich sein, wenn Sie viele Formen auf der Canvas mit ähnlicher Transparenz zeichnen möchten, aber ansonsten ist es im Allgemeinen nützlicher, die Transparenz für einzelne Formen beim Festlegen ihrer Farben festzulegen.
 
-Da die Eigenschaften `strokeStyle` und `fillStyle` CSS-rgb-Farbwerte akzeptieren, können wir folgende Notation verwenden, um ihnen eine transparente Farbe zuzuweisen.
+Da die Eigenschaften `strokeStyle` und `fillStyle` CSS-RGB-Farbwerte akzeptieren, können wir die folgende Notation verwenden, um ihnen eine transparente Farbe zuzuweisen.
 
 ```js
 // Assigning transparent colors to stroke and fill style
@@ -119,11 +119,11 @@ ctx.strokeStyle = "rgb(255 0 0 / 50%)";
 ctx.fillStyle = "rgb(255 0 0 / 50%)";
 ```
 
-Die Funktion `rgb()` hat einen optionalen zusätzlichen Parameter. Der letzte Parameter setzt den Transparenzwert dieser bestimmten Farbe. Der gültige Bereich wird als Prozentsatz zwischen `0%` (vollkommen transparent) und `100%` (vollkommen undurchsichtig) oder als Zahl zwischen `0.0` (entspricht `0%`) und `1.0` (entspricht `100%`) angegeben.
+Die `rgb()`-Funktion hat einen optionalen zusätzlichen Parameter. Der letzte Parameter setzt den Transparenzwert dieser speziellen Farbe. Der gültige Bereich wird als Prozentsatz zwischen `0%` (vollständig transparent) und `100%` (vollständig undurchsichtig) oder als Zahl zwischen `0.0` (entspricht `0%`) und `1.0` (entspricht `100%`) angegeben.
 
 ### Ein `globalAlpha`-Beispiel
 
-In diesem Beispiel zeichnen wir einen Hintergrund aus vier unterschiedlich gefärbten Quadraten. Darüber zeichnen wir eine Reihe halbtransparenter Kreise. Die Eigenschaft `globalAlpha` wird auf `0.2` gesetzt, was für alle von diesem Punkt an gezeichneten Formen verwendet wird. Jeder Schritt in der `for`-Schleife zeichnet einen Satz von Kreisen mit steigendem Radius. Das Endergebnis ist ein radialer Farbverlauf. Indem immer mehr Kreise übereinandergelegt werden, reduzieren wir effektiv die Transparenz der bereits gezeichneten Kreise. Durch Erhöhung der Schrittzahl und letztlich des Zeichnens von mehr Kreisen würde der Hintergrund vollständig aus der Mitte des Bildes verschwinden.
+In diesem Beispiel zeichnen wir einen Hintergrund aus vier verschiedenfarbigen Quadraten. Auf diese zeichnen wir eine Reihe halbtransparenter Kreise. Die `globalAlpha`-Eigenschaft ist auf `0.2` gesetzt, was für alle Formen ab diesem Punkt verwendet wird. Jeder Schritt in der `for`-Schleife zeichnet einen Satz von Kreisen mit einem zunehmenden Radius. Das Endergebnis ist ein radialer Verlauf. Indem immer mehr Kreise übereinander gelegt werden, reduzieren wir effektiv die Transparenz der Kreise, die bereits gezeichnet wurden. Durch Erhöhung der Schrittanzahl und dem Effekt, mehr Kreise zu zeichnen, würde der Hintergrund komplett aus dem Zentrum des Bildes verschwinden.
 
 ```js
 function draw() {
@@ -161,9 +161,9 @@ draw();
 
 {{EmbedLiveSample("A_globalAlpha_example", "", "160")}}
 
-### Ein Beispiel mit `rgb()` und Alphatransparenz
+### Ein Beispiel mit `rgb()` mit Alpha-Transparenz
 
-In diesem zweiten Beispiel machen wir etwas Ähnliches wie im vorherigen, ziehen jedoch anstelle von übereinanderliegenden Kreisen kleine Rechtecke mit zunehmender Deckkraft. Die Verwendung von `rgb()` gibt Ihnen ein wenig mehr Kontrolle und Flexibilität, da wir den Füll- und Linienstil einzeln festlegen können.
+In diesem zweiten Beispiel machen wir etwas Ähnliches wie im oben genannten, aber anstelle von übereinanderliegenden Kreisen habe ich kleine Rechtecke mit zunehmender Opazität gezeichnet. Die Verwendung von `rgb()` gibt Ihnen ein wenig mehr Kontrolle und Flexibilität, da wir den Füll- und Stroke-Stil individuell festlegen können.
 
 ```js
 function draw() {
@@ -201,32 +201,32 @@ draw();
 
 ## Linienstile
 
-Es gibt mehrere Eigenschaften, die uns ermöglichen, Linien zu stylen.
+Es gibt mehrere Eigenschaften, die uns erlauben, Linien zu gestalten.
 
 - [`lineWidth = value`](/de/docs/Web/API/CanvasRenderingContext2D/lineWidth)
-  - : Setzt die Breite der in Zukunft gezeichneten Linien.
+  - : Legt die Breite der zukünftig gezeichneten Linien fest.
 - [`lineCap = type`](/de/docs/Web/API/CanvasRenderingContext2D/lineCap)
-  - : Bestimmt das Aussehen der Enden von Linien.
+  - : Legt das Erscheinungsbild der Enden von Linien fest.
 - [`lineJoin = type`](/de/docs/Web/API/CanvasRenderingContext2D/lineJoin)
-  - : Bestimmt das Aussehen der "Ecken", in denen sich Linien treffen.
+  - : Legt das Erscheinungsbild der "Ecken" fest, bei denen Linien zusammentreffen.
 - [`miterLimit = value`](/de/docs/Web/API/CanvasRenderingContext2D/miterLimit)
-  - : Legt ein Limit für den Verbindungspunkt fest, wenn zwei Linien in einem scharfen Winkel zusammentreffen, um zu kontrollieren, wie dick der Schnittpunkt wird.
+  - : Bestimmt eine Grenze für die Gehrung, wenn zwei Linien bei einem scharfen Winkel zusammenstoßen, um zu kontrollieren, wie dick die Verbindung wird.
 - [`getLineDash()`](/de/docs/Web/API/CanvasRenderingContext2D/getLineDash)
-  - : Gibt das aktuelle Strichmuster-Array mit einer geraden Anzahl von nicht-negativen Zahlen zurück.
+  - : Gibt das aktuelle Liniendashmuster-Array zurück, das eine gerade Anzahl nicht-negativer Zahlen enthält.
 - [`setLineDash(segments)`](/de/docs/Web/API/CanvasRenderingContext2D/setLineDash)
-  - : Legt das aktuelle Strichmuster fest.
+  - : Setzt das aktuelle Liniendashmuster.
 - [`lineDashOffset = value`](/de/docs/Web/API/CanvasRenderingContext2D/lineDashOffset)
-  - : Gibt an, wo ein Strichmuster auf einer Linie beginnen soll.
+  - : Gibt an, wo ein Dash-Array auf einer Linie beginnt.
 
-Sie werden ein besseres Verständnis davon bekommen, was diese Eigenschaften bewirken, indem Sie sich die folgenden Beispiele ansehen.
+Sie werden ein besseres Verständnis davon bekommen, was diese bewirken, wenn Sie sich die Beispiele unten ansehen.
 
 ### Ein `lineWidth`-Beispiel
 
-Diese Eigenschaft legt die aktuelle Linienstärke fest. Die Werte müssen positive Zahlen sein. Standardmäßig ist dieser Wert auf 1.0 Einheiten eingestellt.
+Diese Eigenschaft setzt die aktuelle Linienstärke. Werte müssen positive Zahlen sein. Standardmäßig ist dieser Wert auf 1.0 Einheiten gesetzt.
 
-Die Linienstärke ist die Dicke des Strichs, das in der Mitte des gegebenen Pfads gezogen wird. Mit anderen Worten, der Bereich, der gezeichnet wird, erstreckt sich auf halbem Wege der Linienstärke zu beiden Seiten des Pfads. Da Canvas-Koordinaten keine direkten Pixelreferenzen sind, muss besondere Vorsicht walten, um klare horizontale und vertikale Linien zu erhalten.
+Die Linienbreite ist die Dicke des Strichs, der zentriert auf dem angegebenen Pfad liegt. Mit anderen Worten, der gezeichnete Bereich erstreckt sich auf beiden Seiten des Pfads um die halbe Linienbreite. Da Canvas-Koordinaten Pixel nicht direkt referenzieren, muss besonders darauf geachtet werden, um saubere horizontale und vertikale Linien zu erhalten.
 
-Im folgenden Beispiel werden 10 gerade Linien mit zunehmenden Linienbreiten gezeichnet. Die Linie ganz links ist 1.0 Einheiten breit. Allerdings erscheinen die ganz links und alle ungeradzahligen Linienstärken nicht klar, wegen der Positionierung des Pfads.
+Im Beispiel unten werden 10 gerade Linien mit zunehmender Linienbreite gezeichnet. Die Linie ganz links ist 1.0 Einheiten breit. Die linke und alle anderen mit ungerader Linienbreite erscheinen jedoch nicht scharf, aufgrund der Positionierung des Pfads.
 
 ```js
 function draw() {
@@ -252,24 +252,24 @@ draw();
 {{EmbedLiveSample("A_lineWidth_example", "", "160")}}
 
 > [!NOTE]
-> Wenn Sie sich über die Linien, die nahe dem Rand grau anstelle von schwarz erscheinen, wundern, überprüfen Sie den Abschnitt [Verschwommene Kanten sehen?](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#seeing_blurry_edges) im vorherigen Kapitel.
+> Wenn Sie sich fragen, warum die Linien am Rand grau statt schwarz erscheinen, schauen Sie sich den Abschnitt [Unscharfe Kanten sehen?](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#seeing_blurry_edges) im vorhergehenden Kapitel an.
 
 ### Ein `lineCap`-Beispiel
 
-Die Eigenschaft `lineCap` bestimmt, wie die Endpunkte jeder Linie gezeichnet werden. Es gibt drei mögliche Werte für diese Eigenschaft: `butt`, `round` und `square`. Standardmäßig ist diese Eigenschaft auf `butt` gesetzt:
+Die `lineCap`-Eigenschaft bestimmt, wie die Endpunkte jeder Linie gezeichnet werden. Es gibt drei mögliche Werte für diese Eigenschaft: `butt`, `round` und `square`. Standardmäßig ist diese Eigenschaft auf `butt` eingestellt:
 
 - `butt`
-  - : Die Enden von Linien werden an den Endpunkten gekappt.
+  - : Die Enden von Linien sind an den Endpunkten abgeschnitten.
 - `round`
   - : Die Enden von Linien sind abgerundet.
 - `square`
-  - : Die Enden von Linien sind quadratisch durch Hinzufügen eines Kästchens mit gleicher Breite und halber Höhe der Linienstärke.
+  - : Die Enden von Linien sind durch ein Quadrat mit gleicher Breite und halber Höhe der Linienstärke abgeschnitten.
 
-Nur Start- und Endpunkte eines Pfads werden beeinflusst: wenn ein Pfad mit `closePath()` geschlossen wird, gibt es keine Start- und Endpunkte; stattdessen werden alle Endpunkte im Pfad mit ihren vorherigen und nachfolgenden Segmenten unter Verwendung der aktuellen Einstellung des `lineJoin`-Stils verbunden.
+Nur Anfangs- und Endendpunkte eines Pfades sind betroffen: Wenn ein Pfad mit `closePath()` geschlossen wird, gibt es keinen Anfangs- und Endendpunkt; stattdessen werden alle Endpunkte im Pfad mit ihrem vorherigen und nächsten Segment unter Verwendung der aktuellen `lineJoin`-Einstellung verbunden.
 
-In diesem Beispiel zeichnen wir drei Linien, jede mit einem anderen Wert für die Eigenschaft `lineCap`. Ich habe auch zwei Hilfslinien hinzugefügt, um die genauen Unterschiede zwischen den dreien zu sehen. Jede dieser Linien beginnt und endet genau auf diesen Hilfslinien.
+In diesem Beispiel zeichnen wir drei Linien, jede mit einem anderen Wert für die `lineCap`-Eigenschaft. Ich habe auch zwei Hilfslinien hinzugefügt, um die genauen Unterschiede zwischen den dreien zu sehen. Jede dieser Linien beginnt und endet genau auf diesen Hilfslinien.
 
-Die Linie links verwendet die Standardoption `butt`. Sie werden bemerken, dass sie vollständig bündig mit den Hilfslinien gezeichnet ist. Die zweite ist so eingestellt, dass die Option `round` verwendet wird. Dies fügt ein Halbkreis dem Ende hinzu, der einen Radius von der halben Breite der Linie hat. Die Linie rechts verwendet die Option `square`. Dies fügt ein Kästchen mit der gleichen Breite und halber Höhe der Linienstärke hinzu.
+Die Linie auf der linken Seite verwendet die Standardoption `butt`. Sie werden bemerken, dass sie vollständig bündig zu den Hilfslinien gezeichnet ist. Die zweite ist gesetzt, um die Option `round` zu verwenden. Dies fügt ein Halbkreis am Ende hinzu, der einen Radius von der Hälfte der Linienbreite hat. Die Linie auf der rechten Seite verwendet die Option `square`. Dies fügt ein Rechteck mit gleicher Breite und halber Höhe der Linienstärke hinzu.
 
 ```js
 function draw() {
@@ -309,18 +309,18 @@ draw();
 
 ### Ein `lineJoin`-Beispiel
 
-Die Eigenschaft `lineJoin` bestimmt, wie zwei verbundene Segmente (von Linien, Bögen oder Kurven) mit nicht-null Längen in einer Form zusammengefügt werden (entartete Segmente mit null Längen, deren spezifizierte Endpunkte und Kontrollpunkte genau an derselben Position liegen, werden übersprungen).
+Die `lineJoin`-Eigenschaft bestimmt, wie zwei verbundene Segmente (von Linien, Bögen oder Kurven) mit nicht-null Längen in einer Form miteinander verbunden werden (degenerierte Segmente mit Null-Längen, deren angegebene Endpunkte und Kontrollpunkte genau an derselben Position sind, werden übersprungen).
 
-Es gibt drei mögliche Werte für diese Eigenschaft: `round`, `bevel` und `miter`. Standardmäßig ist diese Eigenschaft auf `miter` gesetzt. Beachten Sie, dass die Einstellung von `lineJoin` keinen Einfluss hat, wenn die beiden verbundenen Segmente die gleiche Richtung haben, da in diesem Fall keine Verbindungsfläche hinzugefügt wird:
+Es gibt drei mögliche Werte für diese Eigenschaft: `round`, `bevel` und `miter`. Standardmäßig ist diese Eigenschaft auf `miter` eingestellt. Beachten Sie, dass die `lineJoin`-Einstellung keine Auswirkungen hat, wenn die zwei verbundenen Segmente dieselbe Richtung haben, da in diesem Fall keine Verbindung hinzugefügt wird:
 
 - `round`
-  - : Rundet die Ecken einer Form ab durch Füllen eines zusätzlichen Sektors einer Scheibe, die in ihrem gemeinsamen Endpunkt verknüpfter Segmente zentriert ist. Der Radius für diese abgerundeten Ecken entspricht der halben Linienstärke.
+  - : Rundet die Ecken einer Form ab, indem es einen zusätzlichen Sektor eines Kreises zentriert am gemeinsamen Endpunkt verbundener Segmente füllt. Der Radius für diese abgerundeten Ecken ist gleich der Hälfte der Linienbreite.
 - `bevel`
-  - : Füllt einen zusätzlichen dreieckigen Bereich zwischen dem gemeinsamen Endpunkt der verbundenen Segmente, und den separaten äußeren rechtwinkligen Ecken jedes Segments.
+  - : Füllt einen zusätzlichen dreieckigen Bereich zwischen dem gemeinsamen Endpunkt verbundener Segmente und den separaten außenliegenden rechteckigen Ecken jedes Segments.
 - `miter`
-  - : Verbundene Segmente werden durch Verlängern ihrer Außenseiten verbunden, um an einem einzigen Punkt zu verbinden, mit dem Effekt, dass ein zusätzlicher rautenförmiger Bereich gefüllt wird. Diese Einstellung wird durch die Eigenschaft `miterLimit` beeinflusst, die im Folgenden erläutert wird.
+  - : Verbundene Segmente werden durch Verlängerung ihrer Außenkanten verbunden, um an einem einzigen Punkt verbunden zu werden, mit dem Effekt, dass ein zusätzlicher rautenförmiger Bereich gefüllt wird. Diese Einstellung wird von der Eigenschaft `miterLimit` beeinflusst, die unten erklärt wird.
 
-Das folgende Beispiel zeigt drei verschiedene Pfade, die jede der drei `lineJoin`-Eigenschafteinstellungen demonstrieren; das gezeigte Ergebnis ist oben zu sehen.
+Das folgende Beispiel zeichnet drei verschiedene Pfade und demonstriert jede der drei `lineJoin`-Eigenschaftseinstellungen; das Output wird oben gezeigt.
 
 ```js
 function draw() {
@@ -349,23 +349,23 @@ draw();
 
 {{EmbedLiveSample("A_lineJoin_example", "", "160")}}
 
-### Ein Demo der `miterLimit`-Eigenschaft
+### Eine Demonstration der `miterLimit`-Eigenschaft
 
-Wie Sie im vorherigen Beispiel gesehen haben, werden beim Verbinden zweier Linien mit der `miter`-Option die Außenseiten der beiden aneinander grenzenden Linien bis zu dem Punkt verlängert, an dem sie sich treffen. Bei Linien, die große Winkel zueinander haben, ist dieser Punkt nicht weit vom inneren Verbindungspunkt entfernt. jedoch, wenn sich der Winkel zwischen jeder Linie verringert, steigt der Abstand (Gehrungs-Länge) zwischen diesen Punkten exponentiell.
+Wie Sie im vorherigen Beispiel gesehen haben, wenn Sie zwei Linien mit der `miter`-Option verbinden, werden die Außenkanten der beiden verbundenen Linien bis zu dem Punkt verlängert, an dem sie sich treffen. Bei Linien, die in großen Winkeln zueinander stehen, ist dieser Punkt nicht weit vom inneren Verbindungspunkt entfernt. Wenn jedoch die Winkel zwischen den Linien abnehmen, wächst der Abstand (Gehrungslänge) zwischen diesen Punkten exponentiell.
 
-Die Eigenschaft `miterLimit` bestimmt, wie weit der äußere Verbindungspunkt vom inneren Verbindungspunkt entfernt liegen kann. Wenn zwei Linien diesen Wert überschreiten, wird stattdessen ein Abschnittsverbund gezeichnet. Beachten Sie, dass die maximale Gehrungslänge das Produkt der Linienstärke im aktuellen Koordinatensystem ist, multipliziert mit dem Wert dieser `miterLimit`-Eigenschaft (dessen Standardwert 10.0 im HTML {{HTMLElement("canvas")}} ist). Daher kann das `miterLimit` unabhängig von der aktuellen Anzeigeskalierung oder jeglicher affinen Transformierungen von Pfaden gesetzt werden: es beeinflusst nur die tatsächlich gerenderte Form der Linienkanten.
+Die `miterLimit`-Eigenschaft bestimmt, wie weit der äußere Verbindungspunkt vom inneren Verbindungspunkt platziert werden kann. Wenn zwei Linien diesen Wert überschreiten, wird eine Schrägverbindung anstelle einer Keilverbindung gezeichnet. Beachten Sie, dass die maximale Gehrungslänge das Produkt der Linienbreite im aktuellen Koordinatensystem mit dem Wert dieser `miterLimit`-Eigenschaft ist (dessen Standardwert 10.0 im HTML-{{HTMLElement("canvas")}} ist), damit kann die `miterLimit` unabhängig von der aktuellen Anzeigeskalierung oder jeglichen affinen Transformationen von Pfaden eingestellt werden. Sie beeinflusst nur die tatsächlich gerenderte Form der Linienränder.
 
-Genauer gesagt, ist das Gehrungslimit das maximal erlaubte Verhältnis der Verlägerungslänge (im HTML-Canvas, gemessen zwischen der äußeren Ecke der verbundenen Kanten der Linie und dem gemeinsamen Endpunkt der verbundenen Segmente, die im Pfad angegeben sind) zur halben Linienstärke. Es kann äquivalent als das maximal erlaubte Verhältnis des Abstands zwischen den inneren und äußeren Punkten der Verbindung von Kanten definiert werden, zur gesamten Linienstärke. Dann ist es gleich der Kosekante des halben minimalen Innenwinkels der verbundenen Segmente, unterhalb dessen keine Gehrungs-Verbindung gerendert wird, sondern nur eine Abschnittsverbindung:
+Genauer gesagt ist die Gehrungsgrenze das maximal erlaubte Verhältnis der Verlängerungslänge (im HTML-Canvas, wird es gemessen zwischen der äußeren Ecke der verbundenen Kanten der Linie und dem gemeinsamen Endpunkt der in dem Pfad angegebenen verbindenden Segmente) auf die halbe Linienbreite. Es kann äquivalent als das maximal erlaubte Verhältnis des Abstands zwischen dem inneren und äußeren Punkt der Schnittstelle der Kanten, zur gesamten Linienbreite definiert werden. Es entspricht dann dem Sekantenwinkel der halben minimalen Innenwinkels der verbundenen Segmente, unterhalb dessen keine Gehrungsverbindung gerendert wird, sondern nur eine Schrägverbindung:
 
 - `miterLimit` = **max** `miterLength` / `lineWidth` = 1 / **sin** ( **min** _θ_ / 2 )
-- Das Standardmiterlimit von 10.0 wird alle Gehrungsverbindungen für spitze Winkel unter etwa 11 Grad entfernen.
-- Ein Miterlimit gleich √2 ≈ 1,4142136 (aufgerundet) wird alle Gehrungsverbindungen für alle spitzen Winkel entfernen, Gehrungsverbindungen nur für stumpfe oder rechte Winkel beibehalten.
-- Ein Miterlimit gleich 1.0 ist gültig, wird aber alle Gehrungsverbindungen deaktivieren.
-- Werte unter 1.0 sind für das Miterlimit ungültig.
+- Das Standard-Gehrungslimit von 10.0 entfernt alle Gehren für scharfe Winkel unter etwa 11 Grad.
+- Ein Gehrungslimit gleich √2 ≈ 1.4142136 (aufgerundet) entfernt Gehren für alle spitzen Winkel und behält Gehren nur für stumpfe oder rechte Winkel bei.
+- Ein Gehrungslimit von 1.0 ist gültig, deaktiviert jedoch alle Gehren.
+- Werte unter 1.0 sind ungültig für das Gehrungslimit.
 
-Hier ist ein kleines Demonstrationsbeispiel, in dem Sie das `miterLimit` dynamisch einstellen und sehen können, wie sich die Formen auf dem Canvas verändern. Die blauen Linien zeigen, wo die Start- und Endpunkte für jede der Linien im Zickzack-Muster sind.
+Hier ist eine kleine Demonstration, in der Sie das `miterLimit` dynamisch setzen können und sehen, wie dies die Formen auf der Canvas beeinflusst. Die blauen Linien zeigen, wo die Start- und Endpunkte für jede der Linien im Zickzackmuster sind.
 
-Wenn Sie einen `miterLimit` Wert unter 4.2 in diesem Beispiel spezifizieren, wird keins der sichtbaren Ecken mit einer Gehrungsverlängerung, sondern nur mit einem kleinen Schnittteil nahe der blauen Linien verbunden; mit einem `miterLimit` über 10, sollten die meisten Ecken in diesem Beispiel mit einer Gehrung weit weg von den blauen Linien verbunden werden, und dessen Höhe sich zwischen den Ecken von links nach rechts verringert, weil sie sich mit wachsenden Winkeln verbinden; bei Zwischenwerten, werden die Ecken auf der linken Seite nur mit einem Schnittteil nahe den blauen Linien verbunden, und die Ecken auf der rechten Seite mit einer Gehrungs-Verlängerung (ebenfalls mit einer sich verringernden Höhe).
+Wenn Sie einen `miterLimit`-Wert unter 4.2 in diesem Demo angeben, werden keine der sichtbaren Ecken mit einer Gehrungsverlängerung verbunden, sondern nur mit einer kleinen Schrägverbindung in der Nähe der blauen Linien; mit einem `miterLimit` über 10 sollten die meisten Ecken in diesem Demo mit einer Gehrung weit entfernt von den blauen Linien verbunden sein, deren Höhe zwischen den Ecken von links nach rechts abnimmt, weil sie sich mit wachsenden Winkeln verbinden; mit Zwischenwerten, die Ecken auf der linken Seite werden nur mit einer Schrägverbindung in der Nähe der blauen Linien verbunden und die Ecken auf der rechten Seite mit einer Gehrungsverlängerung (auch mit abnehmender Höhe).
 
 ```js
 function draw() {
@@ -401,20 +401,20 @@ function draw() {
 ```
 
 ```html hidden
-<table>
-  <tr>
-    <td>
-      <canvas id="canvas" width="150" height="150" role="presentation"></canvas>
-    </td>
-    <td>
-      Change the <code>miterLimit</code> by entering a new value below and
-      clicking the redraw button.<br /><br />
-      <label for="miterLimit">Miter limit</label>
-      <input type="number" id="miterLimit" size="3" min="1" />
-      <input type="submit" id="redraw" value="Redraw" />
-    </td>
-  </tr>
-</table>
+<canvas id="canvas" width="150" height="150" role="presentation"></canvas>
+<div>
+  Change the <code>miterLimit</code> by entering a new value below and clicking
+  the redraw button.<br /><br />
+  <label for="miterLimit">Miter limit</label>
+  <input type="number" id="miterLimit" min="1" />
+  <button id="redraw">Redraw</button>
+</div>
+```
+
+```css hidden
+body {
+  display: flex;
+}
 ```
 
 ```js hidden
@@ -429,11 +429,11 @@ redraw.addEventListener("click", draw);
 
 {{EmbedLiveSample("A_demo_of_the_miterLimit_property", "", "180")}}
 
-### Verwenden von Linienmustern
+### Verwendung von Liniendashes
 
-Die Methode `setLineDash` und die Eigenschaft `lineDashOffset` spezifizieren das Strichmuster für Linien. Die Methode `setLineDash` akzeptiert eine Liste von Zahlen, die Abstände zum abwechselnden Zeichnen einer Linie und einer Lücke angibt, und die Eigenschaft `lineDashOffset` setzt einen Offset, wo das Muster beginnen soll.
+Die Methode `setLineDash` und die Eigenschaft `lineDashOffset` spezifizieren das Strichmuster für Linien. Die Methode `setLineDash` akzeptiert eine Liste von Zahlen, die Entfernungen angeben, um abwechselnd eine Linie und einen Abstand zu zeichnen, und die Eigenschaft `lineDashOffset` legt einen Offset fest, wo das Muster beginnen soll.
 
-In diesem Beispiel erstellen wir einen "marching ants"-Effekt. Es ist eine Animationstechnik, die oft in Auswahlwerkzeugen von Computer-Grafikprogrammen gefunden wird. Es hilft dem Benutzer, die Auswahlgrenze vom Bildhintergrund zu unterscheiden, indem sie die Grenze animiert. In einem späteren Teil dieses Tutorials können Sie lernen, wie Sie dies und andere [einfache Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations) machen.
+In diesem Beispiel erstellen wir einen marschierenden Ameisen-Effekt. Es ist eine Animationstechnik, die oft in Auswahlwerkzeugen von Computergraphikprogrammen gefunden wird. Sie hilft dem Benutzer, die Auswahlgrenze vom Bildhintergrund zu unterscheiden, indem sie die Grenze animiert. In einem späteren Teil dieses Tutorials können Sie lernen, wie man dies und andere [grundlegende Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations) durchführt.
 
 ```html hidden
 <canvas id="canvas" width="111" height="111" role="presentation"></canvas>
@@ -466,14 +466,14 @@ march();
 
 ## Verläufe
 
-Genau wie in einem normalen Zeichenprogramm können wir Formen mit linearen, radialen und konischen Verläufen füllen und umfahren. Wir erstellen ein [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)-Objekt unter Verwendung einer der folgenden Methoden. Wir können dann dieses Objekt den Eigenschaften `fillStyle` oder `strokeStyle` zuweisen.
+Genau wie in jedem normalen Zeichenprogramm können wir Formen mit linearen, radialen und konischen Verläufen füllen und umrahmen. Wir erstellen ein [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)-Objekt, indem wir eine der folgenden Methoden verwenden. Wir können dann dieses Objekt den `fillStyle`- oder `strokeStyle`-Eigenschaften zuweisen.
 
 - [`createLinearGradient(x1, y1, x2, y2)`](/de/docs/Web/API/CanvasRenderingContext2D/createLinearGradient)
-  - : Erstellt ein lineares Gradientenobjekt mit einem Startpunkt von (`x1`, `y1`) und einem Endpunkt von (`x2`, `y2`).
+  - : Erstellt ein lineares Verlauf-Objekt mit einem Ausgangspunkt von (`x1`, `y1`) und einem Endpunkt von (`x2`, `y2`).
 - [`createRadialGradient(x1, y1, r1, x2, y2, r2)`](/de/docs/Web/API/CanvasRenderingContext2D/createRadialGradient)
-  - : Erstellt einen radialen Verlauf. Die Parameter repräsentieren zwei Kreise, einen mit seinem Zentrum bei (`x1`, `y1`) und einem Radius von `r1`, und der andere mit seinem Zentrum bei (`x2`, `y2`) mit einem Radius von `r2`.
+  - : Erstellt ein radiales Verlaufs-Objekt. Die Parameter repräsentieren zwei Kreise, einen mit seinem Zentrum bei (`x1`, `y1`) und einem Radius von `r1`, und den anderen mit seinem Zentrum bei (`x2`, `y2`) mit einem Radius von `r2`.
 - [`createConicGradient(angle, x, y)`](/de/docs/Web/API/CanvasRenderingContext2D/createConicGradient)
-  - : Erstellt ein konisches Gradientenobjekt mit einem Startwinkel von `angle` in Radiant, an der Position (`x`, `y`).
+  - : Erstellt ein konisches Verlauf-Objekt mit einem Startwinkel von `angle` in Radiant am Punkt (`x`, `y`).
 
 Zum Beispiel:
 
@@ -482,12 +482,12 @@ const lineargradient = ctx.createLinearGradient(0, 0, 150, 150);
 const radialgradient = ctx.createRadialGradient(75, 75, 0, 75, 75, 100);
 ```
 
-Sobald wir ein `CanvasGradient`-Objekt erstellt haben, können wir Farben hinzufügen, indem wir die Methode `addColorStop()` verwenden.
+Sobald wir ein `CanvasGradient`-Objekt erstellt haben, können wir ihm Farben zuweisen, indem wir die `addColorStop()`-Methode verwenden.
 
 - [`gradient.addColorStop(position, color)`](/de/docs/Web/API/CanvasGradient/addColorStop)
-  - : Erstellt einen neuen Farbwert auf dem `gradient` Objekt. Die `position` ist eine Zahl zwischen 0.0 und 1.0 und definiert die relative Position der Farbe im Gradienten, und das `color` Argument muss ein String sein, der eine CSS {{cssxref("&lt;color&gt;")}} darstellt, die die Farbe angibt, die der Verlauf bei diesem Offset in den Übergang erreichen soll.
+  - : Erstellt einen neuen Farbanschlag auf dem `gradient`-Objekt. Die `position` ist eine Zahl zwischen 0.0 und 1.0 und definiert die relative Position der Farbe im Verlauf, und das `color`-Argument muss ein String sein, der einen CSS {{cssxref("&lt;color&gt;")}} darstellt, der angibt, welche Farbe der Verlauf an diesem Übergangspunkt annehmen soll.
 
-Sie können so viele Farben zu einem Gradienten hinzufügen, wie Sie benötigen. Unten ist ein sehr einfacher linearer Verlauf von Weiß bis Schwarz.
+Sie können so viele Farbanschläge zu einem Verlauf hinzufügen, wie Sie benötigen. Unten ist ein sehr einfacher linearer Verlauf von Weiß zu Schwarz.
 
 ```js
 const lineargradient = ctx.createLinearGradient(0, 0, 150, 150);
@@ -497,7 +497,7 @@ lineargradient.addColorStop(1, "black");
 
 ### Ein `createLinearGradient`-Beispiel
 
-In diesem Beispiel erstellen wir zwei unterschiedliche Verläufe. Wie Sie hier sehen, können sowohl die Eigenschaften `strokeStyle` als auch `fillStyle` ein `canvasGradient`-Objekt als gültigen Input akzeptieren.
+In diesem Beispiel erstellen wir zwei verschiedene Verläufe. Wie Sie hier sehen können, können sowohl die `strokeStyle`- als auch die `fillStyle`-Eigenschaften ein `canvasGradient`-Objekt als gültigen Input akzeptieren.
 
 ```js
 function draw() {
@@ -532,15 +532,15 @@ function draw() {
 draw();
 ```
 
-Der erste ist ein Hintergrundverlauf. Wie Sie sehen, haben wir zwei Farben an derselben Position zugewiesen. Sie tun dies, um sehr scharfe Farbübergänge zu machen - in diesem Fall von Weiß zu Grün. Normalerweise spielt es keine Rolle, in welcher Reihenfolge Sie die Farbwertzuweisungen definieren, aber in diesem speziellen Fall tut es das erheblich. Wenn Sie die Zuweisungen in der Reihenfolge halten, in der Sie sie erscheinen lassen wollen, wird dies kein Problem sein.
+Der erste ist ein Hintergrundverlauf. Wie Sie sehen, haben wir zwei Farben an derselben Position zugewiesen. Sie tun dies, um sehr scharfe Farbverläufe zu erzeugen – in diesem Fall von Weiß zu Grün. Normalerweise spielt es keine Rolle, in welcher Reihenfolge Sie die Farbstopps definieren, aber in diesem speziellen Fall tut es das signifikant. Wenn Sie die Zuweisungen in der Reihenfolge behalten, in der Sie sie erscheinen lassen möchten, wird das kein Problem sein.
 
-Im zweiten Verlauf haben wir die Startfarbe (an Position 0.0) nicht zugewiesen, da dies nicht strikt notwendig war, weil sie die Farbe der nächsten Farbwertzuweisung automatisch annehmen wird. Daher macht die Zuweisung der schwarzen Farbe an Position 0.5 den Verlauf, vom Anfang bis zu diesem Punkt, automatisch schwarz.
+Im zweiten Verlauf haben wir die Startfarbe (an Position 0.0) nicht zugewiesen, da es nicht unbedingt notwendig war, da es automatisch die Farbe des nächsten Farbstopps annimmt. Daher macht das Zuweisen der schwarzen Farbe an Position 0.5 den Verlauf von Anfang bis zu diesem Stopp automatisch schwarz.
 
 {{EmbedLiveSample("A_createLinearGradient_example", "", "160")}}
 
 ### Ein `createRadialGradient`-Beispiel
 
-In diesem Beispiel definieren wir vier unterschiedliche radiale Verläufe. Da wir Kontrolle über den Start- und den Schlusspunkt des Verlaufs haben, können wir komplexere Effekte erzielen als bei den "klassischen" radialen Verläufen, die wir zum Beispiel in Photoshop sehen (das heißt, ein Verlauf mit einem einzelnen Startpunkt, bei dem sich der Verlauf in einer kreisförmigen Form nach außen ausdehnt).
+In diesem Beispiel definieren wir vier verschiedene radiale Verläufe. Da wir Kontrolle über Start- und Endpunkte des Verlaufs haben, können wir komplexere Effekte erzielen, als wir normalerweise bei den "klassischen" radialen Verläufen sehen, die wir zum Beispiel in Photoshop sehen (das heißt, ein Verlauf mit einem einzigen Mittelpunkt, wo sich der Verlauf in einer kreisförmigen Form nach außen ausdehnt).
 
 ```js
 function draw() {
@@ -587,15 +587,15 @@ function draw() {
 draw();
 ```
 
-In diesem Fall haben wir den Startpunkt leicht vom Endpunkt versetzt, um einen sphärischen 3D-Effekt zu erzielen. Es ist am besten, zu vermeiden, dass sich die inneren und äußeren Kreise überschneiden, da dies seltsame und schwer vorhersehbare Effekte zur Folge hat.
+In diesem Fall haben wir den Startpunkt leicht vom Endpunkt abgesetzt, um einen sphärischen 3D-Effekt zu erzielen. Es ist am besten zu vermeiden, dass sich die inneren und äußeren Kreise überschneiden, da dies zu seltsamen Effekten führt, die schwer vorherzusagen sind.
 
-Der letzte Farbwert in jedem der vier Verläufe verwendet eine voll transparente Farbe. Wenn Sie einen schönen Übergang von diesem zum vorherigen Farbwert wünschen, sollten beide Farben gleich sein. Dies ist aus dem Code nicht sehr offensichtlich, da er zwei verschiedene CSS Farbmethoden als Demonstration verwendet, aber im ersten Verlauf ist `#019F62 = rgb(1 159 98 / 100%)`.
+Der letzte Farbenstopp in jedem der vier Verläufe verwendet eine vollständig transparente Farbe. Wenn Sie einen schönen Übergang von diesem zum vorherigen Farbenstopp haben möchten, sollten beide Farben gleich sein. Dies ist aus dem Code nicht sehr offensichtlich, weil zwei verschiedene CSS-Farbmethoden als Demonstration verwendet werden, aber im ersten Verlauf `#019F62 = rgb(1 159 98 / 100%)`.
 
 {{EmbedLiveSample("A_createRadialGradient_example", "", "160")}}
 
 ### Ein `createConicGradient`-Beispiel
 
-In diesem Beispiel definieren wir zwei verschiedene konische Verläufe. Ein konischer Verlauf unterscheidet sich von einem radialen Verlauf, da er sich nicht in Form von Kreisen, sondern kreisförmig um einen Punkt erstreckt.
+In diesem Beispiel definieren wir zwei verschiedene konische Verläufe. Ein konischer Verlauf unterscheidet sich von einem radialen Verlauf, da er sich nicht auf Kreise beschränkt, sondern um einen Punkt rotiert.
 
 ```js
 function draw() {
@@ -635,23 +635,23 @@ function draw() {
 draw();
 ```
 
-Der erste Verlauf ist im Zentrum des ersten Rechtecks positioniert und bewegt einen grünen Farbwert am Anfang zu einem weißen am Ende. Der Winkel beginnt bei 2 Radiant, was bemerkbar ist durch die Anfangs-/Endlinie, die nach Südosten zeigt.
+Der erste Verlauf ist im Zentrum des ersten Rechtecks positioniert und wechselt von einem grünen Farbenstopp am Anfang zu einem weißen am Ende. Der Winkel beginnt bei 2 Radiant, was bemerkbar ist durch die Anfangs-/Endlinie, die nach Südosten zeigt.
 
-Der zweite Verlauf ist ebenfalls im Zentrum des zweiten Rechtecks positioniert. Dieser hat mehrere Farbwerte, die bei jedem Viertel des Rotationswegs von Schwarz zu Weiß wechseln. Dies ergibt den karierten Effekt.
+Der zweite Verlauf ist ebenfalls im Zentrum des zweiten Rechtecks positioniert. Dieser hat mehrere Farbenstops, die jeweils an jedem Viertel der Rotation von Schwarz zu Weiß wechseln. Dies gibt uns den karierten Effekt.
 
 {{EmbedLiveSample("A_createConicGradient_example", "", "160")}}
 
 ## Muster
 
-In einem der Beispiele auf der vorherigen Seite verwendeten wir eine Reihe von Schleifen, um ein Bildmuster zu erzeugen. Es gibt jedoch eine viel einfachere Methode: die `createPattern()`-Methode.
+In einem der Beispiele auf der vorherigen Seite haben wir eine Reihe von Schleifen verwendet, um ein Muster aus Bildern zu erstellen. Es gibt jedoch eine viel einfachere Methode: die `createPattern()`-Methode.
 
 - [`createPattern(image, type)`](/de/docs/Web/API/CanvasRenderingContext2D/createPattern)
-  - : Erstellt und gibt ein neues Canvas-Musterobjekt zurück. `image` ist die Quelle des Bildes (das heißt, ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), ein [`SVGImageElement`](/de/docs/Web/API/SVGImageElement), ein weiteres [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas), ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) oder ein [`VideoFrame`](/de/docs/Web/API/VideoFrame), oder ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)). `type` ist ein String, der angibt, wie das Bild verwendet wird.
+  - : Erstellt und gibt ein neues Canvas-Musterobjekt zurück. `image` ist die Quelle des Bildes (das heißt ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), ein [`SVGImageElement`](/de/docs/Web/API/SVGImageElement), ein anderes [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas), ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) oder ein [`VideoFrame`](/de/docs/Web/API/VideoFrame), oder ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)). `type` ist ein String, der angibt, wie das Bild verwendet werden soll.
 
-Der Typ gibt an, wie das Bild verwendet werden soll, um das Muster zu erzeugen, und muss einer der folgenden String-Werte sein:
+Der Typ gibt an, wie das Bild verwendet werden soll, um das Muster zu erstellen, und muss eine der folgenden Zeichenfolgenwerte sein:
 
 - `repeat`
-  - : Kachelt das Bild in sowohl vertikaler als auch horizontaler Richtung.
+  - : Kachelt das Bild in beiden vertikalen und horizontalen Richtungen.
 - `repeat-x`
   - : Kachelt das Bild horizontal, aber nicht vertikal.
 - `repeat-y`
@@ -659,7 +659,7 @@ Der Typ gibt an, wie das Bild verwendet werden soll, um das Muster zu erzeugen, 
 - `no-repeat`
   - : Kachelt das Bild nicht. Es wird nur einmal verwendet.
 
-Wir verwenden diese Methode, um ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern)-Objekt zu erzeugen, das den Gradientenmethoden, die wir oben gesehen haben, sehr ähnlich ist. Sobald wir ein Muster erstellt haben, können wir es den Eigenschaften `fillStyle` oder `strokeStyle` zuweisen. Zum Beispiel:
+Wir verwenden diese Methode, um ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern)-Objekt zu erstellen, das den Gradientenmethoden, die wir oben gesehen haben, sehr ähnlich ist. Sobald wir ein Muster erstellt haben, können wir es den `fillStyle`- oder `strokeStyle`-Eigenschaften zuweisen. Zum Beispiel:
 
 ```js
 const img = new Image();
@@ -668,11 +668,11 @@ const pattern = ctx.createPattern(img, "repeat");
 ```
 
 > [!NOTE]
-> Wie bei der `drawImage()`-Methode müssen Sie sicherstellen, dass das Bild, das Sie verwenden, geladen ist, bevor Sie diese Methode aufrufen, oder das Muster wird möglicherweise nicht korrekt gezeichnet.
+> Wie bei der `drawImage()`-Methode müssen Sie sicherstellen, dass das verwendete Bild geladen ist, bevor diese Methode aufgerufen wird, da das Muster ansonsten möglicherweise falsch gezeichnet wird.
 
 ### Ein `createPattern`-Beispiel
 
-In diesem letzten Beispiel erstellen wir ein Muster, das der `fillStyle`-Eigenschaft zugewiesen wird. Das einzig Erwähnenswerte ist die Verwendung des `onload`-Handlers des Bildes. Dies ist, um sicherzustellen, dass das Bild geladen ist, bevor es dem Muster zugewiesen wird.
+In diesem letzten Beispiel erstellen wir ein Muster, das der `fillStyle`-Eigenschaft zugewiesen wird. Das einzige, was es zu beachten gilt, ist die Verwendung des `onload`-Handlers des Bildes. Dies stellt sicher, dass das Bild geladen wird, bevor es dem Muster zugewiesen wird.
 
 ```js
 function draw() {
@@ -702,25 +702,25 @@ draw();
 
 ## Schatten
 
-Die Verwendung von Schatten umfasst nur vier Eigenschaften:
+Die Verwendung von Schatten beinhaltet nur vier Eigenschaften:
 
 - [`shadowOffsetX = float`](/de/docs/Web/API/CanvasRenderingContext2D/shadowOffsetX)
-  - : Gibt die horizontale Distanz an, die der Schatten vom Objekt aus erstrecken sollte. Dieser Wert wird nicht von der Transformationsmatrix beeinflusst. Der Standardwert ist 0.
+  - : Gibt die horizontale Entfernung an, die der Schatten sich vom Objekt erstrecken soll. Dieser Wert wird nicht von der Transformationsmatrix betroffen. Der Standardwert ist 0.
 - [`shadowOffsetY = float`](/de/docs/Web/API/CanvasRenderingContext2D/shadowOffsetY)
-  - : Gibt die vertikale Distanz an, die der Schatten vom Objekt aus erstrecken sollte. Dieser Wert wird nicht von der Transformationsmatrix beeinflusst. Der Standardwert ist 0.
+  - : Gibt die vertikale Entfernung an, die der Schatten sich vom Objekt erstrecken soll. Dieser Wert wird nicht von der Transformationsmatrix betroffen. Der Standardwert ist 0.
 - [`shadowBlur = float`](/de/docs/Web/API/CanvasRenderingContext2D/shadowBlur)
-  - : Gibt die Größe des Unschärfeeffekts an; dieser Wert entspricht nicht einer Anzahl von Pixeln und wird nicht von der aktuellen Transformationsmatrix beeinflusst. Der Standardwert ist 0.
+  - : Gibt die Größe des Weichzeichnungseffekts an; dieser Wert entspricht keiner Anzahl von Pixeln und wird nicht von der aktuellen Transformationsmatrix beeinflusst. Der Standardwert ist 0.
 - [`shadowColor = color`](/de/docs/Web/API/CanvasRenderingContext2D/shadowColor)
-  - : Ein standardmäßiger CSS-Farbwert, der die Farbe des Schatteneffekts angibt; standardmäßig ist er vollständig transparenter Schwarz.
+  - : Ein standardmäßiger CSS-Farbwert, der die Farbe des Schatteneffekts angibt; standardmäßig ist es vollständig transparentes Schwarz.
 
-Die Eigenschaften `shadowOffsetX` und `shadowOffsetY` geben an, wie weit der Schatten in den X- und Y-Richtungen vom Objekt aus erstrecken soll; diese Werte werden nicht von der aktuellen Transformationsmatrix beeinflusst. Verwenden Sie negative Werte, um den Schatten nach oben oder links und positive Werte, um den Schatten nach unten oder rechts erstrecken zu lassen. Diese sind standardmäßig auf 0 gesetzt.
+Die Eigenschaften `shadowOffsetX` und `shadowOffsetY` geben an, wie weit sich der Schatten vom Objekt in den X- und Y-Richtungen erstrecken soll; diese Werte werden nicht von der aktuellen Transformationsmatrix beeinflusst. Verwenden Sie negative Werte, um den Schatten nach oben oder links zu erstrecken, und positive Werte, um den Schatten nach unten oder rechts zu ziehen. Diese Werte sind standardmäßig beide 0.
 
-Die Eigenschaft `shadowBlur` gibt die Größe des Unschärfeeffekts an; dieser Wert entspricht nicht einer Anzahl von Pixeln und wird nicht von der aktuellen Transformationsmatrix beeinflusst. Der Standardwert ist 0.
+Die `shadowBlur`-Eigenschaft gibt die Größe des Weichzeichnungseffekts an; dieser Wert entspricht keiner Anzahl von Pixeln und wird nicht von der aktuellen Transformationsmatrix beeinflusst. Der Standardwert ist 0.
 
-Die Eigenschaft `shadowColor` ist ein standardmäßiger CSS-Farbwert, der die Farbe des Schatteneffekts angibt; standardmäßig ist er vollständig transparenter Schwarz.
+Die `shadowColor`-Eigenschaft ist ein standardmäßiger CSS-Farbwert, der die Farbe des Schatteneffekts anzeigt; standardmäßig ist es vollständig transparentes Schwarz.
 
 > [!NOTE]
-> Schatten werden nur für `source-over` [Kompositionsoperationen](/de/docs/Web/API/Canvas_API/Tutorial/Compositing) gezeichnet.
+> Schatten werden nur für `source-over`- [Kompositionsoperationen](/de/docs/Web/API/Canvas_API/Tutorial/Compositing) gezeichnet.
 
 ### Ein Beispiel für beschatteten Text
 
@@ -751,18 +751,18 @@ draw();
 
 {{EmbedLiveSample("A_shadowed_text_example")}}
 
-Wir werden uns die Eigenschaft `font` und die Methode `fillText` im nächsten Kapitel über das [Zeichnen von Text](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text) ansehen.
+Wir werden die `font`-Eigenschaft und die `fillText`-Methode im nächsten Kapitel über [Text zeichnen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text) näher betrachten.
 
-## Füllregeln für Canvas
+## Canvas-Füllregeln
 
-Bei Verwendung von `fill` (oder [`clip`](/de/docs/Web/API/CanvasRenderingContext2D/clip) und [`isPointInPath`](/de/docs/Web/API/CanvasRenderingContext2D/isPointInPath)) können Sie optional einen Algorithmus für die Füllregel angeben, mit dem bestimmt wird, ob ein Punkt innerhalb oder außerhalb eines Pfads liegt und daher gefüllt wird oder nicht. Dies ist nützlich, wenn sich ein Pfad selbst schneidet oder geschachtelt ist.
+Wenn Sie `fill` (oder [`clip`](/de/docs/Web/API/CanvasRenderingContext2D/clip) und [`isPointInPath`](/de/docs/Web/API/CanvasRenderingContext2D/isPointInPath)) verwenden, können Sie optional ein Füllregel-Algorithmus angeben, um zu bestimmen, ob ein Punkt innerhalb oder außerhalb eines Pfads liegt und somit gefüllt wird oder nicht. Dies ist nützlich, wenn ein Pfad sich selbst schneidet oder verschachtelt ist.
 
 Zwei Werte sind möglich:
 
 - `nonzero`
-  - : Die [Nonzero-Winding-Rule](https://de.wikipedia.org/wiki/Nonzero-rule), die die Standardregel ist.
+  - : Die [Non-Zero-Windungsregel](https://de.wikipedia.org/wiki/Nonzero-rule), welche die Standardregel ist.
 - `evenodd`
-  - : Die [gerad-ungerad Winding-Rule](https://de.wikipedia.org/wiki/Even%E2%80%93odd_rule).
+  - : Die [Even-Odd-Windungsregel](https://de.wikipedia.org/wiki/Even%E2%80%93odd_rule).
 
 In diesem Beispiel verwenden wir die `evenodd`-Regel.
 

@@ -3,36 +3,32 @@ title: "IntersectionObserver: scrollMargin-Eigenschaft"
 short-title: scrollMargin
 slug: Web/API/IntersectionObserver/scrollMargin
 l10n:
-  sourceCommit: a08998b31cb6b5f0b91469d70c84c9bd97cac202
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{APIRef("Intersection Observer API")}}
 
-Die **`scrollMargin`**-Nur-Lese-Eigenschaft des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Interfaces fügt einem verschachtelten {{Glossary("scroll_container", "Scroll-Container")}} innerhalb des Wurzelelements, einschließlich des Wurzelelements selbst, wenn es ein Scroll-Container ist, einen Rand hinzu.
+Die **`scrollMargin`**-Schreibeigenschaft des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Interfaces fügt allen verschachtelten {{Glossary("scroll_container", "Scroll-Containern")}} innerhalb des Root-Elements einen Rand hinzu, einschließlich des Root-Elements, wenn es ein Scroll-Container ist.
 
-Dies vergrößert oder verkleinert das Clipping-Rechteck der scrollbaren Container, bevor die Schnittpunkte berechnet werden.
-Dies ermöglicht es Ihnen beispielsweise, die Grenzen des Scroll-Containers so anzupassen, dass das Zielelement als sichtbar angesehen wird, auch wenn seine Pixel noch nicht im Viewport des Containers angezeigt werden, oder das Ziel als teilweise verborgen zu behandeln, wenn eine Kante zu nah an der Kante des Begrenzungsrahmens des Containers liegt.
+Dies vergrößert oder verkleinert das Clipping-Rechteck der scrollbaren Container, bevor Schnittpunkte berechnet werden. Dadurch können Sie beispielsweise die Grenzen des Scroll-Containers so anpassen, dass das Ziel-Element als sichtbar betrachtet wird, auch wenn seine Pixel noch nicht im Viewport des Containers angezeigt werden. Oder Sie können das Ziel teilweise als verborgen behandeln, wenn eine Kante zu nah an der Kante des Begrenzungsrahmens des Containers liegt.
 
-Beachten Sie, dass, wenn das Wurzelelement ebenfalls ein scrollbarer Container ist, die `scrollMargin` und [`rootMargin`](/de/docs/Web/API/IntersectionObserver/rootMargin) kombiniert werden, um das effektive Begrenzungsrechteck zu bestimmen, das für die Berechnung der Schnittpunkte mit dem Ziel verwendet wird.
+Beachten Sie, dass, wenn das Root-Element auch ein scrollbarer Container ist, dann die `scrollMargin` und [`rootMargin`](/de/docs/Web/API/IntersectionObserver/rootMargin) kombiniert werden, um das effektive Begrenzungsrechteck zu bestimmen, das verwendet wird, um Schnittpunkte mit dem Ziel zu berechnen.
 
-Weitere Informationen finden Sie unter [The intersection root and scroll margin](/de/docs/Web/API/Intersection_Observer_API#the_intersection_root_and_scroll_margin) in der API-Übersicht.
+Weitere Informationen finden Sie unter [Der Schnittwurzel und Scroll-Margin](/de/docs/Web/API/Intersection_Observer_API#the_intersection_root_and_scroll_margin) im API-Überblick.
 
 ## Wert
 
-Ein String, ähnlich formatiert wie der Wert der CSS {{cssxref("margin")}}-Eigenschaft.
+Ein String, ähnlich formatiert wie der Wert der CSS-{{cssxref("margin")}}-Eigenschaft.
 
-Der angegebene Rand definiert Offsets für eine oder mehrere Seiten eines Scroll-Container-Clipping-Rechtecks.
-Wenn `scrollMargin` nicht angegeben ist, als das Objekt instanziiert wurde, ist der Standardwert der String `"0px 0px 0px 0px"`.
+Der angegebene Rand definiert Abstände für eine oder mehrere Seiten eines Clipping-Rechtecks des Scroll-Containers. Falls `scrollMargin` nicht angegeben ist, als das Objekt instanziiert wurde, wird der Wert standardmäßig auf den String `"0px 0px 0px 0px"` gesetzt.
 
 ## Beispiel
 
-### Karussell mit Scroll-Rand
+### Karussell mit Scroll-Margin
 
-Dieses Beispiel definiert ein scrollbares Feld (das Wurzelelement), das ein Bildkarussell enthält, welches anfangs nicht sichtbar ist.
-Ein Beobachter auf dem Wurzelelement beobachtet die Zielelemente der Bilder innerhalb des Karussells.
-Wenn ein Bildelement beginnt, mit dem Wurzelelement zu schneiden, wird das Bild geladen, der Schnittpunkt wird protokolliert, und der Beobachter wird entfernt.
+Dieses Beispiel definiert ein scrollbares Feld (das Root-Element), das ein Bildkarussell enthält, das zunächst nicht sichtbar ist. Ein Beobachter auf dem Root-Element beobachtet die Bildzielt-Elemente innerhalb des Karussells. Wenn ein Bild-Element beginnt, mit dem Root-Element zu schneiden, wird das Bild geladen, der Schnittpunkt protokolliert und der Beobachter entfernt.
 
-Das Beispiel ermöglicht es Ihnen, die `scrollMargin` zu ändern, um zu sehen, wie sich dies ändert, wenn Ziele innerhalb des scrollbaren Karussells zu schneiden beginnen.
+Das Beispiel ermöglicht es Ihnen, die `scrollMargin` zu ändern, um zu sehen, wie diese Änderungen eintreten, wenn Ziele innerhalb des scrollbaren Containers des Karussells beginnen, sich zu schneiden.
 
 #### HTML
 
@@ -40,11 +36,9 @@ Das Beispiel ermöglicht es Ihnen, die `scrollMargin` zu ändern, um zu sehen, w
 <button id="reset" type="button">Reset</button>
 ```
 
-Der untenstehende Code definiert das `root-container` {{htmlelement("div")}}-Element, das wir als Wurzelelement des Intersection Observers verwenden werden.
-Dies enthält wiederum ein {{htmlelement("p")}}-Element, das verwendet wird, um die anderen Elemente "standardmäßig" aus der Ansicht zu schieben, ein `carousel`-`<div>`, und einen `margin-indicator` (verwendet, um die Größe des auf scrollbare Elemente innerhalb des Wurzelelements angewandten Randes anzuzeigen).
+Der folgende Code definiert das `root-container`-{{htmlelement("div")}}-Element, das wir als Root-Element des Intersection Observer verwenden werden. Dieses enthält ein {{htmlelement("p")}}-Element, das dazu verwendet wird, die anderen Elemente "standardmäßig" aus dem Sichtfeld zu schieben, ein `carousel`-`<div>`, und einen `margin-indicator` (wird verwendet, um die Größe des auf scrollbare Elemente innerhalb des Root-Elements angewendeten Randes anzuzeigen).
 
-Die {{htmlelement("img")}}-Elemente innerhalb des Karussells haben ein `data-src`-Attribut, das einen Dateinamen enthält.
-In unserem Beobachtercode werden wir dieses Attribut verwenden, um das `img.src` festzulegen, wenn jedes Bild beginnt, mit dem Wurzelelement zu schneiden, was das Bild lädt.
+Die {{htmlelement("img")}}-Elemente innerhalb des Karussells haben ein `data-src`-Attribut, das einen Dateinamen enthält. In unserem Beobachtercode werden wir dieses Attribut verwenden, um das `img.src` festzulegen, wenn jedes Bild beginnt, sich mit dem Root-Element zu schneiden, wodurch das Bild geladen wird.
 
 ```html
 <div id="root-container">
@@ -53,22 +47,33 @@ In unserem Beobachtercode werden wir dieses Attribut verwenden, um das `img.src`
   <div class="flex-container">
     <div class="carousel">
       <img
+        src=""
         data-src="ballon-portrait.jpg"
         class="lazy-carousel-img"
         alt="Balloon portrait" />
       <img
+        src=""
         data-src="balloon-small.jpg"
         class="lazy-carousel-img"
         alt="balloon-small" />
-      <img data-src="surfer.jpg" class="lazy-carousel-img" alt="surfer" />
       <img
+        src=""
+        data-src="surfer.jpg"
+        class="lazy-carousel-img"
+        alt="surfer" />
+      <img
+        src=""
         data-src="border-diamonds.png"
         class="lazy-carousel-img"
         alt="border-diamonds" />
-      <img data-src="fire.png" class="lazy-carousel-img" alt="fire" />
-      <img data-src="puppy-header.jpg" class="lazy-carousel-img" alt="puppy" />
-      <img data-src="moon.jpg" class="lazy-carousel-img" alt="moon" />
-      <img data-src="rhino.jpg" class="lazy-carousel-img" alt="rhino" />
+      <img src="" data-src="fire.png" class="lazy-carousel-img" alt="fire" />
+      <img
+        src=""
+        data-src="puppy-header.jpg"
+        class="lazy-carousel-img"
+        alt="puppy" />
+      <img src="" data-src="moon.jpg" class="lazy-carousel-img" alt="moon" />
+      <img src="" data-src="rhino.jpg" class="lazy-carousel-img" alt="rhino" />
     </div>
     <div id="margin-indicator"></div>
   </div>
@@ -165,15 +170,13 @@ function log(text) {
 }
 ```
 
-Der erste Teil des Codes definiert die Funktion `createImageObserver()`, die wir verwenden, um `IntersectionObserver`-Objekte zu erstellen und der Variablen `imageObserver` zuzuweisen.
-Wir verwenden eine Funktion, weil Beobachteroptionen nach der Konstruktion nicht geändert werden können, und wir wollen in der Lage sein, die Auswirkungen verschiedener `scrollMargin`-Werte zu demonstrieren.
+Der erste Teil des Codes definiert die Funktion `createImageObserver()`, die wir verwenden, um `IntersectionObserver`-Objekte zu erstellen und der `imageObserver`-Variable zuzuweisen. Wir verwenden eine Funktion, weil die Beobachteroptionen nach Erstellung nicht geändert werden können, und wir die Auswirkungen verschiedener `scrollMargin`-Werte demonstrieren möchten.
 
-Der `IntersectionObserver` wird ohne `rootMargin`, mit einem nahezu null `threshold` und einem `scrollMargin` erstellt, das seinen Wert vom `margin`-Eingabewert erhält und der auf alle Seiten des Scroll-Containers angewendet wird.
+Der `IntersectionObserver` wird ohne `rootMargin`, mit einem nahezu null `threshold` und einer `scrollMargin` erstellt, die ihren Wert aus der `margin`-Eingabe erhält und der auf alle Seiten des Scroll-Containers angewendet wird.
 
-Der Rückruf wird für alle beobachteten Ziele aufgerufen.
-Für schneidende Ziele setzt er das `img.src` auf den Namen des zu ladenden Bildes (aus dem `img.dataset.src`), protokolliert den Schnittpunkt und hört dann auf, das Bild zu beobachten.
+Der Rückruf wird für alle beobachteten Ziele aufgerufen. Für die sich schneidenden Ziele setzt er das `img.src` auf den Namen des zu ladenden Bildes (aus dem `img.dataset.src`), protokolliert den Schnittpunkt und hört dann auf, das Bild zu beobachten.
 
-Der Code am Ende der Funktion ruft [`IntersectionObserver.observe()`](/de/docs/Web/API/IntersectionObserver/observe) auf jedem Bild auf, um den Beobachter zu starten.
+Der Code am Ende der Funktion ruft [`IntersectionObserver.observe()`](/de/docs/Web/API/IntersectionObserver/observe) für jedes Bild auf, um den Beobachter zu starten.
 
 ```js
 const rootContainer = document.getElementById("root-container");
@@ -222,8 +225,7 @@ function createImageObserver() {
 }
 ```
 
-Der folgende Code erstellt den Beobachter mit `createImageObserver()` beim Start und wann immer sich der `margin`-Eingabewert ändert.
-Wenn das `IntersectionObserver`-Interface nicht unterstützt wird, werden alle Bilder sofort geladen.
+Der folgende Code erstellt den Beobachter unter Verwendung von `createImageObserver()` beim Start und wann immer sich der `margin`-Eingabewert ändert. Wenn die `IntersectionObserver`-Schnittstelle nicht unterstützt wird, werden alle Bilder sofort geladen.
 
 ```js
 if ("IntersectionObserver" in window) {
@@ -246,15 +248,11 @@ if ("IntersectionObserver" in window) {
 
 #### Ergebnisse
 
-Scrollen Sie nach unten, um das Karussell anzuzeigen.
-Die sichtbaren Bilder sollten sofort geladen werden.
-Wenn Sie das Karussell nach rechts scrollen, sollten Sie beobachten, dass die Bilder geladen werden, sobald das Element sichtbar wird.
+Scrollen Sie nach unten, um das Karussell anzuzeigen. Die sichtbaren Bilder sollten sofort geladen werden. Wenn Sie das Karussell nach rechts scrollen, sollten Sie beobachten, dass die Bilder geladen werden, sobald das Element sichtbar wird.
 
-Sie können die bereitgestellte Steuerung verwenden, um den Prozentsatz des Scroll-Randes zu ändern (nachdem Sie das Beispiel zurückgesetzt haben).
-Wenn Sie einen positiven Wert wie 20px festlegen, wird das Clip-Rechteck des Scroll-Containers um 20px vergrößert, und Sie sollten feststellen, dass Bilder erkannt und geladen werden, bevor sie ins Sichtfeld gelangen.
-Ähnlich bedeutet ein negativer Wert, dass die Schnittstelle erkannt wird, sobald Bilder bereits sichtbar sind.
+Sie können die bereitgestellte Steuerung verwenden, um den Prozentsatz des Scroll-Margins zu ändern (nachdem das Beispiel zurückgesetzt wurde). Wenn Sie einen positiven Wert wie 20px einstellen, wird das Clipping-Rechteck des Scroll-Containers um 20px vergrößert, und Sie sollten beobachten, dass Bilder erkannt und geladen werden, bevor sie in Sicht kommen. Ebenso bedeutet ein negativer Wert, dass der Schnittpunkt erkannt wird, sobald die Bilder bereits im Sichtbereich sind.
 
-{{EmbedLiveSample("Karussell mit Scroll-Rand","100%","500px")}}
+{{EmbedLiveSample("Carousel with scroll margin","100%","500px")}}
 
 ## Spezifikationen
 

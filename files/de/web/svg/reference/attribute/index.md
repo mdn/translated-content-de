@@ -3,12 +3,12 @@ title: SVG-Attributreferenz
 short-title: Attributes
 slug: Web/SVG/Reference/Attribute
 l10n:
-  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
+  sourceCommit: 55326f330a6ae829494c7606b1bd47b2c0f9d888
 ---
 
-SVG-Elemente können mit Attributen modifiziert werden, die festlegen, wie das Element genau behandelt oder gerendert werden soll.
+SVG-Elemente können mit Attributen verändert werden, die Details darüber angeben, wie das Element behandelt oder gerendert werden soll.
 
-Nachfolgend finden Sie eine Liste aller in SVG verfügbaren Attribute sowie Links zur Referenzdokumentation, die Ihnen helfen sollen, zu erfahren, welche Elemente sie unterstützen und wie sie funktionieren.
+Nachfolgend finden Sie eine Liste aller verfügbaren Attribute in SVG zusammen mit Links zu Referenzdokumentationen, die Ihnen dabei helfen, zu verstehen, welche Elemente diese unterstützen und wie sie funktionieren.
 
 ## SVG-Attribute von A bis Z
 
@@ -306,9 +306,9 @@ Die Kernattribute sind globale Attribute.
 - {{SVGAttr("xml:lang")}}
 - {{SVGAttr("xml:space")}}
 
-### Bedingungen verarbeitende Attribute
+### Bedingte Verarbeitungsattribute
 
-Die Bedingungen verarbeitenden Attribute steuern, ob das Element, bei dem sie auftreten, verarbeitet wird oder nicht.
+Die bedingten Verarbeitungsattribute steuern, ob das Element, auf dem sie erscheinen, verarbeitet wird oder nicht.
 
 - {{SVGAttr("requiredExtensions")}}
 - {{SVGAttr("requiredFeatures")}}
@@ -331,7 +331,7 @@ Die XLink-Attribute können Ressourcen referenzieren.
 Alle SVG-Präsentationsattribute können als CSS-Eigenschaften verwendet werden.
 
 > [!NOTE]
-> Ob es sich bei diesen Attributen um Präsentationsattribute handelt, hängt von dem Element ab, bei dem sie gesetzt sind. Zum Beispiel ist `x` ein Präsentationsattribut für {{svgelement("circle")}}, aber nicht für {{svgelement("tspan")}}; es ist die Koordinate des Startpunkts der Textbasislinie oder die x-Koordinate jedes einzelnen Glyphs, falls eine Liste von Werten angegeben ist.
+> Ob es sich bei diesen Attributen um Präsentationsattribute handelt, hängt vom Element ab, auf dem sie festgelegt sind. Beispielsweise ist `x` ein Präsentationsattribut für {{svgelement("circle")}}, aber nicht für {{svgelement("tspan")}}; es ist die Koordinate des Startpunkts der Text-Basislinie oder die x-Koordinate jedes einzelnen Glyphs, wenn eine Werteliste bereitgestellt wird.
 
 - {{SVGAttr("alignment-baseline")}}
 - {{SVGAttr("baseline-shift")}}
@@ -405,92 +405,33 @@ Alle SVG-Präsentationsattribute können als CSS-Eigenschaften verwendet werden.
 - {{SVGAttr("x")}}
 - {{SVGAttr("y")}}
 
-### Filterattribute
+### Filter-Attribute
 
-- Filter-Primitive-Attribute (Präsentationsattribute)
+- Filterprimitive Attribute (Präsentationsattribute)
   - : {{SVGAttr("height")}}, {{SVGAttr("result")}}, {{SVGAttr("width")}}, {{SVGAttr("x")}}, {{SVGAttr("y")}}
-- Transferfunktion-Attribute
+- Übertragungsfunktionsattribute
   - : {{SVGAttr("type")}}, {{SVGAttr("tableValues")}}, {{SVGAttr("slope")}}, {{SVGAttr("intercept")}}, {{SVGAttr("amplitude")}}, {{SVGAttr("exponent")}}, {{SVGAttr("offset")}}
 
 ### Animationsattribute
 
-- Animationsziel-Element-Attribute
+- Animationszielelementattribute
   - : {{SVGAttr("href")}}
-- Animationsattribut-Zielattribute
+- Animationszielattribute
   - : {{SVGAttr("attributeType")}}, {{SVGAttr("attributeName")}}
-- Animationszeit-Attribute
+- Animationstiming-Attribute
   - : {{SVGAttr("begin")}}, {{SVGAttr("dur")}}, {{SVGAttr("end")}}, {{SVGAttr("min")}}, {{SVGAttr("max")}}, {{SVGAttr("restart")}}, {{SVGAttr("repeatCount")}}, {{SVGAttr("repeatDur")}}, {{SVGAttr("fill")}}
-- Animationswert-Attribute
+- Animationswertattribute
   - : {{SVGAttr("calcMode")}}, {{SVGAttr("values")}}, {{SVGAttr("keyTimes")}}, {{SVGAttr("keySplines")}}, {{SVGAttr("from")}}, {{SVGAttr("to")}}, {{SVGAttr("by")}}
-- Animationszusatz-Attribute
+- Animationsadditionsattribute
   - : {{SVGAttr("additive")}}, {{SVGAttr("accumulate")}}
 
 ### Ereignisattribute
 
-- **`onabort`**
-- **`onactivate`**
-- **`onbegin`**
-- **`oncancel`**
-- **`oncanplay`**
-- **`oncanplaythrough`**
-- **`onchange`**
-- **`onclick`**
-- **`onclose`**
-- **`oncuechange`**
-- **`ondblclick`**
-- **`ondrag`**
-- **`ondragend`**
-- **`ondragenter`**
-- **`ondragleave`**
-- **`ondragover`**
-- **`ondragstart`**
-- **`ondrop`**
-- **`ondurationchange`**
-- **`onemptied`**
-- **`onend`**
-- **`onended`**
-- **`onerror`**
-- **`onfocus`**
-- **`onfocusin`**
-- **`onfocusout`**
-- **`oninput`**
-- **`oninvalid`**
-- **`onkeydown`**
-- **`onkeypress`**
-- **`onkeyup`**
-- **`onload`**
-- **`onloadeddata`**
-- **`onloadedmetadata`**
-- **`onloadstart`**
-- **`onmousedown`**
-- **`onmouseenter`**
-- **`onmouseleave`**
-- **`onmousemove`**
-- **`onmouseout`**
-- **`onmouseover`**
-- **`onmouseup`**
-- **`onmousewheel`**
-- **`onpause`**
-- **`onplay`**
-- **`onplaying`**
-- **`onprogress`**
-- **`onratechange`**
-- **`onrepeat`**
-- **`onreset`**
-- **`onresize`**
-- **`onscroll`**
-- **`onseeked`**
-- **`onseeking`**
-- **`onselect`**
-- **`onshow`**
-- **`onstalled`**
-- **`onsubmit`**
-- **`onsuspend`**
-- **`ontimeupdate`**
-- **`ontoggle`**
-- **`onunload`**
-- **`onvolumechange`**
-- **`onwaiting`**
+Alle HTML- und SVG-Elemente unterstützen Ereignishandlerattribute, die im [`GlobalEventHandlers`](/de/docs/Web/HTML/Reference/Global_attributes#list_of_global_event_handler_attributes) Mixin definiert sind.
+
+Während Ereignishandlerattribute, wie [`onblur`](/de/docs/Web/API/Element/blur_event) und [`onauxclick`](/de/docs/Web/API/Element/auxclick_event), auf alle Elemente zutreffen, können sie möglicherweise keine Wirkung haben. Zum Beispiel kann das [`oncuechange`](/de/docs/Web/API/HTMLTrackElement/cuechange_event) Attribut auf jedes Element angewendet werden, ist jedoch nur für das {{htmlelement("track")}}-Element relevant.
+
+Ereignishandlerattribute werden nicht empfohlen, gelten als unsicher und können durch [Content Security Policies (CSP)](/de/docs/Web/Security/Practical_implementation_guides/CSP) blockiert werden. Verwenden Sie stattdessen den Ereignisnamen innerhalb einer [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Methode.
 
 ## Siehe auch
 

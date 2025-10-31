@@ -1,16 +1,16 @@
 ---
-title: "Element: compositionend event"
+title: "Element: compositionend-Ereignis"
 short-title: compositionend
 slug: Web/API/Element/compositionend_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{APIRef("UI Events")}}
 
-Das **`compositionend`**-Ereignis wird ausgelöst, wenn ein Textzusammensetzungssystem wie ein {{Glossary("input_method_editor", "Input-Method-Editor")}} die aktuelle Zusammensetzungssitzung abschließt oder abbricht.
+Das **`compositionend`**-Ereignis wird ausgelöst, wenn ein Textzusammensetzungssystem wie ein {{Glossary("input_method_editor", "Input Method Editor")}} die aktuelle Kompositionssitzung abschließt oder abbricht.
 
-Zum Beispiel könnte dieses Ereignis ausgelöst werden, nachdem ein Benutzer das Eingeben eines chinesischen Zeichens mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin)-{{Glossary("Input_method_editor", "Input-Method-Editor")}} beendet hat.
+Zum Beispiel könnte dieses Ereignis ausgelöst werden, nachdem ein Benutzer die Eingabe eines chinesischen Zeichens mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) {{Glossary("Input_method_editor", "Input Method Editor")}} beendet hat.
 
 ## Syntax
 
@@ -33,9 +33,9 @@ Ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent). Erbt von [`UIEvent`
 _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihrem Vorfahren — [`Event`](/de/docs/Web/API/Event)._
 
 - [`CompositionEvent.data`](/de/docs/Web/API/CompositionEvent/data) {{ReadOnlyInline}}
-  - : Gibt die Zeichen zurück, die durch die Eingabemethode generiert wurden, die das Ereignis ausgelöst hat; sie variieren je nach Art des Ereignisses, das das `CompositionEvent`-Objekt generiert hat.
+  - : Gibt die Zeichen zurück, die von der Eingabemethode erzeugt wurden, die das Ereignis ausgelöst hat; dies variiert je nach Art des Ereignisses, das das `CompositionEvent`-Objekt generiert hat.
 - [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Zusammensetzung mit einem {{Glossary("Input_method_editor", "Input-Method-Editor")}} verbunden ist).
+  - : Gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Komposition mit einem {{Glossary("Input_method_editor", "Input Method Editor")}} verbunden ist).
 
 ## Beispiele
 
@@ -53,13 +53,12 @@ inputElement.addEventListener("compositionend", (event) => {
 
 ```html
 <div class="control">
-  <label for="example">
-    First select textbox, then to open IME:
-    <ul>
-      <li>on macOS type <kbd>option</kbd> + <kbd>`</kbd></li>
-      <li>on Windows type <kbd>windows</kbd> + <kbd>.</kbd></li>
-    </ul>
-  </label>
+  <p>First select textbox, then to open IME:</p>
+  <ul>
+    <li>on macOS type <kbd>option</kbd> + <kbd>`</kbd></li>
+    <li>on Windows type <kbd>windows</kbd> + <kbd>.</kbd></li>
+  </ul>
+  <label for="example">Example input</label>
   <input type="text" id="example" name="example" />
 </div>
 

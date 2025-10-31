@@ -1,23 +1,26 @@
 ---
-title: Aufnehmen von Fotos mit getUserMedia()
+title: Fotos aufnehmen mit getUserMedia()
 slug: Web/API/Media_Capture_and_Streams_API/Taking_still_photos
 l10n:
-  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{DefaultAPISidebar("Media Capture and Streams")}}
 
-Dieser Artikel zeigt, wie Sie [`navigator.mediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwenden, um auf die Kamera eines Computers oder Mobiltelefons mit `getUserMedia()`-Unterstützung zuzugreifen und ein Foto damit aufzunehmen.
+Dieser Artikel zeigt, wie man mit [`navigator.mediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) auf die Kamera eines Computers oder Mobiltelefons zugreift, das `getUserMedia()` unterstützt, und ein Foto damit aufnimmt.
 
-![getUserMedia-basierte Bildaufnahme-App — links haben wir einen Videostream von einer Webcam und einen Fotoaufnahme-Button, rechts das Standbild-Ergebnis der Fotoaufnahme](web-rtc-demo.png)
+![getUserMedia-basierte Bildaufnahme-App — links sehen wir einen Videostream von einer Webcam und einen Fotoaufnahme-Button, rechts das Standbild aus der Fotoaufnahme](web-rtc-demo.png)
 
-Sie können auch direkt zum [Demo](#demo) springen, wenn Sie mögen.
+Sie können auch direkt zum [Demo](#demo) springen, wenn Sie möchten.
 
 ## Das HTML-Markup
 
-Unsere HTML-Oberfläche hat zwei Hauptarbeitsbereiche: das Stream- und Aufnahme-Panel sowie das Präsentations-Panel. Jedes davon wird nebeneinander in seinem eigenen {{HTMLElement("div")}} dargestellt, um Styling und Steuerung zu erleichtern. Es gibt ein {{HTMLElement("button")}}-Element (`permissions-button`), das wir später in JavaScript verwenden können, um es dem Benutzer zu ermöglichen, Kameraerlaubnisse pro Gerät mit `getUserMedia()` zu erlauben oder zu blockieren.
+Unsere HTML-Oberfläche hat zwei Hauptbereiche: das Stream- und Aufnahmepanel sowie das Präsentationspanel.
+Jeder davon wird nebeneinander in einem eigenen {{HTMLElement("div")}} präsentiert, um das Styling und die Kontrolle zu erleichtern.
+Es gibt ein {{HTMLElement("button")}} Element (`permissions-button`), das wir später in JavaScript nutzen können, um dem Benutzer zu erlauben, Kamera-Berechtigungen pro Gerät mit `getUserMedia()` zuzulassen oder zu blockieren.
 
-Die Box auf der linken Seite enthält zwei Komponenten: ein {{HTMLElement("video")}}-Element, das den Stream von `navigator.mediaDevices.getUserMedia()` erhält, und einen {{HTMLElement("button")}}, um die Videoaufnahme zu starten. Dies ist unkompliziert, und wir werden sehen, wie es zusammenpasst, wenn wir zum JavaScript-Code kommen.
+Die Box auf der linken Seite enthält zwei Komponenten: ein {{HTMLElement("video")}} Element, das den Stream von `navigator.mediaDevices.getUserMedia()` empfangen wird, und ein {{HTMLElement("button")}}, um die Videoaufnahme zu starten.
+Dies ist einfach, und wir werden sehen, wie es mit dem JavaScript-Code zusammenhängt.
 
 ```css hidden live-sample___photo-capture live-sample___photo-capture-with-filters
 body {
@@ -100,24 +103,25 @@ code {
 </div>
 ```
 
-Als nächstes haben wir ein {{HTMLElement("canvas")}}-Element, in dem die aufgenommenen Frames gespeichert, möglicherweise auf irgendeine Weise bearbeitet und dann in eine Bilddatei konvertiert werden. Dieses Canvas wird durch Styling mit {{cssxref("display", "display: none")}} verborgen, um das Bildschirmlayout nicht zu stören — der Benutzer muss diese Zwischenstufe nicht sehen.
+Als nächstes haben wir ein {{HTMLElement("canvas")}} Element, in das die aufgenommenen Frames gespeichert, bei Bedarf manipuliert und dann in eine Ausgabebilddatei umgewandelt werden.
+Diese Leinwand wird versteckt gehalten, indem die Leinwand mit {{cssxref("display", "display: none")}} gestylt wird, um die Bildschirmgestaltung nicht zu überladen — der Benutzer muss diese Zwischenstufe nicht sehen.
 
-Wir haben auch ein {{HTMLElement("img")}}-Element, in das wir das Bild zeichnen werden — dies ist die endgültige Darstellung, die dem Benutzer gezeigt wird.
+Wir haben auch ein {{HTMLElement("img")}} Element, in das wir das Bild zeichnen werden — dies ist die finale Anzeige, die dem Benutzer gezeigt wird.
 
 ```html live-sample___photo-capture live-sample___photo-capture-with-filters
 <canvas id="canvas"></canvas>
 <div class="output">
-  <img id="photo" alt="The screen capture will appear in this box." />
+  <img id="photo" src="" alt="The screen capture will appear in this box." />
 </div>
 ```
 
 ## Der JavaScript-Code
 
-Werfen wir nun einen Blick auf den JavaScript-Code. Wir werden ihn in einige leicht verständliche Abschnitte aufteilen, um die Erklärung zu erleichtern.
+Schauen wir uns nun den JavaScript-Code an. Wir teilen ihn in einige gut verdauliche Stücke auf, um ihn leichter erklären zu können.
 
 ### Initialisierung
 
-Wir beginnen mit dem Einrichten verschiedener Variablen, die wir verwenden werden.
+Wir beginnen mit der Einrichtung verschiedener Variablen, die wir verwenden werden.
 
 ```js live-sample___photo-capture live-sample___photo-capture-with-filters
 const width = 320; // We will scale the photo width to this
@@ -135,25 +139,26 @@ const allowButton = document.getElementById("permissions-button");
 Diese Variablen sind:
 
 - `width`
-  - : Unabhängig von der Größe des eingehenden Videos skalieren wir das resultierende Bild auf eine Breite von 320 Pixeln.
+  - : Unabhängig von der Größe des eingehenden Videos skalieren wir das resultierende Bild auf eine Breite von 320 Pixel.
 - `height`
-  - : Die Ausgabehöhe des Bildes wird basierend auf `width` und dem {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Streams berechnet.
+  - : Die Ausgabehöhe des Bildes wird unter Berücksichtigung der `width` und des {{Glossary("aspect_ratio", "Seitenverhältnisses")}} des Streams berechnet.
 - `streaming`
-  - : Gibt an, ob derzeit ein aktiver Videostream läuft oder nicht.
+  - : Gibt an, ob derzeit ein aktiver Videostream läuft.
 - `video`
-  - : Eine Referenz auf das {{HTMLElement("video")}}-Element.
+  - : Eine Referenz auf das {{HTMLElement("video")}} Element.
 - `canvas`
-  - : Eine Referenz auf das {{HTMLElement("canvas")}}-Element.
+  - : Eine Referenz auf das {{HTMLElement("canvas")}} Element.
 - `photo`
-  - : Eine Referenz auf das {{HTMLElement("img")}}-Element.
+  - : Eine Referenz auf das {{HTMLElement("img")}} Element.
 - `startButton`
-  - : Eine Referenz auf das {{HTMLElement("button")}}-Element, das zum Starten der Aufnahme verwendet wird.
+  - : Eine Referenz auf das {{HTMLElement("button")}} Element, das zur Aufnahme verwendet wird.
 - `allowButton`
-  - : Eine Referenz auf das {{HTMLElement("button")}}-Element, das zum Steuern dient, ob die Seite auf Geräte zugreifen kann oder nicht.
+  - : Eine Referenz auf das {{HTMLElement("button")}} Element, das steuert, ob die Seite auf Geräte zugreifen darf oder nicht.
 
-#### Den Mediastream abrufen
+#### Holen Sie sich den Medienstream
 
-Die nächste Aufgabe besteht darin, den Mediastream abzurufen: Wir definieren einen Event-Listener, der [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) aufruft und einen Videostream (ohne Audio) anfordert, wenn der Benutzer auf den Button "Kamera erlauben" klickt. Dies gibt ein Versprechen zurück, an das wir Erfolgs- und Fehler-Callbacks anhängen:
+Die nächste Aufgabe besteht darin, den Medienstream zu erhalten: Wir definieren einen Event-Listener, der [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) aufruft und einen Videostream (ohne Audio) anfordert, wenn der Benutzer auf die Schaltfläche "Kamera erlauben" klickt.
+Es gibt ein Versprechen zurück, an das wir Erfolgs- und Fehlerrückrufe anhängen:
 
 ```js live-sample___photo-capture live-sample___photo-capture-with-filters
 allowButton.addEventListener("click", () => {
@@ -169,13 +174,15 @@ allowButton.addEventListener("click", () => {
 });
 ```
 
-Das Erfolgs-Callback erhält ein `stream`-Objekt als Eingabe, das als Quelle für unser {{HTMLElement("video")}}-Element gesetzt wird. Sobald der Stream mit dem `<video>`-Element verlinkt ist, starten wir es, indem wir [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play_event) aufrufen.
+Der Erfolgsrückruf erhält ein `stream` Objekt als Eingabe, das als Quelle unseres {{HTMLElement("video")}} Elements festgelegt wird.
+Sobald der Stream mit dem `<video>` Element verknüpft ist, starten wir ihn, indem wir [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play_event) aufrufen.
 
-Das Fehler-Callback wird aufgerufen, wenn das Öffnen des Streams nicht funktioniert. Dies passiert zum Beispiel, wenn keine kompatible Kamera angeschlossen ist oder der Benutzer den Zugriff verweigert hat.
+Der Fehlerrückruf wird aufgerufen, wenn das Öffnen des Streams nicht funktioniert.
+Dies passiert beispielsweise, wenn keine kompatible Kamera angeschlossen ist oder der Benutzer den Zugriff verweigert hat.
 
-#### Auf das Abspielen des Videos hören
+#### Hören Sie zu, wenn das Video zu spielen beginnt
 
-Nach dem Aufruf von [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play_event) auf dem {{HTMLElement("video")}} gibt es eine (hoffentlich kurze) Zeitspanne, bevor der Videostream zu fließen beginnt. Um ein Blockieren bis dahin zu vermeiden, fügen wir dem `video`-Element einen Event-Listener für das [`canplay`](/de/docs/Web/API/HTMLMediaElement/canplay_event)-Event hinzu, das ausgeliefert wird, wenn die Videowiedergabe tatsächlich beginnt. Zu diesem Zeitpunkt wurden alle Eigenschaften im `video`-Objekt basierend auf dem Format des Streams konfiguriert.
+Nach dem Aufruf von [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play_event) auf dem {{HTMLElement("video")}} gibt es einen (hoffentlich kurzen) Zeitraum, der vergeht, bevor der Videostream zu fließen beginnt. Um zu vermeiden, zu blockieren, bis dies passiert, fügen wir einen Event-Listener für das [`canplay`](/de/docs/Web/API/HTMLMediaElement/canplay_event) Ereignis hinzu, das ausgeliefert wird, wenn die Videowiedergabe tatsächlich beginnt. Zu diesem Zeitpunkt wurden alle Eigenschaften im `video` Objekt basierend auf dem Format des Streams konfiguriert.
 
 ```js live-sample___photo-capture live-sample___photo-capture-with-filters
 video.addEventListener("canplay", (ev) => {
@@ -191,15 +198,15 @@ video.addEventListener("canplay", (ev) => {
 });
 ```
 
-Dieses Callback tut nichts, es sei denn, es ist das erste Mal, dass es aufgerufen wird; dies wird durch Überprüfen des Werts unserer `streaming`-Variable getestet, die beim ersten Ausführen dieser Methode `false` ist.
+Dieser Rückruf tut nichts, es sei denn, es ist das erste Mal, dass er aufgerufen wurde; dies wird überprüft, indem der Wert unserer `streaming` Variable überprüft wird, die `false` ist, das erste Mal, wenn diese Methode ausgeführt wird.
 
-Wenn dies tatsächlich der erste Lauf ist, setzen wir die Höhe des Videos basierend auf dem Größendifferenz zwischen der tatsächlichen Größe des Videos, `video.videoWidth`, und der Breite, in der wir es rendern werden, `width`.
+Wenn dies tatsächlich der erste Durchlauf ist, setzen wir die Höhe des Videos basierend auf dem Größenunterschied zwischen der tatsächlichen Größe des Videos, `video.videoWidth`, und der Breite, bei der wir es rendern werden, `width`.
 
-Schließlich werden die `width` und `height` sowohl des Videos als auch des Canvas entsprechend einander angepasst, indem [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute) auf jedes der beiden Eigenschaften der beiden Elemente angewendet wird und Breiten und Höhen entsprechend festgelegt werden. Schließlich setzen wir die `streaming`-Variable auf `true`, um zu verhindern, dass dieser Setup-Code versehentlich erneut ausgeführt wird.
+Schließlich werden die `width` und `height` sowohl des Videos als auch der Leinwand so gesetzt, dass sie zueinander passen, indem [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute) für die zwei Eigenschaften jedes Elements aufgerufen wird, und Breiten und Höhen wie angemessen setzen. Schließlich setzen wir die `streaming` Variable auf `true`, um zu verhindern, dass wir diesen Setup-Code versehentlich erneut ausführen.
 
-#### Klicks auf den Button behandeln
+#### Behandeln Sie Klicks auf die Schaltfläche
 
-Um jedes Mal, wenn der Benutzer auf den `startButton` klickt, ein Standbild aufzunehmen, müssen wir dem Button einen Event-Listener hinzufügen, der aufgerufen wird, wenn das [`click`](/de/docs/Web/API/Element/click_event)-Event ausgelöst wird:
+Um bei jedem Klick des Benutzers auf `startButton` ein Standbild zu erfassen, müssen wir der Schaltfläche einen Event-Listener hinzufügen, der aufgerufen wird, wenn das [`click`](/de/docs/Web/API/Element/click_event) Ereignis ausgegeben wird:
 
 ```js live-sample___photo-capture live-sample___photo-capture-with-filters
 startButton.addEventListener("click", (ev) => {
@@ -208,11 +215,11 @@ startButton.addEventListener("click", (ev) => {
 });
 ```
 
-Diese Methode ist unkompliziert: Sie ruft die `takePicture()`-Funktion auf, die im Abschnitt [Einen Frame aus dem Stream aufnehmen](#einen_frame_aus_dem_stream_aufnehmen) unten definiert ist, und ruft dann [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf das empfangene Event auf, um zu verhindern, dass der Klick mehr als einmal verarbeitet wird.
+Diese Methode ist einfach: sie ruft die `takePicture()` Funktion auf, die unten im Abschnitt [Erfassen eines Frames aus dem Stream](#erfassen_eines_frames_aus_dem_stream) definiert wird, und ruft dann [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf dem empfangenen Ereignis auf, um zu verhindern, dass der Klick mehr als einmal behandelt wird.
 
-### Das Fotofeld leeren
+### Das Fotofeld löschen
 
-Das Leeren des Fotofeldes beinhaltet das Erstellen eines Bildes, um es dann in ein Format umzuwandeln, das vom {{HTMLElement("img")}}-Element verwendet werden kann, das das zuletzt aufgenommene Bild anzeigt. Dieser Code sieht so aus:
+Das Löschen des Fotofelds beinhaltet das Erstellen eines Bildes und das Konvertieren in ein Format, das von dem {{HTMLElement("img")}} Element verwendet werden kann, das den zuletzt aufgenommenen Frame anzeigt. Der Code sieht so aus:
 
 ```js live-sample___photo-capture live-sample___photo-capture-with-filters
 function clearPhoto() {
@@ -227,13 +234,13 @@ function clearPhoto() {
 clearPhoto();
 ```
 
-Wir beginnen damit, eine Referenz auf das versteckte {{HTMLElement("canvas")}}-Element zu erhalten, das wir für das Offscreen-Rendering verwenden. Als Nächstes setzen wir das `fillStyle` auf `#aaaaaa` (ein ziemlich helles Grau) und füllen das gesamte Canvas mit dieser Farbe, indem wir [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) aufrufen.
+Wir beginnen damit, eine Referenz auf das versteckte {{HTMLElement("canvas")}} Element zu erhalten, das wir für das Offscreen-Rendering verwenden. Als nächstes setzen wir `fillStyle` auf `#aaaaaa` (einen ziemlich hellen Grauton) und füllen die gesamte Leinwand mit dieser Farbe, indem wir [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) aufrufen.
 
-Zuletzt in dieser Funktion konvertieren wir das Canvas in ein PNG-Bild und rufen [`photo.setAttribute()`](/de/docs/Web/API/Element/setAttribute) auf, um unsere aufgenommene Standbild-Box anzuzeigen.
+Zuletzt in dieser Funktion konvertieren wir die Leinwand in ein PNG-Bild und rufen [`photo.setAttribute()`](/de/docs/Web/API/Element/setAttribute) auf, damit unser aufgenommenes Standbild das Bild anzeigt.
 
-### Einen Frame aus dem Stream aufnehmen
+### Erfassen eines Frames aus dem Stream
 
-Es gibt eine letzte Funktion zu definieren, die den Kern der ganzen Übung bildet: die `takePicture()`-Funktion, deren Aufgabe es ist, den aktuell angezeigten Videoframe aufzunehmen, in eine PNG-Datei zu konvertieren und im aufgenommenen Framefeld anzuzeigen. Der Code sieht so aus:
+Es gibt noch eine letzte Funktion zu definieren, und sie ist der Punkt der gesamten Übung: die `takePicture()` Funktion, deren Aufgabe es ist, den aktuell angezeigten Video-Frame zu erfassen, in eine PNG-Datei zu konvertieren und ihn im aufgenommenen Rahmen-Feld anzuzeigen. Der Code sieht so aus:
 
 ```js live-sample___photo-capture
 function takePicture() {
@@ -251,26 +258,27 @@ function takePicture() {
 }
 ```
 
-Wie immer, wenn wir mit dem Inhalt eines Canvas arbeiten müssen, beginnen wir damit, den [2D-Zeichenkontext](/de/docs/Web/API/CanvasRenderingContext2D) für das versteckte Canvas abzurufen.
+Immer, wenn wir mit den Inhalten einer Leinwand arbeiten müssen, beginnen wir, indem wir den [2D-Zeichenkontext](/de/docs/Web/API/CanvasRenderingContext2D) für die versteckte Leinwand erhalten.
 
-Dann, wenn sowohl die Breite als auch die Höhe ungleich Null sind (was bedeutet, dass zumindest potenziell gültige Bilddaten vorhanden sind), setzen wir die Breite und Höhe des Canvas auf die des aufgenommenen Frames und rufen dann [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) auf, um den aktuellen Videoframe in den Kontext zu zeichnen und das gesamte Canvas mit dem Framebild zu füllen.
+Dann, wenn die Breite und Höhe beide ungleich null sind (was bedeutet, dass zumindest potenziell gültige Bilddaten vorhanden sind), setzen wir die Breite und Höhe der Leinwand so, dass sie mit dem aufgenommenen Frame übereinstimmen, und rufen dann [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) auf, um den aktuellen Frame des Videos in den Kontext zu zeichnen und die gesamte Leinwand mit dem Framebild zu füllen.
 
 > [!NOTE]
-> Dies nutzt die Tatsache aus, dass die [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Schnittstelle für jede API, die ein `HTMLImageElement` als Parameter akzeptiert, wie ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) aussieht, wobei der aktuelle Frame des Videos als Inhalt des Bildes präsentiert wird.
+> Dies nutzt die Tatsache, dass die [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) Schnittstelle wie eine [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) für jede API aussieht, die ein `HTMLImageElement` als Parameter akzeptiert, wobei der aktuelle Frame des Videos als Inhalt des Bildes präsentiert wird.
 
-Sobald das Canvas das aufgenommene Bild enthält, konvertieren wir es in das PNG-Format, indem wir [`HTMLCanvasElement.toDataURL()`](/de/docs/Web/API/HTMLCanvasElement/toDataURL) darauf aufrufen; schließlich rufen wir [`photo.setAttribute()`](/de/docs/Web/API/Element/setAttribute) auf, um unsere aufgenommene Standbild-Box anzuzeigen.
+Sobald die Leinwand das aufgenommene Bild enthält, konvertieren wir es in das PNG-Format, indem wir [`HTMLCanvasElement.toDataURL()`](/de/docs/Web/API/HTMLCanvasElement/toDataURL) darauf aufrufen; schließlich rufen wir [`photo.setAttribute()`](/de/docs/Web/API/Element/setAttribute) auf, damit unser aufgenommener Stillkasten das Bild anzeigt.
 
-Wenn kein gültiges Bild verfügbar ist (das heißt, die `width` und `height` sind beide 0), löschen wir den Inhalt der aufgenommenen Frame-Box, indem wir `clearPhoto()` aufrufen.
+Wenn kein gültiges Bild verfügbar ist (d.h. die `width` und `height` sind beide 0), löschen wir den Inhalt des aufgenommenen Rahmenkastens, indem wir `clearPhoto()` aufrufen.
 
 ## Demo
 
-Klicken Sie auf "Kamera erlauben", um ein Eingabegerät auszuwählen und der Seite den Zugriff auf die Kamera zu erlauben. Sobald das Video gestartet ist, können Sie auf "Foto aufnehmen" klicken, um ein Standbild aus dem Stream aufzunehmen, das als Bild auf das Canvas rechts gezeichnet wird:
+Klicken Sie auf "Kamera erlauben", um ein Eingabegerät auszuwählen und der Seite den Zugriff auf die Kamera zu erlauben.
+Sobald das Video gestartet wird, können Sie auf "Foto aufnehmen" klicken, um ein Standbild aus dem Stream als auf der rechten Leinwand gezeichnete Grafik aufzunehmen:
 
 {{EmbedLiveSample('photo-capture', '', '500', , , , 'camera', 'allow-popups')}}
 
 ## Spaß mit Filtern
 
-Da wir Bilder von der Webcam des Benutzers erfassen, indem wir Frames aus einem {{HTMLElement("video")}}-Element übernehmen, können wir lustige CSS-{{cssxref("filter")}}-Effekte mit Filtern auf das Video anwenden. Diese Filter reichen von einfach (das Bild schwarzweiß machen) bis komplex (Gaußsche Unschärfen und Farbtonrotation).
+Da wir Bilder von der Webcam des Benutzers aufnehmen, indem wir Frames von einem {{HTMLElement("video")}} Element ergreifen, können wir lustige CSS {{cssxref("filter")}} Effekte auf das Video mit Filtern anwenden. Diese Filter reichen von einfach (das Bild schwarz-weiß machen) bis komplex (Gauss'sche Unschärfen und Farbtonrotation).
 
 ```css live-sample___photo-capture-with-filters
 #video {
@@ -278,7 +286,7 @@ Da wir Bilder von der Webcam des Benutzers erfassen, indem wir Frames aus einem 
 }
 ```
 
-Damit die Video-Filter auf das Foto angewendet werden, benötigt die `takePicture()`-Funktion die folgenden Änderungen.
+Damit die Videofilter auf das Foto angewendet werden, benötigt die `takePicture()` Funktion die folgenden Änderungen.
 
 ```js live-sample___photo-capture-with-filters
 function takePicture() {
@@ -308,14 +316,14 @@ function takePicture() {
 
 {{EmbedLiveSample('photo-capture-with-filters', , '600', , , , 'camera', 'allow-popups')}}
 
-Sie können mit diesem Effekt spielen, indem Sie zum Beispiel die [Style Editor](https://firefox-source-docs.mozilla.org/devtools-user/style_editor/index.html) von Firefox Developer Tools verwenden; Details dazu finden Sie unter [Bearbeiten von CSS-Filtern](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_css_filters/index.html).
+Sie können mit diesem Effekt spielen, indem Sie beispielsweise die Entwicklerwerkzeuge des Firefox Stil-Editors verwenden; siehe [Bearbeiten von CSS-Filtern](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_css_filters/index.html) für Details wie dies zu tun ist.
 
-## Verwenden bestimmter Geräte
+## Verwendung spezifischer Geräte
 
-Sie können, falls erforderlich, die Menge der zulässigen Videoquellen auf ein bestimmtes Gerät oder eine Gruppe von Geräten beschränken. Um dies zu tun, rufen Sie [`MediaDevices.enumerateDevices`](/de/docs/Web/API/MediaDevices/enumerateDevices) auf. Wenn das Versprechen mit einem Array von [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Objekten erfüllt wird, die die verfügbaren Geräte beschreiben, finden Sie die Geräte, die Sie erlauben möchten, und geben Sie die entsprechenden [`deviceId`](/de/docs/Web/API/MediaTrackConstraints/deviceId) oder `deviceId`s im [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekt an, das an [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) übergeben wird.
+Sie können, falls erforderlich, die Menge der erlaubten Videoquellen auf ein bestimmtes Gerät oder eine Reihe von Geräten beschränken. Um dies zu tun, rufen Sie [`MediaDevices.enumerateDevices`](/de/docs/Web/API/MediaDevices/enumerateDevices) auf. Wenn das Versprechen mit einem Array von [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo) Objekten, die die verfügbaren Geräte beschreiben, erfüllt wird, finden Sie die, die Sie zulassen möchten, und geben Sie die entsprechende [`deviceId`](/de/docs/Web/API/MediaTrackConstraints/deviceId) oder `deviceId`s im [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints) Objekt an, das in [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) übergeben wird.
 
 ## Siehe auch
 
 - [`MediaDevices.getUserMedia`](/de/docs/Web/API/MediaDevices/getUserMedia)
 - [`CanvasRenderingContext2D.drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage)
-- [Verwendung von Frames aus einem Video](/de/docs/Web/API/Canvas_API/Tutorial/Using_images#using_frames_from_a_video) im Canvas-Tutorial
+- [Verwendung von Frames aus einem Video](/de/docs/Web/API/Canvas_API/Tutorial/Using_images#using_frames_from_a_video) im Canvas-Leitfaden

@@ -2,11 +2,11 @@
 title: ::cue
 slug: Web/CSS/::cue
 l10n:
-  sourceCommit: d8a046a6265c83d821e4923989e284479c10fd75
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das **`::cue`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) entspricht [WebVTT](/de/docs/Web/API/WebVTT_API) Hinweise innerhalb eines ausgewählten Elements.
-Dies kann verwendet werden, um [Untertitel und andere Hinweise](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) in Medien mit VTT-Tracks zu gestalten.
+Das **`::cue`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) wendet sich an [WebVTT](/de/docs/Web/API/WebVTT_API) Cues innerhalb eines ausgewählten Elements.
+Dies kann genutzt werden, um [Untertitel und andere Cues zu gestalten](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet) in Medien mit VTT-Tracks.
 
 {{InteractiveExample("CSS Demo: ::cue", "tabbed-shorter")}}
 
@@ -36,9 +36,9 @@ video::cue {
 </video>
 ```
 
-Die Eigenschaften werden auf die gesamte Menge an Hinweisen angewendet, als ob sie eine einzige Einheit wären. Die einzige Ausnahme ist, dass `background` und seine Langform-Eigenschaften auf jeden Hinweis einzeln angewendet werden, um das Erstellen von Boxen und das unbeabsichtigte Verdecken großer Bereiche der Medien zu vermeiden.
+Die Eigenschaften werden auf die gesamte Menge an Cues angewendet, als ob sie eine einzige Einheit wären. Die einzige Ausnahme ist, dass `background` und dessen Langform-Eigenschaften auf jeden Cue individuell angewendet werden, um die Erstellung von Kästchen zu vermeiden, die unerwartet große Bereiche des Mediums verdecken.
 
-Im obigen Beispiel selektiert der `::cue(u)` Selektor alle [`<u>`](/de/docs/Web/HTML/Reference/Elements/u) Elemente innerhalb [des Hinweistextes](https://github.com/mdn/shared-assets/blob/main/misc/friday.vtt).
+Im obigen Beispiel wählt der `::cue(u)` Selektor alle [`<u>`](/de/docs/Web/HTML/Reference/Elements/u) Elemente innerhalb [des Cue-Textes](https://github.com/mdn/shared-assets/blob/main/misc/friday.vtt) aus.
 
 ## Syntax
 
@@ -50,7 +50,7 @@ Im obigen Beispiel selektiert der `::cue(u)` Selektor alle [`<u>`](/de/docs/Web/
 
 ## Erlaubte Eigenschaften
 
-Regeln, deren Selektoren dieses Element enthalten, dürfen nur die folgenden CSS-Eigenschaften verwenden:
+Regeln, deren Selektoren dieses Element einschließen, dürfen nur die folgenden CSS-Eigenschaften verwenden:
 
 - [`background`](/de/docs/Web/CSS/Reference/Properties/background)
 - [`background-attachment`](/de/docs/Web/CSS/Reference/Properties/background-attachment)
@@ -63,7 +63,7 @@ Regeln, deren Selektoren dieses Element enthalten, dürfen nur die folgenden CSS
 - [`background-size`](/de/docs/Web/CSS/Reference/Properties/background-size)
 - [`color`](/de/docs/Web/CSS/Reference/Properties/color)
 - [`font`](/de/docs/Web/CSS/Reference/Properties/font)
-- [`font-family`](/de/docs/Web/CSS/font-family)
+- [`font-family`](/de/docs/Web/CSS/Reference/Properties/font-family)
 - [`font-size`](/de/docs/Web/CSS/Reference/Properties/font-size)
 - [`font-stretch`](/de/docs/Web/CSS/Reference/Properties/font-stretch)
 - [`font-style`](/de/docs/Web/CSS/Reference/Properties/font-style)
@@ -88,9 +88,9 @@ Regeln, deren Selektoren dieses Element enthalten, dürfen nur die folgenden CSS
 
 ## Beispiele
 
-### WebVTT-Hinweise als Weiß-auf-Schwarz stylen
+### Styling von WebVTT-Cues als weiß auf schwarz
 
-Das folgende CSS setzt den Hinweis-Stil so, dass der Text weiß ist und der Hintergrund eine durchscheinende schwarze Box ist.
+Das folgende CSS legt den Cue-Stil so fest, dass der Text weiß ist und der Hintergrund eine durchscheinende schwarze Box bildet.
 
 ```css
 ::cue {
@@ -99,18 +99,18 @@ Das folgende CSS setzt den Hinweis-Stil so, dass der Text weiß ist und der Hint
 }
 ```
 
-### Styling von WebVTT-internen Knotenobjekten
+### Styling von internen WebVTT-Knotenobjekten
 
-Hinweistext kann _interne Knotenobjekte_ wie die Tags (ähnlich den HTML-Elementen) `<c>`, `<i>`, `<b>`, `<u>`, `<ruby>`, `<rt>`, `<v>`, und `<lang>` enthalten.
-Der `::cue()` Selektor kann verwendet werden, um Stile auf Inhalte innerhalb dieser Tags anzuwenden, um anzupassen, wie der WebVTT-Track angezeigt wird.
-Betrachten Sie den folgenden Hinweistext, der das `<u>` Tag verwendet, um einige Texte zu unterstreichen:
+Cue-Text kann _interne Knotenobjekte_ wie die Tags (ähnlich wie HTML-Elemente) `<c>`, `<i>`, `<b>`, `<u>`, `<ruby>`, `<rt>`, `<v>`, und `<lang>` beinhalten.
+Der `::cue()` Selektor kann verwendet werden, um Stile auf Inhalte innerhalb dieser Tags anzuwenden, um zu spezifizieren, wie der WebVTT-Track angezeigt wird.
+Betrachten Sie den folgenden Cue-Text, der das `<u>` Tag verwendet, um einige Texte zu unterstreichen:
 
 ```plain
 00:00:01.500 --> 00:00:02.999 line:80%
 Tell me, is the <u>lord of the universe</u> in?
 ```
 
-Die folgende CSS-Regel passt den Text innerhalb des `<u>` Tags mit einer Farbe und einer [text-decoration](/de/docs/Web/CSS/Reference/Properties/text-decoration) an:
+Die folgende CSS-Regel passt die Farbe und [text-decoration](/de/docs/Web/CSS/Reference/Properties/text-decoration) des Textes innerhalb des `<u>` Tags an:
 
 ```css
 ::cue(u) {

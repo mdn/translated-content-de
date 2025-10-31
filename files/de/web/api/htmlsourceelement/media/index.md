@@ -3,12 +3,12 @@ title: "HTMLSourceElement: media-Eigenschaft"
 short-title: media
 slug: Web/API/HTMLSourceElement/media
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`media`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist ein String, der das beabsichtigte Zielmedium für die Ressource repräsentiert. Der Wert ist eine [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), die eine durch Kommas getrennte Liste von Medientypen, Medieneigenschaften und logischen Operatoren ist.
+Die **`media`**-Eigenschaft des [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Interfaces ist ein String, der das beabsichtigte Zielmedium für die Ressource darstellt. Der Wert ist eine [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), die eine kommagetrennte Liste von Medientypen, Medienmerkmalen und logischen Operatoren ist.
 
 Sie spiegelt das `media`-Attribut des {{HTMLElement("source")}}-Elements wider.
 
@@ -19,11 +19,13 @@ Ein String.
 ## Beispiele
 
 ```html
-<source
-  id="el"
-  src="largeVideo.mov"
-  type="video/quicktime"
-  media="screen and (width >= 600px)" />
+<video>
+  <source
+    id="el"
+    src="largeVideo.mov"
+    type="video/quicktime"
+    media="screen and (width >= 600px)" />
+</video>
 ```
 
 ```js

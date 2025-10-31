@@ -1,12 +1,12 @@
 ---
-title: "ARIA: Rolle `tab`"
+title: "ARIA: tab-Rolle"
 short-title: tab
 slug: Web/Accessibility/ARIA/Reference/Roles/tab_role
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
-Die ARIA-Rolle `tab` kennzeichnet ein interaktives Element innerhalb eines `tablist`, das beim Aktivieren sein zugehöriges `tabpanel` anzeigt.
+Die ARIA `tab`-Rolle zeigt ein interaktives Element innerhalb eines `tablist` an, das beim Aktivieren sein zugehöriges `tabpanel` anzeigt.
 
 ```html
 <button role="tab" aria-selected="true" aria-controls="tabpanel-id" id="tab-id">
@@ -16,68 +16,68 @@ Die ARIA-Rolle `tab` kennzeichnet ein interaktives Element innerhalb eines `tabl
 
 ## Beschreibung
 
-Ein Element mit der Rolle `tab` kontrolliert die Sichtbarkeit eines zugehörigen Elements mit der Rolle [`tabpanel`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role). Das übliche Benutzererfahrungsmuster ist eine Gruppe von visuellen Tabs oberhalb oder seitlich eines Inhaltsbereichs, und die Auswahl eines anderen Tabs ändert den Inhalt und macht den ausgewählten Tab prominenter als die anderen Tabs.
+Ein Element mit der `tab`-Rolle steuert die Sichtbarkeit eines zugehörigen Elements mit der [`tabpanel`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role)-Rolle. Das übliche Nutzererlebnis besteht aus einer Gruppe von visuellen Registerkarten über oder neben einem Inhaltsbereich. Wenn eine andere Registerkarte ausgewählt wird, ändert sich der Inhalt und die ausgewählte Registerkarte wird hervorgehoben.
 
-Elemente mit der Rolle `tab` _müssen_ entweder ein Kind eines Elements mit der Rolle `tablist` sein oder ihre `id` muss Teil der [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)-Eigenschaft eines `tablist` sein. Diese Kombination informiert unterstützende Technologien darüber, dass das Element Teil einer Gruppe zusammengehörender Elemente ist. Einige unterstützende Technologien geben eine Anzahl der Elemente mit der Rolle `tab` in einem `tablist` an und informieren darüber, welches `tab` derzeit ausgewählt ist. Des Weiteren _sollte_ ein Element mit der Rolle `tab` die Eigenschaft [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls) enthalten, die ein entsprechendes `tabpanel` (das die Rolle `tabpanel` hat) durch die `id` dieses Elements identifiziert. Wenn ein Element mit der Rolle `tabpanel` oder ein untergeordnetes Element den Fokus hat, zeigt das an, dass das verbundene Element mit der Rolle `tab` der aktive Tab in einem `tablist` ist.
+Elemente mit der Rolle `tab` _müssen_ entweder ein Kind eines Elements mit der `tablist`-Rolle sein oder ihre `id` muss Teil der [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-owns)-Eigenschaft einer `tablist` sein. Diese Kombination identifiziert für unterstützende Technologien, dass das Element Teil einer Gruppe verwandter Elemente ist. Einige unterstützende Technologien liefern eine Anzahl der Elemente mit der `tab`-Rolle innerhalb einer `tablist` und informieren die Benutzer darüber, welche `tab` sie aktuell anvisieren. Weiterhin _sollte_ ein Element mit der `tab`-Rolle die [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls)-Eigenschaft enthalten, die ein entsprechendes `tabpanel` (das eine `tabpanel`-Rolle hat) durch die `id` dieses Elements identifiziert. Wenn ein Element mit der `tabpanel`-Rolle den Fokus hat oder ein Kind davon den Fokus hat, zeigt das an, dass das verbundene Element mit der `tab`-Rolle die aktive Registerkarte in einer `tablist` ist.
 
-Wenn Elemente mit der Rolle `tab` ausgewählt oder aktiv sind, sollten sie das Attribut [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) auf `true` gesetzt haben. Andernfalls sollte ihr `aria-selected`-Attribut auf `false` gesetzt sein. Wenn ein einzelauswählbares `tablist` ausgewählt oder aktiv ist, sollte das `hidden`-Attribut der anderen `tabpanels` auf `true` gesetzt werden, bis der Benutzer den Tab auswählt, der mit diesem `tabpanel` assoziiert ist. Wenn ein mehrfach auswählbares `tablist` ausgewählt oder aktiv ist, sollte das zugehörige `tabpanel` sein [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded)-Attribut auf `true` und sein `hidden`-Attribut auf `false` gesetzt haben, andernfalls umgekehrt.
+Wenn Elemente mit der `tab`-Rolle ausgewählt oder aktiv sind, sollten sie das Attribut [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected) auf `true` gesetzt haben. Andernfalls sollte ihr `aria-selected`-Attribut auf `false` gesetzt sein. Wenn eine einzeln wählbare `tablist` ausgewählt oder aktiv ist, sollte das `hidden`-Attribut der anderen `tabpanels` auf `true` gesetzt sein, bis der Benutzer die mit diesem `tabpanel` verbundene Registerkarte auswählt. Wenn eine mehrfach wählbare `tablist` ausgewählt oder aktiv ist, sollte ihr entsprechendes gesteuertes `tabpanel` sein [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded) Attribut auf `true` gesetzt und ihr `hidden`-Attribut auf `false` gesetzt sein, andernfalls umgekehrt.
 
-### Alle untergeordneten Elemente sind präsentativ
+### Alle Nachkommen sind präsentationsbezogen
 
-Es gibt einige Arten von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattform-Barrierefreiheits-API dargestellt werden, nur Text enthalten können. Barrierefreiheits-APIs haben keine Möglichkeit, semantische Elemente darzustellen, die in einem `tab` enthalten sind. Um dieses Problem zu lösen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle untergeordneten Elemente von jedem `tab`-Element an, da dies eine Rolle ist, die keine semantischen Kinder unterstützt.
+Es gibt einige Typen von Benutzeroberflächenkomponenten, die, wenn sie in einer Plattformzugänglichkeit-API dargestellt werden, nur Text enthalten können. Zugänglichkeit-APIs haben keine Möglichkeit semantische Elemente in einem `tab` darzustellen. Um mit diesem Limit umzugehen, wenden Browser automatisch die Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/presentation_role) auf alle Nachkommenselemente eines `tab`-Elements an, da es sich um eine Rolle handelt, die keine semantischen Kinder unterstützt.
 
-Zum Beispiel, betrachten Sie folgendes `tab`-Element, das eine Überschrift enthält.
+Zum Beispiel betrachten Sie das folgende `tab`-Element, das eine Überschrift enthält.
 
 ```html
 <div role="tab"><h3>Title of my tab</h3></div>
 ```
 
-Da Nachkommen von `tab` präsentativ sind, ist der folgende Code gleichwertig:
+Da Nachkommen von `tab` präsentationsbezogen sind, ist der folgende Code gleichwertig:
 
 ```html
 <div role="tab"><h3 role="presentation">Title of my tab</h3></div>
 ```
 
-Aus der Perspektive des Benutzers unterstützender Technologie existiert die Überschrift nicht, da die vorherigen Code-Snippets im {{Glossary("Accessibility_tree", "Barrierefreiheitsbaum")}} dem folgenden entsprechen:
+Aus der Perspektive eines Benutzers von unterstützender Technologie existiert die Überschrift nicht, da die vorherigen Code-Schnipsel dem folgenden im {{Glossary("Accessibility_tree", "Zugänglichkeitsbaum")}} gleichwertig sind:
 
 ```html
 <div role="tab">Title of my tab</div>
 ```
 
-### Zugehörige Rollen und Attribute
+### Zugeordnete Rollen und Attribute
 
 - [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-selected)
-  - : boolesch
+  - : boolean
 - [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-controls)
-  - : `id` des Elements mit der Rolle `tabpanel`
+  - : `id` des Elements mit `tabpanel`-Rolle
 - [id](/de/docs/Web/HTML/Reference/Global_attributes/id)
   - : Inhalt
 
 ### Tastaturinteraktionen
 
-| Taste                             | Aktion                                                                                                                                                                                                                                                     |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>Tab</kbd>                    | Wenn der Fokus außerhalb der `tablist` liegt, verschiebt er den Fokus zum aktiven Tab. Wenn der Fokus auf dem aktiven Tab liegt, verschiebt er den Fokus auf das nächste Element in der Tastaturfokus-Reihenfolge, idealerweise das zugehörige `tabpanel`. |
-| <kbd>→</kbd>                      | Fokussiert und aktiviert optional den nächsten Tab in der Tab-Liste. Wenn der aktuelle Tab der letzte Tab in der Tab-Liste ist, aktiviert er den ersten Tab.                                                                                               |
-| <kbd>←</kbd>                      | Fokussiert und aktiviert optional den vorherigen Tab in der Tab-Liste. Wenn der aktuelle Tab der erste Tab in der Tab-Liste ist, aktiviert er den letzten Tab.                                                                                             |
-| <kbd>Enter</kbd>/<kbd>Space</kbd> | Wenn ein Tab den Fokus hat, aktiviert er den Tab und zeigt das zugehörige Panel an.                                                                                                                                                                        |
-| <kbd>Home</kbd>                   | Fokussiert und aktiviert optional den ersten Tab in der Tab-Liste.                                                                                                                                                                                         |
-| <kbd>End</kbd>                    | Fokussiert und aktiviert optional den letzten Tab in der Tab-Liste.                                                                                                                                                                                        |
-| <kbd>Delete</kbd>                 | Entfernt, wenn erlaubt, den aktuell ausgewählten Tab aus der Tab-Liste.                                                                                                                                                                                    |
+| Taste                             | Aktion                                                                                                                                                                                                                                                                                          |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>Tab</kbd>                    | Wenn der Fokus außerhalb der `tablist` ist, bewegt sich der Fokus zur aktiven Registerkarte. Wenn der Fokus auf der aktiven Registerkarte ist, bewegt sich der Fokus zum nächsten Element in der Tastaturfokus-Reihenfolge, idealerweise zum zugeordneten `tabpanel` der aktiven Registerkarte. |
+| <kbd>→</kbd>                      | Fokussiert und aktiviert optional die nächste Registerkarte in der Registerkartenliste. Wenn die aktuelle Registerkarte die letzte Registerkarte in der Registerkartenliste ist, aktiviert sie die erste Registerkarte.                                                                         |
+| <kbd>←</kbd>                      | Fokussiert und aktiviert optional die vorherige Registerkarte in der Registerkartenliste. Wenn die aktuelle Registerkarte die erste Registerkarte in der Registerkartenliste ist, aktiviert sie die letzte Registerkarte.                                                                       |
+| <kbd>Enter</kbd>/<kbd>Space</kbd> | Wenn eine Registerkarte im Fokus ist, aktiviert sie die Registerkarte, sodass ihr zugeordnetes Panel angezeigt wird.                                                                                                                                                                            |
+| <kbd>Home</kbd>                   | Fokussiert und aktiviert optional die erste Registerkarte in der Registerkartenliste.                                                                                                                                                                                                           |
+| <kbd>End</kbd>                    | Fokussiert und aktiviert optional die letzte Registerkarte in der Registerkartenliste.                                                                                                                                                                                                          |
+| <kbd>Delete</kbd>                 | Entfernt, wenn erlaubt, die aktuell ausgewählte Registerkarte aus der Registerkartenliste.                                                                                                                                                                                                      |
 
 ### Erforderliche JavaScript-Funktionen
 
 > [!NOTE]
-> Obwohl es Möglichkeiten gibt, tab-ähnliche Funktionalitäten ohne JavaScript zu erstellen, gibt es keine alternative Kombination, die nur HTML und CSS verwendet, um denselben Funktionsumfang zu bieten, der oben für zugängliche Tabs mit Inhalt erforderlich ist.
+> Obwohl es Möglichkeiten gibt, ähnliche Funktionen wie Registerkarten ohne JavaScript zu erstellen, gibt es keine alternative Kombination nur mit HTML und CSS, die denselben Funktionsumfang bietet, der oben für zugängliche Registerkarten mit Inhalt erforderlich ist.
 
 ## Beispiel
 
-Dieses Beispiel kombiniert die Rolle `tab` mit `tablist` und Elementen mit `tabpanel`, um eine interaktive Gruppe von Registerkarten-Inhalten zu erstellen. Hier fassen wir unsere Gruppe von Inhalten in einem `div` ein, wobei unser `tablist` ein `aria-label` hat, das es für unterstützende Technologien kennzeichnet. Jedes `tab` ist ein `button` mit den zuvor erwähnten Attributen. Der erste `tab` hat sowohl `tabindex="0"` als auch `aria-selected="true"` angewendet. Diese beiden Attribute müssen immer so koordiniert werden, dass, wenn ein anderer Tab ausgewählt wird, er dann `tabindex="0"` und `aria-selected="true"` angewendet hat. Alle nicht ausgewählten Tabs müssen `aria-selected="false"` und `tabindex="-1"` haben.
+Dieses Beispiel kombiniert die Rolle `tab` mit `tablist` und Elementen mit `tabpanel`, um eine interaktive Gruppe von Registerkarteninhalten zu erstellen. Hier umschließen wir unsere Gruppe von Inhalten in einem `div`, wobei unsere `tablist` ein `aria-label` hat, das sie für unterstützende Technologien kennzeichnet. Jede `tab` ist eine `button` mit den zuvor erwähnten Attributen. Die erste `tab` hat sowohl `tabindex="0"` als auch `aria-selected="true"` angewendet. Diese beiden Attribute müssen immer wie folgt koordiniert werden - sodass, wenn eine andere Registerkarte ausgewählt wird, sie dann `tabindex="0"` und `aria-selected="true"` angewendet hat. Alle nicht ausgewählten Registerkarten müssen `aria-selected="false"` und `tabindex="-1"` haben.
 
-Alle `tabpanel`-Elemente haben `tabindex="0"`, um sie tabulatorfähig zu machen, und alle, außer dem derzeit aktiven, haben das `hidden`-Attribut. Das `hidden`-Attribut wird entfernt, wenn ein `tabpanel` mit JavaScript sichtbar wird.
+Alle `tabpanel`-Elemente haben `tabindex="0"`, um sie tabulatorfähig zu machen, und alle außer dem aktuell aktiven haben das `hidden`-Attribut. Das `hidden`-Attribut wird entfernt, wenn ein `tabpanel` mit JavaScript sichtbar wird.
 
 > [!NOTE]
-> Das Festlegen von `tabindex` im Tab-Panel ist unnötig, wenn das erste Element im Tab-Panel fokussierbar ist (z. B. ein Link), da das Tabben zum Link auch beginnt, den Inhalt des Panels zu lesen. Wenn es jedoch Panels in der Gruppe gibt, deren erstes Inhaltselement nicht fokussierbar ist, sollten alle `tabpanel`-Elemente in einem Tab-Set fokussierbar sein, damit Benutzer von Screenreadern konsistent zum Panel-Inhalt navigieren können.
+> Das Setzen von `tabindex` auf das Registerkartenpanel ist unnötig, wenn das erste Element im Registerkartenpanel fokussierbar ist (wie ein Link), da das Tabben zum Link auch den Inhalt des Panels vorliest. Wenn es jedoch Panels im Set gibt, deren erstes Inhaltselement nicht fokussierbar ist, sollten alle Tab-Panel-Elemente in einem Tab-Set fokussierbar sein, damit Benutzer von Bildschirmlesern konsistent zum Panelinhalt navigieren können.
 
 ```html
 <div class="tabs">
@@ -116,7 +116,7 @@ Alle `tabpanel`-Elemente haben `tabindex="0"`, um sie tabulatorfähig zu machen,
       role="tabpanel"
       tabindex="0"
       aria-labelledby="tab-2"
-      hidden="hidden">
+      hidden>
       <p>How to run this application on macOS</p>
     </div>
     <div
@@ -124,14 +124,14 @@ Alle `tabpanel`-Elemente haben `tabindex="0"`, um sie tabulatorfähig zu machen,
       role="tabpanel"
       tabindex="0"
       aria-labelledby="tab-3"
-      hidden="hidden">
+      hidden>
       <p>How to run this application on Linux</p>
     </div>
   </div>
 </div>
 ```
 
-Es gibt einige grundlegende Stile, die angewendet werden, um die Schaltflächen umzugestalten und das [`z-index`](/de/docs/Web/CSS/Reference/Properties/z-index) von `tab`-Elementen zu ändern, um die Illusion zu erzeugen, dass sie mit dem `tabpanel` für aktive Elemente verbunden sind, und die Illusion, dass inaktive Elemente hinter dem aktiven `tabpanel` liegen. Sie müssen den aktiven Tab klar von den inaktiven Tabs unterscheiden, z. B. durch dickere Ränder oder größere Größe.
+Es gibt einige grundlegende Stile, die angewendet werden, um die Schaltflächen umzugestalten und den [`z-index`](/de/docs/Web/CSS/Reference/Properties/z-index) der `tab`-Elemente zu ändern, um die Illusion zu vermitteln, dass sie mit dem `tabpanel` für aktive Elemente verbunden sind, und die Illusion, dass inaktive Elemente hinter dem aktiven `tabpanel` liegen. Sie müssen den aktiven Tab klar von den inaktiven Tabs unterscheiden, z. B. durch dickere Rahmen oder größere Größe.
 
 ```css hidden
 .tabs {
@@ -172,7 +172,7 @@ Es gibt einige grundlegende Stile, die angewendet werden, um die Schaltflächen 
 }
 ```
 
-Die Benutzerinteraktion wird mit JavaScript behandelt. Zuerst erhalten wir Referenzen zu unserem `tablist`, alle `tab`-Elemente darin, dem Container unserer `tabpanel`-Elemente und allen `tabpanel`-Elementen in diesem Container. Dies basiert auf einigen Annahmen über die Struktur unseres HTML, daher müssen Sie diesen Code ändern, wenn Sie die Struktur ändern. Wenn Sie mehrere Registerkarten-Schnittstellen auf einer Seite haben, können Sie diesen Code in eine Funktion einbetten und `tabsContainer` als Argument übergeben.
+Die Benutzerinteraktion wird mit JavaScript gesteuert. Zuerst erhalten wir Referenzen auf unsere `tablist`, alle darin enthaltenen `tab`-Elemente, den Container unserer `tabpanel`-Elemente und alle `tabpanel`-Elemente in diesem Container. Dies basiert auf einigen Annahmen über die Struktur unseres HTML, sodass Sie, wenn Sie die Struktur ändern, auch diesen Code ändern müssen. Wenn Sie mehrere registerkartenbasierte Schnittstellen auf einer Seite haben, können Sie diesen Code in eine Funktion einpacken und `tabsContainer` als Argument übergeben.
 
 ```js
 const tabsContainer = document.querySelector(".tabs");
@@ -184,7 +184,7 @@ const tabPanels = Array.from(
 );
 ```
 
-Für Tastaturinteraktionen hören wir auf das [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignis auf dem `tablist`. In dieser Demo haben wir uns entschieden, den `tab` nicht zu aktivieren, wenn der Benutzer mit den Pfeiltasten navigiert, sondern nur den Fokus zu verschieben. Wenn Sie den `tab` anzeigen möchten, wenn er den Fokus erhält, können Sie die Funktion `showTab()` (später definiert) anstelle von nur `focus()` auf dem neuen Tab aufrufen.
+Für Tastaturinteraktionen hören wir auf das [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignis auf der `tablist`. In diesem Demo haben wir uns entschieden, die `tab` nicht zu aktivieren, wenn der Benutzer mit den Pfeiltasten navigiert, sondern lediglich den Fokus zu verschieben. Wenn Sie die `tab` anzeigen möchten, wenn sie den Fokus erhält, können Sie die `showTab()`-Funktion (die später definiert wird) anstelle von `focus()` auf dem neuen Tab aufrufen.
 
 ```js
 tabList.addEventListener("keydown", (e) => {
@@ -216,7 +216,7 @@ tabList.addEventListener("keydown", (e) => {
 });
 ```
 
-Das Tab-Panel wird nur entweder durch Drücken von <kbd>Enter</kbd> oder <kbd>Space</kbd> aktiviert, während ein `tab` den Fokus hat, oder durch Klicken auf ein `tab`. Zuerst definieren wir eine Funktion `showTab()`, die das anzuzeigende `tab`-Element übernimmt.
+Das Registerkarten-Panel wird nur aktiviert, indem entweder <kbd>Enter</kbd> oder <kbd>Space</kbd> gedrückt werden, während eine `tab` im Fokus ist, oder indem auf eine `tab` geklickt wird. Zuerst definieren wir eine Funktion `showTab()`, die das `tab`-Element aufnimmt, das angezeigt werden soll.
 
 ```js
 function showTab(targetTab) {
@@ -241,7 +241,7 @@ function showTab(targetTab) {
 }
 ```
 
-Jetzt können wir diese Funktion entweder bei einem `click`-Ereignis oder einem `keydown`-Ereignis aufrufen.
+Jetzt können wir diese Funktion entweder bei einem `click`-Ereignis oder bei einem `keydown`-Ereignis aufrufen.
 
 ```js
 tabs.forEach((tab) => {
@@ -260,13 +260,13 @@ tabs.forEach((tab) => {
 
 {{EmbedLiveSample("Example", 600, 130)}}
 
-## Best Practices
+## Beste Praktiken
 
-Es wird empfohlen, ein {{HTMLElement('button')}}-Element mit der Rolle `tab` zu verwenden, aufgrund ihrer eingebauten funktionalen und zugänglichen Eigenschaften, anstatt diese selbst hinzufügen zu müssen. Um die Tabulatortastenfunktionalität für Elemente mit der Rolle `tab` zu steuern, wird empfohlen, alle nicht-aktiven Elemente auf `tabindex="-1"` zu setzen und das aktive Element auf `tabindex="0"`.
+Es wird empfohlen, ein {{HTMLElement('button')}}-Element mit der Rolle `tab` für ihre eingebauten funktionalen und zugänglichen Funktionen zu verwenden, anstatt diese selbst hinzufügen zu müssen. Zur Steuerung der Tabulatortastenfunktionalität für Elemente mit der Rolle `tab` wird empfohlen, alle nicht-aktiven Elemente auf `tabindex="-1"` zu setzen und das aktive Element auf `tabindex="0"`.
 
 ## Vorrangordnung
 
-Welche verwandten Eigenschaften gibt es und in welcher Reihenfolge wird dieses Attribut oder diese Eigenschaft gelesen, welche Eigenschaft hat Vorrang vor dieser, und welche Eigenschaft wird überschrieben.
+Welche verwandten Eigenschaften gibt es, und in welcher Reihenfolge wird dieses Attribut oder diese Eigenschaft gelesen, welche Eigenschaft wird gegenüber dieser bevorzugt, und welche Eigenschaft wird überschrieben.
 
 ## Spezifikationen
 
@@ -274,6 +274,6 @@ Welche verwandten Eigenschaften gibt es und in welcher Reihenfolge wird dieses A
 
 ## Siehe auch
 
-- HTML- {{HTMLElement('button')}}-Element
+- HTML {{HTMLElement('button')}}-Element
 - [KeyboardEvent.key](/de/docs/Web/API/KeyboardEvent/key)
 - [ARIA `tabpanel`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role)

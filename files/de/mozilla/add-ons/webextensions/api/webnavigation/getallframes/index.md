@@ -2,10 +2,10 @@
 title: webNavigation.getAllFrames()
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/getAllFrames
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: dec39bc3ee8676967dac28821f58c7c1d4a32d7d
 ---
 
-Gibt für eine angegebene Tab-ID Informationen über alle Frames zurück, die dieser enthält.
+Gibt die Informationen über alle Frames eines Tabs zurück, basierend auf der Tab-ID.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -20,7 +20,7 @@ let gettingFrames = browser.webNavigation.getAllFrames(
 ### Parameter
 
 - `details`
-  - : `object`. Informationen über den Tab, aus dem alle Frames abgerufen werden sollen.
+  - : `object`. Informationen über den Tab, von dem alle Frames abgerufen werden sollen.
     - `tabId`
       - : `integer`. Die ID des Tabs.
 
@@ -29,17 +29,25 @@ let gettingFrames = browser.webNavigation.getAllFrames(
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Objekten erfüllt wird, von denen jedes die folgenden Eigenschaften hat:
 
 - `errorOccurred`
-  - : `boolean`. True, wenn die letzte Navigation in diesem Frame durch einen Fehler unterbrochen wurde, d.h. das {{WebExtAPIRef("webNavigation.onErrorOccurred", "onErrorOccurred")}} Ereignis ausgelöst wurde.
-- `processId` {{optional_inline}} {{deprecated_inline}}
-  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt war, stellte er die ID des Prozesses dar, der den Renderer für diesen Tab ausführt.
-- `frameId`
-  - : `integer`. Die ID des Frames. Ist dies der Hauptframe, dann ist `frameId` null.
-- `parentFrameId`
-  - : `integer`. ID des übergeordneten Frames. Dies ist -1, wenn es keinen übergeordneten Frame gibt: das heißt, wenn dieser Frame der oberste Browsing-Kontext im Tab ist.
+  - : `boolean`. Wahr, wenn die letzte Navigation in diesem Frame durch einen Fehler unterbrochen wurde, d.h. das {{WebExtAPIRef("webNavigation.onErrorOccurred", "onErrorOccurred")}}-Ereignis ausgelöst wurde.
 - `url`
-  - : `string`. Die URL, die derzeit mit diesem Frame verknüpft ist.
+  - : `string`. Die URL, die mit diesem Frame assoziiert ist.
+- `frameId`
+  - : `integer`. Die ID des Frames. Wenn dies der Hauptframe ist, dann ist `frameId` null.
+- `frameType`
+  - : `string`. Der Typ des Frames. Gibt die Werte `"outermost_frame"`, `"fenced_frame"` oder `"sub_frame"` zurück.
+- `parentFrameId`
+  - : `integer`. ID des Elternframes dieses Frames. Dies ist -1, wenn es keinen Elternframe gibt: das heißt, wenn dieser Frame der oberste Browsing-Kontext im Tab ist.
+- `documentId`
+  - : `string`. Eine UUID des Dokuments des Frames.
+- `parentDocumentId`
+  - : `string`. Eine UUID des übergeordneten Dokuments, dem der Frame gehört. Wird nicht gesetzt, wenn es kein übergeordnetes Dokument gibt.
+- `documentLifecycle`
+  - : `string`. Der Lebenszyklus, in dem sich das Dokument befindet. Gibt die Werte `"prerender"`, `"active"`, `"cached"` oder `"pending_deletion"` zurück.
+- `processId` {{optional_inline}} {{deprecated_inline}}
+  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Als er gesetzt war, repräsentierte er die ID des Prozesses, der den Renderer für diesen Tab ausführte.
 
-Wenn der Tab verworfen wird, wird das Promise stattdessen mit einem `null`-Wert erfüllt. Kann der angegebene Tab nicht gefunden werden oder tritt ein anderer Fehler auf, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn der Tab verworfen wurde, wird das Promise stattdessen mit einem `null`-Wert aufgelöst. Wenn der angegebene Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -81,34 +89,4 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#method-getAllFrames) API. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
-
-<!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
+> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#method-getAllFrames) API. Diese Dokumentation leitet sich von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code ab.

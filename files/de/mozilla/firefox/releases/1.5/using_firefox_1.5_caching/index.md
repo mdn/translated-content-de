@@ -1,86 +1,86 @@
 ---
-title: Verwenden des Firefox 1.5 Caching
+title: Verwenden des Caching in Firefox 1.5
 slug: Mozilla/Firefox/Releases/1.5/Using_Firefox_1.5_caching
 l10n:
-  sourceCommit: 9cfc2285428932f448a1747e347b1e35a3e0172b
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
-[Firefox 1.5](/de/docs/Mozilla/Firefox/Releases/1.5) verwendet ein In-Memory-Caching für komplette Webseiten, einschließlich ihrer JavaScript-Zustände, für eine einzelne Browsersitzung. Beim Vor- und Zurücknavigieren zwischen besuchten Seiten ist kein erneutes Laden der Seite erforderlich und die JavaScript-Zustände bleiben erhalten. Diese Funktion, die von einigen als **bfcache** (für "Back-Forward Cache") bezeichnet wird, macht die Seitennavigation sehr schnell. Dieser Caching-Zustand wird beibehalten, bis der Benutzer den Browser schließt.
+[Firefox 1.5](/de/docs/Mozilla/Firefox/Releases/1.5) verwendet ein In-Memory-Caching für komplette Webseiten, einschließlich ihrer JavaScript-Zustände, für eine einzige Browsersitzung. Beim Vor- und Zurücknavigieren zwischen besuchten Seiten ist kein erneutes Laden der Seite erforderlich und die JavaScript-Zustände bleiben erhalten. Diese Funktion, die von einigen als **bfcache** (für "Back-Forward Cache") bezeichnet wird, macht die Seitennavigation sehr schnell. Dieser Cache-Zustand bleibt erhalten, bis der Benutzer den Browser schließt.
 
-Es gibt Fälle, in denen Firefox Seiten nicht cached. Im Folgenden sind einige häufige programmatische Gründe aufgeführt, warum eine Seite nicht gecached wird:
+Es gibt Instanzen, in denen Firefox Seiten nicht cached. Nachfolgend sind einige häufige programmatische Gründe aufgeführt, warum eine Seite nicht gecachet wird:
 
-- Die Seite verwendet einen `unload` oder `beforeunload` Handler;
-- Die Seite setzt "cache-control: no-store".
-- Die Seite ist HTTPS und setzt mindestens eines der folgenden:
+- Die Seite nutzt einen `unload`- oder `beforeunload`-Handler;
+- die Seite setzt "cache-control: no-store".
+- die Seite ist HTTPS und setzt mindestens eines der folgenden:
   - "Cache-Control: no-cache"
   - "Pragma: no-cache"
-  - mit "Expires: 0" oder "Expires" mit einem Datum in der Vergangenheit relativ zum Wert des "Date"-Headers (es sei denn, "Cache-Control: max-age=" ist ebenfalls spezifiziert);
+  - mit "Expires: 0" oder "Expires" mit einem Datum, das in der Vergangenheit relativ zum Wert des "Date"-Headers liegt (es sei denn, "Cache-Control: max-age=" ist ebenfalls spezifiziert);
 
-- Die Seite ist nicht vollständig geladen, wenn der Benutzer sie verlässt, oder hat aus anderen Gründen noch ausstehende Netzwerkanfragen (z.B. `XMLHttpRequest`));
-- Die Seite hat laufende IndexedDB-Transaktionen;
-- Die oberste Seite enthält Frames (z.B. {{HTMLElement("iframe")}}), die aus einem der hier aufgeführten Gründe nicht cachefähig sind;
-- Die Seite befindet sich in einem Frame und der Benutzer lädt eine neue Seite innerhalb dieses Frames (in diesem Fall, wenn der Benutzer die Seite verlässt, wird der Inhalt, der zuletzt in die Frames geladen wurde, gecached).
+- die Seite ist nicht vollständig geladen, wenn der Benutzer von ihr weg navigiert oder hat aus anderen Gründen noch ausstehende Netzwerk-Anfragen (z.B. `XMLHttpRequest`));
+- die Seite hat laufende IndexedDB-Transaktionen;
+- die Hauptseite enthält Frames (z.B. {{HTMLElement("iframe")}}), die aus einem der hier aufgeführten Gründe nicht cachebar sind;
+- die Seite befindet sich in einem Frame und der Benutzer lädt eine neue Seite innerhalb dieses Frames (in diesem Fall, wenn der Benutzer von der Seite weg navigiert, wird der Inhalt, der zuletzt in die Frames geladen wurde, gecached).
 
-Diese neue Caching-Funktion ändert das Ladeverhalten von Seiten und Webautoren möchten möglicherweise:
+Diese neue Caching-Funktion ändert das Ladeverhalten von Seiten, und Webautoren möchten möglicherweise:
 
-- wissen, dass eine Seite aufgerufen wurde (wenn sie aus dem Cache eines Benutzers geladen wird)
-- das Verhalten einer Seite definieren, wenn ein Benutzer die Seite verlässt (während sie dennoch gecached werden kann)
+- wissen, dass auf eine Seite navigiert wurde (wenn sie aus dem Cache eines Benutzers geladen wird)
+- das Verhalten der Seite definieren, wenn ein Benutzer die Seite verlässt (während die Seite noch gecachet werden kann)
 
-Zwei neue Browserevents ermöglichen es Webautoren, beides zu tun.
+Zwei neue Browser-Ereignisse ermöglichen es Webautoren, beides zu tun.
 
-## Neue Browserevents
+## Neue Browser-Ereignisse
 
-Wenn Sie diese neuen Events verwenden, werden Ihre Seiten in anderen Browsern weiterhin ordnungsgemäß angezeigt (wir haben frühere Versionen von Firefox, Internet Explorer, Opera und Safari getestet) und nutzen diese neue Caching-Funktionalität, wenn sie in Firefox 1.5 geladen werden.
+Wenn Sie diese neuen Ereignisse verwenden, werden Ihre Seiten weiterhin korrekt in anderen Browsern angezeigt (wir haben frühere Versionen von Firefox, Internet Explorer, Opera und Safari getestet) und nutzen diese neue Caching-Funktionalität, wenn sie in Firefox 1.5 geladen werden.
 
-Hinweis: Seit 10-2009 haben Entwicklungsversionen von Safari Unterstützung für diese neuen Events hinzugefügt (siehe [den WebKit Bug](https://webkit.org/b/28758)).
+Hinweis: Ab 10-2009 haben Entwicklungs-Versionen von Safari Unterstützung für diese neuen Ereignisse hinzugefügt (siehe [den WebKit-Bug](https://webkit.org/b/28758)).
 
-Das Standardverhalten für Webseiten ist:
+Standardverhalten für Webseiten ist:
 
-1. Der Benutzer navigiert zu einer Seite.
-2. Beim Laden der Seite werden Inline-Skripte ausgeführt.
-3. Sobald die Seite geladen ist, wird der `onload` Handler ausgelöst.
+1. Benutzer navigiert zu einer Seite.
+2. Während die Seite lädt, werden Inline-Skripte ausgeführt.
+3. Sobald die Seite geladen ist, wird der `onload`-Handler ausgelöst.
 
-Einige Seiten umfassen einen vierten Schritt. Wenn eine Seite einen `unload` oder `beforeunload` Handler verwendet, wird dieser ausgelöst, wenn der Benutzer die Seite verlässt. Wenn ein `unload` Handler vorhanden ist, wird die Seite nicht gecached.
+Einige Seiten umfassen einen vierten Schritt. Wenn eine Seite einen `unload`- oder `beforeunload`-Handler verwendet, wird dieser ausgelöst, wenn der Benutzer die Seite verlässt. Wenn ein `unload`-Handler vorhanden ist, wird die Seite nicht gecachet.
 
-Wenn ein Benutzer zu einer gecachten Seite navigiert, werden Inline-Skripte und der `onload` Handler nicht ausgeführt (Schritte 2 und 3), da in den meisten Fällen die Effekte dieser Skripte erhalten geblieben sind.
+Wenn ein Benutzer zu einer gecachten Seite navigiert, werden Inline-Skripte und der `onload`-Handler nicht ausgeführt (Schritte 2 und 3), da in den meisten Fällen die Auswirkungen dieser Skripte erhalten geblieben sind.
 
-Wenn die Seite Skripte oder andere Verhaltensweisen enthält, die während des Ladevorgangs ausgelöst werden, die Sie jedes Mal ausführen möchten, wenn der Benutzer zur Seite navigiert, oder wenn Sie wissen möchten, wann ein Benutzer zu einer gecachten Seite navigiert hat, verwenden Sie das neue `pageshow` Event.
+Wenn die Seite Skripte oder andere Verhaltensweisen enthält, die während des Ladens ausgelöst werden und die Sie jedes Mal ausführen lassen möchten, wenn der Benutzer zu der Seite navigiert, oder wenn Sie wissen möchten, wann ein Benutzer zu einer gecachten Seite navigiert ist, verwenden Sie das neue `pageshow`-Ereignis.
 
-Wenn Sie Verhaltensweisen haben, die ausgeführt werden, wenn ein Benutzer die Seite verlässt, aber Sie von dieser neuen Caching-Funktion profitieren möchten und daher den `unload` Handler nicht verwenden möchten, verwenden Sie das neue `pagehide` Event.
+Wenn Sie Verhaltensweisen haben, die ausgeführt werden, wenn ein Benutzer die Seite verlässt, aber den Vorteil dieser neuen Caching-Funktion nutzen möchten und daher den `unload`-Handler nicht verwenden möchten, verwenden Sie das neue `pagehide`-Ereignis.
 
-### `pageshow` Event
+### pageshow-Ereignis
 
-Dieses Event funktioniert wie das `load` Event, außer dass es jedes Mal auslöst, wenn die Seite geladen wird (während in Firefox 1.5 das `load` Event nicht auslöst, wenn die Seite aus dem Cache geladen wird). Beim ersten Laden der Seite löst das `pageshow` Event direkt nach dem `load` Event aus. Das `pageshow` Event verwendet eine Boolean-Eigenschaft namens `persisted`, die beim initialen Laden auf `false` gesetzt ist. Wenn es nicht das erste Laden ist (mit anderen Worten, wenn die Seite gecached ist), wird es auf `true` gesetzt.
+Dieses Ereignis funktioniert genauso wie das `load`-Ereignis, außer dass es jedes Mal ausgelöst wird, wenn die Seite geladen wird (während das `load`-Ereignis in Firefox 1.5 nicht ausgelöst wird, wenn die Seite aus dem Cache geladen wird). Das erste Mal, wenn die Seite geladen wird, wird das `pageshow`-Ereignis direkt nach dem `load`-Ereignis ausgelöst. Das `pageshow`-Ereignis verwendet eine boolesche Eigenschaft namens `persisted`, die bei der initialen Ladung auf `false` gesetzt ist. Sie wird auf `true` gesetzt, wenn es sich nicht um die initiale Ladung handelt (in anderen Worten, sie wird auf `true` gesetzt, wenn die Seite gecachet wird).
 
-Legen Sie alle JavaScript-Funktionen, die Sie jedes Mal ausführen möchten, wenn eine Seite geladen wird, so fest, dass sie beim `pageshow` Event ausgeführt werden.
+Legen Sie alle JavaScripts, die Sie jedes Mal ausführen möchten, wenn eine Seite geladen wird, darauf fest, ausgeführt zu werden, wenn das `pageshow`-Ereignis ausgelöst wird.
 
-Wenn Sie JavaScript-Funktionen im Rahmen des `pageshow` Events aufrufen, können Sie sicherstellen, dass diese Funktionen auch in anderen Browsern als Firefox 1.5 aufgerufen werden, indem Sie das `pageshow` Event als Teil des `load` Events aufrufen, wie im späteren Beispiel in diesem Artikel gezeigt wird.
+Wenn Sie JavaScript-Funktionen als Teil des `pageshow`-Ereignisses aufrufen, können Sie sicherstellen, dass diese Funktionen aufgerufen werden, wenn die Seite in anderen Browsern als Firefox 1.5 geladen wird, indem Sie das `pageshow`-Ereignis als Teil des `load`-Ereignisses aufrufen, wie im Beispiel später in diesem Artikel gezeigt.
 
-### `pagehide` Event
+### pagehide-Ereignis
 
-Wenn Sie ein Verhalten definieren möchten, das auftritt, wenn der Benutzer die Seite verlässt, aber Sie nicht das `unload` Event verwenden möchten (was dazu führen würde, dass die Seite nicht gecached wird), können Sie das neue `pagehide` Event verwenden. Wie `pageshow` verwendet das `pagehide` Event eine Boolean-Eigenschaft namens `persisted`. Diese Eigenschaft wird auf `false` gesetzt, wenn die Seite nicht vom Browser gecached wird, und auf `true`, wenn die Seite vom Browser gecached wird. Wenn diese Eigenschaft auf `false` gesetzt ist, wird der `unload` Handler, falls vorhanden, sofort nach dem `pagehide` Event ausgelöst.
+Wenn Sie ein Verhalten definieren möchten, das eintritt, wenn der Benutzer die Seite verlässt, aber nicht das `unload`-Ereignis verwenden möchten (das dazu führen würde, dass die Seite nicht gecachet wird), können Sie das neue `pagehide`-Ereignis verwenden. Wie `pageshow` verwendet das `pagehide`-Ereignis eine boolesche Eigenschaft namens `persisted`. Diese Eigenschaft wird auf `false` gesetzt, wenn die Seite vom Browser nicht gecachet wird und auf `true`, wenn die Seite vom Browser gecachet wird. Wenn diese Eigenschaft auf `false` gesetzt ist, wird der `unload`-Handler, falls vorhanden, direkt nach dem `pagehide`-Ereignis ausgelöst.
 
-Firefox 1.5 versucht, Ladevorgänge in derselben Reihenfolge zu simulieren, in der sie beim erstmaligen Laden der Seite auftreten würden. Frames werden genauso behandelt wie das oberste Dokument. Wenn die Seite Frames enthält, dann beim Laden der gecachten Seite:
+Firefox 1.5 versucht, Ladeereignisse in der gleichen Reihenfolge zu simulieren, in der sie beim ersten Laden der Seite auftreten würden. Frames werden genauso behandelt wie das Dokument auf der obersten Ebene. Wenn die Seite Frames enthält, dann werden beim Laden der gecachten Seite:
 
-- `pageshow` Events von jedem Frame werden ausgelöst, bevor das `pageshow` Event im Hauptdokument ausgelöst wird.
-- Wenn der Benutzer die gecachte Seite verlässt, wird das `pagehide` Event von jedem Frame ausgelöst, bevor das `pagehide` Event im Hauptdokument ausgelöst wird.
-- Für Navigationen, die innerhalb eines einzelnen Frames stattfinden, werden die Events nur im betroffenen Frame ausgelöst.
+- `pageshow`-Ereignisse von jedem Frame ausgelöst, bevor das `pageshow`-Ereignis im Hauptdokument ausgelöst wird.
+- Wenn der Benutzer von der gecachten Seite weg navigiert, wird das `pagehide`-Ereignis von jedem Frame ausgelöst, bevor das `pagehide`-Ereignis im Hauptdokument ausgelöst wird.
+- Bei Navigationen, die innerhalb eines einzelnen Frames stattfinden, werden Ereignisse nur im betroffenen Frame ausgelöst.
 
 ## Beispielcode
 
-Das folgende Beispiel zeigt eine Seite, die sowohl das `load` als auch das `pageshow` Event verwendet. Diese Beispielseite verhält sich wie folgt:
+Das folgende Beispiel zeigt eine Seite, die sowohl das `load`- als auch das `pageshow`-Ereignis verwendet. Diese Beispielseite verhält sich wie folgt:
 
-- In anderen Browsern als Firefox 1.5: Jedes Mal, wenn die Seite geladen wird, löst das `load` Event die `onLoad` Funktion aus, die die `onPageShow` Funktion (sowie eine zusätzliche Funktion) aufruft.
-- In Firefox 1.5: Beim ersten Laden der Seite verhält sich das `load` Event wie in anderen Browsern. Zusätzlich löst das `pageshow` Event aus, und da `persisted` auf `false` gesetzt ist, erfolgt keine zusätzliche Aktion.
-- In Firefox 1.5: Wenn die Seite aus dem Cache geladen wird, löst nur das `pageshow` Event aus. Da `persisted` auf `true` gesetzt ist, werden nur die JavaScript-Aktionen in der `onPageShow` Funktion ausgelöst.
+- In Browsern außer Firefox 1.5 tritt Folgendes jedes Mal auf, wenn die Seite geladen wird: Das `load`-Ereignis löst die `onLoad`-Funktion aus, die die `onPageShow`-Funktion aufruft (sowie eine zusätzliche Funktion).
+- In Firefox 1.5 funktioniert das `load`-Ereignis beim ersten Laden der Seite genauso wie in anderen Browsern. Zusätzlich wird das `pageshow`-Ereignis ausgelöst, und da `persisted` auf `false` gesetzt ist, tritt keine zusätzliche Aktion ein.
+- In Firefox 1.5 wird beim Laden der Seite aus dem Cache nur das `pageshow`-Ereignis ausgelöst. Da `persisted` auf `true` gesetzt ist, werden nur die JavaScript-Aktionen in der `onPageShow`-Funktion ausgelöst.
 
 In diesem Beispiel:
 
-- Die Seite berechnet und zeigt das aktuelle Datum und die Uhrzeit jedes Mal an, wenn die Seite geladen wird. Diese Berechnung umfasst die Sekunden und Millisekunden, sodass Sie die Funktionalität leicht testen können.
-- Der Cursor wird beim ersten Laden der Seite in das Namensfeld des Formulars gesetzt. In Firefox 1.5 bleibt der Cursor beim Zurücknavigieren zur Seite im zuletzt verlassenen Feld. In anderen Browsern bewegt sich der Cursor zurück in das Namensfeld.
+- Die Seite berechnet und zeigt jedes Mal, wenn die Seite geladen wird, das aktuelle Datum und die Uhrzeit. Diese Berechnung umfasst die Sekunden und Millisekunden, damit Sie die Funktionalität leicht testen können.
+- Der Cursor wird bei der ersten Ladung der Seite in das Namensfeld des Formulars gesetzt. In Firefox 1.5 bleibt der Cursor beim Zurückkehren zur Seite im Feld, in dem er sich befand, als der Benutzer die Seite verließ. In anderen Browsern kehrt der Cursor in das Namensfeld zurück.
 
 ```html
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
     <title>Order query Firefox 1.5 Example</title>
@@ -150,7 +150,7 @@ In diesem Beispiel:
 </html>
 ```
 
-Im Gegensatz dazu, wenn die obige Seite nicht auf das `pageshow` Event reagieren würde und alle Berechnungen als Teil des `load` Events behandelt würden (und stattdessen wie im unten gezeigten Beispielcodefragment kodiert wäre), würden sowohl die Cursorposition als auch das Datum/die Uhrzeit in Firefox 1.5 gecached, wenn der Benutzer die Seite verlässt. Beim Zurücknavigieren zur Seite würde das gecachte Datum/die Zeit angezeigt.
+Im Gegensatz dazu, wenn die obige Seite nicht auf das `pageshow`-Ereignis hören würde und alle Berechnungen als Teil des `load`-Ereignisses behandelt würden (und stattdessen wie im folgenden Codeausschnitt gezeigt kodiert wäre), würden sowohl die Cursorposition als auch das Datum/die Uhrzeit in Firefox 1.5 gecachet, wenn der Benutzer die Seite verließ. Wenn der Benutzer zur Seite zurückkehrte, würde das gecachte Datum/die Uhrzeit angezeigt.
 
 ```html
 <head>
@@ -195,6 +195,6 @@ Im Gegensatz dazu, wenn die obige Seite nicht auf das `pageshow` Event reagieren
 
 ## Entwicklung von Firefox-Erweiterungen
 
-Firefox 1.5 [Erweiterungen](/de/docs/Mozilla/Add-ons) müssen diese Caching-Funktionalität berücksichtigen. Wenn Sie eine Firefox-Erweiterung entwickeln, die mit sowohl 1.5 als auch früheren Versionen kompatibel sein soll, stellen Sie sicher, dass sie auf das `load` Event für auslösbare Aktionen, die gecached werden können, hört und auf das `pageshow` Event für auslösbare Aktionen, die nicht gecached werden sollten.
+Firefox 1.5 [Erweiterungen](/de/docs/Mozilla/Add-ons) müssen diese Caching-Funktionalität berücksichtigen. Wenn Sie eine Firefox-Erweiterung entwickeln, die sowohl mit 1.5 als auch älteren Versionen kompatibel sein soll, stellen Sie sicher, dass sie auf das `load`-Ereignis für auslösbare Aktionen, die gecachet werden können, und auf das `pageshow`-Ereignis für auslösbare Aktionen hört, die nicht gecachet werden sollen.
 
-Zum Beispiel sollte die Google Toolbar für Firefox auf das `load` Event für die Autolink-Funktion und auf das `pageshow` Event für die PageRank-Funktion hören, um mit sowohl 1.5 als auch früheren Versionen kompatibel zu sein.
+Zum Beispiel sollte die Google Toolbar für Firefox auf das `load`-Ereignis für die Autolink-Funktion und auf das `pageshow`-Ereignis für die PageRank-Funktion hören, um sowohl mit 1.5 als auch mit älteren Versionen kompatibel zu sein.

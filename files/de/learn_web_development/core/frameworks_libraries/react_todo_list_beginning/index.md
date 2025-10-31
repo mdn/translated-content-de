@@ -3,54 +3,53 @@ title: Beginn unserer React ToDo-App
 short-title: React ToDo-App
 slug: Learn_web_development/Core/Frameworks_libraries/React_todo_list_beginning
 l10n:
-  sourceCommit: 7ff752fba26e0bb950998bb5476157ff96c7d314
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/React_getting_started","Learn_web_development/Core/Frameworks_libraries/React_components", "Learn_web_development/Core/Frameworks_libraries")}}
 
-Nehmen wir an, wir wurden beauftragt, ein Proof-of-Concept in React zu erstellen – eine App, die es Benutzern ermöglicht, Aufgaben hinzuzufügen, zu bearbeiten und zu löschen, an denen sie arbeiten möchten, und auch Aufgaben als erledigt zu markieren, ohne sie zu löschen. Dieser Artikel führt Sie durch die grundlegende Struktur und das Styling einer solchen Anwendung, die bereit ist für die Definition einzelner Komponenten und Interaktivität, die wir später hinzufügen werden.
+Nehmen wir an, dass wir mit der Erstellung eines Proof-of-Concepts in React beauftragt wurden – eine App, die es Benutzern ermöglicht, Aufgaben hinzuzufügen, zu bearbeiten und zu löschen, an denen sie arbeiten möchten, und auch Aufgaben als erledigt zu markieren, ohne sie zu löschen. Dieser Artikel führt Sie durch die grundlegende Struktur und das Styling einer solchen Anwendung, bereit für die Definition einzelner Komponenten und Interaktivität, die wir später hinzufügen werden.
 
 > [!NOTE]
-> Wenn Sie Ihren Code mit unserer Version vergleichen müssen, finden Sie eine fertige Version des Beispiel-React-App-Codes in unserem [todo-react Repository](https://github.com/mdn/todo-react). Für eine laufende Live-Version siehe <https://mdn.github.io/todo-react/>.
+> Wenn Sie Ihren Code mit unserer Version überprüfen müssen, finden Sie eine fertige Version des Beispielcodes der React-App in unserem [todo-react-Repository](https://github.com/mdn/todo-react). Für eine laufende Live-Version siehe <https://mdn.github.io/todo-react/>.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit den Grundlagen von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+        Vertrautheit mit den grundlegenden <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
-        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>-Sprachen, und dem <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line">Terminal/Kommandozeile</a>.
+        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> Sprachen sowie mit der <a href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line">Terminal-/Kommandozeile</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
-        Vertrautheit mit unserer ToDo-Listen-Fallstudie und die Grundstruktur und das Styling der
-        <code>App</code> in Position bringen.
+        Vertrautheit mit unserer To-Do-Liste als Fallstudie und die Basisstruktur und das Styling der <code>App</code>.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Benutzerstories unserer App
+## Die User Stories unserer App
 
-In der Softwareentwicklung ist eine Benutzerstory ein umsetzbares Ziel aus der Perspektive des Benutzers. Das Definieren von Benutzerstories, bevor wir mit unserer Arbeit beginnen, hilft uns, uns auf unsere Arbeit zu konzentrieren. Unsere App sollte die folgenden Stories erfüllen:
+In der Softwareentwicklung ist eine User Story ein umsetzbares Ziel aus der Perspektive des Benutzers. Die Definition von User Stories, bevor wir mit unserer Arbeit beginnen, hilft uns, unseren Fokus zu finden. Unsere App sollte die folgenden Stories erfüllen:
 
 Als Benutzer kann ich
 
 - eine Liste von Aufgaben lesen.
-- eine Aufgabe mit Maus oder Tastatur hinzufügen.
-- jede Aufgabe als erledigt markieren, mit Maus oder Tastatur.
-- jede Aufgabe löschen, mit Maus oder Tastatur.
-- jede Aufgabe bearbeiten, mit Maus oder Tastatur.
-- eine spezifische Teilmenge von Aufgaben anzeigen: Alle Aufgaben, nur die aktive Aufgabe oder nur die erledigten Aufgaben.
+- eine Aufgabe mit der Maus oder Tastatur hinzufügen.
+- jede Aufgabe als erledigt markieren, mit der Maus oder Tastatur.
+- jede Aufgabe löschen, mit der Maus oder Tastatur.
+- jede Aufgabe bearbeiten, mit der Maus oder Tastatur.
+- eine spezifische Teilmenge der Aufgaben ansehen: Alle Aufgaben, nur die aktive Aufgabe oder nur die erledigten Aufgaben.
 
-Diese Stories werden wir nacheinander angehen.
+Wir werden diese Stories einzeln angehen.
 
-## Vorbereitungen vor dem Projekt
+## Vorbereitungsarbeiten vor dem Projekt
 
-Vite hat uns einen Code gegeben, den wir für unser Projekt überhaupt nicht verwenden werden. Die folgenden Terminalbefehle werden ihn löschen, um Platz für unser neues Projekt zu schaffen. Stellen Sie sicher, dass Sie sich im Stammverzeichnis der App befinden!
+Vite hat uns etwas Code gegeben, den wir für unser Projekt überhaupt nicht benötigen werden. Die folgenden Terminal-Befehle werden diesen löschen, um Platz für unser neues Projekt zu machen. Stellen Sie sicher, dass Sie sich im Stammverzeichnis der App befinden!
 
 ```bash
 # Move into the src directory
@@ -64,15 +63,15 @@ cd ..
 ```
 
 > [!NOTE]
-> Wenn Sie Ihren Server gestoppt haben, um die oben erwähnten Terminalaufgaben durchzuführen, müssen Sie ihn erneut mit `npm run dev` starten.
+> Wenn Sie Ihren Server gestoppt haben, um die oben genannten Terminalaufgaben auszuführen, müssen Sie ihn wieder mit `npm run dev` starten.
 
-## Projekt-Starter-Code
+## Startcode für das Projekt
 
-Als Ausgangspunkt für dieses Projekt werden wir zwei Dinge bereitstellen: eine `App()`-Funktion, um die zu ersetzen, die Sie gerade gelöscht haben, und etwas CSS, um Ihre App zu stylen.
+Als Ausgangspunkt für dieses Projekt stellen wir Ihnen zwei Dinge zur Verfügung: eine `App()`-Funktion, um die zu ersetzen, die Sie gerade gelöscht haben, und etwas CSS, um Ihre App zu stylen.
 
 ### Das JSX
 
-Kopieren Sie den folgenden Schnipsel in Ihre Zwischenablage und fügen Sie ihn in `App.jsx` ein:
+Kopieren Sie den folgenden Schnipsel in die Zwischenablage und fügen Sie ihn dann in `App.jsx` ein:
 
 ```jsx
 function App(props) {
@@ -174,28 +173,28 @@ function App(props) {
 export default App;
 ```
 
-Öffnen Sie nun `index.html` und ändern Sie den Text des [`<title>`](/de/docs/Web/HTML/Reference/Elements/title)-Elements zu `TodoMatic`. So passt er zur [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) ganz oben in unserer App.
+Öffnen Sie nun `index.html` und ändern Sie den Text des [`<title>`](/de/docs/Web/HTML/Reference/Elements/title)-Elements in `TodoMatic`. So wird es mit dem [`<h1>`](/de/docs/Web/HTML/Reference/Elements/Heading_Elements) am Anfang unserer App übereinstimmen.
 
 ```html
 <title>TodoMatic</title>
 ```
 
-Wenn Ihr Browser aktualisiert wird, sollten Sie so etwas sehen:
+Wenn sich Ihr Browser aktualisiert, sollten Sie etwas Ähnliches sehen:
 
-![todo-matic App, ungestylt, zeigt ein Durcheinander von Labels, Eingaben und Schaltflächen](unstyled-app.png)
+![Todo-Matic-App, ungestylt, zeigt ein Durcheinander von Labels, Eingabefeldern und Buttons](unstyled-app.png)
 
-Es ist hässlich und funktioniert noch nicht, aber das ist in Ordnung – wir werden es gleich stylen. Betrachten Sie zunächst das bestehende JSX und wie es zu unseren Benutzerstories passt:
+Es sieht hässlich aus und funktioniert noch nicht, aber das ist in Ordnung — wir werden es gleich stylen. Zuerst überlegen Sie, was wir in JSX haben und wie es mit unseren User Stories korrespondiert:
 
-- Wir haben ein [`<form>`](/de/docs/Web/HTML/Reference/Elements/form)-Element, mit einem [`<input type="text">`](/de/docs/Web/HTML/Reference/Elements/input/text) zum Eingeben einer neuen Aufgabe und einer Schaltfläche, um das Formular abzusenden.
-- Wir haben eine Reihe von Schaltflächen, die zum Filtern unserer Aufgaben verwendet werden.
-- Wir haben eine Überschrift, die uns sagt, wie viele Aufgaben noch übrig sind.
-- Wir haben unsere 3 Aufgaben, die in einer unsortierten Liste angeordnet sind. Jede Aufgabe ist ein Listenelement ([`<li>`](/de/docs/Web/HTML/Reference/Elements/li)), und hat Schaltflächen, um sie zu bearbeiten und zu löschen und ein Kontrollkästchen, um sie als erledigt zu markieren.
+- Wir haben ein [`<form>`](/de/docs/Web/HTML/Reference/Elements/form)-Element, mit einem [`<input type="text">`](/de/docs/Web/HTML/Reference/Elements/input/text) zum Eingeben einer neuen Aufgabe und einem Button, um das Formular abzuschicken.
+- Wir haben eine Reihe von Buttons, die verwendet werden, um unsere Aufgaben zu filtern.
+- Wir haben eine Überschrift, die uns mitteilt, wie viele Aufgaben noch übrig sind.
+- Wir haben 3 Aufgaben, angeordnet in einer ungeordneten Liste. Jede Aufgabe ist ein Listenelement ([`<li>`](/de/docs/Web/HTML/Reference/Elements/li)) und hat Buttons, um sie zu bearbeiten und zu löschen, sowie ein Kontrollkästchen, um sie als erledigt zu markieren.
 
-Das Formular ermöglicht es uns, Aufgaben _zu erstellen_; die Schaltflächen lassen uns sie _filtern_; die Überschrift und die Liste sind unser Weg, sie _zu lesen_. Die Benutzeroberfläche zum _Bearbeiten_ einer Aufgabe fehlt offensichtlich bisher. Das ist in Ordnung – wir werden das später schreiben.
+Das Formular erlaubt es uns, Aufgaben zu _erstellen_; die Buttons ermöglichen es uns, sie zu _filtern_; die Überschrift und Liste sind unser Weg, sie zu _lesen_. Die UI zum _Bearbeiten_ einer Aufgabe fehlt bisher auffällig. Das ist okay – wir werden das später schreiben.
 
 ### Barrierefreiheitsfunktionen
 
-Sie bemerken hier möglicherweise ein ungewöhnliches Markup. Zum Beispiel:
+Sie bemerken vielleicht einige ungewöhnliche Markup-Elemente hier. Zum Beispiel:
 
 ```jsx
 <button type="button" className="btn toggle-btn" aria-pressed="true">
@@ -205,13 +204,13 @@ Sie bemerken hier möglicherweise ein ungewöhnliches Markup. Zum Beispiel:
 </button>
 ```
 
-Hier teilt `aria-pressed` unterstützender Technologie (wie Screenreadern) mit, dass die Schaltfläche in einem von zwei Zuständen sein kann: `gedrückt` oder `nicht gedrückt`. Denken Sie an diese als Analoge für `ein` und `aus`. Ein Wert von `"true"` bedeutet, dass die Schaltfläche standardmäßig gedrückt ist.
+Hier informiert `aria-pressed` unterstützende Technologien (wie Screenreader) darüber, dass der Button in einem von zwei Zuständen sein kann: `gedrückt` oder `nicht gedrückt`. Denken Sie an diese als Analogien zu `on` und `off`. Eine Einstellung von `"true"` bedeutet, dass der Button standardmäßig gedrückt ist.
 
-Die Klasse `visually-hidden` hat bisher keine Wirkung, weil wir noch kein CSS hinzugefügt haben. Sobald wir unsere Stile implementiert haben, wird jedes Element mit dieser Klasse vor sichtbaren Benutzern versteckt sein und dennoch für unterstützende Technologiesoftware verfügbar sein – dies liegt daran, dass diese Worte von sichtbaren Benutzern nicht benötigt werden; sie sind dazu da, um weitere Informationen darüber zu liefern, was die Schaltfläche für Benutzer der unterstützenden Technology macht, die nicht den zusätzlichen visuellen Kontext haben, um zu helfen.
+Die Klasse `visually-hidden` hat noch keine Wirkung, weil wir noch kein CSS eingebunden haben. Sobald wir unsere Stile implementiert haben, wird jedes Element mit dieser Klasse für sehende Benutzer unsichtbar, jedoch weiterhin für Benutzer unterstützender Technologien verfügbar sein — dies liegt daran, dass diese Wörter für sehende Benutzer nicht nötig sind; sie bieten zusätzliche Informationen darüber, was der Button macht, für Nutzer unterstützender Technologien, die nicht denselben visuellen Kontext haben.
 
 Weiter unten finden Sie unser [`<ul>`](/de/docs/Web/HTML/Reference/Elements/ul)-Element:
 
-```html
+```jsx
 <ul
   role="list"
   className="todo-list stack-large stack-exception"
@@ -220,11 +219,11 @@ Weiter unten finden Sie unser [`<ul>`](/de/docs/Web/HTML/Reference/Elements/ul)-
 </ul>
 ```
 
-Das `role`-Attribut hilft unterstützenden Technologielösungen zu erklären, welche Art von Element ein Tag darstellt. Ein `<ul>` wird standardmäßig wie eine Liste behandelt, aber die Stile, die wir gleich hinzufügen werden, werden diese Funktionalität beeinträchtigen. Diese Rolle wird die "Listen"-Bedeutung für das `<ul>`-Element wiederherstellen. Wenn Sie mehr darüber erfahren möchten, warum dies notwendig ist, können Sie [Scott O'Haras Artikel "Fixing Lists"](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) nachlesen.
+Das `role`-Attribut hilft unterstützenden Technologien, zu erklären, um welchen Art von Element es sich handelt. Ein `<ul>` wird standardmäßig wie eine Liste behandelt, aber die Stile, die wir gleich hinzufügen werden, werden diese Funktionalität beeinträchtigen. Diese Rolle stellt die "Listen"-Bedeutung des `<ul>`-Elements wieder her. Wenn Sie mehr darüber erfahren möchten, warum dies notwendig ist, können Sie [Scott O'Haras Artikel, "Fixing Lists"](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) lesen.
 
-Das `aria-labelledby`-Attribut teilt assistiven Technologien mit, dass wir unsere Listenüberschrift als das Etikett behandeln, das den Zweck der darunterliegenden Liste beschreibt. Mit dieser Assoziation erhält die Liste einen informativen Kontext, der Nutzern von assistiven Technologien helfen könnte, den Zweck der Liste besser zu verstehen.
+Das `aria-labelledby`-Attribut sagt unterstützenden Technologien, dass wir unsere Listenüberschrift als Beschriftung behandeln, die den Zweck der darunter liegenden Liste beschreibt. Diese Assoziation gibt der Liste einen informativen Kontext, der Benutzern unterstützender Technologien helfen kann, den Zweck der Liste besser zu verstehen.
 
-Schließlich haben die Beschriftungen und Eingaben in unseren Listenelementen einige Attribute, die einzigartig für JSX sind:
+Schließlich haben die Labels und Eingaben in unseren Listenelementen einige Attribute, die einzigartig für JSX sind:
 
 ```jsx
 <div className="c-cb">
@@ -235,20 +234,20 @@ Schließlich haben die Beschriftungen und Eingaben in unseren Listenelementen ei
 </div>
 ```
 
-Das `defaultChecked`-Attribut im `<input />`-Tag teilt React mit, dieses Kontrollkästchen anfänglich zu aktivieren. Wenn wir `checked` verwenden würden, wie es in regulärem HTML der Fall ist, würde React einige Warnungen in unsere Browser-Konsole protokollieren, die sich auf das Ereignishandling des Kontrollkästchens beziehen, was wir vermeiden möchten. Machen Sie sich darüber im Moment keine großen Sorgen — wir werden dies später behandeln, wenn wir zu dem Einsatz von Ereignissen kommen.
+Das `defaultChecked`-Attribut im `<input />`-Tag teilt React mit, dass dieses Kontrollkästchen anfänglich angekreuzt sein soll. Wenn wir `checked` verwenden würden, wie wir es im regulären HTML tun würden, würde React einige Warnungen in unsere Browserkonsole über die Ereignisbehandlung im Zusammenhang mit dem Kontrollkästchen loggen, was wir vermeiden möchten. Machen Sie sich darüber jetzt nicht zu viele Gedanken — wir werden dies später behandeln, wenn wir zu den Ereignissen kommen.
 
-Das `htmlFor`-Attribut entspricht dem `for`-Attribut, das in HTML verwendet wird. Wir können `for` nicht als Attribut in JSX verwenden, da `for` ein reserviertes Wort ist, daher verwendet React stattdessen `htmlFor`.
+Das `htmlFor`-Attribut entspricht dem `for`-Attribut, das im HTML verwendet wird. Wir können `for` nicht als Attribut in JSX verwenden, da `for` ein reserviertes Wort ist, daher verwendet React stattdessen `htmlFor`.
 
 ### Eine Anmerkung zu booleschen Attributen in JSX
 
-Das `defaultChecked`-Attribut im vorherigen Abschnitt ist ein boolesches Attribut – ein Attribut mit einem Wert, der entweder `true` oder `false` sein kann. Wie in HTML ist ein boolesches Attribut `true`, wenn es vorhanden ist und `false`, wenn es nicht vorhanden ist; die Zuordnung auf der rechten Seite des Ausdrucks ist optional. Sie können seinen Wert explizit setzen, indem Sie ihn in geschweifte Klammern setzen – zum Beispiel, `defaultChecked={true}` oder `defaultChecked={false}`.
+Das `defaultChecked`-Attribut im vorherigen Abschnitt ist ein boolesches Attribut – ein Attribut, dessen Wert entweder `true` oder `false` ist. Wie im HTML ist ein boolesches Attribut `true`, wenn es vorhanden ist, und `false`, wenn es fehlt; die Zuweisung auf der rechten Seite des Ausdrucks ist optional. Sie können seinen Wert explizit festlegen, indem Sie ihn in geschweifte Klammern setzen – zum Beispiel `defaultChecked={true}` oder `defaultChecked={false}`.
 
-Da JSX JavaScript ist, gibt es eine Besonderheit, die man bei booleschen Attributen beachten muss: das Schreiben von `defaultChecked="false"` wird einen _string_-Wert von `"false"` anstelle eines _booleschen_ Wertes setzen. Nicht-leere Strings sind {{Glossary("Truthy", "truthy")}}, so dass React `defaultChecked` als `true` betrachtet und das Kontrollkästchen standardmäßig aktiviert. Das ist nicht das, was wir wollen, also sollten wir das vermeiden.
+Da JSX JavaScript ist, gibt es eine Stolperfalle bei booleschen Attributen: Das Schreiben von `defaultChecked="false"` setzt einen _String_-Wert von `"false"` statt eines _booleschen_ Werts. Nicht-leere Strings sind {{Glossary("Truthy", "truthy")}}, daher wird React `defaultChecked` als `true` betrachten und das Kontrollkästchen standardmäßig ankreuzen. Dies ist nicht das, was wir möchten, daher sollten wir es vermeiden.
 
-Wenn Sie möchten, können Sie das Schreiben von booleschen Attributen mit einem anderen Attribut üben, das Sie vielleicht schon einmal gesehen haben, [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden), welches verhindert, dass Elemente auf der Seite gerendert werden. Versuchen Sie, `hidden` zum `<h1>`-Element in `App.jsx` hinzuzufügen, um zu sehen, was passiert, und versuchen Sie dann, seinen Wert explizit auf `{false}` zu setzen. Beachten Sie erneut, dass das Schreiben von `hidden="false"` zu einem truthy Wert führt, sodass das `<h1>` _versteckt_ wird. Vergessen Sie nicht, diesen Code zu entfernen, wenn Sie fertig sind.
+Wenn Sie möchten, können Sie das Schreiben von booleschen Attributen mit einem anderen Attribut üben, das Sie möglicherweise schon einmal gesehen haben, [`hidden`](/de/docs/Web/HTML/Reference/Global_attributes/hidden), das verhindert, dass Elemente auf der Seite gerendert werden. Versuchen Sie, `hidden` zum `<h1>`-Element in `App.jsx` hinzuzufügen, um zu sehen, was passiert, und setzen Sie dann seinen Wert explizit auf `{false}`. Beachten Sie erneut, dass das Schreiben von `hidden="false"` einen truthy Wert ergibt, sodass das `<h1>` _versteckt_ wird. Vergessen Sie nicht, diesen Code zu entfernen, wenn Sie fertig sind.
 
 > [!NOTE]
-> Das `aria-pressed`-Attribut, das in unserem früheren Code-Schnipsel verwendet wurde, hat einen Wert von `"true"`, weil `aria-pressed` kein echtes boolesches Attribut in der Art ist, wie `checked` es ist.
+> Das `aria-pressed`-Attribut, das in unserem früheren Code-Schnipsel verwendet wurde, hat einen Wert von `"true"`, da `aria-pressed` kein echtes boolesches Attribut in der Weise ist, wie es `checked` ist.
 
 ### Implementierung unserer Stile
 
@@ -552,10 +551,10 @@ body {
 /* End checkbox styles */
 ```
 
-Speichern und schauen Sie zurück in Ihren Browser, und Ihre App sollte nun eine angemessene Formatierung haben.
+Speichern Sie und schauen Sie in Ihren Browser zurück, und Ihre App sollte nun ein vernünftiges Styling haben.
 
 ## Zusammenfassung
 
-Jetzt sieht unsere ToDo-Listen-App tatsächlich mehr wie eine echte App aus! Das Problem ist: Sie tut noch nicht wirklich etwas. Wir werden anfangen, das im nächsten Kapitel zu beheben!
+Jetzt sieht unsere ToDo-Listen-App tatsächlich etwas mehr nach einer echten App aus! Das Problem ist: sie macht noch nichts. Wir werden das im nächsten Kapitel anfangen zu beheben!
 
 {{PreviousMenuNext("Learn_web_development/Core/Frameworks_libraries/React_getting_started","Learn_web_development/Core/Frameworks_libraries/React_components", "Learn_web_development/Core/Frameworks_libraries")}}

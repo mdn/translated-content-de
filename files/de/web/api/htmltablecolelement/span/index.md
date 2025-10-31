@@ -3,19 +3,19 @@ title: "HTMLTableColElement: span-Eigenschaft"
 short-title: span
 slug: Web/API/HTMLTableColElement/span
 l10n:
-  sourceCommit: 2406bfdc031740afbd500a1fc953a76a4b7f8484
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`span`**-Eigenschaft der [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement)-Schnittstelle repräsentiert die Anzahl der Spalten, die dieses {{htmlelement("col")}} oder {{htmlelement("colgroup")}} umfassen muss; dies ermöglicht der Spalte, Platz über mehrere Spalten der Tabelle einzunehmen. Sie spiegelt das [`span`](/de/docs/Web/HTML/Reference/Elements/col#span)-Attribut wider.
+Die **`span`**-Eigenschaft der [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement)-Schnittstelle gibt die Anzahl der Spalten an, über die sich dieses {{htmlelement("col")}} oder {{htmlelement("colgroup")}} erstrecken soll. Dadurch kann die Spalte Platz über mehrere Spalten der Tabelle einnehmen. Sie spiegelt das [`span`](/de/docs/Web/HTML/Reference/Elements/col#span)-Attribut wider.
 
 ## Wert
 
 Eine positive Zahl, die die Anzahl der Spalten darstellt.
 
 > [!NOTE]
-> Beim Setzen eines neuen Wertes wird der Wert auf die nächstgelegene strikt positive Zahl (bis zu 1000) begrenzt (_clamped_).
+> Beim Festlegen eines neuen Wertes wird der Wert auf die nächste streng positive Zahl (bis zu 1000) _gekappt_.
 
 ## Beispiele
 
@@ -30,11 +30,13 @@ Dieses Beispiel bietet zwei Schaltflächen, um die Spaltenbreite der ersten Zell
     <col span="2" class="multiColumn" />
   </colgroup>
   <thead>
-    <th></th>
-    <th scope="col">C1</th>
-    <th scope="col">C2</th>
-    <th scope="col">C3</th>
-    <th scope="col">C4</th>
+    <tr>
+      <th></th>
+      <th scope="col">C1</th>
+      <th scope="col">C2</th>
+      <th scope="col">C3</th>
+      <th scope="col">C4</th>
+    </tr>
   </thead>
   <tbody>
     <tr>

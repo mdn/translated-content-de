@@ -3,7 +3,7 @@ title: "HTMLScriptElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/HTMLScriptElement/type
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
 ---
 
 {{APIRef("HTML DOM")}}
@@ -19,7 +19,7 @@ Ein String. Der Wert dieser Eigenschaft kann einer der folgenden sein:
 - **Attribut ist nicht gesetzt (Standard), ein leerer String oder ein JavaScript-MIME-Typ**
   - : Gibt an, dass das Skript ein "klassisches Skript" ist, das JavaScript-Code enthält.
 - `module`
-  - : Dieser Wert führt dazu, dass der Code als JavaScript-Modul behandelt wird.
+  - : Dieser Wert bewirkt, dass der Code als JavaScript-Modul behandelt wird.
 - `importmap`
   - : Dieser Wert zeigt an, dass der Körper des Elements eine Importkarte enthält.
 - `speculationrules` {{experimental_inline}}
@@ -27,17 +27,17 @@ Ein String. Der Wert dieser Eigenschaft kann einer der folgenden sein:
 - **Jeder andere Wert**
   - : Der eingebettete Inhalt wird als Datenblock behandelt und nicht vom Browser verarbeitet.
 
-Für weitere Informationen verweisen Sie bitte auf das [`type`](/de/docs/Web/HTML/Reference/Elements/script/type)-Attribut des {{HTMLElement("script")}}-Elements.
+Für weitere Informationen lesen Sie bitte das [`type`](/de/docs/Web/HTML/Reference/Elements/script/type)-Attribut des {{HTMLElement("script")}}-Elements.
 
 ## Beispiele
 
 ```html
-<script id="el" type="text/javascript"></script>
+<script id="el" type="module"></script>
 ```
 
 ```js
 const el = document.getElementById("el");
-console.log(el.type); // Output: "text/javascript"
+console.log(el.type); // Output: "module"
 ```
 
 ## Spezifikationen
