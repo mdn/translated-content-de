@@ -52,39 +52,39 @@ Im obigen Beispiel selektiert der `::cue(u)` Selektor alle [`<u>`](/de/docs/Web/
 
 Regeln, deren Selektoren dieses Element enthalten, dürfen nur die folgenden CSS-Eigenschaften verwenden:
 
-- [`background`](/de/docs/Web/CSS/background)
-- [`background-attachment`](/de/docs/Web/CSS/background-attachment)
-- [`background-clip`](/de/docs/Web/CSS/background-clip)
-- [`background-color`](/de/docs/Web/CSS/background-color)
-- [`background-image`](/de/docs/Web/CSS/background-image)
-- [`background-origin`](/de/docs/Web/CSS/background-origin)
-- [`background-position`](/de/docs/Web/CSS/background-position)
-- [`background-repeat`](/de/docs/Web/CSS/background-repeat)
-- [`background-size`](/de/docs/Web/CSS/background-size)
-- [`color`](/de/docs/Web/CSS/color)
-- [`font`](/de/docs/Web/CSS/font)
+- [`background`](/de/docs/Web/CSS/Reference/Properties/background)
+- [`background-attachment`](/de/docs/Web/CSS/Reference/Properties/background-attachment)
+- [`background-clip`](/de/docs/Web/CSS/Reference/Properties/background-clip)
+- [`background-color`](/de/docs/Web/CSS/Reference/Properties/background-color)
+- [`background-image`](/de/docs/Web/CSS/Reference/Properties/background-image)
+- [`background-origin`](/de/docs/Web/CSS/Reference/Properties/background-origin)
+- [`background-position`](/de/docs/Web/CSS/Reference/Properties/background-position)
+- [`background-repeat`](/de/docs/Web/CSS/Reference/Properties/background-repeat)
+- [`background-size`](/de/docs/Web/CSS/Reference/Properties/background-size)
+- [`color`](/de/docs/Web/CSS/Reference/Properties/color)
+- [`font`](/de/docs/Web/CSS/Reference/Properties/font)
 - [`font-family`](/de/docs/Web/CSS/font-family)
-- [`font-size`](/de/docs/Web/CSS/font-size)
-- [`font-stretch`](/de/docs/Web/CSS/font-stretch)
-- [`font-style`](/de/docs/Web/CSS/font-style)
-- [`font-variant`](/de/docs/Web/CSS/font-variant)
-- [`font-weight`](/de/docs/Web/CSS/font-weight)
-- [`line-height`](/de/docs/Web/CSS/line-height)
-- [`opacity`](/de/docs/Web/CSS/opacity)
-- [`outline`](/de/docs/Web/CSS/outline)
-- [`outline-color`](/de/docs/Web/CSS/outline-color)
-- [`outline-style`](/de/docs/Web/CSS/outline-style)
-- [`outline-width`](/de/docs/Web/CSS/outline-width)
-- [`ruby-position`](/de/docs/Web/CSS/ruby-position)
-- [`text-combine-upright`](/de/docs/Web/CSS/text-combine-upright)
-- [`text-decoration`](/de/docs/Web/CSS/text-decoration)
-- [`text-decoration-color`](/de/docs/Web/CSS/text-decoration-color)
-- [`text-decoration-line`](/de/docs/Web/CSS/text-decoration-line)
-- [`text-decoration-style`](/de/docs/Web/CSS/text-decoration-style)
-- [`text-decoration-thickness`](/de/docs/Web/CSS/text-decoration-thickness)
-- [`text-shadow`](/de/docs/Web/CSS/text-shadow)
-- [`visibility`](/de/docs/Web/CSS/visibility)
-- [`white-space`](/de/docs/Web/CSS/white-space)
+- [`font-size`](/de/docs/Web/CSS/Reference/Properties/font-size)
+- [`font-stretch`](/de/docs/Web/CSS/Reference/Properties/font-stretch)
+- [`font-style`](/de/docs/Web/CSS/Reference/Properties/font-style)
+- [`font-variant`](/de/docs/Web/CSS/Reference/Properties/font-variant)
+- [`font-weight`](/de/docs/Web/CSS/Reference/Properties/font-weight)
+- [`line-height`](/de/docs/Web/CSS/Reference/Properties/line-height)
+- [`opacity`](/de/docs/Web/CSS/Reference/Properties/opacity)
+- [`outline`](/de/docs/Web/CSS/Reference/Properties/outline)
+- [`outline-color`](/de/docs/Web/CSS/Reference/Properties/outline-color)
+- [`outline-style`](/de/docs/Web/CSS/Reference/Properties/outline-style)
+- [`outline-width`](/de/docs/Web/CSS/Reference/Properties/outline-width)
+- [`ruby-position`](/de/docs/Web/CSS/Reference/Properties/ruby-position)
+- [`text-combine-upright`](/de/docs/Web/CSS/Reference/Properties/text-combine-upright)
+- [`text-decoration`](/de/docs/Web/CSS/Reference/Properties/text-decoration)
+- [`text-decoration-color`](/de/docs/Web/CSS/Reference/Properties/text-decoration-color)
+- [`text-decoration-line`](/de/docs/Web/CSS/Reference/Properties/text-decoration-line)
+- [`text-decoration-style`](/de/docs/Web/CSS/Reference/Properties/text-decoration-style)
+- [`text-decoration-thickness`](/de/docs/Web/CSS/Reference/Properties/text-decoration-thickness)
+- [`text-shadow`](/de/docs/Web/CSS/Reference/Properties/text-shadow)
+- [`visibility`](/de/docs/Web/CSS/Reference/Properties/visibility)
+- [`white-space`](/de/docs/Web/CSS/Reference/Properties/white-space)
 
 ## Beispiele
 
@@ -110,7 +110,7 @@ Betrachten Sie den folgenden Hinweistext, der das `<u>` Tag verwendet, um einige
 Tell me, is the <u>lord of the universe</u> in?
 ```
 
-Die folgende CSS-Regel passt den Text innerhalb des `<u>` Tags mit einer Farbe und einer [text-decoration](/de/docs/Web/CSS/text-decoration) an:
+Die folgende CSS-Regel passt den Text innerhalb des `<u>` Tags mit einer Farbe und einer [text-decoration](/de/docs/Web/CSS/Reference/Properties/text-decoration) an:
 
 ```css
 ::cue(u) {

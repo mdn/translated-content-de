@@ -1,27 +1,27 @@
 ---
-title: "IntersectionObserver: `root`-Eigenschaft"
+title: "IntersectionObserver: root-Eigenschaft"
 short-title: root
 slug: Web/API/IntersectionObserver/root
 l10n:
-  sourceCommit: fe47429d64ffaacb24f5130523442aeaabf26ac6
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("Intersection Observer API")}}
 
-Die **`root`**-schreibgeschützte Eigenschaft der [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Schnittstelle identifiziert das [`Element`](/de/docs/Web/API/Element) oder das [`Document`](/de/docs/Web/API/Document), dessen Grenzen als das {{Glossary("bounding_box", "Begrenzungsrechteck")}} des {{Glossary("viewport", "Ansichtsfensters")}} für das Element behandelt werden, das Ziel des Beobachters ist.
+Die **`root`**-Eigenschaft der Schnittstelle [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver), die nur gelesen werden kann, identifiziert das [`Element`](/de/docs/Web/API/Element) oder das [`Dokument`](/de/docs/Web/API/Document), dessen Grenzen als {{Glossary("bounding_box", "Begrenzungsrahmen")}} des {{Glossary("viewport", "Viewports")}} für das Element angesehen werden, welches das Ziel des Beobachters ist.
 
-Wenn `root` `null` ist, werden die Grenzen des tatsächlichen Dokument-Ansichtsfensters verwendet.
+Wenn das `root` `null` ist, werden die Grenzen des tatsächlichen Dokument-Viewports verwendet.
 
 ## Wert
 
-Ein [`Element`](/de/docs/Web/API/Element) oder [`Document`](/de/docs/Web/API/Document)-Objekt, dessen Begrenzungsrechteck als Begrenzung des Ansichtsfensters verwendet wird, um zu bestimmen, wie viel vom Zielelement sichtbar ist.
-Der Schnittpunkt dieses Begrenzungsrechtecks, versetzt um alle in den Optionen angegebenen Ränder, die an den [`IntersectionObserver()`](/de/docs/Web/API/IntersectionObserver/IntersectionObserver)-Konstruktor übergeben werden, die Begrenzungen des Zielelements, abzüglich der Begrenzungen jedes Elements oder anderen Objekts, das das Zielelement überlappt, wird als sichtbarer Bereich des Zielelements betrachtet.
+Ein [`Element`](/de/docs/Web/API/Element) oder [`Dokument`](/de/docs/Web/API/Document)-Objekt, dessen Begrenzungsrahmen als die Grenzen des Viewports verwendet werden, um zu bestimmen, wie viel vom Ziel-Element sichtbar ist.
+Der Schnittpunkt dieses begrenzenden Rechtecks, versetzt um alle in den Optionen angegebenen Margen, die an den Konstruktor [`IntersectionObserver()`](/de/docs/Web/API/IntersectionObserver/IntersectionObserver) übergeben werden, mit den Grenzen des Ziel-Elements, minus den Grenzen jedes Elements oder anderen Objekts, das das Ziel-Element überlappt, wird als der sichtbare Bereich des Ziel-Elements angesehen.
 
-Wenn `root` `null` ist, wird das eigentliche Dokument als Root verwendet, und die Grenzen seines Ansichtsfensters (das heißt, der sichtbare Bereich des Dokuments) werden als Root-Grenzen verwendet.
+Wenn `root` `null` ist, wird das zugehörige Dokument als Wurzel verwendet und die Grenzen seines Viewports (d.h. der sichtbare Bereich des Dokuments) werden als die Wurzelgrenzen verwendet.
 
 ## Beispiele
 
-Dieses Beispiel setzt die {{cssxref("border")}} des Wurzelelements des `IntersectionObserver` auf eine 2-Pixel mittlere grüne Linie.
+In diesem Beispiel wird die {{cssxref("border")}} des Root-Elements des Intersection Observers auf eine 2-Pixel breite mittelgrüne Linie gesetzt.
 
 ```js
 observer.root.style.border = "2px solid #44aa44";
@@ -37,4 +37,4 @@ observer.root.style.border = "2px solid #44aa44";
 
 ## Siehe auch
 
-- [Zeitplanung der Sichtbarkeit von Elementen mit der Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility)
+- [Sichtbarkeit von Elementen mit der Intersection Observer API timen](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility)

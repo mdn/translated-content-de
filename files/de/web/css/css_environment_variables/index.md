@@ -2,12 +2,12 @@
 title: CSS-Umgebungsvariablen
 slug: Web/CSS/CSS_environment_variables
 l10n:
-  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
+  sourceCommit: 55326f330a6ae829494c7606b1bd47b2c0f9d888
 ---
 
-Das **CSS-Umgebungsvariablen**-Modul definiert das Konzept von Umgebungsvariablen und die {{cssxref("env")}}-Funktion. Umgebungsvariablen funktionieren ähnlich wie [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) und die {{cssxref("var")}}-Funktion, außer dass sie global definiert sind; es handelt sich um globale Variablen, die sich auf das gesamte Dokument beziehen. Es sind Benutzeragent-Werte, die vom Browser oder Betriebssystem bereitgestellt werden und auf die Sie über die {{cssxref("env")}}-Funktion zugreifen können, um Ihre Stile an das Gerät oder den Kontext des Benutzers anzupassen.
+Das **CSS-Umgebungsvariablen**-Modul definiert das Konzept der Umgebungsvariablen und die {{cssxref("env")}}-Funktion. Umgebungsvariablen funktionieren ähnlich wie [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*) und die {{cssxref("var")}}-Funktion, außer dass sie global definiert sind; sie sind globale Variablen, die auf das gesamte Dokument beschränkt sind. Sie sind Werte von Benutzeragenten, die vom Browser oder Betriebssystem bereitgestellt werden und auf die Sie mit der {{cssxref("env")}}-Funktion zugreifen können, sodass Sie Ihre Stile an das Gerät oder den Kontext des Benutzers anpassen können.
 
-Umgebungsvariablen liefern Werte, die auf der Seite verwendet werden können, basierend auf Informationen, auf die der Benutzeragent Zugriff hat, wie z. B. die Größe der Titelleiste, die dynamische Tastatur und die „safe area insets“. Die „safe area insets“ definieren ein Rechteck, das auf nicht-rechteckigen Displays garantiert sichtbar ist, basierend auf seiner Entfernung von den Rändern des Ansichtsbereichs. Sie können die Benutzeragent-Größen in Ihre Stile einbeziehen, sodass Sie das Layout wesentlicher Inhalte basierend auf dem verfügbaren Platz innerhalb des „safe area“-Rechtecks anpassen können, neben einer sichtbaren dynamischen Tastatur oder angrenzend an eine sichtbare Titelleiste.
+Umgebungsvariablen liefern Werte, die basierend auf Informationen, auf die der Benutzeragent Zugriff hat, auf der Seite verwendet werden können, wie zum Beispiel die Größe der Titelleiste, die dynamische Tastatur und die Ränder des sicheren Bereichs. Die Ränder des sicheren Bereichs definieren ein Rechteck, das auf nicht-rechteckigen Bildschirmen sichtbar ist, basierend auf seinem Abstand zu den Rändern des Ansichtsfensters. Sie können die Benutzeragentengrößen in Ihre Stile einbeziehen, sodass Sie das Layout von wesentlichen Inhalten basierend auf dem verfügbaren Platz innerhalb des sicheren Bereichsrechtecks anpassen können, neben einer sichtbaren dynamischen Tastatur oder neben einer sichtbaren Titelleiste.
 
 ## Referenz
 
@@ -21,17 +21,17 @@ Umgebungsvariablen liefern Werte, die auf der Seite verwendet werden können, ba
 
 ## Leitfäden
 
-- [Umgebungsvariablen verwenden](/de/docs/Web/CSS/CSS_environment_variables/Using_environment_variables)
-  - : Ein Überblick darüber, was Umgebungsvariablen sind, browserdefinierte Umgebungsvariablen und wie man die `env()`-Funktion nutzt.
+- [Verwendung von Umgebungsvariablen](/de/docs/Web/CSS/CSS_environment_variables/Using_environment_variables)
+  - : Ein Überblick darüber, was Umgebungsvariablen sind, von Browsern definierte Umgebungsvariablen und wie die `env()`-Funktion verwendet wird.
 
 ## Verwandte Konzepte
 
-- [CSS Media Queries](/de/docs/Web/CSS/CSS_media_queries) Modul
-- [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*)
+- [CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries)-Modul
+- [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*)
 - {{cssxref("var")}}
-- [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard) Schnittstelle
-- [`display_override`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display_override) Manifest-Feld
-  [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) und {{domxref("WindowControlsOverlay"))}} Schnittstelle
+- [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard)-Schnittstelle
+- [`display_override`](/de/docs/Web/Progressive_web_apps/Manifest/Reference/display_override)-Manifestfeld
+  [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) und {{domxref("WindowControlsOverlay"))}}-Schnittstelle
 
 ## Spezifikationen
 
@@ -39,6 +39,6 @@ Umgebungsvariablen liefern Werte, die auf der Seite verwendet werden können, ba
 
 ## Siehe auch
 
-- [CSS Wertfunktionen](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) Leitfaden
-- [CSS Eigenschaften und Werte API](/de/docs/Web/CSS/CSS_properties_and_values_API) Modul
-- [CSS-Benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul
+- [Leitfaden zu CSS-Wertfunktionen](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions)
+- [CSS Properties and Values API](/de/docs/Web/CSS/CSS_properties_and_values_API)-Modul
+- [CSS-Benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables)-Modul

@@ -3,10 +3,12 @@ title: Intl.Locale.prototype.maximize()
 short-title: maximize()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Locale/maximize
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Die **`maximize()`**-Methode von {{jsxref("Intl.Locale")}} Instanzen erhält die wahrscheinlichsten Werte für die Sprache, die Schrift und die Region dieser Locale basierend auf den vorhandenen Werten.
+Die **`maximize()`**-Methode von {{jsxref("Intl.Locale")}}-Instanzen ermittelt die
+wahrscheinlichsten Werte für Sprache, Schriftsystem und Region dieser Lokalisierung basierend
+auf vorhandenen Werten.
 
 {{InteractiveExample("JavaScript Demo: Intl.Locale.prototype.maximize()")}}
 
@@ -37,11 +39,12 @@ Keine.
 
 ### Rückgabewert
 
-Eine {{jsxref("Intl.Locale")}} Instanz, deren `baseName`-Eigenschaft das Ergebnis des [Add Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags) Algorithmus zurückgibt, der auf _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_ ausgeführt wird.
+Eine {{jsxref("Intl.Locale")}}-Instanz, deren `baseName`-Eigenschaft das Ergebnis des [Add Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags)-Algorithmus zurückgibt, ausgeführt auf _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_.
 
 ## Beschreibung
 
-Manchmal ist es praktisch, die wahrscheinlichsten Subtags des Sprachidentifikators einer Locale basierend auf einer unvollständigen Sprach-ID zu identifizieren. Der Add Likely Subtags-Algorithmus bietet uns diese Funktionalität. Zum Beispiel würde der Algorithmus bei der Sprach-ID "en" "en-Latn-US" zurückgeben, da Englisch nur in lateinischer Schrift geschrieben werden kann und höchstwahrscheinlich in den Vereinigten Staaten verwendet wird, da es das größte englischsprachige Land der Welt ist. Diese Funktionalität wird JavaScript-Programmierern über die `maximize()`-Methode bereitgestellt. `maximize()` beeinflusst nur die Haupt-Subtags, die den [Sprachidentifikator](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions) ausmachen: Sprach-, Schrift- und Regionssubtags. Andere Subtags nach dem "-u" im Locale-Identifikator werden als Erweiterungs-Subtags bezeichnet und werden von der `maximize()`-Methode nicht beeinflusst. Beispiele für diese Subtags sind {{jsxref("Intl/Locale/hourCycle", "hourCycle")}}, {{jsxref("Intl/Locale/calendar", "calendar")}} und {{jsxref("Intl/Locale/numeric", "numeric")}}.
+Manchmal ist es nützlich, die wahrscheinlichsten Unterkennzeichen des Sprachbezeichners basierend auf einer unvollständigen Sprach-ID identifizieren zu können. Der Add Likely Subtags-Algorithmus bietet uns diese Funktionalität. Wenn zum Beispiel die Sprach-ID "en" gegeben ist, würde der Algorithmus "en-Latn-US" zurückgeben, da Englisch nur in lateinischer Schrift geschrieben werden kann und höchstwahrscheinlich in den Vereinigten Staaten verwendet wird, da es das größte englischsprachige Land der Welt ist. Diese Funktionalität wird JavaScript-Programmierern durch die `maximize()`-Methode bereitgestellt. `maximize()` wirkt sich nur auf die Hauptunterkennzeichen des [Sprachidentifikators](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions) aus: Sprach-, Schrift- und Regionsunterkennzeichen. Andere Unterkennzeichen nach dem "-u" im Lokalisierungsbezeichner werden als Erweiterungsunterkennzeichen bezeichnet und werden nicht von der `maximize()`-Methode beeinflusst. Beispiele für diese Unterkennzeichen sind {{jsxref("Intl/Locale/hourCycle", "hourCycle")}},
+{{jsxref("Intl/Locale/calendar", "calendar")}} und {{jsxref("Intl/Locale/numeric", "numeric")}}.
 
 ## Beispiele
 
@@ -77,4 +80,4 @@ console.log(myLocMaximized.toString());
 
 - {{jsxref("Intl.Locale")}}
 - {{jsxref("Intl/Locale/baseName", "baseName")}}
-- [Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags) in der Unicode Locale Data Markup Language Spezifikation
+- [Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags) in der Unicode-Lokalisierungsdaten-Markup-Sprachspezifikation

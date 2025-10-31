@@ -3,16 +3,16 @@ title: "EditContext: compositionend-Ereignis"
 short-title: compositionend
 slug: Web/API/EditContext/compositionend_event
 l10n:
-  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das `compositionend`-Ereignis des [`EditContext`](/de/docs/Web/API/EditContext)-Interfaces wird ausgelöst, wenn die Komposition mit einem {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster endet.
+Das `compositionend`-Ereignis der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird ausgelöst, wenn die Komposition mit einem {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster endet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("compositionend", (event) => { })
@@ -22,9 +22,9 @@ oncompositionend = (event) => { }
 
 ## Beispiele
 
-### Verwendung von `compositionend`, um den Rahmen des editierbaren Bereichs zu ändern
+### Verwendung von `compositionend`, um den Rand des bearbeitbaren Bereichs zu ändern
 
-Im folgenden Beispiel wird der Rahmen des editierbaren Bereichs auf Rot gesetzt, wenn das `compositionstart`-Ereignis ausgelöst wird, und zurück zu Schwarz, wenn das `compositionend`-Ereignis ausgelöst wird. Beachten Sie, dass die Event-Listener-Rückrufe in diesem Beispiel nur aufgerufen werden, wenn ein IME-Fenster oder andere plattform-spezifische Bearbeitungsoberflächen verwendet werden, um Text zu komponieren.
+Im folgenden Beispiel wird der Rand des bearbeitbaren Bereichs rot, wenn das `compositionstart`-Ereignis ausgelöst wird, und wieder schwarz, wenn das `compositionend`-Ereignis ausgelöst wird. Beachten Sie, dass die Ereignis-Listener-Rückrufe in diesem Beispiel nur aufgerufen werden, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungs-UI-Oberflächen verwendet werden, um Text zu komponieren.
 
 ```css
 #text-editor {

@@ -3,24 +3,21 @@ title: "PublicKeyCredential: rawId-Eigenschaft"
 short-title: rawId
 slug: Web/API/PublicKeyCredential/rawId
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die schreibgeschützte **`rawId`**-Eigenschaft des
-[`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces ist ein {{jsxref("ArrayBuffer")}}-Objekt,
-das die Kennung der Anmeldeinformationen enthält.
+Die schreibgeschützte Eigenschaft **`rawId`** des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces ist ein {{jsxref("ArrayBuffer")}}-Objekt, das den Bezeichner der Anmeldedaten enthält.
 
-Die [`PublicKeyCredential.id`](/de/docs/Web/API/PublicKeyCredential/id)-Eigenschaft ist eine {{Glossary("Base64", "base64url kodierte")}} Version dieser Kennung.
+Die [`PublicKeyCredential.id`](/de/docs/Web/API/PublicKeyCredential/id)-Eigenschaft ist eine {{Glossary("Base64", "base64url-kodierte")}} Version dieses Bezeichners.
 
 > [!NOTE]
-> Diese Eigenschaft kann nur in obersten Kontexten verwendet werden und ist zum Beispiel in einem {{HTMLElement("iframe")}} nicht verfügbar.
+> Diese Eigenschaft darf nur in Top-Level-Kontexten verwendet werden und steht beispielsweise in einem {{HTMLElement("iframe")}} nicht zur Verfügung.
 
 ## Wert
 
-Ein {{jsxref("ArrayBuffer")}}, der die Kennung der Anmeldeinformationen enthält. Diese Kennung soll global eindeutig sein und ist für die aktuelle `PublicKeyCredential` und ihre zugehörige
-[`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) bestimmt.
+Ein {{jsxref("ArrayBuffer")}}, der den Bezeichner der Anmeldedaten enthält. Dieser Bezeichner soll weltweit einzigartig sein und ist für das aktuelle `PublicKeyCredential` und seine zugehörige [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) bestimmt.
 
 ## Beispiele
 

@@ -1,12 +1,12 @@
 ---
-title: HTML title globales Attribut
+title: HTML-Globale Attribut `title`
 short-title: title
 slug: Web/HTML/Reference/Global_attributes/title
 l10n:
-  sourceCommit: 0754cd805a8e010d2e3a2a065f634a3bcf358252
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Das **`title`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) enthält Text, der beratende Informationen über das zugehörige Element darstellt.
+Das **`title`** [globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes) enthält Text, der beratende Informationen im Zusammenhang mit dem Element, zu dem es gehört, darstellt.
 
 {{InteractiveExample("HTML Demo: title", "tabbed-shorter")}}
 
@@ -36,15 +36,15 @@ Die Hauptverwendung des `title`-Attributs besteht darin, {{HTMLElement("iframe")
 
 Das `title`-Attribut kann auch verwendet werden, um Steuerelemente in [Datentabellen](/de/docs/Web/HTML/Reference/Elements/table) zu kennzeichnen.
 
-Das `title`-Attribut, wenn es zu [`<link rel="stylesheet">`](/de/docs/Web/HTML/Reference/Elements/link) hinzugefügt wird, erstellt ein alternatives Stylesheet. Beim Definieren eines alternativen Stylesheets mit `<link rel="alternate">` ist das Attribut erforderlich und muss auf einen nicht-leeren String gesetzt werden.
+Das `title`-Attribut erstellt, wenn es zu [`<link rel="stylesheet">`](/de/docs/Web/HTML/Reference/Elements/link) hinzugefügt wird, ein alternatives Stylesheet. Bei der Definition eines alternativen Stylesheets mit `<link rel="alternate">` ist das Attribut erforderlich und muss auf eine nicht leere Zeichenkette gesetzt werden.
 
-Wenn es im Öffnungstag der {{htmlelement('abbr')}} enthalten ist, muss das `title` eine vollständige Erweiterung der Abkürzung oder des Akronyms sein. Anstatt `title` zu verwenden, geben Sie, wenn möglich, beim ersten Gebrauch die Erweiterung der Abkürzung oder des Akronyms im Klartext an und verwenden Sie `<abbr>`, um die Abkürzung zu kennzeichnen. Dies ermöglicht allen Nutzern zu wissen, welchen Namen oder Begriff die Abkürzung oder das Akronym verkürzt, und gibt den Benutzeragenten einen Hinweis, wie der Inhalt angekündigt werden soll.
+Wenn es im öffnenden {{htmlelement('abbr')}}-Tag enthalten ist, muss das `title` eine vollständige Erweiterung der Abkürzung oder des Akronyms sein. Anstatt `title` zu verwenden, ist es, wenn möglich, besser, bei der ersten Verwendung eine Erweiterung der Abkürzung oder des Akronyms im Klartext anzugeben und das `<abbr>` zum Markieren der Abkürzung zu verwenden. Dies ermöglicht es allen Benutzern, zu wissen, welchen Namen oder Begriff die Abkürzung oder das Akronym verkürzt, während es den Benutzeragenten einen Hinweis gibt, wie der Inhalt angekündigt werden soll.
 
-Während `title` verwendet werden kann, um ein programmgesteuert zugeordnetes Label für ein {{HTMLElement("input")}}-Element bereitzustellen, ist dies keine gute Praxis. Verwenden Sie stattdessen ein {{HTMLElement("label")}}.
+Obwohl `title` verwendet werden kann, um ein programmgesteuert zugeordnetes Label für ein {{HTMLElement("input")}}-Element bereitzustellen, ist dies keine gute Praxis. Verwenden Sie stattdessen ein {{HTMLElement("label")}}.
 
 ## Mehrzeilige Titel
 
-Das `title`-Attribut kann mehrere Zeilen enthalten. Jedes `U+000A LINE FEED` (`LF`) Zeichen stellt einen Zeilenumbruch dar. Einige Vorsichtsmaßnahmen müssen getroffen werden, da dies bedeutet, dass das Folgende über zwei Zeilen gerendert wird:
+Das `title`-Attribut kann mehrere Zeilen enthalten. Jedes `U+000A LINE FEED` (`LF`)-Zeichen stellt einen Zeilenumbruch dar. Es ist Vorsicht geboten, da dies bedeutet, dass das Folgende über zwei Zeilen gerendert wird:
 
 ### HTML
 
@@ -56,7 +56,7 @@ Das `title`-Attribut kann mehrere Zeilen enthalten. Jedes `U+000A LINE FEED` (`L
 multiline title">
     example span
   </span>
-  has a title a attribute with a newline.
+  has a title attribute with a newline.
 </p>
 <hr />
 <pre id="output"></pre>
@@ -78,9 +78,9 @@ output.textContent = span.title;
 
 ## Vererbung des Title-Attributs
 
-Wenn ein Element kein `title`-Attribut hat, erbt es dieses von seinem übergeordneten Knoten, der es wiederum von seinem übergeordneten Knoten erben kann, und so weiter.
+Wenn ein Element kein `title`-Attribut hat, erbt es dieses von seinem Elternelement, das es wiederum von seinem Elternelement erben kann, und so weiter.
 
-Wenn dieses Attribut auf einen leeren String gesetzt ist, bedeutet dies, dass die `title`s der Vorfahren irrelevant sind und nicht im Tooltip für dieses Element verwendet werden sollten.
+Wenn dieses Attribut auf die leere Zeichenkette gesetzt ist, bedeutet das, dass die `title`s seiner Vorfahren irrelevant sind und nicht im Tooltip für dieses Element verwendet werden sollten.
 
 ### HTML
 
@@ -95,22 +95,22 @@ Wenn dieses Attribut auf einen leeren String gesetzt ist, bedeutet dies, dass di
 
 {{EmbedLiveSample('Title_attribute_inheritance')}}
 
-## Barrierefreiheit
+## Barrierefreiheitsbedenken
 
-Die Verwendung des `title`-Attributs ist hoch problematisch für:
+Der Gebrauch des `title`-Attributs ist äußerst problematisch für:
 
-- Menschen, die ausschließlich Touch-Geräte verwenden
-- Menschen, die mit Tastaturen navigieren
-- Menschen, die mit unterstützenden Technologien wie Bildschirmlesern oder Vergrößerungen navigieren
-- Menschen mit Beeinträchtigungen der Feinmotorik
-- Menschen mit kognitiven Einschränkungen
+- Personen, die nur Touch-Geräte verwenden
+- Personen, die mit Tastaturen navigieren
+- Personen, die mit unterstützenden Technologien wie Bildschirmlesegeräten oder Vergrößerungen navigieren
+- Personen mit Beeinträchtigungen der Feinmotorik
+- Personen mit kognitiven Beeinträchtigungen
 
-Dies liegt an der inkonsistenten Unterstützung durch den Browser, die durch das zusätzliche Parsen der vom Browser gerenderten Seite durch unterstützende Technologien verschärft wird. Wenn ein Tooltip-Effekt gewünscht ist, ist es besser, [eine zugänglichere Technik](https://inclusive-components.design/tooltips-toggletips/) zu verwenden, die mit den oben genannten Navigationsmethoden zugänglich ist.
+Dies liegt an der inkonsistenten Browserunterstützung, die durch die zusätzliche Analyse der durch den Browser gerenderten Seite durch unterstützende Technologien noch verstärkt wird. Wenn ein Tooltip-Effekt gewünscht ist, ist es besser, [eine zugänglichere Technik zu verwenden](https://inclusive-components.design/tooltips-toggletips/), die mit den oben genannten Navigationsmethoden zugänglich ist.
 
 - [3.2.5.1. Das title-Attribut | W3C HTML 5.2: 3. Semantik, Struktur und APIs von HTML-Dokumenten](https://html.spec.whatwg.org/multipage/dom.html#the-title-attribute)
-- [Verwendung des HTML title Attributs – aktualisiert | The Paciello Group](https://www.tpgi.com/using-the-html-title-attribute-updated/)
+- [Verwendung des HTML-title-Attributs – aktualisiert | The Paciello Group](https://www.tpgi.com/using-the-html-title-attribute-updated/)
 - [Tooltips & Toggletips - Inclusive Components](https://inclusive-components.design/tooltips-toggletips/)
-- [Die Prüfungen und Probleme des Title-Attributs - 24 Accessibility](https://www.24a11y.com/2017/the-trials-and-tribulations-of-the-title-attribute/)
+- [The Trials and Tribulations of the Title Attribute - 24 Accessibility](https://www.24a11y.com/2017/the-trials-and-tribulations-of-the-title-attribute/)
 
 ## Spezifikationen
 
@@ -123,4 +123,4 @@ Dies liegt an der inkonsistenten Unterstützung durch den Browser, die durch das
 ## Siehe auch
 
 - Alle [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
-- [`HTMLElement.title`](/de/docs/Web/API/HTMLElement/title), das dieses Attribut widerspiegelt.
+- [`HTMLElement.title`](/de/docs/Web/API/HTMLElement/title) das dieses Attribut widerspiegelt.

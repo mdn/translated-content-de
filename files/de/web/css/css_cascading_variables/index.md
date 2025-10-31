@@ -2,16 +2,16 @@
 title: CSS-Benutzerdefinierte Eigenschaften für kaskadierende Variablen
 slug: Web/CSS/CSS_cascading_variables
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 55326f330a6ae829494c7606b1bd47b2c0f9d888
 ---
 
-Das Modul der **CSS-Benutzerdefinierten Eigenschaften für kaskadierende Variablen** fügt Unterstützung für kaskadierende Variablen in CSS-Eigenschaften hinzu und ermöglicht es Ihnen, benutzerdefinierte Eigenschaften zu erstellen, um diese Variablen zu definieren, zusammen mit den Mechanismen, um benutzerdefinierte Eigenschaften als Werte für andere CSS-Eigenschaften zu verwenden.
+Das **CSS-Modul für benutzerdefinierte Eigenschaften kaskadierender Variablen** fügt Unterstützung für kaskadierende Variablen in CSS-Eigenschaften hinzu und ermöglicht es Ihnen, benutzerdefinierte Eigenschaften zu erstellen, um diese Variablen zusammen mit den Mechanismen zu definieren, die benutzerdefinierte Eigenschaften als Werte für andere CSS-Eigenschaften zu verwenden.
 
-Wenn Sie mit CSS arbeiten, verwenden Sie häufig wiederkehrende projektbezogene Werte wie Breiten, die gut mit Ihrem Layout funktionieren, oder eine Reihe von Farben für Ihr Farbschema. Eine Möglichkeit, Wiederholungen in Stylesheets zu verwalten, besteht darin, einen Wert einmal zu definieren und ihn mehrfach an anderen Stellen zu verwenden. Benutzerdefinierte Eigenschaften ermöglichen es Ihnen, benutzerdefinierte Variablen zu erstellen und zu definieren, die wiederverwendet werden können, was komplexe oder wiederholte Regeln vereinfacht und sie leichter lesbar und wartbar macht. Zum Beispiel sind `--dark-grey-text` und `--dark-background` verständlicher als hexadezimale Farben wie `#323831`, und der Kontext, wie Sie sie verwenden, ist ebenso offensichtlicher.
+Beim Arbeiten mit CSS verwenden Sie oft projekt-spezifische Werte erneut, wie z.B. Breiten, die gut mit Ihrem Layout funktionieren, oder ein Farbschema. Eine Möglichkeit, Wiederholungen in Stylesheets zu verwalten, besteht darin, einen Wert einmal zu definieren und ihn an vielen Stellen zu verwenden. Benutzerdefinierte Eigenschaften ermöglichen es Ihnen, benutzerdefinierte Variablen zu erstellen und zu definieren, die wiederverwendet werden können, was komplexe oder repetitive Regeln vereinfacht und sie leichter lesbar und wartbar macht. Zum Beispiel sind `--dark-grey-text` und `--dark-background` leichter zu verstehen als hexadezimale Farben wie `#323831`, und der Kontext ihrer Verwendung wird ebenfalls deutlicher.
 
 ## Benutzerdefinierte Eigenschaften in Aktion
 
-Um zu sehen, wie benutzerdefinierte Eigenschaften verwendet werden können, bewegen Sie den Eingaberegler von links nach rechts.
+Um zu sehen, wie benutzerdefinierte Eigenschaften verwendet werden können, bewegen Sie den Eingabe-Schieberegler von links nach rechts.
 
 ```html hidden
 <div class="container">
@@ -88,7 +88,7 @@ input {
 
 {{EmbedLiveSample("Benutzerdefinierte Eigenschaften in Aktion",600,160)}}
 
-In diesen Farbfeldern wird die {{cssxref("background-color")}} mithilfe der {{cssxref("color_value/hsl", "hsl()")}}-{{cssxref("&lt;color&gt;")}}-Funktion als `hsl(var(--hue) 50% 50%)` festgelegt. Jedes Farbfeld erhöht den {{cssxref("hue")}}-Wert um 10 Grad wie `calc(var(--hue) + 10)`, `calc(var(--hue) + 20)` usw. Wenn sich der Wert des Reglers von 0 bis 360 ändert, wird der Wert der `--hue` [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) mithilfe von {{cssxref("calc")}} aktualisiert, und die Hintergrundfarbe jeder Box im Raster wird ebenfalls aktualisiert.
+In diesen Farbmustern wird die {{cssxref("background-color")}} mithilfe der {{cssxref("color_value/hsl", "hsl()")}}-{{cssxref("&lt;color&gt;")}}-Funktion als `hsl(var(--hue) 50% 50%)` gesetzt. Jedes Farbmuster erhöht den {{cssxref("hue")}}-Wert um 10 Grad, z.B. `calc(var(--hue) + 10)`, `calc(var(--hue) + 20)` usw. Wenn sich der Wert des Schiebereglers von 0 bis 360 ändert, wird der Wert der `--hue` [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) mithilfe von {{cssxref("calc")}} aktualisiert, und die Hintergrundfarbe jeder Box im Raster wird ebenfalls aktualisiert.
 
 ## Referenz
 
@@ -102,8 +102,8 @@ In diesen Farbfeldern wird die {{cssxref("background-color")}} mithilfe der {{cs
 
 ## Leitfäden
 
-- [Verwendung von benutzerdefinierten CSS-Eigenschaften (Variablen)](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties)
-  - : Erläutert, wie man benutzerdefinierte Eigenschaften in CSS und JavaScript verwendet, mit Hinweisen zum Umgang mit undefinierten und ungültigen Werten, Fallbacks und Vererbung.
+- [Benutzerdefinierte CSS-Eigenschaften (Variablen) verwenden](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties)
+  - : Erklärt, wie man benutzerdefinierte Eigenschaften in CSS und JavaScript verwendet, mit Tipps zum Umgang mit undefinierten und ungültigen Werten, Fallbacks und Vererbung.
 
 - [Ungültige benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/CSS_syntax/Error_handling#invalid_custom_properties)
   - : Erklärt, wie Browser Eigenschaftswerte behandeln, wenn der Wert einer benutzerdefinierten Eigenschaft ein ungültiger Datentyp für diese Eigenschaft ist.
@@ -120,7 +120,7 @@ In diesen Farbfeldern wird die {{cssxref("background-color")}} mithilfe der {{cs
 
 ## Siehe auch
 
-- [CSS Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
+- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
 - [CSS `env()`](/de/docs/Web/CSS/env) Funktion
 - [CSS `calc()`](/de/docs/Web/CSS/calc) Funktion
 - [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue) Methode

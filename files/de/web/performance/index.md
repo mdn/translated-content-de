@@ -155,7 +155,7 @@ Die folgenden APIs sind ebenfalls nützlich, um die Seitenperformance zu messen 
 
 ### CSS
 
-- [will-change](/de/docs/Web/CSS/will-change)
+- [will-change](/de/docs/Web/CSS/Reference/Properties/will-change)
 
 ### JavaScript
 

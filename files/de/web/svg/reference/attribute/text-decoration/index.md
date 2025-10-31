@@ -2,19 +2,19 @@
 title: text-decoration
 slug: Web/SVG/Reference/Attribute/text-decoration
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das **`text-decoration`** Attribut definiert, ob der Text mit einer Unterstreichung, Überstreichung und/oder Durchstreichung versehen ist. Es ist eine Kurzform für die Eigenschaften {{cssxref("text-decoration-line")}} und {{cssxref("text-decoration-style")}}.
+Das **`text-decoration`**-Attribut definiert, ob Text mit einer Unterstreichung, Überstreichung und/oder Durchstreichung dekoriert wird. Es ist eine Kurzform für die Eigenschaften {{cssxref("text-decoration-line")}} und {{cssxref("text-decoration-style")}}.
 
-Das Füllen und Streichen der Textdekoration wird durch das Füllen und Streichen des Textes an dem Punkt bestimmt, an dem die Textdekoration deklariert wird.
+Die Füllung und der Umriss der Textdekoration werden durch die Füllung und den Umriss des Textes an dem Punkt, an dem die Textdekoration deklariert wird, festgelegt.
 
-Die Malreihenfolge der Textdekoration, d.h. das Füllen und Streichen, wird durch den Wert des {{SVGAttr("paint-order")}} Attributs an dem Punkt bestimmt, an dem die Textdekoration deklariert wird.
+Die Malreihenfolge der Textdekoration, d.h. die Füllung und der Umriss, wird durch den Wert des {{SVGAttr("paint-order")}}-Attributs an dem Punkt bestimmt, an dem die Textdekoration deklariert wird.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `text-decoration` auch ein entsprechendes CSS-Eigenschafts-Pendant: {{cssxref("text-decoration")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `text-decoration` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("text-decoration")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
@@ -47,19 +47,19 @@ svg {
       <th scope="row">Wert</th>
       <td>
         <code
-          ><a href="/de/docs/Web/CSS/text-decoration-line"
+          ><a href="/de/docs/Web/CSS/Reference/Properties/text-decoration-line"
             >&#x3C;'text-decoration-line'></a
           ></code
         >
         ||
         <code
-          ><a href="/de/docs/Web/CSS/text-decoration-style"
+          ><a href="/de/docs/Web/CSS/Reference/Properties/text-decoration-style"
             >&#x3C;'text-decoration-style'></a
           ></code
         >
         ||
         <code
-          ><a href="/de/docs/Web/CSS/text-decoration-color"
+          ><a href="/de/docs/Web/CSS/Reference/Properties/text-decoration-color"
             >&#x3C;'text-decoration-color'></a
           ></code
         >
@@ -67,7 +67,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td>Siehe einzelne Eigenschaften</td>
+      <td>Siehe individuelle Eigenschaften</td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -76,7 +76,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte lesen Sie bitte die [CSS `text-decoration`](/de/docs/Web/CSS/text-decoration#values) Eigenschaft.
+Für eine Beschreibung der Werte beachten Sie bitte die [CSS `text-decoration`](/de/docs/Web/CSS/Reference/Properties/text-decoration#values)-Eigenschaft.
 
 ## Spezifikationen
 

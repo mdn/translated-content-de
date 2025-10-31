@@ -2,10 +2,10 @@
 title: ::marker
 slug: Web/CSS/::marker
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das **`::marker`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wählt die Markierungsbox eines Listenelements aus, die typischerweise ein Aufzählungszeichen oder eine Nummer enthält. Es funktioniert bei jedem Element oder Pseudo-Element, das auf [`display: list-item`](/de/docs/Web/CSS/display) gesetzt ist, wie z.B. die {{HTMLElement("li")}}- und {{HTMLElement("summary")}}-Elemente.
+Das **`::marker`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wählt die Markierungsbox eines Listenelements aus, die typischerweise ein Aufzählungszeichen oder eine Nummer enthält. Es funktioniert bei jedem Element oder Pseudo-Element, das auf [`display: list-item`](/de/docs/Web/CSS/Reference/Properties/display) gesetzt ist, wie den {{HTMLElement("li")}}- und {{HTMLElement("summary")}}-Elementen.
 
 {{InteractiveExample("CSS Demo: ::marker", "tabbed-shorter")}}
 
@@ -31,17 +31,17 @@ li::marker {
 
 ## Zulässige Eigenschaften
 
-Das `::marker` Pseudo-Element unterstützt eine begrenzte Anzahl von CSS-Eigenschaften, einschließlich:
+Das `::marker` Pseudo-Element unterstützt eine begrenzte Anzahl von CSS-Eigenschaften, darunter:
 
-- Aller [Schriftarten-Eigenschaften](/de/docs/Web/CSS/CSS_fonts)
-- Der {{CSSxRef("white-space")}} Eigenschaft
+- Alle [Schrifteigenschaften](/de/docs/Web/CSS/CSS_fonts)
+- Die {{CSSxRef("white-space")}} Eigenschaft
 - {{CSSxRef("color")}}
 - {{CSSxRef("text-combine-upright")}}, {{CSSxRef("unicode-bidi")}}, und {{CSSxRef("direction")}} Eigenschaften
-- Der {{CSSxRef("content")}} Eigenschaft
-- Aller [Animation](/de/docs/Web/CSS/CSS_animations#properties) und [Transition](/de/docs/Web/CSS/CSS_transitions#properties) Eigenschaften
+- Die {{CSSxRef("content")}} Eigenschaft
+- Alle [Animations­eigenschaften](/de/docs/Web/CSS/CSS_animations#properties) und [Transitionseigenschaften](/de/docs/Web/CSS/CSS_transitions#properties)
 
 > [!NOTE]
-> Die Spezifikation besagt, dass in Zukunft zusätzliche CSS-Eigenschaften unterstützt werden können.
+> Die Spezifikation besagt, dass in Zukunft zusätzliche CSS-Eigenschaften unterstützt werden könnten.
 
 ## Syntax
 

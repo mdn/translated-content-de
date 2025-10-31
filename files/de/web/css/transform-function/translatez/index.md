@@ -2,10 +2,10 @@
 title: translateZ()
 slug: Web/CSS/transform-function/translateZ
 l10n:
-  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Die **`translateZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) verschiebt ein Element entlang der z-Achse im 3D-Raum, d.h. näher zum oder weiter weg vom Betrachter. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Daten-Typ.
+Die **`translateZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) positioniert ein Element entlang der z-Achse im 3D-Raum neu, d.h. näher zum oder weiter weg vom Betrachter. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{InteractiveExample("CSS Demo: translateZ()")}}
 
@@ -95,12 +95,13 @@ transform: translateZ(-3ch);
 }
 ```
 
-Diese Transformation wird durch ein {{cssxref("&lt;length&gt;")}} definiert, welches angibt, wie weit das Element oder die Elemente nach innen oder außen bewegt werden.
+Diese Transformation wird durch ein {{cssxref("&lt;length&gt;")}} definiert, das bestimmt, wie weit das Element oder die Elemente hinein- oder herausbewegt werden.
 
-In den obigen interaktiven Beispielen wurde [`perspective: 550px;`](/de/docs/Web/CSS/perspective) (um einen 3D-Raum zu schaffen) und [`transform-style: preserve-3d;`](/de/docs/Web/CSS/transform-style) (damit die Kinder, die 6 Seiten des Würfels, ebenfalls im 3D-Raum positioniert sind), auf den Würfel gesetzt.
+In den obigen interaktiven Beispielen wurden [`perspective: 550px;`](/de/docs/Web/CSS/Reference/Properties/perspective) (um einen 3D-Raum zu schaffen) und [`transform-style: preserve-3d;`](/de/docs/Web/CSS/Reference/Properties/transform-style) (damit die Kinder, die 6 Seiten des Würfels, ebenfalls im 3D-Raum positioniert sind) auf den Würfel gesetzt.
 
 > [!NOTE]
-> `translateZ(tz)` ist äquivalent zu `translate3d(0, 0, tz)`.
+> `translateZ(tz)` ist äquivalent zu
+> `translate3d(0, 0, tz)`.
 
 ## Syntax
 
@@ -111,7 +112,8 @@ translateZ(tz)
 ### Werte
 
 - `tz`
-  - : Ein {{cssxref("&lt;length&gt;")}}, das die z-Komponente des Übersetzungsvektors [0, 0, tz] darstellt. Im [kartesischen Koordinatensystem](/de/docs/Web/CSS/transform-function#cartesian_coordinates) repräsentiert es die Verschiebung entlang der z-Achse. Ein positiver Wert bewegt das Element zum Betrachter hin, und ein negativer Wert weiter weg.
+  - : Ein {{cssxref("&lt;length&gt;")}} das die z-Komponente des Übersetzungsvektors [0, 0, tz] darstellt. Im [kartesischen Koordinatensystem](/de/docs/Web/CSS/transform-function#cartesian_coordinates) repräsentiert es die Verschiebung entlang der z-Achse. Ein positiver Wert bewegt das
+    Element auf den Betrachter zu, ein negativer Wert weiter weg.
 
 <table class="standard-table">
   <thead>
@@ -128,7 +130,7 @@ translateZ(tz)
         Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
       </td>
       <td>
-        Eine Übersetzung ist keine lineare Transformation in ℝ^3 und kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden.
+        Eine Translation ist keine lineare Transformation in ℝ^3 und kann nicht mittels einer kartesischen Koordinatenmatrix dargestellt werden.
       </td>
       <td>
         <math display="block">
@@ -145,7 +147,7 @@ translateZ(tz)
 
 ## Beispiele
 
-In diesem Beispiel werden zwei Boxen erstellt. Eine ist normal auf der Seite positioniert, ohne überhaupt übersetzt zu werden. Die zweite wird durch die Anwendung von Perspektive verändert, um einen 3D-Raum zu schaffen, und dann zum Benutzer hin bewegt.
+In diesem Beispiel werden zwei Boxen erstellt. Eine wird normal auf der Seite positioniert, ohne sie zu verschieben. Die zweite wird durch Anwenden von Perspektive, um einen 3D-Raum zu schaffen, verändert und dann in Richtung Benutzer bewegt.
 
 ### HTML
 
@@ -171,14 +173,14 @@ div {
 }
 ```
 
-Worauf es hier wirklich ankommt, ist die Klasse "moved"; lassen Sie uns einen Blick darauf werfen, was sie bewirkt. Zuerst positioniert die [`perspective()`](/de/docs/Web/CSS/transform-function/perspective) Funktion den Betrachter relativ zur Ebene, die dort liegt, wo z=0 ist (im Wesentlichen die Oberfläche des Bildschirms). Ein Wert von `500px` bedeutet, dass der Benutzer sich 500 Pixel "vor" dem Bild befindet, das sich bei z=0 befindet.
+Hier ist die Klasse "moved" von Bedeutung; schauen wir uns an, was sie bewirkt. Zuerst positioniert die [`perspective()`](/de/docs/Web/CSS/transform-function/perspective) Funktion den Betrachter relativ zur Ebene, die bei z=0 liegt (im Wesentlichen die Oberfläche des Bildschirms). Ein Wert von `500px` bedeutet, dass der Benutzer 500 Pixel "vor" der bei z=0 liegenden Darstellung ist.
 
-Dann bewegt die `translateZ()` Funktion das Element 200 Pixel "aus" dem Bildschirm, in Richtung des Benutzers. Dies hat die Wirkung, dass das Element auf einem 2D-Display größer erscheint oder näher erscheint, wenn es mit einem VR-Headset oder einem anderen 3D-Display-Gerät betrachtet wird.
+Dann bewegt die `translateZ()` Funktion das Element 200 Pixel "nach außen" vom Bildschirm, in Richtung des Benutzers. Dies hat den Effekt, dass das Element auf einem 2D-Display größer erscheint oder bei der Betrachtung mit einer VR-Brille oder einem anderen 3D-Anzeigegerät näher erscheint.
 
-Beachten Sie, wenn der `perspective()` Wert kleiner ist als der `translateZ()` Wert, wie z.B. `transform: perspective(200px) translateZ(300px);` wird das transformierte Element nicht sichtbar sein, da es weiter als die Sichtweite des Benutzers ist. Je kleiner der Unterschied zwischen den Perspektiven- und translateZ-Werten, desto näher ist der Benutzer am Element und desto größer scheint das übersetzte Element zu sein.
+Beachten Sie, wenn der `perspective()` Wert kleiner als der `translateZ()` Wert ist, wie zum Beispiel `transform: perspective(200px) translateZ(300px);`, wird das transformierte Element nicht sichtbar sein, da es außerhalb des Viewports des Benutzers liegt. Je kleiner der Unterschied zwischen den Perspektiv- und translateZ-Werten, desto näher ist der Benutzer am Element und desto größer scheint das übersetzte Element.
 
 > [!NOTE]
-> Da die Zusammensetzung von Transformationen nicht kommutativ ist, ist die Reihenfolge, in der Sie die verschiedenen Funktionen schreiben, bedeutsam. Im Allgemeinen möchten Sie insbesondere, dass `perspective()` vor `translateZ()` platziert wird.
+> Da die Zusammensetzung von Transformationen nicht kommutativ ist, ist die Reihenfolge, in der Sie die verschiedenen Funktionen schreiben, von Bedeutung. Im Allgemeinen möchten Sie, dass `perspective()` vor `translateZ()` platziert wird.
 
 ### Ergebnis
 

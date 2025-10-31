@@ -2,21 +2,21 @@
 title: browserSettings.useDocumentFonts
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/useDocumentFonts
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein Boolean ist.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein Boolean ist.
 
-Standardmäßig können Webseiten natürlich die von ihnen gewünschten Schriftarten mithilfe von CSS-Eigenschaften wie [`font-family`](/de/docs/Web/CSS/font-family) angeben. Diese Einstellung ermöglicht es einer Erweiterung, Firefox anzuweisen, die von der Seite angegebenen Schriftarten zu ignorieren und stattdessen nur Systemschriftarten zu verwenden.
+Standardmäßig können Web-Seiten natürlich die Schriftarten angeben, die sie verwenden möchten, indem sie CSS-Eigenschaften wie [`font-family`](/de/docs/Web/CSS/Reference/Properties/font-family) verwenden. Diese Einstellung ermöglicht es einer Erweiterung, Firefox anzuweisen, die von der Seite angegebenen Schriftarten zu ignorieren und nur Systemschriftarten zu verwenden.
 
-Der zugrunde liegende Wert ist ein Boolean:
+Der zugrundeliegende Wert ist ein Boolean:
 
 - `true`: Verwenden Sie die von der Webseite angegebenen Schriftarten. Dies ist die Standardeinstellung.
 - `false`: Verwenden Sie die Systemschriftarten.
 
 ## Beispiele
 
-Stellen Sie die Einstellung auf `false`:
+Setzen Sie die Einstellung auf `false`:
 
 ```js
 function logResult(result) {

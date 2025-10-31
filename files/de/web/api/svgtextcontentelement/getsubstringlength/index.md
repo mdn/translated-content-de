@@ -3,14 +3,14 @@ title: "SVGTextContentElement: getSubStringLength()-Methode"
 short-title: getSubStringLength()
 slug: Web/API/SVGTextContentElement/getSubStringLength
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
 {{APIRef("SVG")}}
 
-Die `getSubStringLength()`-Methode der [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Schnittstelle repräsentiert die berechnete Länge der formatieren Text-Vorschubstrecke für einen Textsubstring innerhalb des Elements.
+Die `getSubStringLength()`-Methode der [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)-Schnittstelle repräsentiert die berechnete Länge der formatierten Textvorschubdistanz für einen Textsubstring innerhalb des Elements.
 
-Beachten Sie, dass diese Methode nur die Breiten der Glyphen im Substring und zusätzlichen Abstand, der durch die CSS-Eigenschaften [`letter-spacing`](/de/docs/Web/CSS/letter-spacing) und [`word-spacing`](/de/docs/Web/CSS/word-spacing) eingefügt wird, berücksichtigt. Visuelle Abstandsänderungen, die durch das [`x`](/de/docs/Web/CSS/x)-Attribut vorgenommen werden, werden ignoriert.
+Beachten Sie, dass diese Methode nur die Breiten der Glyphen im Substring und jeden zusätzlichen Abstand berücksichtigt, der durch die CSS-Eigenschaften [`letter-spacing`](/de/docs/Web/CSS/Reference/Properties/letter-spacing) und [`word-spacing`](/de/docs/Web/CSS/Reference/Properties/word-spacing) eingefügt wird. Visuelle Anpassungen des Abstands durch das [`x`](/de/docs/Web/CSS/Reference/Properties/x)-Attribut werden ignoriert.
 
 ## Syntax
 
@@ -27,16 +27,16 @@ getSubStringLength(index, length)
 
 ### Rückgabewert
 
-Ein `float`.
+Ein float.
 
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der `index` größer als der höchste Index ist oder `length` negativ ist.
+  - : Wird ausgelöst, wenn der `index` größer ist als der höchste Index oder `length` negativ ist.
 
 ## Beispiele
 
-### Die Länge eines Substrings ermitteln
+### Länge eines Substrings ermitteln
 
 ```html
 <svg width="300" height="100">

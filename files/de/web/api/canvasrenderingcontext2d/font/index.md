@@ -3,23 +3,23 @@ title: "CanvasRenderingContext2D: font-Eigenschaft"
 short-title: font
 slug: Web/API/CanvasRenderingContext2D/font
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`CanvasRenderingContext2D.font`** Eigenschaft der Canvas 2D API gibt den aktuellen Textstil an, der beim Zeichnen von Text verwendet wird.
-Dieser String verwendet dieselbe Syntax wie der [CSS-Schriftart](/de/docs/Web/CSS/font) spezifizierer.
+Die **`CanvasRenderingContext2D.font`**-Eigenschaft der Canvas 2D API legt den aktuellen Textstil fest, der beim Zeichnen von Text verwendet wird.
+Dieser String verwendet dieselbe Syntax wie der [CSS font](/de/docs/Web/CSS/Reference/Properties/font) Spezifikator.
 
 ## Wert
 
-Ein String, der als CSS {{cssxref("font")}} Wert geparst wird. Die Standardschriftart ist 10px sans-serif.
+Ein String, der als CSS {{cssxref("font")}}-Wert geparst wird. Die Standard-Schriftart ist 10px sans-serif.
 
 ## Beispiele
 
-### Verwendung einer benutzerdefinierten Schriftart
+### Verwenden einer benutzerdefinierten Schriftart
 
-In diesem Beispiel verwenden wir die `font`-Eigenschaft, um ein benutzerdefiniertes Schriftgewicht, eine benutzerdefinierte Schriftgröße und -familie zu spezifizieren.
+In diesem Beispiel verwenden wir die `font`-Eigenschaft, um ein benutzerdefiniertes Schriftgewicht, eine Größe und eine Familie anzugeben.
 
 #### HTML
 

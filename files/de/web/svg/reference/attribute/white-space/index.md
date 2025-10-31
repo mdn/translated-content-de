@@ -2,13 +2,13 @@
 title: white-space
 slug: Web/SVG/Reference/Attribute/white-space
 l10n:
-  sourceCommit: 79c8ed4fc545d0e5dfb23ffcd7e3dbc38cfb6520
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das **`white-space`** SVG-Attribut gibt an, wie {{Glossary("whitespace", "Whitespace")}} innerhalb von Text behandelt werden soll. Dies umfasst, ob und wie Whitespace innerhalb des Elements reduziert wird und ob Zeilen bei ungewollten Umbrüchen umbrochen werden dürfen.
+Das **`white-space`** SVG-Attribut legt fest, wie {{Glossary("whitespace", "Whitespace")}} innerhalb von Text behandelt werden soll. Dies umfasst, ob und wie Whitespace innerhalb des Elements zusammengefasst wird und ob Zeilen bei weichen Umbruchmöglichkeiten umgebrochen werden können.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `white-space` auch ein entsprechendes CSS-Property: {{cssxref("white-space")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
+> Als Darstellungsattribut hat `white-space` auch ein entsprechendes CSS-Attribut: {{cssxref("white-space")}}. Wenn beide angegeben sind, hat das CSS-Attribut Vorrang.
 
 ## Nutzungshinweise
 
@@ -29,7 +29,7 @@ Das **`white-space`** SVG-Attribut gibt an, wie {{Glossary("whitespace", "Whites
   </tbody>
 </table>
 
-Eine Beschreibung der Werte finden Sie in der [CSS `white-space`](/de/docs/Web/CSS/white-space#values) Eigenschaft.
+Für eine Beschreibung der Werte, verweisen Sie bitte auf die [CSS `white-space`](/de/docs/Web/CSS/Reference/Properties/white-space#values) Eigenschaft.
 
 ## Spezifikationen
 

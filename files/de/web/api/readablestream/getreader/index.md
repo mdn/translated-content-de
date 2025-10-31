@@ -3,12 +3,13 @@ title: "ReadableStream: getReader()-Methode"
 short-title: getReader()
 slug: Web/API/ReadableStream/getReader
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`getReader()`**-Methode der [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Schnittstelle erstellt einen Reader und sperrt den Stream für diesen. Solange der Stream gesperrt ist, kann kein anderer Reader erworben werden, bis dieser freigegeben wird.
+Die **`getReader()`**-Methode des [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Interfaces erstellt einen Reader und sperrt den Stream dafür.
+Während der Stream gesperrt ist, kann kein anderer Reader erworben werden, bis dieser freigegeben wird.
 
 ## Syntax
 
@@ -23,24 +24,27 @@ getReader(options)
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `mode` {{optional_inline}}
       - : Eine Eigenschaft, die den Typ des zu erstellenden Readers angibt.
-        Mögliche Werte sind:
-        - `"byob"`, was die Erstellung eines [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader) zur Folge hat, der lesbare Byte-Streams lesen kann (Streams, die eine Zero-Copy-Übertragung von einer zugrunde liegenden Byte-Quelle zum Reader unterstützen, wenn interne Stream-Puffer leer sind).
-        - `undefined` (oder gar nicht angegeben — dies ist der Standardwert), was die Erstellung eines [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) zur Folge hat, der einzelne Chunks aus einem Stream lesen kann.
+        Die Werte können sein:
+        - `"byob"`, wodurch ein [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader) erstellt wird, der lesbare Byte-Streams lesen kann (Streams, die beim Leeren der internen Stream-Puffer einen Zero-Copy-Transfer von einer zugrunde liegenden Byte-Quelle zum Reader unterstützen).
+        - `undefined` (oder gar nicht angegeben — dies ist der Standard), wodurch ein [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) erstellt wird, der einzelne Chunks aus einem Stream lesen kann.
 
 ### Rückgabewert
 
-Eine Instanz eines [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) oder [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)-Objekts, abhängig vom Wert des `mode`.
+Ein [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)- oder [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)-Objektinstanz, abhängig vom Wert von `mode`.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird geworfen, wenn der angegebene `mode`-Wert nicht `"byob"` oder `undefined` ist.
+  - : Wird ausgelöst, wenn der angegebene Moduswert nicht `"byob"` oder `undefined` ist.
 - {{jsxref("TypeError")}}
-  - : Wird geworfen, wenn der Stream, für den Sie versuchen, einen Reader zu erstellen, bereits gesperrt ist oder nicht ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) ist. Dies wird auch geworfen, wenn ein BYOB-Reader angefordert wird und der Stream-Controller kein [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController) ist (der Stream wurde nicht als zugrunde liegende Quelle mit [`type="bytes"`](/de/docs/Web/API/ReadableStream/ReadableStream#type) konstruiert).
+  - : Wird ausgelöst, wenn der Stream, für den Sie einen Reader erstellen möchten, bereits gesperrt oder kein [`ReadableStream`](/de/docs/Web/API/ReadableStream) ist.
+    Dies wird auch ausgelöst, wenn ein BYOB-Reader angefordert wird und der Stream-Controller kein [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController) ist (der Stream wurde nicht als zugrunde liegende Quelle mit [`type="bytes"`](/de/docs/Web/API/ReadableStream/ReadableStream#type) [konstruiert](/de/docs/Web/API/ReadableStream/ReadableStream)).
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel wird ein zuvor erstellter benutzerdefinierter `ReadableStream` mit einem mit `getReader()` erstellten [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) gelesen. (siehe unser Beispiel für einen [einfachen zufälligen Stream](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code). Jeder Chunk wird nacheinander gelesen und in die Benutzeroberfläche ausgegeben, bis der Stream vollständig gelesen wurde. Zu diesem Zeitpunkt verlassen wir die rekursive Funktion und geben den gesamten Stream an einem anderen Teil der Benutzeroberfläche aus.
+Im folgenden einfachen Beispiel wird ein zuvor erstellter benutzerdefinierter `ReadableStream` mit einem [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) gelesen, der mit `getReader()` erstellt wurde.
+(Siehe unser [Beispiel für einen einfachen Zufallsstream](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code).
+Jeder Chunk wird nacheinander gelesen und in die Benutzeroberfläche ausgegeben, bis der Stream vollständig gelesen wurde. An diesem Punkt beenden wir die Rekursivfunktion und geben den gesamten Stream an einem anderen Teil der Benutzeroberfläche aus.
 
 ```js
 function fetchStream() {
@@ -87,5 +91,5 @@ function fetchStream() {
 - [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream)-Konstruktor
 - [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)
 - [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)
-- [Verwendung von Readable Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
-- [Verwendung von Readable Byte Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
+- [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)

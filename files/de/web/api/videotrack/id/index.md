@@ -3,20 +3,27 @@ title: "VideoTrack: id-Eigenschaft"
 short-title: id
 slug: Web/API/VideoTrack/id
 l10n:
-  sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`id`**-Eigenschaft enthält einen String, der die Spur, die durch den **[`VideoTrack`](/de/docs/Web/API/VideoTrack)** dargestellt wird, eindeutig identifiziert.
+Die **`id`**-Eigenschaft enthält einen
+String, der den Track, der durch die
+**[`VideoTrack`](/de/docs/Web/API/VideoTrack)** repräsentiert wird, eindeutig identifiziert.
 
-Diese ID kann mit der Methode [`VideoTrackList.getTrackById()`](/de/docs/Web/API/VideoTrackList/getTrackById) verwendet werden, um eine spezifische Spur in den Medien zu finden, die mit einem Medienelement verknüpft sind.
+Diese ID kann mit der Methode
+[`VideoTrackList.getTrackById()`](/de/docs/Web/API/VideoTrackList/getTrackById) verwendet werden, um einen spezifischen Track innerhalb der Medien zu lokalisieren, die mit einem Media-Element assoziiert sind.
 
-Die Spur-ID kann auch als Fragment einer URL verwendet werden, die die spezifische Spur lädt (falls die Medien Medienfragmente unterstützen).
+Die Track-ID kann auch als Fragment einer URL verwendet werden, die den spezifischen Track lädt
+(falls die Medien Media-Fragmente unterstützen).
 
 ## Wert
 
-Ein String, der die Spur identifiziert und geeignet ist für die Verwendung beim Aufruf von [`getTrackById()`](/de/docs/Web/API/VideoTrackList/getTrackById) auf einer [`VideoTrackList`](/de/docs/Web/API/VideoTrackList), wie sie durch die [`videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks)-Eigenschaft eines Medienelements angegeben wird.
+Ein String, der den Track identifiziert und geeignet ist für die Verwendung bei einem Aufruf von
+[`getTrackById()`](/de/docs/Web/API/VideoTrackList/getTrackById) auf einem
+[`VideoTrackList`](/de/docs/Web/API/VideoTrackList), wie die durch die
+[`videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks)-Eigenschaft eines Media-Elements spezifizierte Liste.
 
 ## Spezifikationen
 

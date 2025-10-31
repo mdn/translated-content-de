@@ -1,11 +1,11 @@
 ---
-title: "SyntaxError: `??` kann nicht ohne Klammern innerhalb von `||` und `&&`-Ausdrücken verwendet werden"
+title: "SyntaxError: Der `??`-Operator kann nicht unverklammert innerhalb von `||` und `&&`-Ausdrücken verwendet werden"
 slug: Web/JavaScript/Reference/Errors/Cant_use_nullish_coalescing_unparenthesized
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Der JavaScript-Ausnahmefehler "`??` kann nicht ohne Klammern innerhalb von `||` und `&&`-Ausdrücken verwendet werden" tritt auf, wenn ein [Operator für nullish coalescing](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) zusammen mit einem [logischen ODER](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR) oder [logischen UND](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) im selben Ausdruck ohne Klammern verwendet wird.
+Der JavaScript-Ausnahmefehler "Der `??`-Operator kann nicht unverklammert innerhalb von `||` und `&&`-Ausdrücken verwendet werden" tritt auf, wenn ein [Nullish Coalescing Operator](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) mit einem [logischen ODER](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR) oder [logischen UND](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) im selben Ausdruck ohne Klammern verwendet wird.
 
 ## Nachricht
 
@@ -21,14 +21,14 @@ SyntaxError: Unexpected token '??'. Coalescing and logical operators used togeth
 
 ## Was ist schiefgelaufen?
 
-Die [Operatorrangfolge](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence) sieht wie folgt aus:
+Die [Operatorpräzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)-Kette sieht so aus:
 
 ```plain
 |   >   &&   >   ||   >   =
 |   >   ??   >   =
 ```
 
-Allerdings ist die Rangfolge _zwischen_ `??` und `&&`/`||` absichtlich undefiniert, da das Kurzschließen der logischen Operatoren die Bewertung des Ausdrucks kontraintuitiv machen kann. Daher sind die folgenden Kombinationen alle Syntaxfehler, da die Sprache nicht weiß, wie die Operanden zu klammern sind:
+Die Präzedenz _zwischen_ `??` und `&&`/`||` ist jedoch absichtlich undefiniert, da das Kurzschließungsverhalten der logischen Operatoren die Auswertung des Ausdrucks kontraintuitiv machen kann. Daher sind die folgenden Kombinationen alle Syntaxfehler, da die Sprache nicht weiß, wie sie die Operanden klammern soll:
 
 ```js-nolint example-bad
 a ?? b || c;
@@ -37,7 +37,7 @@ a ?? b && c;
 a && b ?? c;
 ```
 
-Stattdessen sollten Sie Ihre Absicht klar machen, indem Sie jede Seite explizit klammern:
+Stattdessen machen Sie Ihre Absicht deutlich, indem Sie entweder auf der einen oder der anderen Seite explizit klammern:
 
 ```js example-good
 (a ?? b) || c;
@@ -46,7 +46,7 @@ a ?? (b && c);
 
 ## Beispiele
 
-Beim Migrieren von Legacy-Code, der `||` und `&&` verwendet, um sich gegen `null` oder `undefined` abzusichern, konvertiert man ihn oft teilweise:
+Wenn Sie alten Code migrieren, der `||` und `&&` zur Absicherung gegen `null` oder `undefined` verwendet, konvertieren Sie ihn möglicherweise teilweise:
 
 ```js-nolint example-bad
 function getId(user, fallback) {
@@ -63,7 +63,7 @@ function getId(user, fallback) {
 }
 ```
 
-Noch besser, ziehen Sie in Betracht, [optionale Verkettung](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) anstelle von `&&` zu verwenden:
+Noch besser ist es, [optionale Verkettung](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) anstelle von `&&` zu verwenden:
 
 ```js example-good
 function getId(user, fallback) {
@@ -73,6 +73,6 @@ function getId(user, fallback) {
 
 ## Siehe auch
 
-- [Problem zur Rangfolge beim nullischen Zusammenführen](https://github.com/tc39/proposal-nullish-coalescing/issues/15) im TC39-Vorschlag zum nullischen Zusammenführen
-- [Nullish coalescing operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
-- [Operatorrangfolge](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
+- [Issue über die Präzedenz des Nullish Coalescing Operators](https://github.com/tc39/proposal-nullish-coalescing/issues/15) im TC39 Nullish-Coalescing-Vorschlag
+- [Nullish Coalescing Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+- [Operatorpräzedenz](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence)

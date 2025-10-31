@@ -3,12 +3,12 @@ title: "RTCRtpScriptTransformer: options-Eigenschaft"
 short-title: options
 slug: Web/API/RTCRtpScriptTransformer/options
 l10n:
-  sourceCommit: ffa6f5871f50856c60983a125cef7de267be7aeb
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`options`**-Eigenschaft des [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)-Interface gibt das Objekt zurück, das (optional) als zweites Argument [während der Konstruktion](/de/docs/Web/API/RTCRtpScriptTransform/RTCRtpScriptTransform) des entsprechenden [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) übergeben wurde.
+Die schreibgeschützte **`options`**-Eigenschaft der [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)-Schnittstelle gibt das Objekt zurück, das (optional) als zweites Argument [während der Konstruktion](/de/docs/Web/API/RTCRtpScriptTransform/RTCRtpScriptTransform) der entsprechenden [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) übergeben wurde.
 
 ## Wert
 
@@ -16,17 +16,17 @@ Ein Objekt.
 
 ## Beschreibung
 
-Die einfachste Nutzung von `options` besteht darin, dass der Hauptthread anzeigt, ob der entsprechende [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) zur WebRTC-Sender- oder Empfänger-Pipeline hinzugefügt werden soll. Dies ist wichtig, wenn derselbe Worker sowohl für die Verarbeitung eingehender als auch ausgehender kodierter Frames verwendet wird, da es dem Code ermöglicht, zu bestimmen, welcher Transform auf die Frames angewendet werden soll.
+Die einfachste Verwendung von Optionen besteht darin, dem Hauptthread anzuzeigen, ob die entsprechende [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) zur WebRTC-Sender- oder -Empfänger-Pipeline hinzugefügt werden soll. Dies ist wichtig, wenn derselbe Worker sowohl für die Verarbeitung eingehender als auch ausgehender kodierter Frames verwendet wird, da auf diese Weise festgestellt werden kann, welcher Transform auf die Frames angewendet werden soll.
 
-Optionen können auch verwendet werden, um den zweiten Port eines [Nachrichtenkanals](/de/docs/Web/API/Channel_Messaging_API) an den Worker-seitigen Transform zu senden/übertragen. Dieser Kanal kann dann verwendet werden, um dynamische Informationen an einen Transform-Stream zu senden, zum Beispiel wenn Verschlüsselungsschlüssel geändert oder hinzugefügt werden. Beachten Sie, dass Sie Nachrichten auch mit [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage) an den Transform senden könnten, jedoch müssten Sie die Nachrichten entsprechend umleiten, wenn der Worker in verschiedenen Kontexten verwendet wird (während eine Nachrichtenport-Option einen direkten Kanal für einen spezifischen Transform bietet).
+Optionen können auch verwendet werden, um den zweiten Port eines [Nachrichtenkanals](/de/docs/Web/API/Channel_Messaging_API) zur Worker-seitigen Transformation zu senden/übertragen. Dieser Kanal kann dann verwendet werden, um dynamische Informationen an einen Transformationsstrom zu senden, zum Beispiel, wenn Verschlüsselungsschlüssel geändert oder hinzugefügt werden. Beachten Sie, dass Sie auch Nachrichten an den Transform mithilfe von [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage) senden können, jedoch müssten Sie dann die Nachrichten entsprechend umleiten, wenn der Worker in verschiedenen Kontexten verwendet wird (während eine Nachrichtenport-Option einen direkten Kanal für einen bestimmten Transform bietet).
 
 ## Beispiele
 
 ### Anleitung zur Angabe der aktuellen WebRTC-Pipeline
 
-Ein [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) wird mit einem bestimmten [`Worker`](/de/docs/Web/API/Worker) und Optionen erstellt und dann entweder der WebRTC-ausgehenden oder eingehenden Pipeline zugewiesen, indem es [`RTCRtpSender.transform`](/de/docs/Web/API/RTCRtpSender/transform) oder [`RTCRtpReceiver.transform`](/de/docs/Web/API/RTCRtpReceiver/transform) zugewiesen wird. Wenn derselbe Worker in den Transforms für die eingehende und ausgehende Pipeline verwendet wird, müssen Sie Optionen im Konstruktor angeben, um anzugeben, ob die zu transformierenden kodierten Frames eingehend oder ausgehend sind.
+[`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) wird mit einem bestimmten [`Worker`](/de/docs/Web/API/Worker) und Optionen konstruiert und dann entweder in die WebRTC-Ausgangs- oder Eingangs-Pipeline eingefügt, indem es [`RTCRtpSender.transform`](/de/docs/Web/API/RTCRtpSender/transform) oder [`RTCRtpReceiver.transform`](/de/docs/Web/API/RTCRtpReceiver/transform) zugewiesen wird. Wenn derselbe Worker in den Transfers für die eingehende und ausgehende Pipeline verwendet wird, müssen Sie im Konstruktor Optionen angeben, um anzugeben, ob die zu transformierenden kodierten Frames eingehend oder ausgehend sind.
 
-Das folgende Beispiel zeigt, wie dies für ein `RTCRtpScriptTransform` gemacht werden könnte, das nach dem Hinzufügen eines Tracks zur Peerverbindung ([`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)) zur Sender-Pipeline hinzugefügt wird, und dann einen weiteren Transform zur Empfänger-Pipeline hinzufügt, wenn ein Track empfangen wird.
+Das folgende Beispiel zeigt, wie dies für einen `RTCRtpScriptTransform`, der zur Senderpipeline nach dem Hinzufügen eines Tracks zur Peer-Verbindung ([`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)) hinzugefügt wurde, durchgeführt werden kann, und dann einen weiteren Transform zur Empfängerpipeline hinzufügen, wenn ein Track empfangen wird.
 
 ```js
 // videoSender is an RTCRtpSender.
@@ -45,9 +45,9 @@ peerConnection.ontrack = (event) => {
 };
 ```
 
-In jedem der obigen Fälle übergeben wir ein Objekt mit einem unterschiedlichen Wert für die Eigenschaft `name` des Optionsobjekts, was die Pipeline angibt, zu der der Transform hinzugefügt wurde. Beachten Sie, dass die Namen und Werte von Eigenschaften in `options` willkürlich sind: Wichtig ist, dass sowohl der Hauptthread als auch der Worker-Thread wissen, welche Eigenschaften und Werte verwendet werden.
+In jedem Fall oben liefern wir ein Objekt mit einem unterschiedlichen Wert für die `name`-Eigenschaft des Optionsobjekts, die angibt, zu welcher Pipeline der Transform hinzugefügt wurde. Beachten Sie, dass die Namen und Werte der Eigenschaften in `options` beliebig sind: Wichtig ist, dass sowohl der Hauptthread als auch der Worker-Thread wissen, welche Eigenschaften und Werte verwendet werden.
 
-Der folgende Code zeigt, wie die übergebenen Optionen im Worker verwendet werden. Zunächst implementieren wir einen Handler für das [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event)-Ereignis, das beim globalen Worker-Objekt beim Aufbau des entsprechenden [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) und bei der Einreihung neuer Frames zur Verarbeitung ausgelöst wird. `event.transformer` ist ein [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer), das die Eigenschaften `readable`, `writable` und `options` hat.
+Der folgende Code zeigt, wie die übergebenen Optionen im Worker verwendet werden. Zuerst implementieren wir einen Handler für das [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event)-Ereignis, das beim globalen Worker-Objekt beim Aufbau des entsprechenden [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) und beim Enqueuen neuer Frames zur Verarbeitung ausgelöst wird. `event.transformer` ist ein [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer), das über die Eigenschaften `readable`, `writable` und `options` verfügt.
 
 ```js
 addEventListener("rtctransform", (event) => {
@@ -66,13 +66,13 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Der Code erstellt einen anderen [`TransformStream`](/de/docs/Web/API/TransformStream), um ausgehende und eingehende Frames zu verarbeiten, basierend auf den übergebenen Optionen `createSenderTransform()` oder `createReceiverTransform()` (es leitet dann Frames vom `readable` durch den ausgewählten `TransformStream` zum `writable`).
+Der Code erstellt einen anderen [`TransformStream`](/de/docs/Web/API/TransformStream) zur Verarbeitung ausgehender und eingehender Frames, basierend auf den übergebenen Optionen (und leitet dann Frames vom `readable` durch den ausgewählten `TransformStream` zum `writable`).
 
 ### Übergeben eines Nachrichtenports an einen Transform
 
-Dieses Beispiel zeigt, wie ein [Nachrichtenkanal](/de/docs/Web/API/Channel_Messaging_API) erstellt und einer seiner Ports an den in dem Worker laufenden WebRTC-kodierten Transform übertragen wird. Der Hauptthread kann dann Objekte und Nachrichten nach der Erstellung an den im Worker laufenden Transformer senden und übertragen und umgekehrt.
+Dieses Beispiel zeigt, wie ein [Nachrichtenkanal](/de/docs/Web/API/Channel_Messaging_API) erstellt und einer seiner Ports in den WebRTC-kodierten Transformationsprozess im Worker übertragen wird. Der Hauptthread kann dann Objekte und Nachrichten an den im Worker laufenden Transform senden und übertragen, und umgekehrt.
 
-Der folgende Code erstellt zunächst einen [`MessageChannel`](/de/docs/Web/API/MessageChannel) und dann einen `RTCRtpScriptTransform`, wobei der Wert [`port2`](/de/docs/Web/API/MessageChannel/port2) als Eigenschaft im Optionsargument übergeben wird. Der Port ist auch im Array enthalten, das als drittes Argument des Konstruktors übergeben wird, sodass er in den Worker-Kontext übertragen wird.
+Der folgende Code erstellt zuerst einen [`MessageChannel`](/de/docs/Web/API/MessageChannel) und konstruiert dann einen `RTCRtpScriptTransform`, der den [`port2`](/de/docs/Web/API/MessageChannel/port2)-Wert als Eigenschaft im Optionen-Argument übergibt. Der Port wird auch im Array übertragen, das als drittes Konstruktor-Argument übergeben wird, sodass er in den Worker-Kontext übertragen wird.
 
 ```js
 const channel = new MessageChannel();
@@ -84,7 +84,7 @@ const transform = new RTCRtpScriptTransform(
 );
 ```
 
-Der Worker kann dann den Port vom `rtctransform`-Ereignis abrufen, das beim globalen Worker-Objekt ausgelöst wird.
+Der Worker kann den Port dann aus dem `rtctransform`-Ereignis erhalten, das beim globalen Worker-Objekt ausgelöst wird.
 
 ```js
 let messagePort;
@@ -94,9 +94,9 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Code an jedem Ende des Kanals kann Objekte an das andere Ende senden und übertragen, indem [`MessagePort.postMessage()`](/de/docs/Web/API/MessagePort/postMessage) verwendet wird und auf eingehenden Nachrichten mit seinem [`message`](/de/docs/Web/API/MessagePort/message_event)-Ereignis hört.
+Code an jedem Ende des Kanals kann Objekte an das andere Ende senden und übertragen, indem er [`MessagePort.postMessage()`](/de/docs/Web/API/MessagePort/postMessage) verwendet, und auf eingehende Nachrichten mit seinem [`message`](/de/docs/Web/API/MessagePort/message_event)-Ereignis hört.
 
-Zum Beispiel könnte, wenn wir einen Verschlüsselungsschlüssel in einem {{jsxref("Uint8Array")}}-typen Array namens `encryptionKey` hätten, es folgendermaßen vom Hauptthread an den Worker übertragen werden:
+Zum Beispiel, wenn wir einen Verschlüsselungsschlüssel in einem {{jsxref("Uint8Array")}}-typisierten Array namens `encryptionKey` hätten, könnten wir ihn wie folgt vom Hauptthread zum Worker übertragen:
 
 ```js
 const encryptionKeyBuffer = encryptionKey.buffer;
@@ -112,7 +112,7 @@ messagePort.addEventListener("message", (event) => {
 });
 ```
 
-Weitere Informationen und Beispiele finden Sie im [Nachrichtenkanal](/de/docs/Web/API/Channel_Messaging_API).
+Weitere Informationen und Beispiele finden Sie unter [Nachrichtenkanal](/de/docs/Web/API/Channel_Messaging_API).
 
 ## Spezifikationen
 
@@ -124,4 +124,4 @@ Weitere Informationen und Beispiele finden Sie im [Nachrichtenkanal](/de/docs/We
 
 ## Siehe auch
 
-- [Verwendung von WebRTC-Encoded-Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
+- [Verwendung von WebRTC-kodierten Transformationen](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)

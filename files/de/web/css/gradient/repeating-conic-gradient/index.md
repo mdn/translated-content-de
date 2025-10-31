@@ -57,7 +57,7 @@ repeating-conic-gradient(in hsl shorter hue, red, blue 90deg, green 180deg)
 - {{CSSxRef("&lt;angle&gt;")}}
   - : Vorangestellt durch das Schlüsselwort `from` und unter Verwendung eines Winkels als Wert, definiert die Rotation des Verlaufs im Uhrzeigersinn.
 - `<position>`
-  - : Mit denselben Längen, Reihenfolgen und Schlüsselwortwerten wie die [background-position](/de/docs/Web/CSS/background-position)-Eigenschaft, definiert die Position das Zentrum des Verlaufs. Wenn sie weggelassen wird, ist der Standardwert `center`, was bedeutet, dass der Verlauf zentriert wird.
+  - : Mit denselben Längen, Reihenfolgen und Schlüsselwortwerten wie die [background-position](/de/docs/Web/CSS/Reference/Properties/background-position)-Eigenschaft, definiert die Position das Zentrum des Verlaufs. Wenn sie weggelassen wird, ist der Standardwert `center`, was bedeutet, dass der Verlauf zentriert wird.
 - `<angular-color-stop>`
   - : Der Wert eines Farbstopps' {{CSSxRef("&lt;color&gt;")}}, gefolgt von einem oder zwei optionalen Stopp-Positionen (ein {{CSSxRef("&lt;angle&gt;")}} entlang der Umfangsachse des Verlaufs). Der letzte Farbpunkt minus der erste Farbpunktwinkel definiert die Größe des sich wiederholenden Verlaufs.
 - `<color-hint>`

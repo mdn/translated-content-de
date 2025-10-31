@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
 ---
 
-CSS-Custom-Functions ermöglichen es Ihnen, wiederverwendbare CSS-Codeblöcke zu erstellen, die Argumente akzeptieren, komplexe Logik enthalten können (definiert durch Funktionen wie CSS-{{cssxref("if()")}}-Funktionen und {{cssxref("@media")}}-Regeln) und Werte basierend auf dieser Logik zurückgeben. Sie funktionieren ähnlich wie [CSS-Custom-Properties](/de/docs/Web/CSS/--*), bieten jedoch mehr Flexibilität.
+CSS-Custom-Functions ermöglichen es Ihnen, wiederverwendbare CSS-Codeblöcke zu erstellen, die Argumente akzeptieren, komplexe Logik enthalten können (definiert durch Funktionen wie CSS-{{cssxref("if()")}}-Funktionen und {{cssxref("@media")}}-Regeln) und Werte basierend auf dieser Logik zurückgeben. Sie funktionieren ähnlich wie [CSS-Custom-Properties](/de/docs/Web/CSS/Reference/Properties/--*), bieten jedoch mehr Flexibilität.
 
 In diesem Artikel zeigen wir Ihnen, wie Sie sie verwenden können und präsentieren einige praxisnahe Beispiele.
 
@@ -287,7 +287,7 @@ Mit dieser Funktion definiert, können wir jetzt Varianten dieses Hintergrundwer
 
 ## Siehe auch
 
-- [CSS-Custom-Properties](/de/docs/Web/CSS/--*)
+- [CSS-Custom-Properties](/de/docs/Web/CSS/Reference/Properties/--*)
 - [CSS-Custom-Functions und Mixins](/de/docs/Web/CSS/CSS_custom_functions_and_mixins) Modul
 - [Custom CSS Functions in the Browser](https://www.oddbird.net/2025/04/11/custom-functions/) von Miriam Suzanne (2025)
 - [CSS @function + CSS if()](https://www.bram.us/2025/02/18/css-at-function-and-css-if/) von Bramus (2025)

@@ -2,10 +2,10 @@
 title: Int32Array
 slug: Web/JavaScript/Reference/Global_Objects/Int32Array
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Das **`Int32Array`** typisierte Array repräsentiert ein Array von 32-Bit-Ganzzahlen mit Vorzeichen in der Byte-Reihenfolge der Plattform. Wenn Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Sobald es erstellt ist, können Sie Elemente im Array über die Methoden des Objekts oder mit der Standard-Array-Index-Syntax (d.h. in Klammern) ansprechen.
+Das **`Int32Array`** typisierte Array repräsentiert ein Array von 32-Bit vorzeichenbehafteten Ganzzahlen in der Byte-Reihenfolge der Plattform. Wenn Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Sobald es erstellt ist, können Sie auf Elemente im Array entweder mithilfe der Methoden des Objekts oder durch die Standard-Array-Index-Syntax (d.h. durch die Verwendung der Klammernotation) zugreifen.
 
 `Int32Array` ist eine Unterklasse der verborgenen {{jsxref("TypedArray")}}-Klasse.
 
@@ -25,24 +25,24 @@ _Erbt auch statische Eigenschaften von seinem übergeordneten {{jsxref("TypedArr
 
 _Erbt statische Methoden von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt auch Instanzeigenschaften von seinem übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt auch Instanz-Eigenschaften von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
 Diese Eigenschaften sind auf `Int32Array.prototype` definiert und werden von allen `Int32Array`-Instanzen geteilt.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Int32Array.prototype.BYTES_PER_ELEMENT")}}
   - : Gibt einen Zahlenwert der Elementgröße zurück. `4` im Fall eines `Int32Array`.
 - {{jsxref("Object/constructor", "Int32Array.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Bei `Int32Array`-Instanzen ist der Anfangswert der {{jsxref("Int32Array/Int32Array", "Int32Array")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Int32Array`-Instanzen ist der Anfangswert der {{jsxref("Int32Array/Int32Array", "Int32Array")}}-Konstruktor.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Instanzmethoden von seinem übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt Instanz-Methoden von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
 ## Beispiele
 
-### Verschiedene Wege, ein Int32Array zu erstellen
+### Verschiedene Arten, ein Int32Array zu erstellen
 
 ```js
 // From a length
@@ -85,7 +85,7 @@ console.log(int32FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Int32Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

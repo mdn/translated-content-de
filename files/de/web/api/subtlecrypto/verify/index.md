@@ -3,15 +3,14 @@ title: "SubtleCrypto: verify()-Methode"
 short-title: verify()
 slug: Web/API/SubtleCrypto/verify
 l10n:
-  sourceCommit: cc27a64bb555b250cf0984a3a744e5fd251e3565
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
 Die **`verify()`**-Methode des [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Interfaces überprüft eine digitale {{Glossary("signature", "Signatur")}}.
 
-Sie nimmt als Argumente einen {{Glossary("key", "Schlüssel")}} zur Überprüfung der Signatur, einige algorithmenspezifische Parameter, die Signatur und die ursprünglich signierten Daten.
-Sie gibt ein {{jsxref("Promise")}} zurück, das mit einem booleschen Wert erfüllt wird, der angibt, ob die Signatur gültig ist.
+Sie nimmt als Argumente einen {{Glossary("key", "Schlüssel")}} zur Überprüfung der Signatur, einige algorithmenspezifische Parameter, die Signatur und die ursprünglich signierten Daten entgegen. Sie gibt ein {{jsxref("Promise")}} zurück, das mit einem booleschen Wert erfüllt wird, der angibt, ob die Signatur gültig ist oder nicht.
 
 ## Syntax
 
@@ -22,30 +21,31 @@ verify(algorithm, key, signature, data)
 ### Parameter
 
 - `algorithm`
-  - : Ein String oder Objekt, das den Algorithmus definiert, sowie bei einigen Algorithmusoptionen zusätzliche Parameter.
-    Die für die zusätzlichen Parameter angegebenen Werte müssen mit denen übereinstimmen, die im entsprechenden [`sign()`](/de/docs/Web/API/SubtleCrypto/sign)-Aufruf übergeben wurden.
+  - : Ein String oder Objekt, das den zu verwendenden Algorithmus definiert und für einige Algorithmen zusätzliche Parameter. Die angegebenen Werte für die zusätzlichen Parameter müssen mit denen im entsprechenden [`sign()`](/de/docs/Web/API/SubtleCrypto/sign)-Aufruf übereinstimmen.
     - Um [RSASSA-PKCS1-v1_5](/de/docs/Web/API/SubtleCrypto/sign#rsassa-pkcs1-v1_5) zu verwenden, übergeben Sie den String `"RSASSA-PKCS1-v1_5"` oder ein Objekt der Form `{ "name": "RSASSA-PKCS1-v1_5" }`.
     - Um [RSA-PSS](/de/docs/Web/API/SubtleCrypto/sign#rsa-pss) zu verwenden, übergeben Sie ein [`RsaPssParams`](/de/docs/Web/API/RsaPssParams)-Objekt.
     - Um [ECDSA](/de/docs/Web/API/SubtleCrypto/sign#ecdsa) zu verwenden, übergeben Sie ein [`EcdsaParams`](/de/docs/Web/API/EcdsaParams)-Objekt.
     - Um [HMAC](/de/docs/Web/API/SubtleCrypto/sign#hmac) zu verwenden, übergeben Sie den String `"HMAC"` oder ein Objekt der Form `{ "name": "HMAC" }`.
     - Um [Ed25519](/de/docs/Web/API/SubtleCrypto/sign#ed25519) zu verwenden, übergeben Sie ein Objekt der Form `{ "name": "Ed25519" }`.
 - `key`
-  - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey), das den Schlüssel enthält, der zur Überprüfung der Signatur verwendet wird. Es ist der geheime Schlüssel für einen symmetrischen Algorithmus und der öffentliche Schlüssel für ein Public-Key-System.
+  - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey), der den Schlüssel enthält, der zur Überprüfung der Signatur verwendet wird. Es handelt sich um den geheimen Schlüssel für einen symmetrischen Algorithmus und den öffentlichen Schlüssel für ein Public-Key-System.
 - `signature`
-  - : Ein {{jsxref("ArrayBuffer")}}, der die {{Glossary("signature", "Signatur")}} enthält, die überprüft werden soll.
+  - : Ein {{jsxref("ArrayBuffer")}}, der die zu überprüfende {{Glossary("signature", "Signatur")}} enthält.
 - `data`
-  - : Ein {{jsxref("ArrayBuffer")}}, das die Daten enthält, deren Signatur überprüft werden soll.
+  - : Ein {{jsxref("ArrayBuffer")}}, der die Daten enthält, deren Signatur überprüft werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem booleschen Wert erfüllt wird: `true`, wenn die Signatur gültig ist, sonst `false`.
+Ein {{jsxref("Promise")}}, das mit einem
+booleschen Wert erfüllt wird: `true`, wenn die Signatur gültig ist, `false`
+anderenfalls.
 
 ### Ausnahmen
 
 Das Promise wird abgelehnt, wenn die folgende Ausnahme auftritt:
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Verschlüsselungsschlüssel kein Schlüssel für den angeforderten Verifizierungsalgorithmus ist oder wenn versucht wird, einen Algorithmus zu verwenden, der entweder unbekannt oder für eine Verifizierungsoperation nicht geeignet ist.
+  - : Wird ausgelöst, wenn der Verschlüsselungsschlüssel nicht für den angeforderten Überprüfungsalgorithmus geeignet ist oder wenn versucht wird, einen Algorithmus zu verwenden, der entweder unbekannt ist oder sich nicht für eine Überprüfungsoperation eignet.
 
 ## Unterstützte Algorithmen
 
@@ -54,12 +54,12 @@ Die `verify()`-Methode unterstützt die gleichen Algorithmen wie die [`sign()`](
 ## Beispiele
 
 > [!NOTE]
-> Sie können [die funktionierenden Beispiele](https://mdn.github.io/dom-examples/web-crypto/sign-verify/index.html) auf GitHub ausprobieren.
+> Sie können die [funktionierenden Beispiele auf GitHub](https://mdn.github.io/dom-examples/web-crypto/sign-verify/index.html) ausprobieren.
 
 ### RSASSA-PKCS1-v1_5
 
 Dieser Code verwendet einen öffentlichen Schlüssel, um eine Signatur zu überprüfen.
-[Den vollständigen Code auf GitHub ansehen.](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/rsassa-pkcs1.js)
+[Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/rsassa-pkcs1.js)
 
 ```js
 /*
@@ -99,7 +99,7 @@ async function verifyMessage(publicKey) {
 ### RSA-PSS
 
 Dieser Code verwendet einen öffentlichen Schlüssel, um eine Signatur zu überprüfen.
-[Den vollständigen Code auf GitHub ansehen.](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/rsa-pss.js)
+[Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/rsa-pss.js)
 
 ```js
 /*
@@ -140,7 +140,7 @@ async function verifyMessage(publicKey) {
 ### ECDSA
 
 Dieser Code verwendet einen öffentlichen Schlüssel, um eine Signatur zu überprüfen.
-[Den vollständigen Code auf GitHub ansehen.](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/ecdsa.js)
+[Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/ecdsa.js)
 
 ```js
 /*
@@ -181,7 +181,7 @@ async function verifyMessage(publicKey) {
 ### HMAC
 
 Dieser Code verwendet einen geheimen Schlüssel, um eine Signatur zu überprüfen.
-[Den vollständigen Code auf GitHub ansehen.](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/hmac.js)
+[Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/sign-verify/hmac.js)
 
 ```js
 /*
@@ -218,9 +218,9 @@ async function verifyMessage(key) {
 
 ### Ed25519
 
-Das [Ed25519 Live-Beispiel](/de/docs/Web/API/SubtleCrypto/sign#ed25519_key_generation_signing_and_verification) in `SubtleCrypto.sign()` zeigt, wie man öffentliche und private Schlüssel generiert, den privaten Schlüssel verwendet, um einige Daten zu signieren, und anschließend den öffentlichen Schlüssel verwendet, um die Signatur zu überprüfen.
+Das [Ed25519-Live-Beispiel](/de/docs/Web/API/SubtleCrypto/sign#ed25519_key_generation_signing_and_verification) in `SubtleCrypto.sign()` zeigt, wie man öffentliche und private Schlüssel generiert, den privaten Schlüssel verwendet, um Daten zu signieren, und dann den öffentlichen Schlüssel verwendet, um die Signatur zu überprüfen.
 
-Der unten gezeigte Auszug zeigt den Teil, der für die Überprüfung der Signatur mit dem öffentlichen Schlüssel und den codierten Daten relevant ist:
+Der nachstehende Auszug zeigt den Teil, der für die Überprüfung der Signatur mit dem öffentlichen Schlüssel und den kodierten Daten relevant ist:
 
 ```js
 // Verify the signature using the public key

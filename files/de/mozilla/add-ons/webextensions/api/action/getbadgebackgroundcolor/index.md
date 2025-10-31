@@ -2,10 +2,10 @@
 title: action.getBadgeBackgroundColor()
 slug: Mozilla/Add-ons/WebExtensions/API/action/getBadgeBackgroundColor
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Ermittelt die Hintergrundfarbe des Badge der Browser-Aktion.
+Liest die Hintergrundfarbe des Browser-Action-Badges aus.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
@@ -25,14 +25,14 @@ browser.action.getBadgeBackgroundColor(
 - `details`
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `tabId` {{optional_inline}}
-      - : `integer`. Gibt die Registerkarte an, von der die Hintergrundfarbe des Badges abgerufen werden soll.
+      - : `integer`. Gibt den Tab an, von dem die Hintergrundfarbe des Badges geholt werden soll.
     - `windowId` {{optional_inline}}
-      - : `integer`. Gibt das Fenster an, aus dem die Hintergrundfarbe des Badges abgerufen werden soll.
+      - : `integer`. Gibt das Fenster an, aus dem die Hintergrundfarbe des Badges geholt werden soll.
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl.
-- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird die globale Hintergrundfarbe des Badges zurückgegeben.
+- Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl.
+- Wenn `windowId` und `tabId` beide weggelassen werden, wird die globale Hintergrundfarbe des Badges zurückgegeben.
 
 ### Rückgabewert
 
@@ -40,7 +40,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Protokollieren Sie die Hintergrundfarbe des Badges:
+Protokollieren der Hintergrundfarbe des Badges:
 
 ```js
 function onGot(color) {
@@ -61,7 +61,7 @@ browser.action.getBadgeBackgroundColor({}).then(onGot, onFailure);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getBadgeBackgroundColor) API von Chromium. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getBadgeBackgroundColor) API. Diese Dokumentation leitet sich von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

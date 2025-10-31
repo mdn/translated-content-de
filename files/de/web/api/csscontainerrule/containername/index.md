@@ -1,16 +1,16 @@
 ---
-title: "CSSContainerRule: containerName-Eigenschaft"
+title: "CSSContainerRule: containerName Eigenschaft"
 short-title: containerName
 slug: Web/API/CSSContainerRule/containerName
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`containerName`**-Eigenschaft der [`CSSContainerRule`](/de/docs/Web/API/CSSContainerRule)-Schnittstelle repräsentiert den Containernamen der zugehörigen CSS {{cssxref("@container")}}-At-Regel.
+Die schreibgeschützte **`containerName`** Eigenschaft der [`CSSContainerRule`](/de/docs/Web/API/CSSContainerRule) Schnittstelle repräsentiert den Namen des Containers der zugehörigen CSS {{cssxref("@container")}} Regel.
 
-Zum Beispiel ist der Wert von `containerName` für die folgende {{cssxref("@container")}}-Regel `sidebar`:
+Zum Beispiel ist der Wert von `containerName` für die nachfolgende {{cssxref("@container")}} Regel `sidebar`:
 
 ```css
 @container sidebar (width >= 700px) {
@@ -22,11 +22,13 @@ Zum Beispiel ist der Wert von `containerName` für die folgende {{cssxref("@cont
 
 ## Wert
 
-Ein String, der den [`container-name`](/de/docs/Web/CSS/container-name) des mit dieser [`CSSContainerRule`](/de/docs/Web/API/CSSContainerRule) verbundenen {{cssxref("@container")}} enthält. Wenn der `@container` nicht [benannt](/de/docs/Web/API/CSSContainerRule#unnamed_container_rule) ist, gibt die Funktion den leeren String (`""`) zurück.
+Ein String, der den [`container-name`](/de/docs/Web/CSS/Reference/Properties/container-name) des mit dieser [`CSSContainerRule`](/de/docs/Web/API/CSSContainerRule) verknüpften {{cssxref("@container")}} enthält.
+Wenn das `@container` nicht [benannt](/de/docs/Web/API/CSSContainerRule#unnamed_container_rule) ist, gibt die Funktion den leeren String (`""`) zurück.
 
 ## Beispiele
 
-Das folgende Beispiel definiert eine benannte {{cssxref("@container")}}-Regel und zeigt die Eigenschaften der zugehörigen [`CSSContainerRule`](/de/docs/Web/API/CSSContainerRule) an. Das CSS ist dem im `@container`-Beispiel [Erstellen benannter Container-Kontexte](/de/docs/Web/CSS/@container#creating_named_container_contexts) sehr ähnlich.
+Das Beispiel unten definiert eine benannte {{cssxref("@container")}} Regel und zeigt die Eigenschaften der zugehörigen [`CSSContainerRule`](/de/docs/Web/API/CSSContainerRule) an.
+Das CSS ist dem im `@container` Beispiel [Erstellen benannter Container-Kontexte](/de/docs/Web/CSS/@container#creating_named_container_contexts) sehr ähnlich.
 
 ```html hidden
 <div id="log">
@@ -47,7 +49,7 @@ function log(result) {
 }
 ```
 
-Zuerst definieren wir das HTML für eine `card` (`<div>`), die sich innerhalb eines `post` befindet.
+Zuerst definieren wir das HTML für eine `card` (`<div>`) innerhalb eines `post`.
 
 ```html
 <div class="post">
@@ -58,7 +60,8 @@ Zuerst definieren wir das HTML für eine `card` (`<div>`), die sich innerhalb ei
 </div>
 ```
 
-Das CSS für das Containerelement spezifiziert den Typ des Containers und kann auch einen Namen festlegen. Die Karte hat eine Standard-Schriftgröße, die für den `@container` namens `sidebar` überschrieben wird, wenn die Breite größer als 700px ist.
+Das CSS für das Containerelement legt den Typ des Containers fest und kann auch einen Namen angeben.
+Die Karte hat eine Standard-Schriftgröße, die für das `@container` mit dem Namen `sidebar` überschrieben wird, wenn die Breite größer als 700px ist.
 
 ```html
 <style id="example-styles">
@@ -80,7 +83,10 @@ Das CSS für das Containerelement spezifiziert den Typ des Containers und kann a
 </style>
 ```
 
-Der folgende Code erhält das [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement), das mit dem Beispiel über seine `id` verknüpft ist, und verwendet dann dessen `sheet`-Eigenschaft, um das [`StyleSheet`](/de/docs/Web/API/StyleSheet) zu erhalten. Aus dem `StyleSheet` erhalten wir die Menge an `cssRules`, die dem Stylesheet hinzugefügt wurden. Da wir den `@container` als dritte Regel hinzugefügt haben, können wir über den dritten Eintrag (Index "2") in den `cssRules` auf die zugehörige `CSSContainerRule` zugreifen. Schließlich protokollieren wir den Containernamen und die Query-Eigenschaften (der Code, der das Protokollieren durchführt, wird nicht gezeigt).
+Der untenstehende Code ruft das [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement) ab, das mit dem Beispiel über seine `id` verknüpft ist, und verwendet dann seine `sheet` Eigenschaft, um das [`StyleSheet`](/de/docs/Web/API/StyleSheet) zu erhalten.
+Aus dem `StyleSheet` erhalten wir die Menge der `cssRules`, die zum Blatt hinzugefügt wurden.
+Da wir das `@container` als dritte Regel oben hinzugefügt haben, können wir auf die zugehörige `CSSContainerRule` über den dritten Eintrag (Index "2") in den `cssRules` zugreifen.
+Zuletzt protokollieren wir den Containernamen und die Abfrageeigenschaften (der Code, der das Protokollieren durchführt, wird nicht gezeigt).
 
 ```js
 const exampleStylesheet = document.getElementById("example-styles").sheet;
@@ -89,7 +95,9 @@ const containerRule = exampleRules[2]; // a CSSContainerRule representing the co
 log(`CSSContainerRule.containerName: "${containerRule.containerName}"`);
 ```
 
-Das folgende Beispiel zeigt die Ausgabe. Der Protokollabschnitt listet den Containernamen als String auf. Der Titel in der Karten-Sektion sollte sich verdoppeln, wenn die Seitenbreite über 700px beträgt.
+Das Beispielergebnis wird unten gezeigt.
+Der Protokollabschnitt listet den Containernamen-String auf.
+Der Titel im Kartenabschnitt sollte sich verdoppeln, sobald die Breite der Seite über 700px geht.
 
 {{EmbedLiveSample("Examples","100%","250px")}}
 
@@ -104,6 +112,6 @@ Das folgende Beispiel zeigt die Ausgabe. Der Protokollabschnitt listet den Conta
 ## Siehe auch
 
 - CSS {{cssxref("container")}} Kurzschreibweise
-- [CSS Kosistenzmodul](/de/docs/Web/CSS/CSS_containment)
+- [CSS Containment Modul](/de/docs/Web/CSS/CSS_containment)
 - [Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- [Verwenden von Containergrößen- und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
+- [Verwendung von Containergrößen- und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)

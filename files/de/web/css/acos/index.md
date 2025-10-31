@@ -2,10 +2,10 @@
 title: acos()
 slug: Web/CSS/acos
 l10n:
-  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Die **`acos()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) ist eine trigonometrische Funktion, die den Arkuskosinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion enthält eine einzige Berechnung, die die Anzahl der Bogenmaßradiale zurückgibt, die ein {{cssxref("&lt;angle&gt;")}} zwischen `0deg` und `180deg` darstellen.
+Die **`acos()`** [CSS](/de/docs/Web/CSS)-[Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) ist eine trigonometrische Funktion, die den Arkuskosinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion beinhaltet eine einzige Berechnung, die die Zahl der Bogenmaß-Radian darstellt, welche ein {{cssxref("&lt;angle&gt;")}} zwischen `0deg` und `180deg` ist.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ transform: rotate(acos(e / 3));
 Die Funktion `acos(number)` akzeptiert nur einen Wert als Parameter.
 
 - `number`
-  - : Eine Berechnung, die zu einer {{cssxref("&lt;number&gt;")}} zwischen `-1` und `1` aufgelöst wird.
+  - : Eine Berechnung, die zu einem {{cssxref("&lt;number&gt;")}} zwischen `-1` und `1` führt.
 
 ### Rückgabewert
 
-Der Arkuskosinus einer `number` gibt immer ein {{cssxref("&lt;angle&gt;")}} zwischen `0deg` und `180deg` zurück.
+Der Arkuskosinus einer `number` wird immer ein {{cssxref("&lt;angle&gt;")}} zwischen `0deg` und `180deg` zurückgeben.
 
 - Wenn `number` kleiner als `-1` oder größer als `1` ist, ist das Ergebnis `NaN`.
 - Wenn `number` genau `1` ist, ist das Ergebnis `0`.
@@ -41,7 +41,7 @@ Der Arkuskosinus einer `number` gibt immer ein {{cssxref("&lt;angle&gt;")}} zwis
 
 ### Elemente drehen
 
-Die `acos()` Funktion kann verwendet werden, um Elemente mit der {{cssxref("transform-function/rotate", "rotate")}}-Funktion zu drehen, da sie ein {{cssxref("&lt;angle&gt;")}} zurückgibt.
+Die `acos()`-Funktion kann verwendet werden, um Elemente mit {{cssxref("transform-function/rotate", "rotate")}} zu drehen, da sie ein {{cssxref("&lt;angle&gt;")}} zurückgibt.
 
 #### HTML
 

@@ -2,43 +2,43 @@
 title: <text-edge>
 slug: Web/CSS/text-edge
 l10n:
-  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Der **`<text-edge>`** {{Glossary("enumerated", "enumerierte")}} [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) definiert Schlüsselwörter, die Schriftmetriken spezifizieren, die bestimmte Bereiche am Blockanfang und Blockende einer Schriftart darstellen. Jedes Schlüsselwort gibt eine Position des oberen und/oder unteren Randes einer Schriftart an.
+Der **`<text-edge>`** {{Glossary("enumerated", "aufgezählte")}} [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) definiert Schlüsselwörter, die Schriftmetriken für bestimmte Bereiche an der Block-Anfangs- und Block-Endkante einer Schriftart repräsentieren. Jedes Schlüsselwort gibt die Position einer Schriftart an der oberen und/oder unteren Kante an.
 
-Die `<text-edge>`-Werte werden in der {{cssxref("text-box-edge")}}-Eigenschaft verwendet, um eine Menge an Platz anzugeben, die vom Blockanfang und Blockende des Blockcontainers eines Textelements abgeschnitten werden soll.
+Die `<text-edge>`-Werte werden in der {{cssxref("text-box-edge")}}-Eigenschaft verwendet, um die Menge an Platz anzugeben, der von der Block-Anfangs- und Block-Endkante des Blockcontainers eines Textelements abgeschnitten werden soll.
 
 ## Syntax
 
-Der `<text-edge>`-Datentyp besteht aus einem oder zwei Schlüsselwörtern, die bestimmte Bereiche am Blockanfang (oben) und/oder Blockende (unten) einer Schriftart darstellen:
+Der `<text-edge>`-Datentyp besteht aus einem oder zwei Schlüsselwörtern, die bestimmte Bereiche der Block-Anfangs- (ober) und/oder Block-Endkante (unter) einer Schriftart repräsentieren:
 
-- Wenn ein Wert angegeben ist, wird die Position des oberen und unteren Rands der Schriftart mit demselben Schlüsselwort angegeben.
-- Wenn zwei Werte angegeben sind, gibt der erste Wert die Position des oberen Rands der Schriftart an, und der zweite Wert gibt die Position des unteren Rands an.
+- Wenn ein Wert angegeben wird, wird die Position der oberen und unteren Kante der Schriftart mit demselben Schlüsselwort angegeben.
+- Wenn zwei Werte angegeben werden, spezifiziert der erste Wert die Position der oberen Kante der Schriftart, und der zweite Wert spezifiziert die Position der unteren Kante.
 
 ### Werte
 
 #### Einzelne Schlüsselwortwerte
 
 - `text`
-  - : Die oberen und unteren Ränder der Schriftart sind die Text-über-Basislinie/Text-unter-Basislinie: Dies schließt die Auf- und Abstriche der Schriftart ein, schließt jedoch das {{Glossary("Leading", "halbe Führungsmaß")}} aus, das auf dem Text festgelegt ist.
+  - : Die oberen und unteren Kanten der Schriftart sind die Text-ÜberBaseline/Text-UnterBaseline: Dies schließt die Aufhängungen und Absenkungen der Schrift ein, jedoch nicht das {{Glossary("Leading", "Halbfleisch")}}, das auf den Text gesetzt ist.
 
     > [!NOTE]
-    > Die Menge an halbem Führungsmaß, die auf einem Textelement enthalten ist, kann mit der {{cssxref("line-height")}}-Eigenschaft gesteuert werden.
+    > Die Menge an Halbfleisch, die in einem Textelement enthalten ist, kann mit der {{cssxref("line-height")}}-Eigenschaft gesteuert werden.
 
 > [!NOTE]
-> Die Schlüsselwörter `ideographic` und `ideographic-ink` sollen spezifische obere und untere Randpositionen für [CJK-Zeichen](https://en.wikipedia.org/wiki/CJK_characters) angeben. Derzeit wird ihr genaues Verhalten noch diskutiert und sie werden von keinem Browser unterstützt.
+> Die Schlüsselwörter `ideographic` und `ideographic-ink` sind dazu gedacht, spezifische obere und untere Kantpositionen für [CJK-Zeichen](https://en.wikipedia.org/wiki/CJK_characters) anzugeben. Derzeit wird ihr genaues Verhalten diskutiert, und sie werden von keinem Browser unterstützt.
 
 #### Zwei Schlüsselwortwerte
 
 - `alphabetic`
-  - : Der untere Rand der Schriftart ist ihre alphabetische Basislinie, die der untere Rand ihrer kurzen Kleinbuchstaben (zum Beispiel "m", "n" und "o") oder Großbuchstaben ist.
+  - : Die untere Kante der Schriftart ist ihre alphabetische Basislinie, was der untere Rand ihrer kurzen Kleinbuchstaben (zum Beispiel "m", "n" und "o") oder Großbuchstaben ist.
 - `cap`
-  - : Der obere Rand der Schriftart ist die obere Höhe ihrer Großbuchstaben.
+  - : Die obere Kante der Schriftart ist ihre Kapitälchen-Höhen-Basislinie, was der obere Rand ihrer Großbuchstaben ist.
 - `ex`
-  - : Der obere Rand der Schriftart ist die x-Höhe, die die obere Höhe ihrer kurzen Kleinbuchstaben ist.
+  - : Die obere Kante der Schriftart ist ihre x-Höhen-Basislinie, was der obere Rand ihrer kurzen Kleinbuchstaben ist.
 - `text`
-  - : Der obere Rand der Schriftart ist die Text-über-Basislinie (schließt die Aufstriche der Schriftart ein, schließt jedoch das obere Rand halbe Führungsmaß aus), oder der untere Rand ist die Text-unter-Basislinie (schließt die Abstriche der Schriftart ein, schließt jedoch das untere Rand halbe Führungsmaß aus), abhängig davon, für welchen Rand der Wert festgelegt ist.
+  - : Die obere Kante der Schriftart ist ihre Text-ÜberBaseline (einschließlich der Aufhängungen der Schrift, aber ohne das obere Halbfleisch), oder ihre untere Kante ist ihre Text-UnterBaseline (einschließlich der Absenkungen der Schrift, aber ohne das untere Halbfleisch), abhängig davon, für welche Kante der Wert festgelegt ist.
 
 ## Formale Syntax
 
@@ -46,7 +46,7 @@ Der `<text-edge>`-Datentyp besteht aus einem oder zwei Schlüsselwörtern, die b
 
 ## Beispiele
 
-Siehe [`text-box-edge`-Beispiele](/de/docs/Web/CSS/text-box-edge#examples)
+Siehe [`text-box-edge` Beispiele](/de/docs/Web/CSS/Reference/Properties/text-box-edge#examples)
 
 ## Spezifikationen
 

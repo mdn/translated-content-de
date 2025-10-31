@@ -1,24 +1,24 @@
 ---
-title: HTML Bilder
+title: HTML-Bilder
 short-title: Images
 slug: Learn_web_development/Core/Structuring_content/HTML_images
 l10n:
-  sourceCommit: 27f34d8b137f9bb2b467f9f9a1c4e1d04e12ed89
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Structuring_a_page_of_content", "Learn_web_development/Core/Structuring_content/Test_your_skills/Images", "Learn_web_development/Core/Structuring_content")}}
 
-Zu Beginn war das Web nur Text und es war wirklich ziemlich langweilig. Glücklicherweise dauerte es nicht lange, bis die Möglichkeit hinzugefügt wurde, Bilder (und andere interessantere Arten von Inhalten) in Webseiten einzubetten. In diesem Artikel werden wir uns eingehend mit der Verwendung des {{htmlelement("img")}}-Elements befassen, einschließlich der Grundlagen, der Anmerkung mit Bildunterschriften mithilfe von {{htmlelement("figure")}} und der detaillierten Beschreibung, wie es in Bezug zu {{Glossary("CSS", "CSS")}} Hintergrundbildern steht.
+Am Anfang bestand das Web nur aus Text, was wirklich ziemlich langweilig war. Glücklicherweise dauerte es nicht lange, bis die Möglichkeit hinzugefügt wurde, Bilder (und andere interessantere Inhaltsarten) in Webseiten einzubetten. In diesem Artikel werden wir uns eingehend damit befassen, wie man das {{htmlelement("img")}}-Element verwendet, einschließlich der Grundlagen, der Annotation mit Bildunterschriften mithilfe von {{htmlelement("figure")}}, und der Darstellung, wie es sich auf {{Glossary("CSS", "CSS")}}-Hintergrundbilder bezieht.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegende HTML-Vertrautheit, wie sie in
+        Grundkenntnisse in HTML, wie sie in
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
           >Grundlegende HTML-Syntax</a
-        > behandelt wird. Text-Level-Semantik wie <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
+        > behandelt werden. Textlevel-Semantik wie <a href="/de/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs"
           >Überschriften und Absätze</a
         > und <a href="/de/docs/Learn_web_development/Core/Structuring_content/Lists"
           >Listen</a
@@ -26,15 +26,15 @@ Zu Beginn war das Web nur Text und es war wirklich ziemlich langweilig. Glückli
       </td>
     </tr>
     <tr>
-      <th scope="row">Lernergebnisse:</th>
+      <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Der Begriff "ersetztes Element" — was bedeutet das?</li>
-          <li>Grundlegende <code>&lt;img&gt;</code>-Tag-Syntax</li>
+          <li>Der Begriff "replaced element" — was bedeutet das?</li>
+          <li>Einfache <code>&lt;img&gt;</code>-Tag-Syntax</li>
           <li>Verwendung von <code>src</code>, um auf eine Ressource zu verweisen.</li>
-          <li>Verwendung von <code>width</code> und <code>height</code>, um unangenehme, ruckartige Aktualisierungen der Benutzeroberfläche zu vermeiden, wenn ein Bild fertig geladen und angezeigt wird.</li>
-          <li>Optimierung von Medienressourcen für das Web — Halten Sie Dateigrößen klein.</li>
-          <li>Verstehen der Lizenzierung von Medienressourcen — verschiedene Arten von Lizenzen, wie man sie einhält und wie man nach entsprechend lizenzierten Mediendateien sucht, die in Projekten verwendet werden sollen.</li>
+          <li>Verwendung von <code>width</code> und <code>height</code>, um beispielsweise zu vermeiden, dass die Benutzeroberfläche ruckartig aktualisiert wird, wenn ein Bild fertig geladen und angezeigt wird.</li>
+          <li>Optimierung von Medien-Assets für das Web — die Dateigrößen klein halten.</li>
+          <li>Verständnis von Medien-Asset-Lizenzen — verschiedene Lizenztypen, wie man sie einhält und wie man angemessen lizenzierte Mediendateien für Projekte sucht.</li>
         </ul>
       </td>
     </tr>
@@ -43,20 +43,20 @@ Zu Beginn war das Web nur Text und es war wirklich ziemlich langweilig. Glückli
 
 ## Wie platzieren wir ein Bild auf einer Webseite?
 
-Um ein Bild auf eine Webseite zu platzieren, verwenden wir das {{htmlelement("img")}}-Element. Dies ist ein {{Glossary("void_element", "leeres Element")}} (es kann keinen untergeordneten Inhalt haben und kein End-Tag), das zwei Attribute benötigt, um nützlich zu sein: `src` und `alt`. Das `src`-Attribut enthält eine URL, die auf das Bild zeigt, das Sie in die Seite einbetten möchten. Wie beim `href`-Attribut für {{htmlelement("a")}}-Elemente kann das `src`-Attribut eine relative URL oder eine absolute URL sein. Ohne ein `src`-Attribut hat ein `img`-Element kein Bild zum Laden.
+Um ein Bild auf einer Webseite zu platzieren, verwenden wir das {{htmlelement("img")}}-Element. Dies ist ein {{Glossary("void_element", "void element")}} (das bedeutet, es kann keinen Kinderinhalt haben und kein End-Tag besitzen), das zwei Attribute benötigt, um nützlich zu sein: `src` und `alt`. Das `src`-Attribut enthält eine URL, die auf das Bild verweist, das Sie in die Seite einbetten möchten. Wie beim `href`-Attribut für {{htmlelement("a")}}-Elemente kann das `src`-Attribut eine relative URL oder eine absolute URL sein. Ohne ein `src`-Attribut hat ein `img`-Element kein Bild zum Laden.
 
 Das [`alt`-Attribut wird unten beschrieben](#alternativtext).
 
 > [!NOTE]
-> Sie sollten [Eine schnelle Einführung zu URLs und Pfaden](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links#a_quick_primer_on_urls_and_paths) lesen, um Ihr Gedächtnis über relative und absolute URLs aufzufrischen, bevor Sie fortfahren.
+> Sie sollten [Eine kurze Einführung in URLs und Pfade](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links#a_quick_primer_on_urls_and_paths) lesen, um Ihr Gedächtnis über relative und absolute URLs aufzufrischen, bevor Sie fortfahren.
 
-Wenn Ihr Bild also beispielsweise `dinosaurier.jpg` genannt wird und im gleichen Verzeichnis wie Ihre HTML-Seite liegt, könnten Sie das Bild so einbetten:
+Angenommen, Ihr Bild heißt `dinosaur.jpg`, und es befindet sich im selben Verzeichnis wie Ihre HTML-Seite, könnten Sie das Bild folgendermaßen einbetten:
 
 ```html
 <img src="dinosaur.jpg" alt="Dinosaur" />
 ```
 
-Wenn sich das Bild in einem `images`-Unterverzeichnis befindet, das sich im gleichen Verzeichnis wie die HTML-Seite befindet, dann würden Sie es so einbetten:
+Wenn sich das Bild in einem Unterverzeichnis `images` befindet, das sich im selben Verzeichnis wie die HTML-Seite befindet, würden Sie es so einbetten:
 
 ```html
 <img src="images/dinosaur.jpg" alt="Dinosaur" />
@@ -65,7 +65,7 @@ Wenn sich das Bild in einem `images`-Unterverzeichnis befindet, das sich im glei
 Und so weiter.
 
 > [!NOTE]
-> Suchmaschinen lesen auch Bilddateinamen und zählen diese zu SEO. Daher sollten Sie Ihrem Bild einen beschreibenden Dateinamen geben; `dinosaurier.jpg` ist besser als `img835.png`.
+> Suchmaschinen lesen auch Bilddateinamen und zählen sie zur SEO. Daher sollten Sie Ihrem Bild einen beschreibenden Dateinamen geben; `dinosaur.jpg` ist besser als `img835.png`.
 
 Sie könnten das Bild auch mit seiner absoluten URL einbetten, zum Beispiel:
 
@@ -73,26 +73,26 @@ Sie könnten das Bild auch mit seiner absoluten URL einbetten, zum Beispiel:
 <img src="https://www.example.com/images/dinosaur.jpg" alt="Dinosaur" />
 ```
 
-Das Verlinken über absolute URLs wird jedoch nicht empfohlen. Sie sollten die Bilder, die Sie auf Ihrer Website verwenden möchten, selbst hosten, was in einfachen Umgebungen bedeutet, dass Sie die Bilder für Ihre Website auf demselben Server wie Ihr HTML belassen. Darüber hinaus ist es effizienter, relative URLs anstelle von absoluten URLs zu verwenden, was die Wartung betrifft (wenn Sie Ihre Website auf eine andere Domain verschieben, müssen Sie nicht alle Ihre URLs aktualisieren, um die neue Domain einzuschließen). In fortgeschritteneren Setups könnten Sie ein {{Glossary("CDN", "CDN (Content Delivery Network)")}} verwenden, um Ihre Bilder zu liefern.
+Das Verlinken über absolute URLs wird jedoch nicht empfohlen. Sie sollten die Bilder, die Sie auf Ihrer Seite verwenden möchten, auf Ihrer eigenen Seite hosten. Dies bedeutet in einfachen Setups, dass Sie die Bilder Ihrer Website auf demselben Server wie Ihr HTML speichern. Zudem ist es wartungstechnisch effizienter, relative URLs statt absoluter URLs zu verwenden (wenn Sie Ihre Website auf eine andere Domain verschieben, müssen Sie nicht alle URLs aktualisieren, um die neue Domain einzuschließen). In fortgeschritteneren Setups könnten Sie ein {{Glossary("CDN", "CDN (Content Delivery Network)")}} verwenden, um Ihre Bilder zu liefern.
 
-Wenn Sie die Bilder nicht selbst erstellt haben, sollten Sie sicherstellen, dass Sie die Erlaubnis haben, sie gemäß den Bedingungen der Lizenz zu verwenden, unter der sie veröffentlicht wurden (siehe [Medienressourcen und Lizenzierung](#medienressourcen_und_lizenzierung) unten für weitere Informationen).
+Wenn Sie die Bilder nicht selbst erstellt haben, sollten Sie sicherstellen, dass Sie die Erlaubnis haben, sie unter den Bedingungen der Lizenz zu verwenden, unter der sie veröffentlicht wurden (siehe [Medien-Assets und Lizenzen](#medien-assets_und_lizenzen) unten für weitere Informationen).
 
 > [!WARNING]
-> _Niemals_ das `src`-Attribut auf ein Bild verweisen lassen, das auf der Website einer anderen Person gehostet wird, _ohne Erlaubnis_. Dies wird "Hotlinking" genannt. Es wird als unethisch angesehen, da jemand anderes die Bandbreite für die Bereitstellung des Bildes bezahlen würde, wenn jemand Ihre Seite besucht. Es lässt Ihnen auch keine Kontrolle darüber, dass das Bild entfernt oder durch etwas Peinliches ersetzt wird.
+> _Niemals_ das `src`-Attribut auf ein Bild verweisen lassen, das auf der Website einer anderen Person gehostet wird, _ohne Erlaubnis_. Dies wird als "Hotlinking" bezeichnet. Es ist unethisch, da jemand anderes die Bandbreitenkosten für die Bereitstellung des Bildes zahlen würde, wenn jemand Ihre Seite besucht. Außerdem haben Sie keine Kontrolle darüber, dass das Bild entfernt oder durch etwas Peinliches ersetzt wird.
 
-Der vorherige Codeausschnitt, entweder mit der absoluten oder der relativen URL, ergibt das folgende Ergebnis:
+Das vorherige Code-Snippet, entweder mit der absoluten oder der relativen URL, ergibt folgendes Resultat:
 
-![Ein einfaches Bild eines Dinosauriers, eingebettet in einen Browser, mit "Bilder in HTML" darüber geschrieben](basic-image.png)
-
-> [!NOTE]
-> Elemente wie {{htmlelement("img")}} und {{htmlelement("video")}} werden manchmal als **ersetzte Elemente** bezeichnet. Dies liegt daran, dass der Inhalt und die Größe des Elements durch eine externe Ressource (wie eine Bild- oder Videodatei) und nicht durch den Inhalt des Elements selbst definiert werden. Sie können mehr über sie unter {{Glossary("replaced_elements", "ersetzte Elemente")}} lesen.
+![Ein einfaches Bild eines Dinosauriers, eingebettet in einem Browser, mit "Images in HTML" darüber geschrieben](basic-image.png)
 
 > [!NOTE]
-> Sie können das fertige Beispiel aus diesem Abschnitt [auf GitHub ausführen](https://mdn.github.io/learning-area/html/multimedia-and-embedding/images-in-html/index.html) (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/images-in-html/index.html)).
+> Elemente wie {{htmlelement("img")}} und {{htmlelement("video")}} werden manchmal als **replaced elements** bezeichnet. Das liegt daran, dass der Inhalt und die Größe des Elements durch eine externe Ressource definiert werden (wie eine Bild- oder Videodatei) und nicht durch den Inhalt des Elements selbst. Sie können mehr darüber bei {{Glossary("replaced_elements", "replaced elements")}} lesen.
+
+> [!NOTE]
+> Sie finden das fertige Beispiel aus diesem Abschnitt [laufend auf GitHub](https://mdn.github.io/learning-area/html/multimedia-and-embedding/images-in-html/index.html) (sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/images-in-html/index.html) an).
 
 ### Alternativtext
 
-Das nächste Attribut, das wir uns ansehen werden, ist `alt`. Sein Wert soll eine textuelle Beschreibung des Bildes sein, die in Situationen verwendet wird, in denen das Bild nicht gesehen/angezeigt werden kann oder das Rendern aufgrund einer langsamen Internetverbindung lange dauert. Zum Beispiel könnte unser obiger Code so modifiziert werden:
+Das nächste Attribut, das wir uns ansehen, ist `alt`. Sein Wert soll eine Textbeschreibung des Bildes für Situationen sein, in denen das Bild nicht gesehen/angezeigt werden kann oder aufgrund einer langsamen Internetverbindung lange zum Rendern braucht. Zum Beispiel könnte unser obiger Code wie folgt modifiziert werden:
 
 ```html
 <img
@@ -101,35 +101,38 @@ Das nächste Attribut, das wir uns ansehen werden, ist `alt`. Sein Wert soll ein
           it has a large head with long sharp teeth" />
 ```
 
-Die einfachste Möglichkeit, Ihren `alt`-Text zu testen, besteht darin, Ihren Dateinamen absichtlich falsch zu schreiben. Wenn zum Beispiel unser Bildname `dinosooooor.jpg` geschrieben wäre, würde der Browser das Bild nicht anzeigen und stattdessen den `alt`-Text anzeigen:
+Der einfachste Weg, Ihren `alt`-Text zu testen, besteht darin, Ihren Dateinamen absichtlich falsch zu schreiben. Wenn zum Beispiel unser Bildname als `dinosooooor.jpg` falsch geschrieben wäre, würde der Browser das Bild nicht anzeigen und stattdessen den Alt-Text anzeigen:
 
-![Der Titel "Bilder in HTML", aber dieses Mal wird das Dinosaurier-Bild nicht angezeigt, und stattdessen wird der Alternativtext angezeigt.](alt-text.png)
+![Der Titel der Images in HTML, diesmal wird das Dinosaurierbild nicht angezeigt und der Alt-Text ist an seiner Stelle zu sehen.](alt-text.png)
 
-Warum sollten Sie also jemals alternativen Text sehen oder benötigen? Es kann aus einer Reihe von Gründen nützlich sein:
+Warum sollten Sie Alt-Text sehen oder benötigen? Er kann aus verschiedenen Gründen nützlich sein:
 
-- Der Benutzer ist sehbehindert und verwendet einen [Screen-Reader](https://en.wikipedia.org/wiki/Screen_reader), um das Web für ihn zu lesen. Tatsächlich ist das Vorhandensein von Alt-Text, um Bilder zu beschreiben, für die meisten Benutzer nützlich.
-- Wie oben beschrieben, könnte die Schreibweise des Dateinamens oder Pfads falsch sein.
-- Der Browser unterstützt den Bildtyp nicht. Einige Leute verwenden immer noch Text-Only-Browser, wie [Lynx](https://en.wikipedia.org/wiki/Lynx_%28web_browser%29), der den Alt-Text von Bildern anzeigt.
-- Sie möchten möglicherweise Text bereitstellen, den Suchmaschinen nutzen können; zum Beispiel können Suchmaschinen Alt-Text mit Suchanfragen abgleichen.
-- Benutzer haben die Bilder deaktiviert, um das Datenübertragungsvolumen und Ablenkungen zu reduzieren. Dies ist vor allem auf Mobiltelefonen üblich und in Ländern, in denen die Bandbreite begrenzt oder teuer ist.
+- Der Benutzer ist sehbehindert und verwendet einen [Screenreader](https://en.wikipedia.org/wiki/Screen_reader), um das Web für ihn vorzulesen. Tatsächlich ist es für die meisten Benutzer nützlich, Alt-Text zur Beschreibung von Bildern zur Verfügung zu haben.
+- Wie oben beschrieben, könnte die Schreibweise des Datei- oder Pfadnamens falsch sein.
+- Der Browser unterstützt den Bildtyp nicht. Einige Leute verwenden immer noch nur Textbrowser, wie [Lynx](https://en.wikipedia.org/wiki/Lynx_%28web_browser%29), die den Alt-Text von Bildern anzeigen.
+- Sie möchten Suchmaschinen Text zur Verfügung stellen, den diese nutzen können; zum Beispiel können Suchmaschinen den Alt-Text mit Suchanfragen abgleichen.
+- Benutzer haben Bilder deaktiviert, um das Datenübertragungsvolumen und Ablenkungen zu reduzieren. Dies ist auf Mobiltelefonen und in Ländern, in denen die Bandbreite begrenzt oder teuer ist, besonders häufig.
 
-Was genau sollten Sie in Ihr `alt`-Attribut schreiben? Es hängt davon ab, _warum_ das Bild überhaupt da ist. Mit anderen Worten, was Sie verlieren, wenn Ihr Bild nicht angezeigt wird:
+Was genau sollten Sie in Ihr `alt`-Attribut schreiben? Es hängt davon ab, _warum_ das Bild überhaupt vorhanden ist. Mit anderen Worten, was Sie verlieren, wenn Ihr Bild nicht angezeigt wird:
 
-- **Dekoration.** Sie sollten [CSS-Hintergrundbilder](#css-hintergrundbilder) für dekorative Bilder verwenden, aber wenn Sie HTML verwenden müssen, fügen Sie ein leeres `alt=""` hinzu. Wenn das Bild nicht Teil des Inhalts ist, sollte ein Screenreader keine Zeit verschwenden, es vorzulesen.
-- **Inhalt.** Wenn Ihr Bild wesentliche Informationen liefert, geben Sie die gleichen Informationen in einem _kurzen_ `alt`-Text an – oder noch besser, im Haupttext, den jeder sehen kann. Schreiben Sie keinen redundanten `alt`-Text. Wie ärgerlich wäre es für einen sehenden Benutzer, wenn alle Absätze im Hauptinhalt doppelt geschrieben wären? Wenn das Bild im Haupttext ausreichend beschrieben wird, können Sie einfach `alt=""` verwenden.
-- **Link.** Wenn Sie ein Bild innerhalb von {{htmlelement("a")}}-Tags platzieren, um ein Bild in einen Link zu verwandeln, müssen Sie dennoch [zugänglichen Link-Text](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links#use_clear_link_wording) bereitstellen. In solchen Fällen können Sie entweder den Text im selben `<a>`-Element schreiben oder im `alt`-Attribut des Bildes – je nachdem, was für Ihren Fall am besten funktioniert.
-- **Text.** Sie sollten Ihren Text nicht in Bilder setzen. Wenn Ihre Hauptüberschrift z. B. einen Schlagschatten benötigt, [verwenden Sie CSS](/de/docs/Web/CSS/text-shadow) dafür, anstatt den Text in ein Bild zu setzen. Wenn Sie dies jedoch _wirklich nicht vermeiden können_, sollten Sie den Text im `alt`-Attribut bereitstellen.
+- **Dekoration.** Sie sollten [CSS-Hintergrundbilder](#css-hintergrundbilder) für dekorative Bilder verwenden. Wenn Sie HTML verwenden müssen, fügen Sie ein leeres `alt=""` hinzu. Wenn das Bild nicht Teil des Inhalts ist, sollte ein Screenreader keine Zeit damit verschwenden, es zu lesen.
+- **Inhalt.** Wenn Ihr Bild bedeutende Informationen liefert, geben Sie die gleichen Informationen in einem _kurzen_ `alt`-Text an – oder noch besser im Haupttext, den jeder sehen kann. Schreiben Sie keinen redundanten `alt`-Text. Wie ärgerlich wäre es für einen sehenden Benutzer, wenn alle Absätze im Hauptinhalt zweimal geschrieben würden? Wenn das Bild ausreichend vom Haupttext beschrieben wird, können Sie einfach `alt=""` verwenden.
+- **Link.** Wenn Sie ein Bild in {{htmlelement("a")}}-Tags setzen, um ein Bild in einen Link zu verwandeln, müssen Sie dennoch [zugänglichen Linktext](/de/docs/Learn_web_development/Core/Structuring_content/Creating_links#use_clear_link_wording) bereitstellen. In solchen Fällen können Sie ihn entweder innerhalb desselben `<a>`-Elements oder im `alt`-Attribut des Bildes schreiben – je nachdem, was in Ihrem Fall am besten funktioniert.
+- **Text.** Sie sollten Ihren Text nicht in Bilder einfügen. Wenn Ihre Hauptüberschrift beispielsweise einen Schlagschatten benötigt, verwenden Sie [CSS](/de/docs/Web/CSS/Reference/Properties/text-shadow) dafür, anstatt den Text in ein Bild zu setzen. Wenn Sie _wirklich nicht vermeiden können, das zu tun_, sollten Sie den Text im `alt`-Attribut bereitstellen.
 
-Im Wesentlichen ist der Schlüssel, eine nutzbare Erfahrung zu liefern, selbst wenn die Bilder nicht gesehen werden können. Dies stellt sicher, dass keine Benutzer Inhalte verpassen. Versuchen Sie, in Ihrem Browser die Bilder zu deaktivieren und sehen Sie, wie sie aussehen. Sie werden schnell erkennen, wie hilfreich Alt-Text ist, wenn das Bild nicht angezeigt werden kann.
+Im Wesentlichen besteht der Schlüssel darin, eine benutzerfreundliche Erfahrung zu bieten, selbst wenn die Bilder nicht gesehen werden können. So stellen Sie sicher, dass alle Benutzer keinen der Inhalte verpassen. Versuchen Sie, Bilder in Ihrem Browser zu deaktivieren und sehen Sie, wie es aussieht. Sie werden schnell merken, wie hilfreich Alt-Text ist, wenn das Bild nicht angezeigt werden kann.
 
 > [!NOTE]
 > Lesen Sie unseren Leitfaden zu [Textalternativen](/de/docs/Learn_web_development/Core/Accessibility/HTML#text_alternatives) und [Ein Alt-Entscheidungsbaum](https://www.w3.org/WAI/tutorials/images/decision-tree/), um zu erfahren, wie Sie ein `alt`-Attribut für Bilder in verschiedenen Situationen verwenden können.
 
+> [!NOTE]
+> [HTML-Tags](https://scrimba.com/html-css-crash-course-c02l/~0d?via=mdn) <sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> von Scrimba ist eine interaktive Lektion, die Informationen zu Bildern und Minie-Challenges bietet.
+
 ### Breite und Höhe
 
-Sie können die Attribute [`width`](/de/docs/Web/HTML/Reference/Elements/img#width) und [`height`](/de/docs/Web/HTML/Reference/Elements/img#height) verwenden, um die Breite und Höhe Ihres Bildes anzugeben. Sie werden als ganze Zahlen ohne Einheit angegeben und stellen die Breite und Höhe des Bildes in Pixeln dar.
+Sie können die Attribute [`width`](/de/docs/Web/HTML/Reference/Elements/img#width) und [`height`](/de/docs/Web/HTML/Reference/Elements/img#height) verwenden, um die Breite und Höhe Ihres Bildes anzugeben. Sie werden als ganze Zahlen ohne Einheit angegeben und stellen die Breite und Höhe des Bildes in Pixel dar.
 
-Sie können die Breite und Höhe Ihres Bildes auf verschiedene Arten herausfinden. Auf dem Mac können Sie zum Beispiel <kbd>Cmd</kbd> + <kbd>I</kbd> verwenden, um die Anzeigeinformationen für die Bilddatei abzurufen. Zurück zu unserem Beispiel könnten wir dies tun:
+Es gibt mehrere Möglichkeiten, die Breite und Höhe Ihres Bildes zu ermitteln. Auf dem Mac können Sie beispielsweise <kbd>Cmd</kbd> + <kbd>I</kbd> verwenden, um die Anzeigeinformationen für die Bilddatei zu erhalten. Zurück zu unserem Beispiel könnten wir dies tun:
 
 ```html
 <img
@@ -140,9 +143,9 @@ Sie können die Breite und Höhe Ihres Bildes auf verschiedene Arten herausfinde
   height="341" />
 ```
 
-Es gibt einen sehr guten Grund, dies zu tun. Das HTML für Ihre Seite und das Bild sind separate Ressourcen, die vom Browser als separate HTTP(S)-Anfragen abgerufen werden. Sobald der Browser das HTML empfangen hat, beginnt er, es dem Benutzer anzuzeigen. Wenn die Bilder noch nicht empfangen wurden (und das wird oft der Fall sein, da Bilddateigrößen oft viel größer sind als HTML-Dateien), dann rendert der Browser nur das HTML und aktualisiert die Seite mit dem Bild, sobald es empfangen wurde.
+Es gibt einen sehr guten Grund dafür. Das HTML für Ihre Seite und das Bild sind separate Ressourcen, die vom Browser als separate HTTP(S)-Anfragen abgerufen werden. Sobald der Browser das HTML empfangen hat, beginnt er, es dem Benutzer anzuzeigen. Wenn die Bilder noch nicht empfangen worden sind (und das wird oft der Fall sein, da Bilddateigrößen oft viel größer sind als HTML-Dateien), rendert der Browser nur das HTML und aktualisiert die Seite mit dem Bild, sobald es empfangen wird.
 
-Zum Beispiel, nehmen wir an, wir haben etwas Text nach dem Bild:
+Angenommen, wir haben etwas Text nach dem Bild:
 
 ```html
 <h1>Images in HTML</h1>
@@ -168,26 +171,26 @@ Zum Beispiel, nehmen wir an, wir haben etwas Text nach dem Bild:
 
 Sobald der Browser das HTML herunterlädt, beginnt er, die Seite anzuzeigen.
 
-Sobald das Bild geladen ist, fügt der Browser das Bild der Seite hinzu. Da das Bild Platz einnimmt, muss der Browser den Text nach unten verschieben, um das Bild darüber zu passen:
+Sobald das Bild geladen ist, fügt der Browser das Bild der Seite hinzu. Da das Bild Platz einnimmt, muss der Browser den Text nach unten verschieben, um das Bild darüber zu platzieren:
 
-![Vergleich des Seitenlayouts, während der Browser eine Seite lädt, und wenn er fertig ist, wenn keine Größe für das Bild angegeben ist.](no-size.png)
+![Vergleich des Seitenlayouts, während der Browser eine Seite lädt und wenn sie fertig ist, wenn keine Größe für das Bild angegeben ist.](no-size.png)
 
-Das Verschieben des Textes auf diese Weise ist extrem ablenkend für Benutzer, insbesondere wenn sie bereits begonnen haben, ihn zu lesen.
+Die Bewegung des Textes auf diese Weise ist für Benutzer extrem ablenkend, besonders wenn sie bereits begonnen haben, ihn zu lesen.
 
-Wenn Sie die tatsächliche Größe des Bildes in Ihrem HTML angeben, indem Sie die Attribute `width` und `height` verwenden, dann weiß der Browser, wie viel Platz er benötigt, bevor das Bild heruntergeladen wurde.
+Wenn Sie die tatsächliche Größe des Bildes in Ihrem HTML angeben, indem Sie die Attribute `width` und `height` verwenden, weiß der Browser, bevor er das Bild heruntergeladen hat, wie viel Platz er dafür einräumen muss.
 
-Dies bedeutet, dass der Browser, wenn das Bild heruntergeladen ist, nicht den umgebenden Inhalt verschieben muss.
+Das bedeutet, dass der Browser den umgebenden Inhalt nicht bewegen muss, wenn das Bild heruntergeladen wurde.
 
-![Vergleich des Seitenlayouts, während der Browser eine Seite lädt, und wenn er fertig ist, wenn die Bildgröße angegeben ist.](size.png)
+![Vergleich des Seitenlayouts, während der Browser eine Seite lädt und wenn sie fertig ist, wenn die Bildgröße angegeben ist.](size.png)
 
-Für einen ausgezeichneten Artikel über die Geschichte dieser Funktion, siehe [Die Angabe von Höhe und Breite bei Bildern ist wieder wichtig](https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/).
+Für einen ausgezeichneten Artikel zur Geschichte dieses Features lesen Sie [Setting height and width on images is important again](https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/).
 
 > [!NOTE]
-> Obwohl, wie wir gesagt haben, es gute Praxis ist, die _tatsächliche_ Größe Ihrer Bilder mithilfe von HTML-Attributen anzugeben, sollten Sie sie nicht verwenden, um Bilder zu _vergrößern_.
+> Obwohl, wie wir gesagt haben, es eine gute Praxis ist, die _tatsächliche_ Größe Ihrer Bilder mit HTML-Attributen anzugeben, sollten Sie sie nicht verwenden, um Bilder _zu skalieren_.
 >
-> Wenn Sie die Bildgröße zu groß einstellen, erhalten Sie Bilder, die körnig, unscharf oder zu klein aussehen, und verschwenden Bandbreite, indem Sie ein Bild herunterladen, das nicht den Bedürfnissen des Benutzers entspricht. Das Bild kann auch verzerrt aussehen, wenn Sie das korrekte {{Glossary("aspect_ratio", "Seitenverhältnis")}} nicht beibehalten. Sie sollten einen Bildeditor verwenden, um Ihr Bild auf die richtige Größe zu bringen, bevor Sie es auf Ihrer Webseite platzieren.
+> Wenn Sie die Bildgröße zu groß einstellen, erhalten Sie Bilder, die pixelig, unscharf oder zu klein aussehen, und verschwenden Bandbreite, indem Sie ein Bild herunterladen, das nicht den Bedürfnissen des Benutzers entspricht. Das Bild könnte auch verzerrt aussehen, wenn Sie nicht das korrekte {{Glossary("aspect_ratio", "Seitenverhältnis")}} beibehalten. Sie sollten einen Bildeditor verwenden, um Ihr Bild in der richtigen Größe zu haben, bevor Sie es auf Ihre Webseite stellen.
 >
-> Wenn Sie die Größe eines Bildes ändern müssen, sollten Sie stattdessen [CSS](/de/docs/Learn_web_development/Core/Styling_basics) verwenden.
+> Wenn Sie die Größe eines Bildes ändern müssen, sollten Sie hierfür [CSS](/de/docs/Learn_web_development/Core/Styling_basics) verwenden.
 
 ### Bildtitel
 
@@ -203,33 +206,33 @@ Wie [bei Links](/de/docs/Learn_web_development/Core/Structuring_content/Creating
   title="A T-Rex on display in the Manchester University Museum" />
 ```
 
-Dies gibt uns ein Tooltip bei Maus-Hover, genau wie Link-Titel:
+Dies gibt uns ein Tooltip bei Maus-Hover, genau wie Linktitel:
 
-![Das Dinosaurier-Bild mit einem Tooltip-Titel darüber, der A T-Rex im Manchester University Museum anzeigt](image-with-title.png)
+![Das Dinosaurierbild, mit einem Tooltip-Titel darüber, der folgendes liest: Ein T-Rex im Manchester University Museum.](image-with-title.png)
 
-Jedoch wird dies nicht empfohlen — `title` hat eine Reihe von Zugänglichkeitsproblemen, hauptsächlich basierend auf der Tatsache, dass die Unterstützung von Screenreadern sehr unvorhersehbar ist und die meisten Browser es nicht anzeigen, es sei denn, Sie bewegen den Cursor darüber (also z.B. kein Zugang für Tastaturbenutzer). Wenn Sie an mehr Informationen darüber interessiert sind, lesen Sie [The Trials and Tribulations of the Title Attribute](https://www.24a11y.com/2017/the-trials-and-tribulations-of-the-title-attribute/) von Scott O'Hara.
+Dies wird jedoch nicht empfohlen — `title` hat eine Reihe von Zugänglichkeitsproblemen, die hauptsächlich darauf basieren, dass die Unterstützung von Screenreadern sehr unvorhersehbar ist und die meisten Browser ihn nicht anzeigen, es sei denn, Sie befinden sich mit einer Maus darüber (also z. B. kein Zugriff für Tastaturenutzer). Wenn Sie an weiteren Informationen darüber interessiert sind, lesen Sie [The Trials and Tribulations of the Title Attribute](https://www.24a11y.com/2017/the-trials-and-tribulations-of-the-title-attribute/) von Scott O'Hara.
 
-Es ist besser, solche unterstützenden Informationen im Hauptartikeltext zu haben, anstatt sie an das Bild anzuhängen.
+Es ist besser, solche unterstützenden Informationen im Haupttext des Artikels anstatt am Bild zu platzieren.
 
-### Praktische Übung: Bild einbetten
+### Übung zur Bild-Einbettung
 
-Jetzt sind Sie an der Reihe! Diese Aufgabe soll Sie dazu bringen, ein Bild einzubetten.
+Jetzt sind Sie an der Reihe! Diese Aufgabe wird Sie dazu bringen, ein Bild einzubetten.
 
-1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Bearbeiten Sie das vorhandene {{htmlelement("img")}}-Tag, sodass es das Bild einbettet, das sich unter der folgenden URL befindet:
+1. Klicken Sie auf **"Play"** im folgenden Codeblock, um das Beispiel im MDN Playground zu bearbeiten.
+2. Bearbeiten Sie das vorhandene {{htmlelement("img")}}-Tag, damit es das Bild unter der folgenden URL einbettet:
 
    ```url
    https://raw.githubusercontent.com/mdn/learning-area/master/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg
    ```
 
    > [!NOTE]
-   > Vorhin sagten wir, niemals ohne Erlaubnis Bilder auf anderen Servern zu verlinken, aber dieses Bild befindet sich in unserem GitHub-Repositorium, daher ist es in Ordnung.
+   > Früher haben wir gesagt, niemals ohne Erlaubnis auf Bilder auf anderen Servern zu hotlinken, aber dieses Bild befindet sich in unserem GitHub-Repo, daher ist es in Ordnung.
 
 3. Fügen Sie dem Bild ein `alt`-Attribut hinzu. Sie können überprüfen, ob der Alt-Text funktioniert, indem Sie die Bild-URL vorübergehend falsch schreiben.
-4. Setzen Sie die richtige `width` und `height` des Bildes (Tipp: es ist `200px` breit und `171px` hoch), experimentieren Sie dann mit anderen Werten, um zu sehen, welchen Effekt sie haben.
+4. Legen Sie die korrekte `width` und `height` des Bildes fest (Hinweis: es ist `200px` breit und `171px` hoch), experimentieren Sie dann mit anderen Werten, um zu sehen, welche Wirkung sie haben.
 5. Setzen Sie einen `title` auf das Bild.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_-Button im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unter dem Code block anzeigen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit durch Klicken auf den _Reset_-Button im MDN Playground löschen. Wenn Sie wirklich hängen bleiben, können Sie die Lösung unter dem Codeblock ansehen.
 
 ```html live-sample___images-1
 <img />
@@ -253,69 +256,69 @@ Ihr fertiges HTML sollte ungefähr so aussehen:
 
 </details>
 
-## Medienressourcen und Lizenzierung
+## Medien-Assets und Lizenzen
 
-Bilder (und andere Medienressourcentypen), die Sie im Web finden, werden unter verschiedenen Lizenztypen veröffentlicht. Bevor Sie ein Bild auf einer Seite verwenden, die Sie erstellen, stellen Sie sicher, dass Sie es besitzen, die Erlaubnis haben, es zu verwenden, oder die Lizenzbedingungen des Eigentümers einhalten.
+Bilder (und andere Medientypen) im Web werden unter verschiedenen Lizenztypen veröffentlicht. Bevor Sie ein Bild auf einer Seite verwenden, die Sie erstellen, stellen Sie sicher, dass Sie es besitzen, die Erlaubnis haben, es zu verwenden, oder die Lizenzbedingungen des Besitzers einhalten.
 
 ### Verständnis der Lizenztypen
 
-Sehen wir uns einige allgemeine Lizenzkategorien an, auf die Sie wahrscheinlich im Web stoßen werden.
+Schauen wir uns einige gängige Lizenzkategorien an, die Ihnen im Web begegnen werden.
 
 #### Alle Rechte vorbehalten
 
-Urheber von Originalwerken wie Songs, Büchern oder Software veröffentlichen ihr Werk häufig unter geschlossenem Urheberrechtsschutz. Dies bedeutet, dass sie (oder ihr Verlag) standardmäßig das ausschließliche Recht haben, ihr Werk zu verwenden (beispielsweise anzuzeigen oder zu verbreiten). Wenn Sie urheberrechtlich geschützte Bilder mit einer _alle Rechte vorbehalten_-Lizenz verwenden möchten, müssen Sie eine der folgenden Maßnahmen ergreifen:
+Urheber von Originalwerken wie Liedern, Büchern oder Software veröffentlichen oft ihre Arbeit unter geschlossenen Urheberrechtsschutz. Dies bedeutet, dass standardmäßig sie (oder ihr Verlag) die exklusiven Rechte zur Nutzung (z. B. Anzeige oder Verbreitung) ihrer Arbeit haben. Wenn Sie urheberrechtlich geschützte Bilder mit einer _alle Rechte vorbehalten_-Lizenz verwenden möchten, müssen Sie eine der folgenden Möglichkeiten nutzen:
 
-- Holen Sie sich die ausdrückliche, schriftliche Erlaubnis des Urheberrechtsinhabers.
-- Zahlen Sie eine Lizenzgebühr für die Nutzung. Dies kann eine einmalige Gebühr für die unbegrenzte Nutzung sein ("lizenzfrei") oder sie kann "rechtenbeschränkt" sein, was bedeutet, dass Sie möglicherweise spezifische Gebühren pro Nutzung nach Zeitfenster, geografischem Gebiet, Branche oder Medientyp usw. zahlen müssen.
-- Beschränken Sie Ihre Nutzungen auf diejenigen, die als [Fair Use](https://fairuse.stanford.edu/overview/fair-use/what-is-fair-use/) oder [Fair Dealing](https://copyrightservice.co.uk/copyright/p27_work_of_others) in Ihrer Gerichtsbarkeit betrachtet werden.
+- Holen Sie sich schriftliche, explizite Erlaubnis vom Urheberrechtsinhaber.
+- Zahlen Sie eine Lizenzgebühr, um sie zu nutzen. Dies kann eine einmalige Gebühr für unbegrenzte Nutzung ("royalty-free") sein, oder es könnte "rights-managed" sein, was bedeutet, dass Sie möglicherweise spezifische Gebühren pro Nutzung nach Zeitfenster, geografischer Region, Branche oder Medientyp zahlen müssen.
+- Begrenzen Sie Ihre Nutzung auf die, die in Ihrer Gerichtsbarkeit als [fair use](https://fairuse.stanford.edu/overview/fair-use/what-is-fair-use/) oder [fair dealing](https://copyrightservice.co.uk/copyright/p27_work_of_others) angesehen werden könnte.
 
-Autoren müssen keine Urheberrechtsbenachrichtigung oder Lizenzbedingungen mit ihrem Werk einschließen. Das Urheberrecht entsteht automatisch bei einem Originalwerk in einer greifbaren Form. Wenn Sie also ein Bild online finden und es keine Urheberrechtsvermerke oder Lizenzbedingungen gibt, ist es der sicherste Weg, davon auszugehen, dass es urheberrechtlich geschützt ist, alle Rechte vorbehalten.
+Autoren sind nicht verpflichtet, einen Urheberrechtsvermerk oder Lizenzbedingungen mit ihrem Werk zu inkludieren. Copyright besteht automatisch in einem Originalwerk der Autorschaft, sobald es in einem materiellen Medium erstellt wurde. Wenn Sie also ein Bild online finden und es keine Urheberrechtsvermerke oder Lizenzbedingungen gibt, ist der sicherste Weg, anzunehmen, dass es durch Copyright mit allen Rechten vorbehalten geschützt ist.
 
-#### Erlaubt
+#### Permissiv
 
-Wenn das Bild unter einer erlaubten Lizenz veröffentlicht wurde, wie z.B. [MIT](https://mit-license.org/), [BSD](https://opensource.org/license/BSD-3-clause) oder einer geeigneten [Creative Commons (CC) Lizenz](https://creativecommons.org/chooser/), müssen Sie keine Lizenzgebühr zahlen oder die Erlaubnis zur Nutzung einholen. Dennoch gibt es verschiedene Lizenzbedingungen, die Sie erfüllen müssen, die je nach Lizenz variieren.
+Wenn das Bild unter einer permissiven Lizenz veröffentlicht wird, wie z.B. MIT, BSD oder einer geeigneten Creative-Commons-Lizenz, müssen Sie keine Lizenzgebühr zahlen oder Erlaubnis einholen, um es zu verwenden. Dennoch gibt es verschiedene Lizenzbedingungen, die Sie erfüllen müssen, die je nach Lizenz variieren.
 
 Zum Beispiel könnten Sie Folgendes tun müssen:
 
-- Einen Link zur ursprünglichen Quelle des Bildes bereitstellen und seinen Urheber anerkennen.
-- Angeben, ob Änderungen vorgenommen wurden.
-- Jegliche abgeleiteten Werke, die mit dem Bild erstellt wurden, unter derselben Lizenz wie das Original veröffentlichen.
-- Überhaupt keine abgeleiteten Werke teilen.
+- Ein Link zur Originalquelle des Bildes bereitstellen und den Urheber nennen.
+- Angeben, ob irgendwelche Änderungen daran vorgenommen wurden.
+- Alle abgeleiteten Werke, die mit dem Bild erstellt wurden, unter derselben Lizenz wie das Original veröffentlichen.
+- Abgeleitete Werke überhaupt nicht teilen.
 - Das Bild nicht in kommerziellen Arbeiten verwenden.
 - Eine Kopie der Lizenz zusammen mit jeder Veröffentlichung, die das Bild verwendet, beifügen.
 
-Sie sollten die maßgebliche Lizenz für die spezifischen Bedingungen konsultieren, die Sie befolgen müssen.
+Sie sollten die anwendbare Lizenz zu den spezifischen Bedingungen, die Sie einhalten müssen, konsultieren.
 
 > [!NOTE]
-> Sie könnten auf den Begriff "Copyleft" im Zusammenhang mit erlaubten Lizenzen stoßen. Copyleft-Lizenzen (wie die [GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html) oder "Share Alike" Creative Commons-Lizenzen) verlangen, dass abgeleitete Werke unter derselben Lizenz wie das Original veröffentlicht werden müssen.
+> Im Kontext von permissiven Lizenzen stoßen Sie möglicherweise auf den Begriff "Copyleft". Copyleft-Lizenzen (wie die GNU General Public License (GPL) oder "Share Alike" Creative Commons-Lizenzen) stipulieren, dass abgeleitete Werke unter derselben Lizenz wie das Original veröffentlicht werden müssen.
 
-Copyleft-Lizenzen sind in der Softwarewelt prominent. Die grundlegende Idee ist, dass ein neues Projekt, das mit dem Code eines Copyleft-lizenzierten Projekts erstellt wurde (dies wird als "Fork" des Originalsoftwareprojekts bezeichnet), ebenfalls unter derselben Copyleft-Lizenz lizenziert werden muss. Dies stellt sicher, dass der Quellcode des neuen Projekts auch anderen zur Verfügung steht, um ihn zu studieren und zu ändern. Beachten Sie, dass Lizenzen, die ursprünglich für Software erstellt wurden, wie die GPL, im Allgemeinen nicht als gute Lizenzen für nicht-softwaremäßige Werke angesehen werden, da sie nicht mit nicht-softwaremäßigen Werken im Kopf erstellt wurden.
+Copyleft-Lizenzen sind in der Softwarewelt prominent. Die Grundidee ist, dass ein neues Projekt, das mit dem Code eines copyleft-lizenzierten Projekts erstellt wurde (dies ist bekannt als "Fork" der Originalsoftware), ebenfalls unter derselben Copyleft-Lizenz lizenziert werden muss. Dies stellt sicher, dass der Quellcode des neuen Projekts ebenfalls für andere zum Studium und zur Modifizierung zur Verfügung gestellt wird. Beachten Sie, dass im Allgemeinen Lizenzen, die für Software erstellt wurden, wie die GPL, nicht als gute Lizenzen für nicht-softwaretechnische Werke angesehen werden, da sie nicht für nicht-softwaretechnische Werke gedacht sind.
 
-Erkunden Sie die früher in diesem Abschnitt bereitgestellten Links, um mehr über die verschiedenen Lizenztypen und die Arten von Bedingungen zu erfahren, die sie angeben.
+Erforschen Sie die oben in diesem Abschnitt bereitgestellten Links, um mehr über die verschiedenen Lizenztypen und die Arten von Bedingungen, die sie spezifizieren, zu erfahren.
 
 #### Public Domain/CC0
 
-In die Public Domain eingeführte Werke werden manchmal als "keine Rechte vorbehalten" bezeichnet – kein Urheberrecht gilt dafür, und es kann ohne Erlaubnis und ohne Erfüllung von Lizenzbedingungen verwendet werden. Ein Werk kann auf verschiedene Weise in die Public Domain gelangen, wie z.B. durch Ablauf des Urheberrechts oder durch spezifisch Verzicht auf Rechte.
+Arbeit, die in die Public Domain freigegeben wurde, wird manchmal als "keine Rechte vorbehalten" bezeichnet — kein Urheberrecht gilt dafür, und sie kann ohne Erlaubnis und ohne Einhaltung von Lizenzbedingungen verwendet werden. Arbeit kann auf verschiedene Weise in die Public Domain gelangen, wie etwa durch Ablauf des Urheberrechts oder durch spezifisches Verzicht auf Rechte.
 
-Eine der effektivsten Möglichkeiten, ein Werk in die Public Domain einzuführen, besteht darin, es unter [CC0](https://creativecommons.org/public-domain/cc0/) zu lizenzieren – eine spezielle Creative Commons-Lizenz, die ein klares und eindeutiges juristisches Werkzeug für diesen Zweck bietet.
+Eine der effektivsten Möglichkeiten, Arbeit in die Public Domain zu stellen, ist sie unter CC0 zu lizenzieren, einer speziellen Creative-Commons-Lizenz, die ein klares und unmissverständliches rechtliches Instrument für diesen Zweck bietet.
 
-Wenn Sie öffentliche Domain-Bilder verwenden, beschaffen Sie sich einen Nachweis darüber, dass das Bild in der Public Domain ist, und bewahren Sie diesen Nachweis für Ihre Unterlagen auf. Beispiel: Machen Sie einen Screenshot der Originalquelle mit dem deutlich angezeigten Lizenzstatus und ziehen Sie in Betracht, eine Seite auf Ihrer Website hinzuzufügen, die eine Liste der erworbenen Bilder zusammen mit ihren Lizenzanforderungen enthält.
+Beim Verwenden von Public-Domain-Bildern sollten Sie einen Nachweis erlangen, dass das Bild in der Public Domain ist, und den Nachweis für Ihre Unterlagen aufbewahren. Beispielsweise machen Sie einen Screenshot der Originalquelle mit dem klar angezeigten Lizenzstatus, und erwägen Sie, eine Seite zu Ihrer Website hinzuzufügen, die eine Liste der erworbenen Bilder zusammen mit ihren Lizenzanforderungen enthält.
 
-### Suche nach erlaubten Bildern
+### Suche nach permissiv lizenzierten Bildern
 
-Sie können erlaubte Bilder für Ihre Projekte mit einer Bildsuchmaschine oder direkt von Bildrepositorys finden.
+Sie können permissiv lizenzierte Bilder für Ihre Projekte durch eine Bildsuchmaschine oder direkt aus Bildrepositorien finden.
 
-Suchen Sie nach Bildern, indem Sie eine Beschreibung des von Ihnen gesuchten Bildes zusammen mit den entsprechenden Lizenzbegriffe verwenden. Wenn Sie beispielsweise nach einem "gelben Dinosaurier" suchen, fügen Sie "öffentliche Domain-Bilder", "öffentliche Domain-Bibliothek", "offen lizenziert Bilder" oder ähnliche Begriffe zu Ihrer Suchanfrage hinzu.
+Suchen Sie nach Bildern mit einer Beschreibung des Bildes, das Sie suchen, zusammen mit relevanten Lizenzbedingungen. Wenn Sie beispielsweise nach "gelber Dinosaurier" suchen, fügen Sie "Public-Domain-Bilder", "Public-Domain-Bibliothek", "offen lizenzierte Bilder" oder ähnliche Begriffe zur Suchanfrage hinzu.
 
-Einige Suchmaschinen bieten Tools, um Ihnen zu helfen, gezielt nach Bildern mit erlaubten Lizenzen zu suchen. Wenn Sie beispielsweise Google verwenden, wechseln Sie zur Registerkarte "Bilder", um nach Bildern zu suchen, und klicken Sie dann auf "Tools". Es gibt ein Dropdown-Menü "Nutzungsrechte" in der resultierenden Symbolleiste, in der Sie speziell nur nach Bildern unter Creative Commons-Lizenzen suchen können.
+Einige Suchmaschinen haben Tools, die Ihnen helfen, Bilder mit permissiven Lizenzen zu finden. Bei Google beispielsweise gehen Sie zum Reiter "Bilder", um nach Bildern zu suchen, und klicken dann auf "Tools". Es gibt ein Dropdown-Menü "Nutzungsrechte" in der daraufhin angezeigten Symbolleiste, mit dem Sie gezielt nach Bildern unter Creative-Commons-Lizenzen suchen können.
 
-Bildrepositorys wie [Flickr](https://flickr.com/), [ShutterStock](https://www.shutterstock.com/) und [Pixabay](https://pixabay.com/) haben Suchoptionen, die es Ihnen ermöglichen, gezielt nach erlaubten Bildern zu suchen. Einige Seiten verteilen ausschließlich erlaubte Bilder und Symbole, wie [Picryl](https://picryl.com/) und [The Noun Project](https://thenounproject.com/).
+Bildrepositorien, wie Flickr, ShutterStock und Pixabay, haben Suchoptionen, die es Ihnen erlauben, nur nach permissiv lizenzierten Bildern zu suchen. Einige Seiten vertreiben ausschließlich permissiv lizenzierte Bilder und Icons, wie Picryl und The Noun Project.
 
-Die Einhaltung der Lizenz, unter der das Bild freigegeben wurde, besteht daraus, die Lizenzdetails zu finden, die Lizenz oder die Anweisungsseite, die von der Quelle bereitgestellt wird, zu lesen und dann diesen Anweisungen zu folgen. Seriöse Bildrepositorys machen ihre Lizenzbedingungen klar und einfach zu finden.
+Die Einhaltung der Lizenz, unter der das Bild veröffentlicht wurde, ist eine Frage des Findens der Lizenzdetails, Lesens der auf der Quellseite bereitgestellten Lizenz oder Anweisungsseite und Befolgung dieser Anweisungen. Seriöse Bildrepositorien legen ihre Lizenzbedingungen klar und leicht auffindbar dar.
 
-## Bilder mit Figuren und Bildunterschriften versehen
+## Bilder mit Figure und Bildunterschriften annotieren
 
-Apropos Bildunterschriften, es gibt mehrere Möglichkeiten, wie Sie eine Bildunterschrift zu Ihrem Bild hinzufügen könnten. Es würde zum Beispiel nichts dagegen sprechen, dies zu tun:
+Apropos Bildunterschriften: Es gibt mehrere Möglichkeiten, eine Bildunterschrift zu Ihrem Bild hinzuzufügen. Zum Beispiel würde nichts dagegen sprechen, dies zu tun:
 
 ```html
 <div class="figure">
@@ -330,9 +333,9 @@ Apropos Bildunterschriften, es gibt mehrere Möglichkeiten, wie Sie eine Bildunt
 </div>
 ```
 
-Das ist in Ordnung. Es enthält den benötigten Inhalt und ist schön mit CSS stylbar. Aber es gibt hier ein Problem: Es gibt nichts, das das Bild semantisch mit seiner Bildunterschrift verknüpft, was Probleme für Screenreader verursachen kann. Zum Beispiel, wenn Sie 50 Bilder und Bildunterschriften haben, welche Bildunterschrift gehört zu welchem Bild?
+Das ist in Ordnung. Es enthält den Inhalt, den Sie benötigen, und ist hübsch mit CSS stylbar. Doch hier gibt es ein Problem: Es gibt nichts, das das Bild semantisch mit seiner Beschriftung verknüpft, was für Screenreader problematisch sein kann. Wenn Sie zum Beispiel 50 Bilder und Beschriftungen haben, welche Beschriftung gehört zu welchem Bild?
 
-Eine bessere Lösung ist die Verwendung der HTML-{{htmlelement("figure")}} und {{htmlelement("figcaption")}}-Elemente. Diese wurden genau für diesen Zweck erstellt: um einen semantischen Container für Figuren bereitzustellen und die Figur klar mit der Bildunterschrift zu verknüpfen. Unser obiges Beispiel könnte so umgeschrieben werden:
+Eine bessere Lösung besteht darin, die HTML-Elemente {{htmlelement("figure")}} und {{htmlelement("figcaption")}} zu verwenden. Diese wurden genau für diesen Zweck erstellt: um einen semantischen Container für Figuren bereitzustellen und die Figur klar mit der Bildunterschrift zu verknüpfen. Unser obiges Beispiel könnte so umgeschrieben werden:
 
 ```html
 <figure>
@@ -349,28 +352,28 @@ Eine bessere Lösung ist die Verwendung der HTML-{{htmlelement("figure")}} und {
 </figure>
 ```
 
-Das {{htmlelement("figcaption")}}-Element sagt Browsern und Hilfstechnologien, dass die Bildunterschrift den anderen Inhalt des {{htmlelement("figure")}}-Elements beschreibt.
+Das {{htmlelement("figcaption")}}-Element sagt Browsern und unterstützender Technologie, dass die Bildunterschrift den anderen Inhalt des {{htmlelement("figure")}}-Elements beschreibt.
 
 > [!NOTE]
-> Aus einer Perspektive der Barrierefreiheit erfüllen Bildunterschriften und [`alt`](/de/docs/Web/HTML/Reference/Elements/img#alt)-Text unterschiedliche Rollen. Bildunterschriften sind auch für Menschen von Vorteil, die das Bild sehen können, während [`alt`](/de/docs/Web/HTML/Reference/Elements/img#alt)-Text dieselbe Funktion wie ein abwesendes Bild bietet. Daher sollten Bildunterschriften und `alt`-Text nicht einfach dasselbe sagen, weil sie beide erscheinen, wenn das Bild fehlt. Versuchen Sie, Bilder in Ihrem Browser zu deaktivieren, und sehen Sie, wie es aussieht.
+> Aus Sicht der Zugänglichkeit haben Bildunterschriften und [`alt`](/de/docs/Web/HTML/Reference/Elements/img#alt)-Text unterschiedliche Rollen. Bildunterschriften nützen sogar Personen, die das Bild sehen können, während [`alt`](/de/docs/Web/HTML/Reference/Elements/img#alt)-Text dieselbe Funktionalität wie ein fehlendes Bild bietet. Daher sollten Bildunterschriften und `alt`-Text nicht dasselbe sagen, da sie beide erscheinen, wenn das Bild fehlt. Versuchen Sie, Bilder in Ihrem Browser zu deaktivieren und zu sehen, wie es aussieht.
 
-Eine Figur muss kein Bild sein. Es ist eine eigenständige Einheit von Inhalten, die:
+Eine Figur muss kein Bild sein. Es ist eine unabhängige Einheit von Inhalt, die:
 
-- Ihren Sinn kompakt und leicht verständlich ausdrückt.
-- An mehreren Stellen im linearen Fluss der Seite stehen könnte.
-- Wesentliche Informationen liefert, die den Haupttext unterstützen.
+- Ihre Bedeutung in einer kompakten, leicht zu erfassenden Weise darstellt.
+- An mehreren Stellen im linearen Fluss der Seite eingesetzt werden könnte.
+- Wichtige Informationen bereitstellt, die den Haupttext unterstützen.
 
-Eine Figur könnte mehrere Bilder, einen Codeausschnitt, Audio, Video, Gleichungen, eine Tabelle oder etwas anderes sein.
+Eine Figur könnte mehrere Bilder, einen Code-Snippet, Audio, Video, Gleichungen, eine Tabelle oder etwas anderes sein.
 
 ### Eine Figur erstellen
 
 In dieser Aufgabe möchten wir, dass Sie den fertigen Code aus der vorherigen Aufgabe als Ausgangspunkt nehmen und ihn in eine Figur verwandeln:
 
 1. Klicken Sie auf **"Play"** im Codeblock unten, um das Beispiel im MDN Playground zu bearbeiten.
-2. Platzieren Sie das `<img>`-Element in einem {{htmlelement("figure")}}-Element.
-3. Kopieren Sie den Text aus dem `title`-Attribut, legen Sie ihn in ein {{htmlelement("figcaption")}}-Element unter das `<img>`-Element und entfernen Sie das `title`-Attribut.
+2. Umschließen Sie das `<img>`-Element mit einem {{htmlelement("figure")}}-Element.
+3. Kopieren Sie den Text aus dem `title`-Attribut, setzen Sie ihn in ein {{htmlelement("figcaption")}}-Element unterhalb des `<img>`-Elements, und entfernen Sie dann das `title`-Attribut.
 
-Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_-Button im MDN Playground löschen. Wenn Sie wirklich nicht weiterkommen, können Sie die Lösung unter dem Code block anzeigen.
+Wenn Sie einen Fehler machen, können Sie Ihre Arbeit durch Klicken auf den _Reset_-Button im MDN Playground löschen. Wenn Sie wirklich hängen bleiben, können Sie die Lösung unter dem Codeblock ansehen.
 
 ```html live-sample___images-2
 <img
@@ -386,7 +389,7 @@ Wenn Sie einen Fehler machen, können Sie Ihre Arbeit mit dem _Reset_-Button im 
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Ihr fertiges HTML sollte so aussehen:
+Ihr fertiges HTML sollte folgendermaßen aussehen:
 
 ```html
 <figure>
@@ -405,7 +408,7 @@ Ihr fertiges HTML sollte so aussehen:
 
 ## CSS-Hintergrundbilder
 
-Sie können auch CSS verwenden, um Bilder in Webseiten einzubetten (und JavaScript, aber das ist eine ganz andere Geschichte). Die CSS-{{cssxref("background-image")}}-Eigenschaft und die anderen `background-*`-Eigenschaften werden verwendet, um die Platzierung von Hintergrundbildern zu steuern. Zum Beispiel, um ein Hintergrundbild auf jedem Absatz einer Seite zu platzieren, könnten Sie dies tun:
+Sie können auch CSS verwenden, um Bilder in Webseiten einzubetten (und JavaScript, aber das ist eine ganz andere Geschichte). Die CSS-Eigenschaft {{cssxref("background-image")}} und die anderen `background-*`-Eigenschaften werden verwendet, um die Platzierung von Hintergrundbildern zu steuern. Um beispielsweise auf jeder Seite ein Hintergrundbild auf jeden Absatz zu setzen, könnten Sie Folgendes tun:
 
 ```css
 p {
@@ -413,14 +416,14 @@ p {
 }
 ```
 
-Das resultierende eingebettete Bild ist zweifellos leichter zu positionieren und zu steuern als HTML-Bilder. Warum also mit HTML-Bildern belästigen? Wie oben angedeutet, sind CSS-Hintergrundbilder nur zur Dekoration gedacht. Wenn Sie lediglich etwas Hübsches zu Ihrer Seite hinzufügen möchten, um die Optik zu verbessern, ist das in Ordnung. Solche Bilder haben jedoch keinerlei semantische Bedeutung. Sie können kein Textäquivalent haben, sind für Screenreader unsichtbar, und so weiter. Genau hier glänzen HTML-Bilder!
+Das eingebettete Bild ist wohl einfacher zu positionieren und zu steuern als HTML-Bilder. Warum sich also mit HTML-Bildern beschäftigen? Wie oben angedeutet, sind CSS-Hintergrundbilder nur für Dekoration gedacht. Wenn Sie einfach etwas Schönes zu Ihrer Seite hinzufügen möchten, um die Optik zu verbessern, ist das in Ordnung. Solche Bilder haben jedoch überhaupt keine semantische Bedeutung. Sie können keine Textequivalente haben, sind für Screenreader unsichtbar und so weiter. Hier glänzen HTML-Bilder!
 
-Zusammenfassend: Wenn ein Bild in Bezug auf Ihren Inhalt eine Bedeutung hat, sollten Sie ein HTML-Bild verwenden. Wenn ein Bild nur zur Dekoration dient, sollten Sie CSS-Hintergrundbilder verwenden (wir werden diese später in den Kernmodulen im Detail behandeln).
+Zusammenfassend: Wenn ein Bild in Bezug auf Ihren Inhalt eine Bedeutung hat, sollten Sie ein HTML-Bild verwenden. Wenn ein Bild reine Dekoration ist, sollten Sie CSS-Hintergrundbilder verwenden (wir werden diese später in den Kernmodulen im Detail behandeln).
 
 ## Zusammenfassung
 
-Das war's fürs Erste. Wir haben Bilder und Bildunterschriften ausführlich behandelt.
+Das ist alles für jetzt. Wir haben Bilder und Bildunterschriften im Detail behandelt.
 
-Im nächsten Artikel werden wir Ihnen einige Tests anbieten, mit denen Sie überprüfen können, wie gut Sie die Informationen zu HTML-Bildern verstanden und behalten haben, die wir bereitgestellt haben.
+Im nächsten Artikel werden wir Ihnen einige Tests vorstellen, die Sie verwenden können, um zu überprüfen, wie gut Sie die Informationen zu HTML-Bildern, die wir Ihnen bereitgestellt haben, verstanden und behalten haben.
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/Structuring_a_page_of_content", "Learn_web_development/Core/Structuring_content/Test_your_skills/Images", "Learn_web_development/Core/Structuring_content")}}

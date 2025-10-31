@@ -2,14 +2,14 @@
 title: CSS paged media
 slug: Web/CSS/CSS_paged_media
 l10n:
-  sourceCommit: 016ecd8ccaed866c4d8d995fb18379c6e48f3b50
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das Modul **CSS paged media** definiert die Eigenschaften, die die Darstellung von Inhalten für den Druck oder andere Medien steuern, die Inhalte in diskrete Seiten unterteilen. Es ermöglicht Ihnen, Seitenumbrüche festzulegen, druckbare Bereiche zu steuern und linke und rechte Seiten unterschiedlich zu gestalten.
+Das **CSS paged media**-Modul definiert die Eigenschaften, die die Präsentation von Inhalten für Druckmedien oder andere Medien steuern, die Inhalte in einzelne Seiten unterteilen. Es ermöglicht Ihnen, Seitenumbrüche festzulegen, druckbare Bereiche zu kontrollieren und linke und rechte Seiten unterschiedlich zu gestalten.
 
-Das CSS-Paged-Media-Modul gibt an, wie Seiten generiert und gestaltet werden, um fragmentierte Inhalte in einer Seitendarstellung zu halten, einschließlich Inhalten, die gedruckt oder als Druckvorschau dargestellt werden. Das Modul definiert Funktionalitäten zur Steuerung von Seitenrändern, Größe, Ausrichtung sowie Kopf- und Fußzeilen. Es erweitert [generierte Inhalte](/de/docs/Web/CSS/CSS_generated_content) und bietet Funktionen zur Generierung von Seitennummern und laufenden Kopf- und Fußzeilen.
+Das CSS paged media Modul gibt an, wie Seiten erstellt und gestaltet werden, um fragmentierte Inhalte in einer Seitenpräsentation darzustellen, einschließlich Inhalte, die gedruckt oder als Druckvorschau angezeigt werden. Das Modul definiert Funktionen zur Steuerung von Seitenrändern, Größe, Ausrichtung und Kopf- und Fußzeilen. Es erweitert [generierten Inhalt](/de/docs/Web/CSS/CSS_generated_content), um Funktionen zum Generieren von Seitenzahlen und laufenden Kopf- und Fußzeilen bereitzustellen.
 
-Der Prozess der Paginierung von Inhalten in generierte Seiten und der Kontrolle von Umbrüchen innerhalb von Elementen wird im [CSS-Fragmentierungsmodul](/de/docs/Web/CSS/CSS_fragmentation) behandelt.
+Der Prozess, Inhalte in generierte Seiten zu paginieren und Umbrüche innerhalb von Elementen zu steuern, wird im [CSS-Fragmentierungsmodul](/de/docs/Web/CSS/CSS_fragmentation) behandelt.
 
 ## Referenz
 
@@ -22,10 +22,10 @@ Der Prozess der Paginierung von Inhalten in generierte Seiten und der Kontrolle 
 - {{cssxref("@page")}}
   - {{cssxref("@page/page-orientation", "page-orientation")}} Deskriptor
   - {{cssxref("@page/size", "size")}} Deskriptor
-  - [Rand-Deskriptoren](/de/docs/Web/CSS/margin)
-- [Rand-At-Regeln](/de/docs/Web/CSS/@page#margin_at-rules)
+  - [Margin-Deskriptoren](/de/docs/Web/CSS/Reference/Properties/margin)
+- [Margin-At-Regeln](/de/docs/Web/CSS/@page#margin_at-rules)
 
-Das CSS-Paged-Media-Modul führt auch die Deskriptoren `bleeds` und `marks` der `@page`-At-Regel ein. Derzeit unterstützen keine Browser diese Funktionen.
+Das CSS paged media Modul führt auch die Deskriptoren `bleeds` und `marks` der `@page`-At-Regel ein. Derzeit unterstützen keine Browser diese Funktionen.
 
 ### Pseudo-Klassen
 
@@ -37,7 +37,7 @@ Das CSS-Paged-Media-Modul führt auch die Deskriptoren `bleeds` und `marks` der 
 ## Leitfäden
 
 - [Drucken](/de/docs/Web/CSS/CSS_media_queries/Printing)
-  - : Tipps und Techniken, um die Druckausgabe von Webinhalten zu verbessern.
+  - : Tipps und Techniken zur Verbesserung der Druckausgabe von Webinhalten.
 
 ## Verwandte Konzepte
 

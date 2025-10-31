@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`var()`**-Funktion von [CSS](/de/docs/Web/CSS) kann verwendet werden, um den Wert einer [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) (manchmal auch "CSS-Variable" genannt) anstelle eines beliebigen Teils eines Werts einer anderen Eigenschaft einzufügen.
+Die **`var()`**-Funktion von [CSS](/de/docs/Web/CSS) kann verwendet werden, um den Wert einer [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) (manchmal auch "CSS-Variable" genannt) anstelle eines beliebigen Teils eines Werts einer anderen Eigenschaft einzufügen.
 
 {{InteractiveExample("CSS Demo: var()")}}
 

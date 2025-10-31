@@ -3,17 +3,17 @@ title: "RTCInboundRtpStreamStats: framesDecoded-Eigenschaft"
 short-title: framesDecoded
 slug: Web/API/RTCInboundRtpStreamStats/framesDecoded
 l10n:
-  sourceCommit: 9dd28ca3964213e0564c80db0a7c39d8ad73ed72
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`framesDecoded`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs gibt die Gesamtanzahl der Videobilder an, die erfolgreich für diese Medienquelle decodiert wurden.
+Die **`framesDecoded`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs gibt die Gesamtzahl der Videoframes an, die für diese Medienquelle erfolgreich decodiert wurden.
 
-Dies repräsentiert die Anzahl der Bilder, die angezeigt worden wären, vorausgesetzt, es wurden keine Bilder übersprungen.
+Dies repräsentiert die Anzahl der Frames, die angezeigt worden wären, sofern keine Frames übersprungen wurden.
 
 > [!NOTE]
-> Die Eigenschaft ist für Audiostreams nicht definiert.
+> Die Eigenschaft ist für Audiostreams undefiniert.
 
 ## Wert
 

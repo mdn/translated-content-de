@@ -3,18 +3,18 @@ title: "ConstantSourceNode: offset-Eigenschaft"
 short-title: offset
 slug: Web/API/ConstantSourceNode/offset
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die schreibgeschützte `offset`-Eigenschaft der [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode)-Schnittstelle gibt ein [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekt zurück, das den numerischen [a-rate](/de/docs/Web/API/AudioParam#a-rate)-Wert angibt, der von der Quelle immer zurückgegeben wird, wenn nach dem nächsten Sample gefragt wird.
+Die schreibgeschützte `offset`-Eigenschaft der [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode)-Schnittstelle gibt ein [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekt zurück, das den numerischen [a-rate](/de/docs/Web/API/AudioParam#a-rate)-Wert angibt, der immer von der Quelle zurückgegeben wird, wenn der nächste Sample angefordert wird.
 
 > [!NOTE]
-> Während das `AudioParam` namens `offset` schreibgeschützt ist, ist es die
+> Während das `AudioParam` namens `offset` schreibgeschützt ist, ist die
 > `value`-Eigenschaft darin nicht. Sie können also den Wert von
 > `offset` ändern, indem Sie den Wert von
-> `ConstantSourceNode.offset.value` festlegen:
+> `ConstantSourceNode.offset.value` setzen:
 >
 > ```js
 > myConstantSourceNode.offset.value = newValue;
@@ -22,16 +22,15 @@ Die schreibgeschützte `offset`-Eigenschaft der [`ConstantSourceNode`](/de/docs/
 
 ## Wert
 
-Ein [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekt, das den [a-rate](/de/docs/Web/API/AudioParam#a-rate)-Wert angibt, der für jedes
-Sample von diesem Knoten zurückgegeben wird. Der Standardwert ist 1,0.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam)-Objekt, das den [a-rate](/de/docs/Web/API/AudioParam#a-rate)-Wert angibt, der von diesem Knoten für jeden
+Sample zurückgegeben wird. Der Standardwert ist 1.0.
 
-Um den aktuellen Wert des `offset`-Parameters abzurufen, greifen Sie auf die `value`-Eigenschaft des Parameters zu, wie im obigen Syntaxkasten gezeigt.
+Um den aktuellen Wert des `offset`-Parameters zuzugreifen, greifen Sie über die `value`-Eigenschaft des Parameters zu, wie im obigen Syntaxkasten gezeigt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie man einen `ConstantSourceNode` einrichtet, sodass dessen
-`offset` als Eingabe für ein Paar [`GainNode`](/de/docs/Web/API/GainNode)s verwendet wird; dieses
-Code-Snippet stammt aus dem vollständigen Beispiel, das Sie unter [Controlling multiple parameters with ConstantSourceNode](/de/docs/Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode) finden können.
+Dieses Beispiel zeigt, wie man eine `ConstantSourceNode` einrichtet, sodass deren
+`offset` als Eingabe für ein Paar von [`GainNode`](/de/docs/Web/API/GainNode)s verwendet wird; dieser Code-Ausschnitt stammt aus dem vollständigen Beispiel, das Sie in [Steuerung mehrerer Parameter mit ConstantSourceNode](/de/docs/Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode) finden können.
 
 ```js
 gainNode2 = context.createGain();
@@ -45,11 +44,11 @@ constantSource.connect(gainNode2.gain);
 constantSource.connect(gainNode3.gain);
 ```
 
-Zuerst werden die Gain-Knoten erstellt und konfiguriert, und der Wert eines Schieberegler-Steuerelements wird so eingestellt, dass er dem Gain auf den beiden Knoten entspricht. Dann erstellen wir einen neuen
-[`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) und machen ihn zur Quelle für die `GainNode.gain`-Werte der beiden Gain-Knoten. Jeder dieser Werte ist auch ein
+Zuerst werden die Gain-Knoten erstellt und konfiguriert, und der Wert eines Schiebereglers wird so gesetzt, dass er mit dem Gain auf den beiden Knoten übereinstimmt. Dann erstellen wir eine neue
+[`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) und machen sie zur Quelle für die `[`GainNode.gain`](/de/docs/Web/API/GainNode/gain)` Werte der beiden Gain-Knoten. Jeder dieser Werte ist ebenfalls ein
 [`AudioParam`](/de/docs/Web/API/AudioParam).
 
-Angenommen, wir haben einen Ereignishandler (für [`click`](/de/docs/Web/API/Element/click_event)-Ereignisse in diesem Fall), der darauf reagieren muss, indem er den Wert der beiden Gain-Knoten ändert. Mit der obigen Verbindung kann dies mit diesem einfachen Ereignishandler geschehen:
+Angenommen, wir haben einen Ereignishandler (für [`click`](/de/docs/Web/API/Element/click_event)-Ereignisse in diesem Fall), der darauf reagieren muss, indem er den Wert der beiden Gain-Knoten ändert. Bei der oben genannten Verknüpfung kann dies mit diesem einfachen Ereignishandler geschehen:
 
 ```js
 function handleClickEvent(event) {
@@ -57,7 +56,7 @@ function handleClickEvent(event) {
 }
 ```
 
-Alles, was diese Funktion tun muss, ist, den aktuellen Wert des Schieberegler-Steuerelements abzurufen, das wir verwenden, um die Gains der gepaarten Knoten zu steuern, und diesen Wert dann im `offset`-Parameter des `ConstantSourceNode` zu speichern. Dies geschieht durch Ändern des Inhalts seiner [`AudioParam.value`](/de/docs/Web/API/AudioParam/value)-Eigenschaft. Die beiden Gain-Knoten übernehmen schnell das neue Lautstärkeniveau.
+Alles, was diese Funktion tun muss, ist den aktuellen Wert der Schiebereglersteuerung abzurufen, die wir zur Steuerung der Gains der gekoppelten Knoten verwenden, und dann diesen Wert in den `offset`-Parameter der `ConstantSourceNode` zu speichern. Dies geschieht, indem der Inhalt seiner [`AudioParam.value`](/de/docs/Web/API/AudioParam/value)-Eigenschaft geändert wird. Die beiden Gain-Knoten übernehmen schnell den neuen Lautstärkepegel.
 
 ## Spezifikationen
 

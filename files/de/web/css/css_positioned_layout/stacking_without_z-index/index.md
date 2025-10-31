@@ -3,22 +3,22 @@ title: Stapeln ohne die z-index-Eigenschaft
 short-title: Stapeln ohne z-index
 slug: Web/CSS/CSS_positioned_layout/Stacking_without_z-index
 l10n:
-  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Wenn die {{cssxref("z-index")}}-Eigenschaft für ein Element nicht angegeben ist, werden die Elemente in der folgenden Reihenfolge gestapelt (von unten nach oben):
+Wenn die {{cssxref("z-index")}}-Eigenschaft auf keinem Element angegeben ist, werden die Elemente in folgender Reihenfolge gestapelt (von unten nach oben):
 
-1. Der Hintergrund und die Ränder des Wurzelelements.
-2. Nachfolgende nicht positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
-3. Nachfolgende positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
+1. Der Hintergrund und die Rahmen des Wurzelelements.
+2. Nachfahren, die nicht positioniert sind, in der Reihenfolge ihres Erscheinens im HTML.
+3. Nachfahren, die positioniert sind, in der Reihenfolge ihres Erscheinens im HTML.
 
-Siehe [Arten des Positionierens](/de/docs/Web/CSS/position#types_of_positioning) für eine Erklärung von positionierten und nicht positionierten Elementen.
+Sehen Sie sich [Arten der Positionierung](/de/docs/Web/CSS/Reference/Properties/position#types_of_positioning) für eine Erklärung zu positionierten und nicht positionierten Elementen an.
 
-Beachten Sie, dass, wenn die {{cssxref("order")}}-Eigenschaft das Rendering von der _Reihenfolge des Auftretens im HTML_ innerhalb von {{cssxref("flex")}}-Containern ändert, dies ebenfalls die Reihenfolge für den Stapelkontext beeinflusst.
+Beachten Sie, wenn die {{cssxref("order")}}-Eigenschaft die Darstellung von der _Reihenfolge im HTML_ in {{cssxref("flex")}}-Container ändert, beeinflusst dies ebenso die Reihenfolge für den Stapelkontext.
 
 ## Beispiel
 
-In diesem Beispiel sind DIV #1 bis DIV #4 positionierte Elemente. DIV #5 ist statisch und wird daher unterhalb der anderen vier Elemente gezeichnet, obwohl es später im HTML-Markup erscheint.
+In diesem Beispiel sind DIV #1 bis DIV #4 positionierte Elemente. DIV #5 ist statisch und wird daher unterhalb der anderen vier Elemente gezeichnet, auch wenn es später im HTML-Markup erscheint.
 
 ### HTML
 
@@ -110,8 +110,8 @@ div {
 
 ## Siehe auch
 
-- [Verständnis von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
+- [z-index verstehen](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
 - [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index)
-- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- [Stapeln von Float-Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
-- Modul [CSS-Positionierungslayout](/de/docs/Web/CSS/CSS_positioned_layout)
+- [Stapeln von Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
+- [Stapeln von schwebenden Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
+- [CSS-Positionierungs-Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul

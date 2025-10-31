@@ -1,42 +1,42 @@
 ---
 title: Verwendung von CSS-Übergängen
-short-title: Verwenden von Übergängen
+short-title: Verwendung von Übergängen
 slug: Web/CSS/CSS_transitions/Using_CSS_transitions
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-**CSS-Übergänge** bieten eine Möglichkeit, die Animationsgeschwindigkeit bei der Änderung von CSS-Eigenschaften zu steuern. Anstatt dass sich Eigenschaftsänderungen sofort auswirken, können Sie die Änderungen einer Eigenschaft über einen Zeitraum hinweg stattfinden lassen. Wenn Sie zum Beispiel die Farbe eines Elements von Weiß nach Schwarz ändern, erfolgt die Änderung normalerweise sofort. Mit aktivierten CSS-Übergängen erfolgen die Änderungen in Zeitintervallen, die einer Beschleunigungskurve folgen, die alle angepasst werden können.
+**CSS-Übergänge** bieten eine Möglichkeit, die Animationsgeschwindigkeit beim Ändern von CSS-Eigenschaften zu steuern. Anstatt dass sich Eigenschaftsänderungen sofort auswirken, können Sie die Änderungen einer Eigenschaft über einen bestimmten Zeitraum erfolgen lassen. Wenn Sie beispielsweise die Farbe eines Elements von Weiß zu Schwarz ändern, erfolgt die Änderung normalerweise sofort. Mit aktivierten CSS-Übergängen treten Änderungen in Zeitabständen auf, die einer Beschleunigungskurve folgen, die alle angepasst werden können.
 
-Animationen, die den Wechsel zwischen zwei Zuständen beinhalten, werden oft als _implizite Übergänge_ bezeichnet, da die Zustände zwischen dem Start- und dem Endzustand implizit vom Browser definiert werden.
+Animationen, die das Übergehen zwischen zwei Zuständen beinhalten, werden oft als _implizite Übergänge_ bezeichnet, da die dazwischenliegenden Zustände vom Browser implizit definiert werden.
 
-![Ein CSS-Übergang weist den Browser an, die Zwischenzustände zwischen den Anfangs- und den Endzuständen zu zeichnen, wodurch dem Benutzer eine reibungslose Übergänge angezeigt werden.](transitionsprinciple.png)
+![Ein CSS-Übergang sagt dem Browser, dass er die Zwischenzustände zwischen den Anfangs- und Endzuständen zeichnen soll, und zeigt dem Benutzer einen sanften Übergang.](transitionsprinciple.png)
 
-CSS-Übergänge lassen Sie entscheiden, welche Eigenschaften animiert werden sollen (indem Sie [_diese ausdrücklich auflisten_](/de/docs/Web/CSS/transition-property)), wann die Animation beginnen soll (indem Sie eine [_Verzögerung_](/de/docs/Web/CSS/transition-delay) einstellen), wie lange der Übergang dauern wird (indem Sie eine [_Dauer_](/de/docs/Web/CSS/transition-duration) einstellen), und wie der Übergang ablaufen soll (indem Sie eine [_Beschleunigungsfunktion_](/de/docs/Web/CSS/transition-timing-function) definieren, z.B. linear oder schnell am Anfang, langsam am Ende).
+CSS-Übergänge ermöglichen es Ihnen zu entscheiden, welche Eigenschaften animiert werden sollen (indem sie [_explizit aufgelistet werden_](/de/docs/Web/CSS/Reference/Properties/transition-property)), wann die Animation starten soll (indem eine [_Verzögerung_](/de/docs/Web/CSS/Reference/Properties/transition-delay) festgelegt wird), wie lange der Übergang dauern soll (indem eine [_Dauer_](/de/docs/Web/CSS/Reference/Properties/transition-duration) festgelegt wird) und wie der Übergang ablaufen soll (indem eine [_Easing-Funktion_](/de/docs/Web/CSS/Reference/Properties/transition-timing-function) definiert wird, z. B. linear oder schnell am Anfang, langsam am Ende).
 
 ## Welche CSS-Eigenschaften können übergangen werden?
 
-Der Webautor kann definieren, welche Eigenschaft animiert werden soll und auf welche Weise. Dies ermöglicht die Erstellung komplexer Übergänge. Einige Eigenschaften sind jedoch [nicht animierbar](/de/docs/Web/CSS/CSS_animated_properties), da es keinen Sinn ergibt, sie zu animieren.
+Der Webautor kann festlegen, welche Eigenschaft animiert werden soll und auf welche Weise. Dies ermöglicht die Erstellung komplexer Übergänge. Einige Eigenschaften sind jedoch [nicht animierbar](/de/docs/Web/CSS/CSS_animated_properties), da es keinen Sinn macht, sie zu animieren.
 
 > [!NOTE]
-> Der Wert `auto` ist oft ein sehr komplexer Fall. Die Spezifikation empfiehlt, nicht von und zu `auto` zu animieren. Einige Benutzeragenten, wie die auf Gecko basierenden, implementieren diese Anforderung, während andere, wie die auf WebKit basierenden, weniger streng sind. Die Verwendung von Animationen mit `auto` kann je nach Browser und Version zu unvorhersehbaren Ergebnissen führen und sollte vermieden werden.
+> Der `auto`-Wert ist häufig ein sehr komplexer Fall. Die Spezifikation empfiehlt, nicht von und zu `auto` zu animieren. Einige User-Agents, wie die auf Gecko basierenden, implementieren diese Anforderung, während andere, wie die auf WebKit basierenden, weniger strikt sind. Die Verwendung von Animationen mit `auto` kann zu unvorhersehbaren Ergebnissen führen, abhängig vom Browser und seiner Version, und sollte vermieden werden.
 
-## Definieren von Übergängen
+## Definition von Übergängen
 
-CSS-Übergänge werden mittels der Kurzformeigenschaft {{cssxref("transition")}} gesteuert. Dies ist der beste Weg, um Übergänge zu konfigurieren, da es einfacher ist, asynchrone Parameter zu vermeiden, die sehr frustrierend sein können und viel Zeit zum Debuggen in CSS erfordern.
+CSS-Übergänge werden mit der Kurzform {{cssxref("transition")}} Eigenschaft gesteuert. Dies ist die beste Möglichkeit, Übergänge zu konfigurieren, da sie es einfacher macht, nicht synchronisierte Parameter zu vermeiden, was sehr frustrierend sein kann, wenn man viel Zeit mit dem Debuggen in CSS verbringen muss.
 
 Sie können die einzelnen Komponenten des Übergangs mit den folgenden Untereigenschaften steuern:
 
 - {{cssxref("transition-property")}}
-  - : Gibt den Namen oder die Namen der CSS-Eigenschaften an, auf die Übergänge angewendet werden sollen. Nur die hier aufgeführten Eigenschaften werden während der Übergänge animiert; Änderungen an allen anderen Eigenschaften erfolgen wie gewohnt sofort.
+  - : Gibt den Namen oder die Namen der CSS-Eigenschaften an, auf die Übergänge angewendet werden sollen. Während der Übergänge werden nur die hier aufgeführten Eigenschaften animiert; Änderungen an allen anderen Eigenschaften erfolgen wie gewohnt sofort.
 - {{cssxref("transition-duration")}}
-  - : Gibt die Dauer an, über die die Übergänge stattfinden sollen. Sie können eine einzelne Dauer angeben, die für alle Eigenschaften während des Übergangs gilt, oder mehrere Werte, um jeder Eigenschaft zu ermöglichen, über einen anderen Zeitraum zu wechseln.
+  - : Gibt die Dauer an, über die Übergänge erfolgen sollen. Sie können eine einzelne Dauer angeben, die für alle Eigenschaften während des Übergangs gilt, oder mehrere Werte, damit jede Eigenschaft über einen anderen Zeitraum übergeht.
 - {{cssxref("transition-timing-function")}}
-  - : Gibt eine Funktion an, um zu definieren, wie Zwischenwerte für Eigenschaften berechnet werden. _Beschleunigungsfunktionen_ bestimmen, wie Zwischenwerte des Übergangs berechnet werden. Die meisten [Beschleunigungsfunktionen](/de/docs/Web/CSS/easing-function) können angegeben werden, indem Sie das Diagramm der entsprechenden Funktion bereitstellen, wie es durch vier Punkte definiert ist, die eine kubische Bezier definieren. Sie können auch eine Auswahl aus dem [Easing functions cheat sheet](https://easings.net/) treffen.
+  - : Gibt eine Funktion an, um zu definieren, wie Zwischenwerte für Eigenschaften berechnet werden. _Easing-Funktionen_ bestimmen, wie Zwischenwerte des Übergangs berechnet werden. Die meisten [Easing-Funktionen](/de/docs/Web/CSS/easing-function) können angegeben werden, indem man den Graphen der entsprechenden Funktion bereitstellt, definiert durch vier Punkte, die eine kubische Bezier definieren. Sie können auch die Easing-Funktionen aus dem [Easing-Funktionen Spickzettel](https://easings.net/) wählen.
 - {{cssxref("transition-delay")}}
-  - : Bestimmt, wie lange gewartet werden soll, bis eine Eigenschaft geändert wird und der Übergang tatsächlich beginnt.
+  - : Definiert, wie lange zu warten ist zwischen dem Zeitpunkt, an dem eine Eigenschaft geändert wird, und dem eigentlichen Beginn des Übergangs.
 
-Die CSS-Syntax der Kurzform `transition` wird wie folgt geschrieben:
+Die Kurzform-CSS-Syntax `transition` wird wie folgt geschrieben:
 
 ```plain
 transition: <property> <duration> <timing-function> <delay>;
@@ -46,7 +46,7 @@ transition: <property> <duration> <timing-function> <delay>;
 
 ### Einfaches Beispiel
 
-Dieses Beispiel führt eine viersekündige Schriftgrößenänderung mit einer zweisekündigen Verzögerung aus, zwischen dem Zeitpunkt, an dem der Benutzer das Element mit der Maus überfährt, und dem Beginn des Animationseffekts:
+Dieses Beispiel führt einen Schriftgrößenübergang über vier Sekunden mit einer zweisekündigen Verzögerung aus, die zwischen dem Zeitpunkt besteht, an dem der Benutzer mit der Maus über das Element fährt, und dem Beginn des Animationseffekts:
 
 ```css
 #delay {
@@ -102,7 +102,7 @@ Dieses Beispiel führt eine viersekündige Schriftgrößenänderung mit einer zw
 
 ### Wenn Eigenschaftswerte-Listen unterschiedliche Längen haben
 
-Falls die Liste der Werte einer Eigenschaft kürzer ist als die anderer, werden ihre Werte wiederholt, um sie abzugleichen. Zum Beispiel:
+Wenn die Liste der Werte einer Eigenschaft kürzer ist als die anderer, werden ihre Werte wiederholt, um sie anzupassen. Zum Beispiel:
 
 ```css
 div {
@@ -111,7 +111,7 @@ div {
 }
 ```
 
-Dies wird so behandelt, als ob es wäre:
+Dies wird behandelt, als wäre es:
 
 ```css
 div {
@@ -120,7 +120,7 @@ div {
 }
 ```
 
-Ebenso wird, wenn die Werteliste einer Eigenschaft länger ist als die für {{cssxref("transition-property")}}, diese abgeschnitten, sodass der folgende CSS-Code:
+Ebenso, wenn die Werteliste einer Eigenschaft länger ist als die für {{cssxref("transition-property")}}, wird sie gekürzt. Wenn Sie also folgendes CSS haben:
 
 ```css
 div {
@@ -129,7 +129,7 @@ div {
 }
 ```
 
-wie folgt interpretiert wird:
+Dies wird interpretiert als:
 
 ```css
 div {
@@ -138,9 +138,9 @@ div {
 }
 ```
 
-### Verwendung von Übergängen beim Hervorheben von Menüs
+### Übergänge beim Hervorheben von Menüs
 
-Eine häufige Verwendung von CSS ist das Hervorheben von Elementen in einem Menü, wenn der Benutzer den Mauszeiger darüber bewegt. Es ist einfach, Übergänge zu nutzen, um den Effekt noch attraktiver zu gestalten.
+Eine häufige Verwendung von CSS ist das Hervorheben von Elementen in einem Menü, wenn der Benutzer den Mauszeiger darüber bewegt. Es ist einfach, Übergänge zu verwenden, um den Effekt noch ansprechender zu gestalten.
 
 Zuerst richten wir das Menü mit HTML ein:
 
@@ -153,7 +153,7 @@ Zuerst richten wir das Menü mit HTML ein:
 </nav>
 ```
 
-Dann erstellen wir das CSS, um das Aussehen und Verhalten unseres Menüs zu implementieren:
+Dann erstellen wir das CSS, um das Aussehen und Gefühl unseres Menüs umzusetzen:
 
 ```css
 nav {
@@ -179,26 +179,26 @@ a:focus {
 }
 ```
 
-Dieses CSS legt das Aussehen des Menüs fest, wobei die Hintergrund- und Textfarben sich ändern, wenn sich das Element in seinen {{cssxref(":hover")}} und {{cssxref(":focus")}} Zuständen befindet:
+Dieses CSS etabliert das Aussehen des Menüs, wobei sowohl die Hintergrund- als auch die Textfarben ändern, wenn sich das Element in seinen {{cssxref(":hover")}} und {{cssxref(":focus")}} Zuständen befindet:
 
 {{EmbedLiveSample("Using transitions when highlighting menus")}}
 
-### Übergang der Darstellung und Inhalts-Sichtbarkeit
+### Übergänge von Anzeige und Inhalts-Sichtbarkeit
 
-Dieses Beispiel zeigt, wie [`display`](/de/docs/Web/CSS/display) und [`content-visibility`](/de/docs/Web/CSS/content-visibility) übergangen werden können. Dieses Verhalten ist nützlich, um Eintritts-/Austrittsanimationen zu erstellen, bei denen Sie beispielsweise einen Container aus dem DOM mit `display: none` entfernen möchten, jedoch mit [`opacity`](/de/docs/Web/CSS/opacity) verblassen, anstatt sofort zu verschwinden.
+Dieses Beispiel demonstriert, wie [`display`](/de/docs/Web/CSS/Reference/Properties/display) und [`content-visibility`](/de/docs/Web/CSS/Reference/Properties/content-visibility) übergangen werden können. Dieses Verhalten ist nützlich für die Erstellung von Ein-/Ausgangsanimationen, bei denen Sie beispielsweise einen Container aus dem DOM mit `display: none` entfernen, ihn aber mit [`opacity`](/de/docs/Web/CSS/Reference/Properties/opacity) ausblenden möchten, anstatt sofort zu verschwinden.
 
-Unterstützende Browser verwenden einen Übergang für `display` und `content-visibility` mit einer Variante des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete). Dies bedeutet im Allgemeinen, dass Eigenschaften zwischen zwei Werten 50% durch die Animation wechseln.
+Unterstützende Browser übergehen `display` und `content-visibility` mit einer Variation des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete). Dies bedeutet im Allgemeinen, dass Eigenschaften zwischen zwei Werten um 50% beim Animieren zwischen den beiden gewechselt werden.
 
-Es gibt jedoch eine Ausnahme, nämlich wenn zu/von `display: none` oder `content-visibility: hidden` animiert wird. In diesem Fall wechselt der Browser zwischen den beiden Werten, sodass der Übergangsinhalt während der gesamten Animationsdauer angezeigt wird.
+Es gibt jedoch eine Ausnahme, nämlich bei der Animation zu/von `display: none` oder `content-visibility: hidden`. In diesem Fall wird der Browser die Werte so umschalten, dass der übergangene Inhalt während der gesamten Animationsdauer angezeigt wird.
 
 Zum Beispiel:
 
-- Beim Animieren von `display` von `none` zu `block` (oder einem anderen sichtbaren `display`-Wert) wird der Wert bei `0%` der Animationsdauer auf `block` umgeschaltet, sodass es durchgehend sichtbar ist.
-- Beim Animieren von `display` von `block` (oder einem anderen sichtbaren `display`-Wert) zu `none` wird der Wert bei `100%` der Animationsdauer auf `none` umgeschaltet, sodass es durchgehend sichtbar ist.
+- Wenn `display` von `none` zu `block` (oder einem anderen sichtbaren `display`-Wert) animiert wird, wechselt der Wert zu `block` bei `0%` der Animationsdauer, sodass er die gesamte Zeit sichtbar ist.
+- Wenn `display` von `block` (oder einem anderen sichtbaren `display`-Wert) zu `none` animiert wird, wechselt der Wert zu `none` bei `100%` der Animationsdauer, sodass er die gesamte Zeit sichtbar ist.
 
-Beim Übergang dieser Eigenschaften muss [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) auf die Übergänge angewendet werden. Dies aktiviert effektiv `display`/`content-visibility` Übergänge.
+Beim Übergang dieser Eigenschaften muss [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/Reference/Properties/transition-behavior) für die Übergänge gesetzt sein. Dies aktiviert effektiv `display`/`content-visibility` Übergänge.
 
-Beim Übergang von `display` wird [`@starting-style`](/de/docs/Web/CSS/@starting-style) benötigt, um einen Satz Anfangswerte für Eigenschaften bereitzustellen, die auf ein Element gesetzt sind, von dem Sie möchten, dass es ab dem ersten Stil-Update übergeht. Dies ist notwendig, um unerwartetes Verhalten zu vermeiden. Standardmäßig werden CSS-Übergänge nicht bei den ersten Stil-Updates von Elementen ausgelöst, wenn sie erstmals im DOM erscheinen, was den Fall einschließt, wenn `display` von `none` zu einem anderen Zustand wechselt. `content-visibility` Animationen benötigen keine Anfangswerte, die in einem `@starting-style` Block angegeben werden. Das liegt daran, dass `content-visibility` ein Element nicht wie `display` aus dem DOM versteckt: es überspringt nur das Rendern des Inhalts des Elements.
+Wenn `display` übergangen wird, wird [`@starting-style`](/de/docs/Web/CSS/@starting-style) benötigt, um einen Satz von Startwerten für die Eigenschaften bereitzustellen, die auf ein Element gesetzt sind, von dem Sie beim ersten Stilupdate des Elements übergehen möchten. Dies ist notwendig, um unerwartetes Verhalten zu vermeiden. Standardmäßig werden CSS-Übergänge nicht bei ersten Stilaktualisierungen von Elementen ausgelöst, wenn sie erstmals im DOM erscheinen, was auch dann zutrifft, wenn `display` von `none` in einen anderen Zustand wechselt. `content-visibility`-Animationen benötigen keine Startwerte, die in einem `@starting-style`-Block angegeben werden. Dies liegt daran, dass `content-visibility` ein Element nicht aus dem DOM verbirgt, wie es bei `display` der Fall ist: Es überspringt einfach das Rendern des Inhalts des Elements.
 
 #### HTML
 
@@ -259,11 +259,11 @@ div {
 }
 ```
 
-Beachten Sie den `@starting-style` Block, der verwendet wird, um den Anfangsstil für den Übergang anzugeben, und die Aufnahme der `display` Eigenschaft in die Übergangsliste, mit `allow-discrete` darauf gesetzt.
+Beachten Sie den `@starting-style` Block, der verwendet wird, um den Anfangsstil für den Übergang zu spezifizieren, sowie die Einbeziehung der `display`-Eigenschaft in die Übergangsliste, wobei `allow-discrete` darauf gesetzt ist.
 
 #### JavaScript
 
-Abschließend fügen wir etwas JavaScript hinzu, um Ereignislistener einzurichten, die den Übergang auslösen (über die `showing` Klasse).
+Schließlich fügen wir ein wenig JavaScript hinzu, um Ereignis-Listener einzurichten, die den Übergang auslösen (über die `showing` Klasse).
 
 ```js
 const divElem = document.querySelector("div");
@@ -279,23 +279,23 @@ function showHide() {
 
 #### Ergebnis
 
-Der Code wird wie folgt gerendert:
+Der Code rendert sich wie folgt:
 
 {{ EmbedLiveSample("Transitioning display and content-visibility", "100%", "350") }}
 
 ## JavaScript-Beispiele
 
 > [!NOTE]
-> Vorsicht ist geboten, wenn ein Übergang unmittelbar nachfolgend verwendet wird:
+> Beim sofortigen Verwenden eines Übergangs nach:
 >
-> - Hinzufügen des Elements zum DOM mittels `.appendChild()`
-> - Entfernen der `display: none;` Eigenschaft eines Elements.
+> - dem Hinzufügen des Elements zum DOM mit `.appendChild()`
+> - dem Entfernen der Eigenschaft `display: none;` eines Elements
 >
-> Dies wird so behandelt, als ob der Anfangszustand nie aufgetreten und das Element immer im Endzustand gewesen wäre. Die einfache Möglichkeit, diese Einschränkung zu überwinden, besteht darin, ein `setTimeout()` von einigen Millisekunden anzuwenden, bevor die CSS-Eigenschaft geändert wird, die Sie übergehen möchten.
+> sollte Vorsicht walten. Dies wird behandelt, als ob der Anfangszustand nie vorlag und das Element immer in seinem Endzustand war. Der einfache Weg, diese Einschränkung zu überwinden, besteht darin, ein `setTimeout()` mit einigen Millisekunden anzuwenden, bevor Sie die CSS-Eigenschaft ändern, zu der Sie übergehen möchten.
 
-### Verwenden von Übergängen, um JavaScript-Funktionalität reibungslos zu gestalten
+### Verwendung von Übergängen, um JavaScript-Funktionalität zu glätten
 
-Übergänge sind ein großartiges Werkzeug, um Dinge viel glatter aussehen zu lassen, ohne etwas an der JavaScript-Funktionalität ändern zu müssen. Nehmen Sie das folgende Beispiel.
+Übergänge sind ein großartiges Werkzeug, um Dinge viel glatter aussehen zu lassen, ohne etwas an Ihrer JavaScript-Funktionalität tun zu müssen. Nehmen Sie das folgende Beispiel.
 
 ```html live-sample___js-transitions
 <p>Click anywhere to move the ball</p>
@@ -311,7 +311,7 @@ document.addEventListener("click", (ev) => {
 });
 ```
 
-Mit CSS können Sie die durch JavaScript angewandten Stile glätten. Fügen Sie dem Element einen Übergang hinzu und jede Änderung wird reibungslos erfolgen:
+Mit CSS können Sie die Stile glätten, die durch JavaScript angewendet werden. Fügen Sie dem Element einen Übergang hinzu, und alle Änderungen erfolgen reibungslos:
 
 ```css hidden live-sample___js-transitions
 body {
@@ -357,22 +357,22 @@ main {
 
 {{EmbedLiveSample("js-transitions", "", "400px")}}
 
-### Erkennen des Beginns und des Abschlusses eines Übergangs
+### Das Starten und Abschließen eines Übergangs erkennen
 
-Sie können das [`transitionend`](/de/docs/Web/API/Element/transitionend_event) Ereignis verwenden, um zu erkennen, dass eine Animation abgeschlossen ist. Dies ist ein [`TransitionEvent`](/de/docs/Web/API/TransitionEvent) Objekt, das zwei zusätzliche Eigenschaften jenseits eines typischen [`Event`](/de/docs/Web/API/Event) Objekts hat:
+Sie können das [`transitionend`](/de/docs/Web/API/Element/transitionend_event) Ereignis verwenden, um zu erkennen, dass eine Animation zu Ende gelaufen ist. Dies ist ein [`TransitionEvent`](/de/docs/Web/API/TransitionEvent) Objekt, das zwei zusätzliche Eigenschaften über ein typisches [`Event`](/de/docs/Web/API/Event) Objekt hat:
 
 - `propertyName`
   - : Ein String, der den Namen der CSS-Eigenschaft angibt, deren Übergang abgeschlossen ist.
 - `elapsedTime`
-  - : Ein Float, der die Anzahl der Sekunden angibt, die der Übergang zu dem Zeitpunkt lief, als das Ereignis ausgelöst wurde. Dieser Wert wird nicht durch den Wert von {{cssxref("transition-delay")}} beeinflusst.
+  - : Eine Fließkommavariable, die die Anzahl der Sekunden angibt, in denen der Übergang lief, als das Ereignis ausgelöst wurde. Dieser Wert wird nicht von dem Wert von {{cssxref("transition-delay")}} beeinflusst.
 
-Wie üblich können Sie die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, um für dieses Ereignis zu lauschen:
+Wie üblich können Sie die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, um dieses Ereignis zu überwachen:
 
 ```js
 el.addEventListener("transitionend", updateTransition);
 ```
 
-Sie erkennen den Beginn eines Übergangs mit [`transitionrun`](/de/docs/Web/API/Element/transitionrun_event) (wird vor einer Verzögerung ausgelöst) und [`transitionstart`](/de/docs/Web/API/Element/transitionstart_event) (wird nach einer Verzögerung ausgelöst), auf die gleiche Weise:
+Sie erkennen den Beginn eines Übergangs mit [`transitionrun`](/de/docs/Web/API/Element/transitionrun_event) (wird vor einer Verzögerung ausgelöst) und [`transitionstart`](/de/docs/Web/API/Element/transitionstart_event) (wird nach einer Verzögerung ausgelöst) auf die gleiche Weise:
 
 ```js
 el.addEventListener("transitionrun", signalStart);
@@ -380,7 +380,7 @@ el.addEventListener("transitionstart", signalStart);
 ```
 
 > [!NOTE]
-> Das `transitionend` Ereignis wird nicht ausgelöst, wenn der Übergang abgebrochen wird, bevor der Übergang abgeschlossen ist, weil entweder das Element auf {{cssxref("display", "display: none")}} gesetzt wird oder der Wert der animierenden Eigenschaft geändert wird.
+> Das `transitionend` Ereignis wird nicht ausgelöst, wenn der Übergang abgebrochen wird, bevor er abgeschlossen ist, weil entweder das Element auf {{cssxref("display", "display: none")}} gesetzt wird oder der Wert der animierenden Eigenschaft geändert wird.
 
 ## Spezifikationen
 
@@ -389,4 +389,4 @@ el.addEventListener("transitionstart", signalStart);
 ## Siehe auch
 
 - Das [`TransitionEvent`](/de/docs/Web/API/TransitionEvent) Interface und das [`transitionend`](/de/docs/Web/API/Element/transitionend_event) Ereignis
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [Verwenden von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)

@@ -1,21 +1,21 @@
 ---
-title: Verwenden der CSS Properties and Values API
+title: Verwendung der CSS Properties and Values API
 slug: Web/API/CSS_Properties_and_Values_API/guide
 l10n:
-  sourceCommit: 5f2a755c4fa7d126f85b56fbca90b15c5f039eff
+  sourceCommit: 55326f330a6ae829494c7606b1bd47b2c0f9d888
 ---
 
 {{DefaultAPISidebar("CSS Properties and Values API")}}
 
-Die **CSS Properties and Values API** — Teil der [CSS Houdini](/de/docs/Web/API/Houdini_APIs) Sammlung von APIs — ermöglicht die Registrierung von [CSS-Benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/--*), einschließlich Typprüfung der Eigenschaften, Standardwerten und Eigenschaften, die ihren Wert entweder erben oder nicht.
+Die **CSS Properties and Values API** — Teil des [CSS Houdini](/de/docs/Web/API/Houdini_APIs) API-Bereichs — ermöglicht die Registrierung von [benutzerdefinierten CSS-Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*), die eine Überprüfung des Eigenschaftentyps, Standardwerte und Eigenschaften, die ihren Wert erben oder nicht, erlauben.
 
 ## Registrierung einer benutzerdefinierten Eigenschaft
 
-Die Registrierung einer benutzerdefinierten Eigenschaft ermöglicht es Ihnen, dem Browser mitzuteilen, wie sich die benutzerdefinierte Eigenschaft verhalten soll; welche Typen zulässig sind, ob die benutzerdefinierte Eigenschaft ihren Wert erbt und was der Standardwert der benutzerdefinierten Eigenschaft ist. Es gibt zwei Möglichkeiten, eine Eigenschaft zu registrieren, entweder in [JavaScript](/de/docs/Web/JavaScript) oder in [CSS](/de/docs/Web/CSS).
+Die Registrierung einer benutzerdefinierten Eigenschaft ermöglicht es Ihnen, dem Browser mitzuteilen, wie sich die benutzerdefinierte Eigenschaft verhalten soll; welche Typen zulässig sind, ob die benutzerdefinierte Eigenschaft ihren Wert erbt, und was der Standardwert der benutzerdefinierten Eigenschaft ist. Es gibt zwei Möglichkeiten, eine Eigenschaft zu registrieren: in [JavaScript](/de/docs/Web/JavaScript) oder in [CSS](/de/docs/Web/CSS).
 
 ### CSS.registerProperty
 
-Das Folgende registriert eine [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) namens `--my-prop` unter Verwendung von [`CSS.registerProperty`](/de/docs/Web/API/CSS/registerProperty_static). `--my-prop` verwendet die CSS-Farbsyntax, hat einen Standardwert von `#c0ffee` und erbt seinen Wert nicht:
+Das Folgende registriert eine [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) namens `--my-prop` unter Verwendung von [`CSS.registerProperty`](/de/docs/Web/API/CSS/registerProperty_static). `--my-prop` wird die CSS-Farbsyntax verwenden, es wird einen Standardwert von `#c0ffee` haben und seinen Wert nicht erben:
 
 ```js
 window.CSS.registerProperty({
@@ -28,7 +28,7 @@ window.CSS.registerProperty({
 
 ### @property
 
-Die gleiche Registrierung kann in CSS erfolgen. Das Folgende registriert eine [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) namens `--my-prop` unter Verwendung der {{cssxref('@property')}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule). `--my-prop` verwendet die CSS-Farbsyntax, hat einen Standardwert von `#c0ffee` und erbt seinen Wert nicht:
+Die gleiche Registrierung kann in CSS erfolgen. Das Folgende registriert eine [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) namens `--my-prop` unter Verwendung der {{cssxref('@property')}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule). `--my-prop` wird die CSS-Farbsyntax verwenden, es wird einen Standardwert von `#c0ffee` haben und seinen Wert nicht erben:
 
 ```css
 @property --my-prop {
@@ -40,9 +40,9 @@ Die gleiche Registrierung kann in CSS erfolgen. Das Folgende registriert eine [b
 
 ## Verwendung registrierter benutzerdefinierter Eigenschaften
 
-Ein Vorteil der Registrierung einer Eigenschaft ist, dass der Browser nun weiß, wie er mit Ihrer benutzerdefinierten Eigenschaft umgehen soll, beispielsweise bei Übergängen! Wenn eine Eigenschaft nicht registriert ist, weiß der Browser nicht, wie er sie behandeln soll, und nimmt an, dass jeder Wert verwendet werden kann und deshalb nicht animiert werden kann. Wenn eine Eigenschaft jedoch eine registrierte Syntax hat, kann der Browser diese Syntax optimieren, einschließlich der Möglichkeit, sie zu animieren!
+Ein Vorteil der Registrierung einer Eigenschaft besteht darin, dass der Browser nun weiß, wie er Ihre benutzerdefinierte Eigenschaft behandeln soll, beispielsweise im Hinblick auf Transitionen! Wenn eine Eigenschaft nicht registriert ist, weiß der Browser nicht, wie er sie behandeln soll, daher nimmt er an, dass jeder Wert verwendet werden kann und kann sie deshalb nicht animieren. Wenn eine Eigenschaft jedoch eine registrierte Syntax hat, kann der Browser diese Syntax optimieren, einschließlich der Möglichkeit, sie zu animieren!
 
-In diesem Beispiel wurde die benutzerdefinierte Eigenschaft `--registered` mit der Syntax `<color>` registriert und dann in einem linearen Verlauf verwendet. Diese Eigenschaft wird dann bei Hover oder Fokus zu einer anderen Farbe übergegangen. Beachten Sie, dass der Übergang mit der registrierten Eigenschaft funktioniert, nicht jedoch mit der nicht registrierten!
+In diesem Beispiel wurde die benutzerdefinierte Eigenschaft `--registered` mit der Syntax `<color>` registriert und dann in einem linearen Farbverlauf verwendet. Diese Eigenschaft wird dann beim Hover oder Fokussieren zu einer anderen Farbe übergeblendet. Beachten Sie, dass die Transition mit der registrierten Eigenschaft funktioniert, aber nicht mit der nicht registrierten!
 
 ### HTML
 
@@ -99,13 +99,13 @@ window.CSS.registerProperty({
 
 {{EmbedLiveSample("Using_registered_custom_properties", 320, 320)}}
 
-Während es nicht funktional genau ist, ist ein guter Weg, um über den Unterschied zwischen der nicht registrierten Eigenschaft im obigen Beispiel und der registrierten Eigenschaft nachzudenken, der Unterschied zwischen einem {{cssxref('custom-ident')}} und einer Zahl, wenn versucht wird, die {{cssxref('height')}} zu animieren. Sie können nicht von `auto` zu einer Zahl übergehen oder animieren, weil der Browser den Wert von `auto` erst kennt, wenn er berechnet wird. Bei einer nicht registrierten Eigenschaft weiß der Browser ebenso nicht, welchen Wert sie haben _könnte_, bis er berechnet wird, und deshalb kann er keinen Übergang von einem Wert zu einem anderen einrichten. Wenn die Eigenschaft jedoch registriert ist, haben Sie dem Browser mitgeteilt, welchen Typ von Wert er erwarten soll, und da er dies weiß, kann er die Übergänge ordnungsgemäß einrichten.
+Obwohl es funktional nicht ganz korrekt ist, ist eine gute Möglichkeit, den Unterschied zwischen der nicht registrierten Eigenschaft im obigen Beispiel und der registrierten Eigenschaft zu verstehen, der Vergleich zwischen einem {{cssxref('custom-ident')}} und einer Zahl, wenn man versucht, die {{cssxref('height')}} zu animieren. Sie können nicht von `auto` zu einer Zahl überblenden oder animieren, da der Browser den Wert von `auto` erst kennt, wenn er berechnet wurde. Bei einer nicht registrierten Eigenschaft weiß der Browser ebenfalls nicht, was der Wert _sein könnte_, bis er berechnet wurde, und kann deshalb keinen Übergang von einem Wert zum anderen einrichten. Wenn die Eigenschaft jedoch registriert ist, haben Sie dem Browser mitgeteilt, welche Art von Wert er erwarten soll, und weil er das weiß, kann er die Transitionen ordnungsgemäß einrichten.
 
 ## Fallstricke
 
-Es gibt zwei Fallstricke bei der Registrierung einer Eigenschaft. Der erste ist, dass es, einmal registriert, keine Möglichkeit gibt, die Eigenschaft zu aktualisieren, und der Versuch, sie erneut mit [JavaScript](/de/docs/Web/JavaScript) zu registrieren, einen Fehler auslöst, der anzeigt, dass sie bereits definiert wurde.
+Es gibt zwei Fallstricke bei der Registrierung einer Eigenschaft. Der erste ist, dass, sobald eine Eigenschaft registriert ist, es keine Möglichkeit gibt, sie zu aktualisieren, und ein erneuter Registrierungsversuch mit [JavaScript](/de/docs/Web/JavaScript) einen Fehler auslöst, dass sie bereits definiert wurde.
 
-Zweitens werden registrierte Eigenschaften im Gegensatz zu Standard-Eigenschaften nicht validiert, wenn sie geparst werden, sondern erst, wenn sie berechnet werden. Das bedeutet sowohl, dass ungültige Werte beim Inspizieren der Eigenschaften des Elements nicht als ungültig erscheinen, als auch, dass das Einschließen einer ungültigen Eigenschaft nach einer gültigen Eigenschaft nicht auf die gültige Eigenschaft zurückfällt. Eine ungültige Eigenschaft wird jedoch auf ihren registrierten Standardwert zurückfallen.
+Zweitens werden registrierte Eigenschaften, im Gegensatz zu Standard-Eigenschaften, nicht beim Parsen validiert. Sie werden stattdessen beim Berechnen validiert. Das bedeutet, dass ungültige Werte nicht als ungültig erscheinen, wenn die Eigenschaften des Elements überprüft werden, und dass das Einschließen einer ungültigen Eigenschaft nach einer gültigen nicht auf die gültige Eigenschaft zurückfällt. Eine ungültige Eigenschaft wird jedoch auf ihren registrierten Standardwert zurückfallen.
 
 ## Browser-Kompatibilität
 

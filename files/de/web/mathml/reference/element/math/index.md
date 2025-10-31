@@ -18,8 +18,8 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
   - : Dieses {{Glossary("Enumerated", "enumerierte")}} Attribut gibt an, wie das eingeschlossene MathML-Markup gerendert werden soll. Es kann einen der folgenden Werte haben:
 
-    - `block`, was bedeutet, dass dieses Element in seinem eigenen Block außerhalb des aktuellen Textbereichs mit [`math-style`](/de/docs/Web/CSS/math-style) auf `normal` angezeigt wird.
-    - `inline`, was bedeutet, dass dieses Element innerhalb des aktuellen Textbereichs mit [`math-style`](/de/docs/Web/CSS/math-style) auf `compact` angezeigt wird.
+    - `block`, was bedeutet, dass dieses Element in seinem eigenen Block außerhalb des aktuellen Textbereichs mit [`math-style`](/de/docs/Web/CSS/Reference/Properties/math-style) auf `normal` angezeigt wird.
+    - `inline`, was bedeutet, dass dieses Element innerhalb des aktuellen Textbereichs mit [`math-style`](/de/docs/Web/CSS/Reference/Properties/math-style) auf `compact` angezeigt wird.
 
     Ist es nicht vorhanden, ist der Standardwert `inline`.
 

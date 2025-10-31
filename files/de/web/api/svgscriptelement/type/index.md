@@ -3,12 +3,12 @@ title: "SVGScriptElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/SVGScriptElement/type
 l10n:
-  sourceCommit: e4e57ab3ccb5f93319f8fe13848d4895d3e1e771
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`type`**-Eigenschaft des [`SVGScriptElement`](/de/docs/Web/API/SVGScriptElement)-Interfaces spiegelt das {{SVGAttr("type")}}-Attribut des gegebenen {{SVGElement("script")}}-Elements wider.
+Die schreibgeschützte **`type`**-Eigenschaft der [`SVGScriptElement`](/de/docs/Web/API/SVGScriptElement)-Schnittstelle spiegelt das {{SVGAttr("type")}}-Attribut des gegebenen {{SVGElement("script")}}-Elements wider.
 
 ## Wert
 

@@ -2,19 +2,19 @@
 title: letter-spacing
 slug: Web/SVG/Reference/Attribute/letter-spacing
 l10n:
-  sourceCommit: da8c3171b7a7ea6694af71fac7a3194d8e9ba869
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das **`letter-spacing`** Attribut steuert den Abstand zwischen den Textzeichen.
+Das **`letter-spacing`**-Attribut steuert den Abstand zwischen Textzeichen.
 
-Wenn der Attributwert eine zahl ohne Einheit ist (wie `128`), verarbeitet der Browser es als {{cssxref("length")}} im aktuellen Benutzerkoordinatensystem.
+Wenn der Attributwert eine einheitenlose Zahl ist (wie `128`), behandelt der Browser diesen Wert als ein {{cssxref("length")}} im aktuellen Benutzerkoordinatensystem.
 
-Wenn der Attributwert eine Einheit enthält, wie `.25em` oder `1%`, konvertiert der Browser das `\<length>` in den entsprechenden Wert im aktuellen Benutzerkoordinatensystem.
+Wenn der Attributwert eine Einheitskennung hat, wie `.25em` oder `1%`, wandelt der Browser das \<length> in seinen entsprechenden Wert im aktuellen Benutzerkoordinatensystem um.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `letter-spacing` auch ein entsprechendes CSS-Property: {{cssxref("letter-spacing")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
+> Als Präsentationsattribut hat `letter-spacing` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("letter-spacing")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
@@ -33,7 +33,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 {{EmbedLiveSample}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -52,7 +52,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte lesen Sie bitte die [CSS `letter-spacing`](/de/docs/Web/CSS/letter-spacing#values) Eigenschaft.
+Für eine Beschreibung der Werte, lesen Sie bitte die [CSS `letter-spacing`](/de/docs/Web/CSS/Reference/Properties/letter-spacing#values) Eigenschaft.
 
 ## Spezifikationen
 
@@ -64,4 +64,4 @@ Für eine Beschreibung der Werte lesen Sie bitte die [CSS `letter-spacing`](/de/
 
 ## Siehe auch
 
-- CSS {{cssxref("letter-spacing")}} Eigenschaft
+- CSS {{cssxref("letter-spacing")}}-Eigenschaft

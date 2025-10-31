@@ -1,25 +1,25 @@
 ---
-title: Verwendung von Container-Scrollzustands-Abfragen
+title: Verwendung von Container-Scroll-State-Abfragen
 slug: Web/CSS/CSS_conditional_rules/Container_scroll-state_queries
 l10n:
-  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-**Container-Scrollzustands-Abfragen** sind eine Art von [Container-Abfragen](/de/docs/Web/CSS/@container). Anstatt Stile für untergeordnete Elemente in Abhängigkeit von der Größe des Containers selektiv anzuwenden, ermöglichen Scrollzustands-Abfragen, Stile für untergeordnete Elemente basierend auf dem Scrollzustand des Containers selektiv anzuwenden. Dies kann beinhalten, ob der Container teilweise gescrollt, an einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}}-Vorfahren geschnappt oder über [`position: sticky`](/de/docs/Web/CSS/position) positioniert und an eine Grenze eines {{Glossary("scroll_container", "Scroll-Containers")}}-Vorfahren angeheftet ist.
+**Container-Scroll-State-Abfragen** sind eine Art von [Container-Abfrage](/de/docs/Web/CSS/@container). Anstatt Stile selektiv auf abgeleitete Elemente basierend auf der Größe des Containers anzuwenden, ermöglichen es Scroll-State-Abfragen, Stile selektiv basierend auf dem Scroll-Zustand des Containers anzuwenden. Dies kann einschließen, ob der Container teilweise gescrollt wurde, zu einem {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}} Ahnen gesnappt ist oder über [`position: sticky`](/de/docs/Web/CSS/Reference/Properties/position) positioniert ist und an einer Grenze eines {{Glossary("scroll_container", "Scroll-Containers")}} Ahnen klebt.
 
-Dieser Artikel erklärt, wie man Container-Scrollzustands-Abfragen verwendet und führt ein Beispiel für jeden Typ durch. Es wird vorausgesetzt, dass Sie die Grundlagen von Container-Abfragen kennen. Wenn Sie neu in Container-Abfragen sind, lesen Sie [CSS Container Queries](/de/docs/Web/CSS/CSS_containment/Container_queries), bevor Sie fortfahren.
+Dieser Artikel erklärt, wie Sie Container-Scroll-State-Abfragen verwenden, indem er ein Beispiel für jeden Typ durchgeht. Es wird vorausgesetzt, dass Sie die Grundlagen von Container-Abfragen kennen. Wenn Sie neu in Container-Abfragen sind, lesen Sie [CSS-Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries), bevor Sie fortfahren.
 
-## Arten von Container-Scrollzustands-Abfragen
+## Arten von Container-Scroll-State-Abfragen
 
 Es gibt drei `@container` Deskriptoren, die Sie in einer `scroll-state()` Abfrage verwenden können:
 
-- `scrollable`: Überprüft, ob ein Container in die angegebene Richtung durch benutzerinitiierte Scrollbewegungen gescrollt werden kann (zum Beispiel durch Ziehen des Scrollbalkens oder durch eine Trackpad-Geste). Anders gesagt, gibt es überlaufende Inhalte in der angegebenen Richtung, zu denen gescrollt werden kann? Dies ist nützlich, um Styling in Bezug auf die Scroll-Position eines Scroll-Containers anzuwenden. Beispielsweise könnten Sie einen Hinweis anzeigen, der die Benutzer ermutigt, nach unten zu scrollen und mehr Inhalt zu sehen, wenn der Scrollbalken oben ist, und diesen Hinweis ausblenden, wenn der Benutzer tatsächlich angefangen hat zu scrollen.
-- `snapped`: Überprüft, ob ein Container an einen [Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) Container-Vorfahren entlang einer bestimmten Achse geschnappt wird. Dies ist nützlich, um Stile anzuwenden, wenn ein Element an einen Scroll-Snap-Container geschnappt wird. Beispielsweise möchten Sie möglicherweise ein geschnapptes Element hervorheben oder einen Teil seines zuvor verborgenen Inhalts sichtbar machen.
-- `stuck`: Überprüft, ob ein Container mit einem {{cssxref("position")}} Wert von `sticky` an einer Kante seines Scroll-Container-Vorfahren haftend ist. Dies ist nützlich, um `position: sticky`-Elemente anders zu stylen, wenn sie haften — zum Beispiel könnten Sie ihnen ein anderes Farbschema oder Layout geben.
+- `scrollable`: Fragt ab, ob ein Container in die angegebene Richtung durch benutzergesteuertes Scrollen (zum Beispiel durch Ziehen des Scrollbalkens oder Verwenden einer Trackpad-Geste) gescrollt werden kann. Mit anderen Worten, gibt es überlaufenden Inhalt in der angegebenen Richtung, zu dem gescrollt werden kann? Dies ist nützlich, um Stile im Zusammenhang mit der Scroll-Position eines Scroll-Containers anzuwenden. Zum Beispiel könnten Sie einen Hinweis anzeigen, der die Nutzer dazu ermutigt, nach unten zu scrollen und mehr Inhalt zu sehen, wenn der Scrollbalken oben ist, und ihn ausblenden, wenn der Nutzer tatsächlich mit dem Scrollen begonnen hat.
+- `snapped`: Fragt ab, ob ein Container zu einem [Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) Container-Ahnen entlang einer gegebenen Achse gesnappt wird. Dies ist nützlich, um Stile anzuwenden, wenn ein Element zu einem Scroll-Snap-Container gesnappt ist. Zum Beispiel könnten Sie ein gesnapptes Element in irgendeiner Weise hervorheben oder einige seiner Inhalte enthüllen, die zuvor versteckt waren.
+- `stuck`: Fragt ab, ob ein Container mit einem {{cssxref("position")}} Wert von `sticky` an einem Rand seines Scroll-Container-Ahnen festklebt. Dies ist nützlich, um `position: sticky`-Elemente anders zu stylen, wenn sie festkleben — zum Beispiel könnten Sie ihnen ein anderes Farbschema oder Layout geben.
 
 ## Syntaxübersicht
 
-Um ein Containerelement als Scrollzustands-Abfragecontainer festzulegen, setzen Sie die {{cssxref("container-type")}} Eigenschaft auf diesem mit einem Wert von `scroll-state`. Sie können ihm optional auch einen {{cssxref("container-name")}} geben, sodass Sie es mit einer bestimmten Container-Abfrage ansprechen können:
+Um ein Container-Element als Scroll-State-Abfragecontainer zu etablieren, setzen Sie die {{cssxref("container-type")}} Eigenschaft darauf mit einem Wert von `scroll-state`. Optional können Sie ihm auch einen {{cssxref("container-name")}} geben, sodass Sie es mit einer spezifischen Container-Abfrage ansprechen können:
 
 ```css
 .container {
@@ -28,9 +28,9 @@ Um ein Containerelement als Scrollzustands-Abfragecontainer festzulegen, setzen 
 }
 ```
 
-Sie können dann einen {{cssxref("@container")}} Block erstellen, der die Abfrage spezifiziert, die Regeln, die auf die untergeordneten Elemente des Containers angewendet werden, falls der Test positiv ist, und optional den `container-name` der Container, die Sie abfragen möchten. Wenn Sie keinen `container-name` angeben, wird die Container-Abfrage auf alle Scrollzustands-Abfragecontainer auf der Seite angewendet.
+Sie können dann einen {{cssxref("@container")}} Block erstellen, der die Abfrage, die Regeln, die auf die Kinder des Containers angewendet werden, wenn der Test bestanden wird, und optional den `container-name` der Container, die Sie abfragen möchten, spezifiziert. Wenn Sie keinen `container-name` angeben, wird die Container-Abfrage auf alle Scroll-State-Abfragecontainer auf der Seite angewendet.
 
-Hier prüfen wir nur Container, die `my-container` genannt werden, um festzustellen, ob der Container in Richtung seiner oberen Kante gescrollt werden kann:
+Hier fragen wir nur Container mit dem Namen `my-container` ab, um zu bestimmen, ob der Container zur oberen Kante gescrollt werden kann:
 
 ```css
 @container my-container scroll-state(scrollable: top) {
@@ -39,25 +39,25 @@ Hier prüfen wir nur Container, die `my-container` genannt werden, um festzustel
 ```
 
 > [!NOTE]
-> Um Scrollzustands-Abfragen von anderen Container-Abfragen zu trennen, werden die Scrollzustands-Deskriptoren und -Werte innerhalb von Klammern gesetzt, denen `scroll-state` vorausgeht (`scroll-state( ... )`). Diese Konstruktionen sehen aus wie Funktionen, sind es aber nicht.
+> Um Scroll-State-Abfragen von anderen Container-Abfragen zu trennen, werden die Scroll-State-Deskriptoren und der Wert in Klammern gesetzt, die von `scroll-state` (`scroll-state( ... )`) vorangestellt werden. Diese Konstrukte sehen aus wie Funktionen, sind es aber nicht.
 
-## Verwendung von `scrollable` Abfragen
+## Verwendung von `scrollable`-Abfragen
 
-Scrollzustands-`scrollable`-Abfragen, geschrieben als `scroll-state(scrollable: value)`, testen, ob ein Scrollvorfahre eines Containers in die angegebene Richtung durch benutzerinitiierte Scrollbewegungen gescrollt werden kann. Wenn nicht, liefert die Abfrage false zurück.
+Scroll-State-[`scrollable`](/de/docs/Web/CSS/@container#scrollable) Abfragen, geschrieben als `scroll-state(scrollable: value)`, testen, ob der scrollende Anhang eines Containers in die angegebene Richtung durch benutzergesteuertes Scrollen gescrollt werden kann. Wenn nicht, gibt die Abfrage false zurück.
 
-Der `value` gibt an, in welche Richtung Sie die Verfügbarkeit des Scrollens testen, zum Beispiel:
+Der `value` zeigt die Richtung an, in der Sie testen, ob Scrollen verfügbar ist, zum Beispiel:
 
-- `top`: Testet, ob der Container in Richtung seiner oberen Kante gescrollt werden kann.
-- `inline-end`: Testet, ob der Container in Richtung seiner Inline-Endkante gescrollt werden kann.
+- `top`: Testet, ob der Container zur oberen Kante gescrollt werden kann.
+- `inline-end`: Testet, ob der Container zur Inline-End-Kante gescrollt werden kann.
 - `y`: Testet, ob der Container in eine oder beide Richtungen entlang seiner y-Achse gescrollt werden kann.
 
-Wenn der Test erfolgreich ist, werden die Regeln innerhalb des `@container` Blocks auf Nachkommen des übereinstimmenden Scrollcontainers angewendet.
+Wenn der Test bestanden wird, werden die Regeln innerhalb des `@container` Blocks auf die Nachkommen des passenden Scroll-Containers angewendet.
 
-Betrachten wir ein Beispiel, in dem wir einen scrollenden Container voller Inhalt haben sowie einen praktischen kleinen Link, um bei Bedarf zurück an den Anfang zu scrollen. Wir werden eine `scrollable`-Abfrage verwenden, um den Link nur dann anzuzeigen, wenn der Benutzer nach unten durch den Inhalt gescrollt hat.
+Schauen wir uns ein Beispiel an, in dem wir einen scrollenden Container voller Inhalte haben und einen praktischen kleinen Link, um bei Bedarf zurück zum Anfang zu scrollen. Wir werden eine `scrollable` Abfrage verwenden, um den Link nur anzuzeigen, wenn der Nutzer begonnen hat, durch den Inhalt nach unten zu scrollen.
 
 ### HTML
 
-Im HTML haben wir ein {{htmlelement("article")}}-Element, das genug Inhalt enthält, um das Dokument zum Scrollen zu bringen, vorangestellt von einem [Back-to-top-Link](/de/docs/Web/HTML/Reference/Elements/a#result_8):
+Im HTML haben wir ein {{htmlelement("article")}} Element, das genug Inhalt enthält, um das Dokument zum Scrollen zu bringen, vorangestellt von einem [Back-to-Top Link](/de/docs/Web/HTML/Reference/Elements/a#result_8):
 
 ```html
 <a class="back-to-top" href="#" aria-label="Top of page">↑</a>
@@ -77,7 +77,7 @@ Im HTML haben wir ein {{htmlelement("article")}}-Element, das genug Inhalt enth�
 </article>
 ```
 
-Wir haben den Großteil des HTMLs zur Kürze ausgeblendet.
+Wir haben den Großteil des HTML aus Gründen der Kürze verborgen.
 
 ```html hidden live-sample___scrollable
 <a class="back-to-top" href="#" aria-label="Scroll back to top">↑</a>
@@ -228,7 +228,7 @@ Wir haben den Großteil des HTMLs zur Kürze ausgeblendet.
 
 ### CSS
 
-Der `.back-to-top`-Link erhält einen {{cssxref("position")}} Wert von `fixed`, ist in der unteren rechten Ecke des Ansichtsfensters platziert und wird mit einem {{cssxref("translate")}} Wert von `80px 0` aus dem Ansichtsfenster bewegt. Ein {{cssxref("transition")}} Wert animiert `translate` und {{cssxref("background-color")}}, wenn sich einer dieser Werte ändert.
+Der `.back-to-top` Link erhält einen {{cssxref("position")}} Wert von `fixed`, wird an der unteren rechten Ecke des Ansichtsfensters platziert und mit einem {{cssxref("translate")}} Wert von `80px 0` aus dem Ansichtsfenster verschoben. Ein {{cssxref("transition")}} Wert animiert den `translate` und die {{cssxref("background-color")}}, wenn sich einer der Werte ändert.
 
 ```css hidden live-sample___scrollable
 /* General styling */
@@ -298,7 +298,7 @@ img {
 }
 ```
 
-Der {{Glossary("scroll_container", "Scrollcontainer")}} in diesem Beispiel ist das `<html>`-Element selbst, das als Scrollzustands-Abfragecontainer mit einem {{cssxref("container-type")}} Wert von `scroll-state` bezeichnet wird. Der {{cssxref("container-name")}} ist nicht unbedingt erforderlich, aber nützlich, wenn der Code zu einem Programmcode mit mehreren Scrollzustands-Abfragecontainern hinzugefügt wird, die mit unterschiedlichen Abfragen abgefragt werden.
+Der {{Glossary("scroll_container", "Scroll-Container")}} in diesem Beispiel ist das `<html>` Element selbst, bezeichnet als Scroll-State-Abfragecontainer mit einem {{cssxref("container-type")}} Wert von `scroll-state`. Der {{cssxref("container-name")}} ist nicht unbedingt notwendig, aber nützlich in Fällen, in denen der Code zu einem Codebasis mit mehreren Scroll-State-Abfragecontainern hinzugefügt wird, die mit unterschiedlichen Abfragen gezielt angesprochen werden.
 
 ```css live-sample___scrollable
 html {
@@ -307,7 +307,7 @@ html {
 }
 ```
 
-Als nächstes definieren wir einen {{cssxref("@container")}} Block, der den Containernamen festlegt, der durch diese Abfrage angezielt wird, sowie die Abfrage selbst — `scrollable: top`. Diese Abfrage wendet die in dem Block enthaltenen Regeln nur dann an, wenn das `<html>`-Element in Richtung seiner oberen Kante gescrollt werden kann — anders ausgedrückt, wenn der Container zuvor nach unten gescrollt wurde. Wenn dies der Fall ist, wird `translate: 0 0` auf den `.back-to-top`-Link angewendet, wodurch er zurück in das Ansichtsfenster wechselt.
+Als nächstes definieren wir einen {{cssxref("@container")}} Block, der den Zielcontainer-Namen dieser Abfrage und die Abfrage selbst festlegt — `scrollable: top`. Diese Abfrage wendet die Regeln innerhalb des Blocks nur an, wenn das `<html>` Element zu seiner oberen Kante gescrollt werden kann — mit anderen Worten, wenn der Container zuvor nach unten gescrollt wurde. Wenn das der Fall ist, wird `translate: 0 0` auf den `.back-to-top` Link angewendet, wodurch er wieder auf dem Bildschirm erscheint.
 
 ```css live-sample___scrollable
 @container scroller scroll-state(scrollable: top) {
@@ -317,35 +317,35 @@ Als nächstes definieren wir einen {{cssxref("@container")}} Block, der den Cont
 }
 ```
 
-Wir haben den Rest des Beispiels-CSS zur Kürze ausgeblendet.
+Wir haben den Rest des CSS-Beispiels aus Gründen der Kürze verborgen.
 
 ### Ergebnis
 
 {{EmbedLiveSample("scrollable", "100%", "400px")}}
 
-Versuchen Sie, das Dokument nach unten zu scrollen, und achten Sie darauf, wie der "Back-to-top"-Link als Ergebnis erscheint, indem er aufgrund der `transition` sanft von der rechten Seite des Ansichtsfensters aus animiert. Wenn Sie durch Aktivieren des Links oder manuelles Scrollen wieder nach oben scrollen, verschwindet der "Back-to-top"-Link vom Bildschirm.
+Versuchen Sie, das Dokument nach unten zu scrollen, und beachten Sie, wie der "Back-to-Top"-Link als Ergebnis erscheint und sich aufgrund der `transition` sanft von der rechten Seite des Ansichtsfensters animiert. Wenn Sie durch Aktivierung des Links oder manuelles Scrollen wieder nach oben scrollen, wird der "Back-to-Top"-Link vom Bildschirm weg animiert.
 
-## Verwendung von `snapped` Abfragen
+## Verwendung von `snapped`-Abfragen
 
-Nur relevant, wenn [Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) implementiert ist, testen Scrollzustands-`snapped`-Abfragen, geschrieben als `scroll-state(snapped: value)`, ob ein Container an einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll Snap Container")}}-Vorfahren entlang der angegebenen Achse geschnappt wird. Wenn nicht, liefert die Abfrage false zurück.
+Nur relevant, wenn [Scroll Snapping](/de/docs/Web/CSS/CSS_scroll_snap) implementiert ist, testen Scroll-State-[`snapped`](/de/docs/Web/CSS/@container#snapped) Abfragen (geschrieben als `scroll-state(snapped: value)`) ob ein Container zu einem {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}} Ahnen entlang der gegebenen Achse gedockt wird. Wenn nicht, gibt die Abfrage false zurück.
 
-Der `value` in diesem Fall gibt die Richtung an, in der Sie die Fähigkeit des Elements testen, zu schnappen, zum Beispiel:
+Der `value` zeigt hier die Richtung an, in der Sie die Fähigkeit des Elements testen, gedockt zu werden, zum Beispiel:
 
-- `x`: Testet, ob der Container horizontal zu seinem Scroll-Snap-Container-Vorfahren schnappt.
-- `inline`: Testet, ob der Container zu seinem Scroll-Snap-Container-Vorfahren in der Inline-Richtung schnappt.
-- `y`: Testet, ob der Container zu seinem Scroll-Snap-Container-Vorfahren in beiden Richtungen schnappt.
+- `x`: Testet, ob der Container horizontal zu seinem Scroll-Snap-Container-Ahnen gedockt wird.
+- `inline`: Testet, ob der Container zu seinem Scroll-Snap-Container-Ahnen in der Inline-Richtung gedockt wird.
+- `y`: Testet, ob der Container zu seinem Scroll-Snap-Container-Ahnen in beiden Richtungen gedockt wird.
 
-Um einen Container mit einer nicht-`none` `snapped` Scrollzustands-Abfrage zu beurteilen, muss er ein Container mit einem Scroll-Snap-Container-Vorfahren sein, das heißt, der Vorfahre hat einen {{cssxref("scroll-snap-type")}} Wert, der nicht `none` ist. Die Container-Abfrage `scroll-state(snapped: none)` passt zu Scrollzustandscontainern, die keinen Scroll-Container-Vorfahren haben.
+Um einen Container mit einer non-`none` `snapped` Scroll-State-Abfrage zu evaluieren, muss er ein Container mit einem Scroll-Snap-Container-Ahnen sein, das heißt, der Ahne hat einen {{cssxref("scroll-snap-type")}} Wert, der nicht `none` ist. Die Container-Abfrage `scroll-state(snapped: none)` passt auf Scroll-State-Container, die keinen Scroll-Container-Ahnen haben.
 
-Die Bewertung erfolgt, wenn das [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event) Ereignis beim Scroll-Snap-Container ausgelöst wird.
+Die Bewertung erfolgt, wenn das [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event) Ereignis auf dem Scroll-Snap-Container ausgelöst wird.
 
-Wenn der Test erfolgreich ist, werden die Regeln innerhalb des `@container` Blocks auf Nachkommen des übereinstimmenden Scroll-Snap-Zielcontainers angewendet.
+Wenn der Test bestanden wird, werden die Regeln innerhalb des `@container` Blocks auf Nachkommen des passenden Scroll-Snap-Ziel-Containers angewendet.
 
-In diesem Beispiel betrachten wir einen Scroll-Snap-Container mit Kindern, die vertikal zu ihm schnappen, und verwenden eine `snapped`-Abfrage, um die Kinder nur dann zu stylen, wenn sie geschnappt werden oder kurz davor sind, geschnappt zu werden.
+In diesem Beispiel werfen wir einen Blick auf einen Scroll-Snap-Container mit Kindern, die vertikal zu ihm schnappen und verwenden eine `snapped` Abfrage, um die Kinder nur zu stylen, wenn sie gesnappt sind oder im Begriff sind, gesnappt zu werden.
 
 ### HTML
 
-Das HTML besteht aus einem {{htmlelement("main")}} Element, das ein Scroll-Snap-Container sein wird. Im Inneren befinden sich mehrere {{htmlelement("section")}} Elemente, die Snap-Ziele sein werden. Jedes `<section>` enthält einen Wrapper-{{htmlelement("div")}} und eine `<h2>` [Überschrift](/de/docs/Web/HTML/Reference/Elements/Heading_Elements). Die Wrapper sind enthalten, um ein Stilziel zu schaffen, da Container-Abfragen das Styling von Nachkommen des Containers, nicht des Containers selbst, ermöglichen.
+Das HTML besteht aus einem {{htmlelement("main")}} Element, das ein Scroll-Snap-Container sein wird. Darin befinden sich mehrere {{htmlelement("section")}} Elemente, die Schnappziele sein werden. Jedes `<section>` enthält einen Wrapper-{{htmlelement("div")}} und eine `<h2>` [Überschrift](/de/docs/Web/HTML/Reference/Elements/Heading_Elements). Die Wrapper sind enthalten, um ein Stilelement als Container-Abfragen zu erstellen, da Container-Abfragen das Styling von Nachkommen eines Containers und nicht des Containers selbst ermöglichen.
 
 ```html
 <main>
@@ -359,7 +359,7 @@ Das HTML besteht aus einem {{htmlelement("main")}} Element, das ein Scroll-Snap-
 </main>
 ```
 
-Wir haben den Großteil des HTMLs zur Kürze ausgeblendet.
+Wir haben den Großteil des HTML aus Gründen der Kürze verborgen.
 
 ```html hidden live-sample___snapped
 <main>
@@ -471,7 +471,7 @@ main {
 }
 ```
 
-Wir setzen einen {{cssxref("overflow")}} Wert von `scroll` und eine feste {{cssxref("height")}} auf das `<main>` Element, um es in einen vertikalen Scrollcontainer zu verwandeln. Wir setzen auch einen {{cssxref("scroll-snap-type")}} Wert von `y mandatory`, um `<main>` in einen Scroll-Snap-Container zu verwandeln, an den Snap-Ziele entlang der y-Achse schnappen; `mandatory` bedeutet, dass ein Snap-Ziel _immer_ gesnappt wird.
+Wir setzen einen {{cssxref("overflow")}} Wert von `scroll` und eine feste {{cssxref("height")}} auf das `<main>` Element, um es in einen vertikalen Scroll-Container zu verwandeln. Wir setzen auch einen {{cssxref("scroll-snap-type")}} Wert von `y mandatory`, um `<main>` in einen Scroll-Snap-Container zu verwandeln, zu dem Schnappziele entlang der y-Achse andocken werden; `mandatory` bedeutet, dass ein Schnappziel _immer_ angedockt werden wird.
 
 ```css live-sample___snapped
 main {
@@ -483,7 +483,7 @@ main {
 }
 ```
 
-Die `<section>` Elemente sind als Snap-Ziele durch Setzen eines nicht-`none` {{cssxref("scroll-snap-align")}} Werts ausgewiesen. Der `center` Wert bedeutet, dass sie in ihrer Mitte an den Container schnappen.
+Die `<section>` Elemente werden durch Setzen eines non-`none` {{cssxref("scroll-snap-align")}} Werts als Schnappziele bezeichnet. Der `center` Wert bedeutet, dass sie an ihrem Mittelpunkt an den Container andocken.
 
 ```css live-sample___snapped
 section {
@@ -521,7 +521,7 @@ h2 {
 }
 ```
 
-Wir möchten es ermöglichen, dass die `<section>` Elemente abgefragt werden können. Insbesondere wollen wir testen, ob die `<section>` Elemente im Prozess des Schnappens an ihren Container sind, also werden sie als Scrollzustands-Abfragecontainer durch Setzen eines {{cssxref("container-type")}} Wertes von `scroll-state` auf ihnen angegeben. Wir geben ihnen auch einen {{cssxref("container-name")}}, der nicht zwingend erforderlich ist, aber nützlich sein wird, wenn unser Code später komplexer wird und wir mehrere Scrollzustands-Abfragecontainer haben, die wir mit unterschiedlichen Abfragen ansprechen wollen.
+Wir möchten, dass die `<section>` Elemente abgefragt werden können. Besonders möchten wir testen, ob die `<section>` Elemente im Prozess des Andockens an ihren Container sind, daher kennzeichnen wir sie als Scroll-State-Abfragecontainer, indem wir einen {{cssxref("container-type")}} Wert von `scroll-state` auf ihnen setzen. Wir geben ihnen auch einen {{cssxref("container-name")}}, der nicht unbedingt erforderlich ist, aber nützlich sein wird, wenn unser Code später komplexer wird und wir mehrere Scroll-State-Abfragecontainer haben, die wir mit verschiedenen Abfragen ansprechen möchten.
 
 ```css live-sample___snapped
 section {
@@ -530,7 +530,7 @@ section {
 }
 ```
 
-Als nächstes definieren wir einen {{cssxref("@container")}} Block, der den Containernamen festlegt, den wir mit dieser Abfrage ansprechen, und die Abfrage selbst — `snapped: y`. Diese Abfrage wendet die in dem Block enthaltenen Regeln nur dann an, wenn ein `<section>`-Element vertikal an seinen Container geschnappt wird. Wenn dies der Fall ist, wenden wir ein neues {{cssxref("background")}} und {{cssxref("color")}} auf das `<section>`-Element-Kind `.wrapper` `<div>` an, um es hervorzuheben.
+Als nächstes definieren wir einen {{cssxref("@container")}} Block, der den Zielcontainer-Namen dieser Abfrage festlegt und die Abfrage selbst — `snapped: y`. Diese Abfrage wendet die Regeln innerhalb des Blocks nur an, wenn ein `<section>` Element vertikal zu seinem Container gesnappt wird. Wenn das der Fall ist, wenden wir ein neues {{cssxref("background")}} und {{cssxref("color")}} auf das `<section>` Element's Kind `.wrapper` `<div>` an, um es hervorzuheben.
 
 ```css live-sample___snapped
 @container snap-container scroll-state(snapped: y) {
@@ -543,27 +543,27 @@ Als nächstes definieren wir einen {{cssxref("@container")}} Block, der den Cont
 
 ### Ergebnis
 
-Das gerenderte Ergebnis wird unten gezeigt. Versuchen Sie, den Container nach oben und unten zu scrollen, und achten Sie darauf, wie sich der `<section>` Stil ändert, wenn er an seinen Container geschnappt wird.
+Das gerenderte Ergebnis wird unten gezeigt. Versuchen Sie, den Container nach oben und unten zu scrollen, und beachten Sie, wie sich der Stil der `<section>` ändert, wenn es an seinen Container angedockt wird.
 
 {{EmbedLiveSample("snapped", "100%", "500px")}}
 
-## Verwendung von `stuck` Abfragen
+## Verwendung von `stuck`-Abfragen
 
-Scrollzustands-`stuck`-Abfragen, geschrieben als `scroll-state(stuck: value)`, testen, ob ein Container mit einem {{cssxref("position")}} Wert von `sticky` an einer Kante seines Scroll-Container-Vorfahren haftend ist. Wenn nicht, liefert die Abfrage false zurück.
+Scroll-State-[`stuck`](/de/docs/Web/CSS/@container#scrollable) Abfragen, geschrieben als `scroll-state(stuck: value)`, testen, ob ein Container mit einem {{cssxref("position")}} Wert von `sticky` an einem Rand seines Scroll-Container-Ahnen festklebt. Wenn nicht, gibt die Abfrage false zurück.
 
-Der `value` in diesem Fall gibt die Scroll-Container-Kante an, die Sie testen, zum Beispiel:
+Der `value` in diesem Fall zeigt den Rand des Scroll-Containers an, den Sie testen, zum Beispiel:
 
-- `top`: Testet, ob der Container an der oberen Kante seines Scroll-Container-Vorfahren haftet.
-- `block-end`: Testet, ob der Container an der Block-Endkante seines Scroll-Container-Vorfahren haftet.
-- `none`: Testet, ob der Container nicht an einer Kante seines Scroll-Container-Vorfahren haftet. Beachten Sie, dass `none` Abfragen selbst dann übereinstimmen, wenn der Container `position: sticky` nicht auf sich gesetzt hat.
+- `top`: Testet, ob der Container an den oberen Rand seines Scroll-Container-Ahnen festgeklebt ist.
+- `block-end`: Testet, ob der Container an den Block-Ende-Rand seines Scroll-Container-Ahnen festgeklebt ist.
+- `none`: Testet, ob der Container an keinem Rand seines Scroll-Container-Ahnen festgeklebt ist. Beachten Sie, dass `none` Abfragen auch dann passen, wenn der Container nicht `position: sticky` darauf gesetzt hat.
 
-Wenn die Abfrage true zurückgibt, werden die Regeln innerhalb des `@container` Blocks auf Nachkommen des übereinstimmenden `position: sticky` Containers angewendet.
+Wenn die Abfrage true zurückgibt, werden die Regeln innerhalb des `@container` Blocks auf die Nachkommen des passenden `position: sticky` Containers angewendet.
 
-Betrachten wir ein Beispiel, in dem wir einen scrollenden Container mit überlaufendem Inhalt haben, in dem die Überschriften auf `position: sticky` gesetzt sind und an der oberen Kante des Containers haften, wenn sie an diese Position scrollen. Wir werden eine `stuck` Scrollzustands-Abfrage verwenden, um die Überschriften anders zu stylen, wenn sie an der oberen Kante haften.
+Werfen wir einen Blick auf ein Beispiel, bei dem wir einen scrollenden Container mit überlaufendem Inhalt haben, in dem die Überschriften auf `position: sticky` gesetzt sind und an der oberen Kante des Containers kleben bleiben, wenn sie zu dieser Position scrollen. Wir werden eine `stuck` Scroll-State-Abfrage verwenden, um die Überschriften anders zu stylen, wenn sie an der oberen Kante festkleben.
 
 ### HTML
 
-Im HTML haben wir ein {{htmlelement("article")}} Element, das genug Inhalt enthält, um das Dokument zum Scrollen zu bringen. Es ist strukturiert mit mehreren {{htmlelement("section")}} Elementen, die jeweils einen {{htmlelement("header")}} mit verschachteltem Inhalt enthalten:
+Im HTML haben wir ein {{htmlelement("article")}} Element, das genug Inhalt enthält, um das Dokument zum Scrollen zu bringen. Es ist mit mehreren {{htmlelement("section")}} Elementen strukturiert, die jeweils eine {{htmlelement("header")}} mit verschachteltem Inhalt enthalten:
 
 ```html
 <article>
@@ -592,7 +592,7 @@ Im HTML haben wir ein {{htmlelement("article")}} Element, das genug Inhalt enth�
 </article>
 ```
 
-Wir haben den Großteil des HTMLs zur Kürze ausgeblendet.
+Wir haben den Großteil des HTML aus Gründen der Kürze verborgen.
 
 ```html hidden live-sample___stuck
 <article>
@@ -748,7 +748,7 @@ Wir haben den Großteil des HTMLs zur Kürze ausgeblendet.
 
 ### CSS
 
-Jeder `<header>` hat einen {{cssxref("position")}} Wert von `sticky` und einen {{cssxref("top")}} Wert von `0`, wodurch er an der oberen Kante des Scrollcontainers haftet. Um zu testen, ob die `<header>`-Elemente an der oberen Kante des Containers haften, werden sie als Scrollzustands-Abfragecontainer mit einem {{cssxref("container-type")}} Wert von `scroll-state` bezeichnet. Der {{cssxref("container-name")}} ist nicht zwingend erforderlich, aber nützlich, wenn dieser Code zu einer Codebasis mit mehreren Scrollzustands-Abfragecontainern hinzugefügt wird, die mit unterschiedlichen Abfragen abgefragt werden.
+Jedes `<header>` hat einen {{cssxref("position")}} Wert von `sticky` und einen {{cssxref("top")}} Wert von `0`, was sie an der oberen Kante des Scroll-Containers kleben lässt. Um zu testen, ob die `<header>` Elemente an der oberen Kante des Containers festkleben, werden sie als Scroll-State-Abfragecontainer gekennzeichnet, indem ein {{cssxref("container-type")}} Wert von `scroll-state` auf ihnen gesetzt wird. Der {{cssxref("container-name")}} ist nicht unbedingt erforderlich, aber nützlich, wenn dieser Code zu einer Code-Basis mit mehreren Scroll-State-Abfragecontainern hinzugefügt wird, die mit verschiedenen Abfragen gezielt angesprochen werden.
 
 ```css hidden live-sample___stuck
 /* General styling */
@@ -794,7 +794,7 @@ header {
 }
 ```
 
-Wir geben den `<h2>` und `<p>` Elementen innerhalb der `<header>`-Elemente auch ein grundlegendes Styling und einen {{cssxref("transition")}} Wert, sodass sie sanft animieren, wenn sich ihre {{cssxref("background")}} Werte ändern.
+Wir geben den `<h2>` und `<p>` Elementen innerhalb der `<header>` Elemente auch einige grundlegende Stile und einen {{cssxref("transition")}} Wert, damit sie sanft animieren, wenn sich ihre {{cssxref("background")}} Werte ändern.
 
 ```css live-sample___stuck
 h2,
@@ -814,7 +814,7 @@ header p {
 }
 ```
 
-Als nächstes definieren wir einen {{cssxref("@container")}} Block, der den Containernamen festlegt, den wir mit dieser Abfrage ansprechen, sowie die Abfrage selbst — `stuck: top`. Diese Abfrage wendet die in dem Block enthaltenen Regeln nur dann an, wenn ein `<header>`-Element an der oberen Kante seines Scrollcontainers haftet. Wenn dies der Fall ist, wird ein anderes `background` und ein {{cssxref("box-shadow")}} auf die enthaltenen `<h2>` und `<p>` angewendet.
+Als nächstes definieren wir einen {{cssxref("@container")}} Block, der den Zielcontainer-Namen dieser Abfrage festlegt und die Abfrage selbst — `stuck: top`. Diese Abfrage wendet die Regeln innerhalb des Blocks nur an, wenn ein `<header>` Element an der oberen Kante seines Scroll-Containers festklebt. Wenn das der Fall ist, wird ein anderes `background` und ein {{cssxref("box-shadow")}} auf das enthaltene `<h2>` und `<p>` angewendet.
 
 ```css live-sample___stuck
 @container sticky-heading scroll-state(stuck: top) {
@@ -826,11 +826,11 @@ Als nächstes definieren wir einen {{cssxref("@container")}} Block, der den Cont
 }
 ```
 
-Wir haben den Rest des CSS zur Kürze ausgeblendet.
+Wir haben den Rest des CSS aus Gründen der Kürze verborgen.
 
 ### Ergebnis
 
-Versuchen Sie, das Dokument nach unten und oben zu scrollen, und achten Sie darauf, wie die `<h2>` und `<p>` Elemente zu einem neuen Farbschema wechseln, wenn sie an der oberen Kante ihres Containers haften.
+Versuchen Sie, das Dokument nach unten und oben zu scrollen, und beachten Sie, wie sich die `<h2>` und `<p>` Elemente zu einem neuen Farbschema ändern, wenn sie an der oberen Kante ihres Containers festkleben.
 
 {{EmbedLiveSample("stuck", "100%", "400px")}}
 
@@ -840,7 +840,7 @@ Versuchen Sie, das Dokument nach unten und oben zu scrollen, und achten Sie dara
 - {{Cssxref("container-type")}}
 - {{Cssxref("position")}}
 - {{Cssxref("@container")}}
-- [CSS Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- [Verwendung von Containergrößen- und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
+- [CSS-Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
+- [Verwendung von Container-Größen- und Stil-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
 - [CSS-Bedingungsregeln](/de/docs/Web/CSS/CSS_conditional_rules) Modul
-- [CSS-Positionierungs-Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [CSS-Positionierung](/de/docs/Web/CSS/CSS_positioned_layout) Modul

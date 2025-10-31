@@ -3,7 +3,7 @@ title: "Touch: Touch() Konstruktor"
 short-title: Touch()
 slug: Web/API/Touch/Touch
 l10n:
-  sourceCommit: 3e543cdfe8dddfb4774a64bf3decdcbab42a4111
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("Touch Events")}}
@@ -21,29 +21,29 @@ new Touch(options)
 - `touchInit`
   - : Ein Objekt mit den folgenden Feldern:
     - `identifier`
-      - : Ein `long` Wert, der die Identifikationsnummer für den Berührungspunkt darstellt.
+      - : Ein `long` Wert, der die Identifikationsnummer für den Berührungspunkt ist.
     - `target`
-      - : Ein [`EventTarget`](/de/docs/Web/API/EventTarget) Objekt, das Element, bei dem der Berührungspunkt begann, als er erstmals auf die Oberfläche gesetzt wurde.
+      - : Ein [`EventTarget`](/de/docs/Web/API/EventTarget) Objekt, das Element, bei dem der Berührungspunkt begann, als er erstmals auf der Oberfläche platziert wurde.
     - `clientX` {{optional_inline}}
-      - : Standardmäßig `0`, von Typ `double`, das ist die horizontale Position des Berührungspunkts im Client-Fenster des Bildschirms des Benutzers, ohne jeglichen Scroll-Offset.
+      - : Standardwert ist `0`, vom Typ `double`, und ist die horizontale Position der Berührung im Anzeigefenster des Nutzers, ohne Berücksichtigung eines Bildlaufversatzes.
     - `clientY` {{optional_inline}}
-      - : Standardmäßig `0`, von Typ `double`, das ist die vertikale Position des Berührungspunkts im Client-Fenster des Bildschirms des Benutzers, ohne jeglichen Scroll-Offset.
+      - : Standardwert ist `0`, vom Typ `double`, und ist die vertikale Position der Berührung im Anzeigefenster des Nutzers, ohne Berücksichtigung eines Bildlaufversatzes.
     - `screenX` {{optional_inline}}
-      - : Standardmäßig `0`, von Typ `double`, das ist die horizontale Position des Berührungspunkts auf dem Bildschirm des Benutzers.
+      - : Standardwert ist `0`, vom Typ `double`, und ist die horizontale Position der Berührung auf dem Bildschirm des Nutzers.
     - `screenY` {{optional_inline}}
-      - : Standardmäßig `0`, von Typ `double`, das ist die vertikale Position des Berührungspunkts auf dem Bildschirm des Benutzers.
+      - : Standardwert ist `0`, vom Typ `double`, und ist die vertikale Position der Berührung auf dem Bildschirm des Nutzers.
     - `pageX` {{optional_inline}}
-      - : Standardmäßig `0`, von Typ `double`, das ist die horizontale Position des Berührungspunkts im Client-Fenster des Bildschirms des Benutzers, einschließlich jeglichem Scroll-Offset.
+      - : Standardwert ist `0`, vom Typ `double`, und ist die horizontale Position der Berührung im Anzeigefenster des Nutzers, inklusive jeglichem Bildlaufversatz.
     - `pageY` {{optional_inline}}
-      - : Standardmäßig `0`, von Typ `double`, das ist die vertikale Position des Berührungspunkts im Client-Fenster des Bildschirms des Benutzers, einschließlich jeglichem Scroll-Offset.
+      - : Standardwert ist `0`, vom Typ `double`, und ist die vertikale Position der Berührung im Anzeigefenster des Nutzers, inklusive jeglichem Bildlaufversatz.
     - `radiusX` {{optional_inline}}
-      - : Standardmäßig `0`, von Typ `float`, das ist der Radius der Ellipse, die den Berührungsbereich (z.B. Finger, Stift) entlang der durch rotationAngle angegebenen Achse am engsten umschreibt, in CSS-Pixeln im gleichen Maßstab wie screenX; `0` wenn kein Wert bekannt ist. Der Wert darf nicht negativ sein.
+      - : Standardwert ist `0`, vom Typ `float`, und ist der Radius der Ellipse, die den Berührungsbereich (z.B. Finger, Stift) entlang der durch rotationAngle angegebenen Achse am nächsten beschreibt, in CSS-Pixeln desselben Maßstabs wie screenX; `0`, falls kein Wert bekannt ist. Der Wert darf nicht negativ sein.
     - `radiusY` {{optional_inline}}
-      - : Standardmäßig `0`, von Typ `float`, das ist der Radius der Ellipse, die den Berührungsbereich (z.B. Finger, Stift) entlang der Achse, die senkrecht zu der von rotationAngle angegebenen Achse liegt, am engsten umschreibt, in CSS-Pixeln im gleichen Maßstab wie screenY; `0` wenn kein Wert bekannt ist. Der Wert darf nicht negativ sein.
+      - : Standardwert ist `0`, vom Typ `float`, und ist der Radius der Ellipse, die den Berührungsbereich (z.B. Finger, Stift) entlang der Achse beschreibt, die senkrecht zu der durch rotationAngle angegebenen Achse ist, in CSS-Pixeln desselben Maßstabs wie screenY; `0`, falls kein Wert bekannt ist. Der Wert darf nicht negativ sein.
     - `rotationAngle` {{optional_inline}}
-      - : Standardmäßig `0`, von Typ `float`, das ist der Winkel (in Grad), um den die durch radiusX und radiusY beschriebene Ellipse im Uhrzeigersinn um ihr Zentrum gedreht ist; `0` wenn kein Wert bekannt ist. Der Wert muss größer oder gleich `0` und kleiner als `90` sein. Wenn die durch radiusX und radiusY beschriebene Ellipse kreisförmig ist, hat rotationAngle keine Auswirkung. Der User-Agent kann `0` als Wert verwenden oder jeden anderen Wert im zulässigen Bereich. (Zum Beispiel kann der User-Agent den rotationAngle-Wert des vorherigen Berührungsereignisses verwenden, um plötzliche Änderungen zu vermeiden.).
+      - : Standardwert ist `0`, vom Typ `float`, und ist der Winkel (in Grad), um den die durch radiusX und radiusY beschriebene Ellipse im Uhrzeigersinn um ihr Zentrum gedreht ist; `0`, falls kein Wert bekannt ist. Der Wert muss größer oder gleich `0` und kleiner als `90` sein. Wenn die durch radiusX und radiusY beschriebene Ellipse kreisförmig ist, hat rotationAngle keine Wirkung. Der Benutzeragent kann `0` als Wert in diesem Fall verwenden, oder er kann jeden anderen Wert im erlaubten Bereich verwenden. (Zum Beispiel kann der Benutzeragent den rotationAngle-Wert aus dem vorherigen Berührungsereignis verwenden, um plötzliche Änderungen zu vermeiden.)
     - `force` {{optional_inline}}
-      - : Standardmäßig `0`, von Typ `float`, das ist der relative Druckwert, im Bereich von `0` bis `1`, wobei `0` keinen Druck und `1` den höchsten Druckwert darstellt, den das Berührungsgerät erfassen kann; `0` wenn kein Wert bekannt ist. In Umgebung, in denen Druck bekannt ist, kann der absolute Druck, der durch das force-Attribut dargestellt wird, und die Empfindlichkeit in Druckstufen variieren.
+      - : Standardwert ist `0`, vom Typ `float`, und ist der relative Wert des ausgeübten Drucks, im Bereich von `0` bis `1`, wobei `0` keinen Druck darstellt und `1` den höchsten Druckpegel darstellt, den das Berührungsgerät erkennen kann; `0`, falls kein Wert bekannt ist. In Umgebungen, in denen die Kraft bekannt ist, können der absolute Druck, der durch das force-Attribut dargestellt wird, und die Empfindlichkeit gegenüber Druckstufen variieren.
 
 ## Spezifikationen
 
@@ -55,4 +55,4 @@ new Touch(options)
 
 ## Siehe auch
 
-- [`TouchEvent`](/de/docs/Web/API/TouchEvent), das Interface der Objekte, die er konstruiert.
+- [`TouchEvent`](/de/docs/Web/API/TouchEvent), die Schnittstelle der Objekte, die er konstruiert.

@@ -3,14 +3,14 @@ title: "IdentityProvider: getUserInfo() statische Methode"
 short-title: getUserInfo()
 slug: Web/API/IdentityProvider/getUserInfo_static
 l10n:
-  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("FedCM API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getUserInfo()`** statische Methode des [`IdentityProvider`](/de/docs/Web/API/IdentityProvider) Interfaces gibt Informationen über einen Benutzer zurück, der sich angemeldet hat. Diese Informationen können verwendet werden, um eine personalisierte Willkommensnachricht und Anmeldeschaltfläche bereitzustellen. Diese Methode muss aus einem {{Glossary("Identity_provider", "IdP")}} Origin innerhalb eines {{htmlelement("iframe")}} aufgerufen werden, damit Skripte der {{Glossary("Relying_party", "Relying Party")}} (RP) nicht auf die Daten zugreifen können. Dies muss geschehen, nachdem sich ein Benutzer bei einer RP-Seite angemeldet hat.
+Die **`getUserInfo()`** statische Methode der [`IdentityProvider`](/de/docs/Web/API/IdentityProvider) Schnittstelle gibt Informationen über einen angemeldeten Benutzer zurück, die verwendet werden können, um eine personalisierte Willkommensnachricht und Anmelde-Schaltfläche zu bieten. Diese Methode muss aus einem {{Glossary("Identity_provider", "IdP")}} Ursprungs-{{htmlelement("iframe")}} aufgerufen werden, damit {{Glossary("Relying_party", "relying party")}} (RP) Skripte nicht auf die Daten zugreifen können. Dies muss geschehen, nachdem sich ein Benutzer bei einer RP-Seite angemeldet hat.
 
-Dieses Muster ist bereits auf Websites üblich, die Identitätsföderation für die Anmeldung verwenden, aber `getUserInfo()` bietet eine Möglichkeit, dies ohne den Einsatz von [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) zu erreichen.
+Dieses Muster ist bereits auf Webseiten verbreitet, die Identitätsföderation zur Anmeldung verwenden, aber `getUserInfo()` bietet einen Weg, dies ohne [Drittanbieter-Cookies](/de/docs/Web/Privacy/Guides/Third-party_cookies) zu erreichen.
 
 ## Syntax
 
@@ -23,13 +23,13 @@ IdentityProvider.getUserInfo(config)
 - `config`
   - : Ein Konfigurationsobjekt, das die folgenden Eigenschaften enthalten kann:
     - `configURL`
-      - : Die URL der [Konfigurationsdatei](/de/docs/Web/API/FedCM_API/IDP_integration#provide_a_config_file_and_endpoints) für den Identitätsanbieter, von dem Sie Benutzerinformationen abrufen möchten.
+      - : Die URL der [Konfigurationsdatei](/de/docs/Web/API/FedCM_API/IDP_integration#provide_a_config_file_and_endpoints) des Identitätsanbieters, von dem Sie Benutzerinformationen erhalten möchten.
     - `clientId`
-      - : Die Client-Kennung der RP, die vom IdP ausgestellt wurde.
+      - : Die vom IdP ausgegebene Client-Kennung der RP.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Array von Objekten erfüllt wird, von denen jedes Informationen zu einem separaten Benutzerkonto enthält. Jedes Objekt enthält die folgenden Eigenschaften:
+Ein {{jsxref("Promise")}}, das mit einem Array von Objekten erfüllt wird, die jeweils Informationen zu einem separaten Benutzerkonto enthalten. Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `email`
   - : Ein String, der die E-Mail-Adresse des Benutzers darstellt.
@@ -38,25 +38,25 @@ Ein {{jsxref("Promise")}}, das mit einem Array von Objekten erfüllt wird, von d
 - `givenName`
   - : Ein String, der den Vornamen (Spitz- oder abgekürzten Namen) des Benutzers darstellt.
 - `picture`
-  - : Ein String, der die URL des Profilbildes des Benutzers darstellt.
+  - : Ein String, der die URL des Profilbilds des Benutzers darstellt.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die angegebene `configURL` ungültig ist oder wenn der Ursprung des eingebetteten Dokuments nicht mit der `configURL` übereinstimmt.
 - `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Browser nicht in der Lage ist, eine Verbindung zum IdP herzustellen oder wenn `getUserInfo()` vom obersten Dokument aus aufgerufen wird.
+  - : Wird ausgelöst, wenn der Browser keine Verbindung zum IdP herstellen kann oder wenn `getUserInfo()` vom obersten Dokument aufgerufen wird.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das einbettende `<iframe>` über keine gesetzte {{httpheader("Permissions-Policy/identity-credentials-get", "identity-credentials-get")}} [Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) verfügt, die die Nutzung von `getUserInfo()` erlaubt, oder wenn die FedCM API global durch eine im obersten Dokument gesetzte Richtlinie deaktiviert ist.
+  - : Wird ausgelöst, wenn das einbettende `<iframe>` keine {{httpheader("Permissions-Policy/identity-credentials-get", "identity-credentials-get")}} [Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) gesetzt hat, um die Verwendung von `getUserInfo()` zuzulassen oder wenn die FedCM-API global durch eine auf dem obersten Dokument gesetzte Richtlinie deaktiviert ist.
 
 ## Beschreibung
 
-Wenn `getUserInfo()` aufgerufen wird, wird der Browser eine Anfrage an den angegebenen [Kontenlisten-Endpunkt](/de/docs/Web/API/FedCM_API/IDP_integration#the_accounts_list_endpoint) des IdP zur Benutzerinformationen senden, nur wenn beide der folgenden Bedingungen zutreffen:
+Wenn `getUserInfo()` aufgerufen wird, stellt der Browser nur dann eine Anfrage an den angegebenen [Accounts-Listen-Endpunkt] des IdP, um die Benutzerinformationen abzurufen, wenn die beiden folgenden Bedingungen erfüllt sind:
 
-- Der User hat sich zuvor mit dem IdP über FedCM in der gleichen Browser-Instanz bei der RP angemeldet, und die Daten wurden nicht gelöscht.
-- Der User ist beim IdP in der gleichen Browser-Instanz angemeldet.
+- Der Benutzer hat sich zuvor mit dem IdP über FedCM im selben Browserfenster bei der RP angemeldet und die Daten wurden nicht gelöscht.
+- Der Benutzer ist beim IdP im selben Browserfenster angemeldet.
 
-`getUserInfo()` muss innerhalb eines eingebetteten `<iframe>` aufgerufen werden, und der Ursprung der eingebetteten Website muss mit der `configURL` des IdP übereinstimmen. Darüber hinaus muss das einbettende HTML seine Nutzung explizit über die {{httpheader("Permissions-Policy/identity-credentials-get", "identity-credentials-get")}} [Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) erlauben:
+`getUserInfo()` muss innerhalb eines eingebetteten `<iframe>` aufgerufen werden, und der Ursprung der eingebetteten Seite muss mit der `configURL` des IdP übereinstimmen. Zusätzlich muss das einbettende HTML seine Verwendung explizit über die {{httpheader("Permissions-Policy/identity-credentials-get", "identity-credentials-get")}} [Permissions-Policy](/de/docs/Web/HTTP/Guides/Permissions_Policy) erlauben:
 
 ```html
 <iframe
@@ -66,9 +66,9 @@ Wenn `getUserInfo()` aufgerufen wird, wird der Browser eine Anfrage an den angeg
 
 ## Beispiele
 
-### Grundlegende Nutzung von `IdentityProvider.getUserInfo()`
+### Grundlegende Verwendung von `IdentityProvider.getUserInfo()`
 
-Das folgende Beispiel zeigt, wie die `IdentityProvider.getUserInfo()` Methode verwendet werden kann, um Informationen über einen zuvor angemeldeten Benutzer von einem bestimmten IdP zurückzugeben.
+Das folgende Beispiel zeigt, wie die `IdentityProvider.getUserInfo()`-Methode verwendet werden kann, um Informationen über einen zuvor angemeldeten Benutzer von einem bestimmten IdP zurückzugeben.
 
 ```js
 // Iframe displaying a page from the https://idp.example origin

@@ -3,26 +3,32 @@ title: "Element: currentCSSZoom-Eigenschaft"
 short-title: currentCSSZoom
 slug: Web/API/Element/currentCSSZoom
 l10n:
-  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
 {{APIRef("DOM")}}
 
-Die **`currentCSSZoom`** schreibgeschützte Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt den "effektiven" [CSS-`zoom`](/de/docs/Web/CSS/zoom) eines Elements an. Dabei wird der Zoom berücksichtigt, der auf das Element und alle seine übergeordneten Elemente angewendet wird.
+Die schreibgeschützte Eigenschaft **`currentCSSZoom`** der [`Element`](/de/docs/Web/API/Element)-Schnittstelle liefert den "effektiven" [CSS-`zoom`](/de/docs/Web/CSS/Reference/Properties/zoom) eines Elements. Dabei wird der Zoom berücksichtigt, der auf das Element und alle seine übergeordneten Elemente angewendet wird.
 
-Der Wert wird berechnet, indem die CSS-`zoom`-Werte des Elements und all seiner übergeordneten Elemente multipliziert werden. Wenn beispielsweise drei Elemente mit Zoom-Werten von 2, 1.5 und 3 ineinander verschachtelt sind, hat das tiefst verschachtelte Element einen `currentCSSZoom`-Wert von 9. Wenn das Element keine CSS-Box hat, zum Beispiel weil `display: none` auf das Element oder eines seiner übergeordneten Elemente gesetzt ist, wird `currentCSSZoom` auf 1 gesetzt.
+Der Wert wird berechnet, indem die CSS-`zoom`-Werte des Elements und aller seiner Eltern multipliziert werden.
+Wenn beispielsweise drei Elemente mit den Zoom-Werten 2, 1.5 und 3 ineinander verschachtelt sind, hat das am tiefsten verschachtelte Element einen `currentCSSZoom`-Wert von 9.
+Hat das Element keine CSS-Box, zum Beispiel weil `display: none` auf das Element oder einen seiner Eltern gesetzt ist, wird `currentCSSZoom` auf 1 gesetzt.
 
-Beachten Sie, dass einige Methoden, wie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), Dimensionen und Positionen im Verhältnis zum Viewport zurückgeben und daher die Effekte des CSS-`zoom` berücksichtigen. Andere Eigenschaften und Methoden geben Werte zurück, die relativ zum Element selbst sind und die Zoom-Effekte nicht beinhalten. Dazu gehören beispielsweise `client*`-Eigenschaften wie [`Element.clientHeight`](/de/docs/Web/API/Element/clientHeight), `scroll*()`-Methoden wie [`Element.scroll()`](/de/docs/Web/API/Element/scroll) und `offset*`-Eigenschaften wie [`HTMLElement.offsetHeight`](/de/docs/Web/API/HTMLElement/offsetHeight). Die Eigenschaft `currentCSSZoom` kann verwendet werden, um diese Werte zu skalieren und die Effekte des Zoomens zu berücksichtigen.
+Beachten Sie, dass einige Methoden, wie z.B. [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), Abmessungen und Position relativ zum Viewport zurückgeben und daher die Effekte des CSS-`zoom` enthalten.
+Andere Eigenschaften und Methoden geben Werte zurück, die relativ zum Element selbst sind und die Effekte des Zoomens nicht enthalten.
+Dazu gehören beispielsweise `client*`-Eigenschaften wie [`Element.clientHeight`](/de/docs/Web/API/Element/clientHeight), `scroll*()`-Methoden wie [`Element.scroll()`](/de/docs/Web/API/Element/scroll) und `offset*`-Eigenschaften wie [`HTMLElement.offsetHeight`](/de/docs/Web/API/HTMLElement/offsetHeight).
+Die `currentCSSZoom`-Eigenschaft kann verwendet werden, um diese Werte zu skalieren und die Effekte des Zoomens anzupassen.
 
 ## Wert
 
-Eine Zahl, die den effektiven CSS-Zoom auf dem Element angibt, oder 1, wenn das Element nicht gerendert wird.
+Eine Zahl, die den effektiven CSS-Zoom des Elements angibt, oder 1, wenn das Element nicht gerendert wird.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie das `currentCSSZoom` berechnet wird.
+Dieses Beispiel zeigt, wie `currentCSSZoom` berechnet wird.
 
-Zuerst definieren wir eine verschachtelte Struktur von `<div>`-Elementen, bei der das "Elternelement" nicht gezoomt ist und ein verschachteltes Element "child1" enthält, auf das `zoom: 2` angewendet wird, welches wiederum ein verschachteltes Element "child2" enthält, auf das `zoom: 3` angewendet wird. Das "child2"-Element enthält zwei verschachtelte Elemente, von denen eines nicht gerendert wird und keines davon die Zoom-Eigenschaft verwendet.
+Zunächst definieren wir eine verschachtelte Struktur von `<div>`-Elementen, wobei das "Eltern"-Element nicht gezoomt ist und ein verschachteltes Element "child1" enthält, auf das `zoom: 2` angewendet wurde, das wiederum ein verschachteltes Element "child2" mit `zoom: 3` enthält.
+Das "child2"-Element enthält zwei verschachtelte Elemente, von denen eines nicht gerendert wird und keines das Zoom-Eigenschaft angewendet hat.
 
 ```html
 <div id="parent">
@@ -61,7 +67,7 @@ function log(text) {
 }
 ```
 
-Der JavaScript-Code protokolliert den angewendeten Zoom-Wert auf jeder Ebene zusammen mit seinem `currentCSSZoom`-Wert.
+Der JavaScript-Code protokolliert den Zoom-Wert, der auf jeder Ebene angewendet wird, zusammen mit dem `currentCSSZoom`-Wert.
 
 ```js
 if ("currentCSSZoom" in Element.prototype) {
@@ -84,9 +90,12 @@ if ("currentCSSZoom" in Element.prototype) {
 }
 ```
 
-Die resultierende gerenderte `<div>`-Struktur und das Protokoll werden unten gezeigt. Beachten Sie zuerst, dass das Elternelement, child1 und child2 Zoom-Stufen von 1, 2 und 3 haben und beim 1-, 2- und 6-fachen der Größe des Elternelement-Texts rendern. Dies spiegelt sich in den protokollierten `currentCSSZoom`-Werten wider.
+Die resultierende gerenderte `<div>`-Struktur und das Protokoll werden unten angezeigt.
+Beachten Sie zunächst, dass Eltern-, Child1- und Child2-Zoom-Stufen 1, 2 und 3 haben und mit 1, 2 und 6-fache Größe des Elterntextes gerendert werden.
+Dies spiegelt sich in den protokollierten `currentCSSZoom`-Werten wider.
 
-Das `<div>` mit der ID `child3_rendered` hat kein `zoom` gesetzt, aber erbt den `currentCSSZoom`-Wert von 6, wie im Protokoll gezeigt. Das letzte `<div>` wird nicht gerendert und hat daher einen `currentCSSZoom`-Wert von 1.
+Das `<div>` mit der ID `child3_rendered` hat zwar kein `zoom` gesetzt, erbt jedoch den `currentCSSZoom`-Wert von 6, wie im Protokoll gezeigt.
+Das letzte `<div>` wird nicht gerendert und hat daher einen `currentCSSZoom`-Wert von 1.
 
 {{EmbedLiveSample('Examples', '100%', "400px")}}
 
@@ -100,4 +109,4 @@ Das `<div>` mit der ID `child3_rendered` hat kein `zoom` gesetzt, aber erbt den 
 
 ## Siehe auch
 
-- [CSS `zoom`](/de/docs/Web/CSS/zoom)
+- [CSS `zoom`](/de/docs/Web/CSS/Reference/Properties/zoom)

@@ -1,35 +1,35 @@
 ---
-title: Styling von ersetzten Elementen
+title: Gestaltung ersetzter Elemente
 slug: Web/CSS/CSS_images/Replaced_element_properties
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Einige [CSS](/de/docs/Web/CSS)-Eigenschaften gelten für alle Elemente, einige nur für Grid- und Flex-Container, andere nur für transformierbare Elemente. Dieser Leitfaden führt in die Eigenschaften ein, die nur für _ersetzte Elemente_ gelten.
+Einige [CSS](/de/docs/Web/CSS)-Eigenschaften gelten für alle Elemente, einige nur für Grid- und Flex-Container, andere nur für transformierbare Elemente. Dieser Leitfaden führt die Eigenschaften ein, die nur für _ersetzte Elemente_ gelten.
 
-Ein **{{Glossary("replaced_elements", "ersetztes Element")}}** ist ein Element, dessen Darstellung außerhalb des Geltungsbereichs von CSS liegt; es handelt sich um externe Objekte, deren Darstellung unabhängig vom CSS-Formatierungsmodell ist. Einige ersetzte Elemente, wie etwa {{HTMLElement("iframe")}}-Elemente, können eigene Stylesheets haben, aber sie erben nicht die Stile des übergeordneten Dokuments.
+Ein **{{Glossary("replaced_elements", "ersetztes Element")}}** ist ein Element, dessen Darstellung außerhalb des Geltungsbereichs von CSS liegt; es sind externe Objekte, deren Darstellung unabhängig vom CSS-Formatierungsmodell ist. Einige ersetzte Elemente, wie z. B. {{HTMLElement("iframe")}}-Elemente, können eigene Stylesheets haben, erben jedoch nicht die Stile des übergeordneten Dokuments.
 
 ## Verwendung von CSS mit ersetzten Elementen
 
-CSS behandelt ersetzte Elemente in einigen Fällen speziell, z. B. bei der Berechnung von Margen und einigen `auto`-Werten. Nur ersetzte Elemente können jemals {{Glossary("intrinsic_size", "innere Dimensionen")}} haben. Einige ersetzte Elemente, aber nicht alle, haben innere Dimensionen oder eine definierte Basislinie, die von einigen CSS-Eigenschaften wie {{cssxref("vertical-align")}} verwendet wird.
+CSS behandelt ersetzte Elemente in bestimmten Fällen speziell, beispielsweise bei der Berechnung von Rändern und einigen `auto`-Werten. Nur ersetzte Elemente können jemals {{Glossary("intrinsic_size", "intrinsische Abmessungen")}} haben. Einige ersetzte Elemente, aber nicht alle, haben intrinsische Abmessungen oder eine definierte Basislinie, die von einigen CSS-Eigenschaften wie {{cssxref("vertical-align")}} verwendet wird.
 
-Obwohl Dokumentstile die Größe und Position von ersetzten Elementen festlegen können, beeinflussen sie nicht den Inhalt der ersetzten Elemente, mit einigen Ausnahmen: Das [CSS-Bilder-Modul](/de/docs/Web/CSS/CSS_images) enthält Eigenschaften, die die Kontrolle der Positionierung des Inhalts des Elements innerhalb seines Rahmens unterstützen.
+Obwohl Dokumentstile die Größe und Position ersetzter Elemente festlegen können, beeinflussen Dokumentstile nicht den Inhalt der ersetzten Elemente, mit einigen Ausnahmen: Das [CSS-Bildermodul](/de/docs/Web/CSS/CSS_images) enthält Eigenschaften, die die Positionierung des Inhalts des Elements innerhalb seines Rahmens unterstützen.
 
 ## Steuerung der Objektposition innerhalb des Inhaltsrahmens
 
-Das CSS-Bilder-Modul definiert zwei Eigenschaften, die verwendet werden können, um anzugeben, wie das Objekt innerhalb des ersetzten Elements innerhalb des Rahmens positioniert werden soll. Die `object-fit`-Eigenschaft wird zur Größenanpassung von Objekten verwendet, während die `object-position`-Eigenschaft zur Positionierung genutzt wird.
+Das CSS-Bildermodul definiert zwei Eigenschaften, die verwendet werden können, um festzulegen, wie das innerhalb des ersetzten Elements enthaltene Objekt innerhalb des Rahmenbereichs des Elements positioniert werden soll. Die `object-fit`-Eigenschaft wird verwendet, um Objekte in der Größe anzupassen, während die `object-position`-Eigenschaft verwendet wird, um sie zu positionieren.
 
 ### Die `object-fit`-Eigenschaft
 
-Die `object-fit`-Eigenschaft legt fest, wie das Inhaltsobjekt des ersetzten Elements an den umgebenden Elementrahmen angepasst werden soll. Die Eigenschaft definiert, wie Bilder, Videos und andere einbettbare Medienformate auf die Höhe und Breite des Inhaltsrahmens des ersetzten Elements reagieren. Wenn sich die Höhe, Breite oder das Seitenverhältnis eines Elements von der Ressource unterscheidet, die den für das Element reservierten Raum einnimmt, definieren die Werte `fill`, `contain`, `cover`, `scale-down` und `none`, ob der Browser die Ressource skalieren, den zugewiesenen Raum ausfüllen, das Asset innerhalb des Raums enthalten oder die Ressource verzerren soll.
+Die `object-fit`-Eigenschaft legt fest, wie das Inhaltsobjekt des ersetzten Elements in den Kasten des enthaltenen Elements eingepasst werden soll. Die Eigenschaft definiert, wie Bilder, Videos und andere einbettbare Medienformate auf die Höhe und Breite des Inhaltsrahmens des ersetzten Elements reagieren. Wenn sich die Höhe, Breite oder das Seitenverhältnis eines Elements von der Ressource unterscheidet, die Platz im für das Element reservierten Bereich einnehmen wird, definieren die Werte `fill`, `contain`, `cover`, `scale-down` und `none`, ob der Browser die Ressource skalieren, den zugewiesenen Raum abdecken, das Asset innerhalb des Abschnitts enthalten oder die Ressource verzerren lassen soll.
 
-Wenn eingepasst oder herunterskaliert, zeigen alle Bereiche des Rahmens, die nicht vom ersetzten Element bedeckt sind, den Hintergrund des Elements.
+Wenn der Inhalt enthalten oder verkleinert wird, werden alle Bereiche des Kastens, die nicht vom ersetzten Element abgedeckt werden, den Hintergrund des Elements zeigen.
 
-Die `object-fit`-Eigenschaft hat keine Wirkung auf {{HTMLElement("iframe")}}, {{HTMLElement("embed")}} und {{HTMLElement("fencedframe")}}-Elementen.
+Die `object-fit`-Eigenschaft hat keine Auswirkung auf {{HTMLElement("iframe")}}, {{HTMLElement("embed")}} und {{HTMLElement("fencedframe")}}-Elemente.
 
 ![Ein quadratisches Foto der progressiven Pride-Flagge, die in der Nähe eines Schornsteins weht.](https://mdn.github.io/shared-assets/images/examples/progress-pride-flag.jpg)
 
-Wenn wir das Bild, ein Quadrat mit einem Seitenverhältnis von 1:1, in ein 100px x 300px großen Rahmen (Seitenverhältnis 1:3) einfügen, wird das Bild standardmäßig den Rahmen ausfüllen und sich dabei verzerren. Wir können die `object-fit`-Eigenschaft verwenden, um zu definieren, wie das Bild gerendert werden soll, wenn es in einen Rahmen mit unterschiedlicher Größe und Seitenverhältnis gezwängt wird:
+Wenn wir das Bild, ein Quadrat mit einem Seitenverhältnis von 1:1, in einen 100px x 300px großen Rahmen (1:3-Seitenverhältnis) platzieren, wird das Bild standardmäßig den Rahmen füllen und sich dabei verzerren. Wir können die `object-fit`-Eigenschaft verwenden, um zu definieren, wie das Bild gerendert werden soll, wenn es in einen Rahmen mit einer anderen Größe und einem anderen Seitenverhältnis gezwungen wird:
 
 ```html hidden live-sample___example1 live-sample___example2
 <img
@@ -99,13 +99,13 @@ img:nth-of-type(6) {
 
 {{EmbedLiveSample('example1','100%','650')}}
 
-Markieren Sie das Kästchen, um die Werte für Höhe und Breite festzulegen. Beachten Sie, dass nur der `fill`-Wert (der Standardwert) das Originalbild verzerrt. Bei allen anderen Werten bleibt das innere Seitenverhältnis des Bildes erhalten.
+Aktivieren Sie das Kontrollkästchen, um die Höhe und Breite festzulegen. Beachten Sie, dass nur der Wert `fill` (der Standardwert) das ursprüngliche Bild verzerrt. Bei allen anderen Werten bleibt das intrinsische Seitenverhältnis des Bildes erhalten.
 
 ### Die `object-position`-Eigenschaft
 
-Die `object-position`-Eigenschaft legt die Ausrichtung des Inhaltsobjekts des ersetzten Elements innerhalb des Rahmens fest.
+Die `object-position`-Eigenschaft legt die Ausrichtung des Inhaltsobjekts des ersetzten Elements innerhalb des Rahmens des Elements fest.
 
-Häufig in Verbindung mit der {{cssxref("object-fit")}}-Eigenschaft verwendet, nimmt sie als Wert einen {{cssxref("position_value", "&lt;position&gt;")}}-Wert an, derselbe Wertetyp, der auch für {{cssxref("background-position")}} verwendet wird.
+Oft in Verbindung mit der {{cssxref("object-fit")}}-Eigenschaft verwendet, nimmt sie als Wert einen {{cssxref("position_value", "&lt;position&gt;")}}-Wert, denselben Wertetyp, der auch für {{cssxref("background-position")}} verwendet wird.
 
 ```css live-sample___example2
 img {
@@ -121,7 +121,7 @@ img {
   alt="Pride flag" />
 ```
 
-Sie kann ohne `object-fit` verwendet werden. In diesem Fall wird das Bild in seiner inneren Größe (218px x 218px) gerendert, wobei die Position des Bildinhalts durch den `object-position`-Wert festgelegt wird.
+Sie kann ohne `object-fit` verwendet werden. In diesem Fall wird das Bild in seiner intrinsischen Größe (218px x 218px) gerendert, wobei die Position des Inhalts des Bildes durch den `object-position`-Wert festgelegt wird.
 
 ```css hidden live-sample___example3
 img {
@@ -138,11 +138,11 @@ img {
 
 {{EmbedLiveSample('example3','100%','250')}}
 
-Die `object-position`-Eigenschaft funktioniert ebenso gut mit `<iframe>`, `<video>` und `<embed>`-Elementen wie mit `<img>`.
+Die `object-position`-Eigenschaft funktioniert genauso gut mit `<iframe>`, `<video>` und `<embed>`-Elementen wie mit `<img>`.
 
 ## Siehe auch
 
 - [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
 - [CSS-Bilder](/de/docs/Web/CSS/CSS_images) Modul
-- [CSS-Anzeige](/de/docs/Web/CSS/CSS_display) Modul
+- [CSS-Display](/de/docs/Web/CSS/CSS_display) Modul
 - [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul

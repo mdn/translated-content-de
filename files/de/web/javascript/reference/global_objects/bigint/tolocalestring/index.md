@@ -3,12 +3,12 @@ title: BigInt.prototype.toLocaleString()
 short-title: toLocaleString()
 slug: Web/JavaScript/Reference/Global_Objects/BigInt/toLocaleString
 l10n:
-  sourceCommit: e7bc0ed5466f5834641d75d416fa81886cf6b37e
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Die **`toLocaleString()`** Methode von {{jsxref("BigInt")}}-Werten gibt einen String mit einer sprachensensitiven Darstellung dieses BigInt zurück. In Implementierungen mit Unterstützung für die [`Intl.NumberFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) delegiert diese Methode an `Intl.NumberFormat`.
+Die **`toLocaleString()`** Methode von {{jsxref("BigInt")}} Werten liefert eine sprachlich-sensitive Darstellung dieses BigInt als String. In Implementierungen mit Unterstützung der [`Intl.NumberFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) delegiert diese Methode an `Intl.NumberFormat`.
 
-Jedes Mal, wenn `toLocaleString` aufgerufen wird, muss eine Suche in einer großen Datenbank von Lokalisierungsstrings durchgeführt werden, was potenziell ineffizient ist. Wenn die Methode mehrmals mit denselben Argumenten aufgerufen wird, ist es besser, ein {{jsxref("Intl.NumberFormat")}}-Objekt zu erstellen und dessen {{jsxref("Intl/NumberFormat/format", "format()")}} Methode zu verwenden, da ein `NumberFormat`-Objekt sich die übergebenen Argumente merkt und entscheiden kann, einen Teil der Datenbank zwischenspeichern, sodass zukünftige `format`-Aufrufe innerhalb eines stärker eingeschränkten Kontexts nach Lokalisierungsstrings suchen können.
+Jedes Mal, wenn `toLocaleString` aufgerufen wird, muss eine Suche in einer großen Datenbank von Lokalisierungsstrings durchgeführt werden, was potenziell ineffizient ist. Wenn die Methode häufig mit denselben Argumenten aufgerufen wird, ist es besser, ein {{jsxref("Intl.NumberFormat")}} Objekt zu erstellen und dessen {{jsxref("Intl/NumberFormat/format", "format()")}} Methode zu verwenden. Ein `NumberFormat` Objekt merkt sich die übergebenen Argumente und kann entscheiden, einen Teil der Datenbank zu cachen, damit zukünftige `format` Aufrufe die Lokalisierungsstrings in einem eingeschränkteren Kontext finden können.
 
 {{InteractiveExample("JavaScript Demo: BigInt.prototype.toLocaleString()")}}
 
@@ -36,36 +36,36 @@ toLocaleString(locales, options)
 
 ### Parameter
 
-Die Parameter `locales` und `options` passen das Verhalten der Funktion an und ermöglichen es Anwendungen, die Sprache anzugeben, deren Formatierungsregeln verwendet werden sollen.
+Die Parameter `locales` und `options` passen das Verhalten der Funktion an und ermöglichen es Anwendungen, die Sprache zu spezifizieren, deren Formatierungskonventionen verwendet werden sollen.
 
-In Implementierungen, die die [`Intl.NumberFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) unterstützen, entsprechen diese Parameter genau den Parametern des [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat) Konstruktors. Implementierungen ohne Unterstützung für `Intl.NumberFormat` sollen beide Parameter ignorieren, wodurch die verwendete Sprache und die Form des zurückgegebenen Strings vollständig von der Implementierung abhängen.
+In Implementierungen, die die [`Intl.NumberFormat` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) unterstützen, entsprechen diese Parameter genau den Parametern des [`Intl.NumberFormat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat) Konstruktors. Implementierungen ohne `Intl.NumberFormat` Unterstützung ignorieren beide Parameter, wodurch die verwendete Sprache und die Form des zurückgegebenen Strings vollständig von der Implementierung abhängen.
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} oder ein Array solcher Strings. Entspricht dem [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#locales)-Parameter des `Intl.NumberFormat()`-Konstruktors.
+  - : Ein String mit einem {{Glossary("BCP_47_language_tag", "BCP 47 Sprach-Tag")}} oder ein Array solcher Strings. Entspricht dem [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#locales) Parameter des `Intl.NumberFormat()` Konstruktors.
 
-    In Implementierungen ohne Unterstützung für `Intl.NumberFormat` wird dieser Parameter ignoriert und üblicherweise die Sprache des Hosts verwendet.
+    In Implementierungen ohne `Intl.NumberFormat` Unterstützung wird dieser Parameter ignoriert und normalerweise die Sprache des Hosts verwendet.
 
 - `options` {{optional_inline}}
-  - : Ein Objekt zur Anpassung des Ausgabeformats. Entspricht dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options)-Parameter des `Intl.NumberFormat()`-Konstruktors.
+  - : Ein Objekt, das das Ausgabeformat anpasst. Entspricht dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options) Parameter des `Intl.NumberFormat()` Konstruktors.
 
-    In Implementierungen ohne Unterstützung für `Intl.NumberFormat` wird dieser Parameter ignoriert.
+    In Implementierungen ohne `Intl.NumberFormat` Unterstützung wird dieser Parameter ignoriert.
 
-Siehe den [`Intl.NumberFormat()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat) für Details zu diesen Parametern und deren Nutzung.
+Sehen Sie den [`Intl.NumberFormat()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat) für Details zu diesen Parametern und wie sie verwendet werden können.
 
 ### Rückgabewert
 
 Ein String, der das gegebene BigInt gemäß sprachspezifischen Konventionen darstellt.
 
-In Implementierungen mit `Intl.NumberFormat` ist dies gleichbedeutend mit `new Intl.NumberFormat(locales, options).format(number)`.
+In Implementierungen mit `Intl.NumberFormat` entspricht dies `new Intl.NumberFormat(locales, options).format(number)`.
 
 > [!NOTE]
-> Meistens ist das von `toLocaleString()` zurückgegebene Format konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, sogar innerhalb derselben Sprache – Abweichungen sind vorgesehen und durch die Spezifikation erlaubt. Sie entspricht möglicherweise auch nicht Ihren Erwartungen. Beispielsweise kann der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `toLocaleString()` nicht mit fest kodierten Konstanten vergleichen.
+> Meistens ist die Formatierung, die durch `toLocaleString()` zurückgegeben wird, konsistent. Der Output kann jedoch zwischen Implementierungen variieren, selbst innerhalb derselben Sprache – Variationen sind absichtlich und werden von der Spezifikation erlaubt. Es könnte auch nicht das sein, was Sie erwarten. Beispielsweise könnte der String geschützte Leerzeichen enthalten oder von bidirektionalen Steuerungszeichen umgeben sein. Sie sollten die Ergebnisse von `toLocaleString()` nicht mit fest codierten Konstanten vergleichen.
 
 ## Beispiele
 
 ### Verwendung von toLocaleString()
 
-Die grundlegende Nutzung dieser Methode ohne Angabe eines `locale` gibt einen formatierten String in der Standardsprache und mit den Standardoptionen zurück.
+Die grundlegende Nutzung dieser Methode ohne Angabe einer `locale` gibt einen formatierten String in der Standardsprache und mit Standardoptionen zurück.
 
 ```js
 const bigint = 3500n;
@@ -74,9 +74,9 @@ console.log(bigint.toLocaleString());
 // "3,500" if in U.S. English locale
 ```
 
-### Überprüfung der Unterstützung für locale- und options-Parameter
+### Überprüfung der Unterstützung für locales- und options-Parameter
 
-Die `locales`- und `options`-Parameter werden möglicherweise nicht in allen Implementierungen unterstützt, da die Unterstützung der Internationalisierungs-API optional ist und einigen Systemen die notwendigen Daten fehlen könnten. Für Implementierungen ohne Unterstützung der Internationalisierung verwendet `toLocaleString()` immer die Systemsprache, was eventuell nicht Ihren Vorstellungen entspricht. Da jede Implementierung, die die `locales`- und `options`-Parameter unterstützt, auch die {{jsxref("Intl")}}-API unterstützen muss, können Sie deren Existenz zur Überprüfung der Unterstützung verwenden:
+Die `locales` und `options` Parameter können in allen Implementierungen nicht unterstützt werden, da die Unterstützung für die Internationalisierungs-API optional ist, und einige Systeme möglicherweise nicht über die erforderlichen Daten verfügen. Für Implementierungen ohne Unterstützung für Internationalisierung verwendet `toLocaleString()` immer die Systemsprache, die möglicherweise nicht Ihren Vorstellungen entspricht. Da jede Implementierung, die die `locales` und `options` Parameter unterstützt, auch die {{jsxref("Intl")}} API unterstützen muss, können Sie die Existenz der letzteren auf Unterstützung überprüfen:
 
 ```js
 function toLocaleStringSupportsLocales() {
@@ -90,7 +90,7 @@ function toLocaleStringSupportsLocales() {
 
 ### Verwendung von locales
 
-Dieses Beispiel zeigt einige der Variationen in lokalisierten Zahlenformaten. Um das Format der Sprache, die in der Benutzeroberfläche Ihrer Anwendung verwendet wird, zu erhalten, sollten Sie sicherstellen, dass Sie diese Sprache (und möglicherweise einige Fallback-Sprachen) mit dem `locales`-Argument angeben:
+Dieses Beispiel zeigt einige der Variationen in lokalisierten Nummernformaten. Um das Format der Sprache zu erhalten, die in der Benutzeroberfläche Ihrer Anwendung verwendet wird, sollten Sie sicherstellen, dass Sie diese Sprache (und möglicherweise einige Ersatzsprachen) mit dem `locales` Argument angeben:
 
 ```js
 const bigint = 123456789123456789n;
@@ -119,7 +119,7 @@ console.log(bigint.toLocaleString(["ban", "id"]));
 
 ### Verwendung von options
 
-Die von `toLocaleString()` bereitgestellten Ergebnisse können mit dem `options`-Parameter angepasst werden:
+Die durch `toLocaleString()` bereitgestellten Ergebnisse können mit dem `options` Parameter angepasst werden:
 
 ```js
 const bigint = 123456789123456789n;

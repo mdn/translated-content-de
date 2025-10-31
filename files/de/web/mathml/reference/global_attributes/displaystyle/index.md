@@ -2,14 +2,14 @@
 title: displaystyle
 slug: Web/MathML/Reference/Global_attributes/displaystyle
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das **`displaystyle`** [globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) ist ein boolesches Attribut, das den [math-style](/de/docs/Web/CSS/math-style) eines MathML-Elements festlegt.
+Das **`displaystyle`** [globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) ist ein boolesches Attribut, das den [math-style](/de/docs/Web/CSS/Reference/Properties/math-style) eines MathML-Elements festlegt.
 
 ## Beispiel
 
-In diesem Beispiel wird ein [munder](/de/docs/Web/MathML/Reference/Element/munder)-Element verwendet, um ein Skript "A" an eine Basis "∑" anzuhängen. Standardmäßig wird das Summensymbol mit der vom Elternteil geerbten [Schriftgröße](/de/docs/Web/CSS/font-size) gerendert und das A als verkleinertes Subskript. Mit dem expliziten `displaystyle="true"` Attribut wird das Summensymbol stattdessen größer gezeichnet und das "A" wird zu einem Unterschrift.
+In diesem Beispiel wird ein [munder](/de/docs/Web/MathML/Reference/Element/munder)-Element verwendet, um ein Skript "A" an eine Basis "∑" anzuhängen. Standardmäßig wird das Summensymbol mit der vom übergeordneten Element geerbten [Schriftgröße](/de/docs/Web/CSS/Reference/Properties/font-size) dargestellt und das "A" als verkleinertes Subscript. Mit dem expliziten Attribut `displaystyle="true"` wird das Summensymbol stattdessen größer gezeichnet und das "A" wird zu einem Unterskript.
 
 ```css hidden
 html,
@@ -49,9 +49,9 @@ body {
 ### Werte
 
 - `true`
-  - : Setzt den Darstellungsstil auf `normal`.
+  - : Setzt den Anzeigestil auf `normal`.
 - `false`
-  - : Setzt den Darstellungsstil auf `compact`.
+  - : Setzt den Anzeigestil auf `compact`.
 
 ## Spezifikationen
 

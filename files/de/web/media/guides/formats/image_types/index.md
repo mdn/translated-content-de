@@ -2,14 +2,14 @@
 title: Leitfaden zu Bilddateitypen und -formaten
 slug: Web/Media/Guides/Formats/Image_types
 l10n:
-  sourceCommit: 8e220b25b3289597c721eecdee788bd4d936c535
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-In diesem Leitfaden behandeln wir die Bilddateitypen, die allgemein von Webbrowsern unterstützt werden, und geben Einblicke, die Ihnen bei der Auswahl der am besten geeigneten Formate für die Bilder Ihrer Website helfen.
+In diesem Leitfaden werden die Bilddateitypen behandelt, die allgemein von Webbrowsern unterstützt werden. Zudem werden Einblicke gegeben, die Ihnen helfen, die geeignetsten Formate für die Bildwiedergabe auf Ihrer Website auszuwählen.
 
 ## Häufige Bilddateitypen
 
-Die Bilddateiformate, die am häufigsten im Web verwendet werden, sind unten aufgeführt.
+Die im Web am häufigsten verwendeten Bilddateiformate sind im Folgenden aufgeführt.
 
 <table class="standard-table">
   <thead>
@@ -31,7 +31,7 @@ Die Bilddateiformate, die am häufigsten im Web verwendet werden, sind unten auf
       <td><code>.apng</code>, <code>.png</code></td>
       <td>
         Gute Wahl für verlustfreie Animationssequenzen (GIF ist weniger performant).
-        AVIF und WebP bieten eine bessere Performance, aber eine weniger breite Browserunterstützung.<br />
+        AVIF und WebP bieten bessere Leistung, aber weniger breite Browserunterstützung.<br />
         <strong>Unterstützung:</strong> Chrome, Edge, Firefox, Opera, Safari.
       </td>
     </tr>
@@ -42,9 +42,9 @@ Die Bilddateiformate, die am häufigsten im Web verwendet werden, sind unten auf
       <td><code>.avif</code></td>
       <td>
         <p>
-          Gute Wahl für Bilder und animierte Bilder aufgrund der hohen Leistung und des lizenzfreien Bildformats.
-          Es bietet eine viel bessere Kompression als PNG oder JPEG mit Unterstützung für höhere Farbtiefen, animierte Frames, Transparenz usw.
-          Beachten Sie, dass bei der Verwendung von AVIF Rückfälle auf Formate mit besserer Browserunterstützung eingebaut werden sollten (d.h. mit dem <code><a href="/de/docs/Web/HTML/Reference/Elements/picture">&#x3C;picture></a></code>-Element).<br />
+          Gute Wahl für sowohl Bilder als auch animierte Bilder aufgrund hoher Leistung und eines lizenzfreien Bildformats.
+          Es bietet eine viel bessere Komprimierung als PNG oder JPEG mit Unterstützung für höhere Farbtiefen, animierte Frames, Transparenz etc.
+          Beachten Sie, dass bei der Verwendung von AVIF Rückfallebenen in Formate mit besserer Browserunterstützung enthalten sein sollten (z.B. mit dem <code><a href="/de/docs/Web/HTML/Reference/Elements/picture">&#x3C;picture></a></code>-Element).<br />
           <strong>Unterstützung:</strong> Chrome, Edge, Firefox, Opera, Safari.
         </p>
       </td>
@@ -56,7 +56,7 @@ Die Bilddateiformate, die am häufigsten im Web verwendet werden, sind unten auf
       <td><code>.gif</code></td>
       <td>
         Gute Wahl für einfache Bilder und Animationen.
-        Bevorzugen Sie PNG für verlustfreie <em>und</em> indizierte Standbilder und erwägen Sie WebP, AVIF oder APNG für Animationssequenzen.<br />
+        Bevorzugen Sie PNG für verlustfreie <em>und</em> indizierte Standbilder, und ziehen Sie WebP, AVIF oder APNG für Animationssequenzen in Betracht.<br />
         <strong>Unterstützung:</strong> Chrome, Edge, Firefox, IE, Opera, Safari.
       </td>
     </tr>
@@ -64,7 +64,7 @@ Die Bilddateiformate, die am häufigsten im Web verwendet werden, sind unten auf
       <th scope="row">
         <a href="#jpeg_joint_photographic_experts_group_image">JPEG</a>
       </th>
-      <th scope="row">Joint Photographic Expert Group Image</th>
+      <th scope="row">Joint Photographic Expert Group image</th>
       <td><code>image/jpeg</code></td>
       <td>
         <code>.jpg</code>, <code>.jpeg</code>, <code>.jfif</code>,
@@ -72,8 +72,8 @@ Die Bilddateiformate, die am häufigsten im Web verwendet werden, sind unten auf
       </td>
       <td>
         <p>
-          Gute Wahl für verlustbehaftete Kompression von Standbildern (derzeit am beliebtesten).
-          Bevorzugen Sie PNG, wenn eine genauere Wiedergabe des Bildes erforderlich ist, oder WebP/AVIF, wenn sowohl eine bessere Wiedergabe als auch eine höhere Kompression erforderlich sind.<br />
+          Gute Wahl für verlustbehaftete Komprimierung von Standbildern (derzeit am beliebtesten).
+          Bevorzugen Sie PNG, wenn eine präzisere Wiedergabe des Bildes erforderlich ist, oder WebP/AVIF, wenn sowohl bessere Wiedergabe als auch höhere Komprimierung erforderlich sind.<br />
           <strong>Unterstützung:</strong> Chrome, Edge, Firefox, IE, Opera, Safari.
         </p>
       </td>
@@ -85,7 +85,7 @@ Die Bilddateiformate, die am häufigsten im Web verwendet werden, sind unten auf
       <td><code>.png</code></td>
       <td>
         <p>
-          PNG wird gegenüber JPEG bevorzugt für eine genauere Wiedergabe von Quellbildern oder wenn Transparenz benötigt wird. WebP/AVIF bieten eine noch bessere Kompression und Wiedergabe, aber die Browserunterstützung ist begrenzter.<br />
+          PNG wird gegenüber JPEG bevorzugt für präzisere Wiedergabe von Quellbildern oder wenn Transparenz erforderlich ist. WebP/AVIF bieten noch bessere Komprimierung und Wiedergabe, aber die Browserunterstützung ist eingeschränkter.<br />
           <strong>Unterstützung:</strong> Chrome, Edge, Firefox, IE, Opera, Safari.
         </p>
       </td>
@@ -96,19 +96,19 @@ Die Bilddateiformate, die am häufigsten im Web verwendet werden, sind unten auf
       <td><code>image/svg+xml</code></td>
       <td><code>.svg</code></td>
       <td>
-        Vektorbildformat; ideal für Benutzeroberflächeselemente, Symbole, Diagramme usw., die in unterschiedlichen Größen genau gezeichnet werden müssen.<br />
+        Vektorbildformat; ideal für Benutzerschnittstellenelemente, Symbole, Diagramme etc., die in verschiedenen Größen genau gezeichnet werden müssen.<br />
         <strong>Unterstützung:</strong> Chrome, Edge, Firefox, IE, Opera, Safari.
       </td>
     </tr>
     <tr>
       <th scope="row"><a href="#webp_image">WebP</a></th>
-      <th scope="row">Web Picture Format</th>
+      <th scope="row">Web Picture format</th>
       <td><code>image/webp</code></td>
       <td><code>.webp</code></td>
       <td>
-        Hervorragende Wahl für Bilder und animierte Bilder.
-        WebP bietet eine viel bessere Kompression als PNG oder JPEG mit Unterstützung für höhere Farbtiefen, animierte Frames, Transparenz usw.
-        AVIF bietet eine etwas bessere Kompression, ist jedoch nicht so gut in Browsern unterstützt und unterstützt kein progressives Rendering.<br />
+        Hervorragende Wahl für sowohl Bilder als auch animierte Bilder.
+        WebP bietet eine viel bessere Komprimierung als PNG oder JPEG mit Unterstützung für höhere Farbtiefen, animierte Frames, Transparenz etc.
+        AVIF bietet eine etwas bessere Komprimierung, wird aber nicht so gut in Browsern unterstützt und unterstützt kein progressives Rendering.<br />
         <strong>Unterstützung:</strong> Chrome, Edge, Firefox, Opera, Safari
       </td>
     </tr>
@@ -116,9 +116,9 @@ Die Bilddateiformate, die am häufigsten im Web verwendet werden, sind unten auf
 </table>
 
 > [!NOTE]
-> Ältere Formate wie PNG, JPEG, GIF haben im Vergleich zu neueren Formaten wie WebP und AVIF eine schlechte Leistung, genießen jedoch eine breitere "historische" Browserunterstützung. Die neueren Bildformate gewinnen an Popularität, da Browser ohne Unterstützung immer irrelevanter werden (d.h. praktisch keinen Marktanteil mehr haben).
+> Ältere Formate wie PNG, JPEG, GIF haben im Vergleich zu neueren Formaten wie WebP und AVIF eine schlechtere Leistung, genießen jedoch eine breitere „historische“ Browserunterstützung. Die neueren Bildformate gewinnen immer mehr an Beliebtheit, da Browser, die sie nicht unterstützen, zunehmend irrelevant werden (d.h. praktisch keinen Marktanteil mehr haben).
 
-Die folgende Liste enthält Bildformate, die im Web erscheinen, jedoch für Webinhalte vermieden werden sollten (in der Regel weil sie entweder keine breite Browserunterstützung haben oder weil es bessere Alternativen gibt).
+Die folgende Liste enthält Bildformate, die im Web auftauchen, die jedoch für Webinhalte vermieden werden sollten (in der Regel, weil sie entweder keine breite Browserunterstützung haben, oder weil es bessere Alternativen gibt).
 
 <table class="standard-table">
   <thead>
@@ -140,7 +140,7 @@ Die folgende Liste enthält Bildformate, die im Web erscheinen, jedoch für Webi
     </tr>
     <tr>
       <th scope="row"><a href="#ico_microsoft_windows_icon">ICO</a></th>
-      <th scope="row">Microsoft Icon</th>
+      <th scope="row">Microsoft-Icon</th>
       <td><code>image/x-icon</code></td>
       <td><code>.ico</code>, <code>.cur</code></td>
       <td>Chrome, Edge, Firefox, IE, Opera, Safari</td>
@@ -156,24 +156,24 @@ Die folgende Liste enthält Bildformate, die im Web erscheinen, jedoch für Webi
 </table>
 
 > [!NOTE]
-> Die Abkürzung für jedes Bildformat verlinkt zu einer längeren Beschreibung des Formats, seiner Fähigkeiten und detaillierten Browser-Kompatibilitätsinformationen (einschließlich der Versionen, die Unterstützung eingeführt haben und spezielle Funktionen, die möglicherweise später hinzugefügt wurden).
+> Die Abkürzung für jedes Bildformat verlinkt zu einer ausführlicheren Beschreibung des Formats, seiner Fähigkeiten und detaillierten Informationen zur Browser-Kompatibilität (einschließlich Angaben dazu, welche Versionen die Unterstützung einführten und spezielle Funktionen, die möglicherweise später hinzugefügt wurden).
 
 > [!NOTE]
-> Safari 11.1 hat die Möglichkeit hinzugefügt, ein Videoformat als Ersatz für animierte GIFs zu verwenden.
+> Safari 11.1 fügte die Fähigkeit hinzu, ein Videoformat als Ersatz für animierte GIFs zu verwenden.
 > Kein anderer Browser unterstützt dies.
-> Siehe den [Chromium-Bug](https://crbug.com/791658) und den [Firefox-Bug](https://bugzil.la/895131) für weitere Informationen.
+> Weitere Informationen finden Sie im [Chromium-Fehler](https://crbug.com/791658) und im [Firefox-Fehler](https://bugzil.la/895131).
 
 ## Details zu Bilddateitypen
 
-Die folgenden Abschnitte bieten einen kurzen Überblick über jeden der von Webbrowsern unterstützten Bilddateitypen.
+Die folgenden Abschnitte bieten einen kurzen Überblick über jeden der von Web-Browsern unterstützten Bilddateitypen.
 
-In den untenstehenden Tabellen bezieht sich der Begriff **bits per component** auf die Anzahl der Bits, die zum Darstellen jeder Farbkomponente verwendet werden. Beispielsweise weist eine RGB-Farbtiefe von 8 darauf hin, dass jede der Rot-, Grün- und Blaukomponenten durch einen 8-Bit-Wert dargestellt wird. Die **Farbtiefe** bezieht sich hingegen auf die Gesamtanzahl der Bits, die für die Darstellung jedes Pixels im Speicher verwendet werden.
+In den untenstehenden Tabellen bezieht sich der Begriff **Bits pro Komponente** auf die Anzahl der Bits, die zur Darstellung jeder Farbkomponente verwendet werden. Ein RGB-Farbtiefe von 8 bedeutet beispielsweise, dass jede der roten, grünen und blauen Komponenten durch einen 8-Bit-Wert dargestellt wird. **Bit-Tiefe** hingegen ist die Gesamtanzahl der Bits, die zur Darstellung jedes Pixels im Speicher verwendet werden.
 
 ### APNG (Animated Portable Network Graphics)
 
-APNG ist ein Dateiformat, das zuerst von Mozilla eingeführt wurde und den [PNG](#png_portable_network_graphics)-Standard erweitert, indem es Unterstützt für animierte Bilder hinzufügt. Konzeptuell ähnlich dem animierten GIF-Format, das seit Jahrzehnten in Gebrauch ist, ist APNG leistungsfähiger, da es eine Vielzahl von [Farb-Tiefen](https://en.wikipedia.org/wiki/Color_depth) unterstützt, während animierte GIFs nur 8-Bit [indizierte Farben](https://en.wikipedia.org/wiki/Indexed_color) unterstützen.
+APNG ist ein Dateiformat, das erstmals von Mozilla eingeführt wurde und den [PNG](#png_portable_network_graphics)-Standard erweitert, um Unterstützung für animierte Bilder hinzuzufügen. Konzeptionell ähnlich dem animierten GIF-Format, das seit Jahrzehnten verwendet wird, ist APNG leistungsfähiger, da es eine Vielzahl von [Farbtiefen](https://en.wikipedia.org/wiki/Color_depth) unterstützt, während animierte GIFs nur 8-Bit [indizierte Farben](https://en.wikipedia.org/wiki/Indexed_color) unterstützen.
 
-APNG eignet sich ideal für einfache Animationen, die nicht mit anderen Aktivitäten oder einem Soundtrack synchronisiert werden müssen, wie z. B. Fortschrittsanzeigen, Aktivitäts-Throbber und andere animierte Sequenzen. Zum Beispiel ist APNG [eines der Formate, die beim Erstellen von animierten Stickern](https://developer.apple.com/imessage/) für Apples iMessage-Anwendung (und die Nachrichten-Anwendung auf iOS) unterstützt werden. Sie werden auch häufig für die animierten Teile von Webbrowser-Benutzeroberflächen verwendet.
+APNG ist ideal für einfache Animationen, die nicht mit anderen Aktivitäten oder einem Soundtrack synchronisiert werden müssen, wie z.B. Fortschrittsanzeigen, Aktivitäts- [Throbber](https://en.wikipedia.org/wiki/Throbber) und andere animierte Sequenzen. Zum Beispiel ist APNG [eine der Formate, die unterstützt werden, wenn animierte Sticker](https://developer.apple.com/imessage/) für Apples iMessage-Anwendung (und die Nachrichtenanwendung auf iOS) erstellt werden. Sie werden auch häufig für die animierten Teile der Benutzeroberflächen von Webbrowsern verwendet.
 
 <table class="standard-table">
   <tbody>
@@ -182,13 +182,13 @@ APNG eignet sich ideal für einfache Animationen, die nicht mit anderen Aktivit�
       <td><code>image/apng</code></td>
     </tr>
     <tr>
-      <th scope="row">Dateierweiterungen</th>
+      <th scope="row">Dateierweiterung(en)</th>
       <td><code>.apng</code>, <code>.png</code></td>
     </tr>
     <tr>
       <th scope="row">Spezifikation</th>
       <td>
-        <a href="https://w3c.github.io/png/#apng-frame-based-animation">W3C PNG Specification</a>
+        <a href="https://w3c.github.io/png/#apng-frame-based-animation">W3C PNG-Spezifikation</a>
       </td>
     </tr>
     <tr>
@@ -215,35 +215,35 @@ APNG eignet sich ideal für einfache Animationen, die nicht mit anderen Aktivit�
               <th scope="row">Graustufen</th>
               <td>1, 2, 4, 8 und 16</td>
               <td>
-                Jedes Pixel besteht aus einem einzigen <em>D</em>-Bit-Wert, der die Helligkeit des Graustufen-Pixels angibt.
+                Jedes Pixel besteht aus einem einzelnen <em>D</em>-Bit-Wert, der die Helligkeit des Graustufen-Pixels angibt.
               </td>
             </tr>
             <tr>
-              <th scope="row">True Color</th>
+              <th scope="row">Echte Farben</th>
               <td>8 und 16</td>
               <td>
-                Jedes Pixel wird durch drei <em>D</em>-Bit-Werte dargestellt, die den Pegel der Rot-, Grün- und Blau-Farbkomponenten angeben.
+                Jedes Pixel wird durch drei <em>D</em>-Bit-Werte dargestellt, die das Niveau der roten, grünen und blauen Farbkomponenten angeben.
               </td>
             </tr>
             <tr>
-              <th scope="row">Indizierte Farbe</th>
+              <th scope="row">Indizierte Farben</th>
               <td>1, 2, 4 und 8</td>
               <td>
-                Jedes Pixel ist ein <em>D</em>-Bit-Wert, der auf eine Farbpalette verweist, die innerhalb eines <code><a href="https://w3c.github.io/png/#11PLTE">PLTE</a></code>-Blocks in der APNG-Datei enthalten ist; die Farben der Palette verwenden alle eine 8-Bit-Tiefe.
+                Jedes Pixel ist ein <em>D</em>-Bit-Wert, der einen Index in eine Farbpalette angibt, die in einem <code><a href="https://w3c.github.io/png/#11PLTE">PLTE</a></code>-Chunk in der APNG-Datei enthalten ist; die Farben in der Palette verwenden alle eine 8-Bit-Tiefe.
               </td>
             </tr>
             <tr>
               <th scope="row">Graustufen mit Alpha</th>
               <td>8 und 16</td>
               <td>
-                Jedes Pixel wird durch zwei <em>D</em>-Bit-Werte dargestellt: die Intensität des Graustufen-Pixels und eine Alpha-Komponente, die angibt, wie undurchsichtig das Pixel ist.
+                Jedes Pixel wird durch zwei <em>D</em>-Bit-Werte dargestellt: die Intensität des Graustufen-Pixels und eine Alpha-Probe, die angibt, wie undurchsichtig das Pixel ist.
               </td>
             </tr>
             <tr>
-              <th scope="row">True Color mit Alpha</th>
+              <th scope="row">Echte Farben mit Alpha</th>
               <td>8 und 16</td>
               <td>
-                Jedes Pixel besteht aus vier <em>D</em>-Pixel-Farbkomponenten: Rot, Grün, Blau und der Alpha-Komponente, die angibt, wie undurchsichtig das Pixel ist.
+                Jedes Pixel besteht aus vier <em>D</em>-Pixel-Farbkomponenten: rot, grün, blau und die Alpha-Probe, die angibt, wie undurchsichtig das Pixel ist.
               </td>
             </tr>
           </tbody>
@@ -252,13 +252,13 @@ APNG eignet sich ideal für einfache Animationen, die nicht mit anderen Aktivit�
     </tr>
     <tr>
       <th scope="row">Kompression</th>
-      <td>Verlustfrei</td>
+      <td>Verlustlos</td>
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
         Frei und offen unter der
-        <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike-Lizenz</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>) Version 3.0 oder höher.
+        <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike-Lizenz</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>) Version 3.0 oder später.
       </td>
     </tr>
   </tbody>
@@ -266,27 +266,27 @@ APNG eignet sich ideal für einfache Animationen, die nicht mit anderen Aktivit�
 
 ### AVIF-Bild
 
-AV1 Image File Format (AVIF) ist ein leistungsfähiges, quelloffenes, gebührenfreies Dateiformat, das _AV1-Bitstreams im High Efficiency Image File Format (HEIF)-Container_ kodiert.
+AV1 Image File Format (AVIF) ist ein leistungsstarkes, quelloffenes lizenzfreies Dateiformat, das _AV1-Bitströme im High Efficiency Image File Format (HEIF)-Container_ codiert.
 
 > [!NOTE]
-> AVIF hat das Potenzial, das "nächste große Ding" für das Teilen von Bildern im Web zu werden.
-> Es bietet erstklassige Funktionen und Leistung, ohne die Belastung durch komplizierte Lizenzierung und Patentgebühren, die vergleichbare Alternativen behindert haben.
+> AVIF hat das Potenzial, das "nächste große Ding" für das Teilen von Bildern in Webinhalten zu werden.
+> Es bietet hochmoderne Funktionen und Leistung, ohne die Belastung durch komplizierte Lizenzierung und Patentgebühren, die vergleichbare Alternativen behindert haben.
 
-AV1 ist ein Kodierungsformat, das ursprünglich für die Videoübertragung über das Internet entwickelt wurde. Das Format profitiert von den signifikanten Fortschritten in der Video-Kodierung in den letzten Jahren und könnte potenziell von der damit verbundenen Unterstützung für Hardware-Rendering profitieren. Es hat jedoch auch Nachteile in einigen Fällen, da Video- und Bildkodierung unterschiedliche Anforderungen haben.
+AV1 ist ein Codierungsformat, das ursprünglich für die Videotransmission über das Internet entworfen wurde. Das Format profitiert von den signifikanten Fortschritten in der Videocodierung in den letzten Jahren und kann möglicherweise von der damit verbundenen Unterstützung für Hardware-Rendering profitieren. Es hat jedoch auch Nachteile in einigen Fällen, da Video- und Bildcodierung unterschiedliche Anforderungen haben.
 
 Das Format bietet:
 
-- Hervorragende verlustbehaftete Kompression im Vergleich zu JPG und PNG bei visuell ähnlichen Kompressionsstufen (z. B. sind verlustbehaftete AVIF-Bilder etwa 50% kleiner als JPEG-Bilder).
-- Im Allgemeinen hat AVIF eine bessere Kompression als WebP — median 50% vs. 30% Kompression für das gleiche JPG-Set (Quelle: [AVIF WebP Vergleich](https://www.ctrl.blog/entry/webp-avif-comparison.html) (CTRL Blog)).
-- Verlustfreie Kompression.
-- Animation/Speicherung mehrerer Bilder (ähnlich wie animierte GIFs, jedoch mit weit besserer Kompression).
-- Unterstützung des Alpha-Kanals (d.h. für Transparenz).
-- _High Dynamic Range_ (HDR): Unterstützung für das Speichern von Bildern, die größere Kontraste zwischen den hellsten und dunkelsten Teilen des Bildes darstellen können.
-- Breites Farbgamut: Unterstützung für Bilder, die eine größere Farbpalette enthalten können.
+- Hervorragende verlustbehaftete Kompression im Vergleich zu JPG und PNG bei optisch ähnlichen Kompressionsstufen (z.B. sind verlustbehaftete AVIF-Bilder etwa 50% kleiner als JPEG-Bilder).
+- Im Allgemeinen hat AVIF eine bessere Kompression als WebP — medial 50% gegenüber 30% Kompression für dasselbe JPG-Set (Quelle: [AVIF WebP-Vergleich](https://www.ctrl.blog/entry/webp-avif-comparison.html) (CTRL Blog)).
+- Verlustlose Kompression.
+- Animation/mehrfaches Bildspeicherung (ähnlich wie bei animierten GIFs, aber mit viel besserer Kompression)
+- Unterstützung für Alphakanal (d.h. für Transparenz).
+- _High Dynamic Range_ (HDR): Unterstützung zur Speicherung von Bildern, die größere Kontraste zwischen den hellsten und dunkelsten Teilen des Bildes darstellen können.
+- Großer Farbumfang: Unterstützung für Bilder, die einen größeren Farbbereich enthalten können.
 
-AVIF unterstützt kein progressives Rendering, sodass Dateien vollständig heruntergeladen werden müssen, bevor sie angezeigt werden können. Dies hat in der Regel wenig Auswirkungen auf die reale Benutzererfahrung, da AVIF-Dateien viel kleiner sind als die entsprechenden JPEG- oder PNG-Dateien und daher schneller heruntergeladen und angezeigt werden können. Bei größeren Dateigrößen kann der Einfluss jedoch signifikant werden und Sie sollten in Erwägung ziehen, ein Format zu verwenden, das progressives Rendering unterstützt.
+AVIF unterstützt kein progressives Rendern, daher müssen Dateien vollständig heruntergeladen werden, bevor sie angezeigt werden können. Dies hat oft wenig Einfluss auf die reale Benutzererfahrung, da AVIF-Dateien viel kleiner als die entsprechenden JPEG- oder PNG-Dateien sind und daher viel schneller heruntergeladen und angezeigt werden können. Bei größeren Dateigrößen kann der Einfluss jedoch signifikant werden und es sollte ein Format in Betracht gezogen werden, das progressives Rendern unterstützt.
 
-AVIF wird von Chrome, Edge, Opera, Safari und Firefox unterstützt. Da die Unterstützung noch nicht umfassend ist (und wenig historische Tiefe aufweist), sollten Sie einen Rückfall auf [WebP](#webp-bild), [JPEG](#jpeg_joint_photographic_experts_group_image) oder [PNG](#png_portable_network_graphics) Format bereitstellen, indem Sie [das `<picture>`-Element](/de/docs/Web/HTML/Reference/Elements/picture) (oder eine andere Herangehensweise) verwenden.
+AVIF wird in Chrome, Edge, Opera, Safari und Firefox unterstützt. Da die Unterstützung noch nicht umfassend ist (und wenig historische Tiefe hat), sollten Sie einen Fallback im [WebP](#webp-bild)-, [JPEG](#jpeg_joint_photographic_experts_group_image)- oder [PNG](#png_portable_network_graphics)-Format bereitstellen, indem Sie beispielsweise [das `<picture>`-Element](/de/docs/Web/HTML/Reference/Elements/picture) (oder einen anderen Ansatz) verwenden.
 
 <table class="standard-table">
   <tbody>
@@ -295,7 +295,7 @@ AVIF wird von Chrome, Edge, Opera, Safari und Firefox unterstützt. Da die Unter
       <td><code>image/avif</code></td>
     </tr>
     <tr>
-      <th scope="row">Dateierweiterungen</th>
+      <th scope="row">Dateierweiterung(en)</th>
       <td><code>.avif</code></td>
     </tr>
     <tr>
@@ -314,11 +314,12 @@ AVIF wird von Chrome, Edge, Opera, Safari und Firefox unterstützt. Da die Unter
         Chrome 85, Edge 121, Opera 71, Firefox 93, und Safari 16.1.
         <ul>
           <li>
-            Firefox 93 unterstützt Standbilder mit Unterstützung des Farbraums sowohl für Farben mit vollem als auch mit eingeschränktem Bereich, Bildtransformationen zur Spiegelung und Drehung. Die Einstellung <a href="/de/docs/Mozilla/Firefox/Experimental_features#avif_compliance_strictness">image.avif.compliance_strictness</a>
-            kann verwendet werden, um die Einhaltung der Spezifikationen anzupassen.
+            Firefox 93 unterstützt Standbilder, mit Unterstützung für den Farbraum sowohl für vollständige als auch für eingeschränkte Bereiche, Bildtransformationen für Spiegelung und Drehung.
+            Die Präferenz <a href="/de/docs/Mozilla/Firefox/Experimental_features#avif_compliance_strictness">image.avif.compliance_strictness</a>
+            kann verwendet werden, um die Konformitätsstrenge mit der Spezifikation anzupassen.
           </li>
           <li>
-            Firefox 113 und spätere unterstützen animierte Bilder.
+            Firefox 113 und später unterstützen animierte Bilder.
           </li>
         </ul>
       </td>
@@ -332,25 +333,25 @@ AVIF wird von Chrome, Edge, Opera, Safari und Firefox unterstützt. Da die Unter
       <td>
         <p>
           Informationen zur Unterstützung von Farbmodi sind in der
-          <a href="https://aomediacodec.github.io/av1-spec/av1-spec.pdf">AV1 Bitstream &#x26; Decoding Process Specification</a>, Abschnitt 6.4.2 : Semantik der Farbkonfiguration enthalten.
+          <a href="https://aomediacodec.github.io/av1-spec/av1-spec.pdf">AV1 Bitstream & Decoding Process Specification</a>, Abschnitt 6.4.2 : Color Config Semantics.
         </p>
         <p>Eine nicht erschöpfende Zusammenfassung ist:</p>
         <ul>
           <li>Farbmodi: YUV444, YUV422, YUV420</li>
-          <li>Graustufenunterstützung: YUV400</li>
+          <li>Unterstützung für Graustufen: YUV400</li>
           <li>Bits: 8/10/12-Bit</li>
-          <li>Alpha-Unterstützung</li>
-          <li>ICC-Profil-Unterstützung</li>
+          <li>Unterstützung für Alpha</li>
+          <li>Unterstützung für ICC-Profile</li>
           <li>
-            NCLX-Unterstützung: sRGB, lineares sRGB, lineares Rec2020, PQ Rec2020, HLG Rec2020, PQ P3, HLG P3, usw.
+            NCLX-Unterstützung: sRGB, lineares sRGB, lineares Rec2020, PQ Rec2020, HLG Rec2020, PQ P3, HLG P3, etc.
           </li>
-          <li>Tiling-Unterstützung</li>
+          <li>Kachelunterstützung</li>
         </ul>
       </td>
     </tr>
     <tr>
       <th scope="row">Kompression</th>
-      <td>Verlustbehaftet und verlustfrei.</td>
+      <td>Verlustbehaftet und verlustlos.</td>
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
@@ -363,16 +364,18 @@ AVIF wird von Chrome, Edge, Opera, Safari und Firefox unterstützt. Da die Unter
 
 ### BMP (Bitmap-Datei)
 
-Der **BMP** (**Bitmap Image**) Dateityp ist am weitesten verbreitet auf Windows-Rechnern und wird im Allgemeinen nur für Sonderfälle in Webanwendungen und -inhalten verwendet.
+Der **BMP**-(**Bitmap-Bild**)-Dateityp ist auf Windows-Computern am häufigsten anzutreffen und wird in der Regel nur für Sonderfälle in Web-Apps und -Inhalten verwendet.
 
 > [!WARNING]
-> Der Einsatz von BMP-Dateien für Website-Inhalte sollte in der Regel vermieden werden. Die gängigste Form von BMP-Dateien stellt die Daten als unkomprimiertes Rasterbild dar, was zu großen Dateigrößen im Vergleich zu png- oder jpg-Bildtypen führt. Effizientere BMP-Formate existieren, werden aber nicht weit verbreitet verwendet und selten in Webbrowsern unterstützt.
+> Sie sollten in der Regel vermeiden, BMP-Dateien für Website-Inhalte zu verwenden.
+> Die häufigste Form einer BMP-Datei stellt die Daten als unkomprimiertes Rasterbild dar, was zu großen Dateigrößen im Vergleich zu PNG- oder JPG-Bildtypen führt.
+> Effizientere BMP-Formate existieren, werden aber nicht häufig verwendet und in Webbrowsern selten unterstützt.
 
-BMP unterstützt theoretisch eine Vielzahl von internen Datenrepräsentationen. Die einfachste und am häufigsten verwendete Form von BMP-Dateien ist ein unkomprimiertes Rasterbild, bei dem jedes Pixel 3 Byte belegt, die die Rot-, Grün- und Blaukomponenten darstellen, und jede Zeile mit `0x00`-Bytes aufgefüllt wird, um ein Vielfaches von 4 Byte breit zu sein.
+BMP unterstützt theoretisch eine Vielzahl interner Datenrepräsentationen. Die einfachste und am häufigsten verwendete Form von BMP-Dateien ist ein unkomprimiertes Rasterbild, bei dem jedes Pixel 3 Byte einnimmt, die jeweils seine roten, grünen und blauen Komponenten repräsentieren, und jede Zeile mit `0x00`-Bytes zu einem Vielfachen von 4 Byte Breite aufgefüllt ist.
 
-Obwohl andere Datenrepräsentationen in der Spezifikation definiert sind, werden sie nicht weit verbreitet verwendet und sind oft völlig unimplementiert. Diese Funktionen umfassen: Unterstützung für unterschiedliche Farbtiefen, indizierte Farbdarstellung, Alpha-Kanäle und unterschiedliche Pixel-Ordnungen (Standardmäßig wird BMP von der unteren linken Ecke nach rechts und oben geschrieben, anstatt von der oberen linken Ecke nach rechts und unten).
+Obwohl andere Datenrepräsentationen in der Spezifikation definiert sind, werden sie nicht häufig verwendet und oft gar nicht umgesetzt. Diese Funktionen umfassen: Unterstützung für verschiedene Bittiefen, indizierte Farben, Alphakanäle und unterschiedliche Pixel-Reihenfolgen (standardmäßig wird BMP vom unteren linken Rand bis zum rechten und oberen Rand geschrieben und nicht vom oberen linken Rand zum rechten und unteren Rand).
 
-Theoretisch werden mehrere Komprimierungsalgorithmen unterstützt, und die Bilddaten können auch im [JPEG](#jpeg_joint_photographic_experts_group_image)- oder [PNG](#png_portable_network_graphics)-Format innerhalb der BMP-Datei gespeichert werden.
+Theoretisch werden mehrere Kompressionsalgorithmen unterstützt, und die Bilddaten können auch im [JPEG](#jpeg_joint_photographic_experts_group_image)- oder [PNG](#png_portable_network_graphics)-Format innerhalb der BMP-Datei gespeichert werden.
 
 <table class="standard-table">
   <tbody>
@@ -381,13 +384,13 @@ Theoretisch werden mehrere Komprimierungsalgorithmen unterstützt, und die Bildd
       <td><code>image/bmp</code></td>
     </tr>
     <tr>
-      <th scope="row">Dateierweiterungen</th>
+      <th scope="row">Dateierweiterung(en)</th>
       <td><code>.bmp</code></td>
     </tr>
     <tr>
       <th scope="row">Spezifikation</th>
       <td>
-        Keine Spezifikation; jedoch bietet Microsoft allgemeine Dokumentation des Formats unter
+        Keine Spezifikation; jedoch stellt Microsoft allgemeine Dokumentation des Formats bereit unter
         <a href="https://learn.microsoft.com/en-us/windows/win32/gdi/bitmap-storage">docs.microsoft.com/en-us/windows/desktop/gdi/bitmap-storage</a>
       </td>
     </tr>
@@ -423,17 +426,17 @@ Theoretisch werden mehrere Komprimierungsalgorithmen unterstützt, und die Bildd
               </td>
             </tr>
             <tr>
-              <th scope="row">True Color</th>
+              <th scope="row">Echte Farben</th>
               <td>8 und 16</td>
               <td>
-                Jedes Pixel wird durch drei Werte dargestellt, die die Rot-, Grün- und Blau-Farbkomponenten repräsentieren; jeder <em>D</em>-Bits.
+                Jedes Pixel wird durch drei Werte dargestellt, die die roten, grünen und blauen Farbkomponenten repräsentieren; jedes ist <em>D</em> Bit.
               </td>
             </tr>
             <tr>
-              <th scope="row">Indizierte Farbe</th>
+              <th scope="row">Indizierte Farben</th>
               <td>2, 4 und 8</td>
               <td>
-                Jedes Pixel wird durch einen Wert dargestellt, der aus 2, 4 oder 8 Bits besteht und als Index in die Farbtabelle dient.
+                Jedes Pixel wird durch einen Wert repräsentiert, der entweder ein 2-, 4- oder 8-Bit-Wert ist, der als Index in die Farbpalette dient.
               </td>
             </tr>
             <tr>
@@ -442,10 +445,10 @@ Theoretisch werden mehrere Komprimierungsalgorithmen unterstützt, und die Bildd
               <td>BMP hat kein eigenes Graustufenformat.</td>
             </tr>
             <tr>
-              <th scope="row">True Color mit Alpha</th>
+              <th scope="row">Echte Farben mit Alpha</th>
               <td>8 und 16</td>
               <td>
-                Jedes Pixel wird durch vier Werte repräsentiert, die die Rot-, Grün-, Blau- und Alpha-Farbkomponenten darstellen; jede <em>D</em>-Bits.
+                Jedes Pixel wird durch vier Werte dargestellt, die die roten, grünen, blauen und Alpha-Farbkomponenten repräsentieren; jedes ist <em>D</em> Bit.
               </td>
             </tr>
           </tbody>
@@ -455,15 +458,13 @@ Theoretisch werden mehrere Komprimierungsalgorithmen unterstützt, und die Bildd
     <tr>
       <th scope="row">Kompression</th>
       <td>
-        Mehrere Komprimierungsmethoden werden unterstützt, einschließlich verlustbehafteter oder verlustfreier Algorithmen
+        Mehrere Kompressionsmethoden werden unterstützt, einschließlich verlustbehafteter oder verlustfreier Algorithmen
       </td>
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
-        Abgedeckt durch das <a href="https://learn.microsoft.com/en-us/openspecs/dev_center/ms-devcentlp/1c24c7c8-28b0-4ce1-a47d-95fe1ff504bc">Microsoft Open Specification Promise</a>;
-        während Microsoft Patente gegen BMP hält, haben sie versprochen, ihre Patentrechte nicht geltend zu machen, solange bestimmte Bedingungen erfüllt sind.
-        Das ist jedoch nicht dasselbe wie eine Lizenz. BMP ist im Windows Metafile Format (<code>.wmf</code>) enthalten.
+        Abgedeckt durch das <a href="https://learn.microsoft.com/en-us/openspecs/dev_center/ms-devcentlp/1c24c7c8-28b0-4ce1-a47d-95fe1ff504bc">Microsoft Open Specification Promise</a>; während Microsoft Patente gegen BMP hält, haben sie ein Versprechen veröffentlicht, ihre Patentrechte nicht geltend zu machen, solange bestimmte Bedingungen erfüllt sind. Dies ist jedoch nicht dasselbe wie eine Lizenz. BMP ist im Windows Metafile Format (<code>.wmf</code>) enthalten.
       </td>
     </tr>
   </tbody>
@@ -471,19 +472,19 @@ Theoretisch werden mehrere Komprimierungsalgorithmen unterstützt, und die Bildd
 
 ### GIF (Graphics Interchange Format)
 
-Im Jahr 1987 stellte der Online-Dienstanbieter CompuServe das **[GIF](https://en.wikipedia.org/wiki/GIF)** (**Graphics Interchange Format**) Bilddateiformat vor, um ein komprimiertes Grafikformat bereitzustellen, das alle Mitglieder ihres Dienstes nutzen können. GIF verwendet den [Lempel-Ziv-Welch](https://en.wikipedia.org/wiki/Lempel-Ziv-Welch) (LZW) Algorithmus zur verlustfreien Kompression von 8-Bit indizierten Farbgrafiken. GIF war eines der ersten beiden Grafikformate, die von {{Glossary("HTML", "HTML")}} unterstützt wurden, zusammen mit [XBM](#xbm_x_window_system_bitmap_file).
+1987 führte der CompuServe-Online-Dienstanbieter das **[GIF](https://en.wikipedia.org/wiki/GIF)** (**Graphics Interchange Format**)-Bilddateiformat ein, um ein komprimiertes Grafikformat bereitzustellen, das alle Mitglieder ihres Dienstes verwenden können. GIF verwendet den [Lempel-Ziv-Welch](https://en.wikipedia.org/wiki/Lempel-Ziv-Welch) (LZW)-Algorithmus, um 8-Bit-indizierte Farbgrafiken verlustlos zu komprimieren. GIF war eines der ersten beiden Grafikformate, die von {{Glossary("HTML", "HTML")}} unterstützt wurden, neben [XBM](#xbm_x_window_system_bitmap_file).
 
-Jedes Pixel in einem GIF wird durch einen einzelnen 8-Bit-Wert repräsentiert, der als Index in eine Palette von 24-Bit-Farben (je 8 Bit für Rot, Grün und Blau) dient. Die Länge einer Farbtabelle ist immer eine Zweierpotenz (d.h. jede Palette hat 2, 4, 8, 16, 32, 64 oder 256 Einträge). Um mehr als 255 oder 256 Farben zu simulieren, wird allgemein [Dithering](https://en.wikipedia.org/wiki/Dithering) verwendet. Es ist [technisch möglich](https://gif.ski/), mehrere Bildblöcke zu kacheln, von denen jeder seine eigene Farbpalette enthält, um echte Farbbilder zu erstellen, aber in der Praxis wird dies selten getan.
+Jedes Pixel in einem GIF wird durch einen einzigen 8-Bit-Wert repräsentiert, der als Index in eine Palette von 24-Bit-Farben (8 Bit je rot, grün und blau) dient. Die Länge einer Farbpalette ist immer eine Potenz von 2 (d.h. jede Palette hat 2, 4, 8, 16, 32, 64 oder 256 Einträge). Um mehr als 255 oder 256 Farben zu simulieren, wird im Allgemeinen [Dithering](https://en.wikipedia.org/wiki/Dithering) verwendet. Es ist [technisch möglich](https://gif.ski/), mehrere Bildblöcke zu kacheln, von denen jeder seine eigene Farbpalette hat, um echte Farbbilder zu erstellen, aber in der Praxis wird dies selten getan.
 
-Pixel sind undurchsichtig, es sei denn, ein bestimmter Farbindex wird als transparent bezeichnet, in diesem Fall sind Pixel in dieser Farbe vollständig transparent.
+Pixel sind undurchsichtig, es sei denn, ein bestimmter Farbindex wird als transparent festgelegt, in diesem Fall sind Pixel mit diesem Wert vollständig transparent.
 
-GIF unterstützt einfache Animationen, bei denen nach einem anfänglichen Vollbildrahmen eine Reihe von Bildern bereitgestellt wird, die die Teile des Bildes widerspiegeln, die sich mit jedem Frame ändern.
+GIF unterstützt einfache Animationen, bei denen nach einem anfänglichen Vollbild-Frame eine Reihe von Bildern bereitgestellt wird, die die Teile des Bildes widerspiegeln, die sich mit jedem Frame ändern.
 
-GIF ist aufgrund seiner Einfachheit und Kompatibilität seit Jahrzehnten enorm beliebt. Seine Animationsunterstützung führte zu einem Comeback in der Ära der sozialen Medien, als animierte GIFs weit verbreitet für kurze "Videos", Memes und andere einfache Animationssequenzen verwendet wurden.
+GIF war aufgrund seiner Einfachheit und Kompatibilität jahrzehntelang extrem populär. Seine Animationsunterstützung führte zu einer Wiederbelebung seiner Popularität im Zeitalter der sozialen Medien, als animierte GIFs weit verbreitet für kurze "Videos", Memes und andere einfache Animationsfolgen verwendet wurden.
 
-Ein weiteres populäres Merkmal von GIF ist die Unterstützung von [Interlacing](<https://en.wikipedia.org/wiki/Interlacing_(bitmaps)>), bei dem Zeilen von Pixeln aus der Reihe gespeichert werden, sodass teilweise empfangene Dateien in niedrigerer Qualität angezeigt werden können. Dies ist besonders nützlich, wenn Netzwerkverbindungen langsam sind.
+Ein weiteres beliebtes Merkmal von GIF ist die Unterstützung von [Interlacing](<https://en.wikipedia.org/wiki/Interlacing_(bitmaps)>), wobei Pixelreihen in ungeordneter Reihenfolge gespeichert werden, sodass teilweise empfangene Dateien in geringerer Qualität angezeigt werden können. Dies ist besonders nützlich, wenn Netzwerkverbindungen langsam sind.
 
-GIF ist eine gute Wahl für einfache Bilder und Animationen, obwohl die Umwandlung von Vollfarbenbildern in GIF zu unbefriedigendem Dithering führen kann. Normalerweise sollte moderner Inhalt [PNG](#png_portable_network_graphics) für verlustfreie _und_ indizierte Standbilder verwenden und sollte in Erwägung ziehen, [APNG](#apng_animated_portable_network_graphics) für verlustfreie Animationssequenzen zu verwenden.
+GIF ist eine gute Wahl für einfache Bilder und Animationen, obwohl die Umwandlung von Vollfarbbildern in GIF zu unzufriedenstellendem Dithering führen kann. Typischerweise sollten moderne Inhalte [PNG](#png_portable_network_graphics) für verlustfreie und indizierte Standbilder verwenden und erwägen, [APNG](#apng_animated_portable_network_graphics) für verlustfreie Animationsfolgen zu verwenden.
 
 <table class="standard-table">
   <tbody>
@@ -492,13 +493,13 @@ GIF ist eine gute Wahl für einfache Bilder und Animationen, obwohl die Umwandlu
       <td><code>image/gif</code></td>
     </tr>
     <tr>
-      <th scope="row">Dateierweiterungen</th>
+      <th scope="row">Dateierweiterung(en)</th>
       <td><code>.gif</code></td>
     </tr>
     <tr>
       <th scope="row">Spezifikation</th>
       <td>
-        <a href="https://www.w3.org/Graphics/GIF/spec-gif87.txt">GIF87a Spezifikation</a><br /><a href="https://www.w3.org/Graphics/GIF/spec-gif89a.txt">GIF89a Spezifikation</a>
+        <a href="https://www.w3.org/Graphics/GIF/spec-gif87.txt">GIF87a-Spezifikation</a><br /><a href="https://www.w3.org/Graphics/GIF/spec-gif89a.txt">GIF89a-Spezifikation</a>
       </td>
     </tr>
     <tr>
@@ -526,29 +527,29 @@ GIF ist eine gute Wahl für einfache Bilder und Animationen, obwohl die Umwandlu
             <tr>
               <th scope="row">Graustufen</th>
               <td><em>n/a</em></td>
-              <td>GIF enthält kein dediziertes Graustufenformat.</td>
+              <td>GIF enthält kein spezielles Graustufenformat.</td>
             </tr>
             <tr>
-              <th scope="row">True Color</th>
+              <th scope="row">Echte Farben</th>
               <td><em>n/a</em></td>
-              <td>GIF unterstützt keine True-Color-Pixel.</td>
+              <td>GIF unterstützt keine echten Farbpixel.</td>
             </tr>
             <tr>
-              <th scope="row">Indizierte Farbe</th>
+              <th scope="row">Indizierte Farben</th>
               <td>8</td>
               <td>
-                Jede Farbe in einer GIF-Palette ist als 8 Bit für Rot, Grün und Blau definiert (insgesamt 24 Bits pro Pixel).
+                Jede Farbe in einer GIF-Palette wird als 8 Bit je rot, grün und blau definiert (insgesamt 24 Bit pro Pixel).
               </td>
             </tr>
             <tr>
               <th scope="row">Graustufen mit Alpha</th>
               <td><em>n/a</em></td>
-              <td>GIF bietet kein dediziertes Graustufenformat.</td>
+              <td>GIF bietet kein eigenes Graustufenformat.</td>
             </tr>
             <tr>
-              <th scope="row">True Color mit Alpha</th>
+              <th scope="row">Echte Farben mit Alpha</th>
               <td><em>n/a</em></td>
-              <td>GIF unterstützt keine True-Color-Pixel.</td>
+              <td>GIF unterstützt keine echten Farbpixel.</td>
             </tr>
           </tbody>
         </table>
@@ -556,26 +557,26 @@ GIF ist eine gute Wahl für einfache Bilder und Animationen, obwohl die Umwandlu
     </tr>
     <tr>
       <th scope="row">Kompression</th>
-      <td>Verlustfrei (LZW)</td>
+      <td>Verlustlos (LZW)</td>
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
-        Während das GIF-Format selbst offen ist, war der LZW-Kompressionsalgorithmus bis in die frühen 2000er Jahren durch Patente geschützt.
-        Ab dem 7. Juli 2004 sind alle relevanten Patente abgelaufen und das GIF-Format kann frei verwendet werden.
+        Während das GIF-Format selbst offen ist, war der LZW-Kompressionsalgorithmus bis Anfang der 2000er Jahre durch Patente abgedeckt. Ab dem 7. Juli 2004 sind alle relevanten Patente abgelaufen und das GIF-Format kann frei verwendet werden.
       </td>
     </tr>
   </tbody>
 </table>
 
-### ICO (Microsoft Windows Icon)
+### ICO (Microsoft Windows-Icon)
 
-Das ICO (Microsoft Windows Icon)-Dateiformat wurde von Microsoft für Desktop-Symbole von Windows-Systemen entwickelt. Frühere Versionen des Internet Explorers ermöglichten jedoch einer Website, eine ICO-Datei namens `favicon.ico` im Stammverzeichnis einer Website bereitzustellen, um ein **[Favicon](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#adding_custom_icons_to_your_site)** anzugeben — ein Symbol, das im Favoritenmenü und an anderen Stellen angezeigt wird, wo eine ikonische Darstellung der Website nützlich wäre.
+Das ICO (Microsoft Windows-Icon)-Dateiformat wurde von Microsoft für Desktop-Symbole von Windows-Systemen entworfen. Frühere Versionen des Internet Explorers führten jedoch die Möglichkeit ein, dass eine Website eine ICO-Datei mit dem Namen `favicon.ico` im Stammverzeichnis der Website bereitstellen kann, um ein **[Favicon](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata#adding_custom_icons_to_your_site)** zu spezifizieren — ein Symbol, das im Favoritenmenü und an anderen Orten angezeigt werden soll, an denen eine ikonische Darstellung der Website nützlich wäre.
 
-Eine ICO-Datei kann mehrere Symbole enthalten und beginnt mit einem Verzeichnis, das Details zu jedem Symbol auflistet. Nach dem Verzeichnis kommen die Daten für die Symbole. Die Daten jedes Symbols können entweder ein [BMP](#bmp_bitmap_file)-Bild ohne die Dateikopfzeile oder ein vollständiges [PNG](#png_portable_network_graphics)-Bild sein (einschließlich der Dateikopfzeile). Wenn Sie ICO-Dateien verwenden, sollten Sie das BMP-Format verwenden, da die Unterstützung für PNG in ICO-Dateien erst mit Windows Vista hinzugefügt wurde und möglicherweise nicht gut unterstützt wird.
+Eine ICO-Datei kann mehrere Symbole enthalten und beginnt mit einem Verzeichnis, das Details zu jedem Symbol auflistet. Nach dem Verzeichnis folgen die Daten der Symbole. Die Daten jedes Symbols können entweder ein [BMP](#bmp_bitmap_file)-Bild ohne Dateikopf sein oder ein vollständiges [PNG](#png_portable_network_graphics)-Bild (einschließlich Dateikopf). Wenn Sie ICO-Dateien verwenden, sollten Sie das BMP-Format verwenden, da die Unterstützung für PNG innerhalb von ICO-Dateien nicht vor Windows Vista hinzugefügt wurde und möglicherweise nicht gut unterstützt wird.
 
 > [!WARNING]
-> ICO-Dateien _sollten nicht_ in Webinhalten verwendet werden. Darüber hinaus hat ihre Nutzung für Favicons nachgelassen zugunsten der Verwendung einer PNG-Datei und des {{HTMLElement("link")}}-Elements, wie beschrieben in [Bereitstellung von Symbolen für verschiedene Nutzungskontexte](/de/docs/Web/HTML/Reference/Elements/link#providing_icons_for_different_usage_contexts).
+> ICO-Dateien _sollten nicht_ in Webinhalten verwendet werden.
+> Zudem hat ihr Einsatz für Favicons zugunsten der Verwendung einer PNG-Datei und des {{HTMLElement("link")}}-Elements abgenommen, wie im [Bereitstellen von Icons für verschiedene Nutzungskontexte](/de/docs/Web/HTML/Reference/Elements/link#providing_icons_for_different_usage_contexts) beschrieben.
 
 <table class="standard-table">
   <tbody>
@@ -587,7 +588,7 @@ Eine ICO-Datei kann mehrere Symbole enthalten und beginnt mit einem Verzeichnis,
       </td>
     </tr>
     <tr>
-      <th scope="row">Dateierweiterungen</th>
+      <th scope="row">Dateierweiterung(en)</th>
       <td><code>.ico</code></td>
     </tr>
     <tr>
@@ -625,17 +626,17 @@ Eine ICO-Datei kann mehrere Symbole enthalten und beginnt mit einem Verzeichnis,
               </td>
             </tr>
             <tr>
-              <th scope="row">True Color</th>
+              <th scope="row">Echte Farben</th>
               <td>8 und 16</td>
               <td>
-                Jedes Pixel wird durch drei Werte dargestellt, die die Rot-, Grün- und Blau-Farbkomponenten repräsentieren; jeder <em>D</em>-Bits.
+                Jedes Pixel wird durch drei Werte dargestellt, die die roten, grünen und blauen Farbkomponenten repräsentieren; jedes ist <em>D</em> Bit.
               </td>
             </tr>
             <tr>
-              <th scope="row">Indizierte Farbe</th>
+              <th scope="row">Indizierte Farben</th>
               <td>2, 4 und 8</td>
               <td>
-                Jedes Pixel wird durch einen Wert dargestellt, der aus 2, 4 oder 8 Bits besteht und als Index in die Farbtabelle dient.
+                Jedes Pixel wird durch einen Wert repräsentiert, der entweder ein 2-, 4- oder 8-Bit-Wert ist, der als Index in die Farbpalette dient.
               </td>
             </tr>
             <tr>
@@ -644,10 +645,10 @@ Eine ICO-Datei kann mehrere Symbole enthalten und beginnt mit einem Verzeichnis,
               <td>BMP hat kein eigenes Graustufenformat.</td>
             </tr>
             <tr>
-              <th scope="row">True Color mit Alpha</th>
+              <th scope="row">Echte Farben mit Alpha</th>
               <td>8 und 16</td>
               <td>
-                Jedes Pixel wird durch vier Werte repräsentiert, die die Rot-, Grün-, Blau- und Alpha-Farbkomponenten darstellen; jede <em>D</em>-Bits.
+                Jedes Pixel wird durch vier Werte dargestellt, die die roten, grünen, blauen und Alpha-Farbkomponenten repräsentieren; jedes ist <em>D</em> Bit.
               </td>
             </tr>
           </tbody>
@@ -666,35 +667,35 @@ Eine ICO-Datei kann mehrere Symbole enthalten und beginnt mit einem Verzeichnis,
               <th scope="row">Graustufen</th>
               <td>1, 2, 4, 8 und 16</td>
               <td>
-                Jedes Pixel besteht aus einem einzigen <em>D</em>-Bit-Wert, der die Helligkeit des Graustufen-Pixels angibt.
+                Jedes Pixel besteht aus einem einzelnen <em>D</em>-Bit-Wert, der die Helligkeit des Graustufen-Pixels angibt.
               </td>
             </tr>
             <tr>
-              <th scope="row">True Color</th>
+              <th scope="row">Echte Farben</th>
               <td>8 und 16</td>
               <td>
-                Jedes Pixel wird durch drei <em>D</em>-Bit-Werte dargestellt, die den Pegel der Rot-, Grün- und Blau-Farbkomponenten angeben.
+                Jedes Pixel wird durch drei <em>D</em>-Bit-Werte dargestellt, die das Niveau der roten, grünen und blauen Farbkomponenten angeben.
               </td>
             </tr>
             <tr>
-              <th scope="row">Indizierte Farbe</th>
+              <th scope="row">Indizierte Farben</th>
               <td>1, 2, 4 und 8</td>
               <td>
-                Jedes Pixel ist ein <em>D</em>-Bit-Wert, der auf eine Farbpalette verweist, die innerhalb eines <code><a href="https://w3c.github.io/png/#11PLTE">PLTE</a></code>-Blocks in der APNG-Datei enthalten ist; die Farben der Palette verwenden alle eine 8-Bit-Tiefe.
+                Jedes Pixel ist ein <em>D</em>-Bit-Wert, der einen Index in eine Farbpalette angibt, die in einem <code><a href="https://w3c.github.io/png/#11PLTE">PLTE</a></code>-Chunk in der APNG-Datei enthalten ist; die Farben in der Palette verwenden alle eine 8-Bit-Tiefe.
               </td>
             </tr>
             <tr>
               <th scope="row">Graustufen mit Alpha</th>
               <td>8 und 16</td>
               <td>
-                Jedes Pixel wird durch zwei <em>D</em>-Bit-Werte dargestellt: die Intensität des Graustufen-Pixels und eine Alpha-Komponente, die angibt, wie undurchsichtig das Pixel ist.
+                Jedes Pixel wird durch zwei <em>D</em>-Bit-Werte dargestellt: die Intensität des Graustufen-Pixels und eine Alpha-Probe, die angibt, wie undurchsichtig das Pixel ist.
               </td>
             </tr>
             <tr>
-              <th scope="row">True Color mit Alpha</th>
+              <th scope="row">Echte Farben mit Alpha</th>
               <td>8 und 16</td>
               <td>
-                Jedes Pixel besteht aus vier <em>D</em>-Pixel-Farbkomponenten: Rot, Grün, Blau und der Alpha-Komponente, die angibt, wie undurchsichtig das Pixel ist.
+                Jedes Pixel besteht aus vier <em>D</em>-Pixel-Farbkomponenten: rot, grün, blau und die Alpha-Probe, die angibt, wie undurchsichtig das Pixel ist.
               </td>
             </tr>
           </tbody>
@@ -704,7 +705,8 @@ Eine ICO-Datei kann mehrere Symbole enthalten und beginnt mit einem Verzeichnis,
     <tr>
       <th scope="row">Kompression</th>
       <td>
-        BMP-Formatikonen verwenden nahezu immer verlustfreie Kompression, aber verlustbehaftete Methoden sind verfügbar. PNG-Ikonen werden immer verlustfrei komprimiert.
+        Symbole im BMP-Format verwenden fast immer eine verlustfreie Kompression, aber verlustbehaftete Methoden sind verfügbar.
+        PNG-Symbole werden immer verlustfrei komprimiert.
       </td>
     </tr>
     <tr>
@@ -714,11 +716,11 @@ Eine ICO-Datei kann mehrere Symbole enthalten und beginnt mit einem Verzeichnis,
   </tbody>
 </table>
 
-### JPEG (Joint Photographic Experts Group Bild)
+### JPEG (Joint Photographic Experts Group Image)
 
-Das {{Glossary("JPEG", "JPEG")}} (typischerweise ausgesprochen als "**jay-peg**") Bildformat ist derzeit das am weitesten verbreitete verlustbehaftete Komprimierungsformat für Standbilder. Es ist besonders nützlich für Fotografien; die Anwendung verlustbehafteter Komprimierung auf Inhalte, die Schärfe erfordern, wie Diagramme oder Grafiken, kann zu unbefriedigenden Ergebnissen führen.
+Das {{Glossary("JPEG", "JPEG")}} (typischerweise als "**Jay-peg**" ausgesprochen) Bildformat ist derzeit das am weitesten verbreitete verlustbehaftete Kompressionsformat für Standbilder. Es ist besonders nützlich für Fotografien; die Anwendung verlustbehafteter Kompression auf Inhalte, die Schärfe erfordern, wie Diagramme oder Grafiken, kann zu unbefriedigenden Ergebnissen führen.
 
-JPEG ist tatsächlich ein Datenformat für komprimierte Fotos und nicht ein Dateityp. Die JFIF (**J**PEG **F**ile **I**nterchange **F**ormat)-Spezifikation beschreibt das Format der Dateien, die wir als "JPEG"-Bilder betrachten.
+JPEG ist eigentlich ein Datenformat für komprimierte Fotos, anstatt eines Dateityps. Die JFIF (**J**PEG **F**ile **I**nterchange **F**ormat) Spezifikation beschreibt das Format der Dateien, die wir als "JPEG"-Bilder betrachten.
 
 <table class="standard-table">
   <tbody>
@@ -727,7 +729,7 @@ JPEG ist tatsächlich ein Datenformat für komprimierte Fotos und nicht ein Date
       <td><code>image/jpeg</code></td>
     </tr>
     <tr>
-      <th scope="row">Dateierweiterungen</th>
+      <th scope="row">Dateierweiterung(en)</th>
       <td>
         <code>.jpg</code>, <code>.jpeg</code>, <code>.jpe</code>,
         <code>.jif</code>, <code>.jfif</code>
@@ -765,14 +767,14 @@ JPEG ist tatsächlich ein Datenformat für komprimierte Fotos und nicht ein Date
               <td>Echte Graustufen können mit dem einzelnen Luma-Kanal (Y) unterstützt werden.</td>
             </tr>
             <tr>
-              <th scope="row">True Color</th>
+              <th scope="row">Echte Farben</th>
               <td>8</td>
               <td>
-                Jedes Pixel wird durch die Rot-, Blau- und Grünkomponenten beschrieben, von denen jede 8 Bits hat.
+                Jedes Pixel wird durch die roten, blauen und grünen Farbkomponenten beschrieben, von denen jede 8 Bit ist.
               </td>
             </tr>
             <tr>
-              <th scope="row">Indizierte Farbe</th>
+              <th scope="row">Indizierte Farben</th>
               <td><em>n/a</em></td>
               <td>JPEG bietet keinen indizierten Farbmodus.</td>
             </tr>
@@ -782,7 +784,7 @@ JPEG ist tatsächlich ein Datenformat für komprimierte Fotos und nicht ein Date
               <td>JPEG unterstützt keinen Alphakanal.</td>
             </tr>
             <tr>
-              <th scope="row">True Color mit Alpha</th>
+              <th scope="row">Echte Farben mit Alpha</th>
               <td><em>n/a</em></td>
               <td>JPEG unterstützt keinen Alphakanal.</td>
             </tr>
@@ -798,16 +800,16 @@ JPEG ist tatsächlich ein Datenformat für komprimierte Fotos und nicht ein Date
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
-      <td>Ab dem 27. Oktober 2006 sind alle Patente in den Vereinigten Staaten abgelaufen.</td>
+      <td>Seit dem 27. Oktober 2006 sind alle US-amerikanischen Patente abgelaufen.</td>
     </tr>
   </tbody>
 </table>
 
 ### PNG (Portable Network Graphics)
 
-Das {{Glossary("PNG", "PNG")}} (ausgesprochen "**ping**") Bildformat verwendet verlustfreie Komprimierung, unterstützt höhere Farbtiefen als [GIF](#gif_graphics_interchange_format) und ist effizienter, während es vollständige Alpha-Transparenz unterstützt.
+Das {{Glossary("PNG", "PNG")}} (ausgesprochen "**ping**") Bildformat verwendet verlustfreie Kompression, unterstützt höhere Farbtiefen als [GIF](#gif_graphics_interchange_format) und ist effizienter, während es vollständige Alphatransparenz-Unterstützung bietet.
 
-PNG ist weit verbreitet und wird von allen gängigen Browsern vollständig unterstützt.
+PNG wird weitgehend unterstützt, wobei alle großen Browser volle Unterstützung für seine Funktionen bieten.
 
 <table class="standard-table">
   <tbody>
@@ -816,12 +818,12 @@ PNG ist weit verbreitet und wird von allen gängigen Browsern vollständig unter
       <td><code>image/png</code></td>
     </tr>
     <tr>
-      <th scope="row">Dateierweiterungen</th>
+      <th scope="row">Dateierweiterung(en)</th>
       <td><code>.png</code></td>
     </tr>
     <tr>
       <th scope="row">Spezifikation</th>
-      <td><a href="https://w3c.github.io/png/">Portable Network Graphics (PNG) Specification</a></td>
+      <td><a href="https://w3c.github.io/png/">Portable Network Graphics (PNG) Spezifikation</a></td>
     </tr>
     <tr>
       <th scope="row">Browser-Kompatibilität</th>
@@ -849,39 +851,36 @@ PNG ist weit verbreitet und wird von allen gängigen Browsern vollständig unter
               <th scope="row">Graustufen</th>
               <td>1, 2, 4, 8 und 16</td>
               <td>
-                Jedes Pixel besteht aus einem einzigen <em>D</em>-Bit-Wert, der die Helligkeit des Graustufen-Pixels angibt.
+                Jedes Pixel besteht aus einem einzelnen <em>D</em>-Bit-Wert, der die Helligkeit des Graustufen-Pixels angibt.
               </td>
             </tr>
             <tr>
-              <th scope="row">True Color</th>
+              <th scope="row">Echte Farben</th>
               <td>8 und 16</td>
               <td>
-                Jedes Pixel wird durch drei <em>D</em>-Bit-Werte
-                dargestellt, die den Pegel der Rot-, Grün-, und Blau-Farbkomponenten angeben.
+                Jedes Pixel wird durch drei <em>D</em>-Bit-Werte dargestellt, die das Niveau der roten, grünen und blauen Farbkomponenten angeben.
               </td>
             </tr>
             <tr>
-              <th scope="row">Indizierte Farbe</th>
+              <th scope="row">Indizierte Farben</th>
               <td>1, 2, 4 und 8</td>
               <td>
-                Jedes Pixel ist ein <em>D</em>-Bit-Wert, der auf eine Farbpalette verweist, die innerhalb eines
-                <code><a href="https://w3c.github.io/png/#11PLTE">PLTE</a></code>
-                Blocks in der APNG-Datei enthalten ist; die Farben der Palette verwenden alle eine 8-Bit-Tiefe.
+                Jedes Pixel ist ein <em>D</em>-Bit-Wert, der einen Index in eine Farbpalette angibt, die in einem
+                <code><a href="https://w3c.github.io/png/#11PLTE">PLTE</a></code>-Chunk in der APNG-Datei enthalten ist; die Farben in der Palette verwenden alle eine 8-Bit-Tiefe.
               </td>
             </tr>
             <tr>
               <th scope="row">Graustufen mit Alpha</th>
               <td>8 und 16</td>
               <td>
-                Jedes Pixel wird durch zwei <em>D</em>-Bit-Werte dargestellt: die
-                Intensität des Graustufen-Pixels und eine Alpha-Komponente, die angibt, wie undurchsichtig das Pixel ist.
+                Jedes Pixel wird durch zwei <em>D</em>-Bit-Werte dargestellt: die Intensität des Graustufen-Pixels und eine Alpha-Probe, die angibt, wie undurchsichtig das Pixel ist.
               </td>
             </tr>
             <tr>
-              <th scope="row">True Color mit Alpha</th>
+              <th scope="row">Echte Farben mit Alpha</th>
               <td>8 und 16</td>
               <td>
-                Jedes Pixel besteht aus vier <em>D</em>-Pixel-Farbkomponenten: Rot, Grün, Blau und der Alpha-Komponente, die angibt, wie undurchsichtig das Pixel ist.
+                Jedes Pixel besteht aus vier <em>D</em>-Pixel-Farbkomponenten: rot, grün, blau und die Alpha-Probe, die angibt, wie undurchsichtig das Pixel ist.
               </td>
             </tr>
           </tbody>
@@ -890,12 +889,12 @@ PNG ist weit verbreitet und wird von allen gängigen Browsern vollständig unter
     </tr>
     <tr>
       <th scope="row">Kompression</th>
-      <td>Verlustfrei, optional indizierte Farbe wie GIF</td>
+      <td>Verlustlos, optional indizierte Farben wie GIF</td>
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
-        ©2003 <a href="https://www.w3.org/">W3C</a> (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="https://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>), Alle Rechte vorbehalten. W3C <a href="https://www.w3.org/policies/#disclaimers">Haftung</a>, <a href="https://www.w3.org/policies/#trademarks">Marken</a>, <a href="https://www.w3.org/copyright/document-license/">Dokumentennutzung</a> und <a href="https://www.w3.org/copyright/software-license/">Softwarelizenzierungsregeln</a> gelten. Keine bekannten patentierten Lizenzgebühren.
+        ©2003 <a href="https://www.w3.org/">W3C</a> (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="https://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>), Alle Rechte vorbehalten. W3C <a href="https://www.w3.org/policies/#disclaimers">Haftung</a>, <a href="https://www.w3.org/policies/#trademarks">Marken</a>, <a href="https://www.w3.org/copyright/document-license/">Dokumentennutzung</a> und <a href="https://www.w3.org/copyright/software-license/">Softwarelizenzierungs</a>-Regeln gelten. Keine bekannten lizenzpflichtigen Patente.
       </td>
     </tr>
   </tbody>
@@ -903,9 +902,9 @@ PNG ist weit verbreitet und wird von allen gängigen Browsern vollständig unter
 
 ### SVG (Scalable Vector Graphics)
 
-[SVG](/de/docs/Web/SVG) ist ein {{Glossary("XML", "XML")}}-basiertes [Vektorgrafik](https://en.wikipedia.org/wiki/Vector_graphics)-Format, das den Inhalt eines Bildes als eine Reihe von Zeichenkommandos angibt, die Formen und Linien erzeugen, Farben, Filter usw. anwenden. SVG-Dateien eignen sich ideal für Diagramme, Symbole und andere Bilder, die in beliebiger Größe präzise gezeichnet werden können. Als solches ist SVG beliebt für Benutzeroberflächenelemente in modernem Webdesign.
+[SVG](/de/docs/Web/SVG) ist ein {{Glossary("XML", "XML")}}-basiertes [Vektorgrafik](https://en.wikipedia.org/wiki/Vector_graphics)-Format, das die Inhalte eines Bildes als eine Reihe von Zeichnungskommandos definiert, die Formen und Linien erzeugen, Farben und Filter anwenden usw. SVG-Dateien sind ideal für Diagramme, Symbole und andere Bilder, die in jeder Größe genau gezeichnet werden können. Daher ist SVG populär für UI-Elemente im modernen Webdesign.
 
-SVG-Dateien sind Textdateien, die Quellcode enthalten, der bei der Interpretation das gewünschte Bild zeichnet. Beispielsweise definiert dieses Beispiel einen Zeichenbereich mit einer Anfangsgröße von 100 mal 100 Einheiten, der eine Linie enthält, die diagonal durch das Kästchen verläuft:
+SVG-Dateien sind Textdateien, die Quellcode enthalten, der beim Interpretieren das gewünschte Bild zeichnet. Zum Beispiel definiert dieses Beispiel einen Zeichenbereich mit einer anfänglichen Größe von 100 x 100 Einheiten, der eine Linie diagonal durch das Feld enthält:
 
 ```html
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -913,13 +912,13 @@ SVG-Dateien sind Textdateien, die Quellcode enthalten, der bei der Interpretatio
 </svg>
 ```
 
-SVG kann auf drei Arten in Webinhalten verwendet werden:
+SVG kann in Webinhalten auf drei Arten verwendet werden:
 
-1. Ein {{SVGElement("svg")}}-Element kann direkt im HTML erscheinen. Es kann [SVG-Elemente](/de/docs/Web/SVG/Reference/Element) enthalten, um das Bild zu zeichnen.
+1. Ein {{SVGElement("svg")}}-Element kann direkt innerhalb des HTML erscheinen. Es kann [SVG-Elemente](/de/docs/Web/SVG/Reference/Element) enthalten, um das Bild zu zeichnen.
 2. Ein SVG-Bild kann in HTML mit Elementen wie {{HTMLElement("iframe")}}, {{HTMLElement("object")}} und {{HTMLElement("embed")}} eingebettet werden.
-3. Es ist möglich, SVG-Bilder überall dort zu verwenden, wo andere Bildtypen verwendet werden können, einschließlich mit dem {{HTMLElement("img")}}-Element, der {{cssxref("background-image")}} CSS-Eigenschaft und so weiter. Jedoch gibt es [zusätzliche Einschränkungen](/de/docs/Web/SVG/Guides/SVG_as_an_image), wenn SVG auf diese Weise verwendet wird.
+3. Es ist möglich, SVG-Bilder überall dort zu verwenden, wo auch andere Bildtypen verwendet werden können, einschließlich mit dem {{HTMLElement("img")}}-Element, der CSS-Eigenschaft {{cssxref("background-image")}}, und so weiter. Es gibt jedoch [zusätzliche Einschränkungen](/de/docs/Web/SVG/Guides/SVG_as_an_image), wenn SVG auf diese Weise verwendet wird.
 
-SVG ist eine ideale Wahl für Bilder, die mit einer Reihe von Zeichenkommandos dargestellt werden können, insbesondere wenn die Größe, in der das Bild gerendert wird, unbekannt ist oder variieren kann, da SVG sich glatt in die gewünschte Größe skaliert. Es ist im Allgemeinen nicht nützlich für rein bitmap- oder fotografische Bilder, obwohl es möglich ist, Bitmap-Bilder innerhalb eines SVGs einzufügen.
+SVG ist eine ideale Wahl für Bilder, die durch eine Reihe von Zeichnungskommandos dargestellt werden können, besonders wenn die Größe, in der das Bild gerendert wird, unbekannt ist oder variieren kann, da SVG reibungslos auf die gewünschte Größe skaliert. Es ist im Allgemeinen nicht nützlich für streng bitmapbasierte oder fotografische Bilder, obwohl es möglich ist, Bitmap-Bilder innerhalb eines SVG zu integrieren.
 
 <table class="standard-table">
   <tbody>
@@ -928,7 +927,7 @@ SVG ist eine ideale Wahl für Bilder, die mit einer Reihe von Zeichenkommandos d
       <td><code>image/svg+xml</code></td>
     </tr>
     <tr>
-      <th scope="row">Dateierweiterungen</th>
+      <th scope="row">Dateierweiterung(en)</th>
       <td><code>.svg</code></td>
     </tr>
     <tr>
@@ -948,21 +947,21 @@ SVG ist eine ideale Wahl für Bilder, die mit einer Reihe von Zeichenkommandos d
     <tr>
       <th scope="row">Unterstützte Farbmodi</th>
       <td>
-        Farben in SVG werden mit
-        <a href="/de/docs/Web/CSS/color_value">CSS-Farbsyntax</a> angegeben.
+        Farben in SVG werden durch die
+        <a href="/de/docs/Web/CSS/color_value">CSS-Farbsyntax</a> spezifiziert.
       </td>
     </tr>
     <tr>
       <th scope="row">Kompression</th>
       <td>
-        SVG-Quellcode kann während des Transports mit <a href="/de/docs/Web/HTTP/Guides/Compression">HTTP-Komprimierung</a>-Techniken komprimiert werden oder als <code>.svgz</code>-Datei auf der Festplatte.
+        SVG-Quellcode kann während der Übertragung mittels <a href="/de/docs/Web/HTTP/Guides/Compression">HTTP-Komprimierung</a>stechniken oder auf Disk als <code>.svgz</code>-Datei komprimiert werden.
       </td>
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
-        ©2018 <a href="https://www.w3.org/">W3C</a> (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="https://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>), Alle Rechte vorbehalten.
-        W3C <a href="https://www.w3.org/policies/#disclaimers">Haftung</a>, <a href="https://www.w3.org/policies/#trademarks">Markenrecht</a>, <a href="https://www.w3.org/copyright/document-license/">Dokumentennutzung</a> und <a href="https://www.w3.org/copyright/software-license/">Software-Lizenzierungsregeln</a> gelten. Keine bekannten Lizensgebühren-pflichtigen Patente.
+        ©2018 <a href="https://www.w3.org/">W3C</a> (<a href="https://www.csail.mit.edu/">MIT</a>, <a href="https://www.ercim.eu/">ERCIM</a>, <a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>), alle Rechte vorbehalten.
+        W3C <a href="https://www.w3.org/policies/#disclaimers">Haftung</a>, <a href="https://www.w3.org/policies/#trademarks">Markenschutz</a>, <a href="https://www.w3.org/copyright/document-license/">Dokumentennutzung</a> und <a href="https://www.w3.org/copyright/software-license/">Softwarelizenzierungs</a>-Regeln gelten. Keine bekannten lizenzpflichtigen Patente.
       </td>
     </tr>
   </tbody>
@@ -970,27 +969,27 @@ SVG ist eine ideale Wahl für Bilder, die mit einer Reihe von Zeichenkommandos d
 
 ### TIFF (Tagged Image File Format)
 
-[TIFF](https://en.wikipedia.org/wiki/TIFF) ist ein Rastergrafik-Dateiformat, das entwickelt wurde, um gescannte Fotos zu speichern, obwohl es für jede Art von Bild verwendet werden kann. Es ist ein etwas „schweres“ Format, da TIFF-Dateien dazu neigen, größer zu sein als Bilder in anderen Formaten. Dies liegt an den oft enthaltenen Metadaten sowie der Tatsache, dass die meisten TIFF-Bilder entweder unkomprimiert sind oder Komprimierungsalgorithmen verwenden, die trotz Komprimierung recht große Dateien hinterlassen.
+[TIFF](https://en.wikipedia.org/wiki/TIFF) ist ein Rastergrafikdateiformat, das erstellt wurde, um gescannte Fotos zu speichern, obwohl es jede Art von Bild sein kann. Es ist ein eher "schweres" Format, da TIFF-Dateien tendenziell größer sind als Bilder in anderen Formaten. Dies liegt an den oft enthaltenen Metadaten sowie daran, dass die meisten TIFF-Bilder entweder unkomprimiert sind oder Kompressionsalgorithmen verwenden, die immer noch relativ große Dateien nach der Kompression hinterlassen.
 
-TIFF unterstützt verschiedene Komprimierungsmethoden, wobei die am häufigsten verwendeten die CCITT Group 4 (und für ältere Faxgeräte Group 3) Kompressionssysteme sind, die von Faxsoftware verwendet werden, sowie LZW und verlustbehaftete JPEG-Komprimierung.
+TIFF unterstützt eine Vielzahl von Kompressionsmethoden, aber die am häufigsten verwendeten sind die CCITT Group 4 (und für ältere Faxsysteme Group 3)-Kompressionssysteme, die von Faxsoftware verwendet werden, sowie LZW und verlustbehaftete JPEG-Kompression.
 
-Jeder Wert in einer TIFF-Datei ist durch seinen **Tag** (der angibt, um welche Art von Information es sich handelt, wie die Breite des Bildes) und seinen **Typ** (der angibt, in welchem Format die Daten gespeichert sind) spezifiziert, gefolgt von der Länge des Arrays von Werten, die diesem Tag zugeordnet werden (alle Eigenschaften werden in Arrays gespeichert, auch bei einzelnen Werten). Dies ermöglicht die Verwendung verschiedener Datentypen für dieselben Eigenschaften. Beispielweise wird die Breite eines Bildes, `ImageWidth`, unter Verwendung des Tags `0x0100` gespeichert und ist ein Array mit einem Eintrag. Durch die Angabe des Typs 3 (`SHORT`) wird der Wert von `ImageWidth` als 16-Bit-Wert gespeichert:
+Jeder Wert in einer TIFF-Datei wird unter Verwendung seines **Tags** angegeben (was angibt, um welche Art von Information es sich handelt, z.B. die Breite des Bildes) und seines **Typs** (was angibt, in welchem Format die Daten gespeichert sind), gefolgt von der Länge des Arrays von Werten, die diesem Tag zugewiesen werden sollen (alle Eigenschaften werden in Arrays gespeichert, selbst für Einzelwerte). Dies ermöglicht die Verwendung verschiedener Datentypen für dieselben Eigenschaften. Zum Beispiel wird die Breite eines Bildes, `ImageWidth`, unter Verwendung des Tags `0x0100` gespeichert und ist ein Einstiegs-Array. Wenn Typ 3 (`SHORT`) angegeben wird, wird der Wert von `ImageWidth` als 16-Bit-Wert gespeichert:
 
 | Tag                     | Typ                | Größe                    | Wert                 |
 | ----------------------- | ------------------ | ------------------------ | -------------------- |
 | `0x0100` (`ImageWidth`) | `0x0003` (`SHORT`) | `0x00000001` (1 Eintrag) | `0x0280` (640 Pixel) |
 
-Wenn Typ 4 (`LONG`) angegeben wird, wird die Breite als 32-Bit-Wert gespeichert:
+Das Spezifizieren von Typ 4 (`LONG`) speichert die Breite als einen 32-Bit-Wert:
 
 | Tag                     | Typ               | Größe                    | Wert                     |
 | ----------------------- | ----------------- | ------------------------ | ------------------------ |
 | `0x0100` (`ImageWidth`) | `0x0004` (`LONG`) | `0x00000001` (1 Eintrag) | `0x00000280` (640 Pixel) |
 
-Eine einzelne TIFF-Datei kann mehrere Bilder enthalten; dies kann verwendet werden, um mehrseitige Dokumente darzustellen, wie z. B. ein mehrseitiges gescanntes Dokument oder ein empfangenes Fax. Software, die TIFF-Dateien liest, muss nur das erste Bild unterstützen.
+Eine einzelne TIFF-Datei kann mehrere Bilder enthalten; dies kann verwendet werden, um mehrseitige Dokumente zu repräsentieren (z.B. ein mehrseitiges gescanntes Dokument oder ein empfangenes Fax). Software, die TIFF-Dateien liest, muss jedoch nur das erste Bild unterstützen.
 
-TIFF unterstützt eine Vielzahl von Farbräumen, nicht nur RGB. Diese umfassen CMYK, YCbCr und andere, was TIFF zu einer guten Wahl für die Speicherung von Bildern macht, die für den Druck, Film oder Fernsehmedien bestimmt sind.
+TIFF unterstützt eine Vielzahl von Farbmodellen, nicht nur RGB. Dazu gehören CMYK, YCbCr und andere, was TIFF zu einer guten Wahl für die Speicherung von Bildern macht, die für Druck-, Film-, oder Fernsehmedien bestimmt sind.
 
-Mit Ausnahme von Safari unterstützen Browser TIFF-Bilder nicht nativ in Webinhalten, außer durch spezielle Bibliotheken oder Browser-Add-ons. Daher werden TIFF-Dateien nicht breit genutzt, um Webinhalte anzuzeigen, _aber_ es ist üblich, herunterladbare TIFF-Dateien bereitzustellen, wenn Fotos und andere Kunstwerke verteilt werden, die zur präzisen Bearbeitung oder zum Drucken bestimmt sind.
+Mit Ausnahme von Safari unterstützen Browser TIFF-Bilder in Webinhalten nicht nativ, es sei denn, sie verwenden spezielle Bibliotheken oder Browser-Add-ons. Daher werden TIFF-Dateien nicht häufig zur Anzeige von Webinhalten verwendet, _aber_ es ist üblich, herunterladbare TIFF-Dateien anzubieten, wenn Fotos und andere Kunstwerke zur präzisen Bearbeitung oder zum Drucken verteilt werden sollen.
 
 <table class="standard-table">
   <tbody>
@@ -999,7 +998,7 @@ Mit Ausnahme von Safari unterstützen Browser TIFF-Bilder nicht nativ in Webinha
       <td><code>image/tiff</code></td>
     </tr>
     <tr>
-      <th scope="row">Dateierweiterungen</th>
+      <th scope="row">Dateierweiterung(en)</th>
       <td><code>.tif</code>, <code>.tiff</code></td>
     </tr>
     <tr>
@@ -1032,44 +1031,44 @@ Mit Ausnahme von Safari unterstützen Browser TIFF-Bilder nicht nativ in Webinha
               <th scope="row">Bilevel</th>
               <td>1</td>
               <td>
-                Ein bilevel TIFF speichert 8 Bits in jedem Byte, ein Bit pro Pixel.
-                Das <code>PhotometricInterpretation</code>-Feld gibt an, welcher von 0 und 1 schwarz und welcher weiß ist.
+                Ein Bilevel-TIFF speichert 8 Bit in jedem Byte, jeweils ein Bit pro Pixel.
+                Das <code>PhotometricInterpretation</code>-Feld spezifiziert, welches von 0 und 1 schwarz und welches weiß ist.
               </td>
             </tr>
             <tr>
               <th scope="row">Graustufen</th>
               <td>4 und 8</td>
               <td>
-                Jedes Pixel besteht aus einem einzigen <em>D</em>-Bit-Wert, der die Helligkeit des Graustufen-Pixels angibt.
+                Jedes Pixel besteht aus einem einzelnen <em>D</em>-Bit-Wert, der die Helligkeit des Graustufen-Pixels angibt.
               </td>
             </tr>
             <tr>
-              <th scope="row">True Color</th>
+              <th scope="row">Echte Farben</th>
               <td>8</td>
               <td>
-                Alle echten RGB-Farb-Bilder werden mit 8 Bits für Rot, Grün und Blau gespeichert.
+                Alle echten Farbbilder im RGB-Modus werden mit 8 Bit für jede der Farben rot, grün und blau gespeichert.
               </td>
             </tr>
             <tr>
-              <th scope="row">Indizierte Farbe</th>
+              <th scope="row">Indizierte Farben</th>
               <td>4 und 8</td>
               <td>
-                Jedes Pixel ist ein Index in ein <code>ColorMap</code>-Rekord, das die im Bild verwendeten Farben definiert.
-                Die Farbkarte listet zunächst alle Rotwerte auf, dann alle Grünwerte und dann alle Blauwerte (anstatt <code>rgb, rgb, rgb…</code>).
+                Jedes Pixel ist ein Index in einen <code>ColorMap</code>-Datensatz, der die im Bild verwendeten Farben definiert.
+                Die Farbkarte listet zuerst alle Rotwerte auf, dann alle Grünwerte, dann alle Blauwerte (anstatt <code>rgb, rgb, rgb…</code>).
               </td>
             </tr>
             <tr>
               <th scope="row">Graustufen mit Alpha</th>
               <td>4 und 8</td>
               <td>
-                Alpha-Informationen werden hinzugefügt, indem angegeben wird, dass es mehr als 3 Samples pro Pixel im <code>SamplesPerPixel</code>-Feld gibt, und die Art der Alpha (1 für eine verbundene, vorab multiplizierte Alphakomponente und 2 für unverbundene Alpha - eine separate Matte) angegeben wird; jedoch werden Alphakanäle selten in TIFF-Dateien verwendet und möglicherweise nicht von der Software des Benutzers unterstützt.
+                Alphainformationen werden hinzugefügt, indem angegeben wird, dass es mehr als 3 Proben pro Pixel im <code>SamplesPerPixel</code>-Feld gibt und die Art des Alpha (1 für eine assoziierte, vor-multiplizierte Alphakomponente und 2 für unassoziiertes Alpha - eine separate Matte) angezeigt wird; jedoch werden Alphakanäle selten in TIFF-Dateien verwendet und unter Umständen nicht von der Software des Nutzers unterstützt.
               </td>
             </tr>
             <tr>
-              <th scope="row">True Color mit Alpha</th>
+              <th scope="row">Echte Farben mit Alpha</th>
               <td>8</td>
               <td>
-                Alpha-Informationen werden hinzugefügt, indem angegeben wird, dass es mehr als 3 Samples pro Pixel im <code>SamplesPerPixel</code>-Feld gibt, und die Art der Alpha (1 für eine verbundene, vorab multiplizierte Alphakomponente und 2 für unverbundene Alpha - eine separate Matte) angegeben wird; jedoch werden Alphakanäle selten in TIFF-Dateien verwendet und möglicherweise nicht von der Software des Benutzers unterstützt.
+                Alphainformationen werden hinzugefügt, indem angegeben wird, dass es mehr als 3 Proben pro Pixel im <code>SamplesPerPixel</code>-Feld gibt und die Art des Alpha (1 für eine assoziierte, vor-multiplizierte Alphakomponente und 2 für unassoziiertes Alpha - eine separate Matte) angezeigt wird; jedoch werden Alphakanäle selten in TIFF-Dateien verwendet und unter Umständen nicht von der Software des Nutzers unterstützt.
               </td>
             </tr>
           </tbody>
@@ -1079,13 +1078,13 @@ Mit Ausnahme von Safari unterstützen Browser TIFF-Bilder nicht nativ in Webinha
     <tr>
       <th scope="row">Kompression</th>
       <td>
-        Die meisten TIFF-Dateien sind unkomprimiert, aber verlustfreie PackBits und LZW-Kompression werden unterstützt, ebenso wie verlustbehaftete JPEG-Kompression.
+        Die meisten TIFF-Dateien sind unkomprimiert, aber verlustfreie PackBits- und LZW-Kompression werden unterstützt, ebenso wie verlustbehaftete JPEG-Kompression.
       </td>
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
-        Keine Lizenz erforderlich (außer bei Bibliotheken, die Sie möglicherweise verwenden); alle bekannten Patente sind abgelaufen.
+        Keine Lizenz erforderlich (abgesehen von einer, die mit den Bibliotheken verbunden sein könnte, die Sie verwenden); alle bekannten Patente sind abgelaufen.
       </td>
     </tr>
   </tbody>
@@ -1093,11 +1092,11 @@ Mit Ausnahme von Safari unterstützen Browser TIFF-Bilder nicht nativ in Webinha
 
 ### WebP-Bild
 
-WebP unterstützt verlustbehaftete Kompression über prädiktive Kodierung basierend auf dem VP8-Video-Codec und verlustfreie Kompression, die Ersetzungen für sich wiederholende Daten verwendet. Verlustbehaftete WebP-Bilder sind im Durchschnitt 25–35% kleiner als JPEG-Bilder mit visuell ähnlichen Kompressionsstufen. Verlustfreie WebP-Bilder sind in der Regel 26% kleiner als dieselben Bilder im PNG-Format.
+WebP unterstützt verlustbehaftete Kompression über prädiktive Codierung auf Basis des VP8-Videocodecs und verlustfreie Kompression, die Substitutionen für sich wiederholende Daten verwendet. Verlustbehaftete WebP-Bilder sind durchschnittlich 25–35% kleiner als JPEG-Bilder bei visuell ähnlichen Komprimierungsstufen. Verlustfreie WebP-Bilder sind typischerweise 26% kleiner als die gleichen Bilder im PNG-Format.
 
-WebP unterstützt auch Animationen: In einer verlustbehafteten WebP-Datei wird das Bilddaten durch einen VP8-Bitstream dargestellt, der mehrere Frames enthalten kann. Verlustfreie WebP-Datei enthält den `ANIM`-Block, der die Animation beschreibt, und den `ANMF`-Block, der einen Frame einer Animationssequenz darstellt. Schleifen werden unterstützt.
+WebP unterstützt auch Animationen: In einer verlustbehafteten WebP-Datei werden die Bilddaten durch einen VP8-Bitstream dargestellt, der mehrere Frames enthalten kann. Verlustfreie WebP-Dateien enthalten den `ANIM`-Chunk, der die Animation beschreibt, und den `ANMF`-Chunk, der einen Frame einer Animationssequenz darstellt. Schleifen wird unterstützt.
 
-WebP hat mittlerweile breite Unterstützung in den neuesten Versionen der wichtigsten Webbrowser, obwohl es nicht über eine tiefe historische Unterstützung verfügt. Sorgen Sie für einen Rückfall entweder im [JPEG](#jpeg_joint_photographic_experts_group_image)- oder [PNG](#png_portable_network_graphics)-Format, zum Beispiel mit [dem `<picture>`-Element](/de/docs/Web/HTML/Reference/Elements/picture).
+WebP hat jetzt breite Unterstützung in den neuesten Versionen der wichtigsten Webbrowser, obwohl es keine tiefe historische Unterstützung hat. Bieten Sie einen Fallback entweder im [JPEG](#jpeg_joint_photographic_experts_group_image)- oder im [PNG](#png_portable_network_graphics)-Format an, beispielsweise mit [dem `<picture>`-Element](/de/docs/Web/HTML/Reference/Elements/picture).
 
 <table class="standard-table">
   <tbody>
@@ -1106,22 +1105,22 @@ WebP hat mittlerweile breite Unterstützung in den neuesten Versionen der wichti
       <td><code>image/webp</code></td>
     </tr>
     <tr>
-      <th scope="row">Dateierweiterungen</th>
+      <th scope="row">Dateierweiterung(en)</th>
       <td><code>.webp</code></td>
     </tr>
     <tr>
       <th scope="row">Spezifikation</th>
       <td>
         <p>
-          <a href="https://developers.google.com/speed/webp/docs/riff_container">RIFF Container Specification</a><br />{{RFC(6386, "VP8 Data Format and Decoding Guide")}} (verlustbehaftete Kodierung)<br /><a href="https://developers.google.com/speed/webp/docs/webp_lossless_bitstream_specification">WebP Lossless Bitstream Specification</a>
+          <a href="https://developers.google.com/speed/webp/docs/riff_container">RIFF-Container-Spezifikation</a><br />{{RFC(6386, "VP8 Data Format and Decoding Guide")}} (verlustbehaftete Kodierung)<br /><a href="https://developers.google.com/speed/webp/docs/webp_lossless_bitstream_specification">WebP-Verlustfreie-Bitstream-Spezifikation</a>
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Browser-Kompatibilität</th>
       <td>
-        Alle Versionen von Chrome, Edge, Firefox, Opera und Safari <p>WebP kann auch zum <em>Exportieren</em> von Bildern aus einem Canvas verwendet werden.
-        Siehe <a href="/de/docs/Web/API/HTMLCanvasElement/toBlob#browser_compatibility"><code>HTMLCanvasElement.toBlob()</code></a> für detailliertere Unterstützungsversion Information.</p>
+        Alle Versionen von Chrome, Edge, Firefox, Opera und Safari <p>WebP kann auch für das <em>Exportieren</em> von Bildern aus einer Leinwand verwendet werden.
+        Siehe <a href="/de/docs/Web/API/HTMLCanvasElement/toBlob#browser_compatibility"><code>HTMLCanvasElement.toBlob()</code></a> für detailliertere Informationen zur Unterstützungsversion.</p>
       </td>
     </tr>
     <tr>
@@ -1131,13 +1130,13 @@ WebP hat mittlerweile breite Unterstützung in den neuesten Versionen der wichti
     <tr>
       <th scope="row">Unterstützte Farbmodi</th>
       <td>
-        Verlustbehaftetes WebP speichert das Bild im 8-Bit-Y'CbCr 4:2:0 (YUV420) Format.
-        Verlustfreies WebP verwendet 8-Bit ARGB-Farbe, wobei jede Komponente 8 Bits für insgesamt 32 Bits pro Pixel verwendet.
+        Verlustbehaftete WebP-Dateien speichern das Bild im 8-Bit Y'CbCr 4:2:0 (YUV420) Format.
+        Verlustfreie WebP-Dateien verwenden 8-Bit ARGB-Farben, wobei jede Komponente 8 Bit für insgesamt 32 Bit pro Pixel beansprucht.
       </td>
     </tr>
     <tr>
       <th scope="row">Kompression</th>
-      <td>Verlustfrei (Huffman, LZ77 oder Farb-Cache-Codes) oder verlustbehaftet (VP8).</td>
+      <td>Verlustfrei (Huffman, LZ77 oder Farbcache-Codes) oder verlustbehaftet (VP8).</td>
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
@@ -1147,15 +1146,15 @@ WebP hat mittlerweile breite Unterstützung in den neuesten Versionen der wichti
 </table>
 
 > [!NOTE]
-> In Safari für macOS hängt die WebP-Unterstützung von den Versionen von Safari und macOS ab. Sie benötigen Safari 14 oder neuer sowie macOS Big Sur (11) oder eine aktuellere Version.
+> Auf Safari für macOS hängt die WebP-Unterstützung sowohl von Safari- als auch von macOS-Versionen ab. Sie benötigen Safari 14 oder höher sowie macOS Big Sur (11) oder eine neuere Version.
 
 ### XBM (X Window System Bitmap-Datei)
 
-XBM (X Bitmap)-Dateien wurden zuerst für das Web unterstützt, werden aber nicht mehr verwendet und sollten vermieden werden, da ihr Format potenzielle Sicherheitsprobleme hat. Moderne Browser haben XBM-Dateien seit vielen Jahren nicht mehr unterstützt, aber wenn Sie mit älterem Inhalt zu tun haben, könnten Sie auf einige stoßen.
+XBM (X Bitmap)-Dateien waren die ersten, die im Web unterstützt wurden, werden aber nicht mehr verwendet und sollten vermieden werden, da ihr Format potenzielle Sicherheitsprobleme birgt. Moderne Browser unterstützen XBM-Dateien seit vielen Jahren nicht mehr, aber wenn Sie mit älteren Inhalten zu tun haben, können Sie noch einige davon finden.
 
-XBM verwendet ein Snippet von C-Code, um den Inhalt des Bildes als ein Array von Bytes darzustellen. Jedes Bild besteht aus 2 bis 4 `#define`-Direktiven, die die Breite und Höhe der Bitmap (und optional den Hotspot, wenn das Bild als Cursor gedacht ist) bereitstellen, gefolgt von einem Array von `unsigned char`, von denen jeder Wert acht 1-Bit monochrome Pixel enthält.
+XBM verwendet ein C-Code-Snippet, um die Inhalte des Bildes als Array von Bytes darzustellen. Jedes Bild besteht aus 2 bis 4 `#define`-Direktiven, die die Breite und Höhe des Bitmaps angeben (und optional den Hotspot, wenn das Bild als Cursor entworfen ist), gefolgt von einem Array von `unsigned char`, wobei jeder Wert 8 1-Bit-Monochrom-Pixel enthält.
 
-Das Bild muss ein Vielfaches von 8 Pixeln breit sein. Zum Beispiel stellt der folgende Code ein XBM-Bild dar, das 8 Pixel mal 8 Pixel ist, mit diesen Pixeln in einem schwarz-weißen Schachbrettmuster:
+Das Bild muss ein Vielfaches von 8 Pixeln breit sein. Zum Beispiel stellt der folgende Code ein XBM-Bild dar, das 8 Pixel mal 8 Pixel groß ist, wobei diese Pixel in einem schwarz-weißen Schachbrettmuster angeordnet sind:
 
 ```c
 #define square8_width 8
@@ -1172,7 +1171,7 @@ static unsigned char square8_bits[] = {
       <td><code>image/xbm</code>, <code>image-xbitmap</code></td>
     </tr>
     <tr>
-      <th scope="row">Dateierweiterungen</th>
+      <th scope="row">Dateierweiterung(en)</th>
       <td><code>.xbm</code></td>
     </tr>
     <tr>
@@ -1205,12 +1204,12 @@ static unsigned char square8_bits[] = {
               <td>Jedes Byte enthält acht 1-Bit-Pixel.</td>
             </tr>
             <tr>
-              <th scope="row">True Color</th>
+              <th scope="row">Echte Farben</th>
               <td><em>n/a</em></td>
               <td><em>n/a</em></td>
             </tr>
             <tr>
-              <th scope="row">Indizierte Farbe</th>
+              <th scope="row">Indizierte Farben</th>
               <td><em>n/a</em></td>
               <td><em>n/a</em></td>
             </tr>
@@ -1220,7 +1219,7 @@ static unsigned char square8_bits[] = {
               <td><em>n/a</em></td>
             </tr>
             <tr>
-              <th scope="row">True Color mit Alpha</th>
+              <th scope="row">Echte Farben mit Alpha</th>
               <td><em>n/a</em></td>
               <td><em>n/a</em></td>
             </tr>
@@ -1230,7 +1229,7 @@ static unsigned char square8_bits[] = {
     </tr>
     <tr>
       <th scope="row">Kompression</th>
-      <td>Verlustfrei</td>
+      <td>Verlustlos</td>
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
@@ -1241,11 +1240,14 @@ static unsigned char square8_bits[] = {
 
 ## Auswahl eines Bildformats
 
-Die Wahl des besten Bildformats für Ihre Bedürfnisse ist wahrscheinlich einfacher als die Wahl von Videoformaten, da es weniger Optionen mit breiter Unterstützung gibt und jedes tendenziell einen spezifischen Anwendungsbereich hat.
+Die Wahl des besten Bildformats für Ihre Bedürfnisse ist wahrscheinlich einfacher als bei Videoformaten, da es weniger Optionen mit breiter Unterstützung gibt und jedes Format in der Regel einen spezifischen Satz von Anwendungsfällen hat.
 
 ### Fotografien
 
-Fotografien eignen sich typischerweise gut für verlustbehaftete Komprimierung (abhängig von der Konfiguration des Encoders). Dies macht [JPEG](#jpeg_joint_photographic_experts_group_image) und [WebP](#webp-bild) zu guten Optionen für Fotografien, wobei JPEG kompatibler ist, WebP jedoch möglicherweise eine bessere Komprimierung bietet. Um die Qualität zu maximieren und die Downloadzeit zu minimieren, sollten Sie in Erwägung ziehen, beide [mit einem Fallback](#bereitstellung-von-bild-fallbacks) anzubieten, wobei WebP die erste Wahl und JPEG die zweite ist. Andernfalls ist JPEG die sichere Wahl für die Kompatibilität.
+Fotografien eignen sich in der Regel gut für verlustbehaftete Kompression (abhängig von der Konfiguration des Encoders).
+Dies macht [JPEG](#jpeg_joint_photographic_experts_group_image) und [WebP](#webp-bild) zu guten Optionen für Fotografien, wobei JPEG kompatibler ist, WebP jedoch möglicherweise eine bessere Kompression bietet.
+Um die Qualität zu maximieren und die Downloadzeit zu minimieren, sollten Sie erwägen, beide [mit einem Fallback](#bereitstellung_von_bild-fallbacks) bereitzustellen, wobei WebP die erste Wahl ist und JPEG die zweite.
+Andernfalls ist JPEG die sichere Wahl für die Kompatibilität.
 
 <table class="standard-table" style="max-width: 42rem">
   <thead>
@@ -1264,9 +1266,12 @@ Fotografien eignen sich typischerweise gut für verlustbehaftete Komprimierung (
 
 ### Symbole
 
-Für kleinere Bilder wie Symbole verwenden Sie ein verlustfreies Format, um den Detailverlust in einem größenbegrenzten Bild zu vermeiden. Obwohl verlustfreies WebP für diesen Zweck ideal ist, ist die Unterstützung noch nicht weit verbreitet, sodass PNG eine bessere Wahl ist, es sei denn, Sie bieten ein [Fallback](#bereitstellung-von-bild-fallbacks) an. Wenn Ihr Bild weniger als 256 Farben enthält, ist GIF eine Option, obwohl PNG mit seiner indizierten Komprimierungsoption (PNG-8) oft noch kleiner komprimiert.
+Für kleinere Bilder wie Symbole verwenden Sie ein verlustfreies Format, um Detailverluste in einem größenbeschränkten Bild zu vermeiden.
+Obwohl verlustfreies WebP ideal für diesen Zweck ist, ist die Unterstützung noch nicht weit verbreitet, daher ist PNG die bessere Wahl, es sei denn, Sie bieten ein [Fallback](#bereitstellung_von_bild-fallbacks) an.
+Wenn Ihr Bild weniger als 256 Farben enthält, ist GIF eine Option, obwohl PNG oft noch kleiner mit seiner indizierten Kompressionsoption (PNG-8) komprimiert.
 
-Wenn das Symbol mit Vektorgrafiken dargestellt werden kann, ziehen Sie [SVG](#svg_scalable_vector_graphics) in Betracht, da es über verschiedene Auflösungen und Größen skaliert und somit ideal für responsives Design ist. Obwohl die SVG-Unterstützung gut ist, kann es sich lohnen, ein PNG-Fallback für ältere Browser anzubieten.
+Wenn das Symbol mit Vektorgrafiken dargestellt werden kann, ziehen Sie [SVG](#svg_scalable_vector_graphics) in Betracht, da es über verschiedene Auflösungen und Größen skaliert und daher perfekt für responsives Design geeignet ist.
+Obwohl die SVG-Unterstützung gut ist, kann es sich lohnen, ein PNG-Fallback für ältere Browser anzubieten.
 
 <table class="standard-table" style="max-width: 42rem">
   <thead>
@@ -1283,9 +1288,10 @@ Wenn das Symbol mit Vektorgrafiken dargestellt werden kann, ziehen Sie [SVG](#sv
 
 ### Screenshots
 
-Sofern Sie nicht bereit sind, Kompromisse bei der Qualität einzugehen, sollten Sie ein verlustfreies Format für Screenshots verwenden. Dies ist besonders wichtig, wenn sich Text in Ihrem Screenshot befindet, da Text bei verlustbehafteter Komprimierung leicht unscharf und unklar wird.
+Wenn Sie nicht bereit sind, Kompromisse bei der Qualität einzugehen, sollten Sie ein verlustfreies Format für Screenshots verwenden.
+Dies ist besonders wichtig, wenn im Screenshot Text enthalten ist, da Text bei verlustbehafteter Kompression leicht verschwommen und unklar wird.
 
-PNG ist wahrscheinlich die beste Wahl, aber verlustfreies WebP wird wahrscheinlich besser komprimiert sein.
+PNG ist wahrscheinlich Ihre beste Wahl, aber verlustfreies WebP wird vermutlich besser komprimiert.
 
 <table class="standard-table" style="max-width: 42rem">
   <thead>
@@ -1295,17 +1301,19 @@ PNG ist wahrscheinlich die beste Wahl, aber verlustfreies WebP wird wahrscheinli
     </tr>
     <tr>
       <td>
-        Verlustfreies WebP oder PNG;<br />JPEG, wenn Komprimierungsartefakte kein
-        Problem darstellen
+        Verlustfreies WebP oder PNG;<br />JPEG, wenn Kompressionsartefakte
+        kein Problem sind
       </td>
       <td>PNG oder JPEG;<br />GIF für Screenshots mit geringer Farbanzahl</td>
     </tr>
   </thead>
 </table>
 
-### Diagramme, Zeichnungen und Charts
+### Diagramme, Zeichnungen und Grafiken
 
-Für jedes Bild, das mit Vektorgrafiken dargestellt werden kann, ist SVG die beste Wahl. Ansonsten sollten Sie ein verlustfreies Format wie PNG verwenden. Wenn Sie ein verlustbehaftetes Format wie JPEG oder verlustbehaftetes WebP wählen, sollten Sie den Komprimierungsgrad sorgfältig abwägen, um zu vermeiden, dass Text oder andere Formen unscharf oder unklar werden.
+Für jedes Bild, das mit Vektorgrafiken dargestellt werden kann, ist SVG die beste Wahl.
+Andernfalls sollten Sie ein verlustfreies Format wie PNG verwenden.
+Wenn Sie sich für ein verlustbehaftetes Format entscheiden, wie beispielsweise JPEG oder verlustbehaftetes WebP, wägen Sie den Kompressionsgrad sorgfältig ab, um zu vermeiden, dass Text oder andere Formen verschwommen oder unklar werden.
 
 <table class="standard-table" style="max-width: 42rem">
   <thead>
@@ -1322,9 +1330,10 @@ Für jedes Bild, das mit Vektorgrafiken dargestellt werden kann, ist SVG die bes
 
 ## Bereitstellung von Bild-Fallbacks
 
-Während das standardmäßige HTML {{HTMLElement("img")}} Element keine Kompatibilitäts-Fallbacks für Bilder unterstützt, tut dies das {{HTMLElement("picture")}} Element. `<picture>` wird als Wrapper für eine Reihe von {{HTMLElement("source")}} Elementen verwendet, die jeweils eine Version des Bildes in einem anderen Format oder unter anderen [Medienbedingungen](/de/docs/Web/CSS/@media) angeben, sowie ein `<img>` Element, das angibt, wo das Bild angezeigt werden soll, und das Fallback zur Standard- oder "kompatibelsten" Version.
+Während das Standard-HTML-{{HTMLElement("img")}}-Element keine Kompatibilitäts-Fallbacks für Bilder unterstützt, tut dies das {{HTMLElement("picture")}}-Element.
+`<picture>` wird als Wrapper für eine Anzahl von {{HTMLElement("source")}}-Elementen verwendet, von denen jedes eine Version des Bildes in einem anderen Format oder unter anderen [Medienbedingungen](/de/docs/Web/CSS/@media) spezifiziert, sowie ein `<img>`-Element, das angibt, wo das Bild angezeigt wird und das Fallback zur Standard- oder „am kompatibelsten“ Version darstellt.
 
-Zum Beispiel, wenn Sie ein Diagramm anzeigen, das am besten mit SVG angezeigt wird, aber ein Fallback auf eine PNG oder GIF des Diagramms anbieten möchten, würden Sie so etwas tun:
+Beispielsweise, wenn Sie ein Diagramm darstellen, das am besten mit SVG angezeigt wird, aber ein Fallback auf eine PNG- oder GIF-Datei des Diagramms anbieten möchten, würden Sie etwas in dieser Art tun:
 
 ```html
 <picture>
@@ -1338,13 +1347,13 @@ Zum Beispiel, wenn Sie ein Diagramm anzeigen, das am besten mit SVG angezeigt wi
 </picture>
 ```
 
-Sie können so viele `<source>`s angeben, wie Sie möchten, obwohl in der Regel 2 oder 3 ausreichen.
+Sie können beliebig viele `<source>`s angeben, in der Regel sind jedoch 2 oder 3 ausreichend.
 
 ## Siehe auch
 
 - [Leitfaden zu Medientypen und -formaten](/de/docs/Web/Media/Guides/Formats)
-- [Web-Medientechnologien](/de/docs/Web/Media)
-- [Leitfaden zu Video-Codecs, die im Web verwendet werden](/de/docs/Web/Media/Guides/Formats/Video_codecs)
-- Die {{Glossary("HTML", "HTML")}} {{HTMLElement("img")}} und {{HTMLElement("picture")}} Elemente
-- Die CSS {{cssxref("background-image")}} Eigenschaft
-- Der [`Image()`](/de/docs/Web/API/HTMLImageElement/Image) Konstruktor und das [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) Interface
+- [Webmedientechnologien](/de/docs/Web/Media)
+- [Leitfaden zu Videocodecs im Web](/de/docs/Web/Media/Guides/Formats/Video_codecs)
+- Die {{Glossary("HTML", "HTML")}} {{HTMLElement("img")}}- und {{HTMLElement("picture")}}-Elemente
+- Die CSS-{{cssxref("background-image")}}-Eigenschaft
+- Der [`Image()`](/de/docs/Web/API/HTMLImageElement/Image)-Konstruktor und das [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interface

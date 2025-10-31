@@ -3,10 +3,10 @@ title: AsyncDisposableStack.prototype.move()
 short-title: move()
 slug: Web/JavaScript/Reference/Global_Objects/AsyncDisposableStack/move
 l10n:
-  sourceCommit: 7a5b580a28a0b1a33e42e9fb81c8234994ec0e36
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Die **`move()`**-Methode von {{jsxref("AsyncDisposableStack")}}-Instanzen erstellt eine neue `AsyncDisposableStack`-Instanz, die dieselben Disposer wie dieser Stack enthält, und markiert dann diesen Stack als disposed, ohne dabei Disposer aufzurufen.
+Die **`move()`**-Methode von {{jsxref("AsyncDisposableStack")}}-Instanzen erstellt eine neue `AsyncDisposableStack`-Instanz, die die gleichen Disposer wie dieser Stack enthält, und markiert dann diesen Stack als disposed, ohne irgendwelche Disposer aufzurufen.
 
 ## Syntax
 
@@ -25,11 +25,11 @@ Eine neue {{jsxref("AsyncDisposableStack")}}-Instanz.
 ### Ausnahmen
 
 - {{jsxref("ReferenceError")}}
-  - : Wird ausgelöst, wenn der Stack bereits als disposed markiert ist.
+  - : Wird ausgelöst, wenn der Stack bereits disposed ist.
 
 ## Beispiele
 
-### Beanspruchung der Inhaberschaft eines Stacks
+### Übernahme der Kontrolle über einen Stack
 
 ```js
 async function consumeStack(stack) {
@@ -45,9 +45,9 @@ await consumeStack(stack);
 console.log(stack.disposed); // true
 ```
 
-### Ermöglichen der Freigabe von Ressourcen in zwei Codepfaden
+### Ressourcenfreigabe in zwei Codepfaden ermöglichen
 
-Der Hauptanwendungsfall von `move()` tritt auf, wenn Sie eine oder mehrere Ressourcen haben, die entweder direkt hier freigegeben werden oder für eine spätere Verwendung aufbewahrt werden könnten. In diesem Fall können Sie die Ressourcen in einem `AsyncDisposableStack` sammeln und dann `move()` aufrufen, wenn Sie die Ressourcen für eine spätere Nutzung aufbewahren müssen.
+Der Hauptanwendungsfall von `move()` ist, wenn Sie eine oder mehrere Ressourcen haben, die entweder sofort freigegeben oder für eine spätere Verwendung aufbewahrt werden könnten. In diesem Fall können Sie die Ressourcen in einem `AsyncDisposableStack` platzieren und dann `move()` aufrufen, wenn Sie die Ressourcen für die spätere Nutzung aufbewahren möchten.
 
 ```js
 class PluginHost {
@@ -57,7 +57,7 @@ class PluginHost {
   #socket;
 
   static async init() {
-    // Create a AsyncDisposableStack that is disposed when init exits.
+    // Create an AsyncDisposableStack that is disposed when init exits.
     // If construction succeeds, we move everything out of `stack` and into
     // `#disposables` to be disposed later.
     await using stack = new AsyncDisposableStack();
@@ -110,6 +110,6 @@ class PluginHost {
 
 ## Siehe auch
 
-- [Ressourcenverwaltung in JavaScript](/de/docs/Web/JavaScript/Guide/Resource_management)
+- [JavaScript Ressourcenverwaltung](/de/docs/Web/JavaScript/Guide/Resource_management)
 - {{jsxref("AsyncDisposableStack")}}
 - {{jsxref("AsyncDisposableStack.prototype.disposeAsync()")}}

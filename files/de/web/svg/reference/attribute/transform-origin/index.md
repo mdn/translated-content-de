@@ -34,7 +34,7 @@ Dieses Attribut kann mit jedem SVG-Element verwendet werden.
 > [!NOTE]
 > Der Standardwert von `transform-origin` ist `0 0` für alle SVG-Elemente, außer für Wurzel-`<svg>`-Elemente und `<svg>`-Elemente, die ein direktes Kind eines [`foreignObject`](/de/docs/Web/SVG/Reference/Element/foreignObject) sind. Diese Elemente haben `transform-origin: 50% 50%`, wie in normalem CSS.
 
-Angegebene Längen, Prozentsätze und Schlüsselwörter (`left`, `center`, `right`, `top` und `bottom`) sind alle relativ zur [Referenzbox](/de/docs/Web/CSS/transform-box). Da der Standardwert für `transform-box` `view-box` ist, sind die Koordinaten des Transformationsursprungs relativ zum `viewBox` des SVG-Elements, es sei denn, das Element selbst hat eine zugehörige CSS-Layout-Box.
+Angegebene Längen, Prozentsätze und Schlüsselwörter (`left`, `center`, `right`, `top` und `bottom`) sind alle relativ zur [Referenzbox](/de/docs/Web/CSS/Reference/Properties/transform-box). Da der Standardwert für `transform-box` `view-box` ist, sind die Koordinaten des Transformationsursprungs relativ zum `viewBox` des SVG-Elements, es sei denn, das Element selbst hat eine zugehörige CSS-Layout-Box.
 
 ## Beispiele
 

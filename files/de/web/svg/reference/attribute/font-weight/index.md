@@ -2,15 +2,15 @@
 title: font-weight
 slug: Web/SVG/Reference/Attribute/font-weight
 l10n:
-  sourceCommit: da8c3171b7a7ea6694af71fac7a3194d8e9ba869
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das **`font-weight`**-Attribut bezieht sich auf die Fett- oder Leichtheit der Glyphen, die zur Darstellung des Textes verwendet werden, im Verhältnis zu anderen Schriftarten in derselben Schriftfamilie.
+Das **`font-weight`** Attribut bezieht sich auf die Fett- oder Leichtheit der Glyphen, die zum Rendern des Textes verwendet werden, im Verhältnis zu anderen Schriften derselben Schriftfamilie.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `font-weight` auch ein entsprechendes CSS-Property: {{cssxref("font-weight")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
+> Als Präsentationsattribut hat `font-weight` auch ein entsprechendes CSS-Attribut: {{cssxref("font-weight")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
@@ -18,7 +18,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## Beispiele
 
-### Steuerung der SVG-Schriftstärke
+### Steuerung der Schriftstärke in SVG
 
 ```html
 <svg viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 {{EmbedLiveSample}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -51,7 +51,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte lesen Sie bitte die [CSS `font-weight`](/de/docs/Web/CSS/font-weight#values) Eigenschaft.
+Für eine Beschreibung der Werte lesen Sie bitte die [CSS `font-weight`](/de/docs/Web/CSS/Reference/Properties/font-weight#values) Eigenschaft.
 
 ## Spezifikationen
 
@@ -63,4 +63,4 @@ Für eine Beschreibung der Werte lesen Sie bitte die [CSS `font-weight`](/de/doc
 
 ## Siehe auch
 
-- CSS {{cssxref("font-weight")}}-Eigenschaft
+- CSS {{cssxref("font-weight")}} Eigenschaft

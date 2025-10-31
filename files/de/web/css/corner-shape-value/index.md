@@ -2,38 +2,38 @@
 title: <corner-shape-value>
 slug: Web/CSS/corner-shape-value
 l10n:
-  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
 {{SeeCompatTable}}
 
-Der **`<corner-shape-value>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) beschreibt die Form einer Ecken eines Containers. Er wird von der {{cssxref("corner-shape")}} Kurzschreibweise und seinen [Bestandteileigenschaften](/de/docs/Web/CSS/corner-shape#constituent_properties) verwendet, um die Form festzulegen, die auf die betroffenen Containerecken angewendet werden soll.
+Der **`<corner-shape-value>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types) beschreibt die Form einer Container-Ecke. Er wird durch die {{cssxref("corner-shape")}} Kurzschreibweise und deren [Bestandteil-Eigenschaften](/de/docs/Web/CSS/Reference/Properties/corner-shape#constituent_properties) verwendet, um die Form der betroffenen Container-Ecken festzulegen.
 
 ## Syntax
 
-Der `<corner-shape-value>` Datentyp kann eine {{cssxref("superellipse()")}} Funktion annehmen, die eine benutzerdefinierte Form definiert, oder einen von sechs Schlüsselwortwerten, die gängige `superellipse()` Werte beschreiben.
+Der `<corner-shape-value>` Datentyp kann eine {{cssxref("superellipse()")}} Funktion annehmen, die eine benutzerdefinierte Form definiert, oder einen der sechs Schlüsselwortwerte, die häufige `superellipse()`-Werte beschreiben.
 
 ### Werte
 
 - {{cssxref("superellipse()")}}
-  - : Definiert eine benutzerdefinierte Superellipse-Eckform. Ein negativer Parameter erzeugt eine nach innen gehende, oder konkave, Kurve, während ein positiver Parameter eine nach außen gehende, oder konvexe, Kurve erzeugt.
+  - : Definiert eine benutzerdefinierte Superellipse-Form der Ecke. Ein negativer Parameter erzeugt eine nach innen gerichtete oder konkave Kurve, während ein positiver Parameter eine nach außen gerichtete oder konvexe Kurve erzeugt.
 - Schlüsselwörter
-  - : Die verfügbaren Schlüsselwortwerte sind wie folgt:
+  - : Die verfügbaren Schlüsselwort-Werte sind wie folgt:
     - `bevel`
       - : Definiert eine gerade, diagonale Ecke, die weder konvex noch konkav ist. Das `bevel` Schlüsselwort entspricht `superellipse(0)`.
     - `notch`
-      - : Definiert eine 90-Grad-konkave Quadratecke. Das `notch` Schlüsselwort entspricht `superellipse(-infinity)`.
+      - : Definiert eine 90-Grad-konkave quadratische Ecke. Das `notch` Schlüsselwort entspricht `superellipse(-infinity)`.
     - `round`
-      - : Definiert eine konvexe gewöhnliche Ellipse, die die Standard abgerundete Ecke ist, die durch {{cssxref("border-radius")}} erstellt wird, ohne dass eine `corner-shape` angewendet wird. Das `round` Schlüsselwort entspricht `superellipse(1)`. Dies ist der Standardwert für alle `corner-shape` Eigenschaften.
+      - : Definiert eine konvexe gewöhnliche Ellipse, die die standardmäßig abgerundete Ecke darstellt, die durch {{cssxref("border-radius")}} erzeugt wird, wenn kein `corner-shape` angewendet wird. Das `round` Schlüsselwort entspricht `superellipse(1)`. Dies ist der Standardwert (Initialwert) für alle `corner-shape` Eigenschaften.
     - `scoop`
       - : Definiert eine konkave gewöhnliche Ellipse. Das `scoop` Schlüsselwort entspricht `superellipse(-1)`.
     - `square`
-      - : Definiert eine 90-Grad-konvexe Quadratecke, die die Standard-Eckform ist, wenn kein `border-radius` (oder `border-radius: 0`) angewendet wird. Das `square` Schlüsselwort entspricht `superellipse(infinity)`.
+      - : Definiert eine 90-Grad-konvexe quadratische Ecke, was die Standardform der Ecke ist, wenn kein `border-radius` (oder `border-radius: 0`) angewendet wird. Das `square` Schlüsselwort entspricht `superellipse(infinity)`.
     - `squircle`
-      - : Definiert einen "Squircle", eine konvexe Kurve zwischen `round` und `square`. Das `squircle` Schlüsselwort entspricht `superellipse(2)`.
+      - : Definiert eine "Squircle", eine konvexe Kurve zwischen `round` und `square`. Das `squircle` Schlüsselwort entspricht `superellipse(2)`.
 
 > [!NOTE]
-> Sie können zwischen verschiedenen `superellipse()` Werten und zwischen verschiedenen Eckformen-Schlüsselwörtern nahtlos animieren, da die Animation zwischen ihren `superellipse()` Äquivalenten interpoliert.
+> Sie können nahtlos zwischen verschiedenen `superellipse()` Werten und zwischen verschiedenen Eckform-Schlüsselwörtern animieren, da die Animation zwischen ihren `superellipse()`-Äquivalenten interpoliert.
 
 ## Formale Syntax
 
@@ -43,9 +43,9 @@ Der `<corner-shape-value>` Datentyp kann eine {{cssxref("superellipse()")}} Funk
 
 ### `<corner-shape-value>` Wertvergleich
 
-In diesem Beispiel bieten wir ein Dropdown-Menü, mit dem Sie verschiedene `<corner-shape-value>` Werte auswählen können, und einen Schieberegler, der den {{cssxref("border-radius")}} des Containers aktualisiert. Dies ermöglicht die Visualisierung der Wirkung der verschiedenen Schlüsselwörter und `superellipse()` Parameterwerte.
+In diesem Beispiel bieten wir ein Dropdown-Menü, das es Ihnen ermöglicht, verschiedene `<corner-shape-value>` Werte auszuwählen und einen Schieberegler, der den {{cssxref("border-radius")}} des Containers aktualisiert. Dies ermöglicht die Visualisierung der Wirkung der verschiedenen Schlüsselwörter und `superellipse()` Parameterwerte.
 
-Die `corner-shape` Eigenschaft definiert die Form der Ecken des Kastens, während der Bereich, auf den die Form angewendet wird, durch die `border-radius` Eigenschaft festgelegt wird. Der Code ist der Kürze halber versteckt, aber Sie können eine [ausführliche Erklärung der `corner-shape` Werte](/de/docs/Web/CSS/corner-shape#comparing_corner-shape_values) zusammen mit anderen verwandten Beispielen auf der {{cssxref("corner-shape")}} Referenzseite finden.
+Die `corner-shape` Eigenschaft definiert die Form der Ecken des Kastens, während die Region, auf die die Form angewendet wird, durch die `border-radius` Eigenschaft spezifiziert wird. Der Code ist aus Gründen der Kürze verborgen, aber Sie finden eine [vollständige Erklärung der `corner-shape` Werte](/de/docs/Web/CSS/Reference/Properties/corner-shape#comparing_corner-shape_values) zusammen mit anderen verwandten Beispielen auf der {{cssxref("corner-shape")}} Referenzseite.
 
 ```html hidden live-sample___value-comparison
 <form>
@@ -146,7 +146,7 @@ setCorners();
 {{EmbedLiveSample("value-comparison", "100%", "300")}}
 
 > [!NOTE]
-> Siehe auch das [`superellipse()` Funktionswertvergleich](/de/docs/Web/CSS/superellipse#superellipse_value_comparison) Beispiel.
+> Siehe auch das Beispiel für den [`superellipse()` Funktionswertvergleich](/de/docs/Web/CSS/superellipse#superellipse_value_comparison).
 
 ## Spezifikationen
 
@@ -161,4 +161,4 @@ setCorners();
 - {{cssxref("corner-shape")}}
 - {{cssxref("border-radius")}}
 - {{cssxref("superellipse()")}}
-- [CSS borders and box decorations](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
+- [CSS-Ränder und Box-Dekorationen](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul

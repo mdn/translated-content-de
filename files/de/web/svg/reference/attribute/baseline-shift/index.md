@@ -2,18 +2,18 @@
 title: baseline-shift
 slug: Web/SVG/Reference/Attribute/baseline-shift
 l10n:
-  sourceCommit: 594ae0d4ffb6326a9529fe366d30ca633309ee30
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das **`baseline-shift`**-Attribut ermöglicht die Neupositionsierung der Dominanten-Basislinie relativ zur dominanten Basislinie des übergeordneten Textinhalts-Elements. Das verschobene Objekt könnte ein Tief- oder Hochgestellt sein.
+Das **`baseline-shift`** Attribut ermöglicht die Neupositionierung der dominanten Grundlinie relativ zur dominanten Grundlinie des übergeordneten Textelementinhalts. Das verschobene Objekt könnte ein Tiefgestellt- oder Hochgestelltzeichen sein.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `baseline-shift` auch ein entsprechendes CSS-Property: {{cssxref("baseline-shift")}}. Wenn beide spezifiziert sind, hat das CSS-Property Vorrang.
+> Als Präsentationsattribut hat `baseline-shift` auch ein entsprechendes CSS-Eigenschaft: {{cssxref("baseline-shift")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
 > [!NOTE]
-> Dieses Attribut wird in Zukunft veraltet sein und es wird empfohlen, stattdessen [`vertical-align`](/de/docs/Web/CSS/vertical-align) zu verwenden.
+> Diese Eigenschaft wird veraltet und Autoren wird empfohlen stattdessen [`vertical-align`](/de/docs/Web/CSS/Reference/Properties/vertical-align) zu verwenden.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("textPath")}}
 - {{SVGElement("tspan")}}
@@ -41,13 +41,13 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `sub`
-  - : Die dominante Basislinie wird auf die Standardposition für Tiefgestelltes verschoben.
+  - : Die dominante Grundlinie wird zur Standardposition für Tiefgestellte verschoben.
 - `super`
-  - : Die dominante Basislinie wird auf die Standardposition für Hochgestelltes verschoben.
+  - : Die dominante Grundlinie wird zur Standardposition für Hochgestellte verschoben.
 - `<length-percentage>`
-  - : Ein Längenwert hebt (positiver Wert) oder senkt (negativer Wert) die dominante Basislinie des übergeordneten Textinhalts-Elements um die angegebene Länge.
+  - : Ein Längenwert hebt (positiver Wert) oder senkt (negativer Wert) die dominante Grundlinie des übergeordneten Textelementinhalts um die angegebene Länge.
 
-    Ein Prozentwert hebt (positiver Wert) oder senkt (negativer Wert) die dominante Basislinie des übergeordneten Textinhalts-Elements um den angegebenen Prozentsatz der {{cssxref("line-height")}}.
+    Ein Prozentwert hebt (positiver Wert) oder senkt (negativer Wert) die dominante Grundlinie des übergeordneten Textelementinhalts um den angegebenen Prozentsatz der {{cssxref("line-height")}}.
 
 ## Spezifikationen
 

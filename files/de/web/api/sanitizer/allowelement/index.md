@@ -3,19 +3,19 @@ title: "Sanitizer: allowElement() Methode"
 short-title: allowElement()
 slug: Web/API/Sanitizer/allowElement
 l10n:
-  sourceCommit: ffff697fbd3004c3da50323ef4d868b3ad47e4d0
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("HTML Sanitizer API")}}{{SeeCompatTable}}
 
-Die **`allowElement()`** Methode der [`Sanitizer`](/de/docs/Web/API/Sanitizer) Schnittstelle legt fest, dass das angegebene Element im Output erlaubt ist, wenn der Sanitizer verwendet wird.
-Das Element kann mit Listen von Attributen angegeben werden, die bei Elementen dieses Typs erlaubt oder nicht erlaubt sind.
+Die **`allowElement()`** Methode des [`Sanitizer`](/de/docs/Web/API/Sanitizer) Interface legt fest, dass das angegebene Element in der Ausgabe erlaubt ist, wenn der Sanitizer verwendet wird.
+Das Element kann mit Listen von Attributen angegeben werden, die an Elementen dieses Typs erlaubt oder nicht erlaubt sind.
 
-Das angegebene Element wird zur [`elements`](/de/docs/Web/API/SanitizerConfig#elements) Liste in der Konfiguration dieses Sanitizers hinzugefügt.
-Falls das Element bereits in der Liste vorhanden ist, wird der bestehende Eintrag zuerst entfernt und die neue Definition wird am Ende der Liste hinzugefügt.
-Beachten Sie, dass, wenn Sie sowohl pro Element eine Hinzufüge-Attribut- als auch eine Entfern-Attribut-Liste benötigen, diese in einem einzigen Aufruf dieser Methode hinzugefügt werden müssen (da bei zwei Aufrufen der zweite Aufruf die in dem ersten hinzugefügte Elementdefinition ersetzen würde).
+Das angegebene Element wird in die [`elements`](/de/docs/Web/API/SanitizerConfig#elements)-Liste in dieser Konfiguration des Sanitizers hinzugefügt.
+Wenn das Element bereits in der Liste vorhanden ist, wird der bestehende Eintrag zuerst entfernt und die neue Definition am Ende der Liste hinzugefügt.
+Beachten Sie, dass wenn Sie sowohl elementweise Hinzufüg- als auch Entfernliste benötigen, diese in einem einzigen Aufruf dieser Methode hinzugefügt werden müssen (da der zweite Aufruf bei zwei Aufrufen die in der ersten Aufruf hinzugefügte Elementdefinition ersetzen würde).
 
-Das angegebene Element wird, falls vorhanden, aus den [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements) oder [`replaceWithChildrenElements`](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) Listen der Sanitizer-Konfiguration entfernt.
+Das angegebene Element wird aus den Listen [`removeElements`](/de/docs/Web/API/SanitizerConfig#removeelements) oder [`replaceWithChildrenElements`](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) der Sanitizer-Konfiguration entfernt, wenn es vorhanden ist.
 
 ## Syntax
 
@@ -26,37 +26,37 @@ allowElement(element)
 ### Parameter
 
 - `element`
-  - : Ein String, der den Namen des erlaubten Elements angibt, oder ein Objekt mit den folgenden Eigenschaften:
+  - : Ein String, der den Namen des erlaubten Elements angibt oder ein Objekt mit den folgenden Eigenschaften:
     - `name`
       - : Ein String, der den Namen des Elements enthält.
     - `namespace` {{optional_inline}}
       - : Ein String, der den Namespace des Elements enthält.
-        Der Standardnamespace ist `"http://www.w3.org/1999/xhtml"`.
+        Der Standard-Namespace ist `"http://www.w3.org/1999/xhtml"`.
     - `attributes` {{optional_inline}}
-      - : Ein Array, das die Attribute angibt, die bei diesem (erlaubten) Element beim Bereinigen von HTML erlaubt sind.
+      - : Ein Array, das die Attribute angibt, die für dieses (erlaubte) Element beim HTML-Sanitizing erlaubt sind.
 
-        Jedes Attribut kann durch seinen Namen (ein String) oder als ein Objekt mit den folgenden Eigenschaften angegeben werden:
+        Jedes Attribut kann durch seinen Namen (ein String) oder als Objekt mit den folgenden Eigenschaften angegeben werden:
         - `name`
-          - : Ein String mit dem Namen des Attributs.
+          - : Ein String, der den Namen des Attributs enthält.
         - `namespace` {{optional_inline}}
-          - : Ein String mit dem Namespace des Attributs, der standardmäßig `null` ist.
+          - : Ein String, der den Namespace des Attributs enthält, der standardmäßig auf `null` gesetzt ist.
 
     - `removeAttributes` {{optional_inline}}
-      - : Ein Array, das die Attribute angibt, die bei diesem (erlaubten) Element beim Bereinigen von HTML entfernt werden sollen.
+      - : Ein Array, das die Attribute angibt, die bei diesem (erlaubten) Element beim HTML-Sanitizing entfernt werden sollen.
 
-        Jedes Attribut kann durch seinen Namen (ein String) oder als ein Objekt mit den folgenden Eigenschaften angegeben werden:
+        Jedes Attribut kann durch seinen Namen (ein String) oder als Objekt mit den folgenden Eigenschaften angegeben werden:
         - `name`
-          - : Ein String mit dem Namen des Attributs.
+          - : Ein String, der den Namen des Attributs enthält.
         - `namespace` {{optional_inline}}
-          - : Ein String mit dem Namespace des Attributs, der standardmäßig `null` ist.
+          - : Ein String, der den Namespace des Attributs enthält, der standardmäßig auf `null` gesetzt ist.
 
 ### Rückgabewert
 
-None (`undefined`).
+Keiner (`undefined`).
 
 ## Beispiele
 
-### Anleitung zum Erlauben von Elementen
+### Anleitung zum Zulassen von Elementen
 
 Dieses Beispiel zeigt, wie `allowElement()` verwendet wird, um ein Element zur [`elements` Konfiguration](/de/docs/Web/API/SanitizerConfig#elements) des Sanitizers (die Liste der erlaubten Elemente) hinzuzufügen.
 
@@ -82,9 +82,9 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zunächst ein neues `Sanitizer` Objekt, das anfänglich {{htmlelement("div")}} und {{htmlelement("script")}} Elemente erlaubt.
-Anschließend wird `allowElement()` aufgerufen, um ein {{htmlelement("p")}} Element hinzuzufügen, das als String-Parameter angegeben ist, und dann erneut, um ein {{htmlelement("span")}} Element hinzuzufügen, das als Objekt angegeben ist.
-Wir ermitteln dann die Konfiguration und geben sie aus.
+Der Code erstellt zunächst ein neues `Sanitizer`-Objekt, das zunächst {{htmlelement("div")}} und {{htmlelement("script")}} Elemente erlaubt.
+Dann wird `allowElement()` aufgerufen, um ein {{htmlelement("p")}}-Element hinzuzufügen, das als String-Parameter angegeben ist, und dann erneut, um ein {{htmlelement("span")}}-Element hinzuzufügen, das als Objekt angegeben ist.
+Wir erhalten und protokollieren dann die Konfiguration.
 
 ```js hidden
 if ("Sanitizer" in window) {
@@ -96,7 +96,7 @@ const sanitizer = new Sanitizer({
   elements: ["div", "script"],
 });
 
-// Allow <p> specifying an string
+// Allow <p> specifying a string
 sanitizer.allowElement("p");
 
 // Allow <span> specifying an object
@@ -115,13 +115,13 @@ log(JSON.stringify(sanitizerConfig, null, 2));
 #### Ergebnisse
 
 Die endgültige Konfiguration wird unten protokolliert.
-Diese umfasst die ursprünglichen Elemente (`<div>` und `<script>`) sowie die beiden mit `allowElement()` hinzugefügten (`<p>` und `<span>`).
+Dies beinhaltet die ursprünglichen Elemente (`<div>` und `<script>`) und die beiden mit `allowElement()` hinzugefügten (`<p>` und `<span>`).
 
 {{EmbedLiveSample("How to allow elements","100","480px")}}
 
-### Erlauben von Elementen, die bereits erlaubt oder entfernt sind
+### Zulassen von bereits erlaubten oder entfernten Elementen
 
-Dieses Beispiel zeigt die Wirkung der Verwendung von `allowElement()`, um Elemente hinzuzufügen, die bereits erlaubt sind, oder die in der Konfiguration als "zu entfernen" markiert sind.
+Dieses Beispiel zeigt die Wirkung der Verwendung von `allowElement()`, um Elemente hinzuzufügen, die bereits erlaubt sind oder in der Konfiguration als "zu entfernen" markiert sind.
 
 ```html hidden
 <pre id="log"></pre>
@@ -145,12 +145,12 @@ function log(text) {
 
 #### JavaScript
 
-Der Code erstellt zunächst ein neues `Sanitizer` Objekt, das anfänglich {{htmlelement("div")}} Elemente erlaubt (andere Attribute als `id` werden entfernt) und ersetzt auch {{htmlelement("span")}} Elemente durch beliebige Kindelemente.
+Der Code erstellt zunächst ein neues `Sanitizer`-Objekt, das zunächst {{htmlelement("div")}}-Elemente erlaubt (mit Ausnahme von `id`-Attributen) und außerdem {{htmlelement("span")}}-Elemente mit beliebigen Kind-Elementen ersetzt.
 
-Anschließend wird `allowElement()` aufgerufen, um zunächst ein {{htmlelement("div")}} Element hinzuzufügen, das `style` Attribute entfernt.
-Da das `<div>` Element bereits erlaubt ist, wird es aus der [`elements` Konfiguration](/de/docs/Web/API/SanitizerConfig#elements) entfernt und die `<div>` Elementdefinition angefügt.
+Dann wird `allowElement()` aufgerufen, zuerst um ein {{htmlelement("div")}}-Element hinzuzufügen, das `style`-Attribute entfernt.
+Da das `<div>`-Element bereits erlaubt ist, wird es aus der [`elements` Konfiguration](/de/docs/Web/API/SanitizerConfig#elements) entfernt und die `<div>`-Elementdefinition wird angehängt.
 
-Ein {{htmlelement("span")}} Element wird dann zur Erlauben-Liste hinzugefügt, wodurch es aus der [`replaceWithChildrenElements` Konfigurationsliste](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) entfernt wird.
+Ein {{htmlelement("span")}}-Element wird dann zur Liste der erlaubten Elemente hinzugefügt, was es aus der [`replaceWithChildrenElements` Konfigurationsliste](/de/docs/Web/API/SanitizerConfig#replacewithchildrenelements) entfernt.
 
 ```js hidden
 if ("Sanitizer" in window) {
@@ -185,9 +185,9 @@ log(JSON.stringify(sanitizerConfig, null, 2));
 
 #### Ergebnisse
 
-Die endgültige Konfiguration wird protokolliert und ist unten dargestellt.
-Aus dem Protokoll können wir sehen, dass der ursprüngliche Filter für das `<div>` Element entfernt und die neue Definition zur `elements` Liste hinzugefügt wurde.
-Das Hinzufügen des `<span>` Elements zur `elements` Liste hat es aus der `replaceWithChildrenElements` Liste entfernt.
+Die endgültige Konfiguration wird protokolliert und unten angezeigt.
+Aus dem Protokoll können wir sehen, dass der ursprüngliche Filter für das `<div>`-Element entfernt und die neue Definition zur `elements`-Liste hinzugefügt wurde.
+Das Hinzufügen des `<span>`-Elements zur `elements`-Liste hat es aus der `replaceWithChildrenElements`-Liste entfernt.
 
 {{EmbedLiveSample("Allowing elements that are already allowed or removed","100","480px")}}
 

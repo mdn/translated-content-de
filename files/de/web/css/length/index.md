@@ -19,7 +19,7 @@ Der `<length>`-Datentyp besteht aus einer {{cssxref("&lt;number&gt;")}} gefolgt 
 
 Der [angegebene Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#specified_value) einer Länge (_specified length_) wird durch ihre Menge und Einheit dargestellt. Der [berechnete Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) einer Länge (_computed length_) ist die angegebene Länge, die auf eine absolute Länge aufgelöst wird, wobei die Einheit nicht unterschieden wird.
 
-Die `<length>`-Einheiten können relativ oder absolut sein. Relative Längen stellen eine Messung in Bezug auf eine andere Entfernung dar. Abhängig von der Einheit kann diese Entfernung die Größe eines bestimmten Zeichens, die [Zeilenhöhe](/de/docs/Web/CSS/line-height) oder die Größe des {{Glossary("viewport", "Viewports")}} sein. Stylesheets, die relative Längeneinheiten verwenden, können leichter von einer Ausgabemenge auf eine andere skaliert werden.
+Die `<length>`-Einheiten können relativ oder absolut sein. Relative Längen stellen eine Messung in Bezug auf eine andere Entfernung dar. Abhängig von der Einheit kann diese Entfernung die Größe eines bestimmten Zeichens, die [Zeilenhöhe](/de/docs/Web/CSS/Reference/Properties/line-height) oder die Größe des {{Glossary("viewport", "Viewports")}} sein. Stylesheets, die relative Längeneinheiten verwenden, können leichter von einer Ausgabemenge auf eine andere skaliert werden.
 
 > [!NOTE]
 > Kindelemente erben nicht die relativen Werte, wie sie für ihr Elternelement angegeben sind; sie erben die berechneten Werte.

@@ -172,7 +172,7 @@ Die folgenden Eigenschaften wurden zunächst mit dem `-moz-` Vendor-Prefix imple
 
 **Eigenschaft:** {{CSSxRef("image-rendering")}}
 
-- `-moz-crisp-edges` {{deprecated_inline}}: Verwenden Sie [`crisp-edges`](/de/docs/Web/CSS/image-rendering#crisp-edges).
+- `-moz-crisp-edges` {{deprecated_inline}}: Verwenden Sie [`crisp-edges`](/de/docs/Web/CSS/Reference/Properties/image-rendering#crisp-edges).
 
 ### &lt;length&gt;
 
@@ -184,7 +184,7 @@ Die folgenden Eigenschaften wurden zunächst mit dem `-moz-` Vendor-Prefix imple
 
 **Eigenschaft:** {{CSSxRef("list-style-type")}}
 
-Mehrere vendor-gekennzeichnete Werte für `list-style-type` werden jetzt als Standardwerte ohne `-moz-`-Voranstellung unterstützt, außer für die folgenden in der Liste. Siehe [Browser-Kompatibilität](/de/docs/Web/CSS/list-style-type#browser_compatibility) für Details.
+Mehrere vendor-gekennzeichnete Werte für `list-style-type` werden jetzt als Standardwerte ohne `-moz-`-Voranstellung unterstützt, außer für die folgenden in der Liste. Siehe [Browser-Kompatibilität](/de/docs/Web/CSS/Reference/Properties/list-style-type#browser_compatibility) für Details.
 
 - `-moz-ethiopic-halehame`
 - `-moz-ethiopic-halehame-am`
@@ -209,7 +209,7 @@ Mehrere vendor-gekennzeichnete Werte für `list-style-type` werden jetzt als Sta
 - `-moz-min-content`: Siehe {{CSSxRef("min-content")}}.
 - `-moz-fit-content`: Siehe {{CSSxRef("fit-content")}}.
 - `-moz-max-content`: Siehe {{CSSxRef("max-content")}}.
-- `-moz-available`: Siehe [`stretch`](/de/docs/Web/CSS/width#stretch).
+- `-moz-available`: Siehe [`stretch`](/de/docs/Web/CSS/Reference/Properties/width#stretch).
 
 ## Pseudoklassen
 

@@ -1,20 +1,20 @@
 ---
-title: CSS Custom-Funktionen und Mixins
+title: CSS-Benutzerdefinierte Funktionen und Mixins
 slug: Web/CSS/CSS_custom_functions_and_mixins
 l10n:
-  sourceCommit: 016ecd8ccaed866c4d8d995fb18379c6e48f3b50
+  sourceCommit: 55326f330a6ae829494c7606b1bd47b2c0f9d888
 ---
 
-Das Modul **CSS Custom-Funktionen und Mixins** ermöglicht es Entwicklern, wiederverwendbare Blöcke von CSS-Code zu erstellen, die Argumente akzeptieren können, komplexe Logik enthalten (definiert durch Funktionen wie CSS {{cssxref("if()")}} und {{cssxref("@media")}} At-Regeln), und basierend auf dieser Logik Werte zurückgeben.
+Das Modul **CSS-Benutzerdefinierte Funktionen und Mixins** ermöglicht es Entwicklern, wiederverwendbare CSS-Codeblöcke zu erstellen, die Argumente akzeptieren, komplexe Logik (definiert durch Funktionen wie CSS {{cssxref("if()")}} und {{cssxref("@media")}}-At-Regeln) enthalten und basierend auf dieser Logik Werte zurückgeben können.
 
-CSS Custom-Funktionen werden in {{cssxref("@function")}} At-Regeln definiert und mit der {{cssxref("&lt;dashed-function>")}} Syntax aufgerufen, die der Syntax von [CSS Custom Properties](/de/docs/Web/CSS/--*) sehr ähnlich sieht, jedoch am Ende Klammern enthält, die Argumente umfassen (zum Beispiel, `--my-function(30px, 3)`). CSS Custom-Funktionen können innerhalb eines jeden Eigenschaftswertes aufgerufen werden und geben basierend auf den an die Funktion übergebenen Argumenten und der darin enthaltenen Logik einen Wert zurück.
+CSS-Benutzerdefinierte Funktionen werden in {{cssxref("@function")}}-At-Regeln definiert und verwenden die {{cssxref("&lt;dashed-function>")}}-Syntax, die der [CSS-Benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*)-Syntax sehr ähnlich ist, jedoch mit Klammern am Ende, die Argumente enthalten (zum Beispiel `--my-function(30px, 3)`). CSS-Benutzerdefinierte Funktionen können innerhalb eines jeden Eigenschaftswerts aufgerufen werden und geben einen Wert basierend auf den in die Funktion übergebenen Argumenten und der Logik innerhalb der Funktion zurück.
 
-CSS Mixins werden in `@mixin` At-Regeln definiert und mit `@apply` At-Regeln innerhalb von Regelsets angewendet. CSS Mixins definieren einen Satz von Eigenschaften, die innerhalb mehrerer Regelsets wiederverwendet und mit Argumenten und Logik angepasst werden können.
+CSS-Mixins werden in `@mixin`-At-Regeln definiert und mit `@apply`-At-Regeln angewendet, die innerhalb von Regelsets verschachtelt sind. CSS-Mixins definieren eine Gruppe von Eigenschaften, die in mehreren Regelsets wiederverwendet und mit Argumenten und Logik angepasst werden können.
 
-CSS Custom-Funktionen und Mixins können optionale Datentypen für ihre Argumente und Rückgabewerte zugewiesen werden, um die übergebenen und zurückgegebenen Werte zu beschränken.
+CSS-Benutzerdefinierte Funktionen und Mixins können optionale Datentypen für ihre Argumente und Rückgabewerte zugewiesen werden, um die übergebenen und zurückgegebenen Werte einzuschränken.
 
 > [!NOTE]
-> Derzeit haben nur CSS Custom-Funktionen Browser-Unterstützung. CSS Mixins werden derzeit in keinem Browser unterstützt.
+> Derzeit werden nur CSS-Benutzerdefinierte Funktionen von Browsern unterstützt. CSS-Mixins werden derzeit in keinem Browser unterstützt.
 
 ## Referenz
 
@@ -23,7 +23,7 @@ CSS Custom-Funktionen und Mixins können optionale Datentypen für ihre Argument
 - {{cssxref("@function")}}
   - {{cssxref("@function#result", "result")}}
 
-Das Modul CSS Custom-Funktionen und Mixins führt auch die At-Regeln `@mixin`, `@apply`, `@contents` und `@env` ein. Derzeit unterstützt kein Browser diese Funktionen.
+Das Modul CSS-Benutzerdefinierte Funktionen und Mixins führt auch die `@mixin`, `@apply`, `@contents` und `@env`-At-Regeln ein. Derzeit unterstützen keine Browser diese Funktionen.
 
 ### Datentypen und Werte
 
@@ -39,10 +39,10 @@ Das Modul CSS Custom-Funktionen und Mixins führt auch die At-Regeln `@mixin`, `
 - [`CSSFunctionDeclarations`](/de/docs/Web/API/CSSFunctionDeclarations)
 - [`CSSFunctionDescriptors`](/de/docs/Web/API/CSSFunctionDescriptors)
 
-## Leitfaden
+## Leitfäden
 
-- [Verwenden von CSS Custom-Funktionen](/de/docs/Web/CSS/CSS_custom_functions_and_mixins/Using_custom_functions)
-  - : Dieser Leitfaden lehrt Sie, wie Sie CSS Custom-Funktionen verwenden und präsentiert einige typische Anwendungsfälle.
+- [Verwendung von CSS-Benutzerdefinierten Funktionen](/de/docs/Web/CSS/CSS_custom_functions_and_mixins/Using_custom_functions)
+  - : Dieser Leitfaden zeigt Ihnen, wie Sie CSS-Benutzerdefinierte Funktionen verwenden und stellt einige typische Anwendungsfälle vor.
 
 ## Spezifikationen
 

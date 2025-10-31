@@ -2,15 +2,15 @@
 title: <semantics>
 slug: Web/MathML/Reference/Element/semantics
 l10n:
-  sourceCommit: c263f06fa14ed56153e345006bb459c9df014b98
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das **`<semantics>`** [MathML](/de/docs/Web/MathML) Element verknüpft Anmerkungen mit einem MathML-Ausdruck, beispielsweise dessen Textquelle als [leicht zu erlernende Markup-Sprache](https://de.wikipedia.org/wiki/Lightweight_Markup_Sprache) oder mathematische Bedeutung, die in einem speziellen {{Glossary("XML", "XML")}} Dialekt ausgedrückt wird. Typischerweise ist seine Struktur:
+Das **`<semantics>`** [MathML](/de/docs/Web/MathML)-Element verknüpft Anmerkungen mit einem MathML-Ausdruck, zum Beispiel dessen Textquelle als [leichtgewichtiges Markup](https://en.wikipedia.org/wiki/Lightweight_markup_language) oder mathematische Bedeutung, die in einem speziellen {{Glossary("XML", "XML")}} Dialekt ausgedrückt wird. Typischerweise hat es die folgende Struktur:
 
 - ein erstes Kind, das ein zu annotierender MathML-Ausdruck ist.
-- nachfolgende {{mathmlelement("annotation")}} oder {{mathmlelement("annotation-xml")}} Elemente, wobei letztere XML-Formaten wie [Content MathML](https://en.wikipedia.org/wiki/MathML#Content_MathML) oder {{Glossary("SVG", "SVG")}} vorbehalten sind.
+- nachfolgende {{mathmlelement("annotation")}}- oder {{mathmlelement("annotation-xml")}}-Elemente, wobei letztere für XML-Formate wie [Content MathML](https://en.wikipedia.org/wiki/MathML#Content_MathML) oder {{Glossary("SVG", "SVG")}} reserviert sind.
 
-Standardmäßig wird nur das erste Kind des `<semantics>`-Elements gerendert, während die anderen ihre [display](/de/docs/Web/CSS/display) Einstellung auf `none` haben.
+Standardmäßig wird nur das erste Kind des `<semantics>`-Elements angezeigt, während die anderen das [display](/de/docs/Web/CSS/Reference/Properties/display) auf `none` gesetzt haben.
 
 ```css
 semantics > :not(:first-child) {
@@ -19,11 +19,11 @@ semantics > :not(:first-child) {
 ```
 
 > [!NOTE]
-> Frühere MathML-Spezifikationen erlaubten es den Renderern, die Standarddarstellung basierend auf verfügbaren Anmerkungen zu bestimmen. Die folgenden Regeln zur Bestimmung des sichtbaren Kindes wurden in einigen Browsern implementiert. Siehe [MathML 4](https://w3c.github.io/mathml/) für die Unterscheidung zwischen Präsentations-MathML und Inhalts-MathML.
+> Frühere MathML-Spezifikationen erlaubten es Renderern, die Standardanzeige basierend auf verfügbaren Anmerkungen zu entscheiden. Die folgenden Regeln zur Bestimmung des sichtbaren Kindes wurden in einigen Browsern implementiert. Siehe [MathML 4](https://w3c.github.io/mathml/) für die Unterscheidung zwischen Präsentations- und Inhalts-MathML.
 >
-> - Wenn keine anderen Regeln zutreffen: Standardmäßig wird nur das erste Kind gerendert, welches ein Präsentations-MathML sein soll.
-> - Wenn das erste Kind ein Präsentations-MathML-Element, ein anderes als `<annotation>` oder `<annotation-xml>`, ist, rendere das erste Kind.
-> - Wenn kein Präsentations-MathML gefunden wird, rendere das erste `<annotation>` oder `<annotation-xml>` Kind des `<semantics>` ohne ein `src` Attribut. Für `<annotation-xml>` Elemente muss das `encoding` Attribut einen der folgenden Werte haben:
+> - Wenn keine anderen Regeln zutreffen: Standardmäßig wird nur das erste Kind gerendert, welches als Präsentations-MathML angenommen wird.
+> - Wenn das erste Kind ein Präsentations-MathML-Element ist, das nicht `<annotation>` oder `<annotation-xml>` ist, wird das erste Kind gerendert.
+> - Wenn kein Präsentations-MathML gefunden wird, wird das erste `<annotation>` oder `<annotation-xml>` Kind-Element des `<semantics>` ohne `src`-Attribut gerendert. Für `<annotation-xml>`-Elemente muss das `encoding`-Attribut einen der folgenden Werte haben:
 >   - `"application/mathml-presentation+xml"`
 >   - `"MathML-Presentation"`
 >   - `"SVG1.1"`
@@ -31,11 +31,11 @@ semantics > :not(:first-child) {
 >   - `"image/svg+xml"`
 >   - `"application/xml"`
 >
-> Beachten Sie, dass `"application/mathml+xml"` hier _nicht_ erwähnt wird, da es nicht zwischen Content- oder Presentation-MathML unterscheidet.
+> Beachten Sie, dass `"application/mathml+xml"` _nicht_ hier erwähnt wird, da es nicht zwischen Inhalts- oder Präsentations-MathML unterscheidet.
 
 ## Attribute
 
-Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes).
+Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Reference/Global_attributes).
 
 ## Beispiel
 

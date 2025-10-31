@@ -3,10 +3,10 @@ title: Symbol.unscopables
 short-title: unscopables
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/unscopables
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Die statische Dateneigenschaft **`Symbol.unscopables`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.unscopables`. Die {{jsxref("Statements/with", "with")}}-Anweisung sucht dieses Symbol im Scope-Objekt nach einer Eigenschaft, die eine Sammlung von Eigenschaften enthält, die nicht innerhalb der `with`-Umgebung zu Bindungen werden sollen.
+Die statische Dateneigenschaft **`Symbol.unscopables`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.unscopables`. Die {{jsxref("Statements/with", "with")}}-Anweisung sucht dieses Symbol im Scope-Objekt für eine Eigenschaft auf, die eine Sammlung von Eigenschaften enthält, die nicht innerhalb der `with`-Umgebung zu Bindungen werden sollen.
 
 {{InteractiveExample("JavaScript Demo: Symbol.unscopables")}}
 
@@ -27,25 +27,25 @@ with (object) {
 
 ## Wert
 
-Das bekannte Symbol `Symbol.unscopables`.
+Das wohlbekannte Symbol `Symbol.unscopables`.
 
 {{js_property_attributes(0, 0, 0)}}
 
 ## Beschreibung
 
-Das `[Symbol.unscopables]`-Symbol (zugreifbar über `Symbol.unscopables`) kann auf jedem Objekt definiert werden, um Eigenschaftsnamen davon auszuschließen, als lexikalische Variablen in [`with`](/de/docs/Web/JavaScript/Reference/Statements/with)-Umgebungsbindungen exponiert zu werden. Beachten Sie, dass bei Verwendung des [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) `with`-Anweisungen nicht verfügbar sind und dieses Symbol wahrscheinlich nicht benötigt wird.
+Das `[Symbol.unscopables]`-Symbol (zugänglich über `Symbol.unscopables`) kann auf jedem Objekt definiert werden, um Eigenschaftsnamen davon auszuschließen, als lexikalische Variablen in [`with`](/de/docs/Web/JavaScript/Reference/Statements/with)-Umgebungsbindungen exponiert zu werden. Beachten Sie, dass bei Verwendung des [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) `with`-Anweisungen nicht verfügbar sind und dieses Symbol wahrscheinlich nicht benötigt wird.
 
-Wenn eine Eigenschaft des `[Symbol.unscopables]`-Objekts auf `true` (oder einen anderen {{Glossary("Truthy", "truthy")}} Wert) gesetzt wird, wird die entsprechende Eigenschaft des `with`-Scope-Objekts _unscopable_ und somit nicht im `with`-Body-Scope eingeführt. Wenn eine Eigenschaft auf `false` (oder einen {{Glossary("Falsy", "falsy")}} Wert) gesetzt wird, wird sie _scopable_ und erscheint somit als Variablen im lexikalischen Scope.
+Wenn eine Eigenschaft des `[Symbol.unscopables]`-Objekts auf `true` (oder jeden {{Glossary("Truthy", "truthy")}} Wert) gesetzt wird, wird die entsprechende Eigenschaft des `with`-Scope-Objekts _unscopable_ und wird daher nicht in den `with`-Body-Scope eingeführt. Wenn eine Eigenschaft auf `false` (oder jeden {{Glossary("Falsy", "falsy")}} Wert) gesetzt wird, wird sie _scopable_ und erscheint somit als Variable im lexikalischen Scope.
 
-Bei der Entscheidung, ob `x` unscopable ist, wird die gesamte Prototypkette der `[Symbol.unscopables]`-Eigenschaft nach einer Eigenschaft namens `x` durchsucht. Dies bedeutet, dass, wenn Sie `[Symbol.unscopables]` als ein einfaches Objekt deklarieren, `Object.prototype`-Eigenschaften wie [`toString`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) ebenfalls unscopable werden könnten, was zu rückwärts Inkompatibilitäten für älteren Code führen kann, der annimmt, dass diese Eigenschaften normalerweise gescopet sind (siehe [ein Beispiel unten](#avoid_using_a_non-null-prototype_object_as_symbol.unscopables)). Es wird empfohlen, Ihre benutzerdefinierte `[Symbol.unscopables]`-Eigenschaft so zu gestalten, dass ihr Prototyp `null` ist, wie es bei [`Array.prototype[Symbol.unscopables]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.unscopables) der Fall ist.
+Wenn entschieden wird, ob `x` unscopable ist, wird die gesamte Prototypkette der `[Symbol.unscopables]`-Eigenschaft nach einer Eigenschaft namens `x` durchsucht. Das bedeutet, wenn Sie `[Symbol.unscopables]` als einfaches Objekt deklariert haben, würden `Object.prototype`-Eigenschaften wie [`toString`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) ebenfalls unscopable werden, was bei Legacy-Code, der davon ausgeht, dass diese Eigenschaften normalerweise gescopet sind, zu Rückwärtskompatibilitätsproblemen führen könnte (siehe [ein Beispiel unten](#avoid_using_a_non-null-prototype_object_as_symbol.unscopables)). Es wird empfohlen, die benutzerdefinierte `[Symbol.unscopables]`-Eigenschaft so zu gestalten, dass sie `null` als Prototyp hat, wie es bei [`Array.prototype[Symbol.unscopables]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.unscopables) der Fall ist.
 
-Dieses Protokoll wird auch von DOM-APIs verwendet, wie etwa von [`Element.prototype.append()`](/de/docs/Web/API/Element/append).
+Dieses Protokoll wird auch von DOM-APIs genutzt, wie z.B. [`Element.prototype.append()`](/de/docs/Web/API/Element/append).
 
 ## Beispiele
 
 ### Scoping in with-Anweisungen
 
-Der folgende Code funktioniert in ES5 und darunter einwandfrei. Allerdings wurde in ECMAScript 2015 die Methode {{jsxref("Array.prototype.values()")}} eingeführt. Das bedeutet, dass innerhalb einer `with`-Umgebung "values" jetzt die `Array.prototype.values()`-Methode wäre und nicht die Variable außerhalb der `with`-Anweisung.
+Der folgende Code funktioniert in ES5 und darunter einwandfrei. In ECMAScript 2015 wurde jedoch die Methode {{jsxref("Array.prototype.values()")}} eingeführt. Das bedeutet, dass innerhalb einer `with`-Umgebung "values" nun die Methode `Array.prototype.values()` wäre und nicht die Variable außerhalb der `with`-Anweisung.
 
 ```js
 var values = [];
@@ -58,7 +58,7 @@ with (values) {
 }
 ```
 
-Der Code, der `with (values)` enthält, verursachte auf einigen Webseiten Fehlfunktionen in Firefox, als `Array.prototype.values()` hinzugefügt wurde ([Firefox Bug 883914](https://bugzil.la/883914)). Darüber hinaus impliziert dies, dass jede zukünftige Methode, die zu Arrays hinzugefügt wird, Änderungen bei `with`-Scopes verursachen könnte. Daher wurde das `[Symbol.unscopables]`-Symbol eingeführt und auf `Array` als [`Array.prototype[Symbol.unscopables]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.unscopables) implementiert, um zu verhindern, dass einige der Array-Methoden in die `with`-Anweisung gescopet werden.
+Der Code, der `with (values)` enthält, führte dazu, dass einige Websites in Firefox nicht mehr funktionierten, als `Array.prototype.values()` hinzugefügt wurde ([Firefox Bug 883914](https://bugzil.la/883914)). Darüber hinaus impliziert dies, dass jede zukünftige Hinzufügung einer Array-Methode möglicherweise zu einer Unterbrechung führt, wenn dies implizit den `with`-Scope ändert. Daher wurde das `[Symbol.unscopables]`-Symbol eingeführt und in `Array` als [`Array.prototype[Symbol.unscopables]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.unscopables) implementiert, um zu verhindern, dass einige der Array-Methoden in die `with`-Anweisung gescopet werden.
 
 ### Unscopables in Objekten
 
@@ -89,9 +89,9 @@ with (obj) {
 }
 ```
 
-### Vermeiden Sie die Verwendung eines Nicht-Null-Prototypen als `[Symbol.unscopables]`
+### Verwenden eines Nicht-Null-Prototyp-Objekts als `[Symbol.unscopables]` vermeiden
 
-Das Deklarieren von `[Symbol.unscopables]` als einfaches Objekt ohne Eliminierung seines Prototyps kann subtile Fehler verursachen. Betrachten Sie den folgenden Code, der vor `[Symbol.unscopables]` funktioniert hat:
+Deklarieren von `[Symbol.unscopables]` als einfaches Objekt ohne Eliminierung seines Prototyps kann subtile Fehler verursachen. Betrachten Sie den folgenden Code, der vor `[Symbol.unscopables]` funktioniert:
 
 ```js
 const character = {
@@ -106,7 +106,7 @@ with (character) {
 }
 ```
 
-Um die Rückwärtskompatibilität zu erhalten, haben Sie beschlossen, eine `[Symbol.unscopables]`-Eigenschaft hinzuzufügen, wenn Sie weitere Eigenschaften zu `character` hinzufügen. Sie könnten es naiv so tun:
+Um die Rückwärtskompatibilität zu bewahren, haben Sie sich entschieden, eine `[Symbol.unscopables]`-Eigenschaft hinzuzufügen, wenn Sie weitere Eigenschaften zu `character` hinzufügen. Sie tun dies vielleicht naiv so:
 
 ```js example-bad
 const character = {
@@ -122,7 +122,7 @@ const character = {
 };
 ```
 
-Der obige Code bricht jedoch jetzt:
+Der obige Code funktioniert nun jedoch nicht mehr:
 
 ```js
 with (character) {
@@ -130,9 +130,9 @@ with (character) {
 }
 ```
 
-Dies liegt daran, dass bei der Suche nach `character[Symbol.unscopables].toString` [`Object.prototype.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) zurückgegeben wird, was ein truthy-Wert ist und somit den `toString()`-Aufruf in der `with()`-Anweisung dazu bringt, sich auf `globalThis.toString()` zu beziehen — und da es ohne ein [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) aufgerufen wird, ist `this` `undefined`, was die Rückgabe von `[object Undefined]` zur Folge hat.
+Dies liegt daran, dass bei der Suche nach `character[Symbol.unscopables].toString` [`Object.prototype.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) zurückgegeben wird, was ein truthy Wert ist, und damit stellt der `toString()`-Aufruf in der `with()`-Anweisung auf `globalThis.toString()` um — und weil es ohne ein [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) aufgerufen wird, ist `this` `undefined`, was `[object Undefined]` zurückgibt.
 
-Auch wenn die Methode nicht durch `character` überschrieben wird, wird das Unscopable-Machen den Wert von `this` ändern.
+Selbst wenn die Methode nicht von `character` überschrieben wird, wird durch Unscopable-Machen der Wert von `this` geändert.
 
 ```js
 const proto = {};
@@ -150,7 +150,7 @@ with (proto) {
 }
 ```
 
-Um dies zu beheben, stellen Sie sicher, dass `[Symbol.unscopables]` nur die Eigenschaften enthält, die Sie als unscopable wünschen, ohne `Object.prototype`-Eigenschaften.
+Um dies zu beheben, stellen Sie immer sicher, dass `[Symbol.unscopables]` nur die Eigenschaften enthält, die Sie unscopable haben möchten, ohne `Object.prototype`-Eigenschaften.
 
 ```js example-good
 const character = {

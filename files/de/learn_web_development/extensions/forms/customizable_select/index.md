@@ -351,7 +351,7 @@ Die Liste der übergangenen Eigenschaften umfasst `opacity`, es enthält jedoch 
   - : Der `overlay`-Wert ändert sich von `none` zu `auto`, wenn der Popover-Zustand von verborgen zu sichtbar wechselt, um ihn in die {{Glossary("top_layer", "oberste Schicht")}} zu befördern und wieder zurück, wenn er verborgen ist, um ihn zu entfernen. Dies muss animiert werden, um sicherzustellen, dass das Entfernen des Popovers aus der obersten Schicht bis zum Abschluss des Übergangs aufgeschoben wird und der Übergang sichtbar bleibt.
 
 > [!NOTE]
-> Der [`allow-discrete`](/de/docs/Web/CSS/transition-behavior#allow-discrete) Wert wird benötigt, um diskrete Eigenschaftenanimationen zu ermöglichen.
+> Der [`allow-discrete`](/de/docs/Web/CSS/Reference/Properties/transition-behavior#allow-discrete) Wert wird benötigt, um diskrete Eigenschaftenanimationen zu ermöglichen.
 
 Als nächstes wird der Picker im angezeigten Zustand mit `::picker(select):popover-open` ausgewählt und erhält einen `opacity`-Wert von `1` — dies ist der Endzustand des Übergangs:
 

@@ -52,7 +52,7 @@ Das Modul "CSS-Werte und Einheiten" führt auch die Funktionen `calc-mix()`, `cr
 
 - [`<angle-percentage>`](/de/docs/Web/CSS/angle-percentage)
 - [`<angle>`](/de/docs/Web/CSS/angle)
-- [`<animation-timeline>`](/de/docs/Web/CSS/animation-timeline)
+- [`<animation-timeline>`](/de/docs/Web/CSS/Reference/Properties/animation-timeline)
 - [`<attr-name>`](/de/docs/Web/CSS/attr#attr-name)
 - [`<attr-type>`](/de/docs/Web/CSS/attr#attr-type)
 - {{CSSxRef("&lt;calc-keyword&gt;")}} (`e`, `pi`, `infinity`, {{Glossary("NaN", "NaN")}})
@@ -79,7 +79,7 @@ Das Modul "CSS-Werte und Einheiten" führt auch die Funktionen `calc-mix()`, `cr
 - [`<time>`](/de/docs/Web/CSS/time)
 - [`<url>`](/de/docs/Web/CSS/url_value)
 - [`<url-modifier>`](/de/docs/Web/CSS/url_function#url-modifier)
-- [`<view-timeline-name>`](/de/docs/Web/CSS/view-timeline-name)
+- [`<view-timeline-name>`](/de/docs/Web/CSS/Reference/Properties/view-timeline-name)
 
 Das Modul "CSS-Werte und Einheiten" führt auch die Datentypen [`<frequency>`](/de/docs/Web/CSS/frequency) und [`<frequency-percentage>`](/de/docs/Web/CSS/frequency-percentage) ein. Derzeit unterstützt kein Browser diese Funktionen.
 

@@ -2,65 +2,65 @@
 title: Verwendung von IIR-Filtern
 slug: Web/API/Web_Audio_API/Using_IIR_filters
 l10n:
-  sourceCommit: 2ccbd062264d0a2a34f185a3386cb272f42c50f5
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{DefaultAPISidebar("Web Audio API")}}
 
-Das **`IIRFilterNode`**-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) ist ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Prozessor, der einen allgemeinen [Infinite Impulse Response](https://de.wikipedia.org/wiki/Infinite_Impulse_Response) (IIR)-Filter implementiert. Dieser Filtertyp kann zur Implementierung von Klangregelgeräten und grafischen Equalizern verwendet werden, und die Filterantwortparameter können spezifiziert werden, sodass er nach Bedarf angepasst werden kann. Dieser Artikel beleuchtet die Implementierung und Verwendung eines solchen Filters in einem einfachen Beispiel.
+Das **`IIRFilterNode`**-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) ist ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Prozessor, der einen allgemeinen [Infinite Impulse Response](https://en.wikipedia.org/wiki/Infinite_impulse_response) (IIR) Filter implementiert. Diese Art von Filter kann für Tonregelgeräte und grafische Equalizer verwendet werden, und die Parameter der Filterantwort können spezifiziert werden, sodass er nach Bedarf angepasst werden kann. Dieser Artikel beschreibt, wie man einen solchen implementiert und ihn in einem einfachen Beispiel verwendet.
 
 ## Demo
 
-Unser einfaches Beispiel für diesen Leitfaden bietet einen Abspielen/Pause-Button, der die Audiowiedergabe startet und pausiert, sowie einen Schalter, der einen IIR-Filter ein- und ausschaltet, wodurch der Klang verändert wird. Es stellt auch eine Leinwand bereit, auf die die Frequenzantwort des Audios gezeichnet wird, sodass Sie sehen können, welche Wirkung der IIR-Filter hat.
+Unser einfaches Beispiel für diesen Leitfaden bietet einen Play/Pause-Button, der die Audiowiedergabe startet und pausiert, und einen Schalter, der einen IIR-Filter ein- und ausschaltet und den Klang verändert. Es bietet auch eine Leinwand, auf der die Frequenzantwort des Audios gezeichnet wird, damit Sie sehen können, welchen Effekt der IIR-Filter hat.
 
-![Eine Demo mit einer Abspieltaste, einem Schalter zum Ein- und Ausschalten eines Filters und einem Liniendiagramm, das die Filterfrequenzen zeigt, die nach Anwendung des Filters zurückgegeben wurden.](iir-filter-demo.png)
+![Eine Demo mit einem Play-Button, einem Schalter zum Ein- und Ausschalten eines Filters und einem Liniendiagramm, das die Filterfrequenzen anzeigt, nachdem der Filter aktiviert wurde.](iir-filter-demo.png)
 
-Sie können die [vollständige Demo live ansehen](https://mdn.github.io/webaudio-examples/iirfilter-node/). Siehe auch den [Quellcode auf GitHub](https://github.com/mdn/webaudio-examples/tree/main/iirfilter-node). Es enthält verschiedene Koeffizientenwerte für unterschiedliche Tiefpassfrequenzen — Sie können den Wert der Konstante `filterNumber` auf einen Wert zwischen 0 und 3 ändern, um die verschiedenen verfügbaren Effekte auszuprobieren.
+Sie können die [vollständige Demo live ansehen](https://mdn.github.io/webaudio-examples/iirfilter-node/). Siehe auch den [Quellcode auf GitHub](https://github.com/mdn/webaudio-examples/tree/main/iirfilter-node). Es enthält einige verschiedene Koeffizientenwerte für unterschiedliche Tiefpassfrequenzen – Sie können den Wert der `filterNumber`-Konstanten auf einen Wert zwischen 0 und 3 ändern, um die verschiedenen verfügbaren Effekte zu prüfen.
 
 ## Browser-Kompatibilität
 
-[IIR-Filter](/de/docs/Web/API/IIRFilterNode) werden in modernen Browsern gut unterstützt, obwohl sie später als einige der langjährigen Web Audio API-Funktionen, wie [Biquad-Filter](/de/docs/Web/API/BiquadFilterNode), implementiert wurden.
+[IIR-Filter](/de/docs/Web/API/IIRFilterNode) werden in modernen Browsern gut unterstützt, obwohl sie kürzlich im Vergleich zu einigen der länger bestehenden Funktionen der Web Audio API, wie [Biquad-Filter](/de/docs/Web/API/BiquadFilterNode), implementiert wurden.
 
-## Das IIRFilterNode
+## Der IIRFilterNode
 
-Die Web Audio API enthält jetzt ein [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)-Interface. Aber was ist das und wie unterscheidet es sich von dem [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode), das wir bereits haben?
+Die Web Audio API verfügt nun über ein [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)-Interface. Aber was ist das und wie unterscheidet es sich von dem [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode), das wir bereits kennen?
 
-Ein IIR-Filter ist ein **Infinite Impulse Response Filter**. Es ist einer von zwei Haupttypen von Filtern, die in der Audio- und digitalen Signalverarbeitung verwendet werden. Der andere Typ ist FIR — **Finite Impulse Response Filter**. Eine wirklich gute Übersicht zu [IIF-Filtern und FIR-Filtern finden Sie hier](https://dspguru.com/dsp/faqs/iir/basics/).
+Ein IIR-Filter ist ein **Infinite Impulse Response Filter**. Es ist eine von zwei Haupttypen von Filtern, die in der Audio- und digitalen Signalverarbeitung verwendet werden. Der andere Typ ist FIR — **Finite Impulse Response Filter**. Eine wirklich gute Übersicht über [IIF- und FIR-Filter finden Sie hier](https://dspguru.com/dsp/faqs/iir/basics/).
 
-Ein [Biquad-Filter](https://www.mathworks.com/help/dsphdl/ref/biquadfilter.html) ist tatsächlich ein _spezifischer Typ_ eines Infinite Impulse Response Filters. Es ist ein häufig verwendeter Typ und wir haben ihn bereits als Knoten in der Web Audio API. Wenn Sie diesen Knoten wählen, ist die harte Arbeit bereits erledigt. Wenn Sie beispielsweise niedrigere Frequenzen aus Ihrem Klang herausfiltern möchten, können Sie den [Typ](/de/docs/Web/API/BiquadFilterNode/type) auf `highpass` setzen und dann angeben, ab welcher Frequenz gefiltert werden soll (oder abgeschnitten).
+Ein [Biquad-Filter](https://www.mathworks.com/help/dsphdl/ref/biquadfilter.html) ist tatsächlich eine _spezifische Art_ eines Infinite Impulse Response Filters. Es ist ein häufig verwendeter Typ und wir haben es bereits als Node in der Web Audio API. Wenn Sie diesen Node wählen, ist die harte Arbeit bereits für Sie erledigt. Zum Beispiel, wenn Sie niedrigere Frequenzen aus Ihrem Klang filtern möchten, können Sie den [type](/de/docs/Web/API/BiquadFilterNode/type) auf `highpass` setzen und dann festlegen, ab welcher Frequenz gefiltert oder abgeschnitten werden soll.
 
-Wenn Sie anstelle eines [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) ein [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode) verwenden, erstellen Sie den Filter selbst, anstatt nur einen vorprogrammierten Typ auszuwählen. So können Sie einen Hochpassfilter, einen Tiefpassfilter oder einen individuelleren Filter erstellen. Hier ist der IIR-Filter-Knoten nützlich — Sie können Ihren eigenen erstellen, wenn keiner der verfügbaren Einstellungen Ihren Anforderungen entspricht. Wenn Ihr Audiograph beispielsweise einen Hochpass- und einen Bandpass-Filter benötigte, könnten Sie nur einen IIR-Filterknoten anstelle der beiden sonst benötigten Biquad-Filterknoten verwenden.
+Wenn Sie stattdessen ein [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode) verwenden, erstellen Sie den Filter selbst, anstatt nur einen vorprogrammierten Typ zu wählen. So können Sie einen Highpass-Filter, einen Lowpass-Filter oder einen individuelleren Filter erstellen. Hier ist das IIR-Filter-Node nützlich — Sie können Ihr eigenes erstellen, wenn keine der bereits verfügbaren Einstellungen für Ihre Anforderungen geeignet ist. Darüber hinaus, wenn Ihr Audiograf sowohl einen Highpass- als auch einen Bandpassfilter benötigt, könnten Sie einfach einen IIR-Filter-Node anstelle der zwei Biquad-Filter-Nodes verwenden, die Sie sonst dafür benötigen würden.
 
-Mit dem IIR-Filterknoten liegt es an Ihnen, die erforderlichen `feedforward`- und `feedback`-Werte des Filters festzulegen — dies bestimmt die Eigenschaften des Filters. Der Nachteil besteht darin, dass dazu einige komplexe mathematische Berechnungen erforderlich sind.
+Mit dem IIR-Filter-Node liegt es an Ihnen, festzulegen, welche `feedforward`- und `feedback`-Werte der Filter benötigt — dies bestimmt die Eigenschaften des Filters. Der Nachteil ist, dass dies einige komplexe Mathematik erfordert.
 
-Wenn Sie mehr erfahren möchten, gibt es [hier Informationen über die Mathematik hinter IIR-Filtern](https://www.staff.ncl.ac.uk/oliver.hinton/eee305/Chapter5.pdf). Dies führt in die Bereiche der Signalverarbeitungstheorie ein — machen Sie sich keine Sorgen, wenn Sie es sich ansehen und denken, dass es nichts für Sie ist.
+Wenn Sie mehr darüber erfahren möchten, gibt es [Informationen über die Mathematik hinter IIR-Filtern hier](https://www.staff.ncl.ac.uk/oliver.hinton/eee305/Chapter5.pdf). Dies bewegt sich im Bereich der Signalverarbeitungstheorie — keine Sorge, wenn Sie es sich ansehen und das Gefühl haben, dass es nicht für Sie ist.
 
-Wenn Sie mit dem IIR-Filterknoten experimentieren möchten und einige Werte benötigen, die Ihnen dabei helfen, gibt es [hier eine Tabelle bereits berechneter Werte](https://www.dspguide.com/CH20.PDF); auf Seiten 4 & 5 des verlinkten PDFs beziehen sich die `an`-Werte auf die `feedForward`-Werte und die `bn`-Werte auf das `feedback`. [musicdsp.org](https://www.musicdsp.org/en/latest/) ist ebenfalls eine großartige Ressource, wenn Sie mehr über verschiedene Filter und deren digitale Implementierung erfahren möchten.
+Wenn Sie mit dem IIR-Filter-Node experimentieren und einige Werte zur Unterstützung benötigen, gibt es [eine Tabelle bereits berechneter Werte hier](https://www.dspguide.com/CH20.PDF); auf den Seiten 4 und 5 des verlinkten PDFs beziehen sich die `an`-Werte auf die `feedForward`-Werte und die `bn`-Werte auf das `feedback`. [musicdsp.org](https://www.musicdsp.org/en/latest/) ist auch eine großartige Ressource, wenn Sie mehr über verschiedene Filter und deren digitale Implementierung lesen möchten.
 
-Mit all dem im Hinterkopf, werfen wir einen Blick auf den Code, um einen IIR-Filter mit der Web Audio API zu erstellen.
+Mit all dem im Hinterkopf, schauen wir uns den Code an, um einen IIR-Filter mit der Web Audio API zu erstellen.
 
-## Festlegen unserer IIRFilter-Koeffizienten
+## Festlegung unserer IIRFilter-Koeffizienten
 
-Beim Erstellen eines IIR-Filters übergeben wir die `feedforward`- und `feedback`-Koeffizienten als Optionen (Koeffizienten beschreiben die Werte). Beide Parameter sind Arrays, die jeweils nicht größer als 20 Elemente sein dürfen.
+Beim Erstellen eines IIR-Filters geben wir die `feedforward`- und `feedback`-Koeffizienten als Optionen an (Koeffizienten sind die Werte, die wir beschreiben). Beide Parameter sind Arrays, von denen keines mehr als 20 Elemente enthalten darf.
 
-Beim Festlegen unserer Koeffizienten dürfen die `feedforward`-Werte nicht alle auf null gesetzt sein, da andernfalls nichts an den Filter gesendet würde. Etwas in dieser Art ist akzeptabel:
+Beim Festlegen unserer Koeffizienten dürfen die `feedforward`-Werte nicht alle auf null gesetzt sein, da sonst nichts an den Filter gesendet würde. Etwas wie das Folgende ist akzeptabel:
 
 ```js
 const feedForward = [0.00020298, 0.0004059599, 0.00020298];
 ```
 
-Unsere `feedback`-Werte dürfen nicht mit null beginnen, da anderenfalls beim ersten Durchlauf nichts zurückgesendet würde:
+Unsere `feedback`-Werte dürfen nicht mit null beginnen, da beim ersten Durchlauf sonst nichts zurückgesendet würde:
 
 ```js
 const feedBackward = [1.0126964558, -1.9991880801, 0.9873035442];
 ```
 
 > [!NOTE]
-> Diese Werte sind basierend auf dem Tiefpassfilter berechnet, der in den [Filtereigenschaften der Web Audio API-Spezifikation](https://webaudio.github.io/web-audio-api/#filters-characteristics) angegeben ist. Da dieser Filterknoten an Popularität gewinnt, sollten wir in der Lage sein, mehr Koeffizientenwerte zu sammeln.
+> Diese Werte basieren auf dem Tiefpassfilter, der in den [Filtereigenschaften der Web Audio API-Spezifikation](https://webaudio.github.io/web-audio-api/#filters-characteristics) angegeben ist. Da dieser Filter-Node mehr an Popularität gewinnt, sollten wir in der Lage sein, mehr Koeffizientenwerte zu sammeln.
 
-## Verwendung eines IIRFilters in einem Audiograph
+## Verwendung eines IIRFilters in einem Audiografen
 
-Lassen Sie uns unseren Kontext und unseren Filterknoten erstellen:
+Erstellen wir unseren Kontext und unseren Filter-Node:
 
 ```js
 const audioCtx = new AudioContext();
@@ -68,7 +68,7 @@ const audioCtx = new AudioContext();
 const iirFilter = audioCtx.createIIRFilter(feedForward, feedBack);
 ```
 
-Wir benötigen eine Klangquelle zur Wiedergabe. Wir richten dies mit einer benutzerdefinierten Funktion, `playSoundNode()`, ein, die [eine Pufferquelle erstellt](/de/docs/Web/API/BaseAudioContext/createBufferSource) aus einem vorhandenen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), sie an das Standardziel anschließt, sie abspielt und zurückgibt:
+Wir benötigen eine Tonquelle, um sie abzuspielen. Wir richten sie mit einer benutzerdefinierten Funktion, `playSoundNode()`, ein, die [eine Pufferquelle erstellt](/de/docs/Web/API/BaseAudioContext/createBufferSource) aus einem vorhandenen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), sie an das Standardziel anschließt, das Abspielen startet und sie zurückgibt:
 
 ```js
 function playSourceNode(audioContext, audioBuffer) {
@@ -80,7 +80,7 @@ function playSourceNode(audioContext, audioBuffer) {
 }
 ```
 
-Diese Funktion wird aufgerufen, wenn die Abspieltaste gedrückt wird. Das HTML der Abspieltaste sieht folgendermaßen aus:
+Diese Funktion wird aufgerufen, wenn der Play-Button gedrückt wird. Der HTML-Code des Play-Buttons sieht so aus:
 
 ```html
 <button
@@ -92,7 +92,7 @@ Diese Funktion wird aufgerufen, wenn die Abspieltaste gedrückt wird. Das HTML d
 </button>
 ```
 
-Und der `click`-Event-Listener beginnt so:
+Und der `click`-Eventlistener beginnt so:
 
 ```js
 playButton.addEventListener("click", () => {
@@ -103,7 +103,7 @@ playButton.addEventListener("click", () => {
 });
 ```
 
-Der Schalter, der den IIR-Filter ein- und ausschaltet, ist auf ähnliche Weise eingerichtet. Zuerst das HTML:
+Der Schalter, der den IIR-Filter ein- und ausschaltet, wird ähnlich eingerichtet. Zuerst das HTML:
 
 ```html
 <button
@@ -115,7 +115,7 @@ Der Schalter, der den IIR-Filter ein- und ausschaltet, ist auf ähnliche Weise e
   disabled></button>
 ```
 
-Der `click`-Handler der Filtertaste verbindet dann den `IIRFilter` mit dem Graph zwischen der Quelle und dem Ziel:
+Der `click`-Handler des Filter-Buttons verbindet dann den `IIRFilter` mit dem Grafen, zwischen der Quelle und dem Ziel:
 
 ```js
 filterButton.addEventListener("click", () => {
@@ -129,11 +129,11 @@ filterButton.addEventListener("click", () => {
 
 ### Frequenzantwort
 
-Wir haben nur eine Methode bei [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)-Instanzen verfügbar, `getFrequencyResponse()`, die es uns ermöglicht zu sehen, was mit den Frequenzen des Audios geschieht, die an den Filter weitergeleitet werden.
+Wir haben nur eine Methode, die auf [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)-Instanzen verfügbar ist, `getFrequencyResponse()`, die es uns ermöglicht zu sehen, was mit den Frequenzen des in den Filter eingespeisten Audios passiert.
 
-Lassen Sie uns ein Frequenzdiagramm des Filters zeichnen, den wir mit den Daten erstellt haben, die wir von dieser Methode zurückbekommen.
+Zeichnen wir ein Frequenzdiagramm des Filters, das wir mit den Daten erstellt haben, die wir von dieser Methode zurückbekommen.
 
-Wir müssen drei Arrays erstellen. Eins mit Frequenzwerten, für die wir die Magnitude- und Phasenantwort erhalten möchten, und zwei leere Arrays, um die Daten zu empfangen. Alle drei müssen vom Typ [`float32array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Float32Array) sein und alle die gleiche Größe haben.
+Wir müssen drei Arrays erstellen. Eines mit Frequenzwerten, für die wir die Magnitude- und Phasenantwort erhalten möchten, und zwei leere Arrays, um die Daten zu empfangen. Alle drei müssen vom Typ [`float32array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Float32Array) sein und alle müssen die gleiche Größe haben.
 
 ```js
 // arrays for our frequency response
@@ -143,15 +143,15 @@ const magResponseOutput = new Float32Array(totalArrayItems);
 const phaseResponseOutput = new Float32Array(totalArrayItems);
 ```
 
-Lassen Sie uns unser erstes Array mit den Frequenzwerten füllen, für die wir Daten zurückhaben möchten:
+Füllen wir unser erstes Array mit Frequenzwerten, zu denen wir Daten zurückerhalten möchten:
 
 ```js
 myFrequencyArray = myFrequencyArray.map((item, index) => 1.4 ** index);
 ```
 
-Wir könnten einen linearen Ansatz wählen, aber es ist weitaus besser, bei der Arbeit mit Frequenzen einen logarithmischen Ansatz zu verwenden, also lassen Sie uns unser Array mit Frequenzwerten füllen, die weiter hinten in den Array-Elementen größer werden.
+Wir könnten einen linearen Ansatz wählen, aber es ist viel besser, wenn man mit Frequenzen arbeitet, einen logarithmischen Ansatz zu verwenden. Füllen wir also unser Array mit Frequenzwerten, die weiter unten in den Array-Elementen größer werden.
 
-Jetzt holen wir unsere Antwortdaten:
+Jetzt holen wir uns unsere Antwortdaten:
 
 ```js
 iirFilter.getFrequencyResponse(
@@ -161,7 +161,7 @@ iirFilter.getFrequencyResponse(
 );
 ```
 
-Wir können diese Daten verwenden, um ein Filterfrequenzdiagramm zu zeichnen. Wir werden dies auf einem 2D-Canvas-Kontext tun.
+Wir können diese Daten verwenden, um ein Frequenzdiagramm des Filters zu zeichnen. Wir tun dies in einem 2D-Leinwand-Kontext.
 
 ```js
 // Create a canvas element and append it to our DOM
@@ -222,4 +222,4 @@ canvasCtx.stroke();
 
 ## Zusammenfassung
 
-Das war's für unsere IIRFilter-Demo. Dies sollte Ihnen gezeigt haben, wie Sie die Grundlagen verwenden und Ihnen helfen zu verstehen, wofür es nützlich ist und wie es funktioniert.
+Das war es für unsere IIRFilter-Demo. Dies sollte Ihnen gezeigt haben, wie Sie die Grundlagen verwenden, und Ihnen helfen zu verstehen, wofür sie nützlich ist und wie sie funktioniert.

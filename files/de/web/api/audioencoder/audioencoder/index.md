@@ -3,12 +3,12 @@ title: "AudioEncoder: AudioEncoder() Konstruktor"
 short-title: AudioEncoder()
 slug: Web/API/AudioEncoder/AudioEncoder
 l10n:
-  sourceCommit: 941ade970fd7ebad52af692b6ac27cfd96f94100
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`AudioEncoder()`** Konstruktor erstellt ein neues [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Objekt, wobei die bereitgestellte `init.output` Callback-Funktion als Ausgabe-Collback und die bereitgestellte `init.error` Callback-Funktion als Fehler-Collback zugewiesen werden. Der [`AudioEncoder.state`](/de/docs/Web/API/AudioEncoder/state) wird auf `"unconfigured"` gesetzt.
+Der **`AudioEncoder()`** Konstruktor erstellt ein neues [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Objekt, wobei die bereitgestellte `init.output`-Callback-Funktion als Output-Callback und die bereitgestellte `init.error`-Callback-Funktion als Fehler-Callback zugewiesen werden. Der [`AudioEncoder.state`](/de/docs/Web/API/AudioEncoder/state) wird auf `"unconfigured"` gesetzt.
 
 ## Syntax
 
@@ -21,21 +21,21 @@ new AudioEncoder(init)
 - `init`
   - : Ein Objekt, das zwei erforderliche Callback-Funktionen enthält.
     - `output`
-      - : Eine Callback-Funktion, die ein [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Objekt als erstes Argument und ein optionales Metadatenobjekt als zweites Argument nimmt. Das Metadatenobjekt hat ein Mitglied, `decoderConfig`, das ein Objekt als Wert enthält mit:
+      - : Ein Callback, das ein [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Objekt als erstes Argument und ein optionales Metadatenobjekt als zweites Argument nimmt. Das Metadatenobjekt besitzt ein Mitglied `decoderConfig`, welches ein Objekt als Wert hat, das Folgendes enthält:
         - `codec`
           - : Ein String, der einen [gültigen Codec-String](https://w3c.github.io/webcodecs/codec_registry.html#audio-codec-registry) enthält.
         - `sampleRate`
-          - : Ein ganzzahliger Wert, der die Anzahl der Rahmproben pro Sekunde darstellt.
+          - : Ein Ganzzahlwert, der die Anzahl der Frame-Samples pro Sekunde repräsentiert.
         - `numberOfChannels`
-          - : Ein ganzzahliger Wert, der die Anzahl der Audiokanäle darstellt.
+          - : Ein Ganzzahlwert, der die Anzahl der Audiokanäle repräsentiert.
         - `description` {{optional_inline}}
-          - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, der eine Sequenz von codec-spezifischen Bytes enthält, die gewöhnlich als extradata bekannt sind.
+          - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}, das eine Sequenz codec-spezifischer Bytes enthält, bekannt als Extradata.
     - `error`
-      - : Eine Callback-Funktion, die ein {{jsxref("Error")}}-Objekt als einziges Argument nimmt.
+      - : Ein Callback, das ein {{jsxref("Error")}}-Objekt als einziges Argument nimmt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein `AudioEncoder` mit den zwei erforderlichen Callback-Funktionen erstellt, eine zur Bearbeitung des dekodierten Frames und die andere zur Fehlerbehandlung.
+Im folgenden Beispiel wird ein `AudioEncoder` mit den zwei erforderlichen Callback-Funktionen erstellt: eine zur Verarbeitung des dekodierten Frames und eine zur Fehlerbehandlung.
 
 ```js
 const audioEncoder = new AudioEncoder({

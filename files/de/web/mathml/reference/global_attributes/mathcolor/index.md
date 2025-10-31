@@ -2,15 +2,15 @@
 title: mathcolor
 slug: Web/MathML/Reference/Global_attributes/mathcolor
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
 {{Deprecated_Header}}
 
-Das **`mathcolor`** [globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) setzt die [Farbe](/de/docs/Web/CSS/color) eines MathML-Elements.
+Das **`mathcolor`** [globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) legt die [Farbe](/de/docs/Web/CSS/Reference/Properties/color) eines MathML-Elements fest.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit CSS für das Styling von MathML. Das `mathcolor`-Attribut sollte nur für Anwendungen verwendet werden, die CSS nicht unterstützen, und wird durch die CSS-Eigenschaft `color` überschrieben, wenn diese gesetzt ist.
+> Verwenden Sie CSS zum Stylen von MathML, wann immer möglich. Das `mathcolor`-Attribut sollte nur für Anwendungen verwendet werden, die CSS nicht unterstützen und wird von der CSS-Eigenschaft `color` überschrieben, falls diese gesetzt ist.
 
 ## Beispiel
 
@@ -76,18 +76,19 @@ body {
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Setzt die Farbe der textuellen und dekorativen Teile des Elements,
-    einschließlich z.B. Bruchstriche oder Radikale.
+  - : Setzt die Farbe der textlichen und dekorativen Bestandteile des Elements,
+    einschließlich z.B. Bruchstriche oder Wurzelsymbole.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-- In MathML 3 und früheren Versionen wurde eine eingeschränktere Anzahl von Werten unterstützt.
-  Seit MathML Core entspricht die Syntax den CSS {{cssxref("&lt;color&gt;")}} Werten.
+- In MathML 3 und früheren Versionen wurde ein begrenzteres Set von Werten unterstützt.
+  Seit MathML Core entspricht die Syntax den CSS-{{cssxref("&lt;color&gt;")}}
+  Werten.
 
-- Dieses Attribut wurde für MathML-Anwendungen entworfen, die CSS nicht unterstützen.
-  Seit MathML Core wird stattdessen die Verwendung von äquivalentem CSS empfohlen.
+- Dieses Attribut wurde für MathML-Anwendungen entwickelt, die CSS nicht unterstützen.
+  Seit MathML Core wird stattdessen die Verwendung des entsprechenden CSS empfohlen.
 
 ## Browser-Kompatibilität
 

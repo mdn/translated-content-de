@@ -2,17 +2,17 @@
 title: text-overflow
 slug: Web/SVG/Reference/Attribute/text-overflow
 l10n:
-  sourceCommit: 6722199b4d63fad3c33db1146af380fc98b6c202
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das SVG-Attribut **`text-overflow`** gibt an, wie Textinhaltselemente dargestellt werden, wenn Text die Linienboxen überläuft. Dies kann zum Beispiel passieren, wenn das {{SVGAttr("white-space")}}-Attribut oder die CSS-Eigenschaft {{CSSxref("white-space")}} den Wert `nowrap` hat. Die Eigenschaft gilt nicht für vorformatierten Text oder Text, der sich auf einem Pfad befindet.
+Das SVG-Attribut **`text-overflow`** gibt an, wie Textinhaltsblockelemente gerendert werden, wenn Text die Rahmen von Textzeilen überläuft. Dies kann zum Beispiel passieren, wenn das {{SVGAttr("white-space")}}-Attribut oder die CSS-Eigenschaft {{CSSxref("white-space")}} den Wert `nowrap` hat. Die Eigenschaft gilt nicht für vorformatierten Text oder Text, der auf einem Pfad platziert ist.
 
-In SVG hat `text-overflow` eine Wirkung, wenn ein gültiger Umbruchbereich angegeben ist, unabhängig vom berechneten Wert der {{CSSxref("overflow")}}-Eigenschaft im Textinhaltselement. Die Wirkung ist rein visuell: abgeschnittener Text wird nicht aus dem DOM entfernt, und jedes eventuell angezeigte Auslassungszeichen wird nicht selbst Teil des DOM. Für alle DOM-Methoden ist es so, als ob `text-overflow` nicht angewendet wurde und als ob der Umbruchbereich den Text nicht einschränken würde.
+In SVG hat `text-overflow` eine Wirkung, wenn ein gültig spezifizierter Umbruchbereich vorhanden ist, unabhängig vom berechneten Wert der {{CSSxref("overflow")}}-Eigenschaft auf dem Textinhaltsblockelement. Die Wirkung ist rein visuell: abgeschnittener Text wird nicht aus dem DOM entfernt, und ein dargestelltes Auslassungszeichen wird selbst nicht Teil des DOM. Für alle DOM-Methoden ist es so, als ob `text-overflow` nicht angewendet worden wäre und als ob der Umbruchbereich den Text nicht eingeschränkt hätte.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `text-overflow` auch ein entsprechendes CSS-Attribut: {{cssxref("text-overflow")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `text-overflow` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("text-overflow")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -32,11 +32,11 @@ In SVG hat `text-overflow` eine Wirkung, wenn ein gültiger Umbruchbereich angeg
 </table>
 
 - `clip`
-  - : Jeglicher Text, der den Umbruchbereich überläuft, wird abgeschnitten. Zeichen können teilweise gerendert werden. Dies ist der Standardwert.
+  - : Jeder Text, der den Umbruchbereich überläuft, wird abgeschnitten. Zeichen können teilweise gerendert werden. Dies ist der Standardwert.
 - `ellipsis`
-  - : Wenn der zu darstellende Text den Umbruchbereich überläuft, wird der Text abgeschnitten und ein Auslassungszeichen so gerendert, dass es in den gegebenen Bereich passt.
+  - : Wenn der zu rendernde Text den Umbruchbereich überläuft, wird der Text abgeschnitten und ein Auslassungszeichen so dargestellt, dass es in den gegebenen Bereich passt.
 
-Für weitere Informationen siehe die [CSS `text-overflow`](/de/docs/Web/CSS/text-overflow#values)-Eigenschaft.
+Für weitere Informationen siehe die CSS-Eigenschaft [CSS `text-overflow`](/de/docs/Web/CSS/Reference/Properties/text-overflow#values).
 
 ## Spezifikationen
 
@@ -48,4 +48,4 @@ Für weitere Informationen siehe die [CSS `text-overflow`](/de/docs/Web/CSS/text
 
 ## Siehe auch
 
-- CSS {{cssxref("text-overflow")}} Eigenschaft
+- CSS {{cssxref("text-overflow")}}-Eigenschaft

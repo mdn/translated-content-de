@@ -1,30 +1,30 @@
 ---
-title: Klare Pixel-Art-Optik mit `image-rendering`
-short-title: Bildwiedergabe für Pixel-Art
+title: Crispes Aussehen von Pixelkunst mit image-rendering
+short-title: Bilddarstellung für Pixelkunst
 slug: Games/Techniques/Crisp_pixel_art_look
 l10n:
-  sourceCommit: 134fdc70d877bb19076d2ba51b94f76098d9336a
+  sourceCommit: 55326f330a6ae829494c7606b1bd47b2c0f9d888
 ---
 
-Dieser Artikel behandelt eine nützliche Technik, um Ihren Canvas/WebGL-Spielen eine klare Pixel-Art-Optik zu verleihen, selbst auf hochauflösenden Monitoren.
+Dieser Artikel behandelt eine nützliche Technik, um Ihren Canvas/WebGL-Spielen ein klares Pixelkunst-Aussehen zu verleihen, selbst auf hochauflösenden Monitoren.
 
 ## Das Konzept
 
-Retro-[Pixel-Art](https://en.wikipedia.org/wiki/Pixel_art)-Ästhetik wird immer beliebter, insbesondere in [Indie-Spielen](https://en.wikipedia.org/wiki/Indie_game) oder [Game Jam](https://en.wikipedia.org/wiki/Game_jam)-Einträgen. Da die heutigen Bildschirme Inhalte in hoher Auflösung wiedergeben, gibt es das Problem, sicherzustellen, dass die Pixel-Art nicht verschwommen aussieht. Hier ist ein Originalbild, das ein tatsächliches Arcade-Spiel verwendet haben könnte:
+Retro-[Pixelkunst](https://en.wikipedia.org/wiki/Pixel_art)-Ästhetik wird immer beliebter, insbesondere in [Indie-Spielen](https://en.wikipedia.org/wiki/Indie_game) oder [Game Jam](https://en.wikipedia.org/wiki/Game_jam)-Beiträgen. Aber da heutige Bildschirme Inhalte in hoher Auflösung rendern, gibt es ein Problem, sicherzustellen, dass die Pixelkunst nicht verschwommen aussieht. Hier ist ein Originalbild, das ein echtes Arcade-Spiel möglicherweise genutzt hat:
 
-![kleiner, pixeliger Mann](technique_original.png)
+![kleiner pixelig dargestellter Mann](technique_original.png)
 
-Wir können es manuell in einem Bildbearbeitungsprogramm vergrößern, indem wir jedes Pixel in einen 4x4-Block von Pixeln umwandeln. Das Bildbearbeitungsprogramm kann Algorithmen wie [Nearest-Neighbor-Interpolation](https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation) nutzen, um scharfe Kanten zu erzielen.
+Wir können es manuell in einem Bildbearbeitungsprogramm vergrößern, indem wir jedes Pixel in einen 4x4-Pixel-Block erweitern. Das Bildbearbeitungsprogramm kann Algorithmen wie [nächste-Nachbar-Interpolation](https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation) verwenden, um scharfe Kanten zu erzielen.
 
-![größerer, pixeliger Mann](technique_4x.png)
+![größerer pixelig dargestellter Mann](technique_4x.png)
 
 Zwei Nachteile dieser Methode sind größere Dateigrößen und [Kompressionsartefakte](https://en.wikipedia.org/wiki/Compression_artifact), da das Bild tatsächlich mehr Pixel enthält.
 
-Die Idee, klare Pixel-Art zu erzeugen, ist simpel: Wir wollen, dass ein einziges Pixel im Originalbild zu einem Block von Pixeln auf dem Bildschirm wird, ohne jegliche Glättung oder Mischung dazwischen. Das obige Beispiel erreicht dies, indem es diese Zuordnung manuell in einem Bildbearbeitungsprogramm durchführt. Aber wir können diesen Effekt auch im Browser mit CSS erzielen.
+Die Idee, scharfe Pixelkunst zu erzeugen, ist einfach: Wir möchten, dass ein einzelnes Pixel im Originalbild einem Block von Pixeln auf dem Bildschirm entspricht, ohne Glätten oder Überblenden dazwischen. Das obige Beispiel erreicht dies, indem es diese Zuordnung manuell in einem Bildbearbeitungsprogramm vornimmt. Aber wir können diesen Effekt auch im Browser mit CSS erreichen.
 
 ## Hochskalieren von \<img> mit CSS
 
-Ein Bild hat eine intrinsische Größe, also seine tatsächlichen Pixeldimensionen. Es hat auch eine wiedergegebene Größe, die mit HTML oder CSS festgelegt wird. Wenn die wiedergegebene Größe größer als die intrinsische Größe ist, skaliert der Browser das Bild automatisch hoch, um es an die wiedergegebene Größe anzupassen.
+Ein Bild hat eine intrinsische Größe, das sind seine tatsächlichen Pixelabmessungen. Es hat auch eine gerenderte Größe, die durch HTML oder CSS festgelegt wird. Ist die gerenderte Größe größer als die intrinsische Größe, skaliert der Browser das Bild automatisch hoch, um es an die gerenderte Größe anzupassen.
 
 ```html
 <img
@@ -39,11 +39,11 @@ img {
 }
 ```
 
-<img src="technique_original.png" style="width: 48px; height: 136px;" alt="kleiner, pixeliger Mann, mit CSS hochskaliert, erscheint verschwommen" />
+<img src="technique_original.png" style="width: 48px; height: 136px;" alt="kleiner pixelig dargestellter Mann, mit CSS hochskaliert, erscheint verschwommen" />
 
-Aber wie Sie im obigen Bild sehen können, lässt der Standardskalierungsalgorithmus des Browsers das Bild verschwommen aussehen. Das liegt daran, dass ein Glättungsalgorithmus verwendet wird, der die Farben der Pixel mittelt, um einen sanften Übergang zwischen ihnen zu erreichen.
+Aber wie Sie im Bild oben sehen können, macht der Standard-Skalierungsalgorithmus des Browsers das Bild verschwommen. Das liegt daran, dass er einen Glättungsalgorithmus verwendet, der die Farben der Pixel mittelt, um einen glatten Übergang zwischen ihnen zu schaffen.
 
-Um dies zu beheben, können wir die CSS-Eigenschaft {{cssxref("image-rendering")}} verwenden, um dem Browser mitzuteilen, einen anderen Skalierungsalgorithmus zu verwenden, der die harten Kanten der Pixel-Art bewahrt.
+Um dies zu beheben, können wir die CSS-Eigenschaft {{cssxref("image-rendering")}} verwenden, um dem Browser mitzuteilen, einen anderen Skalierungsalgorithmus zu verwenden, der die harten Kanten der Pixelkunst bewahrt.
 
 ```html
 <img
@@ -59,35 +59,35 @@ img {
 }
 ```
 
-<img src="technique_original.png" style="width: 48px; height: 136px; image-rendering: pixelated;" alt="kleiner, pixeliger Mann, mit Breiten- und Höhenattributen hochskaliert, erscheint klar" />
+<img src="technique_original.png" style="width: 48px; height: 136px; image-rendering: pixelated;" alt="kleiner pixelig dargestellter Mann, hochskaliert mit Breiten- und Höhenangaben, erscheint scharf" />
 
-Es gibt auch die Werte `crisp-edges` und `-webkit-optimize-contrast`, die in einigen Browsern funktionieren. Weitere Informationen zu den Unterschieden zwischen diesen Werten und welchen Wert Sie verwenden sollten, je nach Browser, finden Sie im Artikel über {{cssxref("image-rendering")}}.
+Es gibt auch die Werte `crisp-edges` und `-webkit-optimize-contrast`, die in einigen Browsern funktionieren. Besuchen Sie den Artikel {{cssxref("image-rendering")}} für weitere Informationen zu den Unterschieden zwischen diesen Werten und welche Werte je nach Browser verwendet werden sollten.
 
-`image-rendering: pixelated` ist nicht ohne Probleme als Technik zur Erhaltung klarer Kanten. Wenn CSS-Pixel nicht mit Geräte-Pixeln übereinstimmen (wenn der [`devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) kein ganzzahliger Wert ist), können bestimmte Pixel größer als andere gezeichnet werden, was zu einem ungleichmäßigen Erscheinungsbild führt. Zum Beispiel ändern Chrome und Firefox den `devicePixelRatio`, wenn Sie hinein- oder herauszoomen. Dies kann dazu führen, dass die Pixel-Art verzerrt oder ungleichmäßig erscheint. Der Screenshot unten wurde bei 110% Seitenzoom in Chrome aufgenommen. Wenn Sie genau hinsehen, können Sie erkennen, dass die linke Kante des Charakters uneben erscheint.
+`image-rendering: pixelated` hat als Technik zur Erhaltung der scharfen Kanten jedoch auch seine Probleme. Wenn sich CSS-Pixel nicht mit Geräte-Pixeln ausrichten (wenn das [`devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) keine ganze Zahl ist), können einige Pixel größer als andere gezeichnet werden, was zu einem uneinheitlichen Erscheinungsbild führt. Beispielsweise verändert sich in Chrome und Firefox beim Ein- oder Auszoomen das `devicePixelRatio`. Dies kann dazu führen, dass die Pixelkunst verzerrt oder ungleichmäßig erscheint. Der Screenshot unten wurde bei 110% Seitenzoom in Chrome aufgenommen. Bei genauerem Hinsehen können Sie sehen, dass der linke Rand des Gesichts und des Beins der Figur ungleichmäßig erscheint.
 
-![Pixeliertes Bild mit ungleichmäßigen Kanten](pixelated_uneven.png)
+![Pixeldarstellung mit ungleichmäßigen Kanten](pixelated_uneven.png)
 
-Dies ist ein nicht leicht zu lösendes Problem, da es unmöglich ist, Geräte-Pixel genau zu füllen, wenn die CSS-Pixel nicht genau zu ihnen passen können.
+Dies ist jedoch ein schwer zu lösendes Problem, da es unmöglich ist, Geräte-Pixel präzise zu füllen, wenn die CSS-Pixel nicht genau mit ihnen übereinstimmen.
 
-## Klares Pixel-Art im Canvas
+## Scharfe Pixelkunst in Canvas
 
-Viele Spiele rendern innerhalb eines {{htmlelement("canvas")}}-Elements, das dieselbe `image-rendering`-Technik verwenden kann, da Canvas auch Rasterbilder sind. Die Schritte, um dies zu erreichen, sind:
+Viele Spiele werden in einem {{htmlelement("canvas")}}-Element gerendert, das dieselbe `image-rendering`-Technik verwenden kann, da Leinwände ebenfalls Rasterbilder sind. Die Schritte dazu sind:
 
 - Erstellen Sie ein {{htmlelement("canvas")}}-Element und setzen Sie seine `width`- und `height`-Attribute auf die ursprüngliche, kleinere Auflösung.
-- Setzen Sie seine CSS-{{cssxref("width")}}- und {{cssxref("height")}}-Eigenschaften auf einen beliebigen Wert, den Sie möchten, aber gleichmäßig gestreckt, um das Seitenverhältnis beizubehalten. Wenn das Canvas mit einer Breite von 128 Pixeln erstellt wurde, würden wir die CSS-`width` auf `512px` setzen, wenn wir eine 4x-Skalierung wünschen.
-- Setzen Sie die `image-rendering` CSS-Eigenschaft des {{htmlelement("canvas")}}-Elements auf `pixelated`.
+- Setzen Sie die CSS-Eigenschaften {{cssxref("width")}} und {{cssxref("height")}} auf jeden gewünschten Wert, jedoch gleichmäßig gestreckt, um das Seitenverhältnis beizubehalten. Wenn die Leinwand mit einer Breite von 128 Pixeln erstellt wurde, würden wir das CSS `width` auf `512px` setzen, wenn wir einen 4-fachen Maßstab wollen.
+- Setzen Sie die CSS-Eigenschaft `image-rendering` des {{htmlelement("canvas")}}-Elements auf `pixelated`.
 
-Werfen wir einen Blick auf ein Beispiel. Das Originalbild, das wir hochskalieren möchten, sieht so aus:
+Schauen wir uns ein Beispiel an. Das Bild, das wir hochskalieren möchten, sieht so aus:
 
-![Pixelierte Nachtszenerie einer Katze am Rand einer Klippe mit kleinen Herzen über ihrem Kopf, hinter ihr ein großer Vollmond. Mit einem schwarzen Hintergrund wird unten im Bild weißer Text angezeigt: verliebt in den Mond.](cat.png)
+![Pixelige Nachtaufnahme einer Katze am Rand einer Klippe mit kleinen Herzen über ihrem Kopf, hinter ihr ein großer Vollmond. Mit einem schwarzen Hintergrund wird unten im Bild in weißer Schrift angezeigt: in love with the moon.](cat.png)
 
-Hier ist etwas HTML, um ein einfaches Canvas zu erstellen:
+Hier ist etwas HTML, um eine einfache Leinwand zu erstellen:
 
 ```html
 <canvas id="game" width="128" height="128">A cat</canvas>
 ```
 
-CSS zum Skalieren des Canvas und Rendern eines klaren Bildes:
+CSS, um die Leinwand zu dimensionieren und ein scharfes Bild darzustellen:
 
 ```css
 canvas {
@@ -97,7 +97,7 @@ canvas {
 }
 ```
 
-Und ein wenig JavaScript, um das Canvas einzurichten und das Bild zu laden:
+Und etwas JavaScript, um die Leinwand einzurichten und das Bild zu laden:
 
 ```js
 // Get canvas context
@@ -112,16 +112,16 @@ image.onload = () => {
 image.src = "cat.png";
 ```
 
-Diese zusammen verwendeten Codes ergeben folgendes Ergebnis:
+Dieser Code zusammen verwendet ergibt das folgende Resultat:
 
-{{EmbedLiveSample("Klarer Pixel-Art im Canvas", "", 520)}}
+{{EmbedLiveSample("Scharfe Pixelkunst in Canvas", "", 520)}}
 
 > [!NOTE]
-> Canvas-Inhalt ist für Screenreader nicht zugänglich. Fügen Sie beschreibenden Text als Wert des `aria-label`-Attributs direkt im Canvas-Element selbst bei oder fügen Sie Ersatzinhalte innerhalb des geöffneten und geschlossenen Canvas-Tags ein. Canvas-Inhalt ist nicht Teil des DOM, aber eingebettete Ersatzinhalte sind es.
+> Canvas-Inhalte sind für Bildschirmleser nicht zugänglich. Fügen Sie beschreibenden Text als Wert des Attributs [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) direkt im Canvas-Element selbst ein oder fügen Sie Ersatzinhalt ein, der innerhalb des öffnenden und schließenden Canvas-Tags platziert ist. Canvas-Inhalte sind nicht Teil des DOM, aber verschachtelte Ersatzinhalte sind es.
 
-## Willkürliches Skalieren von Bildern im Canvas
+## Bilder in Canvas beliebig skalieren
 
-Für das Beispiel mit einem einfachen `<img>` können Sie den Skalierungsfaktor auf jeden gewünschten Wert setzen, und `image-rendering: pixelated` wird sein Bestes tun, um die scharfen Kanten zu bewahren. Zum Beispiel können Sie das Bild um das 5,7-fache skalieren:
+Für das Zeichenbeispiel mit einem einfachen `<img>` können Sie den Skalierungsfaktor auf jeden gewünschten Wert setzen, und `image-rendering: pixelated` wird sein Bestes tun, um scharfe Kanten zu bewahren. Beispielsweise können Sie das Bild um das 5,7-fache skalieren:
 
 ```css
 img {
@@ -132,9 +132,9 @@ img {
 }
 ```
 
-<img src="technique_original.png" style="width: 68.4px; height: 193.8px; image-rendering: pixelated;" alt="kleiner, pixeliger Mann, mit CSS hochskaliert, erscheint klar" />
+<img src="technique_original.png" style="width: 68.4px; height: 193.8px; image-rendering: pixelated;" alt="kleiner pixelig dargestellter Mann, mit CSS hochskaliert, erscheint scharf" />
 
-Vorher haben wir gesagt, dass `image-rendering: pixelated` auf der Stufe der Zuordnung von Bildpixeln zu CSS-Pixeln funktioniert. Aber wenn wir das Bild in ein Canvas zeichnen, haben wir zwei Ebenen der Zuordnung: von Bildpixeln zu Canvas-Pixeln und dann von Canvas-Pixeln zu CSS-Pixeln. Der zweite Schritt funktioniert genauso wie das Skalieren von Bildern mit `<img>`, sodass Sie auch beliebige Skalierungsfaktoren verwenden können, wenn Sie das Canvas mit CSS skalieren:
+Wir haben zuvor gesagt, dass `image-rendering: pixelated` beim Abbilden von Bildpixeln auf CSS-Pixel arbeitet. Wenn wir das Bild jedoch in eine Leinwand zeichnen, haben wir zwei Abbildungsebenen: von Bildpixeln zu Leinwandpixeln und dann von Leinwandpixeln zu CSS-Pixeln. Der zweite Schritt funktioniert genauso wie das Bildskalieren mit `<img>`, sodass Sie auch beliebige Skalierungsfaktoren verwenden können, wenn Sie die Leinwand mit CSS skalieren:
 
 ```html hidden live-sample___canvas_arbitrary_scale
 <canvas id="game" width="128" height="128">A cat</canvas>
@@ -164,7 +164,7 @@ image.src = "cat.png";
 
 {{EmbedLiveSample("Canvas beliebige Skalierung", "", 520)}}
 
-Aber wir müssen vorsichtig sein, wie die Bildpixel mit den Canvas-Pixeln ausgerichtet sind. Standardmäßig werden die Bildpixel im Verhältnis 1:1 zu den Canvas-Pixeln gezeichnet; jedoch können Sie, wenn Sie die zusätzlichen Argumente von [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) verwenden, um das Bild in einer anderen Größe auf dem Canvas zu zeichnen, möglicherweise auf einen nicht ganzzahligen Skalierungsfaktor stoßen. Zum Beispiel, wenn Sie ein 128x128 Pixel Bild in einem 100x100 Pixel Bereich auf dem Canvas zeichnen, wird jedes Bildpixel als 0,78x0,78 Canvas Pixel gezeichnet, was zu Unschärfe führen kann.
+Aber wir müssen vorsichtig sein, wie die Bildpixel mit den Leinwandpixeln ausgerichtet sind. Standardmäßig werden die Bildpixel 1:1 mit den Leinwandpixeln gezeichnet; jedoch können Sie mit den zusätzlichen Argumenten von [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) das Bild in einer anderen Größe auf die Leinwand zeichnen, und Sie können bei einem nicht ganzzahligen Skalierungsfaktor landen. Beispielsweise, wenn Sie ein 128x128 Pixel-Bild in einem 100x100 Pixel-Bereich auf der Leinwand zeichnen, wird jedes Bildpixel als 0.78x0.78 Leinwandpixel gezeichnet, was zu Unschärfe führen kann.
 
 ```html hidden live-sample___canvas_image_scale
 <canvas id="game" width="128" height="128">A cat</canvas>
@@ -192,9 +192,9 @@ image.onload = () => {
 image.src = "cat.png";
 ```
 
-{{EmbedLiveSample("Canvas Bildskala", "", 520)}}
+{{EmbedLiveSample("Canvas Bildskalierung", "", 520)}}
 
-Das gleiche passiert, wenn Sie [`scale()`](/de/docs/Web/API/CanvasRenderingContext2D/scale) verwenden, um das Canvas-Raster zu skalieren. In diesem Fall würde eine Einheit von 1 bei Aufrufen von Canvas-Methoden als nicht ganzzahlige Anzahl von Canvas-Pixeln interpretiert werden, was zu Unschärfe führt.
+Dasselbe passiert, wenn Sie [`scale()`](/de/docs/Web/API/CanvasRenderingContext2D/scale) verwenden, um das Raster der Leinwand zu skalieren. In diesem Fall würde eine Einheit von 1 bei der Aufrufe von Leinwandmethoden als nicht-ganzzahlige Anzahl von Leinwandpixeln interpretiert werden, was zu Unschärfe führt.
 
 ```html hidden live-sample___canvas_context_scale
 <canvas id="game" width="128" height="128">A cat</canvas>
@@ -222,9 +222,9 @@ image.onload = () => {
 image.src = "cat.png";
 ```
 
-{{EmbedLiveSample("Canvas Kontextskala", "", 520)}}
+{{EmbedLiveSample("Canvas Kontext Skala", "", 520)}}
 
-Um dies zu beheben, müssen Sie sicherstellen, dass die Bildpixel immer als ganzzahlige Vielfache von Canvas-Pixeln gezeichnet werden. Das heißt, wenn Sie `drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)` aufrufen, muss `dWidth` gleich `sWidth / xScale * n` sein, wobei `xScale` der x-Skalierungsfaktor für den Kontext ist (1.0, wenn Sie `scale()` nicht aufgerufen haben), und `n` eine ganze Zahl ist (1, 2, 3, ...). Dasselbe gilt für `dHeight`. Wenn Sie also ein 128x128 Pixel Bild auf einem Canvas zeichnen möchten, das um den Faktor 0,8 skaliert wurde, können Sie es nur bei Größen wie 160 (128 / 0,8 \* 1), 320 (128 / 0,8 \* 2) usw. zeichnen.
+Um dies zu beheben, müssen Sie sicherstellen, dass die Bildpixel immer in ganzzahligen Vielfachen von Leinwandpixeln gezeichnet werden. Das heißt, wenn Sie `drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)` aufrufen, muss `dWidth` gleich `sWidth / xScale * n` sein, wobei `xScale` der x-Skalierungsfaktor für den Kontext ist (1,0, wenn Sie `scale()` nicht aufgerufen haben) und `n` eine ganze Zahl ist (1, 2, 3, ...). Dasselbe gilt für `dHeight`. Wenn Sie also ein 128x128 Pixel-Bild auf einer Leinwand mit einem Skalierungsfaktor von 0,8 zeichnen möchten, können Sie es nur bei Größen wie 160 (128 / 0,8 × 1), 320 (128 / 0,8 × 2) usw. zeichnen.
 
 ```html hidden live-sample___canvas_context_scale_correct
 <canvas id="game" width="128" height="128">A cat</canvas>
@@ -252,6 +252,6 @@ image.onload = () => {
 image.src = "cat.png";
 ```
 
-{{EmbedLiveSample("Canvas korrekte Kontextskala", "", 520)}}
+{{EmbedLiveSample("Canvas Kontext Skala korrekt", "", 520)}}
 
-Siehe den Canvas-[Zeichenformen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#seeing_blurry_edges)-Leitfaden für mehr Informationen darüber, wie Canvas-Pixel funktionieren.
+Siehe den Canvas-[Leitfaden zum Zeichnen von Formen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#seeing_blurry_edges) für weitere Informationen darüber, wie Leinwandpixel funktionieren.

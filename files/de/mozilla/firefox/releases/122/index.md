@@ -19,7 +19,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 122, die En
 
 - Die CSS-Eigenschaft {{cssxref("offset-position")}} ist jetzt standardmäßig verfügbar. Sie definiert die Anfangsposition eines Elements auf einem Pfad. ([Firefox-Bug 1598152](https://bugzil.la/1598152))
 
-- Die verschiedenen Methoden zur Definition eines CSS-{{cssxref("offset-path")}} — einschließlich [`<basic-shape>`](/de/docs/Web/CSS/offset-path#basic-shape), [`<coord-box>`](/de/docs/Web/CSS/offset-path#coord-box) und [`url()`](/de/docs/Web/CSS/offset-path#url) — sind jetzt standardmäßig aktiviert. ([Firefox-Bug 1598159](https://bugzil.la/1598159))
+- Die verschiedenen Methoden zur Definition eines CSS-{{cssxref("offset-path")}} — einschließlich [`<basic-shape>`](/de/docs/Web/CSS/Reference/Properties/offset-path#basic-shape), [`<coord-box>`](/de/docs/Web/CSS/Reference/Properties/offset-path#coord-box) und [`url()`](/de/docs/Web/CSS/Reference/Properties/offset-path#url) — sind jetzt standardmäßig aktiviert. ([Firefox-Bug 1598159](https://bugzil.la/1598159))
 
 - Die CSS-Funktion {{cssxref("ray")}} ist jetzt standardmäßig verfügbar. Sie können diese Funktion verwenden, um einen {{cssxref("offset-path")}} als Liniensegment zu definieren, das von einer {{cssxref("offset-position")}} beginnt und in Richtung des angegebenen Winkels verläuft. ([Firefox-Bug 1598151](https://bugzil.la/1598151))
 
@@ -49,7 +49,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 122, die En
 
 #### Entfernungen
 
-- Unterstützung für die CSS-Eigenschaft [`-moz-user-focus`](/de/docs/Web/CSS/-moz-user-focus) wurde entfernt ([Firefox-Bug 1871745](https://bugzil.la/1871745) und [Firefox-Bug 1868552](https://bugzil.la/1868552)).
+- Unterstützung für die CSS-Eigenschaft [`-moz-user-focus`](/de/docs/Web/CSS/Reference/Properties/-moz-user-focus) wurde entfernt ([Firefox-Bug 1871745](https://bugzil.la/1871745) und [Firefox-Bug 1868552](https://bugzil.la/1868552)).
 
 ### WebDriver-Konformität (WebDriver BiDi, Marionette)
 

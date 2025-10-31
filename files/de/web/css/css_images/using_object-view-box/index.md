@@ -18,7 +18,7 @@ Die intrinsische Größe ist die tatsächliche Größe des Inhalts selbst; die G
 
 ## `object-view-box` versus `object-fit`
 
-CSS hat viele Eigenschaft für Größen. Bei der Größenbestimmung von ersetzten Elementen ermöglicht uns die [`object-fit`](/de/docs/Web/CSS/object-fit) Eigenschaft, in gewissem Maße zu kontrollieren, wie ersetzte Elemente innerhalb eines definierten Box gerendert werden. Zum Beispiel wird im folgenden Screenshot ein 1200 x 400 Bild unter Verwendung eines {{htmlelement("img")}} Elements angezeigt. Das `<img>` Element ist auf 400 x 200 dimensioniert. Der Bildinhalt wird mit der Deklaration `object-fit: none;` positioniert.
+CSS hat viele Eigenschaft für Größen. Bei der Größenbestimmung von ersetzten Elementen ermöglicht uns die [`object-fit`](/de/docs/Web/CSS/Reference/Properties/object-fit) Eigenschaft, in gewissem Maße zu kontrollieren, wie ersetzte Elemente innerhalb eines definierten Box gerendert werden. Zum Beispiel wird im folgenden Screenshot ein 1200 x 400 Bild unter Verwendung eines {{htmlelement("img")}} Elements angezeigt. Das `<img>` Element ist auf 400 x 200 dimensioniert. Der Bildinhalt wird mit der Deklaration `object-fit: none;` positioniert.
 
 ![Ein Bild, das extrinsische und intrinsische Bildgrößen demonstriert; der mittlere 400 x 200 Abschnitt eines viel größeren 1200 x 400 Bildes ist im 400 x 200 Viewbox sichtbar, der die Größe des Elements ist, das das Bild anzeigt.](https://mdn.github.io/shared-assets/images/diagrams/css/object-view-box/extrinsic-intrinsic_sizes.jpg)
 

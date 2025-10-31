@@ -2,13 +2,13 @@
 title: <mstyle>
 slug: Web/MathML/Reference/Element/mstyle
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das **`<mstyle>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um den Stil seiner Kinder zu ändern.
+Das **`<mstyle>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um den Stil seiner Kinderelemente zu ändern.
 
 > [!NOTE]
-> Historisch gesehen akzeptierte dieses Element fast alle MathML-Attribute und wurde verwendet, um die Standardattributwerte seiner Nachfahren zu überschreiben. Später wurde es auf nur einige relevante Stilattribute beschränkt, die auf existierenden Webseiten verwendet wurden. Heutzutage sind diese Stilattribute [gemeinsam für alle MathML-Elemente](/de/docs/Web/MathML/Reference/Global_attributes), und daher ist `<mstyle>` wirklich nur gleichwertig mit einem [`<mrow>`](/de/docs/Web/MathML/Reference/Element/mrow) Element. Dennoch kann `<mstyle>` immer noch relevant für die Kompatibilität mit MathML-Implementierungen außerhalb von Browsern sein.
+> Historisch gesehen akzeptierte dieses Element fast alle MathML-Attribute und wurde verwendet, um die Standardattributwerte seiner Nachkommen zu überschreiben. Es wurde später auf nur wenige relevante Stilattribute beschränkt, die auf bestehenden Webseiten verwendet wurden. Heutzutage sind diese Stilattribute [allen MathML-Elementen gemeinsam](/de/docs/Web/MathML/Reference/Global_attributes), sodass `<mstyle>` tatsächlich nur einem [`<mrow>`](/de/docs/Web/MathML/Reference/Element/mrow)-Element entspricht. Dennoch kann `<mstyle>` immer noch relevant für die Kompatibilität mit MathML-Implementierungen außerhalb von Browsern sein.
 
 ## Attribute
 
@@ -27,9 +27,9 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 ## Beispiele
 
-### Attribute in CSS abgebildet
+### Attribute, die auf CSS abgebildet sind
 
-Das folgende Beispiel verwendet [globale Attribute](/de/docs/Web/MathML/Reference/Global_attributes) `displaystyle` und `mathcolor`, um die [`math-style`](/de/docs/Web/CSS/math-style) und [`color`](/de/docs/Web/CSS/color) der `<munder>` und `<munderover>` Kinder jeweils zu überschreiben:
+Das folgende Beispiel verwendet [globale Attribute](/de/docs/Web/MathML/Reference/Global_attributes) `displaystyle` und `mathcolor`, um den [`math-style`](/de/docs/Web/CSS/Reference/Properties/math-style) und die [`color`](/de/docs/Web/CSS/Reference/Properties/color) der `<munder>`- und `<munderover>`-Kinder zu überschreiben:
 
 ```html
 <math display="block">
@@ -55,7 +55,7 @@ Das folgende Beispiel verwendet [globale Attribute](/de/docs/Web/MathML/Referenc
 
 ### Veraltete Skript-Attribute
 
-Das folgende Beispiel zeigt eine Formel mit [`font-size`](/de/docs/Web/CSS/font-size) auf `128pt` gesetzt. Sie enthält Zahlen, die in verschachtelten Hochzahlen platziert sind, sowie ein `<mstyle>` Element mit veralteten Attributen `scriptsizemultiplier` und `scriptminsize`. Die `font-size` wird mit `0.5` multipliziert, wenn jede Hochzahl betreten wird, solange sie dadurch nicht kleiner als `16pt` wird.
+Das folgende Beispiel zeigt eine Formel mit [`font-size`](/de/docs/Web/CSS/Reference/Properties/font-size) auf `128pt`. Es enthält Zahlen, die in verschachtelten Superskripten platziert sind, sowie ein `<mstyle>`-Element mit den veralteten Attributen `scriptsizemultiplier` und `scriptminsize`. Die `font-size` wird mit `0.5` multipliziert, wenn ein neuer Superskript betreten wird, solange sie dadurch nicht kleiner als `16pt` wird.
 
 ```html
 <math display="block">

@@ -2,19 +2,19 @@
 title: 431 Request Header Fields Too Large
 slug: Web/HTTP/Reference/Status/431
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Der HTTP-Statuscode **`431 Request Header Fields Too Large`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) signalisiert, dass der Server die Anfrage ablehnt, weil die [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers) der Anfrage zu lang sind.
-Die Anfrage kann erneut gesendet werden, nachdem die Größe der Anfrage-Header reduziert wurde.
+Der HTTP-Statuscode **`431 Request Header Fields Too Large`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Reference/Status#client_error_responses) zeigt an, dass der Server die Anfrage ablehnt, weil die [HTTP-Header](/de/docs/Web/HTTP/Reference/Headers) der Anfrage zu lang sind.
+Die Anfrage kann erneut gestellt werden, nachdem die Größe der Anfrage-Header reduziert wurde.
 
 431 kann verwendet werden, wenn die Gesamtgröße der Anfrage-Header zu groß ist oder wenn ein einzelnes Header-Feld zu groß ist.
-Um den Clients zu helfen, die auf diesen Fehler stoßen, sollte im Antwortkörper angegeben werden, welches der beiden Probleme vorliegt und idealerweise, welche Header zu groß sind.
-Dies ermöglicht es den Benutzern, das Problem zu beheben, beispielsweise durch das Löschen von Cookies.
+Um Clients zu helfen, die auf diesen Fehler stoßen, sollte im Antworttext angegeben werden, welches der beiden Probleme vorliegt und idealerweise, welche Header zu groß sind.
+Dies ermöglicht es, das Problem zu versuchen zu beheben, wie zum Beispiel durch das Löschen von Cookies.
 
-Server erzeugen diesen Status häufig, wenn:
+Server werden diesen Status oft zurückgeben, wenn:
 
-- Die URL im {{httpheader("Referer")}} zu lang ist
+- Die {{httpheader("Referer")}} URL zu lang ist
 - Zu viele [Cookies](/de/docs/Web/HTTP/Guides/Cookies) in der Anfrage gesendet werden
 
 ## Status
@@ -60,4 +60,4 @@ Content-Type: text/html
 
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Reference/Status)
 - {{HTTPStatus("414", "414 URI Too Long")}}
-- {{Glossary("Request_header", "Anfrage-Header")}}
+- {{Glossary("Request_header", "Anforderungsheader")}}

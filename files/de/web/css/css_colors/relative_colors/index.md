@@ -294,7 +294,7 @@ Das Ergebnis ist wie folgt:
 
 ## Manipulation des Alpha-Kanals
 
-Dieses Beispiel demonstriert die Änderung des Alpha-Kanals einer benannten Farbe. Hier haben wir ein Objekt in einem Container eingewickelt, die beide einen `teal`-Hintergrund haben. Um zwischen den Hintergründen zu unterscheiden, variieren wir den Alpha-Kanalwert, indem wir die relative Farb-Funktion verwenden, die [`calc()`-Funktion](/de/docs/Web/CSS/calc) und eine [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*).
+Dieses Beispiel demonstriert die Änderung des Alpha-Kanals einer benannten Farbe. Hier haben wir ein Objekt in einem Container eingewickelt, die beide einen `teal`-Hintergrund haben. Um zwischen den Hintergründen zu unterscheiden, variieren wir den Alpha-Kanalwert, indem wir die relative Farb-Funktion verwenden, die [`calc()`-Funktion](/de/docs/Web/CSS/calc) und eine [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*).
 
 ```html
 <div class="container">
@@ -714,7 +714,7 @@ Die relativen Farben sind wie folgt:
 - `--bg-color`: Eine viel hellere Variante der `--base-color`, die als Hintergrund verwendet werden soll. Diese wird erstellt, indem sie eine Ursprungsfarbe von `--base-color` nimmt und 40 zu ihrem Helligkeitswert hinzufügt.
 - `--complementary-color`: Eine komplementäre Farbe 180 Grad rund um den Farbkreis von `--base-color`. Diese wird erstellt, indem sie eine Ursprungsfarbe von `--base-color` nimmt und 180 zu ihrem Farbtonwert hinzufügt.
 
-Jetzt schauen Sie sich den Rest des CSS an und beachten Sie alle Orte, an denen diese Farben verwendet werden. Dazu gehören [Hintergründe](/de/docs/Web/CSS/background), [Rahmen](/de/docs/Web/CSS/border), [`text-shadow`](/de/docs/Web/CSS/text-shadow) und sogar die [`accent-color`](/de/docs/Web/CSS/accent-color) des Sliders.
+Jetzt schauen Sie sich den Rest des CSS an und beachten Sie alle Orte, an denen diese Farben verwendet werden. Dazu gehören [Hintergründe](/de/docs/Web/CSS/Reference/Properties/background), [Rahmen](/de/docs/Web/CSS/Reference/Properties/border), [`text-shadow`](/de/docs/Web/CSS/Reference/Properties/text-shadow) und sogar die [`accent-color`](/de/docs/Web/CSS/Reference/Properties/accent-color) des Sliders.
 
 > [!NOTE]
 > Der Einfachheit halber werden hier nur die Teile des CSS gezeigt, die für die Verwendung relativer Farben relevant sind.

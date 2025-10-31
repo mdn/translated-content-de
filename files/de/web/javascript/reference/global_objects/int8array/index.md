@@ -2,12 +2,12 @@
 title: Int8Array
 slug: Web/JavaScript/Reference/Global_Objects/Int8Array
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Das **`Int8Array`**-typisierte Array stellt ein Array von 8-Bit-Ganzzahlen mit Vorzeichen dar. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten angegeben. Sobald es erstellt ist, können Sie auf die Elemente im Array über die Methoden des Objekts oder mittels der Standard-Array-Index-Syntax (d.h. unter Verwendung der Klammernotation) zugreifen.
+Das **`Int8Array`** typisierte Array repräsentiert ein Array von 8-Bit vorzeichenbehafteten ganzen Zahlen. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Einmal erstellt, können Sie auf Elemente im Array mit den Methoden des Objekts oder mit der Standard-Array-Indexsyntax (das heißt, mit Klammernotation) zugreifen.
 
-`Int8Array` ist eine Unterklasse der verborgenen {{jsxref("TypedArray")}}-Klasse.
+`Int8Array` ist eine Unterklasse der verborgenen {{jsxref("TypedArray")}} Klasse.
 
 ## Konstruktor
 
@@ -16,29 +16,29 @@ Das **`Int8Array`**-typisierte Array stellt ein Array von 8-Bit-Ganzzahlen mit V
 
 ## Statische Eigenschaften
 
-_Erbt auch statische Eigenschaften seiner Elternklasse {{jsxref("TypedArray")}}_.
+_Übernimmt auch statische Eigenschaften von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Int8Array.BYTES_PER_ELEMENT")}}
-  - : Gibt einen Zahlenwert der Elementgröße zurück. `1` im Fall von `Int8Array`.
+  - : Gibt eine Zahl zurück, die die Elementgröße angibt. `1` im Fall von `Int8Array`.
 
 ## Statische Methoden
 
-_Erbt statische Methoden seiner Elternklasse {{jsxref("TypedArray")}}_.
+_Übernimmt statische Methoden von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Instanz-Eigenschaften seiner Elternklasse {{jsxref("TypedArray")}}_.
+_Übernimmt auch Instanz-Eigenschaften von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
-Diese Eigenschaften sind auf `Int8Array.prototype` definiert und werden von allen `Int8Array`-Instanzen geteilt.
+Diese Eigenschaften sind auf `Int8Array.prototype` definiert und werden von allen `Int8Array` Instanzen geteilt.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Int8Array.prototype.BYTES_PER_ELEMENT")}}
-  - : Gibt einen Zahlenwert der Elementgröße zurück. `1` im Fall eines `Int8Array`.
+  - : Gibt eine Zahl zurück, die die Elementgröße angibt. `1` im Fall eines `Int8Array`.
 - {{jsxref("Object/constructor", "Int8Array.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Int8Array`-Instanzen ist der Anfangswert der {{jsxref("Int8Array/Int8Array", "Int8Array")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Int8Array` Instanzen ist der Anfangswert der {{jsxref("Int8Array/Int8Array", "Int8Array")}} Konstruktor.
 
 ## Instanz-Methoden
 
-_Erbt Instanz-Methoden seiner Elternklasse {{jsxref("TypedArray")}}_.
+_Übernimmt Instanz-Methoden von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
 ## Beispiele
 

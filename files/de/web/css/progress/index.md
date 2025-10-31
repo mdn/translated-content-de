@@ -101,7 +101,7 @@ Die `progress()` Funktion gibt einheitenlose Werte aus, sodass sie verwendet wer
 
 ### Kombinieren von `progress()` mit anderen Funktionen und benutzerdefinierten Eigenschaften
 
-Da `progress()` immer nur einen einheitenlosen Wert zwischen `0` und `1` zurückgibt, wird es häufig mit einer weiteren mathematischen Funktion wie {{cssxref("calc()")}} kombiniert, um den gewünschten Wert und die gewünschten Einheiten auszugeben. Sie können auch [CSS benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) in `progress()` Funktionen verwenden — das macht Sinn, da Sie oft dieselben Werte an mehreren Stellen festlegen möchten und/oder sie auf benutzerdefinierte Eigenschaften stützen, die über JavaScript gesetzt werden.
+Da `progress()` immer nur einen einheitenlosen Wert zwischen `0` und `1` zurückgibt, wird es häufig mit einer weiteren mathematischen Funktion wie {{cssxref("calc()")}} kombiniert, um den gewünschten Wert und die gewünschten Einheiten auszugeben. Sie können auch [CSS benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*) in `progress()` Funktionen verwenden — das macht Sinn, da Sie oft dieselben Werte an mehreren Stellen festlegen möchten und/oder sie auf benutzerdefinierte Eigenschaften stützen, die über JavaScript gesetzt werden.
 
 Das folgende Beispiel berechnet, zu welchem Prozentsatz die Viewportbreite zwischen einer minimalen Breite von `320px` und einer maximalen Breite von `1200px` liegt. Die `calc()` Funktion wird verwendet, um den Rückgabewert von `progress()` mit `600px` zu multiplizieren, um ihn in einen Pixelwert umzurechnen, der die Hälfte des Fortschrittswertes der Viewportbreite zwischen `320px` und `1200px` darstellt.
 

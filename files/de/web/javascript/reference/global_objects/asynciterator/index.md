@@ -2,12 +2,12 @@
 title: AsyncIterator
 slug: Web/JavaScript/Reference/Global_Objects/AsyncIterator
 l10n:
-  sourceCommit: b6a36de3428f4b42c7707c8f190a349db13bf531
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Ein **`AsyncIterator`**-Objekt ist ein Objekt, das dem [asynchronen Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) entspricht, indem es eine `next()`-Methode bereitstellt, die ein Versprechen zurückgibt, das ein Iterator-Ergebnisobjekt erfüllt. Das Objekt `AsyncIterator.prototype` ist ein verstecktes globales Objekt, von dem alle eingebauten asynchronen Iteratoren erben. Es bietet eine Methode [`[Symbol.asyncIterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator/Symbol.asyncIterator), die das asynchrone Iterator-Objekt selbst zurückgibt, und macht den asynchronen Iterator dadurch auch [asynchron iterabel](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols).
+Ein **`AsyncIterator`**-Objekt ist ein Objekt, das dem [async iterator protocol](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) entspricht, indem es eine `next()`-Methode bereitstellt, die ein Promise zurückgibt, das ein Iterator-Resultat-Objekt erfüllt. Das `AsyncIterator.prototype`-Objekt ist ein verstecktes globales Objekt, von dem alle eingebauten async Iteratoren erben. Es bietet eine [`[Symbol.asyncIterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator/Symbol.asyncIterator)-Methode, die das async Iterator-Objekt selbst zurückgibt und den async Iterator somit auch [async iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) macht.
 
-Beachten Sie, dass `AsyncIterator` _kein_ globales Objekt ist, obwohl es in Zukunft mit dem [Vorschlag zu asynchronen Iterator-Hilfsfunktionen](https://github.com/tc39/proposal-async-iterator-helpers) einer sein wird. Das Objekt `AsyncIterator.prototype`, das von allen eingebauten asynchronen Iteratoren geteilt wird, kann mit folgendem Code erhalten werden:
+Beachten Sie, dass `AsyncIterator` _kein_ globales Objekt ist, obwohl es dies in Zukunft mit dem [async iterator helpers proposal](https://github.com/tc39/proposal-async-iterator-helpers) sein wird. Das `AsyncIterator.prototype`-Objekt, das von allen eingebauten async Iteratoren geteilt wird, kann mit dem folgenden Code erhalten werden:
 
 ```js
 const AsyncIteratorPrototype = Object.getPrototypeOf(
@@ -17,25 +17,25 @@ const AsyncIteratorPrototype = Object.getPrototypeOf(
 
 ## Beschreibung
 
-Derzeit ist das einzige eingebaute JavaScript-Async-Iterator-Objekt das {{jsxref("AsyncGenerator")}}-Objekt, das von [asynchronen Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function*) zurückgegeben wird. Es gibt einige andere eingebaute asynchrone Iteratoren in Web-APIs, wie zum Beispiel den eines [`ReadableStream`](/de/docs/Web/API/ReadableStream).
+Derzeit ist der einzige eingebaute JavaScript async Iterator das {{jsxref("AsyncGenerator")}}-Objekt, das von [async generator functions](/de/docs/Web/JavaScript/Reference/Statements/async_function*) zurückgegeben wird. Es gibt einige andere eingebaute async Iteratoren in Web-APIs, wie z.B. einen [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
-Jeder dieser asynchronen Iteratoren hat ein eigenes Prototypobjekt, das die `next()`-Methode definiert, die von dem jeweiligen asynchronen Iterator verwendet wird. Alle diese Prototypobjekte erben von `AsyncIterator.prototype`, das eine Methode [`[Symbol.asyncIterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator) bereitstellt, die das asynchrone Iterator-Objekt selbst zurückgibt, und den asynchronen Iterator dadurch auch [asynchron iterabel](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) macht.
+Jeder dieser async Iteratoren hat ein eigenes Prototyp-Objekt, das die `next()`-Methode definiert, die vom jeweiligen async Iterator verwendet wird. Alle diese Prototyp-Objekte erben von `AsyncIterator.prototype`, das eine [`[Symbol.asyncIterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator)-Methode bietet, die das async Iterator-Objekt selbst zurückgibt und den async Iterator somit auch [async iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) macht.
 
 > [!NOTE]
-> `AsyncIterator.prototype` implementiert nicht [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator), daher sind asynchrone Iteratoren standardmäßig nicht [synchron iterabel](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol).
+> `AsyncIterator.prototype` implementiert nicht [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator), sodass async Iteratoren standardmäßig nicht [sync iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) sind.
 
 ## Instanzmethoden
 
 - [`AsyncIterator.prototype[Symbol.asyncDispose]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator/Symbol.asyncDispose)
-  - : Ruft die Methode `return()` von `this` auf und wartet auf deren Erfüllung, falls sie existiert. Dies implementiert das _asynchrone Entsorgungsprotokoll_ und ermöglicht es, es zu entsorgen, wenn es mit {{jsxref("Statements/await_using", "await using")}} verwendet wird.
+  - : Ruft die `return()`-Methode von `this` auf und wartet auf sie, falls sie existiert. Dies implementiert das _async disposable protocol_ und ermöglicht es, entsorgt zu werden, wenn es mit {{jsxref("Statements/await_using", "await using")}} verwendet wird.
 - [`AsyncIterator.prototype[Symbol.asyncIterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator/Symbol.asyncIterator)
-  - : Gibt das asynchrone Iterator-Objekt selbst zurück. Dies erlaubt es asynchronen Iterator-Objekten auch asynchron iterabel zu sein.
+  - : Gibt das async Iterator-Objekt selbst zurück. Dadurch können async Iterator-Objekte auch async iterable sein.
 
 ## Beispiele
 
-### Verwenden eines asynchronen Iterators als asynchron iterabel
+### Verwendung eines async Iterators als async iterable
 
-Alle eingebauten asynchronen Iteratoren sind auch asynchron iterabel, sodass Sie sie in einer `for await...of`-Schleife verwenden können:
+Alle eingebauten async Iteratoren sind auch async iterable, sodass Sie sie in einer `for await...of`-Schleife verwenden können:
 
 ```js
 const asyncIterator = (async function* () {
@@ -62,4 +62,4 @@ const asyncIterator = (async function* () {
 ## Siehe auch
 
 - {{jsxref("Statements/async_function*", "async function*")}}
-- [Iteration-Protokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iteration protocols](/de/docs/Web/JavaScript/Reference/Iteration_protocols)

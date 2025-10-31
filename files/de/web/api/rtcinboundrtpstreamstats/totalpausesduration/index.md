@@ -3,19 +3,19 @@ title: "RTCInboundRtpStreamStats: totalPausesDuration-Eigenschaft"
 short-title: totalPausesDuration
 slug: Web/API/RTCInboundRtpStreamStats/totalPausesDuration
 l10n:
-  sourceCommit: 5f8f306587fbe25beac0d0e9c9fbda366e372f14
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`totalPausesDuration`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die Gesamtzeit an, die das Video in diesem Stream pausiert verbracht hat, in Sekunden.
+Die **`totalPausesDuration`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die gesamte Zeit an, die das Video in diesem Stream pausiert war, in Sekunden.
 
-Eine Pause wird gezählt, wenn ein neuer Frame mehr als 5 Sekunden nach dem letzten gerenderten Frame gerendert wird, und die zwischen den Frames genommene Zeit wird zur `totalPausesDuration` hinzugefügt.
+Eine Pause wird gezählt, wenn ein neuer Frame mehr als 5 Sekunden nach dem letzten Frame gerendert wird, und die zwischen den Frames benötigte Zeit wird der `totalPausesDuration` hinzugefügt.
 
-Die durchschnittliche Pausendauer kann mit `totalPausesDuration / pauseCount` berechnet werden.
+Die durchschnittliche Pausendauer kann berechnet werden mit `totalPausesDuration / pauseCount`.
 
 > [!NOTE]
-> Die Eigenschaft ist für Audiostreams undefiniert.
+> Die Eigenschaft ist für Audiostreams nicht definiert.
 
 ## Wert
 

@@ -3,12 +3,12 @@ title: "CSSMathValue: operator-Eigenschaft"
 short-title: operator
 slug: Web/API/CSSMathValue/operator
 l10n:
-  sourceCommit: dae250f0451c1072def7db7eaa392bfb00598d62
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte Eigenschaft **`CSSMathValue.operator`** des [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)-Interfaces gibt den Operator an, den der aktuelle Subtyp darstellt. Wenn zum Beispiel der aktuelle `CSSMathValue`-Subtyp `CSSMathSum` ist, wird diese Eigenschaft die Zeichenkette `"sum"` zurückgeben.
+Die schreibgeschützte **`CSSMathValue.operator`**-Eigenschaft des [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)-Interfaces gibt den Operator an, den der aktuelle Subtyp darstellt. Beispielsweise, wenn der aktuelle `CSSMathValue` Subtyp `CSSMathSum` ist, gibt diese Eigenschaft den String `"sum"` zurück.
 
 ## Wert
 
@@ -26,13 +26,13 @@ Ein {{jsxref('String')}}.
 
 ## Beispiele
 
-Wir erstellen ein Element mit einer [`width`](/de/docs/Web/CSS/width), die mit einer [`calc()`](/de/docs/Web/CSS/calc)-Funktion bestimmt wird, und verwenden dann [`console.log()`](/de/docs/Web/API/console/log_static), um den `operator` auszugeben.
+Wir erstellen ein Element mit einer [`width`](/de/docs/Web/CSS/Reference/Properties/width), die mithilfe einer [`calc()`](/de/docs/Web/CSS/calc)-Funktion bestimmt wird, und verwenden dann [`console.log()`](/de/docs/Web/API/console/log_static), um den `operator` auszugeben.
 
 ```html
 <div>My width has a <code>calc()</code> function</div>
 ```
 
-Wir weisen eine `width` mit einer Berechnung zu.
+Wir weisen eine `width` mit einer Berechnung zu
 
 ```css
 div {
@@ -40,7 +40,7 @@ div {
 }
 ```
 
-Wir fügen das JavaScript hinzu.
+Wir fügen das JavaScript hinzu
 
 ```js
 const styleMap = document.querySelector("div").computedStyleMap();
@@ -53,7 +53,7 @@ console.log(styleMap.get("width").values[1].operator); // 'negate'
 
 {{EmbedLiveSample("Examples", 120, 300)}}
 
-Der `CSSMathValue.operator` gibt `sum` für die Gleichung und `negate` für den Operator des zweiten Wertes zurück.
+Die `CSSMathValue.operator` gibt `sum` für die Gleichung zurück und `negate` für den Operator des zweiten Wertes.
 
 ## Spezifikationen
 

@@ -3,12 +3,12 @@ title: "Element: nextElementSibling-Eigenschaft"
 short-title: nextElementSibling
 slug: Web/API/Element/nextElementSibling
 l10n:
-  sourceCommit: 06bb5f22d50ff3579a12aebf7e8c9f02cfa2468b
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`Element.nextElementSibling`**-Eigenschaft gibt das Element zurück, das unmittelbar auf das angegebene im [`children`](/de/docs/Web/API/Element/children)-Listeneintrag des übergeordneten Elements folgt, oder `null`, wenn das angegebene Element das letzte in der Liste ist.
+Die schreibgeschützte Eigenschaft **`Element.nextElementSibling`** gibt das Element zurück, das unmittelbar auf das angegebene Element in der [`children`](/de/docs/Web/API/Element/children)-Liste seines Elternteils folgt, oder `null`, wenn das angegebene Element das letzte in der Liste ist.
 
 ## Wert
 

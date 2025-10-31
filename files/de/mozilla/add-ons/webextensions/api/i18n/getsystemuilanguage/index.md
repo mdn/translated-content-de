@@ -2,10 +2,10 @@
 title: i18n.getSystemUILanguage()
 slug: Mozilla/Add-ons/WebExtensions/API/i18n/getSystemUILanguage
 l10n:
-  sourceCommit: 09109b6f9444d22215ba330ec1e64e73980b2a6c
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Gibt das aktuelle UI-Gebietsschema des Betriebssystems zurück. Dies unterscheidet sich von {{WebExtAPIRef('i18n.getUILanguage')}}, das das UI-Gebietsschema des Webbrowsers zurückgibt.
+Gibt die aktuelle UI-Lokalisierung des Betriebssystems zurück. Dies unterscheidet sich von {{WebExtAPIRef('i18n.getUILanguage')}}, die die UI-Lokalisierung des Webbrowsers zurückgibt.
 
 ## Syntax
 

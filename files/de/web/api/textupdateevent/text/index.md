@@ -3,20 +3,20 @@ title: "TextUpdateEvent: text-Eigenschaft"
 short-title: text
 slug: Web/API/TextUpdateEvent/text
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`TextUpdateEvent.text`**-Eigenschaft enthält den Text, der im aktualisierten Bereich eines `textupdate`-Ereignisses eines [`EditContext`](/de/docs/Web/API/EditContext) eingefügt wurde.
+Die schreibgeschützte Eigenschaft **`TextUpdateEvent.text`** enthält den Text, der innerhalb des aktualisierten Bereichs eines `textupdate`-Ereignisses eines [`EditContext`](/de/docs/Web/API/EditContext) eingefügt wurde.
 
 ## Wert
 
-Ein {{jsxref("String")}}, der den Text enthält, der den zwischen den Indizes [`updateRangeStart`](/de/docs/Web/API/TextUpdateEvent/updateRangeStart) und [`updateRangeEnd`](/de/docs/Web/API/TextUpdateEvent/updateRangeEnd) enthaltenen Text ersetzt.
+Ein {{jsxref("String")}}, der den Text enthält, der den Text zwischen den Indizes [`updateRangeStart`](/de/docs/Web/API/TextUpdateEvent/updateRangeStart) und [`updateRangeEnd`](/de/docs/Web/API/TextUpdateEvent/updateRangeEnd) ersetzt.
 
 ## Beispiele
 
-### Verwendung von `textupdate`, um den eingefügten Text und den Ort anzuzeigen
+### Verwendung von `textupdate`, um den eingefügten Text und dessen Position anzuzeigen
 
 ```html
 <div id="editor"></div>

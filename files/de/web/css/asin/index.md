@@ -2,10 +2,10 @@
 title: asin()
 slug: Web/CSS/asin
 l10n:
-  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
-Die **`asin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) ist eine trigonometrische Funktion, die den Arkussinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion enthält eine Einzelberechnung, die die Anzahl der Radiant zurückgibt, die ein {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` darstellen.
+Die **`asin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) ist eine trigonometrische Funktion, die den Arkussinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion enthält eine einzelne Berechnung, die die Anzahl der Bogenmaß zurückgibt, die ein {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` darstellt.
 
 ## Syntax
 
@@ -21,10 +21,10 @@ transform: rotate(asin(e / 3));
 
 ### Parameter
 
-Die Funktion `asin(number)` akzeptiert nur einen Wert als ihren Parameter.
+Die `asin(number)` Funktion akzeptiert nur einen Wert als ihren Parameter.
 
 - `number`
-  - : Eine Berechnung, die zu einer {{cssxref("&lt;number&gt;")}} zwischen `-1` und `1` führt.
+  - : Eine Berechnung, die auf eine {{cssxref("&lt;number&gt;")}} zwischen `-1` und `1` aufgelöst wird.
 
 ### Rückgabewert
 
@@ -39,9 +39,9 @@ Der Arkussinus einer `number` wird immer ein {{cssxref("&lt;angle&gt;")}} zwisch
 
 ## Beispiele
 
-### Elemente drehen
+### Elemente rotieren
 
-Die `asin()`-Funktion kann verwendet werden, um Elemente mit der {{cssxref("transform-function/rotate", "Rotation")}} zu drehen, da sie ein {{cssxref("&lt;angle&gt;")}} zurückgibt.
+Die `asin()` Funktion kann verwendet werden, um Elemente mit {{cssxref("transform-function/rotate", "rotate")}} zu drehen, da sie ein {{cssxref("&lt;angle&gt;")}} zurückgibt.
 
 #### HTML
 

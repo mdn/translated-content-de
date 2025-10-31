@@ -1,18 +1,19 @@
 ---
-title: "CharacterData: Eigenschaft nextElementSibling"
+title: "CharacterData: nextElementSibling-Eigenschaft"
 short-title: nextElementSibling
 slug: Web/API/CharacterData/nextElementSibling
 l10n:
-  sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`nextElementSibling`**-Eigenschaft des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces gibt das erste [`Element`](/de/docs/Web/API/Element)-Knoten zurück, das dem angegebenen in der Kindliste seines Elternteils folgt, oder `null`, wenn das angegebene Element das letzte in der Liste ist.
+Die schreibgeschützte **`nextElementSibling`**-Eigenschaft des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces
+gibt das erste [`Element`](/de/docs/Web/API/Element)-Knoten zurück, das dem spezifizierten in der Kindliste des übergeordneten Elements folgt, oder `null`, wenn das spezifizierte Element das letzte in der Liste ist.
 
 ## Wert
 
-Ein [`Element`](/de/docs/Web/API/Element)-Objekt oder `null`, wenn kein Geschwisterknoten gefunden wurde.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt oder `null`, wenn kein Geschwister gefunden wurde.
 
 ## Beispiel
 

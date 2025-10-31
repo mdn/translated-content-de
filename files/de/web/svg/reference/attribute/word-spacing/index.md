@@ -2,17 +2,17 @@
 title: word-spacing
 slug: Web/SVG/Reference/Attribute/word-spacing
 l10n:
-  sourceCommit: 3c83d88f02f33f4066224e9f624a17dd2a0b0d19
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das **`word-spacing`**-Attribut spezifiziert das Verhalten des Abstands zwischen Wörtern.
+Das **`word-spacing`** Attribut spezifiziert das Verhalten des Abstands zwischen Wörtern.
 
-Wenn eine {{cssxref("length")}} ohne Einheit angegeben wird (z. B. eine nicht qualifizierte Zahl wie 128), verarbeitet der Browser die \<length> als einen Breitenwert im aktuellen Benutzerkoordinatensystem.
+Wenn ein {{cssxref("length")}} ohne eine Einheitenbezeichnung (z. B. eine nicht spezifizierte Zahl wie 128) angegeben wird, verarbeitet der Browser die \<length> als einen Breitenwert im aktuellen Benutzerkoordinatensystem.
 
-Wenn eine \<length> mit einer der Einheitsspezifizierer (z. B. .25em oder 1%) angegeben wird, konvertiert der Browser die \<length> in einen entsprechenden Wert im aktuellen Benutzerkoordinatensystem.
+Wenn ein \<length> mit einer der Einheitenbezeichnungen (z. B. .25em oder 1%) angegeben wird, wandelt der Browser die \<length> in einen entsprechenden Wert im aktuellen Benutzerkoordinatensystem um.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `word-spacing` auch ein entsprechendes CSS-Property: {{cssxref("word-spacing")}}. Wenn beide angegeben sind, hat das CSS-Property Vorrang.
+> Als Präsentationsattribut hat `word-spacing` auch ein CSS-Eigenschaftsgegenstück: {{cssxref("word-spacing")}}. Wenn beide spezifiziert sind, hat die CSS-Eigenschaft Vorrang.
 
 ## Elemente
 
@@ -22,7 +22,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("textPath")}}
 - {{SVGElement("tspan")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -41,11 +41,11 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte siehe bitte die [CSS `letter-spacing`](/de/docs/Web/CSS/letter-spacing#values) Property.
+Für eine Beschreibung der Werte, konsultieren Sie bitte die [CSS `letter-spacing`](/de/docs/Web/CSS/Reference/Properties/letter-spacing#values) Eigenschaft.
 
 ## Beispiele
 
-Dieses Beispiel enthält zwei {{SVGElement("text")}}-Elemente mit unterschiedlichen `word-spacing`-Werten.
+Dieses Beispiel umfasst zwei {{SVGElement("text")}} Elemente mit unterschiedlichen `word-spacing` Werten.
 
 ```css hidden
 html,
@@ -74,4 +74,4 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref("word-spacing")}}-Property
+- CSS {{cssxref("word-spacing")}} Eigenschaft

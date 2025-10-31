@@ -2,10 +2,10 @@
 title: "@page"
 slug: Web/CSS/@page
 l10n:
-  sourceCommit: c699955e1e368bd42d6ea9318a6afc9256c3036f
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Der **`@page`** At-Regel ist eine CSS-Regel, die verwendet wird, um verschiedene Aspekte von Druckseiten zu ändern. Sie zielt auf die Dimensionen, die Ausrichtung und die Ränder der Seite ab und modifiziert diese. Die `@page` At-Regel kann verwendet werden, um alle Seiten in einem Ausdruck oder einen Teil mittels ihrer verschiedenen Pseudoklassen zu zielen.
+Die **`@page`** At-Regel ist eine CSS-Regel, die verwendet wird, um verschiedene Aspekte von gedruckten Seiten zu modifizieren. Sie zielt auf die Dimensionen, die Ausrichtung und die Ränder der Seite ab und modifiziert diese. Die `@page` At-Regel kann verwendet werden, um alle Seiten eines Ausdrucks oder einen Teilbereich mit ihren verschiedenen Pseudoklassen anzusprechen.
 
 ## Syntax
 
@@ -42,21 +42,21 @@ Der **`@page`** At-Regel ist eine CSS-Regel, die verwendet wird, um verschiedene
 
 ### Seiteneigenschaften
 
-Die `@page` At-Regel kann nur Seiten-Deskriptoren und [Margin-At-Regeln](#margin-at-regeln) enthalten. Folgende Deskriptoren wurden von mindestens einem Browser implementiert:
+Die `@page` At-Regel kann nur Seiten-Beschreiber und [Rand-At-Regeln](#rand-at-regeln) enthalten. Die folgenden Deskriptoren wurden von mindestens einem Browser implementiert:
 
-- [`margin`](/de/docs/Web/CSS/margin)
-  - : Gibt die Seitenränder an. Individuelle Rand-Eigenschaften wie [`margin-top`](/de/docs/Web/CSS/margin-top), [`margin-right`](/de/docs/Web/CSS/margin-right), [`margin-bottom`](/de/docs/Web/CSS/margin-bottom) und [`margin-left`](/de/docs/Web/CSS/margin-left) können ebenfalls verwendet werden.
+- [`margin`](/de/docs/Web/CSS/Reference/Properties/margin)
+  - : Bestimmt die Seitenränder. Individuelle Rand-Eigenschaften wie [`margin-top`](/de/docs/Web/CSS/Reference/Properties/margin-top), [`margin-right`](/de/docs/Web/CSS/Reference/Properties/margin-right), [`margin-bottom`](/de/docs/Web/CSS/Reference/Properties/margin-bottom) und [`margin-left`](/de/docs/Web/CSS/Reference/Properties/margin-left) können ebenfalls verwendet werden.
 - [`page-orientation`](/de/docs/Web/CSS/@page/page-orientation)
-  - : Gibt die Ausrichtung der Seite an. Dies beeinflusst nicht das Layout der Seite; die Drehung wird nach dem Layout im Ausgabemedium angewendet.
+  - : Legt die Ausrichtung der Seite fest. Dies beeinflusst das Seitenlayout nicht; die Drehung wird nach dem Layout im Ausgabemedium angewendet.
 - [`size`](/de/docs/Web/CSS/@page/size)
-  - : Gibt die Zielgröße und Ausrichtung des enthaltenen Blocks der Seitenbox an. Im Allgemeinen Fall, wo eine Seitenbox auf ein Seitenblatt gerendert wird, zeigt es auch die Größe des Zielseitenblatts an.
+  - : Legt die Zielgröße und Ausrichtung des umgebenden Blocks des Seitenkastens fest. Im allgemeinen Fall, in dem ein Seitenkasten auf ein Blatt gerendert wird, gibt er auch die Größe des Zielblatts an.
 
-Die Spezifikation erwähnt folgende CSS-Eigenschaften, die über die @page At-Regel auf Seitenboxen anwendbar sind. Diese werden jedoch von keinem Benutzeragenten unterstützt.
+Die Spezifikation nennt die folgenden CSS-Eigenschaften als anwendbar auf Seitenkästen über die @page-Regel. Diese werden jedoch noch von keinem Benutzeragenten unterstützt.
 
 <details>
 <summary>Verbleibende Seiteneigenschaften</summary>
 
-| Funktion                  | CSS-Eigenschaften     |
+| Feature                   | CSS properties        |
 | ------------------------- | --------------------- |
 | bidi-Eigenschaften        | direction             |
 | Hintergrund-Eigenschaften | background-color      |
@@ -65,7 +65,7 @@ Die Spezifikation erwähnt folgende CSS-Eigenschaften, die über die @page At-Re
 |                           | background-attachment |
 |                           | background-position   |
 |                           | background            |
-| Rand-Eigenschaften        | border-top-width      |
+| Rahmen-Eigenschaften      | border-top-width      |
 |                           | border-right-width    |
 |                           | border-bottom-width   |
 |                           | border-left-width     |
@@ -107,12 +107,12 @@ Die Spezifikation erwähnt folgende CSS-Eigenschaften, die über die @page At-Re
 |                           | outline-style         |
 |                           | outline-color         |
 |                           | outline               |
-| Abstands-Eigenschaften    | padding-top           |
+| Auffüll-Eigenschaften     | padding-top           |
 |                           | padding-right         |
 |                           | padding-bottom        |
 |                           | padding-left          |
 |                           | padding               |
-| Anführungen               | quotes                |
+| Anführungszeichen         | quotes                |
 | Text-Eigenschaften        | letter-spacing        |
 |                           | text-align            |
 |                           | text-decoration       |
@@ -129,37 +129,37 @@ Die Spezifikation erwähnt folgende CSS-Eigenschaften, die über die @page At-Re
 
 ## Beschreibung
 
-Die @page-Regel definiert die Eigenschaften der Seitenbox. Die `@page` At-Regel kann über die CSS-Objektmodell-Schnittstelle [`CSSPageRule`](/de/docs/Web/API/CSSPageRule) aufgerufen werden.
+Die @page-Regel definiert Eigenschaften des Seitenkastens. Die `@page` At-Regel kann über die CSS-Objekt-Modellschnittstelle [`CSSPageRule`](/de/docs/Web/API/CSSPageRule) angesprochen werden.
 
 > [!NOTE]
-> Das W3C diskutiert, wie mit viewport-bezogenen {{cssxref("&lt;length&gt;")}}-Einheiten, `vh`, `vw`, `vmin` und `vmax`, umzugehen ist. Verwenden Sie sie vorerst nicht innerhalb einer `@page` At-Regel.
+> Das W3C diskutiert, wie mit viewportbezogenen {{cssxref("&lt;length&gt;")}} Einheiten, `vh`, `vw`, `vmin` und `vmax` umzugehen ist. Verwenden Sie sie bis dahin nicht innerhalb einer `@page`-At-Regel.
 
 ### Verwandte Eigenschaften
 
-Die `@page` At-Regel ermöglicht es dem Benutzer, der Regel einen Namen zuzuweisen, der dann in einer Deklaration mit der `page` Eigenschaft aufgerufen wird.
+Die `@page` At-Regel erlaubt es dem Benutzer, der Regel einen Namen zuzuweisen, der dann in einer Deklaration mit der `page`-Eigenschaft aufgerufen wird.
 
 - {{Cssxref("page")}}
-  - : Erlaubt einem Selektor, eine benutzerdefinierte **benannte Seite** zu verwenden
+  - : Erlaubt einem Selektor, eine vom Benutzer definierte **benannte Seite** zu verwenden
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
-Wo das `<page-body>` Folgendes umfasst:
+Wo das `<page-body>` umfasst:
 
-- Seiteneigenschaften
-- Seitenrand-Eigenschaften
+- seitenbeschreibende Eigenschaften
+- seitenrand-Eigenschaften
 
-und `<pseudo-page>` repräsentiert diese Pseudoklassen:
+und `<pseudo-page>` diese Pseudoklassen repräsentiert:
 
 - {{Cssxref(":blank")}}
 - {{Cssxref(":first")}}
 - {{Cssxref(":left")}}
 - {{Cssxref(":right")}}
 
-## Margin-At-Regeln
+## Rand-At-Regeln
 
-Die Margin-At-Regeln werden innerhalb der `@page` At-Regel verwendet. Sie zielen jeweils auf einen anderen Abschnitt der gedruckten Seite ab und gestalten den Bereich der gedruckten Seite basierend auf den im Stilblock gesetzten Eigenschaftswerten:
+Die Rand-At-Regeln werden innerhalb der `@page` At-Regel verwendet. Sie zielen jeweils auf einen anderen Abschnitt der gedruckten Seite des Dokuments ab und gestalten den Bereich der gedruckten Seite basierend auf den in dem Stilblock festgelegten Eigenschaften:
 
 ```css
 @page {
@@ -169,9 +169,9 @@ Die Margin-At-Regeln werden innerhalb der `@page` At-Regel verwendet. Sie zielen
 }
 ```
 
-**`@top-left`** zielt auf die obere linke Ecke des Dokuments und wendet die Änderungen basierend auf den festgelegten Seitenrand-Eigenschaften an.
+**`@top-left`** zielt auf den oberen linken Bereich des Dokuments und setzt die Änderungen auf Basis der festgelegten Seitenrand-Eigenschaften um.
 
-Weitere Margin-At-Regeln umfassen:
+Andere Rand-At-Regeln umfassen:
 
 ```css-nolint
 @top-left-corner
@@ -194,12 +194,12 @@ Weitere Margin-At-Regeln umfassen:
 
 ### Seitenrand-Eigenschaften
 
-Die Seitenrand-Eigenschaften sind der Satz von CSS-Eigenschaften, die in einer einzelnen Margin-At-Regel gesetzt werden können. Sie umfassen:
+Die Seitenrand-Eigenschaften sind die Menge an CSS-Eigenschaften, die in jeder einzelnen Rand-At-Regel festgelegt werden können. Sie umfassen:
 
 <details>
 <summary>Seitenrand-Eigenschaften</summary>
 
-| Funktion                  | CSS-Eigenschaften     |
+| Feature                   | CSS properties        |
 | ------------------------- | --------------------- |
 | bidi-Eigenschaften        | direction             |
 | Hintergrund-Eigenschaften | background-color      |
@@ -208,7 +208,7 @@ Die Seitenrand-Eigenschaften sind der Satz von CSS-Eigenschaften, die in einer e
 |                           | background-attachment |
 |                           | background-position   |
 |                           | background            |
-| Rand-Eigenschaften        | border-top-width      |
+| Rahmen-Eigenschaften      | border-top-width      |
 |                           | border-right-width    |
 |                           | border-bottom-width   |
 |                           | border-left-width     |
@@ -251,12 +251,12 @@ Die Seitenrand-Eigenschaften sind der Satz von CSS-Eigenschaften, die in einer e
 |                           | outline-style         |
 |                           | outline-color         |
 |                           | outline               |
-| Abstands-Eigenschaften    | padding-top           |
+| Auffüll-Eigenschaften     | padding-top           |
 |                           | padding-right         |
 |                           | padding-bottom        |
 |                           | padding-left          |
 |                           | padding               |
-| Anführungen               | quotes                |
+| Anführungszeichen         | quotes                |
 | Text-Eigenschaften        | letter-spacing        |
 |                           | text-align            |
 |                           | text-decoration       |
@@ -269,24 +269,24 @@ Die Seitenrand-Eigenschaften sind der Satz von CSS-Eigenschaften, die in einer e
 | Breiten-Eigenschaften     | width                 |
 |                           | min-width             |
 |                           | max-width             |
-| z-index                   | z-index               |
+| z-Index                   | z-index               |
 
 </details>
 
 ## Benannte Seiten
 
-Benannte Seiten ermöglichen es, pro Seite Layouts zu erstellen und [Seitenumbrüche](/de/docs/Web/CSS/CSS_fragmentation) in deklarativer Weise beim Drucken hinzuzufügen.
+Benannte Seiten ermöglichen es, ein seitenweises Layout und das Hinzufügen von [Seitenumbrüchen](/de/docs/Web/CSS/CSS_fragmentation) deklarativ beim Drucken durchzuführen.
 
-Benannte Seiten können mit der {{Cssxref("page")}} Eigenschaft angewendet werden. Dies ermöglicht es dem Benutzer, verschiedene Seitenkonfigurationen für den Einsatz in Drucklayouts zu erstellen.
+Benannte Seiten können über die {{Cssxref("page")}} Eigenschaft angewendet werden. Dies erlaubt es dem Benutzer, verschiedene Seitenkonfigurationen zur Verwendung in Drucklayouts zu erstellen.
 
-Ein Beispiel hierzu finden Sie in den [`page`](/de/docs/Web/CSS/page#examples) Beispielen.
+Ein Beispiel dafür finden Sie in den [`page`](/de/docs/Web/CSS/Reference/Properties/page#examples) Beispielen.
 
 ## Beispiele
 
-### Verwendung der Größe-Eigenschaft zur Änderung der Seitenorientierung
+### Verwendung der Eigenschaft size zum Ändern der Seitenausrichtung
 
-Dieses Beispiel zeigt, wie die `<section>`s in einzelne Seiten im `Querformat` aufgeteilt werden können, wobei jede Seite einen 20% Rand beim Drucken hat.
-Das Klicken auf den Druckknopf öffnet einen Druckdialog mit den HTML-Abschnitten, die in Einzelseiten aufgeteilt sind.
+Dieses Beispiel zeigt, wie die `<section>`s in einzelne Seiten im `Querformat` aufgeteilt werden, wobei jede Seite beim Drucken einen Rand von 20% aufweist.
+Das Klicken auf die Drucktaste öffnet einen Druckdialog mit den HTML-Abschnitten, die in einzelne Seiten aufgeteilt sind.
 
 ```html live-sample___page-size
 <button>Print page</button>
@@ -359,7 +359,7 @@ section {
 
 {{EmbedLiveSample('page-size', '100%', '540', , , , , "allow-modals")}}
 
-### Beispiele für @page Pseudoklassen
+### Beispiele für @page-Pseudoklassen
 
 Sehen Sie sich die verschiedenen [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) von `@page` für Beispiele an.
 
@@ -379,6 +379,6 @@ Sehen Sie sich die verschiedenen [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes
 ## Siehe auch
 
 - Die {{cssxref("page")}} Eigenschaft
-- Die `@page` [`size`](/de/docs/Web/CSS/@page/size) Deskriptor
+- Der `@page` [`size`](/de/docs/Web/CSS/@page/size) Deskriptor
 - [CSS paged media](/de/docs/Web/CSS/CSS_paged_media) Modul
-- [\[META\] CSS Paged Media Module Level 3](https://bugzil.la/286443) Bugzilla zur Nachverfolgung des Fortschritts zu diesem Thema (seitenbasierte Zähler, etc.)
+- [\[META\] CSS Paged Media Module Level 3](https://bugzil.la/286443) Bugzilla zur Verfolgung des Fortschritts in Bezug auf das Thema (seitenbasierte Zähler usw.)

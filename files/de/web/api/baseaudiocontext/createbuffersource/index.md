@@ -3,16 +3,19 @@ title: "BaseAudioContext: createBufferSource()-Methode"
 short-title: createBufferSource()
 slug: Web/API/BaseAudioContext/createBufferSource
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die `createBufferSource()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle wird verwendet, um einen neuen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) zu erstellen, der zum Abspielen von Audiodaten verwendet werden kann, die in einem [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Objekt enthalten sind. [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) werden mit [`BaseAudioContext.createBuffer`](/de/docs/Web/API/BaseAudioContext/createBuffer) erstellt oder von [`BaseAudioContext.decodeAudioData`](/de/docs/Web/API/BaseAudioContext/decodeAudioData) zurückgegeben, wenn es einer Audiospur erfolgreich dekodiert.
+Die `createBufferSource()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)
+Schnittstelle wird verwendet, um ein neues [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) zu erstellen, das zum Abspielen von Audiodaten verwendet werden kann, die in einem [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Objekt enthalten sind.
+[`AudioBuffer`](/de/docs/Web/API/AudioBuffer)s werden mittels [`BaseAudioContext.createBuffer`](/de/docs/Web/API/BaseAudioContext/createBuffer) erstellt oder von [`BaseAudioContext.decodeAudioData`](/de/docs/Web/API/BaseAudioContext/decodeAudioData) zurückgegeben, wenn es einen Audiotrack erfolgreich dekodiert.
 
 > [!NOTE]
-> Der [`AudioBufferSourceNode()`](/de/docs/Web/API/AudioBufferSourceNode/AudioBufferSourceNode)-Konstruktor ist der empfohlene Weg, um einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) zu erstellen; siehe
-> [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`AudioBufferSourceNode()`](/de/docs/Web/API/AudioBufferSourceNode/AudioBufferSourceNode)
+> Konstruktor ist die empfohlene Methode, um ein [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) zu erstellen; siehe
+> [Creating an AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -30,10 +33,10 @@ Ein [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode).
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen Puffer von zwei Sekunden, füllen ihn mit weißem Rauschen und spielen ihn dann über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) ab. Die Kommentare sollten klar erklären, was passiert.
+In diesem Beispiel erstellen wir einen zwei Sekunden langen Puffer, füllen ihn mit Weißrauschen und spielen ihn dann über ein [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) ab. Die Kommentare sollten klar erklären, was vor sich geht.
 
 > [!NOTE]
-> Sie können den Code auch [live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/),
+> Sie können den [Code auch live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/)
 > oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/blob/main/audio-buffer/index.html).
 
 ```js

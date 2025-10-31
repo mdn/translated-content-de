@@ -2,18 +2,18 @@
 title: unset
 slug: Web/CSS/unset
 l10n:
-  sourceCommit: 7e1296fc0722c86fb7e15487b5e9626597c7a2a0
+  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das **`unset`**-[CSS](/de/docs/Web/CSS)-Schlüsselwort setzt eine Eigenschaft auf ihren geerbten Wert zurück, wenn die Eigenschaft von Natur aus vom Elternelement erbt, und auf ihren [Anfangswert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value), wenn nicht. Mit anderen Worten, es verhält sich wie das {{cssxref("inherit")}}-Schlüsselwort im ersten Fall, wenn die Eigenschaft eine [vererbte Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Inheritance#inherited_properties) ist, und wie das {{cssxref("initial")}}-Schlüsselwort im zweiten Fall, wenn die Eigenschaft eine [nicht-vererbte Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Inheritance#non-inherited_properties) ist.
+Das **`unset`** [CSS](/de/docs/Web/CSS) Schlüsselwort setzt eine Eigenschaft auf ihren geerbten Wert zurück, wenn die Eigenschaft von Natur aus vom übergeordneten Element erbt, und auf ihren [Anfangswert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value), wenn dies nicht der Fall ist. Mit anderen Worten, es verhält sich wie das {{cssxref("inherit")}} Schlüsselwort im ersten Fall, wenn die Eigenschaft eine [geerbte Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Inheritance#inherited_properties) ist, und wie das {{cssxref("initial")}} Schlüsselwort im zweiten Fall, wenn die Eigenschaft eine [nicht geerbte Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Inheritance#non-inherited_properties) ist.
 
-**`unset`** kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschreibweise {{cssxref("all")}}.
+**`unset`** kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschreibweiseigenschaft {{cssxref("all")}}.
 
 ## Beispiele
 
 ### Farbe
 
-[`color`](/de/docs/Web/CSS/color#formal_definition) ist eine vererbte Eigenschaft.
+[`color`](/de/docs/Web/CSS/Reference/Properties/color#formal_definition) ist eine geerbte Eigenschaft.
 
 #### HTML
 
@@ -53,7 +53,7 @@ p {
 
 ### Rahmen
 
-[`border`](/de/docs/Web/CSS/border#formal_definition) ist eine nicht-vererbte Eigenschaft.
+[`border`](/de/docs/Web/CSS/Reference/Properties/border#formal_definition) ist eine nicht geerbte Eigenschaft.
 
 #### HTML
 
@@ -97,8 +97,8 @@ p {
 
 ## Siehe auch
 
-- Verwenden Sie das {{cssxref("initial")}}-Schlüsselwort, um eine Eigenschaft auf ihren Anfangswert zu setzen.
-- Verwenden Sie das {{cssxref("inherit")}}-Schlüsselwort, um die Eigenschaft eines Elements wie die seines Elternelements zu machen.
-- Verwenden Sie das {{cssxref("revert")}}-Schlüsselwort, um eine Eigenschaft auf den Wert zurückzusetzen, der durch das User-Agent-Stylesheet (oder durch Benutzerstile, falls vorhanden) festgelegt wurde.
-- Verwenden Sie das {{cssxref("revert-layer")}}-Schlüsselwort, um eine Eigenschaft auf den Wert zurückzusetzen, der in einer vorherigen Kaskadenschicht festgelegt wurde.
-- Die {{cssxref("all")}}-Eigenschaft ermöglicht es Ihnen, alle Eigenschaften auf ihren Anfangs-, geerbten, zurückgesetzten oder ungesetzten Zustand gleichzeitig zurückzusetzen.
+- Verwenden Sie das {{cssxref("initial")}} Schlüsselwort, um eine Eigenschaft auf ihren Anfangswert zu setzen.
+- Verwenden Sie das {{cssxref("inherit")}} Schlüsselwort, um die Eigenschaft eines Elements so einzustellen, dass sie der des übergeordneten Elements entspricht.
+- Verwenden Sie das {{cssxref("revert")}} Schlüsselwort, um eine Eigenschaft auf den Wert zurückzusetzen, der durch das Benutzeragenten-Stylesheet (oder durch Benutzerstile, falls vorhanden) festgelegt wurde.
+- Verwenden Sie das {{cssxref("revert-layer")}} Schlüsselwort, um eine Eigenschaft auf den Wert in einer vorherigen Kaskadenschicht zurückzusetzen.
+- Mit der {{cssxref("all")}} Eigenschaft können Sie alle Eigenschaften auf einmal auf ihren initialen, geerbten, zurückgesetzten oder nicht gesetzten Zustand zurücksetzen.

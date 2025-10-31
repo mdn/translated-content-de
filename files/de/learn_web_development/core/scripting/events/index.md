@@ -107,7 +107,7 @@ btn.addEventListener("click", () => {
 Das HTML {{HTMLElement("button")}}-Element löst ein `click`-Ereignis aus, wenn der Benutzer darauf klickt. Wir rufen die Methode `addEventListener()` darauf auf, um einen Ereignis-Listener hinzuzufügen; dies erfordert zwei Parameter:
 
 - die Zeichenkette "`click`", um anzugeben, dass wir auf das `click`-Ereignis lauschen möchten. Buttons können viele andere Ereignisse auslösen, wie etwa [`"mouseover"`](/de/docs/Web/API/Element/mouseover_event), wenn der Benutzer die Maus über den Button bewegt, oder [`"keydown"`](/de/docs/Web/API/Element/keydown_event), wenn der Benutzer eine Taste drückt und der Button fokussiert ist.
-- eine Funktion, die aufgerufen wird, wenn das Ereignis auftritt. In unserem Fall generiert die definierte anonyme Funktion eine zufällige RGB-Farbe und setzt die [`background-color`](/de/docs/Web/CSS/background-color) der Seite [`<body>`](/de/docs/Web/HTML/Reference/Elements/body) auf diese Farbe.
+- eine Funktion, die aufgerufen wird, wenn das Ereignis auftritt. In unserem Fall generiert die definierte anonyme Funktion eine zufällige RGB-Farbe und setzt die [`background-color`](/de/docs/Web/CSS/Reference/Properties/background-color) der Seite [`<body>`](/de/docs/Web/HTML/Reference/Elements/body) auf diese Farbe.
 
 Sie könnten auch eine separate benannte Funktion erstellen und diese im zweiten Parameter von `addEventListener()` referenzieren, so:
 

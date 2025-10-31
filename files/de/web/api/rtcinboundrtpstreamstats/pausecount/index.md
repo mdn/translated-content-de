@@ -3,19 +3,19 @@ title: "RTCInboundRtpStreamStats: pauseCount-Eigenschaft"
 short-title: pauseCount
 slug: Web/API/RTCInboundRtpStreamStats/pauseCount
 l10n:
-  sourceCommit: 5f8f306587fbe25beac0d0e9c9fbda366e372f14
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`pauseCount`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die Gesamtanzahl der Pausen an, die bei diesem Empfänger aufgetreten sind.
+Die **`pauseCount`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die Gesamtzahl der vom Empfänger erlebten Pausen an.
 
-Eine Pause wird gezählt, wenn ein neues Bild mehr als 5 Sekunden nach dem letzten Bild gerendert wird.
+Eine Pause wird gezählt, wenn ein neues Frame mehr als 5 Sekunden nach dem letzten gerenderten Frame angezeigt wird.
 
 Die durchschnittliche Pausendauer kann mit `totalPausesDuration / pauseCount` berechnet werden.
 
 > [!NOTE]
-> Die Eigenschaft ist für Audio-Streams nicht definiert.
+> Die Eigenschaft ist für Audiostreams nicht definiert.
 
 ## Wert
 

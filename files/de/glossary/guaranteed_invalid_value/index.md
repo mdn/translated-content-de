@@ -2,12 +2,12 @@
 title: Garantiert ungültiger Wert
 slug: Glossary/guaranteed_invalid_value
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 55326f330a6ae829494c7606b1bd47b2c0f9d888
 ---
 
 Im CSS ist der garantiert ungültige Wert {{CSSXref("initial")}}.
 
-Wenn der Wert einer [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) der garantiert ungültige Wert ist, kann die {{CSSXref("var")}}-Funktion ihn nicht für die Ersetzung verwenden. Der Versuch dies zu tun führt dazu, dass die Deklaration _bei der Berechnung der Werte ungültig_ wird, es sei denn, es wird ein gültiger Fallback angegeben.
+Wenn der Wert einer [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) der garantiert ungültige Wert ist, kann die {{CSSXref("var")}}-Funktion ihn nicht zur Ersetzung verwenden. Ein Versuch, dies zu tun, macht die Deklaration _ungültig zur Berechnungszeit_, es sei denn, ein gültiger Fallback ist angegeben.
 
 ## Siehe auch
 

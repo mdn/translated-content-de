@@ -1,22 +1,22 @@
 ---
-title: "ExtendableMessageEvent: source Eigenschaft"
+title: "ExtendableMessageEvent: source-Eigenschaft"
 short-title: source
 slug: Web/API/ExtendableMessageEvent/source
 l10n:
-  sourceCommit: 2ef36a6d6f380e79c88bc3a80033e1d3c4629994
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`source`**-Eigenschaft der [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent)-Schnittstelle gibt eine Referenz auf das [`Client`](/de/docs/Web/API/Client)-Objekt zurück, von dem die Nachricht gesendet wurde.
+Die **`source`** schreibgeschützte Eigenschaft der [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent)-Schnittstelle gibt eine Referenz auf das [`Client`](/de/docs/Web/API/Client)-Objekt zurück, von dem die Nachricht gesendet wurde.
 
 ## Wert
 
-Ein [`Client`](/de/docs/Web/API/Client), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) oder [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt.
+Ein [`Client`](/de/docs/Web/API/Client)-, [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)- oder [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt.
 
 ## Beispiele
 
-Wenn der folgende Code in einem Service Worker verwendet wird, um auf Push-Nachrichten zu reagieren, indem die über [`PushMessageData`](/de/docs/Web/API/PushMessageData) empfangenen Daten über eine [Kanalnachricht](/de/docs/Web/API/Channel_Messaging_API) an den Hauptkontext gesendet werden, wird das Ereignisobjekt von `onmessage` ein `ExtendableMessageEvent` sein.
+Wenn der folgende Code innerhalb eines Service Workers verwendet wird, um auf Push-Nachrichten zu reagieren, indem die empfangenen Daten über [`PushMessageData`](/de/docs/Web/API/PushMessageData) an den Hauptkontext über eine [Channel-Messaging](/de/docs/Web/API/Channel_Messaging_API) gesendet werden, ist das Ereignisobjekt von `onmessage` ein `ExtendableMessageEvent`.
 
 ```js
 let port;
@@ -47,6 +47,6 @@ self.onmessage = (e) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Codebeispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Kanalnachrichten](/de/docs/Web/API/Channel_Messaging_API)
+- [Arbeiten mit Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Beispiel für Service Worker Code](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Channel Messaging](/de/docs/Web/API/Channel_Messaging_API)

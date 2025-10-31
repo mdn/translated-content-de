@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
 ---
 
-Die **`ray()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) definiert das [`offset-path`](/de/docs/Web/CSS/offset-path) Liniensegment, dem ein animiertes Element folgen kann. Das Liniensegment wird als "Strahl" bezeichnet. Der Strahl beginnt von einer {{cssxref("offset-position")}} und erstreckt sich in die Richtung des angegebenen Winkels. Die Länge eines Strahls kann eingeschränkt werden, indem eine Größe angegeben und das `contain`-Schlüsselwort verwendet wird.
+Die **`ray()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) definiert das [`offset-path`](/de/docs/Web/CSS/Reference/Properties/offset-path) Liniensegment, dem ein animiertes Element folgen kann. Das Liniensegment wird als "Strahl" bezeichnet. Der Strahl beginnt von einer {{cssxref("offset-position")}} und erstreckt sich in die Richtung des angegebenen Winkels. Die Länge eines Strahls kann eingeschränkt werden, indem eine Größe angegeben und das `contain`-Schlüsselwort verwendet wird.
 
 ## Syntax
 
@@ -52,7 +52,7 @@ Die `ray()`-Funktion positioniert ein Element entlang eines Pfades, indem sie de
 
 Da `ray()` im 2D-Raum arbeitet, ist es wichtig, sowohl die Anfangsposition als auch die Orientierung des Elements zu berücksichtigen. Wenn die `ray()`-Funktion als `offset-path`-Wert auf ein Element angewendet wird, können Sie diese Aspekte wie folgt steuern:
 
-- Das Element wird anfänglich positioniert, indem der [`offset-anchor`](/de/docs/Web/CSS/offset-anchor)-Punkt des Elements zur Offset-Ausgangsposition des Elements verschoben wird. Standardmäßig wird die Startposition des Strahls durch den {{cssxref("offset-position")}}-Wert bestimmt. Wenn `offset-position` explizit als `normal` angegeben wird (oder weggelassen und auf `normal` standardmäßig), wird das Element im `center` (oder `50% 50%`) seines Containing Blocks positioniert. Die Angabe von `offset-position: auto` setzt die Startposition auf die obere linke Ecke (oder `0 0`) der Position des Elements.
+- Das Element wird anfänglich positioniert, indem der [`offset-anchor`](/de/docs/Web/CSS/Reference/Properties/offset-anchor)-Punkt des Elements zur Offset-Ausgangsposition des Elements verschoben wird. Standardmäßig wird die Startposition des Strahls durch den {{cssxref("offset-position")}}-Wert bestimmt. Wenn `offset-position` explizit als `normal` angegeben wird (oder weggelassen und auf `normal` standardmäßig), wird das Element im `center` (oder `50% 50%`) seines Containing Blocks positioniert. Die Angabe von `offset-position: auto` setzt die Startposition auf die obere linke Ecke (oder `0 0`) der Position des Elements.
 
 - Das Element wird anfänglich so gedreht, dass seine [Inline-Achse](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout#the_two_axes_of_a_grid_layout) — seine Textflussrichtung — mit dem durch `ray()` angegebenen Winkel übereinstimmt. Zum Beispiel wird bei einem `ray()`-Winkel von `0deg`, der auf der y-Achse nach oben zeigt, die Inline-Achse des Elements vertikal gedreht, um dem Winkel des Strahls zu entsprechen. Das Element behält diese Rotation entlang seines Pfades bei. Um dieses Verhalten anzupassen, verwenden Sie die {{cssxref("offset-rotate")}}-Eigenschaft, die es Ihnen ermöglicht, einen anderen Rotationswinkel oder eine andere Richtung für das Element anzugeben, wodurch Sie genauere Kontrolle über sein Erscheinungsbild erhalten, während es dem Pfad folgt. Zum Beispiel wird durch die Einstellung `offset-rotate: 0deg` jede von `ray()` angewandte Rotation entfernt, wodurch die Inline-Achse des Elements wieder mit der Textflussrichtung ausgerichtet wird.
 
@@ -189,7 +189,7 @@ pre {
 </div>
 ```
 
-Ähnlich wie bei {{cssxref("transform-origin")}} befindet sich der Standardankerpunkt im Zentrum eines Elements. Dieser Ankerpunkt kann mithilfe der [`offset-anchor`](/de/docs/Web/CSS/offset-anchor)-Eigenschaft modifiziert werden.
+Ähnlich wie bei {{cssxref("transform-origin")}} befindet sich der Standardankerpunkt im Zentrum eines Elements. Dieser Ankerpunkt kann mithilfe der [`offset-anchor`](/de/docs/Web/CSS/Reference/Properties/offset-anchor)-Eigenschaft modifiziert werden.
 
 In diesem Beispiel werden auf die Boxen, die mit den Nummern `1` bis `5` gekennzeichnet sind, verschiedene `offset-path: ray()`-Werte angewendet. Der "Containing Block" jeder Box ist mit einer gestrichelten Linie dargestellt. Eine verblasste Box in der oberen linken Ecke zeigt die Standardposition jeder Box ohne angewendete `offset-position` oder `offset-path`, was einen direkten Vergleich ermöglicht. Die Oberseite jeder Box ist mit einem `solide` Umrandung hervorgehoben, um Variationen in den Startpunkten und Ausrichtungen des Strahls zu veranschaulichen. Nachdem die Position auf den Startpunkt des Strahls festgelegt wurde, richtet sich eine Box nach der Richtung des angegebenen Strahlwinkels aus. Wenn {{cssxref("offset-position")}} nicht spezifiziert ist, ist die Standard-Ausgangsposition der Strahls das Zentrum (oder `50% 50%`) des Containing Blocks der Box.
 
@@ -201,7 +201,7 @@ In diesem Beispiel werden auf die Boxen, die mit den Nummern `1` bis `5` gekennz
 
 - In `box2` wird ein größerer positiver Winkel von `150deg` auf den Strahl angewendet, um zu zeigen, wie der Strahlwinkel funktioniert. Ausgehend von der oberen linken Ecke wird die Box im Uhrzeigersinn gedreht, um den angegebenen Winkel von `150deg` zu erreichen.
 
-- `box2` und `box3` haben die gleichen `offset-path`-Werte. In `box3` wird auch ein [`offset-rotate`](/de/docs/Web/CSS/offset-rotate) von `0deg` auf das Element angewendet. Damit bleibt das Element in diesem spezifischen Winkel entlang des Strahlpfades rotiert, und das Element wird sich nicht in Richtung des Pfades drehen. Beachten Sie in `box3`, dass der Strahlenpfad bei `150deg` liegt, aber die Boxorientierung sich nicht entlang des Pfades ändert aufgrund von `offset-rotate`. Auch beachten Sie, dass die `offset-path`-Eigenschaft von `box3` keine Start-`<position>`-Angabe enthält, sodass sich die Ausgangsposition des Strahls aus der `offset-position` des Elements ergibt, die in diesem Fall `top 20% left 40%` ist.
+- `box2` und `box3` haben die gleichen `offset-path`-Werte. In `box3` wird auch ein [`offset-rotate`](/de/docs/Web/CSS/Reference/Properties/offset-rotate) von `0deg` auf das Element angewendet. Damit bleibt das Element in diesem spezifischen Winkel entlang des Strahlpfades rotiert, und das Element wird sich nicht in Richtung des Pfades drehen. Beachten Sie in `box3`, dass der Strahlenpfad bei `150deg` liegt, aber die Boxorientierung sich nicht entlang des Pfades ändert aufgrund von `offset-rotate`. Auch beachten Sie, dass die `offset-path`-Eigenschaft von `box3` keine Start-`<position>`-Angabe enthält, sodass sich die Ausgangsposition des Strahls aus der `offset-position` des Elements ergibt, die in diesem Fall `top 20% left 40%` ist.
 
 - Die `offset-position` von `box4` ist auf die obere linke Ecke (`0 0`) des Containing Blocks gesetzt, und dadurch fallen der Ankerpunkt des Elements und die Ausgangsposition des Strahls zusammen. Der Strahlwinkel von `0deg` wird an diesem Startpunkt auf das Element angewendet.
 
@@ -337,6 +337,6 @@ In den ersten beiden Beispielen, bei denen `offset-path` angewendet wird, achten
 
 ## Siehe auch
 
-- [`offset-distance`](/de/docs/Web/CSS/offset-distance)
-- [`offset-path`](/de/docs/Web/CSS/offset-path)
-- [`offset-rotate`](/de/docs/Web/CSS/offset-rotate)
+- [`offset-distance`](/de/docs/Web/CSS/Reference/Properties/offset-distance)
+- [`offset-path`](/de/docs/Web/CSS/Reference/Properties/offset-path)
+- [`offset-rotate`](/de/docs/Web/CSS/Reference/Properties/offset-rotate)

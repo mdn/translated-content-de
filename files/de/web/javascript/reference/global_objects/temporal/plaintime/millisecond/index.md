@@ -3,14 +3,14 @@ title: Temporal.PlainTime.prototype.millisecond
 short-title: millisecond
 slug: Web/JavaScript/Reference/Global_Objects/Temporal/PlainTime/millisecond
 l10n:
-  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{SeeCompatTable}}
 
-Die **`millisecond`** Zugriffseigenschaft von {{jsxref("Temporal.PlainTime")}}-Instanzen gibt eine ganze Zahl von 0 bis 999 zurück, die die Millisekundenkomponente (10<sup>-3</sup> Sekunde) dieser Zeit darstellt.
+Die **`millisecond`** Zugriffs-Eigenschaft von {{jsxref("Temporal.PlainTime")}} Instanzen gibt eine ganze Zahl von 0 bis 999 zurück, die die Millisekundenkomponente (10<sup>-3</sup> Sekunde) dieser Zeit darstellt.
 
-Der Set-Accessor von `millisecond` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainTime/with", "with()")}}, um ein neues `Temporal.PlainTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
+Der Set-Zugriff von `millisecond` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern. Verwenden Sie die Methode {{jsxref("Temporal/PlainTime/with", "with()")}}, um ein neues `Temporal.PlainTime`-Objekt mit dem gewünschten neuen Wert zu erstellen.
 
 ## Beispiele
 
@@ -24,7 +24,7 @@ const time2 = Temporal.PlainTime.from("12:34:56.123456789");
 console.log(time2.millisecond); // 123
 ```
 
-### Änderung von millisecond
+### Ändern von millisecond
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");
@@ -32,7 +32,7 @@ const newTime = time.with({ millisecond: 100 });
 console.log(newTime.toString()); // 12:34:56.1
 ```
 
-Sie können auch {{jsxref("Temporal/PlainTime/add", "add()")}} oder {{jsxref("Temporal/PlainTime/subtract", "subtract()")}} verwenden, um eine bestimmte Anzahl von Millisekunden von der aktuellen Zeit zu verschieben.
+Sie können auch {{jsxref("Temporal/PlainTime/add", "add()")}} oder {{jsxref("Temporal/PlainTime/subtract", "subtract()")}} verwenden, um eine bestimmte Anzahl von Millisekunden von der aktuellen Zeit zu entfernen.
 
 ```js
 const time = Temporal.PlainTime.from("12:34:56");

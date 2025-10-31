@@ -3,12 +3,12 @@ title: "SourceBuffer: textTracks-Eigenschaft"
 short-title: textTracks
 slug: Web/API/SourceBuffer/textTracks
 l10n:
-  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}{{SeeCompatTable}}
 
-Die **`textTracks`** schreibgeschützte Eigenschaft des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces gibt eine Liste der Textspuren zurück, die derzeit im `SourceBuffer` enthalten sind.
+Die schreibgeschützte **`textTracks`**-Eigenschaft der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle gibt eine Liste der aktuell im `SourceBuffer` enthaltenen Textspuren zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`TextTrackList`](/de/docs/Web/API/TextTrackList)-Objekt.
 
 ## Beispiele
 
-TBD
+Noch festzulegen
 
 ## Spezifikationen
 

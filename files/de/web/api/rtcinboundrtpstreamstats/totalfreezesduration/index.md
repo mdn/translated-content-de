@@ -1,25 +1,25 @@
 ---
-title: "RTCInboundRtpStreamStats: Eigenschaft totalFreezesDuration"
+title: "RTCInboundRtpStreamStats: totalFreezesDuration Eigenschaft"
 short-title: totalFreezesDuration
 slug: Web/API/RTCInboundRtpStreamStats/totalFreezesDuration
 l10n:
-  sourceCommit: 5f8f306587fbe25beac0d0e9c9fbda366e372f14
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`totalFreezesDuration`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die gesamte Zeit an, die das Video in diesem Stream eingefroren war, in Sekunden.
+Die Eigenschaft **`totalFreezesDuration`** des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die gesamte Zeit an, die das Video in diesem Stream eingefroren war, in Sekunden.
 
-Ein Einfrieren wird gezählt, wenn das Intervall zwischen zwei gerenderten Frames gleich oder größer ist als der größere Wert von „drei Mal die durchschnittliche Dauer“ oder „der Durchschnitt + 150 ms“, und die zwischen den Frames benötigte Zeit wird zur `totalFreezesDuration` hinzugefügt.
+Ein Freeze wird gezählt, wenn das Intervall zwischen zwei gerenderten Frames gleich oder größer ist als die größere der beiden Zeiten: "dreimal die durchschnittliche Dauer" oder "der Durchschnitt + 150 ms". Die zwischen den Frames benötigte Zeit wird zur `totalFreezesDuration` addiert.
 
-Die durchschnittliche Dauer des Einfrierens kann berechnet werden mit `totalFreezesDuration / freezeCount`.
+Die durchschnittliche Einfrierdauer kann mit `totalFreezesDuration / freezeCount` berechnet werden.
 
 > [!NOTE]
-> Die Eigenschaft ist für Audioströme nicht definiert.
+> Die Eigenschaft ist für Audiostreams undefiniert.
 
 ## Wert
 
-Eine positive Zahl, in Sekunden.
+Eine positive Zahl in Sekunden.
 
 ## Spezifikationen
 

@@ -3,15 +3,15 @@ title: "RTCInboundRtpStreamStats: totalSamplesDuration-Eigenschaft"
 short-title: totalSamplesDuration
 slug: Web/API/RTCInboundRtpStreamStats/totalSamplesDuration
 l10n:
-  sourceCommit: 9dd28ca3964213e0564c80db0a7c39d8ad73ed72
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`totalSamplesDuration`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die Gesamtdauer aller empfangenen Audio-Samples an.
+Die **`totalSamplesDuration`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Dictionaries gibt die Gesamtdauer aller empfangenen Audiodatenproben an.
 Mit anderen Worten, die aktuelle Dauer des Tracks.
 
-Diese Eigenschaft kann zusammen mit [`totalAudioEnergy`](/de/docs/Web/API/RTCInboundRtpStreamStats/totalAudioEnergy) verwendet werden, um einen durchschnittlichen Audiopegel über verschiedene Zeitintervalle zu berechnen.
+Dies kann zusammen mit [`totalAudioEnergy`](/de/docs/Web/API/RTCInboundRtpStreamStats/totalAudioEnergy) verwendet werden, um einen durchschnittlichen Audiopegel über verschiedene Intervalle zu berechnen.
 
 > [!NOTE]
 > Der Wert ist für Videostreams undefiniert.
@@ -30,5 +30,5 @@ Eine positive Zahl, in Sekunden.
 
 ## Siehe auch
 
-- [`RTCAudioSourceStats.totalSamplesDuration`](/de/docs/Web/API/RTCAudioSourceStats/totalSamplesDuration) für die Audiodauer gesendeter Samples.
+- [`RTCAudioSourceStats.totalSamplesDuration`](/de/docs/Web/API/RTCAudioSourceStats/totalSamplesDuration) für die Audiodauer gesendeter Proben.
 - [`totalSamplesReceived`](/de/docs/Web/API/RTCInboundRtpStreamStats/totalSamplesReceived)

@@ -1,14 +1,14 @@
 ---
-title: "Navigator: `gpu`-Eigenschaft"
+title: "Navigator: gpu-Eigenschaft"
 short-title: gpu
 slug: Web/API/Navigator/gpu
 l10n:
-  sourceCommit: 5f226b6f08c5cff7f96b7cc49a164fdc43d11a0c
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("WebGPU API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`Navigator.gpu`** gibt das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Browsing-Kontext zurück, welches der Einstiegspunkt für die [WebGPU API](/de/docs/Web/API/WebGPU_API) ist.
+Die schreibgeschützte **`Navigator.gpu`**-Eigenschaft gibt das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Browsing-Kontext zurück, welcher der Einstiegspunkt für die [WebGPU API](/de/docs/Web/API/WebGPU_API) ist.
 
 ## Wert
 

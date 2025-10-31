@@ -3,12 +3,12 @@ title: "StorageAccessHandle: indexedDB-Eigenschaft"
 short-title: indexedDB
 slug: Web/API/StorageAccessHandle/indexedDB
 l10n:
-  sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{APIRef("Storage Access API")}}
 
-Die **`indexedDB`**-Eigenschaft der [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Schnittstelle gibt ein unpartitioniertes [`IDBFactory`](/de/docs/Web/API/IDBFactory)-Objekt zurück, wenn der Zugriff gewährt wurde, und wirft andernfalls einen `SecurityError`-[`DOMException`](/de/docs/Web/API/DOMException).
+Die **`indexedDB`**-Eigenschaft des [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Interfaces gibt ein nicht partitioniertes [`IDBFactory`](/de/docs/Web/API/IDBFactory)-Objekt zurück, wenn der Zugriff gewährt wurde. Andernfalls wird eine `SecurityError`-[`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
 ## Wert
 
@@ -29,7 +29,7 @@ document.requestStorageAccess({ indexedDB: true }).then(
 ```
 
 > [!NOTE]
-> Lesen Sie [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein umfassenderes Beispiel.
+> Für ein vollständigeres Beispiel siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using).
 
 ## Spezifikationen
 

@@ -1,14 +1,15 @@
 ---
-title: "Document: documentElement-Eigenschaft"
+title: "Dokument: documentElement-Eigenschaft"
 short-title: documentElement
 slug: Web/API/Document/documentElement
 l10n:
-  sourceCommit: 376da6eeed886361367923824132ccfc5ac1177d
+  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
 ---
 
 {{ApiRef("DOM")}}
 
-Die **`documentElement`** schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt das [`Element`](/de/docs/Web/API/Element) zurück, das das Wurzelelement des [`Dokuments`](/de/docs/Web/API/Document) ist (zum Beispiel das {{HTMLElement("html")}}-Element für HTML-Dokumente).
+Die schreibgeschützte **`documentElement`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt das
+[`Element`](/de/docs/Web/API/Element) zurück, das das Wurzelelement des [`Dokuments`](/de/docs/Web/API/Document) ist (zum Beispiel das {{HTMLElement("html")}}-Element für HTML-Dokumente).
 
 ## Wert
 
@@ -29,7 +30,10 @@ for (const child of firstTier) {
 
 ## Anmerkungen
 
-Für jedes nicht-leere HTML-Dokument wird `documentElement` immer ein {{HTMLElement("html")}}-Element sein. Für jedes nicht-leere XML-Dokument ist `documentElement` immer das Element, das das Wurzelelement des Dokuments ist.
+Für jedes nicht leere HTML-Dokument wird `documentElement` immer ein
+{{HTMLElement("html")}}-Element sein. Für jedes nicht leere XML-Dokument wird
+`documentElement` immer das Element sein, das das Wurzelelement des
+Dokuments ist.
 
 ## Spezifikationen
 
