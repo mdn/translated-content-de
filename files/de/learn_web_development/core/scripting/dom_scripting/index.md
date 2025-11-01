@@ -3,27 +3,27 @@ title: Einführung in das DOM-Scripting
 short-title: DOM scripting
 slug: Learn_web_development/Core/Scripting/DOM_scripting
 l10n:
-  sourceCommit: 4d1f7123363a5f5a42d865791b18f421d02cc893
+  sourceCommit: 273e96b5d57d1fe5210756edb145688e0bb04d3b
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Test_your_skills/Object_basics","Learn_web_development/Core/Scripting/Image_gallery", "Learn_web_development/Core/Scripting")}}
 
-Beim Schreiben von Webseiten und Apps ist es eine der häufigsten Aktionen, die Dokumentenstruktur auf irgendeine Weise zu ändern. Dies wird üblicherweise durch Manipulation des Document Object Model (DOM) über eine Reihe von integrierten Browser-APIs zum Steuern von HTML- und Stylinginformationen durchgeführt. In diesem Artikel werden wir Ihnen das **DOM-Scripting** vorstellen.
+Beim Schreiben von Webseiten und Apps möchten Sie oft die Dokumentenstruktur in irgendeiner Weise ändern. Dies wird in der Regel durch die Manipulation des Document Object Model (DOM) über eine Reihe von integrierten Browser-APIs zur Steuerung von HTML- und Styling-Informationen erreicht. In diesem Artikel führen wir Sie in das **DOM-Scripting** ein.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>, sowie Vertrautheit mit den JavaScript-Grundlagen, wie in vorherigen Lektionen behandelt.</td>
+      <td>Ein Verständnis von <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a> und den <a href="/de/docs/Learn_web_development/Core/Styling_basics">Grundlagen von CSS</a>, sowie Vertrautheit mit den JavaScript-Grundlagen, wie in früheren Lektionen behandelt.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Was das DOM ist — die interne Darstellung der HTML-Struktur des Dokuments durch den Browser als Hierarchie von Objekten.</li>
-          <li>Die wichtigen Teile eines Webbrowsers, die in JavaScript dargestellt werden — <code>Navigator</code>, <code>Window</code> und <code>Document</code>.</li>
-          <li>Wie DOM-Knoten relativ zueinander im DOM-Baum existieren — Wurzel-, Eltern-, Kind-, Geschwister- und Nachkommenknoten.</li>
-          <li>Wie auf DOM-Knoten zugegriffen, neue Knoten erstellt und Knoten sowie Attribute hinzugefügt oder entfernt werden.</li>
+          <li>Was das DOM ist – die interne Repräsentation der HTML-Struktur des Dokuments im Browser als Hierarchie von Objekten.</li>
+          <li>Die wichtigen Teile eines Webbrowsers, wie sie in JavaScript dargestellt werden — <code>Navigator</code>, <code>Window</code> und <code>Document</code>.</li>
+          <li>Wie DOM-Knoten zueinander im DOM-Baum existieren — Wurzel, Elternteil, Kind, Geschwister und Nachkommen.</li>
+          <li>Erhalten von Referenzen zu DOM-Knoten, Erstellen neuer Knoten, Hinzufügen und Entfernen von Knoten und Attributen.</li>
           <li>Manipulation von CSS-Stilen mit JavaScript.</li>
         </ul>
       </td>
@@ -33,26 +33,26 @@ Beim Schreiben von Webseiten und Apps ist es eine der häufigsten Aktionen, die 
 
 ## Die wichtigen Teile eines Webbrowsers
 
-Webbrowser sind sehr komplizierte Software mit vielen beweglichen Teilen, von denen viele nicht von einem Webentwickler mit JavaScript gesteuert oder manipuliert werden können. Sie könnten denken, dass solche Einschränkungen eine schlechte Sache sind, aber Browser sind aus guten Gründen gesichert, hauptsächlich um die Sicherheit zu gewährleisten. Stellen Sie sich vor, eine Website könnte auf Ihre gespeicherten Passwörter oder andere sensible Informationen zugreifen und sich als Sie bei Websites anmelden?
+Webbrowser sind sehr komplexe Softwarestücke mit vielen beweglichen Teilen, von denen viele nicht von einem Webentwickler mit JavaScript gesteuert oder manipuliert werden können. Sie könnten denken, dass solche Einschränkungen eine schlechte Sache sind, aber Browser sind aus guten Gründen gesperrt, die sich meist um Sicherheit drehen. Stellen Sie sich vor, wenn eine Website Zugang zu Ihren gespeicherten Passwörtern oder anderen sensiblen Informationen erhalten und sich als Sie selbst auf Websites einloggen könnte?
 
-Trotz der Einschränkungen bieten Web-APIs uns immer noch Zugang zu vielen Funktionalitäten, die es uns ermöglichen, eine Vielzahl von Dingen mit Webseiten zu tun. Es gibt ein paar wirklich offensichtliche Teile, auf die Sie regelmäßig in Ihrem Code verweisen werden — betrachten Sie das folgende Diagramm, das die Hauptbestandteile eines Browsers darstellt, die direkt am Anzeigen von Webseiten beteiligt sind:
+Trotz der Einschränkungen bieten Web-APIs dennoch Zugang zu vielen Funktionen, die es uns ermöglichen, eine Vielzahl von Dingen mit Webseiten zu tun. Es gibt ein paar wirklich offensichtliche Teile, auf die Sie regelmäßig in Ihrem Code verweisen — betrachten Sie das folgende Diagramm, das die Hauptteile eines Browsers darstellt, die direkt am Anzeigen von Webseiten beteiligt sind:
 
-![Wichtige Teile eines Webbrowsers; das Dokument ist die Webseite. Das Fenster umfasst das gesamte Dokument und auch den Tab. Der Navigator ist der Browser, der das Fenster (das das Dokument umfasst) und alle anderen Fenster umfasst.](document-window-navigator.png)
+![Wichtige Teile des Webbrowsers; das Dokument ist die Webseite. Das Fenster umfasst das gesamte Dokument und auch den Tab. Der Navigator ist der Browser, der das Fenster (das das Dokument umfasst) und alle anderen Fenster einschließt.](document-window-navigator.png)
 
-- Das **Window** stellt den Browser-Tab dar, in den eine Webseite geladen wird; dies wird in JavaScript durch das [`Window`](/de/docs/Web/API/Window)-Objekt dargestellt. Mit den auf diesem Objekt verfügbaren Methoden können Sie die Größe des Fensters zurückgeben (siehe [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight)), das Dokument manipulieren, das in diesem Fenster geladen ist, spezifische Daten für dieses Dokument clientseitig speichern (zum Beispiel unter Verwendung einer lokalen Datenbank oder eines anderen Speichers), einen [Ereignis-Handler](/de/docs/Learn_web_development/Core/Scripting/Events) an das aktuelle Fenster anhängen und mehr.
-- Der **Navigator** stellt den Zustand und die Identität des Browsers dar, wie er im Web existiert. In JavaScript wird dies durch das [`Navigator`](/de/docs/Web/API/Navigator)-Objekt dargestellt. Sie können dieses Objekt verwenden, um Dinge wie die bevorzugte Sprache des Benutzers oder einen Mediastream von der Webcam des Benutzers abzurufen usw.
-- Das **Document** (im Browser durch das DOM dargestellt) ist die tatsächliche Seite, die in das Fenster geladen wird, und wird in JavaScript durch das [`Document`](/de/docs/Web/API/Document)-Objekt dargestellt. Sie können dieses Objekt verwenden, um Informationen über das HTML und CSS zurückzugeben und zu manipulieren, die das Dokument ausmachen. Beispielsweise können Sie eine Referenz zu einem Element im DOM erhalten, seinen Textinhalt ändern, neue Stile darauf anwenden, neue Elemente erstellen und sie dem aktuellen Element als Kind hinzufügen oder es sogar vollständig löschen.
+- Das **window** repräsentiert den Browser-Tab, in den eine Webseite geladen wird; dies wird in JavaScript durch das [`Window`](/de/docs/Web/API/Window)-Objekt dargestellt. Mit den auf diesem Objekt verfügbaren Methoden können Sie Dinge tun wie die Fenstergröße zurückgeben (siehe [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight)), das in dieses Fenster geladene Dokument manipulieren, datenbezogene Daten auf der Client-Seite speichern (zum Beispiel mit einer lokalen Datenbank oder einem anderen Speichermechanismus), einen [Event-Handler](/de/docs/Learn_web_development/Core/Scripting/Events) an das aktuelle Fenster anhängen und mehr.
+- Der **navigator** repräsentiert den Zustand und die Identität des Browsers, wie er im Web existiert. In JavaScript wird dies durch das [`Navigator`](/de/docs/Web/API/Navigator)-Objekt dargestellt. Sie können dieses Objekt verwenden, um Dinge wie die bevorzugte Sprache des Benutzers abzurufen, einen Datenstrom von der Webcam des Benutzers usw.
+- Das **document** (repräsentiert durch das DOM in Browsern) ist die eigentliche in das Fenster geladene Seite und wird in JavaScript durch das [`Document`](/de/docs/Web/API/Document)-Objekt dargestellt. Sie können dieses Objekt verwenden, um Informationen zu HTML und CSS, die das Dokument umfassen, abzurufen und zu manipulieren, zum Beispiel eine Referenz zu einem Element im DOM zu erhalten, seinen Textinhalt zu ändern, neue Stile darauf anzuwenden, neue Elemente zu erstellen und sie dem aktuellen Element als Kinder hinzuzufügen oder es sogar vollständig zu löschen.
 
-In diesem Artikel konzentrieren wir uns hauptsächlich auf die Manipulation des Dokuments, aber wir zeigen auch einige andere nützliche Aspekte.
+In diesem Artikel konzentrieren wir uns hauptsächlich auf die Manipulation des Dokuments, aber wir zeigen auch ein paar andere nützliche Dinge.
 
 ## Das Document Object Model
 
-Lassen Sie uns einen kurzen Rückblick auf das Document Object Model (DOM) geben, das wir auch früher im Kurs betrachtet haben. Das Dokument, das derzeit in jedem Ihrer Browser-Tabs geladen ist, wird durch ein DOM dargestellt. Dies ist eine "Baumstruktur"-Darstellung, die vom Browser erstellt wird und es der HTML-Struktur ermöglicht, einfach von Programmiersprachen aus zugänglich zu sein — zum Beispiel verwendet der Browser selbst es, um Stil- und andere Informationen auf die richtigen Elemente anzuwenden, während er eine Seite rendert, und Entwickler wie Sie können das DOM mit JavaScript manipulieren, nachdem die Seite gerendert wurde.
+Lassen Sie uns einen kurzen Rückblick auf das Document Object Model (DOM) geben, das wir weiter vorne im Kurs bereits betrachtet haben. Das aktuell in jedem Ihrer Browser-Tabs geladene Dokument wird durch ein DOM dargestellt. Dies ist eine „Baumstruktur“-Repräsentation, die vom Browser erstellt wird, um den einfachen Zugriff auf die HTML-Struktur durch Programmiersprachen zu ermöglichen — zum Beispiel nutzt der Browser selbst es, um Styling und andere Informationen auf die richtigen Elemente anzuwenden, während er eine Seite rendert, und Entwickler wie Sie können das DOM mit JavaScript manipulieren, nachdem die Seite gerendert wurde.
 
 > [!NOTE]
-> Scrimbas [The Document Object Model](https://scrimba.com/learn-javascript-c0v/~0g?via=mdn) <sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> bietet einen praktischen Überblick über den Begriff "DOM" und was er bedeutet.
+> Scrimbas [The Document Object Model](https://scrimba.com/learn-javascript-c0v/~0g?via=mdn) <sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup> bietet eine praktische Einführung in den Begriff „DOM“ und seine Bedeutung.
 
-Wir haben eine Beispielseite unter [dom-example.html](https://github.com/mdn/learning-area/blob/main/javascript/apis/document-manipulation/dom-example.html) erstellt ([siehe sie auch live](https://mdn.github.io/learning-area/javascript/apis/document-manipulation/dom-example.html)). Versuchen Sie, diese in Ihrem Browser zu öffnen — es ist eine sehr einfache Seite, die ein {{htmlelement("section")}}-Element enthält, in dem sich ein Bild und ein Absatz mit einem darin enthaltenen Link befindet. Der HTML-Quellcode sieht folgendermaßen aus:
+Wir haben eine Beispielseite unter [dom-example.html](https://github.com/mdn/learning-area/blob/main/javascript/apis/document-manipulation/dom-example.html) erstellt ([sehen Sie sich dies auch live an](https://mdn.github.io/learning-area/javascript/apis/document-manipulation/dom-example.html)). Versuchen Sie, dies in Ihrem Browser zu öffnen – es handelt sich um eine sehr einfache Seite, die ein {{htmlelement("section")}}-Element enthält, innerhalb dessen sich ein Bild und ein Absatz mit einem Link befinden. Der HTML-Quellcode sieht folgendermaßen aus:
 
 ```html
 <!doctype html>
@@ -77,82 +77,82 @@ Wir haben eine Beispielseite unter [dom-example.html](https://github.com/mdn/lea
 </html>
 ```
 
-Das DOM sieht hingegen folgendermaßen aus:
+Das DOM hingegen sieht so aus:
 
-![Baumstruktur-Darstellung des Document Object Model: Der obere Knoten ist der Doctype und das HTML-Element. Kinderknoten von HTML beinhalten head und body. Jedes Kindelement ist ein Ast. Alle Texte, sogar Leerzeichen, werden ebenfalls angezeigt.](dom-screenshot.png)
+![Baumstruktur-Darstellung des Document Object Model: Der obere Knoten ist der Doctype und das HTML-Element. Kinderknoten des HTML umfassen head und body. Jedes Kindelement ist ein Zweig. Alle Texte, sogar Leerzeichen, werden ebenfalls angezeigt.](dom-screenshot.png)
 
 > [!NOTE]
 > Dieses DOM-Baumdiagramm wurde mit Ian Hicksons [Live DOM viewer](https://software.hixie.ch/utilities/js/live-dom-viewer/) erstellt.
 
-Jeder Eintrag im Baum wird als **Knoten** bezeichnet. Sie können im obigen Diagramm sehen, dass einige Knoten Elemente darstellen (identifiziert als `HTML`, `HEAD`, `META` und so weiter) und andere Text darstellen (identifiziert als `#text`). Es gibt [noch andere Knotenarten](/de/docs/Web/API/Node/nodeType), aber dies sind die Hauptarten, auf die Sie stoßen werden.
+Jeder Eintrag im Baum wird als **Knoten** bezeichnet. Sie können im obigen Diagramm sehen, dass einige Knoten Elemente darstellen (identifiziert als `HTML`, `HEAD`, `META` usw.) und andere Text darstellen (identifiziert als `#text`). Es gibt [auch andere Arten von Knoten](/de/docs/Web/API/Node/nodeType), aber dies sind die Haupttypen, denen Sie begegnen werden.
 
 Knoten werden auch nach ihrer Position im Baum relativ zu anderen Knoten bezeichnet:
 
-- **Wurzelknoten**: Der oberste Knoten im Baum, der im Fall von HTML immer der `HTML`-Knoten ist (andere Markup-Vokabulare wie SVG und benutzerdefiniertem XML haben unterschiedliche Wurzelelemente).
-- **Knoten**: Ein Knoten, der _direkt_ in einem anderen Knoten enthalten ist. Beispielsweise ist `IMG` ein Kind von `SECTION` im obigen Beispiel.
-- **Nachkommenknoten**: Ein Knoten, der _irgendwo_ in einem anderen Knoten enthalten ist. Beispielsweise ist `IMG` ein Kind von `SECTION` im obigen Beispiel und auch ein Nachkomme. `IMG` ist kein Kind von `BODY`, da es zwei Ebenen darunter im Baum liegt, aber es ist ein Nachkomme von `BODY`.
-- **Elternknoten**: Ein Knoten, der einen anderen Knoten in sich enthält. Beispielsweise ist `BODY` der Elternknoten von `SECTION` im obigen Beispiel.
-- **Geschwisterknoten**: Knoten, die auf derselben Ebene unter demselben Elternknoten im DOM-Baum liegen. Beispielsweise sind `IMG` und `P` im obigen Beispiel Geschwister.
+- **Wurzelknoten**: Der oberste Knoten im Baum, der im Fall von HTML immer der `HTML`-Knoten ist (andere Markup-Sprachen wie SVG und benutzerdefinierte XML haben verschiedene Wurzelelemente).
+- **Kindknoten**: Ein Knoten, der _direkt_ innerhalb eines anderen Knotens liegt. Zum Beispiel ist `IMG` ein Kind von `SECTION` im obigen Beispiel.
+- **Nachkommenknoten**: Ein Knoten, der sich _irgendwo_ innerhalb eines anderen Knotens befindet. Zum Beispiel ist `IMG` ein Kind von `SECTION` im obigen Beispiel und zugleich ein Nachkomme. `IMG` ist kein Kind von `BODY`, da es zwei Ebenen darunter im Baum liegt, aber es ist ein Nachkomme von `BODY`.
+- **Elternknoten**: Ein Knoten, der einen anderen Knoten in sich hat. Zum Beispiel ist `BODY` der Elternknoten von `SECTION` im obigen Beispiel.
+- **Geschwisterknoten**: Knoten, die auf derselben Ebene unter demselben Elternknoten im DOM-Baum liegen. Zum Beispiel sind `IMG` und `P` im obigen Beispiel Geschwister.
 
-Es ist nützlich, sich mit dieser Terminologie vertraut zu machen, bevor man mit dem DOM arbeitet, da eine Reihe der Codebegriffe, auf die Sie stoßen werden, diese verwenden. Sie werden ihnen auch in CSS begegnen (zum Beispiel Nachkommen-Selektor, Kind-Selektor).
+Es ist nützlich, sich mit dieser Terminologie vertraut zu machen, bevor Sie mit dem DOM arbeiten, da eine Reihe von Begriffen, die Sie im Code finden werden, sie verwenden. Sie begegnen ihnen auch in CSS (zum Beispiel: Nachkommen-Selektor, Kind-Selektor).
 
-## Grundlegende DOM-Manipulation
+## Durchführung grundlegender DOM-Manipulationen
 
-Um mit dem Lernen der DOM-Manipulation zu beginnen, beginnen wir mit einem praktischen Beispiel.
+Um mit dem Lernen der DOM-Manipulation zu beginnen, starten wir mit einem praktischen Beispiel.
 
-1. Nehmen Sie eine lokale Kopie der [dom-example.html-Seite](https://github.com/mdn/learning-area/blob/main/javascript/apis/document-manipulation/dom-example.html) und des [Bildes](https://github.com/mdn/learning-area/blob/main/javascript/apis/document-manipulation/dinosaur.png), das damit verbunden ist.
-2. Fügen Sie ein `<script></script>`-Element direkt über dem schließenden `</body>`-Tag hinzu.
-3. Um ein Element im DOM zu manipulieren, müssen Sie es zuerst auswählen und eine Referenz darauf in einer Variablen speichern. Fügen Sie in Ihrem Skriptelement die folgende Zeile hinzu:
+1. Nehmen Sie eine lokale Kopie der [dom-example.html Seite](https://github.com/mdn/learning-area/blob/main/javascript/apis/document-manipulation/dom-example.html) und des dazugehörigen [Bildes](https://github.com/mdn/learning-area/blob/main/javascript/apis/document-manipulation/dinosaur.png).
+2. Fügen Sie ein `<script></script>`-Element direkt über dem abschließenden `</body>`-Tag hinzu.
+3. Um ein Element im DOM zu manipulieren, müssen Sie es zunächst auswählen und eine Referenz darauf in einer Variablen speichern. Fügen Sie in Ihrem `script`-Element die folgende Zeile hinzu:
 
    ```js
    const link = document.querySelector("a");
    ```
 
-4. Da wir die Elementreferenz nun in einer Variablen gespeichert haben, können wir beginnen, es mit den dafür verfügbaren Eigenschaften und Methoden zu manipulieren (diese sind auf Schnittstellen wie [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) im Fall des {{htmlelement("a")}}-Elements, seiner allgemeineren übergeordneten Schnittstelle [`HTMLElement`](/de/docs/Web/API/HTMLElement), und [`Node`](/de/docs/Web/API/Node) — die alle Knoten in einem DOM darstellt — definiert). Zuerst ändern wir den Text innerhalb des Links, indem wir den Wert der [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft aktualisieren. Fügen Sie die folgende Zeile unter der vorherigen hinzu:
+4. Nun haben wir die Elementreferenz in einer Variablen gespeichert und können beginnen, sie mithilfe verfügbarer Eigenschaften und Methoden zu manipulieren (diese sind auf Schnittstellen wie [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) im Falle von {{htmlelement("a")}}-Elementen, ihrer allgemeineren Elternschnittstelle [`HTMLElement`](/de/docs/Web/API/HTMLElement) und [`Node`](/de/docs/Web/API/Node) — die alle Knoten in einem DOM darstellt — definiert). Zuerst ändern wir den Text im Link, indem wir den Wert der [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft aktualisieren. Fügen Sie die folgende Zeile unterhalb der vorherigen hinzu:
 
    ```js
    link.textContent = "Mozilla Developer Network";
    ```
 
-5. Wir sollten auch die URL ändern, auf die der Link zeigt, damit er nicht an die falsche Stelle führt, wenn er angeklickt wird. Fügen Sie die folgende Zeile erneut am Ende hinzu:
+5. Wir sollten auch die URL ändern, auf die der Link zeigt, damit er beim Klicken nicht an die falsche Stelle geht. Fügen Sie die folgende Zeile erneut am Ende hinzu:
 
    ```js
    link.href = "https://developer.mozilla.org";
    ```
 
-Beachten Sie, dass es, wie bei vielen Dingen in JavaScript, viele Möglichkeiten gibt, ein Element auszuwählen und eine Referenz darauf in einer Variablen zu speichern. [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) ist der empfohlene moderne Ansatz. Er ist praktisch, weil er es Ihnen ermöglicht, Elemente mit CSS-Selektoren auszuwählen. Der obige `querySelector()`-Aufruf stimmt mit dem ersten {{htmlelement("a")}}-Element überein, das im Dokument erscheint. Wenn Sie mehrere Elemente abgleichen und etwas damit machen möchten, können Sie [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) verwenden, was alle Elemente im Dokument abgleicht, die mit dem Selektor übereinstimmen, und Referenzen darauf in einem [array](/de/docs/Learn_web_development/Core/Scripting/Arrays)-ähnlichen Objekt namens [`NodeList`](/de/docs/Web/API/NodeList) speichert.
+Beachten Sie, dass es, wie bei vielen Dingen in JavaScript, viele Möglichkeiten gibt, ein Element auszuwählen und eine Referenz darauf in einer Variablen zu speichern. [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) ist der empfohlene moderne Ansatz. Es ist praktisch, weil Sie damit Elemente mithilfe von CSS-Selektoren auswählen können. Der obige `querySelector()`-Aufruf passt das erste im Dokument erscheinende {{htmlelement("a")}}-Element an. Wenn Sie mehrere Elemente auswählen und damit etwas tun möchten, könnten Sie [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) verwenden, das jedes im Dokument vorkommende Element auswählt, das mit dem Selektor übereinstimmt, und Referenzen darauf in einem [array-](/de/docs/Learn_web_development/Core/Scripting/Arrays)artigen Objekt namens [`NodeList`](/de/docs/Web/API/NodeList) speichert.
 
-Es gibt ältere Methoden zum Abrufen von Elementreferenzen wie:
+Es gibt ältere Methoden zum Abrufen von Elementreferenzen, wie:
 
-- [`Document.getElementById()`](/de/docs/Web/API/Document/getElementById), die ein Element mit einem gegebenen `id`-Attributwert auswählt, z. B. `<p id="myId">Mein Absatz</p>`. Die ID wird der Funktion als Parameter übergeben, d.h. `const elementRef = document.getElementById('myId')`.
-- [`Document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName), die ein Array-ähnliches Objekt zurückgibt, das alle Elemente einer bestimmten Art auf der Seite enthält, zum Beispiel `<p>`s, `<a>`s usw. Der Elementtyp wird der Funktion als Parameter übergeben, z. B., `const elementRefArray = document.getElementsByTagName('p')`.
+- [`Document.getElementById()`](/de/docs/Web/API/Document/getElementById), das ein Element mit einem bestimmten `id`-Attributewert auswählt, z.B. `<p id="myId">Mein Absatz</p>`. Die ID wird als Parameter der Funktion übergeben, d.h. `const elementRef = document.getElementById('myId')`.
+- [`Document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName), das ein array-ähnliches Objekt mit allen Elementen auf der Seite eines bestimmten Typs zurückgibt, etwa `<p>`s, `<a>`s usw. Der Elementtyp wird der Funktion als Parameter übergeben, d.h. `const elementRefArray = document.getElementsByTagName('p')`.
 
-Diese beiden funktionieren besser in älteren Browsern als die modernen Methoden wie `querySelector()`, sind aber nicht so praktisch. Schauen Sie nach und sehen Sie, welche anderen Sie finden können!
+Diese beiden Methoden funktionieren in älteren Browsern besser als die modernen Methoden wie `querySelector()`, sind aber nicht so praktisch. Schauen Sie sich um und sehen, was Sie sonst noch finden können.
 
-### Neue Knoten erstellen und platzieren
+### Erstellen und Platzieren neuer Knoten
 
-Das oben Genannte hat Ihnen einen kleinen Vorgeschmack darauf gegeben, was Sie tun können, aber lassen Sie uns weitergehen und sehen, wie wir neue Elemente erstellen können.
+Das obige Beispiel hat Ihnen einen kleinen Vorgeschmack darauf gegeben, was Sie tun können, aber gehen wir weiter und schauen, wie wir neue Elemente erstellen können.
 
-1. Kehren wir zum aktuellen Beispiel zurück, beginnen wir damit, eine Referenz auf unser {{htmlelement("section")}}-Element zu erhalten — fügen Sie den folgenden Code am Ende Ihres bestehenden Skripts hinzu (machen Sie dasselbe auch mit den anderen Zeilen):
+1. Gehen Sie zurück zu unserem aktuellen Beispiel. Lassen Sie uns zunächst eine Referenz auf unser {{htmlelement("section")}}-Element erhalten — fügen Sie den folgenden Code am Ende Ihres bestehenden Skripts hinzu (tun Sie dasselbe auch mit den anderen Zeilen):
 
    ```js
    const sect = document.querySelector("section");
    ```
 
-2. Nun erstellen wir ein neues Paragraphen-Element mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement) und geben ihm etwas Textinhalt auf die gleiche Weise wie zuvor:
+2. Erstellen Sie nun mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement) einen neuen Absatz und geben ihm Textinhalt in der gleichen Weise wie zuvor:
 
    ```js
    const para = document.createElement("p");
    para.textContent = "We hope you enjoyed the ride.";
    ```
 
-3. Sie können nun den neuen Absatz am Ende des Abschnitts mit [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) anfügen:
+3. Sie können den neuen Absatz jetzt mit [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) am Ende der Sektion hinzufügen:
 
    ```js
    sect.appendChild(para);
    ```
 
-4. Schließlich in diesem Teil fügen wir dem Absatz, in dem sich der Link befindet, einen Textknoten hinzu, um den Satz schön abzuschließen. Zuerst erstellen wir den Textknoten mit [`Document.createTextNode()`](/de/docs/Web/API/Document/createTextNode):
+4. Schließlich für diesen Teil, fügen wir einen Textknoten zum Absatz hinzu, in dem der Link enthalten ist, um den Satz schön abzurunden. Zuerst erstellen wir den Textknoten mit [`Document.createTextNode()`](/de/docs/Web/API/Document/createTextNode):
 
    ```js
    const text = document.createTextNode(
@@ -160,40 +160,40 @@ Das oben Genannte hat Ihnen einen kleinen Vorgeschmack darauf gegeben, was Sie t
    );
    ```
 
-5. Jetzt holen wir uns eine Referenz auf den Absatz, in dem sich der Link befindet, und fügen den Textknoten hinzu:
+5. Jetzt holen wir uns eine Referenz auf den Absatz, in dem der Link enthalten ist, und fügen den Textknoten hinzu:
 
    ```js
    const linkPara = document.querySelector("p");
    linkPara.appendChild(text);
    ```
 
-Das ist das meiste, was Sie zum Hinzufügen von Knoten zum DOM benötigen — Sie werden viel Gebrauch von diesen Methoden machen, wenn Sie dynamische Schnittstellen erstellen (wir werden uns später einige Beispiele ansehen).
+Das ist das meiste, was Sie zum Hinzufügen von Knoten zum DOM benötigen — Sie werden diese Methoden häufig bei der Erstellung dynamischer Benutzeroberflächen verwenden (wir werden uns später ein paar Beispiele ansehen).
 
-### Elemente verschieben und entfernen
+### Verschieben und Entfernen von Elementen
 
-Es kann Zeiten geben, in denen Sie Knoten verschieben oder ganz aus dem DOM löschen möchten. Dies ist durchaus möglich.
+Es kann vorkommen, dass Sie Knoten verschieben oder vollständig aus dem DOM löschen möchten. Dies ist durchaus möglich.
 
-Wenn wir den Absatz mit dem Link darin an das Ende des Abschnitts verschieben wollten, könnten wir dies tun:
+Wenn wir den Absatz mit dem enthaltenen Link an das Ende der Sektion verschieben wollten, könnten wir dies tun:
 
 ```js
 sect.appendChild(linkPara);
 ```
 
-Dadurch wird der Absatz nach unten an das Ende des Abschnitts verschoben. Sie könnten gedacht haben, dass es eine zweite Kopie davon macht, aber das ist nicht der Fall — `linkPara` ist eine Referenz auf die einzige Kopie dieses Absatzes. Wenn Sie eine Kopie machen und diese ebenfalls hinzufügen wollten, müssten Sie stattdessen [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) verwenden.
+Dies verschiebt den Absatz an das Ende der Sektion. Sie könnten meinen, es würde eine zweite Kopie davon erstellen, aber das ist nicht der Fall — `linkPara` ist eine Referenz auf die eine und einzige Kopie dieses Absatzes. Wenn Sie eine Kopie erstellen und diese ebenfalls hinzufügen wollten, müssten Sie stattdessen [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) verwenden.
 
-Das Entfernen eines Knotens ist ebenfalls ziemlich einfach, zumindest wenn Sie eine Referenz auf den zu entfernenden Knoten und seinen Elternknoten haben. In unserem aktuellen Fall verwenden wir einfach [`Node.removeChild()`](/de/docs/Web/API/Node/removeChild), so:
+Das Entfernen eines Knotens ist ebenfalls recht einfach, zumindest wenn Sie eine Referenz auf den zu entfernenden Knoten und dessen Elternteil haben. In unserem aktuellen Fall verwenden wir einfach [`Node.removeChild()`](/de/docs/Web/API/Node/removeChild), so:
 
 ```js
 sect.removeChild(linkPara);
 ```
 
-Wenn Sie einen Knoten entfernen möchten, basierend nur auf einer Referenz zu ihm selbst, was ziemlich häufig vorkommt, können Sie [`Element.remove()`](/de/docs/Web/API/Element/remove) verwenden:
+Wenn Sie einen Knoten entfernen möchten, der nur auf eine Referenz zu sich selbst basiert, was ziemlich üblich ist, können Sie [`Element.remove()`](/de/docs/Web/API/Element/remove) verwenden:
 
 ```js
 linkPara.remove();
 ```
 
-Diese Methode wird von älteren Browsern nicht unterstützt. Sie haben keine Methode, um einem Knoten zu sagen, er solle sich selbst entfernen, daher müssten Sie das Folgende tun:
+Diese Methode wird in älteren Browsern nicht unterstützt. Sie haben keine Methode, um einem Knoten zu sagen, dass er sich selbst entfernen soll, sodass Sie Folgendes tun müssten:
 
 ```js
 linkPara.parentNode.removeChild(linkPara);
@@ -201,15 +201,15 @@ linkPara.parentNode.removeChild(linkPara);
 
 Versuchen Sie, die obigen Zeilen zu Ihrem Code hinzuzufügen.
 
-### Styles manipulieren
+### Manipulation von Stilen
 
-Es ist möglich, CSS-Stile auf verschiedene Weise über JavaScript zu manipulieren.
+Es ist möglich, CSS-Stile auf verschiedene Arten über JavaScript zu manipulieren.
 
-Um zu beginnen, können Sie eine Liste aller Stylesheets erhalten, die an ein Dokument angehängt sind, indem Sie [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) verwenden, das ein array-ähnliches Objekt mit [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekten zurückgibt. Sie können dann Stile nach Belieben hinzufügen/entfernen. Wir werden jedoch nicht auf diese Funktionen eingehen, da sie ein etwas archaischer und schwieriger Weg sind, Stil zu manipulieren. Es gibt viel einfachere Wege.
+Zunächst können Sie eine Liste aller an ein Dokument angeschlossenen Stylesheets mit [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) erhalten, das ein array-ähnliches Objekt mit [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekten zurückgibt. Sie können dann nach Belieben Stile hinzufügen/entfernen. Wir werden auf diese Funktionen jedoch nicht näher eingehen, da sie eine etwas archaische und schwierige Möglichkeit darstellen, Styles zu manipulieren. Es gibt viel einfachere Möglichkeiten.
 
-Die erste Möglichkeit besteht darin, Inline-Stile direkt auf die Elemente zu setzen, die Sie dynamisch stylen möchten. Dies geschieht mit der [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft, die Inline-Stilinformationsdaten für jedes Element im Dokument enthält. Sie können Eigenschaften dieses Objekts festlegen, um Elemente-Stile direkt zu aktualisieren.
+Die erste Möglichkeit besteht darin, Inline-Stile direkt auf die Elemente anzuwenden, die Sie dynamisch stylen möchten. Dies geschieht mit der [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft, die Inline-Styling-Informationen für jedes Element im Dokument enthält. Sie können Eigenschaften dieses Objekts festlegen, um Stile für Elemente direkt zu aktualisieren.
 
-1. Fügen Sie als Beispiel die folgenden Zeilen zu unserem laufenden Beispiel hinzu:
+1. Probieren Sie als Beispiel mal aus, diese Zeilen zu unserem laufenden Beispiel hinzuzufügen:
 
    ```js
    para.style.color = "white";
@@ -219,7 +219,7 @@ Die erste Möglichkeit besteht darin, Inline-Stile direkt auf die Elemente zu se
    para.style.textAlign = "center";
    ```
 
-2. Laden Sie die Seite neu und Sie werden sehen, dass die Stile auf den Absatz angewendet wurden. Wenn Sie sich diesen Absatz im [Page Inspector/DOM-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) Ihres Browsers ansehen, werden Sie feststellen, dass diese Zeilen tatsächlich Inline-Stile zum Dokument hinzufügen:
+2. Laden Sie die Seite neu, und Sie werden sehen, dass die Stile auf den Absatz angewendet wurden. Wenn Sie sich jenen Absatz im [Page Inspector/DOM inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) Ihres Browsers ansehen, werden Sie feststellen, dass diese Zeilen tatsächlich Inline-Stile zum Dokument hinzufügen:
 
    ```html
    <p
@@ -229,11 +229,11 @@ Die erste Möglichkeit besteht darin, Inline-Stile direkt auf die Elemente zu se
    ```
 
 > [!NOTE]
-> Beachten Sie, wie die JavaScript-Eigenschaftenversionen der CSS-Stile in {{Glossary("camel_case", "lower camel case")}} geschrieben sind, während die CSS-Versionen im Bindestrich-Stil ({{Glossary("kebab_case", "kebab-case")}}) sind (z. B. `backgroundColor` im Vergleich zu `background-color`). Vergewissern Sie sich, dass Sie diese nicht verwechseln, sonst funktioniert es nicht.
+> Beachten Sie, dass die JavaScript-Eigenschaftsvarianten der CSS-Stile in {{Glossary("camel_case", "Lower Camel Case")}} geschrieben sind, während die CSS-Versionen durch Bindestriche getrennt sind ({{Glossary("kebab_case", "Kebab-Case")}}) (z.B. `backgroundColor` gegenüber `background-color`). Stellen Sie sicher, dass Sie diese nicht verwechseln, sonst funktioniert es nicht.
 
-Es gibt eine andere übliche Methode, um Stile auf Ihrem Dokument dynamisch zu manipulieren, nämlich die Stile in einem separaten Stylesheet zu schreiben und diese Stile durch Hinzufügen/Entfernen eines Klassennamens zu referenzieren.
+Es gibt eine weitere gängige Möglichkeit, Stile in Ihrem Dokument dynamisch zu manipulieren: Schreiben Sie die Stile in ein separates Stylesheet und verweisen Sie auf diese Stile, indem Sie einen Klassennamen hinzufügen/entfernen.
 
-1. Löschen Sie die vorherigen fünf Zeilen, die Sie Ihrem JavaScript hinzugefügt haben.
+1. Löschen Sie die vorhergehenden fünf Zeilen, die Sie zum JavaScript hinzugefügt haben.
 2. Fügen Sie das Folgende in Ihr HTML-{{htmlelement("head")}} ein:
 
    ```html
@@ -248,33 +248,32 @@ Es gibt eine andere übliche Methode, um Stile auf Ihrem Dokument dynamisch zu m
    </style>
    ```
 
-3. Um diesen Klassennamen zu Ihrem Element hinzuzufügen, verwenden Sie die `add()`-Methode der [`classList`](/de/docs/Web/API/Element/classList) des Elements:
+3. Um diesen Klassennamen zu Ihrem Element hinzuzufügen, verwenden Sie die `classList` des Elements und die Methode `add()`:
 
    ```js
    para.classList.add("highlight");
    ```
 
-4. Aktualisieren Sie Ihre Seite, und Sie sehen keine Änderung — die CSS wird weiterhin auf den Absatz angewendet, aber dieses Mal, indem ihm eine Klasse gegeben wird, die durch unsere CSS-Regel ausgewählt wird, nicht als Inline-CSS-Stile.
+4. Aktualisieren Sie die Seite, und Sie werden keine Änderung sehen — die CSS ist immer noch auf den Paragraphen angewendet, aber diesmal, indem ihm eine Klasse gegeben wird, die von unserer CSS-Regel ausgewählt wird, nicht als Inline-CSS-Stile.
 
-Welche Methode Sie wählen, bleibt Ihnen überlassen; beide haben ihre Vor- und Nachteile. Die erste Methode erfordert weniger Setup und ist gut für einfache Anwendungen, während die zweite Methode puristischer ist (kein Mischen von CSS und JavaScript, keine Inline-Stile, die als schlechte Praxis angesehen werden). Wenn Sie beginnen, größere und komplexere Apps zu entwickeln, werden Sie vermutlich mehr die zweite Methode verwenden, aber es bleibt wirklich Ihnen überlassen.
+Welche Methode Sie wählen, bleibt Ihnen überlassen; beide haben ihre Vor- und Nachteile. Die erste Methode erfordert weniger Einrichtungsschritte und ist gut für einfache Anwendungen geeignet. Die zweite Methode ist mehr puristisch (keine Mischung von CSS und JavaScript, keine Inline-Stile, die als schlechte Praxis angesehen werden). Wenn Sie anfangen, größere und komplexere Anwendungen zu entwickeln, werden Sie wahrscheinlich öfter die zweite Methode verwenden, aber letztlich bleibt es Ihnen überlassen.
 
-An diesem Punkt haben wir bis jetzt nichts wirklich Nützliches gemacht! Es gibt keinen Sinn darin, JavaScript zu verwenden, um statische Inhalte zu erstellen — Sie können es genauso gut einfach in Ihr HTML schreiben und JavaScript nicht verwenden. Es ist komplexer als HTML und das Erstellen Ihres Inhalts mit JavaScript hat auch andere damit verbundene Probleme (wie dass es nicht von Suchmaschinen gelesen werden kann).
+An dieser Stelle haben wir noch nichts wirklich Nützliches getan! Es macht keinen Sinn, JavaScript zu nutzen, um statische Inhalte zu erstellen — Sie könnten sie genauso gut direkt in Ihr HTML schreiben und JavaScript nicht verwenden. Es ist komplexer als HTML, und die Erstellung Ihres Inhalts mit JavaScript hat auch andere Probleme (wie zum Beispiel, dass sie nicht von Suchmaschinen gelesen werden können).
 
-Im nächsten Abschnitt werden wir uns einen praktischeren Anwendungsfall für DOM-APIs ansehen.
+Im nächsten Abschnitt betrachten wir eine praktischere Nutzung von DOM-APIs.
 
 > [!NOTE]
-> Sie finden unsere [fertige Version des dom-example.html](https://github.com/mdn/learning-area/blob/main/javascript/apis/document-manipulation/dom-example-manipulated.html) Demos auf GitHub ([siehe sie auch live](https://mdn.github.io/learning-area/javascript/apis/document-manipulation/dom-example-manipulated.html)).
+> Sie finden unsere [fertige Version des dom-example.html](https://github.com/mdn/learning-area/blob/main/javascript/apis/document-manipulation/dom-example-manipulated.html) Demos auf GitHub ([sehen Sie es sich auch live an](https://mdn.github.io/learning-area/javascript/apis/document-manipulation/dom-example-manipulated.html)).
 
-## Erstellen einer dynamischen Einkaufsliste
+## Erstellung einer dynamischen Einkaufsliste
 
-In dieser Übung möchten wir, dass Sie eine dynamische Einkaufsliste erstellen, die es Ihnen ermöglicht, Elemente mithilfe eines Formulareingabes und eines Buttons hinzuzufügen. Nachdem Sie ein Element im Eingabefeld eingegeben und den Button geklickt oder die <kbd>Eingabe</kbd>-Taste gedrückt haben, sollte Folgendes geschehen:
+In dieser Übung möchten wir, dass Sie eine dynamische Einkaufsliste erstellen, die es Ihnen ermöglicht, Elemente mithilfe eines Formulareingabefeldes und eines Knopfes hinzuzufügen. Nachdem Sie einen Gegenstand in das Eingabefeld eingetippt haben und den Knopf oder die <kbd>Enter</kbd>-Taste gedrückt haben, sollte Folgendes passieren:
 
-- Das Element sollte in der Liste erscheinen.
-- Jedes Element sollte einen Button erhalten, der gedrückt werden kann, um dieses Element von der Liste zu löschen.
-- Jedes Element sollte einen Button daneben haben, der das Element aus der Liste entfernt, wenn er geklickt wird.
-- Die Eingabefelder sollten geleert und fokussiert sein, bereit für den nächsten Eintrag.
+- Der Artikel sollte in der Liste erscheinen.
+- Jedes Element sollte einen Button neben sich haben, der das Element beim Anklicken aus der Liste entfernt.
+- Die Eingabefelder sollten gelöscht und fokussiert werden, damit der nächste Eintrag gemacht werden kann.
 
-Die fertige Demo wird in etwa wie das folgende aussehen — probieren Sie es aus, bevor Sie es erstellen!
+Das fertige Demo wird ungefähr wie folgt aussehen — probieren Sie es aus, bevor Sie es bauen!
 
 ```html hidden live-sample___dynamic-shopping-list
 <h1>My shopping list</h1>
@@ -332,30 +331,30 @@ button.addEventListener("click", (event) => {
 
 Um die Übung abzuschließen, folgen Sie den unten stehenden Schritten und stellen Sie sicher, dass sich die Liste wie beschrieben verhält.
 
-1. Laden Sie zunächst eine Kopie unserer [shopping-list.html](https://github.com/mdn/learning-area/blob/main/javascript/apis/document-manipulation/shopping-list.html) Ausgangsdatei herunter und machen Sie eine Kopie davon irgendwo. Sie werden sehen, dass sie ein minimales CSS, ein Formular mit einem Label, einer Eingabe und einem Button, eine leere Liste und ein {{htmlelement("script")}}-Element enthält. Sie werden alle Ihre Ergänzungen im Skript vornehmen.
-2. Erstellen Sie drei Variablen, die Referenzen zur Liste ({{htmlelement("ul")}}), {{htmlelement("input")}} und {{htmlelement("button")}}-Elementen halten.
-3. Erstellen Sie eine [Funktion](/de/docs/Learn_web_development/Core/Scripting/Functions), die als Reaktion auf den Button-Klick läuft.
-4. Rufen Sie im Funktionskörper zuerst [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf. Da die Eingabe in ein Formularelement eingebunden ist, wird durch Drücken der <kbd>Eingabetaste</kbd> das Formular ausgelöst, um zu übermitteln. Der Aufruf von `preventDefault()` wird verhindern, dass das Formular die Seite aktualisiert, damit ein neues Element der Liste hinzugefügt werden kann.
+1. Laden Sie zunächst eine Kopie unserer [shopping-list.html](https://github.com/mdn/learning-area/blob/main/javascript/apis/document-manipulation/shopping-list.html) Ausgangsdatei herunter und erstellen Sie eine Kopie davon an einem beliebigen Ort. Sie werden sehen, dass sie etwas minimal CSS enthält, ein Formular mit einem Label, Eingabe- und Knopf-Elementen, einer leeren Liste und einem {{htmlelement("script")}}-Element. Alle Ihre Ergänzungen werden Sie innerhalb des Scripts vornehmen.
+2. Erstellen Sie drei Variablen, die Referenzen auf die Liste ({{htmlelement("ul")}}), das {{htmlelement("input")}} und das {{htmlelement("button")}}-Element speichern.
+3. Erstellen Sie eine [Funktion](/de/docs/Learn_web_development/Core/Scripting/Functions), die als Reaktion auf das Klicken auf den Button ausgeführt wird.
+4. Rufen Sie als Erstes im Funktionskörper [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf. Da die Eingabe in einem Formularelement eingeschlossen ist, wird durch Drücken der <kbd>Enter</kbd>-Taste das Formular ausgelöst, um es zu übermitteln. Der Aufruf von `preventDefault()` verhindert, dass das Formular die Seite aktualisiert, sodass ein neuer Artikel stattdessen zur Liste hinzugefügt werden kann.
 5. Speichern Sie als Nächstes den aktuellen [Wert](/de/docs/Web/API/HTMLInputElement/value) der Eingabe in einer Variablen.
-6. Leeren Sie dann das Eingabeelement, indem Sie seinen Wert auf einen leeren String (`""`) setzen.
-7. Erstellen Sie drei neue Elemente — ein Listenelement ({{htmlelement('li')}}), ein {{htmlelement('span')}} und ein {{htmlelement('button')}} — und speichern Sie sie in Variablen.
-8. Fügen Sie das span und den Button als Kinder des Listenelements hinzu.
-9. Setzen Sie den Textinhalt des Spans auf den zuvor gespeicherten Eingabewert und den Textinhalt des Buttons auf `Löschen`.
-10. Fügen Sie das Listenelement der Liste hinzu.
-11. Hängen Sie einen Ereignis-Handler an den **Löschen**-Button an, so dass beim Anklicken das gesamte Listenelement (`<li>...</li>`) entfernt wird.
-12. Verwenden Sie schließlich die [`focus()`](/de/docs/Web/API/HTMLElement/focus)-Methode, um das Eingabeelement zu fokussieren, sodass es bereit ist für die Eingabe des nächsten Einkaufslistelements.
+6. Löschen Sie dann das Eingabeelement, indem Sie seinen Wert auf eine leere Zeichenkette (`""`) setzen.
+7. Erstellen Sie drei neue Elemente — ein Listenelement ({{htmlelement('li')}}), ein {{htmlelement('span')}} und einen {{htmlelement('button')}} — und speichern Sie sie in Variablen.
+8. Fügen Sie das Span- und Button-Element als Kinder des Listenelements hinzu.
+9. Setzen Sie den Textinhalt des Span-Elements auf den Eingabewert, den Sie zuvor gespeichert haben, und setzen Sie den Textinhalt des Buttons auf `Delete`.
+10. Fügen Sie das Listenelement zur Liste hinzu.
+11. Geben Sie einen Event-Handler an den **Delete**-Button, sodass beim Klicken darauf das gesamte Listenelement (`<li>...</li>`) entfernt wird.
+12. Verwenden Sie schließlich die [`focus()`](/de/docs/Web/API/HTMLElement/focus)-Methode, um das Eingabeelement zu fokussieren, sodass es bereit ist, den nächsten Einkaufslisteintrag einzugeben.
 
 ## Zusammenfassung
 
-Wir haben das Ende unserer Untersuchung zur Dokumenten- und DOM-Manipulation erreicht. An diesem Punkt sollten Sie verstehen, was die wichtigen Teile eines Webbrowsers im Hinblick auf die Steuerung von Dokumenten und andere Aspekte der Web-Erfahrung des Benutzers sind. Am wichtigsten ist, dass Sie verstehen, was das Document Object Model ist und wie Sie es manipulieren, um nützliche Funktionen zu erstellen.
+Wir haben das Ende unseres Studiums der Dokument- und DOM-Manipulation erreicht. An diesem Punkt sollten Sie verstehen, welche die wichtigen Teile eines Webbrowsers im Hinblick auf die Steuerung von Dokumenten und anderen Aspekten der Web-Erfahrung des Benutzers sind. Am wichtigsten ist, dass Sie wissen, was das Document Object Model ist und wie man es manipulieren kann, um nützliche Funktionalitäten zu erstellen.
 
 ## Siehe auch
 
-- Es gibt viele weitere Funktionen, mit denen Sie Ihre Dokumente manipulieren können. Schauen Sie sich einige unserer Referenzen an und sehen Sie, was Sie entdecken können:
+- Es gibt viele weitere Funktionen, die Sie verwenden können, um Ihre Dokumente zu manipulieren. Schauen Sie sich einige unserer Referenzen an und sehen Sie, was Sie entdecken können:
   - [`Document`](/de/docs/Web/API/Document)
   - [`Window`](/de/docs/Web/API/Window)
   - [`Node`](/de/docs/Web/API/Node)
-  - [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement), [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), etc.
+  - [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement), [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), usw.
 - [DOM Scripting](https://explainers.dev/dom-scripting/), explainers.dev
 
 {{PreviousMenuNext("Learn_web_development/Core/Scripting/Test_your_skills/Object_basics","Learn_web_development/Core/Scripting/Image_gallery", "Learn_web_development/Core/Scripting")}}
