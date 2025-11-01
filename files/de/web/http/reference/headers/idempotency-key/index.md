@@ -3,10 +3,12 @@ title: Idempotency-Key header
 short-title: Idempotency-Key
 slug: Web/HTTP/Reference/Headers/Idempotency-Key
 l10n:
-  sourceCommit: 6aa1d0e74a78963ba77070be6313a2c59f96af91
+  sourceCommit: 2da6c8a65715a0ce3785e88d8e293c8dc786cb49
 ---
 
-Der HTTP **`Idempotency-Key`** {{Glossary("request_header", "Request-Header")}} kann verwendet werden, um {{HTTPMethod("POST")}} und {{HTTPMethod("PATCH")}} Anfragen {{Glossary("idempotent", "idempotent")}} zu machen.
+{{SeeCompatTable}}
+
+Der HTTP-**`Idempotency-Key`**-{{Glossary("request_header", "Anforderungsheader")}} kann verwendet werden, um {{HTTPMethod("POST")}}- und {{HTTPMethod("PATCH")}}-Anfragen {{Glossary("idempotent", "idempotent")}} zu machen.
 
 Dies ermöglicht es Clients, nicht bestätigte Anfragen erneut zu senden, ohne befürchten zu müssen, dass die Anfrage bereits vom Server empfangen und bearbeitet wurde.
 
@@ -14,10 +16,10 @@ Dies ermöglicht es Clients, nicht bestätigte Anfragen erneut zu senden, ohne b
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Request-Header")}}</td>
+      <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_request_header", "Verbotener Request-Header")}}</th>
+      <th scope="row">{{Glossary("Forbidden_request_header", "Unzulässiger Anforderungsheader")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -38,64 +40,64 @@ Idempotency-Key: <key>
 ## Beschreibung
 
 Die HTTP-Methoden {{HTTPMethod("GET")}}, {{HTTPMethod("HEAD")}}, {{HTTPMethod("PUT")}}, {{HTTPMethod("DELETE")}} und {{HTTPMethod("OPTIONS")}} sind idempotent.
-Das bedeutet, dass Sie eine Nachricht mit diesen Methoden beliebig oft senden können und der Zustand des Servers entweder nicht verändert wird oder jedes Mal auf die gleiche Weise verändert wird, wenn er die Nachricht erhält.
-Zum Beispiel wird, wenn Sie dieselbe `PUT`-Nachricht mehrfach senden, dasselbe Ressource auf dem Server jedes Mal mit demselben Wert aktualisiert.
+Das bedeutet, dass Sie eine Nachricht mit diesen Methoden beliebig oft senden können und der Zustand des Servers entweder nicht geändert wird oder bei jedem Empfang der Nachricht auf die gleiche Weise geändert wird.
+Zum Beispiel wird bei mehrmaligem Senden derselben `PUT`-Nachricht dasselbe Resource beim Server jedes Mal mit demselben Wert aktualisiert.
 
 Die Methoden {{HTTPMethod("POST")}} und {{HTTPMethod("PATCH")}} sind nicht idempotent, was bedeutet, dass sich der Serverzustand jedes Mal ändern kann, wenn die Nachricht empfangen wird.
-Im Gegensatz zu einer `PUT`-Nachricht kann es bei mehrfachem Senden derselben `POST`-Anfrage vorkommen, dass der Server für jede erfolgreiche Anfrage eine neue Ressource erstellt.
-Ähnlich spiegelt ein `PATCH`-Befehl eine Änderung in Bezug auf einen bestimmten Zustand wider, und dieser Zustand wird jedes Mal geändert, wenn der Patch angewendet wird.
+Anders als bei einer `PUT`-Nachricht kann der Server bei mehreren gleichen `POST`-Anfragen jedes Mal eine neue Resource erstellen, wenn sie erfolgreich sind.
+Ähnlich beschreibt ein `PATCH` eine Änderung in Bezug auf einen bestimmten Zustand, und dieser Zustand wird jedes Mal geändert, wenn der Patch angewendet wird.
 
-Idempotenz ist wichtig in Fällen, in denen ein Client keine Antwort erhält, da es bedeutet, dass der Client die Anfrage sicher erneut senden kann, ohne sich über mögliche Nebenwirkungen Sorgen machen zu müssen.
+Idempotenz ist wichtig in Fällen, in denen ein Client keine Antwort erhält, weil es bedeutet, dass der Client die Anfrage sicher erneut senden kann, ohne sich um mögliche Nebeneffekte sorgen zu müssen.
 
-Der HTTP-Header `Idempotency-Key` erlaubt es einem Client, `POST`- und `PATCH`-Anfragen idempotent zu machen, indem er ihnen einen eindeutigen Identifikator (einen Schlüssel) zuweist.
-Der Client kann dann dieselbe Anfrage mehrfach erneut senden und der Server kann erkennen, dass die Aktion nur einmal ausgeführt werden soll.
+Der HTTP-`Idempotency-Key`-Header ermöglicht es einem Client, `POST`- und `PATCH`-Anfragen idempotent zu machen, indem er ihnen eine eindeutige Kennung (einen Schlüssel) gibt.
+Der Client kann dann dieselbe Anfrage mehrmals senden, und der Server kann erkennen, dass die Aktion nur einmal ausgeführt werden sollte.
 
 ### Verantwortlichkeiten des Clients
 
-JavaScript auf der Client-Seite sollte den `Idempotency-Key`-Header in `fetch`-Anfragen für Endpunkte einfügen, die diesen erfordern, wobei ein Schlüssel verwendet wird, der den vom Server veröffentlichten Anforderungen entspricht.
+Client-JavaScript sollte den `Idempotency-Key`-Header bei `fetch`-Anfragen für Endpunkte, die ihn erfordern, mit einem Schlüssel, der den vom Server veröffentlichten Anforderungen entspricht, anhängen.
 
-Ein eindeutiger Schlüssel muss für jede neue gesendete Anfrage verwendet werden, und derselbe Schlüssel sollte verwendet werden, wenn die Anfrage erneut gesendet wird.
+Für jede neue Anfrage, die gesendet wird, muss ein einzigartiger Schlüssel verwendet werden, und derselbe Schlüssel sollte verwendet werden, wenn diese Anfrage erneut gesendet wird.
 
 ### Verantwortlichkeiten des Servers
 
-Server, die den `Idempotency-Key`-Header unterstützen, sollten ihre Unterstützung dokumentieren und veröffentlichen, einschließlich der Endpunkte, die den Header erfordern, sowie jegliche Anforderungen an den Schlüssel (wie Länge, Berechnungsmethode und Ablauf).
+Server, die den `Idempotency-Key`-Header unterstützen, sollten ihre Unterstützung dokumentieren und veröffentlichen, einschließlich der Endpunkte, die den Header erfordern, und jeglicher Anforderungen an den Schlüssel (wie Länge, Berechnungsmethode und Ablauf).
 
-Beachten Sie, dass der Server entscheiden kann, empfangene Schlüssel im Laufe der Zeit auslaufen zu lassen; Das Ablaufverhalten des Schlüssels muss definiert und dokumentiert sein, damit Clients konforme Anfragen stellen können.
+Beachten Sie, dass der Server empfangene Schlüssel nach einiger Zeit ablaufen lassen kann; das Verhalten des Schlüsselablaufs muss definiert und dokumentiert werden, damit Clients konforme Anfragen stellen können.
 
-#### Idempotenz Fingerabdruck
+#### Idempotenz-Fingerabdruck
 
-Es wird erwartet, dass für jede Anfrage ein eindeutiger Schlüssel verwendet wird.
+Es wird erwartet, dass in jeder Anfrage ein eindeutiger Schlüssel verwendet wird.
 
-Um zu verhindern, dass Clients Schlüssel für neue Anfragen wiederverwenden, kann ein Server einen "Idempotenz Fingerabdruck" der Anfrage zusammen mit dem Schlüssel erstellen und speichern.
-Dies ist ein Hash der gesamten oder eines Teils einer Anfrage, der mit anderen Anfragen mit demselben Schlüssel verglichen werden kann.
+Um zu verhindern, dass Clients Schlüssel für neue Anfragen wiederverwenden, kann ein Server einen „Idempotenz-Fingerabdruck“ der Anfrage erstellen und zusammen mit dem Schlüssel speichern.
+Dies ist ein Hash der gesamten oder eines Teils der Anfrage, der mit anderen Anfragen mit demselben Schlüssel verglichen werden kann.
 
-Wenn Idempotenz Fingerabdruck unterstützt wird, kann der Server eine Fehlermeldung senden, wenn dieselbe Schlüssel einen anderen Fingerabdruck hat.
+Wenn die Unterstützung von Idempotenz-Fingerabdrücken möglich ist, kann der Server eine Fehlermeldung senden, wenn derselbe Schlüssel einen anderen Fingerabdruck aufweist.
 
-#### Anfrageverarbeitung
+#### Anfragen verarbeiten
 
-Beim Empfang einer `POST`- oder `PATCH`-Anfrage mit einem `Idempotency-Key` an einem Endpunkt, der diesen erfordert, sollte der Server überprüfen, ob er bereits eine Anfrage mit diesem Schlüssel erhalten hat.
+Beim Empfang einer `POST`- oder `PATCH`-Anfrage mit einem `Idempotency-Key` an einem Endpunkt, der diesen erfordert, sollte der Server prüfen, ob er bereits eine Anfrage mit diesem Schlüssel erhalten hat.
 
-- Wenn er das nicht hat, sollte der Server die Operation durchführen und antworten und dann den Schlüssel speichern.
-- Wenn er das hat, sollte er die Operation nicht erneut durchführen, aber so antworten, als hätte er es getan.
+- Wenn nicht, sollte der Server die Operation ausführen und antworten und dann den Schlüssel speichern.
+- Wenn ja, sollte er die Operation nicht ausführen, sondern so antworten, als hätte er es getan.
 
-Server, die einen Idempotenz Fingerabdruck verwenden, würden auch einen Fingerabdruck für jede neue Anfrage generieren und speichern.
-Dieser würde verwendet, um mit einem Fehler zu antworten, wenn ein nachfolgender Schlüssel und Fingerabdruck nicht übereinstimmen.
+Server, die einen Idempotenz-Fingerabdruck verwenden, würden auch einen Fingerabdruck für jede neue Anfrage erzeugen und speichern.
+Dies würde genutzt, um bei einem nachfolgenden Schlüssel- und Fingerabdruck-Mismatch mit einem Fehler zu antworten.
 
-Wenn eine Anfrage ohne `Idempotency-Key` an einem Endpunkt, der diesen erfordert, empfangen wird, sollte der Server mit einem Fehler antworten.
+Wenn eine Anfrage ohne `Idempotency-Key` an einem Endpunkt empfangen wird, der diesen erfordert, sollte der Server mit einem Fehler antworten.
 
-#### Server-Fehlerantworten
+#### Server-Fehlermeldungen
 
-Ein Server sollte in folgenden Fällen Fehlerantworten bereitstellen:
+Ein Server sollte in den folgenden Fällen Fehlermeldungen bereitstellen:
 
-- {{HTTPStatus("400", "400 Bad Request")}}: Der Header fehlt für einen Endpunkt, der dokumentiert ist, dass er erforderlich ist.
-- {{HTTPStatus("409", "409 Conflict")}}: Eine Anfrage mit demselben Schlüssel wird aktuell/noch verarbeitet.
-- {{HTTPStatus("422", "422 Unprocessable Content")}}: Der Schlüssel wird bereits für eine andere Anfragenutzlast verwendet (wenn Idempotenz Fingerabdruck unterstützt wird).
+- {{HTTPStatus("400", "400 Bad Request")}}: Der Header fehlt an einem Endpunkt, der dokumentiert ist, dass er ihn erfordert.
+- {{HTTPStatus("409", "409 Conflict")}}: Eine Anfrage mit demselben Schlüssel wird derzeit/noch verarbeitet.
+- {{HTTPStatus("422", "422 Unprocessable Content")}}: Der Schlüssel wird bereits für eine andere Anfragenutzlast verwendet (falls Idempotenz-Fingerabdruck unterstützt wird).
 
-Im Fall einer `409 Conflict`-Antwort müssen Clients warten, bevor sie es erneut versuchen.
-Für alle anderen Fehler müssen Clients die Anfragen ändern, bevor sie sie erneut senden.
+Im Falle einer `409 Conflict`-Antwort müssen Clients warten, bevor sie es erneut versuchen.
+Für alle anderen Fehler müssen Clients die Anfragen anpassen, bevor sie sie erneut senden.
 
-Die Spezifikation schreibt kein Format für die Fehlerantwortnutzlast vor, aber Fehler sollten einen Link zu implementierungsspezifischer Dokumentation enthalten, die den Fehler erklärt.
-Das JSON-Payload-Format, das in {{rfc(9457, "Problem Details for HTTP APIs")}} beschrieben wird, ist eine Option.
+Die Spezifikation schreibt kein Format für die Fehlermeldungsnutzlast vor, aber Fehler sollten einen Link zu Implementierungsspezifikationen enthalten, die den Fehler erläutern.
+Das JSON-Nutzlastformat, wie in {{rfc(9457, "Problem Details for HTTP APIs")}} umschrieben, ist eine Option.
 Zum Beispiel könnte die folgende Antwort für einen fehlenden Schlüssel verwendet werden:
 
 ```http
@@ -112,10 +114,10 @@ Content-Language: en
 
 ## Beispiele
 
-### Ein POST mit einem Schlüssel
+### Eine `POST`-Anfrage mit einem Schlüssel
 
-Die folgende Nachricht zeigt eine POST-Anfrage zur Erstellung eines neuen Benutzers.
-Der Schlüssel `9c7d2b4a0e1f6c835a2d1b0f4e3c5a7d` ist ein eindeutiger Wert, der den vom Host veröffentlichten Anforderungen entspricht (example.com unterstützt diesen Header nicht, daher haben wir einen Wert erfunden).
+Die folgende Nachricht zeigt eine `POST`-Anfrage zur Erstellung eines neuen Benutzers.
+Der Schlüssel `9c7d2b4a0e1f6c835a2d1b0f4e3c5a7d` ist ein einzigartiger Wert, der den Anforderungen entspricht, die vom Host veröffentlicht wurden (example.com unterstützt diesen Header nicht, daher haben wir einfach einen Wert erfunden).
 
 ```http
 POST /api/users HTTP/1.1
@@ -130,10 +132,10 @@ Idempotency-Key: 9c7d2b4a0e1f6c835a2d1b0f4e3c5a7d
 }
 ```
 
-Wenn keine Antwort empfangen wird, kann der Client sicher genau dieselbe Anfrage erneut senden; Wenn der Server die Anfrage nicht erhalten hat, wird er darauf reagieren, wenn er die Anfrage bereits erhalten hat, wird er den Post nicht ausführen, aber er wird so antworten, als hätte er es getan.
+Wenn keine Antwort empfangen wird, kann der Client die exakt gleiche Anfrage sicher erneut senden. Wenn der Server die vorherige Anfrage nicht erhalten hat, wird er auf diese reagieren; wenn er die vorherige Anfrage bereits erhalten hat, wird die zweite ignoriert, aber der Server wird so reagieren, als hätte er die zweite wie gewohnt verarbeitet.
 
-Sendet der Client die Anfrage zu schnell erneut, könnte er eine Fehlerantwort wie diese erhalten.
-Beachten Sie, dass nur der HTTP-Statuscode vorgeschrieben ist, die restlichen Informationen sind serverdefiniert.
+Wenn der Client die Anfrage zu schnell erneut sendet, könnte er eine Fehlermeldung wie diese erhalten.
+Beachten Sie, dass nur der HTTP-Statuscode vorgeschrieben ist, der Rest der Informationen wird vom Server definiert.
 
 ```http
 HTTP/1.1 409 Conflict
