@@ -7,7 +7,7 @@ l10n:
 
 Die **`timeline-scope`** [CSS](/de/docs/Web/CSS)-Eigenschaft modifiziert den Geltungsbereich einer benannten Animations-Zeitleiste.
 
-Standardmäßig kann eine benannte Zeitleiste (d. h. deklariert mit {{cssxref("scroll-timeline-name")}} oder {{cssxref("view-timeline-name")}}) nur als steuernde Zeitleiste eines direkten Nachfahren-Elements festgelegt werden (d. h. indem man {{cssxref("animation-timeline")}} auf dieses mit dem Zeitleistennamen als Wert setzt). Das ist der Standard-"Geltungsbereich" der Zeitleiste.
+Standardmäßig kann eine benannte Zeitleiste (d.h. deklariert mit {{cssxref("scroll-timeline-name")}} oder {{cssxref("view-timeline-name")}}) nur als steuernde Zeitleiste eines direkten Nachfahren-Elements festgelegt werden (d.h. indem man {{cssxref("animation-timeline")}} auf dieses mit dem Zeitleistennamen als Wert setzt). Das ist der Standard-"Geltungsbereich" der Zeitleiste.
 
 `timeline-scope` wird der Name einer auf einem Nachfahren-Element definierten Zeitleiste gegeben; dies führt dazu, dass der Geltungsbereich der Zeitleiste auf das Element, auf dem `timeline-scope` gesetzt ist, und alle seine Nachfahren ausgeweitet wird. Mit anderen Worten, dieses Element und alle seine Nachfahren-Elemente können nun mit dieser Zeitleiste gesteuert werden.
 
@@ -28,7 +28,7 @@ Zulässige Werte für `timeline-scope` sind:
 - `none`
   - : Es gibt keine Änderung im Geltungsbereich der Zeitleiste.
 - `<dashed-ident>`
-  - : Gibt den Namen einer bestehenden benannten Zeitleiste an (d. h. deklariert mit {{cssxref("scroll-timeline-name")}} oder {{cssxref("view-timeline-name")}}), die auf einem Nachfahren-Element definiert ist. Dies führt dazu, dass der Geltungsbereich der Zeitleiste auf das Element, auf dem `timeline-scope` gesetzt ist, und alle seine Nachfahren ausgeweitet wird.
+  - : Gibt den Namen einer bestehenden benannten Zeitleiste an (d.h. deklariert mit {{cssxref("scroll-timeline-name")}} oder {{cssxref("view-timeline-name")}}), die auf einem Nachfahren-Element definiert ist. Dies führt dazu, dass der Geltungsbereich der Zeitleiste auf das Element, auf dem `timeline-scope` gesetzt ist, und alle seine Nachfahren ausgeweitet wird.
 
     > [!NOTE]
     > [`<dashed-ident>`](/de/docs/Web/CSS/custom-ident)-Werte müssen mit `--` beginnen, um Namenskonflikte mit standardmäßigen CSS-Schlüsselwörtern zu vermeiden.

@@ -55,7 +55,7 @@ Die `mask-border-repeat` Eigenschaft kann mit einem oder zwei Werten aus der unt
 
 ### Grundlegende Verwendung
 
-Diese Eigenschaft scheint derzeit noch nicht unterstützt zu werden. Sobald sie unterstützt wird, dient sie dazu zu definieren, wie der Maskenrandabschnitt um den Rand wiederholt wird — d.h., wird er einfach wiederholt, oder leicht skaliert, sodass eine ganze Anzahl von Abschnitten passt, oder gedehnt, sodass ein Abschnitt passt?
+Diese Eigenschaft scheint derzeit noch nicht unterstützt zu werden. Sobald sie unterstützt wird, dient sie dazu zu definieren, wie der Maskenrandabschnitt um den Rand wiederholt wird — d.h. wird er einfach wiederholt, oder leicht skaliert, sodass eine ganze Anzahl von Abschnitten passt, oder gedehnt, sodass ein Abschnitt passt?
 
 ```css
 mask-border-repeat: round;

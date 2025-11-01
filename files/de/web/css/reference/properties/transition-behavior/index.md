@@ -162,7 +162,7 @@ Der Code rendert wie folgt:
 
 > [!NOTE]
 > Da Popovers von `display: none` zu `display: block` wechseln, jedes Mal, wenn sie angezeigt werden, wechselt das Popover während jedes Eintrittsübergangs von seinen `@starting-style` Stilen zu seinen `[popover]:popover-open` Stilen. Wenn das Popover schließt, wechselt es von seinem `[popover]:popover-open` Zustand zum Standardzustand `[popover]`.
-> 
+>
 > Es ist möglich, dass sich der Stilübergang beim Eintritt und Austritt in solchen Fällen unterscheidet. Siehe unser [Beispiel zur Demonstration, wann Anfangsstile verwendet werden](/de/docs/Web/CSS/@starting-style#demonstration_of_when_starting_styles_are_used) für einen Nachweis dafür.
 
 ## Spezifikationen
