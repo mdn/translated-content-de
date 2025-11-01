@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Die **`animation-range`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) wird verwendet, um den Beginn und das Ende des Anwendungsbereichs einer Animation entlang ihrer Zeitachse festzulegen, d. h., wo entlang der Zeitachse eine Animation beginnen und enden wird.
+Die **`animation-range`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) wird verwendet, um den Beginn und das Ende des Anwendungsbereichs einer Animation entlang ihrer Zeitachse festzulegen, d.h. wo entlang der Zeitachse eine Animation beginnen und enden wird.
 
 ## Zusammengesetzte Eigenschaften
 

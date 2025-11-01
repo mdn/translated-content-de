@@ -295,8 +295,8 @@ flexAutoItem.addEventListener("click", () => {
 
 Der Flex-Container enthält zwei Flex-Elemente:
 
-- Das `#flex-auto`-Element hat einen `flex`-Wert von `auto`. Der `auto`-Wert erweitert sich zu `1 1 auto`, d. h. das Element darf sich ausdehnen.
-- Das `#default`-Element hat keinen `flex`-Wert, daher wird es auf den `initial`-Wert zurückgesetzt. Der `initial`-Wert erweitert sich zu `0 1 auto`, d. h. das Element darf sich nicht ausdehnen.
+- Das `#flex-auto`-Element hat einen `flex`-Wert von `auto`. Der `auto`-Wert erweitert sich zu `1 1 auto`, d.h. das Element darf sich ausdehnen.
+- Das `#default`-Element hat keinen `flex`-Wert, daher wird es auf den `initial`-Wert zurückgesetzt. Der `initial`-Wert erweitert sich zu `0 1 auto`, d.h. das Element darf sich nicht ausdehnen.
 
 Das `#default`-Element nimmt so viel Platz ein, wie seine Breite erfordert, dehnt sich jedoch nicht aus, um mehr Platz einzunehmen. Der gesamte verbleibende Raum wird vom `#flex-auto`-Element eingenommen.
 

@@ -104,7 +104,7 @@ grid-template-columns: unset;
 - {{cssxref("&lt;flex&gt;")}}
   - : Ist eine nicht negative Dimension mit der Einheit `fr`, die den Flex-Faktor der Spur angibt. Jede `<flex>`-dimensionierte Spur nimmt einen Anteil des verbleibenden Raums im Verhältnis zu ihrem Flex-Faktor ein.
 
-    Wenn es außerhalb einer `minmax()`-Notation erscheint, bedeutet es ein automatisches Minimum (d. h. `minmax(auto, <flex>)`).
+    Wenn es außerhalb einer `minmax()`-Notation erscheint, bedeutet es ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
 
 - {{cssxref("max-content")}}
   - : Ist ein Schlüsselwort, das den größten [maximalen Inhaltsbeitrag](https://drafts.csswg.org/css-sizing-3/#max-content) der die Gitterspur belegenden Gitterelemente darstellt. Zum Beispiel, wenn das erste Element der Gitterspur den Satz _"Repetitio est mater studiorum"_ und das zweite Element den Satz _"Dum spiro, spero"_ enthält, wird der maximale Inhaltsbeitrag durch die Größe des größten Satzes unter allen Giterelementen definiert - _"Repetitio est mater studiorum"_.

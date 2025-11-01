@@ -31,7 +31,7 @@ Der Wert der `forced-color-adjust` Eigenschaft muss eines der folgenden Schlüss
 - `none`
   - : Die Farben des Elements werden im erzwungenen Farbmodus nicht automatisch durch den {{Glossary("user_agent", "User-Agent")}} angepasst.
 - `preserve-parent-color`
-  - : Im erzwungenen Farbmodus, wenn die {{cssxref("color")}} Eigenschaft vom Elternteil erbt (d.h., es gibt keinen [kaskadierten Wert](/de/docs/Web/CSS/CSS_cascade/Cascade) oder der kaskadierte Wert ist `currentColor`, {{cssxref("inherit")}}, oder ein anderes Schlüsselwort, das vom Elternteil erbt), wird sie auf die [benutzte Farbe](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value) der `color` Eigenschaft des Elternteils berechnet. In allen anderen Fällen verhält sie sich wie `none`.
+  - : Im erzwungenen Farbmodus, wenn die {{cssxref("color")}} Eigenschaft vom Elternteil erbt (d.h. es gibt keinen [kaskadierten Wert](/de/docs/Web/CSS/CSS_cascade/Cascade) oder der kaskadierte Wert ist `currentColor`, {{cssxref("inherit")}}, oder ein anderes Schlüsselwort, das vom Elternteil erbt), wird sie auf die [benutzte Farbe](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value) der `color` Eigenschaft des Elternteils berechnet. In allen anderen Fällen verhält sie sich wie `none`.
 
 ## Verwendungshinweise
 

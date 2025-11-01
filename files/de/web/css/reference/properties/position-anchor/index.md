@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Die **`position-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt den Ankernamen des **Ankerelements** an (d. h. ein Element, das einen **Ankernamen** hat, der durch die {{cssxref("anchor-name")}} Eigenschaft gesetzt wird), mit dem ein positioniertes Element verknüpft ist.
+Die **`position-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt den Ankernamen des **Ankerelements** an (d.h. ein Element, das einen **Ankernamen** hat, der durch die {{cssxref("anchor-name")}} Eigenschaft gesetzt wird), mit dem ein positioniertes Element verknüpft ist.
 
 ## Syntax
 

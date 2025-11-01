@@ -99,7 +99,7 @@ left: unset;
 
 ## Beschreibung
 
-Die Wirkung von `left` hängt davon ab, wie das Element positioniert ist (d.h., dem Wert der {{cssxref("position")}}-Eigenschaft):
+Die Wirkung von `left` hängt davon ab, wie das Element positioniert ist (d.h. dem Wert der {{cssxref("position")}}-Eigenschaft):
 
 - Wenn `position` auf `absolute` oder `fixed` gesetzt ist, gibt die `left`-Eigenschaft den Abstand zwischen dem Außenabstand des linken Randes des Elements und dem inneren Rand des linken Randes seines umschließenden Blocks an. (Der umschließende Block ist der Vorfahre, zu dem das Element relativ positioniert ist.) Wenn das positionierte Element ein zugehöriges [_Ankerelement_](/de/docs/Web/CSS/CSS_anchor_positioning/Using) hat, und der Eigenschaftswert eine {{cssxref("anchor()")}}-Funktion beinhaltet, positioniert `left` den linken Rand des positionierten Elements relativ zur Position des angegebenen [`<anchor-side>`](/de/docs/Web/CSS/anchor#anchor-side)-Randes. Die `left`-Eigenschaft ist [kompatibel](/de/docs/Web/CSS/anchor#compatibility_of_inset_properties_and_anchor-side_values) mit den Werten `left`, `right`, `start`, `end`, `self-start`, `self-end`, `center` und `<percentage>`.
 - Wenn `position` auf `relative` gesetzt ist, gibt die `left`-Eigenschaft die Entfernung an, um die der linke Rand des Elements von seiner normalen Position nach rechts verschoben wird.
