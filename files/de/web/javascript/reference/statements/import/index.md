@@ -2,14 +2,14 @@
 title: import
 slug: Web/JavaScript/Reference/Statements/import
 l10n:
-  sourceCommit: fad67be4431d8e6c2a89ac880735233aa76c41d4
+  sourceCommit: 3d3046d13482ca979db8b98b6eb55927b9b3a51f
 ---
 
-Die statische **`import`**-Deklaration wird verwendet, um schreibgeschützte, dynamische {{Glossary("binding", "Bindings")}} zu importieren, die von einem anderen Modul [exportiert](/de/docs/Web/JavaScript/Reference/Statements/export) werden. Die importierten Bindings werden _dynamische Bindings_ genannt, weil sie durch das Modul, das das Binding exportiert, aktualisiert werden, aber nicht durch das importierende Modul neu zugewiesen werden können.
+Die statische **`import`**-Deklaration wird verwendet, um schreibgeschützte, laufzeitlich gebundene {{Glossary("binding", "bindings")}} zu importieren, die von einem anderen Modul [exportiert](/de/docs/Web/JavaScript/Reference/Statements/export) werden. Die importierten Bindungen werden _laufzeitliche Bindungen_ genannt, weil sie vom Modul, das die Bindung exportiert hat, aktualisiert werden, aber nicht vom importierenden Modul neu zugewiesen werden können.
 
-Um die `import`-Deklaration in einer Quelldatei zu verwenden, muss die Datei zur Laufzeit als [Modul](/de/docs/Web/JavaScript/Guide/Modules) interpretiert werden. In HTML geschieht dies, indem `type="module"` zum {{HTMLElement("script")}}-Tag hinzugefügt wird. Module werden automatisch im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) interpretiert.
+Um die `import`-Deklaration in einer Quelldatei zu verwenden, muss die Datei von der Laufzeit als ein [Module](/de/docs/Web/JavaScript/Guide/Modules) interpretiert werden. In HTML wird dies durch Hinzufügen von `type="module"` zum {{HTMLElement("script")}}-Tag erreicht. Module werden automatisch im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) interpretiert.
 
-Es gibt auch eine funktionsähnliche dynamische [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import), die keine Skripte des Typs `type="module"` erfordert.
+Es gibt auch einen funktionsähnlichen dynamischen [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import), der keine Skripte vom Typ `type="module"` erfordert.
 
 ## Syntax
 
@@ -28,40 +28,40 @@ import "module-name";
 ```
 
 - `defaultExport`
-  - : Der Name, der sich auf den Standardexport des Moduls bezieht. Muss ein gültiger JavaScript-Bezeichner sein.
+  - : Namen, der sich auf den Standardexport aus dem Modul bezieht. Muss ein gültiger JavaScript-Bezeichner sein.
 - `module-name`
-  - : Das Modul, aus dem importiert werden soll. Es sind nur einfach- und doppelt-anfwendungszeichenkettenliterals erlaubt. Die Bewertung des Bezeichners ist hostspezifisch. Die meisten Hosts richten sich nach Browsern und lösen die Bezeichner als URLs relativ zur aktuellen Modul-URL auf (siehe [`import.meta.url`](/de/docs/Web/JavaScript/Reference/Operators/import.meta)). Node, Bundler und andere Nicht-Browser-Umgebungen definieren oft ihre eigenen Features darauf, also sollten Sie deren Dokumentation finden, um die genauen Regeln zu verstehen. Der Abschnitt [Modul-Bezeichnerauflösung](#modul-bezeichnerauflösung) enthält ebenfalls weitere Informationen.
+  - : Das Modul, aus dem importiert werden soll. Es sind nur einfache und doppelte Anführungszeichen erlaubt. Die Auswertung des Spezifizierers ist host-spezifisch. Die meisten Hosts stimmen mit Browsern überein und lösen die Spezifizierer als URLs relativ zur aktuellen Modul-URL auf (siehe [`import.meta.url`](/de/docs/Web/JavaScript/Reference/Operators/import.meta)). Node, Bundler und andere Nicht-Browser-Umgebungen definieren oft ihre eigenen Funktionen darüber hinaus, daher sollten Sie die Dokumentation für diese lesen, um die genauen Regeln zu verstehen. Der Abschnitt [Modulspezifizierer-Auflösung](#modulspezifizierer-auflösung) enthält ebenfalls weitere Informationen.
 - `name`
-  - : Der Name des Modulobjekts, das als eine Art Namespace verwendet wird, wenn auf die Importe verwiesen wird. Muss ein gültiger JavaScript-Bezeichner sein.
+  - : Name des Modulobjekts, das als Art Namespace verwendet wird, wenn auf die Importe verwiesen wird. Muss ein gültiger JavaScript-Bezeichner sein.
 - `exportN`
-  - : Der Name der zu importierenden Exporte. Der Name kann entweder ein Bezeichner oder ein string-Literal sein, je nachdem, was `module-name` zu exportieren erklärt. Wenn es sich um ein string-Literal handelt, muss es zu einem gültigen Bezeichner aliasiert werden.
+  - : Namen der Exporte, die importiert werden sollen. Der Name kann entweder ein Bezeichner oder ein Zeichenfolgenliteral sein, je nachdem, was `module-name` zum Exportieren angibt. Wenn es ein Zeichenfolgenliteral ist, muss es zu einem gültigen Bezeichner aliasiert werden.
 - `aliasN`
-  - : Die Namen, die sich auf die benannten Importe beziehen werden. Muss ein gültiger JavaScript-Bezeichner sein.
+  - : Namen, die sich auf die benannten Importe beziehen. Muss ein gültiger JavaScript-Bezeichner sein.
 
-Der `"module-name"` kann von einer Reihe von [Import-Attributen](/de/docs/Web/JavaScript/Reference/Statements/import/with) gefolgt werden, beginnend mit dem Schlüsselwort `with`.
+Dem `"module-name"` können eine Reihe von [Importattributen](/de/docs/Web/JavaScript/Reference/Statements/import/with) folgen, beginnend mit dem Schlüsselwort `with`.
 
 ## Beschreibung
 
-`import`-Deklarationen können nur in Modulen und nur auf der obersten Ebene vorhanden sein (d.h. nicht innerhalb von Blöcken, Funktionen usw.). Wenn eine `import`-Deklaration in Nicht-Modul-Kontexten (zum Beispiel `<script>`-Tags ohne `type="module"`, `eval`, `new Function`, die alle das Parsing-Ziel "Skript" oder "Funktionskörper" haben) angetroffen wird, wird ein `SyntaxError` ausgelöst. Um Module in Nicht-Modul-Kontexten zu laden, verwenden Sie stattdessen die [dynamische Import](/de/docs/Web/JavaScript/Reference/Operators/import) Syntax.
+`import`-Deklarationen können nur in Modulen vorhanden sein, und nur auf oberster Ebene (d.h. nicht innerhalb von Blöcken, Funktionen usw.). Wenn eine `import`-Deklaration in Nicht-Modul-Kontexten (zum Beispiel `<script>`-Tags ohne `type="module"`, `eval`, `new Function`, die alle "script" oder "function body" als Parsing-Ziele haben) angetroffen wird, wird ein `SyntaxError` ausgelöst. Um Module in Nicht-Modul-Kontexten zu laden, verwenden Sie stattdessen die [dynamische Import](/de/docs/Web/JavaScript/Reference/Operators/import)-Syntax.
 
-Alle importierten Bindings können sich nicht im selben Gültigkeitsbereich wie jede andere Deklaration befinden, einschließlich {{jsxref("Statements/let", "let")}}, {{jsxref("Statements/const", "const")}}, {{jsxref("Statements/class", "class")}}, {{jsxref("Statements/function", "function")}}, {{jsxref("Statements/var", "var")}}, und `import`-Deklaration.
+Alle importierten Bindungen dürfen sich nicht im selben Geltungsbereich wie jede andere Deklaration befinden, einschließlich {{jsxref("Statements/let", "let")}}, {{jsxref("Statements/const", "const")}}, {{jsxref("Statements/class", "class")}}, {{jsxref("Statements/function", "function")}}, {{jsxref("Statements/var", "var")}} und `import`-Deklaration.
 
-`import`-Deklarationen sind so konzipiert, syntaktisch starr zu sein (zum Beispiel nur Zeichenkettenliteral-Spezifikatoren, nur auf der obersten Ebene zugelassen, alle Bindings müssen Bezeichner sein), was es ermöglicht, dass Module statisch analysiert und verknüpft werden, bevor sie ausgewertet werden. Dies ist der Schlüssel, um Module von Natur aus asynchron zu machen und Funktionen wie [top-level await](/de/docs/Web/JavaScript/Guide/Modules#top_level_await) zu ermöglichen.
+`import`-Deklarationen sind dafür konzipiert, syntaktisch streng zu sein (zum Beispiel nur Spezifizierer als Stringliterale, nur auf oberster Ebene erlaubt, alle Bindungen müssen Bezeichner sein), was es ermöglicht, Module statisch zu analysieren und vor der Auswertung zu verknüpfen. Dies ist der Schlüssel dazu, Module von Natur aus asynchron zu machen und Funktionen wie [top-level await](/de/docs/Web/JavaScript/Guide/Modules#top_level_await) zu unterstützen.
 
 ### Formen von Import-Deklarationen
 
 Es gibt vier Formen von `import`-Deklarationen:
 
-- [Benannter Import](#benannter_import): `import { export1, export2 } from "module-name";`
-- [Standardimport](#standardimport): `import defaultExport from "module-name";`
-- [Namespace-Import](#namespace-import): `import * as name from "module-name";`
-- [Nebeneffekt-Import](#importieren_eines_moduls_nur_für_seine_nebeneffekte): `import "module-name";`
+- [Named import](#named_import): `import { export1, export2 } from "module-name";`
+- [Default import](#default_import): `import defaultExport from "module-name";`
+- [Namespace import](#namespace_import): `import * as name from "module-name";`
+- [Side effect import](#importieren_eines_moduls_nur_für_seine_seiteneffekte): `import "module-name";`
 
-Unten befinden sich Beispiele, um die Syntax zu verdeutlichen.
+Unten finden Sie Beispiele zur Verdeutlichung der Syntax.
 
-#### Benannter Import
+#### Named import
 
-Angenommen, es gibt einen Wert namens `myExport`, der entweder implizit als `export * from "another.js"` oder explizit mit der {{jsxref("Statements/export", "export")}}-Erklärung aus dem Modul `my-module` exportiert wurde, fügt dies `myExport` in den aktuellen Gültigkeitsbereich ein.
+Angenommen, ein Wert namens `myExport` wurde aus dem Modul `my-module` entweder implizit als `export * from "another.js"` oder explizit mit der {{jsxref("Statements/export", "export")}}-Anweisung exportiert, dieser wird in den aktuellen Geltungsbereich eingefügt.
 
 ```js
 import { myExport } from "/modules/my-module.js";
@@ -73,13 +73,13 @@ Sie können mehrere Namen aus demselben Modul importieren.
 import { foo, bar } from "/modules/my-module.js";
 ```
 
-Sie können einen Export beim Importieren umbenennen. Zum Beispiel fügt dies `shortName` in den aktuellen Gültigkeitsbereich ein.
+Sie können einen Export beim Import umbenennen. Zum Beispiel wird dadurch `shortName` in den aktuellen Geltungsbereich eingefügt.
 
 ```js
 import { reallyReallyLongModuleExportName as shortName } from "/modules/my-module.js";
 ```
 
-Ein Modul kann auch ein Mitglied als string-Literal exportieren, das kein gültiger Bezeichner ist. In diesem Fall müssen Sie es aliasieren, um es im aktuellen Modul zu verwenden.
+Ein Modul kann auch ein Mitglied als Stringliteral exportieren, das kein gültiger Bezeichner ist; in diesem Fall müssen Sie es aliasieren, um es im aktuellen Modul verwenden zu können.
 
 ```js
 // /modules/my-module.js
@@ -92,11 +92,11 @@ import { "a-b" as a } from "/modules/my-module.js";
 ```
 
 > [!NOTE]
-> `import { x, y } from "mod"` ist nicht gleichbedeutend mit `import defaultExport from "mod"` und dann das Destrukturieren von `x` und `y` aus `defaultExport`. Benannte und Standardimporte sind in JavaScript-Modulen unterschiedliche Syntaxen.
+> `import { x, y } from "mod"` ist nicht gleichbedeutend mit `import defaultExport from "mod"` und anschließendem Destructuring von `x` und `y` aus `defaultExport`. Named und Default Importe sind unterschiedliche Syntaxen in JavaScript-Modulen.
 
-#### Standardimport
+#### Default import
 
-Standardexporte müssen mit der entsprechenden Standardimports-Syntax importiert werden. Diese Version importiert direkt den Standard:
+Standardexporte müssen mit der entsprechenden Standardimportsytax importiert werden. Diese Version importiert direkt den Standard:
 
 ```js
 import myDefault from "/modules/my-module.js";
@@ -104,7 +104,7 @@ import myDefault from "/modules/my-module.js";
 
 Da der Standardexport keinen Namen explizit angibt, können Sie dem Bezeichner einen beliebigen Namen geben.
 
-Es ist auch möglich, einen Standardimport mit Namespace-Importen oder benannten Importen zu spezifizieren. In solchen Fällen muss der Standardimport zuerst deklariert werden. Zum Beispiel:
+Es ist auch möglich, einen Standardimport mit Namespace-Importen oder Named-Importen zu spezifizieren. In solchen Fällen muss der Standardimport zuerst deklariert werden. Zum Beispiel:
 
 ```js
 import myDefault, * as myModule from "/modules/my-module.js";
@@ -117,44 +117,44 @@ oder
 import myDefault, { foo, bar } from "/modules/my-module.js";
 ```
 
-Das Importieren eines Namens namens `default` hat den gleichen Effekt wie ein Standardimport. Es ist notwendig, den Namen zu aliasieren, weil `default` ein reserviertes Wort ist.
+Das Importieren eines Namens mit dem Namen `default` hat denselben Effekt wie ein Standardimport. Es ist notwendig, den Namen zu aliasieren, da `default` ein reserviertes Wort ist.
 
 ```js
 import { default as myDefault } from "/modules/my-module.js";
 ```
 
-#### Namespace-Import
+#### Namespace import
 
-Der folgende Code fügt `myModule` in den aktuellen Gültigkeitsbereich ein, der alle Exporte aus dem Modul enthält, das unter `/modules/my-module.js` zu finden ist.
+Der folgende Code fügt `myModule` in den aktuellen Geltungsbereich ein, das alle Exporte aus dem Modul enthält, das sich unter `/modules/my-module.js` befindet.
 
 ```js
 import * as myModule from "/modules/my-module.js";
 ```
 
-Hierbei steht `myModule` für ein _Namespace_-Objekt, das alle Exporte als Eigenschaften enthält. Wenn das oben importierte Modul beispielsweise einen Export `doAllTheAmazingThings()` enthält, würden Sie ihn wie folgt aufrufen:
+Hier stellt `myModule` ein _Namespace_-Objekt dar, das alle Exporte als Eigenschaften enthält. Wenn das oben importierte Modul beispielsweise einen Export `doAllTheAmazingThings()` enthält, würden Sie es so aufrufen:
 
 ```js
 myModule.doAllTheAmazingThings();
 ```
 
-`myModule` ist ein [versiegeltes](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed) Objekt mit [`null` Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects). Der Standardexport ist als Schlüssel `default` verfügbar. Weitere Informationen finden Sie unter [Modul-Namespace-Objekt](/de/docs/Web/JavaScript/Reference/Operators/import#module_namespace_object).
+`myModule` ist ein [Sealed](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed)-Objekt mit [`null` prototype](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects). Der Standardexport ist als Schlüssel `default` verfügbar. Weitere Informationen finden Sie unter [Modul-Namespace-Objekt](/de/docs/Web/JavaScript/Reference/Operators/import#module_namespace_object).
 
 > [!NOTE]
-> JavaScript hat keine Wildcard-Importe wie `import * from "module-name"`, wegen der hohen Wahrscheinlichkeit von Namenskonflikten.
+> JavaScript hat keine Wildcard-Importe wie `import * from "module-name"`, aufgrund der hohen Möglichkeit von Namenskonflikten.
 
-#### Importieren eines Moduls nur für seine Nebeneffekte
+#### Importieren eines Moduls nur für seine Seiteneffekte
 
-Importieren Sie ein gesamtes Modul nur wegen der Nebeneffekte, ohne tatsächlich Werte zu importieren. Dies führt den globalen Code des Moduls aus, importiert jedoch keine Werte.
+Importieren Sie ein gesamtes Modul nur für Seiteneffekte, ohne etwas zu importieren. Dies führt den globalen Code des Moduls aus, importiert jedoch tatsächlich keine Werte.
 
 ```js
 import "/modules/my-module.js";
 ```
 
-Dies wird häufig für {{Glossary("Polyfill", "Polyfills")}} verwendet, die die globalen Variablen modifizieren.
+Dies wird häufig für {{Glossary("Polyfill", "Polyfills")}} verwendet, die die globalen Variablen verändern.
 
 ### Hoisting
 
-Import-Deklarationen werden {{Glossary("Hoisting", "gehoistet")}}. In diesem Fall bedeutet das, dass die Bezeichner, die die Importe einführen, im gesamten Modulumfang verfügbar sind und ihre Nebeneffekte erzeugt werden, bevor der Rest des Modulcodes ausgeführt wird.
+Import-Deklarationen sind {{Glossary("Hoisting", "Hoisted")}}. In diesem Fall bedeutet das, dass die von den Importen eingeführten Bezeichner im gesamten Modulbereich verfügbar sind und ihre Seiteneffekte vor dem Rest des Modulcodes ausgeführt werden.
 
 ```js
 myModule.doAllTheAmazingThings(); // myModule.doAllTheAmazingThings is imported by the next line
@@ -162,17 +162,17 @@ myModule.doAllTheAmazingThings(); // myModule.doAllTheAmazingThings is imported 
 import * as myModule from "/modules/my-module.js";
 ```
 
-### Modul-Bezeichnerauflösung
+### Modulspezifizierer-Auflösung
 
-Die ECMAScript-Spezifikation definiert nicht, wie Modulbezeichner aufgelöst werden, und überlässt es der Host-Umgebung (z.B. Browser, Node.js, Deno). Das Verhalten in Browsern wird durch [die HTML-Spezifikation](https://html.spec.whatwg.org/multipage/webappapis.html#resolve-a-module-specifier) festgelegt und ist zur _de facto_-Basis für alle Umgebungen geworden.
+Die ECMAScript-Spezifikation definiert nicht, wie Modulspezifizierer aufgelöst werden, und überlässt dies der Host-Umgebung (z. B. Browser, Node.js, Deno). Das Browserverhalten wird von [der HTML-Spezifikation](https://html.spec.whatwg.org/multipage/webappapis.html#resolve-a-module-specifier) spezifiziert, und dies ist zur _de facto_ Basis für alle Umgebungen geworden.
 
-Es gibt drei allgemein anerkannte Typen von Bezeichnern, wie von der HTML-Spezifikation, Node und vielen anderen implementiert:
+Es gibt drei Typen von Spezifizierern, die weitläufig anerkannt sind, wie sie von der HTML-Spezifikation, Node und vielen anderen implementiert werden:
 
-- _Relative Bezeichner_, die mit `/`, `./` oder `../` beginnen und relativ zur aktuellen Modul-URL aufgelöst werden.
-- _Absolute Bezeichner_, die analysierbare URLs sind und wie sie sind aufgelöst werden.
-- _Bare Bezeichner_, die keiner der obigen sind.
+- _Relative Spezifizierer_, die mit `/`, `./` oder `../` beginnen und relativ zur aktuellen Modul-URL aufgelöst werden.
+- _Absolute Spezifizierer_, die parsierbare URLs sind und so aufgelöst werden, wie sie sind.
+- _Bare Spezifizierer_, die keiner der obigen sind.
 
-Die bemerkenswerteste Einschränkung für relative Bezeichner, insbesondere für Personen, die mit den [CommonJS](https://wiki.commonjs.org/wiki/CommonJS)-Konventionen vertraut sind, ist, dass Browser verbieten, dass ein Bezeichner implizit zu vielen potenziellen Kandidaten aufgelöst wird. In CommonJS, wenn Sie `main.js` und `utils/index.js` haben, dann würden alle folgenden den "Standardexport" von `utils/index.js` importieren:
+Die bemerkenswerteste Einschränkung für relative Spezifizierer, insbesondere für Personen, die mit Konventionen von [CommonJS](https://wiki.commonjs.org/wiki/CommonJS) vertraut sind, ist, dass Browser einem Spezifizierer verbieten, sich implizit auf viele potenzielle Kandidaten aufzulösen. In CommonJS, wenn Sie `main.js` und `utils/index.js` haben, importieren dann alle folgenden den "Standardexport" von `utils/index.js`:
 
 ```js
 // main.js
@@ -181,15 +181,15 @@ const utils = require("./utils/index"); // Omit only the ".js" extension
 const utils = require("./utils/index.js"); // The most explicit form
 ```
 
-Im Internet ist dies kostspielig, denn wenn Sie `import x from "./utils"` schreiben, muss der Browser Anfragen an `utils`, `utils/index.js`, `utils.js` und möglicherweise viele andere URLs senden, bis er ein importierbares Modul findet. Daher kann in der HTML-Spezifikation der Bezeichner standardmäßig nur eine URL sein, die relativ zur aktuellen Modul-URL aufgelöst wird. Sie können die Dateierweiterung oder den Datei-Namen `index.js` nicht weglassen. Dieses Verhalten wurde von Nodes ESM-Implementierung übernommen, ist jedoch kein Bestandteil der ECMAScript-Spezifikation.
+Im Web ist dies kostspielig, da, wenn Sie `import x from "./utils"` schreiben, der Browser Anfragen an `utils`, `utils/index.js`, `utils.js` und potenziell viele andere URLs senden muss, bis es ein importierbares Modul findet. Daher kann in der HTML-Spezifikationen der Spezifizierer standardmäßig nur eine URL sein, die relativ zur aktuellen Modul-URL aufgelöst wird. Sie können die Dateierweiterung oder den Dateinamen `index.js` nicht weglassen. Dieses Verhalten wurde von der ESM-Implementierung von Node vererbt, aber es ist kein Teil der ECMAScript-Spezifikation.
 
-Beachten Sie, dass dies nicht bedeutet, dass `import x from "./utils"` im Internet niemals funktioniert. Der Browser sendet trotzdem eine Anfrage an diese URL, und wenn der Server mit dem korrekten Inhalt antworten kann, wird der Import erfolgreich sein. Dies erfordert, dass der Server eine spezielle Auflösungslogik implementiert, da anwendungsextensionsfreie Anfragen normalerweise als Anfragen für HTML-Dateien verstanden werden.
+Das bedeutet nicht, dass `import x from "./utils"` niemals im Web funktioniert. Der Browser sendet immer noch eine Anfrage an diese URL, und wenn der Server mit dem korrekten Inhalt antworten kann, wird der Import erfolgreich sein. Dies erfordert, dass der Server eine benutzerdefinierte Auflösungslogik implementiert, da Anfrage ohne Erweiterung üblicherweise als Anfrage nach HTML-Dateien verstanden werden.
 
-Absolute Bezeichner können jede Art von [URL](/de/docs/Web/URI) sein, die in importierbaren Quellcode aufgelöst wird. Besonders bemerkenswert:
+Absolute Spezifizierer können jede Art von [URL](/de/docs/Web/URI) sein, die sich auf importierbaren Quellcode auflöst. Am bemerkenswertesten:
 
-- [HTTP-URLs](/de/docs/Web/HTTP) werden im Internet immer unterstützt, da die meisten Skripte bereits HTTP-URLs haben. Sie werden von Deno (das ursprünglich sein gesamtes Modul-System auf HTTP-URLs stützte) nativ unterstützt, haben aber in Node nur experimentelle Unterstützung über [benutzerdefinierte HTTPS-Loader](https://nodejs.org/api/module.html#import-from-https).
-- `file:`-URLs werden von vielen Nicht-Browser-Laufzeitumgebungen wie Node unterstützt, da Skripte dort bereits `file:`-URLs haben, sind aber aus Sicherheitsgründen nicht von Browsern unterstützt.
-- [Daten-URLs](/de/docs/Web/URI/Reference/Schemes/data) werden von vielen Laufzeiten einschließlich Browsern, Node, Deno usw. unterstützt. Sie sind nützlich, um kleine Module direkt in den Quellcode einzubetten. Unterstützte [MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types) sind solche, die importierbaren Quellcode bezeichnen, wie `text/javascript` für JavaScript, `application/json` für JSON-Module, `application/wasm` für WebAssembly-Module usw. (Sie können dennoch [Import-Attribute](/de/docs/Web/JavaScript/Reference/Statements/import/with) erfordern.)
+- [HTTP-URLs](/de/docs/Web/HTTP) werden im Web immer unterstützt, da die meisten Skripte bereits HTTP-URLs besitzen. Es wird nativ von Deno unterstützt (das anfänglich sein gesamtes Modulsystem auf HTTP-URLs stützte), aber es hat nur experimentelle Unterstützung in Node über [benutzerdefinierte HTTPS-Loader](https://nodejs.org/api/module.html#import-from-https).
+- `file:`-URLs werden durch viele Nicht-Browser-Laufzeiten wie Node unterstützt, da Skripte dort bereits `file:`-URLs haben, aber sie werden aus Sicherheitsgründen nicht von Browsern unterstützt.
+- [Daten-URLs](/de/docs/Web/URI/Reference/Schemes/data) werden durch viele Laufzeiten einschließlich Browsern, Node, Deno, usw. unterstützt. Sie sind nützlich zum Einbetten von kleinen Modulen direkt in den Quellcode. Unterstützte [MIME-Typen](/de/docs/Web/HTTP/Guides/MIME_types) sind jene, die importierbaren Quellcode bezeichnen, wie `text/javascript` für JavaScript, `application/json` für JSON-Module, `application/wasm` für WebAssembly-Module, usw. (Sie können immer noch [Importattribute](/de/docs/Web/JavaScript/Reference/Statements/import/with) erfordern.)
 
   ```js
   // HTTP URLs
@@ -200,19 +200,19 @@ Absolute Bezeichner können jede Art von [URL](/de/docs/Web/URI) sein, die in im
   import x from 'data:application/json,{"foo":42}' with { type: "json" };
   ```
 
-`text/javascript`-Daten-URLs werden immer noch als Module interpretiert, aber sie können keine relativen Importe verwenden — da das `data:`-URL-Schema nicht hierarchisch ist. Das heißt, `import x from "data:text/javascript,import y from './y.js';"` wird einen Fehler auslösen, weil der relative Bezeichner `'./y.js'` nicht aufgelöst werden kann.
+  `text/javascript`-Daten-URLs werden weiterhin als Module interpretiert, aber sie können keine relativen Importe verwenden — weil das `data:`-URL-Schema nicht hierarchisch ist. Das heißt, `import x from "data:text/javascript,import y from './y.js';"` wird einen Fehler werfen, da der relative Spezifizierer `'./y.js'` nicht aufgelöst werden kann.
 
-- [`node:`-URLs](https://nodejs.org/api/esm.html#node-imports) wird zu eingebauten Node.js-Modulen aufgelöst. Sie werden von Node und anderen Laufzeitumgebungen unterstützt, die Anspruch auf Kompatibilität mit Node erheben, wie Bun.
+- [`node:`-URLs](https://nodejs.org/api/esm.html#node-imports) lösen sich zu eingebauten Node.js-Modulen auf. Sie werden von Node und anderen Laufzeiten unterstützt, die Kompatibilität mit Node beanspruchen, wie Bun.
 
-Bare Bezeichner, populär durch CommonJS, werden innerhalb des `node_modules`-Verzeichnisses aufgelöst. Wenn Sie zum Beispiel `import x from "foo"` haben, dann wird die Laufzeit nach dem `foo`-Paket innerhalb eines `node_modules`-Verzeichnisses in den übergeordneten Verzeichnissen des aktuellen Moduls suchen. Dieses Verhalten kann in Browsern mithilfe von [Import-Karten](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) nachgeahmt werden, die es Ihnen auch ermöglichen, die Auflösung auf andere Weise anzupassen.
+Bare Spezifizierer, die von CommonJS popularisiert wurden, werden im `node_modules`-Verzeichnis aufgelöst. Zum Beispiel, wenn Sie `import x from "foo"` haben, wird die Laufzeit nach dem `foo`-Paket innerhalb eines `node_modules`-Verzeichnisses in den übergeordneten Verzeichnissen des aktuellen Moduls suchen. Dieses Verhalten kann in Browsern mit [Import-Maps](/de/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) nachgebildet werden, die Ihnen auch ermöglichen, die Auflösung auf andere Weise anzupassen.
 
-Der Modul-Auflösungsalgorithmus kann auch programmgesteuert unter Verwendung der [`import.meta.resolve`](/de/docs/Web/JavaScript/Reference/Operators/import.meta/resolve)-Funktion, die von der HTML-Spezifikation definiert wird, ausgeführt werden.
+Der Modulauflösungsalgorithmus kann auch programmatisch mittels der Funktion [`import.meta.resolve`](/de/docs/Web/JavaScript/Reference/Operators/import.meta/resolve), die von der HTML-Spezifikation definiert wird, ausgeführt werden.
 
 ## Beispiele
 
 ### Standardimport
 
-In diesem Beispiel erstellen wir ein wiederverwendbares Modul, das eine Funktion exportiert, um alle Primzahlen innerhalb eines bestimmten Bereichs zu erhalten.
+In diesem Beispiel erstellen wir ein wiederverwendbares Modul, das eine Funktion exportiert, um alle Primzahlen innerhalb eines gegebenen Bereichs zu erhalten.
 
 ```js
 // getPrimes.js
@@ -242,9 +242,9 @@ import { getPrimes } from "/modules/getPrimes.js";
 console.log(getPrimes(10)); // [2, 3, 5, 7]
 ```
 
-### Importierte Werte können nur vom Exporteur modifiziert werden
+### Importierte Werte können nur vom Exporteur geändert werden
 
-Der importierte Bezeichner ist ein _dynamisches Binding_, weil das Modul, das es exportiert, es neu zuweisen kann und der importierte Wert sich ändern würde. Allerdings kann das importierende Modul es nicht neu zuweisen. Dennoch kann jedes Modul, das ein exportiertes Objekt hält, das Objekt verändern, und der veränderte Wert kann von allen anderen Modulen, die denselben Wert importieren, beobachtet werden.
+Die Bezeichner, die importiert werden, sind _laufzeitliche Bindungen_, weil das Modul, das sie exportiert, sie neu zuweisen kann und sich der importierte Wert ändern würde. Das Modul, das sie importiert, kann sie jedoch nicht neu zuweisen. Dennoch kann jedes Modul, das ein exportiertes Objekt hält, das Objekt verändern, und der veränderte Wert kann von allen anderen Modulen, die denselben Wert importieren, beobachtet werden.
 
 Sie können den neuen Wert auch über das [Modul-Namespace-Objekt](/de/docs/Web/JavaScript/Reference/Operators/import#module_namespace_object) beobachten.
 
@@ -271,6 +271,14 @@ setTimeout(() => {
 }, 1000);
 ```
 
+### Importieren von Nicht-JavaScript-Modulen
+
+Nicht-JavaScript-Module können auch unter Verwendung der `import`-Anweisung importiert werden, aber ihre Typen müssen explizit mit [Importattributen](/de/docs/Web/JavaScript/Reference/Statements/import/with) deklariert werden. Um zum Beispiel ein JSON-Modul zu importieren, müssen Sie das `type: "json"`-Attribut angeben.
+
+```js
+import data from "./data.json" with { type: "json" };
+```
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -284,9 +292,9 @@ setTimeout(() => {
 - {{jsxref("Statements/export", "export")}}
 - [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import)
 - [`import.meta`](/de/docs/Web/JavaScript/Reference/Operators/import.meta)
-- [Import-Attribute](/de/docs/Web/JavaScript/Reference/Statements/import/with)
-- [Vorschau auf ES6-Module und mehr aus ES2015, ES2016 und darüber hinaus](https://blogs.windows.com/msedgedev/2016/05/17/es6-modules-and-beyond/) auf blogs.windows.com (2016)
-- [ES6 in der Tiefe: Module](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) auf hacks.mozilla.org (2015)
-- [ES-Module: Ein Cartoon-Tiefenblick](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) auf hacks.mozilla.org (2018)
-- [Exploring JS, Kap.16: Module](https://exploringjs.com/es6/ch_modules.html) von Dr. Axel Rauschmayer
+- [Import Attribute](/de/docs/Web/JavaScript/Reference/Statements/import/with)
+- [Previewing ES6 Modules and more from ES2015, ES2016 and beyond](https://blogs.windows.com/msedgedev/2016/05/17/es6-modules-and-beyond/) auf blogs.windows.com (2016)
+- [ES6 in Depth: Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) auf hacks.mozilla.org (2015)
+- [ES modules: A cartoon deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) auf hacks.mozilla.org (2018)
+- [Exploring JS, Ch.16: Modules](https://exploringjs.com/es6/ch_modules.html) von Dr. Axel Rauschmayer
 - [Export und Import](https://javascript.info/import-export) auf javascript.info
