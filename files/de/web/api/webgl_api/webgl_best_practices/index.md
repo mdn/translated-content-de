@@ -1,25 +1,25 @@
 ---
-title: WebGL Best Practices
+title: WebGL-Best Practices
 slug: Web/API/WebGL_API/WebGL_best_practices
 l10n:
-  sourceCommit: 636b90011532e3fd2cf9333aaf1754fdc8de7938
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{DefaultAPISidebar("WebGL")}}
 
-WebGL ist eine komplexe API, und es ist oft nicht offensichtlich, welche die empfohlenen Wege zur Nutzung sind. Diese Seite behandelt Empfehlungen über das gesamte Spektrum der Fachkenntnisse hinweg und hebt nicht nur das, was zu tun und zu lassen ist, hervor, sondern erläutert auch das _warum_. Sie können sich auf dieses Dokument verlassen, um Ihre Wahl der Herangehensweise zu unterstützen und sicherzustellen, dass Sie auf dem richtigen Weg sind, unabhängig davon, welchen Browser oder welches Hardware-Gerät Ihre Benutzer verwenden.
+WebGL ist eine komplexe API, und es ist oft nicht offensichtlich, welche die empfohlenen Verwendungsweisen sind. Diese Seite behandelt Empfehlungen über das gesamte Spektrum an Fachwissen und hebt nicht nur das Richtige und Falsche hervor, sondern erklärt auch _warum_. Sie können sich auf dieses Dokument verlassen, um Ihre Wahl der Vorgehensweise zu leiten und sicherzustellen, dass Sie auf dem richtigen Weg sind, egal welchen Browser oder welche Hardware Ihre Nutzer verwenden.
 
-## WebGL-Fehler ansprechen und beheben
+## WebGL-Fehler identifizieren und beseitigen
 
-Ihre Anwendung sollte ohne die Erzeugung von WebGL-Fehlern laufen (wie sie von `getError` zurückgegeben werden). Jeder WebGL-Fehler wird in der Webkonsole als JavaScript-Warnung mit einer beschreibenden Nachricht gemeldet. Nach zu vielen Fehlern (32 in Firefox) hört WebGL auf, beschreibende Nachrichten zu erzeugen, was das Debuggen erheblich erschwert.
+Ihre Anwendung sollte ohne die Erzeugung von WebGL-Fehlern laufen (wie sie von `getError` zurückgegeben werden). Jeder WebGL-Fehler wird in der Web-Konsole als JavaScript-Warnung mit einer beschreibenden Nachricht gemeldet. Nach zu vielen Fehlern (32 in Firefox) hört WebGL auf, beschreibende Nachrichten zu erzeugen, was das Debuggen wirklich behindert.
 
-Die _einzigen_ Fehler, die eine gut geformte Seite erzeugt, sind `OUT_OF_MEMORY` und `CONTEXT_LOST`.
+Die _einzigen_ Fehler, die eine richtig geformte Seite erzeugt, sind `OUT_OF_MEMORY` und `CONTEXT_LOST`.
 
 ## Verfügbarkeit von Erweiterungen verstehen
 
-Die Verfügbarkeit der meisten WebGL-Erweiterungen hängt vom Client-System ab. Wenn Sie WebGL-Erweiterungen verwenden, versuchen Sie, diese nach Möglichkeit optional zu machen, indem Sie sich an den Fall anpassen, dass sie nicht unterstützt werden.
+Die Verfügbarkeit der meisten WebGL-Erweiterungen hängt vom Client-System ab. Wenn Sie WebGL-Erweiterungen verwenden, sollten Sie, wenn möglich, versuchen, sie optional zu machen, indem Sie sich anpassen, falls sie nicht unterstützt werden.
 
-Diese WebGL-1-Erweiterungen sind universell unterstützt und können als vorhanden vorausgesetzt werden:
+Diese WebGL-1-Erweiterungen werden universell unterstützt und können als vorhanden angesehen werden:
 
 - ANGLE_instanced_arrays
 - EXT_blend_minmax
@@ -29,15 +29,15 @@ Diese WebGL-1-Erweiterungen sind universell unterstützt und können als vorhand
 - WEBGL_debug_renderer_info
 - WEBGL_lose_context
 
-_(siehe auch: [WebGL-Feature-Level und % Unterstützung](https://kdashg.github.io/misc/webgl/webgl-feature-levels.html))_
+_(siehe auch: [WebGL Feature Levels und % Unterstützung](https://kdashg.github.io/misc/webgl/webgl-feature-levels.html))_
 
-Erwägen Sie, diese in den WebGLRenderingContext als Polyfill einzufügen, wie: <https://github.com/kdashg/misc/blob/tip/webgl/webgl-v1.1.js>
+Erwägen Sie, diese in WebGLRenderingContext zu polyfillen, wie: <https://github.com/kdashg/misc/blob/tip/webgl/webgl-v1.1.js>
 
-## Systemlimits verstehen
+## Systemgrenzen verstehen
 
-Ähnlich wie bei Erweiterungen werden die Systemlimits von Ihrem System unterschiedlich als die von Client-Systemen sein! Gehen Sie nicht davon aus, dass Sie dreißig Textur-Sampler pro Shader verwenden können, nur weil es auf Ihrem Computer funktioniert!
+Ähnlich wie bei Erweiterungen werden die Grenzen Ihres Systems anders sein als die der Systeme Ihrer Kunden! Gehen Sie nicht davon aus, dass Sie dreißig Textursampler pro Shader verwenden können, nur weil es auf Ihrem Computer funktioniert!
 
-Die Mindestanforderungen für WebGL sind ziemlich niedrig. In der Praxis unterstützen so gut wie alle Systeme mindestens Folgendes:
+Die Mindestanforderungen für WebGL sind recht niedrig. In der Praxis unterstützen fast alle Systeme zumindest Folgendes:
 
 ```plain
 MAX_CUBE_MAP_TEXTURE_SIZE: 4096
@@ -54,110 +54,110 @@ MAX_FRAGMENT_UNIFORM_VECTORS: 64
 ALIASED_POINT_SIZE_RANGE: [1,100]
 ```
 
-Ihr Desktop unterstützt möglicherweise 16k Texturen oder vielleicht 16 Textureinheiten im Vertex-Shader, aber die meisten anderen Systeme tun dies nicht, und Inhalte, die für Sie funktionieren, werden für andere nicht funktionieren!
+Ihr Desktop unterstützt möglicherweise 16k Texturen oder vielleicht 16 Textureinheiten im Vertex-Shader, aber die meisten anderen Systeme tun dies nicht, und Inhalte, die für Sie funktionieren, werden nicht für sie funktionieren!
 
-## Vermeiden Sie die Invalidierung von FBO-Attributbindungen
+## Vermeiden Sie das Ungültigmachen von FBO-Anhangsbindungen
 
-Fast jede Änderung an den Attributbindungen eines FBO wird die Framebuffer-Vollständigkeit ungültig machen. Richten Sie Ihre Hot-Framebuffers im Voraus ein.
+Fast jede Veränderung an den Anhangsbindungen eines FBO macht seine Framebuffer-Gesamtheit ungültig. Richten Sie Ihre Heißspeicher im Voraus ein.
 
-In Firefox wird durch das Setzen der Einstellung `webgl.perf.max-warnings` auf `-1` in about:config die Leistungswarnungen aktiviert, die Warnungen über FB-Vollständigkeits-Invalidierungen umfassen.
+In Firefox können Sie die Einstellung `webgl.perf.max-warnings` auf `-1` in about:config setzen, um Leistungswarnungen zu aktivieren, die auch Warnungen über FB-Gesamtheitsungültigmachungen enthalten.
 
-### Vermeiden Sie das Ändern von VAO-Anhängen (vertexAttribPointer, disable/enableVertexAttribArray)
+### Vermeiden Sie das Ändern von VAO-Anhängseln (vertexAttribPointer, disable/enableVertexAttribArray)
 
-Das Zeichnen von statischen, unveränderlichen VAOs ist schneller, als das gleiche VAO für jeden Zeichnungsaufruf zu ändern. Für unveränderte VAOs können Browser die Abrufgrenzen zwischenspeichern, während bei Änderungen von VAOs die Browser die Grenzen neu validieren und berechnen müssen. Der Aufwand hierfür ist relativ gering, aber die Wiederverwendung von VAOs bedeutet auch weniger `vertexAttribPointer`-Aufrufe, daher lohnt es sich, dies überall dort zu tun, wo es einfach ist.
+Das Zeichnen von statischen, unveränderlichen VAOs ist schneller als das Mutieren des gleichen VAO für jeden Zeichnungsaufruf. Für unveränderte VAOs können Browser die Fetch-Limits zwischenspeichern, während bei Änderungen der VAOs die Browser die Limits neuberechnen und validieren müssen. Der Overhead hierfür ist relativ gering, aber die Wiederverwendung von VAOs bedeutet auch weniger `vertexAttribPointer`-Aufrufe, daher lohnt es sich, dies zu tun, wo immer es einfach ist.
 
-## Objekte schnell löschen
+## Objekte zügig löschen
 
-Warten Sie nicht darauf, dass der Garbage Collector/Cycle Collector erkennt, dass Objekte verwaist sind und sie zerstört. Implementierungen verfolgen die Lebendigkeit von Objekten, sodass das "Löschen" auf API-Ebene nur den Handle freigibt, der auf das tatsächliche Objekt verweist. (konzeptionell das Freigeben des Referenzzeigers des Handles auf das Objekt) Erst wenn das Objekt in der Implementierung nicht mehr verwendet wird, wird es tatsächlich freigegeben. Zum Beispiel, wenn Sie nie wieder direkt auf Ihre Shader-Objekte zugreifen möchten, löschen Sie einfach deren Handles, nachdem sie an ein Programmobjekt angehängt wurde.
+Warten Sie nicht darauf, dass der Garbage Collector/Recycle Collector erkennt, dass Objekte verwaist sind und sie zerstört. Implementierungen verfolgen die Lebensdauer von Objekten, sodass das 'Löschen' auf API-Ebene nur den Handle freigibt, der auf das tatsächliche Objekt verweist. (Konzeptionell wird der Ref-Zeiger des Handles zum Objekt freigegeben) Erst wenn das Objekt in der Implementierung ungenutzt ist, wird es tatsächlich freigegeben. Zum Beispiel, wenn Sie Ihre Shader-Objekte nie wieder direkt zugreifen möchten, löschen Sie einfach deren Handles, nachdem Sie sie an ein Programmobjekt angehängt haben.
 
-## Kontexte schnell verlieren
+## Kontexte zügig verlieren
 
-Überlegen Sie auch, WebGL-Kontexte über die `WEBGL_lose_context`-Erweiterung schnell zu verlieren, wenn Sie definitiv mit ihnen fertig sind und die Rendering-Ergebnisse der Ziel-Canvas nicht mehr benötigen. Beachten Sie, dass dies beim Verlassen einer Seite nicht notwendig ist - fügen Sie aus diesem Zweck keinen Unload-Event-Handler hinzu.
+Erwägen Sie auch, WebGL-Kontexte aktiv über die `WEBGL_lose_context`-Erweiterung zu verlieren, wenn Sie definitiv mit ihnen fertig sind und die Rendering-Ergebnisse der Ziel-Leinwand nicht mehr benötigen. Beachten Sie, dass dies nicht notwendig ist, wenn Sie eine Seite verlassen - fügen Sie für diesen Zweck keinen Unload-Event-Handler hinzu.
 
-## Flush aufrufen, wenn Ergebnisse erwartet werden
+## Ausführen zur Zeitpunkt erwarteter Ergebnisse
 
-Rufen Sie `flush()` auf, wenn Ergebnisse wie Abfragen erwartet werden oder nach Abschluss eines Rendering-Rahmens.
+Rufen Sie `flush()` auf, wenn Sie Ergebnisse wie Abfragen erwarten oder am Ende eines Rendering-Frames.
 
-Flush fordert die Implementierung auf, alle ausstehenden Befehle zur Ausführung zu senden und sie aus der Warteschlange zu entfernen, anstatt darauf zu warten, dass weitere Befehle zur Durchführung eingereiht werden.
+Flush weist die Implementierung an, alle ausstehenden Befehle zur Ausführung zu bringen, sie aus der Warteschlange zu leeren, anstatt darauf zu warten, dass weitere Befehle zur Ausführung hinzugefügt werden.
 
-Es ist zum Beispiel möglich, dass Folgendes niemals ohne Kontextverlust abgeschlossen wird:
+Zum Beispiel kann es möglich sein, dass ohne Kontextverlust Folgendes nie abgeschlossen wird:
 
 ```js
 sync = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
 glClientWaitSync(sync, 0, GL_TIMEOUT_IGNORED);
 ```
 
-WebGL hat standardmäßig keinen SwapBuffers-Aufruf, daher kann ein Flush ebenfalls zur Überbrückung der Lücke beitragen.
+WebGL hat standardmäßig keinen SwapBuffers-Aufruf, daher kann ein Flush helfen, die Lücke zu füllen.
 
-### Verwenden Sie `webgl.flush()`, wenn Sie requestAnimationFrame nicht benutzen
+### Verwenden Sie `webgl.flush()`, wenn Sie nicht `requestAnimationFrame` verwenden
 
-Wenn Sie RAF nicht verwenden, verwenden Sie `webgl.flush()`, um die schnelle Ausführung der eingefügten Befehle zu fördern.
+Wenn Sie nicht RAF verwenden, verwenden Sie `webgl.flush()`, um die Ausführung der in die Warteschlange gestellten Befehle anzuregen.
 
-Da RAF direkt von der Frame-Grenze gefolgt wird, ist ein ausdrückliches `webgl.flush()` mit RAF nicht wirklich erforderlich.
+Da RAF direkt nach der Frame-Grenze folgt, ist ein explizites `webgl.flush()` mit RAF wirklich nicht nötig.
 
-## Blockierende API-Aufrufe in der Produktion vermeiden
+## Vermeiden Sie blockierende API-Aufrufe in der Produktion
 
-Bestimmte WebGL-Eintrittspunkte - einschließlich `getError` und `getParameter` - verursachen synchrone Stalls im aufrufenden Thread. Selbst einfache Anfragen können bis zu 1ms in Anspruch nehmen, aber sie können noch länger dauern, wenn sie warten müssen, bis alle Grafikarbeiten abgeschlossen sind (mit einem Effekt ähnlich wie `glFinish()` in nativen OpenGL).
+Bestimmte WebGL-Einstiegspunkte - einschließlich `getError` und `getParameter` - verursachen synchrone Wartezeiten im aufrufenden Thread. Selbst einfache Anfragen können bis zu 1 ms dauern, aber sie können noch länger dauern, wenn sie darauf warten müssen, dass alle Grafiken abgeschlossen sind (mit einer Wirkung ähnlich `glFinish()` in nativen OpenGL).
 
-In Produktionscode sollten solche Eintrittspunkte vermieden werden, insbesondere im Hauptthread des Browsers, wo sie die gesamte Seite ruckeln lassen können (einschließlich Scrollen oder sogar des gesamten Browsers).
+In Produktionscode sollten Sie solche Einstiegspunkte vermeiden, insbesondere im Hauptthread des Browsers, wo sie die gesamte Seite ins Stocken bringen können (oft einschließlich Scrollen oder sogar den gesamten Browser).
 
-- `getError()`: verursacht einen Flush + Round-Trip, um Fehler vom GPU-Prozess abzurufen.
+- `getError()`: verursacht einen Flush + Round-Trip, um Fehler vom GPU-Prozess zu holen).
 
-  Zum Beispiel innerhalb von Firefox wird der glGetError nur nach Zuweisungen (`bufferData`, `*texImage*`, `texStorage*`) überprüft, um GL_OUT_OF_MEMORY-Fehler auszuernten.
+  Zum Beispiel ist in Firefox die einzige Zeit, in der glGetError überprüft wird, nach Allocierungen (`bufferData`, `*texImage*`, `texStorage*`), um GL_OUT_OF_MEMORY-Fehler zu erfassen.
 
-- `getShader/ProgramParameter()`, `getShader/ProgramInfoLog()`, und andere `get`s auf Shadern/Programmen: Flush + Shaderkompilierung + Round-Trip, wenn nicht nach Abschluss der Shaderkompilierung durchgeführt. (Siehe auch [parallele Shaderkompilierung](#kompilieren_von_shadern_und_verknüpfen_von_programmen_parallel_durchführen) unten.)
-- `get*Parameter()` im Allgemeinen: möglicher Flush + Round-Trip. In einigen Fällen werden diese zwischengespeichert, um den Round-Trip zu vermeiden, versuchen Sie jedoch, sich nicht darauf zu verlassen.
+- `getShader/ProgramParameter()`, `getShader/ProgramInfoLog()`, andere `get`s auf Shadern/Programmen: Flush + Shader-Compile + Round-Trip, wenn nicht nach Abschluss der Shader-Kompilierung durchgeführt. (Siehe auch [parallele Shader-Kompilierung](#shader_kompilieren_und_programme_parallel_verknüpfen) unten.)
+- `getParameter()` im Allgemeinen: möglicher Flush + Round-Trip. In einigen Fällen werden diese zwischengespeichert, um den Round-Trip zu vermeiden, aber versuchen Sie, nicht darauf zu vertrauen.
 - `checkFramebufferStatus()`: möglicher Flush + Round-Trip.
-- `getBufferSubData()`: üblicher Abschluss + Round-Trip. (Dies ist in Ordnung für LESEN-Buffer in Verbindung mit Zäunen - siehe [asynchroner Daten-Rückruf](#verwenden_sie_nicht-blockierende_asynchrone_daten-rückabfragen) unten.)
-- `readPixels()` zur CPU (d.h. ohne gebundenen UNPACK-Buffer): Abschluss + Round-Trip. Verwenden Sie stattdessen GPU-GPU `readPixels` in Verbindung mit asynchronem Daten-Rückruf.
+- `getBufferSubData()`: gewöhnlicher Abschluss + Round-Trip. (Dies ist für READ-Puffer in Verbindung mit Zäunen in Ordnung - siehe [asynchrone Datenabfrage](#verwenden_sie_nicht-blockierenden_asynchronen_daten-rückruf) unten.)
+- `readPixels()` auf die CPU (d.h. ohne gebundenen UNPACK-Puffer): Abschluss + Round-Trip. Verwenden Sie stattdessen GPU-GPU `readPixels` in Verbindung mit asynchronem Datenabruf.
 
-## Vertex attribut 0 immer als Array aktivieren
+## Aktivieren Sie stets Vertex Attrib 0 als ein Array
 
-Wenn Sie ohne aktiviertes Vertex Attribut 0 als Array zeichnen, zwingen Sie den Browser dazu, bei der Ausführung auf Desktop OpenGL (z.B. auf macOS) komplexe Emulationen durchzuführen. Dies liegt daran, dass bei Desktop OpenGL nichts gezeichnet wird, wenn das Vertex Attribut 0 nicht als Array aktiviert ist. Sie können `bindAttribLocation` verwenden, um ein Vertex Attribut zur Nutzung des Ortes 0 zu zwingen, und `enableVertexAttribArray(0)`, um es als Array zu aktivieren.
+Wenn Sie zeichnen, ohne dass Vertex Attrib 0 als Array aktiviert ist, zwingen Sie den Browser zu komplizierter Emulation beim Betrieb auf Desktop-OpenGL (wie auf macOS). Dies liegt daran, dass in Desktop-OpenGL nichts gezeichnet wird, wenn Vertex Attrib 0 nicht als Array aktiviert ist. Sie können `bindAttribLocation` verwenden, um ein Vertex-Attribut an die Location 0 zu binden, und `enableVertexAttribArray(0)` verwenden, um es als Array zu aktivieren.
 
-## Abschätzen des VRAM-Budgets pro Pixel
+## Schätzen Sie ein VRAM-Budget pro Pixel
 
-WebGL bietet keine APIs, um die maximale Menge an Videospeicher im System abzufragen, da solche Abfragen nicht portabel sind. Dennoch müssen Anwendungen sich des VRAM-Verbrauchs bewusst sein und nicht einfach so viel wie möglich zuweisen.
+WebGL bietet keine APIs, um die maximale Menge an Videospeicher im System abzufragen, da solche Anfragen nicht portabel sind. Dennoch müssen Anwendungen sich des VRAM-Verbrauchs bewusst sein und nicht einfach so viel wie möglich allokieren.
 
-Eine Technik, die vom Google Maps Team eingeführt wurde, ist der Gedanke eines _VRAM-Budgets pro Pixel_:
+Eine Technik, die vom Google Maps-Team entwickelt wurde, ist der Begriff eines _VRAM-Budgets pro Pixel_:
 
-1\) Für ein System (zum Beispiel ein bestimmtes Desktop/Notebook), bestimmen Sie die maximale Menge an VRAM, die Ihre Anwendung verwenden sollte. 2) Berechnen Sie die Anzahl der Pixel, die durch ein maximiertes Browserfenster abgedeckt werden. Zum Beispiel `(window.innerWidth * devicePixelRatio) * (window.innerHeight * window.devicePixelRatio)` 3) Das VRAM-Budget pro Pixel ist (1) geteilt durch (2) und eine Konstante.
+1. Für ein System (z.B. ein bestimmter Desktop / Laptop) entscheiden Sie, wie viel VRAM Ihre Anwendung maximal verwenden sollte. 2) Berechnen Sie die Anzahl der Pixel, die von einem maximierten Browserfenster abgedeckt werden. Z.B. `(window.innerWidth * devicePixelRatio) * (window.innerHeight * window.devicePixelRatio)` 3) Das VRAM-Budget pro Pixel ist (1) geteilt durch (2) und ist eine Konstante.
 
-Diese Konstante sollte _generell_ portabel zwischen Systemen sein. Mobile Geräte haben typischerweise kleinere Bildschirme als leistungsfähige Desktop-Maschinen mit großen Monitoren. Berechnen Sie diese Konstante auf einigen Zielsystemen neu, um eine zuverlässige Schätzung zu erhalten.
+Diese Konstante sollte _allgemein_ zwischen Systemen portabel sein. Mobile Geräte haben typischerweise kleinere Bildschirme als leistungsstarke Desktop-Maschinen mit großen Monitoren. Berechnen Sie diese Konstante auf einigen Zielsystemen neu, um eine zuverlässige Schätzung zu erhalten.
 
-Passen Sie nun alle internen Zwischenspeicher in der Anwendung (WebGLBuffers, WebGLTextures usw.) so an, dass sie eine maximale Größe nicht überschreiten, berechnet durch diese Konstante multipliziert mit der Anzahl der durch das aktuelle Browserfenster abgedeckten Pixel. Dies erfordert die Abschätzung der von jeder Textur verbrauchten Bytes. Das Limit muss typischerweise auch aktualisiert werden, wenn das Browserfenster in der Größe geändert wird, und ältere Ressourcen, die das Limit überschreiten, müssen entfernt werden.
+Passen Sie nun alle internen Caches in der Anwendung an (WebGLBuffers, WebGLTextures usw.), um eine maximale Größe zu beachten, die durch diese Konstante multipliziert mit der Anzahl der von dem _aktuellen_ Browserfenster abgedeckten Pixel berechnet wird. Dies erfordert die Schätzung der Anzahl von Bytes, die von jeder Textur konsumiert werden, zum Beispiel. Die Obergrenze muss auch typischerweise aktualisiert werden, wenn das Browserfenster in der Größe ändert, und ältere Ressourcen über dem Limit müssen bereinigt werden.
 
-Indem die VRAM-Nutzung der Anwendung unter diesem Limit bleibt, kann geholfen werden, Out-of-Memory-Fehler und damit verbundene Instabilität zu vermeiden.
+Die Beibehaltung des VRAM-Verbrauchs der Anwendung unter dieser Obergrenze hilft, Out-of-Memory-Fehler und damit verbundene Instabilität zu vermeiden.
 
-## Ziehen Sie in Betracht, in einen kleineren Backbuffer zu rendern
+## Ziehen Sie in Betracht, in einem kleineren Backbuffer zu rendern
 
-Eine gängige (und einfache) Methode, Qualität gegen Geschwindigkeit einzutauschen, besteht darin, in einen kleineren Backbuffer zu rendern und das Ergebnis hochzuskalieren. Erwägen Sie, canvas.width und Höhe zu reduzieren und canvas.style.width und Höhe auf einer konstanten Größe zu belassen.
+Eine gängige (und einfache) Möglichkeit, Qualität gegen Geschwindigkeit einzutauschen, besteht darin, in einen kleineren Backbuffer zu rendern und das Ergebnis hochzuskalieren. Überlegen Sie, die canvas.width und -höhe zu reduzieren und die canvas.style.width und -höhe in konstanter Größe zu belassen.
 
-## Zeichnungsaufrufe gruppieren
+## Batch-Zeichenaufrufe
 
-Das "Batching" von Zeichnungsaufrufen zu weniger, größeren Zeichnungsaufrufen wird in der Regel die Leistung verbessern. Wenn Sie 1000 Sprites malen möchten, versuchen Sie, dies als einen einzelnen drawArrays()- oder drawElements()-Aufruf zu tun.
+Das „Batchen“ von Zeichenanrufen in weniger, größere Anrufe wird im Allgemeinen die Leistung verbessern. Wenn Sie 1000 Sprites zu malen haben, versuchen Sie, dies als einen einzigen drawArrays()- oder drawElements()-Aufruf zu tun.
 
-Es ist üblich, "degenerate triangles" zu verwenden, wenn Sie nicht zusammenhängende Objekte als einen einzigen drawArrays(TRIANGLE_STRIP)-Aufruf zeichnen müssen. Degenerierte Dreiecke sind Dreiecke ohne Fläche, daher ist jedes Dreieck, bei dem mehr als ein Punkt an derselben exakten Position ist. Diese Dreiecke werden effektiv übersprungen, sodass Sie ohne mehrere Zeichnungsaufrufe in einen neuen Triangle Strip eintreten können.
+Es ist üblich, „degenerierte Dreiecke“ zu verwenden, wenn Sie diskontinuierliche Objekte als einen einzigen drawArrays(TRIANGLE_STRIP)-Aufruf zeichnen müssen. Degenerierte Dreiecke sind Dreiecke ohne Fläche, also jedes Dreieck, bei dem mehr als ein Punkt an genau derselben Stelle liegt. Diese Dreiecke werden effektiv übersprungen, was es Ihnen ermöglicht, ein neues Dreiecksstreifen zu beginnen, das nicht mit dem vorherigen verbunden ist, ohne in mehrere Zeichenaufrufe zu unterteilen.
 
-Eine weitere wichtige Methode zum Batchen ist das Texturatlas, bei dem mehrere Bilder in einer einzigen Textur platziert werden, oft wie ein Schachbrett. Da Sie Batch-Zeichnungsaufaufrufe aufteilen müssen, um Texturen zu wechseln, können Sie durch das Texturatlas mehr Zeichnungsaufaufrufe zu weniger, größeren Batches kombinieren. Siehe [dieses Beispiel](https://webglsamples.org/sprites/readme.html), das zeigt, wie man auch Sprites, die auf mehrere Texture Atlasses verweisen, in einem einzigen Zeichnungsaufruf zusammenführt.
+Eine weitere wichtige Methode zum Batchen ist das Texture-Atlasing, bei dem mehrere Bilder in eine einzige Textur eingefügt werden, oft wie ein Schachbrettmuster. Da Sie Batch-Zeichenaufrufe teilen müssen, um Texturen zu ändern, ermöglicht Ihnen Texture-Atlasing, mehr Zeichenaufrufe in weniger, größere Batches zu kombinieren. Sehen Sie sich [dieses Beispiel](https://webglsamples.org/sprites/readme.html) an, das demonstriert, wie man selbst Sprites, die auf mehrere Texture-Atlanten verweisen, in einem einzigen Zeichenaufruf kombinieren kann.
 
-## Vermeiden Sie "#ifdef GL_ES"
+## Verwenden Sie nicht "#ifdef GL_ES"
 
-Sie sollten `#ifdef GL_ES` in Ihren WebGL-Shadern nie verwenden; diese Bedingung ist in WebGL immer wahr. Obwohl einige frühe Beispiele dies verwendeten, ist es nicht notwendig.
+Sie sollten niemals `#ifdef GL_ES` in Ihren WebGL-Shadern verwenden; diese Bedingung ist in WebGL immer wahr. Obwohl einige frühe Beispiele dies verwendeten, ist es nicht notwendig.
 
-## Bevorzugen Sie Arbeit im Vertex-Shader
+## Bevorzugen Sie Arbeiten im Vertex-Shader
 
-Erledigen Sie so viel Arbeit wie möglich im Vertex-Shader, anstatt im Fragment-Shader. Der Grund dafür ist, dass pro Zeichnungsaufruf Fragment-Shader in der Regel viel häufiger ausgeführt werden als Vertex-Shader. Jede Berechnung, die auf den Scheitelpunkten durchgeführt werden kann und dann nur unter Fragmenten interpoliert wird (über `varying`s), ist ein Leistungsgewinn. (Die Interpolation von varyings ist sehr billig und wird automatisch für Sie während der Rasterisierungsphase der festen Funktionalität der Grafikpipeline durchgeführt.)
+Machen Sie so viel Arbeit wie möglich im Vertex-Shader anstatt im Fragment-Shader. Dies ist, weil pro Zeichenaufruf, Fragment-Shader im Allgemeinen viel öfter laufen als Vertex-Shader. Jede Berechnung, die an den Vertices durchgeführt werden kann und dann nur zwischen den Fragmenten interpoliert wird (über `varying`s), ist ein Leistungssegen. (Die Interpolation der Varyings ist sehr günstig und wird automatisch für Sie durch die feste Funktionsweise der Rasterisierung im Grafik-Pipeline durchgeführt.)
 
-Beispielsweise kann eine einfache Animation einer texturierten Oberfläche durch eine zeitabhängige Transformation von Texturkoordinaten erreicht werden. (Der einfachste Fall ist das Hinzufügen eines einheitlichen Vektors zum Texturkoordinaten-Attributvektor) Wenn visuell akzeptabel, kann man die Texturkoordinaten im Vertex-Shader anstatt im Fragment-Shader transformieren, um eine bessere Leistung zu erzielen.
+Zum Beispiel kann eine einfache Animation einer texturierten Oberfläche durch eine zeitabhängige Transformation von Texturkoordinaten erreicht werden. (Der einfachste Fall ist die Addition eines uniform Vektors zum Attributvektor der Texturkoordinaten) Wenn es visuell akzeptabel ist, kann man die Texturkoordinaten im Vertex-Shader anstatt im Fragment-Shader transformieren, um eine bessere Leistung zu erzielen.
 
-Ein häufiger Kompromiss ist es, einige Beleuchtungsberechnungen pro Scheitelpunkt statt pro Fragment (Pixel) durchzuführen. In einigen Fällen, insbesondere bei einfachen Modellen oder dichten Scheitelpunkten, sieht dies ausreichend gut aus.
+Ein häufiger Kompromiss ist es, einige Lichtberechnungen pro Vertex anstelle von pro Fragment (Pixel) durchzuführen. In einigen Fällen, insbesondere bei einfachen Modellen oder dichten Vertices, sieht das gut genug aus.
 
-Die Umkehrung dessen ist, wenn ein Modell mehr Scheitelpunkte als Pixel im gerenderten Ausgaberahmen hat. Allerdings ist LOD-Meshes in der Regel die Antwort auf dieses Problem, und Arbeit vom Vertex- zum Fragment-Shader zu verlagern, ist selten die Lösung.
+Das Umgekehrte davon ist, wenn ein Modell mehr Vertices als Pixel im gerenderten Output hat. Allerdings ist LOD Meshes normalerweise die Antwort auf dieses Problem, selten Arbeit von dem Vertex _zu_ den Fragment-Shader zu verschieben.
 
-## Kompilieren von Shadern und Verknüpfen von Programmen parallel durchführen
+## Shader kompilieren und Programme parallel verknüpfen
 
-Es ist verlockend, Shader und Programme nacheinander zu kompilieren und zu verknüpfen, aber viele Browser können kompilieren und verknüpfen parallel in Hintergrund-Threads durchführen.
+Es ist verlockend, Shader und Programme seriell zu kompilieren und zu verknüpfen, aber viele Browser können im Hintergrund parallel kompilieren und verknüpfen.
 
 Anstatt:
 
@@ -179,7 +179,7 @@ for (const [vs, fs, prog] of programs) {
 }
 ```
 
-Betrachten Sie:
+Erwägen Sie:
 
 ```js
 function compileOnce(gl, shader) {
@@ -205,9 +205,9 @@ for (const [vs, fs, prog] of programs) {
 
 ## Bevorzugen Sie KHR_parallel_shader_compile
 
-Während wir ein Muster beschrieben haben, um Browsern zu ermöglichen, parallel zu kompilieren und zu verknüpfen, blockiert das normale Abfragen von `COMPILE_STATUS` oder `LINK_STATUS` bis die Kompilierung oder Verknüpfung abgeschlossen ist. In Browsern, in denen es verfügbar ist, ermöglicht die [KHR_parallel_shader_compile](https://registry.khronos.org/webgl/extensions/KHR_parallel_shader_compile/) Erweiterung eine _nicht-blockierende_ `COMPLETION_STATUS`-Abfrage. Bevorzugen Sie, diese Erweiterung zu aktivieren und zu verwenden.
+Während wir ein Muster beschrieben haben, das es den Browsern ermöglicht, parallel zu kompilieren und zu verknüpfen, blockiert das normale Überprüfen von `COMPILE_STATUS` oder `LINK_STATUS`, bis die Kompilierung oder Verknüpfung abgeschlossen ist. In Browsern, wo es verfügbar ist, bietet die [KHR_parallel_shader_compile](https://registry.khronos.org/webgl/extensions/KHR_parallel_shader_compile/) Erweiterung eine _nicht-blockierende_ `COMPLETION_STATUS`-Abfrage. Bevorzugen Sie es, diese Erweiterung zu aktivieren und zu verwenden.
 
-Beispielverwendung:
+Beispielnutzung:
 
 ```js
 ext = gl.getExtension("KHR_parallel_shader_compile");
@@ -230,22 +230,22 @@ if (ext) {
 }
 ```
 
-Diese Technik mag nicht in allen Anwendungen funktionieren, beispielsweise in solchen, die Programme sofort für das Rendering verfügbar brauchen. Überlegen Sie dennoch, wie Variationen davon funktionieren können.
+Diese Technik funktioniert möglicherweise nicht in allen Anwendungen, zum Beispiel bei solchen, die Programme sofort für das Rendering benötigen. Dennoch sollten Sie in Betracht ziehen, wie Varianten funktionieren könnten.
 
-## Überprüfen Sie den Shader-Kompilierungsstatus nicht, es sei denn, die Verknüpfung schlägt fehl
+## Überprüfen Sie den Shader-Kompilierungsstatus nicht, es sei denn, das Verknüpfen schlägt fehl
 
-Es gibt nur sehr wenige Fehler, die garantiert dazu führen, dass die Shader-Kompilierung fehlschlägt, aber nicht auf Verknüpfungszeit verzögert werden können. Die [ESSL3-Spezifikation](https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf) sagt folgendes unter "Fehlerbehandlung":
+Es gibt sehr wenige Fehler, die garantiert einen Shader-Kompilierungsfehler verursachen, aber nicht bis zur Verknüpfungszeit aufgeschoben werden können. Die [ESSL3-Spezifikation](https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf) besagt dies unter "Fehlerbehandlung":
 
-> Die Umsetzung sollte Fehler so früh wie möglich melden, aber in jedem Fall muss sie die folgenden Anforderungen erfüllen:
+> Die Implementierung sollte Fehler so früh wie möglich melden, aber in jedem Fall muss Folgendes gewährleistet sein:
 >
-> - Alle lexikalischen, grammatikalischen und semantischen Fehler müssen nach einem Aufruf von glLinkProgram erkannt worden sein
-> - Fehler aufgrund von Unstimmigkeiten zwischen dem Vertex- und Fragment-Shader (Verknüpfungsfehler) müssen nach einem Aufruf von glLinkProgram erkannt worden sein
-> - Fehler aufgrund des Überschreitens von Ressourcenlimits müssen nach jedem Zeichnungsaufruf oder einem Aufruf von glValidateProgram erkannt worden sein
-> - Ein Aufruf an glValidateProgram muss alle Fehler melden, die mit einem Programmobjekt im gegebenen GL-State verbunden sind.
+> - Alle lexikalischen, grammatikalischen und semantischen Fehler müssen nach einem Aufruf von glLinkProgram erkannt werden
+> - Fehler aufgrund von Diskrepanzen zwischen Vertex- und Fragment-Shader (Link-Fehler) müssen nach einem Aufruf von glLinkProgram erkannt werden
+> - Fehler aufgrund der Überschreitung von Ressourcenlimits müssen nach jedem Zeichnungsaufruf oder einem Aufruf von glValidateProgram erkannt werden
+> - Ein Aufruf von glValidateProgram muss alle mit einem Programmobjekt verbundenen Fehler im aktuellen GL-Status melden.
 >
-> Die Zuteilung von Aufgaben zwischen Compiler und Linker ist implementierungsabhängig. Infolgedessen gibt es viele Fehler, die entweder zur Kompilierungs- oder Verknüpfungszeit erkannt werden können, abhängig von der Implementierung.
+> Die Aufgabenverteilung zwischen Compiler und Linker ist implementierungsabhängig. Folglich gibt es viele Fehler, die entweder bei der Compilierung oder bei der Verknüpfung erkannt werden können, abhängig von der Implementierung.
 
-Zudem ist das Abfragen des Kompilierungsstatus ein synchroner Aufruf, der das Pipelining unterbricht.
+Zusätzlich ist die Abfrage des Kompilierungsstatus ein synchroner Aufruf, der das Pipelinings bricht.
 
 Anstatt:
 
@@ -266,7 +266,7 @@ if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
 }
 ```
 
-Betrachten Sie:
+Erwägen Sie:
 
 ```js
 gl.compileShader(vs);
@@ -279,15 +279,15 @@ if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
 }
 ```
 
-## Präzise mit GLSL-Präzisionsanmerkungen sein
+## Seien Sie präzise mit GLSL-Präzisionsannotationen
 
-Wenn Sie erwarten, einen essl300 `int` zwischen Shadern zu übergeben und er 32-Bit haben muss, _müssen_ Sie `highp` verwenden, ansonsten werden Sie Portabilitätsprobleme haben. (Funktioniert auf Desktop-, nicht aber auf Android-Geräten)
+Wenn Sie erwarten, einen essl300 `int` zwischen Shadern zu übergeben und Sie benötigen ihn in 32-Bit, _müssen_ Sie `highp` verwenden, oder Sie werden Portabilitätsprobleme haben. (Funktioniert auf Desktop, nicht auf Android)
 
-Bei einer Gleitkommatextur erfordert iOS, dass Sie `highp sampler2D foo;` verwenden, oder es wird sehr schmerzhaft Texture Samples von `lowp` geben! (+/-2.0 max ist wahrscheinlich nicht genug)
+Wenn Sie eine Fließkommapixeltextur haben, erfordert iOS, dass Sie `highp sampler2D foo;` verwenden, oder es wird Ihnen sehr schmerzhaft `lowp` Texturbeispiele geben! (+/-2.0 max ist wahrscheinlich nicht gut genug für Sie)
 
-### Implizite Vorgaben
+### Implizite Standardeinstellungen
 
-Die Vertex-Sprache hat folgende vordeklarierte global gescoped Default-Präzisionsaussagen:
+Die Vertex-Sprache hat die folgenden global vordefinierten Präzisionsstandard-Anweisung:
 
 ```glsl
 precision highp float;
@@ -296,7 +296,7 @@ precision lowp sampler2D;
 precision lowp samplerCube;
 ```
 
-Die Fragment-Sprache hat folgende vordeklarierte global gescoped Default-Präzisionsaussagen:
+Die Fragment-Sprache hat die folgenden global vordefinierten Präzisionsstandard-Anweisung:
 
 ```glsl
 precision mediump int;
@@ -306,15 +306,15 @@ precision lowp samplerCube;
 
 ### In WebGL 1 ist "highp float"-Unterstützung in Fragment-Shadern optional
 
-Die bedingungslose Verwendung von `highp` Präzision in Fragment-Shadern verhindert, dass Ihr Inhalt auf einigen älteren mobilen Geräten funktioniert.
+Die bedingungslose Verwendung von `highp` Präzision in Fragment-Shadern wird verhindern, dass Ihr Inhalt auf einigen älteren mobilen Hardware funktioniert.
 
-Sie können stattdessen `mediump float` verwenden, aber beachten Sie, dass dies oft zu fehlerhaften Darstellungen aufgrund von mangelnder Präzision führt (insbesondere auf mobilen Systemen), jedoch wird die Beschädigung auf einem typischen Desktop-Computer nicht zu sehen sein.
+Während Sie `mediump float` verwenden können, beachten Sie, dass dies oft zu korruptem Rendern führt, aufgrund von mangelnder Präzision (insbesondere mobile Systeme), obwohl die Korruption auf einem typischen Desktop-Computer wahrscheinlich nicht sichtbar ist.
 
-Wenn Sie Ihre Präzisionsanforderungen kennen, wird `getShaderPrecisionFormat()` Ihnen sagen, was das System unterstützt.
+Wenn Sie Ihre Präzisionsanforderungen kennen, sagt Ihnen `getShaderPrecisionFormat()`, was das System unterstützt.
 
-Wenn `highp float` verfügbar ist, wird `GL_FRAGMENT_PRECISION_HIGH` als `1` definiert.
+Wenn `highp float` verfügbar ist, wird `GL_FRAGMENT_PRECISION_HIGH` auf `1` definiert sein.
 
-Ein gutes Muster für "gib mir immer die höchste Präzision":
+Ein gutes Muster für "Gib mir immer die höchste Präzision":
 
 ```glsl
 #ifdef GL_FRAGMENT_PRECISION_HIGH
@@ -326,45 +326,45 @@ precision mediump float;
 
 ### ESSL100 Mindestanforderungen (WebGL 1)
 
-| `float`   | denken              | Reichweite    | min über null | Präzision     |
-| --------- | ------------------- | ------------- | ------------- | ------------- |
-| `highp`   | float24\*           | (-2^62, 2^62) | 2^-62         | 2^-16 relativ |
-| `mediump` | IEEE float16        | (-2^14, 2^14) | 2^-14         | 2^-10 relativ |
-| `lowp`    | 10-bit signed fixed | (-2, 2)       | 2^-8          | 2^-8 absolut  |
+| `float`   | Denken              | Bereich       | min. über Null | Präzision     |
+| --------- | ------------------- | ------------- | -------------- | ------------- |
+| `highp`   | float24\*           | (-2^62, 2^62) | 2^-62          | 2^-16 relativ |
+| `mediump` | IEEE float16        | (-2^14, 2^14) | 2^-14          | 2^-10 relativ |
+| `lowp`    | 10-bit signed fixed | (-2, 2)       | 2^-8           | 2^-8 absolut  |
 
-| `int`     | denken | Reichweite    |
+| `int`     | Denken | Bereich       |
 | --------- | ------ | ------------- |
 | `highp`   | int17  | (-2^16, 2^16) |
 | `mediump` | int11  | (-2^10, 2^10) |
 | `lowp`    | int9   | (-2^8, 2^8)   |
 
-_\*float24: Vorzeichenbit, 7-Bit für den Exponenten, 16-Bit für die Mantisse._
+_\*float24: Sign-Bit, 7-Bit für Exponent, 16-Bit für Mantisse._
 
 ### ESSL300 Mindestanforderungen (WebGL 2)
 
-| `float`   | denken              | Reichweite      | min über null | Präzision     |
-| --------- | ------------------- | --------------- | ------------- | ------------- |
-| `highp`   | IEEE float32        | (-2^126, 2^127) | 2^-126        | 2^-24 relativ |
-| `mediump` | IEEE float16        | (-2^14, 2^14)   | 2^-14         | 2^-10 relativ |
-| `lowp`    | 10-bit signed fixed | (-2, 2)         | 2^-8          | 2^-8 absolut  |
+| `float`   | Denken              | Bereich         | min. über Null | Präzision     |
+| --------- | ------------------- | --------------- | -------------- | ------------- |
+| `highp`   | IEEE float32        | (-2^126, 2^127) | 2^-126         | 2^-24 relativ |
+| `mediump` | IEEE float16        | (-2^14, 2^14)   | 2^-14          | 2^-10 relativ |
+| `lowp`    | 10-bit signed fixed | (-2, 2)         | 2^-8           | 2^-8 absolut  |
 
-| `(u)int`  | denken   | `int` Reichweite | `unsigned int` Reichweite |
-| --------- | -------- | ---------------- | ------------------------- |
-| `highp`   | (u)int32 | [-2^31, 2^31]    | [0, 2^32]                 |
-| `mediump` | (u)int16 | [-2^15, 2^15]    | [0, 2^16]                 |
-| `lowp`    | (u)int9  | [-2^8, 2^8]      | [0, 2^9]                  |
+| `(u)int`  | Denken   | `int` Bereich | `unsigned int` Bereich |
+| --------- | -------- | ------------- | ---------------------- |
+| `highp`   | (u)int32 | [-2^31, 2^31] | [0, 2^32]              |
+| `mediump` | (u)int16 | [-2^15, 2^15] | [0, 2^16]              |
+| `lowp`    | (u)int9  | [-2^8, 2^8]   | [0, 2^9]               |
 
-## Bevorzugen Sie eingebaute Funktionen statt eigene zu erstellen
+## Bevorzugen Sie eingebaute Funktionen anstelle von eigenen
 
-Bevorzugen Sie eingebaute Funktionen wie `dot`, `mix`, und `normalize`. Im besten Fall laufen benutzerdefinierte Implementierungen so schnell wie die eingebauten, die sie ersetzen, aber erwarten Sie nicht, dass sie es tun. Hardware hat oft stark optimierte oder sogar spezialisierte Anweisungen für eingebaute Funktionen, und der Compiler kann Ihre benutzerdefinierten Einbau-Ersetzungen nicht zuverlässig durch spezielle eingebaute Codepfade ersetzen.
+Bevorzugen Sie eingebaute Funktionen wie `dot`, `mix` und `normalize`. Im besten Fall laufen benutzerdefinierte Implementierungen möglicherweise so schnell wie die eingebauten, die sie ersetzen, aber erwarten Sie das nicht. Hardware hat oft hyperoptimierte oder sogar spezialisierte Anweisungen für eingebaute, und der Compiler kann Ihre benutzerdefinierten Implementierungen nicht zuverlässig durch die speziellen eingebauten Pfade ersetzen.
 
-## Verwenden Sie Mipmaps für jede Textur, die Sie in 3D sehen
+## Verwenden Sie Mipmaps für jede Textur, die Sie in 3D sehen werden
 
-Wenn Sie unsicher sind, rufen Sie `generateMipmaps()` nach dem Hochladen von Texturen auf. Mipmaps sind speicherleicht (nur 30% Overhead), bieten aber oft große Vorteile bei der Leistung, wenn Texturen in der Ferne in 3D "herausgezoomt" oder im Allgemeinen verkleinert werden, oder sogar bei Cube-Maps!
+Wenn Sie unsicher sind, rufen Sie `generateMipmaps()` nach Textur-Uploads auf. Mipmaps sind speichergünstig (nur 30% Overhead) und bieten oft erhebliche Leistungsverbesserungen, wenn Texturen "herausgezoomt" oder generell in der Entfernung in 3D herunterskaliert werden, oder sogar für Cube-Maps!
 
-Es ist schneller, von kleineren Texturbildern zu sampeln, aufgrund einer besseren inhärenten Textur-Sampler-Cache-Lokalität: Wenn man auf eine nicht-mipmap'd Textur herauszoomt, wird die Textur-Sampler-Cache-Lokalität ruiniert, weil benachbarte Pixel nicht mehr von benachbarten Texeln samplen!
+Es ist schneller, aus kleineren Texturbildern zu sampeln, aufgrund der besseren inhärenten Textur-Fetch-Cache-Lokalität: Herauszoomen auf einer nicht mipmap-genutzten Textur ruiniert die Textur-Fetch-Cache-Lokalität, da benachbarte Pixel nicht mehr aus benachbarten Texeln gesamplet werden!
 
-Für 2D-Ressourcen aber, die nie "herausgezoomt" werden, bezahlen Sie nicht den 30% Speichersurcharge für Mipmaps:
+Für 2D-Ressourcen, die niemals "herausgezoomt" werden, zahlen Sie jedoch nicht die 30% Speicherkosten für Mipmaps:
 
 ```js
 const tex = gl.createTexture();
@@ -374,62 +374,60 @@ gl.texParameterf(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); // Defaults t
 
 (In WebGL 2 sollten Sie einfach `texStorage` mit `levels=1` verwenden)
 
-Ein Vorbehalt: `generateMipmaps` funktioniert nur, wenn Sie in die Textur rendern könnten, wenn Sie es an ein Framebuffer angehängt hätten. (Die Spezifikation nennt dies "farben-renderbare Formate") Zum Beispiel, wenn ein System Float-Texturen unterstützt, aber nicht auf Float rendern kann, wird `generateMipmaps` für Float-Formate fehlschlagen.
+Ein Hinweis: `generateMipmaps` funktioniert nur, wenn Sie in die Textur rendern könnten, wenn Sie sie an ein Framebuffer anhängen. (Die Spezifikation nennt dies "color-renderable formats") Zum Beispiel, wenn ein System Gleitkomma-Texturen unterstützt, aber nicht in Gleitkommabereich rendern kann, wird `generateMipmaps` für Gleitkommabereiche versagen.
 
-## Gehen Sie nicht davon aus, dass Sie in Float-Texturen rendern können
+## Gehen Sie nicht davon aus, dass Sie in Gleitkomma-Texturen rendern können
 
-Es gibt viele Systeme, die RGBA32F-Texturen unterstützen, aber wenn Sie eine an ein Framebuffer anhängen, erhalten Sie `FRAMEBUFFER_INCOMPLETE_ATTACHMENT` von `checkFramebufferStatus()`. Es funktioniert möglicherweise auf Ihrem System, aber _die meisten_ mobilen Systeme unterstützen es nicht!
+Es gibt viele Systeme, die RGBA32F-Texturen unterstützen, aber wenn Sie eines an ein Framebuffer anhängen, erhalten Sie `FRAMEBUFFER_INCOMPLETE_ATTACHMENT` von `checkFramebufferStatus()`. Es kann auf Ihrem System funktionieren, aber _die meisten_ mobilen Systeme werden es nicht unterstützen!
 
-Auf WebGL 1 verwenden Sie die `EXT_color_buffer_half_float` und `WEBGL_color_buffer_float` Erweiterungen, um die Unterstützung für das Rendern auf Float-Texturunterstützung für float16 bzw. float32 zu überprüfen.
+In WebGL 1 verwenden Sie die `EXT_color_buffer_half_float` und `WEBGL_color_buffer_float` Erweiterungen, um Verkaufsupport zu überprüfen, um Unterstützung für render-to-float-texture für float16 bzw. float32 zu überprüfen.
 
-Auf WebGL 2 prüft `EXT_color_buffer_float` die Unterstützung für das Rendern auf Float-Texturunterstützung für sowohl float32 als auch float16. `EXT_color_buffer_half_float` ist auf Systemen verfügbar, die nur das Rendern auf float16-Texturen unterstützen.
+In WebGL 2 überprüft `EXT_color_buffer_float` den Verkaufsupport für render-to-float-texture sowohl für float32 als auch für float16. `EXT_color_buffer_half_float` ist vorhanden in Systemen, die nur das Rendern zu float16-Texturen unterstützen.
 
 ### Render-to-float32 impliziert nicht float32-Blending!
 
-Es mag auf Ihrem System funktionieren, aber auf vielen anderen wird es nicht funktionieren. Vermeiden Sie es, wenn Sie können. Prüfen Sie die `EXT_float_blend`-Erweiterung auf Unterstützung.
+Es kann auf Ihrem System funktionieren, aber auf vielen anderen nicht. Vermeiden Sie es, wenn möglich. Überprüfen Sie die `EXT_float_blend` Erweiterung, um Unterstützung zu überprüfen.
 
 Float16-Blending wird immer unterstützt.
 
-## Einige Formate (z.B. RGB) können emuliert werden
+## Einige Formate (z.B. RGB) können emuliert sein
 
-Eine Reihe von Formaten (insbesondere drei-Kanal-Formate) werden emuliert. Zum Beispiel ist RGB32F oft tatsächlich RGBA32F, und Luminance8 kann tatsächlich RGBA8 sein. RGB8 ist besonders oft überraschend langsam, da das Ausmaskieren des Alpha-Kanals und/oder das Patchen von Blend-Funktionen einen relativ hohen Overhead hat. Verwenden Sie lieber RGBA8 und ignorieren Sie den Alpha selbst, für bessere Leistung.
+Eine Reihe von Formaten (insbesondere Dreikanalformate) werden emuliert. Zum Beispiel wird RGB32F oft tatsächlich als RGBA32F dargestellt, und Luminance8 kann tatsächlich RGBA8 sein. RGB8 ist insbesondere oft überraschend langsam, da das Ausmaskieren des Alphakanals und/oder das Patchen von Mischfunktionen einen relativ hohen Overhead hat. Bevorzugen Sie die Verwendung von RGBA8 und ignorieren Sie das Alpha für bessere Leistung.
 
-## Vermeiden Sie alpha:false, das teuer sein kann
+## Vermeiden Sie alpha:false, was teuer sein kann
 
-Das Angeben von `alpha:false` während der Kontext-Erstellung führt dazu, dass der Browser das WebGL-gerenderte Canvas so zusammensetzt, als wäre es undurchsichtig, ohne Berücksichtigung von Alpha-Werten, die die Anwendung in ihrem Fragment-Shader schreibt. Auf einigen Plattformen verursacht diese Fähigkeit leider erhebliche Leistungseinbußen. Der RGB-Backbuffer muss möglicherweise auf einer RGBA-Oberfläche emuliert werden, und es gibt relativ wenige Techniken in der OpenGL-API, um es der Anwendung erscheinen zu lassen, als ob eine RGBA-Oberfläche keinen Alpha-Kanal hätte. [Es wurde festgestellt](https://crbug.com/1045643), dass all diese Techniken auf betroffenen Plattformen etwa gleiche Leistungseinbußen haben.
+Das Angeben von `alpha:false` während der Kontext-Erstellung führt dazu, dass der Browser die im WebGL gerenderte Leinwand so zusammensetzt, als ob sie undurchsichtig wäre und alle Alpha-Werte ignoriert, die die Anwendung in ihrem Fragment-Shader schreibt. Auf einigen Plattformen kommt diese Fähigkeit leider mit erheblichen Leistungskosten. Der RGB-Backbuffer muss möglicherweise auf einer RGBA-Oberfläche emuliert werden, und es gibt relativ wenige Techniken, die in der OpenGL-API verfügbar sind, um es für die Anwendung so erscheinen zu lassen, als hätte eine RGBA-Oberfläche keinen Alphakanal. [Es wurde festgestellt](https://crbug.com/1045643), dass alle diese Techniken auf betroffenen Plattformen ungefähr den gleichen Performance-Einfluss haben.
 
-Die meisten Anwendungen, sogar solche, die Alphablending erfordern, können so strukturiert werden, dass sie `1.0` für den Alpha-Kanal produzieren. Die primäre Ausnahme ist jede Anwendung, die Zielalpha in der Blendfunktion erfordert. Wenn möglich, wird empfohlen, dies zu tun, anstatt `alpha:false` zu verwenden.
+Die meisten Anwendungen, sogar solche, die Alphablending erfordern, können so strukturiert werden, dass sie `1.0` für den Alphakanal erzeugen. Die Hauptausnahme ist jede Anwendung, die Zielalpha in der Mischfunktion erfordert. Wenn machbar, wird empfohlen, dies zu tun, anstatt `alpha:false` zu verwenden.
 
-## Ziehen Sie komprimierte Texturformate in Betracht
+## Erwägen Sie komprimierte Texturformate
 
-Während JPG und PNG in der Regel kleiner über die Leitung sind, sind komprimierte GPU-Texturformate im GPU-Speicher kleiner und schneller zu sampeln. (Dies verringert die Texturspeicherbandbreite, die auf Mobilgeräten wertvoll ist) Allerdings haben komprimierte Texturformate schlechtere Qualität als JPG und sind im Allgemeinen nur für Farben akzeptabel (nicht z.B. Normals oder Koordinaten).
-
-Leider gibt es kein einzelnes universell unterstütztes Format. Jedes System hat mindestens einen der folgenden Punkte:
+Während JPG und PNG im Allgemeinen kleiner über das Netzwerk sind, sind GPU-komprimierte Texturformate im auch Speicher auf der GPU kleiner und gleichzeitig schneller zur Probe zu nehmen (das reduziert den Texturspeicher-Bandbreitenbedarf, der auf mobilen Geräten kostbar ist). Leider gibt es kein einziges universell unterstütztes Format. Jedes System hat mindestens eines der folgenden:
 
 - WEBGL_compressed_texture_s3tc (Desktop)
 - WEBGL_compressed_texture_etc1 (Android)
 - WEBGL_compressed_texture_pvrtc (iOS)
 
-WebGL 2 hat durch die Kombination folgende universelle Unterstützung:
+WebGL 2 hat allgemeine Unterstützung durch Kombination von:
 
 - WEBGL_compressed_texture_s3tc (Desktop)
 - WEBGL_compressed_texture_etc (Mobil)
 
-WEBGL_compressed_texture_astc hat sowohl eine höhere Qualität und/oder höhere Kompression, wird jedoch nur von neueren Hardware unterstützt.
+WEBGL_compressed_texture_astc bietet sowohl höhere Qualität als auch höhere Kompression, wird aber nur auf neuerer Hardware unterstützt.
 
 ### Basis Universal Texturkompressionsformat/Bibliothek
 
-Basis Universal löst einige der oben erwähnten Probleme. Es bietet einen Weg, alle gängigen komprimierten Texturformate mit einer einzigen komprimierten Texturdatei zu unterstützen, durch eine JavaScript-Bibliothek, die Formate effizient zur Ladezeit konvertiert. Es fügt auch zusätzliche Komprimierung hinzu, die Basis Universal komprimierte Texturdateien viel kleiner als reguläre komprimierte Texturen über die Leitung macht, vergleichbar mit JPEG.
+Basis Universal löst mehrere der oben genannten Probleme. Es bietet eine Möglichkeit, alle gängigen komprimierten Texturformate mit einer einzigen komprimierten Texturdatei zu unterstützen, durch eine JavaScript-Bibliothek, die Formate effizient zur Ladezeit konvertiert. Es fügt auch zusätzliche Kompression hinzu, die Basis Universal komprimierte Texturdateien viel kleiner als reguläre komprimierte Texturen über-die-Leitung macht, mehr vergleichbar mit JPEG.
 
 <https://github.com/BinomialLLC/basis_universal/blob/master/webgl/README.md>
 
-## Speichernutzung von Tiefen- und Stencil-Formaten
+## Speicherverbrauch von Tiefen- und Schablonenformaten
 
-Tiefen- und Stencil-Attachments und Formate sind tatsächlich auf vielen Geräten untrennbar. Sie können nach DEPTH_COMPONENT24 oder STENCIL_INDEX8 fragen, aber Sie bekommen oft D24X8 und X24S8 32-bpp-Formate im Hintergrund. Nehmen Sie an, dass der Speichergebrauch von Tiefen- und Stencil-Formaten auf die nächste Vier-Bit-Grenze abgerundet wird.
+Tiefen- und Schablonenanhänge und -formate sind auf vielen Geräten tatsächlich untrennbar miteinander verbunden. Sie können nach DEPTH_COMPONENT24 oder STENCIL_INDEX8 fragen, aber oft bekommen Sie D24X8 und X24S8 32bpp-Formate hinter den Kulissen. Gehen Sie davon aus, dass der Speicherverbrauch von Tiefen- und Schablonenformaten auf das nächstgelegene Vielfache von vier Bytes aufgerundet ist.
 
-## texImage/texSubImage-Uploads (insbesondere Videos) können Pipeline-Flushes verursachen
+## texImage/texSubImage-Uploads (insbesondere Videos) können Pipeline-Flushe verursachen
 
-Die meisten Textur-Uploads von DOM-Elementen verursachen einen Bearbeitungsdurchgang, der intern GL-Programme temporär wechselt und zu einem Pipeline-Flush führt. (Pipelines sind formal explizit in [Vulkan](https://docs.vulkan.org/spec/latest/chapters/pipelines.html) usw. definiert, aber sie sind hinter den Kulissen implizit in OpenGL und WebGL. Pipelines sind mehr oder weniger das Tuple von Shader-Programm, Tiefe/Stencil/Multisample/Blend/Rasterisierung Zustand)
+Die meisten Textur-Uploads von DOM-Elementen werden einen Verarbeitungsdurchlauf verursachen, der vorübergehend GL-Programme intern umschaltet und einen Pipeline-Flush verursacht. (Pipelines sind formell in [Vulkan](https://docs.vulkan.org/spec/latest/chapters/pipelines.html) et al explizit dargestellt, aber in OpenGL und WebGL sind sie implizit hinter den Kulissen. Pipelines sind mehr oder weniger das Tupel von Shader-Programm, Tiefe/Stencil-/Multisample-/Blend-/Rasterisierungszustand)
 
 In WebGL:
 
@@ -468,7 +466,7 @@ Hinter den Kulissen im Browser:
     …
 ```
 
-Bevorzugen Sie Uploads vor dem Zeichnen oder zumindest zwischen Pipelines:
+Bevorzugen Sie es, Uploads zu machen, bevor das Zeichnen beginnt, oder zumindest zwischen Pipelines:
 
 In WebGL:
 
@@ -507,24 +505,24 @@ Hinter den Kulissen im Browser:
     …
 ```
 
-## Verwenden Sie texStorage zur Erstellung von Texturen
+## Verwenden Sie `texStorage`, um Texturen zu erstellen
 
-Die WebGL 2.0 `texImage*` API ermöglicht es Ihnen, jede Mip-Ebene unabhängig und in jeder Größe zu definieren, selbst wenn die Mip-Größen nicht zusammenpassen, sind sie bis zur Zeichnungszeit kein Fehler, was bedeutet, dass der Treiber den Textur im GPU-Speicher bis zum ersten Mal, wenn die Textur gezeichnet wird, tatsächlich nicht vorbereiten kann.
+Die WebGL 2.0 `texImage*` API lässt Sie jede Mip-Ebene unabhängig und in jeder Größe definieren, selbst das Missverhältnis der Mip-Größen ist bis zur Zeichnungszeit kein Fehler, was bedeutet, dass es keine Möglichkeit gibt, dass der Treiber die Textur im GPU-Speicher tatsächlich vorbereiten kann, bis die Textur zum ersten Mal gezeichnet wird.
 
-Zudem könnten einige Treiber bedingungslos die gesamte Mip-Kette zuweisen (+30% Speicher!), selbst wenn Sie nur eine einzelne Ebene möchten.
+Darüber hinaus könnten einige Treiber bedingungslos die gesamte Mip-Kette (+30% Speicher!) allokieren, selbst wenn Sie nur eine Ebene haben möchten.
 
-Bevorzugen Sie daher `texStorage` + `texSubImage` für Texturen in WebGL 2.
+Also, bevorzugen Sie `texStorage` + `texSubImage` für Texturen in WebGL 2.
 
-## Verwenden Sie invalidateFramebuffer
+## Verwenden Sie `invalidateFramebuffer`
 
-Das Speichern von Daten, die Sie später nicht mehr verwenden werden, kann hohe Kosten haben, insbesondere bei Kachel-Render-GPUs auf Mobilgeräten. Wenn Sie mit den Inhalten eines Framebuffer-Attachments fertig sind, verwenden Sie die WebGL 2.0 `invalidateFramebuffer` um die Daten zu verwerfen, anstatt den Treiber die Daten später speichern zu lassen. DEPTH/STENCIL und/oder multisampled Attachments sind besonders gute Kandidaten für `invalidateFramebuffer`.
+Das Speichern von Daten, die Sie nicht wieder verwenden werden, kann hohe Kosten haben, insbesondere auf Kachel-Rendering-GPUs, die auf mobilen Geräten üblich sind. Wenn Sie mit den Inhalten eines Framebuffer-Anhangs fertig sind, verwenden Sie das `invalidateFramebuffer` von WebGL 2.0, um die Daten zu verwerfen, anstatt den Treiber Zeit darauf zu verwenden, die Daten für eine spätere Verwendung zu speichern. DEPTH/STENCIL und/oder Multisample-Anhänge sind insbesondere gute Kandidaten für `invalidateFramebuffer`.
 
-## Verwenden Sie nicht-blockierende asynchrone Daten-Rückabfragen
+## Verwenden Sie nicht-blockierenden asynchronen Daten-Rückruf
 
-Operationen wie `readPixels` und `getBufferSubData` sind typischerweise synchron, aber mit den gleichen APIs kann eine nicht-blockierende asynchrone Daten-Rückabfrage erreicht werden. Der Ansatz in WebGL 2 ist analog zum Ansatz in OpenGL: [Asynchrone Downloads in blockierenden APIs](https://kdashg.github.io/misc/async-gpu-downloads.html)
+Operationen wie `readPixels` und `getBufferSubData` sind typisch synchron, aber mithilfe der gleichen APIs kann nicht-blockierendes, asynchrones Datenlesen erzielt werden. Der Ansatz in WebGL 2 ist analog zu dem Ansatz in OpenGL: [Asynchrone Downloads in blockierenden APIs](https://kdashg.github.io/misc/async-gpu-downloads.html)
 
 ```js
-function clientWaitAsync(gl, sync, flags, interval_ms) {
+function clientWaitAsync(gl, sync, flags, intervalMs) {
   return new Promise((resolve, reject) => {
     function test() {
       const res = gl.clientWaitSync(sync, flags, 0);
@@ -533,7 +531,7 @@ function clientWaitAsync(gl, sync, flags, interval_ms) {
         return;
       }
       if (res === gl.TIMEOUT_EXPIRED) {
-        setTimeout(test, interval_ms);
+        setTimeout(test, intervalMs);
         return;
       }
       resolve();
@@ -578,17 +576,17 @@ async function readPixelsAsync(gl, x, y, w, h, format, type, dest) {
 }
 ```
 
-## `devicePixelRatio` und High-DPI-Rendering
+## `devicePixelRatio` und Hoch-DPI-Rendering
 
-Der Umgang mit `devicePixelRatio !== 1.0` ist schwierig. Während der gängige Ansatz darin besteht, `canvas.width = width * devicePixelRatio` zu setzen, führt dies bei nicht-ganzzahligen Werten von `devicePixelRatio`, wie sie bei der UI-Skalierung unter Windows und beim Zoomen auf allen Plattformen üblich sind, zu Moiré-Artefakten.
+Der Umgang mit `devicePixelRatio !== 1.0` ist heikel. Während der übliche Ansatz darin besteht, `canvas.width = width * devicePixelRatio` zu setzen, führt dies zu Moiré-Artefakten bei nicht ganzzahligen Werten von `devicePixelRatio`, wie sie häufig bei der UI-Skalierung unter Windows sowie beim Zoomen auf allen Plattformen vorkommen.
 
-Stattdessen können wir nicht-ganzzahlige Werte für das CSS `top`/`bottom`/`left`/`right` verwenden, um unser Canvas zuverlässig auf ganze Integer-Gerätekoordinaten vorzuschnappen.
+Stattdessen können wir ungerade Werte für die CSS-Eigenschaften „top“/„bottom“/„left“/„right“ verwenden, um unsere Leinwand ziemlich zuverlässig auf ganze Ganzzahlen zu „vorzuschnappen“.
 
-Demo: [Device pixel presnap](https://kdashg.github.io/misc/webgl/device-pixel-presnap.html)
+Demo: [Device-Pixel-Vorschnapp](https://kdashg.github.io/misc/webgl/device-pixel-presnap.html)
 
 ## ResizeObserver und 'device-pixel-content-box'
 
-Auf [unterstützten Browsern](/de/docs/Web/API/ResizeObserverEntry/devicePixelContentBoxSize#browser_compatibility) kann `ResizeObserver` mit `'device-pixel-content-box'` verwendet werden, um einen Rückruf zu erhalten, der die echte {{Glossary("device_pixel", "Device-Pixel")}}-Größe eines Elements enthält. Dies kann verwendet werden, um eine asynchrone, aber genaue Funktion zu erstellen:
+Auf [unterstützten Browsern](/de/docs/Web/API/ResizeObserverEntry/devicePixelContentBoxSize#browser_compatibility) kann `ResizeObserver` mit `'device-pixel-content-box'` verwendet werden, um einen Callback anzufordern, der die tatsächliche {{Glossary("device_pixel", "Gerät-Pixel")}} Größe eines Elements umfasst. Dies kann verwendet werden, um eine asynchrone, aber genaue Funktion zu erstellen:
 
 ```js
 function getDevicePixelSize(elem) {
@@ -612,10 +610,10 @@ function getDevicePixelSize(elem) {
 }
 ```
 
-## Verwenden Sie `WEBGL_provoking_vertex`, wenn verfügbar
+## Verwenden Sie `WEBGL_provoking_vertex`, wenn es verfügbar ist
 
-Beim Zusammenstellen von Scheitelpunkten zu Primitiven wie Dreiecken und Linien wird nach OpenGL-Konvention der letzte Scheitelpunkt des Primitivs als "provokanter Scheitelpunkt" angesehen. Dies ist relevant, wenn `flat` Vertex-Attributinterpolation in ESSL300 (WebGL 2) verwendet wird; der Attributwert des provokanten Scheitelpunkts wird für alle Scheitelpunkte des Primitivs verwendet.
+Wenn Sie Vertices zu Primitiven wie Dreiecken und Linien zusammensetzen, gilt in der OpenGL-Konvention der letzte Vertex des Primitives als der „provokante Vertex“. Dies ist relevant, wenn `flat`-Vertex-Attribut-Interpolation in ESSL300 (WebGL 2) verwendet wird; der Attributwert vom provokanten Vertex wird für alle Vertices des Primitives verwendet.
 
-Heutzutage werden viele Browser-WebGL-Implementierungen auf verschiedenen Grafik-APIs als OpenGL gehostet, und einige dieser APIs verwenden den ersten Scheitelpunkt als provokanten Scheitelpunkt für Zeichnungsbefehle. Die Emulation der OpenGL provokanten Scheitelpunktkonvention kann auf einigen dieser APIs rechentechnisch teuer sein.
+Heutzutage sind viele WebGL-Implementierungen von Browsern auf unterschiedlichen Grafikschnittstellen als OpenGL beherbergt, und einige dieser Schnittstellen verwenden den ersten Vertex als provokanten Vertex für Zeichenaufrufe. Die Emulation der OpenGL-Konvention kann bei einigen dieser Schnittstellen rechenintensiv sein.
 
-Aus diesem Grund wurde die [WEBGL_provoking_vertex](https://registry.khronos.org/webgl/extensions/WEBGL_provoking_vertex/) Erweiterung eingeführt. Wenn eine WebGL-Implementierung diese Erweiterung bereitstellt, ist dies ein Hinweis an die Anwendung, dass das Ändern der Konvention in `FIRST_VERTEX_CONVENTION_WEBGL` die Leistung verbessern wird. Es wird dringend empfohlen, dass Anwendungen, die Flachschattierung verwenden, auf das Vorhandensein dieser Erweiterung prüfen und sie nutzen, wenn sie verfügbar ist. Beachten Sie, dass dies möglicherweise Änderungen an den Vertex-Buffers oder Shadern der Anwendung erfordert.
+Aus diesem Grund wurde die [WEBGL_provoking_vertex](https://registry.khronos.org/webgl/extensions/WEBGL_provoking_vertex/) Erweiterung eingeführt. Wenn eine WebGL-Implementierung diese Erweiterung offenlegt, ist dies ein Hinweis für die Anwendung, dass die Änderungerung zur `FIRST_VERTEX_CONVENTION_WEBGL` die Leistung verbessert. Es wird nachdrücklich empfohlen, dass Anwendungen, die flache Schattierung verwenden, auf das Vorhandensein dieser Erweiterung überprüfen und sie nutzen, wenn sie verfügbar ist. Beachten Sie, dass dies Änderungen an den Vertex-Buffern oder Shadern der Anwendung erfordern kann.

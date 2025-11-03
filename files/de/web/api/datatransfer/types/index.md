@@ -3,24 +3,20 @@ title: "DataTransfer: types-Eigenschaft"
 short-title: types
 slug: Web/API/DataTransfer/types
 l10n:
-  sourceCommit: 8285d415db211ae9efe04752d9dab1b574450ee8
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransfer.types`** schreibgeschützte Eigenschaft gibt die verfügbaren Typen zurück, die in den [`items`](/de/docs/Web/API/DataTransfer/items) vorhanden sind.
+Die schreibgeschützte Eigenschaft **`DataTransfer.types`** gibt die verfügbaren Typen zurück, die in den [`items`](/de/docs/Web/API/DataTransfer/items) existieren.
 
 ## Wert
 
-Ein Array der Datenformate. Jedes Format ist eine Zeichenkette,
-die in der Regel ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn der Ziehvorgang
-keine Daten enthielt, wird diese Liste leer sein. Wenn Dateien in den
-Ziehvorgang einbezogen sind, ist einer der Typen die Zeichenkette `Files`.
+Ein Array der Datenformate. Jedes Format ist ein String, der in der Regel ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn der Ziehvorgang keine Daten einschloss, ist diese Liste leer. Wenn Dateien in den Ziehvorgang einbezogen sind, wird einer der Typen der String `Files` sein.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der `types`- und
-[`items`](/de/docs/Web/API/DataTransfer/items)-Eigenschaften.
+Dieses Beispiel zeigt die Verwendung der Eigenschaften `types` und [`items`](/de/docs/Web/API/DataTransfer/items).
 
 ```html
 <ul>
@@ -48,10 +44,10 @@ function log(msg) {
 }
 
 document.querySelectorAll("li").forEach((item) => {
-  item.addEventListener("dragstart", dragstart_handler);
+  item.addEventListener("dragstart", dragstartHandler);
 });
 
-function dragstart_handler(ev) {
+function dragstartHandler(ev) {
   log(`dragStart: target.id = ${ev.target.id}`);
 
   // Add this element's id to the drag payload so the drop handler will
@@ -101,6 +97,6 @@ target.addEventListener("dragover", (ev) => {
 
 ## Siehe auch
 
-- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Zugoperationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Arbeiten mit dem Drag-Daten-Store](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)
+- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Ziehoperationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Arbeiten mit dem Zieh-Datenspeicher](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_data_store)

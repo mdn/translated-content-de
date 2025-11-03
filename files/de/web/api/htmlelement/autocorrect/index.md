@@ -3,14 +3,14 @@ title: "HTMLElement: autocorrect-Eigenschaft"
 short-title: autocorrect
 slug: Web/API/HTMLElement/autocorrect
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`autocorrect`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces steuert, ob die Autokorrektur für bearbeitbaren Text bei Rechtschreib- und/oder Zeichensetzungsfehlern aktiviert ist oder nicht.
+Die **`autocorrect`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces steuert, ob die Autokorrektur von bearbeitbarem Text für Rechtschreib- und/oder Zeichensetzungsfehler aktiviert ist.
 
-Das spezifische Verhalten der Autokorrektur, einschließlich der Wörter, die ersetzt werden, hängt vom Nutzeragenten und den Diensten des zugrundeliegenden Geräts ab. Zum Beispiel könnte ein Nutzeragent auf macOS auf [registrierten Ersatztext und Zeichensetzung](https://support.apple.com/en-vn/guide/mac-help/mh35735/mac) zurückgreifen. Andere Geräte und Browser könnten einen anderen Ansatz verwenden.
+Das spezifische Autokorrekturverhalten, einschließlich der zu ersetzenden Wörter, hängt vom User-Agent und den Diensten des zugrunde liegenden Geräts ab. Beispielsweise könnte ein User-Agent unter macOS auf [registrierten Ersetzungstext und Zeichensetzung](https://support.apple.com/en-vn/guide/mac-help/mh35735/mac) zurückgreifen. Andere Geräte und Browser könnten einen anderen Ansatz verwenden.
 
 Die Eigenschaft spiegelt den Wert des globalen HTML-Attributs [`autocorrect`](/de/docs/Web/HTML/Reference/Global_attributes/autocorrect) wider.
 
@@ -26,11 +26,10 @@ Dieses Beispiel zeigt, wie Sie die Autokorrektur aktivieren und deaktivieren kö
 
 #### HTML
 
-Das HTML-Markup definiert eine Umschaltfläche und ein {{htmlelement("input")}}-Element vom [`type="search"`](/de/docs/Web/HTML/Reference/Elements/input/search).
-Beachten Sie, dass die Autokorrektur, falls unterstützt, standardmäßig aktiviert ist.
+Das HTML-Markup definiert eine Umschalttaste und ein {{htmlelement("input")}}-Element des Typs [`type="search"`](/de/docs/Web/HTML/Reference/Elements/input/search). Beachten Sie, dass, wenn die Autokorrektur unterstützt wird, sie standardmäßig aktiviert ist.
 
 ```html
-<button id="toggleAutocorrect"></button>
+<button id="toggleAutocorrect">Unknown</button>
 <input type="search" id="searchinput" />
 ```
 
@@ -57,7 +56,7 @@ function log(text) {
 
 #### JavaScript
 
-Der Code überprüft zuerst, ob die `autocorrect`-Eigenschaft unterstützt wird, indem er prüft, ob sie im `HTMLElement`-Prototyp vorhanden ist. Wenn sie vorhanden ist, wird ein Klick-Handler hinzugefügt, der es Ihnen ermöglicht, den Wert umzuschalten. Wenn sie nicht vorhanden ist, versteckt die Benutzeroberfläche die interaktiven Elemente und protokolliert, dass `autocorrect` nicht unterstützt wird.
+Der Code prüft zunächst, ob `autocorrect` unterstützt wird, indem überprüft wird, ob es im `HTMLElement`-Prototyp vorhanden ist. Wenn es vorhanden ist, wird ein Klick-Handler hinzugefügt, um Ihnen das Umschalten des Wertes zu ermöglichen. Wenn es nicht vorhanden ist, versteckt die Benutzeroberfläche die interaktiven Elemente und protokolliert, dass `autocorrect` nicht unterstützt wird.
 
 ```js
 const toggleButton = document.querySelector("button");
@@ -86,7 +85,7 @@ if (`autocorrect` in HTMLElement.prototype) {
 
 <!-- cSpell:ignore Carot -->
 
-Aktivieren Sie die Schaltfläche, um den Wert der Autokorrektur umzuschalten. Geben Sie ungültigen Text in das Textfeld ein, wie zum Beispiel "Carot". Wenn die Autokorrektur aktiviert ist und die Implementierung das entsprechende Ersatzwort "carrot" hat, sollte der Text automatisch korrigiert werden.
+Aktivieren Sie die Schaltfläche, um den Wert der Autokorrektur umzuschalten. Geben Sie ungültigen Text in das Textfeld ein, wie z.B. "Carot". Wenn die Autokorrektur aktiviert ist und die Implementierung das passende Ersatzwort "carrot" hat, sollte der Text automatisch korrigiert werden.
 
 {{EmbedLiveSample("Enable and disable autocorrection", "100%", "200")}}
 

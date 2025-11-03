@@ -20,7 +20,7 @@ Diese Seite basiert größtenteils auf [https://www.squarefree.com/burningedg...
 
 - CSS2-Verschachtelung von Anführungszeichen
   - : Ab dieser Version wird die [`quotes`](/de/docs/Web/CSS/Reference/Properties/quotes) CSS2-Eigenschaft vollständig unterstützt, wobei abhängig von der Verschachtelungsebene das korrekte Anführungszeichen für offene und geschlossene Anführungszeichen verwendet wird.
-- CSS3 [`:only-child`](/de/docs/Web/CSS/:only-child)
+- CSS3 [`:only-child`](/de/docs/Web/CSS/Reference/Selectors/:only-child)
   - : Dieser CSS3-Selektor ermöglicht das Auswählen eines Elements, das keine anderen Elemente als Geschwister im DOM hat.
 - CSS3-Spalten
   - : Eine experimentelle Implementierung des vorgeschlagenen [CSS3-Multikolumnen-Layouts](https://drafts.csswg.org/css-multicol/). Dies ermöglicht eine einfache Zeitung-ähnliche Präsentation in mehreren Spalten.

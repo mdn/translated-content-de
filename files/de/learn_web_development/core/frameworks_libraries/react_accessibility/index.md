@@ -51,9 +51,9 @@ Um das Erlebnis für Tastaturnutzer und Nutzer von Hilfstechnologien zu verbesse
 
 Wenn Sie die "All", "Active" oder "Completed" Filtertasten mit Ihrer Maus anklicken, wird _kein_ sichtbarer Fokusanzeiger angezeigt, aber Sie werden ihn sehen, wenn Sie mit der <kbd>Tab</kbd>-Taste zwischen ihnen bewegen. Keine Sorge – Ihr Code ist nicht fehlerhaft!
 
-Unsere CSS-Datei verwendet die Pseudo-Klasse [`:focus-visible`](/de/docs/Web/CSS/:focus-visible), um eine benutzerdefinierte Gestaltung des Fokusanzeigers bereitzustellen, und der Browser verwendet eine Reihe interner Regeln, um zu bestimmen, wann er dem Benutzer angezeigt werden soll. Im Allgemeinen wird der Browser einen Fokusanzeiger als Reaktion auf Tastatureingaben _anzeigen_, und er _könnte_ ihn als Reaktion auf Mauseingaben anzeigen. `<button>`-Elemente _zeigen_ keinen Fokusanzeiger als Reaktion auf Mauseingaben, während `<input>`-Elemente dies _tun_.
+Unsere CSS-Datei verwendet die Pseudo-Klasse [`:focus-visible`](/de/docs/Web/CSS/Reference/Selectors/:focus-visible), um eine benutzerdefinierte Gestaltung des Fokusanzeigers bereitzustellen, und der Browser verwendet eine Reihe interner Regeln, um zu bestimmen, wann er dem Benutzer angezeigt werden soll. Im Allgemeinen wird der Browser einen Fokusanzeiger als Reaktion auf Tastatureingaben _anzeigen_, und er _könnte_ ihn als Reaktion auf Mauseingaben anzeigen. `<button>`-Elemente _zeigen_ keinen Fokusanzeiger als Reaktion auf Mauseingaben, während `<input>`-Elemente dies _tun_.
 
-Das Verhalten von `:focus-visible` ist selektiver als die ältere Pseudo-Klasse [`:focus`](/de/docs/Web/CSS/:focus), mit der Sie möglicherweise vertrauter sind. `:focus` zeigt einen Fokusanzeiger in viel mehr Situationen an, und Sie können es anstelle von oder in Kombination mit `:focus-visible` verwenden, wenn Sie dies bevorzugen.
+Das Verhalten von `:focus-visible` ist selektiver als die ältere Pseudo-Klasse [`:focus`](/de/docs/Web/CSS/Reference/Selectors/:focus), mit der Sie möglicherweise vertrauter sind. `:focus` zeigt einen Fokusanzeiger in viel mehr Situationen an, und Sie können es anstelle von oder in Kombination mit `:focus-visible` verwenden, wenn Sie dies bevorzugen.
 
 ## Fokussieren zwischen Vorlagen
 

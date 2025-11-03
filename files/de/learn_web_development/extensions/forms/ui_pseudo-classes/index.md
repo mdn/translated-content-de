@@ -170,7 +170,7 @@ Die übliche Konvention im Web für den erforderlichen Status ist ein Sternchen 
 
 In früheren Artikeln haben wir die Nutzung von [generierten Inhalten](/de/docs/Web/CSS/CSS_generated_content) gesehen, aber wir halten es jetzt für einen guten Zeitpunkt, darüber etwas mehr im Detail zu sprechen.
 
-Die Idee ist, dass wir mit den [`::before`](/de/docs/Web/CSS/::before) und [`::after`](/de/docs/Web/CSS/::after) Pseudoelementen zusammen mit der [`content`](/de/docs/Web/CSS/Reference/Properties/content)-Eigenschaft einen Inhalt vor oder nach dem betroffenen Element erscheinen lassen können. Der Inhalt wird nicht zum DOM hinzugefügt und kann daher für einige Screenreader unsichtbar sein. Da es sich um ein Pseudoelement handelt, kann es auf die gleiche Weise wie jedes tatsächliche DOM-Element gezielt mit Stilen versehen werden.
+Die Idee ist, dass wir mit den [`::before`](/de/docs/Web/CSS/Reference/Selectors/::before) und [`::after`](/de/docs/Web/CSS/Reference/Selectors/::after) Pseudoelementen zusammen mit der [`content`](/de/docs/Web/CSS/Reference/Properties/content)-Eigenschaft einen Inhalt vor oder nach dem betroffenen Element erscheinen lassen können. Der Inhalt wird nicht zum DOM hinzugefügt und kann daher für einige Screenreader unsichtbar sein. Da es sich um ein Pseudoelement handelt, kann es auf die gleiche Weise wie jedes tatsächliche DOM-Element gezielt mit Stilen versehen werden.
 
 Dies ist besonders nützlich, wenn Sie einen visuellen Indikator zu einem Element hinzufügen möchten, z. B. ein Label oder ein Icon, wenn alternative Indikatoren ebenfalls zur Verfügung stehen, um die Zugänglichkeit für alle Benutzer zu gewährleisten. Beispielsweise können wir generierte Inhalte verwenden, um die Platzierung und Animation des inneren Kreises des benutzerdefinierten Radiobuttons zu steuern, wenn ein Radiobutton ausgewählt ist:
 
@@ -811,7 +811,7 @@ label:has(+ :disabled) {
 }
 ```
 
-Wir haben die Eingaben direkt ausgewählt, die wir mit `input[type="text"]:disabled` deaktivieren möchten, aber wir wollten auch die entsprechenden Textbeschriftungen ausgrauen. Da sich die Etiketten direkt vor ihren Eingaben befinden, haben wir diese mit der Pseudoklasse [`:has`](/de/docs/Web/CSS/:has) ausgewählt.
+Wir haben die Eingaben direkt ausgewählt, die wir mit `input[type="text"]:disabled` deaktivieren möchten, aber wir wollten auch die entsprechenden Textbeschriftungen ausgrauen. Da sich die Etiketten direkt vor ihren Eingaben befinden, haben wir diese mit der Pseudoklasse [`:has`](/de/docs/Web/CSS/Reference/Selectors/:has) ausgewählt.
 
 Abschließend haben wir einige JavaScript verwendet, um das Deaktivieren der Rechnungsaddressfelder umzuschalten:
 
@@ -1475,7 +1475,7 @@ Es gibt eine Reihe weiterer Pseudoklassen von Interesse, und wir haben hier nich
 Die folgenden sind ebenfalls interessant, aber bislang nicht gut unterstützt in Browsern:
 
 - Die {{cssxref(":blank")}}-Pseudoklasse wählt leere Formularelemente aus. {{cssxref(":empty")}} passt auch auf Elemente, die keine Kinder haben, wie {{HTMLElement("input")}}, aber es ist allgemeiner — es passt auch auf andere {{Glossary("void_element", "void elements")}} wie {{HTMLElement("br")}} und {{HTMLElement("hr")}}. `:empty` hat eine angemessene Browser-Unterstützung; die Pseudoklasse `:blank` ist in der Spezifikation noch nicht abgeschlossen und wird daher in keinem Browser unterstützt.
-- Die [`:user-invalid`](/de/docs/Web/CSS/:user-invalid)-Pseudoklasse, wenn sie unterstützt wird, wird ähnlich wie {{cssxref(":invalid")}} sein, aber mit einer besseren Benutzererfahrung. Wenn der Wert gültig ist, wenn das Eingabefeld den Fokus erhält, könnte das Element beim Eingeben von Daten temporär ungültig sein und das Element könnte `:invalid` matchen. Es wird jedoch nur dann `:user-invalid` matchen, wenn das Element den Fokus verliert. Wenn der Wert ursprünglich ungültig war, wird es sowohl `:invalid` als auch `:user-invalid` während der gesamten Dauer des Fokus matchen. In ähnlicher Weise wie `:invalid`, wird es aufhören, `:user-invalid` zu matchen, wenn der Wert gültig wird.
+- Die [`:user-invalid`](/de/docs/Web/CSS/Reference/Selectors/:user-invalid)-Pseudoklasse, wenn sie unterstützt wird, wird ähnlich wie {{cssxref(":invalid")}} sein, aber mit einer besseren Benutzererfahrung. Wenn der Wert gültig ist, wenn das Eingabefeld den Fokus erhält, könnte das Element beim Eingeben von Daten temporär ungültig sein und das Element könnte `:invalid` matchen. Es wird jedoch nur dann `:user-invalid` matchen, wenn das Element den Fokus verliert. Wenn der Wert ursprünglich ungültig war, wird es sowohl `:invalid` als auch `:user-invalid` während der gesamten Dauer des Fokus matchen. In ähnlicher Weise wie `:invalid`, wird es aufhören, `:user-invalid` zu matchen, wenn der Wert gültig wird.
 
 ## Zusammenfassung
 

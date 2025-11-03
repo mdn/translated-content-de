@@ -96,5 +96,5 @@ Wenn irgendein der ansonsten interaktiven Elemente innerhalb der Toolbar deaktiv
 
 ## Siehe auch
 
-- [Die CSS-Pseudoklasse `:focus`](/de/docs/Web/CSS/:focus)
-- [Die CSS-Pseudoklasse `:focus-within`](/de/docs/Web/CSS/:focus-within)
+- [Die CSS-Pseudoklasse `:focus`](/de/docs/Web/CSS/Reference/Selectors/:focus)
+- [Die CSS-Pseudoklasse `:focus-within`](/de/docs/Web/CSS/Reference/Selectors/:focus-within)

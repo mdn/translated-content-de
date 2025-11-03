@@ -441,7 +441,7 @@ Das HTML enthält ein `<dialog>`-Element sowie eine Taste, um den Dialog anzuzei
 
 Im CSS fügen wir einen `@starting-style`-Block hinzu, der die Übergangsanfangsstile für die `opacity`- und `transform`-Eigenschaften definiert, Übergangsendstile im `dialog:open`-Zustand und die Standardstile im Standard `dialog`-Zustand, zu denen zurückgekehrt werden soll, sobald das `<dialog>` erschienen ist. Beachten Sie, wie die `transition`-Liste des `<dialog>` nicht nur diese Eigenschaften enthält, sondern auch die `display`- und `overlay`-Eigenschaften, wobei jeweils `allow-discrete` auf ihnen gesetzt ist.
 
-Wir setzen auch einen Anfangsstilwert für die {{cssxref("background-color")}}-Eigenschaft auf dem [`::backdrop`](/de/docs/Web/CSS/::backdrop), der hinter dem `<dialog>` erscheint, wenn es öffnet, um eine schöne Abdunklungsanimation bereitzustellen. Der `dialog:open::backdrop`-Selektor wählt nur die Hintergründe von `<dialog>`-Elementen aus, wenn der Dialog geöffnet ist.
+Wir setzen auch einen Anfangsstilwert für die {{cssxref("background-color")}}-Eigenschaft auf dem [`::backdrop`](/de/docs/Web/CSS/Reference/Selectors/::backdrop), der hinter dem `<dialog>` erscheint, wenn es öffnet, um eine schöne Abdunklungsanimation bereitzustellen. Der `dialog:open::backdrop`-Selektor wählt nur die Hintergründe von `<dialog>`-Elementen aus, wenn der Dialog geöffnet ist.
 
 ```css
 /* Open state of the dialog  */

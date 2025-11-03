@@ -1,13 +1,13 @@
 ---
-title: Farbenmischer
+title: Farb-Mischer
 slug: Web/CSS/CSS_colors/Color_mixer
 l10n:
-  sourceCommit: a6d1fd388b053e6fc6ce21003348f34d0ef8115f
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
-Dieses Werkzeug ermöglicht es Ihnen, zwei Farben in einem beliebigen Farbraum mithilfe der Funktion {{cssxref("color_value/color-mix")}} zu mischen und die resultierende Farbe in jedem CSS-Farbformat zu kopieren.
+Dieses Tool ermöglicht es Ihnen, zwei Farben in jedem Farbraum mit der Funktion {{cssxref("color_value/color-mix")}} zu mischen und die resultierende Farbe in jedem CSS-Farbformat zu kopieren.
 
-Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, und die von der Funktion zurückgegebene Mischfarbe ist in der Mitte sichtbar. Klicken Sie auf die äußeren Farbfelder, um neue Farben zur Mischung auszuwählen. Verwenden Sie die Schieberegler, um die Prozentsätze jeder Eingabefarbe in der Mischung zu ändern. Verwenden Sie das Dropdown-Menü, um den Farbraum der Ausgabe der Funktion zu ändern. Die Werte der resultierenden Farbe in verschiedenen Formaten erscheinen in einer Tabelle nach dem Widget und können kopiert werden. Sie können auch auf den Namen eines Farbformats klicken, um mehr darüber zu erfahren.
+Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, und die von der Funktion zurückgegebene gemischte Farbe wird in der Mitte angezeigt. Klicken Sie auf die äußeren Farbfelder, um neue Farben zum Mischen auszuwählen. Verwenden Sie die Schieberegler, um die Prozentsätze jeder Eingabefarbe im Mix zu ändern. Nutzen Sie das Dropdown-Menü, um den Farbraum der Funktionsausgabe zu ändern. Die Werte der resultierenden Farbe in verschiedenen Formaten erscheinen in einer Tabelle, die dem Widget folgt und kopiert werden kann. Sie können auch auf einen Farbnamen klicken, um mehr darüber zu erfahren.
 
 ```html hidden live-sample___color-mixer
 <div id="color-mixer">
@@ -74,26 +74,28 @@ Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, 
   <dialog id="picker-dialog">
     <div>Pick a color</div>
     <table>
-      <tr>
-        <td><label for="color-text">Enter color:</label></td>
-        <td><input type="text" id="color-text" value="#bada55" /></td>
-      </tr>
-      <tr>
-        <td><label for="color-input">Pick color:</label></td>
-        <td><input type="color" id="color-input" value="#bada55" /></td>
-      </tr>
-      <tr>
-        <td><label for="color-opacity">Select an opacity:</label></td>
-        <td>
-          <input
-            type="range"
-            id="color-opacity"
-            value="1"
-            min="0"
-            max="1"
-            step="0.01" />
-        </td>
-      </tr>
+      <tbody>
+        <tr>
+          <td><label for="color-text">Enter color:</label></td>
+          <td><input type="text" id="color-text" value="#bada55" /></td>
+        </tr>
+        <tr>
+          <td><label for="color-input">Pick color:</label></td>
+          <td><input type="color" id="color-input" value="#bada55" /></td>
+        </tr>
+        <tr>
+          <td><label for="color-opacity">Select an opacity:</label></td>
+          <td>
+            <input
+              type="range"
+              id="color-opacity"
+              value="1"
+              min="0"
+              max="1"
+              step="0.01" />
+          </td>
+        </tr>
+      </tbody>
     </table>
     <div><button id="picker-ok-button">Ok</button></div>
   </dialog>
@@ -886,4 +888,4 @@ init();
 - {{CSSXref("&lt;color&gt;")}}
 - {{CSSXref("&lt;color-interpolation-method&gt;")}}
 - {{cssxref("&lt;hue&gt;")}}
-- [CSS relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
+- [Relative Farben in CSS](/de/docs/Web/CSS/CSS_colors/Relative_colors)

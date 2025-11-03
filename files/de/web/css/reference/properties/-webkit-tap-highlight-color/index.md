@@ -47,6 +47,6 @@ Teil keiner Norm. Apple hat [eine Beschreibung im Safari Web Content Guide](http
 
 - [WebKit CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
 - Verwandte CSS-Pseudoklassen:
-  - [`:hover`](/de/docs/Web/CSS/:hover)
-  - [`:active`](/de/docs/Web/CSS/:active)
-  - [`:visited`](/de/docs/Web/CSS/:visited)
+  - [`:hover`](/de/docs/Web/CSS/Reference/Selectors/:hover)
+  - [`:active`](/de/docs/Web/CSS/Reference/Selectors/:active)
+  - [`:visited`](/de/docs/Web/CSS/Reference/Selectors/:visited)

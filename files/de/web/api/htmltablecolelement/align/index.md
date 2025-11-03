@@ -28,9 +28,9 @@ Die möglichen Werte sind:
 
 ## Beispiele
 
-Verwenden Sie `text-align` in CSS für die {{htmlelement("td")}}- und {{htmlelement("th")}}-Elemente. Da {{htmlelement("td")}}-Elemente einer Spalte keine Kinder des {{htmlelement("col")}} sind, hat das Setzen des `align`-Attributs in HTML oder der Eigenschaft `text-align` in CSS auf einem {{HTMLElement("col")}}-Element keinen Effekt. Stattdessen wählen Sie die Zellen einer Spalte mit einem [`:is(td, tr):nth-child(n)`](/de/docs/Web/CSS/:nth-child), wobei `n` die Spaltennummer ist, oder ähnlich.
+Verwenden Sie `text-align` in CSS für die {{htmlelement("td")}}- und {{htmlelement("th")}}-Elemente. Da {{htmlelement("td")}}-Elemente einer Spalte keine Kinder des {{htmlelement("col")}} sind, hat das Setzen des `align`-Attributs in HTML oder der Eigenschaft `text-align` in CSS auf einem {{HTMLElement("col")}}-Element keinen Effekt. Stattdessen wählen Sie die Zellen einer Spalte mit einem [`:is(td, tr):nth-child(n)`](/de/docs/Web/CSS/Reference/Selectors/:nth-child), wobei `n` die Spaltennummer ist, oder ähnlich.
 
-Ein [Beispiel](/de/docs/Web/CSS/:nth-child#styling_a_table_column) ist auf der Seite {{cssxref(":nth-child()")}} verfügbar.
+Ein [Beispiel](/de/docs/Web/CSS/Reference/Selectors/:nth-child#styling_a_table_column) ist auf der Seite {{cssxref(":nth-child()")}} verfügbar.
 
 ## Spezifikationen
 

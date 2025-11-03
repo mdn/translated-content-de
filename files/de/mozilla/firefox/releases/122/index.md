@@ -85,7 +85,7 @@ Diese Funktionen sind neu in Firefox 122 enthalten, aber standardmäßig deaktiv
 
 - **Popover-API:** `dom.element.popover.enabled`.
 
-  Das Anzeigen von Popovers über dem Seiteninhalt wird jetzt über HTML-Attribute oder die JavaScript-API unterstützt, einschließlich der Gestaltung mit der CSS-[[`:popover-open`]](/de/docs/Web/CSS/:popover-open) Pseudo-Klasse und erweiterter Unterstützung für das [[`::backdrop`]](/de/docs/Web/CSS/::backdrop) Pseudo-Element. Weitere Details finden Sie im [Popover-API](/de/docs/Web/API/Popover_API)-Referenz. ([Firefox Bug 1823757](https://bugzil.la/1823757))
+  Das Anzeigen von Popovers über dem Seiteninhalt wird jetzt über HTML-Attribute oder die JavaScript-API unterstützt, einschließlich der Gestaltung mit der CSS-[[`:popover-open`]](/de/docs/Web/CSS/Reference/Selectors/:popover-open) Pseudo-Klasse und erweiterter Unterstützung für das [[`::backdrop`]](/de/docs/Web/CSS/Reference/Selectors/::backdrop) Pseudo-Element. Weitere Details finden Sie im [Popover-API](/de/docs/Web/API/Popover_API)-Referenz. ([Firefox Bug 1823757](https://bugzil.la/1823757))
 
 - **Lesen und Schreiben der Zwischenablage:** `dom.events.asyncClipboard.clipboardItem`, `dom.events.asyncClipboard.readText` und `dom.events.asyncClipboard.writeText`.
 

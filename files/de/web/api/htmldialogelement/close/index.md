@@ -1,9 +1,9 @@
 ---
-title: "HTMLDialogElement: close() Methode"
+title: "HTMLDialogElement: `close()`-Methode"
 short-title: close()
 slug: Web/API/HTMLDialogElement/close
 l10n:
-  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
 {{ APIRef("HTML DOM") }}
@@ -29,14 +29,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode öffnet.
-Von dort aus können Sie auf den _X_-Button klicken, um den Dialog zu schließen (über die `HTMLDialogElement.close()`-Methode), oder das Formular über den Absenden-Button einreichen.
+Das folgende Beispiel zeigt einen einfachen Button, der bei Klick ein {{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode öffnet.
+Von dort aus können Sie auf den _X_-Button klicken, um den Dialog zu schließen (über die `HTMLDialogElement.close()`-Methode), oder das Formular über den Senden-Button einreichen.
 
 ```html
 <!-- Simple pop-up dialog box, containing a form -->
 <dialog id="favDialog">
   <form method="dialog">
-    <button id="close" aria-label="close" formnovalidate>X</button>
+    <button type="button" id="close" aria-label="close">X</button>
     <section>
       <p>
         <label for="favAnimal">Favorite animal:</label>
@@ -49,15 +49,17 @@ Von dort aus können Sie auf den _X_-Button klicken, um den Dialog zu schließen
       </p>
     </section>
     <menu>
-      <button type="reset">Reset</button>
-      <button type="submit">Confirm</button>
+      <li>
+        <button type="reset">Reset</button>
+      </li>
+      <li>
+        <button type="submit">Confirm</button>
+      </li>
     </menu>
   </form>
 </dialog>
 
-<menu>
-  <button id="updateDetails">Update details</button>
-</menu>
+<button id="updateDetails">Update details</button>
 ```
 
 ```js
@@ -87,8 +89,8 @@ closeButton.addEventListener("click", () => {
 });
 ```
 
-Wenn der "X"-Button `type="submit"` wäre, hätte sich der Dialog geschlossen, ohne dass JavaScript erforderlich wäre.
-Eine Formulareinreichung schließt das `<dialog>`, in dem es eingebettet ist, wenn [die Methode des Formulars `dialog`](/de/docs/Web/HTML/Reference/Elements/form#method) ist, sodass kein "Schließen"-Button erforderlich ist.
+Wenn der "X"-Button `type="submit"` wäre, hätte der Dialog ohne JavaScript geschlossen werden können.
+Eine Formulareinreichung schließt das `<dialog>`, in dem sie sich befindet, wenn die [Methode des Formulars `dialog` ist](/de/docs/Web/HTML/Reference/Elements/form#method), sodass kein "Schließen"-Button erforderlich ist.
 
 ### Ergebnis
 

@@ -20,7 +20,7 @@ Keine bemerkenswerten Änderungen.
 
 ### CSS
 
-- Die [`:lang()`](/de/docs/Web/CSS/:lang) Pseudo-Klasse verwendet jetzt String-Matching-Semantiken (einschließlich `*` Platzhalter) zum Abgleichen von Sprachcodes anstelle von Präfix-Matching-Semantiken. Zusätzlich werden jetzt durch Kommata getrennte Listen von Sprachen unterstützt, um mehrere Sprachen abzugleichen ([Firefox-Bug 1121792](https://bugzil.la/1121792)).
+- Die [`:lang()`](/de/docs/Web/CSS/Reference/Selectors/:lang) Pseudo-Klasse verwendet jetzt String-Matching-Semantiken (einschließlich `*` Platzhalter) zum Abgleichen von Sprachcodes anstelle von Präfix-Matching-Semantiken. Zusätzlich werden jetzt durch Kommata getrennte Listen von Sprachen unterstützt, um mehrere Sprachen abzugleichen ([Firefox-Bug 1121792](https://bugzil.la/1121792)).
 - Die [`-webkit-text-security`](/de/docs/Web/CSS/Reference/Properties/-webkit-text-security) Eigenschaft, die es erlaubt, Zeichen durch Formen zu ersetzen, wird jetzt unterstützt. Sie können jetzt die Darstellung der Textsicherheit mit dieser Eigenschaft steuern ([Firefox-Bug 1826629](https://bugzil.la/1826629)).
 - Die Konstanten `infinity` und `NaN` werden jetzt innerhalb der [`calc()`](/de/docs/Web/CSS/calc) Funktion unterstützt ([Firefox-Bug 1830759](https://bugzil.la/1830759)).
 

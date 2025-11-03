@@ -1,25 +1,25 @@
 ---
-title: Namenräume Crashkurs
+title: Namespaces Crashkurs
 slug: Web/SVG/Guides/Namespaces_crash_course
 l10n:
-  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
-Als ein {{Glossary("XML", "XML")}}-Dialekt ist [SVG](/de/docs/Web/SVG) mit Namenräumen versehen. Es ist wichtig, das Konzept von Namenräumen zu verstehen und wie sie verwendet werden, wenn Sie vorhaben, SVG-Inhalte zu erstellen. Namenräume sind für Benutzeragenten unverzichtbar, die mehrere XML-Dialekte unterstützen; Browser müssen dabei sehr strikt sein. Sich jetzt die Zeit zu nehmen, Namenräume zu verstehen, wird Ihnen in Zukunft viele Kopfschmerzen ersparen.
+Als ein {{Glossary("XML", "XML")}}-Dialekt ist [SVG](/de/docs/Web/SVG) namensgebunden. Es ist wichtig, das Konzept der Namespaces zu verstehen und wie sie verwendet werden, wenn Sie planen, SVG-Inhalte zu erstellen. Namespaces sind für Benutzeragenten, die mehrere XML-Dialekte unterstützen, unerlässlich; Browser müssen hier sehr strikt sein. Jetzt die Zeit zu nehmen, Namespaces zu verstehen, wird Ihnen in Zukunft Kopfschmerzen ersparen.
 
 ### Hintergrund
 
-Ein langjähriges Ziel der verschiedenen W3C-Spezifikationen ist es, verschiedene Arten von XML-basierten Inhalten im selben XML- oder HTML-Dokument zu mischen. Beispielsweise könnten SVG und [MathML](/de/docs/Web/MathML) direkt in ein HTML-basiertes wissenschaftliches Dokument integriert werden. Die Möglichkeit, Inhaltstypen so zu mischen, hat viele Vorteile, erforderte jedoch auch die Lösung eines sehr realen Problems.
+Ein langjähriges Ziel der verschiedenen W3C-Spezifikationen ist es, die Möglichkeit zu schaffen, verschiedene Arten von XML-basierten Inhalten im selben XML- oder HTML-Dokument zu mischen. Zum Beispiel könnten SVG und [MathML](/de/docs/Web/MathML) direkt in ein auf HTML basierendes wissenschaftliches Dokument integriert werden. Die Fähigkeit, Inhaltstypen auf diese Weise zu mischen, hat viele Vorteile, erforderte jedoch auch die Lösung eines sehr realen Problems.
 
-Jeder XML-Dialekt definiert natürlich die Bedeutung der Markup-Elementnamen, die in seiner Spezifikation beschrieben sind. Das Problem beim Mischen von Inhalten aus verschiedenen XML-Dialekten in einem einzigen Dokument besteht darin, dass die durch einen Dialekt definierten Elemente denselben Namen wie Elemente eines anderen Dialekts haben können. Zum Beispiel haben sowohl HTML als auch SVG ein `<title>`-Element. Wie unterscheidet der Benutzeragent zwischen den beiden? Wie unterscheiden CSS-Stile zwischen den beiden? Tatsächlich, wie kann der Benutzeragent erkennen, wenn Inhalte etwas sind, das er kennt, und nicht nur ein bedeutungsloses, undefiniertes HTML-Custom-Element oder eine XML-Datei mit beliebigen, ihm unbekannten Elementnamen?
+Natürlich definiert jeder XML-Dialekt die Bedeutung der im Spezifikationsdokument beschriebenen Markup-Elementnamen. Das Problem bei der Mischung von Inhalten aus verschiedenen XML-Dialekten in einem einzigen Dokument ist, dass die von einem Dialekt definierten Elemente den gleichen Namen haben können wie die von einem anderen definierten. Zum Beispiel haben sowohl HTML als auch SVG ein `<title>`-Element. Wie unterscheidet der Benutzeragent zwischen den beiden? Wie unterscheiden CSS-Stile zwischen den beiden? Und wie erkennt der Benutzeragent, wann Inhalte etwas sind, das er kennt, und nicht nur ein bedeutungsloses undefiniertes HTML-Custom-Element oder eine XML-Datei mit beliebigen, ihm unbekannten Elementnamen?
 
-Im Gegensatz zur weit verbreiteten Meinung ist die Antwort auf diese Frage nicht "er kann es anhand der `DOCTYPE`-Deklaration erkennen". DTDs wurden nie mit gemischten Inhalten im Blick entworfen, und frühere Versuche, gemischte Inhalts-DTDs zu erstellen, gelten inzwischen als gescheitert. XML und einige XML-Dialekte (einschließlich SVG und HTML) erfordern keine `DOCTYPE`-Deklaration. SVG 1.2 hat nicht einmal eine. Der Umstand, dass `DOCTYPE`-Deklarationen (meistens) mit den Inhalten in Dateien eines einzigen Inhaltstyps übereinstimmen, ist lediglich Zufall. DTDs dienen nur zur Validierung, nicht zur Identifizierung von Inhalten. Jeder Benutzeragent, der XML-Inhalte anhand seiner `DOCTYPE`-Deklaration identifiziert, ist unzuverlässig.
+Entgegen der landläufigen Meinung lautet die Antwort auf diese Frage nicht "man kann es aus der `DOCTYPE`-Deklaration erkennen". DTDs waren nie dafür gedacht, gemischte Inhalte zu unterstützen, und vergangene Versuche, gemischte Inhalts-DTDs zu erstellen, gelten heute als gescheitert. XML und einige XML-Dialekte (inklusive SVG und HTML) erfordern keine `DOCTYPE`-Deklaration. SVG 1.2 hat nicht einmal eine solche. Die Tatsache, dass `DOCTYPE`-Deklarationen (meistens) mit den Inhalten in Dateien eines einzigen Inhaltstyps übereinstimmen, ist lediglich zufällig. DTDs dienen nur der Validierung, nicht der Identifikation von Inhalten. Jeder Benutzeragent, der XML-Inhalte über seine `DOCTYPE`-Deklaration identifiziert, ist unzuverlässig.
 
-Die tatsächliche Antwort auf die Frage ist, dass XML-Inhalte dem Benutzeragenten mitteilen, zu welchem Dialekt die Elementnamen gehören, indem sie ihnen explizite "Namenraumdeklarationen" geben.
+Die wirkliche Antwort auf die Frage ist, dass XML-Inhalte dem Benutzeragenten mitteilen, zu welchem Dialekt die Elementnamen gehören, indem sie explizite "Namespace-Deklarationen" angeben.
 
-### Deklarieren von Namenräumen
+### Deklarieren von Namespaces
 
-Wie sehen diese Namenraumdeklarationen also aus und wo werden sie platziert? Hier ist ein kurzes Beispiel.
+Wie sehen diese Namespace-Deklarationen also aus, und wo werden sie platziert? Hier ist ein kurzes Beispiel.
 
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg">
@@ -27,13 +27,13 @@ Wie sehen diese Namenraumdeklarationen also aus und wo werden sie platziert? Hie
 </svg>
 ```
 
-Die Namenraumdeklaration wird durch den `xmlns`-Parameter bereitgestellt. Dieser Parameter besagt, dass das `<svg>`-Element und seine Kindelemente zu dem XML-Dialekt gehören, der den Namenraum `http://www.w3.org/2000/svg` hat, was natürlich SVG ist. Beachten Sie, dass die Namenraumdeklaration nur einmal auf einem Wurzelelement bereitgestellt wird (und impliziert ist, wenn sie weggelassen wird). Die Deklaration definiert den _Standard_-Namenraum, sodass der Benutzeragent weiß, dass alle Nachkommen des `<svg>`-Elements ebenfalls zum selben Namenraum gehören. Benutzeragenten prüfen, ob sie den Namenraum erkennen, um festzustellen, ob sie wissen, wie das Markup zu behandeln ist.
+Die Namespace-Deklaration wird durch den `xmlns`-Parameter bereitgestellt. Dieser Parameter besagt, dass das `<svg>`-Element und seine Kindelemente zu dem XML-Dialekt gehören, der den Namespace-Namen `http://www.w3.org/2000/svg` hat, was natürlich SVG ist. Beachten Sie, dass die Namespace-Deklaration nur einmal an einem Wurzelelement bereitgestellt wird (und implizit ist, wenn sie weggelassen wird). Die Deklaration definiert den _Standard_-Namespace, sodass der Benutzeragent weiß, dass alle Nachfahren des `<svg>`-Elements ebenfalls zu demselben Namespace gehören. Benutzeragenten prüfen, ob sie den Namespace-Namen erkennen, um festzustellen, ob sie wissen, wie sie das Markup handhaben sollen.
 
-Beachten Sie, dass Namenraumnamen nur Zeichenfolgen sind, daher ist die Tatsache, dass der SVG-Namenraumname auch wie ein URI aussieht, nicht wichtig. URIs werden häufig verwendet, weil sie eindeutig sind, aber die Absicht ist nicht, "irgendwohin zu verlinken". (Tatsächlich werden URIs so häufig verwendet, dass der Begriff "Namespace-URI" häufig anstelle von "Namenraumname" verwendet wird.)
+Beachten Sie, dass Namespacenamen nur Zeichenfolgen sind, weshalb die Tatsache, dass der SVG-Namespacename auch wie ein URI aussieht, nicht wichtig ist. URIs werden häufig verwendet, weil sie einzigartig sind, aber die Absicht ist nicht, irgendwohin zu "linken". (Tatsächlich werden URIs so häufig verwendet, dass der Begriff "Namespace URI" häufig anstelle von "Namespacename" verwendet wird.)
 
-#### Erneutes Deklarieren des Standardnamenraums
+#### Den Standard-Namespace erneut deklarieren
 
-Wenn alle Nachkommen des Wurzelelements ebenfalls im Standardnamenraum definiert sind, wie mischen Sie Inhalte aus einem anderen Namenraum ein? Um den SVG-Namenraum in HTML einzuschließen, verwenden Sie `<svg>`. In XML deklarieren Sie einen Namenraum. Hier ist ein kurzes Beispiel.
+Wenn alle Nachkommen des Wurzelelements ebenfalls im Standard-Namespace definiert sind, wie mischen Sie dann Inhalte aus einem anderen Namespace hinein? Um den SVG-Namespace in HTML einzubinden, fügen Sie `<svg>` hinzu. In XML deklarieren Sie einen Namespace. Hier ist ein kurzes Beispiel.
 
 ```xml
 <report xmlns="https://www.acme.org/reports">
@@ -47,15 +47,15 @@ Wenn alle Nachkommen des Wurzelelements ebenfalls im Standardnamenraum definiert
 </report>
 ```
 
-In diesem Beispiel erklärt das `xmlns`-Attribut auf dem Wurzel-`<report>`-Element den Standardnamenraum als `https://www.acme.org/reports`, oder `reports`. Dadurch werden es und alle seine Kindelemente vom Benutzeragenten als zu `reports` gehörend interpretiert, mit Ausnahme des `<content>`-Elements, das im `https://www.acme.org/tables`, oder `tables`, Namenraum existiert. Das `<summary>`-Element hat seinen eigenen `xmlns`-Parameter, und durch die erneute Deklaration des `reports`-Namenraums wird dem Benutzeragenten mitgeteilt, dass das `<summary>`-Element und seine Nachkommen (sofern sie nicht ebenfalls einen alternativen Namenraum neu deklarieren) zu `reports` gehören.
+In diesem Beispiel deklariert das `xmlns`-Attribut des Wurzel-`<report>`-Elements den Standard-Namespace als `https://www.acme.org/reports`, oder `reports`. Folglich werden dieses Element und all seine Kindelemente vom Benutzeragenten als zu `reports` gehörend interpretiert, außer dem `<content>`-Element, das im Namespace `https://www.acme.org/tables` oder `tables` existiert. Das `<summary>`-Element hat seinen eigenen `xmlns`-Parameter, und durch die Neudeklaration des `reports`-Namespaces wird dem Benutzeragenten mitgeteilt, dass das `<summary>`-Element und seine Nachkommen (es sei denn, sie deklarieren ebenfalls einen alternativen Namespace) zu `reports` gehören.
 
-Mit HTML ist `http://www.w3.org/1999/xhtml` der implizite Namenraum. Bei SVG ist es `http://www.w3.org/2000/svg`. MathML ist `http://www.w3.org/1998/Math/MathML`.
+Bei HTML ist `http://www.w3.org/1999/xhtml` der implizierte Namespace. Bei SVG ist es `http://www.w3.org/2000/svg`. MathML ist `http://www.w3.org/1998/Math/MathML`.
 
-#### Deklarieren von Namenraumprefixen
+#### Deklarieren von Namespace-Präfixen
 
-XML-Dialekte definieren nicht nur ihre eigenen Elemente, sondern sie deklarieren auch ihre eigenen Parameter.
+XML-Dialekte definieren nicht nur ihre eigenen Elemente, sondern deklarieren auch ihre eigenen Parameter.
 
-Standardmäßig haben Parameter überhaupt keinen Namenraum. Sie sind nur dann eindeutig, wenn sie auf einem Element erscheinen, das selbst einen eindeutigen Namen hat. Manchmal ist es jedoch notwendig, Parameter so zu definieren, dass sie auf vielen verschiedenen Elementen wiederverwendet werden können und dennoch als derselbe Parameter angesehen werden, unabhängig von dem Element, mit dem sie verwendet werden. Ein sehr gutes Beispiel hierfür ist der `href`-Parameter, der von der {{Glossary("XLink", "XLink")}}-Spezifikation definiert wird. Dieser Parameter wird von anderen XML-Dialekten häufig als Mittel verwendet, um auf externe Ressourcen zu verlinken. Aber wie teilt man dem Benutzeragenten mit, zu welchem Dialekt der Parameter gehört, in diesem Fall `XLink`? Betrachten Sie das folgende Beispiel.
+Standardmäßig haben Parameter überhaupt keinen Namespace. Sie sind nur dann als eindeutig bekannt, weil sie auf einem Element erscheinen, das selbst einen eindeutigen Namen hat. Es ist jedoch manchmal notwendig, Parameter so zu definieren, dass sie auf vielen verschiedenen Elementen wiederverwendbar sind und dennoch als derselbe Parameter betrachtet werden, unabhängig von dem Element, mit dem sie verwendet werden. Ein sehr gutes Beispiel hierfür ist der `href`-Parameter, der von der {{Glossary("XLink", "XLink")}}-Spezifikation definiert ist. Dieser Parameter wird häufig von anderen XML-Dialekten als Mittel zum Verlinken auf externe Ressourcen verwendet. Aber wie teilen Sie dem Benutzeragenten mit, zu welchem Dialekt der Parameter gehört, in diesem Fall `XLink`? Betrachten Sie das folgende Beispiel.
 
 ```xml
 <svg
@@ -65,13 +65,13 @@ Standardmäßig haben Parameter überhaupt keinen Namenraum. Sie sind nur dann e
 </svg>
 ```
 
-Dieses Beispiel hat den ziemlich ungewöhnlich aussehenden Parameter `xmlns:xlink`. Wie Sie vom ersten `xmlns`-Teil vielleicht erraten können, ist dies eine weitere Namenraumdeklaration. Statt jedoch den Standardnamenraum zu setzen, setzt diese Namenraumdeklaration den Namenraum für etwas, das als "Namenraumprefix" bezeichnet wird. In diesem Fall haben wir uns dafür entschieden, das Präfix `xlink` (der zweite Teil) zu verwenden, da das Präfix verwendet wird, um dem Benutzeragenten über Attribute zu informieren, die zu `XLink` gehören.
+Dieses Beispiel enthält den eher ungewöhnlich aussehenden Parameter `xmlns:xlink`. Wie Sie vielleicht aus dem ersten `xmlns`-Teil erahnen, ist dies eine weitere Namespace-Deklaration. Anstatt jedoch den Standard-Namespace festzulegen, setzt diese Namespace-Deklaration den Namespace für etwas, das "[Namespace-Präfix](/de/docs/Web/API/CSSNamespaceRule/prefix)" genannt wird. In diesem Fall haben wir uns entschieden, das Präfix `xlink` (der zweite Teil) zu verwenden, da das Präfix verwendet wird, um dem Benutzeragenten Attribute mitzuteilen, die zu `XLink` gehören.
 
-Wie der Name nahelegt, werden Namenraumprefixe verwendet, um Parameter- und Elementnamen voranzustellen. Dies geschieht, indem das Namenraumprefix und ein Doppelpunkt vor dem Parameternamen gesetzt werden, wie beim `<script>`-Element im obigen Beispiel gezeigt wurde. Dies teilt dem Benutzeragenten mit, dass der bestimmte Parameter zum zugeordneten Namenraum des Namenraumprefixes (`XLink`) gehört und ein Parameter ist, der mit der gleichen Bedeutung auf anderen Elementen verwendet werden kann.
+Wie ihre Namen schon andeuten, werden Namespace-Präfixe verwendet, um Parameter- und Elementnamen zu präfixieren. Dies geschieht, indem das Namespace-Präfix und ein Doppelpunkt dem Parameternamen vorangestellt werden, wie am `<script>`-Element im obigen Beispiel gezeigt. Dies teilt dem Benutzeragenten mit, dass der spezielle Parameter zum Namespace gehört, der dem Namespace-Präfix zugewiesen ist (`XLink`), und ein Parameter ist, der mit derselben Bedeutung auf anderen Elementen verwendet werden kann.
 
-Beachten Sie, dass es in XML ein XML-Fehler ist, ein Präfix zu verwenden, das nicht an einen Namenraumnamen gebunden wurde. Die im obigen Beispiel durch den `xmlns:xlink`-Parameter erstellte Bindung ist erforderlich, damit der `xlink:href`-Parameter keinen Fehler verursacht. Dieser XLink-Parameter wird in SVG auch häufig auf den `<a>`, `<use>` und `<image>`-Elementen unter anderen verwendet, es ist also eine gute Idee, die XLink-Deklaration immer in Ihre Dokumente aufzunehmen.
+Beachten Sie, dass es in XML ein XML-Fehler ist, ein Präfix zu verwenden, das nicht an einen Namespacename gebunden ist. Die Bindung, die durch den `xmlns:xlink`-Parameter im obigen Beispiel erstellt wurde, ist erforderlich, damit der `xlink:href`-Parameter keinen Fehler verursacht. Dieser XLink-Parameter wird auch häufig in SVG auf den `<a>`, `<use>` und `<image>`-Elementen und anderen verwendet, sodass es eine gute Idee ist, die XLink-Deklaration immer in Ihren Dokumenten einzuschließen.
 
-Nebenbei bemerkt, ist es nützlich zu wissen, dass Namenraumprefixe auch für Elementnamen verwendet werden können. Dies teilt dem Benutzeragenten mit, dass das bestimmte Element (diesmal jedoch nicht seine Kinder!) zum Präfix zugeordneten Namenraum gehört. Es wird Ihnen einige Verwirrungen ersparen, wenn Sie auf Markup wie das folgende Beispiel treffen:
+Nebenbei bemerkt, es ist nützlich zu wissen, dass Namespace-Präfixe auch für Elementnamen verwendet werden können. Dies teilt dem Benutzeragenten mit, dass das spezielle Element (diesmal jedoch nicht seine Kinder!) zu dem Namespace gehört, der dem Präfix zugewiesen ist. Dies zu wissen, erspart Ihnen Verwirrung, wenn Sie auf ein Markup wie im folgenden Beispiel stoßen:
 
 ```xml
 <html
@@ -88,21 +88,21 @@ Nebenbei bemerkt, ist es nützlich zu wissen, dass Namenraumprefixe auch für El
 ```
 
 > [!NOTE]
-> Dies ist eine {{Glossary("XHTML", "XHTML")}}-Datei, keine HTML-Datei. XML-Namenräume sind in HTML nicht gültig. Um dieses Beispiel auszuprobieren, müssen Sie Ihre Datei als `.xhtml` speichern.
+> Dies ist eine {{Glossary("XHTML", "XHTML")}}-Datei, keine HTML-Datei. XML-Namespaces sind in HTML nicht gültig. Um dieses Beispiel auszuprobieren, müssen Sie Ihre Datei als `.xhtml` speichern.
 
-Beachten Sie, dass es nicht notwendig war, den Standardnamenraum neu zu deklarieren, da ein Namenraumprefix für das `<svg:svg>`-Element und sein Kindelement `<svg:circle>` verwendet wird. Im Allgemeinen ist es besser, den Standardnamenraum neu zu deklarieren, als viele Elemente auf diese Weise mit einem Prefix zu versehen.
+Beachten Sie, dass es nicht notwendig war, den Standard-Namespace erneut zu deklarieren, da bei dem `<svg:svg>`-Element und seinem Kind `<svg:circle>` ein Namespace-Präfix verwendet wird. Allgemein ist es besser, den Standard-Namespace erneut zu deklarieren, anstatt viele Elemente auf diese Weise zu präfixieren.
 
-### Skripting in namenraumbasierten XML
+### Skripting in namensgebundenem XML
 
-Namenräume beeinflussen das Markup und das Skripting ([und sogar CSS](/de/docs/Web/CSS/CSS_namespaces)). Wenn Sie Skripte für namenraumbasiertes XML wie SVG schreiben, lesen Sie weiter.
+Namespaces beeinflussen Markup und Skripting ([und sogar CSS](/de/docs/Web/CSS/CSS_namespaces)). Wenn Sie Skripte für namensgebundenes XML wie SVG schreiben, lesen Sie weiter.
 
-Die [DOM Level 1](https://www.w3.org/TR/DOM-Level-1/)-Empfehlung wurde erstellt, bevor die [ursprüngliche Namespaces in XML](https://www.w3.org/TR/xml-names/)-Empfehlung veröffentlicht wurde, daher ist DOM1 nicht namenraum-wahrnehmend. Dies verursacht Probleme für namenraumbasierte XML wie SVG. Um diese Probleme zu lösen, hat [DOM Level 2 Core](https://www.w3.org/TR/DOM-Level-2-Core/) namensraum-wahrnehmende Entsprechungen aller DOM Level 1-Methoden hinzugefügt. Beim Skripting von SVG ist es wichtig, die [namensraum-wahrnehmenden Methoden](https://www.w3.org/TR/DOM-Level-2-Core/core.html#Namespaces-Considerations) zu verwenden. In der nachstehenden Tabelle sind die DOM1-Methoden aufgeführt, die in SVG nicht verwendet werden sollten, zusammen mit ihren entsprechenden DOM2-Gegenstücken, die stattdessen verwendet werden sollten.
+Die [DOM Level 1](https://www.w3.org/TR/DOM-Level-1/)-Empfehlung wurde erstellt, bevor die [ursprüngliche Namespaces in XML](https://www.w3.org/TR/xml-names/)-Empfehlung veröffentlicht wurde; daher ist DOM1 nicht namensbewusst. Dies verursacht Probleme für namensgebundenes XML wie SVG. Um diese Probleme zu lösen, fügte der [DOM Level 2 Core](https://www.w3.org/TR/DOM-Level-2-Core/) namensbewusste Äquivalente aller anwendbaren DOM Level 1-Methoden hinzu. Beim Skripting von SVG ist es wichtig, die [namespaced-bewussten Methoden](https://www.w3.org/TR/DOM-Level-2-Core/core.html#Namespaces-Considerations) zu verwenden. Die folgende Tabelle listet die DOM1-Methoden auf, die in SVG nicht verwendet werden sollten, zusammen mit ihren DOM2-Gegenstücken, die stattdessen verwendet werden sollten.
 
 <table class="fullwidth-table">
   <tbody>
     <tr>
       <th>DOM1 (nicht verwenden)</th>
-      <th>DOM2 (verwenden Sie diese stattdessen!)</th>
+      <th>DOM2 (verwenden Sie stattdessen diese!)</th>
     </tr>
     <tr>
       <td>
@@ -165,7 +165,7 @@ Die [DOM Level 1](https://www.w3.org/TR/DOM-Level-1/)-Empfehlung wurde erstellt,
       <td>
         <a href="/de/docs/Web/API/Document/getElementsByTagNameNS"><code>getElementsByTagNameNS()</code></a
         >
-        (auch zu <a href="/de/docs/Web/API/Element/getElementsByTagNameNS">Element hinzugefügt</a>)
+        (auch <a href="/de/docs/Web/API/Element/getElementsByTagNameNS">zu Element hinzugefügt</a>)
       </td>
     </tr>
     <tr>
@@ -259,25 +259,25 @@ Die [DOM Level 1](https://www.w3.org/TR/DOM-Level-1/)-Empfehlung wurde erstellt,
   </tbody>
 </table>
 
-Der erste Parameter für alle DOM2-namenraum-wahrnehmenden Methoden muss der Namenraumname (auch bekannt als der Namespace-URI) des Elements oder Parameters in Frage sein. Für SVG **Elemente** ist dies `http://www.w3.org/2000/svg`. Beachten Sie jedoch Folgendes: Die [Namespaces in XML 1.1](https://www.w3.org/TR/xml-names11/#defaulting)-Empfehlung besagt, dass der Namenraumname für Parameter ohne Präfix keinen Wert hat. Mit anderen Worten, obwohl Parameter zum Namenraum des Elements gehören, verwenden Sie nicht den Namenraumnamen des Tags. Stattdessen **müssen Sie null als den Namenraumnamen für nicht qualifizierte (präfixlose) Parameter verwenden**. Um also ein SVG `rect` _Element_ mit `document.createElementNS()` zu erstellen, müssen Sie schreiben:
+Der erste Parameter für alle DOM2-namespaced-bewussten Methoden muss der Namespacename (auch bekannt als Namespace-URI) des betreffenden Elements oder Parameters sein. Für SVG-**Elemente** ist dies `http://www.w3.org/2000/svg`. Beachten Sie jedoch: Die [Namespaces in XML 1.1](https://www.w3.org/TR/xml-names11/#defaulting)-Empfehlung stellt fest, dass der Namespacename für Parameter ohne Präfix keinen Wert hat. Mit anderen Worten: Obwohl die Parameter zum Namespace des Elements gehören, verwenden Sie nicht den Namespacenamen des Tags. Stattdessen **müssen Sie null als Namen für unqualifizierte (präfixlose) Parameter verwenden**. Um also ein SVG `rect`-Element mit `document.createElementNS()` zu erstellen, müssen Sie schreiben:
 
 ```js
 document.createElementNS("http://www.w3.org/2000/svg", "rect");
 ```
 
-Aber um den Wert des `x` _Parameters_ eines SVG `rect`-Elements abzurufen, müssen Sie schreiben:
+Um jedoch den Wert des `x`-Parameters eines SVG `rect`-Elements abzurufen, müssen Sie schreiben:
 
 ```js
 rect.getAttributeNS(null, "x");
 ```
 
-Beachten Sie, dass dies nicht für Parameter _mit_ einem Namenraumprefix (Parameter, die nicht zum selben XML-Dialekt wie das Element gehören) gilt. Parameter wie `xlink:href` erfordern den Namenraumnamen, der diesem Präfix zugewiesen wurde (`http://www.w3.org/1999/xlink` für XLink). Daher würden Sie, um den Wert des `xlink:href`-Parameters eines `<a>`-Elements in SVG zu erhalten, schreiben:
+Beachten Sie, dass dies nicht für Parameter mit einem Namespace-Präfix gilt (Parameter, die nicht zu demselben XML-Dialekt wie das Element gehören). Parameter wie `xlink:href` erfordern den Namespacenamen, der diesem Präfix zugewiesen wurde (`http://www.w3.org/1999/xlink` für XLink). Um also den Wert des `xlink:href`-Parameters eines `<a>`-Elements in SVG zu erhalten, würden Sie schreiben:
 
 ```js
 elt.getAttributeNS("http://www.w3.org/1999/xlink", "href");
 ```
 
-Für das Setzen von Parametern, die einen Namenraum haben, wird empfohlen (aber nicht vorausgesetzt), dass Sie auch ihr Präfix im zweiten Parameter einschließen, damit das DOM später leichter wieder in XML umgewandelt werden kann (falls Sie es beispielsweise zurück an den Server senden möchten). Zum Beispiel:
+Zum Setzen von Parametern, die einen Namespace haben, wird empfohlen (aber nicht verlangt), dass Sie auch ihr Präfix im zweiten Parameter einschließen, damit das DOM später leichter wieder in XML konvertiert werden kann (falls Sie es zum Beispiel an den Server zurücksenden möchten). Zum Beispiel:
 
 ```js
 elt.setAttributeNS(
@@ -287,22 +287,22 @@ elt.setAttributeNS(
 );
 ```
 
-Als abschließendes Beispiel zeigt dieses Beispiel, wie Sie mit JavaScript dynamisch ein `<image>`-Element erstellen könnten:
+Als abschließendes Beispiel hier eine Demonstration, wie Sie ein `<image>`-Element dynamisch mit JavaScript erstellen könnten:
 
 ```js
 const SVG_NS = "http://www.w3.org/2000/svg";
-const XLink_NS = "http://www.w3.org/1999/xlink";
+const XLINK_NS = "http://www.w3.org/1999/xlink";
 const image = document.createElementNS(SVG_NS, "image");
 image.setAttributeNS(null, "width", "100");
 image.setAttributeNS(null, "height", "100");
-image.setAttributeNS(XLink_NS, "xlink:href", "flower.png");
+image.setAttributeNS(XLINK_NS, "xlink:href", "flower.png");
 ```
 
 ### Fazit
 
-Für SVG, HTML und MathML ist der Namenraum impliziert und daher optional. Es ist erforderlich, den Namenraum für XML-Dateien zu deklarieren. Wenn Sie dies nicht tun, werden die Benutzeragenten die Inhalte nicht erkennen und das XML-Markup anzeigen oder dem Benutzer mitteilen, dass ein Fehler im XML vorliegt.
+Für SVG, HTML und MathML ist der Namespace impliziert und daher optional. Es ist erforderlich, den Namespace für XML-Dateien zu deklarieren. Wenn Sie dies nicht tun, erkennen Benutzeragenten die Inhalte nicht und zeigen das XML-Markup an oder informieren den Benutzer, dass es einen Fehler im XML gibt.
 
-Beim Schreiben von SVG ist es hilfreich, eine Vorlage zu verwenden, die alle häufig verwendeten Namenraumdeklarationen enthält, wenn Sie neue Dateien erstellen. Wenn Sie noch keine haben, erstellen Sie eine mit dem folgenden Code:
+Beim Schreiben von SVG ist es hilfreich, eine Vorlage zu verwenden, die alle häufig verwendeten Namespace-Deklarationen enthält, wenn Sie neue Dateien erstellen. Wenn Sie noch keine haben, erstellen Sie eine mit dem folgenden Code:
 
 ```xml
 <svg
@@ -310,7 +310,7 @@ Beim Schreiben von SVG ist es hilfreich, eine Vorlage zu verwenden, die alle hä
   xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
 ```
 
-Selbst wenn Sie nicht alle diese Namenräume in einem bestimmten Dokument verwenden, gibt es keinen Nachteil, die Namenraumdeklarationen einzuschließen. Es kann Sie vor einigen lästigen Fehlern bewahren, wenn Sie später Inhalte aus einem der ungenutzten Namenräume hinzufügen.
+Selbst wenn Sie nicht alle diese Namespaces in einem bestimmten Dokument verwenden, ist es unschädlich, die Namespace-Deklarationen einzuschließen. Es kann Sie vor einigen ärgerlichen Fehlern bewahren, wenn Sie später Inhalte aus einem der ungenutzten Namespaces hinzufügen.
 
 ### Ein vollständiges Beispiel
 

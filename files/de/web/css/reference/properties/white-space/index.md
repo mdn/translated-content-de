@@ -2,10 +2,10 @@
 title: white-space
 slug: Web/CSS/Reference/Properties/white-space
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
-Die **`white-space`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, wie {{Glossary("whitespace", "Leerzeichen")}} innerhalb eines Elements behandelt werden.
+Die **`white-space`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie {{Glossary("whitespace", "Leerzeichen")}} innerhalb eines Elements behandelt werden.
 
 {{InteractiveExample("CSS Demo: white-space")}}
 
@@ -63,23 +63,23 @@ white-space: preserve nowrap;
 }
 ```
 
-Die Eigenschaft spezifiziert zwei Dinge:
+Diese Eigenschaft gibt zwei Dinge an:
 
-- Ob und wie Leerzeichen [zusammengefasst](/de/docs/Web/CSS/CSS_text/Whitespace#collapsing_and_transformation) werden.
-- Ob und wie Zeilen umbrochen werden.
+- Ob und wie Leerzeichen [kollabiert](/de/docs/Web/CSS/CSS_text/Whitespace#collapsing_and_transformation) werden.
+- Ob und wie Zeilen umbrechen.
 
 > [!NOTE]
-> Um Wörter _innerhalb ihrer selbst_ zu trennen, verwenden Sie stattdessen {{CSSxRef("overflow-wrap")}}, {{CSSxRef("word-break")}}, oder {{CSSxRef("hyphens")}}.
+> Um Wörter _innerhalb selbst_ zu brechen, verwenden Sie stattdessen {{CSSxRef("overflow-wrap")}}, {{CSSxRef("word-break")}} oder {{CSSxRef("hyphens")}}.
 
-## Zugehörige Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform der folgenden CSS-Eigenschaften:
 
 - {{cssxref("white-space-collapse")}}
 - {{cssxref("text-wrap-mode")}}
 
 > [!NOTE]
-> Die Spezifikation definiert eine dritte zugehörige Eigenschaft: `white-space-trim`, die in keinem Browser implementiert ist.
+> Die Spezifikation definiert eine dritte Bestandteileigenschaft: `white-space-trim`, die noch in keinem Browser implementiert ist.
 
 ## Syntax
 
@@ -107,19 +107,19 @@ white-space: unset;
 
 ### Werte
 
-Die Werte der `white-space`-Eigenschaft können als ein oder zwei Schlüsselwörter angegeben werden, die die Werte für die Eigenschaften {{CSSxRef("white-space-collapse")}} und {{cssxref("text-wrap-mode")}} darstellen, oder als folgende spezielle Schlüsselwörter:
+Die Werte der `white-space`-Eigenschaft können als ein oder zwei Schlüsselwörter angegeben werden, die die Werte für die Eigenschaften {{CSSxRef("white-space-collapse")}} und {{cssxref("text-wrap-mode")}} darstellen, oder folgende spezielle Schlüsselwörter:
 
 - `normal`
-  - : Sequenzen von Leerzeichen werden [zusammengefasst](/de/docs/Web/CSS/CSS_text/Whitespace#collapsing_and_transformation). Neue Zeilenzeichen im Quellcode werden wie andere Leerzeichen behandelt. Zeilen werden nach Bedarf gebrochen, um die Zeilenboxen zu füllen. Entspricht `collapse wrap`.
+  - : Folgen von Leerzeichen werden [kollabiert](/de/docs/Web/CSS/CSS_text/Whitespace#collapsing_and_transformation). Neue Zeilenzeichen im Quelltext werden wie andere Leerzeichen behandelt. Zeilen werden nach Bedarf gebrochen, um Zeilenboxen zu füllen. Entspricht `collapse wrap`.
 - `pre`
-  - : Sequenzen von Leerzeichen bleiben erhalten. Zeilen werden nur bei neuen Zeilenzeichen im Quellcode und bei {{HTMLElement("br")}}-Elementen gebrochen. Entspricht `preserve nowrap`.
+  - : Folgen von Leerzeichen werden beibehalten. Zeilen werden nur bei neuen Zeilenzeichen im Quelltext und bei {{HTMLElement("br")}}-Elementen gebrochen. Entspricht `preserve nowrap`.
 - `pre-wrap`
-  - : Sequenzen von Leerzeichen bleiben erhalten. Zeilen werden bei neuen Zeilenzeichen, bei {{HTMLElement("br")}}, und nach Bedarf gebrochen, um die Zeilenboxen zu füllen. Entspricht `preserve wrap`.
+  - : Folgen von Leerzeichen werden beibehalten. Zeilen werden bei neuen Zeilenzeichen, bei {{HTMLElement("br")}} und nach Bedarf gebrochen, um Zeilenboxen zu füllen. Entspricht `preserve wrap`.
 - `pre-line`
-  - : Sequenzen von Leerzeichen werden [zusammengefasst](/de/docs/Web/CSS/CSS_text/Whitespace#collapsing_and_transformation). Zeilen werden bei neuen Zeilenzeichen, bei {{HTMLElement("br")}}, und nach Bedarf gebrochen, um die Zeilenboxen zu füllen. Entspricht `preserve-breaks wrap`.
+  - : Folgen von Leerzeichen werden [kollabiert](/de/docs/Web/CSS/CSS_text/Whitespace#collapsing_and_transformation). Zeilen werden bei neuen Zeilenzeichen, bei {{HTMLElement("br")}} und nach Bedarf gebrochen, um Zeilenboxen zu füllen. Entspricht `preserve-breaks wrap`.
 
 > [!NOTE]
-> Die `white-space`-Eigenschaft als Kurzform ist eine relativ neue Funktion (siehe [Browser-Kompatibilität](#browser-kompatibilität)). Ursprünglich hatte sie sechs Schlüsselwortwerte; jetzt wird der Wert `nowrap` stattdessen als Wert für {{cssxref("text-wrap-mode")}} interpretiert, während der Wert `break-spaces` als Wert für {{cssxref("white-space-collapse")}} interpretiert wird. Die obigen vier Schlüsselwörter sind immer noch spezifisch für `white-space`, haben aber Langformäquivalente. Die Änderung, `white-space` als Kurzform zu gestalten, erweitert die akzeptablen Werte zu noch mehr Schlüsselwörtern und Kombinationen, wie `wrap` und `collapse`.
+> Die `white-space`-Eigenschaft als Kurzform ist eine relativ neue Funktion (siehe [Browser-Kompatibilität](#browser-kompatibilität)). Ursprünglich hatte sie sechs Schlüsselwortwerte; jetzt wird der Wert `nowrap` stattdessen als Wert für {{cssxref("text-wrap-mode")}} interpretiert, während der Wert `break-spaces` als Wert für {{cssxref("white-space-collapse")}} interpretiert wird. Die obigen vier Schlüsselwörter sind immer noch spezifisch für `white-space`, aber sie haben Entsprechungen in Langform. Die Änderung, `white-space` zu einer Kurzform zu machen, erweitert die akzeptablen Werte um noch mehr Schlüsselwörter und Kombinationen wie `wrap` und `collapse`.
 
 Die folgende Tabelle fasst das Verhalten dieser vier `white-space`-Schlüsselwortwerte zusammen:
 
@@ -130,15 +130,15 @@ Die folgende Tabelle fasst das Verhalten dieser vier `white-space`-Schlüsselwor
       <th>Neue Zeilen</th>
       <th>Leerzeichen und Tabs</th>
       <th>Textumbruch</th>
-      <th>Leerzeichen am Zeilenende</th>
-      <th>Andere Leerzeichentrenner am Zeilenende</th>
+      <th>Leerzeichen am Ende der Zeile</th>
+      <th>Andere Leerzeichentrenner am Ende der Zeile</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th><code>normal</code></th>
-      <td>Zusammenfassen</td>
-      <td>Zusammenfassen</td>
+      <td>Kollabieren</td>
+      <td>Kollabieren</td>
       <td>Umbruch</td>
       <td>Entfernen</td>
       <td>Hängen</td>
@@ -162,7 +162,7 @@ Die folgende Tabelle fasst das Verhalten dieser vier `white-space`-Schlüsselwor
     <tr>
       <th><code>pre-line</code></th>
       <td>Beibehalten</td>
-      <td>Zusammenfassen</td>
+      <td>Kollabieren</td>
       <td>Umbruch</td>
       <td>Entfernen</td>
       <td>Hängen</td>
@@ -170,17 +170,17 @@ Die folgende Tabelle fasst das Verhalten dieser vier `white-space`-Schlüsselwor
   </tbody>
 </table>
 
-Ein Tabulator entspricht standardmäßig 8 Leerzeichen und kann mit der [`tab-size`](/de/docs/Web/CSS/Reference/Properties/tab-size)-Eigenschaft konfiguriert werden. Im Fall von `normal`, `nowrap` und `pre-line` wird jeder Tabulator in ein Leerzeichen-Zeichen (U+0020) umgewandelt.
+Ein Tabulator entspricht standardmäßig 8 Leerzeichen und kann mit der [`tab-size`](/de/docs/Web/CSS/Reference/Properties/tab-size)-Eigenschaft konfiguriert werden. Im Fall der Werte `normal`, `nowrap` und `pre-line` wird jeder Tabulator in ein Leerzeichen (U+0020) umgewandelt.
 
 > [!NOTE]
 > Es wird ein Unterschied zwischen **Leerzeichen** und **anderen Leerzeichentrennern** gemacht. Diese sind wie folgt definiert:
 >
 > - Leerzeichen
 >   - : Leerzeichen (U+0020), Tabs (U+0009) und Segmentumbrüche (wie neue Zeilen).
-> - Andere Leerzeichentrenner
->   - : Alle anderen in Unicode definierten Leerzeichentrenner, außer denen, die bereits als Leerzeichen definiert sind.
+> - andere Leerzeichentrenner
+>   - : Alle anderen in Unicode definierten Leerzeichentrenner, außer den bereits als Leerzeichen definierten.
 >
-> Wo Leerzeichen gesagt wird, dass sie _hängen_, kann dies die Größe der Box beeinflussen, wenn sie für die intrinsische Größenbestimmung gemessen wird.
+> Wo Leerzeichen gesagt wird zu "hängen", kann dies die Größe der Box beeinflussen, wenn sie für die intrinsische Größenbestimmung gemessen wird.
 
 ## Formale Definition
 
@@ -270,22 +270,24 @@ select.addEventListener("change", (e) => {
 
 {{EmbedLiveSample("In_action", "100%", 450)}}
 
-### Steuerung des Zeilenumbruchs in Tabellen
+### Zeilenumbruch in Tabellen steuern
 
 #### HTML
 
 ```html
 <table>
-  <tr>
-    <td></td>
-    <td>Very long content that splits</td>
-    <td class="nw">Very long content that don't split</td>
-  </tr>
-  <tr>
-    <td class="nw">white-space:</td>
-    <td>normal</td>
-    <td>nowrap</td>
-  </tr>
+  <tbody>
+    <tr>
+      <td></td>
+      <td>Very long content that splits</td>
+      <td class="nw">Very long content that don't split</td>
+    </tr>
+    <tr>
+      <td class="nw">white-space:</td>
+      <td>normal</td>
+      <td>nowrap</td>
+    </tr>
+  </tbody>
 </table>
 ```
 
@@ -309,7 +311,7 @@ td {
 
 #### Ergebnis
 
-{{EmbedLiveSample('Steuerung des Zeilenumbruchs in Tabellen', "100%", "100%")}}
+{{EmbedLiveSample('Controlling line wrapping in tables', "100%", "100%")}}
 
 ### Mehrere Zeilen im SVG-Text-Element
 
@@ -317,7 +319,7 @@ Die `white-space`-CSS-Eigenschaft kann verwendet werden, um mehrere Zeilen in ei
 
 #### HTML
 
-Der Text innerhalb des `<text>`-Elements muss in mehrere Zeilen aufgeteilt werden, damit die neuen Zeilen erkannt werden. Nach der ersten Zeile muss der Rest von Leerzeichen befreit werden.
+Der Text innerhalb des `<text>`-Elements muss in mehrere Zeilen aufgeteilt werden, damit die neuen Zeilen erkannt werden. Nach der ersten Zeile müssen die verbleibenden Zeilen ihre Leerzeichen entfernen.
 
 ```html-nolint
 <svg viewBox="0 0 320 150">
@@ -352,6 +354,6 @@ text {
 
 ## Siehe auch
 
-- Eigenschaften, die definieren, wie Wörter _innerhalb ihrer selbst_ gebrochen werden: {{CSSxRef("overflow-wrap")}}, {{CSSxRef("word-break")}}, {{CSSxRef("hyphens")}}
+- Eigenschaften, die definieren, wie Wörter _innerhalb selbst_ brechen: {{CSSxRef("overflow-wrap")}}, {{CSSxRef("word-break")}}, {{CSSxRef("hyphens")}}
 - [`tab-size`](/de/docs/Web/CSS/Reference/Properties/tab-size)
-- [Umgang mit Leerzeichen in CSS](/de/docs/Web/CSS/CSS_text/Whitespace)
+- [Verarbeitung von Leerzeichen in CSS](/de/docs/Web/CSS/CSS_text/Whitespace)

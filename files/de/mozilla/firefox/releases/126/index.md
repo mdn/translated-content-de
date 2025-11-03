@@ -53,7 +53,7 @@ Keine bemerkenswerten Änderungen.
 #### DOM
 
 - Die Möglichkeit, Zustände für benutzerdefinierte Elemente zu definieren und sie mit CSS-Selektoren abzugleichen, ist jetzt standardmäßig verfügbar.
-  Die benutzerdefinierten Zustände werden als benutzerdefinierte Bezeichner dargestellt, die zur [`ElementInternals.states`](/de/docs/Web/API/ElementInternals/states)-Eigenschaft eines Elements (ein [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)) hinzugefügt oder entfernt werden können. Die CSS-Pseudoklasse [`:state()`](/de/docs/Web/CSS/:state) nimmt einen benutzerdefinierten Bezeichner als Argument an und gleicht benutzerdefinierte Elemente ab, wenn der Bezeichner in ihrem Satz von Zuständen vorhanden ist ([Firefox-Bug 1887543](https://bugzil.la/1887543)).
+  Die benutzerdefinierten Zustände werden als benutzerdefinierte Bezeichner dargestellt, die zur [`ElementInternals.states`](/de/docs/Web/API/ElementInternals/states)-Eigenschaft eines Elements (ein [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)) hinzugefügt oder entfernt werden können. Die CSS-Pseudoklasse [`:state()`](/de/docs/Web/CSS/Reference/Selectors/:state) nimmt einen benutzerdefinierten Bezeichner als Argument an und gleicht benutzerdefinierte Elemente ab, wenn der Bezeichner in ihrem Satz von Zuständen vorhanden ist ([Firefox-Bug 1887543](https://bugzil.la/1887543)).
 - Die [`Selection.direction`](/de/docs/Web/API/Selection/direction) Eigenschaft wird jetzt für die Angabe der Richtung eines Bereichs unterstützt ([Firefox-Bug 1867058](https://bugzil.la/1867058)).
 
 #### Medien, WebRTC und Web Audio

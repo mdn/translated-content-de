@@ -3,14 +3,14 @@ title: "XRProjectionLayer: textureHeight-Eigenschaft"
 short-title: textureHeight
 slug: Web/API/XRProjectionLayer/textureHeight
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`textureHeight`**-Eigenschaft der Schnittstelle [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) gibt die Höhe in Pixeln der Farbtexturen dieser Ebene an.
+Die schreibgeschützte **`textureHeight`**-Eigenschaft der [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer)-Schnittstelle gibt die Höhe in Pixeln der Farbtexturen dieser Ebene an.
 
-Die Texturhöhe der Projektebene wird durch den User-Agent oder das Gerät bestimmt. Sie wird in der [`XRSubImage`](/de/docs/Web/API/XRSubImage) gemeldet, die nur innerhalb der Frame-Schleife zugänglich ist. Wenn Sie Ihre eigenen Tiefenpuffer verwalten möchten und nicht auf den ersten Frame nach der Erstellung der Ebene warten wollen, um die erforderlichen Abmessungen für diese Puffer zu bestimmen, ermöglicht Ihnen die `textureHeight`-Eigenschaft den Zugriff auf die Texturhöhe der Ebene außerhalb der Frame-Schleife. Die Zuteilung dieser Puffer kann direkt nach der Erstellung der Ebene erfolgen.
+Die Texturhöhe der Projektionsebene wird durch den Benutzeragenten oder das Gerät bestimmt. Sie wird in der [`XRSubImage`](/de/docs/Web/API/XRSubImage) gemeldet, auf die nur innerhalb der Frame-Schleife zugegriffen werden kann. Wenn Sie Ihre eigenen Tiefenpuffer verwalten möchten und nicht auf den ersten Frame nach der Erstellung der Ebene warten möchten, um die erforderlichen Abmessungen für diese Puffer zu bestimmen, ermöglicht die `textureHeight`-Eigenschaft den Zugriff auf die Texturhöhe der Ebene außerhalb der Frame-Schleife. Die Zuordnung dieser Puffer kann direkt nach der Erstellung der Ebene erfolgen.
 
 ## Wert
 
@@ -20,13 +20,13 @@ Eine Zahl, die die Höhe in Pixeln angibt.
 
 ### Verwendung von `textureHeight`
 
-Die `textureHeight` einer Ebene ist nützlich, wenn man Renderpuffer für eine Ebene erstellt. Siehe auch [`WebGL2RenderingContext.renderbufferStorageMultisample()`](/de/docs/Web/API/WebGL2RenderingContext/renderbufferStorageMultisample).
+Die `textureHeight` einer Ebene ist nützlich, wenn Renderpuffer für eine Ebene erstellt werden. Siehe auch [`WebGL2RenderingContext.renderbufferStorageMultisample()`](/de/docs/Web/API/WebGL2RenderingContext/renderbufferStorageMultisample).
 
 ```js
 let glLayer = xrGLBinding.createProjectionLayer();
 
-let color_rb = gl.createRenderbuffer();
-gl.bindRenderbuffer(gl.RENDERBUFFER, color_rb);
+let colorRB = gl.createRenderbuffer();
+gl.bindRenderbuffer(gl.RENDERBUFFER, colorRB);
 gl.renderbufferStorageMultisample(
   gl.RENDERBUFFER,
   samples,

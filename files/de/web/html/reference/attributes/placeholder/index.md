@@ -50,5 +50,5 @@ Placeholder können nicht als Ersatz für ein Label verwendet werden, selbst fü
 ## Siehe auch
 
 - HTML [`title`](/de/docs/Web/HTML/Reference/Global_attributes/title)
-- CSS [`:placeholder-shown`](/de/docs/Web/CSS/:placeholder-shown) Pseudo-Klassen-Selektor
-- CSS [`::placeholder`](/de/docs/Web/CSS/::placeholder) Pseudo-Element-Selektor
+- CSS [`:placeholder-shown`](/de/docs/Web/CSS/Reference/Selectors/:placeholder-shown) Pseudo-Klassen-Selektor
+- CSS [`::placeholder`](/de/docs/Web/CSS/Reference/Selectors/::placeholder) Pseudo-Element-Selektor

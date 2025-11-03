@@ -2,10 +2,10 @@
 title: border-spacing
 slug: Web/CSS/Reference/Properties/border-spacing
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
-Die **`border-spacing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand zwischen den Rändern angrenzender Zellen in einem {{htmlelement("table")}} fest. Diese Eigenschaft gilt nur, wenn {{cssxref("border-collapse")}} auf `separate` gesetzt ist.
+Die **`border-spacing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Abstand zwischen den Rändern benachbarter Zellen in einem {{htmlelement("table")}} fest. Diese Eigenschaft gilt nur, wenn {{cssxref("border-collapse")}} auf `separate` gesetzt ist.
 
 {{InteractiveExample("CSS Demo: border-spacing")}}
 
@@ -24,18 +24,20 @@ border-spacing: 5px 1rem;
 ```html interactive-example
 <section class="default-example" id="default-example">
   <table class="transition-all" id="example-element">
-    <tr>
-      <td>Cell 1.1</td>
-      <td>Cell 1.2</td>
-    </tr>
-    <tr>
-      <td>Cell 2.1</td>
-      <td>Cell 2.2</td>
-    </tr>
-    <tr>
-      <td>Cell 3.1</td>
-      <td>Cell 3.2</td>
-    </tr>
+    <tbody>
+      <tr>
+        <td>Cell 1.1</td>
+        <td>Cell 1.2</td>
+      </tr>
+      <tr>
+        <td>Cell 2.1</td>
+        <td>Cell 2.2</td>
+      </tr>
+      <tr>
+        <td>Cell 3.1</td>
+        <td>Cell 3.2</td>
+      </tr>
+    </tbody>
   </table>
 </section>
 ```
@@ -53,10 +55,10 @@ td {
 }
 ```
 
-Der `border-spacing`-Wert wird auch entlang der Außenkante der Tabelle verwendet, wobei der Abstand zwischen dem Rand der Tabelle und den Zellen in der ersten/letzten Spalte oder Zeile die Summe aus dem entsprechenden (horizontalen oder vertikalen) `border-spacing` und dem entsprechenden (oben, rechts, unten oder links) {{cssxref("padding")}} der Tabelle ist.
+Der `border-spacing`-Wert wird auch entlang des äußeren Randes der Tabelle verwendet, wobei der Abstand zwischen dem Rand der Tabelle und den Zellen in der ersten/letzten Spalte oder Zeile die Summe des relevanten (horizontalen oder vertikalen) `border-spacing` und des relevanten (oben, rechts, unten, oder links) {{cssxref("padding")}} auf der Tabelle ist.
 
 > [!NOTE]
-> Die `border-spacing`-Eigenschaft entspricht dem veralteten `cellspacing`-Attribut des `<table>`-Elements, außer dass `border-spacing` einen optionalen zweiten Wert hat, der verwendet werden kann, um unterschiedliche horizontale und vertikale Abstände festzulegen.
+> Die `border-spacing`-Eigenschaft ist gleichwertig mit dem veralteten `cellspacing`-Attribut des `<table>`-Elements, außer dass `border-spacing` einen optionalen zweiten Wert hat, der verwendet werden kann, um unterschiedliche horizontale und vertikale Abstände festzulegen.
 
 ## Syntax
 
@@ -77,8 +79,8 @@ border-spacing: unset;
 
 Die `border-spacing`-Eigenschaft kann entweder mit einem oder zwei Werten angegeben werden.
 
-- Wenn **ein** `<length>`-Wert angegeben ist, definiert er sowohl den horizontalen als auch den vertikalen Abstand zwischen den Zellen.
-- Wenn **zwei** `<length>`-Werte angegeben sind, definiert der erste Wert den horizontalen Abstand zwischen den Zellen (d. h. den Raum zwischen Zellen in benachbarten _Spalten_), und der zweite Wert definiert den vertikalen Abstand zwischen den Zellen (d. h. den Raum zwischen Zellen in benachbarten _Reihen_).
+- Wenn **ein** `<length>`-Wert angegeben wird, definiert er sowohl die horizontalen als auch die vertikalen Abstände zwischen den Zellen.
+- Wenn **zwei** `<length>`-Werte angegeben werden, definiert der erste Wert den horizontalen Abstand zwischen den Zellen (d.h. den Abstand zwischen Zellen in benachbarten _Spalten_), und der zweite Wert definiert den vertikalen Abstand zwischen den Zellen (d.h. den Abstand zwischen Zellen in benachbarten _Zeilen_).
 
 ### Werte
 
@@ -95,29 +97,31 @@ Die `border-spacing`-Eigenschaft kann entweder mit einem oder zwei Werten angege
 
 ## Beispiele
 
-### Abstand und Padding von Tabellenzellen
+### Abstände und Polsterung von Tabellenzellen
 
-In diesem Beispiel wird ein Abstand von `.5em` vertikal und `1em` horizontal zwischen den Zellen einer Tabelle angewendet. Beachten Sie, wie an den Außenkanten die `padding`-Werte der Tabelle zu ihren `border-spacing`-Werten hinzugefügt werden.
+Dieses Beispiel wendet einen vertikalen Abstand von `.5em` und einen horizontalen Abstand von `1em` zwischen den Zellen einer Tabelle an. Beachten Sie, wie an den Außenrändern der Tabelle die `padding`-Werte zu den `border-spacing`-Werten hinzugefügt werden.
 
 #### HTML
 
 ```html
 <table>
-  <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>5</td>
-    <td>6</td>
-  </tr>
-  <tr>
-    <td>7</td>
-    <td>8</td>
-    <td>9</td>
-  </tr>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+  </tbody>
 </table>
 ```
 
@@ -155,4 +159,4 @@ td {
 
 - {{cssxref("border-collapse")}}, {{cssxref("border-style")}}
 - Die `border-spacing`-Eigenschaft verändert das Erscheinungsbild des {{htmlelement("table")}} HTML-Elements.
-- [CSS table](/de/docs/Web/CSS/CSS_table) Modul
+- [CSS-Tabelle](/de/docs/Web/CSS/CSS_table)-Modul

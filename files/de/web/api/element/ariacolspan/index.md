@@ -3,12 +3,12 @@ title: "Element: ariaColSpan-Eigenschaft"
 short-title: ariaColSpan
 slug: Web/API/Element/ariaColSpan
 l10n:
-  sourceCommit: 874ad29df9150037acb8a4a3e7550a302c90a080
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaColSpan`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colspan)-Attributs wider, welches die Anzahl der Spalten definiert, die von einer Zelle oder Gridcell innerhalb einer Tabelle, eines Grids oder Treegrids überspannt werden.
+Die **`ariaColSpan`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-colspan)-Attributs wider, welches die Anzahl der Spalten definiert, die von einer Zelle oder Gridcell innerhalb einer Tabelle, eines Grids oder Treegrid überspannt werden.
 
 ## Wert
 
@@ -20,15 +20,19 @@ In diesem Beispiel wird das `aria-colspan`-Attribut des Elements mit der ID `spa
 
 ```html
 <table>
-  <tr>
-    <th>Heading 1</th>
-    <th>Heading 2</th>
-    <th>Heading 3</th>
-  </tr>
-  <tr>
-    <td colspan="2" aria-colspan="2" id="spanning-column">Spanning</td>
-    <td>One</td>
-  </tr>
+  <thead>
+    <tr>
+      <th>Heading 1</th>
+      <th>Heading 2</th>
+      <th>Heading 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2" aria-colspan="2" id="spanning-column">Spanning</td>
+      <td>One</td>
+    </tr>
+  </tbody>
 </table>
 ```
 

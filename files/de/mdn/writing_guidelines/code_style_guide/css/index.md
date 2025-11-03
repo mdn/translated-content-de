@@ -1,58 +1,58 @@
 ---
-title: Richtlinien zum Schreiben von CSS-Codebeispielen
+title: Richtlinien zur Erstellung von CSS-Codebeispielen
 short-title: CSS examples
 slug: MDN/Writing_guidelines/Code_style_guide/CSS
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
 ---
 
-Die folgenden Richtlinien beschreiben, wie man CSS-Beispielcode für MDN Web Docs schreibt.
+Die folgenden Richtlinien decken ab, wie CSS-Beispielcode für die MDN Web Docs geschrieben werden sollte.
 
 ## Allgemeine Richtlinien für CSS-Codebeispiele
 
-### Auswahl eines Formats
+### Format wählen
 
-Meinungen zur korrekten Einrückung, Leerzeichen und Zeilenlängen sind schon immer umstritten gewesen. Diskussionen über diese Themen lenken von der Erstellung und Pflege von Inhalten ab.
+Meinungen über korrekte Einrückung, Leerzeichen und Zeilenlängen waren schon immer umstritten. Diskussionen über diese Themen lenken von der Erstellung und Pflege von Inhalten ab.
 
-Auf MDN Web Docs verwenden wir [Prettier](https://prettier.io/) als Code-Formatter, um den Code-Stil konsistent zu halten (und um Off-Topic-Diskussionen zu vermeiden). Sie können unsere [Konfigurationsdatei](https://github.com/mdn/content/blob/main/.prettierrc.json) einsehen, um die aktuellen Regeln kennenzulernen, und die [Prettier-Dokumentation](https://prettier.io/docs/index.html) lesen.
+Auf MDN Web Docs verwenden wir [Prettier](https://prettier.io/) als Code-Formatter, um den Stil des Codes konsistent zu halten (und um themenfremde Diskussionen zu vermeiden). Sie können unsere [Konfigurationsdatei](https://github.com/mdn/content/blob/main/.prettierrc.json) einsehen, um sich über die aktuellen Regeln zu informieren, und die [Prettier-Dokumentation](https://prettier.io/docs/index.html) lesen.
 
-Prettier formatiert den gesamten Code und hält den Stil konsistent. Dennoch gibt es einige zusätzliche Regeln, die Sie beachten müssen.
+Prettier formatiert den gesamten Code und hält den Stil konsistent. Es gibt jedoch einige zusätzliche Regeln, die Sie befolgen müssen.
 
 ### Planen Sie Ihr CSS
 
-Bevor Sie riesige Mengen an CSS schreiben, planen Sie Ihre Stile sorgfältig. Welche allgemeinen Stile werden benötigt, welche unterschiedlichen Layouts müssen Sie erstellen, welche spezifischen Überschreibungen müssen erstellt werden und sind sie wiederverwendbar? Vor allem müssen Sie versuchen, **zu viel Überschreiben zu vermeiden**. Wenn Sie ständig Stile schreiben und dann ein paar Regeln weiter wieder aufheben, sollten Sie Ihre Strategie überdenken.
+Bevor Sie große Mengen an CSS schreiben, planen Sie Ihre Stile sorgfältig. Welche allgemeinen Stile werden benötigt, welche unterschiedlichen Layouts müssen Sie erstellen, welche spezifischen Überschreibungen müssen erstellt werden und sind sie wiederverwendbar? Vor allem sollten Sie versuchen, **zu viele Überschreibungen zu vermeiden**. Wenn Sie ständig Stile schreiben und dann wenige Regeln weiter unten wieder aufheben, sollten Sie Ihre Strategie überdenken.
 
-### Verwenden Sie moderne CSS-Funktionen, wenn sie unterstützt werden
+### Verwenden Sie moderne CSS-Features, wenn sie unterstützt werden
 
-Sie können neue Funktionen verwenden, sobald jeder große Browser — Chrome, Edge, Firefox und Safari — sie unterstützt (auch bekannt als {{Glossary("Baseline", "Baseline")}}).
+Sie können neue Funktionen verwenden, sobald sie von allen großen Browsern — Chrome, Edge, Firefox und Safari — unterstützt werden (auch bekannt als {{Glossary("Baseline", "Baseline")}}).
 
-Diese Regel gilt nicht für die CSS-Funktion, die auf der Seite dokumentiert wird (die stattdessen von den [Kriterien für die Aufnahme](/de/docs/MDN/Writing_guidelines/Criteria_for_inclusion) diktiert wird). Beispielsweise können Sie [nicht standardisierte oder experimentelle](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete) Funktionen dokumentieren und vollständige Beispiele schreiben, die ihr Verhalten demonstrieren. Sie sollten jedoch davon absehen, diese Funktionen in Demos für andere, nicht verwandte Funktionen, wie eine Web-API, zu verwenden.
+Diese Regel gilt nicht für das CSS-Feature, das auf der Seite dokumentiert wird (was stattdessen durch die [Aufnahmekriterien](/de/docs/MDN/Writing_guidelines/Criteria_for_inclusion) geregelt ist). Sie können also [nicht standardisierte oder experimentelle](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete) Funktionen dokumentieren und vollständige Beispiele zu ihrem Verhalten schreiben, sollten aber davon absehen, diese Funktionen in Demos für andere nicht verwandte Features zu verwenden, wie z.B. eine Web-API.
 
-### Befolgen Sie allgemeine Best Practices
+### Befolgen Sie gängige Best Practices
 
-Es gibt einige allgemein anerkannte Prinzipien, die wir hier nicht umfassend darstellen müssen:
+Es gibt einige allgemein anerkannte Prinzipien, die wir hier nicht erschöpfend behandeln müssen:
 
-- Stellen Sie sicher, dass Ihr Code keine Syntaxfehler hat, die dazu führen können, dass die [Eigenschaft oder Deklaration ignoriert wird](/de/docs/Web/CSS/CSS_syntax/Error_handling). Standard-Syntax, die noch nicht implementiert wurde, ist akzeptabel, wenn sie unserer [allgemeinen Regel zu modernen CSS-Funktionen](#verwenden_sie_moderne_css-funktionen,_wenn_sie_unterstützt_werden) entspricht.
-- Verwenden Sie keine [nicht standardisierten, veralteten oder obsoleten](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete) Funktionen. Diese Richtlinie erstreckt sich auf {{Glossary("Vendor_Prefix#css_prefixes", "geprefixten Funktionen")}}: Verwenden Sie die geprefixte Alternative _nur wenn_ die Standardfunktion nicht verfügbar ist (siehe unsere [allgemeine Regel zu modernen CSS-Funktionen](#verwenden_sie_moderne_css-funktionen,_wenn_sie_unterstützt_werden)). Falls der Leser eine breitere Kompatibilität benötigt, kann er selbst die geprefixte Rückfallebene hinzufügen oder einen CSS-Postprozessor verwenden.
-- Schreiben Sie keinen redundanten oder nicht funktionalen Code, der häufig ein Indikator für Bugs oder Überbleibsel von Refactorings ist. Dazu gehören wiederholte Eigenschaften in einer Deklaration, leere Deklarationen, leere Kommentare oder Selektoren, die keine Elemente treffen.
+- Stellen Sie sicher, dass Ihr Code keine Syntaxfehler hat, die dazu führen können, dass die [Eigenschaft oder Deklaration ignoriert wird](/de/docs/Web/CSS/CSS_syntax/Error_handling). Standardsyntax, die nicht implementiert wurde, ist akzeptabel, wenn sie zu unserer [allgemeinen Regel über moderne CSS-Features](#verwenden_sie_moderne_css-features,_wenn_sie_unterstützt_werden) passt.
+- Verwenden Sie keine [nicht standardisierten, veralteten oder obsoleten](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete) Funktionen. Diese Richtlinie erstreckt sich auf {{Glossary("Vendor_Prefix#css_prefixes", "präfixbasierte Funktionen")}}: Verwenden Sie die Alternative mit Präfix _nur dann_, wenn die Standardfunktion nicht verfügbar ist (siehe unsere [allgemeine Regel über moderne CSS-Features](#verwenden_sie_moderne_css-features,_wenn_sie_unterstützt_werden)). Wenn der Leser eine breitere Kompatibilität benötigt, kann er entweder den Präfix-Fallback selbst hinzufügen oder einen CSS-Postprozessor verwenden.
+- Schreiben Sie keinen redundanten oder nicht funktionalen Code, der häufig ein Indikator für Bugs oder Überbleibsel von Refactorings ist. Dazu gehören wiederholte Eigenschaften in einer Deklaration, leere Deklarationen, leere Kommentare oder Selektoren, die keine Elemente ansprechen.
 
 ### Verwenden Sie keine Präprozessoren
 
-Verwenden Sie keine Präprozessor-Syntax wie [Sass](https://sass-lang.com/), [Less](https://lesscss.org/) oder [Stylus](https://stylus-lang.com/) im Beispielcode. Auf MDN Web Docs dokumentieren wir die Vanilla-CSS-Sprache. Das Verwenden von Präprozessoren würde nur die Hürde zum Verständnis der Beispiele erhöhen und Leser möglicherweise verwirren.
+Verwenden Sie keine Präprozessor-Syntax wie [Sass](https://sass-lang.com/), [Less](https://lesscss.org/) oder [Stylus](https://stylus-lang.com/) im Beispielcode. Auf MDN Web Docs dokumentieren wir die ursprüngliche CSS-Sprache. Die Verwendung von Präprozessoren würde nur das Verständnis der Beispiele erschweren und potenziell die Leser verwirren.
 
 ### Verwenden Sie keine spezifischen CSS-Methodologien
 
-Im selben Geist der vorherigen Richtlinie schreiben Sie keine Beispielcodes auf den MDN Web Docs, die eine spezifische CSS-Methodologie wie [BEM](https://getbem.com/naming/) oder [SMACSS](https://smacss.com/) nutzen. Auch wenn sie gültige CSS-Syntax sind, können die Namenskonventionen für Personen, die nicht mit diesen Methodologien vertraut sind, verwirrend sein.
+In der gleichen Hinsicht wie bei der vorangegangenen Richtlinie, schreiben Sie keine Beispielcodes auf den MDN Web Docs mit einer spezifischen CSS-Methodologie wie [BEM](https://getbem.com/naming/) oder [SMACSS](https://smacss.com/). Auch wenn sie eine gültige CSS-Syntax haben, können die Benennungskonventionen für Personen, die mit diesen Methodologien nicht vertraut sind, verwirrend sein.
 
 ### Verwenden Sie keine Resets
 
-Um maximale Kontrolle über CSS auf verschiedenen Plattformen zu haben, verwendeten viele Menschen früher CSS-Resets, um alle Stile zu entfernen, bevor sie sie wieder neu aufbauten. Dies hat sicherlich seine Vorteile, aber insbesondere in der modernen Welt können CSS-Resets übertrieben sein, was dazu führt, dass viel zusätzliche Zeit damit verbracht wird, Dinge neu zu implementieren, die ursprünglich nicht vollständig kaputt waren, wie Standardmargen und Listenelemente.
+Viele Menschen verwendeten CSS-Resets, um alle Stile zu entfernen, bevor sie dann alles selbst wieder aufbauten, um maximale Kontrolle über CSS plattformübergreifend zu haben. Dies hat sicherlich seine Vorzüge, aber insbesondere in der modernen Welt können CSS-Resets übertrieben sein und zu viel zusätzlicher Zeitaufwand beim Neuerstellen von Dingen führen, die ursprünglich nicht völlig defekt waren, wie Standardränder und Listenstile.
 
 ### Formale Syntax und Pseudocode
 
-Formale Syntax ist ein integraler Bestandteil der MDN-CSS-Dokumentation (ein Beispiel sehen Sie im Abschnitt [Formale Syntax](/de/docs/Web/CSS/Reference/Properties/background-image#formal_syntax) auf der Seite zur `background-image`-Eigenschaft). Da viele Entwickler mit der Syntax in diesem Format vertraut sind, ist es akzeptabel, Pseudocode in einer formal-syntax-ähnlichen Art und Weise in Beschreibungen und Beispielen zu schreiben. Jeder Code, der nicht syntaktisch korrektes CSS ist, sollte jedoch nicht als CSS markiert werden. Syntaxfehler in `css`-Codeblöcken führen dazu, dass der Code von statischen Prüfprogrammen nicht geparst werden kann, Leser verwirren, die mit gültigem CSS-Code rechnen, und möglicherweise zu unsinnigem Syntax-Highlighting führen. Markieren Sie entweder Ihren Codeblock als `plain` oder verwenden Sie das `CSSSyntaxRaw`-Makro, um die gesamte formale Syntax anzuzeigen.
+Formale Syntax ist ein integraler Bestandteil der CSS-Dokumentation auf MDN (siehe zum Beispiel den Abschnitt [Formale Syntax](/de/docs/Web/CSS/Reference/Properties/background-image#formal_syntax) auf der Seite zur `background-image` Eigenschaft). Da viele Entwickler mit der Syntax in diesem Format vertraut sind, ist es zulässig, Pseudocode in einer formalen Syntax-ähnlichen Art und Weise in Beschreibungen und Beispielen zu schreiben. Allerdings sollte jeder Code, der keine syntaktisch wohlgeformten CSS ist, nicht als CSS markiert werden. Syntaxfehler in `css` Codeblöcken führen dazu, dass der Code von statischen Prüfern nicht bearbeitet werden kann, verwirren die Leser, die gültigen CSS-Code erwarten, und könnten sogar zu unsinniger Syntaxhervorhebung führen. Markieren Sie Ihren Codeblock entweder als `plain` oder verwenden Sie das `CSSSyntaxRaw` Makro, um die vollständige formale Syntax darzustellen.
 
-Schreiben Sie keine Beschreibungen wie diese (dies ist keine echte formale Syntax; es ist nur pseudo-CSS mit einigen Platzhaltern):
+Schreiben Sie nicht solche Beschreibungen (dies ist ohnehin keine echte formale Syntax; es ist nur Pseudo-CSS mit einigen Platzhaltern):
 
 ````md example-bad
 The `border` property has the following general form:
@@ -72,7 +72,7 @@ border: <border-width> <border-style> <border-color>;
 ```
 ````
 
-Oder, wann immer Sie es für angemessen halten, schreiben Sie tatsächliche formale Syntax mit dem `CSSSyntaxRaw`-Makro:
+Oder, wenn Sie es für angemessen halten, schreiben Sie die tatsächliche formale Syntax mit dem `CSSSyntaxRaw` Makro:
 
 ```md example-good
 The `border` property is specified as a line width, a line style, and a color, in any order:
@@ -80,7 +80,7 @@ The `border` property is specified as a line width, a line style, and a color, i
 \{{CSSSyntaxRaw(`border = <line-width> || <line-style> || <color>`)}}
 ```
 
-Außerdem ist ein einzelner Wert kein syntaktisch korrektes CSS. CSS-Code erfordert mindestens eine Eigenschaft und ihren Wert. Wenn Sie die `rgb()`-Funktion dokumentieren, schreiben Sie dies:
+Außerdem ist ein einzelner Wert kein syntaktisch wohlgeformtes CSS. CSS-Code erfordert mindestens eine Eigenschaft und ihren Wert. Wenn Sie die `rgb()` Funktion dokumentieren, schreiben Sie dies:
 
 ```css example-good
 color: rgb(31 41 59);
@@ -94,13 +94,13 @@ rgb(31 41 59);
 rgb(31 41 59 / 26%);
 ```
 
-Beachten Sie, dass diese Regel nicht für den ersten Codeblock im Abschnitt "Syntax" gilt, der stattdessen durch [Syntax-Abschnitte](/de/docs/MDN/Writing_guidelines/Page_structures/Syntax_sections#css_reference_syntax) angegeben ist und erfordert, dass Funktionen ohne den Eigenschaftsnamen geschrieben werden.
+Beachten Sie, dass diese Regel nicht für den ersten Codeblock im Abschnitt "Syntax" gilt, der stattdessen durch [Syntaxabschnitte](/de/docs/MDN/Writing_guidelines/Page_structures/Syntax_sections#css_reference_syntax) spezifiziert ist und Funktionen ohne den Eigenschaftsnamen erfordert.
 
 ## Animationen
 
 ### Keyframe-Selektoren
 
-Beim Spezifizieren von Keyframe-Selektoren können die Selektoren `0%` und `100%` auch als `from` und `to` geschrieben werden. Wenn eine `@keyframes`-Regel _nur_ diese beiden Selektoren enthält, verwenden Sie `from` und `to` statt `0%` und `100%`. Dies macht Ihren Code semantischer.
+Beim Angeben von Keyframes können die `0%` und `100%` Selektoren auch als `from` und `to` geschrieben werden. Wenn eine `@keyframes` Regel _nur diese beiden Selektoren_ enthält, verwenden Sie `from` und `to` anstelle von `0%` und `100%`. Dies macht Ihren Code semantischer.
 
 Vermeiden Sie also dies:
 
@@ -128,7 +128,7 @@ Verwenden Sie stattdessen `from` und `to`:
 }
 ```
 
-Andererseits, wenn Ihre `@keyframes`-Regel mehr als nur die Start- und Endframes enthält, verwenden Sie die Selektoren `0%` und `100%` für Einheitlichkeit.
+Andererseits, wenn Ihre `@keyframes` Regel mehr als nur die Start- und Endframes enthält, verwenden Sie die `0%` und `100%` Selektoren für einheitliche Darstellung.
 
 ```css example-good
 @keyframes example {
@@ -146,17 +146,17 @@ Andererseits, wenn Ihre `@keyframes`-Regel mehr als nur die Start- und Endframes
 
 ## Kaskade, Eigenschaften und Selektoren
 
-### Steuerung der Spezifität
+### Spezifität kontrollieren
 
-Wenn möglich, vermeiden Sie Überraschungen durch Erhöhen oder Verringern der Spezifität, wie z.B. die übermäßige Nutzung der [`:where()`](/de/docs/Web/CSS/:where)-Pseudoklasse oder das Duplizieren von Selektoren. Erwägen Sie stattdessen die folgenden Techniken, um die Spezifität zu verwalten:
+Vermeiden Sie, falls möglich, Überraschungen bei der Erhöhung oder Verringerung der Spezifität, wie das übermäßig häufige Verwenden der [`:where()`](/de/docs/Web/CSS/Reference/Selectors/:where) Pseudoklasse oder das Duplizieren von Selektoren. Erwägen Sie stattdessen die folgenden Techniken zur Verwaltung der Spezifität:
 
-- Ändern der Reihenfolge der Deklarationen, um die Vorteile der Kaskade zu nutzen
-- Umordnen von Eigenschaften in jeder Deklaration, sodass sie sich nicht gegenseitig überschreiben
-- Verwenden von ID-Selektoren in Fällen, in denen das HTML-`id` selbst gerechtfertigt ist (siehe [Verwenden von Klassenselektoren](#verwenden_sie_klassenselektoren))
+- Ändern Sie die Reihenfolge der Deklarationen, um die Kaskade zu nutzen
+- Ordnen Sie Eigenschaften in jeder Deklaration so an, dass sie sich nicht gegenseitig überschreiben
+- Verwenden Sie ID-Selektoren in Fällen, in denen das HTML [`id`](#verwenden_sie_klassen-selektoren) selbst gerechtfertigt ist
 
 ### !important
 
-`!important` ist das letzte Mittel, das im Allgemeinen nur verwendet wird, wenn Sie etwas überschreiben müssen und es keinen anderen Weg gibt, dies zu tun. Die Verwendung von `!important` ist eine schlechte Praxis und sollte vermieden werden, wo immer es möglich ist.
+`!important` ist das letzte Mittel, das normalerweise nur verwendet wird, wenn Sie etwas überschreiben müssen und es keinen anderen Weg gibt, dies zu tun. Die Verwendung von `!important` ist eine schlechte Praxis, und Sie sollten sie möglichst vermeiden.
 
 ```css example-bad
 .bad-code {
@@ -166,7 +166,7 @@ Wenn möglich, vermeiden Sie Überraschungen durch Erhöhen oder Verringern der 
 
 ### Reihenfolge
 
-Im Allgemeinen sollte, wenn zwei Deklarationen auf dasselbe Element oder dieselben Elemente abzielen, diejenige mit höherer Spezifität später im Stylesheet stehen.
+Generell gilt, dass wenn zwei Deklarationen dasselbe Element/die gleichen Elemente ansprechen, die mit höherer Spezifität später im Stylesheet stehen sollte.
 
 ```css example-good
 button {
@@ -178,19 +178,19 @@ button {
 }
 ```
 
-Innerhalb einer Deklaration sollten verwandte Eigenschaften (wie Größenanpassung, Positionierung und Farbe) zusammengefasst werden. Benutzerdefinierte Eigenschaften sollten oben im Deklarationsblock deklariert werden, was eine schnelle Identifizierung aller verfügbaren benutzerdefinierten Eigenschaften ermöglicht.
+Innerhalb einer Deklaration sollten zusammengehörige Eigenschaften (wie Größen, Positionierung und Farbe) möglichst zusammen angeordnet sein. Benutzerdefinierte Eigenschaften sollten am Anfang des Deklarationsblocks deklariert werden, um eine schnelle Identifizierung aller verfügbaren benutzerdefinierten Eigenschaften zu ermöglichen.
 
 ### Leere Zeilen
 
-Leere Zeilen zwischen Deklarationsblöcken werden empfohlen. Sie können sie entfernen, wenn aufeinanderfolgende Deklarationen stark miteinander verwandt sind, z.B. Variationen derselben Dienstleistungsklasse.
+Leere Zeilen zwischen Deklarationsblöcken werden empfohlen. Sie können sie entfernen, wenn aufeinanderfolgende Deklarationen stark zusammenhängen, wie etwa Varianten derselben Utility-Klasse.
 
 Leere Zeilen zwischen Eigenschaften sollten sparsam verwendet werden. Fügen Sie sie nur hinzu, wenn jede Gruppe von Eigenschaften einen klaren semantischen Block bildet.
 
-### Shorthand-Eigenschaften
+### Kurzschrift-Eigenschaften
 
-- Wenn _jede_ Bestandteilseigenschaft einer Shorthand-Eigenschaft einen nicht standardmäßigen Wert zugewiesen bekommt, verwenden Sie die Shorthand-Eigenschaft an Stelle der langen Eigenschaften. Das macht Ihren Code kürzer und leichter lesbar.
+- Wenn _jede_ zusammengesetzte Eigenschaft einer Kurzschrift-Eigenschaft einen Nicht-Standardwert erhält, verwenden Sie die Kurzschrift-Eigenschaft anstelle der zusammengesetzten Langform-Eigenschaften. Dies macht Ihren Code kürzer und lesbarer.
 
-  Ersetzen Sie diese langen Eigenschaften:
+  Ersetzen Sie diese Langform-Eigenschaften:
 
   ```css example-bad
   margin-top: 1em;
@@ -199,13 +199,13 @@ Leere Zeilen zwischen Eigenschaften sollten sparsam verwendet werden. Fügen Sie
   margin-left: 2em;
   ```
 
-  durch ihre entsprechenden Shorthand-Eigenschaften:
+  durch die entsprechende Kurzform:
 
   ```css example-good
   margin: 1em 2em;
   ```
 
-- Wenn nur _einige_ Bestandteilseigenschaften einer Shorthand-Eigenschaft einen nicht standardmäßigen Wert zugewiesen bekommen, ist die Verwendung der Shorthand-Eigenschaft optional. Beide sind akzeptabel:
+- Wenn nur _einige_ zusammengesetzte Eigenschaften einer Kurzschrift-Eigenschaft einen Nicht-Standardwert erhalten, ist die Verwendung der Kurzschrift-Eigenschaft optional. Beide Optionen sind akzeptabel:
 
   ```css example-good
   margin-top: 1em;
@@ -216,7 +216,7 @@ Leere Zeilen zwischen Eigenschaften sollten sparsam verwendet werden. Fügen Sie
   margin: 1em 0;
   ```
 
-- Verwenden Sie die kürzeste verfügbare Shorthand-Syntax. Schreiben Sie dies:
+- Verwenden Sie die kürzeste verfügbare Kurzschrift-Syntax. Schreiben Sie dies:
 
   ```css example-good
   margin: 1em;
@@ -229,7 +229,7 @@ Leere Zeilen zwischen Eigenschaften sollten sparsam verwendet werden. Fügen Sie
   margin: 1em 1em 1em 1em;
   ```
 
-- Schreiben Sie Shorthand-Eigenschaften in der {{Glossary("Canonical_order", "kanonischen Reihenfolge")}}. Schreiben Sie dies:
+- Schreiben Sie die Kurzschrift-Eigenschaften in der {{Glossary("Canonical_order", "kanonischen Reihenfolge")}}. Schreiben Sie dies:
 
   ```css example-good
   /* width style color */
@@ -242,7 +242,7 @@ Leere Zeilen zwischen Eigenschaften sollten sparsam verwendet werden. Fügen Sie
   border: solid red 1px;
   ```
 
-- Für jede Shorthand sollten Sie entweder diese oder ihre langen Bestandteile verwenden, niemals eine Mischung aus beiden, da das Überschreibungsverhältnis komplex und fehleranfällig ist. Vermeiden Sie diese:
+- Verwenden Sie entweder eine Kurzschrift oder deren Langform-Bestandteile, niemals eine Mischung aus beiden, da das Override-Verhältnis komplex ist und fehleranfällig sein kann. Vermeiden Sie dies:
 
   ```css example-bad
   margin-top: 1em;
@@ -252,9 +252,9 @@ Leere Zeilen zwischen Eigenschaften sollten sparsam verwendet werden. Fügen Sie
   border-bottom-width: 5px; /* Overrides one border's width *only* */
   ```
 
-### Verwenden Sie Klassenselektoren
+### Verwenden Sie Klassen-Selektoren
 
-In der Regel sollten [Klassenselektoren](/de/docs/Web/CSS/Class_selectors) bevorzugt (und `class` anstelle von `id` in Ihrem HTML verwendet) werden. Sie können zusammengesetzt werden: Mehrere Elemente können dieselbe Klasse nutzen, und dieselbe Klasse kann für mehrere Elemente verwendet werden.
+Generell sollten [Klassen-Selektoren](/de/docs/Web/CSS/Reference/Selectors/Class_selectors) bevorzugt werden (und verwenden Sie `class` statt `id` in Ihrem HTML). Sie können zusammengesetzt werden: Mehrere Elemente können dieselbe Klasse verwenden, und dieselbe Klasse kann für mehrere Elemente verwendet werden.
 
 ```css example-good
 .footnote {
@@ -268,15 +268,15 @@ In der Regel sollten [Klassenselektoren](/de/docs/Web/CSS/Class_selectors) bevor
 }
 ```
 
-Verwenden Sie Klassen für das Styling und reservieren Sie IDs für nicht-CSS-Zwecke, wie z.B. für die Verwendung in JavaScript oder zum Verlinken zu eindeutigen Seitenankern (`<a href="#section1">`). In dem Fall, dass die Verwendung einer ID gerechtfertigt ist, können Sie sie als Selektor verwenden, um möglicherweise die [Spezifität zu steuern](#steuerung_der_spezifität).
+Verwenden Sie Klassen für das Styling und reservieren Sie IDs für Nicht-CSS-Zwecke, wie die Verwendung in JavaScript oder für das Verknüpfen zu spezifischen Seitenankern (`<a href="#section1">`). In Fällen, wo die Verwendung eines ID gerechtfertigt ist, können Sie es als Selektor verwenden, potenziell um [Spezifität zu kontrollieren](#spezifität_kontrollieren).
 
-### Alte Pseudoelement-Selektoren
+### Alte Pseudo-Element Selektoren
 
-Die Pseudoelemente `::before`, `::after`, `::first-letter` und `::first-line` können auch mit einfachen Doppelpunkten (wie `:before`) geschrieben werden. Vermeiden Sie die einfache Doppelpunktsyntax, da sie nicht empfohlen wird und von Lesern möglicherweise als [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) (`:hover`) falsch erkannt werden könnte.
+Die `::before`, `::after`, `::first-letter` und `::first-line` [Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) können auch mit Einzelpunkt geschrieben werden (wie `:before`). Vermeiden Sie die Einzelpunkt-Syntax, da sie nicht empfohlen wird und von Lesern als [Pseudo-Klasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) (`:hover`) missverstanden werden könnte.
 
-### Komplexe Selektorlisten
+### Komplexe Selektorliste
 
-Die Pseudoklassen `:is()`, `:where()` und `:not()` akzeptieren [komplexe Selektorlisten](/de/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector). Verwenden Sie sie, um Ihren Selektor zu verkürzen.
+Die `:is()`, `:where()`, und `:not()` Pseudoklassen akzeptieren [komplexe Selektorlisten](/de/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector). Nutzen Sie sie, um Ihren Selektor zu verkürzen.
 
 Schreiben Sie dies:
 
@@ -294,43 +294,43 @@ input:not(:checked):not(:disabled) {
 }
 ```
 
-## Groß-/Kleinschreibung
+## Groß- und Kleinschreibung
 
-Standardmäßig sollten alle Bezeichner kleingeschrieben werden. Dies gilt für Selektoren, Funktionen und Schlüsselwörter. Benutzerdefinierte Bezeichner sollten {{Glossary("Kebab_case", "kebab-case")}} verwenden, wie `--custom-property` oder `my-animation`. Sehen Sie die [HTML-Stilrichtlinie](/de/docs/MDN/Writing_guidelines/Code_style_guide/HTML#casing_convention_on_mdn) für Groß-/Kleinschreibungs-Konventionen von HTML-IDs und Klassen, die als CSS-Selektoren referenziert werden.
+Standardmäßig sollten alle Bezeichner klein geschrieben werden. Dies gilt für Selektoren, Funktionen und Schlüsselwörter. Benutzerdefinierte Bezeichner sollten {{Glossary("Kebab_case", "kebab-case")}} verwenden, wie `--custom-property` oder `my-animation`. Siehe den [HTML-Stil-Leitfaden](/de/docs/MDN/Writing_guidelines/Code_style_guide/HTML#casing_convention_on_mdn) für Groß- und Kleinschreibungs-Konventionen von HTML-IDs und Klassen, die als CSS-Selektoren referenziert werden.
 
-Ausnahmen umfassen Schlüsselwortwerte, die im SVG für historische Gründe im {{Glossary("Camel_case", "camelCase")}} definiert sind und so geschrieben werden sollten, um die Lesbarkeit zu steigern. Diese Schlüsselwörter umfassen: [`currentColor`](/de/docs/Web/CSS/color_value#currentcolor_keyword), {{cssxref("text-rendering")}}-Werte, {{cssxref("shape-rendering")}}-Werte, {{cssxref("pointer-events")}}-Werte und {{cssxref("color-interpolation-filters")}}-Werte.
+Ausnahmen umfassen Schlüsselwortwerte, die in SVG definiert sind, welche aus historischen Gründen {{Glossary("Camel_case", "camelCase")}} sind, und sollten zur Verbesserung der Lesbarkeit so geschrieben werden. Zu diesen Schlüsselwörtern gehören: [`currentColor`](/de/docs/Web/CSS/color_value#currentcolor_keyword), {{cssxref("text-rendering")}} Werte, {{cssxref("shape-rendering")}} Werte, {{cssxref("pointer-events")}} Werte, und {{cssxref("color-interpolation-filters")}} Werte.
 
 ## Farben
 
 ### Auswahl einer Notation
 
-Im Allgemeinen, wenn eine spezifische Farbpalette keine Rolle spielt, verwenden Sie bevorzugt benannte Farben. Verwenden Sie beispielsweise `black` anstelle von `rgb(0 0 0)` oder `#000000`, und `green` statt `chartreuse`.
+Im Allgemeinen, wenn die spezifische Farbpalette keine Rolle spielt, verwenden Sie standardmäßig gebräuchliche Namen von Farben. Zum Beispiel, verwenden Sie `black` statt `rgb(0 0 0)` oder `#000000`, und `green` statt `chartreuse`.
 
-Falls eine spezifische Farbe benötigt wird, verwenden Sie bevorzugt die `rgb()`-Notation. `hsl()` und andere Funktionen sollten nur genutzt werden, wenn die spezielle Repräsentation eine Bedeutung hat (zum Beispiel ein Farbkreis oder ein Verlauf). Die hexadezimale Notation ist kürzer, kann aber weniger lesbar sein; sie ist je nach Bequemlichkeit austauschbar mit `rgb()`.
+Wenn eine spezifische Farbe benötigt wird, verwenden Sie standardmäßig die `rgb()` Notation. `hsl()` und andere Funktionen sollten nur verwendet werden, wenn die zugehörige Darstellung eine Bedeutung hat (zum Beispiel ein Farbrad oder ein Verlauf). Die hexadezimale Notation ist kürzer, aber möglicherweise weniger lesbar; sie ist austauschbar mit `rgb()` abhängig davon, welche für Sie bequemer ist.
 
-Welche Farb-Funktion Sie auch nutzen, verwenden Sie immer die moderne Syntax (`rgb(31 41 59 / 0.26)`), nicht die veraltete, kommagetrennte. Verwenden Sie die Funktion ohne das `a`-Suffix (`rgb` statt `rgba`), da es kürzer ist und der Name nicht geändert werden muss, wenn Sie sich später entscheiden, den Alpha-Kanal hinzuzufügen oder zu entfernen.
+Welche Farbfunktion Sie auch verwenden, verwenden Sie stets die moderne Syntax (`rgb(31 41 59 / 0.26)`), nicht die veraltete kommagetrennte. Verwenden Sie stets die Funktion ohne das `a` Suffix (`rgb` statt `rgba`), da sie kürzer ist und es nicht erforderlich ist, den Namen zu ändern, wenn Sie später entscheiden, den Alpha-Kanal hinzuzufügen oder zu entfernen.
 
-Bei der Verwendung der hexadezimalen Notation verwenden Sie immer die sechs (oder acht) Stellen-Version, um die kognitive Last zu vermeiden: `#aabbcc` statt `#abc`.
+Bei der Verwendung der hexadezimalen Notation, verwenden Sie immer die sechs (oder acht) stellige Version, um die kognitive Belastung zu vermeiden: `#aabbcc` statt `#abc`.
 
 ### Farbparameter
 
-Zur Konsistenz sollten alle Parameter standardmäßig Zahlen anstelle von Prozentwerten oder Graden verwenden. Dies gilt auch für den Alpha-Kanal. Jedoch, wenn eine spezifische Darstellung sinnvoll ist (z.B. bei Animationen, Verläufen oder Berechnungen), verwenden Sie den geeigneten Typ im Kontext.
+Der Konsistenz halber sollten alle Parameter standardmäßig Zahlen verwenden, statt Prozentsätze oder Grad. Dies gilt auch für den Alpha-Kanal. Wenn jedoch eine bestimmte Darstellung sinnvoll ist (zum Beispiel in Animationen, Verläufen oder Berechnungen), verwenden Sie den geeigneten Typ im entsprechenden Kontext.
 
 Wenn der Alpha-Kanal `1` ist, lassen Sie ihn weg. Schreiben Sie `rgb(31 41 59)` statt `rgb(31 41 59 / 1)`.
 
 ### Farben auswählen
 
-Zusätzlich zur Empfehlung, benannte Farben zu verwenden, sollte Ihre Farbpalette unseren [Barrierefreiheitsrichtlinien](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance) entsprechen. Insbesondere, wenn die Farben Elemente unterscheiden (wie eine "rote Box" und eine "blaue Box"), stellen Sie sicher, dass die Farben für Menschen mit Farbsehschwäche unterscheidbar sind. Streben Sie ein Verhältnis von mindestens 4,5:1 [Kontrastverhältnis](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast) (WCAG AA) zwischen Text und Hintergrund an.
+Zusätzlich zur Empfehlung, gebräuchliche Namen von Farben zu verwenden, sollte Ihre Farbpalette unseren [Zugänglichkeitsrichtlinien](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance) entsprechen. Insbesondere, wenn die Farben Elemente unterscheiden (wie eine "rote Box" und eine "blaue Box"), stellen Sie sicher, dass die Farben für Menschen mit Farbsehschwäche unterscheidbar sind. Streben Sie ein Kontrastverhältnis von mindestens 4,5:1 [Kontrastverhältnis](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast) (WCAG AA) zwischen Text und Hintergrund an.
 
 ## Kommentare
 
-Verwenden Sie CSS-Stilkommentare, um Code zu kommentieren, der sich nicht selbst dokumentiert. Beachten Sie auch, dass Sie einen Abstand zwischen den Sternchen und dem Kommentar lassen sollten.
+Verwenden Sie CSS-Style-Kommentare, um Code zu kommentieren, der nicht selbstdokumentierend ist. Beachten Sie auch, dass Sie einen Abstand zwischen den Sternchen und dem Kommentar lassen sollten.
 
 ```css example-good
 /* This is a CSS-style comment */
 ```
 
-Platzieren Sie Ihre Kommentare auf separaten Zeilen vor dem Code, auf den sie sich beziehen, so wie hier:
+Setzen Sie Ihre Kommentare auf separate Zeilen vor dem Code, auf den sie sich beziehen, wie so:
 
 ```css example-good
 h3 {
@@ -341,11 +341,11 @@ h3 {
 }
 ```
 
-## Schriftarten
+## Schriften
 
-### Schriftfamilien angeben
+### Schriftfamilien spezifizieren
 
-Geben Sie bei der Angabe einer Schriftfamilie immer einen [generischen Schriftfamiliennamen](/de/docs/Web/CSS/Reference/Properties/font-family#generic-name) als letzte Rückfalloption an. Dadurch wird sichergestellt, dass, wenn die angegebene Schriftart nicht verfügbar ist, der Browser eine besser geeignete Ersatzschriftart anzeigt. [Web-sichere Schriftarten](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals#web_safe_fonts) sind von dieser Regel ausgenommen.
+Geben Sie beim Spezifizieren einer Schriftfamilie stets einen [generischen Schriftartnamen](/de/docs/Web/CSS/Reference/Properties/font-family#generic-name) als letzten Fallback an. Dies stellt sicher, dass wenn die spezifische Schrift nicht verfügbar ist, der Browser eine geeignetere Fallback-Schrift anzeigt. [Websichere Schriften](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals#web_safe_fonts) sind von dieser Regel ausgenommen.
 
 ```css example-bad
 body {
@@ -364,15 +364,15 @@ math {
 }
 ```
 
-### Schriftstärken angeben
+### Schriftgewichte spezifizieren
 
-Bevorzugen Sie Schlüsselwortwerte wie `normal` und `bold`, sowie relative Stärken wie `bolder` und `lighter`. Verwenden Sie Zahlenwerte nur, wenn das spezifische Gewicht gewünscht ist. Sie sollten immer `400` durch `normal` und `700` durch `bold` ersetzen, außer beim Deklarieren von Bereichen mit variablen Schriftarten oder aus Konsistenz mit anderen ähnlichen Deklarationen.
+Bevorzugen Sie Schlüsselwortwerte wie `normal` und `bold`, und relative Gewichte wie `bolder` und `lighter`. Verwenden Sie Zahlenwerte nur dann, wenn das spezifische Gewicht gewünscht ist. Ersetzen Sie stets `400` durch `normal` und `700` durch `bold`, außer wenn Sie Bereiche mit variablen Schriften deklarieren, oder zur Konsistenz mit anderen ähnlichen Deklarationen.
 
 ## Längen
 
 ### Verwenden Sie flexible/relative Einheiten
 
-Für maximale Flexibilität über den größtmöglichen Bereich von Geräten, verwenden Sie standardmäßig relative Einheiten wie `em`, `rem`, Prozentwerte und Ansichtsbreiteneinheiten (wenn Sie wollen, dass sie je nach Ansichtsbreite variieren), für alle Längen. Lesen Sie mehr dazu in unserem [Leitfaden zu CSS-Werten und -Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units).
+Für maximale Flexibilität über den größtmöglichen Bereich von Geräten hinaus, verwenden Sie standardmäßig relative Einheiten wie `em`, `rem`, Prozentsätze und Ansichtseinheiten (wenn Sie möchten, dass sie je nach Ansichtbreite variieren) für alle Längen. Sie können darüber mehr in unserem [Leitfaden zu CSS-Werten und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units) lesen.
 
 Schreiben Sie dies:
 
@@ -392,7 +392,7 @@ max-width: 500px;
 
 ### Bereichssyntax
 
-Verwenden Sie die moderne Bereichssyntax an Stelle von `min-` und `max-`. Erstere ermöglicht die Spezifikation exklusiver Bereiche, erlaubt das gleichzeitige Festlegen von oberen und unteren Grenzen und ist insgesamt prägnanter und lesbarer.
+Verwenden Sie die moderne Bereichssyntax anstelle von `min-` und `max-`. Erstere ermöglicht die Angabe exklusiver Bereiche, ermöglicht die gleichzeitige Angabe oberer und unterer Grenzen und ist insgesamt prägnanter und lesbarer.
 
 ```css example-good
 @media (width >= 480px) {
@@ -412,13 +412,13 @@ Verwenden Sie die moderne Bereichssyntax an Stelle von `min-` und `max-`. Erster
 }
 ```
 
-Dieses Prinzip erstreckt sich auch auf die nicht-CSS-Verwendung von Media Queries, wie das [`media`](/de/docs/Web/HTML/Reference/Elements/link#media)-Attribut von `<link>`-Elementen oder [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia).
+Dieses Prinzip erstreckt sich auf die nicht-CSS Verwendung von Media Queries, wie das [`media`](/de/docs/Web/HTML/Reference/Elements/link#media) Attribut von `<link>` Elementen oder [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia).
 
-Wenn Sie verschiedene alternative Stile durch Mediaschwellen ausgewählt haben, seien Sie besonders vorsichtig mit Ihren Media Queries. Denken Sie daran, dass `width` und `height` gebrochene Werte sein können; stellen Sie sicher, dass bei jedem Wert nur genau ein alternativer Stil in Kraft tritt.
+Wenn Sie unterschiedliche alternative Stile haben, die durch Mediaschwellenwerte ausgewählt werden, seien Sie besonders vorsichtig mit Ihren Media Queries. Denken Sie daran, dass `width` und `height` Bruchwerte sein können; stellen Sie sicher, dass bei jedem Wert ein und nur ein alternativer Stil in Kraft ist.
 
-### Mobile-First-Media-Queries
+### Mobile-first Media Queries
 
-In einem Stylesheet, das [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)-Stile für verschiedene Ziel-Viewport-Größen enthält, fügen Sie zuerst das schmalere Bildschirm/Handy-Styling ein, bevor weitere Media Queries auftreten. Fügen Sie dann Styling für breitere Viewport-Größen über aufeinanderfolgende Media Queries hinzu. Das Befolgen dieser Regel hat viele Vorteile, die in [Responsive Design](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) erklärt werden.
+In einem Stylesheet, das [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) Stile für unterschiedliche Ziel-Viewportgrößen enthält, inkludieren Sie zuerst die verdünnte Bildschirm-/mobile Gestaltung, bevor andere Media Queries auftreten. Fügen Sie Stile für größere Viewportgrößen mittels aufeinanderfolgender Media Queries hinzu. Die Befolgung dieser Regel hat viele Vorteile, die im [Responsive Design](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) erklärt sind.
 
 ```css example-good
 /* Default CSS layout for narrow screens */
@@ -436,9 +436,9 @@ In einem Stylesheet, das [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_
 }
 ```
 
-## Zeichenketten
+## Zeichenfolgen
 
-Wo auch immer Anführungszeichen in der CSS-Syntax optional sind, verwenden Sie sie und nutzen Sie doppelte Anführungszeichen. Machen Sie dies:
+Wo immer Anführungszeichen in der CSS-Syntax optional sind, verwenden Sie diese und verwenden Sie doppelte Anführungszeichen. Machen Sie dies:
 
 ```css example-good
 [data-vegetable="liquid"] {
@@ -447,7 +447,7 @@ Wo auch immer Anführungszeichen in der CSS-Syntax optional sind, verwenden Sie 
 }
 ```
 
-Vermeiden Sie das folgende, da die Art der zugelassenen Zeichen stärker eingeschränkt ist und manchmal zu subtilen Syntaxfehlern führt:
+Tun Sie dies nicht, da die Art der erlaubten Zeichen eingeschränkter ist und manchmal zu subtilen Syntaxfehlern führen kann:
 
 ```css-nolint example-bad
 [data-vegetable=liquid] {
@@ -456,7 +456,7 @@ Vermeiden Sie das folgende, da die Art der zugelassenen Zeichen stärker eingesc
 }
 ```
 
-Beim `@import`-At-Zeichen spezifizieren Sie den Modulpfad als Zeichenkette, nicht als `url()`.
+Verwenden Sie bei der `@import` Anweisung den Modulpfad als Zeichenfolge und nicht als `url()`.
 
 ```css example-good
 @import "style.css";
@@ -468,4 +468,4 @@ Beim `@import`-At-Zeichen spezifizieren Sie den Modulpfad als Zeichenkette, nich
 
 ## Siehe auch
 
-[CSS-Referenzindex](/de/docs/Web/CSS/Reference#index) - Durchsuchen Sie unsere CSS-Property-Referenzseiten, um einige gute, prägnante, bedeutungsvolle CSS-Snippets zu überprüfen. Unsere interaktiven Beispiele im "Try it"-Abschnitt sind in der Regel so geschrieben, dass sie den auf dieser Seite beschriebenen Richtlinien folgen.
+[CSS-Referenzindex](/de/docs/Web/CSS/Reference#index) - durchstöbern Sie unsere CSS-Eigenschaftsreferenzseiten, um sich einige gute, prägnante, bedeutungsvolle CSS-Snippets anzusehen. Unsere interaktiven Beispiele im Abschnitt "Try it" sind generell geschrieben, um den auf dieser Seite beschriebenen Richtlinien zu folgen.

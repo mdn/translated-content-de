@@ -3,14 +3,12 @@ title: "HTMLDialogElement: show() Methode"
 short-title: show()
 slug: Web/API/HTMLDialogElement/show
 l10n:
-  sourceCommit: 7cd51a73ad94df604db79ccacbbe0513d0967650
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`show()`** Methode des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)
-Interface zeigt den Dialog modelless an, d.h. es ist weiterhin möglich, mit Inhalten
-außerhalb des Dialogs zu interagieren.
+Die **`show()`** Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle zeigt das Dialogfeld modelless an, d.h. sie ermöglicht weiterhin die Interaktion mit Inhalten außerhalb des Dialogs.
 
 ## Syntax
 
@@ -29,14 +27,11 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Dialog bereits geöffnet und modal ist (d.h. wenn der Dialog bereits mit [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) geöffnet wurde).
+  - : Wird ausgelöst, wenn das Dialogfeld bereits geöffnet und modal ist (d.h. wenn das Dialogfeld bereits mit [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) geöffnet wurde).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der, wenn er angeklickt wird, einen
-{{htmlelement("dialog")}} mit einem Formular über die `show()` Methode öffnet. Von
-dort aus können Sie auf die _Abbrechen_-Schaltfläche klicken, um den Dialog zu schließen (über die
-[`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) Methode), oder das Formular über die Senden-Schaltfläche absenden.
+Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmlelement("dialog")}} mit einem Formular über die `show()` Methode öffnet. Von dort aus können Sie den _Cancel_-Button klicken, um das Dialogfeld zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) Methode), oder das Formular über den Absenden-Button einreichen.
 
 ```html
 <!-- Simple pop-up dialog box, containing a form -->
@@ -54,15 +49,17 @@ dort aus können Sie auf die _Abbrechen_-Schaltfläche klicken, um den Dialog zu
       </p>
     </section>
     <menu>
-      <button id="cancel" type="reset">Cancel</button>
-      <button type="submit">Confirm</button>
+      <li>
+        <button type="reset">Reset</button>
+      </li>
+      <li>
+        <button type="submit">Confirm</button>
+      </li>
     </menu>
   </form>
 </dialog>
 
-<menu>
-  <button id="updateDetails">Update details</button>
-</menu>
+<button id="updateDetails">Update details</button>
 ```
 
 ```js
@@ -102,4 +99,4 @@ cancelButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("dialog") }}.
+- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.

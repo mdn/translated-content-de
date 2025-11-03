@@ -183,7 +183,7 @@ font-synthesis: unset;
 
 Die meisten standardmäßigen westlichen Schriftarten enthalten kursiv und fett Varianten, und einige Schriftarten enthalten auch eine Kapitälchen- und Tief-/Hochstellung-Varianten. Viele Schriftarten tun dies jedoch nicht. Schriftarten, die für Chinesisch, Japanisch, Koreanisch und andere logographische Schriften verwendet werden, neigen dazu, diese Varianten nicht zu enthalten, und deren Synthese könnte die Lesbarkeit beeinträchtigen oder die Bedeutung des Textes verändern. In diesen Fällen kann es wünschenswert sein, die standardmäßige Schriftarten-Synthese des Browsers auszuschalten.
 
-Ein Beispiel hierfür wäre, wenn Sie die [:lang()](/de/docs/Web/CSS/:lang) Pseudo-Klasse verwenden, um zu verhindern, dass der Browser fette und oblique Zeichen für eine Sprache synthetisiert, hier im Beispiel für Arabisch:
+Ein Beispiel hierfür wäre, wenn Sie die [:lang()](/de/docs/Web/CSS/Reference/Selectors/:lang) Pseudo-Klasse verwenden, um zu verhindern, dass der Browser fette und oblique Zeichen für eine Sprache synthetisiert, hier im Beispiel für Arabisch:
 
 ```css
 *:lang(ar) {

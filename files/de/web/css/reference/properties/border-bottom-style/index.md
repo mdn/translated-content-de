@@ -2,10 +2,10 @@
 title: border-bottom-style
 slug: Web/CSS/Reference/Properties/border-bottom-style
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
-Die **`border-bottom-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Linienstil des unteren {{cssxref("border")}} eines Elements fest.
+Die **`border-bottom-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil des unteren {{cssxref("border")}} eines Elements fest.
 
 {{InteractiveExample("CSS Demo: border-bottom-style")}}
 
@@ -57,7 +57,7 @@ body {
 ```
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie sich Rahmen unterschiedlicher Stile in den Ecken verbinden.
+> Die Spezifikation definiert nicht, wie sich Ränder verschiedener Stile in den Ecken verbinden.
 
 ## Syntax
 
@@ -82,9 +82,9 @@ border-bottom-style: revert-layer;
 border-bottom-style: unset;
 ```
 
-Die `border-bottom-style`-Eigenschaft wird als ein einzelnes {{cssxref("line-style")}}-Schlüsselwort angegeben.
+Die `border-bottom-style` Eigenschaft wird als einzelnes {{cssxref("line-style")}} Schlüsselwort-Wert angegeben.
 
-## Formale Definition
+## Formaldefinition
 
 {{CSSInfo}}
 
@@ -94,28 +94,30 @@ Die `border-bottom-style`-Eigenschaft wird als ein einzelnes {{cssxref("line-sty
 
 ## Beispiele
 
-### Demonstrieren aller Rahmenstile
+### Darstellung aller Rahmenstile
 
 #### HTML
 
 ```html
 <table>
-  <tr>
-    <td class="b1">none</td>
-    <td class="b2">hidden</td>
-    <td class="b3">dotted</td>
-    <td class="b4">dashed</td>
-  </tr>
-  <tr>
-    <td class="b5">solid</td>
-    <td class="b6">double</td>
-    <td class="b7">groove</td>
-    <td class="b8">ridge</td>
-  </tr>
-  <tr>
-    <td class="b9">inset</td>
-    <td class="b10">outset</td>
-  </tr>
+  <tbody>
+    <tr>
+      <td class="b1">none</td>
+      <td class="b2">hidden</td>
+      <td class="b3">dotted</td>
+      <td class="b4">dashed</td>
+    </tr>
+    <tr>
+      <td class="b5">solid</td>
+      <td class="b6">double</td>
+      <td class="b7">groove</td>
+      <td class="b8">ridge</td>
+    </tr>
+    <tr>
+      <td class="b9">inset</td>
+      <td class="b10">outset</td>
+    </tr>
+  </tbody>
 </table>
 ```
 
@@ -179,5 +181,5 @@ td {
 
 ## Siehe auch
 
-- Die anderen stilbezogenen Rahmen-Eigenschaften: {{ Cssxref("border-left-style") }}, {{ Cssxref("border-right-style") }}, {{ Cssxref("border-top-style") }} und {{ Cssxref("border-style") }}.
-- Die anderen eigenschaftenbezogenen Rahmen-Eigenschaften: {{ Cssxref("border-bottom") }}, {{ Cssxref("border-bottom-color") }} und {{ Cssxref("border-bottom-width") }}.
+- Die anderen stilbezogenen Rahmen-Eigenschaften: {{ Cssxref("border-left-style") }}, {{ Cssxref("border-right-style") }}, {{ Cssxref("border-top-style") }}, und {{ Cssxref("border-style") }}.
+- Die anderen Rahmen-bezogenen unteren Eigenschaften: {{ Cssxref("border-bottom") }}, {{ Cssxref("border-bottom-color") }}, und {{ Cssxref("border-bottom-width") }}.

@@ -1,27 +1,27 @@
 ---
-title: "TouchEvent: targetTouches-Eigenschaft"
+title: "TouchEvent: targetTouches Eigenschaft"
 short-title: targetTouches
 slug: Web/API/TouchEvent/targetTouches
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{ APIRef("Touch Events") }}
 
-Die schreibgeschützte **`targetTouches`**-Eigenschaft ist eine [`TouchList`](/de/docs/Web/API/TouchList), die alle [`Touch`](/de/docs/Web/API/Touch)-Objekte auflistet, deren Berührungspunkte noch in Kontakt mit der Berührungsoberfläche sind **und** deren [`touchstart`](/de/docs/Web/API/Element/touchstart_event)-Ereignis im selben Ziel-[`Element`](/de/docs/Web/API/Element) wie das aktuelle Zielelement auftrat.
+Die schreibgeschützte Eigenschaft **`targetTouches`** ist eine [`TouchList`](/de/docs/Web/API/TouchList), die alle [`Touch`](/de/docs/Web/API/Touch)-Objekte enthält, deren Berührungspunkte sich noch in Kontakt mit der Berührungsfläche befinden **und** deren [`touchstart`](/de/docs/Web/API/Element/touchstart_event)-Ereignis im selben Ziel-[`Element`](/de/docs/Web/API/Element) wie das aktuelle Zielelement aufgetreten ist.
 
 ## Wert
 
-Eine [`TouchList`](/de/docs/Web/API/TouchList), die alle [`Touch`](/de/docs/Web/API/Touch)-Objekte auflistet, deren Berührungspunkte noch in Kontakt mit der Berührungsoberfläche sind **und** deren `touchstart`-Ereignis im selben Ziel-[`Element`](/de/docs/Web/API/Element) wie das aktuelle Zielelement auftrat.
+Eine [`TouchList`](/de/docs/Web/API/TouchList), die alle [`Touch`](/de/docs/Web/API/Touch)-Objekte für Berührungspunkte auflistet, die noch in Kontakt mit der Berührungsfläche sind **und** deren `touchstart`-Ereignis im selben Ziel-[`Element`](/de/docs/Web/API/Element) aufgetreten ist wie das aktuelle Zielelement.
 
 ## Beispiele
 
-Dieses Beispiel veranschaulicht die `TouchEvent.targetTouches`-Eigenschaft des [`TouchEvent`](/de/docs/Web/API/TouchEvent)-Objekts. Die `TouchEvent.targetTouches`-Eigenschaft ist ein [`TouchList`](/de/docs/Web/API/TouchList)-Objekt, das diejenigen Berührungspunkte (TPs) einschließt, die derzeit die Oberfläche berühren _und_ auf dem Element gestartet wurden, das das Ziel des aktuellen Ereignisses ist. Daher ist die `targetTouches`-Liste eine strikte Teilmenge der `touches`-Liste.
+Dieses Beispiel veranschaulicht die `TouchEvent.targetTouches`-Eigenschaft des [`TouchEvent`](/de/docs/Web/API/TouchEvent)-Objekts. Die `TouchEvent.targetTouches`-Eigenschaft ist ein [`TouchList`](/de/docs/Web/API/TouchList)-Objekt, das diejenigen Berührungspunkte (TPs) umfasst, die derzeit die Oberfläche berühren _und_ auf dem Element gestartet wurden, das das Ziel des aktuellen Ereignisses ist. Als solches ist die `targetTouches`-Liste eine strikte Teilmenge der `touches`-Liste.
 
-Im folgenden Code-Ausschnitt vergleicht die Funktion die Länge der `touches`-Liste mit der Länge der `targetTouches`-Liste und gibt `true` zurück, wenn die Längen gleich sind, andernfalls `false`.
+Im folgenden Code-Snippet vergleicht die Funktion die Länge der `touches`-Liste mit der der `targetTouches`-Liste und gibt `true` zurück, wenn die Längen identisch sind, und `false`, wenn nicht.
 
 ```js
-function touches_in_target(ev) {
+function touchesInTarget(ev) {
   // Return true if all of the touches are within the target element;
   // otherwise return false.
   return ev.touches.length === ev.targetTouches.length;

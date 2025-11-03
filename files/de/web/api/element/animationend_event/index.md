@@ -1,18 +1,18 @@
 ---
-title: "Element: animationend Event"
+title: "Element: animationend Ereignis"
 short-title: animationend
 slug: Web/API/Element/animationend_event
 l10n:
-  sourceCommit: a7265fc3effa7c25b9997135104370c057a65293
+  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
 ---
 
 {{APIRef("Web Animations")}}
 
-Das **`animationend`** Ereignis wird ausgelöst, wenn eine [CSS-Animation](/de/docs/Web/CSS/CSS_animations) abgeschlossen ist. Wenn die Animation vor dem Abschluss abbricht, beispielsweise wenn das Element aus dem DOM entfernt oder die Animation vom Element entfernt wird, wird das `animationend` Ereignis nicht ausgelöst.
+Das **`animationend`** Ereignis wird ausgelöst, wenn eine [CSS-Animation](/de/docs/Web/CSS/CSS_animations) abgeschlossen ist. Wenn die Animation abgebrochen wird, bevor sie abgeschlossen ist, zum Beispiel wenn das Element aus dem DOM entfernt wird oder die Animation vom Element entfernt wird, wird das `animationend` Ereignis nicht ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("animationend", (event) => { })
@@ -28,14 +28,14 @@ Ein [`AnimationEvent`](/de/docs/Web/API/AnimationEvent). Erbt von [`Event`](/de/
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
+_Erbt auch Eigenschaften von seinem Eltern-`Event` [`Event`](/de/docs/Web/API/Event)._
 
 - [`AnimationEvent.animationName`](/de/docs/Web/API/AnimationEvent/animationName) {{ReadOnlyInline}}
-  - : Ein String, der den Wert des {{cssxref("animation-name")}} enthält, der die Animation erzeugt hat.
+  - : Ein String, der den Wert des {{cssxref("animation-name")}}, das die Animation erzeugt hat, enthält.
 - [`AnimationEvent.elapsedTime`](/de/docs/Web/API/AnimationEvent/elapsedTime) {{ReadOnlyInline}}
-  - : Ein `float`, der die Zeit angibt, wie lange die Animation gelaufen ist, in Sekunden, als dieses Ereignis ausgelöst wurde, ohne die Zeit einzuschließen, in der die Animation angehalten war. Bei einem `animationstart` Ereignis ist `elapsedTime` `0.0`, es sei denn, es gab einen negativen Wert für {{cssxref("animation-delay")}}, in diesem Fall wird das Ereignis mit `elapsedTime` ausgelöst, das `(-1 * delay)` enthält.
+  - : Ein `float`, das die Zeitangabe in Sekunden angibt, wie lange die Animation schon lief, als dieses Ereignis ausgelöst wurde, ohne die Zeit, in der die Animation pausiert war. Für ein `animationstart` Ereignis ist `elapsedTime` `0,0`, es sei denn, es gab einen negativen Wert für {{cssxref("animation-delay")}}, in diesem Fall wird das Ereignis mit `elapsedTime` ausgelöst, die `(-1 * delay)` enthält.
 - [`AnimationEvent.pseudoElement`](/de/docs/Web/API/AnimationEvent/pseudoElement) {{ReadOnlyInline}}
-  - : Ein String, der mit `'::'` beginnt und den Namen des [Pseudo-Elements](/de/docs/Web/CSS/Pseudo-elements) enthält, auf dem die Animation läuft. Wenn die Animation nicht auf einem Pseudo-Element, sondern auf dem Element abläuft, ist es ein leerer String: `''`.
+  - : Ein String, beginnend mit `'::'`, der den Namen des [Pseudo-Elements](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) enthält, auf dem die Animation läuft. Wenn die Animation nicht auf einem Pseudo-Element, sondern auf dem Element abläuft, ein leerer String: `''`.
 
 ## Beispiele
 
@@ -49,7 +49,7 @@ animated.addEventListener("animationend", () => {
 });
 ```
 
-Dasselbe, aber unter Verwendung der `onanimationend` Ereignishandlereigenschaft:
+Dasselbe, aber mit der `onanimationend` Ereignis-Handler-Eigenschaft:
 
 ```js
 const animated = document.querySelector(".animated");

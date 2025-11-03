@@ -3,12 +3,12 @@ title: "URLSearchParams: URLSearchParams() Konstruktor"
 short-title: URLSearchParams()
 slug: Web/API/URLSearchParams/URLSearchParams
 l10n:
-  sourceCommit: 2c0f972d873ea2db5163dbcb12987847124751ad
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Der **`URLSearchParams()`**-Konstruktor erstellt und gibt ein neues [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt zurück.
+Der **`URLSearchParams()`** Konstruktor erstellt und gibt ein neues [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt zurück.
 
 ## Syntax
 
@@ -20,18 +20,18 @@ new URLSearchParams(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Eine der folgenden Optionen:
-    - Ein String, der aus dem Format `application/x-www-form-urlencoded` geparst wird. Ein führendes `'?'`-Zeichen wird ignoriert. Dies ist die einzige Form, die das {{Glossary("Percent-encoding", "Prozent-Codierung")}} dekodiert und `+` in U+0020 SPACE umwandelt.
-    - Eine wörtliche Sequenz von Name-Wert-Paaren als String oder ein beliebiges Objekt — wie ein [`FormData`](/de/docs/Web/API/FormData)-Objekt — mit einem [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators#iterators), der eine Sequenz von String-Paaren erzeugt. Beachten Sie, dass [`File`](/de/docs/Web/API/File)-Einträge als `[object File]` serialisiert werden, anstatt als ihr Dateiname (wie in einem `application/x-www-form-urlencoded`-Formular).
-    - Ein Datensatz von String-Schlüsseln und String-Werten. Beachten Sie, dass Verschachtelung nicht unterstützt wird.
+  - : Eine der folgenden Möglichkeiten:
+    - Ein String, der aus dem `application/x-www-form-urlencoded`-Format geparst wird. Ein führendes `'?'`-Zeichen wird ignoriert. Dies ist die einzige Form, die das {{Glossary("Percent-encoding", "Prozent-Codierung")}} dekodiert und `+` in U+0020 SPACE dekodiert.
+    - Eine buchstäbliche Sequenz von Name-Wert-String-Paaren oder ein beliebiges Objekt – wie ein [`FormData`](/de/docs/Web/API/FormData)-Objekt – mit einem [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators#iterators), der eine Sequenz von String-Paaren erzeugt. Beachten Sie, dass [`File`](/de/docs/Web/API/File)-Einträge als `[object File]` und nicht als ihr Dateiname serialisiert werden (wie in einem `application/x-www-form-urlencoded` Formular).
+    - Ein Record mit String-Schlüsseln und String-Werten. Beachten Sie, dass Verschachtelung nicht unterstützt wird.
 
 ### Rückgabewert
 
-Eine Instanz des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekts.
+Eine [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objektinstanz.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt aus verschiedenen Eingaben erstellt.
+Das folgende Beispiel zeigt, wie ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt aus verschiedenen Eingaben erstellt wird.
 
 ```js
 // Retrieve params via url.search, passed into constructor
@@ -55,7 +55,7 @@ const params3 = new URLSearchParams([
 const params4 = new URLSearchParams({ foo: "1", bar: "2" });
 ```
 
-Dieses Beispiel zeigt, wie man eine neue URL mit einem Objekt von Suchparametern aus einer bestehenden URL erstellt, die Suchparameter enthält.
+Dieses Beispiel zeigt, wie eine neue URL mit einem Objekt von Suchparametern aus einer vorhandenen URL, die Suchparameter enthält, erstellt wird.
 
 ```js
 const url = new URL("https://example.com/?a=hello&b=world");
@@ -66,22 +66,22 @@ console.log(url.href);
 console.log(url.origin);
 // https://example.com
 
-const add_params = {
+const addParams = {
   c: "a",
   d: 2,
   e: false,
 };
 
-const new_params = new URLSearchParams([
+const newParams = new URLSearchParams([
   ...Array.from(url.searchParams.entries()), // [["a","hello"],["b","world"]]
-  ...Object.entries(add_params), // [["c","a"],["d",2],["e",false]]
+  ...Object.entries(addParams), // [["c","a"],["d",2],["e",false]]
 ]).toString();
-console.log(new_params);
+console.log(newParams);
 // a=hello&b=world&c=a&d=2&e=false
 
-const new_url = new URL(`${url.origin}${url.pathname}?${new_params}`);
+const newURL = new URL(`${url.origin}${url.pathname}?${newParams}`);
 
-console.log(new_url.href);
+console.log(newURL.href);
 // https://example.com/?a=hello&b=world&c=a&d=2&e=false
 
 // Here it is as a function that accepts (URL, Record<string, string>)

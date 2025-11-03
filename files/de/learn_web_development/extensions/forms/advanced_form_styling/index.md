@@ -509,7 +509,7 @@ select {
 }
 ```
 
-Dann erstellten wir unser eigenes Symbol mit generiertem Inhalt. Wir setzten eine zusätzliche Umhüllung um das Steuerelement, da [`::before`](/de/docs/Web/CSS/::before)/[`::after`](/de/docs/Web/CSS/::after) nicht auf `<select>`-Elementen funktionieren (ihr Inhalt wird vollständig vom Browser kontrolliert):
+Dann erstellten wir unser eigenes Symbol mit generiertem Inhalt. Wir setzten eine zusätzliche Umhüllung um das Steuerelement, da [`::before`](/de/docs/Web/CSS/Reference/Selectors/::before)/[`::after`](/de/docs/Web/CSS/Reference/Selectors/::after) nicht auf `<select>`-Elementen funktionieren (ihr Inhalt wird vollständig vom Browser kontrolliert):
 
 ```html
 <label for="select">Select a fruit</label>

@@ -18,7 +18,7 @@ Ein boolescher Wert, der `true` ist, wenn das `ValidityState`-Objekt nicht dem e
 
 ### Erkennung fehlerhafter Eingaben
 
-Im folgenden Beispiel wird die Gültigkeit eines [nummerischen Eingabeelements](/de/docs/Web/HTML/Reference/Elements/input/number) überprüft. Wenn der Benutzer anstelle einer Zahl Text eingibt, schlägt die Validierung der Einschränkungen des Elements fehl, und die Styles, die auf [`input:invalid`](/de/docs/Web/CSS/:invalid) zutreffen, werden angewendet. Das [`<pre>`](/de/docs/Web/HTML/Reference/Elements/pre)-Element oberhalb der Eingabe zeigt die Validierungsnachricht an, wenn die Eigenschaft `badInput` des Elements auf `true` ausgewertet wird:
+Im folgenden Beispiel wird die Gültigkeit eines [nummerischen Eingabeelements](/de/docs/Web/HTML/Reference/Elements/input/number) überprüft. Wenn der Benutzer anstelle einer Zahl Text eingibt, schlägt die Validierung der Einschränkungen des Elements fehl, und die Styles, die auf [`input:invalid`](/de/docs/Web/CSS/Reference/Selectors/:invalid) zutreffen, werden angewendet. Das [`<pre>`](/de/docs/Web/HTML/Reference/Elements/pre)-Element oberhalb der Eingabe zeigt die Validierungsnachricht an, wenn die Eigenschaft `badInput` des Elements auf `true` ausgewertet wird:
 
 ```css
 input:invalid {

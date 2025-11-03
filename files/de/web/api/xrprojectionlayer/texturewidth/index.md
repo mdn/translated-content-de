@@ -3,14 +3,14 @@ title: "XRProjectionLayer: textureWidth-Eigenschaft"
 short-title: textureWidth
 slug: Web/API/XRProjectionLayer/textureWidth
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`textureWidth`**-Eigenschaft der [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer)-Schnittstelle gibt die Breite in Pixeln der Farbtexturen dieser Ebene an.
+Die schreibgeschützte **`textureWidth`**-Eigenschaft des [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer)-Interfaces gibt die Breite in Pixeln der Farbtexturen dieser Ebene an.
 
-Die Breite der Textur der Projektionsschicht wird vom Benutzeragenten oder dem Gerät bestimmt. Sie wird im [`XRSubImage`](/de/docs/Web/API/XRSubImage) gemeldet, auf das nur innerhalb der Frame-Schleife zugegriffen werden kann. Wenn Sie Ihre eigenen Tiefenpuffer verwalten möchten und nicht auf das erste Frame nach der Schichterstellung warten wollen, um die erforderlichen Dimensionen für diese Puffer zu bestimmen, ermöglicht die `textureWidth`-Eigenschaft den Zugriff auf die Breite der Schichttextur außerhalb der Frame-Schleife. Die Zuweisung dieser Puffer kann direkt nach der Erstellung der Schicht erfolgen.
+Die Texturbreite der Projektebene wird durch den User Agent oder das Gerät bestimmt. Sie wird in der [`XRSubImage`](/de/docs/Web/API/XRSubImage) gemeldet, die nur innerhalb der Frame-Schleife zugänglich ist. Wenn Sie Ihre eigenen Tiefenpuffer verwalten möchten und nicht auf den ersten Frame nach der Erstellung der Ebene warten möchten, um die erforderlichen Dimensionen für diese Puffer zu bestimmen, erlaubt die `textureWidth`-Eigenschaft den Zugriff auf die Texturbreite der Ebene außerhalb der Frame-Schleife. Die Zuweisung dieser Puffer kann direkt nach der Erstellung der Ebene erfolgen.
 
 ## Wert
 
@@ -20,13 +20,13 @@ Eine Zahl, die die Breite in Pixeln angibt.
 
 ### Verwendung von `textureWidth`
 
-Die `textureWidth` einer Ebene ist nützlich, wenn Sie Renderpuffer für eine Ebene erstellen möchten. Siehe auch [`WebGL2RenderingContext.renderbufferStorageMultisample()`](/de/docs/Web/API/WebGL2RenderingContext/renderbufferStorageMultisample).
+Die `textureWidth` einer Ebene ist nützlich, wenn Sie Renderpuffer für eine Ebene erstellen. Siehe auch [`WebGL2RenderingContext.renderbufferStorageMultisample()`](/de/docs/Web/API/WebGL2RenderingContext/renderbufferStorageMultisample).
 
 ```js
 let glLayer = xrGLBinding.createProjectionLayer();
 
-let color_rb = gl.createRenderbuffer();
-gl.bindRenderbuffer(gl.RENDERBUFFER, color_rb);
+let colorRB = gl.createRenderbuffer();
+gl.bindRenderbuffer(gl.RENDERBUFFER, colorRB);
 gl.renderbufferStorageMultisample(
   gl.RENDERBUFFER,
   samples,

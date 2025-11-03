@@ -2,10 +2,10 @@
 title: font-feature-settings
 slug: Web/CSS/Reference/Properties/font-feature-settings
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
-Die **`font-feature-settings`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert fortgeschrittene typografische Funktionen in OpenType-Schriftarten.
+Die **`font-feature-settings`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert erweiterte typografische Funktionen in OpenType-Schriften.
 
 {{InteractiveExample("CSS Demo: font-feature-settings")}}
 
@@ -30,15 +30,17 @@ font-feature-settings: "smcp", "zero";
   <div id="example-element">
     <p>Difficult waffles</p>
     <table>
-      <tr>
-        <td><span class="tabular">0O</span></td>
-      </tr>
-      <tr>
-        <td><span class="tabular">3.14</span></td>
-      </tr>
-      <tr>
-        <td><span class="tabular">2.71</span></td>
-      </tr>
+      <tbody>
+        <tr>
+          <td><span class="tabular">0O</span></td>
+        </tr>
+        <tr>
+          <td><span class="tabular">3.14</span></td>
+        </tr>
+        <tr>
+          <td><span class="tabular">2.71</span></td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </section>
@@ -92,22 +94,22 @@ font-feature-settings: revert-layer;
 font-feature-settings: unset;
 ```
 
-Wann immer möglich, sollten Web-Autoren stattdessen die Kurzform-Eigenschaft {{cssxref("font-variant")}} oder eine dazugehörige Langform-Eigenschaft wie {{cssxref("font-variant-ligatures")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-variant-east-asian")}}, {{cssxref("font-variant-alternates")}}, {{cssxref("font-variant-numeric")}} oder {{cssxref("font-variant-position")}} verwenden.
+Wann immer möglich, sollten Web-Autoren stattdessen die {{cssxref("font-variant")}} Kurzschreibweise oder eine zugehörige Langschreibweise wie {{cssxref("font-variant-ligatures")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-variant-east-asian")}}, {{cssxref("font-variant-alternates")}}, {{cssxref("font-variant-numeric")}} oder {{cssxref("font-variant-position")}} verwenden.
 
-Diese führen zu effektiveren, vorhersehbareren und verständlicheren Ergebnissen als `font-feature-settings`, das eine niedrigere Funktion darstellt, die für spezielle Fälle gedacht ist, bei denen es keine andere Möglichkeit gibt, eine OpenType-Schriftfunktion zu aktivieren oder darauf zuzugreifen. Insbesondere sollte `font-feature-settings` nicht verwendet werden, um Kapitälchen zu aktivieren.
+Diese führen zu effektiveren, vorhersehbareren und verständlicheren Ergebnissen als `font-feature-settings`, das eine Low-Level-Funktion darstellt, um Sonderfälle zu handhaben, bei denen es keine andere Möglichkeit gibt, eine OpenType-Schriftfunktion zu aktivieren oder darauf zuzugreifen. Insbesondere sollte `font-feature-settings` nicht verwendet werden, um Kapitälchen zu aktivieren.
 
 ### Werte
 
-Diese Eigenschaft wird entweder als das Schlüsselwort `normal` oder als kommaseparierte Liste von `<feature-tag-value>`-Werten angegeben. Bei der Textdarstellung wird die Liste der OpenType `<feature-tag-value>`-Werte an die Text-Layout-Engine übergeben, um Schriftartfunktionen zu aktivieren oder zu deaktivieren.
+Diese Eigenschaft wird entweder als das Schlüsselwort `normal` oder als kommagetrennte Liste von `<feature-tag-value>`-Werten angegeben. Beim Rendern von Text wird die Liste der OpenType-`<feature-tag-value>`-Werte an die Textlayout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren.
 
 - `normal`
-  - : Gibt an, dass der Text mit den Standardeinstellungen der Schrift dargestellt wird. Dies ist der Standardwert.
+  - : Gibt an, dass der Text mit den Standardeinstellungen der Schriftart formatiert wird. Dies ist der Standardwert.
 - `<feature-tag-value>`
-  - : Repräsentiert ein Leerzeichen-getrenntes Tupel, bestehend aus einem Tag-Namen und einem optionalen Wert.
+  - : Stellt ein leerzeichengetrenntes Tupel dar, das aus einem Tag-Namen und einem optionalen Wert besteht.
 
-    Der Tag-Name ist immer ein {{cssxref("&lt;string&gt;")}} aus vier {{Glossary("ASCII", "ASCII")}}-Zeichen. Wenn der Tag-Name mehr oder weniger Zeichen hat oder Zeichen außerhalb des `U+20` – `U+7E` Codepunktbereichs enthält, ist der Deskriptor ungültig.
+    Der Tag-Name ist immer ein {{cssxref("&lt;string&gt;")}} aus vier {{Glossary("ASCII", "ASCII")}}-Zeichen. Wenn der Tag-Name mehr oder weniger Zeichen hat oder Zeichen außerhalb des Codepoint-Bereichs `U+20` – `U+7E` enthält, ist der Deskriptor ungültig.
 
-    Der optionale Wert kann eine positive Ganzzahl oder das Schlüsselwort `on` oder `off` sein. Die Schlüsselwörter `on` und `off` sind Synonyme für die Werte `1` und `0`. Wenn kein Wert gesetzt ist, ist der Standardwert `1`. Für nicht-boolesche OpenType-Features (z. B. [stylistic alternates](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-salt)) impliziert der Wert die Auswahl eines bestimmten Glyphen; für boolesche Funktionen schaltet der Wert die Funktion ein oder aus.
+    Der optionale Wert kann eine positive ganze Zahl oder das Schlüsselwort `on` oder `off` sein. Die Schlüsselwörter `on` und `off` sind Synonyme für die Werte `1` und `0`. Wenn kein Wert gesetzt ist, ist der Standard `1`. Für nicht-boolesche OpenType-Funktionen (z.B. [stylistic alternates](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-salt)) impliziert der Wert, dass ein bestimmtes Glyph ausgewählt wird; für boolesche Funktionen aktiviert oder deaktiviert der Wert die Funktion.
 
 ## Formale Definition
 
@@ -119,7 +121,7 @@ Diese Eigenschaft wird entweder als das Schlüsselwort `normal` oder als kommase
 
 ## Beispiele
 
-### Verschiedene Schriftfunktionen aktivieren
+### Verschiedene Schriftmerkmale aktivieren
 
 ```css
 /* use small-cap alternate glyphs */
@@ -188,4 +190,4 @@ td.tabular {
 - {{cssxref("@font-face/src", "src")}}
 - {{cssxref("@font-face/unicode-range", "unicode-range")}}
 - [OpenType feature tags](https://learn.microsoft.com/en-us/typography/opentype/spec/featurelist) Liste
-- [OpenType features in CSS](https://sparanoid.com/lab/opentype-features/)
+- [OpenType-Funktionen in CSS](https://sparanoid.com/lab/opentype-features/)

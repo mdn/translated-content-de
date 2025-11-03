@@ -2,7 +2,7 @@
 title: backface-visibility
 slug: Web/CSS/Reference/Properties/backface-visibility
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
 Die **`backface-visibility`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Rückseite eines Elements sichtbar ist, wenn sie dem Benutzer zugewandt ist.
@@ -75,7 +75,7 @@ backface-visibility: hidden;
 }
 ```
 
-Die Rückseite eines Elements ist ein Spiegelbild seiner Vorderseite. Obwohl in 2D unsichtbar, kann die Rückseite sichtbar werden, wenn eine Transformation dazu führt, dass das Element im 3D-Raum gedreht wird. (Diese Eigenschaft hat keinen Effekt auf 2D-Transformationen, die keine Perspektive haben.)
+Die Rückseite eines Elements ist ein Spiegelbild seiner Vorderseite. Obwohl sie in 2D unsichtbar ist, kann die Rückseite sichtbar werden, wenn eine Transformation das Element im 3D-Raum dreht. (Diese Eigenschaft hat keinen Effekt auf 2D-Transformationen, die keine Perspektive haben.)
 
 ## Syntax
 
@@ -99,7 +99,7 @@ Die `backface-visibility` Eigenschaft wird als eines der unten aufgeführten Sch
 - `visible`
   - : Die Rückseite ist sichtbar, wenn sie dem Benutzer zugewandt ist.
 - `hidden`
-  - : Die Rückseite ist verborgen, was das Element effektiv unsichtbar macht, wenn es vom Benutzer abgewandt ist.
+  - : Die Rückseite ist verborgen, wodurch das Element unsichtbar wird, wenn es vom Benutzer weggerichtet ist.
 
 ## Formale Definition
 
@@ -119,41 +119,45 @@ Dieses Beispiel zeigt einen Würfel mit transparenten Flächen und einen mit und
 
 ```html
 <table>
-  <tr>
-    <th><code>backface-visibility: visible;</code></th>
-    <th><code>backface-visibility: hidden;</code></th>
-  </tr>
-  <tr>
-    <td>
-      <div class="container">
-        <div class="cube show-bf">
-          <div class="face front">1</div>
-          <div class="face back">2</div>
-          <div class="face right">3</div>
-          <div class="face left">4</div>
-          <div class="face top">5</div>
-          <div class="face bottom">6</div>
+  <thead>
+    <tr>
+      <th><code>backface-visibility: visible;</code></th>
+      <th><code>backface-visibility: hidden;</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div class="container">
+          <div class="cube show-bf">
+            <div class="face front">1</div>
+            <div class="face back">2</div>
+            <div class="face right">3</div>
+            <div class="face left">4</div>
+            <div class="face top">5</div>
+            <div class="face bottom">6</div>
+          </div>
         </div>
-      </div>
-      <p>
-        Since all faces are partially transparent, the back faces (2, 4, 5) are
-        visible through the front faces (1, 3, 6).
-      </p>
-    </td>
-    <td>
-      <div class="container">
-        <div class="cube hide-bf">
-          <div class="face front">1</div>
-          <div class="face back">2</div>
-          <div class="face right">3</div>
-          <div class="face left">4</div>
-          <div class="face top">5</div>
-          <div class="face bottom">6</div>
+        <p>
+          Since all faces are partially transparent, the back faces (2, 4, 5)
+          are visible through the front faces (1, 3, 6).
+        </p>
+      </td>
+      <td>
+        <div class="container">
+          <div class="cube hide-bf">
+            <div class="face front">1</div>
+            <div class="face back">2</div>
+            <div class="face right">3</div>
+            <div class="face left">4</div>
+            <div class="face top">5</div>
+            <div class="face bottom">6</div>
+          </div>
         </div>
-      </div>
-      <p>The three back faces (2, 4, 5) are hidden.</p>
-    </td>
-  </tr>
+        <p>The three back faces (2, 4, 5) are hidden.</p>
+      </td>
+    </tr>
+  </tbody>
 </table>
 ```
 
@@ -257,4 +261,4 @@ td {
 
 ## Siehe auch
 
-- [CSS-Transformationen verwenden](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
+- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)

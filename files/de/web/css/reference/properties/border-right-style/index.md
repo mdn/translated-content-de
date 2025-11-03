@@ -2,7 +2,7 @@
 title: border-right-style
 slug: Web/CSS/Reference/Properties/border-right-style
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
 Die **`border-right-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt den Linienstil des rechten {{cssxref("border")}} eines Elements fest.
@@ -57,7 +57,7 @@ body {
 ```
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie Rahmen mit unterschiedlichen Stilen in den Ecken verbunden werden.
+> Die Spezifikation definiert nicht, wie Ränder mit unterschiedlichen Stilen in den Ecken verbunden werden.
 
 ## Syntax
 
@@ -82,7 +82,7 @@ border-right-style: revert-layer;
 border-right-style: unset;
 ```
 
-Die `border-right-style`-Eigenschaft wird als einzelnes {{cssxref("line-style")}}-Schlüsselwort angegeben.
+Die Eigenschaft `border-right-style` wird als ein einzelner {{cssxref("line-style")}}-Schlüsselwortwert angegeben.
 
 ## Formale Definition
 
@@ -94,28 +94,30 @@ Die `border-right-style`-Eigenschaft wird als einzelnes {{cssxref("line-style")}
 
 ## Beispiele
 
-### Rahmenstile
+### Randstile
 
 #### HTML
 
 ```html
 <table>
-  <tr>
-    <td class="b1">none</td>
-    <td class="b2">hidden</td>
-    <td class="b3">dotted</td>
-    <td class="b4">dashed</td>
-  </tr>
-  <tr>
-    <td class="b5">solid</td>
-    <td class="b6">double</td>
-    <td class="b7">groove</td>
-    <td class="b8">ridge</td>
-  </tr>
-  <tr>
-    <td class="b9">inset</td>
-    <td class="b10">outset</td>
-  </tr>
+  <tbody>
+    <tr>
+      <td class="b1">none</td>
+      <td class="b2">hidden</td>
+      <td class="b3">dotted</td>
+      <td class="b4">dashed</td>
+    </tr>
+    <tr>
+      <td class="b5">solid</td>
+      <td class="b6">double</td>
+      <td class="b7">groove</td>
+      <td class="b8">ridge</td>
+    </tr>
+    <tr>
+      <td class="b9">inset</td>
+      <td class="b10">outset</td>
+    </tr>
+  </tbody>
 </table>
 ```
 
@@ -179,5 +181,5 @@ td {
 
 ## Siehe auch
 
-- Die anderen stilbezogenen Rahmen-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-left-style")}}, {{Cssxref("border-top-style")}} und {{Cssxref("border-style")}}.
-- Die anderen Eigenschaften im Zusammenhang mit dem rechten Rahmen: {{Cssxref("border-right")}}, {{Cssxref("border-right-color")}} und {{Cssxref("border-right-width")}}.
+- Die anderen stilbezogenen Rand-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-left-style")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-style")}}.
+- Die anderen rechtsbündigen Rand-Eigenschaften: {{Cssxref("border-right")}}, {{Cssxref("border-right-color")}}, und {{Cssxref("border-right-width")}}.

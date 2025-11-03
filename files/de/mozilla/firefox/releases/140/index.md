@@ -18,7 +18,7 @@ Keine bemerkenswerten Änderungen.
 
 - Die [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) wird nun unterstützt. Sie bietet einen Mechanismus zum Stilieren beliebiger Textranges in einem Dokument und generalisiert das Verhalten anderer Highlight-Pseudo-Elemente wie {{cssxref('::selection')}}, {{cssxref('::spelling-error')}}, {{cssxref('::grammar-error')}} und {{cssxref('::target-text')}}.
   Sie definieren Textranges in JavaScript unter Verwendung von [`Range`](/de/docs/Web/API/Range)-Instanzen, die in einem [`Highlight`](/de/docs/Web/API/Highlight) gruppiert sind, und registrieren sie dann mit einem Namen über [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry).
-  Sie können einem registrierten Highlight über das CSS-Pseudo-Element [`::highlight`](/de/docs/Web/CSS/::highlight) Styles zuweisen. ([Firefox-Bug 1964089](https://bugzil.la/1964089)).
+  Sie können einem registrierten Highlight über das CSS-Pseudo-Element [`::highlight`](/de/docs/Web/CSS/Reference/Selectors/::highlight) Styles zuweisen. ([Firefox-Bug 1964089](https://bugzil.la/1964089)).
 
 #### Entfernung
 

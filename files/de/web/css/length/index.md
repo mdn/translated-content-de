@@ -51,7 +51,7 @@ Schriftartenlängen definieren den `<length>`-Wert in Bezug auf die Größe eine
 
 ### Relative Längeneinheiten basierend auf der Schriftart des Wurzelelements
 
-Relative Längeneinheiten der Schriftart des Wurzelelements definieren den `<length>`-Wert in Bezug auf die Größe eines bestimmten Zeichens oder Schriftattributs des [Wurzelelements](/de/docs/Web/CSS/:root):
+Relative Längeneinheiten der Schriftart des Wurzelelements definieren den `<length>`-Wert in Bezug auf die Größe eines bestimmten Zeichens oder Schriftattributs des [Wurzelelements](/de/docs/Web/CSS/Reference/Selectors/:root):
 
 - `rcap`
   - : Entspricht der "Großbuchstabenhöhe" (nominale Höhe der Großbuchstaben) der {{Cssxref("font")}} des Wurzelelements.

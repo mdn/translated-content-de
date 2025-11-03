@@ -1,14 +1,14 @@
 ---
-title: "AnimationEvent: Konstruktor AnimationEvent()"
+title: "AnimationEvent: AnimationEvent() Konstruktor"
 short-title: AnimationEvent()
 slug: Web/API/AnimationEvent/AnimationEvent
 l10n:
-  sourceCommit: 76717f752447b6eef25bf29c12272e407ee5cb6b
+  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
 ---
 
 {{APIRef("Web Animations")}}
 
-Der **`AnimationEvent()`**-Konstruktor gibt ein neues [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) Objekt zurück, das ein Ereignis in Bezug auf eine Animation darstellt.
+Der **`AnimationEvent()`**-Konstruktor gibt ein neues [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)-Objekt zurück, das ein Ereignis in Bezug auf eine Animation darstellt.
 
 ## Syntax
 
@@ -20,18 +20,17 @@ new AnimationEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Typs des `AnimationEvent`.
-    Er ist case-sensitive und wird von Browsern auf `animationstart`, `animationend` oder `animationiteration` gesetzt.
+  - : Ein String mit dem Namen des `AnimationEvent`-Typs. Er ist case-sensitiv und Browser setzen ihn auf `animationstart`, `animationend` oder `animationiteration`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ folgende Eigenschaften besitzt:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften hat:
     - `animationName` {{optional_inline}}
-      - : Ein String, der den Wert der {{cssxref("animation-name")}} CSS-Eigenschaft enthält, die mit der Transition verknüpft ist. Der Standardwert ist `""`.
+      - : Ein String, der den Wert der mit der Transition verbundenen {{cssxref("animation-name")}} CSS-Eigenschaft enthält. Standardmäßig ist es `""`.
     - `elapsedTime` {{optional_inline}}
-      - : Ein `float`, der die Zeit in Sekunden angibt, die die Animation beim Auslösen dieses Ereignisses lief, ohne dabei die Zeit einzubeziehen, in der die Animation pausiert war.
-        Bei einem `animationstart`-Ereignis ist `elapsedTime` `0.0`, es sei denn, es gab einen negativen Wert für {{cssxref("animation-delay")}},
-        in welchem Fall das Ereignis mit `elapsedTime`, das `(-1 * delay)` enthält, ausgelöst wird. Der Standardwert ist `0.0`.
+      - : Ein `float`, der die Zeit in Sekunden angibt, wie lange die Animation bereits läuft, als dieses Ereignis ausgelöst wurde, ohne Pausen der Animation einzuschließen.
+        Für ein `animationstart`-Ereignis ist `elapsedTime` `0.0`, es sei denn, es gab einen negativen Wert für {{cssxref("animation-delay")}},
+        in diesem Fall wird das Ereignis mit `elapsedTime`, das `(-1 * delay)` enthält, ausgelöst. Standardmäßig ist es `0.0`.
     - `pseudoElement` {{optional_inline}}
-      - : Ein String, der mit `"::"` beginnt und den Namen des [Pseudo-Elements](/de/docs/Web/CSS/Pseudo-elements) enthält, auf dem die Animation ausgeführt wird. Wenn die Animation nicht auf einem Pseudo-Element, sondern auf dem Element selbst ausgeführt wird, geben Sie einen leeren String an: `""`. Der Standardwert ist `""`.
+      - : Ein String, der mit `"::"` beginnt und den Namen des [Pseudoelements](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) enthält, auf dem die Animation läuft. Läuft die Animation nicht auf einem Pseudoelement, sondern auf dem Element selbst, geben Sie einen leeren String an: `""`. Standardmäßig ist es `""`.
 
 ## Spezifikationen
 
@@ -44,10 +43,10 @@ new AnimationEvent(type, options)
 ## Siehe auch
 
 - [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
-- Animation-bezogene CSS-Eigenschaften und -Regeln: {{cssxref("animation")}},
+- Animationsbezogene CSS-Eigenschaften und At-Regeln: {{cssxref("animation")}},
   {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}},
   {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}},
   {{cssxref("animation-iteration-count")}}, {{cssxref("animation-name")}},
   {{cssxref("animation-play-state")}}, {{cssxref("animation-timing-function")}},
   {{cssxref("@keyframes")}}
-- Die [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) Schnittstelle, zu der es gehört.
+- Die [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)-Schnittstelle, zu der es gehört.

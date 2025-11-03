@@ -1,14 +1,16 @@
 ---
-title: "Document: getElementsByName()-Methode"
+title: "Dokumentation: getElementsByName() Methode"
 short-title: getElementsByName()
 slug: Web/API/Document/getElementsByName
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{APIRef("DOM")}}
 
-Die **`getElementsByName()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Objekts gibt eine [`NodeList`](/de/docs/Web/API/NodeList)-Sammlung von Elementen mit einem bestimmten `name`-Attribut im Dokument zurück.
+Die **`getElementsByName()`** Methode
+des [`Document`](/de/docs/Web/API/Document) Objekts gibt eine [`NodeList`](/de/docs/Web/API/NodeList) Sammlung von
+Elementen mit einem bestimmten `name` Attribut im Dokument zurück.
 
 ## Syntax
 
@@ -19,11 +21,11 @@ getElementsByName(name)
 ### Parameter
 
 - `name`
-  - : Der Wert des `name`-Attributs des Elements oder der Elemente, die wir suchen.
+  - : Der Wert des `name` Attributs der Elemente, nach denen wir suchen.
 
 ### Rückgabewert
 
-Eine Live-[`NodeList`](/de/docs/Web/API/NodeList)-Sammlung, das heißt, sie wird automatisch aktualisiert, wenn neue Elemente mit demselben `name` hinzugefügt oder entfernt werden.
+Eine dynamische [`NodeList`](/de/docs/Web/API/NodeList) Sammlung, was bedeutet, dass sie automatisch aktualisiert wird, wenn neue Elemente mit demselben `name` zum Dokument hinzugefügt oder daraus entfernt werden.
 
 ## Beispiele
 
@@ -41,15 +43,18 @@ Eine Live-[`NodeList`](/de/docs/Web/API/NodeList)-Sammlung, das heißt, sie wird
 ```
 
 ```js
-const up_names = document.getElementsByName("up");
-console.log(up_names[0].tagName); // displays "INPUT"
+const upNames = document.getElementsByName("up");
+console.log(upNames[0].tagName); // displays "INPUT"
 ```
 
 ## Hinweise
 
-Das `name`-Attribut kann nur in (X)HTML-Dokumenten angewendet werden.
+Das `name` Attribut kann nur in (X)HTML
+Dokumenten angewendet werden.
 
-Die zurückgegebene [`NodeList`](/de/docs/Web/API/NodeList)-Sammlung enthält _alle_ Elemente mit dem gegebenen `name`, wie z.B. {{htmlelement("meta")}}, {{htmlelement("object")}}, und sogar Elemente, die das `name`-Attribut überhaupt nicht unterstützen.
+Die zurückgegebene [`NodeList`](/de/docs/Web/API/NodeList) Sammlung enthält _alle_ Elemente mit dem
+angegebenen `name`, wie z.B. {{htmlelement("meta")}}, {{htmlelement("object")}}, und
+sogar Elemente, die das `name` Attribut überhaupt nicht unterstützen.
 
 ## Spezifikationen
 
@@ -61,6 +66,9 @@ Die zurückgegebene [`NodeList`](/de/docs/Web/API/NodeList)-Sammlung enthält _a
 
 ## Siehe auch
 
-- [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um eine Referenz zu einem Element anhand seiner eindeutigen `id` zurückzugeben
-- [`document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName), um Referenzen zu Elementen mit demselben [Tag-Name](/de/docs/Web/API/Element/tagName) zurückzugeben
-- [`document.querySelector()`](/de/docs/Web/API/Document/querySelector), um Referenzen zu Elementen über CSS-Selektoren wie `'div.myclass'` zurückzugeben
+- [`document.getElementById()`](/de/docs/Web/API/Document/getElementById) um eine Referenz auf ein Element anhand seiner
+  eindeutigen `id` zurückzugeben
+- [`document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName) um Referenzen auf Elemente mit
+  demselben [Tag-Namen](/de/docs/Web/API/Element/tagName) zurückzugeben
+- [`document.querySelector()`](/de/docs/Web/API/Document/querySelector) um Referenzen auf Elemente mittels CSS
+  Selektoren wie `'div.myclass'` zurückzugeben

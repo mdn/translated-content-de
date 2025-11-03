@@ -65,7 +65,7 @@ Wenn der Benutzer mit einem Element interagieren kann (zum Beispiel mit Berühru
 
 ## Fokussierbare Elemente müssen Fokus-Styling haben
 
-Jedes Element, das per Tastaturfokus empfangen kann, sollte sichtbares Styling haben, das anzeigt, wann das Element fokussiert ist. Sie können dies mit den CSS-Pseudoklassen [`:focus`](/de/docs/Web/CSS/:focus) und [`:focus-visible`](/de/docs/Web/CSS/:focus-visible) tun.
+Jedes Element, das per Tastaturfokus empfangen kann, sollte sichtbares Styling haben, das anzeigt, wann das Element fokussiert ist. Sie können dies mit den CSS-Pseudoklassen [`:focus`](/de/docs/Web/CSS/Reference/Selectors/:focus) und [`:focus-visible`](/de/docs/Web/CSS/Reference/Selectors/:focus-visible) tun.
 
 Standardmäßig zu fokussierende Elemente wie Links und Eingabefelder erhalten vom Browser standardmäßig spezielles Styling, sodass Sie für solche Elemente möglicherweise kein Fokus-Styling angeben müssen, es sei denn, Sie möchten, dass das Fokus-Styling auffälliger ist.
 

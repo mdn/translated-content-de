@@ -181,7 +181,7 @@ document
 
 Dieses Beispiel zeigt, wie `shadowrootdelegatesfocus` auf ein Shadow Root angewendet wird, das deklarativ erstellt wird, und welche Auswirkungen dies auf den Fokus hat.
 
-Der Code deklariert zunächst ein Shadow Root in einem `<div>`-Element, indem das `<template>`-Element mit dem Attribut `shadowrootmode` verwendet wird. Dies zeigt sowohl ein nicht fokussierbares `<div>` mit Text als auch ein fokussierbares `<input>`-Element an. Es verwendet außerdem CSS, um Elemente mit [`:focus`](/de/docs/Web/CSS/:focus) blau zu färben und das normale Styling des Hostelements festzulegen.
+Der Code deklariert zunächst ein Shadow Root in einem `<div>`-Element, indem das `<template>`-Element mit dem Attribut `shadowrootmode` verwendet wird. Dies zeigt sowohl ein nicht fokussierbares `<div>` mit Text als auch ein fokussierbares `<input>`-Element an. Es verwendet außerdem CSS, um Elemente mit [`:focus`](/de/docs/Web/CSS/Reference/Selectors/:focus) blau zu färben und das normale Styling des Hostelements festzulegen.
 
 ```html
 <div>

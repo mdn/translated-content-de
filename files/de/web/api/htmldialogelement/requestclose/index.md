@@ -1,18 +1,18 @@
 ---
-title: "HTMLDialogElement: Methode requestClose()"
+title: "HTMLDialogElement: requestClose() Methode"
 short-title: requestClose()
 slug: Web/API/HTMLDialogElement/requestClose
 l10n:
-  sourceCommit: 48a1966f4fb3633ab40daa544bcb267a7794afb1
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`requestClose()`**-Methode des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces fordert das Schließen des {{htmlelement("dialog")}} an. Ein optionaler String kann als Argument übergeben werden, um den `returnValue` des Dialogs zu aktualisieren.
+Die Methode **`requestClose()`** des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Interfaces fordert das Schließen des {{htmlelement("dialog")}} an. Es kann optional ein String als Argument übergeben werden, welcher den `returnValue` des Dialogs aktualisiert.
 
-Diese Methode unterscheidet sich von der [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode, da sie ein [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis auslöst, bevor das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst wird. Autoren können [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) im Handler für das `cancel`-Ereignis aufrufen, um zu verhindern, dass der Dialog geschlossen wird.
+Diese Methode unterscheidet sich von der [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) Methode darin, dass sie ein [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event) Ereignis auslöst, bevor das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event) Ereignis ausgelöst wird. Autoren können [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) im Handler für das `cancel` Ereignis aufrufen, um zu verhindern, dass der Dialog geschlossen wird.
 
-Diese Methode zeigt das gleiche Verhalten wie der interne Schließ-Überwacher des Dialogs.
+Diese Methode bietet das gleiche Verhalten wie der interne "close watcher" des Dialogs.
 
 ## Syntax
 
@@ -34,7 +34,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung von requestClose()
 
-Das folgende Beispiel zeigt einen einfachen Button, der, wenn er angeklickt wird, ein {{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode öffnet. Sobald es geöffnet ist, können Sie auf den **X**-Button klicken, um das Schließen des Dialogs anzufordern (über die `HTMLDialogElement.requestClose()`-Methode) oder das Formular über den **Bestätigen**-Button absenden.
+Das folgende Beispiel zeigt einen einfachen Button, der, wenn er geklickt wird, ein {{htmlelement("dialog")}} mit einem Formular über die `showModal()` Methode öffnet. Ist es offen, können Sie den **X**-Button klicken, um das Schließen des Dialogs anzufordern (über die `HTMLDialogElement.requestClose()` Methode), oder das Formular über den **Bestätigen**-Button absenden.
 
 #### HTML
 
@@ -42,9 +42,7 @@ Das folgende Beispiel zeigt einen einfachen Button, der, wenn er angeklickt wird
 <!-- Simple pop-up dialog box, containing a form -->
 <dialog id="favDialog">
   <form method="dialog">
-    <button type="button" id="close" aria-label="close" formnovalidate>
-      X
-    </button>
+    <button type="button" id="close" aria-label="close">X</button>
     <section>
       <p>
         <label for="favAnimal">Favorite animal:</label>
@@ -57,15 +55,17 @@ Das folgende Beispiel zeigt einen einfachen Button, der, wenn er angeklickt wird
       </p>
     </section>
     <menu>
-      <button type="reset">Reset</button>
-      <button type="submit">Confirm</button>
+      <li>
+        <button type="reset">Reset</button>
+      </li>
+      <li>
+        <button type="submit">Confirm</button>
+      </li>
     </menu>
   </form>
 </dialog>
 
-<menu>
-  <button id="updateDetails">Update details</button>
-</menu>
+<button id="updateDetails">Update details</button>
 ```
 
 #### JavaScript
@@ -100,7 +100,7 @@ dialog.addEventListener("cancel", (event) => {
 });
 ```
 
-Wenn der "X"-Button `type="submit"` hätte, würde der Dialog ohne JavaScript geschlossen werden. Eine Formularübertragung schließt das `<dialog>`, in dem es eingebettet ist, wenn [die Methode des Formulars `dialog`](/de/docs/Web/HTML/Reference/Elements/form#method) ist, sodass kein "Schließen"-Button erforderlich ist.
+Wäre der "X"-Button vom `type="submit"`, hätte sich der Dialog ohne JavaScript geschlossen. Eine Formularübermittlung schließt das `<dialog>`, in dem es verschachtelt ist, wenn die [Methode des Formulars `dialog` ist](/de/docs/Web/HTML/Reference/Elements/form#method), sodass kein "close"-Button erforderlich ist.
 
 #### Ergebnis
 

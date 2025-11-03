@@ -2,10 +2,10 @@
 title: vertical-align
 slug: Web/CSS/Reference/Properties/vertical-align
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
-Die **`vertical-align`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die vertikale Ausrichtung eines Inline-, Inline-Block- oder Tabellenzellen-Elements fest.
+Die **`vertical-align`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die vertikale Ausrichtung eines Inline-, Inline-Block- oder Tabellenzellen-Elements fest.
 
 {{InteractiveExample("CSS Demo: vertical-align")}}
 
@@ -53,10 +53,10 @@ vertical-align: text-top;
 
 Die `vertical-align`-Eigenschaft kann in zwei Kontexten verwendet werden:
 
-- Um das Inline-Level-Element innerhalb seines umschließenden Zeilenkastens vertikal auszurichten. Zum Beispiel könnte es verwendet werden, um [ein Bild in einer Textzeile vertikal zu positionieren](#vertikale_ausrichtung_in_einem_zeilenkasten).
-- Um [den Inhalt einer Zelle in einer Tabelle](#vertikale_ausrichtung_in_einer_tabellenzelle) vertikal auszurichten.
+- Zur vertikalen Ausrichtung des Rahmens eines Inline-Elements innerhalb seines umgebenden Linienrahmens. Beispielsweise kann sie verwendet werden, um [ein Bild vertikal in einer Textzeile zu positionieren](#vertikale_ausrichtung_in_einem_linienrahmen).
+- Zur vertikalen Ausrichtung [des Inhalts einer Zelle in einer Tabelle](#vertikale_ausrichtung_in_einer_tabellenzelle).
 
-Beachten Sie, dass `vertical-align` nur auf Inline-, Inline-Block- und Tabellenzellen-Elemente angewendet wird: Sie können es nicht verwenden, um {{Glossary("Block-level_content", "Block-Level-Elemente")}} vertikal auszurichten.
+Beachten Sie, dass `vertical-align` nur auf Inline-, Inline-Block- und Tabellenzellen-Elemente anwendbar ist: Sie können es nicht verwenden, um {{Glossary("Block-level_content", "Block-Elemente")}} vertikal auszurichten.
 
 ## Syntax
 
@@ -86,52 +86,52 @@ vertical-align: revert-layer;
 vertical-align: unset;
 ```
 
-Die `vertical-align`-Eigenschaft wird als einer der unten aufgelisteten Werte angegeben.
+Die `vertical-align`-Eigenschaft ist als einer der unten aufgeführten Werte angegeben.
 
 ### Werte für Inline-Elemente
 
-#### Elternbezogene Werte
+#### Eltern-relative Werte
 
 Diese Werte richten das Element relativ zu seinem Elternelement vertikal aus:
 
 - `baseline`
-  - : Richtet die Grundlinie des Elements an der Grundlinie seines Elternteils aus. Die Grundlinie einiger {{Glossary("replaced_elements", "ersetzter Elemente")}}, wie {{HTMLElement("textarea")}}, ist durch die HTML-Spezifikation nicht festgelegt, was bedeutet, dass ihr Verhalten mit diesem Schlüsselwort zwischen Browsern variieren kann.
+  - : Richtet die Basislinie des Elements an der Basislinie seines Elternelements aus. Die Basislinie einiger {{Glossary("replaced_elements", "ersetzter Elemente")}}, wie zum Beispiel {{HTMLElement("textarea")}}, ist nicht durch die HTML-Spezifikation festgelegt, was bedeutet, dass ihr Verhalten mit diesem Schlüsselwort zwischen Browsern variieren kann.
 - `sub`
-  - : Richtet die Grundlinie des Elements an der Basislinien-Unterschrift seines Elternteils aus.
+  - : Richtet die Basislinie des Elements an der Tiefstellungs-Basislinie seines Elternelements aus.
 - `super`
-  - : Richtet die Grundlinie des Elements an der Überstrich-Basislinie seines Elternteils aus.
+  - : Richtet die Basislinie des Elements an der Hochstellungs-Basislinie seines Elternelements aus.
 - `text-top`
-  - : Richtet die Oberseite des Elements mit der oberen Grenze der Schriftart des Elternelements aus.
+  - : Richtet die Oberseite des Elements an der Oberseite der Schrift des Elternelements aus.
 - `text-bottom`
-  - : Richtet die Unterseite des Elements mit der unteren Grenze der Schriftart des Elternelements aus.
+  - : Richtet die Unterseite des Elements an der Unterseite der Schrift des Elternelements aus.
 - `middle`
-  - : Richtet die Mitte des Elements mit der Grundlinie plus der halben x-Höhe des Elternelements aus.
+  - : Richtet die Mitte des Elements an der Basislinie plus der Hälfte der x-Höhe des Elternteils aus.
 - {{cssxref("&lt;length&gt;")}}
-  - : Richtet die Grundlinie des Elements in der angegebenen Länge über der Grundlinie seines Elternteils aus. Ein negativer Wert ist erlaubt.
+  - : Richtet die Basislinie des Elements in der angegebenen Länge oberhalb der Basislinie seines Elternelements aus. Ein negativer Wert ist erlaubt.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Richtet die Grundlinie des Elements in dem angegebenen Prozentsatz über der Grundlinie seines Elternteils aus, wobei der Wert ein Prozentsatz der {{Cssxref("line-height")}}-Eigenschaft ist. Ein negativer Wert ist erlaubt.
+  - : Richtet die Basislinie des Elements in dem angegebenen Prozentsatz oberhalb der Basislinie seines Elternelements aus, wobei der Wert ein Prozentsatz der {{Cssxref("line-height")}}-Eigenschaft ist. Ein negativer Wert ist erlaubt.
 
-#### Zeilenbezogene Werte
+#### Linierrelationale Werte
 
-Die folgenden Werte richten das Element relativ zur gesamten Zeile vertikal aus:
+Die folgenden Werte richten das Element relativ zur gesamten Linie vertikal aus:
 
 - `top`
-  - : Richtet die Oberseite des Elements und seiner Nachkommen mit der Oberseite der gesamten Zeile aus.
+  - : Richtet die Oberseite des Elements und seiner Nachkommen an der Oberseite der gesamten Zeile aus.
 - `bottom`
-  - : Richtet die Unterseite des Elements und seiner Nachkommen mit der Unterseite der gesamten Zeile aus.
+  - : Richtet die Unterseite des Elements und seiner Nachkommen an der Unterseite der gesamten Zeile aus.
 
-Für Elemente, die keine Grundlinie haben, wird stattdessen der untere Randkanten verwendet.
+Bei Elementen, die keine Basislinie haben, wird stattdessen die untere Kantenlinie verwendet.
 
 ### Werte für Tabellenzellen
 
-- `baseline` (und `sub`, `super`, `text-top`, `text-bottom`, `<length>` und `<percentage>`)
-  - : Richtet die Grundlinie der Zelle mit der Grundlinie aller anderen Zellen in der Zeile aus, die an der Grundlinie ausgerichtet sind.
+- `baseline` (und `sub`, `super`, `text-top`, `text-bottom`, `<length>`, und `<percentage>`)
+  - : Richtet die Basislinie der Zelle an der Basislinie aller anderen Zellen in der Zeile aus, die basislinienorientiert sind.
 - `top`
-  - : Richtet die obere Polsterkante der Zelle mit der Oberseite der Zeile aus.
+  - : Richtet den oberen Innenabstand der Zelle an der Oberseite der Zeile aus.
 - `middle`
-  - : Zentriert den Polsterkasten der Zelle innerhalb der Zeile.
+  - : Zentriert den Innenabstand der Zelle innerhalb der Zeile.
 - `bottom`
-  - : Richtet die untere Polsterkante der Zelle mit der Unterseite der Zeile aus.
+  - : Richtet den unteren Innenabstand der Zelle an der Unterseite der Zeile aus.
 
 Negative Werte sind erlaubt.
 
@@ -189,7 +189,7 @@ img.middle {
 
 {{EmbedLiveSample("Basic_example")}}
 
-### Vertikale Ausrichtung in einem Zeilenkasten
+### Vertikale Ausrichtung in einem Linienrahmen
 
 #### HTML
 
@@ -238,10 +238,10 @@ p {
 
 ### Vertikale Ausrichtung in einer Tabellenzelle
 
-In diesem Beispiel haben wir eine Tabelle mit einer einzelnen Zeile, die sechs Zellen enthält. Die Zeile setzt `vertical-align` standardmäßig auf `bottom`.
+In diesem Beispiel haben wir eine Tabelle mit einer einzigen Zeile, die sechs Zellen enthält. Die Zeile setzt `vertical-align` auf `bottom` als Standardwert.
 
-- Die ersten vier Zellen setzen jeweils eigene `vertical-align`-Werte und überschreiben damit den Wert der Zeile.
-- Die fünfte Zelle setzt keinen `vertical-align`-Wert, so dass sie den Wert der Zeile erbt.
+- Die ersten vier Zellen setzen jeweils ihren eigenen `vertical-align`-Wert und überschreiben damit den Wert der Zeile.
+- Die fünfte Zelle setzt keinen `vertical-align`-Wert, sodass sie den Wert der Zeile erbt.
 
 Die sechste Zelle wird nur verwendet, um sicherzustellen, dass die Zellen hoch genug sind, um den Effekt zu sehen.
 
@@ -249,17 +249,19 @@ Die sechste Zelle wird nur verwendet, um sicherzustellen, dass die Zellen hoch g
 
 ```html
 <table>
-  <tr class="bottom">
-    <td class="baseline">baseline</td>
-    <td class="top">top</td>
-    <td class="middle">middle</td>
-    <td>bottom</td>
-    <td>Row's style</td>
-    <td>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-      pretium felis eu sem mattis vulputate.
-    </td>
-  </tr>
+  <tbody>
+    <tr class="bottom">
+      <td class="baseline">baseline</td>
+      <td class="top">top</td>
+      <td class="middle">middle</td>
+      <td>bottom</td>
+      <td>Row's style</td>
+      <td>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+        pretium felis eu sem mattis vulputate.
+      </td>
+    </tr>
+  </tbody>
 </table>
 ```
 
@@ -314,7 +316,7 @@ td {
 
 ## Siehe auch
 
-- [Typische Anwendungsfälle von Flexbox, Abschnitt "Element zentrieren"](/de/docs/Web/CSS/CSS_flexible_box_layout/Typical_use_cases_of_flexbox#center_item)
+- [Typische Anwendungsfälle von Flexbox, Abschnitt „Element zentrieren“](/de/docs/Web/CSS/CSS_flexible_box_layout/Typical_use_cases_of_flexbox#center_item)
 - {{Cssxref("line-height")}}, {{Cssxref("text-align")}}, {{Cssxref("margin")}}
-- [Understanding `vertical-align`, or "How (Not) To Vertically Center Content"](https://phrogz.net/css/vertical-align/index.html)
-- [Vertical-Align: All You Need To Know](https://christopheraue.net/design/vertical-align)
+- [Verständnis von `vertical-align`, oder „Wie (Nicht) Inhalte vertikal zentrieren“](https://phrogz.net/css/vertical-align/index.html)
+- [Vertical-Align: Alles, was Sie wissen müssen](https://christopheraue.net/design/vertical-align)

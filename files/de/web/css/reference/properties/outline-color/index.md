@@ -79,7 +79,7 @@ Es ist oft bequemer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwende
 
 ## Barrierefreiheit
 
-Angepasste [Fokus-Stile](/de/docs/Web/CSS/:focus) beinhalten häufig Anpassungen der {{cssxref("outline")}}-Eigenschaft. Wenn die Farbe der Kontur angepasst wird, ist es wichtig sicherzustellen, dass das Kontrastverhältnis zwischen ihr und dem Hintergrund, über dem die Kontur platziert ist, hoch genug ist, damit Menschen mit eingeschränktem Sehvermögen sie wahrnehmen können.
+Angepasste [Fokus-Stile](/de/docs/Web/CSS/Reference/Selectors/:focus) beinhalten häufig Anpassungen der {{cssxref("outline")}}-Eigenschaft. Wenn die Farbe der Kontur angepasst wird, ist es wichtig sicherzustellen, dass das Kontrastverhältnis zwischen ihr und dem Hintergrund, über dem die Kontur platziert ist, hoch genug ist, damit Menschen mit eingeschränktem Sehvermögen sie wahrnehmen können.
 
 Das Farbkontrastverhältnis wird durch den Vergleich der Leuchtkraft der Text- und Hintergrundfarbenwerte bestimmt. Um den aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu entsprechen, ist ein Verhältnis von 4,5:1 für Textinhalte und 3:1 für größeren Text wie Überschriften erforderlich. Großer Text ist als 18,66px und [fett](/de/docs/Web/CSS/Reference/Properties/font-weight) oder größer, oder 24px oder größer definiert.
 

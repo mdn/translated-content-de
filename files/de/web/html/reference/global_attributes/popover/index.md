@@ -72,5 +72,5 @@ Das folgende Beispiel rendert einen Button, der ein Popover-Element öffnet, wen
 - [Popover API](/de/docs/Web/API/Popover_API)
 - [`popovertarget`](/de/docs/Web/HTML/Reference/Elements/button#popovertarget) HTML-Attribut
 - [`popovertargetaction`](/de/docs/Web/HTML/Reference/Elements/button#popovertargetaction) HTML-Attribut
-- [`::backdrop`](/de/docs/Web/CSS/::backdrop) CSS-Pseudoelement
-- [`:popover-open`](/de/docs/Web/CSS/:popover-open) CSS-Pseudoklasse
+- [`::backdrop`](/de/docs/Web/CSS/Reference/Selectors/::backdrop) CSS-Pseudoelement
+- [`:popover-open`](/de/docs/Web/CSS/Reference/Selectors/:popover-open) CSS-Pseudoklasse

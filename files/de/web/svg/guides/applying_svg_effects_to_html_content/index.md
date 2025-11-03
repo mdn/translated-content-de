@@ -139,7 +139,7 @@ document.querySelector("button").addEventListener("click", toggleRadius);
 
 ### Beispiel: Filtern
 
-Dies demonstriert die Anwendung eines Filters auf HTML-Inhalte mittels SVG. Es werden mehrere Filter festgelegt, die mit CSS sowohl auf drei Elemente im normalen als auch im Maus-[hover](/de/docs/Web/CSS/:hover)-Zustand angewendet werden.
+Dies demonstriert die Anwendung eines Filters auf HTML-Inhalte mittels SVG. Es werden mehrere Filter festgelegt, die mit CSS sowohl auf drei Elemente im normalen als auch im Maus-[hover](/de/docs/Web/CSS/Reference/Selectors/:hover)-Zustand angewendet werden.
 
 ```html
 <p class="target">

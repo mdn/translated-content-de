@@ -1,38 +1,30 @@
 ---
-title: Erste Schritte mit MathML
-short-title: Erste Schritte
+title: Einführung in MathML
+short-title: Getting started
 slug: Web/MathML/Tutorials/For_beginners/Getting_started
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
 {{NextMenu("Web/MathML/Tutorials/For_beginners/Text_containers", "Web/MathML/Tutorials/For_beginners")}}
 
-In diesem Artikel nehmen wir ein einfaches HTML-Dokument und sehen uns an, wie man MathML-Formeln darin einfügt, indem wir unterwegs einige Elemente einführen.
+In diesem Artikel werden wir ein einfaches HTML-Dokument nehmen und sehen, wie man MathML-Formeln darin einfügt und dabei einige Elemente einführt.
 
 ## Einfügen von Formeln in HTML über das \<math>-Element
 
-MathML verwendet dieselbe Syntax wie HTML, um einen Baum von Elementen und Attributen darzustellen. Insbesondere wird jede mathematische Formel von einem `<math>`-Element repräsentiert, das in eine HTML-Seite eingefügt werden kann. Im folgenden Dokument befindet es sich in einem Absatz von Text:
+MathML verwendet die gleiche Syntax wie HTML, um einen Baum von Elementen und Attributen darzustellen. Insbesondere wird jede mathematische Formel durch ein `<math>`-Element repräsentiert, das innerhalb einer HTML-Seite platziert werden kann. Im folgenden Dokument befindet es sich in einem Absatz von Text:
 
-```html
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <title>My first math page</title>
-  </head>
-  <body>
-    <p>
-      The fraction
-      <math>
-        <mfrac>
-          <mn>1</mn>
-          <mn>3</mn>
-        </mfrac>
-      </math>
-      is not a decimal number.
-    </p>
-  </body>
-</html>
+```html live-sample___inserting_formulas_in_HTML
+<p>
+  The fraction
+  <math>
+    <mfrac>
+      <mn>1</mn>
+      <mn>3</mn>
+    </mfrac>
+  </math>
+  is not a decimal number.
+</p>
 ```
 
 Das `<mfrac>`-Element spezifiziert einen Bruch mit einem Zähler (sein erstes Kind) und einem Nenner (sein zweites Kind). So wird es in Ihrem Browser dargestellt:
@@ -40,46 +32,38 @@ Das `<mfrac>`-Element spezifiziert einen Bruch mit einem Zähler (sein erstes Ki
 {{ EmbedLiveSample('Inserting_formulas_in_HTML', 700, 100, "", "") }}
 
 > [!WARNING]
-> Wenn Sie nur "1 3" statt eines Bruchs sehen, unterstützt Ihr Browser möglicherweise kein MathML. Sehen Sie sich die [Browser-Kompatibilitätstabelle](/de/docs/Web/MathML/Reference/Element/math#browser_compatibility) für weitere Details an.
+> Wenn Sie nur "1 3" anstelle eines Bruches sehen, dann unterstützt Ihr Browser möglicherweise kein MathML. Überprüfen Sie die [Browser-Kompatibilitäts-Tabelle](/de/docs/Web/MathML/Reference/Element/math#browser_compatibility) für weitere Details.
 
 ### Das display-Attribut
 
-Beachten Sie, dass in dem vorherigen Beispiel die Formel in derselben Zeile wie der Text des Absatzes steht. Es ist jedoch durchaus üblich, große mathematische Formeln zentriert in einer eigenen Zeile darzustellen, wie unten gezeigt. Um dies zu erreichen, müssen Sie dem `<math>`-Element ein `display="block"`-Attribut hinzufügen.
+Beachten Sie, dass in dem vorherigen Beispiel die Formel auf der gleichen Zeile wie der Text des Absatzes ist. Es ist jedoch recht üblich, stattdessen große mathematische Formeln zentriert auf einer eigenen Zeile darzustellen, wie unten gezeigt. Um dies zu erreichen, müssen Sie ein `display="block"`-Attribut an das `<math>`-Element anhängen.
 
-```html hidden
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <title>My first math page</title>
-  </head>
-  <body>
-    <p>
-      The fraction
-      <math display="block">
-        <mfrac>
-          <mn>1</mn>
-          <mn>3</mn>
-        </mfrac>
-      </math>
-      is not a decimal number.
-    </p>
-  </body>
-</html>
+```html hidden live-sample___the_display_attribute
+<p>
+  The fraction
+  <math display="block">
+    <mfrac>
+      <mn>1</mn>
+      <mn>3</mn>
+    </mfrac>
+  </math>
+  is not a decimal number.
+</p>
 ```
 
 {{ EmbedLiveSample('The_display_attribute', 700, 100, "", "") }}
 
-Sie werden möglicherweise auch eine subtile Veränderung im Erscheinungsbild bemerken: Der Text und der vertikale Abstand des Bruchs werden etwas größer. Ohne das `display="block"`-Attribut wird die Höhe minimiert, um den Fluss des umgebenden Textes nicht zu stören. Mit dem `display="block"`-Attribut wird stattdessen die Lesbarkeit der mathematischen Formel priorisiert.
+Sie werden möglicherweise auch eine subtile Veränderung im Erscheinungsbild bemerken: Der Text und der vertikale Abstand des Bruches werden etwas größer. Ohne das `display="block"`-Attribut wird die Höhe minimiert, um den Fluss des umgebenden Textes nicht zu stören. Mit dem `display="block"`-Attribut liegt der Schwerpunkt stattdessen auf der Lesbarkeit der mathematischen Formel.
 
 > [!NOTE]
-> Dies entspricht LaTeX' Konzept von _inline_ Formeln (begrenzt durch Dollarzeichen `$...$`) und _display_ Formeln (begrenzt durch `\[...\]`).
+> Dies entspricht dem LaTeX-Konzept von _inline_-Formeln (begrenzt durch Dollarzeichen `$...$`) und _display_-Formeln (begrenzt durch `\[...\]`).
 
 > [!NOTE]
-> Die oben erwähnte Erscheinungsveränderung wird tatsächlich durch die [`math-style`](/de/docs/Web/CSS/Reference/Properties/math-style)-Eigenschaft gesteuert, die anfangs für `<math display="block">` `normal` und sonst `compact` ist. In einigen MathML-Unterbäumen kann diese Eigenschaft dann automatisch `compact` werden, aber wir werden diese Feinheit für dieses einführende Tutorial ignorieren. Auch dies ist ähnlich zu LaTeX.
+> Die oben erwähnte Änderung im Erscheinungsbild wird tatsächlich durch die [`math-style`](/de/docs/Web/CSS/Reference/Properties/math-style)-Eigenschaft gesteuert, die anfänglich `normal` für `<math display="block">` und `compact` ansonsten ist. In einigen MathML-Teilbäumen kann diese Eigenschaft dann automatisch `compact` werden, aber wir werden diese Feinheit für dieses Einführungstutorial ignorieren. Auch dies ist ähnlich wie bei LaTeX.
 
 ## Gruppierung mit dem \<mrow>-Element
 
-Das `<math>`-Element kann tatsächlich eine beliebige Anzahl von Kindern enthalten und wird sie im Wesentlichen in einer Zeile anzeigen. Zum Beispiel wird die einfache Formel "1 + 2 + 3" in MathML so codiert:
+Das `<math>`-Element kann tatsächlich eine beliebige Anzahl von Kindern enthalten und wird sie im Wesentlichen in einer Zeile rendern. Zum Beispiel würde die einfache Formel "1 + 2 + 3" in MathML so kodiert werden:
 
 ```html
 <math>
@@ -91,7 +75,7 @@ Das `<math>`-Element kann tatsächlich eine beliebige Anzahl von Kindern enthalt
 </math>
 ```
 
-Das `<mrow>`-Element ist ein generischer Container, der ein ähnliches Layout bietet, aber überall im MathML-Unterbaum platziert werden kann. Es ist hilfreich, mehrere Elemente zusammenzufassen. Zum Beispiel ist der Zähler des folgenden Bruchs (sein erstes Kind) "eins plus zwei".
+Das `<mrow>`-Element ist ein generisches Container-Element, das ein ähnliches Layoutfunktionen bietet, jedoch überall im MathML-Teilbaum platziert werden kann. Es ist hilfreich, um mehrere Elemente zusammenzufassen. Zum Beispiel ist der Zähler des folgenden Bruches (sein erstes Kind) "eins plus zwei".
 
 ```html
 <math>
@@ -106,9 +90,9 @@ Das `<mrow>`-Element ist ein generischer Container, der ein ähnliches Layout bi
 </math>
 ```
 
-### Ihr Turn: Verschachtelte Ausdrücke schreiben
+### Ihr Zug: Verschachtelte Ausdrücke schreiben
 
-Als Übung finden Sie heraus, wie man die folgenden Ausdrücke mit nur den bisher gesehenen MathML-Elementen schreibt. Wenn Sie nicht weiterkommen oder die Lösung überprüfen möchten, sehen Sie sich den Quellcode des Beispiels an.
+Als Übung herausfinden, wie Sie die folgenden Ausdrücke nur mit den bisher gesehenen MathML-Elementen schreiben. Wenn Sie feststecken oder die Lösung überprüfen möchten, schauen Sie sich den Quellcode des Beispiels an.
 
 ```html hidden live-sample___nested-expressions
 <ol>
@@ -169,7 +153,7 @@ Als Übung finden Sie heraus, wie man die folgenden Ausdrücke mit nur den bishe
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir uns angesehen, wie man das `<math>`-Element verwendet, um eine mathematische Formel in ein HTML-Dokument einzufügen. Wir haben die Unterschiede in der Darstellung zwischen `<math>`-Elementen, die `display="block"` verwenden oder nicht, kennengelernt. Darüber hinaus sind wir auf ein paar andere MathML-Elemente gestoßen: `<mfrac>` für Brüche, `<mrow>` für Gruppierung und schließlich einige Textelemente. Wir werden diese [Textcontainer](/de/docs/Web/MathML/Tutorials/For_beginners/Text_containers) im nächsten Artikel weiter analysieren.
+In diesem Artikel haben wir uns angesehen, wie man das `<math>`-Element verwendet, um eine mathematische Formel in ein HTML-Dokument einzufügen. Wir haben die Unterschiede in der Darstellung zwischen `<math>`-Elementen, die `display="block"` verwenden oder nicht, gelernt. Darüber hinaus sind wir auf ein paar weitere MathML-Elemente gestoßen: `<mfrac>` für Brüche, `<mrow>` für Gruppierungen und schließlich einige Textelemente. Diese [Textcontainer](/de/docs/Web/MathML/Tutorials/For_beginners/Text_containers) werden wir im nächsten Artikel weiter analysieren.
 
 ## Siehe auch
 

@@ -180,7 +180,7 @@ Eine **CSS-Referenzseite** listet die gesamte verfügbare Syntax für ein CSS-Fe
 #### Beispiele
 
 - [`background-color` Eigenschaft](/de/docs/Web/CSS/Reference/Properties/background-color)
-- [`:hover` Pseudoklasse](/de/docs/Web/CSS/:hover)
+- [`:hover` Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/:hover)
 - [`@media` Regel](/de/docs/Web/CSS/@media)
 
 #### Vorlagen

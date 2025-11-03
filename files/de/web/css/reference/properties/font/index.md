@@ -2,10 +2,10 @@
 title: font
 slug: Web/CSS/Reference/Properties/font
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
-Die **`font`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) legt alle verschiedenen Eigenschaften der Schriftart eines Elements fest. Alternativ setzt sie die Schriftart eines Elements auf eine Systemschriftart.
+Die **`font`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) setzt alle verschiedenen Eigenschaften der Schrift eines Elements. Alternativ kann sie die Schrift eines Elements auf eine Systemschriftart setzen.
 
 {{InteractiveExample("CSS Demo: font")}}
 
@@ -70,11 +70,11 @@ section {
 }
 ```
 
-Wie bei jeder Kurzform-Eigenschaft wird jeder individuelle Wert, der nicht angegeben wird, auf seinen entsprechenden Anfangswert gesetzt (möglicherweise werden dabei zuvor gesetzte Werte durch nicht-Kurzform-Eigenschaften überschrieben). Auch wenn `font` nicht direkt festgelegt wird, werden die Langformen {{cssxref("font-size-adjust")}} und {{cssxref("font-kerning")}} ebenfalls auf ihre Anfangswerte zurückgesetzt.
+Wie bei jeder Kurzschreibweise wird jeder individuelle Wert, der nicht spezifiziert ist, auf seinen entsprechenden initialen Wert gesetzt (möglicherweise werden Werte überschrieben, die zuvor mit Nicht-Kurzschreibweise gesetzt wurden). Obwohl nicht direkt von `font` gesetzt, werden die Langhands {{cssxref("font-size-adjust")}} und {{cssxref("font-kerning")}} ebenfalls auf ihre Anfangswerte zurückgesetzt.
 
-## Zusammengesetzte Eigenschaften
+## Zusammensetzende Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("font-family")}}
 - {{cssxref("font-size")}}
@@ -103,62 +103,62 @@ font: ultra-condensed small-caps 1.2em "Fira Sans", sans-serif;
 font: caption;
 ```
 
-Die `font`-Eigenschaft kann entweder als einzelnes Schlüsselwort angegeben werden, welches eine Systemschriftart auswählt, oder als Kurzform für verschiedene schriftartbezogene Eigenschaften.
+Die `font`-Eigenschaft kann entweder als ein einziges Schlüsselwort angegeben werden, das eine Systemschriftart auswählt, oder als Kurzschreibweise für verschiedene schriftbezogene Eigenschaften.
 
-Wenn `font` als ein System-Schlüsselwort angegeben wird, muss es eines der folgenden sein: `caption`, `icon`, `menu`, `message-box`, `small-caption`, `status-bar`.
+Wenn `font` als System-Schlüsselwort angegeben wird, muss es eines von folgenden sein: `caption`, `icon`, `menu`, `message-box`, `small-caption`, `status-bar`.
 
-Wenn `font` als Kurzform für mehrere schriftartbezogene Eigenschaften angegeben wird, dann:
+Wenn `font` als Kurzschreibweise für mehrere schriftbezogene Eigenschaften angegeben wird, dann:
 
-- muss es Werte enthalten für:
+- muss es Werte beinhalten für:
   - {{cssxref("&lt;font-size&gt;")}}
   - {{cssxref("&lt;font-family&gt;")}}
 
-- kann es optional Werte enthalten für:
+- kann es optional Werte beinhalten für:
   - {{cssxref("&lt;font-style&gt;")}}
   - {{cssxref("&lt;font-variant&gt;")}}
   - {{cssxref("&lt;font-weight&gt;")}}
   - {{cssxref("&lt;font-stretch&gt;")}}
   - {{cssxref("&lt;line-height&gt;")}}
 
-- `font-style`, `font-variant` und `font-weight` müssen `font-size` vorangehen.
-- `font-variant` darf nur die in CSS 2.1 definierten Werte spezifizieren, nämlich `normal` und `small-caps`.
-- `font-stretch` darf nur ein einzelnes Schlüsselwort sein.
-- `line-height` muss unmittelbar auf `font-size` folgen, getrennt durch "/", wie in: `16px/3`.
-- `font-family` muss der letzte angegebene Wert sein.
+- `font-style`, `font-variant` und `font-weight` müssen `font-size` vorausgehen.
+- `font-variant` darf nur die in CSS 2.1 definierten Werte spezifizieren, das sind `normal` und `small-caps`.
+- `font-stretch` darf nur einen einzelnen Schlüsselwortwert haben.
+- `line-height` muss unmittelbar auf `font-size` folgen, getrennt durch "/", wie folgt: `16px/3`.
+- `font-family` muss der zuletzt angegebene Wert sein.
 
 ### Werte
 
 - `<'font-style'>`
-  - : Siehe die CSS-Eigenschaft {{cssxref("font-style")}}.
+  - : Siehe die {{cssxref("font-style")}} CSS-Eigenschaft.
 - `<'font-variant'>`
-  - : Siehe die CSS-Eigenschaft {{cssxref("font-variant")}}.
+  - : Siehe die {{cssxref("font-variant")}} CSS-Eigenschaft.
 - `<'font-weight'>`
-  - : Siehe die CSS-Eigenschaft {{cssxref("font-weight")}}.
+  - : Siehe die {{cssxref("font-weight")}} CSS-Eigenschaft.
 - `<'font-stretch'>`
-  - : Siehe die CSS-Eigenschaft {{cssxref("font-stretch")}}.
+  - : Siehe die {{cssxref("font-stretch")}} CSS-Eigenschaft.
 - `<'font-size'>`
-  - : Siehe die CSS-Eigenschaft {{cssxref("font-size")}}.
+  - : Siehe die {{cssxref("font-size")}} CSS-Eigenschaft.
 - `<'line-height'>`
-  - : Siehe die CSS-Eigenschaft {{cssxref("line-height")}}.
+  - : Siehe die {{cssxref("line-height")}} CSS-Eigenschaft.
 - `<'font-family'>`
-  - : Siehe die CSS-Eigenschaft {{cssxref("font-family")}}.
+  - : Siehe die {{cssxref("font-family")}} CSS-Eigenschaft.
 
-#### Systemschriftwerte
+#### Systemschriftart-Werte
 
 - `caption`
-  - : Die Systemschrift, die für beschriftete Steuerelemente (z.B. Buttons, Dropdowns usw.) verwendet wird.
+  - : Die Systemschriftart, die für beschriftete Steuerelemente verwendet wird (z.B. Buttons, Drop-downs, etc.).
 - `icon`
-  - : Die Systemschrift, die zur Beschriftung von Symbolen verwendet wird.
+  - : Die Systemschriftart, die zur Beschriftung von Icons verwendet wird.
 - `menu`
-  - : Die Systemschrift, die in Menüs (z.B. Dropdown-Menüs und Menüliste) verwendet wird.
+  - : Die Systemschriftart, die in Menüs verwendet wird (z.B. Dropdown-Menüs und Menülists).
 - `message-box`
-  - : Die Systemschrift, die in Dialogboxen verwendet wird.
+  - : Die Systemschriftart, die in Dialogfeldern verwendet wird.
 - `small-caption`
-  - : Die Systemschrift, die zur Beschriftung kleiner Steuerelemente verwendet wird.
+  - : Die Systemschriftart, die zur Beschriftung kleiner Steuerelemente verwendet wird.
 - `status-bar`
-  - : Die Systemschrift, die in Fensterstatusleisten verwendet wird.
+  - : Die Systemschriftart, die in Fensterstatusleisten verwendet wird.
 - Präfixierte Systemschrift-Schlüsselwörter
-  - : Browser implementieren oft mehrere zusätzliche, präfixierte Schlüsselwörter: Gecko implementiert `-moz-window`, `-moz-document`, `-moz-desktop`, `-moz-info`, `-moz-dialog`, `-moz-button`, `-moz-pull-down-menu`, `-moz-list`, und `-moz-field`.
+  - : Browser implementieren häufig mehrere weitere, präfektierte Schlüsselwörter: Gecko implementiert `-moz-window`, `-moz-document`, `-moz-desktop`, `-moz-info`, `-moz-dialog`, `-moz-button`, `-moz-pull-down-menu`, `-moz-list` und `-moz-field`.
 
 ## Formale Definition
 
@@ -170,7 +170,7 @@ Wenn `font` als Kurzform für mehrere schriftartbezogene Eigenschaften angegeben
 
 ## Beispiele
 
-### Schriftarteigenschaften setzen
+### Schriftart-Eigenschaften festlegen
 
 ```css
 /* Set the font size to 12px and the line height to 14px.
@@ -214,7 +214,7 @@ p {
         type="radio"
         id="font-style-none"
         name="font_style"
-        checked=""
+        checked
         value="" />
       <label for="font-style-none">none</label><br />
       <input
@@ -243,7 +243,7 @@ p {
         type="radio"
         id="font-variant-none"
         name="font_variant"
-        checked=""
+        checked
         value=" " />
       <label for="font-variant-none">none</label><br />
       <input
@@ -267,7 +267,7 @@ p {
       <input
         type="radio"
         id="font-weight-normal"
-        checked=""
+        checked
         name="font_weight"
         value="400" />
       <label for="font-weight-normal">normal</label><br />
@@ -288,7 +288,7 @@ p {
         id="font-size-16px"
         name="font_size"
         value="16px"
-        checked="" />
+        checked />
       <label for="font-size-16px">16px</label><br />
       <input type="radio" id="font-size-24px" name="font_size" value="24px" />
       <label for="font-size-24px">24px</label>
@@ -300,15 +300,15 @@ p {
         type="radio"
         id="line-height-none"
         name="line_height"
-        checked=""
+        checked
         value="" />
       <label for="line-height-none">none</label><br />
       <input
         type="radio"
-        id="line-height-1.2"
+        id="line-height-1-2"
         name="line_height"
         value="/1.2" />
-      <label for="line-height-1.2">1.2</label><br />
+      <label for="line-height-1-2">1.2</label><br />
       <input type="radio" id="line-height-3" name="line_height" value="/3" />
       <label for="line-height-3">3</label>
     </div>
@@ -320,7 +320,7 @@ p {
         type="radio"
         id="font-family-courier"
         name="font_family"
-        checked=""
+        checked
         value="courier" />
       <label for="font-family-courier">courier</label><br />
       <input
@@ -525,4 +525,4 @@ document.querySelectorAll("input[type='radio']").forEach((el) => {
 
 - {{cssxref("font-style")}}
 - {{cssxref("font-weight")}}
-- [Lernen: Grundlegende Text- und Schriftformatierung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [Erlernen: Grundlegende Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)

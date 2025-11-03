@@ -2,10 +2,10 @@
 title: font-variant-numeric
 slug: Web/CSS/Reference/Properties/font-variant-numeric
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
-Die **`font-variant-numeric`**-[CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen Glyphen für Zahlen, Brüche und Ordnungszeichen.
+Die **`font-variant-numeric`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von alternativen Glyphen für Zahlen, Brüche und Ordinalzeichen.
 
 {{InteractiveExample("CSS Demo: font-variant-numeric", "taller")}}
 
@@ -47,21 +47,23 @@ font-variant-numeric: diagonal-fractions;
 <section id="default-example">
   <div id="example-element">
     <table>
-      <tr>
-        <td><span class="tabular">0</span></td>
-      </tr>
-      <tr>
-        <td><span class="tabular">3.54</span></td>
-      </tr>
-      <tr>
-        <td><span class="tabular">1.71</span></td>
-      </tr>
-      <tr>
-        <td><span class="tabular">1st</span></td>
-      </tr>
-      <tr>
-        <td><span class="tabular">3/4</span></td>
-      </tr>
+      <tbody>
+        <tr>
+          <td><span class="tabular">0</span></td>
+        </tr>
+        <tr>
+          <td><span class="tabular">3.54</span></td>
+        </tr>
+        <tr>
+          <td><span class="tabular">1.71</span></td>
+        </tr>
+        <tr>
+          <td><span class="tabular">1st</span></td>
+        </tr>
+        <tr>
+          <td><span class="tabular">3/4</span></td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </section>
@@ -115,50 +117,50 @@ font-variant-numeric: revert-layer;
 font-variant-numeric: unset;
 ```
 
-Diese Eigenschaft kann eine der beiden Formen annehmen:
+Diese Eigenschaft kann eine von zwei Formen annehmen:
 
 - entweder den Schlüsselwortwert `normal`
-- oder eines oder mehrere der unten aufgelisteten Werte, die durch Leerzeichen getrennt in beliebiger Reihenfolge stehen.
+- oder einen oder mehrere der unten aufgelisteten Werte, leerzeichengetrennt, in beliebiger Reihenfolge.
 
 ### Werte
 
 - `normal`
-  - : Dieses Schlüsselwort führt zur Deaktivierung der Verwendung solcher alternativen Glyphen.
+  - : Dieses Schlüsselwort führt zur Deaktivierung der Verwendung solcher alternativer Glyphen.
 
 - `ordinal`
-  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für die Ordnungszeichen, wie „1st“, „2nd“, „3rd“, „4th“ im Englischen oder „1a“ im Italienischen. Es entspricht den OpenType-Werten `ordn`.
+  - : Dieses Schlüsselwort erzwingt die Verwendung spezieller Glyphen für die Ordinalzeichen, wie z.B. 1st, 2nd, 3rd, 4th auf Englisch oder 1a auf Italienisch. Es entspricht den OpenType-Werten `ordn`.
 
 - `slashed-zero`
-  - : Dieses Schlüsselwort erzwingt die Verwendung einer 0 mit einem Schrägstrich; dies ist nützlich, wenn eine klare Unterscheidung zwischen O und 0 erforderlich ist. Es entspricht den OpenType-Werten `zero`.
+  - : Dieses Schlüsselwort erzwingt die Verwendung einer 0 mit einem Schrägstrich; dies ist nützlich, wenn eine klare Unterscheidung zwischen O und 0 notwendig ist. Es entspricht den OpenType-Werten `zero`.
 
 - _`<numeric-figure-values>`_
-  - : Diese Werte steuern die Figuren, die für Zahlen verwendet werden. Zwei Werte sind möglich:
-    - `lining-nums` aktiviert das Set von Zahlen, bei denen alle Zahlen auf der Grundlinie liegen. Es entspricht den OpenType-Werten `lnum`.
-    - `oldstyle-nums` aktiviert das Set von Zahlen, bei denen einige Zahlen, wie 3, 4, 7, 9 Unterlängen haben. Es entspricht den OpenType-Werten `onum`.
+  - : Diese Werte steuern die Ziffern, die für Zahlen verwendet werden. Zwei Werte sind möglich:
+    - `lining-nums` aktiviert den Satz von Ziffern, bei denen alle Zahlen auf der Basislinie liegen. Es entspricht den OpenType-Werten `lnum`.
+    - `oldstyle-nums` aktiviert den Satz von Ziffern, bei denen einige Zahlen, wie 3, 4, 7, 9, Unterlängen haben. Es entspricht den OpenType-Werten `onum`.
 
 - _`<numeric-spacing-values>`_
-  - : Diese Werte steuern die Größe der für Zahlen verwendeten Figuren. Zwei Werte sind möglich:
-    - `proportional-nums` aktiviert das Set von Zahlen, bei denen Zahlen nicht alle gleich groß sind. Es entspricht den OpenType-Werten `pnum`.
-    - `tabular-nums` aktiviert das Set von Zahlen, bei denen alle Zahlen gleich groß sind, wodurch sie leicht wie in Tabellen ausgerichtet werden können. Es entspricht den OpenType-Werten `tnum`.
+  - : Diese Werte steuern die Größe der Ziffern, die für Zahlen verwendet werden. Zwei Werte sind möglich:
+    - `proportional-nums` aktiviert den Satz von Ziffern, bei denen die Zahlen nicht alle gleich groß sind. Es entspricht den OpenType-Werten `pnum`.
+    - `tabular-nums` aktiviert den Satz von Ziffern, bei denen alle Zahlen gleich groß sind, was ihre einfache Ausrichtung wie in Tabellen ermöglicht. Es entspricht den OpenType-Werten `tnum`.
 
 - _`<numeric-fraction-values>`_
   - : Diese Werte steuern die Glyphen, die zur Darstellung von Brüchen verwendet werden. Zwei Werte sind möglich:
-    - `diagonal-fractions` aktiviert das Set von Figuren, bei denen der Zähler und Nenner verkleinert und durch einen Schrägstrich getrennt werden. Es entspricht den OpenType-Werten `frac`.
-    - `stacked-fractions` aktiviert das Set von Figuren, bei denen der Zähler und Nenner verkleinert, gestapelt und durch eine horizontale Linie getrennt werden. Es entspricht den OpenType-Werten `afrc`.
+    - `diagonal-fractions` aktiviert den Satz von Ziffern, bei denen der Zähler und der Nenner verkleinert und durch einen Schrägstrich getrennt werden. Es entspricht den OpenType-Werten `frac`.
+    - `stacked-fractions` aktiviert den Satz von Ziffern, bei denen der Zähler und der Nenner verkleinert, gestapelt und durch eine horizontale Linie getrennt werden. Es entspricht den OpenType-Werten `afrc`.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Einstellen von ordinalen numerischen Formen
+### Einstellen der ordinalen numerischen Formen
 
-Klicken Sie auf „Play“ in den untenstehenden Codeblöcken, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie auf "Play" in den folgenden Codeblöcken, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___font-variant-numeric-example
 <p class="ordinal">1st, 2nd, 3rd, 4th, 5th</p>

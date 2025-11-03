@@ -377,7 +377,7 @@ Diese Regeln arbeiten zusammen, um das Auswahlfeld sanft ein- und ausblenden zu 
 
 Ein anpassbares `<select>`-Element-Auswahlknopf und Dropdown-Auswahlfeld haben eine implizite Ankerreferenz, und das Auswahlfeld wird automatisch dem Auswahlknopf über [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) zugeordnet. Dies bedeutet, dass keine explizite Zuordnung mit den {{cssxref("anchor-name")}} und {{cssxref("position-anchor")}}-Eigenschaften vorgenommen werden muss.
 
-Zusätzlich bieten die [standardmäßigen Browser-Styles eine Standardposition](/de/docs/Web/CSS/::picker#picker_anchor_positioning), die Sie anpassen können, wie es in [Positionieren von Elementen relativ zu ihrem Anker](/de/docs/Web/CSS/CSS_anchor_positioning/Using#positioning_elements_relative_to_their_anchor) erklärt wird.
+Zusätzlich bieten die [standardmäßigen Browser-Styles eine Standardposition](/de/docs/Web/CSS/Reference/Selectors/::picker#picker_anchor_positioning), die Sie anpassen können, wie es in [Positionieren von Elementen relativ zu ihrem Anker](/de/docs/Web/CSS/CSS_anchor_positioning/Using#positioning_elements_relative_to_their_anchor) erklärt wird.
 
 In unserem Demo wird die Position des Auswahlfelds relativ zu seinem Anker mithilfe der {{cssxref("anchor()")}}-Funktion innerhalb seiner {{cssxref("top")}} und {{cssxref("left")}} Eigenschaftswerte gesetzt:
 

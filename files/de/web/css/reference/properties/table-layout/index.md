@@ -2,10 +2,10 @@
 title: table-layout
 slug: Web/CSS/Reference/Properties/table-layout
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
-Die **`table-layout`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt den Algorithmus fest, der zum Layouten von {{htmlelement("table")}}-Zellen, -Zeilen und -Spalten verwendet wird.
+Die **`table-layout`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Algorithmus fest, der zum Auslegen von {{htmlelement("table")}}-Zellen, -Zeilen und -Spalten verwendet wird.
 
 {{InteractiveExample("CSS Demo: table-layout")}}
 
@@ -32,26 +32,28 @@ width: 100%;
 ```html interactive-example
 <section class="default-example" id="default-example">
   <table class="transition-all" id="example-element">
-    <tr>
-      <th>Name</th>
-      <th>Location</th>
-    </tr>
-    <tr>
-      <td>Lion</td>
-      <td>Africa</td>
-    </tr>
-    <tr>
-      <td>Norwegian Lemming</td>
-      <td>Europe</td>
-    </tr>
-    <tr>
-      <td>Seal</td>
-      <td>Antarctica</td>
-    </tr>
-    <tr>
-      <td>Tiger</td>
-      <td>Asia</td>
-    </tr>
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+      </tr>
+      <tr>
+        <td>Lion</td>
+        <td>Africa</td>
+      </tr>
+      <tr>
+        <td>Norwegian Lemming</td>
+        <td>Europe</td>
+      </tr>
+      <tr>
+        <td>Seal</td>
+        <td>Antarctica</td>
+      </tr>
+      <tr>
+        <td>Tiger</td>
+        <td>Asia</td>
+      </tr>
+    </tbody>
   </table>
 </section>
 ```
@@ -86,18 +88,18 @@ table-layout: unset;
 ### Werte
 
 - `auto`
-  - : Der automatische Tabellen-Layout-Algorithmus wird verwendet. Die Breiten der Tabelle und ihrer Zellen werden angepasst, um den Inhalt aufzunehmen. Die meisten Browser verwenden diesen Algorithmus standardmäßig.
+  - : Der automatische Tabellenlayout-Algorithmus wird verwendet. Die Breiten der Tabelle und ihrer Zellen werden angepasst, um den Inhalt aufzunehmen. Die meisten Browser verwenden diesen Algorithmus standardmäßig.
 
 - `fixed`
-  - : Der feste Tabellen-Layout-Algorithmus wird verwendet. Bei Verwendung dieses Schlüsselworts muss die Breite der Tabelle explizit mit der [`width`](/de/docs/Web/CSS/Reference/Properties/width)-Eigenschaft angegeben werden. Wenn der Wert der `width`-Eigenschaft auf `auto` gesetzt ist oder nicht angegeben wird, verwendet der Browser den automatischen Tabellen-Layout-Algorithmus, in diesem Fall hat der `fixed`-Wert keine Wirkung.\
-    Der feste Tabellen-Layout-Algorithmus ist schneller als der automatische Layout-Algorithmus, da das horizontale Layout der Tabelle nur von der Breite der Tabelle, der Breite der Spalten sowie den Grenzen oder dem Zellabstand abhängt. Das horizontale Layout hängt nicht vom Inhalt der Zellen ab, da es nur von explizit gesetzten Breiten abhängt.
+  - : Der feste Tabellenlayout-Algorithmus wird verwendet. Bei Verwendung dieses Schlüsselworts _muss_ die Breite der Tabelle explizit über die [`width`](/de/docs/Web/CSS/Reference/Properties/width) Eigenschaft festgelegt werden. Wenn der Wert der `width`-Eigenschaft auf `auto` gesetzt ist oder nicht angegeben wird, verwendet der Browser den automatischen Tabellenlayout-Algorithmus. In diesem Fall hat der `fixed`-Wert keine Wirkung.\
+    Der feste Tabellenlayout-Algorithmus ist schneller als der automatische Layout-Algorithmus, da das horizontale Layout der Tabelle nur von der Breite der Tabelle, der Breite der Spalten und den Rändern oder dem Zellabstand abhängt. Das horizontale Layout hängt nicht vom Inhalt der Zellen ab, da es nur von explizit festgelegten Breiten abhängt.
 
-    Im festen Tabellen-Layout-Algorithmus wird die Breite jeder Spalte wie folgt bestimmt:
-    - Ein Spaltenelement mit expliziter Breite setzt die Breite für diese Spalte.
+    Beim festen Tabellenlayout-Algorithmus wird die Breite jeder Spalte wie folgt bestimmt:
+    - Ein Spaltenelement mit expliziter Breite legt die Breite für diese Spalte fest.
     - Andernfalls bestimmt eine Zelle in der ersten Zeile mit expliziter Breite die Breite für diese Spalte.
-    - Andernfalls erhält die Spalte die Breite aus dem gemeinsam verbleibenden horizontalen Raum.
+    - Andernfalls erhält die Spalte die Breite aus dem geteilten verbleibenden horizontalen Raum.
 
-    Mit diesem Algorithmus kann die gesamte Tabelle gerendert werden, sobald die erste Tabellenzeile heruntergeladen und analysiert wurde. Dies kann die Renderzeit gegenüber der "automatischen" Layout-Methode beschleunigen, aber der nachfolgende Zellinhalt passt möglicherweise nicht in die zur Verfügung gestellten Spaltenbreiten. Zellen verwenden die {{Cssxref("overflow")}}-Eigenschaft, um zu bestimmen, ob überlaufender Inhalt abgeschnitten wird, aber nur, wenn die Tabelle eine bekannte Breite hat; andernfalls überlaufen sie nicht die Zellen.
+    Mit diesem Algorithmus kann die gesamte Tabelle gerendert werden, sobald die erste Tabellenzeile heruntergeladen und analysiert wurde. Dies kann die Rendering-Geschwindigkeit im Vergleich zur "automatischen" Layout-Methode erhöhen, aber nachfolgender Zellinhalt passt möglicherweise nicht in die angegebenen Spaltenbreiten. Zellen verwenden die {{Cssxref("overflow")}} Eigenschaft, um zu bestimmen, ob überlaufender Inhalt abgeschnitten werden soll, jedoch nur, wenn die Tabelle eine bekannte Breite hat; andernfalls überläuft der Inhalt die Zellen nicht.
 
 ## Formale Definition
 
@@ -111,28 +113,30 @@ table-layout: unset;
 
 ### Tabellen mit fester Breite und Textüberlauf
 
-Dieses Beispiel verwendet ein festes Tabellen-Layout in Kombination mit der {{cssxref("width")}}-Eigenschaft, um die Breite der Tabelle zu beschränken. Die {{cssxref("text-overflow")}}-Eigenschaft wird verwendet, um ein Auslassungszeichen auf Wörter anzuwenden, die zu lang sind, um zu passen. Wenn das Tabellen-Layout `auto` wäre, würde die Tabelle wachsen, um ihren Inhalt aufzunehmen, trotz der angegebenen `width`.
+Dieses Beispiel verwendet ein festes Tabellenlayout, kombiniert mit der {{cssxref("width")}} Eigenschaft, um die Breite der Tabelle zu beschränken. Die {{cssxref("text-overflow")}} Eigenschaft wird verwendet, um lange Wörter, die nicht passen, mit einem Auslassungszeichen zu versehen. Wenn das Tabellenlayout `auto` wäre, würde die Tabelle wachsen, um ihren Inhalt aufzunehmen, trotz der angegebenen `width`.
 
 #### HTML
 
 ```html
 <table>
-  <tr>
-    <td>Ed</td>
-    <td>Wood</td>
-  </tr>
-  <tr>
-    <td>Albert</td>
-    <td>Schweitzer</td>
-  </tr>
-  <tr>
-    <td>Jane</td>
-    <td>Fonda</td>
-  </tr>
-  <tr>
-    <td>William</td>
-    <td>Shakespeare</td>
-  </tr>
+  <tbody>
+    <tr>
+      <td>Ed</td>
+      <td>Wood</td>
+    </tr>
+    <tr>
+      <td>Albert</td>
+      <td>Schweitzer</td>
+    </tr>
+    <tr>
+      <td>Jane</td>
+      <td>Fonda</td>
+    </tr>
+    <tr>
+      <td>William</td>
+      <td>Shakespeare</td>
+    </tr>
+  </tbody>
 </table>
 ```
 
@@ -168,4 +172,4 @@ td {
 ## Siehe auch
 
 - [`<table>`](/de/docs/Web/HTML/Reference/Elements/table)
-- [CSS Table](/de/docs/Web/CSS/CSS_table) Modul
+- [CSS table](/de/docs/Web/CSS/CSS_table) module

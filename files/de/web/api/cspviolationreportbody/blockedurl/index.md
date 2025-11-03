@@ -3,40 +3,42 @@ title: "CSPViolationReportBody: blockedURL-Eigenschaft"
 short-title: blockedURL
 slug: Web/API/CSPViolationReportBody/blockedURL
 l10n:
-  sourceCommit: 9f7e7e9075e9f2b1937d2c8000f52a8ff76bff52
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
 {{APIRef("Reporting API")}}
 
-Die **`blockedURL`** schreibgeschützte Eigenschaft der Schnittstelle [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody) ist ein Zeichenfolgenwert, der die Ressource darstellt, die blockiert wurde, weil sie gegen eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verstößt.
+Die **`blockedURL`** schreibgeschützte Eigenschaft der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle ist ein String-Wert, der die Ressource darstellt, die blockiert wurde, weil sie gegen eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/Guides/CSP) verstoßen hat.
 
 ## Wert
 
-Eine Zeichenfolge, die einen Wert oder eine URL enthält, die die Ressource repräsentiert, die gegen die Richtlinie verstoßen hat.
+Ein String, der einen Wert oder eine URL enthält, die die Richtlinie verletzende Ressource darstellt.
 
-Wenn der Wert nicht die URL einer Ressource ist, muss er einer der folgenden Zeichenfolgen sein:
+Wenn der Wert nicht die URL einer Ressource ist, muss er einer der folgenden Strings sein:
 
 - `inline`
-  - : Eine Inline-Ressource.
-    Beispielsweise ein Inline-Skript, das genutzt wurde, obwohl [`'unsafe-inline'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-inline) nicht in der CSP angegeben war.
+  - : Eine eingebettete Ressource.
+    Zum Beispiel ein eingebettetes Skript, das verwendet wurde, als [`'unsafe-inline'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-inline) nicht in der CSP angegeben war.
 - `eval`
   - : Ein `eval()`.
-    Beispielsweise wurde `eval()` verwendet, aber [`'unsafe-eval'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-eval) war nicht in der CSP angegeben.
+    Zum Beispiel wurde `eval()` verwendet, aber [`'unsafe-eval'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#unsafe-eval) war nicht in der CSP angegeben.
 - `wasm-eval`
   - : Eine Wasm-Auswertung.
-    Beispielsweise wurde `eval()` verwendet, aber [`'wasm-unsafe-eval'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#wasm-unsafe-eval) war nicht in der CSP angegeben.
+    Zum Beispiel wurde `eval()` verwendet, aber [`'wasm-unsafe-eval'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#wasm-unsafe-eval) war nicht in der CSP angegeben.
 - `trusted-types-policy`
   - : Eine Ressource, die gegen die [`trusted-types`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/trusted-types) CSP-Direktive verstoßen hat.
     Zum Beispiel wurde eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) erstellt, indem [`window.trustedTypes.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) mit einem Namen verwendet wurde, der nicht in der CSP-Direktive `trusted-types` aufgeführt war.
 - `trusted-types-sink`
-  - : Eine Ressource, die gegen die CSP-Direktive [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/trusted-types) verstoßen hat.
-    Zum Beispiel wurde die Direktive auf `script` gesetzt, aber das Dokument hat keine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) verwendet, um Daten zu bereinigen, bevor sie an einen Sink wie [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) übergeben wurden.
+  - : Eine Ressource, die gegen die [`require-trusted-types-for`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/trusted-types) CSP-Direktive verstoßen hat.
+    Zum Beispiel wurde die Direktive auf `script` gesetzt, aber das Dokument verwendete keine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy), um Daten zu bereinigen, bevor sie an eine Senke wie [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) übergeben wurden.
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen HTML, das zu einigen der oben beschriebenen `blockedURL`-Werten führen würde.
+Die folgenden Beispiele zeigen HTML, das zu einigen der oben beschriebenen `blockedURL`-Werte führen würde.
 
-Die Beispiele gehen davon aus, dass Sie eine JavaScript-Datei namens `main.js` haben, die in Ihr Skript von derselben Domain importiert wird. Das Skript, das unten gezeigt wird, erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Verstöße gegen Inhaltsrichtlinien vom Typ `"csp-violation"` zu beobachten. Jedes Mal, wenn die Rückruffunktion aufgerufen wird, protokollieren wir die `blockedURL` im ersten Eintrag des Berichtarrays.
+Die Beispiele gehen davon aus, dass Sie eine JavaScript-Datei namens `main.js` haben, die von derselben Domain in Ihr Skript importiert wird.
+Das Skript, das unten gezeigt wird, erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten.
+Jedes Mal, wenn die Rückruffunktion aufgerufen wird, protokollieren wir die `blockedURL` des ersten Eintrags im Berichtsarray.
 
 ```js
 const observer = new ReportingObserver(
@@ -52,11 +54,11 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Beachten Sie, dass, obwohl möglicherweise mehrere Berichte im zurückgegebenen Array vorhanden sind, wir der Kürze halber nur die blockierte URL des ersten Berichts protokollieren.
+Beachten Sie, dass es mehrere Berichte im zurückgegebenen Array geben kann. Der Kürze halber protokollieren wir nur die blockierte URL des ersten Berichts.
 
 ### blockedURL für eine externe Ressource
 
-Das untenstehende HTML setzt eine Richtlinie von `Content-Security-Policy: default-src 'self'`, die nur Ressourcen von derselben Seite erlaubt, und versucht dann, ein Skript von der externen Seite `https://apis.google.com` zu laden.
+Das untenstehende HTML legt eine Richtlinie von `Content-Security-Policy: default-src 'self'` fest, die nur Ressourcen von derselben Site erlaubt, und versucht dann, ein Skript von der externen Site `https://apis.google.com` zu laden.
 
 ```html
 <!doctype html>
@@ -72,15 +74,16 @@ Das untenstehende HTML setzt eine Richtlinie von `Content-Security-Policy: defau
 </html>
 ```
 
-Das Ergebnis des Loggens der `blockedURL` wäre:
+Das Ergebnis des Protokollierens der `blockedURL` wäre:
 
 ```plain
 blockedURL: https://apis.google.com/js/platform.js
 ```
 
-### blockedURL für unsichere Inline-Ressourcen
+### blockedURL für unsichere eingebettete Ressourcen
 
-Das untenstehende HTML zeigt die Bedingungen, die zu einer `blockedURL` von `inline` führen würden. Es setzt eine Richtlinie von `Content-Security-Policy: default-src 'self'`, die das Ausführen von Inline-Skripten nicht erlaubt, was zu einem Verstoß führt, weil die Seite ein Inline-Skript enthält.
+Das untenstehende HTML zeigt die Bedingungen, die zu einem `blockedURL` von `inline` führen würden.
+Es legt eine Richtlinie von `Content-Security-Policy: default-src 'self'` fest, die keine Ausführung von eingebetteten Skripten erlaubt, wodurch eine Verletzung verursacht wird, da die Seite ein eingebettetes Skript enthält.
 
 ```html
 <!doctype html>
@@ -97,15 +100,17 @@ Das untenstehende HTML zeigt die Bedingungen, die zu einer `blockedURL` von `inl
 </html>
 ```
 
-Das Ergebnis des Loggens der `blockedURL` wäre:
+Das Ergebnis des Protokollierens der `blockedURL` wäre:
 
 ```plain
 blockedURL: inline
 ```
 
-### blockedURL für trusted-types-policy-Ressourcen
+### blockedURL für trusted-types-policy Ressourcen
 
-Das untenstehende HTML zeigt die Bedingungen, die zu einer `blockedURL` von `trusted-types-policy` führen würden. Zuerst definiert es eine Richtlinie, die das Ausführen von `'unsafe-inline'`-Skripten erlaubt, sodass wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) erstellen können, die einen Verstoß auslöst. Die Richtlinie verwendet auch die Direktive `trusted-types`, um anzugeben, dass eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) mit dem Namen `myPolicy` erstellt werden darf.
+Das untenstehende HTML zeigt die Bedingungen, die zu einem `blockedURL` von `trusted-types-policy` führen würden.
+Zuerst wird eine Richtlinie definiert, die `'unsafe-inline'`-Skripte auszuführen erlaubt, sodass wir eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) erstellen können, die eine Verletzung auslöst.
+Die Richtlinie verwendet auch die `trusted-types`-Direktive, um anzugeben, dass eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) mit dem Namen `myPolicy` erstellt werden darf.
 
 ```html
 <!doctype html>
@@ -117,36 +122,37 @@ Das untenstehende HTML zeigt die Bedingungen, die zu einer `blockedURL` von `tru
     <script src="main.js"></script>
   </head>
 
-  <body></body>
-
-  <script>
-    const policy = trustedTypes.createPolicy("somePolicy", {
-      // Some (insufficient) sanitization code
-      createHTML: (string) => string.replace(/</g, "&lt;"),
-    });
-  </script>
+  <body>
+    <script>
+      const policy = trustedTypes.createPolicy("somePolicy", {
+        // Some (insufficient) sanitization code
+        createHTML: (string) => string.replace(/</g, "&lt;"),
+      });
+    </script>
+  </body>
 </html>
 ```
 
 Im Skript wird eine Richtlinie mit dem Namen `somePolicy` erstellt.
 
 > [!NOTE]
-> Die spezifische Richtlinie, die wir oben definiert haben, ist keine sehr gute Richtlinie.
-> Das Ziel der Verwendung von Trusted Types ist nicht, eine _bestimmte_ Richtlinie durchzusetzen, sondern die Durchsetzung einer Richtlinie zu verlangen und sicherzustellen, dass der Bereinigungscode an einem Ort und leicht überprüfbar ist.
+> Die oben definierte Richtlinie ist keine besonders gute Richtlinie.
+> Das Ziel der Verwendung von trusted types besteht nicht darin, eine _bestimmte_ Richtlinie durchzusetzen, sondern die Durchsetzung einer Richtlinie zu verlangen und sicherzustellen, dass der Bereinigungscode an einem Ort ist und leicht geprüft werden kann.
 
-Da dies nicht in der `trusted-types` Direktive aufgeführt ist, ist es ein CSP-Verstoß, und wir würden die Log-Ausgabe sehen:
+Da dies nicht in der `trusted-types`-Direktive aufgeführt ist, ist es eine CSP-Verletzung, und wir würden die folgende Protokollausgabe sehen:
 
 ```plain
 blockedURL: trusted-types-policy
 ```
 
-Wenn wir den Namen der zugelassenen Richtlinie in `somePolicy` ändern würden, würde die Seite nicht mehr gegen die Richtlinie verstoßen.
+Wenn wir den Namen der erlaubten Richtlinie in `somePolicy` ändern würden, würde die Seite nicht mehr gegen die Richtlinie verstoßen.
 
-### blockedURL für trusted-types-sink-Ressourcen
+### blockedURL für trusted-types-sink Ressourcen
 
-Das untenstehende HTML zeigt die Bedingungen, die zu einer `blockedURL` von `trusted-types-sink` führen würden. Zuerst definiert es eine Richtlinie, die das Ausführen von `'unsafe-inline'`-Skripten erlaubt, und wie im vorherigen Beispiel verwendet es die Direktive `trusted-types`, um anzugeben, dass eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) mit dem Namen `myPolicy` erstellt werden darf.
+Das untenstehende HTML zeigt die Bedingungen, die zu einem `blockedURL` von `trusted-types-sink` führen würden.
+Zuerst wird eine Richtlinie definiert, die `'unsafe-inline'`-Skripte auszuführen erlaubt, und wie im vorherigen Beispiel wird die `trusted-types`-Direktive verwendet, um anzugeben, dass eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) mit dem Namen `myPolicy` erstellt werden darf.
 
-Zusätzlich wird die Direktive `require-trusted-types-for 'script'` festgelegt, die durchsetzt, dass Sinks nur Inhalt übergeben werden sollte, der mit einem Trusted Type bereinigt wurde.
+Zusätzlich legt es die Direktive `require-trusted-types-for 'script'` fest, die durchsetzt, dass Senken nur Inhalte erhalten sollen, die mithilfe eines trusted types bereinigt wurden.
 
 ```html
 <!doctype html>
@@ -176,13 +182,14 @@ Zusätzlich wird die Direktive `require-trusted-types-for 'script'` festgelegt, 
 </html>
 ```
 
-Die Methode `updateContent()` übergibt unbereinigten Inhalt an die `innerHTML`-Eigenschaft des Elements, was zu einem CSP-Verstoß führt. Wir würden die Log-Ausgabe sehen:
+Die Methode `updateContent()` gibt unbereinigte Inhalte an die `innerHTML`-Eigenschaft des Elements weiter, was eine CSP-Verletzung verursacht.
+Wir würden die folgende Protokollausgabe sehen:
 
 ```plain
 blockedURL: trusted-types-sink
 ```
 
-Um den Verstoß zu vermeiden, müssten wir das Skript aktualisieren, um eine Trusted Type-Policy zu definieren und sie zu verwenden, um den an das Element übergebenen Eingabewert zu bereinigen:
+Um die Verletzung zu vermeiden, müssten wir das Skript aktualisieren, um eine trusted type-Richtlinie zu definieren und diese zu verwenden, um die Eingaben, die an das Element übergeben werden, zu bereinigen:
 
 ```js
 const policy = trustedTypes.createPolicy("myPolicy", {

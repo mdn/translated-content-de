@@ -2,10 +2,10 @@
 title: position-anchor
 slug: Web/CSS/Reference/Properties/position-anchor
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
 ---
 
-Die **`position-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt den Ankernamen des **Ankerelements** an (d. h. ein Element, das einen **Ankernamen** hat, der durch die {{cssxref("anchor-name")}} Eigenschaft gesetzt wird), mit dem ein positioniertes Element verknüpft ist.
+Die **`position-anchor`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt den Ankernamen des **Ankerelements** an (d.h. ein Element, das einen **Ankernamen** durch die {{cssxref("anchor-name")}} Eigenschaft gesetzt hat), mit dem ein positioniertes Element verbunden ist.
 
 ## Syntax
 
@@ -25,28 +25,28 @@ position-anchor: unset;
 ### Werte
 
 - `auto`
-  - : Verknüpft ein positioniertes Element mit seinem impliziten Ankerelement, falls es eines hat — zum Beispiel, wie durch das nicht-standardmäßige HTML [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor) Attribut festgelegt.
+  - : Verbindet ein positioniertes Element mit seinem impliziten Ankerelement, falls es eines hat — zum Beispiel gesetzt durch das nicht standardisierte HTML [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor) Attribut.
 
 - {{cssxref("dashed-ident")}}
-  - : Der Name des Ankerelements, mit dem das positionierte Element verknüpft wird, wie im `anchor-name` Attribut des Ankerelements angegeben. Dies wird als **Standard-Ankerspezifikator** bezeichnet.
+  - : Der Name des Ankerelements, mit dem das positionierte Element verbunden werden soll, wie im Ankerelement unter der {{cssxref("anchor-name")}} Eigenschaft aufgeführt. Dies wird als **default anchor specifier** bezeichnet.
 
 ## Beschreibung
 
 Diese Eigenschaft ist nur für "positionierte" Elemente relevant — Elemente und Pseudo-Elemente, die eine {{cssxref("position")}} von `absolute` oder `fixed` haben.
 
-Um ein Element relativ zu einem Ankerelement zu positionieren, benötigt das positionierte Element drei Merkmale: eine Verbindung, eine Position, und einen Standort. Die `position-anchor` und {{cssxref("anchor-name")}} Eigenschaften bieten eine explizite Verbindung.
+Um ein Element relativ zu einem Ankerelement zu positionieren, benötigt das positionierte Element drei Merkmale: eine Verbindung, eine Position und einen Ort. Die Eigenschaften `position-anchor` und {{cssxref("anchor-name")}} bieten eine explizite Verbindung.
 
-Das Ankerelement akzeptiert einen oder mehrere `<dashed-ident>` Ankernamen, die durch die `anchor-name` Eigenschaft gesetzt werden. Wenn einer dieser Namen dann als Wert der `position-anchor` Eigenschaft des positionierten Elements gesetzt wird, sind die beiden Elemente verbunden.
+Das Ankerelement nimmt einen oder mehrere `<dashed-ident>` Ankernamen auf, die es über die `anchor-name` Eigenschaft gesetzt hat. Wenn einer dieser Namen dann als Wert der `position-anchor` Eigenschaft des positionierten Elements gesetzt wird, werden die beiden Elemente verbunden.
 
-Falls es mehrere Ankerelemente mit dem im `position-anchor` Attribut aufgelisteten Ankernamen gibt, wird das positionierte Element mit dem letzten Ankerelement in der Quellreihenfolge mit diesem Ankernamen verknüpft.
+Wenn es mehrere Ankerelemente mit dem im `position-anchor` aufgeführten Ankernamen gibt, wird das positionierte Element mit dem letzten Ankerelement in der Quellenreihenfolge mit diesem Ankernamen verbunden.
 
-Um ein positioniertes Element an seinen Anker zu binden, muss es relativ zu einem Ankerelement mit einer Ankerpositionierungsfunktion positioniert werden, wie etwa der {{cssxref("anchor()")}} Funktion (als Wert auf {{Glossary("inset_properties", "inset properties")}} gesetzt) oder der {{cssxref("position-area")}} Eigenschaft.
+Um ein positioniertes Element an seinen Anker zu binden, muss es relativ zu einem Ankerelement mit einem Anker-Positionierungsmerkmal platziert werden, wie zum Beispiel der {{cssxref("anchor()")}} Funktion (als Wert für {{Glossary("inset_properties", "inset properties")}} gesetzt) oder der {{cssxref("position-area")}} Eigenschaft.
 
-Wenn der verbundene Anker verborgen ist, zum Beispiel mit {{cssxref("display", "display: none")}} oder {{cssxref("visibility", "visibility: hidden")}}, oder wenn er Teil des [umgangenen Inhalts](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents) eines anderen Elements ist, weil es {{cssxref("content-visibility", "content-visibility: hidden")}} gesetzt hat, wird das Anker-positionierte Element nicht angezeigt.
+Wenn der zugehörige Anker verborgen ist, zum Beispiel mit {{cssxref("display", "display: none")}} oder {{cssxref("visibility", "visibility: hidden")}}, oder wenn er Teil der [übersprungenen Inhalte](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents) eines anderen Elements ist, weil er {{cssxref("content-visibility", "content-visibility: hidden")}} darauf gesetzt hat, wird das Ankerpositionierte Element nicht angezeigt.
 
-Die `position-anchor` Eigenschaft wird auf alle positionierten Elemente unterstützt, einschließlich [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) wie {{cssxref("::before")}} und {{cssxref("::after")}}. Pseudo-Elemente sind implizit an dasselbe Element wie das Ursprungs-Element des Pseudo-Elements verankert, sofern nicht anders angegeben.
+Die `position-anchor` Eigenschaft wird von allen Elementen unterstützt, die positioniert sind, einschließlich [Pseudo-Elementen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) wie {{cssxref("::before")}} und {{cssxref("::after")}}. Pseudo-Elemente sind implizit an dasselbe Element wie das Ursprungs-Element des Pseudo-Elements verankert, es sei denn, es wird anders angegeben.
 
-Für weitere Informationen zu Ankerfunktionen und deren Verwendung siehe das Modul [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) und den [Leitfaden zur Nutzung von CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using).
+Für weitere Informationen zu Ankermerkmalen und Verwendung siehe die Modul-Übersichtsseite [CSS anchor positioning](/de/docs/Web/CSS/CSS_anchor_positioning) und den [Using CSS anchor positioning](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Leitfaden.
 
 ## Formale Definition
 
@@ -58,15 +58,15 @@ Für weitere Informationen zu Ankerfunktionen und deren Verwendung siehe das Mod
 
 ## Beispiele
 
-Siehe die Dokumentation zu `anchor-name` für [grundlegende Nutzung](/de/docs/Web/CSS/Reference/Properties/anchor-name#basic_usage) und zusätzliche [`position-anchor` Beispiele](/de/docs/Web/CSS/Reference/Properties/anchor-name#examples).
+Sehen Sie sich die `anchor-name` Dokumentation für [grundlegende Verwendung](/de/docs/Web/CSS/Reference/Properties/anchor-name#basic_usage) und zusätzliche [`position-anchor` Beispiele](/de/docs/Web/CSS/Reference/Properties/anchor-name#examples) an.
 
-### Einen Slider-Thumb als Anker verwenden
+### Verwendung eines Schieberegler-Daumens als Anker
 
-In diesem Beispiel wird ein {{htmlelement("output")}} relativ zu einem Anker positioniert, der der Thumb eines Range-Sliders ist.
+In diesem Beispiel wird ein {{htmlelement("output")}} relativ zu einem Anker positioniert, der der Daumen eines Bereichsschiebereglers ist.
 
 #### HTML
 
-Wir fügen ein [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range) Element und ein [`<output>`](/de/docs/Web/HTML/Reference/Elements/output) Element ein, um den Wert des Bereichs anzuzeigen. Der im `<output>` Element angezeigte Wert wird über JavaScript aktualisiert, wenn sich der Wert des Sliders ändert.
+Wir fügen ein [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range) Element und ein [`<output>`](/de/docs/Web/HTML/Reference/Elements/output) Element ein, um den Wert des Bereichs anzuzeigen. Der Wert, der im `<output>` Element angezeigt wird, wird über JavaScript aktualisiert, wenn sich der Schiebereglerwert ändert.
 
 ```html
 <label for="slider">Change the value:</label>
@@ -76,9 +76,9 @@ Wir fügen ein [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/inp
 
 #### CSS
 
-Wir geben dem Thumb, dargestellt durch das [`::-webkit-slider-thumb`](/de/docs/Web/CSS/::-webkit-slider-thumb) Pseudo-Element, einen Ankernamen von `--thumb`. Dann setzen wir diesen Namen als Wert der `position-anchor` Eigenschaft des `<output>` Elements und geben ihm einen {{cssxref("position")}} Wert von `fixed`. Diese Schritte verbinden das `<output>` mit dem Thumb.
+Wir geben dem Daumen, dargestellt durch das [`::-webkit-slider-thumb`](/de/docs/Web/CSS/Reference/Selectors/::-webkit-slider-thumb) Pseudo-Element, einen Ankernamen von `--thumb`. Wir setzen dann diesen Namen als Wert der `position-anchor` Eigenschaft des `<output>` Elements und geben ihm einen {{cssxref("position")}} Wert von `fixed`. Diese Schritte verbinden das `<output>` mit dem Daumen.
 
-Schließlich verwenden wir {{cssxref("left")}} und {{cssxref("top")}} Eigenschaften mit {{cssxref("anchor()")}} Werten, um das `<output>` relativ zum Thumb zu positionieren.
+Schließlich verwenden wir die Eigenschaften {{cssxref("left")}} und {{cssxref("top")}} mit {{cssxref("anchor()")}} Werten, um das `<output>` relativ zum Daumen zu positionieren.
 
 ```css hidden
 body {
@@ -115,7 +115,7 @@ output {
 
 #### JavaScript
 
-Wir fügen einen Event-Listener hinzu, der den Inhalt des `<output>` Elements aktualisiert, wenn sich der Wert des `<input>` Elements ändert:
+Wir fügen einen Ereignis-Listener hinzu, der den Inhalt des `<output>` Elements aktualisiert, wenn sich der Wert des `<input>` ändert:
 
 ```js
 const input = document.querySelector("input");
@@ -128,17 +128,17 @@ input.addEventListener("input", (event) => {
 
 #### Ergebnisse
 
-Die Ausgabe ist an den Thumb verankert. Ändern Sie den Wert. Wenn die Ankerpositionierung in Ihrem Browser unterstützt wird, wird der Wert über und rechts vom Thumb angezeigt, egal wo er sich auf dem Slider befindet.
+Die Ausgabe ist an den Daumen verankert. Ändern Sie den Wert. Wenn die Ankerpositionierung in Ihrem Browser unterstützt wird, wird der Wert über und rechts vom Daumen angezeigt, egal wo er sich auf dem Schieberegler befindet.
 
-{{ EmbedLiveSample("Ein Range-Thumb als Anker", "100%", "225") }}
+{{ EmbedLiveSample("Ein Bereichsdaumen als Anker", "100%", "225") }}
 
 ### Mehrere positionierte Elemente und Anker
 
-In diesem Beispiel können Sie mehrere positionierte Elemente bewegen und sie mit verschiedenen Ankern verbinden. Dieses Beispiel zeigt, wie ein Anker mit mehreren positionierten Elementen verbunden werden kann, aber ein anker-positioniertes Element kann zu einem Zeitpunkt nur mit einem einzigen Anker, dem durch die `anchor-position` Eigenschaft definierten Anker, verknüpft werden.
+In diesem Beispiel können Sie mehrere positionierte Elemente bewegen und sie mit verschiedenen Ankern verbinden. Dieses Beispiel zeigt, wie ein Anker mit mehreren positionierten Elementen verbunden werden kann, aber ein ankerpositioniertes Element kann immer nur mit einem Anker zur gleichen Zeit verbunden sein, dem Anker, der durch die `anchor-position` Eigenschaft definiert ist.
 
 #### HTML
 
-Wir haben vier Anker und zwei positionierte Elemente, unterschieden durch verschiedenen `id` Werte. Die positionierten Elemente enthalten {{htmlelement("select")}} Boxen, die es Ihnen erlauben auszuwählen, mit welchem Anker Sie sie verbinden möchten.
+Wir haben vier Anker und zwei positionierte Elemente, unterschieden durch verschiedene `id` Werte. Die positionierten Elemente enthalten {{htmlelement("select")}} Boxen, die es Ihnen ermöglichen, auszuwählen, mit welchem Anker Sie sie verbinden möchten.
 
 ```html
 <div id="anchor-container">
@@ -175,7 +175,7 @@ Wir haben vier Anker und zwei positionierte Elemente, unterschieden durch versch
 
 #### CSS
 
-Wir deklarieren das erste `anchor` `<div>` als Anker unter Verwendung der `anchor-name` Eigenschaft, die zwei durch Kommas getrennte Ankernamen erhält, einen für jedes positionierte Element. Dies ist der Anfangszustand der Demo — beide positionierten Elemente werden an den ersten Anker angebunden.
+Wir erklären das erste `anchor` `<div>` als Anker unter Verwendung der Eigenschaft `anchor-name`, die zwei durch Kommas getrennte Ankernamen, einen für jedes positionierte Element, erhält. Dies ist der Ausgangszustand des Demos — beide positionierten Elemente werden an den ersten Anker gebunden.
 
 ```css hidden
 body {
@@ -209,7 +209,7 @@ body {
 }
 ```
 
-Jedes der positionierten Elemente erhält eine `position-anchor` Eigenschaft mit einem Wert, der einem der beiden Ankernamen entspricht. Die positionierten Elemente erhalten dann Anker-relative Positionierungsinformationen unter Verwendung einer Kombination aus inset, Alignment und Margin-Eigenschaften.
+Jedes der positionierten Elemente erhält eine `position-anchor` Eigenschaft mit einem Wert, der einem der beiden Ankernamen entspricht. Die positionierten Elemente erhalten dann ankerbezogene Positionierungsinformationen mithilfe einer Kombination von Einsetz-, Ausrichtungs- und Rand-Eigenschaften.
 
 ```css hidden
 .infobox {
@@ -243,7 +243,7 @@ Jedes der positionierten Elemente erhält eine `position-anchor` Eigenschaft mit
 
 #### JavaScript
 
-Wir ändern dynamisch, auf welchen Ankerelementen die `anchor-name` Werte gesetzt werden, als Reaktion darauf, dass in den `<select>` Menüs der positionierten Elemente verschiedene Anker ausgewählt werden. Die Schlüsselfunktionalität hier ist der [`change`](/de/docs/Web/API/HTMLElement/change_event) Event-Handler, `updateAnchorNames()`. Er setzt beide Ankernamen auf einen Anker, wenn die in den beiden `<select>` Menüs gewählten Anker die gleichen sind. Andernfalls setzt er einen einzelnen Ankernamen auf zwei separate Anker entsprechend.
+Wir ändern dynamisch, auf welchen Ankerelementen die `anchor-name` Werte gesetzt werden, als Reaktion auf verschiedene Anker, die in den `<select>` Menüs der positionierten Elemente ausgewählt werden. Die Schlüsselfunktionalität hier ist der [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignishandler, `updateAnchorNames()`. Es setzt beide Ankernamen auf einen Anker, wenn die in den beiden `<select>` Menüs gewählten Anker gleich sind. Andernfalls setzt es einen einzelnen Ankernamen auf zwei separate Anker, wie angemessen.
 
 ```js
 // Get references to the two select menus
@@ -282,7 +282,7 @@ function updateAnchorNames() {
 
 #### Ergebnis
 
-Wählen Sie verschiedene Werte aus den Dropdown-Menüs, um die Anker zu ändern, relativ zu denen die Elemente positioniert sind.
+Wählen Sie unterschiedliche Werte aus den Dropdown-Menüs, um die Anker zu ändern, zu denen die Elemente relativ positioniert sind.
 
 {{ EmbedLiveSample("Mehrere positionierte Elemente und Anker", "100%", "400") }}
 
@@ -299,4 +299,4 @@ Wählen Sie verschiedene Werte aus den Dropdown-Menüs, um die Anker zu ändern,
 - {{cssxref("anchor-name")}}
 - HTML [`anchor`](/de/docs/Web/HTML/Reference/Global_attributes/anchor) Attribut
 - [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Leitfaden zur Nutzung von CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
+- [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Anleitung

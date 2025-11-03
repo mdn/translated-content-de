@@ -3,12 +3,12 @@ title: "HTMLEmbedElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/HTMLEmbedElement/width
 l10n:
-  sourceCommit: d8a52569d8d465eb626af3d33600c8c638a7a322
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`**-Eigenschaft der [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement)-Schnittstelle gibt einen String zurück, der das `width`-Attribut des {{HTMLElement("embed")}}-Elements widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln angibt.
+Die **`width`**-Eigenschaft der [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement)-Schnittstelle gibt einen String zurück, der das `width`-Attribut des {{HTMLElement("embed")}}-Elements widerspiegelt, was die angezeigte Breite der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 
@@ -17,7 +17,7 @@ Ein String, der die angezeigte Breite der Ressource in CSS-Pixeln angibt.
 ## Beispiele
 
 ```html
-<embed id="el" width="800" height="600" />
+<embed id="el" width="800" height="600" src="https://example.com" />
 ```
 
 ```js

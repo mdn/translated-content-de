@@ -492,7 +492,7 @@ Links (das [`<a>`](/de/docs/Web/HTML/Reference/Elements/a)-Element mit einem `hr
 
 ### Linkstyling
 
-Standardmäßig unterscheiden sich Links optisch von anderem Text in Farbe und [Text-Dekoration](/de/docs/Web/CSS/Reference/Properties/text-decoration), wobei Links standardmäßig blau und unterstrichen sind, lila und unterstrichen, wenn besucht, und mit einem [Fokus-Ring](/de/docs/Web/CSS/:focus), wenn sie Tastaturfokus erhalten.
+Standardmäßig unterscheiden sich Links optisch von anderem Text in Farbe und [Text-Dekoration](/de/docs/Web/CSS/Reference/Properties/text-decoration), wobei Links standardmäßig blau und unterstrichen sind, lila und unterstrichen, wenn besucht, und mit einem [Fokus-Ring](/de/docs/Web/CSS/Reference/Selectors/:focus), wenn sie Tastaturfokus erhalten.
 
 Farbe sollte nicht als einziges Mittel zur Unterscheidung zwischen Links und nicht verknüpften Inhalten verwendet werden. Linktextfarbe, wie aller Text, muss sich signifikant von der Hintergrundfarbe unterscheiden ([ein Kontrast von 4,5:1](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)). Darüber hinaus sollten sich Links optisch signifikant von nicht verknüpftem Text unterscheiden, mit einem Mindestkontrast von 3:1 zwischen dem Linktext und dem umgebenden Text sowie zwischen Standard-, besuchten und Fokus-/Aktivzuständen und einem Kontrast von 4,5:1 zwischen all diesen Zustandsfarben und der Hintergrundfarbe.
 

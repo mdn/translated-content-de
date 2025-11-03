@@ -121,7 +121,7 @@ Die Fokusreihenfolge für interaktive Elemente sollte sinnvoll sein. Um dies zu 
 
 ### Fokussierte Elemente sollten sichtbar fokussiert sein
 
-Wenn ein Benutzer mit einer Tastatur navigiert, sollte die Benutzeroberfläche offensichtlich machen, welches Element aktuell im Fokus ist. Ändern oder entfernen Sie das standardmäßige [`:focus`](/de/docs/Web/CSS/:focus)-Styling des Browsers nicht, es sei denn, Sie machen den Fokus noch offensichtlicher.
+Wenn ein Benutzer mit einer Tastatur navigiert, sollte die Benutzeroberfläche offensichtlich machen, welches Element aktuell im Fokus ist. Ändern oder entfernen Sie das standardmäßige [`:focus`](/de/docs/Web/CSS/Reference/Selectors/:focus)-Styling des Browsers nicht, es sei denn, Sie machen den Fokus noch offensichtlicher.
 
 ### Linktexte vermitteln Bedeutung
 

@@ -3,12 +3,12 @@ title: "WebGLRenderingContext: vertexAttrib[1234]f[v]() Methode"
 short-title: vertexAttrib[1234]f[v]()
 slug: Web/API/WebGLRenderingContext/vertexAttrib
 l10n:
-  sourceCommit: 77d90a23ee0a3b5486a7963f68ad4e56efb06a7b
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.vertexAttrib[1234]f[v]()`** Methoden der [WebGL API](/de/docs/Web/API/WebGL_API) spezifizieren konstante Werte für generische Vertex-Attribute.
+Die **`WebGLRenderingContext.vertexAttrib[1234]f[v]()`** Methoden der [WebGL API](/de/docs/Web/API/WebGL_API) legen konstante Werte für generische Vertex-Attribute fest.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ vertexAttrib4fv(index, value)
 ### Parameter
 
 - `index`
-  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), das die Position des zu ändernden Vertex-Attributs angibt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der die Position des zu ändernden Vertex-Attributs angibt.
 - `v0`, `v1`, `v2`, `v3`
   - : Ein Gleitkomma-{{jsxref("Number")}} für den Vertex-Attributwert.
 - `value`
@@ -39,23 +39,23 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Während Vertex-Attribute normalerweise verwendet werden, um Werte zu spezifizieren, die für jedes Vertex unterschiedlich sind (unter Verwendung von [`vertexAttribPointer`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer)), kann es nützlich sein, einen konstanten Wert zu spezifizieren. Beispielsweise, wenn Sie einen Shader haben, der ein `color` Vertex-Attribut hat, aber alles in einer einzigen Farbe zeichnen möchten, können Sie `vertexAttrib` verwenden, um dies zu erreichen, ohne einen Puffer zu erstellen, der nur mit einem Wert gefüllt ist, oder einen separaten Shader zu erstellen, der ein Uniform für die Farbe verwendet.
+Obwohl Vertex-Attribute normalerweise verwendet werden, um Werte anzugeben, die für jeden Vertex unterschiedlich sind (unter Verwendung von [`vertexAttribPointer`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer)), kann es nützlich sein, einen konstanten Wert anzugeben. Beispielsweise, wenn Sie einen Shader haben, der ein `color` Vertex-Attribut hat, aber Sie alles in einer einzigen Farbe zeichnen möchten, können Sie `vertexAttrib` verwenden, um dies zu erreichen, ohne einen Puffer zu erstellen, der nur einen Wert enthält, oder einen separaten Shader zu erstellen, der ein Uniform für die Farbe verwendet.
 
 Dieser Wert wird verwendet, wenn ein gebundener Array-Puffer nicht mit [`enableVertexAttribArray`](/de/docs/Web/API/WebGLRenderingContext/enableVertexAttribArray) aktiviert wurde.
 
-Attribute können Matrizen sein, in diesem Fall müssen die Spalten der Matrix in aufeinanderfolgenden Vertex-Attribut-Slots geladen werden.
+Attribute können Matrizen sein, in diesem Fall müssen die Spalten der Matrix in aufeinanderfolgende Vertex-Attributslots geladen werden.
 
-Die mit `vertexAttrib` gesetzten Werte sind kontextübergreifend; das heißt, sie sind nicht Teil des Shader-Zustands (wie generische Vertex-Attribut-Indizes zu Shader-Variablenbindungen) und nicht Teil des Vertex-Array-Objektzustands (wie aktivierte Vertex-Attribut-Arrays). Die einzige Möglichkeit, die Werte zu ändern, besteht darin, diese Funktion erneut aufzurufen.
+Die mit `vertexAttrib` gesetzten Werte sind kontextglobal; das heißt, sie gehören nicht zum Shaderzustand (wie generische Vertex-Attributindizes zu Shader-Variablenbindungen) und sie sind nicht Teil des Vertex-Array-Objektzustands (wie aktivierte Vertex-Attributarrays). Der einzige Weg, die Werte zu ändern, besteht darin, diese Funktion erneut aufzurufen.
 
 ## Beispiele
 
 ```js
-const a_foobar = gl.getAttribLocation(shaderProgram, "foobar");
+const index = gl.getAttribLocation(shaderProgram, "foobar");
 // Either set each component individually:
-gl.vertexAttrib3f(a_foobar, 10.0, 5.0, 2.0);
+gl.vertexAttrib3f(index, 10.0, 5.0, 2.0);
 // Or provide a Float32Array:
 const floatArray = new Float32Array([10.0, 5.0, 2.0]);
-gl.vertexAttrib3fv(a_foobar, floatArray);
+gl.vertexAttrib3fv(index, floatArray);
 ```
 
 ```js

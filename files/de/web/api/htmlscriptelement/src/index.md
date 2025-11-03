@@ -3,22 +3,22 @@ title: "HTMLScriptElement: src-Eigenschaft"
 short-title: src
 slug: Web/API/HTMLScriptElement/src
 l10n:
-  sourceCommit: 2231cbd5847dff1ca21f8f7fb59d72cae615f088
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`src`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces ist ein String, der die URL eines externen Skripts darstellt; dies kann als Alternative zur direkten Einbettung eines Skripts innerhalb eines Dokuments verwendet werden.
+Die **`src`**-Eigenschaft der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle ist eine Zeichenkette, die die URL eines externen Skripts darstellt; dies kann als Alternative zur direkten Einbettung eines Skripts innerhalb eines Dokuments verwendet werden.
 
-Sie entspricht dem `src`-Attribut des {{HTMLElement("script")}}-Elements.
+Sie spiegelt das `src`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ## Beispiele
 
-Nehmen Sie an, der Code läuft auf einer Website, deren URL `https://example.com` ist.
+Angenommen, der Code wird auf einer Website ausgeführt, deren URL `https://example.com` ist.
 
 ```html
 <script id="script-with-src" type="module" src="/main.js"></script>
@@ -26,10 +26,10 @@ Nehmen Sie an, der Code läuft auf einer Website, deren URL `https://example.com
 ```
 
 ```js
-const script_with_src = document.getElementById("script-with-src");
-console.log(script_with_src.src); // Output: "https://example.com/main.js"
-const script_without_src = document.getElementById("script-without-src");
-console.log(script_without_src.src); // Output: ""
+const scriptWithSrc = document.getElementById("script-with-src");
+console.log(scriptWithSrc.src); // Output: "https://example.com/main.js"
+const scriptWithoutSrc = document.getElementById("script-without-src");
+console.log(scriptWithoutSrc.src); // Output: ""
 ```
 
 ## Spezifikationen

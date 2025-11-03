@@ -34,7 +34,7 @@ Die möglichen Werte sind: `"top"`, `"middle"`, `"bottom"` oder `"baseline"`
 
 Verwenden Sie `vertical-align` in CSS. Da {{htmlelement("td")}}-Elemente einer Spalte keine Kinder von {{htmlelement("col")}} sind, können Sie es nicht direkt auf einem {{HTMLElement("col")}} setzen. Sie müssen die Zellen mithilfe von `td:nth-child(n)` oder ähnlichem auswählen (`n` ist die Spaltennummer).
 
-Ein [Beispiel](/de/docs/Web/CSS/:nth-child#styling_a_table_column) ist auf der Seite {{cssxref(":nth-child()")}} verfügbar.
+Ein [Beispiel](/de/docs/Web/CSS/Reference/Selectors/:nth-child#styling_a_table_column) ist auf der Seite {{cssxref(":nth-child()")}} verfügbar.
 
 ## Spezifikationen
 

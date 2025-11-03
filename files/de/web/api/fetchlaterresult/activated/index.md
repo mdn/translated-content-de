@@ -1,14 +1,14 @@
 ---
-title: "FetchLaterResult: aktiviert Eigenschaft"
+title: "FetchLaterResult: activated-Eigenschaft"
 short-title: activated
 slug: Web/API/FetchLaterResult/activated
 l10n:
-  sourceCommit: a753bfc10d401d87f72220636166b560264fa1fa
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{APIRef("fetchLater API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`activated`** der [`FetchLaterResult`](/de/docs/Web/API/FetchLaterResult)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob der verzögerte Abruf gesendet wurde.
+Die schreibgeschützte **`activated`**-Eigenschaft des [`FetchLaterResult`](/de/docs/Web/API/FetchLaterResult)-Interfaces gibt einen boolean-Wert zurück, der angibt, ob der verzögerte Abruf gesendet wurde.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref('Boolean')}}.
 
 ## Beispiele
 
-### Eine `POST`-Anfrage für etwa eine Minute verzögern und eine Funktion erstellen, um zu überprüfen, ob sie gesendet wurde
+### Einen `POST`-Request für etwa eine Minute verzögern und eine Funktion erstellen, um zu überprüfen, ob er gesendet wurde
 
 ```js
 const result = fetchLater("https://report.example.com", {
@@ -25,7 +25,7 @@ const result = fetchLater("https://report.example.com", {
   activateAfter: 60000 /* 1 minute */,
 });
 
-function check_if_fetched() {
+function checkIfFetched() {
   return result.activated;
 }
 ```

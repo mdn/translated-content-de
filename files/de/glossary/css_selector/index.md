@@ -1,11 +1,11 @@
 ---
-title: Selektor (CSS)
+title: Selector (CSS)
 slug: Glossary/CSS_Selector
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
 ---
 
-Ein **CSS-Selektor** ist der Teil einer CSS-Regel, der beschreibt, welche Elemente in einem Dokument mit der Regel übereinstimmen. Die übereinstimmenden Elemente erhalten den in der Regel angegebenen Stil.
+Ein **CSS-Selektor** ist der Teil einer CSS-Regel, der beschreibt, auf welche Elemente in einem Dokument die Regel angewendet wird. Den übereinstimmenden Elementen wird der in der Regel festgelegte Stil zugewiesen.
 
 ## Beispiel
 
@@ -33,9 +33,9 @@ div.warning {
 }
 ```
 
-Die Selektoren hier sind `"p"` (welcher die Farbe Grün auf den Text innerhalb eines {{HTMLElement("p")}}-Elements anwendet), `"div.warning"` (welches jedes {{HTMLElement("div")}}-Element mit der [class](/de/docs/Web/HTML/Reference/Global_attributes/class) `"warning"` wie ein Warnfeld aussehen lässt), und `"#customized"`, welches die Basis-Schriftart des Elements mit der ID `"customized"` auf eine 16-Pixel hohe Lucida Grande oder eine der anderen angegebenen Ersatzschriften setzt.
+Die Selektoren hier sind `"p"` (der die Farbe Grün auf den Text innerhalb eines {{HTMLElement("p")}}-Elements anwendet), `"div.warning"` (der ein {{HTMLElement("div")}}-Element mit der [class](/de/docs/Web/HTML/Reference/Global_attributes/class) `"warning"` wie ein Warnfeld aussehen lässt), und `"#customized"`, der die Basis-Schriftart des Elements mit der ID `"customized"` auf 16 Pixel große Lucida Grande oder eine der wenigen Ersatzschriftarten setzt.
 
-Wir können dieses CSS dann auf etwas HTML anwenden, wie zum Beispiel:
+Wir können dieses CSS dann auf ein HTML anwenden, wie zum Beispiel:
 
 ```html
 <p>This is happy text.</p>
@@ -59,24 +59,24 @@ Der resultierende Seiteninhalt wird folgendermaßen gestylt:
 
 ## Siehe auch
 
-- [Erfahren Sie mehr über CSS-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) in unserer Einführung in CSS.
+- [Mehr über CSS-Selektoren erfahren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) in unserer Einführung in CSS.
 - Grundlegende Selektoren
-  - [Elementselektoren](/de/docs/Web/CSS/Type_selectors) `elementname`
-  - [Klassenselektoren](/de/docs/Web/CSS/Class_selectors) `.classname`
-  - [ID-Selektoren](/de/docs/Web/CSS/ID_selectors) `#idname`
-  - [Universalselektoren](/de/docs/Web/CSS/Universal_selectors) `* ns|* *|*`
-  - [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) `[attr=value]`
-  - [Zustandsselektoren](/de/docs/Web/CSS/Pseudo-classes) `a:active, a:visited`
+  - [Typselektoren](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) `elementname`
+  - [Klassenselektoren](/de/docs/Web/CSS/Reference/Selectors/Class_selectors) `.classname`
+  - [ID-Selektoren](/de/docs/Web/CSS/Reference/Selectors/ID_selectors) `#idname`
+  - [Universalselektoren](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors) `* ns|* *|*`
+  - [Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) `[attr=value]`
+  - [Zustandsselektoren](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) `a:active, a:visited`
 
 - Gruppierungsselektoren
-  - [Selektorenliste](/de/docs/Web/CSS/Selector_list) `A, B`
+  - [Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list) `A, B`
 
 - Kombinatoren
-  - [Selektoren für direkte Nachfolger](/de/docs/Web/CSS/Next-sibling_combinator) `A + B`
-  - [Selektoren für nachfolgende Geschwister](/de/docs/Web/CSS/Subsequent-sibling_combinator) `A ~ B`
-  - [Kindselektoren](/de/docs/Web/CSS/Child_combinator) `A > B`
-  - [Nachfahrenselektoren](/de/docs/Web/CSS/Descendant_combinator) `A B`
+  - [Nachbarselektoren](/de/docs/Web/CSS/Reference/Selectors/Next-sibling_combinator) `A + B`
+  - [Folgeschwesterselektoren](/de/docs/Web/CSS/Reference/Selectors/Subsequent-sibling_combinator) `A ~ B`
+  - [Kindselektoren](/de/docs/Web/CSS/Reference/Selectors/Child_combinator) `A > B`
+  - [Nachkommenselektoren](/de/docs/Web/CSS/Reference/Selectors/Descendant_combinator) `A B`
 
 - Pseudo
-  - [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) `:`
-  - [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements) `::`
+  - [Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) `:`
+  - [Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) `::`

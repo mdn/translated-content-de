@@ -1,15 +1,14 @@
 ---
-title: "Content-Security-Policy: connect-src Direktive"
+title: "Content-Security-Policy: connect-src Richtlinie"
 short-title: connect-src
 slug: Web/HTTP/Reference/Headers/Content-Security-Policy/connect-src
 l10n:
-  sourceCommit: ad5b5e31f81795d692e66dadb7818ba8b220ad15
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`connect-src`** Direktive beschränkt die URLs, die über Skript-Schnittstellen geladen werden können. Folgende APIs werden durch diese Direktive kontrolliert:
+Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`connect-src`**-Richtlinie beschränkt die URLs, die über Skriptschnittstellen geladen werden können. Die folgenden APIs werden durch diese Richtlinie kontrolliert:
 
-- Das [`ping`](/de/docs/Web/HTML/Reference/Elements/a#ping) Attribut in {{htmlelement("a")}} Elementen
+- Das [`ping`](/de/docs/Web/HTML/Reference/Elements/a#ping)-Attribut in {{htmlelement("a")}}-Elementen
 - [`fetch()`](/de/docs/Web/API/Window/fetch)
 - [`fetchLater()`](/de/docs/Web/API/Window/fetchLater) {{experimental_inline}}
 - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
@@ -18,7 +17,7 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
 - [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)
 
 > [!NOTE]
-> `connect-src 'self'` löst nicht in allen Browsern auf Websocket-Schemata aus. Weitere Informationen finden Sie in diesem [Problem](https://github.com/w3c/webappsec-csp/issues/7).
+> `connect-src 'self'` wird in allen Browsern nicht in Websocket-Schemata aufgelöst, mehr Informationen in diesem [Issue](https://github.com/w3c/webappsec-csp/issues/7).
 
 <table class="properties">
   <tbody>
@@ -27,14 +26,14 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Direktivtyp</th>
-      <td>{{Glossary("Fetch_directive", "Fetch-Direktiv")}}</td>
+      <th scope="row">Richtlinientyp</th>
+      <td>{{Glossary("Fetch_directive", "Fetch-Richtlinie")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, sucht der User-Agent nach der
-        <code>default-src</code> Direktive.
+        Ja. Wenn diese Richtlinie fehlt, wird der User-Agent die
+        <code>default-src</code>-Richtlinie suchen.
       </td>
     </tr>
   </tbody>
@@ -47,19 +46,19 @@ Content-Security-Policy: connect-src 'none';
 Content-Security-Policy: connect-src <source-expression-list>;
 ```
 
-Diese Direktive kann einen der folgenden Werte haben:
+Diese Richtlinie kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
 - `<source-expression-list>`
-  - : Eine durch Leerzeichen getrennte Liste von _source expression_ Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdrücke anwendbar:
+  - : Eine durch Leerzeichen getrennte Liste von _Quell-Ausdruck_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Richtlinie sind die folgenden Quell-Ausdruck-Werte anwendbar:
     - [`<host-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#host-source)
     - [`<scheme-source>`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#scheme-source)
     - [`'self'`](/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#self)
 
 ## Beispiele
 
-### Verstöße
+### Verletzungsfälle
 
 Angenommen, dieser CSP-Header:
 
@@ -70,23 +69,22 @@ Content-Security-Policy: connect-src https://example.com/
 Die folgenden Verbindungen werden blockiert und nicht geladen:
 
 ```html
-<a ping="https://not-example.com">
-  <script>
-    const response = fetch("https://not-example.com/");
+<a ping="https://not-example.com" href="/">Link</a>
+<script>
+  const response = fetch("https://not-example.com/");
 
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://not-example.com/");
-    xhr.send();
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://not-example.com/");
+  xhr.send();
 
-    const ws = new WebSocket("wss://not-example.com/");
+  const ws = new WebSocket("wss://not-example.com/");
 
-    const es = new EventSource("https://not-example.com/");
+  const es = new EventSource("https://not-example.com/");
 
-    navigator.sendBeacon("https://not-example.com/", {
-      /* … */
-    });
-  </script></a
->
+  navigator.sendBeacon("https://not-example.com/", {
+    /* … */
+  });
+</script>
 ```
 
 ## Spezifikationen

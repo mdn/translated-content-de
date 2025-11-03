@@ -2,16 +2,16 @@
 title: text-wrap-mode
 slug: Web/CSS/Reference/Properties/text-wrap-mode
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
-Die **`text-wrap-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, ob der Text innerhalb eines Elements umbrochen wird. Die verschiedenen Werte bieten alternative Möglichkeiten, den Inhalt eines Blockelements umzubrechen. Sie kann auch mithilfe der Kurzschrift {{CSSXRef("text-wrap")}} oder der Kurzschrift {{CSSXRef("white-space")}} gesetzt und zurückgesetzt werden.
+Die **`text-wrap-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, ob der Text innerhalb eines Elements umgebrochen wird. Die verschiedenen Werte bieten alternative Möglichkeiten, den Inhalt eines Blockelements umzubrechen. Es kann auch mit der {{CSSXRef("text-wrap")}} Kurzschreibweise oder der {{CSSXRef("white-space")}} Kurzschreibweise gesetzt und zurückgesetzt werden.
 
 > [!NOTE]
-> Die Eigenschaften {{CSSxRef("white-space-collapse")}} und `text-wrap-mode` können zusammen mithilfe der Kurzschrift-Eigenschaft {{CSSxRef("white-space")}} deklariert werden.
+> Die Eigenschaften {{CSSxRef("white-space-collapse")}} und `text-wrap-mode` können zusammen mit der {{CSSxRef("white-space")}} Kurzschreibweise angegeben werden.
 
 > [!NOTE]
-> Der Name dieser Eigenschaft ist ein Platzhalter, bis die CSSWG einen besseren Namen gefunden hat.
+> Der Name dieser Eigenschaft ist ein Platzhalter, bis die CSSWG einen besseren Namen findet.
 
 {{InteractiveExample("CSS Demo: text-wrap-mode")}}
 
@@ -28,7 +28,7 @@ text-wrap-mode: nowrap;
   <div class="whole-content-wrapper">
     <p>Edit the text in the box:</p>
     <div class="transition-all" id="example-element">
-      <p contenteditable="">
+      <p contenteditable>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem aut
         cum eum id quos est.
       </p>
@@ -68,12 +68,12 @@ text-wrap-mode: unset;
 
 ## Werte
 
-Diese Eigenschaft gibt an, ob Zeilen bei ungewollten weichen Umbruchmöglichkeiten umgebrochen werden können. Mögliche Werte:
+Diese Eigenschaft gibt an, ob Zeilen an ungezogenen weichen Umbruchstellen umbrochen werden dürfen. Mögliche Werte:
 
 - `wrap`
-  - : Text wird bei geeigneten Zeichen (zum Beispiel Leerzeichen, in Sprachen wie Englisch, die Leerzeichen als Trennzeichen verwenden) über Zeilen hinweg umgebrochen, um Überlauf zu minimieren. Dies ist der Standardwert.
+  - : Text wird bei geeigneten Zeichen (z.B. Leerzeichen, in Sprachen wie Englisch, die Leerzeichentrenner verwenden) umbrochen, um Überlauf zu minimieren. Dies ist der Standardwert.
 - `nowrap`
-  - : Text wird nicht über Zeilen hinweg umgebrochen. Er wird das enthaltende Element überlaufen, anstatt auf einer neuen Zeile zu brechen.
+  - : Text wird nicht über Zeilen hinweg umbrochen. Er wird das umgebende Element überlaufen, anstatt auf eine neue Zeile zu brechen.
 
 ## Formale Definition
 
@@ -85,9 +85,9 @@ Diese Eigenschaft gibt an, ob Zeilen bei ungewollten weichen Umbruchmöglichkeit
 
 ## Beispiele
 
-### Umbruch des Inhalts
+### Inhalt umbrechen
 
-Die Standardeinstellung ist, den Inhalt so umzubrechen, dass die `text-wrap-mode` Eigenschaft nicht notwendig ist. In diesem Beispiel wird der Inhalt zur nächsten Zeile übergehen, damit er in das Kästchen passt. Die letzte Zeile ist länger als das enthaltende Kästchen, daher gibt es einen Überlauf.
+Die Standardeinstellung ist, den Inhalt so umzubrechen, dass die `text-wrap-mode` Eigenschaft nicht notwendig ist. In diesem Beispiel wird der Inhalt auf die nächste Zeile fließen, damit er in das Feld passt. Die letzte Zeile ist länger als das umgebende Feld und läuft über.
 
 #### HTML
 
@@ -114,9 +114,9 @@ Die Standardeinstellung ist, den Inhalt so umzubrechen, dass die `text-wrap-mode
 
 {{EmbedLiveSample("wrapping_content", "100%", 250)}}
 
-### Kein Umbruch des Inhalts
+### Inhalt nicht umbrechen
 
-In diesem Beispiel wird der Inhalt **nicht** zur nächsten Zeile übergehen, so dass er in das Kästchen passt, da der Inhalt explizit angewiesen wurde, nicht mit `text-wrap-mode: nowrap;` umgebrochen zu werden. Der Inhalt ist länger als das enthaltende Kästchen und überläuft daher.
+In diesem Beispiel wird der Inhalt **nicht** auf die nächste Zeile fließen, damit er in das Feld passt, da dem Inhalt speziell gesagt wurde, sich nicht umzubrechen mit `text-wrap-mode: nowrap;`, der Inhalt ist länger als das umgebende Feld und läuft über.
 
 #### HTML
 

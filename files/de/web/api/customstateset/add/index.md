@@ -10,7 +10,7 @@ l10n:
 
 Die **`add`**-Methode der Schnittstelle [`CustomStateSet`](/de/docs/Web/API/CustomStateSet) fügt einen Wert hinzu, der einen benutzerdefinierten Zustand im `CustomStateSet` darstellt.
 
-Benutzerdefinierte Elemente mit einem speziellen Zustand können mithilfe der [`:state()`](/de/docs/Web/CSS/:state)-Pseudo-Klasse ausgewählt werden, indem der gewünschte Zustand als Argument angegeben wird.
+Benutzerdefinierte Elemente mit einem speziellen Zustand können mithilfe der [`:state()`](/de/docs/Web/CSS/Reference/Selectors/:state)-Pseudo-Klasse ausgewählt werden, indem der gewünschte Zustand als Argument angegeben wird.
 
 ## Syntax
 

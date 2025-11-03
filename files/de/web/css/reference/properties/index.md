@@ -3,10 +3,10 @@ title: CSS-Eigenschaften
 short-title: Properties
 slug: Web/CSS/Reference/Properties
 l10n:
-  sourceCommit: 55326f330a6ae829494c7606b1bd47b2c0f9d888
+  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
 ---
 
-Eine [CSS](/de/docs/Web/CSS) **_Eigenschaft_** ist ein Parameter, der in einer [CSS-Deklaration](/de/docs/Web/CSS/CSS_syntax/Syntax#css_declarations) verwendet wird und es Ihnen ermöglicht, bestimmte Aspekte von ausgewählten Elementen zu gestalten. Zum Beispiel wird die {{CSSxRef("opacity")}}-Eigenschaft verwendet, um die Deckkraft eines ausgewählten Elements festzulegen, sodass Sie steuern können, ob der Inhalt hinter diesem Element sichtbar ist:
+Eine [CSS](/de/docs/Web/CSS) **_Eigenschaft_** ist ein Parameter, der in einer [CSS-Deklaration](/de/docs/Web/CSS/CSS_syntax/Syntax#css_declarations) verwendet wird und es Ihnen ermöglicht, bestimmte Aspekte der ausgewählten Elemente zu stylen. Zum Beispiel wird die {{CSSxRef("opacity")}}-Eigenschaft verwendet, um die Deckkraft eines ausgewählten Elements festzulegen, sodass Sie steuern können, ob Inhalte hinter diesem Element sichtbar sind:
 
 ```css
 /* Set 0.8 opacity on <img> elements */
@@ -15,7 +15,8 @@ img {
 }
 ```
 
-Jede Eigenschaft hat einen Namen (z. B. `opacity`), einen Wert (z. B. `0.8`) und ein definiertes Verhalten bei der Darstellung des Dokuments. CSS definiert auch Kurzschreibweisen für Eigenschaften, sodass Sie mehrere verwandte Eigenschaften in einer einzigen Deklaration spezifizieren können. Zum Beispiel ist die {{CSSxRef("margin")}}-Eigenschaft eine Kurzschreibweise für {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}} und legt den Rand für alle vier Seiten eines Elements fest:
+Jede Eigenschaft hat einen Namen (z.B. `opacity`), einen Wert (z.B. `0.8`) und ein definiertes Verhalten beim Rendern des Dokuments.
+CSS definiert auch Kurzschreibweise-Eigenschaften, sodass Sie mehrere verwandte Eigenschaften in einer einzigen Deklaration angeben können. Zum Beispiel ist die {{CSSxRef("margin")}}-Eigenschaft eine Kurzschreibweise für {{CSSxRef("margin-top")}}, {{CSSxRef("margin-right")}}, {{CSSxRef("margin-bottom")}} und {{CSSxRef("margin-left")}}, und legt den Rand aller vier Seiten eines Elements fest:
 
 ```css
 /* Give <img> elements 1rem of margin */
@@ -34,7 +35,7 @@ selector {
 
 ## Alphabetisches Verzeichnis der Eigenschaften
 
-Standard-Eigenschaften, die von CSS-Spezifikationen definiert werden, umfassen Folgendes:
+Zu den standardmäßigen, durch CSS-Spezifikationen definierten Eigenschaften gehören:
 
 ### Verschiedenes
 
@@ -560,9 +561,9 @@ Standard-Eigenschaften, die von CSS-Spezifikationen definiert werden, umfassen F
 - {{CSSxRef("z-index")}}
 - {{CSSxRef("zoom")}}
 
-### Nicht-standardmäßige Eigenschaften
+### Nicht-standardisierte Eigenschaften
 
-Nicht-standardmäßige oder von Anbietern präfixte Eigenschaften umfassen Folgendes:
+Nicht-standardisierte oder anbieterpräfixierte Eigenschaften umfassen:
 
 #### `-moz-` Präfix
 
@@ -597,7 +598,7 @@ Nicht-standardmäßige oder von Anbietern präfixte Eigenschaften umfassen Folge
 ## Siehe auch
 
 - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
-- [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements)
-- [Firefox (-moz-) herstellerpräfixierte CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
-- [WebKit (-webkit-) herstellerpräfixierte CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
-- {{Glossary("Vendor_prefix", "Herstellerpräfix")}}
+- [Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements)
+- [Firefox (-moz-) anbieterpräfixierte CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Mozilla_extensions)
+- [WebKit (-webkit-) anbieterpräfixierte CSS-Erweiterungen](/de/docs/Web/CSS/Reference/Webkit_extensions)
+- {{Glossary("Vendor_prefix", "Anbieterpräfix")}}

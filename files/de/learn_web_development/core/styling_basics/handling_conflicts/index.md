@@ -2,14 +2,14 @@
 title: Umgang mit Konflikten
 slug: Learn_web_development/Core/Styling_basics/Handling_conflicts
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Test_your_skills/Box_model", "Learn_web_development/Core/Styling_basics/Test_your_skills/Cascade", "Learn_web_development/Core/Styling_basics")}}
 
-Ziel dieser Lektion ist es, Ihr Verständnis für einige der grundlegenden Konzepte von CSS zu entwickeln – die Kaskade, Spezifität und Vererbung –, die bestimmen, wie CSS auf HTML angewendet wird und wie Konflikte zwischen Stil-Deklarationen gelöst werden.
+Das Ziel dieser Lektion ist es, Ihr Verständnis für einige der grundlegendsten Konzepte von CSS — die Kaskade, Spezifität und Vererbung — zu entwickeln, die steuern, wie CSS auf HTML angewendet wird und wie Konflikte zwischen Stildeklarationen gelöst werden.
 
-Obwohl diese Lektion anfänglich weniger relevant erscheinen mag und etwas akademischer als andere Teile des Kurses ist, wird Ihnen das Verständnis dieser Konzepte später viel Ärger ersparen! Wir ermutigen Sie, diesen Abschnitt sorgfältig zu bearbeiten und sicherzustellen, dass Sie die Konzepte verstehen, bevor Sie weitermachen.
+Obwohl die Bearbeitung dieser Lektion scheinbar zunächst weniger relevant und etwas akademischer als andere Teile des Kurses erscheinen mag, wird Ihnen das Verständnis dieser Konzepte später viel Ärger ersparen! Wir ermutigen Sie, diesen Abschnitt sorgfältig durchzugehen und zu überprüfen, ob Sie die Konzepte verstehen, bevor Sie fortfahren.
 
 <table>
   <tbody>
@@ -18,7 +18,7 @@ Obwohl diese Lektion anfänglich weniger relevant erscheinen mag und etwas akade
       <td>
         HTML-Grundlagen (studieren Sie
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
-          >Grundlagen der HTML-Syntax</a
+          >Grundlegende HTML-Syntax</a
         >), <a href="/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors">CSS-Selektoren</a>.
       </td>
     </tr>
@@ -38,21 +38,21 @@ Obwohl diese Lektion anfänglich weniger relevant erscheinen mag und etwas akade
 
 ## Konfliktierende Regeln
 
-CSS steht für **Cascading Style Sheets** (kaskadierende Stylesheets), und das erste Wort _kaskadierend_ ist extrem wichtig zu verstehen — die Art und Weise, wie die Kaskade funktioniert, ist der Schlüssel zum Verständnis von CSS.
+CSS steht für **Cascading Style Sheets**, und das erste Wort _kaskadierend_ ist unglaublich wichtig zu verstehen — die Art und Weise, wie die Kaskade funktioniert, ist entscheidend für das Verständnis von CSS.
 
-Irgendwann werden Sie an einem Projekt arbeiten und feststellen, dass CSS, das Sie denken, auf ein Element anwenden zu können, nicht funktioniert. Dieses Problem tritt oft auf, wenn Sie zwei Regeln erstellen, die unterschiedliche Werte für die gleiche Eigenschaft auf dasselbe Element anwenden.
+Irgendwann werden Sie an einem Projekt arbeiten und feststellen, dass einige CSS, die Ihrer Meinung nach auf ein Element angewendet werden sollte, nicht funktioniert. Oft tritt dieses Problem auf, wenn Sie zwei Regeln erstellen, die unterschiedliche Werte derselben Eigenschaft auf dasselbe Element anwenden.
 
-Die [**Kaskade**](/de/docs/Web/CSS/CSS_cascade/Cascade) und das eng verwandte Konzept der [**Spezifität**](/de/docs/Web/CSS/CSS_cascade/Specificity) sind Mechanismen, die steuern, welche Regel angewendet wird, wenn ein solcher Konflikt auftritt. Die Deklaration, die Ihr Element stylt, ist möglicherweise nicht die erwartete, daher müssen Sie verstehen, wie diese Mechanismen funktionieren.
+Die [**Kaskade**](/de/docs/Web/CSS/CSS_cascade/Cascade) und das eng damit verbundene Konzept der [**Spezifität**](/de/docs/Web/CSS/CSS_cascade/Specificity) sind Mechanismen, die steuern, welche Regel angewendet wird, wenn ein solcher Konflikt auftritt. Die Deklaration, die Ihr Element stylt, ist möglicherweise nicht die, die Sie erwarten, daher müssen Sie verstehen, wie diese Mechanismen funktionieren.
 
-Auch von Bedeutung ist das Konzept der [**Vererbung**](/de/docs/Web/CSS/CSS_cascade/Inheritance), was bedeutet, dass einige CSS-Eigenschaften standardmäßig die auf dem übergeordneten Element festgelegten Werte erben und andere nicht. Dies kann ebenfalls zu unerwartetem Verhalten führen.
+Ebenfalls bedeutend ist das Konzept der [**Vererbung**](/de/docs/Web/CSS/CSS_cascade/Inheritance), was bedeutet, dass einige CSS-Eigenschaften standardmäßig Werte erben, die auf das übergeordnete Element des aktuellen Elements gesetzt sind, und andere nicht. Dies kann ebenfalls unerwartetes Verhalten verursachen.
 
-Beginnen wir mit einem kurzen Blick auf die Schlüsselkonzepte, mit denen wir es zu tun haben, dann werden wir uns jedes einzeln ansehen und sehen, wie sie miteinander und Ihrem CSS interagieren. Diese Konzepte können verwirrend erscheinen, werden aber klarer, je mehr Sie CSS schreiben.
+Lassen Sie uns mit einem kurzen Blick auf die Schlüsselkonzepte beginnen, mit denen wir uns befassen, dann werden wir uns jedes nacheinander ansehen und sehen, wie sie miteinander und mit Ihrem CSS interagieren. Diese Konzepte können anfänglich schwierig zu verstehen sein, aber sie werden klarer, je mehr Sie CSS schreiben.
 
 ### Kaskade
 
-Stylesheets [**kaskadieren**](/de/docs/Web/CSS/CSS_cascade/Cascade). Auf sehr einfachem Niveau bedeutet dies, dass der Ursprung und die Reihenfolge von CSS-Regeln wichtig sind. Wenn zwei Regeln gleiche Spezifität haben, wird diejenige verwendet, die zuletzt im Stylesheet definiert ist. Es gibt weitere Konzepte, die einen Einfluss haben, wie [Kaskadenschichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers), aber diese sind fortgeschrittener und wir werden sie hier nicht im Detail behandeln.
+Stylesheets [**kaskadieren**](/de/docs/Web/CSS/CSS_cascade/Cascade). Einfach ausgedrückt bedeutet dies, dass der Ursprung und die Reihenfolge der CSS-Regeln wichtig sind. Wenn zwei Regeln die gleiche Spezifität haben, wird diejenige verwendet, die zuletzt im Stylesheet definiert ist. Es gibt andere Konzepte, die eine Rolle spielen können, wie [Kaskadenschichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers), aber diese sind fortgeschrittener und werden hier nicht im Detail behandelt.
 
-Im folgenden Beispiel haben wir zwei Regeln, die auf das `<h1>`-Element angewendet werden könnten. Der Inhalt des `<h1>`-Elements wird letztlich blau gefärbt. Das liegt daran, dass beide Regeln aus derselben Quelle stammen, einen identischen Elementselektor haben und daher die gleiche Spezifität aufweisen, aber die letzte in der Quellreihenfolge gewinnt.
+Im untenstehenden Beispiel haben wir zwei Regeln, die auf das `<h1>`-Element angewendet werden könnten. Der Inhalt von `<h1>` wird am Ende blau gefärbt. Dies liegt daran, dass beide Regeln aus derselben Quelle stammen, denselben Elementselektor haben und daher die gleiche Spezifität tragen, aber die zuletzt in der Quellreihenfolge stehende gewinnt.
 
 ```html live-sample___cascade-simple
 <h1>This is my heading.</h1>
@@ -71,13 +71,13 @@ h1 {
 
 ### Spezifität
 
-[Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) ist ein Algorithmus, den der Browser verwendet, um zu entscheiden, welcher Eigenschaftswert auf ein Element angewendet wird. Wenn mehrere Regeln unterschiedliche Selektoren haben, die unterschiedliche Werte für dieselbe Eigenschaft setzen und dasselbe Element anvisieren, entscheidet Spezifität, welcher Eigenschaftswert auf das Element angewendet wird. Spezifität ist im Wesentlichen ein Maß dafür, wie spezifisch die Auswahl eines Selektors sein wird:
+[Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) ist ein Algorithmus, den der Browser verwendet, um zu entscheiden, welcher Eigenschaftswert auf ein Element angewendet wird. Wenn mehrere Regeln unterschiedliche Selektoren haben, die unterschiedliche Werte für dieselbe Eigenschaft setzen und dasselbe Element anvisieren, entscheidet die Spezifität den Eigenschaftswert, der auf das Element angewendet wird. Spezifität ist im Grunde ein Maß dafür, wie spezifisch die Auswahl eines Selektors ist:
 
-- Ein Typ-(Element-)Selektor ist weniger spezifisch; er wählt alle Elemente dieses Typs auf einer Seite aus und hat daher weniger Gewicht. Pseudo-Element-Selektoren haben die gleiche Spezifität wie reguläre Element-Selektoren.
-- Ein Klassen-Selektor ist spezifischer; er wählt nur die Elemente auf einer Seite aus, die einen bestimmten `class`-Attributwert haben, und hat daher mehr Gewicht. Attributselektoren und Pseudo-Klassen haben das gleiche Gewicht wie eine Klasse.
-- Ein ID-Selektor ist noch spezifischer — er wählt nur ein einzelnes Element mit einem bestimmten `id`-Wert aus und hat daher noch mehr Gewicht.
+- Ein Typ- (Element-)Selektor ist weniger spezifisch; er wählt alle Elemente dieses Typs auf einer Seite aus, also hat er weniger Gewicht. Pseudo-Element-Selektoren haben die gleiche Spezifität wie reguläre Elementselektoren.
+- Ein Klassen-Selektor ist spezifischer; er wählt nur die Elemente auf einer Seite aus, die einen bestimmten `class`-Attributwert haben, also hat er mehr Gewicht. Attributselektoren und Pseudo-Klassen haben das gleiche Gewicht wie eine Klasse.
+- Ein ID-Selektor ist noch spezifischer — er wählt nur ein einzelnes Element mit einem bestimmten `id`-Wert aus. Daher hat er noch mehr Gewicht.
 
-Unten haben wir wieder zwei Regeln, die auf das `<h1>`-Element angewendet werden könnten. Der `<h1>`-Inhalt wird schließlich `rot` gefärbt, obwohl die `color: blue`-Deklaration später in der Quellreihenfolge erscheint, da der Klassen-Selektor `main-heading` seiner Regel eine höhere Spezifität als der Typ-Selektor `h1` verleiht. Die Deklaration mit der höheren Spezifität, definiert durch den Klassen-Selektor, wird angewendet.
+Unten haben wir wieder zwei Regeln, die auf das `<h1>`-Element angewendet werden könnten. Der `<h1>`-Inhalt wird unten in `rot` gefärbt, obwohl die `color: blue`-Deklaration später in der Quellreihenfolge steht, weil der Klassenselektor `main-heading` seiner Regel eine höhere Spezifität als der Typselektor `h1` verleiht. Die Deklaration mit der höheren Spezifität, definiert durch den Klassenselektor, wird angewendet.
 
 ```html live-sample___specificity-simple
 <h1 class="main-heading">This is my heading.</h1>
@@ -95,13 +95,13 @@ h1 {
 
 {{EmbedLiveSample("specificity-simple")}}
 
-Wir werden den Spezifitäts-Algorithmus später genauer erklären.
+Wir werden den Spezifitätsalgorithmus später genauer erläutern.
 
 ### Vererbung
 
-Vererbung muss in diesem Kontext ebenfalls verstanden werden — einige CSS-Eigenschaftswerte, die auf übergeordnete Elemente gesetzt sind, werden von ihren Kind-Elementen geerbt, andere jedoch nicht.
+Vererbung muss in diesem Kontext ebenfalls verstanden werden — einige CSS-Eigenschaftswerte, die auf übergeordnete Elemente gesetzt sind, werden von ihren Kindelementen geerbt, andere nicht.
 
-Zum Beispiel, wenn Sie eine `color` und `font-family` auf ein Element setzen, wird jedes Element innerhalb dieses Elements auch mit dieser Farbe und Schriftart gestylt, es sei denn, Sie haben andere `color`- und `font`-Werte direkt auf sie angewendet.
+Zum Beispiel, wenn Sie `color` und `font-family` auf einem Element setzen, wird jedes darin enthaltene Element ebenfalls mit dieser Farbe und Schriftart gestylt, es sei denn, Sie haben ihnen direkt andere Farb- und Schriftwerte zugewiesen.
 
 ```html live-sample___inheritance-simple
 <p>
@@ -127,20 +127,20 @@ span {
 
 {{EmbedLiveSample("inheritance-simple")}}
 
-Einige Eigenschaften werden nicht vererbt — zum Beispiel {{cssxref("width")}} Wenn Sie eine `width` von `50%` auf ein Element setzen, erhalten nicht alle Nachfahren eine Breite von `50%` der Breite ihres Elternteils. Wenn dies der Fall wäre, wäre CSS sehr frustrierend zu verwenden!
+Einige Eigenschaften werden nicht vererbt — zum Beispiel {{cssxref("width")}}. Wenn Sie einem Element eine `width` von `50%` zuweisen, erhalten keine seiner Nachfahren eine Breite von `50%` der `width` des übergeordneten Elements. Wäre dies der Fall, wäre CSS sehr frustrierend zu verwenden!
 
 > [!NOTE]
-> Auf den MDN CSS-Eigenschaftsreferenzseiten finden Sie ein technisches Informationsfeld namens "Formale Definition", das eine Reihe von Datenpunkten zu dieser Eigenschaft auflistet, einschließlich ob sie vererbt wird oder nicht. Schauen Sie sich als Beispiel den Abschnitt [Formale Definition der Farbeigenschaft](/de/docs/Web/CSS/Reference/Properties/color#formal_definition) an.
+> Auf den MDN-CSS-Eigenschaftsreferenzseiten finden Sie eine technische Informationsbox mit der Bezeichnung "Formale Definition", die eine Reihe von Datenpunkten über diese Eigenschaft auflistet, einschließlich ob sie vererbt wird oder nicht. Sehen Sie sich den Abschnitt zur [Formalen Definition der Farbeigenschaft](/de/docs/Web/CSS/Reference/Properties/color#formal_definition) als Beispiel an.
 
 ### Verständnis, wie die Konzepte zusammenarbeiten
 
-Diese drei Konzepte (Kaskade, Spezifität und Vererbung) zusammen bestimmen, welches CSS auf welches Element angewendet wird. In den folgenden Abschnitten werden wir sehen, wie sie zusammenarbeiten. Es kann manchmal ein wenig kompliziert erscheinen, aber Sie werden anfangen, sich an sie zu erinnern, je mehr Erfahrung Sie mit CSS sammeln, und Sie können immer die Details nachschlagen, wenn Sie es vergessen! Sogar erfahrene Entwickler erinnern sich nicht an alle Details.
+Diese drei Konzepte (Kaskade, Spezifität und Vererbung) steuern zusammen, welches CSS auf welches Element angewendet wird. In den folgenden Abschnitten werden wir sehen, wie sie zusammenarbeiten. Es kann manchmal ein wenig kompliziert erscheinen, aber Sie werden beginnen, sie zu merken, je mehr Sie Erfahrung mit CSS sammeln, und Sie können immer die Details nachschlagen, wenn Sie sie vergessen! Selbst erfahrene Entwickler erinnern sich nicht an alle Details.
 
-## Verstehen der Vererbung
+## Verständnis der Vererbung
 
-Beginnen wir mit der Vererbung. Im folgenden Beispiel haben wir ein {{HTMLElement("ul")}}-Element mit zwei Ebenen von verschachtelten ungeordneten Listen. Wir haben der äußeren `<ul>` einen Rahmen, Polsterung und Schriftfarbe gegeben.
+Wir beginnen mit der Vererbung. Im folgenden Beispiel haben wir ein {{HTMLElement("ul")}}-Element mit zwei Ebenen von verschachtelten ungeordneten Listen darin. Wir haben dem äußeren `<ul>` eine Umrandung, ein Padding und eine Schriftfarbe gegeben.
 
-Die `color`-Eigenschaft ist eine vererbte Eigenschaft. Also wird der `color`-Eigenschaftswert den direkten Kindern und auch den indirekten Kindern — den unmittelbaren Kind-`<li>`s und den innerhalb der ersten verschachtelten Liste — zugewiesen. Wir haben dann der zweiten verschachtelten Liste die Klasse `special` hinzugefügt und eine andere Farbe darauf angewendet. Diese wird dann durch ihre Kinder vererbt.
+Die Eigenschaft `color` ist eine vererbte Eigenschaft. Daher wird der `color`-Eigenschaftswert auf die direkten und auch die indirekten Kinder angewendet — die unmittelbaren Kindelemente `<li>` und die im ersten verschachtelten Listenpunkt. Wir haben dann der zweiten verschachtelten Liste die Klasse `special` hinzugefügt und ihr eine andere Farbe zugewiesen. Diese wird dann durch ihre Kinder vererbt.
 
 ```html live-sample___inheritance
 <ul class="main">
@@ -183,38 +183,38 @@ Die `color`-Eigenschaft ist eine vererbte Eigenschaft. Also wird der `color`-Eig
 
 {{EmbedLiveSample("inheritance", "", "280px")}}
 
-Eigenschaften wie `width` (wie bereits erwähnt), `margin`, `padding` und `border` sind keine vererbten Eigenschaften. Wenn in diesem Listbeispiel ein Rahmen von den Kindern geerbt würde, würde jede einzelne Liste und Listelement einen Rahmen erhalten — wahrscheinlich kein Effekt, den wir jemals wollen würden!
+Eigenschaften wie `width` (wie zuvor erwähnt), `margin`, `padding` und `border` sind keine vererbten Eigenschaften. Wenn eine Umrandung von den Kinderlementen in diesem Listenbeispiel geerbt würde, würde jede einzelne Liste und Listeneintrag eine Umrandung erhalten — wahrscheinlich kein Effekt, den wir jemals wünschen würden!
 
-Obwohl jede CSS-Eigenschaftsseite anzeigt, ob die Eigenschaft vererbt wird oder nicht, können Sie oft intuitiv erraten, dasselbe, wenn Sie wissen, welchen Aspekt der Eigenschaftswert stylen wird.
+Obwohl jede CSS-Eigenschaftsseite auflistet, ob die Eigenschaft vererbt wird oder nicht, können Sie oft intuitiv vermuten, ob Sie wissen, welchen Aspekt der Eigenschaftswert stylen wird.
 
 ### Kontrolle der Vererbung
 
 CSS bietet fünf spezielle universelle Eigenschaftswerte zur Steuerung der Vererbung. Jede CSS-Eigenschaft akzeptiert diese Werte.
 
 - {{cssxref("inherit")}}
-  - : Setzt den Eigenschaftswert, der auf ein ausgewähltes Element angewendet wird, so dass er dem seines übergeordneten Elements entspricht. Effektiv wird dadurch die "Vererbung eingeschaltet".
+  - : Setzt den Eigenschaftswert, der auf ein ausgewähltes Element angewendet wird, auf denselben Wert wie den des übergeordneten Elements. Praktisch bedeutet das, dass dies die "Vererbung einschaltet".
 - {{cssxref("initial")}}
-  - : Setzt den Eigenschaftswert, der auf ein ausgewähltes Element angewendet wird, auf den [anfänglichen Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value) dieser Eigenschaft.
+  - : Setzt den auf ein ausgewähltes Element angewendeten Eigenschaftswert auf den [Anfangswert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value) dieser Eigenschaft.
 - {{cssxref("revert")}}
-  - : Setzt den Eigenschaftswert, der auf ein ausgewähltes Element angewendet wird, auf die Standard-Styling des Browsers zurück, anstatt auf die Standardwerte, die auf diese Eigenschaft angewendet werden. Dieser Wert verhält sich in vielen Fällen wie {{cssxref("unset")}}.
+  - : Setzt den Eigenschaftswert, der auf ein ausgewähltes Element angewendet wird, auf die Standardstilisierung des Browsers zurück, anstelle der für diese Eigenschaft angewendeten Standards. Dieser Wert verhält sich oft ähnlich wie {{cssxref("unset")}}.
 - {{cssxref("revert-layer")}}
-  - : Setzt den Eigenschaftswert, der auf ein ausgewähltes Element angewendet wird, auf den in einer vorherigen [Kaskadenschicht](/de/docs/Web/CSS/@layer) festgelegten Wert zurück.
+  - : Setzt den auf ein ausgewähltes Element angewendeten Eigenschaftswert auf den Wert zurück, der in einer vorherigen [Kaskadenschicht](/de/docs/Web/CSS/@layer) festgelegt wurde.
 - {{cssxref("unset")}}
-  - : Setzt die Eigenschaft auf ihren natürlichen Wert zurück, was bedeutet, dass sie sich wie `inherit` verhält, wenn die Eigenschaft natürlich vererbt wird, andernfalls verhält sie sich wie `initial`.
+  - : Setzt die Eigenschaft auf ihren natürlichen Wert zurück, was bedeutet, dass die Eigenschaft, wenn sie natürlich vererbt wird, wie `inherit` wirkt, andernfalls wie `initial`.
 
 > [!NOTE]
-> Sehen Sie [Ursprungstypen](/de/docs/Web/CSS/CSS_cascade/Cascade#origin_types) für weitere Informationen darüber, wie diese funktionieren.
+> Siehe [Ursprungstypen](/de/docs/Web/CSS/CSS_cascade/Cascade#origin_types) für weitere Informationen zu diesen und wie sie funktionieren.
 
-### Spielen mit den Vererbungskontroll-Eigenschaften
+### Spielen mit Vererbungssteuerungseigenschaften
 
-Wir können uns eine Liste von Links ansehen und erkunden, wie universelle Werte funktionieren. Das Live-Beispiel unten ermöglicht es Ihnen, mit dem CSS zu experimentieren und zu sehen, was passiert, wenn Sie Änderungen vornehmen. Das Spielen mit Code ist wirklich der beste Weg, um HTML und CSS besser zu verstehen.
+Wir können uns eine Liste von Links ansehen und erkunden, wie universelle Werte arbeiten. Das folgende Live-Beispiel ermöglicht es Ihnen, mit dem CSS zu spielen und zu sehen, was passiert, wenn Sie Änderungen vornehmen. Code zu spielen ist wirklich der beste Weg, um HTML und CSS besser zu verstehen.
 
-Beispiele:
+Beispielsweise:
 
-1. Der zweite Listeneintrag hat die Klasse `my-class-1` angewendet. Diese setzt die Farbe des im Inneren verschachtelten `<a>`-Elements auf `inherit`. Wenn Sie die Regel entfernen, wie ändert sich die Farbe des Links?
-2. Verstehen Sie, warum der dritte und vierte Link die Farbe haben, die sie haben? Der dritte Link ist auf `initial` gesetzt, was bedeutet, dass er den Anfangswert der Eigenschaft verwendet (in diesem Fall Schwarz) und nicht den Browserstandard für Links, der Blau ist. Der vierte ist auf `unset` gesetzt, was bedeutet, dass der Linktext die Farbe des übergeordneten Elements, Grün, verwendet.
+1. Das zweite Listenelement hat die Klasse `my-class-1` angewendet. Dies setzt die Farbe des in ihm verschachtelten `<a>`-Elements auf `inherit`. Wenn Sie die Regel entfernen, wie ändert es die Farbe des Links?
+2. Verstehen Sie, warum die dritte und vierte Links die Farbe haben, die sie haben? Der dritte Link ist auf `initial` gesetzt, was bedeutet, dass er den Anfangswert der Eigenschaft (in diesem Fall Schwarz) und nicht den Standardwert des Browsers für Links, der Blau ist, verwendet. Der vierte ist auf `unset` gesetzt, was bedeutet, dass der Linktext die Farbe des übergeordneten Elements, Grün, verwendet.
 3. Welche der Links wird die Farbe ändern, wenn Sie eine neue Farbe für das `<a>`-Element definieren — zum Beispiel `a { color: red; }`?
-4. Nachdem Sie den nächsten Abschnitt über das Zurücksetzen aller Eigenschaften gelesen haben, kommen Sie zurück und ändern Sie die `color`-Eigenschaft in `all`. Beachten Sie, wie der zweite Link in einer neuen Zeile steht und eine Aufzählung hat. Welche Eigenschaften denken Sie, wurden vererbt?
+4. Nachdem Sie den nächsten Abschnitt über das Zurücksetzen aller Eigenschaften gelesen haben, kommen Sie zurück und ändern die `color`-Eigenschaft zu `all`. Beachten Sie, wie der zweite Link in einer neuen Zeile ist und einen Punkt hat. Welche Eigenschaften denken Sie, wurden vererbt?
 
 ```html live-sample___keywords
 <ul>
@@ -245,11 +245,11 @@ body {
 
 {{EmbedLiveSample("keywords")}}
 
-### Alle Eigenschaftswerte zurücksetzen
+### Zurücksetzen aller Eigenschaftswerte
 
-Die CSS-Kurzschrift-Eigenschaft [`all`](/de/docs/Web/CSS/Reference/Properties/all) kann verwendet werden, um einen dieser Vererbungswerte auf (fast) alle Eigenschaften gleichzeitig anzuwenden. Ihr Wert kann einer der Vererbungswerte (`inherit`, `initial`, `revert`, `revert-layer` oder `unset`) sein. Es ist eine bequeme Möglichkeit, Änderungen an Stilen rückgängig zu machen, sodass Sie zu einem bekannten Anfangspunkt zurückkehren können, bevor Sie mit neuen Änderungen beginnen.
+Mit dem CSS-Kurzschlusseigenschaft [`all`](/de/docs/Web/CSS/Reference/Properties/all) können Sie einen dieser Vererbungswerte auf (fast) alle Eigenschaften auf einmal anwenden. Ihr Wert kann einer der Vererbungswerte (`inherit`, `initial`, `revert`, `revert-layer` oder `unset`) sein. Es ist eine praktische Möglichkeit, Änderungen an Stilen rückgängig zu machen, damit Sie zu einem bekannten Ausgangspunkt zurückkehren können, bevor Sie mit neuen Änderungen beginnen.
 
-Im folgenden Beispiel haben wir zwei Blockzitate. Das erste hat Styling direkt auf das Blockzitat angewendet. Das zweite hat eine Klasse, die auf das Blockzitat angewendet wurde, die den Wert von `all` auf `unset` setzt.
+Im folgenden Beispiel haben wir zwei Zitate. Das erste hat Stilisierung auf das Blockquote-Element selbst angewendet. Das zweite hat eine Klasse auf das Blockquote angewendet, die den Wert von `all` auf `unset` setzt.
 
 ```html live-sample___all
 <blockquote>
@@ -274,35 +274,35 @@ blockquote {
 
 {{EmbedLiveSample("all")}}
 
-Versuchen Sie, den Wert von `all` auf einige der anderen verfügbaren Werte zu setzen und beobachten Sie, was der Unterschied ist.
+Versuchen Sie, den Wert von `all` auf einige der anderen verfügbaren Werte zu setzen und beobachten Sie die Unterschiede.
 
 ## Verständnis der Kaskade
 
-Wir verstehen jetzt, dass die Vererbung der Grund ist, warum ein tief in der Struktur Ihres HTML eingebetteter Absatz die gleiche Farbe wie das CSS hat, das auf den Körper angewendet wird. Aus den einführenden Lektionen wissen wir, wie man das CSS verändert, das zu einem Punkt im Dokument auf etwas angewendet wird — sei es durch Zuweisung von CSS zu einem Element oder durch Erstellen einer Klasse. Wir werden nun untersuchen, wie die Kaskade definiert, welche CSS-Regeln angewendet werden, wenn mehr als ein Stilblock dieselbe Eigenschaft auf dasselbe Element anwendet, jedoch mit unterschiedlichen Werten.
+Wir verstehen jetzt, dass Vererbung der Grund ist, warum ein tief in der Struktur Ihres HTML verschachtelter Absatz die gleiche Farbe hat wie das CSS, das auf den Body angewendet wird. Aus den Einführungskursen haben wir ein Verständnis dafür, wie wir das angewendete CSS an jedem beliebigen Punkt im Dokument ändern können — sei es durch Zuweisung von CSS an ein Element oder durch Erstellen einer Klasse. Wir werden nun anschauen, wie die Kaskade bestimmt, welche CSS-Regeln angewendet werden, wenn mehr als ein Stilblock dieselbe Eigenschaft, aber mit unterschiedlichen Werten auf dasselbe Element anwenden.
 
-Es gibt drei Faktoren, die zu berücksichtigen sind, hier in aufsteigender Reihenfolge der Wichtigkeit aufgelistet. Spätere überstimmen frühere:
+Es gibt drei Faktoren zu berücksichtigen, die hier in aufsteigender Reihenfolge der Wichtigkeit aufgeführt sind. Spätere Faktoren überstimmen frühere:
 
 1. **Quellreihenfolge**
 2. **Spezifität**
 3. **Wichtigkeit**
 
-Wir werden uns diese ansehen, um zu sehen, wie Browser herausfinden, welches CSS angewendet werden sollte.
+Wir werden uns diese ansehen, um zu sehen, wie Browser genau herausfinden, welches CSS angewendet werden soll.
 
 ### Quellreihenfolge
 
-Wir haben bereits gesehen, dass die Quellreihenfolge für die Kaskade von Bedeutung ist. Wenn Sie mehr als eine Regel haben, die genau dasselbe Gewicht hat, dann wird die, die zuletzt im CSS steht, gewinnen. Sie können dies so verstehen: Die Regel, die näher am tatsächlichen Element ist, überschreibt die früheren, bis die letzte gewinnt und das Element stylen darf.
+Wir haben bereits gesehen, dass die Quellreihenfolge für die Kaskade wichtig ist. Wenn Sie mehr als eine Regel haben, die genau dasselbe Gewicht hat, wird diejenige, die zuletzt im CSS steht, gewinnen. Sie können sich das so vorstellen: Die Regel, die näher am Element selbst ist, überschreibt die früheren, bis die letzte gewinnt und das Element stylen kann.
 
-Die Quellreihenfolge spielt nur dann eine Rolle, wenn das Spezifitätsgewicht der Regeln gleich ist, also schauen wir uns als Nächstes die Spezifität an.
+Die Quellreihenfolge spielt nur dann eine Rolle, wenn die Spezifizitätsgewichte der Regeln gleich sind, daher lassen Sie uns als nächstes die Spezifizität untersuchen.
 
 ### Spezifität
 
-Oft geraten Sie in eine Situation, in der Sie wissen, dass eine Regel später im Stylesheet kommt, aber eine frühere, in Konflikt stehende Regel angewendet wird. Dies geschieht, weil die frühere Regel eine **höhere Spezifität** hat — sie ist spezifischer und wird daher vom Browser als diejenige ausgewählt, die das Element stylen soll.
+Sie werden oft auf eine Situation stoßen, in der Sie wissen, dass eine Regel später im Stylesheet steht, aber eine widersprüchliche frühere Regel angewendet wird. Dies geschieht, weil die frühere Regel eine **höhere Spezifität** hat — sie ist spezifischer und wird daher vom Browser als diejenige ausgewählt, die das Element stilisieren soll.
 
-Wie wir bereits früher in dieser Lektion gesehen haben, hat ein Klassen-Selektor mehr Gewicht als ein Element-Selektor, daher werden die in dem Klassen-Stilblock definierten Eigenschaften die in dem Element-Stilblock definierten Eigenschaften überschreiben.
+Wie wir bereits früher in dieser Lektion gesehen haben, hat ein Klassenselektor mehr Gewicht als ein Elementselektor, daher werden die in dem Klassenstilblock definierten Eigenschaften die in dem Elementstilblock definierten überschreiben.
 
-Etwas zu beachten ist hier, dass, obwohl wir über Selektoren und die Regeln sprechen, die auf den Text oder das Element, das sie auswählen, angewendet werden, nicht die gesamte Regel überschrieben wird, sondern nur die Eigenschaften, die an mehreren Stellen deklariert sind.
+Hier ist anzumerken, dass obwohl wir über Selektoren und die Regeln nachdenken, die auf den Text oder die Komponente angewendet werden, die sie auswählen, es nicht die gesamte Regel ist, die überschrieben wird, sondern nur die Eigenschaften, die an mehreren Stellen erklärt werden.
 
-Dieses Verhalten hilft, Wiederholungen in Ihrem CSS zu vermeiden. Eine häufige Praxis ist es, generische Stile für die grundlegenden Elemente zu definieren und dann Klassen für diejenigen zu erstellen, die unterschiedlich sind. Zum Beispiel, im Stylesheet unten, haben wir generische Stile für Überschriften der Ebene 2 definiert und dann einige Klassen erstellt, die nur einige der Eigenschaften und Werte ändern. Die initial definierten Werte werden auf alle Überschriften angewendet, dann werden die spezifischeren Werte auf die Überschriften mit den Klassen angewendet.
+Dieses Verhalten hilft, Wiederholungen in Ihrem CSS zu vermeiden. Eine gängige Praxis ist es, generische Stile für die grundlegenden Elemente zu definieren und dann Klassen zu erstellen, um diese zu ändern. Zum Beispiel haben wir im folgenden Stylesheet generische Stile für Level-2-Überschriften definiert und dann einige Classes erstellt, die nur einige der Eigenschaften und Werte ändern. Die zunächst definierten Werte werden auf alle Überschriften angewendet, dann werden die spezifischeren Werte auf die Überschriften mit den Klassen angewendet.
 
 ```html live-sample___mixing-rules
 <h2>Heading with no class</h2>
@@ -328,18 +328,18 @@ h2 {
 
 {{EmbedLiveSample("mixing-rules", "", "240px")}}
 
-Schauen wir uns nun an, wie der Browser die Spezifität berechnet. Wir wissen bereits, dass ein Element-Selektor eine niedrige Spezifität hat und von einer Klasse überschrieben werden kann. Im Wesentlichen werden den verschiedenen Selektortypen Punktwerte zugewiesen, und durch das Summieren dieser Punkte erhält man das Gewicht dieses speziellen Selektors, das dann gegen andere mögliche Übereinstimmungen bewertet werden kann.
+Lassen Sie uns nun ansehen, wie der Browser die Spezifizität berechnet. Wir wissen bereits, dass ein Elementselektor eine niedrige Spezifizität hat und von einer Klasse überschrieben werden kann. Grundsätzlich wird ein Punktwert an verschiedene Arten von Selektoren vergeben, und das Zusammenaddieren dieser Werte gibt Ihnen das Gewicht eines bestimmten Selektors, das dann gegen andere potenzielle Übereinstimmungen verglichen werden kann.
 
-Die Spezifität eines Selektors wird anhand von drei verschiedenen Werten (oder Komponenten) gemessen, die als ID, CLASS und ELEMENT Spalten mit Hunderten, Zehnern und Einern verglichen werden können:
+Der Grad der Spezifizität eines Selektors wird mit drei verschiedenen Werten (oder Komponenten) gemessen, die als ID-, Klassen- und Elementspalten im Wert von Hunderten, Zehnern und Einheiten betrachtet werden können:
 
-- **IDs**: Pro ID-Selektor enthält der Gesamtselektor einen Punkt (100 Punkte) in dieser Spalte.
-- **Klassen**: Pro Klassen-Selektor, Attribut-Selektor oder Pseudo-Klasse enthält der Gesamtselektor einen Punkt (10 Punkte) in dieser Spalte.
-- **Elemente**: Pro Element-Selektor oder Pseudo-Element enthält der Gesamtselektor einen Punkt (1 Punkt) in dieser Spalte.
+- **IDs**: Punkten Sie in dieser Spalte (100 Punkte) für jeden ID-Selektor, der im gesamten Selektor enthalten ist.
+- **Klassen**: Punkten Sie in dieser Spalte (10 Punkte) für jeden Klassen-, Attributselektor oder Pseudo-Klasse, die im gesamten Selektor enthalten ist.
+- **Elemente**: Punkten Sie in dieser Spalte (1 Punkt) für jeden Elementselektor oder Pseudo-Element, der im gesamten Selektor enthalten ist.
 
 > [!NOTE]
-> Der universale Selektor ([`*`](/de/docs/Web/CSS/Universal_selectors)), [Kombinatoren](/de/docs/Learn_web_development/Core/Styling_basics/Combinators) (`+`, `>`, `~`, ' '), und der Selektor zur Spezifizitätsanpassung ([`:where()`](/de/docs/Web/CSS/:where)) zusammen mit seinen Parametern haben keinen Einfluss auf die Spezifität.
+> Der Universalselektor ([`*`](/de/docs/Web/CSS/Reference/Selectors/Universal_selectors)), [Kombinatoren](/de/docs/Learn_web_development/Core/Styling_basics/Combinators) (`+`, `>`, `~`, ' '), und der Spezifitätsanpassungsselektor ([`:where()`](/de/docs/Web/CSS/Reference/Selectors/:where)) zusammen mit seinen Parametern, haben keinen Einfluss auf die Spezifizität.
 
-Die folgende Tabelle zeigt einige isolierte Beispiele zur Einstimmung. Versuchen Sie, diese durchzugehen, und stellen Sie sicher, dass Sie verstehen, warum sie die zugewiesene Spezifität haben. Wir haben Selektoren noch nicht im Detail behandelt, aber Sie können Details zu jedem Selektor im MDN [Selektorreferenz](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators) finden.
+Die folgende Tabelle zeigt einige isolierte Beispiele, um Sie in Stimmung zu bringen. Versuchen Sie, diese durchzugehen, und stellen Sie sicher, dass Sie verstehen, warum sie die Spezifizität haben, die wir ihnen gegeben haben. Wir haben die Selektoren noch nicht im Detail behandelt, aber Sie können Details zu jedem Selektor in der MDN [Selektorenreferenz](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators) finden.
 
 | Selektor                                  | Identifikatoren | Klassen | Elemente | Gesamtspezifität |
 | ----------------------------------------- | --------------- | ------- | -------- | ---------------- |
@@ -348,9 +348,9 @@ Die folgende Tabelle zeigt einige isolierte Beispiele zur Einstimmung. Versuchen
 | `li > a[href*="en-US"] > .inline-warning` | 0               | 2       | 2        | 0-2-2            |
 | `#identifier`                             | 1               | 0       | 0        | 1-0-0            |
 
-#### Tiefgründiges Spezifitätsbeispiel
+#### Ausführliches Spezifizitätsbeispiel
 
-Bevor wir weitermachen, schauen wir uns ein Beispiel in Aktion an. Sie könnten dies im MDN Playground in einem separaten Tab öffnen, damit Sie es beim Lesen der Erläuterung leicht querverweisen können.
+Bevor wir fortfahren, lassen Sie uns ein Beispiel in Aktion anschauen. Möglicherweise möchten Sie dies im MDN Playground in einem separaten Tab öffnen, damit Sie es leicht mit dem Erklärungsabschnitt abgleichen können.
 
 ```html live-sample___specificity-boxes
 <div class="container" id="outer">
@@ -420,35 +420,35 @@ li {
 
 {{EmbedLiveSample("specificity-boxes", "100%", "170")}}
 
-Was passiert hier? Zuerst einmal sind nur die ersten sieben Regeln dieses Beispiels von Bedeutung, und wie Sie sehen werden, haben wir ihre Spezifizitätswerte in einem Kommentar vor jeder Regel eingefügt.
+Was passiert hier? Zuerst sollten wir uns nur für die ersten sieben Regeln dieses Beispiels interessieren, und wie Sie bemerken werden, haben wir ihre Spezifizitätswerte in einem Kommentar vor jede Regel aufgenommen.
 
-- Die ersten beiden Selektoren konkurrieren um das Styling der `background-color` des Links. Der zweite gewinnt und macht die Hintergrundfarbe `blau`, weil er einen zusätzlichen ID-Selektor in der Kette hat: Seine Spezifizität ist 2-0-1 gegenüber 1-0-1.
-- Selektoren 3 und 4 konkurrieren um das Styling der Textfarbe (`color`) des Links. Der zweite gewinnt und setzt die Textfarbe auf `weiß`, obwohl er einen Element-Selektor weniger hat, wurde der fehlende Selektor gegen einen Klassen-Selektor ausgetauscht, der mehr Gewicht hat als ein Element-Selektor. Die gewinnende Spezifizität ist 1-1-3 gegenüber 1-0-4.
-- Selektoren 5–7 konkurrieren um das Styling des Links `border`, wenn dieser überfahren wird. Selektor 6 verliert klar gegen Selektor 5 mit einer Spezifizität von 0-2-3 gegenüber 0-2-4; er hat einen Element-Selektor weniger in der Kette. Selektor 7 schlägt jedoch sowohl Selektor 5 als auch 6, weil er die gleiche Anzahl an Unterselektoren in der Kette hat wie Selektor 5, aber ein Element durch einen Klassen-Selektor ersetzt wurde. So ist die gewinnende Spezifizität 0-3-3 gegenüber 0-2-3 und 0-2-4.
+- Die ersten beiden Selektoren konkurrieren um die Stilierung der `background-color` des Links. Der zweite gewinnt und macht den Hintergrund blau, weil er einen zusätzlichen ID-Selektor in der Kette hat: seine Spezifizität ist 2-0-1 vs. 1-0-1.
+- Selektoren 3 und 4 konkurrieren um die Stilierung der Textfarbe des Links. Der zweite gewinnt und macht den Text weiß, obwohl er einen weniger Elementselektor hat, weil der fehlende Selektor durch einen Klassen-Selektor ersetzt wurde, der mehr Gewicht hat als Elementselektoren. Die gewinnende Spezifizität ist 1-1-3 vs. 1-0-4.
+- Selektoren 5–7 konkurrieren um die Stilierung des Randes des Links beim Hover. Selektor 6 verliert klar gegen Selektor 5 mit einer Spezifizität von 0-2-3 vs. 0-2-4; er hat einen weniger Elementselektor in der Kette. Selektor 7 schlägt jedoch sowohl die Selektoren 5 als auch 6, weil er die gleiche Anzahl von Subselektoren in der Kette hat wie Selektor 5, aber ein Element durch einen Klassen-Selektor ersetzt wurde. So ist die gewinnende Spezifizität 0-3-3 vs. 0-2-3 und 0-2-4.
 
 > [!NOTE]
-> Jeder Selektortyp hat sein eigenes Spezifizitätsniveau, das durch Selektoren mit niedrigerem Spezifizitätslevel nicht überschrieben werden kann. Ein _Million_ **Klassen**-Selektoren zusammen würden nie in der Lage sein, die Spezifizität eines _einzelnen_ **id**-Selektors zu überschreiben.
+> Jeder Selektortyp hat sein eigenes Spezifizitätslevel, das nicht durch Selektoren mit einem niedrigeren Spezifizitätslevel überschrieben werden kann. Zum Beispiel würden _Millionen_ von **Klassen**selektoren zusammen nicht in der Lage sein, die Spezifizität von _einem_ **ID**-Selektor zu überschreiben.
 >
-> Am besten bewertet man die Spezifizitätslevel individuell, beginnend mit dem höchsten und geht weiter zum niedrigeren, wenn nötig. Nur wenn es einen Gleichstand zwischen Selektorwerten innerhalb einer Spezifizierungsspalte gibt, müssen Sie die nächste Spalte nach unten bewerten; andernfalls können Sie die niedrigeren Spezifizierungsselektoren ignorieren, da sie niemals die höheren Spezifizierungsselektoren überschreiben können.
+> Der beste Weg, die Spezifizität zu bewerten, besteht darin, die Spezifizitätsstufen individuell zu bewerten, beginnend mit der höchsten und dann bei Bedarf zur niedrigeren übergehen. Nur wenn es einen Gleichstand zwischen den Selektorpunkten innerhalb einer Spezifizitätsspalte gibt, müssen Sie die nächste Spalte unten bewerten; andernfalls können Sie die niedrigeren Spezifikationen ignorieren, da sie die höher spezifizierten Selektoren nie überschreiben können.
 
 #### IDs versus Klassen
 
-ID-Selektoren haben hohe Spezifizität. Das bedeutet, dass Stile, die basierend auf einem ID-Selektor angewendet werden, Stile überstimmen, die basierend auf anderen Selektoren angewendet werden, einschließlich Klassen- und Typselektoren. Da eine ID nur einmal auf einer Seite vorkommen kann und aufgrund der hohen Spezifizität von ID-Selektoren, ist es vorzuziehen, einem Element eine Klasse anstelle einer ID hinzuzufügen.
+ID-Selektoren haben eine hohe Spezifität. Das bedeutet, dass Styles, die basierend auf dem Abgleich eines ID-Selektors angewendet werden, Styles, die auf anderen Selektoren wie Klassen- und Typselektoren basieren, überstimmen. Da eine ID nur einmal auf einer Seite vorkommen kann und da ID-Selektoren eine hohe Spezifität haben, ist es vorzuziehen, einer ID anstelle einer Klasse zu einem Element hinzuzufügen.
 
-Wenn die Verwendung der ID der einzige Weg ist, um das Element zu zielen — vielleicht, weil Sie keinen Zugriff auf das Markup haben und es nicht bearbeiten können — erwägen Sie die ID innerhalb eines [Attributselektors](/de/docs/Web/CSS/Attribute_selectors) zu verwenden, wie `p[id="header"]`.
+Wenn die Verwendung der ID der einzige Weg ist, das Element zu targetieren — vielleicht weil Sie keinen Zugriff auf das Markup haben und es nicht bearbeiten können — ziehen Sie in Betracht die ID innerhalb eines [Attributselektors](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors), wie `p[id="header"]`, zu verwenden.
 
 ### Inline-Stile
 
-Inline-Stile, das heißt, die Stil-Deklarationen innerhalb eines [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)-Attributs, haben Vorrang vor allen normalen Stilen, egal welche Spezifizität. Solche Deklarationen haben keine Selektoren, aber ihre Spezifizität kann als 1-0-0-0 betrachtet werden; immer mehr als jede andere Spezifizitätsgewichtung, egal wie viele IDs in den Selektoren sind.
+Inline-Stile, das heißt, die Stildeklaration innerhalb eines [`style`](/de/docs/Web/HTML/Reference/Global_attributes/style)-Attributs, haben Vorrang vor allen normalen Styles, unabhängig von der Spezifität. Solche Deklarationen haben keine Selektoren, aber ihre Spezifität kann als 1-0-0-0 interpretiert werden; immer mehr als jedes andere Spezifikationsgewicht, egal wie viele IDs in den Selektoren vorhanden sind.
 
 ### !important
 
-Es gibt ein spezielles Stück CSS, das Sie verwenden können, um all die oben genannten Berechnungen zu überstimmen, sogar Inline-Stile - das `!important`-Flag. Allerdings sollten Sie sehr vorsichtig bei der Verwendung sein. Dieses Flag wird verwendet, um ein einzelnes Eigenschafts- und Wertepaar zur spezifischsten Regel zu machen, wodurch die normalen Regeln der Kaskade überschrieben werden, einschließlich normaler Inline-Stile.
+Es gibt ein spezielles Stück CSS, das Sie verwenden können, um alle obigen Berechnungen, sogar Inline-Stile, zu überstimmen - das `!important`-Flag. Sie sollten jedoch sehr vorsichtig bei der Verwendung sein. Dieses Flag wird verwendet, um ein einzelnes Eigenschafts-Wert-Paar zur spezifischsten Regel zu machen, und überschreibt damit die normalen Regeln der Kaskade, einschließlich normaler Inline-Stile.
 
 > [!NOTE]
-> Es ist nützlich zu wissen, dass das `!important`-Flag existiert, damit Sie wissen, was es ist, wenn Sie es im Code anderer Personen entdecken. **Wir empfehlen jedoch dringend, es nicht zu verwenden, es sei denn, es ist absolut notwendig.** Das `!important`-Flag ändert die Funktionsweise der Kaskade, daher kann es das Debuggen von CSS-Problemen wirklich schwer nachvollziehbar machen, besonders in einem großen Stylesheet.
+> Es ist nützlich zu wissen, dass das `!important`-Flag existiert, damit Sie wissen, was es ist, wenn Sie es im Code anderer Leute finden. **Wir empfehlen jedoch dringend, dass Sie es niemals verwenden, es sei denn, es ist absolut notwendig.** Das `!important`-Flag ändert die Funktionsweise der Kaskade, sodass es das Debuggen von CSS-Problemen wirklich erschwert, insbesondere in einem großen Stylesheet.
 
-Schauen Sie sich dieses Beispiel an, wo wir zwei Absätze haben, von denen einer eine ID hat.
+Schauen Sie sich dieses Beispiel an, in dem wir zwei Absätze haben, von denen einer eine ID hat.
 
 ```html live-sample___important
 <p class="better">This is a paragraph.</p>
@@ -475,44 +475,44 @@ p {
 
 {{EmbedLiveSample("important")}}
 
-Lassen Sie uns dies durchgehen, um zu sehen, was passiert — versuchen Sie, einige der Eigenschaften zu entfernen, um zu sehen, was passiert, wenn Sie es schwer verstehen:
+Lassen Sie uns dies durchgehen, um zu sehen, was passiert — versuchen Sie einige der Eigenschaften zu entfernen, um zu sehen, was passiert, wenn Sie Schwierigkeiten haben, es zu verstehen:
 
-1. Sie werden sehen, dass die `color`- und `padding`-Werte der dritten Regel angewendet wurden, aber `background-color` nicht. Warum? Eigentlich sollen alle drei sicher angewendet werden, weil Regeln, die später in der Quellreihenfolge kommen, in der Regel frühere Regeln überstimmen.
-2. Die oben genannten Regeln gewinnen jedoch, weil Klassen-Selektoren eine höhere Spezifizität als Element-Selektoren haben.
-3. Beide Elemente haben eine [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) von `better`, aber das zweite hat auch eine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) von `winning`. Da IDs eine _noch höhere_ Spezifizität als Klassen haben, sollten die rote `background-color` und der `1px schwarze Rand` auf das zweite Element angewendet werden, wobei das erste Element die graue Hintergrundfarbe und keinen Rand erhält, wie von der Klasse angegeben.
-4. Das zweite Element _bekommt_ die`red` `background-color`, aber keinen `border`. Warum? Wegen des `!important`-Flags in der zweiten Regel. Das Hinzufügen des `!important`-Flags nach `border: none` bedeutet, dass diese Deklaration den `border`-Wert in der vorherigen Regel überstunden wird, obwohl der ID-Selektor eine höhere Spezifizität hat.
+1. Sie werden bemerken, dass die `color` und das `padding` der dritten Regel auf die Elemente angewendet wurden, aber nicht die `background-color`. Warum? Eigentlich sollten alle drei sicherlich angewendet werden, da Regeln im späteren Verlauf der Quellreihenfolge in der Regel frühere Regeln übersteuern.
+2. Die oben beschriebenen Regeln gewinnen jedoch aufgrund der Tatsache, dass Klassenselektoren eine höhere Spezifizität als Elementselektoren haben.
+3. Beide Elemente haben eine [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) von `better`, aber das 2. hat eine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) von `winning` ebenfalls. Da IDs eine _noch höhere_ Spezifizität als Klassen haben, sollten die `red` `background-color` und der `1px black` `border` beide auf das 2. Element angewendet werden, während das erste Element die graue Hintergrundfarbe und keine Umrandung erhält, wie durch die Klasse spezifiziert.
+4. Das 2. Element _erhält_ die `red` `background-color`, aber keine `border`. Warum? Wegen des `!important`-Flags in der zweiten Regel. Das Hinzufügen des `!important`-Flags nach `border: none` bedeutet, dass diese Deklaration über den `border`-Wert der vorherigen Regel gewinnt, obwohl der ID-Selektor eine höhere Spezifizität hat.
 
 > [!NOTE]
-> Die einzige Möglichkeit, eine wichtige Deklaration zu überstimmen, besteht darin, eine andere wichtige Deklaration mit der _gleichen Spezifizität_ später in der Quellreihenfolge oder eine mit höherer Spezifizität einzuschließen.
+> Die einzige Möglichkeit, eine wichtige Deklaration zu überschreiben, besteht darin, eine weitere wichtige Deklaration mit der _gleichen Spezifizität_ später in der Quellreihenfolge oder eine mit höherer Spezifizität aufzunehmen.
 
-Eine Situation, in der Sie möglicherweise das `!important`-Flag verwenden müssen, ist, wenn Sie an einem CMS arbeiten, wo Sie die Kern-CSS-Module nicht bearbeiten können, und Sie wirklich einen Inline-Stil oder eine wichtige Deklaration übersteuern möchten, die nicht auf andere Weise überstimmt werden kann. Aber wirklich, verwenden Sie es nicht, wenn Sie es vermeiden können.
+Eine Situation, in der Sie möglicherweise das `!important`-Flag verwenden müssen, ist, wenn Sie an einem CMS arbeiten, in dem Sie die Kern-CSS-Module nicht bearbeiten können, und Sie wirklich eine Inline-Stil- oder eine wichtige Deklaration überschreiben müssen, die auf keine andere Weise überschrieben werden kann. Aber wirklich, verwenden Sie es nicht, wenn Sie es vermeiden können.
 
 ## Die Auswirkung des CSS-Standorts
 
-Schließlich ist es wichtig zu beachten, dass die Priorität einer CSS-Deklaration davon abhängt, in welchem Stylesheet sie spezifiziert ist.
+Schließlich ist es wichtig zu beachten, dass die Vorrangstellung einer CSS-Deklaration davon abhängt, in welchem Stylesheet sie spezifiziert ist.
 
-Es ist möglich, dass Benutzer benutzerdefinierte Stylesheets festlegen, um die Stile der Entwickler zu übersteuern. Zum Beispiel könnte ein sehbehinderter Benutzer die Schriftgröße auf allen Webseiten, die er besucht, auf das Doppelte der normalen Größe einstellen wollen, um ein besseres Lesen zu ermöglichen.
+Es ist möglich, Benutzern das Setzen benutzerdefinierter Stylesheets zu erlauben, um die Entwicklerdeklarationen zu überstimmen. Zum Beispiel könnte ein sehbehinderter Benutzer die Schriftgröße auf allen Webseiten, die er besucht, doppelt so groß setzen wollen, um das Lesen zu erleichtern.
 
-### Reihenfolge der Übersteuerung von Deklarationen
+### Reihenfolge der überlagernden Deklarationen
 
-In Konflikt stehende Deklarationen werden in folgender Reihenfolge angewendet, wobei spätere frühere übersteuern:
+Widersprüchliche Deklarationen werden in der folgenden Reihenfolge angewendet, wobei spätere die vorherigen überstimmen:
 
-1. Deklarationen in Benutzeragent-Stylesheets (z. B. die Standardstile des Browsers, die verwendet werden, wenn keine anderen Stile festgelegt sind).
-2. Normale Deklarationen in Benutzerstylesheets (benutzerdefinierte Stile, die von einem Benutzer festgelegt wurden).
-3. Normale Deklarationen in Autorenstylesheets (dies sind die von uns, den Webentwicklern, festgelegten Stile).
-4. Wichtige Deklarationen in Autorenstylesheets.
+1. Deklarationen in Benutzeragenten-Stylesheets (z.B. die Standardstile des Browsers, die verwendet werden, wenn keine anderen Stile gesetzt sind).
+2. Normale Deklarationen in Benutzerstylesheets (benutzerdefinierte Stile, die von einem Benutzer gesetzt werden).
+3. Normale Deklarationen in Autorstylesheets (das sind die von uns, den Webentwicklern, gesetzten Stile).
+4. Wichtige Deklarationen in Autorstylesheets.
 5. Wichtige Deklarationen in Benutzerstylesheets.
-6. Wichtige Deklarationen in Benutzeragent-Stylesheets.
+6. Wichtige Deklarationen in Benutzeragenten-Stylesheets.
 
 > [!NOTE]
-> Die Reihenfolge der Priorität ist für mit `!important` gekennzeichnete Stile umgekehrt. Es ist sinnvoll, dass die Stylesheets des Webentwicklers die Benutzerstylesheets übersteuern, damit das Design so bleibt, wie beabsichtigt; jedoch haben Benutzer manchmal gute Gründe, die Stile der Webentwickler zu übersteuern, wie oben erwähnt, und dies kann durch die Verwendung von `!important` in ihren Regeln erreicht werden.
+> Die Reihenfolge der Vorrangstellung wird für Stile mit dem `!important`-Flag umgekehrt. Es ist sinnvoll, dass Stylesheets von Webentwicklern Benutzerstylesheets überstimmen, damit das Design wie beabsichtigt bleibt; jedoch haben Benutzer manchmal gute Gründe, die Stile von Webentwicklern zu überstimmen, wie oben erwähnt, und dies kann durch die Verwendung von `!important` in ihren Regeln erreicht werden.
 
 ## Zusammenfassung
 
-Wenn Sie das meiste von diesem Artikel verstanden haben, dann gut gemacht — Sie haben begonnen, sich mit den grundlegenden Mechanismen von CSS vertraut zu machen.
+Wenn Sie den größten Teil dieses Artikels verstanden haben, dann gut gemacht — Sie haben begonnen, sich mit den grundlegenden Mechaniken von CSS vertraut zu machen.
 
-Wenn Sie die Kaskade, Spezifität und Vererbung nicht vollständig verstanden haben, dann machen Sie sich keine Sorgen! Dies ist definitiv das komplizierteste, das wir bisher im Kurs behandelt haben, und es ist etwas, das selbst professionelle Webentwickler manchmal schwierig finden. Wir empfehlen Ihnen, zu diesem Artikel mehrmals zurückzukehren, während Sie den Kurs fortsetzen, und darüber nachzudenken.
+Wenn Sie die Kaskade, Spezifizität und Vererbung nicht vollständig verstanden haben, dann machen Sie sich keine Sorgen! Dies ist definitiv das komplizierteste Thema, das wir bisher im Kurs behandelt haben und etwas, das selbst professionelle Webentwickler manchmal schwierig finden. Wir empfehlen Ihnen, ein paar Mal zu diesem Artikel zurückzukehren, während Sie den Kurs fortsetzen, und weiter darüber nachzudenken.
 
-Kommen Sie darauf zurück, wenn Sie anfangen, auf seltsame Probleme mit Stilen zu stoßen, die nicht wie erwartet angewendet werden. Es könnte ein Spezifitätsproblem sein. Als Nächstes werden wir Ihnen einige Tests geben, die Sie verwenden können, um zu überprüfen, wie gut Sie die Informationen, die wir über die Kaskade bereitgestellt haben, verstanden und behalten haben.
+Kommen Sie darauf zurück, wenn Sie auf seltsame Probleme mit Styles stoßen, die nicht wie erwartet angewendet werden. Es könnte ein Spezifizitätsproblem sein. Als nächstes werden wir Ihnen einige Tests geben, mit denen Sie überprüfen können, wie gut Sie die Informationen, die wir Ihnen über die Kaskade gegeben haben, verstanden und gespeichert haben.
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Test_your_skills/Box_model", "Learn_web_development/Core/Styling_basics/Test_your_skills/Cascade", "Learn_web_development/Core/Styling_basics")}}

@@ -1,70 +1,70 @@
 ---
-title: "ARIA: Rolle radiogroup"
+title: "ARIA: radiogroup-Rolle"
 short-title: radiogroup
 slug: Web/Accessibility/ARIA/Reference/Roles/radiogroup_role
 l10n:
-  sourceCommit: a8b25483994fa47cf949b432ddf34a6bce2ddb2e
+  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
 ---
 
-Die Rolle `radiogroup` ist eine Gruppe von `radio`-Buttons.
+Die `radiogroup`-Rolle ist eine Gruppe von `radio`-Buttons.
 
 ## Beschreibung
 
-Radiogruppen sind Sammlungen, die eine Reihe von verwandten [`radio`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role)-Optionen beschreiben. Eine `radiogroup` ist eine Art von [`select`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/select_role)-Liste, die zu jedem Zeitpunkt nur einen Eintrag oder `radio` geprüft haben kann.
+Radiogruppen sind Sammlungen, die eine Menge verwandter [`radio`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role)-Optionen beschreiben. Eine `radiogroup` ist eine Art von [`select`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/select_role)-Liste, die nur einen Eintrag oder `radio` gleichzeitig als gewählt haben kann.
 
-Beim Verwenden von nativen HTML-Input-Radio-Buttons, [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio), werden die Radio-Buttons gruppiert, wenn jeder der Input-Radio-Buttons in der Gruppe den gleichen [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) hat. Sobald eine Gruppe von gleichnamigen Input-Radio-Buttons erstellt wurde, wird durch Auswahl eines beliebigen Input-Radio-Buttons in dieser Gruppe automatisch jeder aktuell ausgewählte Input-Radio-Button in derselben Gruppe deselektiert. Während dies die Radioschaltflächen miteinander assoziieren wird, sollten Sie, um eine Gruppierung von Radiobuttons als `radiogroup` darzustellen, die ARIA-Rolle explizit festlegen.
+Bei der Verwendung des nativen HTML-Input-Radiobuttons, [`<input type="radio">`](/de/docs/Web/HTML/Reference/Elements/input/radio), werden die Radiobuttons gruppiert, wenn jedem der Input-Radiobuttons in der Gruppe derselbe [`name`](/de/docs/Web/HTML/Reference/Elements/input#name) zugewiesen wird. Sobald eine Gruppe von gleichnamigen Input-Radiobuttons erstellt wurde, deaktiviert das Auswählen eines Input-Radiobuttons in dieser Gruppe automatisch jeden derzeit gewählten Input-Radiobutton in derselben Gruppe. Auch wenn dies die Radiobuttons zusammen gruppiert, muss zum expliziten Ausweisen einer Radiobutton-Gruppe als `radiogroup` die ARIA-Rolle gesetzt werden.
 
-Es wird empfohlen, Radiogruppen durch die Verwendung von gleichnamigen HTML-Input-Radio-Buttons zu erstellen, aber falls Sie ARIA-Rollen und Attribute anstelle von semantischen HTML-Formular-Steuerelementen verwenden müssen, sollten und können benutzerdefinierte `radio`-Buttons wie native HTML-Radio-Input-Buttons funktionieren.
+Es wird empfohlen, Radiogruppen zu erstellen, indem gleichnamige HTML-Input-Radiobuttons verwendet werden. Wenn jedoch ARIA-Rollen und -Attribute anstelle von semantischen HTML-Formularsteuerungen verwendet werden müssen, können und sollten benutzerdefinierte `radio`-Buttons wie native HTML-Radio-Input-Buttons agieren.
 
-Beim Verwenden von nicht-semantischen Elementen als Radiobuttons müssen Sie sicherstellen, dass Ihre Benutzer nur einen Radiobutton aus der Gruppe auswählen können. Wenn ein Element der Gruppe ausgewählt ist, muss dessen [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked)-Attribut auf `true` gesetzt werden, das vorher ausgewählte Element wird ungeprüft, und sein `aria-checked`-Attribut wird zu `false`. Das `aria-checked`-Attribut wird auf die zugehörigen `radio`-Rollen angewendet, nicht auf die `radiogroup` selbst.
+Wenn nicht-semantische Elemente als Radiobuttons verwendet werden, müssen Sie sicherstellen, dass Ihre Nutzer nur einen Radiobutton aus der Gruppe gleichzeitig auswählen können. Wenn ein Element in der Gruppe gewählt ist und sein [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-checked)-Attribut auf `true` gesetzt ist, wird das zuvor gewählte Element deaktiviert, wobei sein `aria-checked`-Attribut `false` wird. Das `aria-checked`-Attribut wird bei den zugehörigen `radio`-Rollen und nicht bei der `radiogroup` selbst gesetzt.
 
-Einige `radiogroup`-Implementierungen initialisieren die Gruppe mit allen Buttons im ungeprüften Zustand. Sobald ein `radio` in einer `radiogroup` geprüft ist, ist es in der Regel nicht möglich, in einen vollständig ungeprüften Zustand zurückzukehren.
+Einige `radiogroup`-Implementierungen initialisieren die Gruppe mit allen Buttons im ungeprüften Zustand. Sobald ein `radio` in einer `radiogroup` geprüft ist, ist es im Allgemeinen nicht möglich, in einen vollständig ungeprüften Zustand zurückzukehren.
 
-Die `radiogroup` muss entweder durch ein sichtbares Label, das durch [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) referenziert wird, oder durch ein mit [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) spezifiziertes Label einen zugänglichen Namen haben. Wenn Elemente zusätzliche Informationen über die Radiogruppe bereitstellen, werden diese Elemente mit der `radiogroup`-Element durch die [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Eigenschaft referenziert.
+Die `radiogroup` muss einen zugänglichen Namen haben, entweder durch ein sichtbares Label, das durch [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) referenziert wird, oder hat ein Label, das mit [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label) angegeben wird. Falls Elemente zusätzliche Informationen über die Radiogruppe bereitstellen, werden diese Elemente mit der `radiogroup`-Element mittels der [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)-Eigenschaft referenziert.
 
 ### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
 
-- [`radio`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role) Rolle
-  - : Eine von einer Gruppe von prüfbaren Buttons in einer `radiogroup`, bei denen nicht mehr als einer der Buttons gleichzeitig geprüft sein kann.
+- [`radio`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role)-Rolle
+  - : Eine Gruppe von auswählbaren Buttons in einer `radiogroup`, bei der nicht mehr als einer der Buttons gleichzeitig ausgewählt sein kann.
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-labelledby) / [`aria-label`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label)
-  - : Die `radiogroup` muss einen zugänglichen Namen entweder durch ein sichtbares Label, das durch `aria-labelledby` referenziert wird, oder durch ein mit `aria-label` spezifiziertes Label haben.
+  - : Die `radiogroup` muss einen zugänglichen Namen haben, entweder durch ein sichtbares Label, das durch `aria-labelledby` referenziert wird, oder hat ein Label, das mit `aria-label` angegeben wird.
 - [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby)
-  - : Referenz zu Elementen, die zusätzliche Informationen über die `radiogroup` bereitstellen
+  - : Referenz auf Elemente, die zusätzliche Informationen über die `radiogroup` bereitstellen.
 - [`aria-required`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-required)
-  - : Gibt an, dass ein `radio` innerhalb der Gruppe `aria-checked="true"` gesetzt haben muss, bevor das Formular abgeschickt werden kann. Der erforderliche Zustand ist auf dem `radiogroup`-Element festgelegt, anstatt auf einem der `radio`-Elemente, im Gegensatz zur Verwendung von HTML-Radio-Buttons, wo das [`required`](/de/docs/Web/HTML/Reference/Attributes/required)-Attribut direkt auf einem oder mehreren radio {{HTMLElement('input')}}-Elementen festgelegt ist.
+  - : Zeigt an, dass ein `radio` innerhalb der Gruppe `aria-checked="true"` gesetzt haben muss, bevor das Formular gesendet werden kann. Der erforderliche Zustand wird bei dem `radiogroup`-Element angegeben und nicht bei einem der `radio`-Elemente, im Gegensatz zur Verwendung von HTML-Radiobuttons, bei denen das [`required`](/de/docs/Web/HTML/Reference/Attributes/required)-Attribut direkt bei einem oder mehreren {{HTMLElement('input')}}-Elementen gesetzt wird.
 - [`aria-errormessage`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-errormessage)
-  - : Identifiziert das Element, das eine Fehlermeldung für die `radiogroup` bereitstellt, falls es einen Fehler gibt. Diese Nachricht sollte verborgen sein, solange sie nicht relevant ist.
+  - : Identifiziert das Element, das eine Fehlermeldung für die `radiogroup` bereitstellt, wenn ein Fehler vorliegt. Diese Nachricht sollte verborgen sein, solange sie nicht relevant ist.
 
 ### Tastaturinteraktionen
 
-Für `radio`-Buttons in einer `radiogroup`, die sich NICHT in einer [`toolbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/toolbar_role) befindet, müssen die folgenden Tastaturinteraktionen unterstützt werden:
+Für `radio`-Buttons in einer `radiogroup`, die sich NICHT in einer [`toolbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/toolbar_role) befindet, müssen folgende Tastaturinteraktionen unterstützt werden:
 
 - <kbd>Tab</kbd> und <kbd>Shift + Tab</kbd>
-  - : Verschieben den Fokus in und aus der `radiogroup`. Wenn der Fokus auf eine `radiogroup` verschoben wird, wird der Fokus auf den geprüften Button gesetzt, falls ein Radiobutton geprüft ist. Wenn keiner der Radiobuttons geprüft ist, wird der Fokus auf den ersten Radiobutton in der Gruppe gesetzt.
+  - : Bewegen den Fokus in und aus der `radiogroup`. Wenn der Fokus in eine `radiogroup` verschoben wird, wird der Fokus auf den gewählten Button gesetzt, falls ein Radiobutton gewählt ist. Falls keiner der Radiobuttons gewählt ist, wird der Fokus auf den ersten Radiobutton in der Gruppe gesetzt.
 - <kbd>Leertaste</kbd>
-  - : Prüft den fokussierten Radiobutton, falls er nicht bereits geprüft ist.
-- <kbd>Pfeil nach rechts</kbd> und <kbd>Pfeil nach unten</kbd>
-  - : Verschieben den Fokus auf den nächsten Radiobutton in der Gruppe, indem der zuvor fokussierte Button ungeprüft und der neu fokussierte Button geprüft wird. Falls der Fokus auf dem letzten Button ist, wird der Fokus auf den ersten Button verschoben.
-- <kbd>Pfeil nach links</kbd> und <kbd>Pfeil nach oben</kbd>
-  - : Verschieben den Fokus auf den vorherigen Radiobutton in der Gruppe, indem der zuvor fokussierte Button ungeprüft und der neu fokussierte Button geprüft wird. Falls der Fokus auf dem ersten Button ist, wird der Fokus auf den letzten Button verschoben.
+  - : Wählt den fokussierten Radiobutton, falls er noch nicht gewählt ist.
+- <kbd>Rechter Pfeil</kbd> und <kbd>Abwärtspfeil</kbd>
+  - : Bewegt den Fokus zum nächsten Radiobutton in der Gruppe, deaktiviert den zuvor fokussierten Button und wählt den neu fokussierten Button. Falls der Fokus auf dem letzten Button ist, wird der Fokus auf den ersten Button verschoben.
+- <kbd>Linker Pfeil</kbd> und <kbd>Aufwärtspfeil</kbd>
+  - : Bewegt den Fokus zum vorherigen Radiobutton in der Gruppe, deaktiviert den zuvor fokussierten Button und wählt den neu fokussierten Button. Falls der Fokus auf dem ersten Button ist, wird der Fokus auf den letzten Button verschoben.
 
-Pfeiltasten werden verwendet, um zwischen Elementen einer Werkzeugleiste zu navigieren. Wenn eine `radiogroup` in einer Werkzeugleiste verschachtelt ist, müssen Benutzer in der Lage sein, zwischen allen Werkzeugleistenelementen, einschließlich der Radiobuttons, zu navigieren, ohne zu ändern, welcher Radiobutton geprüft ist. Wenn Sie also mit Pfeiltasten durch eine `radiogroup` in einer [`toolbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/toolbar_role) navigieren, ändert sich der Button, der geprüft ist, nicht. Vielmehr prüfen in einer `toolbar` die Tasten <kbd>Leertaste</kbd> und <kbd>Enter</kbd> den fokussierten `radio`-Button, falls er nicht bereits geprüft ist, wobei <kbd>Tab</kbd> den Fokus in und aus der `toolbar` verschiebt.
+Pfeiltasten werden verwendet, um zwischen den Elementen einer Werkzeugleiste zu navigieren. Wenn eine `radiogroup` in einer Werkzeugleiste verschachtelt ist, müssen Nutzer in der Lage sein, zwischen allen Elementen der Werkzeugleiste, einschließlich der Radiobuttons, zu navigieren, ohne die Auswahl zu ändern, welcher Radiobutton geprüft ist. Beim Navigieren durch eine `radiogroup` in einer [`toolbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/toolbar_role) mit Pfeiltasten ändert sich der Button, der geprüft ist, nicht. Vielmehr setzen in einer Werkzeugleiste die <kbd>Leertaste</kbd> und <kbd>Eingabetaste</kbd> den fokussierten `radio`-Button, falls er noch nicht geprüft ist, wobei <kbd>Tab</kbd> den Fokus in und aus der `toolbar` bewegt.
 
 ### Erforderliche JavaScript-Funktionen
 
-Benutzerinteraktionen für `radiogroup`s müssen die Benutzerinteraktion eines Benutzers, der in eine Gruppe von gleichnamigen HTML-Radio-Buttons eintritt, nachahmen. Tastaturereignisse für Tab, Leertaste und Pfeiltasten müssen erfasst werden. Klickereignisse sowohl auf den Radioelementen als auch auf ihren zugehörigen Labels müssen ebenfalls erfasst werden. Zusätzlich muss [der Fokus verwaltet werden](https://usability.yale.edu/web-accessibility/articles/focus-keyboard-operability).
+Benutzerinteraktionen für `radiogroups` müssen die Benutzerinteraktion nachbilden, die ein Benutzer beim Eingeben in eine Gruppe gleichnamiger HTML-Radiobuttons hat. Tastaturereignisse für Tabulatoren, Leerzeichen und Pfeiltasten müssen erfasst werden. Klickevents sowohl auf den Radioelementen als auch auf ihren zugehörigen Labels müssen ebenfalls erfasst werden. Zusätzlich muss der [Fokus verwaltet werden](https://usability.yale.edu/web-accessibility/articles/focus-keyboard-operability).
 
-Während das generelle Verlassen eines fokussierten Elements Sie zum nächsten fokussierbaren Element in der DOM-Reihenfolge bringt, halten Sie sich beim Navigieren mit den Pfeiltasten durch eine Gruppe von Radiobuttons in der Gruppe auf und verschieben den Fokus auf den ersten Radiobutton, wenn die <kbd>Pfeil nach rechts</kbd> oder <kbd>Pfeil nach unten</kbd> Taste losgelassen wird, während der Fokus auf dem letzten Radio der Gruppe war, und verschieben Sie den Fokus auf den letzten Radio, wenn die <kbd>Pfeil nach links</kbd> oder <kbd>Pfeil nach oben</kbd> Taste losgelassen wird, wenn der Fokus auf dem ersten Radio war. Die Verwaltung von wanderndem [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) ist eine Methode, um Pfeiltastenereignisse zu verwalten.
+Während das Entfernen des Fokus von einem konzentrierten Element im Allgemeinen dazu führt, dass man zum nächsten fokussierbaren Element in der DOM-Reihenfolge gelangt, bleibt man beim Verwenden der Pfeiltasten, um durch eine Gruppe von Radiobuttons zu navigieren, in der Gruppe, wobei der Fokus auf den ersten Radiobutton verschoben wird, wenn die <kbd>Rechter Pfeil</kbd> oder <kbd>Abwärtspfeil</kbd> losgelassen wird, wenn der Fokus auf dem letzten Radio in der Gruppe war, und zum letzten Radio, wenn der <kbd>Linker Pfeil</kbd> oder <kbd>Aufwärtspfeil</kbd> losgelassen wird, wenn der Fokus auf dem ersten Radio war. Das Verwalten eines sich bewegenden [`tabindex`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) ist eine Möglichkeit, um Pfeiltastenevents zu verwalten.
 
 ### Erforderliche CSS-Funktionen
 
-Verwenden Sie den `[aria-checked="true"]` [Attributselektor](/de/docs/Web/CSS/Attribute_selectors), um den geprüften Zustand von geprüften Radiobuttons zu stylen.
+Verwenden Sie den `[aria-checked="true"]` [Attribut-Selektor](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors), um den geprüften Zustand von ausgewählten Radiobuttons zu stylen.
 
-Verwenden Sie CSS {{CSSXRef(':hover')}} und {{CSSXRef(':focus')}} Pseudoklassen für das Styling des visuellen Tastaturfokus und des Hover-Effekts. Der Fokus- und Hover-Effekt sollte sowohl den Radiobutton als auch das Label umfassen, um es einfacher wahrzunehmen, welche Option gewählt wird und um anzuzeigen, dass das Klicken auf das Label oder den Button den Radiobutton aktiviert.
+Verwenden Sie CSS {{CSSXRef(':hover')}} und {{CSSXRef(':focus')}} Pseudoklassen, um den visuellen Tastaturfokus und Hover zu gestalten. Der Fokus- und Hovereffekt sollte sowohl den Radiobutton als auch das Label umfassen, um die Wahrnehmung zu erleichtern, welche Option gewählt wird, und anzuzeigen, dass sowohl durch Klicken auf das Label als auch auf den Button der Radiobutton aktiviert wird.
 
 ## Beispiele
 
-Der grundlegende Aufbau für eine `radiogroup`, die nicht-semantische ARIA-Rollen anstelle von semantischem HTML verwendet, ist wie folgt:
+Das grundlegende Setup für eine `radiogroup` mit nicht-semantischen ARIA-Rollen anstelle von semantischem HTML ist wie folgt:
 
 ```html
 <div role="radiogroup" aria-labelledby="question">
@@ -110,7 +110,7 @@ Der grundlegende Aufbau für eine `radiogroup`, die nicht-semantische ARIA-Rolle
 </div>
 ```
 
-Dies hätte unter Verwendung von semantischem HTML geschrieben werden können, welches kein CSS oder JavaScript erfordert:
+Dies hätte mit semantischem HTML geschrieben werden können, das kein CSS oder JavaScript erfordert:
 
 ```html
 <fieldset>
@@ -134,7 +134,7 @@ Dies hätte unter Verwendung von semantischem HTML geschrieben werden können, w
 </fieldset>
 ```
 
-In diesem {{HTMLElement('fieldset')}} Beispiel, während `role="radiogroup"` nicht notwendig ist, um diese Gruppierung explizit als `radiogroup` anzukündigen, fügen Sie die ARIA-Rolle hinzu.
+In diesem {{HTMLElement('fieldset')}}-Beispiel, während `role="radiogroup"` nicht notwendig ist, um diese Gruppierung explizit als `radiogroup` ankündigen zu lassen, fügen Sie die ARIA-Rolle hinzu.
 
 ## Spezifikationen
 
@@ -143,8 +143,8 @@ In diesem {{HTMLElement('fieldset')}} Beispiel, während `role="radiogroup"` nic
 ## Siehe auch
 
 - HTML {{HTMLElement('fieldset')}}-Element
-- HTML {{HTMLElement('input/radio', '&lt;input type="radio">')}} Radio-Button-Element
-- [ARIA `radio` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role)
+- HTML {{HTMLElement('input/radio', '&lt;input type="radio">')}} Radiobutton-Element
+- [ARIA `radio`-Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/radio_role)
 - [`aria-errormessage`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-errormessage)
 - [`aria-invalid`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-invalid)
 - [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-readonly)

@@ -240,7 +240,7 @@ Wenn Ihnen jede Zeile vertraut ist, können Sie das obige CSS kopieren oder Ihr 
 
 Wir verwenden die {{CSSXref("background-color")}}-Eigenschaft, um eine hellgrüne (`#eeffee`) Hintergrundfarbe für den `body` festzulegen. Dann verwenden wir auf der ungeordneten Liste, dem Fieldset und der Legende eine weiße Hintergrundfarbe, zusammen mit einem dünnen, festen Rahmen, der mit der {{CSSXref("border")}}-Eigenschaft hinzugefügt wird. Wir überschreiben die `background-color` für die Legende, indem wir die Legende und die Listenelemente zu einem dunkleren Grün (`#ccffcc`) machen.
 
-Wir verwenden die [`:nth-of-type(even)`](/de/docs/Web/CSS/:nth-of-type) Pseudoklassen-[Wähler](/de/docs/Web/CSS/CSS_selectors), um jedes gerade nummerierte Listenelement auf {{CSSXref("inherit")}} die Hintergrundfarbe seines Elternteils zu setzen; in diesem Fall erben sie die `white`-Hintergrundfarbe von der ungeordneten Liste.
+Wir verwenden die [`:nth-of-type(even)`](/de/docs/Web/CSS/Reference/Selectors/:nth-of-type) Pseudoklassen-[Wähler](/de/docs/Web/CSS/CSS_selectors), um jedes gerade nummerierte Listenelement auf {{CSSXref("inherit")}} die Hintergrundfarbe seines Elternteils zu setzen; in diesem Fall erben sie die `white`-Hintergrundfarbe von der ungeordneten Liste.
 
 ```css
 body {

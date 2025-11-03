@@ -1,32 +1,32 @@
 ---
-title: Audio- und Videobearbeitung
+title: Audio- und Videomanipulation
 slug: Web/Media/Guides/Audio_and_video_manipulation
 l10n:
-  sourceCommit: 6036cd414b2214f85901158bdf3e3a96123d4553
+  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
 ---
 
-Die Schönheit des Webs besteht darin, dass Sie Technologien kombinieren können, um neue Formen zu schaffen. Die native Unterstützung von Audio und Video im Browser bedeutet, dass wir diese Datenströme mit Technologien wie {{htmlelement("canvas")}}, [WebGL](/de/docs/Web/API/WebGL_API) oder [Web Audio API](/de/docs/Web/API/Web_Audio_API) direkt bearbeiten können, z.B. durch Hinzufügen von Hall-/Kompressionseffekten zu Audio oder Graustufen-/Sepiafiltern zu Video. Dieser Artikel bietet eine Referenz, um zu erklären, was Sie tun müssen.
+Die Schönheit des Webs liegt darin, dass Sie Technologien kombinieren können, um neue Formen zu erschaffen. Da Audio und Video nativ im Browser vorhanden sind, können wir diese Datenströme mit Technologien wie {{htmlelement("canvas")}}, [WebGL](/de/docs/Web/API/WebGL_API) oder [Web Audio API](/de/docs/Web/API/Web_Audio_API) verwenden, um Audio und Video direkt zu modifizieren. Zum Beispiel, indem wir Nachhall-/Kompressionseffekte zu Audio hinzufügen oder Grau-/Sepia-Filter zu Video. Dieser Artikel bietet eine Referenz, um zu erklären, was Sie tun müssen.
 
-## Videobearbeitung
+## Videomanipulation
 
-Die Möglichkeit, die Pixelwerte jedes Frames eines Videos zu lesen, kann sehr nützlich sein.
+Die Fähigkeit, die Pixelwerte jedes Frames eines Videos zu lesen, kann sehr nützlich sein.
 
 ### Video und Canvas
 
-Das {{htmlelement("canvas")}}-Element bietet eine Oberfläche zum Zeichnen von Grafiken auf Webseiten; es ist sehr leistungsfähig und kann eng mit Video gekoppelt werden.
+Das {{htmlelement("canvas")}}-Element bietet eine Fläche zum Zeichnen von Grafiken auf Webseiten; es ist sehr leistungsfähig und kann eng mit Video verbunden werden.
 
-Die allgemeine Technik ist:
+Die allgemeine Technik besteht darin:
 
-1. Schreiben Sie einen Frame aus dem {{htmlelement("video")}}-Element in das {{htmlelement("canvas")}}-Element.
-2. Lesen Sie die Daten aus dem `<canvas>`-Element und manipulieren Sie sie.
-3. Schreiben Sie die manipulierten Daten in Ihr "Display"-`<canvas>` (das effektiv dasselbe Element sein kann).
+1. Ein Frame vom {{htmlelement("video")}}-Element in das {{htmlelement("canvas")}}-Element zu schreiben.
+2. Die Daten vom `<canvas>`-Element zu lesen und zu manipulieren.
+3. Die manipulierten Daten auf Ihr "Anzeigecanvas" zu schreiben (welches effektiv dasselbe Element sein kann).
 4. Anhalten und wiederholen.
 
-Zum Beispiel verarbeiten wir ein Video, um es in Graustufen anzuzeigen. In diesem Fall zeigen wir sowohl das Quellvideo als auch die ausgegebenen Graustufen-Frames. Normalerweise würden Sie, wenn Sie ein "Video in Graustufen abspielen"-Feature implementieren, wahrscheinlich `display: none` zum Stil für das `<video>`-Element hinzufügen, um zu verhindern, dass das Quellvideo auf dem Bildschirm angezeigt wird, während nur das Canvas die veränderten Frames zeigt.
+Zum Beispiel, lassen Sie uns ein Video im Graustufenformat darstellen. In diesem Fall zeigen wir sowohl das Quellvideo als auch die Ausgabe-Graustufenframes. Normalerweise würden Sie, wenn Sie eine "Video in Graustufen abspielen"-Funktion implementieren, wahrscheinlich `display: none` zum Stil des `<video>`-Elements hinzufügen, um zu verhindern, dass das Quellvideo auf dem Bildschirm angezeigt wird, während nur das Canvas die veränderten Frames zeigt.
 
 #### HTML
 
-Wir können unseren Videoplayer und das `<canvas>`-Element so einrichten:
+Wir können unseren Videoplayer und unser `<canvas>`-Element wie folgt einrichten:
 
 ```html
 <video id="my-video" controls width="480" height="270" crossorigin="anonymous">
@@ -90,7 +90,7 @@ const processor = {
 };
 ```
 
-Sobald die Seite geladen ist, können Sie
+Sobald die Seite geladen ist, können Sie aufrufen
 
 ```js
 processor.doLoad();
@@ -100,34 +100,34 @@ processor.doLoad();
 
 {{EmbedLiveSample("Video_and_canvas", '100%', 580)}}
 
-Dies ist ein Beispiel, das zeigt, wie man Videoframes mit einem Canvas manipuliert. Für Effizienz sollten Sie in Betracht ziehen, [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) anstelle von `setTimeout()` zu verwenden, wenn Sie in Browsern arbeiten, die es unterstützen.
+Dies ist ein Beispiel, das zeigt, wie man Videoframes mit einem Canvas manipuliert. Für mehr Effizienz sollten Sie in Betracht ziehen, [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) anstelle von `setTimeout()` zu verwenden, wenn es von Browsern unterstützt wird.
 
 Das gleiche Ergebnis kann erreicht werden, indem die {{cssxref("filter-function/grayscale", "grayscale()")}} CSS-Funktion auf das Quell-`<video>`-Element angewendet wird.
 
 > [!NOTE]
-> Aufgrund potenzieller Sicherheitsprobleme, wenn Ihr Video auf einem anderen Domain als Ihr Code liegt, müssen Sie [CORS (Cross Origin Resource Sharing)](/de/docs/Web/HTTP/Guides/CORS) auf Ihrem Videoserver aktivieren.
+> Aufgrund potenzieller Sicherheitsprobleme, wenn Ihr Video auf einer anderen Domain als Ihr Code liegt, müssen Sie [CORS (Cross Origin Resource Sharing)](/de/docs/Web/HTTP/Guides/CORS) auf Ihrem Videoserver aktivieren.
 
 ### Video und WebGL
 
-[WebGL](/de/docs/Web/API/WebGL_API) ist ein leistungsstarkes API, das Canvas verwendet, um hardwarebeschleunigte 3D- oder 2D-Szenen zu zeichnen. Sie können WebGL und das {{htmlelement("video")}}-Element kombinieren, um Videotexturen zu erstellen, was bedeutet, dass Sie Video innerhalb von 3D-Szenen platzieren können.
+[WebGL](/de/docs/Web/API/WebGL_API) ist eine leistungsfähige API, die Canvas verwendet, um hardware-beschleunigte 3D- oder 2D-Szenen zu zeichnen. Sie können WebGL und das {{htmlelement("video")}}-Element kombinieren, um Videotexturen zu erstellen, was bedeutet, dass Sie Video in 3D-Szenen platzieren können.
 
-{{EmbedGHLiveSample('dom-examples/webgl-examples/tutorial/sample8/index.html', 670, 510) }}
+{{EmbedGHLiveSample('dom-examples/webgl-examples/tutorial/sample8/index.html', 670, 510)}}
 
 > [!NOTE]
-> Sie finden den [Quellcode dieses Demos auf GitHub](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample8) ([siehe es live](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample8/) auch).
+> Den [Quellcode dieses Demos finden Sie auf GitHub](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample8) ([siehe es live](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample8/) auch).
 
-### Wiedergaberate
+### Wiedergabegeschwindigkeit
 
-Wir können auch die Rate, mit der Audio und Video wiedergegeben werden, mit einem Attribut des {{htmlelement("audio")}}- und {{htmlelement("video")}}-Elements namens [`playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) anpassen. `playbackRate` ist eine Zahl, die ein Vielfaches darstellt, das auf die Wiedergabegeschwindigkeit angewendet werden soll, beispielsweise repräsentiert 0,5 halbe Geschwindigkeit, während 2 doppelte Geschwindigkeit darstellt.
+Wir können auch die Rate, mit der Audio und Video abgespielt werden, einstellen, indem wir ein Attribut des {{htmlelement("audio")}}- und {{htmlelement("video")}}-Elements namens [`playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) verwenden. `playbackRate` ist eine Zahl, die ein Vielfaches darstellt, das auf die Wiedergabegeschwindigkeit angewendet werden soll, zum Beispiel stellt 0.5 halbe Geschwindigkeit und 2 doppelte Geschwindigkeit dar.
 
-Beachten Sie, dass die `playbackRate`-Eigenschaft sowohl mit `<audio>` als auch `<video>` funktioniert, in beiden Fällen jedoch die Wiedergabegeschwindigkeit geändert wird, aber _nicht_ die Tonhöhe. Um die Tonhöhe des Audios zu manipulieren, müssen Sie die Web Audio API verwenden. Siehe die [`AudioBufferSourceNode.playbackRate`](/de/docs/Web/API/AudioBufferSourceNode/playbackRate) Eigenschaft.
+Beachten Sie, dass die `playbackRate`-Eigenschaft sowohl mit `<audio>` als auch `<video>` funktioniert, aber in beiden Fällen die Wiedergabegeschwindigkeit verändert, jedoch _nicht_ die Tonhöhe. Um die Tonhöhe der Audiodatei zu manipulieren, müssen Sie die Web Audio API verwenden. Sehen Sie die [`AudioBufferSourceNode.playbackRate`](/de/docs/Web/API/AudioBufferSourceNode/playbackRate) Eigenschaft.
 
 ```html live-sample___playback-rate
 <video id="my-video" controls loop>
   <source src="/shared-assets/videos/flower.mp4" type="video/mp4" />
   <source src="/shared-assets/videos/flower.webm" type="video/webm" />
 </video>
-<label for="rate">Playback rate <output id="rate-value">1.0</output></label>
+<label for="rate">Playback rate <span id="rate-value">1.0</span></label>
 <input type="range" id="rate" name="rate" min="0" max="4" value="1" step=".2" />
 ```
 
@@ -156,34 +156,34 @@ input {
 }
 ```
 
-Starten Sie das Video und passen Sie dann den Schieberegler an, um die Wiedergaberate des Mediums zu ändern:
+Starten Sie das Video und passen Sie den Schieberegler an, um die Wiedergabegeschwindigkeit des Mediums zu ändern:
 
 {{EmbedLiveSample('playback-rate', , 450)}}
 
-## Audio-Bearbeitung
+## Audiomanipulation
 
-Abgesehen von `playbackRate`, um Audio zu manipulieren, werden Sie typischerweise die [Web Audio API](/de/docs/Web/API/Web_Audio_API) verwenden.
+Abgesehen von `playbackRate` werden Sie zur Manipulation von Audiodateien normalerweise die [Web Audio API](/de/docs/Web/API/Web_Audio_API) verwenden.
 
 ### Auswahl einer Audioquelle
 
-Die Web Audio API kann Audio von verschiedenen Quellen empfangen, dann verarbeiten und es zurück an einen [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) senden, der das Ausgabegerät repräsentiert, an das der Ton nach der Verarbeitung gesendet wird.
+Die Web Audio API kann Audio aus verschiedenen Quellen empfangen, dann verarbeiten und zurück an einen [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) senden, welcher das Ausgabegerät repräsentiert, an das der Ton nach der Verarbeitung gesendet wird.
 
-| Wenn die Audioquelle ist…                                                                                                                                                        | Verwenden Sie diesen Web Audio-Knotentyp                                      |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| Ein Audiotrack aus einem HTML {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Element                                                                                     | [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode) |
-| Ein einfacher Roh-Audiodatenpuffer im Speicher                                                                                                                                   | [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)             |
-| Ein Oszillator, der eine Sinuswelle oder eine andere berechnete Wellenform generiert                                                                                             | [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)                           |
-| Ein Audiotrack von [WebRTC](/de/docs/Web/API/WebRTC_API) (z.B. das Mikrofoneingang, den Sie mit [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erhalten können). | [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)   |
+| Wenn die Audioquelle ist…                                                                                                                                                                       | Verwenden Sie diesen Web-Audio-Node-Typ                                       |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Ein Audiotrack von einem HTML {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Element                                                                                                    | [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode) |
+| Ein reiner, roher Audiodaten-Buffer im Speicher                                                                                                                                                 | [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)             |
+| Ein Oszillator, der eine Sinuswelle oder eine andere berechnete Wellenform erzeugt                                                                                                              | [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)                           |
+| Ein Audiotrack von [WebRTC](/de/docs/Web/API/WebRTC_API) (zum Beispiel das Mikrofoneingangssignal, das Sie mit [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erhalten können). | [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)   |
 
 ### Audiofilter
 
-Die Web Audio API beinhaltet viele verschiedene Filter/Effekte, die auf Audio angewendet werden können, zum Beispiel mit dem [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode).
+Die Web Audio API hat viele verschiedene Filter/Effekte, die auf Audio mit dem [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) angewendet werden können, zum Beispiel.
 
 ```html live-sample___audio-filter
 <video id="my-video" controls loop>
   <source src="/shared-assets/videos/friday.mp4" type="video/mp4" />
 </video>
-<label for="freq">Filter freq. <output id="freq-value">1.0</output>hz</label>
+<label for="freq">Filter freq. <span id="freq-value">1.0</span>hz</label>
 <input type="range" id="freq" name="freq" max="20000" value="1000" step="100" />
 ```
 
@@ -213,27 +213,27 @@ freqSlider.addEventListener("input", () => {
 {{EmbedLiveSample('audio-filter', , 550)}}
 
 > [!NOTE]
-> Sofern Sie nicht [CORS](/de/docs/Web/HTTP/Guides/CORS) aktiviert haben, sollte Ihr Video zur Vermeidung von Sicherheitsproblemen auf derselben Domain wie Ihr Code liegen.
+> Sofern Sie nicht [CORS](/de/docs/Web/HTTP/Guides/CORS) aktiviert haben, sollte zu Vermeidung von Sicherheitsproblemen Ihr Video auf derselben Domain wie Ihr Code liegen.
 
 #### Häufige Audiofilter
 
-Dies sind einige häufige Arten von Audiofiltern, die Sie anwenden können:
+Dies sind einige gängige Arten von Audiofiltern, die Sie anwenden können:
 
-- Low Pass: Lässt Frequenzen unterhalb der Grenzfrequenz durch und dämpft Frequenzen über der Grenze.
-- High Pass: Lässt Frequenzen oberhalb der Grenzfrequenz durch und dämpft Frequenzen unterhalb der Grenze.
-- Band Pass: Lässt einen Bereich von Frequenzen durch und dämpft die Frequenzen unter- und oberhalb dieses Bereichs.
-- Low Shelf: Lässt alle Frequenzen durch, fügt aber eine Verstärkung (oder Dämpfung) zu den unteren Frequenzen hinzu.
-- High Shelf: Lässt alle Frequenzen durch, fügt aber eine Verstärkung (oder Dämpfung) zu den höheren Frequenzen hinzu.
-- Peaking: Lässt alle Frequenzen durch, fügt aber eine Verstärkung (oder Dämpfung) zu einem Frequenzbereich hinzu.
-- Notch: Lässt alle Frequenzen durch, außer einem festgelegten Frequenzsatz.
-- All Pass: Lässt alle Frequenzen durch, verändert jedoch die Phasenbeziehung zwischen den verschiedenen Frequenzen.
+- Tiefpass: Lässt Frequenzen unterhalb der Grenzfrequenz passieren und dämpft Frequenzen oberhalb der Grenzfrequenz.
+- Hochpass: Lässt Frequenzen oberhalb der Grenzfrequenz passieren und dämpft Frequenzen unterhalb der Grenzfrequenz.
+- Bandpass: Lässt einen Frequenzbereich durch und dämpft die Frequenzen unterhalb und oberhalb dieses Bereichs.
+- Low Shelf: Lässt alle Frequenzen durch, fügt jedoch einen Schub (oder eine Dämpfung) zu den tieferen Frequenzen hinzu.
+- High Shelf: Lässt alle Frequenzen durch, fügt jedoch einen Schub (oder eine Dämpfung) zu den höheren Frequenzen hinzu.
+- Peaking: Lässt alle Frequenzen durch, fügt jedoch einen Schub (oder eine Dämpfung) zu einem Frequenzbereich hinzu.
+- Kerbe: Lässt alle Frequenzen durch, außer für einen Satz von Frequenzen.
+- Allpass: Lässt alle Frequenzen durch, verändert jedoch die Phasenbeziehung zwischen den einzelnen Frequenzen.
 
 > [!NOTE]
-> Weitere Informationen finden Sie unter [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode).
+> Weitere Informationen finden Sie bei [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode).
 
 ### Faltungen und Impulse
 
-Es ist auch möglich, Impulsantworten auf Audio mit dem [`ConvolverNode`](/de/docs/Web/API/ConvolverNode) anzuwenden. Eine **Impulsantwort** ist der Klang, der nach einem kurzen Impuls von Klang (wie ein Händeklatschen) entsteht. Eine Impulsantwort wird die Umgebung darstellen, in der der Impuls erzeugt wurde (z.B. ein Echo, das durch Händeklatschen in einem Tunnel entsteht).
+Es ist auch möglich, Impulsantworten auf Audio anzuwenden, indem der [`ConvolverNode`](/de/docs/Web/API/ConvolverNode) verwendet wird. Eine **Impulsantwort** ist der Ton, der nach einem kurzen Schallimpuls (wie einem Händeklatschen) erzeugt wird. Eine Impulsantwort wird die Umgebung signalisieren, in der der Impuls erzeugt wurde (zum Beispiel ein Echo, das durch Klatschen in einem Tunnel entsteht).
 
 #### Beispiel
 
@@ -245,11 +245,11 @@ source.connect(convolver);
 convolver.connect(context.destination);
 ```
 
-Sehen Sie sich unser [HolySpaceCow](https://mdn.github.io/webaudio-examples/holy-space-cow/) Beispiel für ein angewandtes (aber sehr, sehr albernes) Beispiel an.
+Sehen Sie sich unser [HolySpaceCow](https://mdn.github.io/webaudio-examples/holy-space-cow/)-Beispiel für ein angewandtes (aber sehr, sehr albernes) Beispiel an.
 
-### Raumklang
+### Räumliches Audio
 
-Wir können Audio auch mit einem **Panner-Knoten** positionieren. Ein Panner-Knoten—[`PannerNode`](/de/docs/Web/API/PannerNode)—ermöglicht es uns, einen Quellkegel sowie positionale und Richtungselemente zu definieren, alles in einem 3D-Raum, der unter Verwendung von 3D-kartesischen Koordinaten definiert ist.
+Wir können Audio auch mit einem **Panner-Node** positionieren. Ein Panner-Node—[`PannerNode`](/de/docs/Web/API/PannerNode)—ermöglicht es uns, eine Quellkegel sowie positionale und richtungsweisende Elemente zu definieren, alles in einem 3D-Raum, der mit 3D-Kartesischen Koordinaten definiert wird.
 
 #### Beispiel
 
@@ -268,25 +268,25 @@ context.listener.setPosition(0, 0, 0);
 ```
 
 > [!NOTE]
-> Sie finden ein [Beispiel in unserem GitHub-Repository](https://github.com/mdn/webaudio-examples/tree/main/panner-node) ([siehe es live](https://mdn.github.io/webaudio-examples/panner-node/)).
+> Ein [Beispiel in unserem GitHub-Repository](https://github.com/mdn/webaudio-examples/tree/main/panner-node) ([sehen Sie es live](https://mdn.github.io/webaudio-examples/panner-node/) auch) finden Sie dort.
 
 ## Beispiele
 
 - [Verschiedene Web Audio API (und andere) Beispiele](https://github.com/mdn/webaudio-examples)
 - [THREE.js Video Cube Beispiel](https://github.com/chrisdavidmills/threejs-video-cube)
-- [Faltungen in Echtzeit](https://github.com/cwilso/web-audio-samples/blob/master/samples/audio/convolution-effects.html)
+- [Faltungseffekte in Echtzeit](https://github.com/cwilso/web-audio-samples/blob/master/samples/audio/convolution-effects.html)
 
 ## Siehe auch
 
 ### Leitfäden
 
-- [Manipulation von Video mittels Canvas](/de/docs/Web/API/Canvas_API/Manipulating_video_using_canvas)
-- [HTML `playbackRate` erklärt](/de/docs/Web/Media/Guides/Audio_and_video_delivery/WebAudio_playbackRate_explained)
+- [Manipulieren von Video mit Canvas](/de/docs/Web/API/Canvas_API/Manipulating_video_using_canvas)
+- [HTML-Wiedergabegeschwindigkeit (`playbackRate`) erklärt](/de/docs/Web/Media/Guides/Audio_and_video_delivery/WebAudio_playbackRate_explained)
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- [Grundlagen der Web-Audio-Räumlichkeit](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)
-- [Verwendung von Videoframes als WebGL-Textur](/de/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL#using_the_video_frames_as_a_texture) (Sie können auch die [THREE.js](https://threejs.org/) WebGL-Bibliothek (und andere) verwenden, um diesen Effekt zu [erreichen](https://stemkoski.github.io/Three.js/Video.html))
-- [Animation von Texturen in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL)
-- [Entwicklung von Spiele-Audio mit der Web Audio API (Raumeffekte und Filter) (2012)](https://web.dev/articles/webaudio-games#room_effects_and_filters)
+- [Grundlagen der räumlichen Audiowiedergabe im Web](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)
+- [Verwendung von Videoframes als WebGL-Textur](/de/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL#using_the_video_frames_as_a_texture) (Sie können auch die [THREE.js](https://threejs.org/) WebGL-Bibliothek (und andere) verwenden, um [diesen Effekt zu erzielen](https://stemkoski.github.io/Three.js/Video.html))
+- [Texturen animieren in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL)
+- [Entwicklung von Spielaudio mit der Web Audio API (Raumeffekte und Filter) (2012)](https://web.dev/articles/webaudio-games#room_effects_and_filters)
 
 ### Referenz
 
@@ -295,5 +295,5 @@ context.listener.setPosition(0, 0, 0);
 - Das {{htmlelement("canvas")}}-Element
 - [Web Audio API](/de/docs/Web/API/Web_Audio_API)
 - [AudioContext](/de/docs/Web/API/AudioContext)
-- Weitere Informationen zu [Spatial Audio](/de/docs/Web/API/BaseAudioContext/createPanner)
-- [Webmediotechnologien](/de/docs/Web/Media)
+- Mehr Informationen über [Räumliches Audio](/de/docs/Web/API/BaseAudioContext/createPanner)
+- [Web-Medientechnologien](/de/docs/Web/Media)

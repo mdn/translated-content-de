@@ -3,12 +3,14 @@ title: "HTMLTableElement: tHead-Eigenschaft"
 short-title: tHead
 slug: Web/API/HTMLTableElement/tHead
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: f336c5b6795a562c64fe859aa9ee2becf223ad8a
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLTableElement.tHead`** repräsentiert das {{HTMLElement("thead")}}-Element einer {{HTMLElement("table")}}. Ihr Wert ist `null`, wenn kein solches Element existiert.
+Die **`HTMLTableElement.tHead`** repräsentiert das
+{{HTMLElement("thead")}}-Element einer {{HTMLElement("table")}}. Der Wert ist
+`null`, wenn es kein solches Element gibt.
 
 ## Wert
 
@@ -17,7 +19,7 @@ Ein [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement).
 ## Beispiele
 
 ```js
-if (table.tHead === my_head_el) {
+if (table.tHead === myHeadEl) {
   // …
 }
 ```
@@ -32,4 +34,4 @@ if (table.tHead === my_head_el) {
 
 ## Siehe auch
 
-- Das Interface, das diese Eigenschaft implementiert: [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement).
+- Die Schnittstelle, die diese Eigenschaft implementiert: [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement).

@@ -1,13 +1,13 @@
 ---
-title: CSS-Shadow-Teile
+title: CSS-Schatten-Teile
 slug: Web/CSS/CSS_shadow_parts
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
 ---
 
-Das **CSS-Shadow-Parts**-Modul definiert das {{CSSXref("::part", "::part()")}} Pseudo-Element, das auf einem {{Glossary("Shadow_tree", "Shadow-Host")}} gesetzt werden kann. Mit diesem Pseudo-Element können Sie es ermöglichen, dass Shadow-Hosts das ausgewählte Element im Schatten-Baum für stilistische Zwecke auf der Außenseite der Seite freigeben.
+Das **CSS-Schatten-Teile**-Modul definiert das {{CSSXref("::part", "::part()")}} Pseudoelement, das auf einem {{Glossary("Shadow_tree", "Schattenhost")}} gesetzt werden kann. Mit diesem Pseudoelement können Sie Schattenhosts ermöglichen, das ausgewählte Element im Schattendom zum äußeren Stilzweck offenzulegen.
 
-Standardmäßig können Elemente in einem Schatten-Baum nur innerhalb ihrer jeweiligen Shadow-Roots gestylt werden. Das CSS-Shadow-Parts-Modul ermöglicht es, ein [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part) Attribut auf {{HTMLElement("template")}} Nachkommen hinzuzufügen, die das benutzerdefinierte Element ausmachen und den Shadow-Tree-Knoten über das `::part()` Pseudo-Element für externe Stile freigeben.
+Standardmäßig können Elemente in einem Schattendom nur innerhalb ihrer jeweiligen Schattenwurzeln gestylt werden. Das CSS-Schatten-Teile-Modul ermöglicht das Hinzufügen eines [`part`](/de/docs/Web/HTML/Reference/Global_attributes/part) Attributs auf {{HTMLElement("template")}} Nachkommen, die das benutzerdefinierte Element bilden, um den Schattendom-Knoten über das `::part()` Pseudoelement für externes Styling freizugeben.
 
 ## Referenz
 
@@ -22,24 +22,24 @@ Standardmäßig können Elemente in einem Schatten-Baum nur innerhalb ihrer jewe
 
 ### Definitionen
 
-- {{Glossary("Shadow_tree", "Schatten-Baum")}}
+- {{Glossary("Shadow_tree", "Schattendom")}}
 
 ## Leitfäden
 
-- [CSS-Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements)
-  - : Alphabetische Liste von Pseudo-Elementen, die von allen CSS-Spezifikationen und WebVTT definiert werden
+- [CSS-Pseudoelemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements)
+  - : Alphabetische Liste von Pseudoelementen, die von allen CSS-Spezifikationen und WebVTT definiert sind.
 
-- [Web-Komponenten](/de/docs/Web/API/Web_components)
-  - : Überblick über die verschiedenen APIs, die es ermöglichen, wiederverwendbare benutzerdefinierte Elemente oder Web-Komponenten zu erstellen.
+- [Webkomponenten](/de/docs/Web/API/Web_components)
+  - : Überblick über die verschiedenen APIs, die das Erstellen wiederverwendbarer benutzerdefinierter Elemente oder Webkomponenten ermöglichen.
 
 ## Verwandte Konzepte
 
-- HTML {{HTMLElement("template")}} Element
-- HTML {{HTMLElement("slot")}} Element
-- [`Element.part`](/de/docs/Web/API/Element/part) Eigenschaft
-- [`Element.shadowRoot`](/de/docs/Web/API/Element/shadowRoot) Eigenschaft
-- [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) Methode
-- [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Schnittstelle
+- HTML {{HTMLElement("template")}}-Element
+- HTML {{HTMLElement("slot")}}-Element
+- [`Element.part`](/de/docs/Web/API/Element/part)-Eigenschaft
+- [`Element.shadowRoot`](/de/docs/Web/API/Element/shadowRoot)-Eigenschaft
+- [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow)-Methode
+- [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle
 - [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping) Modul
   - {{CSSXref(":host")}}
   - {{CSSXref(":host_function", ":host()")}}
@@ -55,4 +55,4 @@ Standardmäßig können Elemente in einem Schatten-Baum nur innerhalb ihrer jewe
 - [CSS-Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
 - [Verwendung von Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)
-- [Vorlagen: Stil außerhalb des aktuellen Bereichs](https://web.dev/learn/html/template/#styling_outside_of_the_current_scope) auf web.dev (2023)
+- [Vorlagen: Stylen außerhalb des aktuellen Bereichs](https://web.dev/learn/html/template/#styling_outside_of_the_current_scope) auf web.dev (2023)

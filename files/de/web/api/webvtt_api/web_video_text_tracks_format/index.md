@@ -620,4 +620,4 @@ Transcribed by Célestes™
 
 ## Siehe auch
 
-- Die CSS [::cue und ::cue()](/de/docs/Web/CSS/::cue) Pseudo-Elemente
+- Die CSS [::cue und ::cue()](/de/docs/Web/CSS/Reference/Selectors/::cue) Pseudo-Elemente

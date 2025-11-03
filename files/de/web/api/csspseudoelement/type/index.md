@@ -3,17 +3,16 @@ title: "CSSPseudoElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/CSSPseudoElement/type
 l10n:
-  sourceCommit: e2819fa744925becc6b6800972c66a046ba8ddc0
+  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
 ---
 
 {{APIRef}}{{SeeCompatTable}}
 
-Die **`type`** schreibgeschützte Eigenschaft des
-[`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement)-Interfaces gibt den Typ des Pseudoelements als Zeichenfolge zurück, dargestellt in Form eines [CSS-Selectors](/de/docs/Web/CSS/CSS_pseudo-elements#selectors).
+Die schreibgeschützte **`type`**-Eigenschaft der [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement)-Schnittstelle gibt den Typ des Pseudo-Elements als Zeichenkette zurück, dargestellt in Form eines [CSS-Selectors](/de/docs/Web/CSS/CSS_pseudo-elements#selectors).
 
 ## Wert
 
-Eine Zeichenfolge, die einen der folgenden Werte enthält:
+Eine Zeichenkette, die einen der folgenden Werte enthält:
 
 - {{CSSxRef('::before', '"::before"')}}
 - {{CSSxRef('::after', '"::after"')}}
@@ -21,8 +20,7 @@ Eine Zeichenfolge, die einen der folgenden Werte enthält:
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Beziehung zwischen
-`CSSPseudoElement.type` und [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo):
+Das folgende Beispiel zeigt die Beziehung zwischen `CSSPseudoElement.type` und [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo):
 
 ```js
 const myElement = document.querySelector("q");
@@ -44,4 +42,4 @@ console.log(mySelector === typeOfPseudoElement); // Outputs true
 ## Siehe auch
 
 - [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo)
-- [Liste der Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements#alphabetical_index)
+- [Liste von Pseudo-Elementen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#alphabetical_index)

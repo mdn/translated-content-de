@@ -11,7 +11,7 @@ Das **`inert`**-[globale Attribut](/de/docs/Web/HTML/Reference/Global_attributes
 Modale {{htmlelement("dialog")}}e, die mit [`showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) generiert wurden, entkommen der Inertheit, was bedeutet, dass sie die Inertheit nicht von ihren Vorfahren erben, aber inert gemacht werden können, indem das `inert`-Attribut explizit auf ihnen gesetzt wird. Kein anderes Element kann der Inertheit entkommen.
 
 > [!NOTE]
-> Während `inert` ein globales Attribut ist und auf jedes Element angewendet werden kann, wird es in der Regel für Inhaltsbereiche verwendet. Um einzelne Steuerelemente "inert" zu machen, verwenden Sie stattdessen das [`disabled-`](/de/docs/Web/HTML/Reference/Attributes/disabled)Attribut, zusammen mit CSS-[`:disabled-`](/de/docs/Web/CSS/:disabled)Stilen.
+> Während `inert` ein globales Attribut ist und auf jedes Element angewendet werden kann, wird es in der Regel für Inhaltsbereiche verwendet. Um einzelne Steuerelemente "inert" zu machen, verwenden Sie stattdessen das [`disabled-`](/de/docs/Web/HTML/Reference/Attributes/disabled)Attribut, zusammen mit CSS-[`:disabled-`](/de/docs/Web/CSS/Reference/Selectors/:disabled)Stilen.
 
 Inerte HTML-Elemente und ihre Nachkommen im flachen Baum:
 

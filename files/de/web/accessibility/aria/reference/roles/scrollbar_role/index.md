@@ -24,7 +24,7 @@ Wenn Sie derzeit keine Scrollbar sehen, kann es daran liegen, dass Ihr Browser d
 
 ### ARIA `scrollbar`
 
-Es ist immer am besten, native Scrollbars zu verwenden. Sie können die CSS-Eigenschaft {{CSSXref('overflow')}} verwenden, um das Erscheinungsbild nativer Scrollbars sicherzustellen. Eine [CSS-Scrollbar-Spezifikation](https://drafts.csswg.org/css-scrollbars/) wird derzeit entwickelt. Einige Browser erlauben das [Styling von Scrollbars über vorangestellte Pseudo-Elemente](/de/docs/Web/CSS/::-webkit-scrollbar).
+Es ist immer am besten, native Scrollbars zu verwenden. Sie können die CSS-Eigenschaft {{CSSXref('overflow')}} verwenden, um das Erscheinungsbild nativer Scrollbars sicherzustellen. Eine [CSS-Scrollbar-Spezifikation](https://drafts.csswg.org/css-scrollbars/) wird derzeit entwickelt. Einige Browser erlauben das [Styling von Scrollbars über vorangestellte Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/::-webkit-scrollbar).
 
 Da die native Scrollbar-Gestaltung historisch begrenzt war, stoßen Sie möglicherweise auf eine in JavaScript implementierte Scrollbar, die Sie unterstützen und vollständig zugänglich machen müssen. Zu diesem Zweck können Sie die `scrollbar`-Rolle verwenden, um unterstützende Technologien darüber zu informieren, dass ein UI-Steuerelement eine interaktive Scrollbar ist.
 

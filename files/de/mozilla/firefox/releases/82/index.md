@@ -31,7 +31,7 @@ Dieser Artikel liefert Informationen über die Änderungen in Firefox 82, die En
 
 #### Entfernungen
 
-- Wir haben die proprietäre [`:-moz-user-disabled`](/de/docs/Web/CSS/:-moz-user-disabled) Pseudoklasse entfernt ([Firefox Bug 1664432](https://bugzil.la/1664432)).
+- Wir haben die proprietäre [`:-moz-user-disabled`](/de/docs/Web/CSS/Reference/Selectors/:-moz-user-disabled) Pseudoklasse entfernt ([Firefox Bug 1664432](https://bugzil.la/1664432)).
 
 ### HTTP
 

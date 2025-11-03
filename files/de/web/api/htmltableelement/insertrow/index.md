@@ -3,16 +3,24 @@ title: "HTMLTableElement: insertRow() Methode"
 short-title: insertRow()
 slug: Web/API/HTMLTableElement/insertRow
 l10n:
-  sourceCommit: a84b606ffd77c40a7306be6c932a74ab9ce6ab96
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`insertRow()`** Methode des [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) Interfaces fügt eine neue Zeile ({{HtmlElement("tr")}}) in eine gegebene {{HtmlElement("table")}} ein und gibt eine Referenz auf die neue Zeile zurück.
+Die **`insertRow()`** Methode des [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) Interfaces fügt eine neue Zeile
+({{HtmlElement("tr")}}) in eine gegebene {{HtmlElement("table")}} ein und gibt eine Referenz auf die
+neue Zeile zurück.
 
-Wenn eine Tabelle mehrere {{HtmlElement("tbody")}}-Elemente hat, wird die neue Zeile standardmäßig in das letzte `<tbody>` eingefügt. Um die Zeile in einem bestimmten Abschnitt einzufügen, verwenden Sie [`HTMLTableSectionElement.insertRow()`](/de/docs/Web/API/HTMLTableSectionElement/insertRow).
+Wenn eine Tabelle mehrere {{HtmlElement("tbody")}}-Elemente hat, wird die neue Zeile standardmäßig
+in das letzte `<tbody>` eingefügt.
+Um die Zeile in einen bestimmten Abschnitt einzufügen, verwenden Sie [`HTMLTableSectionElement.insertRow()`](/de/docs/Web/API/HTMLTableSectionElement/insertRow).
 
-> [!NOTE] > `insertRow()` fügt die Zeile direkt in die Tabelle ein. Die Zeile muss nicht separat angehängt werden, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<tr>`-Element zu erstellen.
+> [!NOTE]
+> `insertRow()` fügt die Zeile direkt in die
+> Tabelle ein. Die Zeile muss nicht separat angehängt werden, wie es der Fall wäre,
+> wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue
+> `<tr>`-Element zu erstellen.
 
 ## Syntax
 
@@ -21,16 +29,20 @@ insertRow()
 insertRow(index)
 ```
 
-[`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) ist eine Referenz auf ein HTML {{HtmlElement("table")}}-Element.
+[`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) ist eine Referenz auf ein HTML {{HtmlElement("table")}}
+Element.
 
 ### Parameter
 
 - `index` {{optional_inline}}
-  - : Der Zeilenindex der neuen Zeile. Wenn `index` `-1` oder gleich der Anzahl der Zeilen ist, wird die Zeile als letzte Zeile angehängt. Wenn `index` weggelassen wird, ist der Standardwert `-1`.
+  - : Der Zeilenindex der neuen Zeile. Wenn `index` `-1` oder gleich
+    der Anzahl der Zeilen ist, wird die Zeile als letzte Zeile angehängt.
+    Wird `index` weggelassen, ist der Standardwert `-1`.
 
 ### Rückgabewert
 
-Ein [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement), das auf die neue Zeile verweist.
+Ein [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement), das auf die neue
+Zeile verweist.
 
 ### Ausnahmen
 
@@ -41,21 +53,26 @@ Ein [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement), das auf die n
 
 Dieses Beispiel verwendet `insertRow(-1)`, um eine neue Zeile an eine Tabelle anzuhängen.
 
-Wir verwenden dann [`HTMLTableRowElement.insertCell()`](/de/docs/Web/API/HTMLTableRowElement/insertCell), um eine neue Zelle in der neuen Zeile einzufügen. (Um gültiges HTML zu sein, muss ein `<tr>`-Element mindestens ein `<td>`-Element haben.) Schließlich fügen wir der Zelle text mit [`Document.createTextNode()`](/de/docs/Web/API/Document/createTextNode) und [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) hinzu.
+Wir verwenden dann [`HTMLTableRowElement.insertCell()`](/de/docs/Web/API/HTMLTableRowElement/insertCell), um eine neue Zelle in der
+neuen Zeile einzufügen. (Um gültiges HTML zu sein, muss ein `<tr>` mindestens ein
+`<td>`-Element haben.) Schließlich fügen wir der Zelle etwas Text hinzu, indem wir
+[`Document.createTextNode()`](/de/docs/Web/API/Document/createTextNode) und [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) verwenden.
 
 ### HTML
 
 ```html
 <table id="my-table">
-  <tr>
-    <td>Row 1</td>
-  </tr>
-  <tr>
-    <td>Row 2</td>
-  </tr>
-  <tr>
-    <td>Row 3</td>
-  </tr>
+  <tbody>
+    <tr>
+      <td>Row 1</td>
+    </tr>
+    <tr>
+      <td>Row 2</td>
+    </tr>
+    <tr>
+      <td>Row 3</td>
+    </tr>
+  </tbody>
 </table>
 ```
 

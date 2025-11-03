@@ -2,10 +2,10 @@
 title: caption-side
 slug: Web/CSS/Reference/Properties/caption-side
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
 ---
 
-Die **`caption-side`** [CSS](/de/docs/Web/CSS) Eigenschaft platziert den Inhalt einer {{HTMLElement("caption")}}-Tabelle auf der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
+Die **`caption-side`** [CSS](/de/docs/Web/CSS) Eigenschaft platziert den Inhalt einer Tabelle im {{HTMLElement("caption")}} auf der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
 
 {{InteractiveExample("CSS Demo: caption-side")}}
 
@@ -23,26 +23,28 @@ caption-side: bottom;
     <caption>
       Famous animals
     </caption>
-    <tr>
-      <th>Name</th>
-      <th>Location</th>
-    </tr>
-    <tr>
-      <td>Giraffe</td>
-      <td>Africa</td>
-    </tr>
-    <tr>
-      <td>Penguin</td>
-      <td>Antarctica</td>
-    </tr>
-    <tr>
-      <td>Sloth</td>
-      <td>South America</td>
-    </tr>
-    <tr>
-      <td>Tiger</td>
-      <td>Asia</td>
-    </tr>
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+      </tr>
+      <tr>
+        <td>Giraffe</td>
+        <td>Africa</td>
+      </tr>
+      <tr>
+        <td>Penguin</td>
+        <td>Antarctica</td>
+      </tr>
+      <tr>
+        <td>Sloth</td>
+        <td>South America</td>
+      </tr>
+      <tr>
+        <td>Tiger</td>
+        <td>Asia</td>
+      </tr>
+    </tbody>
   </table>
 </section>
 ```
@@ -88,17 +90,17 @@ caption-side: revert-layer;
 caption-side: unset;
 ```
 
-Die `caption-side` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `caption-side` Eigenschaft wird mit einem der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `top`
-  - : Das Caption-Box sollte am Blockstart der Tabelle positioniert werden.
+  - : Die Caption-Box sollte an der Block-Anfangsseite der Tabelle positioniert werden.
 - `bottom`
-  - : Das Caption-Box sollte am Blockende der Tabelle positioniert werden.
+  - : Die Caption-Box sollte an der Block-Endseite der Tabelle positioniert werden.
 
 > [!NOTE]
-> Das Modul [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert zwei logische Werte, `inline-start` und `inline-end`, um die Caption-Box am Inline-Start- und Inline-Endrand der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
+> Das Modul für [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert zwei logische Werte, `inline-start` und `inline-end`, um die Caption-Box am Inline-Anfangsrand bzw. Inline-Endrand der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -110,7 +112,7 @@ Die `caption-side` Eigenschaft wird als einer der unten aufgeführten Schlüssel
 
 ## Beispiele
 
-### Captions oben und unten platzieren
+### Captions oben und unten setzen
 
 #### HTML
 
@@ -119,10 +121,12 @@ Die `caption-side` Eigenschaft wird als einer der unten aufgeführten Schlüssel
   <caption>
     Caption ABOVE the table
   </caption>
-  <tr>
-    <td>Some data</td>
-    <td>Some more data</td>
-  </tr>
+  <tbody>
+    <tr>
+      <td>Some data</td>
+      <td>Some more data</td>
+    </tr>
+  </tbody>
 </table>
 
 <br />
@@ -131,10 +135,12 @@ Die `caption-side` Eigenschaft wird als einer der unten aufgeführten Schlüssel
   <caption>
     Caption BELOW the table
   </caption>
-  <tr>
-    <td>Some data</td>
-    <td>Some more data</td>
-  </tr>
+  <tbody>
+    <tr>
+      <td>Some data</td>
+      <td>Some more data</td>
+    </tr>
+  </tbody>
 </table>
 ```
 
@@ -174,4 +180,4 @@ td {
 
 - {{HTMLelement("caption")}}
 - [CSS table](/de/docs/Web/CSS/CSS_table) Modul
-- [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
+- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul

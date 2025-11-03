@@ -52,7 +52,7 @@ Zum Beispiel ist `em` relativ zur Schriftgröße des Elements und `ex` relativ z
 
 #### Wurzel schriftbezogene Längen
 
-Wurzel schriftbezogene Längen spezifizieren eine Länge im Verhältnis zum [Wurzelelement](/de/docs/Web/CSS/:root) Vorfahre, wie {{HTMLElement("HTML")}} oder {{SVGElement("SVG")}}.
+Wurzel schriftbezogene Längen spezifizieren eine Länge im Verhältnis zum [Wurzelelement](/de/docs/Web/CSS/Reference/Selectors/:root) Vorfahre, wie {{HTMLElement("HTML")}} oder {{SVGElement("SVG")}}.
 Zum Beispiel ist `rem` relativ zur Schriftgröße des Wurzelelements und `rex` ist die x-Höhe der Schrift des Wurzelelements.
 
 | Einheit | Relativ zu                                                                                                                                                      |

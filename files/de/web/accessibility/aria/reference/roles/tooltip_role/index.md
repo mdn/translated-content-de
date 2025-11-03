@@ -121,6 +121,6 @@ Statt Tooltips zu verwenden und wichtige Informationen zu verbergen, sollten Sie
 ## Siehe auch
 
 - [Die `dialog` Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles/dialog_role)
-- [CSS: `:focus` Pseudoklasse](/de/docs/Web/CSS/:focus)
+- [CSS: `:focus` Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/:focus)
 - [Tooltips & Toggletips](https://inclusive-components.design/tooltips-toggletips/) von Heydon Pickering
 - [Verständnis von SC 1.4.13: Inhalt bei Hover oder Fokus (WCAG Level AA)](https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus.html)

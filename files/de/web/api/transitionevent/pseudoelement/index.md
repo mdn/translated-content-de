@@ -3,12 +3,12 @@ title: "TransitionEvent: pseudoElement-Eigenschaft"
 short-title: pseudoElement
 slug: Web/API/TransitionEvent/pseudoElement
 l10n:
-  sourceCommit: cb25e0acbd9f0af27c4a99965cb962230d49a35d
+  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
 ---
 
 {{ apiref("CSSOM") }}
 
-Die schreibgeschützte Eigenschaft **`TransitionEvent.pseudoElement`** ist ein String, der mit `'::'` beginnt und den Namen des [Pseudo-Elements](/de/docs/Web/CSS/Pseudo-elements) enthält, auf dem die Animation ausgeführt wird. Wenn die Transition nicht auf einem Pseudo-Element, sondern auf dem Element selbst ausgeführt wird, ist der String leer: `""`.
+Die schreibgeschützte Eigenschaft **`TransitionEvent.pseudoElement`** ist ein String, der mit `'::'` beginnt und den Namen des [Pseudo-Elements](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) enthält, auf dem die Animation ausgeführt wird. Wenn die Transition nicht auf einem Pseudo-Element, sondern auf dem Element selbst ausgeführt wird, ist der Wert ein leerer String: `""`.
 
 ## Wert
 
