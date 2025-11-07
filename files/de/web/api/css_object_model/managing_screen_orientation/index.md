@@ -1,23 +1,23 @@
 ---
-title: Verwalten der Bildschirmausrichtung
+title: Verwaltung der Bildschirmorientierung
 slug: Web/API/CSS_Object_Model/Managing_screen_orientation
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
 {{DefaultAPISidebar("Screen Orientation API")}}
 
-Der Begriff _Bildschirmausrichtung_ bezieht sich darauf, ob ein Browser-{{Glossary("Viewport", "Viewport")}} im Querformatmodus ist (das heißt, die Breite des Viewports ist größer als seine Höhe) oder im Hochformatmodus (die Höhe des Viewports ist größer als seine Breite).
+Der Begriff _Bildschirmorientierung_ bezieht sich darauf, ob ein Browser-{{Glossary("Viewport", "Viewport")}} im Querformatmodus (das heißt, die Breite des Viewports ist größer als seine Höhe) oder im Hochformatmodus (die Höhe des Viewports ist größer als seine Breite) ist.
 
-CSS bietet das Medienfeature [`orientation`](/de/docs/Web/CSS/@media/orientation), um das Layout basierend auf der Bildschirmausrichtung anzupassen.
+CSS bietet das [`orientation`](/de/docs/Web/CSS/Reference/At-rules/@media/orientation)-Medienmerkmal, um das Layout basierend auf der Bildschirmorientierung anzupassen.
 
-Die [Screen Orientation API](/de/docs/Web/API/Screen_Orientation_API) bietet eine programmatische JavaScript-API, um mit der Bildschirmausrichtung zu arbeiten — inklusive der Möglichkeit, den Viewport auf eine bestimmte Ausrichtung zu sperren.
+Die [Screen Orientation API](/de/docs/Web/API/Screen_Orientation_API) bietet eine programmatische JavaScript-API für die Arbeit mit der Bildschirmorientierung, einschließlich der Möglichkeit, den Viewport auf eine bestimmte Orientierung zu sperren.
 
-## Anpassen des Layouts basierend auf der Ausrichtung
+## Anpassung des Layouts basierend auf der Orientierung
 
-Einer der häufigsten Fälle von Ausrichtungsänderungen ist, wenn Sie das Layout Ihrer Inhalte basierend auf der Ausrichtung des Geräts überarbeiten möchten. Beispielsweise möchten Sie vielleicht eine Schaltflächenleiste entlang der längsten Dimension des Anzeigegeräts strecken. Indem Sie eine Medienabfrage verwenden, können Sie dies einfach und automatisch tun.
+Einer der häufigsten Fälle für Orientierungswechsel ist, wenn Sie das Layout Ihres Inhalts basierend auf der Geräteorientierung ändern möchten. Zum Beispiel möchten Sie möglicherweise, dass eine Button-Leiste entlang der längsten Dimension des Geräts angezeigt wird. Mit einer Medienabfrage können Sie dies einfach und automatisch tun.
 
-Hier ein Beispiel mit dem folgenden HTML-Code
+Hier ein Beispiel mit folgendem HTML-Code
 
 ```html
 <ul id="toolbar">
@@ -34,7 +34,7 @@ Hier ein Beispiel mit dem folgenden HTML-Code
 </p>
 ```
 
-CSS verlässt sich auf die Medienabfrage zur Ausrichtung, um spezifische Stile basierend auf der Bildschirmausrichtung zu übernehmen
+CSS verwendet die `orientation`-Medienabfrage, um spezifische Stile basierend auf der Bildschirmorientierung zu handhaben
 
 ```css
 /* First let's define some common styles */
@@ -79,7 +79,7 @@ li {
 }
 ```
 
-Sobald wir einige gemeinsame Stile haben, können wir einen Sonderfall für die Ausrichtung definieren
+Sobald wir einige allgemeine Stile haben, können wir einen Sonderfall für die Orientierung definieren
 
 ```css
 /* For portrait, we want the toolbar on top */
@@ -135,17 +135,17 @@ Und hier ist das Ergebnis
 </table>
 
 > [!NOTE]
-> Die Medienabfrage zur Ausrichtung wird tatsächlich basierend auf der Ausrichtung des Browserfensters (oder iframe) angewendet, nicht der Ausrichtung des Geräts.
+> Die `orientation`-Medienabfrage wird tatsächlich basierend auf der Orientierung des Browserfensters (oder iframes) angewendet, nicht der Orientierung des Geräts.
 
-## Sperren der Bildschirmausrichtung
+## Sperren der Bildschirmorientierung
 
-Einige Geräte (hauptsächlich mobile Geräte) können die Ausrichtung des Bildschirms dynamisch ändern, basierend auf ihrer eigenen Ausrichtung, um sicherzustellen, dass der Benutzer immer lesen kann, was auf dem Bildschirm ist. Während dieses Verhalten perfekt für Textinhalte geeignet ist, gibt es einige Inhalte, die durch eine solche Änderung negativ beeinflusst werden können. Beispielsweise könnten Spiele, die auf der Ausrichtung des Geräts basieren, durch eine solche Ausrichtungsänderung durcheinandergebracht werden.
+Einige Geräte (hauptsächlich mobile Geräte) können die Bildschirmorientierung dynamisch basierend auf ihrer eigenen Orientierung ändern, um sicherzustellen, dass der Benutzer immer lesen kann, was auf dem Bildschirm angezeigt wird. Während dieses Verhalten für Textinhalt gut geeignet ist, gibt es einige Inhalte, die durch eine solche Änderung negativ beeinflusst werden können. Beispielsweise könnten Spiele, die auf der Geräteorientierung basieren, durch eine Änderung der Orientierung beeinträchtigt werden.
 
-Die Screen Orientation API wurde erstellt, um eine solche Änderung zu verhindern oder zu handhaben.
+Die Screen Orientation API wurde entwickelt, um solch eine Änderung zu verhindern oder zu handhaben.
 
-### Hören auf Ausrichtungsänderungen
+### Zuhören auf Orientierungsänderungen
 
-Jedes Mal, wenn sich die Ausrichtung des Bildschirms ändert, wird das [`change`](/de/docs/Web/API/ScreenOrientation/change_event)-Ereignis der [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)-Schnittstelle ausgelöst:
+Jedes Mal, wenn sich die Bildschirmorientierung ändert, wird das [`change`](/de/docs/Web/API/ScreenOrientation/change_event)-Ereignis der [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)-Schnittstelle ausgelöst:
 
 ```js
 screen.orientation.addEventListener("change", () => {
@@ -153,26 +153,26 @@ screen.orientation.addEventListener("change", () => {
 });
 ```
 
-### Verhindern der Ausrichtungsänderung
+### Verhindern einer Orientierungsänderung
 
-Jede Webanwendung kann den Bildschirm sperren, um ihren eigenen Bedürfnissen gerecht zu werden. Der Bildschirm wird mit der Methode [`screen.orientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock) gesperrt und mit der Methode [`screen.orientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock) entsperrt.
+Jede Webanwendung kann den Bildschirm entsprechend ihrer eigenen Bedürfnisse sperren. Der Bildschirm wird mit der Methode [`screen.orientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock) gesperrt und mit der Methode [`screen.orientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock) entsperrt.
 
-Die Methode [`screen.orientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock) akzeptiert einen der folgenden Werte, um die Art der Sperre zu definieren: `any`, `natural`, `portrait-primary`, `portrait-secondary`, `landscape-primary`, `landscape-secondary`, `portrait`, und `landscape`:
+Die Methode [`screen.orientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock) akzeptiert einen der folgenden Werte, um die Art der Sperre zu definieren: `any`, `natural`, `portrait-primary`, `portrait-secondary`, `landscape-primary`, `landscape-secondary`, `portrait` und `landscape`:
 
 ```js
 screen.orientation.lock();
 ```
 
-Sie gibt ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das sich auflöst, nachdem die Sperre erfolgreich ist.
+Sie gibt ein [Versprechen](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das aufgelöst wird, nachdem die Sperre erfolgreich war.
 
 > [!NOTE]
-> Eine Bildschirmsperre ist abhängig von der Webanwendung. Wenn Anwendung A auf `landscape` gesperrt ist und Anwendung B auf `portrait`, wird beim Wechseln von Anwendung A zu B oder B zu A kein `change`-Ereignis auf `ScreenOrientation` ausgelöst, weil beide Anwendungen die Ausrichtung beibehalten, die sie hatten.
+> Eine Bildschirmsperre ist von der Webanwendung abhängig. Wenn Anwendung A auf `landscape` gesperrt ist und Anwendung B auf `portrait`, dann wird beim Wechsel von Anwendung A zu B oder von B zu A kein `change`-Ereignis auf `ScreenOrientation` ausgelöst, da beide Anwendungen die Orientierung beibehalten, die sie hatten.
 >
-> Das Sperren der Ausrichtung kann jedoch ein `change`-Ereignis auslösen, wenn die Ausrichtung geändert werden musste, um die Sperranforderungen zu erfüllen.
+> Eine Sperrung der Orientierung kann jedoch ein `change`-Ereignis auslösen, wenn die Orientierung geändert werden musste, um die Sperranforderungen zu erfüllen.
 
 ## Siehe auch
 
 - [`screen.orientation`](/de/docs/Web/API/Screen/orientation)
 - [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)
 - [`change`](/de/docs/Web/API/ScreenOrientation/change_event)-Ereignis von [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)
-- [Die Medienabfrage zur Ausrichtung](/de/docs/Web/CSS/@media/orientation)
+- [Die Orientierung-Medienabfrage](/de/docs/Web/CSS/Reference/At-rules/@media/orientation)

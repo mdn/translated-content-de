@@ -2,43 +2,43 @@
 title: <script>
 slug: Web/SVG/Reference/Element/script
 l10n:
-  sourceCommit: bec7ef59277e752985de0ee963c86f6e8e4b3400
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 Das **`<script>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht das Hinzufügen von Skripten zu einem SVG-Dokument.
 
 > [!NOTE]
-> Obwohl das `script`-Element von SVG dem {{HTMLElement('script')}}-Element von HTML entspricht, gibt es einige Unterschiede. Zum Beispiel verwendet es das {{SVGAttr('href')}}-Attribut anstelle von [`src`](/de/docs/Web/HTML/Reference/Elements/script#src) und unterstützt derzeit keine ECMAScript-Module (siehe Browser-Kompatibilität unten für Details).
+> Obwohl das `script`-Element in SVG dem HTML-{{HTMLElement('script')}}-Element entspricht, gibt es einige Unterschiede, wie z.B. die Verwendung des {{SVGAttr('href')}}-Attributs anstelle von [`src`](/de/docs/Web/HTML/Reference/Elements/script#src) und die fehlende Unterstützung für ECMAScript-Module bisher (siehe unten für Details zur Browser-Kompatibilität).
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
 ## Attribute
 
 - [`crossorigin`](/de/docs/Web/HTML/Reference/Elements/script#crossorigin)
-  - : Dieses Attribut definiert die [CORS-Einstellungen](/de/docs/Web/HTML/Reference/Attributes/crossorigin), wie sie für das HTML-{{HTMLElement('script')}}-Element festgelegt sind.
-    _Wertetyp_: [**[ anonymous | use-credentials ]?**](/de/docs/Web/CSS/string); _Standardwert_: `?`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert [CORS-Einstellungen](/de/docs/Web/HTML/Reference/Attributes/crossorigin), wie sie für das HTML-{{HTMLElement('script')}}-Element festgelegt sind.
+    _Werttyp_: [**[ anonymous | use-credentials ]?**](/de/docs/Web/CSS/Reference/Values/string); _Standardwert_: `?`; _Animierbar_: **ja**
 - {{SVGAttr("fetchpriority")}} {{experimental_inline}} {{non-standard_inline}}
-  - : Gibt einen Hinweis auf die relative Priorität, die beim Abrufen eines externen Skripts verwendet werden soll.
+  - : Bietet einen Hinweis auf die relative Priorität beim Laden eines externen Skripts.
     Erlaubte Werte:
     - `high`
-      - : Ruft das externe Skript mit hoher Priorität im Vergleich zu anderen externen Skripten ab.
+      - : Lädt das externe Skript mit hoher Priorität im Vergleich zu anderen externen Skripten.
     - `low`
-      - : Ruft das externe Skript mit niedriger Priorität im Vergleich zu anderen externen Skripten ab.
+      - : Lädt das externe Skript mit niedriger Priorität im Vergleich zu anderen externen Skripten.
     - `auto`
-      - : Setzt keine Präferenz für die Abrufpriorität.
-        Dieser Wert wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt ist.
-        Dies ist der Standard.
+      - : Legt keine Präferenz für die Ladepriorität fest.
+        Wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt ist.
+        Dies ist der Standardwert.
 - {{SVGAttr("href")}}
-  - : Die {{Glossary("URL", "URL")}} des zu ladenden Skripts.
-    _Wertetyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _none_; _Animierbar_: **nein**
+  - : Die {{Glossary("URL", "URL")}} zu dem zu ladenden Skript.
+    _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _none_; _Animierbar_: **nein**
 - {{SVGAttr("type")}}
-  - : Dieses Attribut definiert den zu verwendenden Skriptsprachen-Typ.
-    _Wertetyp_: {{Glossary("MIME_type", "**`<media-type>`**")}}; _Standardwert_: `application/ecmascript`; _Animierbar_: **nein**
+  - : Dieses Attribut definiert den Typ der zu verwendenden Skriptsprache.
+    _Werttyp_: {{Glossary("MIME_type", "**`<media-type>`**")}}; _Standardwert_: `application/ecmascript`; _Animierbar_: **nein**
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
-  - : Die {{Glossary("URL", "URL")}} des zu ladenden Skripts.
-    _Wertetyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _none_; _Animierbar_: **nein**
+  - : Die {{Glossary("URL", "URL")}} zu dem zu ladenden Skript.
+    _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Guides/Content_type#url)**; _Standardwert_: _none_; _Animierbar_: **nein**
 
 ## DOM-Schnittstelle
 
@@ -93,5 +93,5 @@ Click the circle to change colors.
 
 ## Siehe auch
 
-- {{SVGAttr("fetchpriority")}}-Attribut
+- {{SVGAttr("fetchpriority")}} Attribut
 - [`script`-Element in HTML](/de/docs/Web/HTML/Reference/Elements/script)

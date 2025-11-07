@@ -3,12 +3,12 @@ title: "Window: getComputedStyle() Methode"
 short-title: getComputedStyle()
 slug: Web/API/Window/getComputedStyle
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`Window.getComputedStyle()`** Methode gibt ein lebendes, schreibgeschütztes [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) Objekt zurück, das die [aufgelösten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#resolved_value) aller CSS-Eigenschaften eines Elements enthält, nachdem aktive Stylesheets angewendet und alle Berechnungen dieser Werte aufgelöst wurden.
+Die **`Window.getComputedStyle()`** Methode gibt ein dynamisches, schreibgeschütztes [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) Objekt zurück, das die [aufgelösten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#resolved_value) aller CSS-Eigenschaften eines Elements enthält, nachdem aktive Stylesheets angewendet und alle Berechnungen dieser Werte durchgeführt wurden.
 
 ## Syntax
 
@@ -22,63 +22,63 @@ getComputedStyle(element, pseudoElt)
 - `element`
   - : Das [`Element`](/de/docs/Web/API/Element), für das der berechnete Stil abgerufen werden soll.
 - `pseudoElt` {{optional_inline}}
-  - : Ein String, der das Pseudoelement spezifiziert, das übereinstimmen soll.
-    Ausgelassen (oder `null`) für echte Elemente.
+  - : Ein String, der das zuzuordnende Pseudo-Element angibt.
+    Weggelassen (oder `null`) für reale Elemente.
 
 ### Rückgabewert
 
-Ein _lebendes_ [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) Objekt, das sich automatisch aktualisiert, wenn sich die Stile des Elements ändern.
+Ein _dynamisches_ [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) Objekt, das sich automatisch aktualisiert, wenn die Stile des Elements geändert werden.
 
 > [!NOTE]
 > Frühere Versionen der Spezifikation gaben ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) zurück (von dem [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) abgeleitet ist).
-> In der Tabelle zur [Browser-Kompatibilität](#browser-kompatibilität) finden Sie Informationen zur Browserunterstützung.
+> Siehe die [Browser-Kompatibilität](#browser-kompatibilität) für Informationen zur Browserunterstützung.
 
 > [!WARNING]
 > Zurückgegebene Werte sind manchmal absichtlich ungenau.
-> Um das Sicherheitsproblem der "CSS History Leak" zu vermeiden, können Browser falsche Angaben zu den berechneten Stilen eines besuchten Links machen und Werte zurückgeben, als ob der Benutzer die verlinkte URL nie besucht hätte.
-> Siehe [Plugging the CSS history leak](https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/) und [Privacy-related changes coming to CSS `:visited`](https://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/) für Beispiele, wie dies implementiert ist.
+> Um das Sicherheitsproblem "CSS History Leak" zu vermeiden, können Browser fälschlicherweise über die berechneten Stile für einen besuchten Link berichten, indem sie Werte zurückgeben, als ob der Benutzer die verlinkte URL nie besucht hätte.
+> Siehe [Plugging the CSS history leak](https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/) und [Privacy-related changes coming to CSS `:visited`](https://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/) für Beispiele, wie dies implementiert wird.
 
 ### Ausnahmen
 
 - {{JSxRef("TypeError")}}
-  - : Wenn das übergebene Objekt kein [`Element`](/de/docs/Web/API/Element) ist oder `pseudoElt` kein gültiger Pseudoelement-Selektor ist oder {{CSSxRef("::part", "::part()")}} oder {{CSSxRef("::slotted", "::slotted()")}} ist.
+  - : Wenn das übergebene Objekt kein [`Element`](/de/docs/Web/API/Element) ist oder `pseudoElt` kein gültiger Pseudo-Element Selektor ist oder {{CSSxRef("::part", "::part()")}} oder {{CSSxRef("::slotted", "::slotted()")}} ist.
 
     > [!NOTE]
-    > Gültiger Pseudoelement-Selektor bezieht sich auf die syntaktische Gültigkeit, z.B. wird `::unsupported` als gültig angesehen, auch wenn das Pseudoelement selbst nicht unterstützt wird.
+    > Ein gültiger Pseudo-Element Selektor bezieht sich auf die syntaktische Gültigkeit, z.B. wird `::unsupported` als gültig angesehen, auch wenn das Pseudo-Element selbst nicht unterstützt wird.
 
 ## Beschreibung
 
-Die Methode gibt ein lebendes, schreibgeschütztes [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) Objekt zurück, das die [aufgelösten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#resolved_value) aller CSS-Eigenschaften eines Elements enthält, nachdem aktive Stylesheets angewendet und alle Berechnungen dieser Werte aufgelöst wurden.
+Die Methode liefert ein dynamisches, schreibgeschütztes [`CSSStyleProperties`](/de/docs/Web/API/CSSStyleProperties) Objekt, das die [aufgelösten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#resolved_value) aller CSS-Eigenschaften eines Elements enthält, nachdem aktive Stylesheets angewendet und alle Berechnungen dieser Werte durchgeführt wurden.
 
-Das zurückgegebene Objekt kann verwendet werden, um die Stile des Elements zu inspizieren — einschließlich derer, die inline, mit einem `<style>`-Element oder über ein externes Stylesheet gesetzt sind.
-Da das Objekt schreibgeschützt ist, können Sie es nicht verwenden, um die Stile eines Elements zu setzen.
-Da es jedoch "lebendig" ist, wird das zurückgegebene Objekt mit dem entsprechenden aufgelösten Wert aktualisiert, wenn Sie die Stile des Elements mit einer anderen API (wie [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)) aktualisieren.
+Das zurückgegebene Objekt kann verwendet werden, um die Stile des Elements zu inspizieren — einschließlich derer, die inline, mit einem `<style>` Element oder über ein externes Stylesheet gesetzt wurden.
+Da das Objekt schreibgeschützt ist, kann es nicht verwendet werden, um die Stile eines Elements zu setzen.
+Da es jedoch "dynamisch" ist, wird das zurückgegebene Objekt beim Aktualisieren der Elementstile über eine andere API (wie [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)) mit dem entsprechenden aufgelösten Wert aktualisiert.
 
-Der Unterschied, dass das Objekt [aufgelöste Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#resolved_value) enthält, ist wichtig.
-Für die meisten Eigenschaften, insbesondere solche, die von Layouts abhängen wie `display`, `font-size` oder `line-height`, ist der aufgelöste Wert der berechnete Wert.
-Für Eigenschaften, die vom Layout abhängen, kann der verwendete Wert leicht vom berechneten Wert abweichen, und dies ist der aufgelöste Wert, der zurückgegeben wird.
-Für einen animierten Eigenschaftswert wird es der berechnete Wert zum aktuellen Zeitpunkt der Animation sein.
+Die Unterscheidung, dass das Objekt [aufgelöste Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#resolved_value) enthält, ist wichtig.
+Für die meisten Eigenschaften, insbesondere solche, die von der Gestaltung abhängen, wie `display`, `font-size` oder `line-height`, ist der aufgelöste Wert der berechnete Wert.
+Für Eigenschaften, die von der Gestaltung abhängig sind, kann der verwendete Wert geringfügig vom berechneten Wert abweichen, und dies ist es, was als aufgelöster Wert zurückgegeben wird.
+Für einen animierten Eigenschaftenwert ist es der berechnete Wert zum aktuellen Punkt der Animation.
 
-Das zurückgegebene Objekt verfügt über Strich-benannte und entsprechende {{Glossary("camel_case", "camel-case")}} benannte Eigenschaften für **alle** vom Browser unterstützten [CSS-Eigenschaften](/de/docs/Web/CSS/Reference/Properties), einschließlich sowohl [Shorthand](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) als auch Langform-Eigenschaften.
+Das zurückgegebene Objekt enthält Eigenschaften mit Bindestrichnamen und entsprechenden {{Glossary("camel_case", "camel-case")}} Namen für **alle** vom Browser unterstützten [CSS-Eigenschaften](/de/docs/Web/CSS/Reference/Properties), einschließlich sowohl [Kurzform-](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) als auch Langform-Eigenschaften.
 
-Shorthand-CSS-Eigenschaften des Elements werden auf ihre entsprechenden Langform-Eigenschaften erweitert.
-Zum Beispiel, ein Element mit dem Stil `"border-top: 1px solid black"` würde im zurückgegebenen Objekt durch Eigenschaften mit den Namen {{cssxref("border-top")}} und `borderTop` sowie die entsprechenden Langform-Eigenschaften {{cssxref("border-top-color")}} und `borderTopColor`, {{cssxref("border-top-style")}} und `borderTopStyle` sowie {{cssxref("border-top-width")}} und `borderTopWidth` repräsentiert werden.
+Kurzform CSS-Eigenschaften des Elements werden in ihre entsprechenden Langform-Eigenschaften aufgeschlüsselt.
+Zum Beispiel würde ein Element mit dem Stil `"border-top: 1px solid black"` im zurückgegebenen Objekt durch Eigenschaften mit den Namen {{cssxref("border-top")}} und `borderTop`, und den entsprechenden Langform-Eigenschaften {{cssxref("border-top-color")}} und `borderTopColor`, {{cssxref("border-top-style")}} und `borderTopStyle`, sowie {{cssxref("border-top-width")}} und `borderTopWidth` dargestellt werden.
 
-Beachten Sie, dass das zurückgegebene Objekt vom gleichen Typ ist wie das Objekt, das von der [`style`](/de/docs/Web/API/HTMLElement/style) Eigenschaft des Elements zurückgegeben wird.
-Das `element.style` Objekt kann jedoch auch verwendet werden, um Stile auf diesem Element **zu setzen**, und gibt nur die Inline-Stile oder die über JavaScript gesetzten zurück.
+Beachten Sie, dass das zurückgegebene Objekt vom gleichen Typ ist wie das Objekt, das aus der `style`-Eigenschaft des Elements zurückgegeben wird.
+Jedoch kann das `element.style`-Objekt auch verwendet werden, um **Stile** auf diesem Element zu setzen, und es gibt lediglich die Inline-Stile oder jene, die über JavaScript gesetzt wurden, zurück.
 
 ### Farbwerte
 
-Aus Kompatibilitätsgründen werden serialisierte Farbwerte, die unter Verwendung des traditionellen sRGB-Farbraums spezifiziert sind, als [`rgb()`](/de/docs/Web/CSS/color_value/rgb) Farben ausgedrückt, wenn der Alphakanalwert genau `1` ist, und ansonsten als `rgba()` Farben.
-Die veraltete Syntax mit Kommata wird verwendet, wobei Kommata als Trennzeichen dienen (zum Beispiel `rgb(255, 0, 0)`).
+Aus Kompatibilitätsgründen werden serialisierte Farbwerte, die mit dem traditionellen sRGB-Farbraum angegeben werden, als [`rgb()`](/de/docs/Web/CSS/Reference/Values/color_value/rgb) Farben ausgedrückt, wenn der Alpha-Kanalwert genau `1` ist, und `rgba()` Farben andernfalls.
+Die veraltete Syntax mit Kommata wird verwendet, mit Kommata als Trennzeichen (zum Beispiel `rgb(255, 0, 0)`).
 
-Für andere {{Glossary("color_space", "Farbräume")}} werden die Werte unter Verwendung der entsprechenden Funktionsausdrücke serialisiert: [`lab()`](/de/docs/Web/CSS/color_value/lab), [`lch()`](/de/docs/Web/CSS/color_value/lch) [`oklab()`](/de/docs/Web/CSS/color_value/oklab), [`oklch()`](/de/docs/Web/CSS/color_value/oklch), [`color()`](/de/docs/Web/CSS/color_value/color).
+Für andere {{Glossary("color_space", "Farbräume")}} werden die Werte unter Verwendung der entsprechenden Funktional-Ausdrücke serialisiert: [`lab()`](/de/docs/Web/CSS/Reference/Values/color_value/lab), [`lch()`](/de/docs/Web/CSS/Reference/Values/color_value/lch), [`oklab()`](/de/docs/Web/CSS/Reference/Values/color_value/oklab), [`oklch()`](/de/docs/Web/CSS/Reference/Values/color_value/oklch), [`color()`](/de/docs/Web/CSS/Reference/Values/color_value/color).
 
 ## Beispiele
 
 ### Abrufen von aufgelösten Stilen
 
-In diesem Beispiel stylen wir ein {{HTMLElement("p")}} Element, rufen dann diese Stile mit `getComputedStyle()` ab und geben sie im Textinhalt des `<p>` aus.
+In diesem Beispiel stylen wir ein {{HTMLElement("p")}} Element, rufen dann diese Stile mit `getComputedStyle()` ab und geben sie in den Textinhalt des `<p>` aus.
 
 #### HTML
 
@@ -116,9 +116,9 @@ para.textContent =
 
 {{EmbedLiveSample('retrieving_resolved_styles', '100%', '240px')}}
 
-### Verwendung mit Pseudoelementen
+### Verwendung mit Pseudo-Elementen
 
-`getComputedStyle()` kann Stilinformationen von [Pseudoelementen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) abrufen, wie z.B. `::after`, `::before`, `::marker` oder `::line-marker`.
+`getComputedStyle()` kann Stilinformationen von [Pseudo-Elementen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) wie `::after`, `::before`, `::marker` oder `::line-marker` abrufen.
 
 ```html
 <h3>Generated content</h3>

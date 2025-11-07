@@ -2,24 +2,24 @@
 title: color
 slug: Web/SVG/Reference/Attribute/color
 l10n:
-  sourceCommit: 635820782735cd00f71ce3929ff9377b091f8995
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das **`color`** Attribut wird verwendet, um einen potenziellen indirekten Wert, `currentColor`, für die Attribute {{SVGAttr("fill")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stop-color")}}, {{SVGAttr("flood-color")}}, und {{SVGAttr("lighting-color")}} bereitzustellen.
+Das **`color`** Attribut wird verwendet, um einen potenziellen indirekten Wert, `currentColor`, für die Attribute {{SVGAttr("fill")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stop-color")}}, {{SVGAttr("flood-color")}} und {{SVGAttr("lighting-color")}} bereitzustellen.
 
 > [!NOTE]
-> Als Präsentationsattribut hat `color` auch ein entsprechendes CSS-Attribut: {{cssxref("color")}}. Wenn beide spezifiziert sind, hat die CSS-Eigenschaft Vorrang.
+> Als Präsentationsattribut hat `color` auch ein entsprechendes CSS-Eigenschaftsgegenstück: {{cssxref("color")}}. Wenn beide angegeben sind, hat die CSS-Eigenschaft Vorrang.
 
-Technisch kann `color` auf jedes Element angewendet werden, hat jedoch keinen direkten Effekt auf SVG-Elemente.
+Technisch gesehen kann `color` auf jedes Element angewendet werden, aber es hat keine direkte Auswirkung auf SVG-Elemente.
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Wert</th>
       <td>
-        <code><a href="/de/docs/Web/CSS/color_value">&#x3C;color></a></code>
+        <code><a href="/de/docs/Web/CSS/Reference/Values/color_value">&#x3C;color></a></code>
         | <code>inherit</code>
       </td>
     </tr>

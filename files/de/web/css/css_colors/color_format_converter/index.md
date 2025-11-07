@@ -2,14 +2,14 @@
 title: Farbformat-Konverter
 slug: Web/CSS/CSS_colors/Color_format_converter
 l10n:
-  sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Dieses Tool ermöglicht es Ihnen, eine Farbe einzugeben oder auszuwählen und ihren entsprechenden Wert in jedem CSS-[Farbformat](/de/docs/Web/CSS/color_value) zu kopieren. Sie können den generierten Farbwert überall dort verwenden, wo der {{cssxref("color_value", "&lt;color&gt;")}} Datentyp in CSS unterstützt wird. Dieses Tool kann Ihnen auch helfen, die Syntax der verschiedenen Farbdarstellungen zu verstehen.
+Dieses Tool ermöglicht es Ihnen, eine Farbe einzugeben oder auszuwählen und deren entsprechenden Wert in jedem CSS-[Farbformat](/de/docs/Web/CSS/Reference/Values/color_value) zu kopieren. Sie können den generierten Farbwert überall dort verwenden, wo der {{cssxref("color_value", "&lt;color&gt;")}} Datentyp in CSS unterstützt wird. Dieses Tool kann Ihnen auch helfen, die Syntax der verschiedenen Farbnotationen zu verstehen.
 
 ## Anleitung zur Nutzung des Tools
 
-Geben Sie eine Farbe in einem beliebigen Format ein oder wählen Sie eine im sRGB-{{Glossary("color_space", "Farbraum")}} aus. Sie können auch die Deckkraft (Alphakanal) anpassen.
+Geben Sie eine Farbe in einem beliebigen Format ein oder wählen Sie eine im sRGB-{{Glossary("color_space", "Farbraum")}} aus. Sie können auch die Transparenz (Alpha-Kanal) anpassen.
 
 Klicken Sie auf die Schaltfläche **Kopieren** neben dem entsprechenden Farbformat, um dessen Wert schnell zu kopieren. Sie können auch auf einen Farbnamen klicken, um mehr darüber zu erfahren.
 
@@ -44,7 +44,7 @@ Klicken Sie auf die Schaltfläche **Kopieren** neben dem entsprechenden Farbform
         <tr id="rgb-function">
           <th>
             <a
-              href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb"
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/rgb"
               target="_blank">
               RGB
             </a>
@@ -54,7 +54,7 @@ Klicken Sie auf die Schaltfläche **Kopieren** neben dem entsprechenden Farbform
         <tr id="hex">
           <th>
             <a
-              href="https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color"
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/hex-color"
               target="_blank">
               HEX
             </a>
@@ -64,7 +64,7 @@ Klicken Sie auf die Schaltfläche **Kopieren** neben dem entsprechenden Farbform
         <tr id="hsl-function">
           <th>
             <a
-              href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl"
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/hsl"
               target="_blank">
               HSL
             </a>
@@ -74,7 +74,7 @@ Klicken Sie auf die Schaltfläche **Kopieren** neben dem entsprechenden Farbform
         <tr id="hwb-function">
           <th>
             <a
-              href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hwb"
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/hwb"
               target="_blank">
               HWB
             </a>
@@ -84,7 +84,7 @@ Klicken Sie auf die Schaltfläche **Kopieren** neben dem entsprechenden Farbform
         <tr id="color-function">
           <th>
             <a
-              href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color"
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/color"
               target="_blank">
               color()
             </a>
@@ -94,7 +94,7 @@ Klicken Sie auf die Schaltfläche **Kopieren** neben dem entsprechenden Farbform
         <tr id="lab-function">
           <th>
             <a
-              href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lab"
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/lab"
               target="_blank">
               Lab
             </a>
@@ -104,7 +104,7 @@ Klicken Sie auf die Schaltfläche **Kopieren** neben dem entsprechenden Farbform
         <tr id="lch-function">
           <th>
             <a
-              href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lch"
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/lch"
               target="_blank">
               LCH
             </a>
@@ -114,7 +114,7 @@ Klicken Sie auf die Schaltfläche **Kopieren** neben dem entsprechenden Farbform
         <tr id="oklab-function">
           <th>
             <a
-              href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklab"
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/oklab"
               target="_blank">
               Oklab
             </a>
@@ -124,7 +124,7 @@ Klicken Sie auf die Schaltfläche **Kopieren** neben dem entsprechenden Farbform
         <tr id="oklch-function">
           <th>
             <a
-              href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch"
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/oklch"
               target="_blank">
               OkLCh
             </a>
@@ -562,9 +562,9 @@ init();
 
 - [Farbe mit CSS-Eigenschaften anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)
 - [CSS-Farbwerte](/de/docs/Web/CSS/CSS_colors/Color_values)
-- [Farbe sinnvoll verwenden](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
-- [Relative Farben verwenden](/de/docs/Web/CSS/CSS_colors/Relative_colors)
-- [Farben und Leuchtdichte verstehen](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
+- [Farbe sinnvoll einsetzen](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
+- [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
+- [Verständnis von Farbe und Helligkeit](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
 - [WCAG 1.4.1: Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)
 - [Lernen: Hintergründe und Rahmen mit CSS gestalten](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
 - [Barrierefreiheit lernen: Farbe und Farbkontrast](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript#color_and_color_contrast)

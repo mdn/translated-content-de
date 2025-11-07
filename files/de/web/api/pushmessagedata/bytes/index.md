@@ -3,12 +3,12 @@ title: "PushMessageData: bytes() Methode"
 short-title: bytes()
 slug: Web/API/PushMessageData/bytes
 l10n:
-  sourceCommit: e709754f3e8d6cbaed0d5783cc354e0ae44795e0
+  sourceCommit: 562051c4ad20e9ecb5faf905286cdfca545a340d
 ---
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die **`bytes()`**-Methode der [`PushMessageData`](/de/docs/Web/API/PushMessageData)-Schnittstelle extrahiert Push-Nachrichtendaten als ein {{jsxref("Uint8Array")}}-Objekt.
+Die **`bytes()`** Methode der [`PushMessageData`](/de/docs/Web/API/PushMessageData) Schnittstelle extrahiert die Push-Nachrichtendaten als ein {{jsxref("Uint8Array")}} Objekt.
 
 ## Syntax
 
@@ -26,8 +26,8 @@ Ein {{jsxref("Uint8Array")}}.
 
 ### Ausnahmen
 
-Das zurückgegebene {{jsxref("Uint8Array")}} wird durch einen {{jsxref("ArrayBuffer")}} von Bytes unterstützt.
-Während der Erstellung dieses unterstützenden Puffers ausgelöste Ausnahmen werden erneut ausgelöst.
+Der zurückgegebene {{jsxref("Uint8Array")}} wird von einem {{jsxref("ArrayBuffer")}} von Bytes unterstützt.
+Ausnahmen, die während der Erstellung dieses unterstützenden Puffers auftreten, werden erneut ausgelöst.
 
 Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#exceptions).
 

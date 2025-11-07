@@ -1,21 +1,21 @@
 ---
-title: Verstehen und Festlegen von Seitenverhältnissen
+title: Verständnis und Festlegung von Seitenverhältnissen
 slug: Web/CSS/CSS_box_sizing/Understanding_aspect-ratio
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Jedes Element, das auf der Seite dargestellt wird, hat eine Höhe und eine Breite und somit auch ein {{Glossary("aspect_ratio", "Seitenverhältnis")}}, das das Verhältnis zwischen Breite und Höhe beschreibt. Die natürlichen Abmessungen eines Medienobjekts, also seine Größe ohne jegliche Größenanpassung, Skalierung, Zoom oder angewandte Ränder, werden als seine natürliche oder {{Glossary("intrinsic_size", "intrinsische Größe")}} bezeichnet. Die intrinsische Größe eines Elements wird vom Element selbst bestimmt, nicht durch das Anwenden von Formatierungen wie [Box Sizing](/de/docs/Web/CSS/CSS_box_sizing) oder das Festlegen von Rand-, Margin- oder Padding-Breiten.
+Jedes Element, das auf der Seite gerendert wird, hat eine Höhe und eine Breite und damit ein {{Glossary("aspect_ratio", "Seitenverhältnis")}}, welches das Verhältnis zwischen Breite und Höhe ist. Die natürlichen Abmessungen eines Medienobjekts, also seine Größe ohne jegliche Größenanpassung, Skalierung, Zoom oder angewandte Rahmen, bezeichnet man als seine natürliche oder {{Glossary("intrinsic_size", "intrinsische Größe")}}. Die intrinsische Größe eines Elements wird durch das Element selbst bestimmt und nicht durch das Anwenden von Formatierungen wie [Boxsizing](/de/docs/Web/CSS/CSS_box_sizing) oder das Setzen von Rahmen-, Rand- oder Polsterbreiten.
 
-Beim Entwickeln von Websites möchten Sie oft die Breite eines Elements als Prozentsatz der Größe des Viewports oder des übergeordneten Containers festlegen und die Höhe proportional ändern, um ein spezifisches Seitenverhältnis je nach Größe des Viewports beizubehalten. Bei ersetzten Elementen wie Bildern und Videos ist es nicht nur notwendig, ein spezifisches Seitenverhältnis beizubehalten, um ein {{Glossary("responsive_web_design", "responsives Webdesign")}} zu erstellen, sondern es ist auch ein wesentlicher Bestandteil für eine gute Benutzererfahrung. Das Festlegen eines Seitenverhältnisses eines Assets verhindert das Laden von [Jank](/de/docs/Learn_web_development/Extensions/Performance/Multimedia#rendering_strategy_preventing_jank_when_loading_images)—die Layoutverschiebung, die auftritt, wenn Medien geladen werden, nachdem die Seite bereits gemalt wurde, was zu einem Reflow führt, da der Platz für das Asset nicht reserviert wurde.
+Beim Entwickeln von Websites möchte man oft die Breite eines Elements als Prozentsatz der Größe des Ansichtsfensters oder des übergeordneten Containers festlegen und die Höhe proportional ändern, um so ein spezifisches Seitenverhältnis je nach Größe des Ansichtsfensters beizubehalten. Für ersetzte Elemente wie Bilder und Videos ist es nicht nur notwendig, ein spezifisches Seitenverhältnis aufrechtzuerhalten, um ein {{Glossary("responsive_web_design", "responsives Webdesign")}} zu erstellen, sondern es ist auch ein wesentlicher Bestandteil eines guten Nutzererlebnisses. Die Festlegung des Seitenverhältnisses eines Assets verhindert Lade- [Ruckeln](/de/docs/Learn_web_development/Extensions/Performance/Multimedia#rendering_strategy_preventing_jank_when_loading_images) — die Layoutverschiebung, die auftritt, wenn Medien geladen werden, nachdem die Seite bereits gezeichnet wurde, was zu einem Neufluss führt, weil der Platz für das Asset nicht reserviert wurde.
 
-Mit CSS können Sie die Größe von ersetzten und nicht ersetzten Elementen basierend auf ihrem Seitenverhältnis anpassen. In diesem Leitfaden werden wir uns die CSS-Eigenschaft `aspect-ratio` ansehen, Seitenverhältnisse für ersetzte und nicht ersetzte Elemente diskutieren und dann einige gängige Anwendungsfälle für Seitenverhältnisse untersuchen.
+Mit CSS können Sie die Größe von ersetzten und nicht ersetzten Elementen basierend auf ihrem Seitenverhältnis anpassen. In diesem Leitfaden lernen wir die Eigenschaft `aspect-ratio` kennen, diskutieren Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und betrachten anschließend einige gängige Anwendungsfälle von Seitenverhältnissen.
 
-## Wie die `aspect-ratio`-Eigenschaft funktioniert
+## Funktion der `aspect-ratio`-Eigenschaft
 
-Der Wert der CSS-Eigenschaft {{cssxref("aspect-ratio")}} definiert das bevorzugte Breiten-zu-Höhen-Verhältnis eines Element-Boxes. Der Wert ist entweder ein {{cssxref("ratio")}}, das Schlüsselwort `auto` oder eine durch Leerzeichen getrennte Kombination von beidem.
+Der Wert der CSS {{cssxref("aspect-ratio")}}-Eigenschaft definiert das bevorzugte Breite-zu-Höhe-Verhältnis des Rahmens eines Elements. Der Wert ist entweder ein {{cssxref("ratio")}}, das Schlüsselwort `auto` oder eine durch Leerzeichen getrennte Kombination aus beidem.
 
-Das `<ratio>` ist das Verhältnis von Breite und Höhe, in dieser Reihenfolge. Es wird durch zwei positive {{cssxref("number")}}-Werte dargestellt, die durch einen Schrägstrich (`/`) getrennt sind, oder durch eine einzelne `<number>`. Wenn eine einzelne Zahl verwendet wird, entspricht das dem Schreiben des Verhältnisses als `<number> / 1`, was auch der Breite geteilt durch die Höhe entspricht.
+Das `<ratio>` ist das Verhältnis von Breite zu Höhe, in dieser Reihenfolge. Es wird durch zwei positive {{cssxref("number")}}-Werte dargestellt, die durch einen Schrägstrich (`/`) getrennt sind, oder durch eine einzelne `<number>`. Wenn eine einzelne Zahl verwendet wird, entspricht dies dem Schreiben des Verhältnisses als `<number> / 1`, was auch die Breite geteilt durch die Höhe ist.
 
 Die folgenden Werte sind alle gleichwertig:
 
@@ -26,7 +26,7 @@ aspect-ratio: 0.5 / 1;
 aspect-ratio: 0.5;
 ```
 
-Die folgenden Werte sind ebenfalls alle gleichwertig:
+Auch die folgenden Werte sind alle gleichwertig:
 
 ```css
 aspect-ratio: 9/6;
@@ -65,23 +65,21 @@ div + div {
 
 {{EmbedLiveSample("number", "100", "130")}}
 
-Die Wirkung des `auto`-Schlüsselworts hängt davon ab, ob das Element, auf das es angewendet wird, ein ersetztes Element ist oder nicht. Für ersetzte Elemente mit einem intrinsischen Seitenverhältnis bedeutet `auto`, dass das intrinsische Seitenverhältnis verwendet werden sollte. In allen anderen Fällen bedeutet der `auto`-Wert, dass das Box keinen bevorzugten Seitenverhältnis hat. In beiden Fällen ist dies das Standardverhalten, als ob keine `aspect-ratio`-Eigenschaft angewendet worden wäre.
+Die Auswirkung des `auto`-Schlüsselworts hängt davon ab, ob das Element, auf das es angewendet wird, ein ersetztes Element ist oder nicht. Bei ersetzten Elementen mit einem intrinsischen Seitenverhältnis bedeutet `auto`, dass das intrinsische Seitenverhältnis verwendet werden sollte. In allen anderen Fällen bedeutet der `auto`-Wert, dass der Rahmen kein bevorzugtes Seitenverhältnis hat. In beiden Fällen ist dies das Standardverhalten, als ob keine `aspect-ratio`-Eigenschaft angewendet wäre.
 
-Wenn der Wert sowohl das `auto`-Schlüsselwort als auch einen `<ratio>`-Wert enthält, wie zum Beispiel `aspect-ratio: auto 2 / 3;` oder `aspect-ratio: 0.75 auto;`, wird der `auto`-Wert auf ersetzte Elemente mit einem natürlichen Seitenverhältnis angewendet, und das angegebene Verhältnis von `width / height` oder `<number>` wird als bevorzugtes Seitenverhältnis verwendet.
+Wenn der Wert sowohl das `auto`-Schlüsselwort als auch einen `<ratio>`-Wert enthält, wie in `aspect-ratio: auto 2 / 3;` oder `aspect-ratio: 0.75 auto;`, wird der `auto`-Wert auf ersetzte Elemente mit einem natürlichen Seitenverhältnis angewendet, und das angegebene Verhältnis von `width / height` oder `<number>` wird als bevorzugtes Seitenverhältnis verwendet.
 
-Sie haben in den obigen Definitionen das Wort "bevorzugt" bemerkt. Der `aspect-ratio`-Wert wird nicht immer angewendet, wenn er festgelegt ist. Die `aspect-ratio`-Eigenschaft legt ein "bevorzugtes" Seitenverhältnis fest, sodass sie nur dann eine Wirkung hat, wenn mindestens eine der Box-Größen automatisch ist.
+Sie werden bemerkt haben, dass in den obigen Definitionen das Wort "bevorzugt" verwendet wird. Der `aspect-ratio`-Wert wird nicht immer angewendet, wenn er gesetzt ist. Die `aspect-ratio`-Eigenschaft legt ein "bevorzugtes" Seitenverhältnis fest, so dass sie nur einen Effekt hat, wenn mindestens eine der Boxgrößen automatisch ist.
 
-Wenn sowohl die Höhe als auch die Breite oder Inline- und Blockgrößen explizit festgelegt sind, wird der `aspect-ratio`-Eigenschaftswert ignoriert. In diesem Fall darf keine Dimension automatisch dimensioniert werden - die bevorzugten Größen sind explizit gesetzt - wodurch die `aspect-ratio`-Eigenschaft keine Wirkung hat. Wenn Sie sowohl die Inline- als auch die Block-Dimensionen deklarieren, haben diese Vorrang.
+Wenn sowohl die Höhe als auch die Breite bzw. die Block- und Inline-Größen explizit festgelegt sind, wird der Wert der `aspect-ratio`-Eigenschaft ignoriert. In diesem Fall darf keine Dimension automatisch dimensioniert werden – die bevorzugten Größen sind explizit festgelegt – daher hat die `aspect-ratio`-Eigenschaft keine Wirkung. Wenn Sie sowohl die Inline- als auch die Blockdimensionen deklarieren, haben diese Vorrang.
 
-Bei ersetzten Elementen, wenn Sie nicht explizit einen Wert (außer `auto`) für eine der Dimensionen festlegen, werden beide auf ihre intrinsische Größe zurückgesetzt (jeder `aspect-ratio`-Wert wird nicht angewendet). Die `aspect-ratio` wird auf nicht ersetzte Elemente angewendet, die keine Dimension explizit festgelegt haben, da nicht ersetzte Elemente entweder {{Glossary("Intrinsic_Size", "intrinsisch")}} oder {{Glossary("Extrinsic_size", "extrinsisch")}} dimensioniert sind und ihre Größe von ihrem Inhalt, Container, [Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model)-Eigenschaften usw. erhalten.
+Bei ersetzten Elementen, wenn Sie keinen Wert (außer `auto`) für eine der Dimensionen explizit festlegen, werden beide auf ihre intrinsische Größe zurückgesetzt (jeder `aspect-ratio`-Wert wird nicht angewendet). Die `aspect-ratio` wird auf nicht ersetzte Elemente angewendet, die keine explizit festgelegte Dimension haben, da nicht ersetzte Elemente entweder {{Glossary("Intrinsic_Size", "intrinsisch")}} oder {{Glossary("Extrinsic_size", "extrinsisch")}} dimensioniert sind, wobei sie ihre Größe aus ihrem Inhalt, Container, [Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model)-Eigenschaften usw. erhalten.
 
-Wenn ein Element auf der Seite gerendert wird, wenn kein CSS angewendet wird und keine HTML-Größenattribute enthalten sind, wird der Benutzeragent das Objekt in seiner natürlichen Größe rendern.
+Wenn ein Element auf der Seite gerendert wird und kein CSS angewendet und keine HTML-Größenattribute enthalten sind, rendert der Benutzeragent das Objekt in seiner natürlichen Größe.
 
-## Anpassen von Seitenverhältnissen ersetzter Elemente
+## Anpassen der Seitenverhältnisse von ersetzten Elementen
 
-Ersetzte Elemente wie {{htmlelement("img")}} und {{htmlelement("video")}} werden durch Medien ersetzt, die festgelegte Dimensionen und somit ein intrinsisches Seitenverhältnis haben. Betrachten Sie ein Rasterbild, wie z.B. ein JPEG, PNG oder GIF. Wenn Sie ein Bild auf einer Seite platzieren und keine Höhe oder Breite festlegen, entweder über {{htmlelement("img")}}-Attribute oder mit CSS, wird es in seiner intrinsischen Größe angezeigt.
-
-<!-- diese Bilder vorübergehend ignorieren. Vorschau testen -->
+Ersetzte Elemente wie {{htmlelement("img")}} und {{htmlelement("video")}} werden durch Medien ersetzt, die festgelegte Abmessungen haben und daher ein intrinsisches Seitenverhältnis aufweisen. Betrachten Sie ein Rasterbild, wie ein JPEG, PNG oder GIF. Wenn Sie ein Bild auf einer Seite platzieren und keine Höhe oder Breite entweder über {{htmlelement("img")}}-Attribute oder mit CSS festlegen, wird es in seiner intrinsischen Größe angezeigt.
 
 ```html hidden live-sample___original
 <img
@@ -91,11 +89,11 @@ Ersetzte Elemente wie {{htmlelement("img")}} und {{htmlelement("video")}} werden
 
 {{EmbedLiveSample("original", "100", "230")}}
 
-Dies ist ein `220px` großes quadratisches Bild ohne angewandtes CSS; es wird in seiner intrinsischen oder Standardgröße angezeigt.
+Dies ist ein `220px` großes quadratisches Bild ohne angewandtes CSS; es wird in seiner intrinsischen oder Standardgröße dargestellt.
 
-Wenn ersetzte Inhalte automatisch dimensioniert sind oder Sie nur eine Dimension festlegen, wie zum Beispiel einen Wert für `Breite`, passt der Browser die andere Dimension automatisch an, in diesem Fall die Höhe, und behält das ursprüngliche Seitenverhältnis des Mediums bei.
+Wenn ersetzter Inhalt automatisch dimensioniert ist oder Sie nur für eine Dimension eine Größe angeben, z. B. das Festlegen eines Wertes für `width`, passt der Browser die andere Dimension automatisch an, in diesem Fall die Höhe, unter Beibehaltung des ursprünglichen Seitenverhältnisses der Medien an.
 
-In diesem Beispiel ist nur die {{cssxref("width")}} am Bild eingestellt, sodass der Benutzeragent sein Seitenverhältnis beibehält. Das gleiche Bild wird dreimal angezeigt, jeweils in unterschiedlichen Breiten: `55px`, `110px` und in seiner natürlichen Größe von `220px` über den [`width: auto`](/de/docs/Web/CSS/Reference/Properties/width) Wert.
+In diesem Beispiel ist nur die {{cssxref("width")}} am Bild festgelegt, so dass der Benutzeragent sein Seitenverhältnis beibehält. Dasselbe Bild wird dreimal wiederholt und in unterschiedlichen Breiten angezeigt: `55px`, `110px` und in seiner natürlichen Größe von `220px` über den [`width: auto`](/de/docs/Web/CSS/Reference/Properties/width)-Wert.
 
 ```html hidden live-sample___image
 <img
@@ -126,9 +124,9 @@ img + img + img {
 
 {{EmbedLiveSample("image", "100", "230")}}
 
-Nur wenn Sie für beide Dimensionen Größen angeben, besteht die Gefahr, dass das ersetzte Element verzerrt wird. Zum Beispiel, wenn Sie `width: 100vw;` und `height: 100vh;` auf einem Bild festlegen, wird ein variables Seitenverhältnis erstellt; das Bild wird entweder gestreckt oder gestaucht erscheinen, wenn das Seitenverhältnis des Viewports von dem natürlichen Seitenverhältnis des Bildes abweicht.
+Nur wenn Sie Größen für beide Dimensionen angeben, besteht die Gefahr, dass das ersetzte Element verzerrt wird. Beispielsweise führt das Festlegen von `width: 100vw;` und `height: 100vh;` auf ein Bild zu einem variablen Seitenverhältnis; das Bild wird entweder gestreckt oder verzerrt erscheinen, wenn das Seitenverhältnis des Ansichtsfensters von dem natürlichen Seitenverhältnis des Bildes abweicht.
 
-In diesem Beispiel wird das gleiche Bild dreimal wiederholt, explizit mit dem gleichen {{cssxref("height")}}-Wert (`110px`), aber unterschiedlichen {{cssxref("width")}}-Werten (`55px`, `110px` und `220px`) dimensioniert.
+In diesem Beispiel wird dasselbe Bild dreimal wiederholt, explizit mit demselben {{cssxref("height")}}-Wert (`110px`) aber unterschiedlichen {{cssxref("width")}}-Werten (`55px`, `110px` und `220px`) dimensioniert.
 
 ```html hidden live-sample___image-bad
 <img
@@ -159,9 +157,9 @@ img + img + img {
 
 {{EmbedLiveSample("image-bad", "100", "120")}}
 
-Wir haben die Bilder absichtlich verzerrt, indem wir sowohl `height` als auch `width` festgelegt haben: wir haben das erste gestaucht und das dritte gestreckt.
+Wir haben die Bilder absichtlich verzerrt, indem wir sowohl eine `height` als auch eine `width` festgelegt haben: Wir haben das erste Bild zusammengedrückt und das dritte gestreckt.
 
-Wir hätten diesen gleichen verzerrten Effekt mit der CSS-Eigenschaft {{cssxref("aspect-ratio")}} erstellen können, indem wir eine einzige Dimension (nicht beide oder keine) festlegen und einen Wert ungleich `1` (oder `1 / 1`) verwenden. Wahrscheinlich möchten Sie dies nicht tun, aber es ist gut zu wissen, dass es möglich ist.
+Wir hätten diesen gleichen verzerrten Effekt mit der CSS-{{cssxref("aspect-ratio")}}-Eigenschaft erzeugen können, indem wir eine einzige Dimension (nicht beide oder keine) festlegen und einen anderen Wert als `1` (oder `1 / 1`) angeben. Sie möchten dies wahrscheinlich nicht tun, aber es ist gut zu wissen, dass es möglich ist.
 
 ```html hidden live-sample___stretch
 <img
@@ -178,13 +176,13 @@ img {
 
 {{EmbedLiveSample("stretch", "100", "270")}}
 
-Wir haben eine einzige Dimension deklariert; `100vh` ist die volle Höhe des Beispiel-{{htmlelement("iframe")}}-Viewports. Damit `aspect-ratio` auf ersetzte Elemente angewendet werden kann, muss nur eine Dimension festgelegt sein. Das Setzen von beiden oder keiner funktioniert nicht.
+Wir haben eine einzelne Dimension deklariert; `100vh` ist die volle Höhe des Beispiel-{{htmlelement("iframe")}}-Ansichtsfensters. Damit `aspect-ratio` auf ersetzte Elemente angewendet werden kann, muss nur eine Dimension festgelegt sein. Das Festlegen beider oder keiner Funktioniert funktioniert nicht.
 
-### Anpassung ersetzter Elemente an ihre Container
+### Anpassen ersetzter Elemente an ihre Container
 
-Um ein ersetztes Element an die Dimensionen seines Containers anzupassen und dabei sein intrinsisches Seitenverhältnis beizubehalten, setzen Sie den Wert der {{cssxref("object-fit")}}-Eigenschaft auf `cover` oder `contain`. Diese wird das ersetzte Element anpassen und entweder zuschneiden, um den Container zu "füllen" oder es in kleinerer Größe anzeigen, voll "eingeschlossen" innerhalb des Containers.
+Um ein ersetztes Element an die Abmessungen seines Containers anzupassen und dabei sein intrinsisches Seitenverhältnis beizubehalten, setzen Sie den Wert der {{cssxref("object-fit")}}-Eigenschaft auf `cover` oder `contain`. Dadurch wird das ersetzte Element in der Größe geändert und entweder zugeschnitten, um den Container zu "bedecken" oder in einer kleineren Größe vollständig "eingepasst".
 
-In diesem Beispiel wird das quadratische Bild in einem Raster aus drei Elementen platziert, von denen jedes ein Seitenverhältnis von `5 / 2` hat.
+In diesem Beispiel wird das quadratische Bild in ein Raster von drei Elementen platziert, die jeweils ein Seitenverhältnis von `5 / 2` haben.
 
 Zunächst erstellen wir einen Container mit drei Elementen, die jeweils ein Bild enthalten:
 
@@ -210,7 +208,7 @@ Zunächst erstellen wir einen Container mit drei Elementen, die jeweils ein Bild
 </div>
 ```
 
-Anschließend deklarieren wir den Container als Raster, wobei jedes Element ein Seitenverhältnis von `2.5` (`5/2`) hat, mit einer minimalen Breite von `150px`. Daher wird die minimale Höhe `60px` betragen. Die endgültige Breite und Höhe werden jedoch von der Breite des iframe der beispielhaften Abbildung bestimmt, die auf Ihrer Fenstergröße basiert:
+Als nächstes bezeichnen wir den Container als Raster, wobei jedes Element ein Seitenverhältnis von `2.5` (`5/2`) mit einer Mindestbreite von `150px` hat. Daher beträgt die Mindesthöhe `60px`. Die endgültige Breite und Höhe hängt jedoch von der Breite des Beispiel-If-rames ab, die auf Ihre Ansichtsfenstergröße basiert:
 
 ```css live-sample___image-grid
 .grid {
@@ -226,7 +224,7 @@ div div {
 }
 ```
 
-Dann dimensionieren wir die Bilder und setzen die `object-fit`-Eigenschaft auf die letzten beiden Bilder:
+Dann dimensionieren wir die Bilder und setzen die `object-fit`-Eigenschaft bei den letzten beiden Bildern:
 
 ```css live-sample___image-grid
 img {
@@ -245,11 +243,11 @@ img {
 
 {{EmbedLiveSample("image-grid", "100", "100")}}
 
-Nur das erste Bild ist verzerrt (gestreckt). Wir hätten den `fill`-Wert von `object-fit` verwenden können, um den gleichen Effekt zu erzeugen. Das `cover`-Bild spannt die volle Breite des Containers, zentriert vertikal und zugeschnitten, um in den Container zu passen. Der `contain`-Wert stellt sicher, dass das Bild innerhalb des Containers zentriert horizontal enthalten ist und entsprechend verkleinert wird.
+Nur das erste Bild ist verzerrt (gestreckt). Wir hätten den `fill`-Wert von `object-fit` verwenden können, um denselben Effekt zu erzielen. Das `cover`-Bild erstreckt sich über die volle Breite des Containers, ist vertikal zentriert und beschnitten, um in den Container zu passen. Der `contain`-Wert sorgt dafür, dass das Bild innerhalb des Containers untergebracht wird, horizontal zentriert und verkleinert, um zu passen.
 
-## Definition von Seitenverhältnissen für nicht ersetzte Elemente
+## Festlegen von Seitenverhältnissen für nicht ersetzte Elemente
 
-Während das Seitenverhältnis eines ersetzten Elements standardmäßig beibehalten wird, ändert das Anpassen der intrinsischen Größe eines nicht ersetzten Elements normalerweise sein Seitenverhältnis. Zum Beispiel kann derselbe Inhalt auf einem Breitbildschirm oder in einem breiten übergeordneten Container als drei Zeilen erscheinen, aber als acht Zeilen auf einem schmalen Bildschirm oder Container.
+Während das Seitenverhältnis eines ersetzten Elements standardmäßig beibehalten wird, ändert das Anpassen der intrinsischen Größe eines nicht ersetzten Elements normalerweise sein Seitenverhältnis. Beispielsweise kann derselbe Inhalt auf einem Breitbild oder in einem breiten übergeordneten Container auf drei Zeilen erscheinen, aber auf einem schmalen Bildschirm oder Container auf acht Zeilen.
 
 In diesem Beispiel wird dasselbe Zitat in `200px` und `600px` breiten Containern angezeigt, und ein Quadrat wird mit einer Höhe festgelegt, die seiner `200px` Breite entspricht:
 
@@ -290,7 +288,7 @@ In diesem Beispiel wird dasselbe Zitat in `200px` und `600px` breiten Containern
 </p>
 ```
 
-Um das Problem hervorzuheben, das beim Festlegen des Seitenverhältnisses eines nicht ersetzten Elements über Größenabmessungen entsteht, ändern Sie die {{cssxref("overflow")}}-Eigenschaft zwischen `auto` und `visible`.
+Um das Problem beim Festlegen eines Seitenverhältnisses für nicht ersetzte Elemente durch Maße zu verdeutlichen, wechseln Sie die {{cssxref("overflow")}}-Eigenschaft zwischen `auto` und `visible`.
 
 ```css hidden live-sample___alder
 blockquote {
@@ -331,9 +329,9 @@ blockquote:nth-of-type(3) {
 
 {{EmbedLiveSample("alder", "100", "800")}}
 
-Während es möglich ist, ein Seitenverhältnis auf nicht ersetzte Elemente durch Festlegen der Größen und Verbergen überfließender Inhalte zu definieren, bietet die CSS-Eigenschaft {{cssxref("aspect-ratio")}} explizite Unterstützung für Seitenverhältnisse. Das bedeutet, dass ein spezifisches Seitenverhältnis auch dann festgelegt werden kann, wenn Sie die Inhalte oder Bildschirmgrößen nicht kennen.
+Während es möglich ist, ein Seitenverhältnis bei nicht ersetzten Elementen durch das Festlegen beider Abmessungen und Verbergen von überlaufendem Inhalt zu definieren, bietet die CSS-{{cssxref("aspect-ratio")}}-Eigenschaft explizite Unterstützung für Seitenverhältnisse. Dies bedeutet, dass ein bestimmtes Seitenverhältnis eingestellt werden kann, auch wenn Sie die Inhalts- oder Bildschirmgrößen nicht kennen.
 
-Im folgenden Beispiel rendern wir quadratische Kästen, unabhängig von der Breite des Textes, indem wir `aspect ratio: 1` auf {{htmlelement("blockquote")}}, ein nicht ersetztes Element, setzen:
+Im nächsten Beispiel rendern wir quadratische Boxen, unabhängig von der Breite des Textes, indem wir `aspect ratio: 1` auf {{htmlelement("blockquote")}}, ein nicht ersetztes Element, festlegen:
 
 ```html hidden live-sample___words
 <p>Short text:</p>
@@ -360,17 +358,17 @@ blockquote {
 
 {{EmbedLiveSample("words", "100", "400")}}
 
-Jeder Kasten hat eine Dimension definiert: die {{cssxref("inline-size")}}, die bei horizontalen Sprachen die Breite ist, wird auf {{cssxref("max-content")}} gesetzt, was bedeutet, dass die Größe so breit wie nötig ist, um den Inhalt ohne Umbruch zu passen. Die zweite Dimension, in diesem Fall die {{cssxref("block-size")}} oder {{cssxref("height")}}, wird so gesetzt, dass sie die gleiche Länge wie die erste Dimension hat. Dies wird durch die {{cssxref("aspect-ratio")}} Eigenschaft erreicht. Wir haben das gewünschte Seitenverhältnis vom Kasten des Elements auf `1` definiert, das gleich `1 / 1`, einem Quadrat, ist. Dies setzt die Richtung des Blocks, um die Breite des Elements anzupassen, ohne die {{cssxref("height")}} oder {{cssxref("block-size")}} Eigenschaften zu verwenden.
+Jede Box hat eine festgelegte Dimension: die {{cssxref("inline-size")}}, was die Breite in horizontalen Sprachen ist, wurde auf {{cssxref("max-content")}} festgelegt, was die Größe so setzt, dass sie so breit wie nötig ist, um den Inhalt ohne Umbruch zu passen. Die zweite Dimension, in diesem Fall die {{cssxref("block-size")}} oder {{cssxref("height")}}, wird auf dieselbe Länge wie die erste Dimension gesetzt. Dies wird mit der {{cssxref("aspect-ratio")}}-Eigenschaft erreicht. Wir haben das gewünschte Breite-zu-Höhe-Verhältnis des Rahmens des Elements auf `1` gesetzt, was dasselbe ist wie `1 / 1`, ein Quadrat. Dies stellt die Blockrichtung so ein, dass sie der Breite des Elements entspricht, ohne die {{cssxref("height")}} oder {{cssxref("block-size")}}-Eigenschaften zu verwenden.
 
-In diesen Beispielen war eine Größe explizit auf das Element selbst eingestellt. Bei der Arbeit mit nicht ersetzten Elementen kommt das Seitenverhältnis ins Spiel, wenn keine Größen-Dimension explizit festgelegt ist.
+In diesen Beispielen wurde eine Größe explizit auf das Element selbst gesetzt. Bei der Arbeit mit nicht ersetzten Elementen spielt das Seitenverhältnis eine Rolle, wenn keine Größenabmessung explizit festgelegt ist.
 
 ### Erstellen eines Kreises basierend auf der Containergröße
 
-Die Inline-Größe von nicht ersetzten block-level Elementen entspricht der Größe des [Inhaltsbox](/de/docs/Web/CSS/box-edge#content-box) ihres Containers. Da sie standardmäßig eine Größe haben, müssen sie keine explizite Größe haben, damit die `aspect-ratio` Eigenschaft funktioniert.
+Die Inline-Größe von nicht ersetzten Blockebenen-Elementen ist die Größe ihres Container-[Inhaltsfelds](/de/docs/Web/CSS/Reference/Values/box-edge#content-box). Da sie standardmäßig eine Größe haben, müssen sie keine explizite Größe haben, damit die `aspect-ratio`-Eigenschaft wirksam wird.
 
-In diesem Beispiel haben wir einen Container {{htmlelement("div")}}, der `200px` breit ist, einschließlich `5px` Padding an jeder Seite. Daher beträgt die Inline-Größe der Inhaltsbox `190px`. Ohne eine Höhe oder Breite auf dem verschachtelten {{htmlelement("p")}} Element festzulegen, wissen wir, dass seine Inline-Größe `190px` beträgt. Mit `aspect-ratio: 1` gesetzt, wird der Absatz `190px` hoch sein, es sei denn, es hat sichtbaren Überlauf an Inhalten, die ihn höher machen (was es nicht tut).
+In diesem Beispiel haben wir einen Container {{htmlelement("div")}}, der `200px` breit ist und `5px` Polsterung auf jeder Seite enthält. Daher ist die Inline-Größe des Inhaltsfelds `190px`. Ohne das Setzen einer Höhe oder Breite auf das verschachtelte {{htmlelement("p")}} Element wissen wir, dass seine Inline-Größe `190px` ist. Mit `aspect-ratio: 1` eingestellt, wird der Absatz `190px` hoch sein, es sei denn, er hat sichtbaren überlaufenden Inhalt, der ihn höher macht (was er nicht tut).
 
-Die Höhe des `<div>` Elements ist nicht explizit festgelegt, enthält jedoch den `190px` hohen Absatz, die `5px` Padding oben und unten, sowie die kombinierten Höhen der Standardränder oben und unten von `<p>`. Als Ergebnis ist es höher als breit. Beide Elemente haben einen {{cssxref("border-radius")}} von `50%`, sodass der Container ein Oval ist, während das Kind, mit einem `aspect-ratio` von `1`, aber ohne Inline- oder Blockgrößen explizit definiert, ein Kreis ist.
+Die Höhe des `<div>`-Elements ist nicht explizit festgelegt, aber es enthält den `190px` hohen Absatz, die `5px` Polsterung oben und unten sowie die kombinierten Höhen der standardmäßigen oberen und unteren Ränder von `<p>`. Dadurch ist es höher als breit. Beide Elemente haben einen {{cssxref("border-radius")}} von `50%`, sodass der Container ein Oval ist, während das Kind, mit einem `aspect-ratio` von `1` aber ohne explizit definierte Inline- oder Blockgrößen, ein Kreis ist.
 
 ```html live-sample___circle
 <div><p>Hello world</p></div>
@@ -399,7 +397,7 @@ p {
 
 {{EmbedLiveSample("circle", "100", "250")}}
 
-Um das `<div>` in einen Kreis zu verwandeln, können wir die `height` und `width` auf denselben Wert setzen oder `aspect-ratio: 1` festlegen und das `overflow` auf `auto` oder `hidden` setzen. Alternativ können wir einfach die Margen auf dem Absatz mit [`margin-block: 0`](/de/docs/Web/CSS/Reference/Properties/margin-block) entfernen. Beide Optionen sind nachstehend gezeigt.
+Um das `<div>` zu einem Kreis zu machen, können wir die `height` und `width` auf den gleichen Wert setzen oder `aspect-ratio: 1` setzen und das `overflow` auf `auto` oder `hidden` einstellen. Alternativ können wir einfach die Ränder am Absatz mit [`margin-block: 0`](/de/docs/Web/CSS/Reference/Properties/margin-block) entfernen. Beide Optionen sind unten gezeigt.
 
 ```html live-sample___circle2
 <div><p>Hello world</p></div>
@@ -442,15 +440,15 @@ div:last-of-type p {
 
 ## Häufige Anwendungsfälle für `aspect-ratio`
 
-Lassen Sie uns einige Situationen betrachten, in denen Sie `aspect-ratio` verwenden können, um einige häufige Herausforderungen beim Erstellen reaktionsfähiger Designs zu bewältigen.
+Werfen wir einen Blick auf einige Situationen, in denen Sie `aspect-ratio` verwenden können, um einige gängige Herausforderungen beim Erstellen responsiver Designs zu lösen.
 
-### Externe Assets reaktionsfähig machen
+### Externe Assets responsiv machen
 
-Alle Inhalte sollten reaktionsfähig sein, selbst wenn diese Inhalte von Drittanbieter-Einbettungen stammen, wie Videos von TikTok, YouTube oder Instagram. Der Code-Snippet, den Sie zum Einbetten dieser externen Videos verwenden, erstellt im Allgemeinen ein {{htmlelement("iframe")}}.
+Alle Inhalte sollten responsiv sein, auch wenn es sich um Einbettungen von Drittanbietern handelt, wie Videos von TikTok, YouTube oder Instagram. Der Code-Schnipsel, den Sie einschließen, um diese externen Videos einzubetten, erstellt in der Regel ein {{htmlelement("iframe")}}.
 
-Während ein {{htmlelement("video")}}-Element normalerweise das Seitenverhältnis seiner Mediendatei annimmt, fehlt `iframe`-Elementen diese Fähigkeit. Dies stellt die Herausforderung dar, sicherzustellen, dass das `<iframe>` reaktionsfähig ist und dabei immer das Seitenverhältnis des Videos beibehält, das es enthält. Eine der Techniken, die wir verwenden können, besteht darin, die Breite des iframes auf `100%` seines Containers oder `100vw` festzulegen, um die Breite des Viewports unabhängig von deren Größe zu übernehmen. Wenn jedoch eine feste Höhe eingestellt wird, könnte das Video gedehnt oder gestaucht werden. Stattdessen setzen wir das `aspect-ratio` auf den Videocontainer, sodass es das gleiche Seitenverhältnis wie das Video beibehält. Problem gelöst!
+Während ein {{htmlelement("video")}}-Element typischerweise das Seitenverhältnis seiner Mediendatei annimmt, haben `iframe`-Elemente diese Fähigkeit nicht. Dies stellt die Herausforderung dar, sicherzustellen, dass das `<iframe>` responsiv ist, während es immer das Seitenverhältnis des Videos beibehält, das es enthält. Eine der Techniken, die wir verwenden können, besteht darin, die Breite des iframes auf `100%` seines Containers oder `100vw` einzustellen, um die Breite des Ansichtsfensters unabhängig von der Größe des Ansichtsfensters abzugleichen. Durch das Setzen einer festen Höhe könnte jedoch das Video gestreckt oder verzerrt werden. Stattdessen setzen wir das `aspect-ratio` auf den Container des Videos, wodurch es mit demselben Seitenverhältnis wie das Video ausgerichtet wird. Problem gelöst!
 
-Zum Kontext: das Standard-Seitenverhältnis von YouTube-Videos beträgt 16:9, wenn sie auf einem Desktop-Computer oder Laptop angezeigt werden, während TikTok- und Instagram-Videos ein 9:16-Seitenverhältnis haben.
+Zur Veranschaulichung: Das Standard-Seitenverhältnis von YouTube-Videos beträgt 16:9, wenn es auf einem Desktop-Computer oder Laptop angesehen wird, während TikTok- und Instagram-Videos ein Seitenverhältnis von 9:16 haben.
 
 ```css
 .youtube {
@@ -463,9 +461,9 @@ Zum Kontext: das Standard-Seitenverhältnis von YouTube-Videos beträgt 16:9, we
 }
 ```
 
-Wir können die `aspect-ratio`-Eigenschaft innerhalb des {{cssxref("@media")}}-Abfrage zusammen mit der `aspect-ratio` Eigenschaft verwenden, um die Größe sowohl des iframes als auch des Videos, das es enthält, anzupassen. Dies stellt sicher, dass der Video-Inhalt immer so groß wie möglich ist - entweder die vollständige Breite oder Höhe des Viewports einnehmend, unabhängig von der Größe des Viewports - und dabei ein spezifisches Seitenverhältnis beibehält.
+Wir können die `aspect-ratio`-Funktion innerhalb der {{cssxref("@media")}}-Abfrage zusammen mit der `aspect-ratio`-Eigenschaft verwenden, um die Größe sowohl des iframes als auch des darin enthaltenen Videos anzupassen. Dies stellt sicher, dass der Videoinhalt immer so groß wie möglich ist – entweder die volle Breite oder Höhe des Ansichtsfensters ausnutzt, unabhängig von der Größe des Ansichtsfensters – während er ein bestimmtes Seitenverhältnis beibehält.
 
-Wir können die YouTube-Videos mit Landschaftsorientierung so einstellen, dass sie so breit wie der Viewport sind, und die iframes der hochkant orientierten TikTok- und Instagram-Videos so, dass sie so hoch wie der Viewport sind. Wenn das Seitenverhältnis eines Viewports breiter als 16:9 ist, setzen wir das YouTube-Video auf die Höhe des Viewports. Wenn der Viewport schmaler als 9:16 ist, setzen wir sowohl die Instagram- als auch die TikTok-Videos auf die Breite des Viewports.
+Wir können die YouTube-Videos im Querformat so breit wie das Ansichtsfenster einstellen und die Hochformat-orientierten TitTok- und Instagram-Video- iframes so hoch wie das Ansichtsfenster. Wenn ein Ansichtsfenster-Seitenverhältnis breiter als 16:9 ist, stellen wir das YouTube-Video auf die Höhe des Ansichtsfensters ein. Wenn das Ansichtsfenster schmaler als 9:16 ist, stellen wir sowohl die Instagram- als auch die TikTok-Videos auf die Breite des Ansichtsfensters ein.
 
 ```css
 iframe.youtube {
@@ -499,13 +497,13 @@ iframe.tiktok {
 }
 ```
 
-### Gitterzellen quadratisch machen
+### Quadratische Rasterzellen erstellen
 
-Ein Raster aus quadratischen Zellen kann erstellt werden, indem feste [Spalten-Track-Größen](/de/docs/Web/CSS/Reference/Properties/grid-template-columns) definiert werden, sodass jede Reihe die Größe des Spalten-Tracks entspricht. Beim Erstellen von responsiven Rastern mit `auto-fill`, um so viele Spalten-Tracks wie möglich im Container zu platzieren, wird die Breite jedes Elements ungewiss. Dies macht es herausfordernd, die geeignete Höhe zu bestimmen, um quadratische Elemente zu erstellen.
+Ein Raster aus quadratischen Zellen kann durch das Festlegen fester [Spaltenstreckengrößen](/de/docs/Web/CSS/Reference/Properties/grid-template-columns) erstellt werden, wobei jede Zeile die Größe des Spaltenstrecks annimmt. Beim Erstellen responsiver Raster unter Verwendung von `auto-fill`, um so viele Spaltenstrecken wie möglich im Container zu platzieren, wird die Breite jedes Elements unsicher. Dies erschwert die Bestimmung der entsprechenden Höhe für die Erstellung quadratischer Elemente.
 
-Indem das Seitenverhältnis auf den Elementen eingestellt wird, können wir sicherstellen, dass jedes Gitterelement beim Layout so hoch wie breit ist, quadratische Gitterelemente erstellt werden, unabhängig von den Abmessungen des Containers.
+Durch das Setzen eines Seitenverhältnisses auf die Elemente können wir sicherstellen, dass, wenn die Rasterelemente ausgelegt sind, jedes Rasterelement so hoch ist, wie es breit ist, was quadratische Rasterelemente unabhängig von den Abmessungen des Containers erzeugt.
 
-In diesem Beispiel quadratischer Gitterelemente sind die Raster-Track-Größen automatisch dimensioniert, wobei sie ihre Größe von den Elementen nehmen. Jedes Element wird mindestens `95px` breit sein, könnte aber viel breiter sein. Unabhängig von der Breite wird jedes Element ein Quadrat sein, wobei die Höhe durch das `aspect-ratio` festgelegt wird, um ihrer Breite zu entsprechen.
+In diesem Beispiel quadratischer Rasterelemente werden die Rasterstrecken automatisch dimensioniert und nehmen ihre Größe von den Elementen an. Jedes Element wird mindestens `95px` breit sein, könnte aber auch viel breiter sein. Unabhängig von der Breite wird jedes Element ein Quadrat sein, mit der Höhe, die durch das `aspect-ratio` festgelegt ist, um seiner Breite zu entsprechen.
 
 ```css
 .grid {
@@ -568,7 +566,7 @@ div div::after {
 </div>
 ```
 
-Damit der Inhalt eines Gitterelements nicht über die bevorzugte Höhe hinauswächst, die durch das `aspect-ratio` festgelegt wird, setzen Sie die {{cssxref("min-height")}} auf `0` und das {{cssxref("overflow")}} auf einen anderen Wert als `visible`. Dies funktioniert für intrinsisch dimensionierten Inhalt. Wenn Sie Inhalte haben, die intrinsisch größer als der verfügbare Platz sind, richten Sie diesen Inhalt so ein, dass er nicht größer als der Gitter-Element ist, indem Sie die {{cssxref("max-height")}} (oder {{cssxref("max-width")}}, abhängig vom Inhalt) auf `100%` setzen.
+Damit der Inhalt eines Rasterelements nicht über die bevorzugte Höhenbeschränkung, gesetzt durch das `aspect-ratio`, hinauswächst, stelle die {{cssxref("min-height")}} auf `0` und das {{cssxref("overflow")}} auf einen Wert ungleich `visible`. Dies funktioniert für intrinsisch dimensionierten Inhalt. Wenn Sie Inhalt haben, der intrinsisch größer als der verfügbare Platz ist, stellen Sie den Inhalt so ein, dass er nicht größer als das Rasterelement ist, indem Sie die {{cssxref("max-height")}} (oder {{cssxref("max-width")}}, je nach Inhalt) auf `100%` setzen.
 
 ```css
 .item {
@@ -589,4 +587,4 @@ Damit der Inhalt eines Gitterelements nicht über die bevorzugte Höhe hinauswä
 
 ## Siehe auch
 
-- [CSS Box Sizing](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- [CSS Boxsizing](/de/docs/Web/CSS/CSS_box_sizing) Modul

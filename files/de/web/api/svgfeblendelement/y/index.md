@@ -3,17 +3,16 @@ title: "SVGFEBlendElement: y-Eigenschaft"
 short-title: y
 slug: Web/API/SVGFEBlendElement/y
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`y`**-Eigenschaft der Schnittstelle [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement) beschreibt die vertikale Koordinate der Position eines SVG-Filterprimitivs als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`y`**-Eigenschaft der [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die vertikale Koordinate der Position eines SVG-Filterprimitivs als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) beschreibt.
 
-Sie spiegelt den Wert des Filterprimitiv-Attributs {{SVGAttr("y")}} des {{SVGElement("feBlend")}}-Elements wider.
-Das `<feBlend>` SVG-Filterelement mischt zwei Eingabebilder unter Verwendung von in Bildbearbeitungssoftware üblichen [Mischmodi](/de/docs/Web/CSS/blend-mode).
+Sie spiegelt den Wert des {{SVGAttr("y")}}-Filterprimitiv-Attributs des {{SVGElement("feBlend")}}-Elements wider. Das `<feBlend>`-SVG-Filter mischt zwei Eingabebilder mit in der Bildbearbeitung häufig verwendeten [Blendmodi](/de/docs/Web/CSS/Reference/Values/blend-mode).
 
-Das Attribut ist ein [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den angegebenen Abstand vom Ursprung des Benutzerkoordinatensystems entlang der y-Achse angibt. Wenn das `y`-Attribut ein Prozentwert ist, ist der Eigenschaftswert relativ zur Höhe des Filterbereichs in Einheiten des Benutzerkoordinatensystems. Der Standardwert ist `0`.
+Das Attribut ist ein [`<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage). Das `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den gegebenen Abstand vom Ursprung des Benutzerkoordinatensystems entlang der y-Achse darstellt. Wenn das `y`-Attribut ein Prozentwert ist, ist der Eigenschaftswert relativ zur Höhe des Filterbereichs in Einheiten des Benutzerkoordinatensystems. Der Standardwert ist `0`.
 
 ## Wert
 

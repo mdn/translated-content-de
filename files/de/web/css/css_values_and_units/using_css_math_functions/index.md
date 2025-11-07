@@ -1,42 +1,42 @@
 ---
-title: Verwendung von CSS-Mathematischen Funktionen
-short-title: Verwendung von mathematischen Funktionen
+title: Verwendung von CSS-Mathematikfunktionen
+short-title: Verwendung von Mathematikfunktionen
 slug: Web/CSS/CSS_values_and_units/Using_CSS_math_functions
 l10n:
-  sourceCommit: 70285e396b5c97675e90b85d573be42078e0168e
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-**CSS-mathematische Funktionen** erlauben es, einen Eigenschaftswert - wie die `height`, `animation-duration` oder `font-size` eines Elements - als mathematischen Ausdruck zu schreiben.
+**CSS-Mathematikfunktionen** ermöglichen es, dass ein Eigenschaftswert - wie die `height`, `animation-duration` oder `font-size` eines Elements - als mathematischer Ausdruck formuliert wird.
 
-Ohne den Einsatz von Mathematik sind die eingebauten [CSS-Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) wie `rem`, `vw` und `%` oft flexibel genug, um HTML-Elemente so zu gestalten, dass eine bestimmte Benutzererfahrung erreicht wird.
+Ohne Mathematik zu verwenden, sind die eingebauten [CSS-Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units) wie `rem`, `vw` und `%` oft flexibel genug, um HTML-Elemente zu gestalten und ein gewünschtes Benutzererlebnis zu erreichen.
 
-Es gibt jedoch Fälle, in denen wir uns durch die Darstellung eines Stils eines Elements mittels eines einzigen Werts und einer Einheit eingeschränkt fühlen könnten. Betrachten Sie die folgenden Beispiele:
+Jedoch gibt es Fälle, in denen wir uns durch die Verwendung eines einzelnen Wertes und einer Einheit zur Gestaltung eines Elements eingeschränkt fühlen. Betrachten Sie die folgenden Beispiele:
 
-1. Wir möchten die Höhe eines Inhaltsbereichs auf "die Höhe des Ansichtsfensters minus der Höhe einer Navigationsleiste" festlegen.
-2. Wir möchten die Breite von zwei Elementen zusammen addieren, um die Breite eines dritten Elements zu definieren.
-3. Wir möchten verhindern, dass eine variable `font-size` eines Textes über eine bestimmte Größe hinaus wächst.
+1. Wir möchten die Höhe eines Inhaltsbereichs auf „die Höhe des Ansichtsfensters minus die Höhe einer Navigationsleiste“ einstellen.
+2. Wir möchten die Breite von zwei Elementen addieren, um die Breite eines dritten Elements zu definieren.
+3. Wir möchten verhindern, dass eine variable `font-size` eines Textes über eine bestimmte Größe hinauswächst.
 
-In all diesen Fällen müssen wir uns auf Mathematik verlassen, um die gewünschten Ergebnisse zu erzielen. Eine Lösung könnte darin bestehen, sich auf mathematische Funktionen zu stützen, die von JavaScript definiert wurden, und die Stile von Elementen dynamisch basierend auf den durch unsere Skripte berechneten Ergebnissen festzulegen.
+In all diesen Fällen müssen wir uns auf Mathematik verlassen, um die gewünschten Ergebnisse zu erzielen. Eine Lösung könnte sein, sich auf mathematische Funktionen zu verlassen, die von JavaScript definiert sind, und die Stil-Elemente dynamisch basierend auf von unseren Skripten berechneten Ergebnissen einzustellen.
 
-In vielen Fällen, einschließlich der oben genannten Beispiele, **können wir stattdessen mathematische Funktionen verwenden, die direkt in CSS eingebaut sind**. Diese Lösung ist oft einfacher zu implementieren und schneller für den Browser auszuführen als die Verwendung von JavaScript.
+In vielen Fällen, einschließlich der obigen Beispiele, **können wir stattdessen Mathematikfunktionen verwenden, die direkt in CSS integriert sind**. Diese Lösung ist oft einfacher zu implementieren und schneller für den Browser auszuführen als die Verwendung von JavaScript.
 
-Insgesamt können Entwickler eine Kombination aus [fast zwei Dutzend CSS-Mathematikfunktionen](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions#math_functions) in ihren Stylesheets verwenden. In diesem Leitfaden werden wir vier der am häufigsten verwendeten Funktionen exemplarisch darstellen und diese fortgeschritteneren einführen.
+Insgesamt können Entwickler eine Kombination aus [fast zwei Dutzend CSS-Mathematikfunktionen](/de/docs/Web/CSS/Reference/Values/Functions#math_functions) in ihren Stylesheets verwenden. In diesem Leitfaden werden wir vier der häufiger verwendeten erläutern und die fortgeschritteneren einführen.
 
 ## `calc()`: Grundlegende mathematische Operationen
 
-In den ersten beiden unserer drei obigen Beispiele möchten wir den Stil eines Elements entsprechend dem Ergebnis einer Addition oder Subtraktion festlegen. Dies ist genau eine der Einsatzmöglichkeiten für {{CSSxRef("calc", "calc()")}}.
+In den ersten beiden unserer drei obigen Beispiele möchten wir den Stil eines Elements gemäß dem Ergebnis einer Additions- oder Subtraktionsoperation festlegen. Dies ist genau einer der Anwendungsfälle für {{CSSxRef("calc", "calc()")}}.
 
-Die **`calc()`**-Funktion ermöglicht es Ihnen, CSS-Eigenschaftswerte mit **Addition, Subtraktion, Multiplikation und Division** anzugeben. Sie wird oft verwendet, um zwei CSS-Werte zu kombinieren, die unterschiedliche Einheiten haben, wie `%` und `px`.
+Die **`calc()`**-Funktion ermöglicht es Ihnen, CSS-Eigenschaftswerte mithilfe von **Addition, Subtraktion, Multiplikation und Division** anzugeben. Sie wird oft verwendet, um zwei CSS-Werte zu kombinieren, die unterschiedliche Einheiten haben, wie `%` und `px`.
 
-Die `calc()`-Mathematikfunktion nimmt einen mathematischen Ausdruck als Parameter entgegen und gibt das Ergebnis dieses Ausdrucks zurück, z.B.:
+Die `calc()`-Mathematikfunktion nimmt einen mathematischen Ausdruck als Parameter und gibt das Ergebnis dieses Ausdrucks zurück, z.B.:
 
 ```css
 property: calc(expression);
 ```
 
-### `calc()` Beispiel
+### `calc()`-Beispiel
 
-Klicken Sie auf das Abspielsymbol unten, um das `calc()`-Beispiel im Code-Playground anzusehen und es selbst auszuprobieren.
+Klicken Sie auf das Wiedergabesymbol unten, um das `calc()`-Beispiel im Code-Spielplatz zu sehen und es selbst auszuprobieren.
 
 ```html hidden
 <div class="calc1">
@@ -91,9 +91,9 @@ div > code {
 
 {{EmbedLiveSample('calc_Example', '100%', 212) }}
 
-## `min()`: Ermittlung des kleinsten Wertes in einem Satz
+## `min()`: Den Mindestwert in einer Menge finden
 
-Es gibt Fälle, in denen wir nicht möchten, dass der Wert einer CSS-Eigenschaft einen bestimmten Wert überschreitet. Nehmen wir zum Beispiel an, wir möchten, dass die Breite unseres Inhaltscontainers die kleinere von "der vollen Breite unseres Bildschirms" und "500 Pixel" ist. In diesen Fällen können wir die CSS-Math-Funktion {{CSSxRef("min", "min()")}} verwenden.
+Es gibt Fälle, in denen wir nicht möchten, dass der Wert einer CSS-Eigenschaft eine bestimmte Zahl überschreitet. Nehmen wir zum Beispiel an, wir möchten die Breite unseres Inhaltscontainers auf die kleinere von „der vollen Breite unseres Bildschirms“ und „500 Pixel“ festlegen. In diesen Fällen können wir die CSS-Mathematikfunktion {{CSSxRef("min", "min()")}} verwenden.
 
 Die `min()`-Mathematikfunktion nimmt eine Menge von durch Kommas getrennten Werten als Argumente und gibt den kleinsten dieser Werte zurück, z.B.:
 
@@ -103,9 +103,9 @@ width: min(32px, 50%, 2rem);
 
 Diese Funktion wird oft verwendet, um zwei CSS-Werte zu vergleichen, die unterschiedliche Einheiten haben, wie `%` und `px`.
 
-### `min()` Beispiel
+### `min()`-Beispiel
 
-Klicken Sie auf das Abspielsymbol unten, um das `min()`-Beispiel im Code-Playground anzusehen und es selbst auszuprobieren.
+Klicken Sie auf das Wiedergabesymbol unten, um das `min()`-Beispiel im Code-Spielplatz zu sehen und es selbst auszuprobieren.
 
 ```html hidden
 <div class="min1">
@@ -163,11 +163,11 @@ div > code {
 
 {{EmbedLiveSample('min_Example', '100%', 212) }}
 
-## `max()`: Ermittlung des größten Wertes in einem Satz
+## `max()`: Den Höchstwert in einer Menge finden
 
-Ähnlich wie `min()`, gibt es manchmal den Wunsch, dass der Wert einer CSS-Eigenschaft nicht unter einen bestimmten Wert fällt. Beispielsweise könnten wir möchten, dass die Breite unseres Inhaltscontainers die _größere_ von "der vollen Breite unseres Bildschirms" und "500 Pixel" ist. In diesen Fällen können wir die CSS-Math-Funktion {{CSSxRef("max", "max()")}} verwenden.
+Ähnlich wie bei `min()` möchten wir manchmal nicht, dass der Wert einer CSS-Eigenschaft unter eine bestimmte Zahl fällt. Zum Beispiel möchten wir die Breite unseres Inhaltscontainers als die _größere_ von „die volle Breite unseres Bildschirms“ und „500 Pixel“ festlegen. In diesen Fällen können wir die CSS-Mathematikfunktion {{CSSxRef("max", "max()")}} verwenden.
 
-Die `max()`-Mathematikfunktion nimmt eine Menge von durch Kommas getrennten Werten als Argumente und gibt den größten dieser Werte zurück, z.B.:
+Die `max()`-Mathematikfunktion akzeptiert eine Menge von durch Kommas getrennten Werten als Argumente und gibt den größten dieser Werte zurück, z.B.:
 
 ```css
 width: max(32px, 50%, 2rem);
@@ -177,9 +177,9 @@ Diese Funktion wird oft verwendet, um zwei CSS-Werte zu vergleichen, die untersc
 
 Beachten Sie die Ähnlichkeiten und Unterschiede zwischen den Beispielen für `min()` und `max()`.
 
-### `max()` Beispiel
+### `max()`-Beispiel
 
-Klicken Sie auf das Abspielsymbol unten, um das `max()`-Beispiel im Code-Playground anzusehen und es selbst auszuprobieren.
+Klicken Sie auf das Wiedergabesymbol unten, um das `max()`-Beispiel im Code-Spielplatz zu sehen und es selbst auszuprobieren.
 
 ```html hidden
 <div class="max1">
@@ -238,24 +238,24 @@ div > code {
 
 {{EmbedLiveSample('max_Example', '100%', 212) }}
 
-## `clamp()`: Einschränken eines Wertes zwischen zwei Werten
+## `clamp()`: Einen Wert zwischen zwei Werten einschränken
 
-Wir können die Funktionen von `min()` und `max()` kombinieren, indem wir {{CSSxRef("clamp", "clamp()")}} verwenden. Die `clamp()`-Mathematikfunktion nimmt einen Mindestwert, den zu begrenzenden Wert und den Höchstwert als Argumente, z.B.:
+Wir können die Funktionen von `min()` und `max()` kombinieren, indem wir {{CSSxRef("clamp", "clamp()")}} verwenden. Die `clamp()`-Mathematikfunktion nimmt einen Minimalwert, den einzuengenden Wert und den Maximalwert als Argumente an, z.B.:
 
 ```css
 /* clamped value: 50%, minimum: 100px, maximum: 300px */
 width: clamp(100px, 50%, 300px);
 ```
 
-- Wenn der zu begrenzende Wert kleiner ist als der übergebene Mindestwert, gibt die Funktion den Mindestwert zurück.
-- Wenn der zu begrenzende Wert größer ist als der übergebene Höchstwert, gibt die Funktion den Höchstwert zurück.
-- Wenn der zu begrenzende Wert zwischen den übergebenen Mindest- und Höchstwerten liegt, gibt die Funktion den ursprünglichen zu begrenzenden Wert zurück.
+- Wenn der einzuengende Wert kleiner als der übergebene Minimalwert ist, gibt die Funktion den Minimalwert zurück.
+- Wenn der einzuengende Wert größer als der übergebene Maximalwert ist, gibt die Funktion den Maximalwert zurück.
+- Wenn der einzuengende Wert zwischen den übergebenen Minimal- und Maximalwerten liegt, gibt die Funktion den ursprünglichen einzuengenden Wert zurück.
 
 Diese Funktion wird oft verwendet, um zwei CSS-Werte zu vergleichen, die unterschiedliche Einheiten haben, wie `%` und `px`.
 
-### `clamp()` Beispiel
+### `clamp()`-Beispiel
 
-Klicken Sie auf das Abspielsymbol unten, um das `clamp()`-Beispiel im Code-Playground anzusehen und es selbst auszuprobieren.
+Klicken Sie auf das Wiedergabesymbol unten, um das `clamp()`-Beispiel im Code-Spielplatz zu sehen und es selbst auszuprobieren.
 
 ```html hidden
 <div class="clamp1">
@@ -312,34 +312,34 @@ div > code {
 
 {{EmbedLiveSample('clamp_Example', '100%', 212) }}
 
-## Erweiterte CSS-Mathematische Funktionen
+## Fortgeschrittene CSS-Mathematikfunktionen
 
-Beim Layouten und Stylen von DOM-Elementen reichen die vier grundlegenden mathematischen Funktionen {{CSSxRef("calc", "calc()")}}, {{CSSxRef("min", "min()")}}, {{CSSxRef("max", "max()")}}, und {{CSSxRef("clamp", "clamp()")}} oft aus. Für fortgeschrittene Anwendungen wie Lernmaterialien für Mathematik, 3D-Visualisierungen oder CSS-Animationen können Sie jedoch überlegen, die folgenden Funktionen zu verwenden:
+Beim Layout und Styling von DOM-Elementen sind die vier grundlegenden Mathematikfunktionen {{CSSxRef("calc", "calc()")}}, {{CSSxRef("min", "min()")}}, {{CSSxRef("max", "max()")}} und {{CSSxRef("clamp", "clamp()")}} oft ausreichend. Für fortgeschrittene Anwendungen wie Lehrmaterialien zur Mathematik, 3D-Visualisierungen oder CSS-Animationen sollten Sie jedoch in Betracht ziehen, die folgenden Funktionen zu verwenden:
 
-- [Stufenwertfunktionen](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions#stepped_value_functions)
-  - {{CSSxRef("round", "round()")}}: berechnet einen **Wert gemäß einer Rundungsstrategie**
-  - {{CSSxRef("mod", "mod()")}}: berechnet den **Rest** einer Division mit demselben Vorzeichen wie der Divisor
-  - {{CSSxRef("rem", "rem()")}}: berechnet den **Rest** einer Division mit demselben Vorzeichen wie der Dividend
-- [Trigonometrische Funktionen](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions#trigonometric_functions)
+- [Funktionen für gestufte Werte](/de/docs/Web/CSS/Reference/Values/Functions#stepped_value_functions)
+  - {{CSSxRef("round", "round()")}}: berechnet einen **Wert unter Berücksichtigung einer Rundungsstrategie**
+  - {{CSSxRef("mod", "mod()")}}: berechnet den **Rest** einer Division mit **dem gleichen Vorzeichen wie der Divisor**
+  - {{CSSxRef("rem", "rem()")}}: berechnet den **Rest** einer Division mit **dem gleichen Vorzeichen wie der Dividend**
+- [Trigonometrische Funktionen](/de/docs/Web/CSS/Reference/Values/Functions#trigonometric_functions)
   - {{CSSxRef("sin", "sin()")}}: berechnet den **trigonometrischen Sinus** einer Zahl
   - {{CSSxRef("cos", "cos()")}}: berechnet den **trigonometrischen Kosinus** einer Zahl
   - {{CSSxRef("tan", "tan()")}}: berechnet den **trigonometrischen Tangens** einer Zahl
-  - {{CSSxRef("asin", "asin()")}}: berechnet den **trigonometrischen Arcus-Sinus** einer Zahl
-  - {{CSSxRef("acos", "acos()")}}: berechnet den **trigonometrischen Arcus-Kosinus** einer Zahl
-  - {{CSSxRef("atan", "atan()")}}: berechnet den **trigonometrischen Arcus-Tangens** einer Zahl
-  - {{CSSxRef("atan2", "atan2()")}}: berechnet den **trigonometrischen Arcus-Tangens**, gegeben zwei Zahlen
-- [Exponentialfunktionen](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions#exponential_functions)
-  - {{CSSxRef("pow", "pow()")}}: berechnet eine Zahl **hoch einer anderen Zahl**
+  - {{CSSxRef("asin", "asin()")}}: berechnet den **trigonometrischen inversen** Sinus einer Zahl
+  - {{CSSxRef("acos", "acos()")}}: berechnet den **trigonometrischen inversen** Kosinus einer Zahl
+  - {{CSSxRef("atan", "atan()")}}: berechnet den **trigonometrischen inversen** Tangens einer Zahl
+  - {{CSSxRef("atan2", "atan2()")}}: berechnet den **trigonometrischen inversen** Tangens basierend auf zwei Zahlen
+- [Exponentialfunktionen](/de/docs/Web/CSS/Reference/Values/Functions#exponential_functions)
+  - {{CSSxRef("pow", "pow()")}}: berechnet eine Zahl **hoch** eine andere Zahl
   - {{CSSxRef("sqrt", "sqrt()")}}: berechnet die **Quadratwurzel** einer Zahl
-  - {{CSSxRef("hypot", "hypot()")}}: berechnet die **Quadratwurzel der Summe der Quadrate** der gegebenen Zahlen
+  - {{CSSxRef("hypot", "hypot()")}}: berechnet die **Quadratwurzel der Summe der Quadrate** der angegebenen Zahlen
   - {{CSSxRef("log", "log()")}}: berechnet den **Logarithmus** einer Zahl (mit `e` als Standardbasis)
-  - {{CSSxRef("exp", "exp()")}}: berechnet **`e` hoch einer anderen Zahl**
-- [Vorzeichenfunktionen](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions#sign-related_functions)
+  - {{CSSxRef("exp", "exp()")}}: berechnet **`e` hoch** eine andere Zahl
+- [Vorzeichenfunktionen](/de/docs/Web/CSS/Reference/Values/Functions#sign-related_functions)
   - {{CSSxRef("abs", "abs()")}}: berechnet den **absoluten Wert** einer Zahl
   - {{CSSxRef("sign", "sign()")}}: berechnet das **Vorzeichen (positiv, negativ oder null)** einer Zahl
 
 ## Abschließende Gedanken
 
-- Sie können CSS-Mathematikfunktionen verwenden, um responsive Benutzeroberflächen zu erstellen, ohne JavaScript-Code zu schreiben.
-- CSS-Mathematikfunktionen können manchmal anstelle von [CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) verwendet werden, um Layout-Breakpoints zu definieren.
-- Im Jahr 2023 wählten Mitglieder des Interop-Projekts [„CSS Math Functions“ als einen Schwerpunktbereich der Verbesserung](https://github.com/web-platform-tests/interop/blob/main/2023/README.md#css-math-functions). Dies bedeutet, dass Browseranbieter zusammenarbeiten, um sicherzustellen, dass CSS-Mathematikfunktionen in allen Browsern und auf allen Geräten gleich funktionieren.
+- Sie können CSS-Mathematikfunktionen verwenden, um reaktionsfähige Benutzeroberflächen zu erstellen, ohne irgendeinen JavaScript-Code zu schreiben.
+- CSS-Mathematikfunktionen können manchmal anstelle von [CSS-Media-Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) verwendet werden, um Layout-Breakpoints zu definieren.
+- Im Jahr 2023 haben Mitglieder des Interop-Projekts [„CSS-Mathematikfunktionen“ als Schwerpunktbereich für Verbesserungen ausgewählt](https://github.com/web-platform-tests/interop/blob/main/2023/README.md#css-math-functions). Dies bedeutet, dass Browseranbieter zusammenarbeiten, um sicherzustellen, dass CSS-Mathematikfunktionen in allen Browsern und auf allen Geräten gleich funktionieren.

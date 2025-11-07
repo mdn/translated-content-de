@@ -2,13 +2,13 @@
 title: <style>
 slug: Web/SVG/Reference/Element/style
 l10n:
-  sourceCommit: ac806e34aba086be141689c64dc4dd73636fbd62
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das **`<style>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht es, Stylesheets direkt im SVG-Inhalt einzubetten.
+Das **`<style>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht das Einbetten von Stylesheets direkt in SVG-Inhalte.
 
 > [!NOTE]
-> Das `style`-Element in SVG hat dieselben Attribute wie das entsprechende Element in HTML (siehe das HTML-{{HTMLElement("style")}}-Element).
+> Das `style`-Element von SVG hat dieselben Attribute wie das entsprechende Element in HTML (siehe HTML's {{HTMLElement("style")}}-Element).
 
 ## Verwendungskontext
 
@@ -17,18 +17,18 @@ Das **`<style>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht es, Stylesheets di
 ## Attribute
 
 - {{SVGAttr("type")}}
-  - : Dieses Attribut definiert den Typ der Stylesheet-Sprache als Medien-Typ-String.
-    _Werttyp_: {{Glossary("MIME_type", "**`<media-type>`**")}}; _Standardwert_: `text/css`; _Animierbar_: **nein**
+  - : Dieses Attribut definiert den Typ der zu verwendenden Stylesheet-Sprache als einen Medientyp-String.
+    _Wertetyp_: {{Glossary("MIME_type", "**`<media-type>`**")}}; _Standardwert_: `text/css`; _Animiert_: **nein**
 - {{SVGAttr("media")}}
-  - : Dieses Attribut definiert, für welches {{cssxref('@media', 'Medium')}} die Styles gelten.
-    _Werttyp_: [**`<media-query-list>`**](/de/docs/Web/CSS/@media#syntax); _Standardwert_: `all`; _Animierbar_: **nein**
+  - : Dieses Attribut definiert, auf welches {{cssxref('@media', 'Medium')}} der Stil angewendet wird.
+    _Wertetyp_: [**`<media-query-list>`**](/de/docs/Web/CSS/Reference/At-rules/@media#syntax); _Standardwert_: `all`; _Animiert_: **nein**
 - {{SVGAttr("title")}}
   - : Dieses Attribut ist der Titel des Stylesheets, der verwendet werden kann, um zwischen [alternativen Stylesheets](/de/docs/Web/HTML/Reference/Attributes/rel/alternate_stylesheet) zu wechseln.
-    _Werttyp_: [**`<string>`**](/de/docs/Web/CSS/string); _Standardwert_: _none_; _Animierbar_: **nein**
+    _Wertetyp_: [**`<string>`**](/de/docs/Web/CSS/Reference/Values/string); _Standardwert_: _kein_; _Animiert_: **nein**
 
-## DOM-Schnittstelle
+## DOM-Interface
 
-Dieses Element implementiert die [`SVGStyleElement`](/de/docs/Web/API/SVGStyleElement)-Schnittstelle.
+Dieses Element implementiert das [`SVGStyleElement`](/de/docs/Web/API/SVGStyleElement)-Interface.
 
 ## Beispiel
 
@@ -66,4 +66,4 @@ svg {
 
 ## Siehe auch
 
-- {{HTMLElement("style", "&lt;style&gt;-Element in HTML")}}
+- {{HTMLElement("style", "&lt;style&gt; Element in HTML")}}

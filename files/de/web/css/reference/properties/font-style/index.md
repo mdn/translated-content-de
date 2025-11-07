@@ -2,10 +2,10 @@
 title: font-style
 slug: Web/CSS/Reference/Properties/font-style
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Die **`font-style`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob eine Schriftart mit einem normalen, kursiven oder schräg gestellten Schriftbild aus ihrer {{cssxref("font-family")}} gestaltet werden soll.
+Die **`font-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob eine Schriftart in einem normalen, kursiven oder schrägen Schnitt aus ihrer {{cssxref("font-family")}} gestylt werden soll.
 
 {{InteractiveExample("CSS Demo: font-style")}}
 
@@ -50,7 +50,7 @@ section {
 }
 ```
 
-Kursive Schriftarten sind im Allgemeinen kursive in der Natur und verwenden normalerweise weniger horizontalen Raum als ihre ungestylten Gegenstücke, während schräg gestellte Schriftarten in der Regel nur geneigte Versionen der regulären Schriftarten sind. Wenn der angegebene Stil nicht verfügbar ist, werden sowohl kursiv als auch schräg gestellte Schriftarten simuliert, indem die Glyphen der regulären Schriftart künstlich geneigt werden (verwenden Sie {{cssxref("font-synthesis")}}, um dieses Verhalten zu steuern).
+**Kursive** Schriftarten sind in der Regel kursive Natur und nutzen normalerweise weniger horizontalen Platz als ihre ungestylten Pendants, während **schräge** Schriftarten in der Regel nur geneigte Versionen des regulären Schnitts sind. Wenn der angegebene Stil nicht verfügbar ist, werden sowohl kursive als auch schräge Schnitte durch das künstliche Neigen der Glyphen des regulären Schnitts simuliert (verwenden Sie {{cssxref("font-synthesis")}}, um dieses Verhalten zu steuern).
 
 ## Syntax
 
@@ -68,28 +68,28 @@ font-style: revert-layer;
 font-style: unset;
 ```
 
-Die `font-style`-Eigenschaft wird als einzelnes Schlüsselwort angegeben, das aus der unten stehenden Liste von Werten ausgewählt wird und optional einen Winkel enthalten kann, wenn das Schlüsselwort `oblique` ist.
+Die `font-style` Eigenschaft wird als ein einzelnes Schlüsselwort aus der untenstehenden Liste von Werten angegeben, das optional einen Winkel enthalten kann, wenn das Schlüsselwort `oblique` ist.
 
 ### Werte
 
 - `normal`
-  - : Wählt eine Schriftart aus, die innerhalb einer {{Cssxref("font-family")}} als `normal` klassifiziert ist.
+  - : Wählt eine Schriftart, die innerhalb einer {{Cssxref("font-family")}} als `normal` klassifiziert ist.
 - `italic`
-  - : Wählt eine Schriftart aus, die als `italic` klassifiziert ist. Wenn keine kursive Version der Schriftart verfügbar ist, wird stattdessen eine als `oblique` klassifizierte verwendet. Wenn keine verfügbar ist, wird der Stil künstlich simuliert.
+  - : Wählt eine Schriftart, die als `italic` klassifiziert ist. Wenn keine kursiven Versionen des Schnitts verfügbar sind, wird stattdessen eine als `oblique` klassifizierte verwendet. Wenn keine verfügbar ist, wird der Stil künstlich simuliert.
 - `oblique`
-  - : Wählt eine Schriftart aus, die als `oblique` klassifiziert ist. Wenn keine schräg gestellte Version der Schriftart verfügbar ist, wird stattdessen eine als `italic` klassifizierte verwendet. Wenn keine verfügbar ist, wird der Stil künstlich simuliert.
-- `oblique` [`<angle>`](/de/docs/Web/CSS/angle)
-  - : Wählt eine Schriftart, die als `oblique` klassifiziert ist, und gibt zusätzlich einen Winkel für die Neigung des Textes an. Wenn eine oder mehrere oblique Schriftarten in der gewählten Schriftfamilie verfügbar sind, wird diejenige ausgewählt, die dem angegebenen Winkel am nächsten kommt. Wenn keine oblique Schriftarten verfügbar sind, wird der Browser eine oblique Version der Schriftart synthetisieren, indem eine normale Schriftart um den angegebenen Betrag geneigt wird. Gültige Werte sind Gradwerte von `-90deg` bis `90deg` einschließlich. Wenn kein Winkel angegeben wird, wird ein Winkel von 14 Grad verwendet. Positive Werte sind zum Ende der Zeile geneigt, während negative Werte zum Anfang der Zeile geneigt sind.
+  - : Wählt eine Schriftart, die als `oblique` klassifiziert ist. Wenn keine schrägen Versionen des Schnitts verfügbar sind, wird stattdessen eine als `italic` klassifizierte verwendet. Wenn keine verfügbar ist, wird der Stil künstlich simuliert.
+- `oblique` [`<angle>`](/de/docs/Web/CSS/Reference/Values/angle)
+  - : Wählt eine Schriftart, die als `oblique` klassifiziert ist, und gibt zusätzlich einen Winkel für die Neigung des Textes an. Wenn ein oder mehrere schräge Schnitte in der gewählten Schriftfamilie verfügbar sind, wird derjenige gewählt, der dem angegebenen Winkel am nächsten kommt. Wenn keine schrägen Schnitte verfügbar sind, wird der Browser eine schräge Version der Schriftart synthetisieren, indem ein normaler Schnitt um den angegebenen Betrag geneigt wird. Gültige Werte sind Gradwerte von `-90deg` bis `90deg` inklusive. Wenn kein Winkel angegeben ist, wird ein Winkel von 14 Grad verwendet. Positive Werte werden zum Zeilenende hin geneigt, während negative Werte zum Zeilenanfang hin geneigt werden.
 
-    Im Allgemeinen gilt: Bei einem angeforderten Winkel von 14 Grad oder mehr werden größere Winkel bevorzugt; andernfalls werden kleinere Winkel bevorzugt (siehe die [Schriftübereinstimmungssektion der Spezifikation](https://drafts.csswg.org/css-fonts-4/#font-matching-algorithm) für den genauen Algorithmus).
+    Im Allgemeinen werden größere Winkel bevorzugt, wenn ein angeforderter Winkel von 14 Grad oder mehr angegeben wird; andernfalls werden kleinere Winkel bevorzugt (siehe den [font matching Abschnitt der Spezifikation](https://drafts.csswg.org/css-fonts-4/#font-matching-algorithm) für den genauen Algorithmus).
 
-### Variable Fonts
+### Variable Schriften
 
-Variable Fonts können eine feine Steuerung des Grads bieten, zu dem eine oblique Schriftart geneigt wird. Dies können Sie mit dem `<angle>`-Modifikator für das `oblique`-Schlüsselwort auswählen.
+Variable Schriften können eine feine Steuerung über den Grad bieten, bis zu dem eine schräge Schriftart geneigt ist. Sie können dies mit dem `<angle>` Modifikator für das `oblique` Schlüsselwort auswählen.
 
-Für TrueType- oder OpenType-Variable Fonts wird die `"slnt"`-Variation verwendet, um verschiedene Neigungswinkel für oblique zu implementieren, und die `"ital"`-Variation mit einem Wert von 1 wird verwendet, um kursive Werte zu implementieren. Siehe {{cssxref("font-variation-settings")}}.
+Für TrueType- oder OpenType-Variable-Schriften wird die `"slnt"` Variation verwendet, um unterschiedliche Neigungswinkel für schräg zu implementieren, und die `"ital"` Variation mit einem Wert von 1 wird verwendet, um kursiv zu implementieren. Siehe {{cssxref("font-variation-settings")}}.
 
-Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Ändern Sie den Winkelwert, um die Neigung des Textes zu sehen.
+Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten. Ändern Sie den Winkelwert, um die Neigung des Textes zu verändern.
 
 ```html live-sample___oblique-example
 <p class="sample">
@@ -118,10 +118,10 @@ Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playgro
 
 ## Barrierefreiheit
 
-Große Textabschnitte, die mit einem `font-style`-Wert von `italic` gesetzt sind, können für Menschen mit kognitiven Beeinträchtigungen wie Dyslexie schwer lesbar sein.
+Große Textabschnitte, die mit einem `font-style` Wert von `italic` gesetzt sind, können für Menschen mit kognitiven Einschränkungen wie Legasthenie schwer zu lesen sein.
 
-- [MDN Verständnis WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [W3C Verständnis WCAG 2.2](https://w3c.github.io/wcag/guidelines/22/#visual-presentation)
+- [MDN Verständnis von WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [W3C Verständnis von WCAG 2.2](https://w3c.github.io/wcag/guidelines/22/#visual-presentation)
 
 ## Formale Definition
 
@@ -170,4 +170,4 @@ Große Textabschnitte, die mit einem `font-style`-Wert von `italic` gesetzt sind
 - {{cssxref("font-family")}}
 - {{cssxref("font-weight")}}
 - SVG {{SVGAttr("font-style")}} Attribut
-- [Lernen: Grundlegendes Text- und Schriftstyling](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)
+- [Lernen: Grundlegende Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)

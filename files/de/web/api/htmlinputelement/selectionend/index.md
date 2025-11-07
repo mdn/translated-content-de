@@ -1,19 +1,19 @@
 ---
-title: "HTMLInputElement: selectionEnd Eigenschaft"
+title: "HTMLInputElement: selectionEnd-Eigenschaft"
 short-title: selectionEnd
 slug: Web/API/HTMLInputElement/selectionEnd
 l10n:
-  sourceCommit: bccce51ad7f3fd5e5ff7e4231b6391a000c8faf6
+  sourceCommit: e970f0765da11f7a6461cdb6693c40a39ecb6934
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`selectionEnd`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle ist eine Zahl, die den Endindex des ausgewählten Textes darstellt. Wenn keine Auswahl vorhanden ist, gibt diese den Versatz des Zeichens zurück, das unmittelbar nach der aktuellen Textcursorposition folgt.
+Die **`selectionEnd`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Schnittstelle ist eine Zahl, die den Endindex des ausgewählten Textes darstellt. Das heißt, es repräsentiert den Index des Zeichens, das **unmittelbar nach** der Auswahl kommt. Ebenso gibt dies, wenn keine Auswahl getroffen wurde, den Versatz des Zeichens zurück, das unmittelbar auf die aktuelle Textcursorposition folgt.
 
 > [!NOTE]
-> Laut der [WHATWG Forms Spezifikation](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply) gilt die `selectionEnd`-Eigenschaft nur für Eingabefelder der Typen text, search, URL, tel und password. In modernen Browsern tritt eine Ausnahme auf, wenn die `selectionEnd`-Eigenschaft auf den restlichen Eingabetypen gesetzt wird. Außerdem gibt diese Eigenschaft `null` zurück, wenn auf die `selectionEnd`-Eigenschaft bei Nicht-Text-Eingabeelementen zugegriffen wird.
+> Laut der [WHATWG Formen Spezifikation](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply) gilt die `selectionEnd`-Eigenschaft nur für Eingaben der Typen Text, Suche, URL, Telefon und Passwort. In modernen Browsern wird eine Ausnahme ausgelöst, wenn die `selectionEnd`-Eigenschaft für die übrigen Eingabetypen festgelegt wird. Zusätzlich gibt diese Eigenschaft `null` zurück, wenn auf die `selectionEnd`-Eigenschaft von Nicht-Text-Eingabe-Elementen zugegriffen wird.
 
-Wenn `selectionEnd` kleiner als `selectionStart` ist, werden beide als der Wert von `selectionEnd` behandelt.
+Wenn `selectionEnd` kleiner ist als `selectionStart`, werden beide als Wert von `selectionEnd` behandelt.
 
 ## Wert
 
@@ -70,6 +70,6 @@ console.log(colorEnd.selectionEnd); // Output : null
 
 ## Siehe auch
 
-- [`HTMLTextAreaElement.selectionEnd`](/de/docs/Web/API/HTMLTextAreaElement/selectionEnd) Eigenschaft
-- [`HTMLInputElement.selectionStart`](/de/docs/Web/API/HTMLInputElement/selectionStart) Eigenschaft
-- [`HTMLInputElement.setSelectionRange`](/de/docs/Web/API/HTMLInputElement/setSelectionRange) Methode
+- [`HTMLTextAreaElement.selectionEnd`](/de/docs/Web/API/HTMLTextAreaElement/selectionEnd)-Eigenschaft
+- [`HTMLInputElement.selectionStart`](/de/docs/Web/API/HTMLInputElement/selectionStart)-Eigenschaft
+- [`HTMLInputElement.setSelectionRange`](/de/docs/Web/API/HTMLInputElement/setSelectionRange)-Methode

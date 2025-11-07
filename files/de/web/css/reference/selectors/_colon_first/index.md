@@ -2,10 +2,10 @@
 title: :first
 slug: Web/CSS/Reference/Selectors/:first
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes), verwendet mit der {{cssxref("@page")}} [Regel](/de/docs/Web/CSS/CSS_syntax/At-rule), repräsentiert die erste Seite eines gedruckten Dokuments. (Siehe {{cssxref(":first-child")}} für das allgemeine erste Element eines Knotens.)
+Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes), die mit der {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rules) verwendet wird, repräsentiert die erste Seite eines gedruckten Dokuments. (Siehe {{cssxref(":first-child")}} für das allgemeine erste Element eines Knotens.)
 
 ```css
 /* Selects the first page when printing */
@@ -16,7 +16,7 @@ Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Referen
 ```
 
 > [!NOTE]
-> Sie können nicht alle CSS-Eigenschaften mit dieser Pseudoklasse ändern. Sie können nur die Ränder, {{cssxref("orphans")}}, {{cssxref("widows")}} und Seitenumbrüche des Dokuments ändern. Darüber hinaus dürfen Sie nur [absolute Längenmaßeinheiten](/de/docs/Web/CSS/length#absolute_length_units) verwenden, um die Ränder festzulegen. Alle anderen Eigenschaften werden ignoriert.
+> Sie können nicht alle CSS-Eigenschaften mit dieser Pseudoklasse ändern. Sie können nur die Ränder, {{cssxref("orphans")}}, {{cssxref("widows")}} und Seitenumbrüche des Dokuments ändern. Darüber hinaus dürfen Sie nur [absolute Längen](/de/docs/Web/CSS/Reference/Values/length#absolute_length_units) Einheiten zur Definition der Ränder verwenden. Alle anderen Eigenschaften werden ignoriert.
 
 ## Syntax
 
@@ -28,9 +28,9 @@ Die **`:first`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Referen
 
 ## Beispiele
 
-### Verwenden von `:first` für Druckseitenstile
+### Verwendung von `:first` für Druckstile
 
-Drücken Sie die Schaltfläche "Drucken!", um das Beispiel zu drucken. Die Wörter auf der ersten Seite sollten sich irgendwo in der Mitte befinden, während andere Seiten ihren Inhalt an der Standardposition haben:
+Drücken Sie die Schaltfläche "Drucken!" um das Beispiel zu drucken. Die Wörter auf der ersten Seite sollten sich irgendwo in der Mitte befinden, während andere Seiten ihre Inhalte an der Standardposition haben:
 
 ```html live-sample___colon-first
 <p>First Page.</p>

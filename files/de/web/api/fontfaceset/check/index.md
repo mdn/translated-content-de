@@ -1,17 +1,17 @@
 ---
-title: "FontFaceSet: check()-Methode"
+title: "FontFaceSet: check() Methode"
 short-title: check()
 slug: Web/API/FontFaceSet/check
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
 {{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die `check()`-Methode des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) gibt `true` zurück, wenn Sie Text mit der angegebenen Schriftauswahl rendern können, ohne dabei auf Schriftarten in diesem `FontFaceSet` zurückzugreifen, die noch nicht vollständig geladen sind. Dies bedeutet, dass Sie die Schriftauswahl verwenden können, ohne einen [Schrifttausch](/de/docs/Web/CSS/@font-face/font-display) auszulösen.
+Die `check()`-Methode des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) gibt `true` zurück, wenn Sie Text mit der angegebenen Schriftartspezifikation rendern können, ohne zu versuchen, Schriftarten in diesem `FontFaceSet` zu verwenden, die noch nicht vollständig geladen sind. Das bedeutet, dass Sie die Schriftartspezifikation verwenden können, ohne ein [Schriftarten-Swap](/de/docs/Web/CSS/Reference/At-rules/@font-face/font-display) zu verursachen.
 
 > [!NOTE]
-> Die `check()`-Methode ist nicht dafür ausgelegt zu überprüfen, ob ein bestimmter Schriftstil gerendert werden kann oder ob eine bestimmte Schriftart vollständig geladen ist. Stattdessen gibt sie `true` zurück, wenn der angegebene Text mit der gegebenen Schriftauswahl ohne Schrifttausch gerendert werden kann. Das bedeutet, dass selbst wenn die angeforderte Schriftart nicht verfügbar oder vollständig geladen ist, die Methode möglicherweise trotzdem `true` zurückgibt. Dieses Verhalten hilft, die visuellen Probleme zu vermeiden, die mit dem Schrifttausch verbunden sind, kann aber kontraintuitiv sein, wenn Sie versuchen, die Verfügbarkeit einer spezifischen Schriftart zu bestätigen.
+> Die `check()`-Methode ist nicht dafür gedacht zu überprüfen, ob ein bestimmter Schriftstil gerendert werden kann oder ob eine bestimmte Schriftart vollständig geladen ist. Stattdessen gibt sie `true` zurück, wenn der angegebene Text unter Verwendung der angegebenen Schriftartspezifikation ohne Schriftarten-Swap gerendert werden kann. Das bedeutet, dass selbst wenn die angeforderte Schriftart nicht verfügbar oder vollständig geladen ist, die Methode dennoch `true` zurückgeben kann. Dieses Verhalten hilft, visuelle Probleme im Zusammenhang mit Schriftarten-Swaps zu vermeiden, kann jedoch kontraintuitiv sein, wenn Sie versuchen, die Verfügbarkeit einer bestimmten Schriftart zu bestätigen.
 
 ## Syntax
 
@@ -23,15 +23,15 @@ check(font, text)
 ### Parameter
 
 - `font`
-  - : Eine Schriftauswahl unter Verwendung der Syntax für die CSS-[`font`](/de/docs/Web/CSS/Reference/Properties/font)-Eigenschaft, zum Beispiel `"italic bold 16px Roboto"`
+  - : eine Schriftartspezifikation unter Verwendung der Syntax für die CSS [`font`](/de/docs/Web/CSS/Reference/Properties/font)-Eigenschaft, beispielsweise `"italic bold 16px Roboto"`
 - `text`
-  - : Beschränkt die Schriftschnitte auf diejenigen, deren Unicode-Bereich mindestens eines der Zeichen im Text enthält. Dies [überprüft nicht die individuelle Glyphenabdeckung](https://lists.w3.org/Archives/Public/www-style/2015Aug/0330.html).
+  - : Beschränken Sie die Schriftarten auf diejenigen, deren Unicode-Bereich mindestens eines der Zeichen im Text enthält. Dies [überprüft keine individuelle Glyphenabdeckung](https://lists.w3.org/Archives/Public/www-style/2015Aug/0330.html).
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}-Wert, der `true` ist, wenn das Rendern von Text mit der gegebenen Schriftauswahl nicht versucht, Schriftarten aus diesem `FontFaceSet` zu verwenden, die noch nicht vollständig geladen sind.
+Ein {{jsxref("Boolean")}}-Wert, der `true` ist, wenn das Rendern von Text mit der angegebenen Schriftartspezifikation nicht versuchen wird, Schriftarten in diesem `FontFaceSet` zu verwenden, die noch nicht vollständig geladen sind.
 
-Dies bedeutet, dass alle Schriftarten in diesem `FontFaceSet`, die der gegebenen Schriftauswahl entsprechen, eine [`status`](/de/docs/Web/API/FontFace/status)-Eigenschaft haben, die auf `"loaded"` gesetzt ist.
+Das bedeutet, dass alle Schriftarten in diesem `FontFaceSet`, die durch die gegebene Schriftartspezifikation übereinstimmen, eine [`status`](/de/docs/Web/API/FontFace/status)-Eigenschaft haben, die auf `"loaded"` gesetzt ist.
 
 Andernfalls gibt diese Funktion `false` zurück.
 
@@ -49,9 +49,9 @@ const font = new FontFace("molot", 'url("/shared-assets/fonts/molot.woff2")', {
 document.fonts.add(font);
 ```
 
-### Ungeladene Schriftarten
+### Nicht geladene Schriftarten
 
-Die Schriftart ist noch nicht geladen, daher gibt `check("12px molot")` `false` zurück, was anzeigt, dass wir, wenn wir versuchen, die angegebene Schriftauswahl zu verwenden, einen Schrifttausch auslösen werden:
+Die Schriftart ist noch nicht geladen, daher gibt `check("12px molot")` `false` zurück, was darauf hinweist, dass wir, wenn wir versuchen, die gegebene Schriftartspezifikation zu verwenden, einen Schriftartladevorgang auslösen werden:
 
 ```js
 console.log(document.fonts.check("12px molot"));
@@ -60,7 +60,7 @@ console.log(document.fonts.check("12px molot"));
 
 ### Systemschriftarten
 
-Wenn wir nur eine Systemschriftart im Argument von `check()` angeben, gibt es `true` zurück, weil wir die Systemschriftart verwenden können, ohne Schriftarten aus dem Set zu laden:
+Wenn wir nur eine Systemschriftart im Argument von `check()` angeben, wird `true` zurückgegeben, da wir die Systemschriftart verwenden können, ohne Schriftarten aus dem Satz zu laden:
 
 ```js
 console.log(document.fonts.check("12px Courier"));
@@ -69,25 +69,25 @@ console.log(document.fonts.check("12px Courier"));
 
 ### Nicht existierende Schriftarten
 
-Wenn wir eine Schriftart angeben, die nicht im `FontFaceSet` ist und keine Systemschriftart ist, gibt `check()` `true` zurück, da wir in dieser Situation nicht auf Schriftarten aus dem Set angewiesen sind:
+Wenn wir eine Schriftart angeben, die nicht im `FontFaceSet` enthalten ist und keine Systemschriftart ist, gibt `check()` `true` zurück, da wir in dieser Situation nicht auf Schriftarten aus dem Satz angewiesen sind:
 
 ```js
 console.log(document.fonts.check("12px i-dont-exist"));
 // true: the matching font is a nonexistent font
 ```
 
-### System- und ungeladene Schriftarten
+### System- und nicht geladene Schriftarten
 
-Wenn wir sowohl eine Systemschriftart als auch eine nicht geladene Schriftart im Set angeben, gibt `check()` `false` zurück:
+Wenn wir sowohl eine Systemschriftart als auch eine Schriftart im Satz angeben, die noch nicht geladen ist, gibt `check()` `false` zurück:
 
 ```js
 console.log(document.fonts.check("12px molot, Courier"));
 // false: `molot` is in the set but not yet loaded
 ```
 
-### Ladeende Schriftarten
+### Schriftarten, die geladen werden
 
-Wenn wir eine Schriftart aus dem Set angeben, die noch geladen wird, gibt `check()` `false` zurück:
+Wenn wir eine Schriftart aus dem Satz angeben, die noch geladen wird, gibt `check()` `false` zurück:
 
 ```js
 function check() {
@@ -103,7 +103,7 @@ check();
 
 ### Geladene Schriftarten
 
-Wenn wir eine Schriftart aus dem Set angeben, die geladen wurde, gibt `check()` `true` zurück:
+Wenn wir eine geladene Schriftart aus dem Satz angeben, gibt `check()` `true` zurück:
 
 ```js
 async function check() {

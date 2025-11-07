@@ -1,20 +1,20 @@
 ---
-title: Kompositionsoperation
+title: Composite-Operation
 slug: Glossary/Composite_operation
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
-Im CSS ist der Wert einer Eigenschaft in einer CSS-Regel der _zugrunde liegende Wert_ dieser Eigenschaft, und der Wert derselben Eigenschaft in einem [Keyframe](/de/docs/Web/CSS/@keyframes) ist ihr _Effektwert_.
+In CSS ist der Wert einer Eigenschaft in einer CSS-Regel der _zugrundeliegende Wert_ dieser Eigenschaft, und der Wert derselben Eigenschaft in einem [Keyframe](/de/docs/Web/CSS/Reference/At-rules/@keyframes) ist ihr _Effektwert_.
 
-Die **Kompositionsoperation** ist die spezifische Operation, die verwendet wird, um einen Effektwert mit einem zugrunde liegenden Wert zu kombinieren, um den endgültigen Keyframe-Effektwert zu erzeugen. Es gibt drei Arten von Kompositionsoperationen:
+Eine **Composite-Operation** ist die spezifische Operation, die verwendet wird, um einen Effektwert mit einem zugrundeliegenden Wert zu kombinieren, um den endgültigen Keyframe-Effektwert zu erzeugen. Es gibt drei Arten von Composite-Operationen:
 
-- **replace**: Der Effektwert ersetzt den zugrunde liegenden Wert. Der endgültige Effektwert in diesem Fall ist der ursprüngliche Effektwert selbst.
-- **add**: Der Effektwert wird dem zugrunde liegenden Wert addiert.
-- **accumulate**: Der Effektwert wird mit dem zugrunde liegenden Wert kombiniert.
+- **replace**: Der Effektwert ersetzt den zugrundeliegenden Wert. Der endgültige Effektwert ist in diesem Fall der ursprüngliche Effektwert selbst.
+- **add**: Der Effektwert wird zum zugrundeliegenden Wert hinzugefügt.
+- **accumulate**: Der Effektwert wird mit dem zugrundeliegenden Wert kombiniert.
 
 > [!NOTE]
-> Kompositionsoperation im CSS gilt nur für Animationen.
+> Composite-Operationen in CSS gelten nur für Animationen.
 
 ## Siehe auch
 

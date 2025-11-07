@@ -1,14 +1,15 @@
 ---
-title: "Request: arrayBuffer() Methode"
+title: "Anforderung: arrayBuffer()-Methode"
 short-title: arrayBuffer()
 slug: Web/API/Request/arrayBuffer
 l10n:
-  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
+  sourceCommit: 562051c4ad20e9ecb5faf905286cdfca545a340d
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`arrayBuffer()`**-Methode des [`Request`](/de/docs/Web/API/Request)-Interfaces liest den Anfragekörper und gibt ihn als ein Promise zurück, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
+Die **`arrayBuffer()`**-Methode des [`Request`](/de/docs/Web/API/Request)-Interfaces
+liest den Anforderungskörper und gibt ein Promise zurück, das mit einem {{jsxref("ArrayBuffer")}} gelöst wird.
 
 ## Syntax
 
@@ -22,7 +23,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein Promise, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
+Ein Promise, das mit einem {{jsxref("ArrayBuffer")}} gelöst wird.
+
+### Ausnahmen
+
+- {{jsxref("TypeError")}}
+  - : Ausgelöst aus einem der folgenden Gründe:
+    - Der Anforderungskörper ist [gestört oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
+    - Es gab einen Fehler beim Dekodieren des Inhalts des Körpers (zum Beispiel, weil der {{httpheader("Content-Encoding")}}-Header falsch ist).
+- {{jsxref("RangeError")}}
+  - : Ausgelöst, wenn es ein Problem beim Erstellen des zugehörigen `ArrayBuffer` gibt (zum Beispiel, wenn die Datengröße zu groß ist).
 
 ## Beispiele
 

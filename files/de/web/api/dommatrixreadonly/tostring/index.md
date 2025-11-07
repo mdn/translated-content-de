@@ -3,16 +3,16 @@ title: "DOMMatrixReadOnly: toString() Methode"
 short-title: toString()
 slug: Web/API/DOMMatrixReadOnly/toString
 l10n:
-  sourceCommit: d0e6d8d712a33b9d3c7a9fb9a8ba85d4dd1b7002
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{APIRef("DOM")}}
 
-Der **`toString()`**-{{Glossary("stringifier", "String-Erzeuger")}} des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly) Interfaces gibt den Wert der Matrix als Zeichenkette in Form einer `matrix()` oder `matrix3d()` CSS-[Transformationsfunktion](/de/docs/Web/CSS/transform-function) zurück; kommagetrennte Listen von 6 oder 16 Koordinatenwerten, die jeweils mit `"matrix(` oder `"matrix3d(` beginnen und mit `)"` enden.
+Der **`toString()`** {{Glossary("stringifier", "Stringifier")}} der Schnittstelle [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly) gibt den Wert der Matrix als Zeichenkette in Form einer `matrix()` oder `matrix3d()` CSS-[Transformationsfunktion](/de/docs/Web/CSS/Reference/Values/transform-function) zurück; kommagetrennte Listen von 6 oder 16 Koordinatenwerten, die jeweils mit `"matrix(` oder `"matrix3d(` beginnen und mit `)"` enden.
 
-Bei einer 2D-Matrix werden die Elemente [`a` bis `f`](/de/docs/Web/API/DOMMatrix#a) aufgelistet, insgesamt sechs Werte in der Form `matrix(a, b, c, d, e, f)`. Details zu dieser Syntax finden Sie in der {{cssxref("transform-function/matrix", "matrix()")}} CSS-Funktion.
+Für eine 2D-Matrix werden die Elemente [`a` bis `f`](/de/docs/Web/API/DOMMatrix#a) aufgelistet, insgesamt sechs Werte in der Form `matrix(a, b, c, d, e, f)`. Siehe die {{cssxref("transform-function/matrix", "matrix()")}} CSS-Funktion für Details zu dieser Syntax.
 
-Für eine 3D-Matrix enthält die zurückgegebene Zeichenkette alle [16 Elemente](/de/docs/Web/API/DOMMatrix#m11) und hat die Form `matrix3d(m11, m12, m13, m14, m21, m22, m23, m24, m31, m32, m33, m34, m41, m42, m43, m44)`. Einzelheiten zur Syntax dieser 3D-Notation finden Sie in der {{cssxref("transform-function/matrix3d", "matrix3d()")}} CSS-Funktion.
+Für eine 3D-Matrix enthält die zurückgegebene Zeichenkette alle [16 Elemente](/de/docs/Web/API/DOMMatrix#m11) und nimmt die Form `matrix3d(m11, m12, m13, m14, m21, m22, m23, m24, m31, m32, m33, m34, m41, m42, m43, m44)` an. Siehe die CSS-{{cssxref("transform-function/matrix3d", "matrix3d()")}}-Funktion für Details zur Syntax der 3D-Notation.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenkette; die Werte der Liste durch Kommas getrennt, in der Syntax der `matrix()` oder `matrix3d()` Funktion.
+Ein String; die Werte der Liste, durch Kommas getrennt, innerhalb der Funktionensyntax von `matrix()` oder `matrix3d()`.
 
 ## Beispiele
 

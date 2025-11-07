@@ -2,10 +2,10 @@
 title: :scope
 slug: Web/CSS/Reference/Selectors/:scope
 l10n:
-  sourceCommit: aff319cd81d10cfda31b13adb3263deafb284b20
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
-Die **`:scope`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert Elemente, die als Referenzpunkt oder Geltungsbereich für Selektoren dienen, um einen Abgleich zu machen.
+Die **`:scope`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert Elemente, die einen Bezugspunkt oder Geltungsbereich für Selektoren darstellen, um übereinzustimmen.
 
 ```css
 /* Selects a scoped element */
@@ -14,11 +14,11 @@ Die **`:scope`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Refere
 }
 ```
 
-Welche(s) Element(e) `:scope` entspricht, hängt vom Kontext ab, in dem es verwendet wird:
+Welche Elemente durch `:scope` angesprochen werden, hängt vom Kontext ab, in dem es verwendet wird:
 
-- Bei Verwendung auf der Wurzelebene eines Stylesheets ist `:scope` gleichbedeutend mit {{cssxref(":root")}}, was in einem normalen HTML-Dokument dem {{htmlelement("html")}}-Element entspricht.
-- Bei Verwendung innerhalb eines {{cssxref("@scope")}}-Blocks entspricht `:scope` der definierten Wurzel des Geltungsbereichs des Blocks. Es bietet eine Möglichkeit, Stile auf die Wurzel des Bereichs anzuwenden, von innerhalb des `@scope`-Blocks selbst.
-- Bei Verwendung innerhalb eines DOM-API-Aufrufs — wie bei [`querySelector()`](/de/docs/Web/API/Element/querySelector), [`querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll), [`matches()`](/de/docs/Web/API/Element/matches) oder [`Element.closest()`](/de/docs/Web/API/Element/closest) — entspricht `:scope` dem Element, auf dem die Methode aufgerufen wurde.
+- Auf der Wurzelebene eines Stylesheets verwendet, entspricht `:scope` {{cssxref(":root")}}, was in einem regulären HTML-Dokument das {{htmlelement("html")}}-Element trifft.
+- Verwendet innerhalb eines {{cssxref("@scope")}}-Blocks, entspricht `:scope` der definierten Scope-Root des Blocks. Es bietet eine Möglichkeit, Stile auf den Root des Scopes innerhalb des `@scope`-Blocks selbst anzuwenden.
+- Verwendet innerhalb eines DOM-API-Aufrufs – wie [`querySelector()`](/de/docs/Web/API/Element/querySelector), [`querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll), [`matches()`](/de/docs/Web/API/Element/matches) oder [`Element.closest()`](/de/docs/Web/API/Element/closest) – entspricht `:scope` dem Element, auf dem die Methode aufgerufen wurde.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ Welche(s) Element(e) `:scope` entspricht, hängt vom Kontext ab, in dem es verwe
 
 ### Verwendung von `:scope` als Alternative zu `:root`
 
-Dieses Beispiel zeigt, dass `:scope` gleichbedeutend mit `:root` ist, wenn es auf der Wurzelebene eines Stylesheets verwendet wird. In diesem Fall färbt das bereitgestellte CSS den Hintergrund des `<html>`-Elements orange.
+Dieses Beispiel zeigt, dass `:scope` äquivalent zu `:root` ist, wenn es auf der Wurzelebene eines Stylesheets verwendet wird. In diesem Fall färbt das bereitgestellte CSS den Hintergrund des `<html>`-Elements orange.
 
 ```css
 :scope {
@@ -42,9 +42,9 @@ Dieses Beispiel zeigt, dass `:scope` gleichbedeutend mit `:root` ist, wenn es au
 
 {{ EmbedLiveSample("Using :scope as an alternative to :root", "100%", 50) }}
 
-### Verwendung von `:scope` zur Stilgestaltung der Geltungsbereichswurzel in einem `@scope`-Block
+### Verwendung von `:scope`, um den Scope-Root in einem `@scope`-Block zu stylen
 
-In diesem Beispiel verwenden wir zwei separate `@scope`-Blöcke, um Links innerhalb von Elementen mit einer `.light-scheme` und `.dark-scheme` Klasse jeweils zu erfassen. Beachten Sie, wie `:scope` verwendet wird, um die Geltungsbereichswurzeln selbst auszuwählen und zu gestalten. In diesem Beispiel sind die Geltungsbereichswurzeln die {{htmlelement("div")}}-Elemente, die die Klassen angewendet haben.
+In diesem Beispiel verwenden wir zwei separate `@scope`-Blöcke, um Links innerhalb von Elementen mit einer `.light-scheme`- und `.dark-scheme`-Klasse zu treffen. Beachten Sie, wie `:scope` verwendet wird, um die Scope-Roots selbst auszuwählen und zu stylen. In diesem Beispiel sind die Scope-Roots die {{htmlelement("div")}}-Elemente, denen die Klassen zugeordnet sind.
 
 #### HTML
 
@@ -99,13 +99,13 @@ div {
 }
 ```
 
-#### Ergebnis
+#### Resultat
 
 {{ EmbedLiveSample("Using :scope to style the scope root in a @scope block", "100%", 150) }}
 
 ### Verwendung von `:scope` in JavaScript
 
-Dieses Beispiel demonstriert die Verwendung der `:scope`-Pseudo-Klasse in JavaScript. Dies kann nützlich sein, wenn Sie einen direkten Nachkommen eines bereits abgerufenen [`Element`](/de/docs/Web/API/Element) benötigen.
+Dieses Beispiel demonstriert die Verwendung der `:scope`-Pseudoklasse in JavaScript. Dies kann nützlich sein, wenn Sie einen direkten Nachfahren eines bereits abgerufenen [`Element`](/de/docs/Web/API/Element) erhalten müssen.
 
 #### HTML
 
@@ -136,9 +136,9 @@ document.getElementById("results").textContent = [...selected]
   .join(", ");
 ```
 
-#### Ergebnis
+#### Resultat
 
-Der Geltungsbereich von `context` ist das Element mit der [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) von `context`. Die ausgewählten Elemente sind die `<div>`-Elemente, die direkte Kinder dieses Kontextes sind — `element-1` und `element-2` — jedoch nicht deren Nachkommen.
+Der Scope von `context` ist das Element mit der [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) von `context`. Die ausgewählten Elemente sind die `<div>`-Elemente, die direkte Kinder dieses Kontextes sind — `element-1` und `element-2` — jedoch nicht deren Nachfahren.
 
 {{ EmbedLiveSample('Using :scope in JavaScript') }}
 
@@ -152,9 +152,9 @@ Der Geltungsbereich von `context` ist das Element mit der [`id`](/de/docs/Web/HT
 
 ## Siehe auch
 
-- Die {{cssxref("@scope")}} [At-rule](/de/docs/Web/CSS/CSS_syntax/At-rule)
-- Die {{cssxref(":root")}} [Pseudo-Klasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes)
-- [Auswahl und Traversieren auf dem DOM-Baum](/de/docs/Web/API/Document_Object_Model/Selection_and_traversal_on_the_DOM_tree)
+- Die {{cssxref("@scope")}} [at-rule](/de/docs/Web/CSS/CSS_syntax/At-rules)
+- Die {{cssxref(":root")}} [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes)
+- [Selection and traversal on the DOM tree](/de/docs/Web/API/Document_Object_Model/Selection_and_traversal_on_the_DOM_tree)
 - [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector) und [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll)
 - [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) und [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll)
 - [`DocumentFragment.querySelector()`](/de/docs/Web/API/DocumentFragment/querySelector) und [`DocumentFragment.querySelectorAll()`](/de/docs/Web/API/DocumentFragment/querySelectorAll)

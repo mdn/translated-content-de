@@ -2,7 +2,7 @@
 title: ID-Selektoren
 slug: Web/CSS/Reference/Selectors/ID_selectors
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 Der CSS-**ID-Selektor** wählt ein Element basierend auf dem Wert des [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributs des Elements aus. Damit das Element ausgewählt wird, muss sein `id`-Attribut genau mit dem im Selektor angegebenen Wert übereinstimmen.
@@ -30,7 +30,7 @@ Beachten Sie, dass dies syntaktisch (aber nicht hinsichtlich der Spezifität) de
 }
 ```
 
-Der `id_value` muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/ident) sein. HTML-`id`-Attribute, die keine gültigen CSS-Identifier sind, müssen [maskiert](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in ID-Selektoren verwendet werden können.
+Der Wert `id_value` muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/Reference/Values/ident) sein. HTML-`id`-Attribute, die keine gültigen CSS-Identifier sind, müssen [escaped](/de/docs/Web/CSS/Reference/Values/ident#escaping_characters) werden, bevor sie in ID-Selektoren verwendet werden können.
 
 ## Beispiele
 
@@ -100,4 +100,4 @@ Die ID-Selektoren in den folgenden Regeln sind keine gültigen CSS-Identifier un
 ## Siehe auch
 
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [CSS lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
+- [CSS lernen: Basis-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

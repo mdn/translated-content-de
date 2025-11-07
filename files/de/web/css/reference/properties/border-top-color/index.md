@@ -2,10 +2,10 @@
 title: border-top-color
 slug: Web/CSS/Reference/Properties/border-top-color
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Die **`border-top-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des oberen [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) eines Elements fest. Sie kann auch mit den CSS-Kurzschreibweisen {{cssxref("border-color")}} oder {{cssxref("border-top")}} gesetzt werden.
+Die **`border-top-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des oberen [Rahmens](/de/docs/Web/CSS/Reference/Properties/border) eines Elements fest. Sie kann auch mit den verkürzten CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxtype("border-top")}} gesetzt werden.
 
 {{InteractiveExample("CSS Demo: border-top-color")}}
 
@@ -67,7 +67,7 @@ border-top-color: revert-layer;
 border-top-color: unset;
 ```
 
-Die `border-top-color` Eigenschaft wird als einzelner Wert angegeben.
+Die Eigenschaft `border-top-color` wird als einzelner Wert angegeben.
 
 ### Werte
 
@@ -125,7 +125,7 @@ Die `border-top-color` Eigenschaft wird als einzelner Wert angegeben.
 
 ## Siehe auch
 
-- Die rahmenbezogenen CSS-Kurzschreibweisen: {{cssxref("border")}}, {{cssxref("border-top")}}, und {{cssxref("border-color")}}.
-- Die farbbezüglichen CSS-Eigenschaften für die anderen Rahmen: {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, und {{cssxref("border-left-color")}}.
+- Die rahmenbezogenen verkürzten CSS-Eigenschaften: {{cssxref("border")}}, {{cssxref("border-top")}}, und {{cssxref("border-color")}}.
+- Die farbbezogenen CSS-Eigenschaften für die anderen Rahmen: {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, und {{cssxref("border-left-color")}}.
 - Die anderen rahmenbezogenen CSS-Eigenschaften, die auf denselben Rahmen angewendet werden: {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}.
-- Der Standardwert [`currentColor`](/de/docs/Web/CSS/color_value#currentcolor_keyword).
+- Der Standardwert [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword) für Farben.

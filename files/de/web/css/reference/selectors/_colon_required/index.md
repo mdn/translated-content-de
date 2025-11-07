@@ -2,7 +2,7 @@
 title: :required
 slug: Web/CSS/Reference/Selectors/:required
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
 ---
 
 Die **`:required`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}} Element, das das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) Attribut gesetzt hat.
@@ -59,12 +59,12 @@ Diese Pseudoklasse ist nützlich, um Felder hervorzuheben, die gültige Daten en
 
 ## Barrierefreiheit
 
-Für Pflicht-{{htmlelement("input")}}s sollte das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) Attribut angewendet werden. Dies stellt sicher, dass Personen, die mit Unterstützungstechnologien wie einem Screenreader navigieren, verstehen können, welche Eingaben gültigen Inhalt benötigen, um eine erfolgreiche Übermittlung sicherzustellen.
+Verpflichtende {{htmlelement("input")}}s sollten das [`required`](/de/docs/Web/HTML/Reference/Elements/input#required) Attribut haben. Dies stellt sicher, dass Personen, die mit Hilfe von unterstützender Technologie wie einem Screenreader navigieren, verstehen können, welche Eingaben gültigen Inhalt haben müssen, um eine erfolgreiche Absendung sicherzustellen.
 
-Wenn das Formular auch [optionale](/de/docs/Web/CSS/Reference/Selectors/:optional) Eingaben enthält, sollten Pflichtfelder visuell durch eine Darstellung angezeigt werden, die nicht ausschließlich auf Farbe angewiesen ist, um Bedeutung zu vermitteln. In der Regel werden beschreibender Text und/oder ein Symbol verwendet.
+Wenn das Formular auch [optionale](/de/docs/Web/CSS/Reference/Selectors/:optional) Eingaben enthält, sollten verpflichtende Eingaben visuell mit einer Darstellung dargestellt werden, die sich nicht nur auf Farbe verlässt, um Bedeutung zu vermitteln. Typischerweise werden beschreibender Text und/oder ein Symbol verwendet.
 
-- [MDN Understanding WCAG, Richtlinie 3.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable#guideline_3.3_%e2%80%94_input_assistance_help_users_avoid_and_correct_mistakes)
-- [Verständnis des Erfolgskriteriums 3.3.2 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html)
+- [MDN Verstehen von WCAG, Richtlinie 3.3 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Understandable#guideline_3.3_%e2%80%94_input_assistance_help_users_avoid_and_correct_mistakes)
+- [Verstehen des Erfolgskriteriums 3.3.2 | W3C Verstehen von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html)
 
 ## Beispiele
 
@@ -125,4 +125,4 @@ input:required:invalid {
 ## Siehe auch
 
 - Andere validierungsbezogene Pseudoklassen: {{ cssxref(":optional") }}, {{ cssxref(":invalid") }}, {{ cssxref(":valid") }}
-- [Validierung von Formulardaten](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

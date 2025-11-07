@@ -3,14 +3,14 @@ title: "MediaQueryList: matches-Eigenschaft"
 short-title: matches
 slug: Web/API/MediaQueryList/matches
 l10n:
-  sourceCommit: 896a41d7d9832367a1e24af567fb419e9d4182f8
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
 {{APIRef("CSSOM view API")}}
 
 Die schreibgeschützte **`matches`**-Eigenschaft des [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Interfaces ist ein boolescher Wert, der `true` zurückgibt, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Medienabfrageliste übereinstimmt, oder `false`, wenn nicht.
 
-Sie können benachrichtigt werden, wenn sich der Wert von `matches` ändert, indem Sie das [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis am `MediaQueryList` beobachten.
+Sie können benachrichtigt werden, wenn sich der Wert von `matches` ändert, indem Sie das [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis überwachen, das bei der `MediaQueryList` ausgelöst wird.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Docu
 
 ## Beispiele
 
-Dieses Beispiel erkennt Änderungen der Ansichtsfensterorientierung, indem es eine Medienabfrage mit dem [`orientation`](/de/docs/Web/CSS/@media/orientation)-Medienmerkmal erstellt:
+Dieses Beispiel erkennt Änderungen der Ausrichtung des Ansichtsfensters, indem eine Medienabfrage mit dem [`orientation`](/de/docs/Web/CSS/Reference/At-rules/@media/orientation)-Medienmerkmal erstellt wird:
 
 ```js
 const mql = window.matchMedia("(orientation:landscape)");

@@ -1,13 +1,13 @@
 ---
-title: Farb-Mischer
+title: Farbmischer
 slug: Web/CSS/CSS_colors/Color_mixer
 l10n:
-  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Dieses Tool ermöglicht es Ihnen, zwei Farben in jedem Farbraum mit der Funktion {{cssxref("color_value/color-mix")}} zu mischen und die resultierende Farbe in jedem CSS-Farbformat zu kopieren.
+Dieses Werkzeug ermöglicht es Ihnen, zwei Farben in einem beliebigen Farbraum mit der {{cssxref("color_value/color-mix")}} Funktion zu mischen und die resultierende Farbe in jedem CSS-Farbformat zu kopieren.
 
-Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, und die von der Funktion zurückgegebene gemischte Farbe wird in der Mitte angezeigt. Klicken Sie auf die äußeren Farbfelder, um neue Farben zum Mischen auszuwählen. Verwenden Sie die Schieberegler, um die Prozentsätze jeder Eingabefarbe im Mix zu ändern. Nutzen Sie das Dropdown-Menü, um den Farbraum der Funktionsausgabe zu ändern. Die Werte der resultierenden Farbe in verschiedenen Formaten erscheinen in einer Tabelle, die dem Widget folgt und kopiert werden kann. Sie können auch auf einen Farbnamen klicken, um mehr darüber zu erfahren.
+Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, und die von der Funktion gemischte Farbe erscheint in der Mitte. Klicken Sie auf die äußeren Farbfelder, um neue Farben zur Mischung auszuwählen. Verwenden Sie die Schieberegler, um die Prozentsätze jeder eingehenden Farbe im Mix zu ändern. Nutzen Sie das Dropdown-Menü, um den Farbraum der Ausgabe der Funktion zu ändern. Die Werte der resultierenden Farbe in verschiedenen Formaten erscheinen in einer Tabelle nach dem Widget und können kopiert werden. Sie können auch auf einen Farbnamen klicken, um mehr darüber zu erfahren.
 
 ```html hidden live-sample___color-mixer
 <div id="color-mixer">
@@ -109,7 +109,7 @@ Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, 
     <tr id="rgb-function">
       <th>
         <a
-          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb"
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/rgb"
           target="_blank">
           RGB
         </a>
@@ -119,7 +119,7 @@ Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, 
     <tr id="hex">
       <th>
         <a
-          href="https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color"
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/hex-color"
           target="_blank"
           >HEX</a
         >
@@ -129,7 +129,7 @@ Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, 
     <tr id="hsl-function">
       <th>
         <a
-          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl"
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/hsl"
           target="_blank">
           HSL
         </a>
@@ -139,7 +139,7 @@ Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, 
     <tr id="hwb-function">
       <th>
         <a
-          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hwb"
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/hwb"
           target="_blank">
           HWB
         </a>
@@ -149,7 +149,7 @@ Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, 
     <tr id="color-function">
       <th>
         <a
-          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color"
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/color"
           target="_blank">
           color()
         </a>
@@ -159,7 +159,7 @@ Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, 
     <tr id="lab-function">
       <th>
         <a
-          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lab"
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/lab"
           target="_blank">
           Lab
         </a>
@@ -169,7 +169,7 @@ Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, 
     <tr id="lch-function">
       <th>
         <a
-          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lch"
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/lch"
           target="_blank">
           LCH
         </a>
@@ -179,7 +179,7 @@ Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, 
     <tr id="oklab-function">
       <th>
         <a
-          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklab"
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/oklab"
           target="_blank">
           Oklab
         </a>
@@ -189,7 +189,7 @@ Die beiden Eingabefarben, `color-one` und `color-two`, werden außen angezeigt, 
     <tr id="oklch-function">
       <th>
         <a
-          href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch"
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/oklch"
           target="_blank">
           OkLCh
         </a>
@@ -888,4 +888,4 @@ init();
 - {{CSSXref("&lt;color&gt;")}}
 - {{CSSXref("&lt;color-interpolation-method&gt;")}}
 - {{cssxref("&lt;hue&gt;")}}
-- [Relative Farben in CSS](/de/docs/Web/CSS/CSS_colors/Relative_colors)
+- [CSS relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)

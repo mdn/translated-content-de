@@ -2,15 +2,15 @@
 title: :target-current
 slug: Web/CSS/Reference/Selectors/:target-current
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
 ---
 
 {{SeeCompatTable}}
 
-Die **`:target-current`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt den **aktiven** Scroll-Marker aus — das {{cssxref("::scroll-marker")}} Pseudoelement einer {{cssxref("scroll-marker-group")}}, das aktuell gescrollt wird. Dieser [Selektor](/de/docs/Web/CSS/CSS_selectors) kann verwendet werden, um die aktive Navigationsposition innerhalb einer [Scroll-Marker-Gruppe](/de/docs/Web/CSS/Reference/Selectors/::scroll-marker-group#description) zu stylen.
+Die **`:target-current`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wählt den **aktiven** Scroll-Marker aus — das {{cssxref("::scroll-marker")}} Pseudoelement einer {{cssxref("scroll-marker-group")}}, zu der gerade gescrollt wird. Dieser [Selektor](/de/docs/Web/CSS/CSS_selectors) kann verwendet werden, um die aktive Navigationsposition innerhalb einer [Scroll-Marker-Gruppe](/de/docs/Web/CSS/Reference/Selectors/::scroll-marker-group#description) zu stylen.
 
 > [!NOTE]
-> Die `:target-current` Pseudoklasse ist nur auf `::scroll-marker` Pseudoelementen gültig.
+> Die `:target-current` Pseudoklasse ist nur bei `::scroll-marker` Pseudoelementen gültig.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Die **`:target-current`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CS
 
 ## Beispiele
 
-Sehen Sie vollständige Beispiele, die die `:target-current` Pseudoklasse verwenden, unter [Erstellen von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels) und {{cssxref("::scroll-marker")}}.
+Siehe [Erstellung von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels) und {{cssxref("::scroll-marker")}} für vollständige Beispiele, die die `:target-current` Pseudoklasse verwenden.
 
 ### Grundlegende Verwendung
 
@@ -49,6 +49,6 @@ Sehen Sie vollständige Beispiele, die die `:target-current` Pseudoklasse verwen
 - {{cssxref("scroll-marker-group")}}
 - {{cssxref("::scroll-marker")}}
 - {{cssxref("::scroll-marker-group")}}
-- [Erstellen von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels)
-- [CSS Overflow](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Carousel Gallery](https://chrome.dev/carousel/) über chrome.dev (2025)
+- [Erstellung von CSS-Karussells](/de/docs/Web/CSS/CSS_overflow/CSS_carousels)
+- [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS Karussell-Galerie](https://chrome.dev/carousel/) über chrome.dev (2025)

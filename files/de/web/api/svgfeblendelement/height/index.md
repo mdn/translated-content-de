@@ -3,16 +3,16 @@ title: "SVGFEBlendElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/SVGFEBlendElement/height
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{APIRef("SVG")}}
 
-Die **`height`**-Eigenschaft der Schnittstelle [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement) beschreibt die vertikale Größe einer SVG-Filterprimitive als [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die schreibgeschützte **`height`**-Eigenschaft des [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement)-Interfaces beschreibt die vertikale Größe einer SVG-Filter-Primitiven als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGElement("feBlend")}}-Element und dessen {{SVGAttr("height")}} Filterprimitive-Attribut wider. Das Attribut ist entweder ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage), relativ zur Höhe der Filterregion. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Einheiten des Benutzerkoordinatensystems.
+Sie spiegelt das {{SVGElement("feBlend")}}-Element und dessen {{SVGAttr("height")}}-Filter-Primitiven-Attribut wider. Das Attribut ist entweder ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage), das relativ zur Höhe der Filterregion ist. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzereinheitensystem-Einheiten.
 
-Das `<feBlend>` SVG-Filterelement blendet zwei Eingabebilder mit häufig verwendeten Bildbearbeitungs-[Mischmodi](/de/docs/Web/CSS/blend-mode) zusammen.
+Das `<feBlend>` SVG-Filter-Element blendet zwei Eingabebilder mit den in gängigen Bildbearbeitungsprogrammen verwendeten [Mischmodi](/de/docs/Web/CSS/Reference/Values/blend-mode) zusammen.
 
 ## Wert
 

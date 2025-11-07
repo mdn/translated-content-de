@@ -2,18 +2,18 @@
 title: Keyframe-Formate
 slug: Web/API/Web_Animations_API/Keyframe_Formats
 l10n:
-  sourceCommit: f262367fa35d57234ab6f6d66b9a06c3d33d5b31
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{DefaultAPISidebar("Web Animations")}}
 
-[`Element.animate()`](/de/docs/Web/API/Element/animate), [`KeyframeEffect()`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect), und [`KeyframeEffect.setKeyframes()`](/de/docs/Web/API/KeyframeEffect/setKeyframes) akzeptieren alle Objekte, die formatiert sind, um eine Reihe von Keyframes darzustellen. Es gibt mehrere Optionen für dieses Format, die unten erläutert werden.
+[`Element.animate()`](/de/docs/Web/API/Element/animate), [`KeyframeEffect()`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect) und [`KeyframeEffect.setKeyframes()`](/de/docs/Web/API/KeyframeEffect/setKeyframes) akzeptieren Objekte, die formatiert sind, um eine Reihe von Keyframes darzustellen. Es gibt mehrere Optionen für dieses Format, die unten erklärt werden.
 
 ## Syntax
 
 Es gibt zwei verschiedene Möglichkeiten, Keyframes zu formatieren:
 
-1. Ein `array` von Objekten (Keyframes), bestehend aus Eigenschaften und Werten, über die iteriert wird. Dies ist das kanonische Format, das von der [`getKeyframes()`](/de/docs/Web/API/KeyframeEffect/getKeyframes)-Methode zurückgegeben wird.
+1. Ein `Array` von Objekten (Keyframes), das aus durchlaufbaren Eigenschaften und Werten besteht. Dies ist das kanonische Format, das von der Methode [`getKeyframes()`](/de/docs/Web/API/KeyframeEffect/getKeyframes) zurückgegeben wird.
 
    ```js
    element.animate(
@@ -43,11 +43,11 @@ Es gibt zwei verschiedene Möglichkeiten, Keyframes zu formatieren:
    ```
 
    > [!NOTE]
-   > `offset`-Werte, sofern angegeben, müssen zwischen 0,0 und 1,0 (einschließlich) liegen und in aufsteigender Reihenfolge angeordnet sein.
+   > `offset`-Werte, wenn sie angegeben werden, müssen zwischen 0.0 und 1.0 (einschließlich) liegen und in aufsteigender Reihenfolge angeordnet sein.
 
-   Es ist nicht notwendig, einen Offset für jedes Keyframe anzugeben. Keyframes ohne angegebenen Offset werden gleichmäßig zwischen den angrenzenden Keyframes verteilt.
+   Es ist nicht notwendig, für jedes Keyframe ein Offset anzugeben. Keyframes ohne angegebenes Offset werden gleichmäßig zwischen den angrenzenden Keyframes verteilt.
 
-   Das zwischen Keyframes anzuwendende Easing kann angegeben werden, indem ein `easing`-Wert bereitgestellt wird, wie unten dargestellt.
+   Das Easing zwischen den Keyframes kann durch Bereitstellung eines `easing`-Werts angegeben werden, wie unten gezeigt.
 
    ```js
    element.animate(
@@ -60,9 +60,9 @@ Es gibt zwei verschiedene Möglichkeiten, Keyframes zu formatieren:
    );
    ```
 
-   In diesem Beispiel gilt das angegebene Easing nur von dem Keyframe, bei dem es angegeben ist, bis zum nächsten Keyframe. Ein im `options`-Argument angegebener `easing`-Wert gilt jedoch über eine einzige Iteration der Animation — für die gesamte Dauer.
+   In diesem Beispiel gilt das angegebene Easing nur von dem Keyframe, an dem es angegeben wurde, bis zum nächsten Keyframe. Jeder im Argument `options` angegebene `easing`-Wert gilt jedoch über eine einzelne Iteration der Animation – für die gesamte Dauer.
 
-2. Ein `object`, das Schlüssel-Wert-Paare enthält, bestehend aus der zu animierenden Eigenschaft und einem `array` von Werten, über die iteriert wird.
+2. Ein `Objekt` mit Schlüssel-Wert-Paaren, das die zu animierenden Eigenschaften und ein `Array` von Werten zum Durchlaufen enthält.
 
    ```js
    element.animate(
@@ -74,7 +74,7 @@ Es gibt zwei verschiedene Möglichkeiten, Keyframes zu formatieren:
    );
    ```
 
-   Bei Verwendung dieses Formats muss die Anzahl der Elemente in jedem Array nicht gleich sein. Die bereitgestellten Werte werden unabhängig voneinander verteilt.
+   Bei Verwendung dieses Formats muss die Anzahl der Elemente in jedem Array nicht gleich sein. Die angegebenen Werte werden unabhängig voneinander verteilt.
 
    ```js
    element.animate(
@@ -86,7 +86,7 @@ Es gibt zwei verschiedene Möglichkeiten, Keyframes zu formatieren:
    );
    ```
 
-   Die speziellen Schlüssel `offset`, `easing`, und `composite` (unten beschrieben) können neben den Eigenschaftswerten angegeben werden.
+   Die speziellen Schlüssel `offset`, `easing` und `composite` (siehe unten) können neben den Eigenschaftswerten angegeben werden.
 
    ```js
    element.animate(
@@ -99,13 +99,13 @@ Es gibt zwei verschiedene Möglichkeiten, Keyframes zu formatieren:
    );
    ```
 
-   Nachdem ein geeignetes Set von Keyframes aus den Eigenschaftswertlisten generiert wurde, wird jeder bereitgestellte Offset auf das entsprechende Keyframe angewendet. Wenn nicht genügend Werte vorhanden sind oder wenn die Liste `null`-Werte enthält, werden die Keyframes ohne angegebene Offsets gleichmäßig wie beim oben beschriebenen Array-Format verteilt.
+   Nachdem ein geeignetes Set von Keyframes aus den Eigenschaftswertlisten generiert wurde, wird jedes bereitgestellte Offset auf das entsprechende Keyframe angewendet. Falls nicht genügend Werte vorhanden sind oder die Liste `null`-Werte enthält, werden die Keyframes ohne spezifische Offsets gleichmäßig verteilt, wie im oben beschriebenen Array-Format.
 
-   Wenn zu wenige `easing`- oder `composite`-Werte vorhanden sind, wird die entsprechende Liste bei Bedarf wiederholt.
+   Wenn es zu wenige `easing`- oder `composite`-Werte gibt, wird die entsprechende Liste bei Bedarf wiederholt.
 
-### Implizite to/from-Keyframes
+### Implizite to/from Keyframes
 
-Der Browser kann den Start- oder Endzustand einer Animation anhand des aktuellen Zustands ableiten. Wenn standardmäßig ein einziges Keyframe bereitgestellt wird, wird es als Endzustand behandelt, und der Startzustand wird aus dem aktuellen berechneten Stil des Elements abgeleitet. Sie können jedoch den `offset` angeben, um anzugeben, wo das bereitgestellte Keyframe in der Animationszeitleiste platziert werden soll. Weitere Informationen finden Sie in [`Element.animate()`](/de/docs/Web/API/Element/animate#implicit_tofrom_keyframes).
+Der Browser kann den Start- oder Endzustand einer Animation ableiten, indem er den aktuellen Zustand verwendet. Standardmäßig wird, wenn ein einzelnes Keyframe bereitgestellt wird, es als Endzustand behandelt, und der Startzustand wird aus dem aktuell berechneten Stil des Elements abgeleitet. Sie können jedoch das `offset` angeben, um anzuzeigen, wo das bereitgestellte Keyframe in der Animationszeitleiste platziert werden soll. Für weitere Informationen siehe [`Element.animate()`](/de/docs/Web/API/Element/animate#implicit_tofrom_keyframes).
 
 ```js
 // Animate from the current state to translateX(300px)
@@ -118,21 +118,21 @@ logo.animate({ transform: "translateX(300px)", offset: 0.5 }, 1000);
 
 ## Attribute
 
-Keyframes spezifizieren Eigenschaft-Wert-Paare der [zu animierenden CSS-Eigenschaften](/de/docs/Web/CSS/CSS_animated_properties). Die Eigenschaftsnamen werden im {{Glossary("camel_case", "Camel Case")}} angegeben, sodass zum Beispiel {{cssxref("background-color")}} zu `backgroundColor` und {{cssxref("background-position-x")}} zu `backgroundPositionX` wird. Kurzformwerte wie {{cssxref("margin")}} sind ebenfalls zulässig.
+Keyframes spezifizieren Eigenschaft-Wert-Paare der [zu animierenden CSS-Eigenschaften](/de/docs/Web/CSS/CSS_animated_properties). Die Eigenschaftsnamen werden in {{Glossary("camel_case", "Camel Case")}} angegeben, sodass zum Beispiel {{cssxref("background-color")}} zu `backgroundColor` und {{cssxref("background-position-x")}} zu `backgroundPositionX` wird. Kurzschreibweise wie {{cssxref("margin")}} sind ebenfalls zulässig.
 
 Zwei außergewöhnliche CSS-Eigenschaften sind:
 
-- {{cssxref("float")}}, die als `cssFloat` geschrieben werden muss, da "float" ein reserviertes Wort in JavaScript ist. Dies ist nur zur Referenz hier, es hat keinen Effekt auf die Animation, da "float" keine animierbare CSS-Eigenschaft ist.
-- {{cssxref("offset")}}, die als `cssOffset` geschrieben werden muss, da "offset" den Keyframe-Offset wie unten beschrieben darstellt.
+- {{cssxref("float")}}, die als `cssFloat` geschrieben werden muss, da "float" ein reserviertes Wort in JavaScript ist. Dies ist hier nur als Referenz, da "float" keine animierbare CSS-Eigenschaft ist.
+- {{cssxref("offset")}}, die als `cssOffset` geschrieben werden muss, da "offset" das Keyframe-Offset repräsentiert, wie unten beschrieben.
 
-Die folgenden speziellen Attribute können auch angegeben werden:
+Die folgenden speziellen Attribute können ebenfalls angegeben werden:
 
 - offset
-  - : Der Offset des Keyframes, angegeben als Zahl zwischen `0,0` und `1,0` einschließlich oder `null`. Dies entspricht der Angabe von Start- und Endzuständen in Prozentangaben in CSS-Stylesheets unter Verwendung von `@keyframes`. Wenn dieser Wert `null` oder nicht vorhanden ist, wird das Keyframe gleichmäßig zwischen den angrenzenden Keyframes verteilt.
+  - : Das Offset des Keyframes, angegeben als Zahl zwischen `0.0` und `1.0` einschließlich oder `null`. Dies entspricht der Angabe von Start- und Endzuständen in Prozent in CSS-Stylesheets mit `@keyframes`. Wenn dieser Wert `null` oder fehlend ist, wird das Keyframe gleichmäßig zwischen den angrenzenden Keyframes verteilt.
 - easing
-  - : Die [Easing-Funktion](/de/docs/Web/CSS/easing-function), die von diesem Keyframe bis zum nächsten Keyframe der Serie verwendet wird.
+  - : Die [Easing-Funktion](/de/docs/Web/CSS/Reference/Values/easing-function), die von diesem Keyframe bis zum nächsten Keyframe in der Serie verwendet wird.
 - composite
-  - : Die [`KeyframeEffect.composite`](/de/docs/Web/API/KeyframeEffect/composite)-Operation, die verwendet wird, um die in diesem Keyframe angegebenen Werte mit dem zugrundeliegenden Wert zu kombinieren. Dies wird `auto` sein, wenn die auf dem Effekt angegebene Composite-Operation verwendet wird.
+  - : Die [`KeyframeEffect.composite`](/de/docs/Web/API/KeyframeEffect/composite) Operation, die verwendet wird, um die in diesem Keyframe angegebenen Werte mit dem zugrunde liegenden Wert zu kombinieren. Dies ist `auto`, wenn die auf dem Effekt angegebene Composite-Operation verwendet wird.
 
 ## Siehe auch
 

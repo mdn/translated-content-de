@@ -2,10 +2,10 @@
 title: grid-template-rows
 slug: Web/CSS/Reference/Properties/grid-template-rows
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Die **`grid-template-rows`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Liniennamen und Track-Größenfunktionen der {{Glossary("grid_row", "Gitterzeilen")}}.
+Die **`grid-template-rows`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Linienneamen und Größenfunktionen der {{Glossary("grid_row", "Gridzeilen")}}.
 
 {{InteractiveExample("CSS Demo: grid-template-rows")}}
 
@@ -91,48 +91,48 @@ grid-template-rows: revert-layer;
 grid-template-rows: unset;
 ```
 
-Diese Eigenschaft kann wie folgt angegeben werden:
+Diese Eigenschaft kann folgendermaßen angegeben werden:
 
 - entweder der Schlüsselwortwert `none`
-- oder ein `<track-list>` Wert
-- oder ein `<auto-track-list>` Wert.
+- oder ein `<track-list>`-Wert
+- oder ein `<auto-track-list>`-Wert.
 
 ### Werte
 
 - `none`
-  - : Ein Schlüsselwort, das bedeutet, dass kein explizites Gitter vorhanden ist. Alle Zeilen werden implizit generiert und ihre Größe wird durch die {{cssxref("grid-auto-rows")}} Eigenschaft bestimmt.
+  - : Ein Schlüsselwort, das bedeutet, dass es kein explizites Grid gibt. Alle Zeilen werden implizit generiert, und ihre Größe wird durch die Eigenschaft {{cssxref("grid-auto-rows")}} bestimmt.
 - `[line-name]`
-  - : Ein [`<custom-ident>`](/de/docs/Web/CSS/custom-ident), das einen Namen für die Linie an dieser Stelle angibt. Die Identifikation kann jeder gültige String sein, außer den reservierten Wörtern `span` und `auto`. Linien können mehrere Namen haben, die durch Leerzeichen innerhalb der eckigen Klammern getrennt sind, zum Beispiel `[line-name-a line-name-b]`.
+  - : Ein [`<custom-ident>`](/de/docs/Web/CSS/Reference/Values/custom-ident), der einen Namen für die Linie an dieser Stelle angibt. Der Ident kann eine beliebige gültige Zeichenfolge sein, außer den reservierten Wörtern `span` und `auto`. Linien können mehrere Namen haben, die innerhalb der eckigen Klammern durch ein Leerzeichen getrennt sind, zum Beispiel `[line-name-a line-name-b]`.
 - {{cssxref("&lt;length&gt;")}}
-  - : Eine nicht negative Länge.
+  - : Eine nicht-negative Länge.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ein nicht negativer {{cssxref("percentage", "&lt;percentage&gt;")}} Wert, relativ zur Blockgröße des Grid-Containers. Wenn die Größe des Grid-Containers von der Größe seiner Tracks abhängt, behandelt der Browser den Prozentsatz als `auto` für die Berechnung der intrinsischen Größe des Grid-Containers. Der Prozentsatz wird dann auf die resultierende Größe des Grid-Containers zur Anordnung des Grids und seiner Elemente angewendet. Der Browser kann die intrinsischen Größenbeiträge des Tracks an die Größe des Grid-Containers anpassen und kann die endgültige Größe des Tracks um das Minimum erhöhen, das erforderlich ist, um den Prozentsatz zu erfüllen.
+  - : Ein nicht-negativer {{cssxref("percentage", "&lt;percentage&gt;")}}-Wert, relativ zur Blockgröße des Grid-Containers. Wenn die Größe des Grid-Containers von der Größe seiner Tracks abhängt, behandelt der Browser den Prozentsatz als `auto` im Hinblick auf die Berechnung der intrinsischen Größe des Grid-Containers. Der Prozentsatz wird dann gegen die resultierende Größe des Grid-Containers zur Anordnung des Grids und seiner Elemente aufgelöst. Der Browser kann die intrinsischen Größenbeiträge des Tracks zur Größe des Grid-Containers anpassen und kann die endgültige Größe des Tracks um den Mindestbetrag erhöhen, der erforderlich wäre, um den Prozentsatz einzuhalten.
 - {{cssxref("&lt;flex_value&gt;","&lt;flex&gt;")}}
-  - : Eine nicht negative Dimension mit der Einheit `fr`, die den Flex-Faktor des Tracks angibt. Jeder `<flex>`-große Track nimmt einen Anteil des verbliebenen Raums im Verhältnis zu seinem Flex-Faktor ein. Wenn er außerhalb einer `minmax()`-Notation erscheint, impliziert er ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
+  - : Eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor des Tracks angibt. Jeder `<flex>`-große Track nimmt einen Anteil des verbleibenden Platzes im Verhältnis zu seinem Flex-Faktor ein. Wenn sie außerhalb einer `minmax()`-Notation erscheint, impliziert sie ein automatisches Minimum (d.h. `minmax(auto, <flex>)`).
 - {{cssxref("max-content")}}
-  - : Ein Schlüsselwort, das den größten maximalen Inhaltsbeitrag der Grid-Elemente darstellt, die den Gittertrack ausfüllen.
+  - : Ein Schlüsselwort, das den größtmöglichen Inhaltbeitrag der Grid-Elemente darstellt, die den Grid-Track einnehmen.
 - {{cssxref("min-content")}}
-  - : Ein Schlüsselwort, das den größten minimalen Inhaltsbeitrag der Grid-Elemente darstellt, die den Gittertrack ausfüllen.
+  - : Ein Schlüsselwort, das den größtmöglichen minimalen Inhaltbeitrag der Grid-Elemente darstellt, die den Grid-Track einnehmen.
 - {{cssxref("minmax", "minmax(min, max)")}}
-  - : Eine funktionale Notation, die einen Größenbereich definiert, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Wenn _max_ kleiner als _min_ ist, wird _max_ ignoriert und die Funktion wird als _min_ behandelt. Als Maximum setzt ein `<flex>` Wert den Flex-Faktor des Tracks. Er ist als Minimum ungültig.
+  - : Eine funktionale Notation, die einen Größenbereich definiert, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Wenn _max_ kleiner als _min_ ist, wird _max_ ignoriert und die Funktion wird als _min_ behandelt. Ein `<flex>`-Wert setzt den Flex-Faktor des Tracks als Maximum. Sie ist als Minimum ungültig.
 - `auto`
-  - : Als Maximalwert stellt es die größte {{cssxref("max-content")}} Größe der Elemente in diesem Track dar.
+  - : Als Maximalwert stellt es die größtmögliche {{cssxref("max-content")}}-Größe der Elemente in diesem Track dar.
 
-    Als Minimalwert stellt es die größte Mindestgröße von Elementen in diesem Track dar (angegeben durch die {{cssxref("min-width")}}/{{cssxref("min-height")}} Eigenschaften der Elemente). Dies entspricht oft der {{cssxref("min-content")}} Größe, aber nicht immer.
+    Als Minimalwert stellt es die größtmögliche Mindestgröße der Elemente in diesem Track dar (angegeben durch die {{cssxref("min-width")}}/{{cssxref("min-height")}}-Eigenschaften der Elemente). Dies entspricht oft der {{cssxref("min-content")}}-Größe, aber nicht immer.
 
-    Wenn es außerhalb der {{cssxref("minmax", "minmax()")}} Notation verwendet wird, stellt `auto` den Bereich zwischen den oben beschriebenen Minimal- und Maximalwerten dar. In den meisten Fällen verhält sich dies ähnlich wie `minmax(min-content,max-content)`.
+    Wenn außerhalb der {{cssxref("minmax", "minmax()")}}-Notation verwendet, repräsentiert `auto` den Bereich zwischen den oben beschriebenen Minimal- und Maximalwerten. In den meisten Fällen verhält es sich ähnlich wie `minmax(min-content,max-content)`.
 
     > [!NOTE]
-    > `auto` Track-Größen (und nur `auto` Track-Größen) können durch die {{cssxref("align-content")}} und {{cssxref("justify-content")}} Eigenschaften gedehnt werden. Daher nimmt ein `auto`-größe Track standardmäßig jeden verbleibenden Raum im Grid-Container ein.
+    > `auto`-Trackgrößen (und nur `auto`-Trackgrößen) können durch die Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} gestreckt werden. Daher nimmt ein `auto`-großer Track standardmäßig jeden verbleibenden Platz im Grid-Container ein.
 
 - {{cssxref("fit-content_function", "fit-content( [ &lt;length&gt; | &lt;percentage&gt; ] )")}}
-  - : Stellt die Formel `min(max-content, max(auto, argument))` dar, die ähnlich wie `auto` berechnet wird (d.h. `minmax(auto, max-content)`), außer dass die Track-Größe bei _argument_ geklemmt wird, wenn dieser größer als das `auto` Minimum ist.
+  - : Repräsentiert die Formel `min(max-content, max(auto, argument))`, die ähnlich wie `auto` (d.h. `minmax(auto, max-content)`) berechnet wird, außer dass die Track-Größe beim _argument_ abgeschnitten wird, wenn sie größer als das `auto`-Minimum ist.
 - {{cssxref("repeat", "repeat( [ &lt;positive-integer&gt; | auto-fill | auto-fit ] , &lt;track-list&gt; )")}}
-  - : Stellt ein wiederholtes Fragment der Track-Liste dar, das es ermöglicht, eine große Anzahl von Zeilen, die ein wiederkehrendes Muster aufweisen, in einer kompakteren Form zu schreiben.
+  - : Repräsentiert ein wiederholtes Fragment der Trackliste, das es ermöglicht, eine große Anzahl von Zeilen, die ein wiederkehrendes Muster aufweisen, in kompakter Form zu schreiben.
 - [`masonry`](/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout)
-  - : Gibt an, dass diese Achse gemäß dem Mauerwerk-Algorithmus angeordnet werden soll.
+  - : Gibt an, dass diese Achse gemäß dem Masonry-Algorithmus angeordnet werden soll.
 - [`subgrid`](/de/docs/Web/CSS/CSS_grid_layout/Subgrid)
-  - : Gibt an, dass das Gitter den überspannten Teil seines übergeordneten Gitters auf dieser Achse übernimmt. Anstatt explizit angegeben zu werden, werden die Größen der Gitterreihen/-spalten von der Definition des übergeordneten Gitters übernommen.
+  - : Gibt an, dass das Grid den überspannten Teil seines übergeordneten Grids auf dieser Achse übernehmen wird. Anstatt ausdrücklich angegeben zu werden, werden die Größen der Gridzeilen/-spalten aus der Definition des übergeordneten Grids übernommen.
 
 ## Formale Definition
 
@@ -144,7 +144,7 @@ Diese Eigenschaft kann wie folgt angegeben werden:
 
 ## Beispiele
 
-### Festlegen von Gitterzeilengrößen
+### Grid-Zeilengrößen angeben
 
 #### HTML
 
@@ -190,6 +190,6 @@ Diese Eigenschaft kann wie folgt angegeben werden:
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-areas")}}
 - {{cssxref("grid-template")}}
-- [Grundkonzepte des Gitterlayouts: Gittertracks](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#grid_tracks)
-- Video: [Definieren eines Gitters](https://gridbyexample.com/video/series-define-a-grid/)
+- [Grundlegende Konzepte des Grid-Layouts: Grid-Tracks](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#grid_tracks)
+- Video: [Defining a grid](https://gridbyexample.com/video/series-define-a-grid/)
 - [Subgrid](/de/docs/Web/CSS/CSS_grid_layout/Subgrid)

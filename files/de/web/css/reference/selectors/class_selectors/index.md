@@ -2,10 +2,10 @@
 title: Klassenselektoren
 slug: Web/CSS/Reference/Selectors/Class_selectors
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Der [CSS](/de/docs/Web/CSS) **Klassenselektor** wählt Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attributs aus.
+Der [CSS](/de/docs/Web/CSS) **Klassenselektor** selektiert Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attributs.
 
 ```css
 /* All elements with class="spacious" */
@@ -41,7 +41,7 @@ Beachten Sie, dass dies dem folgenden [Attributselektor](/de/docs/Web/CSS/Refere
 }
 ```
 
-Der Wert `class_name` muss ein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. HTML `class`-Attribute, die keine gültigen CSS-Bezeichner sind, müssen [escaping](/de/docs/Web/CSS/ident#escaping_characters) angewendet werden, bevor sie in Klassenselektoren verwendet werden können.
+Der Wert `class_name` muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/Reference/Values/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Identifier sind, müssen [maskiert](/de/docs/Web/CSS/Reference/Values/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
 
 ## Beispiele
 
@@ -101,7 +101,7 @@ that contain characters which must be escaped in CSS -->
 
 ### Ungültige Klassenselektoren
 
-Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichner und werden ignoriert.
+Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Identifier und werden ignoriert.
 
 ```css example-bad
 .item?one {
@@ -123,5 +123,5 @@ Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichne
 
 ## Siehe auch
 
-- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [CSS lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS lernen: Basis-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

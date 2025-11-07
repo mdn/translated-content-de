@@ -2,14 +2,14 @@
 title: CSS-Positionierungs-Layout
 slug: Web/CSS/CSS_positioned_layout
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das Modul **CSS-Positionierungs-Layout** definiert die auf Koordinaten basierenden Positionierungs- und Offset-Schemata in CSS und die Eigenschaften, die verwendet werden, um Elemente auf einer Webseite zu positionieren und zu stapeln. Das Modul ist vor allem dafür bekannt, die grundlegenden Positionierungsmethoden zu definieren, einschließlich relativer Positionierung, Sticky-Positionierung, absoluter Positionierung und fester Positionierung. Es legt außerdem fest, wie positionierte Elemente gezeichnet und geschichtet werden, und klärt das Stapelverhalten und die visuelle Reihenfolge.
+Das **CSS-Positionierungs-Layout**-Modul definiert die auf Koordinaten basierenden Positionierungs- und Verschiebungsschemata, die in CSS verfügbar sind, sowie die Eigenschaften, die zur Positionierung und Schichtung von Elementen auf einer Webseite verwendet werden. Das Modul ist hauptsächlich bekannt für die Definition der grundlegenden Positionierungsmethoden, einschließlich relativer Positionierung, Sticky-Positionierung, absoluter Positionierung und fester Positionierung. Es definiert auch, wie positionierte Elemente gemalt und geschichtet werden, und klärt das Stapelverhalten und die visuelle Reihenfolge.
 
-Das Positionierungsmodul definiert die physischen, logischen und Kurzform {{Glossary("inset_properties", "Einfügeigenschaften")}}. Die logischen Eigenschaften ermöglichen die Entwicklung unter Berücksichtigung von Internationalisierung und Responsivität.
+Das Positionierungs-Layout-Modul definiert die physischen, logischen und abgekürzten {{Glossary("inset_properties", "Einsetz-Eigenschaften")}}. Die logischen Eigenschaften ermöglichen die Entwicklung mit Blick auf Internationalisierung und Reaktionsfähigkeit.
 
-Wie alle CSS-Module beeinflusst dieses Modul andere Module und wird von ihnen beeinflusst. Es beschreibt, wie die Positionierung mit anderen Layout-Modulen wie [CSS-Flexible-Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) und [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) interagiert. Andere Module, wie zum Beispiel [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning), bauen auf diesem Modul auf, um die Positionierung von Elementen relativ zu anderen Elementen und Ebenen zu ermöglichen.
+Wie alle CSS-Module beeinflusst dieses Modul andere Module und wird von ihnen beeinflusst. Dieses Modul beschreibt, wie die Positionierung mit anderen Layout-Modulen wie dem [CSS-Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) und dem [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) interagiert. Andere Module, wie z.B. die [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning), bauen auf diesem Modul auf, um eine Positionierung von Elementen relativ zu anderen Elementen und Ebenen zu ermöglichen.
 
 ## Referenz
 
@@ -35,31 +35,31 @@ Wie alle CSS-Module beeinflusst dieses Modul andere Module und wird von ihnen be
 
 ### Glossarbegriffe und Definitionen
 
-- {{Glossary("Flow_relative_values#block_direction", "Block-Richtung")}}
-- [Enthalten block](/de/docs/Web/CSS/CSS_display/Containing_block)
-- {{Glossary("Flow_relative_values", "Fluss-relative Werte")}}
+- {{Glossary("Flow_relative_values#block_direction", "Blockrichtung")}}
+- [Umschließender Block](/de/docs/Web/CSS/CSS_display/Containing_block)
+- {{Glossary("Flow_relative_values", "Fluss relative Werte")}}
 - {{Glossary("Flow_relative_values#inline_direction", "Inline-Richtung")}}
-- {{Glossary("Inset_properties", "Einfügeigenschaften")}}
+- {{Glossary("Inset_properties", "Einsetz-Eigenschaften")}}
 - [Positionierungskontext](/de/docs/Learn_web_development/Core/CSS_layout/Positioning#positioning_contexts)
 - [Relative Position](/de/docs/Web/CSS/Reference/Properties/position#relative_positioning)
-- {{Glossary("Stacking_context", "Staplerkontext")}}
+- {{Glossary("Stacking_context", "Stapelkontext")}}
 - [Statische Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning#static_positioning)
-- {{Glossary("Top_layer", "Top-Schicht")}}
+- {{Glossary("Top_layer", "Oberste Schicht")}}
 
 ## Leitfäden
 
 - [Z-Index verstehen](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
-  - : Präsentiert das Konzept des Stapelkontexts und erklärt, wie die Z-Ordnung funktioniert, mit mehreren Beispielen.
-- [Stapeln ohne die Eigenschaft `z-index`](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
+  - : Stellt das Konzept des Stapelkontexts vor und erklärt die Funktionsweise des Z-Ordering anhand mehrerer Beispiele.
+- [Stapeln ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
   - : Die Stapelregeln, die gelten, wenn `z-index` nicht verwendet wird.
-- [Schwebende Elemente stapeln](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
-  - : Wie schwebende Elemente mit dem Stapeln gehandhabt werden.
+- [Stapeln von schwebenden Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
+  - : Wie schwebende Elemente beim Stapeln behandelt werden.
 - [Verwendung von `z-index`](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index)
-  - : Wie `z-index` verwendet wird, um die Standard-Stapelung zu ändern.
-- [Staplerkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-  - : CSS-Staplerkontext, die CSS-Funktionen, die neue Stapelkontexte erstellen, und verschachtelte Stapelkontexte.
+  - : Wie man `z-index` verwendet, um das Standard-Stapeln zu ändern.
+- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
+  - : CSS-Stapelkontext, die CSS-Funktionen, die neue Stapelkontexte erstellen, und verschachtelte Stapelkontexte.
 - [Lernen: Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)
-  - : Die verschiedenen Positionierungswerte und deren Anwendung.
+  - : Die verschiedenen Positionswerte und deren Verwendung.
 
 ## Verwandte Konzepte
 
@@ -68,17 +68,17 @@ Wie alle CSS-Module beeinflusst dieses Modul andere Module und wird von ihnen be
 - {{cssxref("transition-property")}}
 - {{cssxref("transition-behavior")}}
 - [Popover API](/de/docs/Web/API/Popover_API)
-- {{htmlelement("dialog")}} Element
+- {{htmlelement("dialog")}}-Element
 
-- [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning)-Modul
+- [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
   - {{cssxref("position-anchor")}}
   - {{cssxref("position-area")}}
   - {{cssxref("position-try-fallbacks")}}
   - {{cssxref("position-try-order")}}
-  - {{cssxref("position-try")}} Kurzform
+  - {{cssxref("position-try")}} Abkürzung
   - {{cssxref("position-visibility")}}
 
-- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms)-Modul
+- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) Modul
   - {{cssxref("transform")}}
   - {{cssxref("transform-origin")}}
   - {{cssxref("translate")}}
@@ -89,7 +89,7 @@ Wie alle CSS-Module beeinflusst dieses Modul andere Module und wird von ihnen be
 
 ## Siehe auch
 
-- Andere CSS `*-position` Eigenschaften:
+- Andere CSS `*-position`-Eigenschaften:
   - {{cssxref("background-position")}}
   - {{cssxref("background-position")}}
   - {{cssxref("background-position")}}
@@ -102,10 +102,10 @@ Wie alle CSS-Module beeinflusst dieses Modul andere Module und wird von ihnen be
   - {{cssxref("ruby-position")}}
   - {{cssxref("text-emphasis-position")}}
   - {{cssxref("text-underline-position")}}
-- Positionsbezogene [Datentypen](/de/docs/Web/CSS/CSS_values_and_units/CSS_data_types)
+- Positionsbezogene [Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types)
   - {{cssxref("baseline-position")}}
   - {{cssxref("content-position")}}
   - {{cssxref("overflow-position")}}
   - {{cssxref("self-position")}}
-- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap)-Modul
-  - {{Glossary("Snap_positions", "Snap-Positionen")}}
+- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+  - {{Glossary("Snap_positions", "Schnapp-Positionen")}}

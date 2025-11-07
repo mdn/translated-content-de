@@ -2,16 +2,16 @@
 title: max-block-size
 slug: Web/CSS/Reference/Properties/max-block-size
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Die **`max-block-size`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die maximale Größe eines Elements in der Richtung, die der Schreibrichtung entgegengesetzt ist, wie sie durch {{cssxref("writing-mode")}} festgelegt ist. Das heißt, wenn die Schreibrichtung horizontal ist, entspricht `max-block-size` {{cssxref("max-height")}}; wenn die Schreibrichtung vertikal ist, ist `max-block-size` dasselbe wie {{cssxref("max-width")}}.
+Die **`max-block-size`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die maximale Größe eines Elements in der entgegengesetzten Richtung der durch {{cssxref("writing-mode")}} angegebenen Schreibrichtung. Das heißt, wenn die Schreibrichtung horizontal ist, entspricht `max-block-size` {{cssxref("max-height")}}; wenn die Schreibrichtung vertikal ist, ist `max-block-size` dasselbe wie {{cssxref("max-width")}}.
 
-Die maximale Länge der anderen Dimension wird mit der Eigenschaft {{cssxref("max-inline-size")}} angegeben.
+Die maximale Länge in der anderen Dimension wird mit der Eigenschaft {{cssxref("max-inline-size")}} angegeben.
 
-Dies ist nützlich, weil `max-width` immer für horizontale Größen und `max-height` immer für vertikale Größen verwendet wird. Wenn Sie Längen basierend auf der Größe Ihres Textinhalts festlegen müssen, sollten Sie dies unter Berücksichtigung der Schreibrichtung tun können.
+Dies ist nützlich, weil `max-width` immer für horizontale Größen und `max-height` immer für vertikale Größen verwendet wird. Wenn Sie Längen basierend auf der Größe Ihres Textinhalts festlegen müssen, sollten Sie dies mit der Schreibrichtung im Hinterkopf tun können.
 
-Immer wenn Sie normalerweise `max-height` oder `max-width` verwenden würden, sollten Sie stattdessen `max-block-size` verwenden, um die maximale "Höhe" des Inhalts festzulegen (auch wenn dies kein vertikaler Wert ist) und `max-inline-size`, um die maximale "Breite" des Inhalts festzulegen (obwohl dies stattdessen vertikal sein könnte). Siehe [`writing-mode` Beispiele](/de/docs/Web/CSS/Reference/Properties/writing-mode#examples), die die verschiedenen Schreibrichtungen in Aktion zeigen.
+Jedes Mal, wenn Sie normalerweise `max-height` oder `max-width` verwenden würden, sollten Sie stattdessen `max-block-size` verwenden, um die maximale „Höhe“ des Inhalts festzulegen (auch wenn dies kein vertikaler Wert sein mag) und `max-inline-size`, um die maximale „Breite“ des Inhalts festzulegen (auch wenn dies vertikal anstelle von horizontal sein kann). Siehe [`writing-mode` Beispiele](/de/docs/Web/CSS/Reference/Properties/writing-mode#examples), die verschiedene Schreibrichtungen in Aktion zeigen.
 
 {{InteractiveExample("CSS Demo: max-block-size")}}
 
@@ -83,57 +83,57 @@ max-block-size: unset;
 
 ### Werte
 
-Der Wert der `max-block-size` Eigenschaft kann jeder Wert sein, der für die Eigenschaften {{cssxref("max-width")}} und {{cssxref("max-height")}} zulässig ist:
+Der Wert der Eigenschaft `max-block-size` kann jeder Wert sein, der für die Eigenschaften {{cssxref("max-width")}} und {{cssxref("max-height")}} legal ist:
 
 - {{cssxref("&lt;length&gt;")}}
   - : Definiert die `max-block-size` als absoluten Wert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Definiert die `max-block-size` als Prozentsatz der Größe des Umgebungsblocks in der Blockachse.
+  - : Definiert die `max-block-size` als einen Prozentsatz der Größe des enthaltenden Blocks in der Blockachse.
 - `none`
-  - : Keine Begrenzung für die Größe der Box.
+  - : Keine Begrenzung für die Größe des Elements.
 - {{cssxref("max-content")}}
   - : Die intrinsische bevorzugte `max-block-size`.
 - {{cssxref("min-content")}}
-  - : Die intrinsische minimale `max-block-size`.
+  - : Die intrinsische Mindest-`max-block-size`.
 - {{cssxref("fit-content")}}
-  - : Verwendet den verfügbaren Platz, jedoch nicht mehr als [max-content](/de/docs/Web/CSS/max-content), d.h. `min(max-content, max(min-content, stretch))`.
-- [`fit-content(<length-percentage>)`](/de/docs/Web/CSS/fit-content_function)
-  - : Verwendet die `fit-content` Formel mit dem zur Verfügung stehenden Raum, der durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, argument))`.
+  - : Verwendet den verfügbaren Raum, aber nicht mehr als [max-content](/de/docs/Web/CSS/Reference/Values/max-content), d.h. `min(max-content, max(min-content, stretch))`.
+- [`fit-content(<length-percentage>)`](/de/docs/Web/CSS/Reference/Values/fit-content_function)
+  - : Verwendet die `fit-content` Formel mit dem verfügbaren Raum, der durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, argument))`.
 
 ### Wie `writing-mode` die Richtung beeinflusst
 
 Die Werte von `writing-mode` beeinflussen die Zuordnung von `max-block-size` zu `max-width` oder `max-height` wie folgt:
 
-| Werte von `writing-mode`                                                  | `max-block-size` entspricht        |
-| ------------------------------------------------------------------------- | ---------------------------------- |
-| `horizontal-tb`, `lr`, `lr-tb`, `rl`, `rb`, `rb-rl`                       | {{cssxref("max-height")}}          |
-| `vertical-rl`, `vertical-lr`, `sideways-rl`, `sideways-lr`, `tb`, `tb-rl` | {{cssxref("max-width")}}           |
+| Werte von `writing-mode`                                                  | `max-block-size` entspricht |
+| ------------------------------------------------------------------------- | --------------------------- |
+| `horizontal-tb`, `lr`, `lr-tb`, `rl`, `rb`, `rb-rl`                       | {{cssxref("max-height")}}   |
+| `vertical-rl`, `vertical-lr`, `sideways-rl`, `sideways-lr`, `tb`, `tb-rl` | {{cssxref("max-width")}}    |
 
 > [!NOTE]
-> Die `writing-mode` Werte `sideways-lr` und `sideways-rl` wurden spät im Designprozess aus der CSS Writing Modes Level 3 Spezifikation entfernt. Sie könnten in Level 4 wiederhergestellt werden.
+> Die `writing-mode` Werte `sideways-lr` und `sideways-rl` wurden in der Endphase des Designs aus der CSS Writing Modes Level 3 Spezifikation entfernt. Sie könnten in Level 4 wieder hinzugefügt werden.
 
 > [!NOTE]
-> Die Schreibrichtungen `lr`, `lr-tb`, `rl`, `rb`, und `rb-tl` sind in {{Glossary("HTML", "HTML")}} Kontexten nicht mehr zugelassen; sie dürfen nur in {{Glossary("SVG", "SVG")}} 1.x Kontexten verwendet werden.
+> Die Schreibmodi `lr`, `lr-tb`, `rl`, `rb` und `rb-tl` sind in {{Glossary("HTML", "HTML")}} Kontexten nicht mehr erlaubt; sie dürfen nur in {{Glossary("SVG", "SVG")}} 1.x Kontexten verwendet werden.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Einstellung von max-block-size mit horizontalem und vertikalem Text
+### Festlegen von max-block-size bei horizontalem und vertikalem Text
 
-In diesem Beispiel wird derselbe Text (die Eröffnungssätze aus [Herman Melvilles](https://en.wikipedia.org/wiki/Herman_Melville) Roman _[Moby-Dick](https://en.wikipedia.org/wiki/Moby-Dick)_) sowohl im `horizontal-tb` als auch im `vertical-rl` Schreibmodus präsentiert.
+In diesem Beispiel wird derselbe Text (die Eröffnungssätze aus [Herman Melvilles](https://en.wikipedia.org/wiki/Herman_Melville) Roman _[Moby-Dick](https://en.wikipedia.org/wiki/Moby-Dick)_) sowohl in den `horizontal-tb` als auch in den `vertical-rl` Schreibrichtungen präsentiert.
 
-Alles andere an den beiden Boxen ist identisch, einschließlich der verwendeten Werte für `max-block-size`.
+Alles andere an den beiden Boxen ist identisch, einschließlich der Werte, die für `max-block-size` verwendet werden.
 
 #### HTML
 
-Das HTML legt die beiden {{HTMLElement("div")}} Blöcke fest, die mit ihren Klassen `horizontal` oder `vertical` präsentiert werden. Beide Boxen teilen die Klasse `standard-box`, die Färbung, Innenabstand und ihre jeweiligen Werte für `max-block-size` festlegt.
+Das HTML legt die beiden {{HTMLElement("div")}} Blöcke fest, die mit ihrer {{cssxref("writing-mode")}} mittels der Klassen `horizontal` oder `vertical` dargestellt werden. Beide Boxen teilen sich die `standard-box` Klasse, die die Farben, die Polsterung und ihre jeweiligen Werte von `max-block-size` festlegt.
 
 ```html
 <p>Writing mode <code>horizontal-tb</code> (the default):</p>
@@ -155,9 +155,9 @@ Das HTML legt die beiden {{HTMLElement("div")}} Blöcke fest, die mit ihren Klas
 
 #### CSS
 
-Das CSS definiert drei Klassen. Die erste, `standard-box`, wird auf beide Boxen angewendet, wie oben zu sehen. Sie bietet standardmäßiges Styling einschließlich der minimalen und maximalen Blockgrößen, Schriftgröße usw.
+Das CSS definiert drei Klassen. Die erste, `standard-box`, wird auf beide Boxen, wie oben gesehen, angewendet. Sie liefert Standard-Styling einschließlich der minimalen und maximalen Blockgrößen, Schriftgröße usw.
 
-Danach folgen die Klassen `horizontal` und `vertical`, die die Eigenschaft {{cssxref("writing-mode")}} zur Box hinzufügen, mit dem Wert eingestellt auf `horizontal-tb` oder `vertical-rl`, je nachdem, welche Klasse verwendet wird.
+Danach folgen die Klassen `horizontal` und `vertical`, die die {{cssxref("writing-mode")}} Eigenschaft zur Box hinzufügen, mit dem Wert eingestellt auf `horizontal-tb` oder `vertical-rl`, je nach verwendeter Klasse.
 
 ```css
 .standard-box {
@@ -197,5 +197,5 @@ Danach folgen die Klassen `horizontal` und `vertical`, die die Eigenschaft {{css
 ## Siehe auch
 
 - Die zugeordneten physischen Eigenschaften: {{cssxref("max-width")}} und {{cssxref("max-height")}}
-- Einstellung der maximalen Größe in der anderen Richtung: {{cssxref("max-inline-size")}}
+- Festlegung der maximalen Größe in der anderen Richtung: {{cssxref("max-inline-size")}}
 - {{cssxref("writing-mode")}}

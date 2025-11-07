@@ -2,10 +2,10 @@
 title: ::placeholder
 slug: Web/CSS/Reference/Selectors/::placeholder
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das **`::placeholder`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert den [Platzhaltertext](/de/docs/Web/HTML/Reference/Elements/input#placeholder) in einem {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} Element.
+Das **`::placeholder`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) repräsentiert den [Platzhaltertext](/de/docs/Web/HTML/Reference/Elements/input#placeholder) in einem {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} Element.
 
 {{InteractiveExample("CSS Demo: ::placeholder", "tabbed-shorter")}}
 
@@ -33,7 +33,7 @@ input::placeholder {
   placeholder="It must be 9 digits" />
 ```
 
-Nur der Teilbereich der CSS-Eigenschaften, die auf das {{cssxref("::first-line")}} Pseudo-Element anwendbar sind, kann in einer Regel verwendet werden, die `::placeholder` in ihrem Selektor verwendet.
+Nur die Teilmenge von CSS-Eigenschaften, die auf das {{cssxref("::first-line")}} Pseudoelement angewendet werden können, kann in einer Regel mit `::placeholder` im Selektor verwendet werden.
 
 > [!NOTE]
 > In den meisten Browsern erscheint der Platzhaltertext standardmäßig in einer durchscheinenden oder hellgrauen Farbe.
@@ -52,23 +52,23 @@ Nur der Teilbereich der CSS-Eigenschaften, die auf das {{cssxref("::first-line")
 
 #### Kontrastverhältnis
 
-Platzhaltertext hat normalerweise eine hellere Farbgebung, um anzuzeigen, dass es sich um einen Vorschlag handelt, welche Art von Eingabe gültig ist, und nicht um eine tatsächliche Eingabe.
+Platzhaltertext hat typischerweise eine hellere Farbgebung, um anzuzeigen, dass er einen Vorschlag für gültige Eingaben darstellt und keine tatsächliche Eingabe ist.
 
-Es ist wichtig sicherzustellen, dass das Kontrastverhältnis zwischen der Farbe des Platzhaltertextes und dem Hintergrund der Eingabe hoch genug ist, damit Personen mit Sehbeeinträchtigungen ihn lesen können, während ebenfalls sichergestellt wird, dass es genug Unterschied zwischen der Farbe des Platzhaltertextes und der des Eingabetextes gibt, damit Benutzer den Platzhalter nicht mit eingegebenen Daten verwechseln.
+Es ist wichtig, sicherzustellen, dass das Kontrastverhältnis zwischen der Farbe des Platzhaltertextes und dem Hintergrund der Eingabe hoch genug ist, damit Personen mit Sehbehinderungen ihn lesen können. Dabei muss auch genügend Unterschied zwischen der Farbe des Platzhaltertextes und des Eingabetextes bestehen, sodass Nutzer den Platzhalter nicht mit eingegebenen Daten verwechseln.
 
-Das Farbkontrastverhältnis wird durch den Vergleich der Leuchtkraft der Farbe des Platzhaltertextes und der des Eingabehintergrunds bestimmt. Um die aktuellen [Richtlinien zur Barrierefreiheit von Web-Inhalten (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, ist ein Verhältnis von 4,5:1 für Textinhalte und 3:1 für größeren Text wie Überschriften erforderlich. Großer Text wird als 18,66px und fett oder größer, oder 24px oder größer definiert.
+Das Kontrastverhältnis wird ermittelt, indem die Leuchtdichte der Farbe des Platzhaltertextes und der Farbe des Eingabehintergrunds verglichen werden. Um den aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu entsprechen, ist ein Verhältnis von 4.5:1 für Textinhalte und 3:1 für größeren Text wie Überschriften erforderlich. Großer Text ist definiert als 18,66px und fett oder größer, oder 24px oder größer.
 
 - [WebAIM: Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
-- [MDN Verstehen von WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Erklärung des Erfolgskriteriums 1.4.3 | W3C Verstehen von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [MDN Verständnis WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis der Erfolgskriterien 1.4.3 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
 
 #### Benutzerfreundlichkeit
 
-Platzhaltertext mit ausreichendem Farbkontrast kann als eingegebene Eingabe interpretiert werden. Platzhaltertext verschwindet auch, wenn jemand Inhalt in ein {{htmlelement("input")}} Element eingibt. Beide Umstände können das erfolgreiche Ausfüllen von Formularen beeinträchtigen, insbesondere für Personen mit kognitiven Bedenken.
+Platzhaltertext mit ausreichendem Farbkontrast kann als eingegebene Eingabe interpretiert werden. Platzhaltertext verschwindet auch, wenn eine Person Inhalte in ein {{htmlelement("input")}} Element eingibt. Beide Umstände können den erfolgreichen Abschluss eines Formulars beeinträchtigen, insbesondere für Personen mit kognitiven Einschränkungen.
 
-Ein alternativer Ansatz, um Platzhalterinformationen bereitzustellen, ist, diese außerhalb der Eingabe in der Nähe zu platzieren und dann [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) zu verwenden, um das {{HTMLElement("input")}} programmatisch mit seinem Hinweis zu assoziieren.
+Ein alternativer Ansatz zum Bereitstellen von Platzhalterinformationen besteht darin, diese außerhalb der Eingabe in naher visueller Nähe einzuschließen und dann [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-describedby) zu verwenden, um das {{HTMLElement("input")}} programmatisch mit seinem Hinweis zu verknüpfen.
 
-Mit dieser Implementierung ist der Hinweisinhalt verfügbar, auch wenn Informationen in das Eingabefeld eingetragen werden, und die Eingabe erscheint beim Laden der Seite als frei von vorheriger Eingabe. Die meisten Bildschirmlesetechnologien verwenden `aria-describedby`, um den Hinweis nach dem Ansagetext des Eingabelabels zu lesen, und der Benutzer des Bildschirmlesers kann ihn stummschalten, wenn er die zusätzlichen Informationen für unnötig hält.
+Mit dieser Implementierung sind die Hinweis-Inhalte verfügbar, auch wenn Informationen in das Eingabefeld eingegeben werden, und die Eingabe erscheint frei von vorheriger Eingabe, wenn die Seite geladen wird. Die meisten Bildschirmlesetechnologien verwenden `aria-describedby`, um den Hinweis nach dem Text des Eingabelabels vorzulesen, und die Person, die den Screenreader verwendet, kann ihn stummschalten, wenn sie die zusätzlichen Informationen als unnötig empfindet.
 
 ```html
 <label for="user-email">Your email address</label>
@@ -82,21 +82,21 @@ Mit dieser Implementierung ist der Hinweisinhalt verfügbar, auch wenn Informati
 
 - [Platzhalter in Formularfeldern sind schädlich — Nielsen Norman Group](https://www.nngroup.com/articles/form-design-placeholders/)
 
-### Windows Hochkontrastmodus
+### Windows High Contrast Mode
 
-Platzhaltertext wird in [Windows Hochkontrastmodus](https://www.smashingmagazine.com/2022/06/guide-windows-high-contrast-mode/) mit derselben Gestaltung wie vom Benutzer eingegebener Textinhalt angezeigt. Das kann es einigen Personen erschweren festzustellen, welcher Inhalt eingegeben wurde und welcher Inhalt Platzhaltertext ist.
+Platzhaltertext wird mit derselben Gestaltung wie vom Benutzer eingegebener Textinhalt angezeigt, wenn er im [Windows High Contrast Mode](https://www.smashingmagazine.com/2022/06/guide-windows-high-contrast-mode/) gerendert wird. Dies kann es für einige Personen schwierig machen festzustellen, welche Inhalte eingegeben wurden und welche Inhalte Platzhaltertext sind.
 
 ### Labels
 
-Platzhalter sind kein Ersatz für das {{htmlelement("label")}} Element. Ohne ein Label, das programmatisch mit einer Eingabe durch eine Kombination der [`for`](/de/docs/Web/HTML/Reference/Elements/label#for) und [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) Attribute assoziiert wurde, können Hilfstechnologien wie Bildschirmlesegeräte keine {{htmlelement("input")}} Elemente parsen.
+Platzhalter sind kein Ersatz für das {{htmlelement("label")}} Element. Ohne ein Label, das programmatisch mit einer Eingabe mittels einer Kombination der [`for`](/de/docs/Web/HTML/Reference/Elements/label#for) und [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) Attribute verbunden ist, kann assistive Technologie wie Screenreader {{htmlelement("input")}} Elemente nicht interpretieren.
 
 - [Platzhalter in Formularfeldern sind schädlich — Nielsen Norman Group](https://www.nngroup.com/articles/form-design-placeholders/)
 
 ## Beispiele
 
-### Erscheinungsbild von Platzhaltern ändern
+### Erscheinung des Platzhalters ändern
 
-Dieses Beispiel zeigt einige der Anpassungen, die Sie an den Stilen von Platzhaltertext vornehmen können.
+Dieses Beispiel zeigt einige der Anpassungen, die an den Stilen des Platzhaltertextes vorgenommen werden können.
 
 #### HTML
 
@@ -121,7 +121,7 @@ input::placeholder {
 
 ### Opaker Text
 
-Einige Browser machen Platzhaltertext weniger opak. Wenn Sie volltransparenten Text möchten, setzen Sie den Wert der {{CSSXref("color")}}-Eigenschaft explizit fest. Der [`currentColor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) Wert kann verwendet werden, um die gleiche Farbe wie das entsprechende Eingabeelement zu haben.
+Einige Browser machen Platzhaltertext weniger opak. Wenn Sie vollständig opaken Text möchten, setzen Sie den Wert der {{CSSXref("color")}} Eigenschaft explizit. Der [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword) Wert kann verwendet werden, um die gleiche Farbe wie das entsprechende Eingabeelement zu haben.
 
 #### HTML
 
@@ -155,7 +155,7 @@ input {
 {{EmbedLiveSample("default_color", 200, 60)}}
 
 > [!NOTE]
-> Beachten Sie, dass Browser unterschiedliche Standardfarben für Platzhaltertext verwenden. Beispielsweise verwendet Firefox die Farbe des Eingabeelements mit 54% Transparenz, während Chrome die Farbe `darkgray` verwendet. Wenn Sie eine konsistente Platzhaltertextfarbe in allen Browsern wünschen, setzen Sie die `color`-Eigenschaft ausdrücklich.
+> Beachten Sie, dass Browser unterschiedliche Standardfarben für Platzhaltertext verwenden. Beispielsweise verwendet Firefox die Farbe des Eingabeelements mit 54 % Opazität, und Chrome verwendet die Farbe `darkgray`. Wenn Sie eine konsistente Platzhaltertextfarbe über verschiedene Browser hinweg wünschen, setzen Sie die `color` Eigenschaft explizit.
 
 ## Spezifikationen
 
@@ -167,6 +167,6 @@ input {
 
 ## Siehe auch
 
-- Die {{cssxref(":placeholder-shown")}} Pseudo-Klasse gestaltet ein Element, das _einen_ aktiven Platzhalter hat.
+- Die {{cssxref(":placeholder-shown")}} Pseudoklasse gestaltet ein Element, das einen aktiven Platzhalter _hat_.
 - Verwandte HTML-Elemente: {{HTMLElement("input")}}, {{HTMLElement("textarea")}}
 - [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms)

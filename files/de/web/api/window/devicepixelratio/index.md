@@ -1,39 +1,38 @@
 ---
-title: "Fenster: devicePixelRatio-Eigenschaft"
+title: "Window: devicePixelRatio-Eigenschaft"
 short-title: devicePixelRatio
 slug: Web/API/Window/devicePixelRatio
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
 {{APIRef}}
 
-Die **`devicePixelRatio`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt das Verhältnis der Auflösung in _physischen Pixeln_ zur Auflösung in _CSS-Pixeln_ für das aktuelle Anzeigegerät zurück.
+Die **`devicePixelRatio`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt das Verhältnis der Auflösung in _physischen Pixeln_ zur Auflösung in _CSS-Pixeln_ für das aktuelle Anzeigegerät zurück.
 
-Dieser Wert könnte auch als Verhältnis der Pixelgrößen interpretiert werden: die Größe eines _CSS-Pixels_ zur Größe eines _physischen Pixels_.
-Einfacher ausgedrückt, teilt dies dem Browser mit, wie viele der tatsächlichen Bildschirmpixel verwendet werden sollen, um ein einzelnes CSS-Pixel zu zeichnen.
+Dieser Wert kann auch als Verhältnis der Pixelgrößen interpretiert werden: die Größe eines _CSS-Pixels_ zur Größe eines _physischen Pixels_. Einfacher ausgedrückt teilt es dem Browser mit, wie viele der tatsächlichen Bildschirm-Pixel verwendet werden sollen, um ein einzelnes CSS-Pixel darzustellen.
 
-Das Zoomen von Seiten beeinflusst den Wert von `devicePixelRatio`. Wenn eine Seite vergrößert wird (größer gemacht), erhöht sich die Größe eines CSS-Pixels und somit steigt der `devicePixelRatio`-Wert.
-Pinch-Zooming beeinflusst `devicePixelRatio` nicht, da dies die Seite vergrößert, ohne die Größe eines CSS-Pixels zu ändern.
+Das Zoomen der Seite beeinflusst den Wert von `devicePixelRatio`. Wenn eine Seite vergrößert wird, erhöht sich die Größe eines CSS-Pixels und somit auch der Wert von `devicePixelRatio`.
+Pinch-Zoomen beeinflusst `devicePixelRatio` nicht, da dies die Seite vergrößert, ohne die Größe eines CSS-Pixels zu ändern.
 
-Dies ist nützlich, wenn man den Unterschied zwischen Rendering auf einem Standard-Display und einem HiDPI- oder Retina-Display berücksichtigt, die mehr Bildschirmpixel verwenden, um dieselben Objekte zu zeichnen, was zu einem schärferen Bild führt.
+Dies ist nützlich, wenn mit dem Unterschied zwischen der Darstellung auf einem Standard-Display im Vergleich zu einem HiDPI- oder Retina-Display umgegangen wird, welche mehr Bildschirm-Pixel verwenden, um die gleichen Objekte zu zeichnen, was zu einem schärferen Bild führt.
 
-Sie können [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia) verwenden, um zu prüfen, ob sich der Wert von `devicePixelRatio` ändert (was passieren kann, wenn der Benutzer das Fenster z. B. auf ein Display mit einer anderen Pixeldichte zieht).
-Siehe [das Beispiel unten](#überwachung_von_bildschirmauslösungen_oder_zoomstufenänderungen).
+Sie können [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia) verwenden, um zu überprüfen, ob sich der Wert von `devicePixelRatio` ändert (was passieren kann, wenn der Benutzer zum Beispiel das Fenster auf ein Display mit einer anderen Pixeldichte zieht).
+Siehe [das untenstehende Beispiel](#überwachung_von_bildschirmauflösungs-_oder_zoomstufenänderungen).
 
 ## Wert
 
-Ein doppelt genaues Gleitkommawert, der das Verhältnis der Auflösung des Displays in physischen Pixeln zur Auflösung in CSS-Pixeln angibt. Ein Wert von 1 entspricht einem klassischen 96 DPI-Display, während ein Wert von 2 für HiDPI/Retina-Displays erwartet wird.
+Ein Gleitkommawert mit doppelter Präzision, der das Verhältnis der Auflösung des Displays in physischen Pixeln zur Auflösung in CSS-Pixeln angibt. Ein Wert von 1 steht für ein klassisches 96 DPI-Display, während ein Wert von 2 für HiDPI/Retina-Displays erwartet wird.
 
-Andere Werte können im Falle ungewöhnlich niedriger Auflösungsdisplays zurückgegeben werden oder häufiger, wenn ein Bildschirm eine höhere Pixeldichte als das Doppelte der Standardauflösung von 96 DPI aufweist.
-Moderne Bildschirme mobiler Geräte - die hohe Anzeigeresolutionen bei kleinen physischen Größen bieten - führen oft zu einem `devicePixelRatio`-Wert größer als 2.
+Andere Werte können bei ungewöhnlich niedrigen Auflösungsdisplays oder häufiger, wenn ein Bildschirm eine höhere Pixeldichte als das Doppelte der Standardauflösung von 96 DPI aufweist, zurückgegeben werden.
+Moderne Bildschirme von mobilen Geräten - die hohe Display-Auflösungen bei kleinen physischen Größen bieten - ergeben oft einen `devicePixelRatio`-Wert größer als 2.
 
 ## Beispiele
 
-### Auflösungskorrektur in einem `<canvas>`
+### Auflösung in einem `<canvas>` korrigieren
 
-Ein {{htmlelement("canvas")}} kann auf Retina-Bildschirmen zu unscharf erscheinen.
-Verwenden Sie `window.devicePixelRatio`, um zu bestimmen, wie viel zusätzliche Pixeldichte hinzugefügt werden sollte, um ein schärferes Bild zu ermöglichen.
+Ein {{htmlelement("canvas")}} kann auf Retina-Displays zu verschwommen erscheinen.
+Verwenden Sie `window.devicePixelRatio`, um festzustellen, wie viel zusätzliche Pixeldichte hinzugefügt werden sollte, um ein schärferes Bild zu ermöglichen.
 
 #### HTML
 
@@ -74,11 +73,11 @@ const textString = "I love MDN";
 ctx.fillText(textString, x, y);
 ```
 
-![Nebeneinander-Vergleich der Auswirkung verschiedener devicePixelRatio-Werte auf ein Bild, das auf einem Retina-Display angezeigt wird.](devicepixelratio_diff.png)
+![Seitenansicht-Vergleich des Effekts unterschiedlicher devicePixelRatio-Werte auf ein Bild, das auf einem Retina-Display gezeigt wird.](devicepixelratio_diff.png)
 
-### Überwachung von Bildschirmauslösungen oder Zoomstufenänderungen
+### Überwachung von Bildschirmauflösungs- oder Zoomstufenänderungen
 
-In diesem Beispiel richten wir eine Medienabfrage ein und beobachten sie, um zu sehen, wann sich die Geräteauflösung ändert, und protokollieren die neue Auflösung.
+In diesem Beispiel richten wir eine Medienabfrage ein und beobachten sie, um zu sehen, wann sich die Geräteauflösung ändert und protokollieren die neue Auflösung.
 
 #### HTML
 
@@ -113,11 +112,11 @@ body {
 
 #### JavaScript
 
-Der String `mqString` wird auf eine Medienabfrage gesetzt, die überprüft, ob die aktuelle Displayauflösung einer bestimmten Anzahl von Gerätepunkten pro `px` entspricht.
+Der String `mqString` wird auf eine Medienabfrage gesetzt, die prüft, ob die aktuelle Display-Auflösung mit einer bestimmten Anzahl von Gerätepunkten pro `px` übereinstimmt.
 
 Die Variable `media` ist ein [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt, das mit dem Medienabfrage-String initialisiert wird. Wenn das Ergebnis der Ausführung von `mqString` gegen das Dokument sich ändert, wird das `change`-Ereignis des `media`-Objekts ausgelöst und der Code protokolliert die neue Auflösung.
 
-Beachten Sie, dass jedes Mal, wenn sich die Auflösung ändert, ein neuer Medienabfrage-String basierend auf der neuen Auflösung und eine neue `MediaQueryList`-Instanz erstellt werden müssen.
+Beachten Sie, dass jedes Mal, wenn sich die Auflösung ändert, das Beispiel eine neue Medienabfrage basierend auf der neuen Auflösung und eine neue `MediaQueryList`-Instanz erstellen muss.
 
 ```js
 let remove = null;
@@ -140,7 +139,7 @@ updatePixelRatio();
 
 #### Ergebnis
 
-Um das Beispiel zu testen, versuchen Sie, die Seite ein- und auszuzoomen, und achten Sie auf die Unterschiede im protokollierten Wert von `devicePixelRatio`.
+Um das Beispiel zu testen, versuchen Sie, die Seite ein- und auszuzoomen, und beachten Sie den Unterschied im protokollierten Wert von `devicePixelRatio`.
 
 {{EmbedLiveSample("Monitoring_screen_resolution_or_zoom_level_changes", "100%", 300)}}
 
@@ -156,5 +155,5 @@ Um das Beispiel zu testen, versuchen Sie, die Seite ein- und auszuzoomen, und ac
 
 - [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries)
 - [Verwendung von Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [CSS `resolution` Medienabfrage](/de/docs/Web/CSS/@media/resolution)
+- [CSS `resolution`-Medienabfrage](/de/docs/Web/CSS/Reference/At-rules/@media/resolution)
 - Die {{cssxref("image-resolution")}}-Eigenschaft

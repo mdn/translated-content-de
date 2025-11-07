@@ -2,25 +2,25 @@
 title: CSSPositionTryDescriptors
 slug: Web/API/CSSPositionTryDescriptors
 l10n:
-  sourceCommit: 886f2641ae90a70858c5e7d0d20959c70ee44d9d
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
 {{APIRef("CSSOM")}}
 
-Das **`CSSPositionTryDescriptors`** Interface definiert Eigenschaften, die die Liste der CSS-Deskriptoren darstellen, die im Hauptteil einer {{cssxref("@position-try")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rule) gesetzt werden können.
+Die **`CSSPositionTryDescriptors`** Schnittstelle definiert Eigenschaften, die die Liste von CSS-Deskriptoren darstellen, die im Rumpf einer {{cssxref("@position-try")}} [At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rules) festgelegt werden können.
 
-Jeder Deskriptor im Hauptteil der entsprechenden {{cssxref("@position-try")}} At-Regel kann entweder über seinen Eigenschaftsnamen in [Bracket-Notation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#bracket_notation) oder über die Camel-Case-Version des Eigenschaftsnamens "propertyName" in [Punkt-Notation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#dot_notation) zugegriffen werden. Zum Beispiel können Sie auf die CSS-Eigenschaft "property-name" als `style["property-name"]` oder `style.propertyName` zugreifen, wobei `style` eine Instanz von `CSSPositionTryDescriptors` ist. Eine Eigenschaft mit einem einwortigen Namen wie {{cssxref("height")}} kann mit beiden Notationen angesprochen werden: `style["height"]` oder `style.height`.
+Jeder Deskriptor im Rumpf der entsprechenden {{cssxref("@position-try")}} At-Regel kann entweder über seinen Eigenschaftsnamen in der [Bracket-Notation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#bracket_notation) oder die Camel-Case-Version des Eigenschaftsnamen "propertyName" in der [Punkt-Notation](/de/docs/Learn_web_development/Core/Scripting/Object_basics#dot_notation) zugegriffen werden. Zum Beispiel können Sie auf die CSS-Eigenschaft "property-name" als `style["property-name"]` oder `style.propertyName` zugreifen, wobei `style` eine Instanz von `CSSPositionTryDescriptors` ist. Eine Eigenschaft mit einem einteiligen Namen wie {{cssxref("height")}} kann mit beiden Notationen zugegriffen werden: `style["height"]` oder `style.height`.
 
 > [!NOTE]
-> Das [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule) Interface repräsentiert eine {{cssxref("@position-try")}} At-Regel, und die [`CSSPositionTryRule.style`](/de/docs/Web/API/CSSPositionTryRule/style) Eigenschaft ist eine Instanz dieses Objekts.
+> Die [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule) Schnittstelle repräsentiert eine {{cssxref("@position-try")}} At-Regel, und die [`CSSPositionTryRule.style`](/de/docs/Web/API/CSSPositionTryRule/style) Eigenschaft ist eine Instanz dieses Objekts.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Erbt Eigenschaften von seinem Vorfahren [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)._
 
-Die folgenden Eigenschaftsnamen, in Snake-Case (zugänglich mit Bracket-Notation) und Camel-Case (zugänglich mit Punkt-Notation), repräsentieren jeweils den Wert eines Deskriptors in der entsprechenden `@position-try` At-Regel:
+Die folgenden Eigenschaftsnamen, in Snake-Case (zugriffbar über Bracket-Notation) und Camel-Case (zugriffbar über Punkt-Notation), repräsentieren jeweils den Wert eines Deskriptors in der entsprechenden `@position-try` At-Regel:
 
 - `align-self` oder `alignSelf`
   - : Ein String, der den Wert eines {{cssxref("align-self")}} Deskriptors repräsentiert.
@@ -101,13 +101,13 @@ Die folgenden Eigenschaftsnamen, in Snake-Case (zugänglich mit Bracket-Notation
 - `width`
   - : Ein String, der den Wert eines {{cssxref("width")}} Deskriptors repräsentiert.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Keine spezifischen Methoden; erbt Methoden von seinem Vorfahren [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)._
 
 ## Beispiele
 
-Das CSS enthält eine `@position-try` At-Regel mit einem Namen `--custom-right` und drei Deskriptoren.
+Das CSS enthält eine `@position-try` At-Regel mit einem Namen von `--custom-right` und drei Deskriptoren.
 
 ```css
 @position-try --custom-right {
@@ -138,6 +138,6 @@ console.log(tryOption.style["position-area"]); // "right"
 - [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)
 - {{cssxref("@position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- [CSS-Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [CSS-Anker-Positionierung verwenden](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
-- [Überlaufverwaltung: Versuch-Optionen und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
+- [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
+- [Umgang mit Overflow: Optionen wie try und bedingtes Verstecken](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)

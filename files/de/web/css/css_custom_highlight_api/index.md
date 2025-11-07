@@ -2,16 +2,16 @@
 title: CSS Custom Highlight API
 slug: Web/CSS/CSS_custom_highlight_API
 l10n:
-  sourceCommit: 1d4acd0cc450af2e293b9856d5763b92a0812e30
+  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
 ---
 
-Das Modul **CSS Custom Highlight API** bietet eine programmatische Möglichkeit, bestimmte Textbereiche, die durch `Range`-Objekte definiert sind, gezielt anzusprechen, ohne die zugrunde liegende DOM-Struktur zu beeinflussen. Die `Range`-Objekte können dann über `::highlight()` Pseudo-Elemente ausgewählt und mit Hervorhebungsstilen versehen oder diese entfernt werden. Die Funktionen dieses Moduls ermöglichen Hervorhebungseffekte ähnlich wie bei Texteditoren, die Rechtschreib- oder Grammatikfehler hervorheben, und Code-Editoren, die Syntaxfehler markieren.
+Das **CSS Custom Highlight API**-Modul bietet eine programmatische Möglichkeit, bestimmte Textbereiche zu markieren, die durch Range-Objekte definiert sind, ohne die zugrunde liegende DOM-Struktur zu beeinflussen. Die Range-Objekte können dann über `::highlight()` Pseudoelemente ausgewählt und mit Hervorhebungsstilen versehen oder diese entfernt werden. Die Funktionen dieses Moduls können Hervorhebungseffekte erzeugen, ähnlich wie Texteditoren Rechtschreib- oder Grammatikfehler markieren und Code-Editoren Syntaxfehler hervorheben.
 
-Die CSS Custom Highlight API erweitert das Konzept anderer Hervorhebungs-Pseudo-Elemente wie {{cssxref('::selection')}}, {{cssxref('::spelling-error')}}, {{cssxref('::grammar-error')}}, und {{cssxref('::target-text')}} durch die Bereitstellung einer Möglichkeit, beliebige Textranges zu erstellen (definiert als [`Range`](/de/docs/Web/API/Range)-Objekte in JavaScript) und diese über CSS zu stylen, anstatt auf durch den Browser definierte Ranges beschränkt zu sein.
+Das CSS Custom Highlight API erweitert das Konzept anderer Hervorhebungs-Pseudoelemente wie {{cssxref('::selection')}}, {{cssxref('::spelling-error')}}, {{cssxref('::grammar-error')}}, und {{cssxref('::target-text')}} indem es eine Möglichkeit bietet, beliebige Textbereiche (definiert als [`Range`](/de/docs/Web/API/Range) Objekte in JavaScript) zu erstellen und über CSS zu stylen, anstatt auf browserdefinierte Bereiche beschränkt zu sein.
 
 ## Custom Highlight API in Aktion
 
-Um das Stylen von Textranges auf einer Webseite mithilfe der CSS Custom Highlight API zu ermöglichen, erstellen Sie ein [`Range`](/de/docs/Web/API/Range)-Objekt und anschließend ein [`Highlight`](/de/docs/Web/API/Highlight)-Objekt für den `Range`. Nach der Registrierung der Hervorhebung mit der Methode [`HighlightRegistry.set()`](/de/docs/Web/API/HighlightRegistry/set) können Sie den Range dann mit dem {{cssxref("::highlight", "::highlight()")}} Pseudo-Element auswählen. Der im `set()`-Methode definierte Name wird als Parameter des `::highlight()` Pseudo-Element Selektors verwendet, um diesen Range auszuwählen. Der durch das `::highlight()` Pseudo-Element ausgewählte Range kann mit einer [begrenzten Anzahl von Eigenschaften](/de/docs/Web/CSS/Reference/Selectors/::highlight#allowable_properties) gestylt werden.
+Um Textbereiche auf einer Webseite mit dem CSS Custom Highlight API zu stylen, erstellen Sie ein [`Range`](/de/docs/Web/API/Range) Objekt und dann ein [`Highlight`](/de/docs/Web/API/Highlight) Objekt für diesen Bereich. Nachdem das Highlight mittels der Methode [`HighlightRegistry.set()`](/de/docs/Web/API/HighlightRegistry/set) registriert wurde, können Sie den Bereich mit dem {{cssxref("::highlight", "::highlight()")}} Pseudoelement auswählen. Der im `set()`-Methode definierte Name wird als Parameter des `::highlight()` Pseudoelementselectors verwendet, um diesen Bereich auszuwählen. Der durch das `::highlight()` Pseudoelement ausgewählte Bereich kann mit einer [begrenzten Anzahl von Eigenschaften](/de/docs/Web/CSS/Reference/Selectors/::highlight#allowable_properties) gestylt werden.
 
 ```html-nolint hidden
 <h1>Directions</h1>
@@ -29,7 +29,7 @@ Um das Stylen von Textranges auf einer Webseite mithilfe der CSS Custom Highligh
 </label>
 ```
 
-Dieses Beispiel verwendet die Eigenschaft {{cssxref("text-decoration")}}, um den `steps`-Hervorhebungsbereich, der durch unser JavaScript definiert ist, durchzustreichen:
+Dieses Beispiel verwendet die {{cssxref("text-decoration")}} Eigenschaft, um den `steps`-Hervorhebungsbereich zu durchstreichen, der durch unser JavaScript definiert ist:
 
 ```css
 ::highlight(steps) {
@@ -38,7 +38,7 @@ Dieses Beispiel verwendet die Eigenschaft {{cssxref("text-decoration")}}, um den
 }
 ```
 
-Wir erstellen einen `Range` mit einem Start- und Endknoten (was in diesem Fall derselbe Knoten ist). Wir setzen diesen Range dann als `Highlight` mithilfe der `set()`-Methode der CSS `HighlightRegistry`-Schnittstelle.
+Wir erstellen ein `Range` mit einem Anfangs- und Endknoten (welcher in diesem Fall derselbe Knoten ist). Wir setzen dann diesen Bereich als `Highlight` mittels der `set()`-Methode der CSS `HighlightRegistry`-Schnittstelle.
 
 ```js
 const rangeToHighlight = new Range();
@@ -49,7 +49,7 @@ rangeToHighlight.setEnd(list, 0);
 CSS.highlights.set("steps", new Highlight(rangeToHighlight));
 ```
 
-Ein Ereignislistener aktualisiert das Ende des hervorgehobenen Bereichs, wenn sich die Anzahl der abgeschlossenen Schritte ändert:
+Ein Event-Listener aktualisiert das Ende des hervorgehobenen Bereichs, wenn sich die Anzahl der erledigten Schritte ändert:
 
 ```js
 const currentPositionSlider = document.querySelector("input");
@@ -62,7 +62,7 @@ currentPositionSlider.addEventListener("change", (e) => {
 
 ## Referenz
 
-### Pseudo-Elemente
+### Pseudoelemente
 
 - {{CSSXref("::highlight()")}}
 
@@ -73,15 +73,15 @@ currentPositionSlider.addEventListener("change", (e) => {
 
 ### Schnittstellenerweiterungen
 
-Dieses Modul fügt Schnittstellen, die in anderen Spezifikationen definiert sind, Eigenschaften und Methoden hinzu.
+Dieses Modul fügt Eigenschaften und Methoden zu Schnittstellen hinzu, die in anderen Spezifikationen definiert sind.
 
 - [`CSS`](/de/docs/Web/API/CSS)
   - [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static)
 
 ## Leitfäden
 
-- [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API#concepts_and_usage)
-  - : Die Konzepte und Verwendung der CSS Custom Highlight API, einschließlich der Erstellung von `Range` und `Highlight`-Objekten, der Registrierung der Hervorhebungen mithilfe der `HighlightRegistry` und dem Stylen der Hervorhebungen mithilfe des `::highlight()` Pseudo-Elements.
+- [CSS custom highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API#concepts_and_usage)
+  - : Die Konzepte und die Verwendung des CSS Custom Highlight API, einschließlich der Erstellung von `Range` und `Highlight` Objekten, der Registrierung der Highlights mit dem `HighlightRegistry` und dem Stylen der Highlights mittels des `::highlight()` Pseudoelements.
 
 ## Verwandte Konzepte
 
@@ -100,4 +100,4 @@ Dieses Modul fügt Schnittstellen, die in anderen Spezifikationen definiert sind
 ## Siehe auch
 
 - [CSS-Pseudo-Element-Modul](/de/docs/Web/CSS/CSS_pseudo-elements)
-- [CSS-Objektmodell (CSSOM)](/de/docs/Web/API/CSS_Object_Model) APIs
+- [CSS Objektmodell (CSSOM)](/de/docs/Web/API/CSS_Object_Model) APIs

@@ -2,12 +2,12 @@
 title: palette-mix()
 slug: Web/CSS/Reference/Properties/font-palette/palette-mix
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{SeeCompatTable}}
 
-Die **`palette-mix()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_values_and_units/CSS_value_functions) kann verwendet werden, um einen neuen {{cssxref("font-palette")}}-Wert zu erstellen, indem zwei `font-palette`-Werte mit angegebenen Prozentsätzen und Farbmischmethoden miteinander vermischt werden.
+Die **`palette-mix()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) kann verwendet werden, um einen neuen {{cssxref("font-palette")}}-Wert zu erstellen, indem zwei `font-palette`-Werte durch festgelegte Prozentsätze und Farbinterpolationsmethoden miteinander vermischt werden.
 
 ## Syntax
 
@@ -38,16 +38,16 @@ palette-mix(method, palette1 [p1], palette2 [p2])
 ```
 
 - `method`
-  - : Eine {{cssxref("&lt;color-interpolation-method&gt;")}}, die den Interpolationsfarbraum spezifiziert.
+  - : Ein {{cssxref("&lt;color-interpolation-method&gt;")}}, der den Interpolationsfarbraum angibt.
 - `palette1`, `palette2`
-  - : Die {{cssxref("font-palette")}}-Werte, die miteinander gemischt werden sollen. Diese können _beliebige_ `font-palette`-Werte sein, einschließlich `palette-mix()`-Funktionen, `normal`, `dark` und `light`.
+  - : Die zu mischenden {{cssxref("font-palette")}}-Werte. Diese können _beliebige_ `font-palette`-Werte sein, einschließlich `palette-mix()`-Funktionen, `normal`, `dark` und `light`.
 - `p1`, `p2` {{optional_inline}}
-  - : {{cssxref("&lt;percentage&gt;")}}-Werte zwischen `0%` und `100%`, die die Menge jeder Palette angeben, die gemischt werden soll. Sie werden wie folgt normalisiert:
-    - Wenn sowohl `p1` als auch `p2` weggelassen werden, dann gilt `p1 = p2 = 50%`.
-    - Wenn `p1` weggelassen wird, gilt `p1 = 100% - p2`.
-    - Wenn `p2` weggelassen wird, gilt `p2 = 100% - p1`.
+  - : {{cssxref("&lt;percentage&gt;")}}-Werte zwischen `0%` und `100%`, die die Menge jeder Palette angeben, die gemischt werden soll. Diese werden wie folgt normalisiert:
+    - Wenn sowohl `p1` als auch `p2` weggelassen werden, dann `p1 = p2 = 50%`.
+    - Wenn `p1` weggelassen wird, dann `p1 = 100% - p2`.
+    - Wenn `p2` weggelassen wird, dann `p2 = 100% - p1`.
     - Wenn `p1 = p2 = 0%`, ist die Funktion ungültig.
-    - Wenn `p1 + p2 ≠ 100%`, dann gilt `p1' = p1 / (p1 + p2)` und `p2' = p2 / (p1 + p2)`, wobei `p1'` und `p2'` die Normalisierungsergebnisse sind.
+    - Wenn `p1 + p2 ≠ 100%`, dann `p1' = p1 / (p1 + p2)` und `p2' = p2 / (p1 + p2)`, wobei `p1'` und `p2'` die Normalisierungsergebnisse sind.
 
 ## Formale Syntax
 
@@ -55,13 +55,13 @@ palette-mix(method, palette1 [p1], palette2 [p2])
 
 ## Beispiele
 
-### Verwendung von `palette-mix()`, um zwei Paletten zu mischen
+### Verwenden von `palette-mix()` zum Mischen von zwei Paletten
 
-Dieses Beispiel zeigt, wie die `palette-mix()`-Funktion verwendet wird, um eine neue Palette zu erstellen, indem zwei andere miteinander gemischt werden.
+Dieses Beispiel zeigt, wie die `palette-mix()`-Funktion verwendet wird, um eine neue Palette durch Vermischen von zwei anderen zu erstellen.
 
 #### HTML
 
-Das HTML enthält drei Absätze, auf die unsere Schriftart-Informationen angewendet werden:
+Das HTML enthält drei Absätze, auf die unsere Schriftinformationen angewendet werden:
 
 ```html
 <p class="yellowPalette">Yellow palette</p>
@@ -71,7 +71,7 @@ Das HTML enthält drei Absätze, auf die unsere Schriftart-Informationen angewen
 
 #### CSS
 
-Im CSS importieren wir eine Farb-Schriftart von Google Fonts und definieren zwei benutzerdefinierte `font-palette`-Werte mit der {{cssxref("@font-palette-values")}}-Regel. Wir wenden dann drei verschiedene `font-palette`-Werte auf die Absätze an — `--yellow`, `--blue` und eine neue grüne Palette, die mit `palette-mix()` erstellt wird, um die blauen und gelben Paletten zu mischen.
+Im CSS importieren wir eine Farbschriftart von Google Fonts und definieren zwei benutzerdefinierte `font-palette`-Werte mit der {{cssxref("@font-palette-values")}} At-Regel. Wir wenden dann drei verschiedene `font-palette`-Werte auf die Absätze an — `--yellow`, `--blue`, und eine neue grüne Palette, die mit `palette-mix()` erstellt wird, um die blauen und gelben Paletten zusammen zu mischen.
 
 ```css
 @import "https://fonts.googleapis.com/css2?family=Nabla&display=swap";
@@ -108,9 +108,9 @@ p {
 
 #### Ergebnis
 
-Das Ergebnis sieht so aus:
+Die Ausgabe sieht folgendermaßen aus:
 
-{{EmbedLiveSample("Verwendung von `palette-mix()` zum Mischen von zwei Paletten", "100%", 350)}}
+{{EmbedLiveSample("Using `palette-mix()` to blend two palettes", "100%", 350)}}
 
 ## Spezifikationen
 

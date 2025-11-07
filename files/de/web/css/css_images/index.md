@@ -1,11 +1,11 @@
 ---
-title: CSS-Bilder
+title: CSS images
 slug: Web/CSS/CSS_images
 l10n:
-  sourceCommit: b5a6d8bc5fd751032f70b88e7ec1ec61339937de
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das Modul **CSS-Bilder** definiert die Arten von Bildern, die verwendet werden können (den {{CSSxRef("&lt;image&gt;")}}-Typ, der URLs, Verläufe und andere Arten von Bildern enthält), wie sie skaliert werden und wie sie und andere Ersatzelemente mit den verschiedenen Layoutmodellen interagieren.
+Das **CSS images** Modul definiert die Arten von Bildern, die verwendet werden können (der {{CSSxRef("&lt;image&gt;")}} Typ, der URLs, Verläufe und andere Arten von Bildern enthält), wie sie zu skalieren sind und wie sie und anderer ersetzter Inhalt mit den verschiedenen Layout-Modellen interagieren.
 
 ## Referenz
 
@@ -17,7 +17,7 @@ Das Modul **CSS-Bilder** definiert die Arten von Bildern, die verwendet werden k
 - {{CSSxRef("object-position")}}
 - {{cssxref("object-view-box")}}
 
-Das CSS-Bilder-Modul definiert auch die {{CSSxRef("image-resolution")}}-Eigenschaft. Derzeit unterstützen keine Browser diese Funktion.
+Das CSS images Modul definiert auch die {{CSSxRef("image-resolution")}} Eigenschaft. Derzeit unterstützt kein Browser diese Funktion.
 
 ### Funktionen
 
@@ -31,7 +31,7 @@ Das CSS-Bilder-Modul definiert auch die {{CSSxRef("image-resolution")}}-Eigensch
 - {{CSSxRef("element", "element()")}}
 - {{CSSxRef("image/image-set", "image-set()")}}
 
-Das CSS-Bilder-Modul definiert auch die {{CSSxRef("image/image", "image()")}}-Funktion. Derzeit unterstützen keine Browser diese Funktion.
+Das CSS images Modul definiert auch die {{CSSxRef("image/image", "image()")}} Funktion. Derzeit unterstützt kein Browser diese Funktion.
 
 ### Datentypen
 
@@ -40,26 +40,26 @@ Das CSS-Bilder-Modul definiert auch die {{CSSxRef("image/image", "image()")}}-Fu
 
 ## Leitfäden
 
-- [Verwenden von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
-  - : Stellt einen spezifischen Typ von CSS-Bildern vor, _Verläufe_, und wie man diese erstellt und verwendet.
+- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
+  - : Stellt einen bestimmten Typ von CSS-Bildern vor, _Verläufe_, und wie diese erstellt und verwendet werden können.
 
-- [Implementierung von Bildspritzen in CSS](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
+- [Implementierung von Bildspriten in CSS](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
   - : Beschreibt die gängige Technik, mehrere Bilder in einem einzigen Dokument zu gruppieren, um Download-Anfragen zu sparen und die Verfügbarkeit einer Seite zu beschleunigen.
 
-- [Gestaltung von Ersatzelementen](/de/docs/Web/CSS/CSS_images/Replaced_element_properties)
-  - : Führt die Eigenschaften ein, die nur für _Ersatzelemente_ gelten.
+- [Stil von ersetzten Elementen](/de/docs/Web/CSS/CSS_images/Replaced_element_properties)
+  - : Führt in die Eigenschaften ein, die nur für _ersetzte Elemente_ gelten.
 
 - [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
-  - : Lernen Sie die `aspect-ratio`-Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige gängige Anwendungsfälle für Seitenverhältnisse.
+  - : Erfahren Sie mehr über die `aspect-ratio` Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige gebräuchliche Anwendungsfälle für Seitenverhältnisse.
 
-- [Verwenden der CSS-Eigenschaft `object-view-box`](/de/docs/Web/CSS/CSS_images/Using_object-view-box)
-  - : Lernen Sie die CSS-Eigenschaft `object-view-box`, einschließlich wie man hinein- und herauszoomt und über Bilder schwenkt.
+- [Verwendung der CSS-Eigenschaft `object-view-box`](/de/docs/Web/CSS/CSS_images/Using_object-view-box)
+  - : Lernen Sie die CSS-Eigenschaft `object-view-box`, einschließlich wie man Bilder ein- oder auszoomt und wie man über sie hinweg schwenkt.
 
 ## Verwandte Konzepte
 
 - {{cssxref("url_value", "&lt;url&gt;")}}
 - {{cssxref("url_function", "url()")}}
-- [`<basic-shape-rect>`](/de/docs/Web/CSS/basic-shape#syntax_for_rectangles_basic-shape-rect)
+- [`<basic-shape-rect>`](/de/docs/Web/CSS/Reference/Values/basic-shape#syntax_for_rectangles_basic-shape-rect)
 
 ## Spezifikationen
 
@@ -67,7 +67,7 @@ Das CSS-Bilder-Modul definiert auch die {{CSSxRef("image/image", "image()")}}-Fu
 
 ## Siehe auch
 
-- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
-- [CSS-Komposition und Überblendung](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
-- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_values_and_units) Modul
+- [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
+- [CSS-Komposition und -Mischung](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul
+- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS Werte und Einheiten](/de/docs/Web/CSS/CSS_values_and_units) Modul

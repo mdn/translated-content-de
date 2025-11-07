@@ -2,10 +2,10 @@
 title: action.setBadgeTextColor()
 slug: Mozilla/Add-ons/WebExtensions/API/action/setBadgeTextColor
 l10n:
-  sourceCommit: a4fcf79b60471db6f148fa4ba36f2cdeafbbeb70
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Setzt die Textfarbe für das Badge der Browseraktion. Tabs ohne eine spezifische Badge-Textfarbe erben die globale Badge-Textfarbe.
+Setzt die Textfarbe für das Abzeichen der Browser-Aktion. Tabs ohne eine spezifische Abzeichentextfarbe erben die globale Abzeichentextfarbe.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
@@ -23,24 +23,24 @@ browser.action.setBadgeTextColor(
 - `details`
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `color`
-      - : Die Farbe, angegeben als eine von:
-        - ein String: jeder CSS [\<color>](/de/docs/Web/CSS/color_value) Wert, zum Beispiel `"red"`, `"#FF0000"` oder `"rgb(255 0 0)"`. Wenn der String keine gültige Farbe darstellt, wird das zurückgegebene Versprechen abgelehnt und die Textfarbe nicht geändert.
+      - : Die Farbe, angegeben als einer der folgenden Werte:
+        - ein String: jedes CSS [\<color>](/de/docs/Web/CSS/Reference/Values/color_value) Wert, zum Beispiel `"red"`, `"#FF0000"`, oder `"rgb(255 0 0)"`. Wenn der String keine gültige Farbe ist, wird das zurückgegebene Promise abgelehnt und die Textfarbe wird nicht geändert.
         - ein {{WebExtAPIRef('action.ColorArray')}} Objekt.
-        - `null`. Wenn eine `tabId` angegeben ist, wird die tab-spezifische Badge-Textfarbe entfernt, sodass der Tab die globale Badge-Textfarbe erbt. Andernfalls wird die globale Badge-Textfarbe auf den Standardwert zurückgesetzt.
+        - `null`. Wenn eine `tabId` angegeben ist, entfernt es die tab-spezifische Abzeichentextfarbe, sodass der Tab die globale Abzeichentextfarbe erbt. Andernfalls wird die globale Abzeichentextfarbe auf den Standardwert zurückgesetzt.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Setzt die Badge-Textfarbe nur für den angegebenen Tab. Die Farbe wird zurückgesetzt, wenn der Benutzer diesen Tab zu einer neuen Seite navigiert.
+      - : `integer`. Setzt die Abzeichentextfarbe nur für den angegebenen Tab. Die Farbe wird zurückgesetzt, wenn der Benutzer diesen Tab zu einer neuen Seite navigiert.
     - `windowId` {{optional_inline}}
-      - : `integer`. Setzt die Badge-Textfarbe nur für das angegebene Fenster.
+      - : `integer`. Setzt die Abzeichentextfarbe nur für das angegebene Fenster.
 
 <!---->
 
-- Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl und die Farbe wird nicht gesetzt.
-- Wenn `windowId` und `tabId` beide weggelassen werden, wird stattdessen die globale Badge-Textfarbe gesetzt.
+- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und die Farbe wird nicht gesetzt.
+- Wenn sowohl `windowId` als auch `tabId` ausgelassen werden, wird stattdessen die globale Abzeichentextfarbe gesetzt.
 
 ## Beispiele
 
-Eine Badge-Textfarbe, die anfangs rot ist und grün wird, wenn die Browseraktion angeklickt wird:
+Eine Abzeichentextfarbe, die zunächst rot ist und sich in grün ändert, wenn auf die Browser-Aktion geklickt wird:
 
 ```js
 browser.action.setBadgeText({ text: "1234" });
@@ -51,7 +51,7 @@ browser.action.onClicked.addListener(() => {
 });
 ```
 
-Setzen Sie die Badge-Textfarbe nur für den aktiven Tab:
+Setzen Sie die Abzeichentextfarbe nur für den aktiven Tab:
 
 ```js
 browser.action.setBadgeText({ text: "1234" });
@@ -72,7 +72,7 @@ browser.action.onClicked.addListener((tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-setBadgeBackgroundColor) API. Diese Dokumentation stammt von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-setBadgeBackgroundColor) API. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

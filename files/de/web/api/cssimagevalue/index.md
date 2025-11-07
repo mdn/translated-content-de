@@ -2,14 +2,14 @@
 title: CSSImageValue
 slug: Web/API/CSSImageValue
 l10n:
-  sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Das **`CSSImageValue`** Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte für Eigenschaften, die ein Bild erfordern, wie zum Beispiel {{cssxref('background-image')}}, {{cssxref('list-style-image')}} oder {{cssxref('border-image-source')}}.
+Das **`CSSImageValue`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte für Eigenschaften, die ein Bild erfordern, wie zum Beispiel {{cssxref('background-image')}}, {{cssxref('list-style-image')}} oder {{cssxref('border-image-source')}}.
 
-Das CSSImageValue-Objekt repräsentiert ein [`<image>`](/de/docs/Web/CSS/image), das eine URL involviert, wie [`url()`](/de/docs/Web/CSS/url_function) oder [`image()`](/de/docs/Web/CSS/image), aber nicht [`linear-gradient()`](/de/docs/Web/CSS/gradient/linear-gradient) oder [`element()`](/de/docs/Web/CSS/element).
+Das CSSImageValue-Objekt repräsentiert ein [`<image>`](/de/docs/Web/CSS/Reference/Values/image), das eine URL beinhaltet, wie [`url()`](/de/docs/Web/CSS/Reference/Values/url_function) oder [`image()`](/de/docs/Web/CSS/Reference/Values/image), aber nicht [`linear-gradient()`](/de/docs/Web/CSS/Reference/Values/gradient/linear-gradient) oder [`element()`](/de/docs/Web/CSS/Reference/Values/element).
 
 {{InheritanceDiagram}}
 
@@ -40,7 +40,7 @@ button {
 }
 ```
 
-Wir erhalten die Style-Map des Elements. Dann holen wir das `background-image` aus der Style-Map und wandeln es in einen String um:
+Wir holen die Style-Map des Elements. Dann rufen wir das `background-image` aus der Style-Map ab und konvertieren es in einen String:
 
 ```js
 // get the element

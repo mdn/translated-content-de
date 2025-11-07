@@ -2,19 +2,19 @@
 title: Drucken
 slug: Web/CSS/CSS_media_queries/Printing
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
-Es kann vorkommen, dass Ihre Website oder Anwendung die Benutzererfahrung beim Drucken von Inhalten verbessern möchte. Es gibt mehrere mögliche Szenarien:
+Es kann vorkommen, dass Ihre Webseite oder Anwendung die Benutzererfahrung beim Drucken von Inhalten verbessern möchte. Es gibt mehrere mögliche Szenarien:
 
 - Sie möchten das Layout anpassen, um die Größe und Form des Papiers optimal zu nutzen.
-- Sie möchten unterschiedliche Stile verwenden, um das Erscheinungsbild Ihrer Inhalte auf Papier zu verbessern.
-- Sie möchten hochauflösendere Bilder verwenden, um ein besseres Ergebnis zu erzielen.
-- Sie möchten die Benutzererfahrung beim Drucken anpassen, z. B. indem Sie eine speziell formatierte Version Ihrer Inhalte präsentieren, bevor der Druck beginnt.
+- Sie möchten verschiedene Stile verwenden, um das Erscheinungsbild Ihrer Inhalte auf Papier zu verbessern.
+- Sie möchten Bilder in höherer Auflösung verwenden, um ein besseres Druckergebnis zu erzielen.
+- Sie möchten die Benutzererfahrung des Druckens anpassen, z. B. eine speziell formatierte Version Ihres Inhalts präsentieren, bevor der Druck beginnt.
 
-Es kann auch andere Fälle geben, in denen Sie den Druckprozess verwalten möchten, aber dies sind einige der häufigsten Szenarien. Dieser Artikel bietet Tipps und Techniken, um Ihre Webinhalte besser drucken zu können.
+Es kann weitere Fälle geben, in denen Sie den Druckprozess verwalten möchten, aber dies sind einige der häufigsten Szenarien. Dieser Artikel bietet Tipps und Techniken, um Ihren Webinhalt besser drucken zu können.
 
-## Verwenden eines Druck-Stylesheets
+## Verwendung eines Druck-Stylesheets
 
 Fügen Sie das Folgende zu Ihrem {{HTMLElement("head")}}-Tag hinzu.
 
@@ -22,11 +22,11 @@ Fügen Sie das Folgende zu Ihrem {{HTMLElement("head")}}-Tag hinzu.
 <link href="/path/to/print.css" media="print" rel="stylesheet" />
 ```
 
-## Verwenden von Media Queries und @page zur Steuerung gedruckter Inhalte
+## Verwendung von Media Queries und @page zur Steuerung des gedruckten Inhalts
 
-Sie können die CSS-At-Regel {{cssxref("@media")}} verwenden, um für Ihre Webseite unterschiedliche Stile festzulegen, wenn sie auf Papier oder als PDF gedruckt wird, im Gegensatz zur Anzeige auf dem Bildschirm. Der `print` [Medientyp](/de/docs/Web/CSS/@media#media_types) legt die Stile für gedruckte Medien fest; diese Stile werden nur für gedruckte Inhalte verwendet.
+Sie können die CSS-At-Regel {{cssxref("@media")}} verwenden, um verschiedene Stile für Ihre Webseite festzulegen, wenn sie auf Papier oder als PDF gedruckt wird, im Gegensatz zur Anzeige auf dem Bildschirm. Der `print` [Medientyp](/de/docs/Web/CSS/Reference/At-rules/@media#media_types) legt die Stile für gedruckte Medien fest; diese Stile werden nur für gedruckte Inhalte verwendet.
 
-Fügen Sie dies am Ende Ihres Stylesheets hinzu. Beachten Sie, dass [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) und Vorrangregeln weiterhin gelten:
+Fügen Sie dies am Ende Ihres Stylesheets hinzu. Beachten Sie, dass die [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) und Vorrangregeln weiterhin gelten:
 
 ```css
 @media print {
@@ -39,19 +39,19 @@ Fügen Sie dies am Ende Ihres Stylesheets hinzu. Beachten Sie, dass [Spezifität
 }
 ```
 
-Sie können auch die At-Regel {{cssxref("@page")}} verwenden, um verschiedene Aspekte gedruckter Seiten zu ändern, einschließlich der Abmessungen, Ausrichtung und Ränder der Seite. Die `@page`-At-Regel kann verwendet werden, um alle Seiten eines Ausdrucks oder nur einen bestimmten Seitenbereich zu zielgerichtet zu ändern.
+Sie können auch die At-Regel {{cssxref("@page")}} verwenden, um verschiedene Aspekte von gedruckten Seiten, einschließlich der Abmessungen, Ausrichtung und Ränder der Seite, zu ändern. Die `@page`-Regel kann verwendet werden, um alle Seiten in einem Ausdruck oder nur einen bestimmten Teil der Seiten anzusprechen.
 
-## Erkennen von Druckanforderungen
+## Erkennung von Druckanforderungen
 
-Browser senden [`beforeprint`](/de/docs/Web/API/Window/beforeprint_event) und [`afterprint`](/de/docs/Web/API/Window/afterprint_event) Ereignisse, um festzustellen, wann ein Druckvorgang stattgefunden haben könnte. Sie können dies verwenden, um die Benutzeroberfläche während des Druckens anzupassen (zum Beispiel um Benutzeroberflächenelemente während des Druckprozesses ein- oder auszublenden).
+Browser senden [`beforeprint`](/de/docs/Web/API/Window/beforeprint_event) und [`afterprint`](/de/docs/Web/API/Window/afterprint_event) Ereignisse, um festzustellen, wann ein Druckvorgang stattgefunden haben könnte. Dies können Sie nutzen, um die Benutzeroberfläche, die während des Druckvorgangs angezeigt wird, anzupassen (z. B. das Anzeigen oder Ausblenden von Elemente der Benutzeroberfläche während des Druckvorgangs).
 
 ## Beispiele
 
-Hier sind einige gängige Beispiele.
+Hier einige gängige Beispiele.
 
-### Fenster nach dem Drucken automatisch schließen
+### Fenster automatisch schließen, wenn der Druckvorgang abgeschlossen ist
 
-Das folgende Beispiel schließt das Fenster, nachdem der Benutzer seinen Inhalt gedruckt hat:
+Das folgende Beispiel schließt das Fenster, nachdem der Benutzer dessen Inhalt gedruckt hat:
 
 ```js
 window.addEventListener("afterprint", () => self.close);
@@ -59,7 +59,7 @@ window.addEventListener("afterprint", () => self.close);
 
 ### Eine externe Seite drucken, ohne sie zu öffnen
 
-Wenn Sie die Möglichkeit haben möchten, eine externe Seite zu drucken, ohne sie zu öffnen, können Sie ein verstecktes {{HTMLElement("iframe")}} verwenden (siehe: [HTMLIFrameElement](/de/docs/Web/API/HTMLIFrameElement)), das nach dem Drucken seiner Inhalte automatisch entfernt wird. Das folgende Beispiel zeigt, wie eine Datei namens `externalPage.html` gedruckt wird:
+Wenn Sie eine externe Seite drucken möchten, ohne sie zu öffnen, können Sie ein verstecktes {{HTMLElement("iframe")}} verwenden (siehe: [HTMLIFrameElement](/de/docs/Web/API/HTMLIFrameElement)), das automatisch entfernt wird, nachdem der Benutzer den Inhalt gedruckt hat. Das folgende ist ein mögliches Beispiel, das eine Datei mit dem Namen `externalPage.html` druckt:
 
 #### HTML
 
@@ -95,4 +95,4 @@ document.getElementById("print_external").addEventListener("click", () => {
 - [`afterprint`](/de/docs/Web/API/Window/afterprint_event) Ereignis
 - [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - {{cssxref("@media")}}
-- [CSS-Seitenmedien](/de/docs/Web/CSS/CSS_paged_media) Modul
+- [CSS Seitenmedien](/de/docs/Web/CSS/CSS_paged_media) Modul

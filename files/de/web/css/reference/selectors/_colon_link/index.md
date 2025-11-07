@@ -2,10 +2,10 @@
 title: :link
 slug: Web/CSS/Reference/Selectors/:link
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
 ---
 
-Die **`:link`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein Element, das noch nicht besucht wurde. Sie entspricht jedem unbesuchten {{HTMLElement("a")}}- oder {{HTMLElement("area")}}-Element, das ein `href`-Attribut hat.
+Die **`:link`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein Element, das noch nicht besucht wurde. Sie gleicht jedes unbesuchte {{HTMLElement("a")}} oder {{HTMLElement("area")}} Element ab, das ein `href` Attribut hat.
 
 {{InteractiveExample("CSS Demo: :link", "tabbed-shorter")}}
 
@@ -41,7 +41,7 @@ a:link {
 </ul>
 ```
 
-Stile, die durch die `:link`- und [`:visited`](/de/docs/Web/CSS/Reference/Selectors/:visited)-Pseudoklassen definiert sind, können durch jede nachfolgende Benutzeraktions-Pseudoklasse ({{cssxref(":hover")}} oder {{cssxref(":active")}}), die mindestens gleiche Spezifität hat, überschrieben werden. Um Links angemessen zu stylen, platzieren Sie die `:link`-Regel vor allen anderen Link-bezogenen Regeln, wie sie durch die _LVHA-Reihenfolge_ definiert ist: `:link` — `:visited` — `:hover` — `:active`. Die `:visited`-Pseudoklasse und die `:link`-Pseudoklasse schließen sich gegenseitig aus.
+Stile, die durch die Pseudoklassen `:link` und [`:visited`](/de/docs/Web/CSS/Reference/Selectors/:visited) definiert sind, können von nachfolgenden User-Aktionen-Pseudoklassen ({{cssxref(":hover")}} oder {{cssxref(":active")}}), die mindestens die gleiche Spezifität haben, überschrieben werden. Um Links angemessen zu gestalten, setzen Sie die `:link` Regel vor alle anderen linkbezogenen Regeln, wie durch die _LVHA-Reihenfolge_ definiert: `:link` — `:visited` — `:hover` — `:active`. Die `:visited`-Pseudoklasse und die `:link`-Pseudoklasse sind gegenseitig exklusiv.
 
 > [!NOTE]
 > Verwenden Sie {{cssxref(":any-link")}}, um ein Element auszuwählen, unabhängig davon, ob es besucht wurde oder nicht.
@@ -56,7 +56,7 @@ Stile, die durch die `:link`- und [`:visited`](/de/docs/Web/CSS/Reference/Select
 
 ## Beispiele
 
-Standardmäßig wenden die meisten Browser einen speziellen {{cssxref("color")}}-Wert auf besuchte Links an. Daher werden die Links in diesem Beispiel wahrscheinlich nur dann spezielle Schriftfarben haben, bevor Sie sie besuchen. (Danach müssen Sie Ihren Browserverlauf löschen, um sie erneut zu sehen.) Die {{cssxref("background-color")}}-Werte werden jedoch wahrscheinlich bestehen bleiben, da die meisten Browser diese Eigenschaft standardmäßig nicht auf besuchte Links anwenden.
+Standardmäßig wenden die meisten Browser einen speziellen {{cssxref("color")}}-Wert auf besuchte Links an. Daher werden die Links in diesem Beispiel wahrscheinlich nur vor dem Besuch spezielle Schriftfarben haben. (Danach müssen Sie den Browserverlauf löschen, um sie erneut zu sehen.) Die {{cssxref("background-color")}}-Werte bleiben jedoch wahrscheinlich erhalten, da die meisten Browser diese Eigenschaft standardmäßig nicht auf besuchte Links setzen.
 
 ### HTML
 

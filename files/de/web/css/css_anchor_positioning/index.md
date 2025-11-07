@@ -1,16 +1,16 @@
 ---
-title: CSS Anker-Positionierung
+title: CSS-Ankerpositionierung
 slug: Web/CSS/CSS_anchor_positioning
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das **CSS Anker-Positionierungsmodul** definiert Funktionen, die es ermöglichen, Elemente miteinander zu verbinden. Bestimmte Elemente werden als **Ankerelemente** definiert; **anker-positionierte Elemente** können dann in ihrer Größe und Position basierend auf der Größe und dem Ort der Ankerelemente, an die sie gebunden sind, eingestellt werden.
+Das **CSS-Ankerpositionierungsmodul** definiert Funktionen, die es Ihnen ermöglichen, Elemente miteinander zu verbinden. Bestimmte Elemente werden als **Ankerelemente** definiert; **ankerpositionierte Elemente** können dann in ihrer Größe und Position relativ zu diesen Ankerelementen, an die sie gebunden sind, eingestellt werden.
 
-Darüber hinaus bietet die Spezifikation CSS-Mechanismen, um:
+Zusätzlich bietet die Spezifikation ausschließlich CSS-basierte Mechanismen, um:
 
-- Eine Reihe von alternativen Positionen für ein verankertes Element anzugeben; wenn die Standard-Renderposition dazu führt, dass es seinen enthaltenden Block überläuft und/oder außerhalb des Bildschirms dargestellt wird, versucht der Browser, das verankerte Element an den alternativen Positionen darzustellen.
-- Bedingungen festzulegen, unter denen anker-positionierte Elemente verborgen werden sollen, in Situationen, in denen es nicht angemessen ist, sie an Ankerelemente zu binden.
+- Eine Reihe alternativer Positionen für ein ankeriertes Element anzugeben; wenn die Standardanzeigeposition dazu führt, dass es über seinen umgebenden Block hinausragt und/oder außerhalb des Bildschirms angezeigt wird, versucht der Browser, das ankerierte Element in den alternativen Positionen anzuzeigen.
+- Bedingungen festzulegen, unter denen ankerpositionierte Elemente ausgeblendet werden sollten, wenn es unangemessen ist, sie an Ankerelemente zu binden.
 
 ## Referenz
 
@@ -21,26 +21,26 @@ Darüber hinaus bietet die Spezifikation CSS-Mechanismen, um:
 - {{cssxref("position-area")}}
 - {{cssxref("position-try-fallbacks")}}
 - {{cssxref("position-try-order")}}
-- {{cssxref("position-try")}} Abkürzung
+- {{cssxref("position-try")}} Kurzform
 - {{cssxref("position-visibility")}}
 
-Das CSS Anker-Positionierungsmodul führt auch die `anchor-scope`-Eigenschaft ein. Derzeit unterstützt kein Browser diese Funktion.
+Das CSS-Ankerpositionierungsmodul führt auch die Eigenschaft `anchor-scope` ein. Derzeit unterstützen keine Browser dieses Feature.
 
-### At-Regeln und Deskriptoren
+### @-Regeln und Deskriptoren
 
 - {{cssxref("@position-try")}}
 
 ### Funktionen
 
-- [`anchor()`](/de/docs/Web/CSS/anchor)
-- [`anchor-size()`](/de/docs/Web/CSS/anchor-size)
+- [`anchor()`](/de/docs/Web/CSS/Reference/Values/anchor)
+- [`anchor-size()`](/de/docs/Web/CSS/Reference/Values/anchor-size)
 
 ### Datentypen und Werte
 
 - [`anchor-center`](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center)
-- [`<anchor-side>`](/de/docs/Web/CSS/anchor#anchor-side)
-- [`<anchor-size>`](/de/docs/Web/CSS/anchor-size#anchor-size)
-- [`<position-area>`](/de/docs/Web/CSS/position-area_value)
+- [`<anchor-side>`](/de/docs/Web/CSS/Reference/Values/anchor#anchor-side)
+- [`<anchor-size>`](/de/docs/Web/CSS/Reference/Values/anchor-size#anchor-size)
+- [`<position-area>`](/de/docs/Web/CSS/Reference/Values/position-area_value)
 - [`<try-size>`](/de/docs/Web/CSS/Reference/Properties/position-try-order#try-size)
 - [`<try-tactic>`](/de/docs/Web/CSS/Reference/Properties/position-try-fallbacks#try-tactic)
 
@@ -56,22 +56,22 @@ Das CSS Anker-Positionierungsmodul führt auch die `anchor-scope`-Eigenschaft ei
 
 ## Leitfäden
 
-- [Verwendung der CSS Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
-  - : Ein einführender Leitfaden zu grundlegenden Konzepten der Anker-Positionierung, einschließlich der Assoziierung, Positionierung und Größenanpassung von Elementen relativ zu ihrem Anker.
+- [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
+  - : Ein einführender Leitfaden zu grundlegenden Konzepten der Ankerpositionierung, einschließlich der Zuordnung, Positionierung und Größenanpassung von Elementen relativ zu ihrem Anker.
 
 - [Fallback-Optionen und bedingtes Ausblenden bei Überlauf](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
-  - : Ein Leitfaden zu den Mechanismen, die die CSS Anker-Positionierung bereitstellt, um zu verhindern, dass anker-positionierte Elemente ihre enthaltenen Elemente oder das Ansichtsfenster überlaufen, einschließlich Positions-Fallback-Optionen und bedingtem Ausblenden von Elementen.
+  - : Ein Leitfaden zu den Mechanismen, die die CSS-Ankerpositionierung bietet, um zu verhindern, dass ankerpositionierte Elemente ihre umliegenden Elemente oder das Ansichtsfenster überlaufen, einschließlich der Position-Try-Fallback-Optionen und des bedingten Ausblendens von Elementen.
 
 ## Verwandte Konzepte
 
-- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul:
+- [Modul für CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values):
   - {{cssxref("inset-block-start")}}
   - {{cssxref("inset-block-end")}}
   - {{cssxref("inset-inline-start")}}
   - {{cssxref("inset-inline-end")}}
   - {{cssxref("inset-block")}}
   - {{cssxref("inset-inline")}}
-  - {{cssxref("inset")}} Abkürzung
+  - {{cssxref("inset")}} Kurzform
   - {{cssxref("inline-size")}}
   - {{cssxref("min-block-size")}}
   - {{cssxref("min-inline-size")}}
@@ -84,13 +84,13 @@ Das CSS Anker-Positionierungsmodul führt auch die `anchor-scope`-Eigenschaft ei
   - {{cssxref("margin-inline")}}
   - {{cssxref("margin-inline-end")}}
   - {{cssxref("margin-inline-start")}}
-  - {{Glossary("Inset_properties", "Inset-Eigenschaften")}} Glossarbegriff
-- [CSS Positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul:
+  - {{Glossary("Inset_properties", "Glossarbegriff für Einfassungs-Eigenschaften")}}
+- [Modul für CSS-positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout):
   - {{cssxref("top")}}
   - {{cssxref("left")}}
   - {{cssxref("bottom")}}
   - {{cssxref("right")}}
-- [CSS Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul:
+- [Modul für CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model):
   - {{cssxref("width")}}
   - {{cssxref("height")}}
   - {{cssxref("min-width")}}
@@ -102,7 +102,7 @@ Das CSS Anker-Positionierungsmodul führt auch die `anchor-scope`-Eigenschaft ei
   - {{cssxref("margin-left")}}
   - {{cssxref("margin-right")}}
   - {{cssxref("margin-top")}}
-- [CSS Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul:
+- [Modul für CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment):
   - {{cssxref("align-items")}}
   - {{cssxref("align-self")}}
   - {{cssxref("justify-items")}}
@@ -116,7 +116,7 @@ Das CSS Anker-Positionierungsmodul führt auch die `anchor-scope`-Eigenschaft ei
 
 ## Siehe auch
 
-- [CSS Scrollverankerung](/de/docs/Web/CSS/CSS_scroll_anchoring) Modul
-- [Lernen: CSS Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)
-- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
-- [Lernen: Größenanpassung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing)
+- [Modul für CSS-Scroll-Ankerung](/de/docs/Web/CSS/CSS_scroll_anchoring)
+- [Lernen: CSS-Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)
+- [Modul für CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [Lernen: Größenanpassung in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing)

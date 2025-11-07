@@ -2,12 +2,12 @@
 title: CSSSkew
 slug: Web/API/CSSSkew
 l10n:
-  sourceCommit: ecc46f2c8d6e09f0aa6e1b3f5194abfcf462e603
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`CSSSkew`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) ist Teil der [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)-Schnittstelle. Sie repräsentiert den [`skew()`](/de/docs/Web/CSS/transform-function/skew)-Wert der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS.
+Das **`CSSSkew`**-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) ist Teil des [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)-Interfaces. Es repräsentiert den [`skew()`](/de/docs/Web/CSS/Reference/Values/transform-function/skew)-Wert der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS.
 
 {{InheritanceDiagram}}
 
@@ -19,13 +19,13 @@ Die **`CSSSkew`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/AP
 ## Instanz-Eigenschaften
 
 - [`ax`](/de/docs/Web/API/CSSSkew/ax)
-  - : Gibt den Wert der x-Achse zurück oder legt diesen fest.
+  - : Gibt den Wert der x-Achse zurück oder setzt ihn.
 - [`ay`](/de/docs/Web/API/CSSSkew/ay)
-  - : Gibt den Wert der y-Achse zurück oder legt diesen fest.
+  - : Gibt den Wert der y-Achse zurück oder setzt ihn.
 
 ## Beispiele
 
-To Do
+In Bearbeitung
 
 ## Spezifikationen
 

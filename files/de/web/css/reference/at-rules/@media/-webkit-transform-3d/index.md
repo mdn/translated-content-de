@@ -1,0 +1,62 @@
+---
+title: -webkit-transform-3d
+slug: Web/CSS/Reference/At-rules/@media/-webkit-transform-3d
+l10n:
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+---
+
+Das **`-webkit-transform-3d`** Boolean [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) ist eine [WebKit-Erweiterung](/de/docs/Web/CSS/Reference/Webkit_extensions), deren Wert `true` ist, wenn Vendor-Präfixierte CSS 3D {{cssxref("transform")}}s unterstützt werden.
+
+> [!NOTE]
+> Obwohl dieses Medien-Feature derzeit von den meisten [Browsern unterstützt wird](#browser-kompatibilität). Wenn möglich, verwenden Sie stattdessen eine {{cssxref("@supports")}}-Feature-Abfrage.
+
+## Syntax
+
+`-webkit-transform-3d` ist ein Boolean [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features), dessen Wert `true` ist, wenn der Browser `-webkit`-präfixierte CSS 3D {{cssxref("transform")}}s unterstützt.
+
+### Werte
+
+- `true`
+  - : Der Browser unterstützt die 3D-CSS-Transforms mit dem `-webkit`-Präfix und unterstützt nicht-standardspezifische, präfixierte Medienabfragen.
+- `false`
+  - : Die 3D-CSS-Transforms mit dem Präfix `-webkit` werden vom Browser nicht unterstützt.
+
+## Beispiele
+
+### Beispiele für Medienabfragen mit -webkit-transform-3d
+
+```css
+@media (-webkit-transform-3d) {
+  .foo {
+    transform-style: preserve-3d;
+  }
+}
+```
+
+Eine bessere Methode zur Überprüfung der Browser-Unterstützung ist die Verwendung einer Feature-Abfrage:
+
+```css
+@supports (transform-style) {
+  .foo {
+    transform-style: preserve-3d;
+  }
+}
+```
+
+## Spezifikationen
+
+{{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}
+
+## Siehe auch
+
+- {{cssxref("@media/-webkit-transform-2d", "-webkit-transform-2d")}}
+- {{cssxref("@media/-webkit-transition", "-webkit-transition")}}
+- {{cssxref("@media/-webkit-animation", "-webkit-animation")}}
+- [Testseite bei quirksmode.org](https://www.quirksmode.org/css/tests/mediaqueries/animation.html)
+- {{cssxref("transform")}} und [Verwendung von CSS-Transforms](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
+- {{cssxref("@media")}} und [Verwendung von Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- {{cssxref("@supports")}} und [Verwendung von Feature-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)

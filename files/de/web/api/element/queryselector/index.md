@@ -3,12 +3,12 @@ title: "Element: querySelector() Methode"
 short-title: querySelector()
 slug: Web/API/Element/querySelector
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{APIRef("DOM")}}
 
-Die **`querySelector()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt das erste Element zurück, das ein Nachkomme des Elements ist, auf dem sie aufgerufen wird und das mit der angegebenen Gruppe von Selektoren übereinstimmt.
+Die **`querySelector()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt das erste Element zurück, das ein Nachkomme des Elements ist, auf dem sie aufgerufen wurde und das mit der angegebenen Gruppe von Selektoren übereinstimmt.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ querySelector(selectors)
 ### Parameter
 
 - `selectors`
-  - : Ein String, der einen oder mehrere Selektoren enthält, die übereinstimmen sollen. Dieser String muss ein gültiger CSS-Selektor-String sein; andernfalls wird eine `SyntaxError`-Ausnahme ausgelöst.
+  - : Ein String, der einen oder mehrere Selektoren zur Übereinstimmung enthält. Dieser String muss ein gültiger CSS-Selektor-String sein; andernfalls wird eine `SyntaxError`-Ausnahme ausgelöst.
 
-    Beachten Sie, dass die HTML-Spezifikation nicht verlangt, dass Attributwerte gültige CSS-Bezeichner sind. Wenn ein Wert eines [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)- oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributs kein gültiger CSS-Bezeichner ist, müssen Sie ihn entweder durch Aufruf von [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) auf den Wert escapen oder eine der in [Zeichen escapen](/de/docs/Web/CSS/ident#escaping_characters) beschriebenen Techniken verwenden. Siehe [Attributwerte escapen](#attributwerte_escapen) für ein Beispiel.
+    Beachten Sie, dass die HTML-Spezifikation nicht verlangt, dass Attributwerte gültige CSS-Bezeichner sind. Wenn ein [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)- oder [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributwert kein gültiger CSS-Bezeichner ist, müssen Sie ihn vor der Verwendung in einem Selektor escapen, entweder indem Sie [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) auf den Wert anwenden oder eine der in [Zeichen escapen](/de/docs/Web/CSS/Reference/Values/ident#escaping_characters) beschriebenen Techniken verwenden. Siehe [Attributwerte escapen](#attributwerte_escapen) für ein Beispiel.
 
 ### Rückgabewert
 
-Das erste Nachkomme-Element von `baseElement`, das mit der angegebenen Gruppe von `selectors` übereinstimmt. Die gesamte Hierarchie der Elemente wird bei der Übereinstimmung berücksichtigt, einschließlich derjenigen außerhalb der Menge der Elemente, die `baseElement` und seine Nachkommen umfassen; mit anderen Worten, `selectors` wird zuerst auf das gesamte Dokument angewendet, nicht auf `baseElement`, um eine initiale Liste potenzieller Elemente zu erstellen. Die resultierenden Elemente werden dann untersucht, um festzustellen, ob sie Nachkommen von `baseElement` sind. Das erste Übereinstimmungselement dieser verbleibenden Elemente wird von der `querySelector()`-Methode zurückgegeben.
+Das erste Nachkommelement von `baseElement`, das mit der angegebenen Gruppe von `selectors` übereinstimmt. Die gesamte Hierarchie der Elemente wird bei der Übereinstimmung berücksichtigt, einschließlich derer außerhalb der Menge an Elementen, die `baseElement` und seine Nachkommen umfasst; mit anderen Worten, `selectors` wird zuerst auf das gesamte Dokument angewendet, nicht auf `baseElement`, um eine anfängliche Liste möglicher Elemente zu generieren. Die resultierenden Elemente werden dann überprüft, ob sie Nachkommen von `baseElement` sind. Das erste übereinstimmende dieser verbleibenden Elemente wird von der `querySelector()`-Methode zurückgegeben.
 
-Wenn keine Übereinstimmungen gefunden werden, lautet der zurückgegebene Wert `null`.
+Wenn keine Übereinstimmungen gefunden werden, ist der zurückgegebene Wert `null`.
 
 ### Ausnahmen
 
@@ -38,9 +38,9 @@ Wenn keine Übereinstimmungen gefunden werden, lautet der zurückgegebene Wert `
 
 Betrachten wir einige Beispiele.
 
-### Ein spezifisches Element mit bestimmten Attributwerten finden
+### Ein bestimmtes Element mit bestimmten Attributwerten finden
 
-In diesem ersten Beispiel wird das erste {{HTMLElement("style")}}-Element zurückgegeben, das entweder keinen Typ hat oder den Typ "text/css" im HTML-Dokumentkörper besitzt:
+In diesem ersten Beispiel wird das erste {{HTMLElement("style")}}-Element zurückgegeben, das entweder keinen Typ hat oder den Typ "text/css" im HTML-Dokumentkörper hat:
 
 ```js
 const el = document.body.querySelector(
@@ -48,9 +48,9 @@ const el = document.body.querySelector(
 );
 ```
 
-### Direkte Nachkommen mit der :scope-Pseudoklasse abrufen
+### Direkte Nachkommen mit der :scope Pseudo-Klasse abrufen
 
-Dieses Beispiel verwendet die {{cssxref(":scope")}}-Pseudoklasse, um direkte Kinder des `parentElement`-Elements abzurufen.
+Dieses Beispiel verwendet die {{cssxref(":scope")}} Pseudo-Klasse, um direkte Kinder des `parentElement`-Elements abzurufen.
 
 #### HTML
 
@@ -92,11 +92,11 @@ allChildren.forEach((item) => item.classList.add("red"));
 
 #### Ergebnis
 
-{{ EmbedLiveSample('Get_direct_descendants_using_the_scope_pseudo-class', 600, 160) }}
+{{EmbedLiveSample('Get_direct_descendants_using_the_scope_pseudo-class', 600, 160)}}
 
 ### Die gesamte Hierarchie zählt
 
-Dieses Beispiel zeigt, dass die Hierarchie des gesamten Dokuments bei der Anwendung von `selectors` berücksichtigt wird, sodass Ebenen außerhalb des angegebenen `baseElement` weiterhin berücksichtigt werden, wenn Übereinstimmungen gesucht werden.
+Dieses Beispiel zeigt, dass die gesamte Dokumentenhierarchie berücksichtigt wird, wenn `selectors` angewendet werden, sodass Ebenen außerhalb des angegebenen `baseElement` weiterhin in Betracht gezogen werden, um Übereinstimmungen zu finden.
 
 #### HTML
 
@@ -125,22 +125,21 @@ document.getElementById("output").textContent =
 
 #### Ergebnis
 
-Das Ergebnis sieht folgendermaßen aus:
+Das Ergebnis sieht wie folgt aus:
 
-{{ EmbedLiveSample('The_entire_hierarchy_counts', 600, 160) }}
+{{EmbedLiveSample('The_entire_hierarchy_counts', 600, 160)}}
 
-Beachten Sie, wie der `"div span"`-Selektor dennoch erfolgreich das
-{{HTMLElement("span")}}-Element findet, obwohl die Kindknoten des `baseElement` nicht das {{HTMLElement("div")}}-Element umfassen (es ist trotzdem Teil des angegebenen Selektors).
+Beachten Sie, wie der `"div span"`-Selektor immer noch erfolgreich das {{HTMLElement("span")}}-Element findet, obwohl die untergeordneten Knoten von `baseElement` das {{HTMLElement("div")}}-Element nicht enthalten (es ist immer noch Teil des angegebenen Selektors).
 
 ### Attributwerte escapen
 
-Dieses Beispiel zeigt, dass wenn ein HTML-Dokument eine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) enthält, die kein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) ist, wir den Attributwert escapen müssen, bevor wir ihn in `querySelector()` verwenden.
+Dieses Beispiel zeigt, dass, wenn ein HTML-Dokument eine [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) enthält, die kein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/Reference/Values/ident) ist, wir den Attributwert escapen müssen, bevor wir ihn in `querySelector()` verwenden.
 
 #### HTML
 
 Im folgenden Code hat ein {{htmlelement("div")}}-Element eine `id` von `"this?element"`, die kein gültiger CSS-Bezeichner ist, da das `"?"`-Zeichen in CSS-Bezeichnern nicht erlaubt ist.
 
-Wir haben auch drei Buttons und ein {{htmlelement("pre")}}-Element zur Protokollierung von Fehlern.
+Wir haben auch drei Buttons und ein {{htmlelement("pre")}}-Element zum Protokollieren von Fehlern.
 
 ```html
 <div id="container">
@@ -167,11 +166,11 @@ div {
 
 #### JavaScript
 
-Alle drei Buttons versuchen beim Klicken, das `<div>` auszuwählen und dann seine Hintergrundfarbe auf einen zufälligen Wert zu setzen.
+Alle drei Buttons versuchen beim Klicken, das `<div>`-Element zu selektieren und dann seine Hintergrundfarbe auf einen zufälligen Wert zu setzen.
 
-- Der erste Button verwendet den `"this?element"`-Wert direkt.
-- Der zweite Button escapet den Wert mit [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static).
-- Der dritte Button escapet das `"?"`-Zeichen explizit mit einem Backslash. Beachten Sie, dass wir auch den Backslash selbst escapen müssen, indem wir einen weiteren Backslash verwenden, so: `"\\?"`.
+- Der erste Button verwendet den Wert `"this?element"` direkt.
+- Der zweite Button escapt den Wert mit [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static).
+- Der dritte Button escapt das `"?"`-Zeichen explizit mit einem Backslash. Beachten Sie, dass wir auch den Backslash selbst escapen müssen, indem wir einen weiteren Backslash verwenden, wie: `"\\?"`.
 
 ```js
 const container = document.querySelector("#container");
@@ -208,13 +207,13 @@ document.querySelector("#manual-escape").addEventListener("click", () => {
 
 #### Ergebnis
 
-Beim Klicken auf den ersten Button wird ein Fehler angezeigt, während der zweite und dritte Button ordnungsgemäß funktionieren.
+Das Klicken auf den ersten Button führt zu einem Fehler, während der zweite und dritte Button ordnungsgemäß funktionieren.
 
 {{embedlivesample("escaping_attribute_values", "", 200)}}
 
 ### Weitere Beispiele
 
-Siehe [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) für zusätzliche Beispiele zur richtigen Formatierung der `selectors`.
+Siehe [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) für zusätzliche Beispiele des korrekten Formats für die `selectors`.
 
 ## Spezifikationen
 
@@ -226,9 +225,9 @@ Siehe [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) für
 
 ## Siehe auch
 
-- [Auswahl und Durchlaufen im DOM-Baum](/de/docs/Web/API/Document_Object_Model/Selection_and_traversal_on_the_DOM_tree)
+- [Selektion und Traversierung auf dem DOM-Baum](/de/docs/Web/API/Document_Object_Model/Selection_and_traversal_on_the_DOM_tree)
 - [Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) im CSS-Leitfaden
-- [Attributselektoren](/de/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors) im MDN Learning-Bereich
+- [Attributselektoren](/de/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors) im MDN-Lernbereich
 - [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll)
 - [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) und
   [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll)

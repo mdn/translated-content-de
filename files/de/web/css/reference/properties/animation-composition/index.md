@@ -2,10 +2,10 @@
 title: animation-composition
 slug: Web/CSS/Reference/Properties/animation-composition
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
-Die **`animation-composition`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, welche {{Glossary("composite_operation", "Kompositionsoperation")}} verwendet wird, wenn mehrere Animationen gleichzeitig dieselbe Eigenschaft beeinflussen.
+Die **`animation-composition`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt die {{Glossary("composite_operation", "Kompositionsoperation")}} an, die verwendet wird, wenn mehrere Animationen gleichzeitig dieselbe Eigenschaft beeinflussen.
 
 ## Syntax
 
@@ -29,22 +29,22 @@ animation-composition: unset;
 ```
 
 > [!NOTE]
-> Wenn Sie auf einer `animation-*` Eigenschaft mehrere durch Komma getrennte Werte angeben, werden diese in der Reihenfolge auf die Animationen angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Wenn die Anzahl der Animationen und Kompositionen unterschiedlich ist, werden die in der `animation-composition`-Eigenschaft aufgelisteten Werte zyklisch von der ersten bis zur letzten `animation-name`-Angabe wiederholt, bis alle Animationen einen zugewiesenen `animation-composition`-Wert haben. Weitere Informationen finden Sie unter [Festlegen mehrerer Animationswerteigenschaften](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere kommagetrennte Werte in einer `animation-*`-Eigenschaft angeben, werden diese in der Reihenfolge auf die Animationen angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Wenn die Anzahl der Animationen und Kompositionen unterschiedlich ist, werden die Werte, die in der `animation-composition`-Eigenschaft aufgeführt sind, von der ersten bis zur letzten `animation-name` durchlaufen, bis allen Animationen ein `animation-composition`-Wert zugewiesen wurde. Weitere Informationen finden Sie unter [Festlegen mehrerer Werte für Animationseigenschaften](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 ### Werte
 
 - `replace`
-  - : Der Effektwert überschreibt den zugrunde liegenden Wert der Eigenschaft. Dies ist der Standardwert.
+  - : Der Effektwert ersetzt den zugrundeliegenden Wert der Eigenschaft. Dies ist der Standardwert.
 - `add`
-  - : Der Effektwert baut auf dem zugrunde liegenden Wert der Eigenschaft auf. Diese Operation erzeugt einen additiven Effekt. Für Animationstypen, bei denen die Addition nicht kommutativ ist, erfolgt die Reihenfolge der Operanden vom zugrunde liegenden Wert gefolgt vom Effektwert.
+  - : Der Effektwert baut auf dem zugrundeliegenden Wert der Eigenschaft auf. Diese Operation erzeugt einen additiven Effekt. Für Animationstypen, bei denen die Additionsoperation nicht kommutativ ist, ist die Reihenfolge der Operanden der zugrundeliegende Wert gefolgt vom Effektwert.
 - `accumulate`
-  - : Der Effekt- und der zugrunde liegende Wert werden kombiniert. Für Animationstypen, bei denen die Addition nicht kommutativ ist, erfolgt die Reihenfolge der Operanden vom zugrunde liegenden Wert gefolgt vom Effektwert.
+  - : Die Effekt- und zugrundeliegenden Werte werden kombiniert. Für Animationstypen, bei denen die Additionsoperation nicht kommutativ ist, ist die Reihenfolge der Operanden der zugrundeliegende Wert gefolgt vom Effektwert.
 
 ## Beschreibung
 
-Jede Eigenschaft, die durch die [@keyframes](/de/docs/Web/CSS/@keyframes) at-Regel angesprochen wird, ist mit einem Effektstapel verbunden. Der Wert des Effektstapels wird durch die Kombination des _zugrunde liegenden Werts_ einer Eigenschaft in einer CSS-Stilregel mit dem _Effektwert_ dieser Eigenschaft im Keyframe berechnet. Die `animation-composition`-Eigenschaft hilft dabei, festzulegen, wie der zugrunde liegende Wert mit dem Effektwert kombiniert wird.
+Jede Eigenschaft, die von der [@keyframes](/de/docs/Web/CSS/Reference/At-rules/@keyframes)-At-Regel anvisiert wird, ist mit einem Effektstapel verbunden. Der Wert des Effektstapels wird berechnet, indem der _zugrundeliegende Wert_ einer Eigenschaft in einer CSS-Stilregel mit dem _Effektwert_ dieser Eigenschaft im Keyframe kombiniert wird. Die `animation-composition`-Eigenschaft hilft dabei zu spezifizieren, wie der zugrundeliegende Wert mit dem Effektwert kombiniert werden soll.
 
-Zum Beispiel wird im folgenden CSS `blur(5px)` als zugrunde liegender Wert und `blur(10px)` als Effektwert betrachtet. Die `animation-composition`-Eigenschaft gibt an, welche Operation durchgeführt wird, um den endgültigen Effektwert nach der Komposition des Effektwerts mit dem zugrunde liegenden Wert zu erzeugen.
+Zum Beispiel ist im folgenden CSS `blur(5px)` der zugrundeliegende Wert und `blur(10px)` ist der Effektwert. Die `animation-composition`-Eigenschaft gibt die Operation an, die ausgeführt werden soll, um den endgültigen Effektwert nach der Komposition des Effektwerts mit dem zugrundeliegenden Wert zu erhalten.
 
 ```css
 .icon:hover {
@@ -63,14 +63,14 @@ Zum Beispiel wird im folgenden CSS `blur(5px)` als zugrunde liegender Wert und `
 }
 ```
 
-Betrachten Sie unterschiedliche Werte der `animation-composition`-Eigenschaft im obigen Beispiel. Der endgültige Effektwert in jedem dieser Fälle wird wie unten erklärt berechnet:
+Betrachten Sie unterschiedliche Werte für die `animation-composition`-Eigenschaft im obigen Beispiel. Der endgültige Effektwert in jedem dieser Fälle wird wie folgt berechnet:
 
-- Mit `replace` wird `blur(10px)` `blur(5px)` im `0%`-Keyframe ersetzen. Dies ist das Standardverhalten der Eigenschaft.
+- Mit `replace` wird `blur(10px)` im `0%`-Keyframe `blur(5px)` ersetzen. Dies ist das Standardverhalten der Eigenschaft.
 - Mit `add` wird der zusammengesetzte Effektwert im `0%`-Keyframe `blur(5px) blur(10px)` sein.
 - Mit `accumulate` wird der zusammengesetzte Effektwert im `0%`-Keyframe `blur(15px)` sein.
 
 > [!NOTE]
-> Eine Kompositionsoperation kann auch in einem Keyframe angegeben werden. In diesem Fall wird die angegebene Kompositionsoperation zuerst für jede Eigenschaft innerhalb dieses Keyframes und dann auf jede Eigenschaft im nächsten Keyframe verwendet.
+> Eine Kompositionsoperation kann auch in einem Keyframe angegeben werden. In diesem Fall wird die angegebene Kompositionsoperation zuerst für jede Eigenschaft innerhalb dieses Keyframes verwendet und anschließend auf jede Eigenschaft im nächsten Keyframe angewendet.
 
 ## Formale Definition
 
@@ -84,7 +84,7 @@ Betrachten Sie unterschiedliche Werte der `animation-composition`-Eigenschaft im
 
 ### Verständnis der animation-composition-Werte
 
-Das folgende Beispiel zeigt den Effekt unterschiedlicher `animation-composition`-Werte nebeneinander.
+Das folgende Beispiel zeigt die Wirkung unterschiedlicher `animation-composition`-Werte nebeneinander.
 
 #### HTML
 
@@ -105,7 +105,7 @@ Das folgende Beispiel zeigt den Effekt unterschiedlicher `animation-composition`
 
 #### CSS
 
-Hier ist der zugrunde liegende Wert `translateX(50px) rotate(45deg)`.
+Hier ist der zugrundeliegende Wert `translateX(50px) rotate(45deg)`.
 
 ```css hidden
 .container {
@@ -161,9 +161,9 @@ Hier ist der zugrunde liegende Wert `translateX(50px) rotate(45deg)`.
 
 {{EmbedLiveSample("Reversing the animation direction","100%","250")}}
 
-- Mit `replace` ist der endgültige Effektwert für die `transform`-Eigenschaft im `20%, 40%`-Keyframe `translateX(100px)` (vollständiges Ersetzen des zugrunde liegenden Werts `translateX(30px) rotate(45deg)`). In diesem Fall dreht sich das Element von 45 Grad zu 0 Grad, während es von dem Standardwert, der auf das Element selbst eingestellt ist, zu dem nicht gedrehten Wert am 20%-Wert animiert wird. Dies ist das Standardverhalten.
-- Mit `add` ist der endgültige Effektwert für die `transform`-Eigenschaft im `20%, 40%`-Keyframe `translateX(30px) rotate(45deg) translateX(100px)`. Das Element wird also zuerst um 100px nach rechts verschoben, um 45 Grad um den Ursprung gedreht, und dann erneut um 30px nach rechts verschoben.
-- Mit `accumulate` ist der endgültige Effektwert im `20%, 40%`-Keyframe `translateX(130px) rotate(45deg)`. Das bedeutet, dass die beiden X-Achsen-Translationswerte von `30px` und `100px` kombiniert oder "akkumuliert" werden.
+- Mit `replace` ist der endgültige Effektwert für die `transform`-Eigenschaft im `20%, 40%`-Keyframe `translateX(100px)` (ersetzt vollständig den zugrundeliegenden Wert `translateX(30px) rotate(45deg)`). In diesem Fall dreht sich das Element von 45 Grad auf 0 Grad, wenn es sich von dem Standardwert des Elements selbst zum nicht-gedrehten Wert am 20%-Punkt bewegt. Dies ist das Standardverhalten.
+- Mit `add` ist der endgültige Effektwert für die `transform`-Eigenschaft im `20%, 40%`-Keyframe `translateX(30px) rotate(45deg) translateX(100px)`. Das Element wird also zuerst 100px nach rechts verschoben, um 45 Grad um den Ursprung gedreht und dann erneut um 30px nach rechts verschoben.
+- Mit `accumulate` ist der endgültige Effektwert im `20%, 40%`-Keyframe `translateX(130px) rotate(45deg)`. Das bedeutet, dass die beiden X-Achsen-Translationswerte `30px` und `100px` kombiniert oder "akkumuliert" werden.
 
 ## Spezifikationen
 
@@ -175,6 +175,6 @@ Hier ist der zugrunde liegende Wert `translateX(50px) rotate(45deg)`.
 
 ## Siehe auch
 
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
-- [Composite-Eigenschaft von KeyFrameEffect](/de/docs/Web/API/KeyframeEffect/composite)
-- Andere verwandte Animationseigenschaften: {{cssxref("animation")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-name")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}
+- [Verwenden von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [Zusammengesetzte Eigenschaft von KeyFrameEffect](/de/docs/Web/API/KeyframeEffect/composite)
+- Andere verwandte Animations-Eigenschaften: {{cssxref("animation")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-name")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}

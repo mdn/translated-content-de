@@ -2,14 +2,14 @@
 title: Verwendung von Datenattributen
 slug: Web/HTML/How_to/Use_data_attributes
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-HTML ist mit Blick auf die Erweiterbarkeit für Daten konzipiert, die mit einem bestimmten Element verknüpft sein sollen, aber keine definierte Bedeutung haben müssen. [`data-*` Attribute](/de/docs/Web/HTML/Reference/Global_attributes/data-*) ermöglichen es uns, zusätzliche Informationen in standardisierten, semantischen HTML-Elementen zu speichern, ohne auf andere Tricks wie nicht-standardisierte Attribute oder zusätzliche DOM-Eigenschaften zurückzugreifen.
+HTML ist mit dem Gedanken der Erweiterbarkeit für Daten konzipiert, die mit einem bestimmten Element verknüpft sein sollten, aber keine definierte Bedeutung haben müssen. [`data-*` Attribute](/de/docs/Web/HTML/Reference/Global_attributes/data-*) ermöglichen es uns, zusätzliche Informationen auf standardmäßigen, semantischen HTML-Elementen zu speichern, ohne auf andere Tricks wie nicht-standardisierte Attribute oder zusätzliche Eigenschaften auf dem DOM zurückgreifen zu müssen.
 
 ## HTML-Syntax
 
-Die Syntax ist einfach. Jedes Attribut an einem Element, dessen Attributname mit `data-` beginnt, ist ein Datenattribut. Angenommen, Sie haben einige Artikel und möchten einige zusätzliche Informationen speichern, die keine visuelle Darstellung haben. Verwenden Sie dafür einfach `data` Attribute:
+Die Syntax ist einfach. Jedes Attribut an einem Element, dessen Attributname mit `data-` beginnt, ist ein Datenattribut. Angenommen, Sie haben einige Artikel und möchten zusätzliche Informationen speichern, die keine visuelle Darstellung haben. Verwenden Sie hierfür einfach `data` Attribute:
 
 ```html
 <main>
@@ -41,9 +41,9 @@ Die Syntax ist einfach. Jedes Attribut an einem Element, dessen Attributname mit
 
 ## JavaScript-Zugriff
 
-Das Auslesen der Werte dieser Attribute in [JavaScript](/de/docs/Web/JavaScript) ist ebenfalls sehr einfach. Sie könnten [`getAttribute()`](/de/docs/Web/API/Element/getAttribute) mit ihrem vollständigen HTML-Namen verwenden, um sie zu lesen, aber der Standard definiert einen einfacheren Weg: ein [`DOMStringMap`](/de/docs/Web/API/DOMStringMap), das Sie über eine [`dataset`](/de/docs/Web/API/HTMLElement/dataset) Eigenschaft auslesen können.
+Das Auslesen der Werte dieser Attribute in [JavaScript](/de/docs/Web/JavaScript) ist ebenfalls sehr einfach. Sie könnten [`getAttribute()`](/de/docs/Web/API/Element/getAttribute) mit ihrem vollständigen HTML-Namen verwenden, um sie auszulesen, doch der Standard definiert einen einfacheren Weg: Ein [`DOMStringMap`](/de/docs/Web/API/DOMStringMap), den Sie über eine [`dataset`](/de/docs/Web/API/HTMLElement/dataset) Eigenschaft auslesen können.
 
-Um ein `data` Attribut über das `dataset` Objekt zu erhalten, greifen Sie über den Teil des Attributnamens nach `data-` darauf zu (beachten Sie, dass Bindestriche in {{Glossary("camel_case", "camel case")}} konvertiert werden).
+Um ein `data` Attribut über das `dataset` Objekt zu erhalten, greifen Sie auf die Eigenschaft mit dem Teil des Attributnamens nach `data-` zu (beachten Sie, dass Bindestriche in {{Glossary("camel_case", "Camel Case")}} umgewandelt werden).
 
 ```js
 const article = document.querySelector("#electric-cars");
@@ -57,7 +57,7 @@ article.dataset.parent; // "cars"
 
 Jede Eigenschaft ist ein String und kann gelesen und geschrieben werden. Im obigen Fall würde das Setzen von `article.dataset.columns = 5` dieses Attribut in `"5"` ändern.
 
-Sie können auch [`document.querySelector()`](/de/docs/Web/API/Document/querySelector) oder [`document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) mit Datenattribut-Selektoren verwenden, um ein Element oder alle Elemente zu finden, die übereinstimmen:
+Sie können auch [`document.querySelector()`](/de/docs/Web/API/Document/querySelector) oder [`document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) mit Datenattributselektoren verwenden, um ein Element oder alle Elemente zu finden, die übereinstimmen:
 
 ```js
 // Find all elements with a data-columns attribute
@@ -73,7 +73,7 @@ threeColumnArticles.forEach((article) => {
 
 ## CSS-Zugriff
 
-Beachten Sie, dass, da Datenattribute einfache HTML-Attribute sind, Sie sogar von [CSS](/de/docs/Web/CSS) darauf zugreifen können. Um zum Beispiel die übergeordneten Daten im Artikel anzuzeigen, können Sie [generierte Inhalte](/de/docs/Web/CSS/Reference/Properties/content) in CSS mit der [`attr()`](/de/docs/Web/CSS/attr) Funktion verwenden:
+Beachten Sie, dass aufgrund der Tatsache, dass Datenattribute normale HTML-Attribute sind, Sie auch von [CSS](/de/docs/Web/CSS) darauf zugreifen können. Um zum Beispiel die übergeordneten Daten beim Artikel anzuzeigen, können Sie mit der [generierten Inhalt](/de/docs/Web/CSS/Reference/Properties/content) in CSS die [`attr()`](/de/docs/Web/CSS/Reference/Values/attr) Funktion verwenden:
 
 ```css
 article::before {
@@ -81,7 +81,7 @@ article::before {
 }
 ```
 
-Sie können auch die [Attribut-Selektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) in CSS verwenden, um Stile entsprechend den Daten zu ändern:
+Sie können auch die [Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) in CSS nutzen, um Stile gemäß den Daten zu ändern:
 
 ```css
 article[data-columns="3"] {
@@ -92,13 +92,13 @@ article[data-columns="4"] {
 }
 ```
 
-Datenwerte sind Strings. Zahlenwerte müssen im Selektor für die Gestaltung in Anführungszeichen gesetzt werden.
+Datenwerte sind Strings. Zahlenwerte müssen im Selektor in Anführungszeichen gesetzt werden, damit die Stiländerung wirksam wird.
 
 ## Beispiele
 
 ### Stilvarianten
 
-Stellen Sie sich vor, Sie haben eine `callout` Klasse. Jetzt möchten Sie verschiedene Varianten implementieren, wie "note" und "warning". Traditionell verwenden Leute einfach unterschiedliche Klassennamen.
+Stellen Sie sich vor, Sie haben eine `callout` Klasse. Nun möchten Sie verschiedene Varianten wie "note" und "warning" implementieren. Traditionell verwenden die Leute einfach unterschiedliche Klassennamen.
 
 ```html
 <div class="callout callout--note">...</div>
@@ -124,7 +124,7 @@ Stellen Sie sich vor, Sie haben eine `callout` Klasse. Jetzt möchten Sie versch
 }
 ```
 
-Mit Datenattributen gibt es eine alternative Möglichkeit, die Sie in Betracht ziehen können:
+Mit Datenattributen gibt es eine Alternative, die Sie erwägen können:
 
 ```html live-sample___callout-data-attr
 <div class="callout">...</div>
@@ -158,24 +158,24 @@ Mit Datenattributen gibt es eine alternative Möglichkeit, die Sie in Betracht z
 
 {{EmbedLiveSample("callout-data-attr", "", "200")}}
 
-Es gibt mehrere Vorteile:
+Dies bietet mehrere Vorteile:
 
-- Es eliminiert viele ungültige Zustände, wie das Anwenden von `callout--note` ohne auch `callout` hinzuzufügen oder das gleichzeitige Anwenden mehrerer Varianten.
-- Ein separates `data-variant` Attribut ermöglicht statische Analyse für gültige Werte durch Linting oder Typprüfung.
+- Es eliminiert viele ungültige Zustände, wie das Anwenden von `callout--note` ohne gleichzeitiges Hinzufügen von `callout` oder das gleichzeitige Anwenden mehrerer Varianten.
+- Ein separates `data-variant` Attribut ermöglicht die statische Analyse auf gültige Werte durch Linting oder Typprüfung.
 - Das Umschalten der Variante ist intuitiver: Sie können `div.dataset.variant = "warning";` verwenden, anstatt die [`classList`](/de/docs/Web/API/Element/classList) zu manipulieren, was mehrere Schritte erfordert.
 
-### Verknüpfen beliebiger Daten mit DOM-Elementen
+### Beliebige Daten mit DOM-Elementen verknüpfen
 
-Viele Webanwendungen haben JavaScript-Daten als Quelle der Wahrheit für ihren UI-Zustand. In diesen Fällen fügen Sie nur HTML-Attribute hinzu, die für die Darstellung notwendig sind. Datenattribute sind nützlich in Fällen, in denen alles im Markup vorhanden ist und JavaScript nur zum Ereignishandling, zum Synchronisieren des Zustands usw. benötigt wird.
+Viele Web-Apps haben JavaScript-Daten als maßgebliche Quelle für ihren UI-Status. In diesen Fällen fügen Sie nur die für das Rendering erforderlichen HTML-Attribute hinzu. Datenattribute sind nützlich in Fällen, in denen alles im Markup vorhanden ist und JavaScript nur zum Eventhandling, für die Synchronisierung des Zustands usw. benötigt wird.
 
-Zum Beispiel in unserem [Karussell mit Scroll-Margin](/de/docs/Web/API/IntersectionObserver/scrollMargin#carousel_with_scroll_margin) Beispiel haben wir eine HTML-Seite, die bereits mit vielen `<img>` Elementen gefüllt ist. Die Bildquelle wird zunächst in `data-src` gespeichert, um zu verhindern, dass irgendeine Anfrage ausgelöst wird, und die tatsächliche `src` wird nur hinzugefügt, wenn das `<img>` ins Sichtfeld scrollt. Die Daten (Bildquelle) sind zusammen mit dem Element platziert, und JavaScript ist nur für die Festlegung des Verhaltens verantwortlich.
+Zum Beispiel, in unserem [Karussell mit Scroll-Margin](/de/docs/Web/API/IntersectionObserver/scrollMargin#carousel_with_scroll_margin) Beispiel haben wir eine HTML-Seite, die bereits mit vielen `<img>` Elementen gefüllt ist. Die Bildquelle wird zunächst in `data-src` gespeichert, um zu verhindern, dass Anforderungen ausgelöst werden, und der eigentliche `src` wird nur hinzugefügt, wenn das `<img>` ins Blickfeld scrollt. Die Daten (Bildquelle) sind dabei mit dem Element zusammengeführt, und das JavaScript ist nur dafür zuständig, das Verhalten zu definieren.
 
 ## Probleme
 
-Speichern Sie keine Inhalte, die sichtbar und zugänglich sein sollten, in Datenattributen, da unterstützende Technologie möglicherweise keinen Zugriff darauf hat. Darüber hinaus können Suchmaschinen-Crawler möglicherweise die Werte der Datenattribute nicht indizieren. Oftmals, wenn Sie beabsichtigen, dass das Datenattribut angezeigt wird, können Sie direkt [`textContent`](/de/docs/Web/API/Node/textContent) manipulieren.
+Speichern Sie keinen Inhalt, der sichtbar und zugänglich sein sollte, in Datenattributen, da unterstützende Technologien möglicherweise nicht darauf zugreifen können. Außerdem werden die Werte von Datenattributen möglicherweise nicht von Suchmaschinen-Crawlern indexiert. Wenn Sie nur möchten, dass das Datenattribut angezeigt wird, können Sie in vielen Fällen direkt [`textContent`](/de/docs/Web/API/Node/textContent) manipulieren.
 
 ## Siehe auch
 
-- Dieser Artikel ist angepasst von [Verwendung von Datenattributen in JavaScript und CSS auf hacks.mozilla.org](https://hacks.mozilla.org/2012/10/using-data-attributes-in-javascript-and-css/).
-- Benutzerdefinierte Attribute werden auch in SVG 2 unterstützt; siehe [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) und {{SVGAttr("data-*")}} für mehr Informationen.
-- [Anleitung zur Verwendung von HTML-Datenattributen](https://www.sitepoint.com/how-why-use-html5-custom-data-attributes/) (Sitepoint)
+- Dieser Artikel ist adaptiert von [Using data attributes in JavaScript and CSS on hacks.mozilla.org](https://hacks.mozilla.org/2012/10/using-data-attributes-in-javascript-and-css/).
+- Benutzerdefinierte Attribute werden auch in SVG 2 unterstützt; siehe [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) und {{SVGAttr("data-*")}} für weitere Informationen.
+- [How to use HTML data attributes](https://www.sitepoint.com/how-why-use-html5-custom-data-attributes/) (Sitepoint)

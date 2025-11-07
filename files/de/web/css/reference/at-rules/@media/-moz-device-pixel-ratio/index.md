@@ -1,0 +1,56 @@
+---
+title: -moz-device-pixel-ratio
+slug: Web/CSS/Reference/At-rules/@media/-moz-device-pixel-ratio
+l10n:
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+---
+
+{{Non-standard_header}} {{Deprecated_header}}
+
+Der Gecko-exklusive **`-moz-device-pixel-ratio`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um Styles basierend auf der Anzahl der Geräte-Pixel pro CSS-Pixel anzuwenden.
+
+> [!WARNING]
+> Verwenden Sie dieses Feature nicht. Verwenden Sie stattdessen das [`resolution`](/de/docs/Web/CSS/Reference/At-rules/@media/resolution) Feature mit der Einheit `dppx`.
+
+> [!NOTE]
+> Dieses Media-Feature wird auch von WebKit als `-webkit-device-pixel-ratio` implementiert. Die `min`- und `max`-Präfixe wie von Gecko implementiert heißen `min--moz-device-pixel-ratio` und `max--moz-device-pixel-ratio`; aber die gleichen Präfixe, wie sie von WebKit implementiert sind, heißen `-webkit-min-device-pixel-ratio` und `-webkit-max-device-pixel-ratio`.
+
+## Syntax
+
+- {{cssxref("&lt;number&gt;")}}
+  - : Die Anzahl der Geräte-Pixel pro CSS-Pixel.
+
+**Media:** {{cssxref("@media")}}
+**Unterstützt min/max Präfixe:** ja
+
+## Beispiele
+
+### Grundlegendes Kompatibilitätsbeispiel
+
+`-moz-device-pixel-ratio` kann für die Kompatibilität mit Firefox-Versionen älter als 16 verwendet werden und zusammen mit `-webkit-device-pixel-ratio` für die Kompatibilität mit WebKit-basierten Browsern, die `dppx` nicht unterstützen.
+
+Beispiel:
+
+```css
+/* First, set for WebKit-based browsers */
+@media (-webkit-min-device-pixel-ratio: 2),
+  (min--moz-device-pixel-ratio: 2) /* Older Firefox browsers (prior to firefox 16) */,
+  (min-resolution: 2dppx) /* The standard way */,
+  (min-resolution: 192dpi); /* dppx fallback */
+```
+
+> [!NOTE]
+> Lesen Sie diesen [CSSWG-Artikel](https://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/) für bewährte Praktiken bezüglich der Kompatibilität mit `resolution` und `dppx`.
+
+## Spezifikationen
+
+Nicht Teil eines Standards.
+
+## Browser-Kompatibilität
+
+{{Compat}}
+
+## Siehe auch
+
+- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [@media](/de/docs/Web/CSS/Reference/At-rules/@media)

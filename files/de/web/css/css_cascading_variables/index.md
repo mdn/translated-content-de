@@ -1,17 +1,17 @@
 ---
-title: CSS-Benutzerdefinierte Eigenschaften für kaskadierende Variablen
+title: CSS Benutzerdefinierte Eigenschaften für kaskadierende Variablen
 slug: Web/CSS/CSS_cascading_variables
 l10n:
-  sourceCommit: 55326f330a6ae829494c7606b1bd47b2c0f9d888
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das **CSS-Modul für benutzerdefinierte Eigenschaften kaskadierender Variablen** fügt Unterstützung für kaskadierende Variablen in CSS-Eigenschaften hinzu und ermöglicht es Ihnen, benutzerdefinierte Eigenschaften zu erstellen, um diese Variablen zusammen mit den Mechanismen zu definieren, die benutzerdefinierte Eigenschaften als Werte für andere CSS-Eigenschaften zu verwenden.
+Das **CSS-Modul für benutzerdefinierte Eigenschaften für kaskadierende Variablen** fügt Unterstützung für kaskadierende Variablen in CSS-Eigenschaften hinzu und ermöglicht Ihnen, benutzerdefinierte Eigenschaften zu erstellen, um diese Variablen zu definieren, sowie die Mechanismen, um benutzerdefinierte Eigenschaften als Werte für andere CSS-Eigenschaften zu verwenden.
 
-Beim Arbeiten mit CSS verwenden Sie oft projekt-spezifische Werte erneut, wie z.B. Breiten, die gut mit Ihrem Layout funktionieren, oder ein Farbschema. Eine Möglichkeit, Wiederholungen in Stylesheets zu verwalten, besteht darin, einen Wert einmal zu definieren und ihn an vielen Stellen zu verwenden. Benutzerdefinierte Eigenschaften ermöglichen es Ihnen, benutzerdefinierte Variablen zu erstellen und zu definieren, die wiederverwendet werden können, was komplexe oder repetitive Regeln vereinfacht und sie leichter lesbar und wartbar macht. Zum Beispiel sind `--dark-grey-text` und `--dark-background` leichter zu verstehen als hexadezimale Farben wie `#323831`, und der Kontext ihrer Verwendung wird ebenfalls deutlicher.
+Wenn Sie mit CSS arbeiten, verwenden Sie häufig projektübergreifende, spezifische Werte wieder, wie Breiten, die gut mit Ihrem Layout funktionieren, oder eine Reihe von Farben für Ihr Farbschema. Eine Möglichkeit, Wiederholungen in Stylesheets zu verwalten, besteht darin, einen Wert einmal zu definieren und ihn an vielen anderen Stellen zu verwenden. Benutzerdefinierte Eigenschaften ermöglichen es Ihnen, benutzerdefinierte Variablen zu erstellen und zu definieren, die wiederverwendet werden können, um komplexe oder sich wiederholende Regeln zu vereinfachen und ihre Lesbarkeit und Wartbarkeit zu verbessern. Zum Beispiel sind `--dark-grey-text` und `--dark-background` leichter verständlich als hexadezimale Farben wie `#323831`, und der Kontext ihrer Verwendung wird ebenfalls deutlicher.
 
 ## Benutzerdefinierte Eigenschaften in Aktion
 
-Um zu sehen, wie benutzerdefinierte Eigenschaften verwendet werden können, bewegen Sie den Eingabe-Schieberegler von links nach rechts.
+Um zu sehen, wie benutzerdefinierte Eigenschaften verwendet werden können, bewegen Sie den Eingaberegler von links nach rechts.
 
 ```html hidden
 <div class="container">
@@ -88,7 +88,7 @@ input {
 
 {{EmbedLiveSample("Benutzerdefinierte Eigenschaften in Aktion",600,160)}}
 
-In diesen Farbmustern wird die {{cssxref("background-color")}} mithilfe der {{cssxref("color_value/hsl", "hsl()")}}-{{cssxref("&lt;color&gt;")}}-Funktion als `hsl(var(--hue) 50% 50%)` gesetzt. Jedes Farbmuster erhöht den {{cssxref("hue")}}-Wert um 10 Grad, z.B. `calc(var(--hue) + 10)`, `calc(var(--hue) + 20)` usw. Wenn sich der Wert des Schiebereglers von 0 bis 360 ändert, wird der Wert der `--hue` [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) mithilfe von {{cssxref("calc")}} aktualisiert, und die Hintergrundfarbe jeder Box im Raster wird ebenfalls aktualisiert.
+In diesen Farbfeldern wird die {{cssxref("background-color")}} mit der {{cssxref("color_value/hsl", "hsl()")}} {{cssxref("&lt;color&gt;")}} Funktion als `hsl(var(--hue) 50% 50%)` gesetzt. Jedes Farbfeld erhöht den {{cssxref("hue")}}-Wert um 10 Grad wie `calc(var(--hue) + 10)`, `calc(var(--hue) + 20)` usw. Wenn der Wert des Reglers von 0 auf 360 ansteigt, wird der Wert der `--hue` [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) mithilfe von {{cssxref("calc")}} aktualisiert und die Hintergrundfarbe jeder Box im Raster wird ebenfalls aktualisiert.
 
 ## Referenz
 
@@ -102,16 +102,16 @@ In diesen Farbmustern wird die {{cssxref("background-color")}} mithilfe der {{cs
 
 ## Leitfäden
 
-- [Benutzerdefinierte CSS-Eigenschaften (Variablen) verwenden](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties)
-  - : Erklärt, wie man benutzerdefinierte Eigenschaften in CSS und JavaScript verwendet, mit Tipps zum Umgang mit undefinierten und ungültigen Werten, Fallbacks und Vererbung.
+- [Verwendung von CSS benutzerdefinierten Eigenschaften (Variablen)](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties)
+  - : Erklärt, wie man benutzerdefinierte Eigenschaften in CSS und JavaScript verwendet, mit Hinweisen zum Umgang mit undefinierten und ungültigen Werten, Fallbacks und Vererbung.
 
 - [Ungültige benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/CSS_syntax/Error_handling#invalid_custom_properties)
-  - : Erklärt, wie Browser Eigenschaftswerte behandeln, wenn der Wert einer benutzerdefinierten Eigenschaft ein ungültiger Datentyp für diese Eigenschaft ist.
+  - : Erklärt, wie Browser mit Eigenschaftswerten umgehen, wenn der Wert einer benutzerdefinierten Eigenschaft ein ungültiger Datentyp für diese Eigenschaft ist.
 
 ## Verwandte Konzepte
 
 - [CSS Properties and Values API](/de/docs/Web/CSS/CSS_properties_and_values_API) Modul
-  - [`@property`](/de/docs/Web/CSS/@property) At-Regel
+  - [`@property`](/de/docs/Web/CSS/Reference/At-rules/@property) At-Regel
   - [`CSS.registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) Methode
 
 ## Spezifikationen
@@ -120,7 +120,7 @@ In diesen Farbmustern wird die {{cssxref("background-color")}} mithilfe der {{cs
 
 ## Siehe auch
 
-- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
-- [CSS `env()`](/de/docs/Web/CSS/env) Funktion
-- [CSS `calc()`](/de/docs/Web/CSS/calc) Funktion
+- [CSS Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
+- [CSS `env()`](/de/docs/Web/CSS/Reference/Values/env) Funktion
+- [CSS `calc()`](/de/docs/Web/CSS/Reference/Values/calc) Funktion
 - [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue) Methode

@@ -1,27 +1,27 @@
 ---
-title: Verwendung von durch CSS generiertem Inhalt
-short-title: Verwendung generierter Inhalte
+title: CSS generierte Inhalte verwenden
+short-title: Generierte Inhalte verwenden
 slug: Learn_web_development/Howto/Solve_CSS_problems/Generated_content
 l10n:
-  sourceCommit: cac79d099b0a4e48456cb53eb2435f6acf03e188
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
-Dieser Artikel beschreibt einige Möglichkeiten, wie Sie CSS nutzen können, um Inhalt hinzuzufügen, wenn ein Dokument angezeigt wird. Sie ändern Ihr Stylesheet, um Textinhalte oder Bilder hinzuzufügen.
+Dieser Artikel beschreibt einige Möglichkeiten, wie Sie mit CSS Inhalte hinzufügen können, wenn ein Dokument angezeigt wird. Sie ändern Ihr Stylesheet, um Textinhalte oder Bilder hinzuzufügen.
 
-Ein wesentlicher Vorteil von CSS ist, dass es Ihnen hilft, den Stil eines Dokuments von seinem Inhalt zu trennen. Es gibt jedoch Situationen, in denen es sinnvoll ist, bestimmten Inhalt als Teil des Stylesheets anzugeben und nicht als Teil des Dokuments. Sie können Text- oder Bildinhalte innerhalb eines Stylesheets angeben, wenn dieser Inhalt eng mit der Struktur des Dokuments verbunden ist.
+Ein wichtiger Vorteil von CSS ist, dass es Ihnen hilft, das Design eines Dokuments von seinem Inhalt zu trennen. In bestimmten Situationen macht es jedoch Sinn, bestimmte Inhalte als Teil des Stylesheets und nicht als Teil des Dokuments anzugeben. Sie können Text- oder Bildinhalte innerhalb eines Stylesheets angeben, wenn dieser Inhalt eng mit der Struktur des Dokuments verknüpft ist.
 
 > [!NOTE]
-> Inhalt, der in einem Stylesheet angegeben wird, wird nicht Teil des DOM.
+> Inhalte, die in einem Stylesheet angegeben sind, werden nicht Teil des DOM.
 
-Das Angeben von Inhalt in einem Stylesheet kann zu Komplikationen führen. Zum Beispiel könnten Sie verschiedene Sprachversionen Ihres Dokuments haben, die ein Stylesheet gemeinsam nutzen. Wenn Sie Inhalte in Ihrem Stylesheet angeben, die übersetzt werden müssen, müssen Sie diese Teile Ihres Stylesheets in verschiedenen Dateien ablegen und dafür sorgen, dass sie mit den entsprechenden Sprachversionen Ihres Dokuments verknüpft werden.
+Die Angabe von Inhalten in einem Stylesheet kann zu Komplikationen führen. Zum Beispiel könnten Sie verschiedene Sprachversionen Ihres Dokuments haben, die ein Stylesheet teilen. Wenn Sie Inhalte in Ihrem Stylesheet angeben, die eine Übersetzung erfordern, müssen Sie diese Teile Ihres Stylesheets in verschiedene Dateien aufteilen und sicherstellen, dass sie mit den entsprechenden Sprachversionen Ihres Dokuments verknüpft sind.
 
-Dieses Problem tritt nicht auf, wenn der angegebene Inhalt aus Symbolen oder Bildern besteht, die in allen Sprachen und Kulturen verwendet werden können.
+Dieses Problem tritt nicht auf, wenn die von Ihnen angegebenen Inhalte aus Symbolen oder Bildern bestehen, die in allen Sprachen und Kulturen anwendbar sind.
 
 ## Beispiele
 
-### Textinhalt
+### Textinhalte
 
-CSS kann Textinhalte vor oder nach einem Element einfügen oder den Inhalt des Listenpositionsmarkers (wie ein Aufzählungszeichen oder eine Zahl) vor einem {{HTMLElement('li')}} oder einem anderen Element mit {{ cssxref("display", "display: list-item;") }} ändern. Um dies festzulegen, erstellen Sie eine Regel und fügen {{ cssxref("::before") }}, {{ cssxref("::after") }}, oder {{cssxref("::marker")}} zum Selektor hinzu. In der Deklaration geben Sie die {{ cssxref("content") }}-Eigenschaft mit dem Textinhalt als Wert an.
+CSS kann Textinhalte vor oder nach einem Element einfügen oder den Inhalt eines Listenelementsymbols (wie z. B. ein Aufzählungspunkt oder eine Nummer) vor einem {{HTMLElement('li')}} oder einem anderen Element mit {{ cssxref("display", "display: list-item;") }} ändern. Um dies anzugeben, erstellen Sie eine Regel und fügen Sie {{ cssxref("::before") }}, {{ cssxref("::after") }} oder {{cssxref("::marker")}} dem Selektor hinzu. Geben Sie in der Deklaration die {{ cssxref("content") }}-Eigenschaft mit dem Textinhalt als Wert an.
 
 #### HTML
 
@@ -43,15 +43,15 @@ A text where I need to <span class="ref">something</span>
 
 {{ EmbedLiveSample('Text_content', 600, 30) }}
 
-Der Zeichensatz eines Stylesheets ist standardmäßig UTF-8, kann aber auch im Link, im Stylesheet selbst oder auf andere Weise angegeben werden. Für Details siehe das [`@charset`](/de/docs/Web/CSS/@charset)-Referenzdokument.
+Der Zeichensatz eines Stylesheets ist standardmäßig UTF-8, kann jedoch auch im Link, im Stylesheet selbst oder auf andere Weise angegeben werden. Für Details siehe die [`@charset`](/de/docs/Web/CSS/Reference/At-rules/@charset) Referenz.
 
-Einzelne Zeichen können auch durch einen Escape-Mechanismus angegeben werden, der den Backslash als Escape-Zeichen verwendet. Zum Beispiel ist "\265B" das Schachsymbol für eine schwarze Dame ♛.
+Einzelne Zeichen können auch durch einen Escape-Mechanismus angegeben werden, der Backslash als Escape-Zeichen verwendet. Zum Beispiel ist "\265B" das Schachsymbol für eine schwarze Dame ♛.
 
-### Bildinhalt
+### Bildinhalte
 
 Um ein Bild vor oder nach einem Element hinzuzufügen, können Sie die URL einer Bilddatei im Wert der {{ cssxref("content") }}-Eigenschaft angeben.
 
-Diese Regel fügt ein Leerzeichen und ein Icon nach jedem Link hinzu, der die Klasse `glossary` hat:
+Diese Regel fügt ein Leerzeichen und ein Symbol nach jedem Link hinzu, der die Klasse `glossary` hat:
 
 #### HTML
 

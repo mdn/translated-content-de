@@ -2,54 +2,39 @@
 title: :heading()
 slug: Web/CSS/Reference/Selectors/:heading_function
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: be8baea744a06feac9320a19eb9446ff1955af76
 ---
 
 {{SeeCompatTable}}
 
-Die **`:heading()`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) Funktion repräsentiert alle [Heading-Elemente](/de/docs/Web/HTML/Reference/Elements/Heading_Elements), die einen durch die `An+B`-Notation berechneten Wert erfüllen. Dies ermöglicht es Ihnen, Elemente auf spezifischen Überschriftsebenen auf einmal zu stylen, anstatt sie einzeln zuzuweisen und zu gestalten.
+Die **`:heading()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) Funktion repräsentiert alle [Überschriftselemente](/de/docs/Web/HTML/Reference/Elements/Heading_Elements), deren Ebenen mit einer durch Kommas getrennten Liste von ganzen Zahlen übereinstimmen. Dies ermöglicht es, Elemente auf bestimmten Überschriftsebenen gleichzeitig zu stylen, anstatt sie einzeln zu matchen und zu stylen.
 
 > [!NOTE]
-> Die `:heading()` funktionale Pseudo-Klasse hat dieselbe [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity#how_is_specificity_calculated) wie ein Klassenselektor, das heißt, `0-1-0`. So hätte `:heading()` eine Spezifität von `0-1-0`, und `section:heading()` hätte eine Spezifität von `0-1-1`.
+> Die `:heading()` funktionale Pseudoklasse hat die gleiche [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity#how_is_specificity_calculated) wie ein Klassenselektor, das heißt, `0-1-0`. Zum Beispiel hat `section:heading()` eine Spezifität von `0-1-1`.
 
 ## Syntax
 
 ```css-nolint
-:heading([ <An+B> [, <An+B>]* | even | odd ]) {
+:heading( <integer># ) {
   /* ... */
 }
 ```
 
 ### Parameter
 
-Die `:heading()` Pseudoklassen-Funktion nimmt eine durch Kommata getrennte Liste von `An+B`-Ausdrücken oder Schlüsselwortwerten, die ein Muster für das Matching von Heading-Elementen beschreiben.
+Die `:heading()` Pseudoklassen-Funktion nimmt eine durch Kommas getrennte Liste von {{cssxref("&lt;integer&gt;")}}s, die die zu stylenden Überschriftsebenen darstellen.
 
-#### Schlüsselwortwerte
+## Anwendungshinweise
 
-- `odd`
-  - : Repräsentiert die Heading-Elemente, deren numerische Position ungerade ist: `<h1>`, `<h3>` und `<h5>`.
-- `even`
-  - : Repräsentiert die Heading-Elemente, deren numerische Position gerade ist: `<h2>`, `<h4>` und `<h6>`.
+Die `:heading()` funktionale Pseudoklasse matched nur Elemente, die semantisch als Überschriften anerkannt sind. Sie matched keine Elemente, die die Attribute [`role="heading"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/heading_role) oder ['aria-level'](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level) verwenden.
 
-#### Funktionale Notation
-
-- `<An+B>`
-  - : Repräsentiert die Heading-Elemente, deren numerische Position das Muster `An+B` erfüllt, für jeden positiven ganzzahligen oder Nullwert von `n`, wobei:
-    - `A` ist eine ganze Zahl als Schrittgröße,
-    - `B` ist eine ganze Zahl als Offset,
-    - `n` sind alle nicht-negativen ganzen Zahlen, beginnend bei 0.
-
-    Es kann als das `An+B`-te Element einer Liste gelesen werden. `A` und `B` müssen beide {{cssxref("&lt;integer&gt;")}} Werte haben.
-
-## Nutzungshinweise
-
-Die `:heading()` funktionale Pseudo-Klasse matched nur Elemente, die semantisch als Überschriften erkannt werden. Sie matched keine Elemente mit einem [`role="heading"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/heading_role) Attribut und berücksichtigt auch nicht das ['aria-level'](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level) ARIA-Attribut.
+Die von `:heading()` verwendete Überschriftsebene kann sich von einem [Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) eines Elements unterscheiden, in Fällen, in denen der Browser eine andere exponierte Überschriftsebene berechnet. Zum Beispiel wird `h1:heading(3)` jedes `<h1>` Element matchen, das als Überschrift der Ebene 3 exponiert ist.
 
 ## Beispiele
 
-### Verwendung von Schlüsselwortparametern
+### Auswahl spezifischer Überschriftsebenen
 
-In diesem Beispiel entspricht das Schlüsselwort `odd` den Überschriften mit ungeraden Ebenen, die `<h1>` und `<h3>` sind. Das Schlüsselwort `even` wird verwendet, um gerade Überschriftsebenen, `<h2>` und `<h4>`, anzuvisieren.
+In diesem Beispiel wird eine durch Kommas getrennte Liste von Werten verwendet, um Überschriften mit ungeraden Nummern (`<h1>` und `<h3>`) und geraden Nummern (`<h2>` und `<h4>`) zu targetieren.
 
 ```html
 <h1>Heading 1</h1>
@@ -59,61 +44,15 @@ In diesem Beispiel entspricht das Schlüsselwort `odd` den Überschriften mit un
 ```
 
 ```css
-:heading(odd) {
+:heading(1, 3) {
   color: tomato;
 }
-:heading(even) {
+:heading(2, 4) {
   color: slateblue;
 }
 ```
 
-{{EmbedLiveSample("Keyword_example", "", "215")}}
-
-### Verwendung der `An+B`-Notation
-
-```html
-<h1>Science</h1>
-<h2>Physics</h2>
-<h3>Atomic, molecular, and optical physics</h3>
-<h4>Optical physics</h4>
-<h5>X-Rays</h5>
-<h6>Discovery</h6>
-```
-
-```css hidden
-main {
-  display: flex;
-  justify-content: space-around;
-}
-```
-
-```css
-/* Targets headings <h3> and <h4> */
-:heading(3, 4) {
-  font-weight: 100;
-}
-/* Targets headings in reverse starting from <h3> */
-:heading(-n + 3) {
-  color: tomato;
-}
-/* Targets every third heading starting from <h1> */
-:heading(3n + 1) {
-  font-style: italic;
-}
-/* Targets headings after level 5 */
-:heading(n + 5) {
-  color: slateblue;
-}
-```
-
-In diesem Beispiel:
-
-- `:heading(3, 4)` matched die `<h3>` und `<h4>` Elemente
-- `:heading(-n + 3)` matched Überschriftselemente rückwärts, also `<h3>`, `<h2>`, und `<h1>`
-- `:heading(3n + 1)` matched jedes dritte (`3n`) Überschriftselement beginnend mit `<h1>`, also würden `<h1>` und `<h4>` eingeschlossen sein
-- `:heading(n + 5)` matched Überschriftselemente beginnend mit `<h5>` und wird `<h6>` einschließen
-
-{{EmbedLiveSample("Functional_notation_example", "", "292")}}
+{{EmbedLiveSample("selecting_specific_heading_levels", "", "215")}}
 
 ## Spezifikationen
 
@@ -125,4 +64,4 @@ In diesem Beispiel:
 
 ## Siehe auch
 
-- {{CSSXRef(":heading")}}
+- [`:heading`](/de/docs/Web/CSS/Reference/Selectors/:heading)

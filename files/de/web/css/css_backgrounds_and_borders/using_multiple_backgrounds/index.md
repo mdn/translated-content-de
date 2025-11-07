@@ -2,16 +2,16 @@
 title: Verwendung mehrerer Hintergründe
 slug: Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds
 l10n:
-  sourceCommit: 39a17e10bc078c6e76717683b26a5b20d9d9c574
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Sie können **mehrere Hintergründe** auf Elemente anwenden. Diese werden übereinander geschichtet, wobei der erste von Ihnen angegebene Hintergrund oben liegt und der zuletzt aufgeführte Hintergrund im Hintergrund ist. Nur der letzte Hintergrund kann eine Hintergrundfarbe enthalten.
+Sie können **mehrere Hintergründe** auf Elemente anwenden. Diese werden übereinander geschichtet, wobei der erste von Ihnen angegebene Hintergrund oben liegt und der letzte im Hintergrund. Nur der letzte Hintergrund kann eine Hintergrundfarbe enthalten.
 
-Mehrere Hintergründe werden als kommagetrennte Liste angegeben, wie zum Beispiel `background: hintergrund1, hintergrund2, ...;`. Diese Syntax wird sowohl von der Kurzform der {{cssxref("background")}}-Eigenschaft als auch von deren einzelnen Eigenschaften akzeptiert, mit Ausnahme von {{cssxref("background-color")}}: {{cssxref("background-attachment")}}, {{cssxref("background-clip")}}, {{cssxref("background-image")}}, {{cssxref("background-origin")}}, {{cssxref("background-position")}}, {{cssxref("background-repeat")}}, {{cssxref("background-size")}}.
+Mehrere Hintergründe werden als kommagetrennte Liste angegeben, zum Beispiel `background: background1, background2, ...;`. Diese Syntax wird sowohl von der Kurzform {{cssxref("background")}} als auch von den einzelnen Eigenschaften, außer {{cssxref("background-color")}}, akzeptiert: {{cssxref("background-attachment")}}, {{cssxref("background-clip")}}, {{cssxref("background-image")}}, {{cssxref("background-origin")}}, {{cssxref("background-position")}}, {{cssxref("background-repeat")}}, {{cssxref("background-size")}}.
 
 ## Beispiel
 
-In diesem Beispiel sind drei Hintergründe gestapelt: das Firefox-Logo, ein Bild von Blasen und ein [lineares Gradientenbild](/de/docs/Web/CSS/gradient/linear-gradient):
+In diesem Beispiel werden drei Hintergründe geschichtet: das Firefox-Logo, ein Bild von Blasen und ein [linearer Gradient](/de/docs/Web/CSS/Reference/Values/gradient/linear-gradient):
 
 ### HTML
 
@@ -40,9 +40,9 @@ In diesem Beispiel sind drei Hintergründe gestapelt: das Firefox-Logo, ein Bild
 
 {{EmbedLiveSample('Example','600','400')}}
 
-Wie Sie hier sehen können, ist das Firefox-Logo (zuerst innerhalb von {{ cssxref("background-image") }} aufgeführt) oben, direkt über dem Blasenbild, gefolgt vom Gradienten (zuletzt aufgeführt), der unterhalb aller vorhergehenden 'Bilder' liegt. Jede nachfolgende Untereigenschaft ({{ cssxref("background-repeat") }} und {{ cssxref("background-position") }}) gilt für die entsprechenden Hintergründe. Der zuerst aufgeführte Wert für {{ cssxref("background-repeat") }} gilt also für den ersten (vordersten) Hintergrund, und so weiter.
+Wie Sie hier sehen können, befindet sich das Firefox-Logo (an erster Stelle innerhalb von {{ cssxref("background-image") }} aufgeführt) oben, direkt über der Blasengrafik, gefolgt von dem Farbverlauf (als letztes aufgeführt), der unter allen vorhergehenden 'Bildern' liegt. Jede nachfolgende Untereigenschaft ({{ cssxref("background-repeat") }} und {{ cssxref("background-position") }}) gilt für die entsprechenden Hintergründe. Somit gilt der erste aufgeführte Wert von {{ cssxref("background-repeat") }} für den ersten (vordersten) Hintergrund und so weiter.
 
 ## Siehe auch
 
 - [Verwendung von CSS-Gradienten](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
-- [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- Modul [CSS-Hintergründe und -Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders)

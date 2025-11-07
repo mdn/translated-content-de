@@ -2,23 +2,23 @@
 title: animation-timeline
 slug: Web/CSS/Reference/Properties/animation-timeline
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Die **`animation-timeline`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Zeitleiste, die verwendet wird, um den Fortschritt einer CSS-Animation zu steuern.
+Die **`animation-timeline`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Zeitleiste fest, die verwendet wird, um den Fortschritt einer CSS-Animation zu steuern.
 
 Die folgenden Arten von Zeitleisten können über `animation-timeline` festgelegt werden:
 
-- Die Standard-Dokumentzeitleiste, die durch den Zeitverlauf seit dem ersten Laden des Dokuments im Browser vorangetrieben wird. Dies ist die Zeitleiste, die üblicherweise mit CSS-Animationen verbunden wird und mit einem Wert von `auto` ausgewählt wird oder indem überhaupt kein `animation-timeline` Wert angegeben wird.
-- Eine _Scroll-Fortschritt-Zeitleiste_, die durch Scrollen eines scrollbaren Elements (_Scroller_) zwischen oben und unten (oder links und rechts) vorangetrieben wird. Die Position im Scrollbereich wird in einen Prozentsatz des Fortschritts umgewandelt — 0% am Anfang und 100% am Ende. Das Element, das die Scroll-Fortschritts-Zeitleiste bereitstellt, kann auf zwei Arten spezifiziert werden:
-  - Eine _benannte Scroll-Fortschritt-Zeitleiste_ ist eine, bei der der Scroller, der die Scroll-Fortschritts-Zeitleiste bereitstellt, explizit unter Verwendung der {{cssxref("scroll-timeline-name")}} Eigenschaft (oder der {{cssxref("scroll-timeline")}} Kurzbeschreibung) benannt wird. Der Name wird dann mit dem zu animierenden Element verknüpft, indem er als Wert der `animation-timeline` Eigenschaft dieses Elements angegeben wird.
-  - Eine _anonyme Scroll-Fortschritt-Zeitleiste_ ist eine, bei der das zu animierende Element eine {{cssxref("animation-timeline/scroll", "scroll()")}} Funktion als `animation-timeline` Wert erhält, die den Scroller auswählt, der die Scroll-Fortschritts-Zeitleiste bereitstellt, und die zu verwendende Scrollachse basierend auf den übergebenen Argumenten auswählt.
-- Eine _View-Fortschritt-Zeitleiste_, die basierend auf der Änderung der Sichtbarkeit eines Elements (bekannt als _Subjekt_) innerhalb eines Scrollers vorangetrieben wird. Die Sichtbarkeit des Subjekts innerhalb des Scrollers wird verfolgt — standardmäßig ist die Zeitleiste bei 0%, wenn das Subjekt erstmals an einem Rand des Scrollers sichtbar ist und bei 100%, wenn es den gegenüberliegenden Rand erreicht. Anders als bei Scroll-Fortschritts-Zeitleisten kann der Scroller nicht spezifiziert werden — die Sichtbarkeit des Subjekts wird immer innerhalb seines nächstgelegenen Vorfahren-Scrollers verfolgt. Das Subjekt, das die View-Fortschritt-Zeitleiste bereitstellt, kann auf zwei Arten spezifiziert werden:
-  - Eine _benannte View-Fortschritt-Zeitleiste_ ist eine, bei der das Subjekt explizit unter Verwendung der {{cssxref("view-timeline-name")}} Eigenschaft (oder der {{cssxref("view-timeline")}} Kurzbeschreibung) benannt wird. Der Name wird dann mit dem zu animierenden Element verknüpft, indem er als Wert der `animation-timeline` Eigenschaft dieses Elements angegeben wird. Dies ist ein wichtiger Punkt — bei benannten View-Fortschritt-Zeitleisten muss das zu animierende Element nicht dasselbe wie das Subjekt sein.
-  - Eine _anonyme View-Fortschritt-Zeitleiste_ ist eine, bei der dem Subjekt eine {{cssxref("animation-timeline/view", "view()")}} Funktion als `animation-timeline` Wert gegeben wird, wodurch das Subjekt basierend auf seiner Position innerhalb seines nächstgelegenen Elternscrollers animiert wird.
+- Die Standard-Dokument-Zeitleiste, die durch das Verstreichen der Zeit seit dem ersten Laden des Dokuments im Browser voranschreitet. Dies ist die Zeitleiste, die traditionell mit CSS-Animationen in Verbindung gebracht wird und mit einem Wert von `auto` ausgewählt wird oder indem kein `animation-timeline` Wert angegeben wird.
+- Eine _Scroll-Fortschritts-Zeitleiste_, die durch das Scrollen eines scrollbaren Elements (_Scroller_) zwischen oben und unten (oder links und rechts) voranschreitet. Die Position im Scrollbereich wird in einen Prozentsatz des Fortschritts umgewandelt — 0% am Anfang und 100% am Ende. Das Element, das die Scroll-Fortschritts-Zeitleiste bereitstellt, kann auf zwei Arten spezifiziert werden:
+  - Eine _benannte Scroll-Fortschritts-Zeitleiste_ ist eine, bei der der Scroller, der die Scroll-Fortschritts-Zeitleiste bereitstellt, explizit mit der Eigenschaft {{cssxref("scroll-timeline-name")}} (oder der Kurzform-Eigenschaft {{cssxref("scroll-timeline")}}) benannt wird. Der Name wird dann dem zu animierenden Element zugeordnet, indem er als Wert der `animation-timeline` Eigenschaft dieses Elements angegeben wird.
+  - Eine _anonyme Scroll-Fortschritts-Zeitleiste_ ist eine, bei der das zu animierende Element eine {{cssxref("animation-timeline/scroll", "scroll()")}} Funktion als `animation-timeline` Wert erhält, die den Scroller auswählt, der die Scroll-Fortschritts-Zeitleiste bereitstellt und die zu verwendende Scrollachse basierend auf den übergebenen Argumenten bestimmt.
+- Eine _View-Fortschritts-Zeitleiste_, die auf der Veränderung der Sichtbarkeit eines Elements (bekannt als _Subject_) in einem Scroller basiert. Die Sichtbarkeit des Subjects im Scroller wird verfolgt — standardmäßig befindet sich die Zeitleiste bei 0%, wenn das Subject zum ersten Mal an einem Rand des Scrollers sichtbar ist, und bei 100%, wenn es den gegenüberliegenden Rand erreicht. Im Gegensatz zu den Scroll-Fortschritts-Zeitleisten können Sie den Scroller nicht festlegen — die Sichtbarkeit des Subjects wird immer innerhalb seines nächsten Vorfahren-Scrollers verfolgt. Das Subject, das die View-Fortschritts-Zeitleiste bereitstellt, kann auf zwei Arten spezifiziert werden:
+  - Eine _benannte View-Fortschritts-Zeitleiste_ ist eine, bei der das Subject explizit mit der Eigenschaft {{cssxref("view-timeline-name")}} (oder der Kurzform-Eigenschaft {{cssxref("view-timeline")}}) benannt wird. Der Name wird dann dem zu animierenden Element zugeordnet, indem er als Wert der `animation-timeline` Eigenschaft dieses Elements angegeben wird. Dies ist ein wichtiger Punkt — bei benannten View-Fortschritts-Zeitleisten muss das zu animierende Element nicht mit dem Subject identisch sein.
+  - Eine _anonyme View-Fortschritts-Zeitleiste_ ist eine, bei der das Subject eine {{cssxref("animation-timeline/view", "view()")}} Funktion als `animation-timeline` Wert erhält, was dazu führt, dass es basierend auf seiner Position innerhalb seines nächstliegenden Eltern-Scrollers animiert wird.
 
 > [!NOTE]
-> `animation-timeline` ist in der {{cssxref("animation")}} Kurzbeschreibung als nur-zurücksetzbarer Wert enthalten. Dies bedeutet, dass das Einbeziehen von `animation` einen zuvor deklarierten `animation-timeline` Wert auf `auto` zurücksetzt, aber ein spezifischer Wert nicht über `animation` gesetzt werden kann. Wenn Sie [CSS Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) erstellen, müssen Sie `animation-timeline` deklarieren, nachdem Sie eine beliebige `animation` Kurzbeschreibung deklariert haben, damit es wirksam wird.
+> `animation-timeline` ist als ein Wert, der nur zurückgesetzt wird, in der {{cssxref("animation")}} Kurzform enthalten. Das bedeutet, dass das Einfügen von `animation` einen zuvor deklarierten `animation-timeline` Wert auf `auto` zurücksetzt, aber ein spezifischer Wert kann nicht über `animation` gesetzt werden. Beim Erstellen von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) müssen Sie `animation-timeline` nach jeder `animation` Kurzform deklarieren, damit es wirksam wird.
 
 <!-- {{EmbedInteractiveExample("pages/css/animation-name.html")}} -->
 
@@ -55,46 +55,47 @@ animation-timeline: unset;
 ### Werte
 
 - `none`
-  - : Die Animation ist keiner Zeitleiste zugeordnet.
+  - : Die Animation ist nicht mit einer Zeitleiste verknüpft.
 - `auto`
-  - : Die Zeitleiste der Animation ist die Standard- [DocumentTimeline](/de/docs/Web/API/DocumentTimeline) des Dokuments.
+  - : Die Zeitleiste der Animation ist die Standard-[DocumentTimeline](/de/docs/Web/API/DocumentTimeline) des Dokuments.
 
 - `scroll()`
-  - : Eine anonyme Scroll-Fortschritt-Zeitleiste wird von einem Vorfahren-Scroller des aktuellen Elements bereitgestellt. Die Funktionsparameter ermöglichen es Ihnen, den Scroller und die Scrollachse auszuwählen, entlang derer die Zeitleiste gemessen wird.
+  - : Eine anonyme Scroll-Fortschritts-Zeitleiste wird von einem Vorfahren-Scroller des aktuellen Elements bereitgestellt. Die Funktionsparameter ermöglichen die Auswahl des Scrollers und der Scrollachse, entlang derer die Zeitleiste gemessen wird.
 
-    Sehen Sie {{cssxref("animation-timeline/scroll", "scroll()")}} für mehr Informationen.
+    Siehe {{cssxref("animation-timeline/scroll", "scroll()")}} für weitere Informationen.
 
 - `view()`
-  - : Eine anonyme View-Fortschritt-Zeitleiste wird von dem Subjekt bereitgestellt, auf dem `animation-timeline: view();` gesetzt ist. Die Funktionsparameter ermöglichen es Ihnen, die Scrollbalkenachse auszuwählen, entlang derer der Zeitleistenfortschritt verfolgt wird, und einen Rand, der die Position des Kastens anpasst, in dem das Subjekt als sichtbar angesehen wird.
+  - : Eine anonyme View-Fortschritts-Zeitleiste wird von dem Subject bereitgestellt, auf das `animation-timeline: view();` gesetzt ist. Die Funktionsparameter ermöglichen die Auswahl der Scrollleistenachse, entlang der die Zeitleistenfortschritte verfolgt werden, und eines Insets, das die Position der Box anpasst, in der das Subject als sichtbar gilt.
 
-    Sehen Sie {{cssxref("animation-timeline/view", "view()")}} für mehr Informationen.
+    Siehe {{cssxref("animation-timeline/view", "view()")}} für weitere Informationen.
 
 - `<dashed-ident>`
-  - : Ein {{cssxref('dashed-ident')}} zur Identifizierung einer benannten Zeitleiste, die zuvor mit der {{cssxref('scroll-timeline-name')}} oder {{cssxref('view-timeline-name')}} Eigenschaft (oder der {{cssxref('scroll-timeline')}} oder {{cssxref('view-timeline')}} Kurzbeschreibung) deklariert wurde.
+  - : Ein {{cssxref('dashed-ident')}}, das eine benannte Zeitleiste identifiziert, die zuvor mit der Eigenschaft {{cssxref('scroll-timeline-name')}} oder {{cssxref('view-timeline-name')}} (oder der Kurzform-Eigenschaft {{cssxref('scroll-timeline')}} oder {{cssxref('view-timeline')}}) deklariert wurde.
 
     > [!NOTE]
-    > Wenn zwei oder mehr Zeitleisten denselben Namen teilen, wird die zuletzt deklarierte innerhalb der Kaskade verwendet. Auch wenn keine Zeitleiste gefunden wird, die dem angegebenen Namen entspricht, ist die Animation keiner Zeitleiste zugeordnet.
+    > Wenn zwei oder mehr Zeitleisten denselben Namen haben, wird die zuletzt in der Kaskade deklarierte verwendet. Wenn keine Zeitleiste gefunden wird, die dem gegebenen Namen entspricht, ist die Animation nicht mit einer Zeitleiste verknüpft.
 
     > [!NOTE]
-    > Die [`<dashed-ident>`](/de/docs/Web/CSS/dashed-ident) Werte müssen mit `--` beginnen. Dies hilft, Namenskonflikte mit Standard-CSS-Schlüsselwörtern zu vermeiden.
+    > Die [`<dashed-ident>`](/de/docs/Web/CSS/Reference/Values/dashed-ident) Werte müssen mit `--` beginnen. Dies hilft, Namenskonflikte mit standardmäßigen CSS-Schlüsselwörtern zu vermeiden.
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Festlegen einer benannten Scroll-Fortschritt-Zeitleiste
+### Festlegung einer benannten Scroll-Fortschritts-Zeitleiste
 
-Eine Scroll-Fortschritt-Zeitleiste mit dem Namen `--square-timeline` wird mithilfe der `scroll-timeline-name` Eigenschaft auf einem Element mit einer `id` von `container` definiert. Diese wird dann als Zeitleiste für die Animation des `#square` Elements festgelegt, indem `animation-timeline: --square-timeline` verwendet wird.
+Eine Scroll-Fortschritts-Zeitleiste mit dem Namen `--square-timeline` wird unter Verwendung der Eigenschaft `scroll-timeline-name` auf einem Element mit der ID `container` definiert.
+Dies wird dann als Zeitleiste für die Animation auf dem `#square` Element mit `animation-timeline: --square-timeline` festgelegt.
 
 #### HTML
 
-Das HTML für das Beispiel wird unten angezeigt.
+Das HTML für das Beispiel wird unten gezeigt.
 
 ```html
 <div id="container">
@@ -105,9 +106,9 @@ Das HTML für das Beispiel wird unten angezeigt.
 
 #### CSS
 
-Das CSS für den Container legt ihn als Quelle einer Scroll-Fortschritt-Zeitleiste mit dem Namen `--square-timeline` unter Verwendung der `scroll-timeline-name` Eigenschaft fest (wir könnten explizit festlegen, welche Scrollbalkenachse mit {{cssxref("scroll-timeline-axis")}} verwendet werden soll, aber hier gibt es nur eine Blockrichtung und sie wird standardmäßig verwendet).
+Das CSS für den Container setzt ihn als Quelle einer Scroll-Fortschritts-Zeitleiste mit dem Namen `--square-timeline` mithilfe der Eigenschaft `scroll-timeline-name` (wir könnten explizit festlegen, welche Scrollbarenachse mit {{cssxref("scroll-timeline-axis")}} verwendet werden soll, aber es gibt hier nur eine Blockrichtungs-Scrollleiste, und diese wird standardmäßig verwendet).
 
-Die Höhe des Containers wird auf 300px gesetzt und wir setzen auch den Container so, dass ein vertikaler Scrollbalken erstellt wird, falls er überläuft (unten werden wir CSS auf das "Stretcher"-Element anwenden, um sicherzustellen, dass er überläuft).
+Die Höhe des Containers ist auf 300px eingestellt und wir setzen auch den Container so, dass er eine vertikale Scrollleiste erstellt, wenn er überläuft (unten verwenden wir CSS beim "Stretcher"-Element, um sicherzustellen, dass es überläuft).
 
 ```css
 #container {
@@ -118,7 +119,7 @@ Die Höhe des Containers wird auf 300px gesetzt und wir setzen auch den Containe
 }
 ```
 
-Das untenstehende CSS definiert ein Quadrat, das sich in abwechselnde Richtungen dreht, gemäß der von der `animation-timeline` Eigenschaft bereitgestellten Zeitleiste, die auf die oben genannte `--square-timeline` Zeitleiste gesetzt ist.
+Das untenstehende CSS definiert ein Quadrat, das sich in entgegengesetzte Richtungen dreht, entsprechend der Zeitleiste, die durch die `animation-timeline` Eigenschaft bereitgestellt wird, die auf die oben genannte `--square-timeline` Zeitleiste gesetzt ist.
 
 ```css
 #square {
@@ -145,7 +146,8 @@ Das untenstehende CSS definiert ein Quadrat, das sich in abwechselnde Richtungen
 }
 ```
 
-Das "Stretcher" CSS setzt die Blockhöhe auf 600px, wodurch das Containerelement gezwungen wird, überzulaufen und Scrollbalken zu erstellen. Ohne dieses Element gäbe es keinen Scrollbalken und somit keine Scroll-Fortschritt-Zeitleiste, die der Animationszeitleiste zugeordnet werden kann.
+Das "Stretcher"-CSS setzt die Blockhöhe auf 600px, was das Container-Element zwingt, zu überlaufen und Scrollleisten zu erstellen.
+Ohne dieses Element gäbe es keine Scrollleiste und daher keine Scroll-Fortschritts-Zeitleiste, die mit der Animationszeitleiste verknüpft wäre.
 
 ```css
 #stretcher {
@@ -155,17 +157,18 @@ Das "Stretcher" CSS setzt die Blockhöhe auf 600px, wodurch das Containerelement
 
 #### Ergebnis
 
-Scrollen Sie, um das Quadrat-Element in Animation zu sehen.
+Scrollen Sie, um zu sehen, wie das Quadrat-Element animiert wird.
 
-{{EmbedLiveSample("Festlegen einer benannten Scroll-Fortschritt-Zeitleiste", "100%", "320px")}}
+{{EmbedLiveSample("Setting a named scroll progress timeline", "100%", "320px")}}
 
-### Festlegen einer anonymen Scroll-Fortschritt-Zeitleiste
+### Festlegung einer anonymen Scroll-Fortschritts-Zeitleiste
 
-In diesem Beispiel wird das `#square` Element mit einer anonymen Scroll-Fortschritt-Zeitleiste animiert, die mithilfe der `scroll()` Funktion auf das zu animierende Element angewendet wird. Die Zeitleiste in diesem speziellen Beispiel wird von dem nächstgelegenen übergeordneten Element bereitgestellt, das (beliebige) Scrollbalken hat, aus dem Scrollbalken in Blockrichtung.
+In diesem Beispiel wird das `#square` Element mit einer anonymen Scroll-Fortschritts-Zeitleiste animiert, die auf das zu animierende Element mit der Funktion `scroll()` angewendet wird.
+Die Zeitleiste in diesem speziellen Beispiel wird vom nächsten übergeordneten Element bereitgestellt, das eine (beliebige) Scrollleiste hat, von der Scrollleiste in der Blockrichtung.
 
 #### HTML
 
-Das HTML für das Beispiel wird unten angezeigt.
+Das HTML für das Beispiel wird unten gezeigt.
 
 ```html
 <div id="container">
@@ -176,10 +179,11 @@ Das HTML für das Beispiel wird unten angezeigt.
 
 #### CSS
 
-Das untenstehende CSS definiert ein Quadrat, das sich in abwechselnde Richtungen dreht, gemäß der von der `animation-timeline` Eigenschaft bereitgestellten Zeitleiste. In diesem Fall wird die Zeitleiste durch `scroll(block nearest)` bereitgestellt, was bedeutet, dass es den Scrollbalken in der Blockrichtung des nächstgelegenen übergeordneten Elements auswählt, das Scrollbalken hat; in diesem Fall der vertikale Scrollbalken des "Container"-Elements.
+Das untenstehende CSS definiert ein Quadrat, das sich in entgegengesetzte Richtungen dreht, entsprechend der Zeitleiste, die durch die `animation-timeline` Eigenschaft bereitgestellt wird.
+In diesem Fall wird die Zeitleiste durch `scroll(block nearest)` bereitgestellt, was bedeutet, dass sie die Scrollleiste in der Blockrichtung des nächsten Vorfahren-Elements auswählt, das Scrollleisten hat; in diesem Fall die vertikale Scrollleiste des "Container"-Elements.
 
 > [!NOTE]
-> `block` und `nearest` sind tatsächlich die Standardparameterwerte, sodass wir auch einfach `scroll()` hätten verwenden können.
+> `block` und `nearest` sind eigentlich die Standardparameterwerte, daher hätten wir einfach `scroll()` verwenden können.
 
 ```css
 #square {
@@ -206,7 +210,9 @@ Das untenstehende CSS definiert ein Quadrat, das sich in abwechselnde Richtungen
 }
 ```
 
-Das CSS für den Container setzt seine Höhe auf 300px und wir setzen auch den Container so, dass ein vertikaler Scrollbalken erstellt wird, falls er überläuft. Das "Stretcher" CSS setzt die Blockhöhe auf 600px, wodurch das Containerelement gezwungen wird, überzulaufen. Diese beiden zusammen gewährleisten, dass der Container einen vertikalen Scrollbalken hat, der als Quelle der anonymen Scroll-Fortschritt-Zeitleiste verwendet werden kann.
+Das CSS für den Container setzt seine Höhe auf 300px und wir setzen auch den Container so, dass er eine vertikale Scrollleiste erstellt, wenn er überläuft.
+Das "Stretcher"-CSS setzt die Blockhöhe auf 600px, was das Container-Element zwingt, zu überlaufen.
+Diese beiden zusammen stellen sicher, dass der Container eine vertikale Scrollleiste hat, die es ermöglicht, als Quelle der anonymen Scroll-Fortschritts-Zeitleiste verwendet zu werden.
 
 ```css
 #container {
@@ -222,17 +228,18 @@ Das CSS für den Container setzt seine Höhe auf 300px und wir setzen auch den C
 
 #### Ergebnis
 
-Scrollen Sie, um das Quadrat-Element in Animation zu sehen.
+Scrollen Sie, um zu sehen, wie das Quadrat-Element animiert wird.
 
-{{EmbedLiveSample("Festlegen einer anonymen Scroll-Fortschritt-Zeitleiste", "100%", "320px")}}
+{{EmbedLiveSample("Setting an anonymous scroll progress timeline", "100%", "320px")}}
 
-### Festlegen einer benannten View-Fortschritt-Zeitleiste
+### Festlegung einer benannten View-Fortschritts-Zeitleiste
 
-Eine View-Fortschritt-Zeitleiste mit dem Namen `--subject-reveal` wird mithilfe der `view-timeline-name` Eigenschaft auf einem Subjekt-Element mit einer `class` von `animation` definiert. Diese wird dann als Zeitleiste für dasselbe Element unter Verwendung von `animation-timeline: --subject-reveal;` festgelegt. Das Ergebnis ist, dass das Subjekt-Element animiert wird, während es sich nach oben durch das Dokument bewegt, während es gescrollt wird.
+Eine View-Fortschritts-Zeitleiste mit dem Namen `--subject-reveal` wird unter Verwendung der Eigenschaft `view-timeline-name` auf einem Subject-Element mit der Klasse `animation` definiert.
+Dies wird dann als Zeitleiste für dasselbe Element mit `animation-timeline: --subject-reveal;` festgelegt. Das Ergebnis ist, dass das Subject-Element animiert wird, während es aufwärts durch das Dokument bewegt wird, wenn es gescrollt wird.
 
 #### HTML
 
-Das HTML für das Beispiel wird unten angezeigt.
+Das HTML für das Beispiel wird unten gezeigt.
 
 ```html
 <div class="content">
@@ -271,7 +278,7 @@ Das HTML für das Beispiel wird unten angezeigt.
 
 #### CSS
 
-Das `subject` Element und das es enthaltende `content` Element sind minimal gestylt, und der Textinhalt erhält einige grundlegende Schriftarteinstellungen:
+Das `subject` Element und sein enthaltenes `content` Element sind minimal gestaltet, und der Textinhalt erhält einige grundlegende Schriftarteinstellungen:
 
 ```css
 .subject {
@@ -302,9 +309,9 @@ p {
 }
 ```
 
-Das `<div>` mit der Klasse `subject` bekommt ebenfalls eine Klasse `animation` — hier wird das {{cssxref("view-timeline-name")}} gesetzt, um eine benannte View-Fortschritt-Zeitleiste zu definieren. Es wird auch ein `animation-timeline` Name mit demselben Wert gegeben, um zu erklären, dass dies das Element sein wird, das animiert wird, während die View-Fortschritt-Zeitleiste voranschreitet.
+Das `<div>` mit der Klasse `subject` erhält auch die Klasse `animation` — hier wird die {{cssxref("view-timeline-name")}} festgelegt, um eine benannte View-Fortschritts-Zeitleiste zu definieren. Es erhält auch einen `animation-timeline` Namen mit demselben Wert, um zu erklären, dass dies das Element ist, das animiert wird, wenn die View-Fortschritts-Zeitleiste fortschreitet.
 
-Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Deckkraft und Größe animiert, wodurch es verblasst und sich vergrößert, während es den Scroller nach oben bewegt.
+Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Opazität und Größe animiert und dazu führt, dass es einblendet und sich vergrößert, während es den Scroller hinaufbewegt.
 
 ```css
 .animation {
@@ -331,17 +338,17 @@ Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Deckkraft un
 
 #### Ergebnis
 
-Scrollen Sie, um das Subjekt-Element in Animation zu sehen.
+Scrollen Sie, um zu sehen, wie das Subject-Element animiert wird.
 
-{{EmbedLiveSample("Festlegen einer benannten View-Fortschritt-Zeitleiste", "100%", "480px")}}
+{{EmbedLiveSample("Setting a named view progress timeline", "100%", "480px")}}
 
-### Festlegen einer anonymen View-Fortschritt-Zeitleiste
+### Festlegung einer anonymen View-Fortschritts-Zeitleiste
 
-Eine anonyme View-Fortschritt-Zeitleiste wird auf einem Element mit der Klasse `subject` unter Verwendung von `animation-timeline: view()` festgelegt. Das Ergebnis ist, dass das `subject` Element animiert wird, während es sich nach oben durch das Dokument bewegt, während es gescrollt wird.
+Eine anonyme View-Fortschritts-Zeitleiste wird auf einem Element mit der Klasse `subject` gesetzt, indem `animation-timeline: view()` verwendet wird. Das Ergebnis ist, dass das `subject` Element animiert wird, während es aufwärts durch das Dokument bewegt wird, wenn es gescrollt wird.
 
 #### HTML
 
-Das HTML für das Beispiel wird unten angezeigt.
+Das HTML für das Beispiel wird unten gezeigt.
 
 ```html
 <div class="content">
@@ -380,7 +387,7 @@ Das HTML für das Beispiel wird unten angezeigt.
 
 #### CSS
 
-Das `subject` Element und das es enthaltende `content` Element sind minimal gestylt, und der Textinhalt erhält einige grundlegende Schriftarteinstellungen:
+Das `subject` Element und sein enthaltenes `content` Element sind minimal gestaltet, und der Textinhalt erhält einige grundlegende Schriftarteinstellungen:
 
 ```css
 .subject {
@@ -411,9 +418,9 @@ p {
 }
 ```
 
-Das `<div>` mit der Klasse `subject` bekommt ebenfalls eine Klasse `animation` — hier wird `animation-timeline: view()` gesetzt, um zu erklären, dass es animiert wird, während es den View-Fortschritt-Zeitleistenfortschritt durchläuft, der von seinem scrollenden Vorfahren bereitgestellt wird (in diesem Fall das Stammdokumentelement).
+Das `<div>` mit der Klasse `subject` erhält auch die Klasse `animation` — hier wird `animation-timeline: view()` gesetzt, um zu erklären, dass es animiert wird, wenn es durch die View-Fortschritts-Zeitleiste fortschreitet, die von seinem scrollenden Vorfahren bereitgestellt wird (in diesem Fall das Stamm-Element des Dokuments).
 
-Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Deckkraft und Größe animiert, wodurch es verblasst und sich vergrößert, während es den Scroller nach oben bewegt.
+Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Opazität und Größe animiert und dazu führt, dass es einblendet und sich vergrößert, während es den Scroller hinaufbewegt.
 
 ```css
 .animation {
@@ -439,9 +446,9 @@ Zuletzt wird eine Animation auf dem Element spezifiziert, die seine Deckkraft un
 
 #### Ergebnis
 
-Scrollen Sie, um das Subjekt-Element in Animation zu sehen.
+Scrollen Sie, um zu sehen, wie das Subject-Element animiert wird.
 
-{{EmbedLiveSample("Festlegen einer anonymen View-Fortschritt-Zeitleiste", "100%", "480px")}}
+{{EmbedLiveSample("Setting an anonymous view progress timeline", "100%", "480px")}}
 
 ## Spezifikationen
 
@@ -458,5 +465,5 @@ Scrollen Sie, um das Subjekt-Element in Animation zu sehen.
 - {{cssxref("timeline-scope")}}
 - {{cssxref("view-timeline-name")}}, {{cssxref("view-timeline-axis")}}, {{cssxref("view-timeline")}}, {{cssxref("view-timeline-inset")}}
 - Das JavaScript-Äquivalent: Die `timeline` Eigenschaft, die in [`Element.animate()`](/de/docs/Web/API/Element/animate) Aufrufen verfügbar ist
-- [CSS Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
 - [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)

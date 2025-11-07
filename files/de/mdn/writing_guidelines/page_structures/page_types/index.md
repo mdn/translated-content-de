@@ -2,77 +2,78 @@
 title: Seitentypen
 slug: MDN/Writing_guidelines/Page_structures/Page_types
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 0b926fc3e79782401461d389fc9f17d522b39ed3
 ---
 
-Es gibt eine Reihe von Seitentypen, die auf MDN wiederholt verwendet werden. Dieser Artikel beschreibt diese Seitentypen, ihren Zweck, und gibt Beispiele für jeden sowie Vorlagen zur Verwendung bei der Erstellung einer neuen Seite.
+Es gibt eine Reihe von Seitentypen, die auf MDN wiederholt verwendet werden. Dieser Artikel beschreibt diese Seitentypen, ihren Zweck und gibt Beispiele für jeden sowie Vorlagen zur Verwendung beim Erstellen einer neuen Seite.
 
 Es gibt drei Hauptkategorien von Seitentypen auf MDN, obwohl einige Seitentypen in mehr als eine Kategorie fallen.
 
-- **Referenzseiten** beschreiben die Details von etwas und sind entsprechend der Struktur des beschriebenen Gegenstands organisiert.
-- **Leitfaden**-Seiten beschreiben, wie man etwas macht oder benutzt, und sind basierend auf den Zielen des Lesers organisiert.
-- **Navigationsseiten** existieren hauptsächlich, um Links zu anderen Seiten bereitzustellen, meistens über verwandte Themen.
+- **Referenz**-Seiten beschreiben die Details von etwas und sind gemäß der Struktur des beschriebenen Objekts organisiert.
+- **Leitfaden**-Seiten beschreiben, wie man etwas tut oder verwendet, und sind basierend auf den Zielen der Leserschaft organisiert.
+- **Navigations**-Seiten existieren hauptsächlich, um Links zu anderen Seiten bereitzustellen, in der Regel zu verwandten Themen.
 
-## Eine neue Seite erstellen
+## Erstellen einer neuen Seite
 
-Eine neue Seite hinzuzufügen ist relativ unkompliziert, besonders wenn Sie mit dem Kopieren einer `index.md`-Datei aus einem ähnlichen Thema beginnen können. Es gibt ein paar Dinge zu beachten:
+Das Hinzufügen eines neuen Dokuments ist relativ einfach, besonders wenn Sie mit dem Kopieren einer `index.md`-Datei aus einem ähnlichen Thema beginnen können. Es gibt ein paar Dinge, die Sie beachten sollten:
 
-- Dokumente werden in Markdown in einer `index.md`-Datei verfasst.
-- Wenn Sie beispielsweise ein neues Dokument für einen HTTP-Header namens `foo` erstellen, erstellen Sie einen neuen Ordner unter `files/en-us/web/http/reference/headers/foo` und legen Sie die Markdown-Datei in diesem Ordner ab (`files/en-us/web/http/reference/headers/foo/index.md`).
-- Eine `index.md`-Datei eines Dokuments muss mit einem Front-Matter beginnen, das den `title`, `slug` und meistens den `page-type` definiert. Es könnte hilfreich sein, sich auf das Front-Matter innerhalb einer ähnlichen `index.md`-Datei zu beziehen.
+- Dokumente werden in Markdown in einer `index.md`-Datei geschrieben.
+- Zum Beispiel, wenn Sie ein neues Dokument für einen HTTP-Header namens `foo` erstellen, erstellen Sie einen neuen Ordner unter `files/en-us/web/http/reference/headers/foo` und legen Sie die Markdown-Datei in diesem Ordner ab (`files/en-us/web/http/reference/headers/foo/index.md`).
+- Eine `index.md`-Datei eines Dokuments muss mit einer Kopfdatenstruktur beginnen, die den `title`, `slug` und meistens `page-type` definiert.
+  Es kann hilfreich sein, sich auf die Kopfdaten in einem ähnlichen Dokument zu beziehen.
 
 ## Anleitung zur Verwendung der Vorlagen
 
-Wenn Sie eine neue Seite erstellen, können Sie sicherstellen, dass Sie die richtige Seitenstruktur/Inhalte verwendet haben, indem Sie sich auf eine unserer Seitenschablonen beziehen – siehe die Abschnitte unten. Sie können den genauen Quellcode jeder Vorlage (falls Sie ihn kopieren möchten) über den "Source on **GitHub**"-Link am Ende jeder Vorlage finden. Diese Seitenschablonen machen als veröffentlichte Seiten nicht viel Sinn, aber wenn Sie ihren Quellcode betrachten, werden Sie feststellen, dass sie viele hilfreiche Kommentare, Platzhalter und Hinweise enthalten, die darlegen, wie man die fehlenden Informationen ausfüllt und seine Seite erstellt.
+Wenn Sie eine neue Seite erstellen, können Sie sicherstellen, dass Sie die richtige Seitenstruktur/-inhalte verwendet haben, indem Sie auf eine unserer Seitentemplates verweisen — siehe die untenstehenden Abschnitte. Sie finden den genauen Quellcode jeder Vorlage (falls Sie diesen kopieren möchten), indem Sie dem Link "Source on **GitHub**" am Ende jeder Vorlage folgen. Diese Seitentemplates ergeben als veröffentlichte Seiten wenig Sinn, aber wenn Sie sich ihren Quellcode ansehen, werden Sie sehen, dass sie viele hilfreiche Kommentare, Platzhalter und Hinweise enthalten, die erläutern, wie Sie fehlende Informationen ausfüllen und Ihre Seite erstellen können.
 
-Oben in jeder Vorlage finden Sie einen Abschnitt mit dem Titel _Remove before publishing_ — dieser enthält Informationen darüber, wie man den Seitentitel, Slug, das Seitenleisten-Menü und die Tags ausfüllt (z. B. Informationen, die nicht im Inhalt des Artikels erscheinen). Sie müssen diesen Abschnitt löschen, nachdem Sie die Anweisungen darin befolgt haben, bevor die Seite als fertig betrachtet werden kann.
+Am Anfang jeder Vorlage finden Sie einen Abschnitt mit dem Titel _Remove before publishing_ — dieser enthält Informationen darüber, wie der Seitentitel, der Slug, das Seitenleistenmenü und Tags ausgefüllt werden müssen (z. B. Informationen, die nicht tatsächlich im Körper des Artikels erscheinen). Sie müssen diesen Abschnitt löschen, nachdem Sie die Anweisungen darin befolgt haben, bevor die Seite als fertig betrachtet werden kann.
 
-## Alte Seitenlayouts
+## Alten Seitenlayouts
 
-Manchmal stoßen Sie auf alte Referenzseiten, die sich deutlich von den hier präsentierten Vorlagen unterscheiden. Zum Beispiel hatten alte Interface-Seiten alle Mitgliedsdetails der Schnittstellen auf einer einzigen Seite, und einzelne Methoden-/Eigenschafts-/Konstruktor-/Ereignislistener-Seiten existierten nicht.
+Manchmal stoßen Sie auf Referenzseiten im alten Stil, die deutlich anders aussehen als die hier präsentierten Vorlagen. Beispielsweise hatten alte Schnittstellenseiten alle Mitglieddetails der Schnittstellen auf einer einzigen Seite, und einzelne Methode-/Eigenschafts-/Konstruktor-/Eventlistener-Seiten existierten nicht.
 
-Wenn Sie auf einen alten Satz von Seiten stoßen, würden wir uns freuen, wenn Sie sie auf das neue Design aktualisieren! Wir wissen jedoch, dass dies eine große Menge Arbeit sein könnte. Wenn die zu aktualisierenden Informationen nicht zu umfangreich sind und Sie etwas Freizeit haben, versuchen Sie ruhig, sie auf das neue Design zu aktualisieren.
+Wenn Sie auf eine Serie von Seiten im alten Stil stoßen, würden wir es lieben, wenn Sie diese auf den neuen Stil aktualisieren! Wir verstehen jedoch, dass das eine Menge Arbeit sein könnte. Wenn die zu aktualisierenden Informationen nicht zu umfangreich sind und Sie etwas freie Zeit haben, versuchen Sie auf jeden Fall, sie auf den neuen Stil zu aktualisieren.
 
 Wenn die Arbeit umfangreicher ist, sollten Sie einige Faktoren berücksichtigen, wenn Sie die Arbeit priorisieren:
 
 - Wie veraltet sind die Informationen?
-- Wie niedrig ist die Qualität der Informationen?
-- Wie beliebt ist das Feature? Wie gefragt sind die Informationen?
+- Wie schlecht ist die Qualität der Informationen?
+- Wie populär ist das Feature? Wie gefragt sind die Informationen?
 
-Wenn Sie ein Team zusammenstellen möchten, um an einem Update zu arbeiten, oder einfach nur ein Inhaltsproblem melden oder besprechen möchten, das aktualisiert werden muss, zögern Sie nicht, ein [Inhaltsproblem einzureichen](https://github.com/mdn/content/issues) oder [uns um Hilfe zu bitten](/de/docs/MDN/Community/Communication_channels).
+Wenn Sie ein Team zusammenstellen möchten, um an einem Update zu arbeiten, oder wenn Sie nur etwas Inhalt melden oder diskutieren möchten, der ein Update benötigt, [reichen Sie gerne ein Inhaltsproblem ein](https://github.com/mdn/content/issues) oder [fragen Sie uns um Hilfe](/de/docs/MDN/Community/Communication_channels).
 
-## Der Front-Matter Schlüssel `page-type`
+## Der page-type Kopfdaten-Schlüssel
 
-Wir haben einen Front-Matter-Schlüssel `page-type` definiert, um den Typ der MDN-Seiten klar zu identifizieren. Die unten verlinkten Vorlagen geben an, welche `page-type`-Werte Sie für jeden Seitentyp festlegen sollten.
+Wir haben einen Kopfdaten-Schlüssel `page-type` definiert, um den Typ der MDN-Seiten klar zu identifizieren. Die unten verlinkten Vorlagen geben an, welche `page-type`-Werte Sie für jeden Seitentyp festlegen sollten.
 
-Für die vollständige Liste der Seitentypen siehe [Das Front-Matter-Schlüsselwort `page-type`](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/Page_type_key).
+Für die vollständige Liste der Seitentypen, siehe [Der page-type Kopfdaten-Schlüssel](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/Page_type_key).
 
-## Seitenschablonen
+## Seitentemplates
 
-Unten finden Sie Beispiele für die verschiedenen Seiten, die Sie auf MDN finden, zusammen mit Vorlagen, die verwendet werden können, um neue Inhalte basierend auf dem Typ der Inhalte, die Sie präsentieren werden, zu erstellen, einschließlich der folgenden Seiten:
+Im Folgenden finden Sie Beispiele für die verschiedenen Seiten, die Sie auf MDN finden, zusammen mit Vorlagen, die verwendet werden können, um neue Inhalte basierend auf dem Typ der präsentierten Inhalte zu erstellen, einschließlich folgender Seiten:
 
-- [API-Startseiten](#api-startseite)
-- [API-Referenzseite](#api-referenzseite)
-- [API-Referenzunterseite](#api-referenzunterseite)
-- [ARIA-Referenz](#aria-referenzseite)
-- [Konzeptuelle Seiten](#konzeptuelle_seite)
-- [CSS-Feature-Referenz](#css-feature-referenzseite)
-- [CSS-Modul-Startseite](#css-modul-startseite)
-- [Glossareintrag](#glossarseite)
-- [HTML-Element](#html-element-referenzseite)
-- [HTML-Attribut](#html-attribut-referenzseite)
-- [HTTP-Header](#http-header-referenzseite)
-- [Startseite](#startseite)
-- [SVG-Element](#svg-element-referenzseite)
-- [Lernen Sie Webentwicklung Seiten](#lernen_sie_webentwicklung_seiten)
+- [API Landing Page](#api_landing_page)
+- [API Referenzseite](#api_referenzseite)
+- [API Referenzunterseite](#api_referenzunterseite)
+- [HTML-Elementreferenzseite](#html-elementreferenzseite)
+- [HTML-Attributsreferenzseite](#html-attributsreferenzseite)
+- [SVG-Elementreferenzseite](#svg-elementreferenzseite)
+- [CSS-Modullandingseite](#css-modullandingseite)
+- [CSS-Feature-Referenzseite](#css-feature-referenzseite)
+- [HTTP-Header-Referenzseite](#http-header-referenzseite)
+- [ARIA-Referenzseite](#aria-referenzseite)
+- [Konzeptuelle Seite](#konzeptuelle_seite)
+- [Glossarseite](#glossarseite)
+- [Landingseite](#landingseite)
+- [Lernen der Webentwicklung Seiten](#lernen_der_webentwicklung_seiten)
 
 Jeder Abschnitt enthält Links zu Live-Beispielseiten für diesen Seitentyp.
 
-### API-Startseite
+### API Landing Page
 
-Eine **{{Glossary("API", "API")}}-Startseite** bietet einen Überblick darüber, was eine bestimmte API tut, sowie Links zur Dokumentation für jede der Schnittstellen, globalen Funktionen usw., die von der API angeboten werden. Es gibt keinen direkten Link zu spezifischen Methoden oder Eigenschaften innerhalb der Klassen der API, außer im Kontext des zusammenfassenden Textes. Sie ist hauptsächlich eine _Navigationsseite_, fungiert aber auch als übersichtliche _Referenzseite_ für die API.
+Eine **{{Glossary("API", "API")}} Landing Page** bietet einen Überblick darüber, was eine bestimmte API tut, sowie Links zur Dokumentation für jede der Schnittstellen, Globals, Funktionen usw., die von der API angeboten werden. Sie verlinkt nicht direkt auf spezifische Methoden oder Eigenschaften innerhalb der API-Klassen, außer im Kontext des Übersichtstextes. Sie ist in erster Linie eine _Navigations_-Seite, dient aber auch als übersichtliche _Referenz_-Seite für die API.
 
-Es gibt einige Instanzen, in denen mehrere APIs existieren, die eigenständig sind und in ihren eigenen Spezifikationen definiert sind, aber eng verwandt sind und daher sinnvoll mit einer einzigen API-Startseite abgedeckt werden könnten. Zum Beispiel deckt die [Generic Sensor API](https://w3c.github.io/sensors/) allgemeine Sensoranliegen ab, aber spezifische Anliegen werden in anderen APIs wie [Ambient Light Sensor](https://w3c.github.io/ambient-light/), [Motion Sensor](https://w3c.github.io/motion-sensors/) usw. behandelt. In solchen Fällen sind viele der grundlegenden Konzepte gleich, sodass es keinen Sinn macht, diese über mehrere Startseiten hinweg zu wiederholen. In einem solchen Fall würde es aus Gründen der Wiederholung und Auffindbarkeit mehr Sinn machen, alle unter einer einzelnen "Web Sensoren" Startseite abzudecken.
+Es gibt einige Fälle, in denen mehrere APIs existieren, die eigenständig und in ihren eigenen Spezifikationen definiert sind, aber eng verwandt sind und daher mit einer einzigen API Landing Page abgedeckt werden könnten. Zum Beispiel deckt die [Generic Sensor API](https://w3c.github.io/sensors/) allgemeine Sensorthemen ab, aber spezifischere Themen werden in anderen APIs wie [Ambient Light Sensor](https://w3c.github.io/ambient-light/), [Motion Sensor](https://w3c.github.io/motion-sensors/) usw. behandelt. In solchen Fällen sind viele der grundlegenden Konzepte gleich, daher macht es keinen Sinn, diese über mehrere Landing Pages zu wiederholen. In einem solchen Fall wäre es sinnvoller, sie unter einer einzigen Landing Page "Websensoren" abzudecken.
 
 #### Beispiel
 
@@ -80,44 +81,44 @@ Es gibt einige Instanzen, in denen mehrere APIs existieren, die eigenständig si
 
 #### Vorlagen
 
-- [API-Startseiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/API_landing_page_template)
+- [API Landing Page Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/API_landing_page_template)
 
-### API-Referenzseite
+### API Referenzseite
 
 > [!NOTE]
-> Auch bekannt als _Interface-Startseite_.
+> Auch bekannt als _Interface Landing Page_.
 
-Eine **API-Referenzseite** listet alle Methoden, Eigenschaften, Ereignisse usw. auf, die Mitglieder einer bestimmten Schnittstelle oder Klasse sind. Sie bietet einen Überblick darüber, was die Klasse oder Schnittstelle tut oder wofür sie verwendet wird, und gibt Links zur Dokumentation für jedes dieser Mitglieder. Sie ist detaillierter als eine API-Startseite, die typischerweise zu mehreren API-Referenzseiten verlinkt.
+Eine **API Referenzseite** listet alle Methoden, Eigenschaften, Events usw. auf, die Mitglieder einer bestimmten Schnittstelle oder Klasse sind. Sie bietet einen Überblick darüber, was die Klasse oder Schnittstelle tut oder wofür sie verwendet wird, und gibt Links zur Dokumentation für jedes dieser Mitglieder. Sie ist detaillierter als eine API Landing Page, die typischerweise zu mehreren API-Referenzseiten verlinkt.
 
 #### Beispiel
 
-- [Request-Schnittstelle](/de/docs/Web/API/Request) der [Fetch API](/de/docs/Web/API/Fetch_API).
+- [Request Schnittstelle](/de/docs/Web/API/Request) der [Fetch API](/de/docs/Web/API/Fetch_API).
 
 #### Vorlagen
 
-- [API-Referenzseiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/API_reference_page_template)
+- [API Referenzseitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/API_reference_page_template)
 
-### API-Referenzunterseite
+### API Referenzunterseite
 
-Eine **API-Referenzunterseite** ist ein Kind einer API-Referenzseite. Sie dokumentiert ein einzelnes Schnittstellenmitglied im Detail.
+Eine **API Referenzunterseite** ist ein Kind einer API Referenzseite. Sie dokumentiert ein einzelnes Schnittstellenmitglied im Detail.
 
 #### Beispiele
 
 - [`count()` Methode](/de/docs/Web/API/IDBIndex/count) der [IDBIndex](/de/docs/Web/API/IDBIndex) Schnittstelle (Teil der [IndexedDB API](/de/docs/Web/API/IndexedDB_API))
 - [capabilities Eigenschaft](/de/docs/Web/API/VRDisplay/capabilities) der [VRDisplay](/de/docs/Web/API/VRDisplay) Schnittstelle (Teil der [WebVR API](/de/docs/Web/API/WebVR_API))
 - [Request() Konstruktor](/de/docs/Web/API/Request/Request) der [Request](/de/docs/Web/API/Request) Schnittstelle (Teil der [Fetch API](/de/docs/Web/API/Fetch_API))
-- [vrdisplaypresentchange Ereignis](/de/docs/Web/API/Window/vrdisplaypresentchange_event) (Teil der [WebVR API](/de/docs/Web/API/WebVR_API), hängt an der [Window](/de/docs/Web/API/Window) Schnittstelle)
+- [vrdisplaypresentchange Ereignis](/de/docs/Web/API/Window/vrdisplaypresentchange_event) (Teil der [WebVR API](/de/docs/Web/API/WebVR_API), hängt von der [Window](/de/docs/Web/API/Window)) Schnittstelle ab
 
 #### Vorlagen
 
-- [API Methoden-Unterseiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/API_method_subpage_template)
-- [API Eigenschaften-Unterseiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/API_property_subpage_template)
-- [API Konstruktor-Unterseiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/API_constructor_subpage_template)
-- [API Ereignis-Unterseiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/API_event_subpage_template)
+- [API Methodensubseitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/API_method_subpage_template)
+- [API Eigenschaftensubseitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/API_property_subpage_template)
+- [API Konstruktorsubseitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/API_constructor_subpage_template)
+- [API Eventsubseitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/API_event_subpage_template)
 
-### HTML-Element-Referenzseite
+### HTML-Elementreferenzseite
 
-Eine **HTML-Referenzseite** listet alle Attribute auf, die auf einem HTML-Element verfügbar sind, erklärt den Zweck und die Nutzung des Elements und bietet Beispiele, Browser-Kompatibilitätsinformationen und andere wichtige Daten.
+Eine **HTML Referenzseite** listet alle Attribute, die auf einem HTML-Element verfügbar sind, erklärt den Zweck und die Verwendungsweise des Elements und bietet Beispiele, Browser-Kompatibilitätsinformationen und andere wichtige Daten.
 
 #### Beispiel
 
@@ -125,14 +126,14 @@ Eine **HTML-Referenzseite** listet alle Attribute auf, die auf einem HTML-Elemen
 
 #### Vorlagen
 
-- [HTML-Element-Seiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/HTML_element_page_template)
+- [HTML Elementseitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/HTML_element_page_template)
 
-### HTML-Attribut-Referenzseite
+### HTML-Attributsreferenzseite
 
-Eine HTML-Attributseite listet alle existierenden Werte eines HTML-Attributs auf, erklärt den Zweck und die Anwendungsfälle des Attributs, bietet Beispiele, Browser-Kompatibilitätsinformationen und andere wichtige Daten.
+Eine HTML-Attributseite listet alle Werte auf, die auf einem HTML-Attribut existieren, erklärt den Zweck und die Anwendungsfälle des Attributs, mit Beispielen, Browser-Kompatibilitätsinformationen und anderen wichtigen Daten.
 
 > [!NOTE]
-> Element-spezifische Attribute (z. B. `placeholder` für `<input>`) benötigen keine separate Seite, wenn die Attribute ausreichend innerhalb der Referenzseite des Elternelements behandelt werden können (z. B. sollte das `placeholder`-Attribut auf der Seite des `<input>`-Elements behandelt werden, nicht als eigenständige Seite).
+> Elementspezifische Attribute (z. B. `placeholder` für `<input>`) benötigen keine eigene Seite, wenn die Attribute ausreichend auf der Referenzseite des übergeordneten Elements behandelt werden können (z. B. sollte das `placeholder`-Attribut auf der Seite des `<input>`-Elements behandelt werden, nicht als eigenständige Seite).
 
 #### Beispiel
 
@@ -140,11 +141,11 @@ Eine HTML-Attributseite listet alle existierenden Werte eines HTML-Attributs auf
 
 #### Vorlagen
 
-- [HTML-Attribut-Seiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/HTML_attribute_page_template)
+- [HTML Attributsseitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/HTML_attribute_page_template)
 
-### SVG-Element-Referenzseite
+### SVG-Elementreferenzseite
 
-Eine **SVG-Referenzseite** listet alle Attribute auf, die auf einem SVG-Element verfügbar sind, erklärt den Zweck und die Nutzung des Elements und bietet Beispiele, Browser-Kompatibilitätsinformationen und andere wichtige Daten.
+Eine **SVG Referenzseite** listet alle Attribute auf, die auf einem SVG-Element verfügbar sind, erklärt den Zweck und die Verwendungsweise des Elements und bietet Beispiele, Browser-Kompatibilitätsinformationen und andere wichtige Daten.
 
 #### Beispiel
 
@@ -152,46 +153,46 @@ Eine **SVG-Referenzseite** listet alle Attribute auf, die auf einem SVG-Element 
 
 #### Vorlagen
 
-- [SVG-Element-Seiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/SVG_element_page_template)
+- [SVG Elementseitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/SVG_element_page_template)
 
-### CSS-Modul-Startseite
+### CSS-Modullandingseite
 
-Jedes **[CSS](/de/docs/Web/CSS) Modul** repräsentiert eine CSS-Spezifikation, die Unterstützung für bestimmte Funktionen und Implementierungen in CSS bietet. Zum Beispiel repräsentiert das [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul die [Spezifikation](/de/docs/Web/CSS/CSS_box_model#specifications), die die Margin- und Padding-Eigenschaften beschreibt, die es Ihnen ermöglichen, Abstände in und um ein CSS-Box zu schaffen.
+Jedes **[CSS](/de/docs/Web/CSS) Modul** repräsentiert eine CSS-Spezifikation, die Unterstützung für bestimmte Funktionen und Implementierungen in CSS bietet. Zum Beispiel repräsentiert das [CSS-Kastenmodell](/de/docs/Web/CSS/CSS_box_model) Modul die [Spezifikation](/de/docs/Web/CSS/CSS_box_model#specifications), die die Margin- und Padding-Eigenschaften beschreibt, die es Ihnen ermöglichen, Abstände in und um einen CSS-Kasten zu schaffen.
 
-Eine **CSS-Modul-Startseite** bietet eine Übersicht über die Funktionen, die das Modul bietet, und listet alle Eigenschaften, Datentypen, CSS-Funktionen usw. auf, die das Modul anbietet. Wenn möglich bietet die CSS-Modul-Startseite eine schnelle Demonstration dessen, was mit den Eigenschaften des Moduls erreicht werden kann, durch ein interaktives Beispiel. Die Modul-Startseite dient hauptsächlich als _Navigationsseite_, fungiert aber auch als übersichtliche _Referenzseite_ für das Modul.
+Eine **CSS-Modullandingseite** bietet einen Überblick über die Funktionen, die das Modul bereitstellt, und listet alle Eigenschaften, Datentypen, CSS-Funktionen usw. auf, die das Modul anbietet. Wenn möglich, bietet die CSS-Modullandingseite eine schnelle Demonstration dessen, was mit den Eigenschaften des Moduls erreicht werden kann, durch ein interaktives Beispiel. Die Modullandingseite dient in erster Linie als _Navigations_-Seite, fungiert aber auch als übersichtliche _Referenz_-Seite für das Modul.
 
-Einige verwandte Eigenschaften und Funktionen, die in anderen Modulen enthalten sind, aber eng mit der Funktionalität des von Ihnen dokumentierten Moduls verbunden sind, können ebenfalls in einem Abschnitt _Verwandte Konzepte_ behandelt werden. Zum Beispiel sind der `<easing-function>` Datentyp und die `prefers-reduced-motion` Medienabfrage nicht im CSS-Animationsmodul enthalten, aber da sie eng mit CSS-Animationen verbunden sind, ist es eine gute Idee, sie im Abschnitt [Verwandte Konzepte](/de/docs/Web/CSS/CSS_animations#related_concepts) der CSS-Animationsmodul-Startseite hervorzuheben.
+Einige verwandte Eigenschaften und Features, die in andere Module gehören, aber eng mit der Funktionalität des Moduls, das Sie dokumentieren, verwandt sind, können auch in einem Abschnitt _Verwandte Konzepte_ behandelt werden. Zum Beispiel sind der `<easing-function>` Datentyp und die `prefers-reduced-motion` Media Query nicht im CSS-Animationsmodul abgedeckt, aber da sie eng mit CSS-Animationen verwandt sind, ist es eine gute Idee, sie im Abschnitt [Verwandte Konzepte](/de/docs/Web/CSS/CSS_animations#related_concepts) der CSS-Animationsmodullandingseite hervorzuheben.
 
 #### Beispiele
 
 - [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)
-- [CSS-Benutzeroberfläche](/de/docs/Web/CSS/CSS_basic_user_interface)
-- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
-- [CSS-Scrollen-Snap](/de/docs/Web/CSS/CSS_scroll_snap)
+- [CSS-Basisschnittstelle für Benutzer](/de/docs/Web/CSS/CSS_basic_user_interface)
+- [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
+- [CSS-Scrollsnap](/de/docs/Web/CSS/CSS_scroll_snap)
 
 #### Vorlagen
 
-- [CSS-Modul-Startseiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/CSS_module_landing_page_template)
+- [CSS-Modullandingseitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/CSS_module_landing_page_template)
 
 ### CSS-Feature-Referenzseite
 
-Eine **CSS-Referenzseite** listet die gesamte verfügbare Syntax für ein CSS-Feature wie einen Selektor oder eine Eigenschaft auf und erklärt den Zweck und die Verwendung des Features. Sie bietet auch Beispiele, Browser-Kompatibilitätsinformationen und andere wichtige Daten.
+Eine **CSS Referenzseite** listet die gesamte verfügbare Syntax für ein CSS-Feature wie einen Selektor oder eine Eigenschaft auf und erklärt den Zweck und die Verwendung des Features. Es bietet auch Beispiele, Browser-Kompatibilitätsinformationen und andere wichtige Daten.
 
 #### Beispiele
 
 - [`background-color` Eigenschaft](/de/docs/Web/CSS/Reference/Properties/background-color)
 - [`:hover` Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/:hover)
-- [`@media` Regel](/de/docs/Web/CSS/@media)
+- [`@media` At-Regel](/de/docs/Web/CSS/Reference/At-rules/@media)
 
 #### Vorlagen
 
-- [CSS-Eigenschaftsseiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/CSS_property_page_template)
-- [CSS-Selektor-Seiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/CSS_selector_page_template)
-- [CSS-Funktionsseiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/CSS_function_page_template)
+- [CSS Eigenschaftsseitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/CSS_property_page_template)
+- [CSS Selektorseitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/CSS_selector_page_template)
+- [CSS Funktionsseitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/CSS_function_page_template)
 
 ### HTTP-Header-Referenzseite
 
-Eine **HTTP-Header-Referenzseite** listet alle verfügbaren Direktiven auf, die ein HTTP-Header enthalten kann, und erklärt den Zweck und die Anwendung des Headers. Sie bietet auch Beispiele, Browser-Kompatibilitätsinformationen und andere wichtige Erklärungen.
+Eine **HTTP-Header-Referenzseite** listet alle verfügbaren Direktiven auf, die ein HTTP-Header enthalten kann, und erklärt den Zweck und die Verwendung des Headers. Sie bietet auch Beispiele, Browser-Kompatibilitätsinformationen und andere wichtige Erklärungen.
 
 #### Beispiel
 
@@ -199,11 +200,11 @@ Eine **HTTP-Header-Referenzseite** listet alle verfügbaren Direktiven auf, die 
 
 #### Vorlagen
 
-- [HTTP-Header-Seiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/HTTP_header_page_template)
+- [HTTP-Header-Seitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/HTTP_header_page_template)
 
 ### ARIA-Referenzseite
 
-Eine **ARIA-Referenzseite** beschreibt eine [Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles) oder ein [Attribut](/de/docs/Web/Accessibility/ARIA/Reference/Attributes), die Möglichkeiten definieren, um Webinhalte und Webanwendungen für Menschen mit Behinderungen zugänglicher zu machen.
+Eine **ARIA-Referenzseite** beschreibt eine [Rolle](/de/docs/Web/Accessibility/ARIA/Reference/Roles) oder ein [Attribut](/de/docs/Web/Accessibility/ARIA/Reference/Attributes), das Möglichkeiten definiert, um Webinhalte und Webanwendungen für Menschen mit Behinderungen zugänglicher zu machen.
 
 #### Beispiele
 
@@ -212,61 +213,61 @@ Eine **ARIA-Referenzseite** beschreibt eine [Rolle](/de/docs/Web/Accessibility/A
 
 #### Vorlagen
 
-- [ARIA-Seiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/ARIA_Page_Template)
+- [ARIA-Seitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/ARIA_Page_Template)
 
 ### Konzeptuelle Seite
 
-Eine **konzeptuelle Seite** ist eine _Leitfaden_-Seite, die etwas erklärt oder lehrt. Im Allgemeinen, wenn eine Seite hauptsächlich Prosa enthält und nicht in einen anderen Seitentyp fällt, ist es wahrscheinlich eine konzeptuelle Seite. Eine ausführliche Diskussion eines Themas könnte sich über mehrere konzeptuelle Seiten erstrecken und mit [Next](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/previous_menu_next.rs) und [Previous](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/previous_menu_next.rs) Makros verlinkt sein.
+Eine **Konzeptseite** ist eine _Leitfaden_-Seite, die etwas erklärt oder lehrt. Im Allgemeinen, wenn eine Seite hauptsächlich aus Prosa besteht und nicht in einen anderen Seitentyp fällt, ist es wahrscheinlich eine Konzeptseite. Eine ausführliche Diskussion zu einem Thema könnte sich über mehrere Konzeptseiten erstrecken und mit [Next](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/previous_menu_next.rs) und [Previous](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/previous_menu_next.rs) Makros verknüpft werden.
 
 #### Beispiele
 
-- [Die WebVR API verwenden](/de/docs/Web/API/WebVR_API/Using_the_WebVR_API)
-- [Visualisierungen mit Web Audio API](/de/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API)
-- [Konflikte bearbeiten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
+- [Verwendung der WebVR API](/de/docs/Web/API/WebVR_API/Using_the_WebVR_API)
+- [Visualisierungen mit der Web Audio API](/de/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API)
+- [Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
 
 ### Glossarseite
 
-Eine **Glossarseite** enthält eine kurze Erklärung eines Begriffs, Themas oder Konzepts. Der erste Absatz sollte eine einfache, eigenständige Beschreibung des Begriffs sein, nicht mehr als ein paar Sätze. Dies kann durch Links zu weiteren Informationen im Abschnitt **Siehe auch** ergänzt werden. Wenn die Seite länger als ein Bildschirm wird, ist sie zu lang und sollte in eine konzeptuelle Seite umgewandelt werden. Siehe [Anleitung zum Schreiben und Referenzieren eines Eintrags im Glossar](/de/docs/MDN/Writing_guidelines/Howto/Write_a_new_entry_in_the_glossary) für weitere Details.
+Eine **Glossarseite** enthält eine kurze Erklärung eines Begriffs, Themas oder Konzepts. Der erste Absatz sollte eine einfache, eigenständige Beschreibung des Begriffs sein, nicht mehr als ein paar Sätze. Dies kann durch Links zu weiteren Informationen im **See also**-Abschnitt gefolgt werden. Wenn die Seite mehr als eine Bildschirmseite oder so lang wird, ist sie zu lang und sollte in eine Konzeptseite umgewandelt werden. Siehe zur detaillierten Erklärung, wie Sie einen neuen Glossareintrag verfassen und referenzieren: [Anleitung, wie man und verweisen auf einen Eintrag im Glossar schreibt](/de/docs/MDN/Writing_guidelines/Howto/Write_a_new_entry_in_the_glossary).
 
 #### Beispiele
 
 - {{Glossary("DOM", "DOM")}}
-- {{Glossary("Exception", "Ausnahme")}}
+- {{Glossary("Exception", "Exception")}}
 - {{Glossary("Hyperlink", "Hyperlink")}}
 
 #### Vorlagen
 
-- [Glossarseiten-Vorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/Glossary_page_template)
+- [Glossarseitenvorlage](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types/Glossary_page_template)
 
-### Startseite
+### Landingseite
 
-Eine **Startseite** dient als eine Art Menü für ihre Unterseiten und ist daher hauptsächlich eine _Navigationsseite_. Ein Layout für die Startseite wird typischerweise für die Stammseite eines Baums von Seiten über ein bestimmtes Thema verwendet. Sie beginnt mit einer kurzen Zusammenfassung des Themas und präsentiert dann eine strukturierte Liste von Links zu ihren Unterseiten und optional weiteres Material, das für den Leser nützlich sein könnte.
+Eine **Landingseite** dient als eine Art Menü für ihre Unterseiten und ist daher in erster Linie eine _Navigations_-Seite. Ein Landingseitenlayout wird typischerweise für die Stammseite eines Baums von Seiten zu einem bestimmten Thema verwendet. Sie beginnt mit einer kurzen Zusammenfassung des Themas und präsentiert dann eine strukturierte Liste von Links zu ihren Unterseiten und optional weiteres Material, das für den Leser nützlich sein kann.
 
-Die Liste der Unterseiten kann automatisch unter Verwendung der [`SubpagesWithSummaries`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/subpages_with_summaries.rs) Vorlage generiert werden. In komplexeren Fällen muss die Liste jedoch möglicherweise von Hand erstellt (und gepflegt) werden.
+Die Liste der Unterseiten kann automatisch mit der [`SubpagesWithSummaries`](https://github.com/mdn/rari/blob/main/crates/rari-doc/src/templ/templs/subpages_with_summaries.rs) Vorlage generiert werden. In komplexeren Fällen muss die Liste jedoch manuell erstellt (und gepflegt) werden.
 
-### Lernen Sie Webentwicklung Seiten
+### Lernen der Webentwicklung Seiten
 
-Der Abschnitt [Lernen Sie Webentwicklung](/de/docs/Learn_web_development) von MDN zielt speziell darauf ab, Menschen die grundlegenden Grundlagen der Webentwicklung zu vermitteln, und erfordert daher einen anderen Ansatz als der Rest der MDN-Inhalte. Sie können weitere Richtlinien unter [Richtlinien zum Schreiben von Inhalten für das Lernen Sie Webentwicklung](/de/docs/MDN/Writing_guidelines/Learning_content) finden.
+Der [Lernen der Webentwicklung](/de/docs/Learn_web_development) Abschnitt von MDN richtet sich speziell an Personen, die die grundlegenden Grundlagen der Webentwicklung lernen, und erfordert daher einen anderen Ansatz als der Rest des MDN-Inhalts. Weitere Richtlinien finden Sie unter [Lernen der Webentwicklung Schreibrichtlinien](/de/docs/MDN/Writing_guidelines/Learning_content).
 
-Es gibt nur wenige Arten von Seiten innerhalb von Lernen Sie Webentwicklung:
+Es gibt nur wenige Seitentypen im Abschnitt "Lernen der Webentwicklung":
 
-- **Modulgruppen-Startseite**, zum Beispiel [Essenzielle Lernmodule](/de/docs/Learn_web_development/Core)
-  - : Diese enthalten einen Einführungstext, einen Abschnitt, der die Voraussetzungen beschreibt, die Sie vor dem Starten der Modulgruppe haben sollten, und eine Liste der Module, gefolgt von einer optionalen Liste von "Siehe auch"-Links.
-- **Modul-Startseite**, zum Beispiel [Inhalte mit HTML strukturieren](/de/docs/Learn_web_development/Core/Structuring_content)
-  - : Diese enthalten einen Einführungstext, einen Abschnitt, der die Voraussetzungen beschreibt, die Sie vor dem Starten des Moduls haben sollten, und eine Liste der enthaltenen Tutorials, gefolgt von einer optionalen Liste von "Zusätzlichen Tutorials", die zwar verwandt sind, aber nicht Teil des zentralen Lernpfads, und einer optionalen Liste von "Siehe auch"-Links.
-- **Tutorial-Seite**, zum Beispiel [Grundlegende HTML-Syntax](/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax)
-  - : Die Struktur eines Lern-Tutorials ist nicht streng festgelegt, es muss jedoch ein praxisorientiertes Lernerlebnis bieten (siehe [Richtlinien zum Schreiben von Inhalten für das Lernen Sie Webentwicklung > Ansatz](/de/docs/MDN/Writing_guidelines/Learning_content#approach)), es muss am Anfang eine Liste von "Voraussetzungen" und "Lernzielen" haben, und der Inhalt muss die angegebenen Lernziele vermitteln.
+- **Modulgruppen-Landingseite**, zum Beispiel [Kern-Lernmodule](/de/docs/Learn_web_development/Core)
+  - : Diese enthalten einen Einleitungsabsatz, einen Abschnitt, der die Voraussetzungen beschreibt, die Sie vor dem Start der Modulgruppe haben sollten, und eine Liste der Module, gefolgt von einer optionalen Liste von "Siehe auch"-Links.
+- **Modul-Landingseite**, zum Beispiel [Inhalte mit HTML strukturieren](/de/docs/Learn_web_development/Core/Structuring_content)
+  - : Diese enthalten einen Einleitungsabsatz, einen Abschnitt, der die Voraussetzungen beschreibt, die Sie vor dem Start des Moduls haben sollten, und eine Liste der enthaltenen Tutorials, gefolgt von einer optionalen Liste von "Zusätzlichen Tutorials", die verwandt, aber nicht Teil des zentralen Lernpfades sind, und einer optionalen Liste von "Siehe auch"-Links.
+- **Tutorialseite**, zum Beispiel [Grundlegende HTML-Syntax](/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax)
+  - : Die Struktur eines Lern-Tutorials ist nicht strikt, aber es muss eine praxisorientierte Lernerfahrung bieten (siehe [Lernen der Webentwicklung Schreibrichtlinien > Ansatz](/de/docs/MDN/Writing_guidelines/Learning_content#approach)), es muss eine Reihe von "Voraussetzungen" und "Lernzielen" am Anfang haben, und der Inhalt muss die angegebenen Lernziele lehren.
 
 ### Beispiele
 
 - [HTML](/de/docs/Web/HTML)
 - [CSS](/de/docs/Web/CSS)
-- [Web-APIs](/de/docs/Web/API)
+- [Web APIs](/de/docs/Web/API)
 - [JavaScript](/de/docs/Web/JavaScript)
-- [Lernen Sie Webentwicklung](/de/docs/Learn_web_development)
+- [Lernen der Webentwicklung](/de/docs/Learn_web_development)
 - [Community-Ressourcen](/de/docs/MDN/Community)
 
 ## Siehe auch
 
-- [Seitenkomponenten](/de/docs/MDN/Writing_guidelines/Writing_style_guide#page_components)
-- [Codebeispiele in Markdown erstellen](/de/docs/MDN/Writing_guidelines/Code_style_guide)
+- [Seitenelemente](/de/docs/MDN/Writing_guidelines/Writing_style_guide#page_components)
+- [Erstellen von Codebeispielen in Markdown](/de/docs/MDN/Writing_guidelines/Code_style_guide)

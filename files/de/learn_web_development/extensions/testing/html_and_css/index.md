@@ -3,22 +3,22 @@ title: Umgang mit häufigen HTML- und CSS-Problemen
 short-title: Häufige HTML- und CSS-Probleme
 slug: Learn_web_development/Extensions/Testing/HTML_and_CSS
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Testing/Testing_strategies","Learn_web_development/Extensions/Testing/Feature_detection", "Learn_web_development/Extensions/Testing")}}
 
-Nachdem wir den Rahmen festgelegt haben, werden wir nun speziell auf die häufigen plattformübergreifenden Probleme eingehen, die Sie in HTML- und CSS-Code antreffen werden, und welche Tools verwendet werden können, um Probleme zu verhindern oder zu beheben. Dazu gehört das Linten von Code, der Umgang mit CSS-Präfixen, die Verwendung von Entwicklerwerkzeugen im Browser, um Probleme zu finden, die Verwendung von Polyfills, um Unterstützung in Browsern hinzuzufügen, die Bewältigung von Problemen mit responsivem Design und mehr.
+Nachdem der Rahmen festgelegt ist, betrachten wir nun speziell die häufigen plattformübergreifenden Probleme, auf die Sie in HTML- und CSS-Code stoßen werden, und welche Werkzeuge verwendet werden können, um deren Auftreten zu verhindern oder bereits entstandene Probleme zu beheben. Dies umfasst das Linten von Code, den Umgang mit CSS-Präfixen, die Verwendung von Browser-Entwicklerwerkzeugen zur Problemverfolgung, den Einsatz von Polyfills zur Erweiterung der Unterstützung in Browsern, die Bewältigung von Problemen mit responsivem Design und mehr.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit den grundlegenden <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+        Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
         <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
-        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> Sprachen; ein Verständnis
-        der grundlegenden
+        <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>; eine Vorstellung
+        von den grundlegenden
         <a
           href="/de/docs/Learn_web_development/Extensions/Testing/Introduction"
           >Prinzipien des plattformübergreifenden Testens</a
@@ -28,8 +28,8 @@ Nachdem wir den Rahmen festgelegt haben, werden wir nun speziell auf die häufig
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        In der Lage sein, häufige plattformübergreifende HTML- und CSS-Probleme zu diagnostizieren und
-        geeignete Werkzeuge und Techniken zu verwenden, um diese zu beheben.
+        In der Lage sein, gängige plattformübergreifende HTML- und CSS-Probleme zu diagnostizieren und
+        geeignete Werkzeuge und Techniken zu deren Behebung zu nutzen.
       </td>
     </tr>
   </tbody>
@@ -37,75 +37,75 @@ Nachdem wir den Rahmen festgelegt haben, werden wir nun speziell auf die häufig
 
 ## Die Probleme mit HTML und CSS
 
-Einige der Probleme mit HTML und CSS liegen darin, dass beide Sprachen relativ einfach sind, und oft nehmen Entwickler sie nicht ernst genug, um sicherzustellen, dass der Code gut gestaltet, effizient und semantisch die Funktion der auf der Seite befindlichen Features beschreibt. Im schlimmsten Fall wird JavaScript verwendet, um den gesamten Webseiteninhalt und das Design zu generieren, was Ihre Seiten unzugänglich und weniger performant macht (das Generieren von DOM-Elementen ist teuer). In anderen Fällen werden neue Funktionen nicht konsistent durch alle Browser unterstützt, was dazu führen kann, dass einige Funktionen und Stile für einige Benutzer nicht funktionieren. Probleme mit dem responsiven Design sind ebenfalls häufig – eine Website, die in einem Desktop-Browser gut aussieht, kann auf einem Mobilgerät eine schreckliche Erfahrung sein, da der Inhalt zu klein ist, um ihn zu lesen, oder weil die Site vielleicht langsam ist, aufgrund teurer Animationen.
+Einige der Schwierigkeiten mit HTML und CSS liegen in der Tatsache, dass beide Sprachen relativ einfach sind und Entwickler oft nicht darauf achten, dass der Code gut gestaltet, effizient und semantisch die Zwecke der Funktionen auf der Seite beschreibt. Im schlimmsten Fall wird JavaScript verwendet, um den gesamten Webseiteninhalt und -stil zu generieren, was Ihre Seiten unzugänglich und weniger performant macht (das Generieren von DOM-Elementen ist teuer). In anderen Fällen werden neuartige Funktionen nicht konsistent über alle Browser hinweg unterstützt, was dazu führen kann, dass einige Funktionen und Stile für manche Nutzer nicht funktionieren. Probleme mit responsivem Design sind ebenfalls häufig – eine Seite, die in einem Desktop-Browser gut aussieht, kann auf einem mobilen Gerät eine furchtbare Erfahrung bieten, weil der Inhalt zu klein ist, um ihn zu lesen, oder die Seite vielleicht wegen aufwendiger Animationen langsam ist.
 
-Schauen wir uns an, wie wir plattformübergreifende Fehler reduzieren können, die durch HTML/CSS entstehen.
+Lassen Sie uns nun erkunden, wie wir plattformübergreifende Fehler reduzieren können, die aus HTML/CSS resultieren.
 
-## Zuerst das Allgemeine beheben
+## Zuerst das Wichtigste: Allgemeine Probleme beheben
 
-Wir haben im [ersten Artikel dieser Serie](/de/docs/Learn_web_development/Extensions/Testing/Introduction#testingdiscovery) gesagt, dass eine gute Strategie zu Beginn darin besteht, in ein paar modernen Browsern auf Desktop-/Mobilgeräten zu testen, um sicherzustellen, dass Ihr Code im Allgemeinen funktioniert, bevor Sie sich auf plattformübergreifende Probleme konzentrieren.
+Wir sagten im [ersten Artikel dieser Serie](/de/docs/Learn_web_development/Extensions/Testing/Introduction#testingdiscovery), dass eine gute Strategie darin besteht, zunächst in einigen modernen Browsern auf Desktop/Handys zu testen, um sicherzustellen, dass Ihr Code allgemein funktioniert, bevor Sie sich auf die plattformübergreifenden Probleme konzentrieren.
 
-In unseren Artikeln [Debugging HTML](/de/docs/Learn_web_development/Core/Structuring_content/Debugging_HTML) und [Debugging CSS](/de/docs/Learn_web_development/Core/Styling_basics/Debugging_CSS) haben wir einige wirklich grundlegende Anleitungen zum Debuggen von HTML/CSS bereitgestellt – wenn Sie mit den Grundlagen nicht vertraut sind, sollten Sie diese Artikel auf jeden Fall studieren, bevor Sie weitermachen.
+In unseren Artikeln [Debugging HTML](/de/docs/Learn_web_development/Core/Structuring_content/Debugging_HTML) und [Debugging CSS](/de/docs/Learn_web_development/Core/Styling_basics/Debugging_CSS) haben wir einige grundlegende Anleitungen zum Debuggen von HTML/CSS gegeben – wenn Sie mit den Grundlagen nicht vertraut sind, sollten Sie diese Artikel unbedingt studieren, bevor Sie weitermachen.
 
-Im Wesentlichen geht es darum zu überprüfen, ob Ihr HTML- und CSS-Code gut formatiert ist und keine Syntaxfehler enthält.
+Grundsätzlich geht es darum, zu überprüfen, ob Ihr HTML- und CSS-Code gut formatiert ist und keine Syntaxfehler enthält.
 
 > [!NOTE]
-> Ein häufiges Problem bei CSS und HTML entsteht, wenn verschiedene CSS-Regeln miteinander in Konflikt geraten. Dies kann besonders problematisch sein, wenn Sie Code von Drittanbietern verwenden. Beispielsweise könnten Sie ein CSS-Framework verwenden und feststellen, dass einer der Klassennamen mit einem kollidiert, den Sie bereits für einen anderen Zweck verwendet haben. Oder Sie könnten feststellen, dass von irgendeiner Art Drittanbieter-API generiertes HTML (zum Beispiel Anzeigenbanner) einen Klassennamen oder eine ID enthält, die Sie bereits für einen anderen Zweck verwenden. Um sicherzustellen, dass dies nicht passiert, sollten Sie die Werkzeuge, die Sie verwenden, zuerst recherchieren und Ihr Code darauf ausrichten. Es lohnt sich auch, CSS zu "namespace", z. B. wenn Sie ein Widget haben, stellen Sie sicher, dass es eine eindeutige Klasse hat, und beginnen Sie dann die Selektoren, die Elemente innerhalb des Widgets auswählen, mit dieser Klasse, um Konflikte weniger wahrscheinlich zu machen. Zum Beispiel `.audio-player ul a`.
+> Ein häufiges Problem mit CSS und HTML tritt auf, wenn unterschiedliche CSS-Regeln miteinander in Konflikt geraten. Dies kann besonders problematisch sein, wenn Sie Drittanbieter-Code verwenden. Zum Beispiel könnten Sie ein CSS-Framework verwenden und feststellen, dass einer der Klassennamen, den es verwendet, mit einem Namen kollidiert, den Sie bereits zu einem anderen Zweck verwendet haben. Oder Sie könnten feststellen, dass HTML, das von einer Art Drittanbieter-API generiert wird (zum Beispiel Werbebanner), einen Klassennamen oder eine ID enthält, die Sie bereits zu einem anderen Zweck verwenden. Um sicherzustellen, dass dies nicht passiert, müssen Sie die verwendeten Werkzeuge gründlich recherchieren und Ihren Code um diese herum entwerfen. Es ist auch wertvoll, CSS zu „namespace“-en, d.h. wenn Sie ein Widget haben, stellen Sie sicher, dass es eine unverwechselbare Klasse hat und beginnen Sie die Selektoren, die Elemente innerhalb des Widgets auswählen, mit dieser Klasse, um Konflikte weniger wahrscheinlich zu machen. Zum Beispiel `.audio-player ul a`.
 
 ### Validierung
 
-Für HTML bedeutet Validierung, sicherzustellen, dass alle Tags ordnungsgemäß geschlossen und geschachtelt sind, dass Sie einen Doctype verwenden und Tags für den richtigen Zweck verwenden. Eine gute Strategie ist es, Ihren Code regelmäßig zu validieren. Ein Dienst, der dies leisten kann, ist der W3C [Markup Validation Service](https://validator.w3.org/), der es Ihnen ermöglicht, auf Ihren Code hinzuweisen und eine Liste von Fehlern zurückgibt:
+Für HTML bedeutet Validierung, dass alle Ihre Tags ordnungsgemäß geschlossen und geschachtelt sind, Sie einen Doctype verwenden und die Tags für ihren korrekten Zweck verwendet werden. Eine gute Strategie ist es, Ihren Code regelmäßig zu validieren. Ein Dienst, der dies tun kann, ist der W3C [Markup Validation Service](https://validator.w3.org/), mit dem Sie auf Ihren Code verweisen können und eine Liste von Fehlern zurückerhalten:
 
-![Die Startseite des HTML-Validators](validator.png)
+![Die HTML-Validator-Startseite](validator.png)
 
-Für CSS ist die Geschichte ähnlich – Sie müssen überprüfen, dass die Namen der Eigenschaften korrekt geschrieben sind, die Werte der Eigenschaften korrekt geschrieben sind und für die Eigenschaften, auf denen sie angewendet werden, gültig sind, dass keine geschweiften Klammern fehlen usw. Dafür gibt es ebenfalls einen [CSS Validator](https://jigsaw.w3.org/css-validator/) des W3C.
+CSS hat eine ähnliche Geschichte – Sie müssen überprüfen, ob Ihre Eigenschaftsnamen korrekt geschrieben sind, Eigenschaftswerte korrekt geschrieben und für die Eigenschaften, auf die sie angewendet werden, gültig sind, ob keine geschweiften Klammern fehlen usw. Auch dafür steht ein [CSS Validator](https://jigsaw.w3.org/css-validator/) des W3C zur Verfügung.
 
 ### Linters
 
-Eine weitere gute Wahl ist eine sogenannte Linter-Anwendung, die nicht nur Fehler anzeigt, sondern auch Warnungen über schlechte Praktiken in Ihrem CSS und andere Punkte hervorheben kann. Linters können in der Regel angepasst werden, um strenger oder entspannter in der Fehler-/Warnmeldung zu sein.
+Eine andere gute Wahl ist eine sogenannte Linter-Anwendung, die nicht nur Fehler aufzeigt, sondern auch Warnungen über schlechte Praktiken in Ihrem CSS und andere Aspekte geben kann. Linters können in der Regel so konfiguriert werden, dass sie strenger oder lockerer in ihrem Fehler-/Warnbericht sind.
 
-Es gibt viele Online-Linter-Anwendungen, wie [Dirty Markup](https://www.10bestdesign.com/dirtymarkup/) für HTML, CSS und JavaScript. Diese ermöglichen es Ihnen, Ihren Code in ein Fenster einzufügen, und es werden Fehler mit Kreuzen markiert, die dann mit einer Fehlermeldung anzeigen, was das Problem ist, die Sie anzeigen können. Dirty Markup ermöglicht es Ihnen auch, Korrekturen an Ihrem Markup mithilfe der _Clean_-Schaltfläche vorzunehmen.
+Es gibt viele Online-Linter-Anwendungen, wie [Dirty Markup](https://www.10bestdesign.com/dirtymarkup/) für HTML, CSS und JavaScript. Diese erlauben es Ihnen, Ihren Code in ein Fenster einzufügen, und er wird Fehler mit Kreuzen kennzeichnen, die dann gehortet werden können, um eine Fehlermeldung zu erhalten, die Ihnen das Problem mitteilt. Dirty Markup ermöglicht es Ihnen ebenfalls, mit der _Clean_-Schaltfläche Korrekturen an Ihrem Markup vorzunehmen.
 
-![Dirty Markup Anwendung zeigt die Meldung "Unexpected character in unquoted attribute" über dem folgenden falschen HTML-Markup an: <div id=combinators">](dirty-markup.png)
+![Dirty Markup-Anwendung, die die Nachricht "Unerwartetes Zeichen im nicht zitierten Attribut" über dem folgenden inkorrekten HTML-Markup anzeigt: <div id=combinators">](dirty-markup.png)
 
-Es ist jedoch nicht sehr bequem, Ihren Code mehrmals auf eine Webseite zu kopieren und einzufügen, um dessen Gültigkeit zu überprüfen. Was Sie wirklich wollen, ist ein Linter, der in Ihren Standard-Workflow passt und möglichst wenig Aufwand erfordert.
+Es ist jedoch nicht sehr bequem, Ihren Code mehrmals auf eine Webseite kopieren und einfügen zu müssen, um seine Gültigkeit zu überprüfen. Was Sie wirklich wollen, ist ein Linter, der sich nahtlos in Ihren gewohnten Arbeitsablauf einfügt.
 
-Viele Code-Editoren haben Linter-Plugins. Siehe zum Beispiel:
+Viele Code-Editoren haben Linter-Plugins. Zum Beispiel:
 
 - [SublimeLinter](https://www.sublimelinter.com/) für Sublime Text
-- [Notepad++ Linter](https://sourceforge.net/projects/notepad-linter/)
-- [VS Code Linters](https://marketplace.visualstudio.com/search?target=vscode&category=Linters&sortBy=Installs)
+- [Notepad++ linter](https://sourceforge.net/projects/notepad-linter/)
+- [VS Code linters](https://marketplace.visualstudio.com/search?target=vscode&category=Linters&sortBy=Installs)
 
-### Entwicklerwerkzeuge im Browser
+### Browser-Entwicklertools
 
-Die Entwicklerwerkzeuge, die in den meisten Browsern integriert sind, verfügen auch über nützliche Tools zur Fehlersuche, hauptsächlich für CSS.
+Die in den meisten Browsern integrierten Entwickler-Tools verfügen auch über nützliche Werkzeuge zur Fehlerjagd, hauptsächlich für CSS.
 
 > [!NOTE]
-> HTML-Fehler zeigen sich in der Regel nicht so einfach in den Entwicklerwerkzeugen, da der Browser versucht, schlecht formatiertes Markup automatisch zu korrigieren; das W3C-Validator ist der beste Weg, um HTML-Fehler zu finden – siehe [Validierung](#validierung) oben.
+> HTML-Fehler werden in den Entwickler-Tools nicht so leicht angezeigt, da der Browser versucht, schlecht formatiertes Markup automatisch zu korrigieren; der W3C-Validator ist der beste Weg, um HTML-Fehler zu finden – siehe [Validierung](#validierung) oben.
 
-Zum Beispiel wird im CSS-Inspektor von Firefox CSS-Deklarationen angezeigt, die nicht angewendet werden, indem sie durchgestrichen sind, mit einem Warndreieck. Wenn Sie das Warndreieck überfahren, wird eine beschreibende Fehlermeldung angezeigt:
+In Firefox zum Beispiel zeigt der CSS-Inspektor CSS-Deklarationen, die nicht angewendet werden, durchgestrichen mit einem Warn-Dreieck an. Das Hovering über das Warn-Dreieck zeigt eine beschreibende Fehlermeldung an:
 
-![Die Entwicklerwerkzeuge streichen ungültiges CSS durch und fügen ein hoverbares Warnsymbol hinzu](css-message-devtools.png)
+![Die Entwickler-Werkzeuge streichen ungültiges CSS durch und fügen ein hoverbares Warnsymbol hinzu](css-message-devtools.png)
 
-Andere Browser-Entwicklerwerkzeuge haben ähnliche Funktionen.
+Andere Browser-Entwicklertools haben ähnliche Funktionen.
 
 ## Häufige plattformübergreifende Probleme
 
-Jetzt schauen wir uns einige der häufigsten plattformübergreifenden HTML- und CSS-Probleme an. Die Hauptbereiche, die wir uns ansehen werden, sind fehlende Unterstützung für moderne Funktionen und Layoutprobleme.
+Nun lassen Sie uns einige der häufigsten plattformübergreifenden HTML- und CSS-Probleme betrachten. Die Hauptbereiche, die wir untersuchen, sind mangelnde Unterstützung moderner Funktionen und Layoutprobleme.
 
-### Browser unterstützen moderne Funktionen nicht
+### Browser, die moderne Funktionen nicht unterstützen
 
-Dies ist ein häufiges Problem, insbesondere wenn Sie ältere Browser unterstützen müssen oder Sie Funktionen verwenden, die in einigen Browsern implementiert sind, aber noch nicht in allen. Im Allgemeinen funktioniert die meisten Kernfunktionen von HTML und CSS (wie grundlegende HTML-Elemente, grundlegende CSS-Farben und Textstilierung) in allen Browsern, die Sie unterstützen möchten; mehr Probleme treten auf, wenn Sie beginnen möchten, neuere HTML-, CSS- und APIs zu verwenden. MDN zeigt Browser-Kompatibilitätsdaten für jede dokumentierte Funktion an; siehe zum Beispiel die [Browser-Unterstützungstabelle für die `:has()` Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/:has#browser_compatibility).
+Dies ist ein häufiges Problem, insbesondere wenn Sie alte Browser unterstützen müssen oder Funktionen verwenden, die in einigen Browsern implementiert sind, aber noch nicht in allen. Im Allgemeinen funktioniert der Kern der HTML- und CSS-Funktionalität (wie grundlegende HTML-Elemente, CSS-Grundfarben und Text-Styling) über alle Browser hinweg, die Sie unterstützen möchten; mehr Probleme treten auf, wenn Sie neuere HTML-, CSS- und APIs nutzen möchten. MDN zeigt Browser-Kompatibilitätsdaten für jede dokumentierte Funktion an; sehen Sie zum Beispiel die [Browser-Support-Tabelle für die `:has()`-Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/:has#browser_compatibility).
 
-Sobald Sie eine Liste von Technologien identifiziert haben, die Sie verwenden werden und die nicht universell unterstützt werden, ist es eine gute Idee zu recherchieren, in welchen Browsern sie unterstützt werden und welche verwandten Techniken nützlich sind. Siehe [Hilfe finden](#hilfe_finden) unten.
+Sobald Sie eine Liste von Technologien identifiziert haben, die nicht universell unterstützt werden, ist es eine gute Idee zu recherchieren, in welchen Browsern sie unterstützt werden und welche verwandten Techniken nützlich sind. Siehe [Hilfe finden](#hilfe_finden) unten.
 
 ### HTML-Fallback-Verhalten
 
-Einige Probleme können einfach dadurch gelöst werden, dass man die natürliche Arbeitsweise von HTML/CSS ausnutzt.
+Einige Probleme können gelöst werden, indem man die natürliche Funktionsweise von HTML/CSS ausnutzt.
 
-Nicht erkannte HTML-Elemente werden vom Browser als anonyme Inline-Elemente behandelt (praktisch Inline-Elemente ohne semantischen Wert, ähnlich wie {{htmlelement("span")}}-Elemente). Sie können sie weiterhin mit ihren Namen referenzieren und mit CSS gestalten, zum Beispiel – Sie müssen nur sicherstellen, dass sie sich so verhalten, wie Sie es wünschen. Gestalten Sie sie einfach wie jedes andere Element, einschließlich der Festlegung der `display`-Eigenschaft auf etwas anderes als `inline`, wenn nötig.
+Nicht erkannte HTML-Elemente werden vom Browser als anonyme Inline-Elemente behandelt (im Wesentlichen Inline-Elemente ohne semantischen Wert, ähnlich {{htmlelement("span")}}-Elementen). Sie können dennoch auf sie durch ihre Namen referenzieren und sie mit CSS stylen – Sie müssen nur sicherstellen, dass sie sich so verhalten, wie Sie es wünschen. Stylen Sie sie so, wie Sie jedes andere Element stylen würden, einschließlich der Einstellung der `display`-Eigenschaft auf etwas anderes als `inline`, falls erforderlich.
 
-Komplexere Elemente wie HTML [`<video>`](/de/docs/Web/HTML/Reference/Elements/video), [`<audio>`](/de/docs/Web/HTML/Reference/Elements/audio), [`<picture>`](/de/docs/Web/HTML/Reference/Elements/picture), [`<object>`](/de/docs/Web/HTML/Reference/Elements/object) und [`<canvas>`](/de/docs/Web/HTML/Reference/Elements/canvas) (und andere Funktionen nebenbei) haben natürliche Mechanismen, um Fallbacks hinzuzufügen, falls die verlinkten Ressourcen nicht unterstützt werden. Sie können Fallback-Inhalte zwischen den öffnenden und schließenden Tags hinzufügen, und nicht unterstützende Browser ignorieren das äußere Element effektiv und führen die eingebetteten Inhalte aus.
+Komplexere Elemente wie HTML [`<video>`](/de/docs/Web/HTML/Reference/Elements/video), [`<audio>`](/de/docs/Web/HTML/Reference/Elements/audio), [`<picture>`](/de/docs/Web/HTML/Reference/Elements/picture), [`<object>`](/de/docs/Web/HTML/Reference/Elements/object) und [`<canvas>`](/de/docs/Web/HTML/Reference/Elements/canvas) (neben anderen Funktionen) haben natürliche Mechanismen für Fallbacks, die hinzugefügt werden können, falls die verlinkten Ressourcen nicht unterstützt werden. Sie können Fallback-Inhalte zwischen den öffnenden und schließenden Tags hinzufügen, und nicht unterstützende Browser ignorieren effektiv das äußere Element und führen den eingebetteten Inhalt aus.
 
 Zum Beispiel:
 
@@ -124,11 +124,11 @@ Zum Beispiel:
 </video>
 ```
 
-Dieses Beispiel enthält einen einfachen Link, der es Ihnen ermöglicht, das Video herunterzuladen, falls selbst der HTML-Videoplayer nicht funktioniert, sodass der Benutzer zumindest auf das Video zugreifen kann.
+Dieses Beispiel enthält einen einfachen Link, mit dem Sie das Video herunterladen können, falls der HTML-Videoplayer nicht funktioniert, sodass der Benutzer zumindest das Video weiterhin ansehen kann.
 
-Ein weiteres Beispiel sind Formularelemente. Als neue [`<input>`](/de/docs/Web/HTML/Reference/Elements/input)-Typen eingeführt wurden, um spezifische Informationen in Formulare einzugeben, wie Zeiten, Daten, Farben, Zahlen usw., wenn ein Browser die neue Funktion nicht unterstützte, benutzte der Browser den Standard von `type="text"`. Einfügeelemente wurden hinzugefügt, die besonders nützlich auf mobilen Plattformen sind, bei denen es sehr wichtig ist, dem Benutzer ein schmerzfreies Eingeben von Daten zu ermöglichen. Plattformen bieten je nach Eingabetyp unterschiedliche UI-Widgets an, wie z. B. einen Kalenderiz für die Eingabe von Daten. Sollte ein Browser einen Eingabetyp nicht unterstützen, kann der Benutzer dennoch die erforderlichen Daten eingeben.
+Ein weiteres Beispiel sind Formularelemente. Als neue [`<input>`](/de/docs/Web/HTML/Reference/Elements/input)-Typen eingeführt wurden, um spezifische Informationen in Formularen einzugeben, wie Zeiten, Daten, Farben, Zahlen usw., wenn ein Browser die neue Funktion nicht unterstützte, verwendete der Browser den Standard von `type="text"`. Eingabetypen wurden hinzugefügt, die besonders auf mobilen Plattformen sehr nützlich sind, wo es wichtig ist, dem Benutzer eine schmerzfreie Möglichkeit zur Eingabe von Daten zu bieten. Plattformen bieten je nach Eingabetyp verschiedene Benutzeroberflächen-Widgets an, wie zum Beispiel ein Kalender-Widget zur Eingabe von Daten. Sollte ein Browser einen Eingabetyp nicht unterstützen, kann der Benutzer die erforderlichen Daten dennoch eingeben.
 
-Das folgende Beispiel zeigt Datum- und Zeit-Eingaben:
+Das folgende Beispiel zeigt Datum- und Zeiteingaben:
 
 ```html live-sample___form-test
 <form>
@@ -167,19 +167,19 @@ body {
 }
 ```
 
-Das Ergebnis dieses Codes ist wie folgt:
+Die Ausgabe dieses Codes ist wie folgt:
 
 {{EmbedLiveSample("form-test", '100%', 100)}}
 
-Sie können die **Play**-Taste drücken, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten.
+Sie können den **Wiedergabe**-Button drücken, um das Beispiel im MDN Playground zu öffnen und den Quellcode zu bearbeiten.
 
-Wenn Sie das Beispiel anzeigen, sehen Sie die UI-Funktionen in Aktion, wenn Sie versuchen, Daten einzugeben. Auf Geräten mit dynamischen Tastaturen werden typspezifische Tastaturen angezeigt. In einem nicht unterstützenden Browser werden die Eingaben einfach zu normalen Texteinträgen zurückgesetzt, was bedeutet, dass der Benutzer dennoch die benötigten Informationen eingeben kann.
+Wenn Sie sich das Beispiel ansehen, werden Sie die Benutzeroberflächenfunktionen in Aktion sehen, während Sie versuchen, Daten einzugeben. Auf Geräten mit dynamischen Tastaturen werden tastaturspezifische Keypads angezeigt. In einem nicht unterstützenden Browser werden die Eingaben einfach zu normalen Texteingaben zurückgesetzt, sodass der Benutzer die richtigen Informationen weiterhin eingeben kann.
 
 ### CSS-Fallback-Verhalten
 
-CSS ist vermutlich besser bei Fallbacks als HTML. Wenn ein Browser auf eine Deklaration oder Regel trifft, die er nicht versteht, überspringt er sie vollständig, ohne sie anzuwenden oder einen Fehler auszugeben. Dies mag frustrierend für Sie und Ihre Benutzer sein, wenn ein solcher Fehler unbemerkt in Produktionscode gelangt, aber immerhin bedeutet es, dass die gesamte Website nicht aufgrund eines Fehlers abstürzt und wenn clever genutzt, können Sie es zu Ihrem Vorteil nutzen.
+CSS ist in Hinsicht auf Fallbacks sogar besser als HTML. Wenn ein Browser auf eine Deklaration oder Regel stößt, die er nicht versteht, überspringt er sie einfach komplett, ohne sie anzuwenden oder einen Fehler auszugeben. Dies könnte für Sie und Ihre Benutzer frustrierend sein, wenn ein solcher Fehler bis in den Produktivcode durchrutscht, aber zumindest bedeutet es, dass die gesamte Seite nicht wegen eines Fehlers zusammenbricht, und wenn es klug eingesetzt wird, können Sie es zu Ihrem Vorteil nutzen.
 
-Schauen wir uns ein Beispiel an – eine einfache Box, die mit CSS gestaltet ist, mit ein wenig Styling durch verschiedene CSS-Funktionen:
+Sehen wir uns ein Beispiel an – eine einfache mit CSS gestylte Box, die einige Stile durch verschiedene CSS-Funktionen hat:
 
 ```html hidden live-sample___blingy-button
 <button>Press me</button>
@@ -230,9 +230,9 @@ body {
 
 {{EmbedLiveSample("blingy-button", "100%", 60)}}
 
-Sie können die **Play**-Taste drücken, um das Beispiel im MDN Playground zu öffnen und mit dem Quellcode zu spielen.
+Sie können den **Wiedergabe**-Button drücken, um das Beispiel im MDN Playground zu öffnen und mit dem Quellcode zu spielen.
 
-Der Button hat eine Reihe von Deklarationen, aber die, die uns am meisten interessiert, sind:
+Der Button hat eine Anzahl von auf ihn angewendeten Deklarationen, aber die, an denen wir am meisten interessiert sind, sind die folgenden:
 
 ```css
 button {
@@ -257,28 +257,28 @@ button:active {
 }
 ```
 
-Hier geben wir eine [RGB](/de/docs/Web/CSS/color_value/rgb) {{cssxref("background-color")}} an, die bei Hover die Opazität ändert, um dem Benutzer einen Hinweis darauf zu geben, dass der Button interaktiv ist, und einige halbtransparente eingefügte {{cssxref("box-shadow")}} Schattierungen, um dem Button ein wenig Textur und Tiefe zu verleihen. Obwohl jetzt vollständig unterstützt, waren RGB-Farben und Boxschatten nicht immer vorhanden; erstmals in IE9. Browser, die keine RGB-Farben unterstützten, würden die Deklaration ignorieren, was bedeutet, dass in alten Browsern der Hintergrund überhaupt nicht angezeigt würde, sodass der Text unlesbar wäre, was überhaupt nicht gut ist!
+Hier bieten wir eine [RGB](/de/docs/Web/CSS/Reference/Values/color_value/rgb) {{cssxref("background-color")}} an, die die Opazität beim Hover ändert, um dem Benutzer einen Hinweis zu geben, dass der Button interaktiv ist, sowie einige halbtransparente eingelegte {{cssxref("box-shadow")}} Schatten, um dem Button etwas Textur und Tiefe zu verleihen. Während sie jetzt vollständig unterstützt werden, sind RGB-Farben und Box-Schatten nicht immer unterstützt worden, beginnend mit IE9. Browser, die RGB-Farben nicht unterstützten, würden die Deklaration ignorieren, was bedeutete, dass in alten Browsern der Hintergrund nicht angezeigt werden würde, sodass der Text nicht lesbar wäre, was absolut nicht akzeptabel ist!
 
-![Schwer zu sehender pillenförmiger Button mit weißem Text auf fast weißem Hintergrund](unreadable-button.png)
+![Schwer lesbarer Pillenbutton mit weißem Text auf fast weißem Hintergrund](unreadable-button.png)
 
-Um das zu beheben, haben wir eine zweite `background-color`-Deklaration hinzugefügt, die einfach das `red`-Farbkennwort angibt – dies wird weit zurück in wirklich alten Browsern unterstützt und fungiert als Fallback, falls die modernen glitzernden Features nicht funktionieren. Was passiert, ist, dass ein Browser, der diese Seite besucht, zunächst den ersten Wert von `background-color` anwendet; wenn er zur zweiten `background-color`-Deklaration gelangt, wird er, wenn er RGB-Farben unterstützt, den initialen Wert mit diesem Wert überschreiben. Wenn nicht, ignoriert er einfach den gesamten Deklarationsblock und geht weiter.
+Um dies zu lösen, haben wir eine zweite `background-color`-Deklaration hinzugefügt, die nur das `red` Farb-Schlüsselwort angibt – das wird schon weit zurück in sehr alten Browsern unterstützt und dient als Fallback, falls die modernen glänzenden Funktionen nicht funktionieren. Was passiert, ist, dass ein Browser, der diese Seite besucht, zunächst den ersten `background-color`-Wert anwendet; wenn er zur zweiten `background-color`-Deklaration gelangt, wird er den anfänglichen Wert mit diesem Wert überschreiben, wenn er RGB-Farben unterstützt. Wenn nicht, ignoriert er einfach die gesamte Deklaration und fährt fort.
 
 > [!NOTE]
-> Gleiches gilt für andere CSS-Funktionen wie [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), [`@font-face`](/de/docs/Web/CSS/@font-face) und [`@supports`](/de/docs/Web/CSS/@supports) Blöcke – wenn sie nicht unterstützt werden, ignoriert der Browser sie einfach.
+> Das Gleiche gilt für andere CSS-Funktionen wie [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), [`@font-face`](/de/docs/Web/CSS/Reference/At-rules/@font-face) und [`@supports`](/de/docs/Web/CSS/Reference/At-rules/@supports) Blöcke – wenn sie nicht unterstützt werden, ignoriert der Browser sie einfach.
 
-### Selektor-Unterstützung
+### Selektorsupport
 
-Natürlich werden keine CSS-Funktionen angewendet, wenn Sie nicht die richtigen [Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) verwenden, um das Element auszuwählen, das Sie gestalten möchten!
+Natürlich werden keine CSS-Funktionen angewendet, wenn Sie nicht die richtigen [Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) verwenden, um das Element zu selektieren, das Sie stylen möchten!
 
-In einer kommagetrennten Liste von Selektoren, wenn Sie nur einen Selektor falsch schreiben, wird er möglicherweise kein Element auswählen. Wenn jedoch ein Selektor ungültig ist, wird die **ganze** Liste der Selektoren ignoriert, zusammen mit dem gesamten Stilblock. Aus diesem Grund sollten Sie ein `:-moz-` präfixiertes Pseudoklasse oder Pseudo-Element nur in einer [fehlertoleranten Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#forgiving_selector_list) wie `:where(::-moz-thumb)` einfügen. Fügen Sie keine `:-moz-` präfixierte Pseudo-Klasse oder Pseudo-Element innerhalb einer kommagetrennten Gruppe von Selektoren außerhalb einer [`:is()`](/de/docs/Web/CSS/Reference/Selectors/:is) oder [`:where()`](/de/docs/Web/CSS/Reference/Selectors/:where) fehlerignoranter Selektorliste ein, da alle Browser außer Firefox den gesamten Block ignorieren werden. Beachten Sie, dass sowohl `:is()` als auch `:where()` als Parameter in andere Selektorlisten übergeben werden können, einschließlich [`:has()`](/de/docs/Web/CSS/Reference/Selectors/:has) und [`:not()`](/de/docs/Web/CSS/Reference/Selectors/:not).
+In einer durch Kommas getrennten Liste von Selektoren, wenn Sie einfach einen Selektor inkorrekt schreiben, wird es möglicherweise kein Element entsprechen. Wenn jedoch ein Selektor ungültig ist, wird die **gesamte** Liste von Selektoren ignoriert, zusammen mit dem gesamten Stilblock. Aus diesem Grund sollten Sie nur eine `:-moz-`-präfixierte Pseudoklasse oder ein Pseudo-Element in einer [nachsichtigen Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#forgiving_selector_list), wie zum Beispiel `:where(::-moz-thumb)`, einschließen. Schließen Sie eine `:-moz-`-präfixierte Pseudoklasse oder ein Pseudo-Element nicht in eine durch Kommas getrennte Gruppe von Selektoren außerhalb einer [`:is()`](/de/docs/Web/CSS/Reference/Selectors/:is) oder [`:where()`](/de/docs/Web/CSS/Reference/Selectors/:where) nachsichtigen Selektorliste ein, da alle anderen Browser als Firefox den gesamten Block ignorieren. Beachten Sie, dass sowohl `:is()` als auch `:where()` als Parameter in anderen Selektorlisten verwendet werden können, einschließlich [`:has()`](/de/docs/Web/CSS/Reference/Selectors/:has) und [`:not()`](/de/docs/Web/CSS/Reference/Selectors/:not).
 
-Wir finden es hilfreich, das Element, das Sie gestalten möchten, mit dem Entwicklerwerkzeug Ihres Browsers zu inspizieren und dann den DOM-Strukturpfad zu verwenden, den DOM-Inspektoren tendenziell bieten, um zu sehen, ob Ihr Selektor im Vergleich dazu Sinn ergibt.
+Wir finden, dass es hilfreich ist, das Element, das Sie stylen möchten, mit den Entwicklerwerkzeugen Ihres Browsers zu inspizieren und dann den DOM-Baum-Breadcrumb-Pfad zu betrachten, den DOM-Inspektoren tendenziell bieten, um zu sehen, ob Ihr Selektor im Vergleich dazu sinnvoll ist.
 
-Zum Beispiel bekommen Sie in den Firefox-Entwicklerwerkzeugen diese Art von Ausgabe am unteren Ende des DOM-Inspektors:
+Zum Beispiel erhalten Sie in den Firefox-Entwicklerwerkzeugen diese Art von Ausgabe am unteren Rand des DOM-Inspektors:
 
-![Die Breadcrumb der Elements ist html > body > form > div.form > input#date](dom-breadcrumb-trail.png)
+![Der Element-Breadcrumb-Pfad ist html > body > form > div.form > input#date](dom-breadcrumb-trail.png)
 
-Wenn Sie beispielsweise diesen Selektor verwenden möchten, können Sie sehen, dass er das Eingabeelement nicht wie gewünscht auswählt:
+Wenn Sie zum Beispiel versuchen würden, diesen Selektor zu verwenden, würden Sie sehen können, dass er das Eingabeelement nicht wie gewünscht auswählt:
 
 ```css
 form > #date {
@@ -286,17 +286,17 @@ form > #date {
 }
 ```
 
-(Das `date`-Formulareingabeelement ist kein direktes Kind des `<form>`; Sie wären besser bedient, einen allgemeinen Nachfahren-Selektor anstelle eines Kind-Selektors zu verwenden).
+(Das `date`-Formulareingabefeld ist kein direktes Kind des `<form>`; es wäre besser, einen allgemeinen Nachfahrselektor anstelle eines Kindselektors zu verwenden).
 
 ### Umgang mit CSS-Präfixen
 
-Eine andere Reihe von Problemen kommt mit CSS-Präfixen — dies sind Mechanismen, die ursprünglich verwendet wurden, um Browserherstellern zu erlauben, ihre eigene Version einer CSS (oder JavaScript)-Funktion zu implementieren, während die Technologie in einem experimentellen Zustand ist, damit sie damit spielen und sie richtig machen können, ohne mit Implementierungen anderer Browser oder den endgültigen nicht-präfixierten Implementierungen in Konflikt zu geraten.
+Ein weiteres Set von Problemen ergibt sich aus CSS-Präfixen – dies ist ein Mechanismus, der ursprünglich verwendet wurde, um Browserherstellern zu erlauben, ihre eigene Version einer CSS- (oder JavaScript-)Funktion zu implementieren, während die Technologie sich in einem experimentellen Zustand befindet, sodass sie damit spielen und es richtig hinbekommen können, ohne mit den Implementierungen anderer Browser in Konflikt zu geraten, oder den endgültigen unpräfixen Implementierungen.
 
-Zum Beispiel verwendet Firefox `-moz-` und Chrome/Edge/Opera/Safari verwendet `-webkit-`. Andere Präfixe, die Sie im alten Code finden könnten und die sicher entfernt werden können, schließen `-ms-` ein, das von Internet Explorer und frühen Versionen von Edge verwendet wurde, und `-o`, das in den ursprünglichen Versionen von Opera verwendet wurde.
+Zum Beispiel verwendet Firefox `-moz-` und Chrome/Edge/Opera/Safari verwenden `-webkit-`. Andere Präfixe, denen Sie in altem Code begegnen können und die sicher entfernt werden können, sind `-ms-`, welches von Internet Explorer und frühen Versionen von Edge verwendet wurde, und `-o`, welches in den ursprünglichen Versionen von Opera verwendet wurde.
 
-Präfixierte Funktionen sollten niemals in Produktionswebsites verwendet werden — sie sind Änderungen oder der Entfernung ohne Vorwarnung unterworfen, können Performance-Probleme in alten Browserversionen verursachen, die sie benötigen, und waren die Ursache von plattformübergreifenden Problemen. Dies ist besonders ein Problem, wenn Entwickler beschließen, nur die `-webkit-` Version einer Eigenschaft zu verwenden, was impliziert, dass die Seite in anderen Browsern nicht funktioniert. Dies geschah tatsächlich so häufig, dass andere Browserhersteller `-webkit-`-präfixierte Versionen mehrerer CSS-Eigenschaften implementierten. Während Browser noch immer einige präfixierte Eigenschafthnamen, Eigenschaftswerte und Pseudoklassen unterstützen, werden experimentelle Features jetzt hinter Flags platziert, damit Webentwickler sie während der Entwicklung testen können.
+Geprefixte Funktionen sollten niemals in Produktionswebsites verwendet werden – sie können sich ohne Vorwarnung ändern oder entfernt werden, können in alten Browserversionen, die sie erfordern, Leistungsprobleme verursachen und waren Ursache für plattformübergreifende Probleme. Dies ist besonders ein Problem, wenn Entwickler sich entscheiden, nur die `-webkit-` Version einer Eigenschaft zu verwenden, was bedeutet, dass die Website in anderen Browsern nicht funktioniert. Dies geschah tatsächlich so oft, dass andere Browserhersteller `-webkit-`-präfixierte Versionen mehrerer CSS-Eigenschaften implementierten. Während Browser immer noch einige präfixierte Eigenschaftsnamen, Eigenschaftswerte und Pseudoklassen unterstützen, werden nun experimentelle Funktionen hinter Flags verborgen, damit Webentwickler sie während der Entwicklung testen können.
 
-Wenn Sie ein Präfix verwenden, stellen Sie sicher, dass es benötigt wird; dass die Eigenschaft eines der wenigen verbleibenden präfixierten Features ist. Sie können nachschlagen, welche Browser Präfixe auf den MDN-Referenzseiten und Websites wie [caniuse.com](https://caniuse.com/) benötigen. Wenn Sie unsicher sind, können Sie dies auch durch Tests direkt in Browsern herausfinden. Fügen Sie die standardmäßige nicht-präfixierte Version nach dem präfixierten Stil ein; es wird ignoriert, wenn es nicht unterstützt wird und verwendet, wenn es unterstützt wird.
+Wenn Sie ein Präfix verwenden, stellen Sie sicher, dass es benötigt wird; dass die Eigenschaft eine der wenigen verbleibenden präfixierten Funktionen ist. Sie können herausfinden, welche Browser Präfixe erfordern, indem Sie die MDN-Referenzseiten und Websites wie [caniuse.com](https://caniuse.com/) aufrufen. Wenn Sie sich nicht sicher sind, können Sie dies auch durch Tests direkt in Browsern herausfinden. Schließen Sie die standardisierte unpräfixte Version nach der Präfix-Stildeklaration ein; sie wird ignoriert, wenn sie nicht unterstützt wird, und verwendet, wenn sie unterstützt wird.
 
 ```css
 .masked {
@@ -307,53 +307,53 @@ Wenn Sie ein Präfix verwenden, stellen Sie sicher, dass es benötigt wird; dass
 }
 ```
 
-Versuchen Sie dieses einfache Beispiel:
+Probieren Sie dieses einfache Beispiel:
 
-1. Verwenden Sie diese Seite oder eine andere Website, die eine auffällige Überschrift oder ein anderes Block-Level-Element hat.
-2. Klicken Sie Rechts-/Cmd+ auf das betreffende Element und wählen Sie Inspect/Element inspizieren (oder wie die Option in Ihrem Browser lautet) – Dies sollte die Entwicklerwerkzeuge in Ihrem Browser öffnen, mit dem Element, das im DOM-Inspektor hervorgehoben ist.
-3. Suchen Sie nach einem Feature, das Sie verwenden können, um dieses Element auszuwählen. Zum Beispiel hat diese Seite auf MDN zur Zeit eine Logo mit einer ID `mdn-docs-logo`.
-4. Speichern Sie einen Referenz zu diesem Element in einer Variable, zum Beispiel:
+1. Verwenden Sie diese Seite oder eine andere Seite, die eine auffällige Überschrift oder ein anderes Block-Level-Element hat.
+2. Mit Rechts-/Cmd+Klick auf das betreffende Element und wählen Sie Inspect/Element inspizieren (oder was auch immer die Option in Ihrem Browser ist) – dies sollte die Entwicklerwerkzeuge in Ihrem Browser öffnen, mit dem hervorgehobenen Element im DOM-Inspektor.
+3. Suchen Sie nach einem Feature, mit dem Sie dieses Element auswählen können. Zum Beispiel, zum Zeitpunkt des Schreibens, hat diese Seite auf MDN ein Logo mit einer ID von `mdn-docs-logo`.
+4. Speichern Sie eine Referenz auf dieses Element in einer Variablen, zum Beispiel:
 
    ```js
    const test = document.getElementById("mdn-docs-logo");
    ```
 
-5. Versuchen Sie nun, einen neuen Wert für das CSS-Feature, an dem Sie interessiert sind, auf dieses Element zu setzen; Sie können dies mit der [style](/de/docs/Web/API/HTMLElement/style)-Eigenschaft des Elements tun, versuchen Sie zum Beispiel, diese in die JavaScript-Konsole einzugeben:
+5. Versuchen Sie nun, einen neuen Wert für die CSS-Eigenschaft, die Sie interessiert, auf diesem Element festzulegen; dies können Sie mit der [style](/de/docs/Web/API/HTMLElement/style)-Eigenschaft des Elements tun, probieren Sie zum Beispiel, diesen Code in die JavaScript-Konsole einzugeben:
 
    ```js
    test.style.transform = "rotate(90deg)";
    ```
 
-Wenn Sie anfangen, den Eigenschaftsnamen nach dem zweiten Punkt einzugeben (beachten Sie, dass in JavaScript die CSS-Eigenschaftsnamen in {{Glossary("camel_case", "lower camel case")}} und nicht {{Glossary("kebab_case", "kebab-case")}} geschrieben werden), sollte die JavaScript-Konsole anfangen, die Namen der Eigenschaften zu vervollständigen, die im Browser existieren und dem, was Sie bisher geschrieben haben, entsprechen. Dies ist nützlich, um herauszufinden, welche Eigenschaften in diesem Browser implementiert sind.
+Während Sie beginnen, den Eigenschaftsnamen der Darstellung nach dem zweiten Punkt einzugeben (beachten Sie, dass in JavaScript, CSS-Eigenschaftsnamen in {{Glossary("camel_case", "lower camel case")}}, nicht {{Glossary("kebab_case", "kebab-case")}} geschrieben sind), sollte die JavaScript-Konsole beginnen, die Namen der Eigenschaften, die im Browser existieren und dem, was Sie bisher geschrieben haben, entsprechen, automatisch zu vervollständigen. Dies ist nützlich, um herauszufinden, welche Eigenschaften in diesem Browser implementiert sind.
 
-Wenn Sie moderne Features einbinden müssen, testen Sie die Feature-Unterstützung mit [`@supports`](/de/docs/Web/CSS/@supports), das es Ihnen erlaubt, native Feature-Erkennungstests zu implementieren, und das präfixierte oder neue Feature innerhalb des `@supports`-Blocks einzunisten.
+Wenn Sie moderne Funktionen einbeziehen müssen, testen Sie auf Feature-Support mit [`@supports`](/de/docs/Web/CSS/Reference/At-rules/@supports), welches es Ihnen erlaubt, native Feature-Erkennungstests zu implementieren und das Präfix oder die neue Funktion innerhalb des `@supports`-Blocks zu verschachteln.
 
-### Probleme mit Responsive Design
+### Probleme mit responsivem Design
 
-Responsives Design ist die Praxis, Web-Layouts zu erstellen, die sich an unterschiedliche Geräteformate anpassen – zum Beispiel unterschiedliche Bildschirmbreiten, Ausrichtungen (Hoch- oder Querformat) oder Auflösungen. Ein Desktop-Layout sieht zum Beispiel schrecklich aus, wenn es auf einem Mobilgerät angezeigt wird, also brauchen Sie ein geeignetes mobiles Layout mit [Media Queries](/de/docs/Web/CSS/CSS_media_queries), und stellen Sie sicher, dass es korrekt mit [Viewport](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport) angewendet wird. Eine ausführliche Beschreibung solcher Praktiken finden Sie in [unserem Tutorial zum responsives Design](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design).
+Responsives Design ist die Praxis, Weblayouts zu erstellen, die sich an verschiedene Geräteformfaktoren anpassen – zum Beispiel verschiedene Bildschirmbreiten, Ausrichtungen (Hoch- oder Querformat) oder Auflösungen. Ein Desktop-Layout zum Beispiel wird auf einem mobilen Gerät furchtbar aussehen, also müssen Sie mit [Media Queries](/de/docs/Web/CSS/CSS_media_queries) ein geeignetes mobiles Layout bereitstellen und sicherstellen, dass es mit [viewport](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport) korrekt angewendet wird. Sie können eine detaillierte Darstellung solcher Praktiken in [unserem Leitfaden für responsives Design](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) finden.
 
-Die Auflösung ist ebenfalls ein großes Problem — zum Beispiel benötigen Mobilgeräte wahrscheinlich keine großen schweren Bilder im Vergleich zu Desktop-Computern und haben eher langsamere Internetverbindungen und möglicherweise sogar teure Datenpläne, die verschwendete Bandbreite zu einem größeren Problem machen. Darüber hinaus können verschiedene Geräte eine Reihe von unterschiedlichen Auflösungen haben, was bedeutet, dass kleinere Bilder pixelig erscheinen könnten. Es gibt eine Reihe von Techniken, die es Ihnen ermöglichen, solche Probleme zu umgehen, von [Media Queries](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design#media_queries) bis hin zu komplexeren [Techniken für responsive Bilder](/de/docs/Web/HTML/Guides/Responsive_images#resolution_switching_different_sizes), einschließlich {{HTMLElement('picture')}} und der {{HTMLElement('img')}}-Element [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset) und [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes) Attribute.
+Auflösung ist ebenfalls ein großes Thema – zum Beispiel benötigen mobile Geräte weniger wahrscheinlich große und schwere Bilder als Desktop-Computer und haben wahrscheinlich eher langsamere Internetverbindungen und möglicherweise sogar teure Datentarife, die verschwendete Bandbreite zu einem größeren Problem machen. Darüber hinaus können verschiedene Geräte eine Reihe von verschiedenen Auflösungen haben, was bedeutet, dass kleinere Bilder pixelig erscheinen könnten. Es gibt eine Reihe von Techniken, die Ihnen helfen, solche Probleme zu umgehen, von [Media Queries](/de/docs/Learn_web_development/Core/CSS_layout/Responsive_Design#media_queries) bis hin zu komplexeren [Techniken für responsive Bilder](/de/docs/Web/HTML/Guides/Responsive_images#resolution_switching_different_sizes), einschließlich {{HTMLElement('picture')}} und den [`srcset`](/de/docs/Web/HTML/Reference/Elements/img#srcset)- und [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes)-Attributen des {{HTMLElement('img')}}-Elements.
 
 ## Hilfe finden
 
-Es gibt viele andere Probleme, die Sie mit HTML und CSS antreffen werden, was die Kenntnis, wie man Antworten online findet, unschätzbar macht.
+Es gibt viele andere Probleme, auf die Sie mit HTML und CSS stoßen werden, daher ist es unschätzbar, zu wissen, wie man online nach Antworten sucht.
 
-Zu den besten Quellen für Unterstützungsinformationen gehören das Mozilla Developer Network (das ist, wo Sie sich jetzt befinden!), [stackoverflow.com](https://stackoverflow.com/) und [caniuse.com](https://caniuse.com/).
+Zu den besten Quellen für Support-Informationen gehören das Mozilla Developer Network (hier befinden Sie sich gerade!), [stackoverflow.com](https://stackoverflow.com/) und [caniuse.com](https://caniuse.com/).
 
-Um das Mozilla Developer Network (MDN) zu verwenden, machen die meisten Menschen eine Suchmaschinenabfrage der Technologie, zu der sie Informationen suchen, plus des Begriffs "mdn", zum Beispiel, "mdn HTML video". MDN enthält mehrere nützliche Inhaltearten:
+Um das Mozilla Developer Network (MDN) zu nutzen, führen die meisten Menschen eine Suchmaschinen-Suche nach der Technologie durch, über die sie Informationen suchen möchten, plus den Begriff "mdn", zum Beispiel, "mdn HTML video". MDN enthält mehrere nützliche Arten von Inhalten:
 
-- Referenzmaterial mit Browser-Support-Informationen für clientseitige Webtechnologien, z. B. die [`<video>` Referenzseite](/de/docs/Web/HTML/Reference/Elements/video).
-- Anderes unterstützendes Referenzmaterial, zum Beispiel unser [Leitfaden zu Medientypen und Formaten im Web](/de/docs/Web/Media/Guides/Formats),
-- Nützliche Tutorials, die spezifische Probleme lösen, wie z. B. [Einen plattformübergreifenden Videoplayer erstellen](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player).
+- Referenzmaterial mit Browser-Unterstützungsinformationen für clientseitige Webtechnologien, z.B. die [`<video>`-Referenzseite](/de/docs/Web/HTML/Reference/Elements/video).
+- Anderes unterstützendes Referenzmaterial, zum Beispiel unser [Leitfaden zu Medientypen und -formaten im Web](/de/docs/Web/Media/Guides/Formats),
+- Nützliche Tutorials, die spezifische Probleme lösen, zum Beispiel [Einen plattformübergreifenden Videoplayer erstellen](/de/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player).
 
-[caniuse.com](https://caniuse.com/) bietet Unterstützungsinformationen, zusammen mit ein paar nützlichen externen Ressourcenlinks. Zum Beispiel siehe <https://caniuse.com/#search=video> (Sie müssen lediglich das Feature, das Sie suchen, in das Textfeld eingeben).
+[caniuse.com](https://caniuse.com/) bietet Unterstützungsinformationen zusammen mit einigen nützlichen externen Ressourcenlinks. Zum Beispiel, siehe <https://caniuse.com/#search=video> (Sie müssen nur die Funktion, nach der Sie suchen, in das Textfeld eingeben).
 
-[stackoverflow.com](https://stackoverflow.com/) (SO) ist eine Forum-Website, auf der Sie Fragen stellen und andere Entwickler ihre Lösungen teilen können, frühere Beiträge durchsuchen und anderen Entwicklern helfen können. Es wird Ihnen geraten, zu überprüfen, ob es bereits eine Antwort auf Ihre Frage gibt, bevor Sie eine neue Frage stellen. Zum Beispiel suchten wir auf SO nach "Autofokus auf HTML-Dialog deaktivieren" und stießen sehr schnell auf [Disable showModal auto-focusing using HTML attributes](https://stackoverflow.com/questions/63267581/disable-showmodal-auto-focusing-using-html-attributes).
+[stackoverflow.com](https://stackoverflow.com/) (SO) ist ein Forum, in dem Sie Fragen stellen und Entwicklerkollegen ihre Lösungen teilen, frühere Beiträge nachschlagen und anderen Entwicklern helfen können. Ihnen wird empfohlen, zu suchen, ob es bereits eine Antwort auf Ihre Frage gibt, bevor Sie eine neue Frage stellen. Zum Beispiel haben wir auf SO nach "Autofokus im HTML-Dialog deaktivieren" gesucht und sehr schnell [Autofokus bei Dialog anzeigen mit HTML-Attributen deaktivieren](https://stackoverflow.com/questions/63267581/disable-showmodal-auto-focusing-using-html-attributes) gefunden.
 
-Abgesehen davon, versuchen Sie, Ihre bevorzugte Suchmaschine zu durchsuchen, um eine Antwort auf Ihr Problem zu finden. Es ist oft nützlich, nach spezifischen Fehlermeldungen zu suchen, wenn Sie welche haben — andere Entwickler werden wahrscheinlich die gleichen Probleme wie Sie gehabt haben.
+Abgesehen davon, versuchen Sie, Ihre bevorzugte Suchmaschine zu nutzen, um eine Antwort auf Ihr Problem zu finden. Es ist oft nützlich, nach spezifischen Fehlermeldungen zu suchen, wenn Sie welche haben – andere Entwickler werden wahrscheinlich die gleichen Probleme gehabt haben wie Sie.
 
 ## Zusammenfassung
 
-Jetzt sollten Sie mit den Hauptarten von plattformübergreifenden HTML- und CSS-Problemen, die Sie in der Webentwicklung antreffen werden, vertraut sein und wissen, wie man sie behebt.
+Jetzt sollten Sie mit den Haupttypen von plattformübergreifenden HTML- und CSS-Problemen vertraut sein, die Sie in der Webentwicklung erwarten, und wissen, wie man sie behebt.
 
 {{PreviousMenuNext("Learn_web_development/Extensions/Testing/Testing_strategies","Learn_web_development/Extensions/Testing/Feature_detection", "Learn_web_development/Extensions/Testing")}}

@@ -2,23 +2,26 @@
 title: PerformanceMark
 slug: Web/API/PerformanceMark
 l10n:
-  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
+  sourceCommit: 5143045a1106f2e415985dec50f11d3cf5d1d4f9
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}
 
 **`PerformanceMark`** ist eine Schnittstelle für [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"mark"`.
 
-Einträge dieses Typs werden normalerweise durch den Aufruf von [`performance.mark()`](/de/docs/Web/API/Performance/mark) erstellt, um einen _benannten_ [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) (die _Markierung_) zur Leistungszeitleiste des Browsers hinzuzufügen. Um eine Leistungsmarkierung zu erstellen, die nicht zur Leistungszeitleiste des Browsers hinzugefügt wird, verwenden Sie den Konstruktor.
+Einträge dieses Typs werden typischerweise durch Aufruf von [`performance.mark()`](/de/docs/Web/API/Performance/mark) erstellt, um einen _benannten_ [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) (die _Markierung_) zur Leistungszeitachse des Browsers hinzuzufügen. Um eine Leistungsmarkierung zu erstellen, die nicht zur Leistungszeitachse des Browsers hinzugefügt wird, verwenden Sie den Konstruktor.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`PerformanceMark()`](/de/docs/Web/API/PerformanceMark/PerformanceMark)
-  - : Erstellt ein neues `PerformanceMark`-Objekt, das nicht zur Leistungszeitleiste des Browsers hinzugefügt wird.
+  - : Erstellt ein neues `PerformanceMark`-Objekt, das nicht zur Leistungszeitachse des Browsers hinzugefügt wird.
 
-## Instanz-Eigenschaften
+## Eigenschaften der Instanz
+
+- [`PerformanceMark.detail`](/de/docs/Web/API/PerformanceMark/detail)
+  - : Enthält beliebige Metadaten über die Messung.
 
 Diese Schnittstelle erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Eigenschaften, indem sie die Eigenschaften wie folgt qualifiziert/einschränkt:
 
@@ -31,18 +34,15 @@ Diese Schnittstelle erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/AP
 - [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}}
   - : Gibt `0` zurück. (Eine Markierung hat keine _Dauer_.)
 
-Diese Schnittstelle unterstützt auch die folgenden Eigenschaften:
-
-- [`PerformanceMark.detail`](/de/docs/Web/API/PerformanceMark/detail) {{ReadOnlyInline}}
-  - : Gibt beliebige Metadaten zurück, die bei der Konstruktion in die Markierung aufgenommen wurden.
-
-## Instanz-Methoden
+## Methoden der Instanz
 
 Diese Schnittstelle hat keine Methoden.
 
 ## Beispiel
 
-Siehe das Beispiel in [Verwendung der User Timing API](/de/docs/Web/API/Performance_API/User_timing).
+Sehen Sie das Beispiel in [Verwendung der User Timing API](/de/docs/Web/API/Performance_API/User_timing).
+
+Chrome DevTools verwendet `performance.mark()` und insbesondere eine strukturierte `detail`-Eigenschaft als Teil seiner erweiterbaren API, die diese in benutzerdefinierten Spuren in Leistungstraces darstellt. Siehe das Beispiel auf der Seite [Performance: mark() Methode](/de/docs/Web/API/Performance/mark) und die [Chrome-Erweiterbarkeits-API-Dokumentation](https://developer.chrome.com/docs/devtools/performance/extension#inject_your_data_with_the_user_timings_api) für weitere Informationen und Beispiele.
 
 ## Spezifikationen
 
@@ -54,5 +54,5 @@ Siehe das Beispiel in [Verwendung der User Timing API](/de/docs/Web/API/Performa
 
 ## Siehe auch
 
-- [User Timing (Übersicht)](/de/docs/Web/API/Performance_API/User_timing)
+- [Benutzer-Timing (Übersicht)](/de/docs/Web/API/Performance_API/User_timing)
 - [Verwendung der User Timing API](/de/docs/Web/API/Performance_API/User_timing)

@@ -2,12 +2,12 @@
 title: gradientTransform
 slug: Web/SVG/Reference/Attribute/gradientTransform
 l10n:
-  sourceCommit: a9063bb88f28dc2a9b32e39f060ab6930663da52
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das **`gradientTransform`**-Attribut enthält die Definition einer optionalen zusätzlichen Transformation vom Gradientenkoordinatensystem auf das Zielkoordinatensystem (d.h. userSpaceOnUse oder objectBoundingBox). Dies ermöglicht es, den Gradienten beispielsweise zu verzerren. Diese zusätzliche Transformationsmatrix wird nachträglich mit (d.h. rechts von) allen zuvor definierten Transformationen multipliziert, einschließlich der impliziten Transformation, die notwendig ist, um von Objektrahmeneinheiten in den Benutzerbereich zu konvertieren.
+Das **`gradientTransform`**-Attribut enthält die Definition einer optionalen zusätzlichen Transformation vom Gradientenkoordinatensystem auf das Zielkoordinatensystem (d.h. userSpaceOnUse oder objectBoundingBox). Dies ermöglicht z.B. das Scheren des Gradienten. Diese zusätzliche Transformationsmatrix wird nachträglich multipliziert (d.h. rechts von) mit allen zuvor definierten Transformationen, einschließlich der impliziten Transformation, die notwendig ist, um von Objektrahmeneinheiten in den Benutzerraum zu konvertieren.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("linearGradient")}}
 - {{SVGElement("radialGradient")}}
@@ -57,7 +57,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -77,7 +77,7 @@ svg {
 </table>
 
 - `<transform-list>`
-  - : Eine Liste von [Transformationsfunktionen](/de/docs/Web/CSS/transform-function), die eine zusätzliche Transformation vom Gradientenkoordinatensystem auf das Zielkoordinatensystem festlegen.
+  - : Eine Liste von [Transformationsfunktionen](/de/docs/Web/CSS/Reference/Values/transform-function), die eine zusätzliche Transformation vom Gradientenkoordinatensystem auf das Zielkoordinatensystem spezifizieren.
 
 ## Spezifikationen
 

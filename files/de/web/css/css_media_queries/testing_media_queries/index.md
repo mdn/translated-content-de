@@ -1,25 +1,25 @@
 ---
-title: Medienabfragen programmatisch testen
+title: Testen von Media Queries programmatisch
 slug: Web/CSS/CSS_media_queries/Testing_media_queries
 l10n:
-  sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
+  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
-Das {{Glossary("DOM", "DOM")}} bietet Funktionen, mit denen die Ergebnisse einer {{Glossary("media_query", "Medienabfrage")}} programmatisch über das [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Interface und dessen Methoden und Eigenschaften getestet werden können. Sobald Sie ein `MediaQueryList`-Objekt erstellt haben, können Sie das Ergebnis der [Abfrage](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) überprüfen oder Benachrichtigungen erhalten, wenn sich das Ergebnis ändert.
+Das {{Glossary("DOM", "DOM")}} bietet Funktionen, mit denen die Ergebnisse einer {{Glossary("media_query", "Media Query")}} programmatisch über das [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Interface und dessen Methoden und Eigenschaften getestet werden können. Sobald Sie ein `MediaQueryList`-Objekt erstellt haben, können Sie das Ergebnis der [Abfrage](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) überprüfen oder Benachrichtigungen erhalten, wenn sich das Ergebnis ändert.
 
-## Erstellen einer Medienabfrageliste
+## Erstellen einer Media Query-Liste
 
-Bevor Sie die Ergebnisse einer Medienabfrage auswerten können, müssen Sie das [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt erstellen, das die Abfrage darstellt. Verwenden Sie dazu die Methode [`window.matchMedia`](/de/docs/Web/API/Window/matchMedia).
+Bevor Sie die Ergebnisse einer Media Query auswerten können, müssen Sie das [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt erstellen, das die Abfrage darstellt. Verwenden Sie dazu die Methode [`window.matchMedia`](/de/docs/Web/API/Window/matchMedia).
 
-Zum Beispiel, um eine Abfrageliste einzurichten, die bestimmt, ob sich das Gerät im Quer- oder Hochformat [Orientierung](/de/docs/Web/CSS/@media/orientation) befindet:
+Zum Beispiel, um eine Abfrageliste einzurichten, die bestimmt, ob sich das Gerät in einer Quer- oder Hochformat-[Ausrichtung](/de/docs/Web/CSS/Reference/At-rules/@media/orientation) befindet:
 
 ```js
 const mediaQueryList = window.matchMedia("(orientation: portrait)");
 ```
 
-## Überprüfen des Ergebnisses einer Abfrage
+## Überprüfung des Ergebnisses einer Abfrage
 
-Sobald Sie Ihre Medienabfrageliste erstellt haben, können Sie das Ergebnis der Abfrage überprüfen, indem Sie den Wert ihrer [`matches`](/de/docs/Web/API/MediaQueryList/matches)-Eigenschaft betrachten:
+Sobald Sie Ihre Media Query-Liste erstellt haben, können Sie das Ergebnis der Abfrage überprüfen, indem Sie den Wert der Eigenschaft [`matches`](/de/docs/Web/API/MediaQueryList/matches) betrachten:
 
 ```js
 if (mediaQueryList.matches) {
@@ -29,9 +29,9 @@ if (mediaQueryList.matches) {
 }
 ```
 
-## Erhalten von Abfragebenachrichtigungen
+## Empfangen von Abfragebenachrichtigungen
 
-Wenn Sie fortlaufend über Änderungen am ausgewerteten Ergebnis der Abfrage informiert sein müssen, ist es effizienter, einen [Listener](/de/docs/Web/API/EventTarget/addEventListener) zu registrieren, als das Abfrageergebnis abzufragen. Rufen Sie dazu die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf dem [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt auf und übergeben Sie eine Callback-Funktion, die aufgerufen wird, wenn sich der Status der Medienabfrage ändert (z. B. wenn der Medienabfragetest von `true` zu `false` wechselt):
+Wenn Sie fortlaufend über Änderungen des ausgewerteten Ergebnisses der Abfrage informiert werden müssen, ist es effizienter, einen [Listener](/de/docs/Web/API/EventTarget/addEventListener) zu registrieren, als das Abfrageergebnis abzufragen. Dazu rufen Sie die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) am [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt auf, mit einer Callback-Funktion, die aufgerufen wird, wenn sich der Status der Media Query ändert (z. B. geht der Test der Media Query von `true` zu `false` über):
 
 ```js
 // Create the query list.
@@ -49,9 +49,9 @@ handleOrientationChange(mediaQueryList);
 mediaQueryList.addEventListener("change", handleOrientationChange);
 ```
 
-Dieser Code erstellt die Medienabfrageliste zum Testen der Orientierung und fügt ihr einen Ereignislistener hinzu. Nachdem der Listener definiert wurde, wird dieser auch direkt aufgerufen. Dadurch passt unser Listener die Einstellungen basierend auf der aktuellen Geräteorientierung an; andernfalls könnte unser Code annehmen, dass sich das Gerät im Hochformat befindet, auch wenn es tatsächlich im Querformat ist.
+Dieser Code erstellt die Abfrageliste zur Ausrichtungstestung und fügt einen Ereignis-Listener hinzu. Nachdem der Listener definiert wurde, rufen wir ihn auch direkt auf. Dadurch wird unser Listener Anpassungen basierend auf der aktuellen Ausrichtung des Geräts vornehmen; ansonsten könnte unser Code annehmen, dass sich das Gerät beim Start im Hochformat befindet, selbst wenn es sich tatsächlich im Querformat befindet.
 
-Die Funktion `handleOrientationChange()` würde das Ergebnis der Abfrage betrachten und alles Notwendige bei einer Orientierungänderung ausführen:
+Die `handleOrientationChange()`-Funktion würde das Ergebnis der Abfrage betrachten und das behandeln, was wir bei einer Änderung der Ausrichtung tun müssen:
 
 ```js
 function handleOrientationChange(evt) {
@@ -63,11 +63,11 @@ function handleOrientationChange(evt) {
 }
 ```
 
-Oben definieren wir den Parameter als `evt` — ein Ereignisobjekt des Typs [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent), das auch die Eigenschaften [`media`](/de/docs/Web/API/MediaQueryListEvent/media) und [`matches`](/de/docs/Web/API/MediaQueryListEvent/matches) umfasst, sodass Sie diese Merkmale der `MediaQueryList` abfragen können, indem Sie direkt darauf zugreifen oder auf das Ereignisobjekt zugreifen.
+Oben definieren wir den Parameter als `evt` — ein Ereignisobjekt vom Typ [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent), das auch die Eigenschaften [`media`](/de/docs/Web/API/MediaQueryListEvent/media) und [`matches`](/de/docs/Web/API/MediaQueryListEvent/matches) enthält, sodass Sie diese Merkmale der `MediaQueryList` direkt abfragen oder auf das Ereignisobjekt zugreifen können.
 
 ## Beenden von Abfragebenachrichtigungen
 
-Um keine Benachrichtigungen mehr über Änderungen des Werts Ihrer Medienabfrage zu erhalten, rufen Sie [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) auf der `MediaQueryList` auf und übergeben Sie den Namen der zuvor definierten Callback-Funktion:
+Um keine Benachrichtigungen mehr über Änderungen am Wert Ihrer Media Query zu erhalten, rufen Sie [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) auf der `MediaQueryList` auf und übergeben Sie den Namen der zuvor definierten Callback-Funktion:
 
 ```js
 mediaQueryList.removeEventListener("change", handleOrientationChange);
@@ -83,9 +83,9 @@ mediaQueryList.removeEventListener("change", handleOrientationChange);
 
 ## Siehe auch
 
-- [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- Modul [CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries)
-- Modul [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model)
+- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [CSS Media Queries](/de/docs/Web/CSS/CSS_media_queries) Modul
+- [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model) Modul
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
 - [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

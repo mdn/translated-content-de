@@ -2,12 +2,12 @@
 title: -webkit-tap-highlight-color
 slug: Web/CSS/Reference/Properties/-webkit-tap-highlight-color
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
 ---
 
 {{Non-standard_header}}
 
-**`-webkit-tap-highlight-color`** ist eine nicht standardisierte CSS-Eigenschaft, die die Farbe des Hervorhebens festlegt, das über einem Link erscheint, während darauf getippt wird. Die Hervorhebung zeigt dem Benutzer, dass das Tippen erfolgreich erkannt wird und zeigt an, auf welches Element er tippt.
+**`-webkit-tap-highlight-color`** ist eine nicht standardisierte CSS-Eigenschaft, die die Farbe der Hervorhebung festlegt, die über einem Link erscheint, während darauf getippt wird. Die Hervorhebung zeigt dem Benutzer an, dass das Tippen erfolgreich erkannt wird und zeigt, welches Element angetippt wird.
 
 ## Syntax
 
@@ -37,7 +37,7 @@ Ein {{Cssxref("&lt;color&gt;")}}.
 
 ## Spezifikationen
 
-Teil keiner Norm. Apple hat [eine Beschreibung im Safari Web Content Guide](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW5).
+Teil keiner Norm. Apple hat [eine Beschreibung im Safari-Web-Inhalts-Leitfaden](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW5).
 
 ## Browser-Kompatibilität
 

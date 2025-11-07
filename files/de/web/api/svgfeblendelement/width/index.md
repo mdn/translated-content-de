@@ -3,16 +3,16 @@ title: "SVGFEBlendElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/SVGFEBlendElement/width
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
 {{APIRef("SVG")}}
 
-Die **`width`**-Eigenschaft der schreibgeschützten Schnittstelle [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement) beschreibt die horizontale Größe einer SVG-Filter-Primitiven als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
+Die **`width`** schreibgeschützte Eigenschaft der [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement)-Schnittstelle beschreibt die horizontale Größe eines SVG-Filterprimitives als ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
-Sie spiegelt das {{SVGElement("feBlend")}}-Element und dessen {{SVGAttr("width")}}-Filter-Primitivenattribut wider. Das Attribut ist entweder eine [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage), relativ zur Breite des Filterbereichs. Der Standardwert ist `100%`. Der Eigenschaftswert ist eine Länge in Benutzereinheitensystem-Einheiten.
+Sie spiegelt das {{SVGElement("feBlend")}}-Elementattribut {{SVGAttr("width")}} des Filterprimitives wider. Das Attribut ist entweder ein [`\<length>`](/de/docs/Web/SVG/Guides/Content_type#length) oder ein [`\<percentage>`](/de/docs/Web/SVG/Guides/Content_type#percentage), das relativ zur Breite der Filterregion ist. Der Standardwert ist `100%`. Der Wert der Eigenschaft ist eine Länge in Einheiten des Benutzerkoordinatensystems.
 
-Der `<feBlend>` SVG-Filter mischt zwei Eingabebilder miteinander unter Verwendung von in gängiger Bildbearbeitungssoftware verwendeten [Mischmodi](/de/docs/Web/CSS/blend-mode).
+Der `<feBlend>`-SVG-Filter vermischt zwei Eingabebilder miteinander, indem er häufig verwendete [Blend-Modi](/de/docs/Web/CSS/Reference/Values/blend-mode) aus Bildbearbeitungssoftware verwendet.
 
 ## Wert
 
@@ -37,5 +37,5 @@ console.log(horizontalSize.baseVal.value); // the `width` value
 ## Siehe auch
 
 - [`SVGFEBlendElement.height`](/de/docs/Web/API/SVGFEBlendElement/height)
-- CSS {{cssxref("blend-mode")}} Datentyp
-- CSS {{cssxref("mix-blend-mode")}} Eigenschaft
+- CSS-Datentyp {{cssxref("blend-mode")}}
+- CSS-Eigenschaft {{cssxref("mix-blend-mode")}}

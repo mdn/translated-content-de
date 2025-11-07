@@ -2,14 +2,14 @@
 title: -webkit-text-stroke
 slug: Web/CSS/Reference/Properties/-webkit-text-stroke
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Die **`-webkit-text-stroke`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die [Breite](/de/docs/Web/CSS/length) und [Farbe](/de/docs/Web/CSS/color_value) der Umrisse für Textzeichen an. Dies ist eine Kurzschreibweise für die Langform-Eigenschaften {{cssxref("-webkit-text-stroke-width")}} und {{cssxref("-webkit-text-stroke-color")}}.
+Die **`-webkit-text-stroke`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die [Breite](/de/docs/Web/CSS/Reference/Values/length) und [Farbe](/de/docs/Web/CSS/Reference/Values/color_value) von Umrandungen für Textzeichen. Dies ist eine Kurzform für die Langform-Eigenschaften {{cssxref("-webkit-text-stroke-width")}} und {{cssxref("-webkit-text-stroke-color")}}.
 
 ## Einzelne Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - [`-webkit-text-stroke-color`](/de/docs/Web/CSS/Reference/Properties/-webkit-text-stroke-color)
 - [`-webkit-text-stroke-width`](/de/docs/Web/CSS/Reference/Properties/-webkit-text-stroke-width)
@@ -31,9 +31,9 @@ Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Breite des Umrisses.
+  - : Die Breite der Umrandung.
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe des Umrisses.
+  - : Die Farbe der Umrandung.
 
 ## Formale Definition
 
@@ -45,7 +45,7 @@ Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften
 
 ## Beispiele
 
-### Hinzufügen eines roten Textumrisses
+### Hinzufügen einer roten Textumrandung
 
 #### HTML
 
@@ -78,7 +78,7 @@ Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften
 ## Siehe auch
 
 - [Introducing Text-Stroke](https://webkit.org/blog/85/introducing-text-stroke/) auf webkit.org (2006)
-- [CSS-Tricks Artikel, der dieses Feature erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
+- [CSS-Tricks Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-width")}}
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-fill-color")}}

@@ -2,51 +2,51 @@
 title: Blob
 slug: Web/API/Blob
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 562051c4ad20e9ecb5faf905286cdfca545a340d
 ---
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Das **`Blob`**-Interface repräsentiert ein Blob, ein Dateieähnliches Objekt mit unveränderlichen, rohen Daten; sie können als Text oder Binärdaten gelesen oder in einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) konvertiert werden, sodass dessen Methoden zur Verarbeitung der Daten genutzt werden können.
+Das **`Blob`**-Interface repräsentiert einen Blob, ein dateiähnliches Objekt mit unveränderlichen Rohdaten; diese können als Text oder Binärdaten gelesen oder in einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) konvertiert werden, sodass dessen Methoden zur Verarbeitung der Daten verwendet werden können.
 
-Blobs können Daten repräsentieren, die nicht notwendigerweise in einem JavaScript-nativen Format vorliegen. Das [`File`](/de/docs/Web/API/File)-Interface basiert auf `Blob`, erbt die Blob-Funktionalität und erweitert sie, um Dateien auf dem System des Benutzers zu unterstützen.
+Blobs können Daten repräsentieren, die nicht unbedingt in einem JavaScript-eigenen Format vorliegen. Das [`File`](/de/docs/Web/API/File)-Interface basiert auf `Blob`, erbt die Funktionalität von Blobs und erweitert sie zur Unterstützung von Dateien auf dem System des Nutzers.
 
 ## Verwendung von Blobs
 
-Um ein `Blob` aus anderen Nicht-Blob-Objekten und Daten zu erstellen, verwenden Sie den [`Blob()`](/de/docs/Web/API/Blob/Blob)-Konstruktor. Um ein Blob zu erstellen, das einen Teil der Daten eines anderen Blobs enthält, verwenden Sie die [`slice()`](/de/docs/Web/API/Blob/slice)-Methode. Um ein `Blob`-Objekt für eine Datei im Dateisystem des Benutzers zu erhalten, siehe die [`File`](/de/docs/Web/API/File)-Dokumentation.
+Um einen `Blob` aus anderen Nicht-Blob-Objekten und Daten zu erstellen, verwenden Sie den [`Blob()`](/de/docs/Web/API/Blob/Blob)-Konstruktor. Um einen Blob zu erstellen, der einen Teil der Daten eines anderen Blobs enthält, verwenden Sie die [`slice()`](/de/docs/Web/API/Blob/slice)-Methode. Um ein `Blob`-Objekt für eine Datei auf dem Dateisystem des Nutzers zu erhalten, siehe die [`File`](/de/docs/Web/API/File)-Dokumentation.
 
-Die APIs, die `Blob`-Objekte akzeptieren, sind auch in der [`File`](/de/docs/Web/API/File)-Dokumentation aufgeführt.
+Die APIs, die `Blob`-Objekte akzeptieren, sind ebenfalls in der [`File`](/de/docs/Web/API/File)-Dokumentation aufgelistet.
 
 ## Konstruktor
 
 - [`Blob()`](/de/docs/Web/API/Blob/Blob)
-  - : Gibt ein neu erstelltes `Blob`-Objekt zurück, das eine Verkettung aller Daten im Array enthält, das dem Konstruktor übergeben wurde.
+  - : Gibt ein neu erstelltes `Blob`-Objekt zurück, das eine Verkettung aller Daten im an den Konstruktor übergebenen Array enthält.
 
 ## Instanzeigenschaften
 
 - [`Blob.size`](/de/docs/Web/API/Blob/size) {{ReadOnlyInline}}
   - : Die Größe in Bytes der im `Blob`-Objekt enthaltenen Daten.
 - [`Blob.type`](/de/docs/Web/API/Blob/type) {{ReadOnlyInline}}
-  - : Eine Zeichenkette, die den MIME-Typ der im `Blob` enthaltenen Daten angibt. Ist der Typ unbekannt, ist diese Zeichenkette leer.
+  - : Ein String, der den MIME-Typ der im `Blob` enthaltenen Daten angibt. Wenn der Typ unbekannt ist, ist dieser String leer.
 
 ## Instanzmethoden
 
 - [`Blob.arrayBuffer()`](/de/docs/Web/API/Blob/arrayBuffer)
-  - : Gibt ein Promise zurück, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird, das den gesamten Inhalt des `Blob` als Binärdaten enthält.
+  - : Gibt ein Promise zurück, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird, der den gesamten Inhalt des `Blob` als Binärdaten enthält.
 - [`Blob.bytes()`](/de/docs/Web/API/Blob/bytes)
-  - : Gibt ein Promise zurück, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird, das den Inhalt des `Blob` enthält.
+  - : Gibt ein Promise zurück, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird, der den Inhalt des `Blob` enthält.
 - [`Blob.slice()`](/de/docs/Web/API/Blob/slice)
-  - : Gibt ein neues `Blob`-Objekt zurück, das die Daten im angegebenen Bereich von Bytes des aufgerufenen Blobs enthält.
+  - : Gibt ein neues `Blob`-Objekt zurück, das die Daten im angegebenen Bereich von Bytes des Blobs enthält, auf dem es aufgerufen wird.
 - [`Blob.stream()`](/de/docs/Web/API/Blob/stream)
-  - : Gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück, der zum Lesen des Inhalts des `Blob` verwendet werden kann.
+  - : Gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück, der verwendet werden kann, um den Inhalt des `Blob` zu lesen.
 - [`Blob.text()`](/de/docs/Web/API/Blob/text)
-  - : Gibt ein Promise zurück, das mit einer Zeichenkette aufgelöst wird, die den gesamten Inhalt des `Blob` als UTF-8-Text interpretiert enthält.
+  - : Gibt ein Promise zurück, das mit einem String aufgelöst wird, der den gesamten Inhalt des `Blob` als UTF-8-Text interpretiert enthält.
 
 ## Beispiele
 
 ### Erstellen eines Blobs
 
-Der [`Blob()`](/de/docs/Web/API/Blob/Blob)-Konstruktor kann Blobs aus anderen Objekten erstellen. Zum Beispiel, um ein Blob aus einem JSON-String zu konstruieren:
+Der [`Blob()`](/de/docs/Web/API/Blob/Blob)-Konstruktor kann Blobs aus anderen Objekten erstellen. Zum Beispiel, um einen Blob aus einem JSON-String zu erstellen:
 
 ```js
 const obj = { hello: "world" };
@@ -57,7 +57,7 @@ const blob = new Blob([JSON.stringify(obj, null, 2)], {
 
 ### Erstellen einer URL, die den Inhalt eines typisierten Arrays darstellt
 
-Das folgende Beispiel erstellt ein JavaScript- [Typed Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) und erstellt ein neues `Blob`, das die Daten des typisierten Arrays enthält. Es ruft dann [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) auf, um das Blob in eine {{Glossary("URL", "URL")}} zu konvertieren.
+Das folgende Beispiel erstellt ein JavaScript [typisiertes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) und erzeugt einen neuen `Blob`, der die Daten des typisierten Arrays enthält. Anschließend wird [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) aufgerufen, um den Blob in eine {{Glossary("URL", "URL")}} zu konvertieren.
 
 ```html live-sample___url-from-array
 <p>
@@ -67,7 +67,7 @@ Das folgende Beispiel erstellt ein JavaScript- [Typed Array](/de/docs/Web/JavaSc
 </p>
 ```
 
-Das wichtigste Element dieses Codes für Beispielzwecke ist die Funktion `typedArrayToURL()`, die ein `Blob` vom gegebenen typisierten Array erstellt und eine Objekt-URL dafür zurückgibt. Nachdem die Daten in eine Objekt-URL umgewandelt wurden, können sie auf verschiedene Weise verwendet werden, einschließlich als Wert des [`src`](/de/docs/Web/HTML/Reference/Elements/img#src)-Attributs des {{HTMLElement("img")}}-Elements (vorausgesetzt, die Daten enthalten ein Bild).
+Das Hauptbeispiel dieser Codeberechnung ist die `typedArrayToURL()`-Funktion, die einen `Blob` aus dem gegebenen typisierten Array erstellt und eine Objekt-URL dafür zurückgibt. Nachdem die Daten in eine Objekt-URL konvertiert wurden, können sie auf verschiedene Weise verwendet werden, einschließlich als Wert des `src`-Attributs des {{HTMLElement("img")}}-Elements (vorausgesetzt, die Daten enthalten ein Bild, natürlich).
 
 ```js live-sample___url-from-array
 function showViewLiveResultButton() {
@@ -111,7 +111,7 @@ if (!showViewLiveResultButton()) {
 
 ### Extrahieren von Daten aus einem Blob
 
-Eine Möglichkeit, den Inhalt eines `Blob` zu lesen, besteht darin, einen [`FileReader`](/de/docs/Web/API/FileReader) zu verwenden. Der folgende Code liest den Inhalt eines `Blob` als typisiertes Array:
+Eine Möglichkeit, Inhalte aus einem `Blob` zu lesen, ist die Verwendung eines [`FileReader`](/de/docs/Web/API/FileReader). Der folgende Code liest den Inhalt eines `Blob` als typisiertes Array:
 
 ```js
 const reader = new FileReader();
@@ -121,19 +121,19 @@ reader.addEventListener("loadend", () => {
 reader.readAsArrayBuffer(blob);
 ```
 
-Eine andere Möglichkeit, den Inhalt eines `Blob` zu lesen, besteht darin, einen [`Response`](/de/docs/Web/API/Response) zu verwenden. Der folgende Code liest den Inhalt eines `Blob` als Text:
+Eine andere Möglichkeit, Inhalte aus einem `Blob` zu lesen, ist die Verwendung eines [`Response`](/de/docs/Web/API/Response). Der folgende Code liest den Inhalt eines `Blob` als Text:
 
 ```js
 const text = await new Response(blob).text();
 ```
 
-Oder durch Nutzung von [`Blob.text()`](/de/docs/Web/API/Blob/text):
+Oder durch Verwendung von [`Blob.text()`](/de/docs/Web/API/Blob/text):
 
 ```js
 const text = await blob.text();
 ```
 
-Durch die Verwendung anderer Methoden des `FileReader` ist es möglich, die Inhalte eines Blob als Zeichenkette oder Daten-URL zu lesen.
+Durch die Verwendung anderer Methoden von `FileReader` ist es möglich, den Inhalt eines Blob als String oder als Daten-URL zu lesen.
 
 ## Spezifikationen
 

@@ -1,11 +1,11 @@
 ---
-title: "<tfoot>: Das Tabellenfuß-Element"
+title: "<tfoot>: Das Tabellenelement für den Fuß"
 slug: Web/HTML/Reference/Elements/tfoot
 l10n:
-  sourceCommit: f2d281d86396bcd2dcecfdabd5837b1590132aa6
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das **`<tfoot>`** [HTML](/de/docs/Web/HTML)-Element kapselt eine Reihe von Tabellenzeilen ({{HTMLElement("tr")}}-Elemente) ein, was darauf hinweist, dass sie den Fuß einer Tabelle mit Informationen über die Spalten der Tabelle darstellen. Dies ist in der Regel eine Zusammenfassung der Spalten, z. B. eine Summe der in einer Spalte angegebenen Zahlen.
+Das **`<tfoot>`**-Element in [HTML](/de/docs/Web/HTML) kapselt eine Reihe von Tabellenzeilen ({{HTMLElement("tr")}}-Elemente), die den Fuß einer Tabelle bilden und Informationen über die Spalten der Tabelle enthalten. Dies ist üblicherweise eine Zusammenfassung der Spalten, z.B. eine Summe der angegebenen Zahlen in einer Spalte.
 
 {{InteractiveExample("HTML Demo: &lt;tfoot&gt;", "tabbed-taller")}}
 
@@ -76,36 +76,36 @@ td {
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 ### Veraltete Attribute
 
-Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind hier zu Referenzzwecken beim Aktualisieren von bestehendem Code und aus historischem Interesse dokumentiert.
+Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind hier dokumentiert für Referenzen beim Aktualisieren bestehenden Codes und aus historischem Interesse.
 
 - `align` {{deprecated_inline}}
-  - : Gibt die horizontale Ausrichtung jeder Fußzelle an. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der Wert `char` den Textinhalt auf dem im [`char`](#char)-Attribut definierten Zeichen und dem durch das [`charoff`](#charoff)-Attribut definierten Versatz aus. Verwenden Sie die {{cssxref("text-align")}} CSS-Eigenschaft stattdessen, da dieses Attribut veraltet ist.
+  - : Spezifiziert die horizontale Ausrichtung jeder Fußzelle. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der Wert `char` den textuellen Inhalt an dem Zeichen aus, das im [`char`](#char)-Attribut definiert ist, und an dem Offset, das durch das [`charoff`](#charoff)-Attribut definiert ist. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("text-align")}}, da dieses Attribut veraltet ist.
 
 - `bgcolor` {{deprecated_inline}}
-  - : Bestimmt die Hintergrundfarbe jeder Fußzelle. Der Wert ist eine HTML-Farbe; entweder ein [6-stelliger hexadezimaler RGB-Code](/de/docs/Web/CSS/hex-color), mit einem `#` vorangestellt, oder ein [Farbname](/de/docs/Web/CSS/named-color). Andere CSS {{cssxref("color_value", "&lt;color&gt;")}}-Werte werden nicht unterstützt. Verwenden Sie die {{cssxref("background-color")}} CSS-Eigenschaft stattdessen, da dieses Attribut veraltet ist.
+  - : Definiert die Hintergrundfarbe jeder Fußzelle. Der Wert ist eine HTML-Farbe; entweder ein [6-stelliger hexadezimaler RGB-Code](/de/docs/Web/CSS/Reference/Values/hex-color), dem ein `#` vorangestellt ist, oder ein [Farbschlüsselwort](/de/docs/Web/CSS/Reference/Values/named-color). Andere CSS-{{cssxref("color_value", "&lt;color&gt;")}}-Werte werden nicht unterstützt. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("background-color")}}, da dieses Attribut veraltet ist.
 
 - `char` {{deprecated_inline}}
-  - : Macht nichts. Es war ursprünglich dazu gedacht, die Ausrichtung des Inhalts auf ein Zeichen jeder Fußzelle anzugeben. Typische Werte hierfür enthalten einen Punkt (`.`), wenn versucht wird, Zahlen oder Geldbeträge auszurichten. Wenn [`align`](#align) nicht auf `char` gesetzt ist, wird dieses Attribut ignoriert.
+  - : Hat keine Funktion. Es war ursprünglich gedacht, die Ausrichtung des Inhalts an einem Zeichen jeder Fußzelle zu spezifizieren. Typische Werte hierfür sind ein Punkt (`.`), wenn versucht wird, Zahlen oder Geldwerte auszurichten. Wenn [`align`](#align) nicht auf `char` gesetzt ist, wird dieses Attribut ignoriert.
 
 - `charoff` {{deprecated_inline}}
-  - : Macht nichts. Es war ursprünglich dazu gedacht, die Anzahl der Zeichen anzugeben, um die der Inhalt der Fußzelle vom im [`char`](#char)-Attribut angegebenen Ausrichtungszeichen versetzt sein soll.
+  - : Hat keine Funktion. Es war ursprünglich gedacht, die Anzahl der Zeichen anzugeben, um den Inhalt der Fußzelle von dem Ausrichtungszeichen zu versetzen, das durch das [`char`](#char)-Attribut spezifiziert ist.
 
 - `valign` {{deprecated_inline}}
-  - : Gibt die vertikale Ausrichtung jeder Fußzelle an. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie die {{cssxref("vertical-align")}} CSS-Eigenschaft stattdessen, da dieses Attribut veraltet ist.
+  - : Spezifiziert die vertikale Ausrichtung jeder Fußzelle. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("vertical-align")}}, da dieses Attribut veraltet ist.
 
-## Verwendungsnotizen
+## Verwendungshinweise
 
 - Das `<tfoot>` wird nach allen {{HTMLElement("caption")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("thead")}}, {{HTMLElement("tbody")}} und {{HTMLElement("tr")}}-Elementen platziert.
-- Zusammen mit seinen verwandten {{HTMLElement("thead")}} und {{HTMLElement("tbody")}}-Elementen liefert das `<tfoot>`-Element nützliche {{Glossary("semantics", "semantische")}} Informationen und kann sowohl bei der Anzeige am Bildschirm als auch beim Druck verwendet werden. Die Angabe solcher Tabellen-Content-Gruppen bietet auch wertvolle Kontextinformationen für unterstützende Technologien, einschließlich Bildschirmleser und Suchmaschinen.
-- Beim Drucken eines Dokuments gibt der Tabellenfuß in der Regel Informationen an, die als Zwischenzusammenfassung auf jeder Seite ausgegeben werden, im Falle einer mehrseitigen Tabelle.
+- Zusammen mit den verwandten {{HTMLElement("thead")}}- und {{HTMLElement("tbody")}}-Elementen bietet das `<tfoot>`-Element nützliche {{Glossary("semantics", "semantische")}} Informationen und kann sowohl beim Rendern für den Bildschirm als auch für den Druck verwendet werden. Die Spezifikation solcher Tabellengruppen bietet auch wertvolle kontextuelle Informationen für unterstützende Technologien, einschließlich Bildschirmleser und Suchmaschinen.
+- Beim Drucken eines Dokuments gibt die Tabellenfuß in einer mehrseitigen Tabelle üblicherweise Informationen an, die als Zwischenzusammenfassung auf jeder Seite ausgegeben werden.
 
 ## Beispiel
 
-Sehen Sie sich {{HTMLElement("table")}} für ein vollständiges Tabellenbeispiel an, das gängige Standards und Best Practices einführt.
+Siehe {{HTMLElement("table")}} für ein vollständiges Tabellenbeispiel, das allgemeine Standards und Best Practices einführt.
 
 ### Tabelle mit Fußzeile
 
@@ -113,9 +113,9 @@ Dieses Beispiel zeigt eine Tabelle, die in einen Kopfbereich mit Spaltenübersch
 
 #### HTML
 
-Die {{HTMLElement("thead")}}, {{HTMLElement("tbody")}} und `<tfoot>`-Elemente werden verwendet, um eine grundlegende Tabelle in {{Glossary("semantics", "semantische")}} Abschnitte zu gliedern. Das `<tfoot>`-Element stellt den Fußbereich der Tabelle dar, der eine Zeile ({{HTMLElement("tr")}}) enthält, die den berechneten Durchschnitt der Werte in der "Credits"-Spalte darstellt.
+Die {{HTMLElement("thead")}}, {{HTMLElement("tbody")}} und `<tfoot>`-Elemente werden verwendet, um eine Basistabelle in {{Glossary("semantics", "semantische")}} Abschnitte zu strukturieren. Das `<tfoot>`-Element repräsentiert den Fußabschnitt der Tabelle, der eine Zeile ({{HTMLElement("tr")}}) enthält, die den berechneten Durchschnitt der Werte in der "Credits"-Spalte darstellt.
 
-Um die Zellen im Fuß den richtigen Spalten zuzuordnen, wird das [`colspan`](/de/docs/Web/HTML/Reference/Elements/th#colspan)-Attribut auf dem {{HTMLElement("th")}}-Element verwendet, um die Zeilenüberschriftenzelle über die ersten drei Tabellenspalten zu erstrecken. Die einzelne Datenzelle ({{HTMLElement("td")}}) im Fuß wird automatisch an der richtigen Stelle, d.h. in der vierten Spalte, platziert, wobei der ausgelassene [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attributwert standardmäßig auf `1` gesetzt ist. Zusätzlich wird das [`scope`](/de/docs/Web/HTML/Reference/Elements/th#scope)-Attribut auf `row` auf der Kopfzelle ({{HTMLElement("th")}}) im Fuß gesetzt, um explizit zu definieren, dass sich diese Fußkopfzelle auf die Tabellenzellen innerhalb derselben Zeile bezieht, die in unserem Beispiel die eine Datenzelle in der Fußzeile ist, die den berechneten Durchschnitt enthält.
+Um die Zellen im Fuß den richtigen Spalten zuzuordnen, wird das [`colspan`](/de/docs/Web/HTML/Reference/Elements/th#colspan)-Attribut auf dem {{HTMLElement("th")}}-Element verwendet, um die Zeilenüberschriftenzelle über die ersten drei Tabellenspalten zu spannen. Die einzelne Datenzelle ({{HTMLElement("td")}}) im Fuß wird automatisch an der richtigen Stelle platziert, d.h. in der vierten Spalte, wobei der weggelassene [`colspan`](/de/docs/Web/HTML/Reference/Elements/td#colspan)-Attributwert standardmäßig auf `1` gesetzt wird. Zusätzlich wird das [`scope`](/de/docs/Web/HTML/Reference/Elements/th#scope)-Attribut auf `row` auf der Kopfzelle ({{HTMLElement("th")}}) im Fuß gesetzt, um explizit zu definieren, dass diese Fußkopfzelle sich auf die Tabellenzellen innerhalb derselben Zeile bezieht, die in unserem Beispiel die eine Datenzelle im Fuß ist, die den berechneten Durchschnitt enthält.
 
 ```html
 <table>
@@ -158,7 +158,7 @@ Um die Zellen im Fuß den richtigen Spalten zuzuordnen, wird das [`colspan`](/de
 
 #### CSS
 
-Einige grundlegende CSS-Eigenschaften werden verwendet, um den Tabellenfuß zu stylen und hervorzuheben, so dass sich die Fußzellen von den Daten im Tabellenkörper abheben.
+Einige grundlegende CSS-Regeln werden verwendet, um den Tabellenfuß zu gestalten und hervorzuheben, so dass die Fußzellen sich von den Daten im Tabellenkörper abheben.
 
 ```css
 tfoot {
@@ -224,29 +224,29 @@ tr > td:last-of-type {
     </tr>
     <tr>
       <th scope="row">Zulässiger Inhalt</th>
-      <td>Null oder mehr {{HTMLElement("tr")}} Elemente.</td>
+      <td>Null oder mehr {{HTMLElement("tr")}}-Elemente.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag ist obligatorisch. Das End-Tag kann weggelassen werden, wenn es keinen weiteren Inhalt im übergeordneten {{HTMLElement("table")}} Element gibt.
+        Der Start-Tag ist obligatorisch. Der End-Tag kann weggelassen werden, wenn kein weiterer Inhalt im übergeordneten {{HTMLElement("table")}}-Element vorhanden ist.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{HTMLElement("table")}} Element. Das
-        <code>&lt;tfoot&gt;</code> muss nach jedem
+        Ein {{HTMLElement("table")}}-Element. Das
+        <code>&lt;tfoot&gt;</code> muss nach allen
         {{HTMLElement("caption")}},
         {{HTMLElement("colgroup")}}, {{HTMLElement("thead")}},
         {{HTMLElement("tbody")}}, und {{HTMLElement("tr")}}
-        Element angezeigt werden. Beachten Sie, dass dies die Anforderung in HTML ist.<br />Ursprünglich war in HTML4 das Gegenteil der Fall: Das <code>&lt;tfoot&gt;</code>-Element durfte nicht nach einem
+        Elementen erscheinen. Beachten Sie, dass dies in HTML eine Anforderung ist.<br />Ursprünglich in HTML4 war das Gegenteil der Fall: Das <code>&lt;tfoot&gt;</code>-Element konnte nicht nach einem
         {{HTMLElement("tbody")}} und {{HTMLElement("tr")}}
         Element platziert werden.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/rowgroup_role"
@@ -257,10 +257,10 @@ tr > td:last-of-type {
     </tr>
     <tr>
       <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Jede</td>
     </tr>
     <tr>
-      <th scope="row">DOM-Schnittstelle</th>
+      <th scope="row">DOM-Interface</th>
       <td>[`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)</td>
     </tr>
   </tbody>
@@ -276,9 +276,9 @@ tr > td:last-of-type {
 
 ## Siehe auch
 
-- [Lernen: HTML-Tabellengrundlagen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
+- [Lernen: Grundlagen von HTML-Tabellen](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
 - {{HTMLElement("caption")}}, {{HTMLElement("col")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("table")}}, {{HTMLElement("tbody")}}, {{HTMLElement("td")}}, {{HTMLElement("th")}}, {{HTMLElement("thead")}}, {{HTMLElement("tr")}}: Andere tabellenbezogene Elemente
-- {{cssxref("background-color")}}: CSS-Eigenschaft, um die Hintergrundfarbe jeder Fußzelle festzulegen
-- {{cssxref("border")}}: CSS-Eigenschaft, um die Ränder der Fußzellen zu steuern
-- {{cssxref("text-align")}}: CSS-Eigenschaft, um den Inhalt jeder Fußzelle horizontal auszurichten
-- {{cssxref("vertical-align")}}: CSS-Eigenschaft, um den Inhalt jeder Fußzelle vertikal auszurichten
+- {{cssxref("background-color")}}: CSS-Eigenschaft zum Festlegen der Hintergrundfarbe jeder Fußzelle
+- {{cssxref("border")}}: CSS-Eigenschaft zur Kontrolle der Ränder von Fußzellen
+- {{cssxref("text-align")}}: CSS-Eigenschaft zur horizontalen Ausrichtung des Inhalts jeder Fußzelle
+- {{cssxref("vertical-align")}}: CSS-Eigenschaft zur vertikalen Ausrichtung des Inhalts jeder Fußzelle

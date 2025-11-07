@@ -1,19 +1,19 @@
 ---
-title: CSS box sizing
+title: CSS-Box-Sizing
 slug: Web/CSS/CSS_box_sizing
 l10n:
-  sourceCommit: bbff081938f76bdd6c6fdbf59d2e25e0a7a1cf2a
+  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das **CSS box sizing** Modul ermöglicht es Ihnen, anzugeben, wie Elemente in ihren Inhalt oder in einen bestimmten Layout-Kontext passen. Es definiert Größen-, Mindestgrößen- und Maximalgrößeneigenschaften und erweitert die CSS-Größeneigenschaften mit Schlüsselwörtern, die inhaltsbasierte {{Glossary("intrinsic_size", "intrinsische Größe")}} und kontextbasierte {{Glossary("extrinsic_size", "extrinsische Größe")}} darstellen.
+Das **CSS-Box-Sizing**-Modul ermöglicht es Ihnen, festzulegen, wie Elemente ihren Inhalt aufnehmen oder in eine bestimmte Layout-Kontext passen. Es definiert Größen-, Mindestgrößen- und Maximalgrößeneigenschaften und erweitert die CSS-Größeneigenschaften mit Schlüsselwörtern, die inhaltsbasierte {{Glossary("intrinsic_size", "intrinsische Größe")}} und kontextbasierte {{Glossary("extrinsic_size", "extrinsische Größe")}} darstellen.
 
-Elemente können entweder extrinsisch oder intrinsisch dimensioniert sein. Das [CSS Boxmodell](/de/docs/Web/CSS/CSS_box_model) definiert seitenrelative Eigenschaften, um die Größe eines Elements explizit oder "extrinsisch" festzulegen, einschließlich `width`, `height`, `padding` und `margin` Eigenschaften (zusammen mit `border` Eigenschaften, die im [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul definiert sind). Dieses CSS box sizing Modul erweitert das CSS Boxmodell Modul, um ein Element intrinsisch zu dimensionieren – die Größe des Elements basierend auf der Größe seines Inhalts festzulegen.
+Elemente können entweder extrinsisch oder intrinsisch dimensioniert werden. Das [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model) definiert seitenbezogene Eigenschaften, um die Größe eines Elements explizit oder "extrinsisch" festzulegen, einschließlich `width`, `height`, `padding` und `margin`-Eigenschaften (zusammen mit `border`-Eigenschaften, die im Modul [CSS-Hintergründe und -Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) definiert sind). Dieses CSS-Box-Sizing-Modul erweitert das CSS-Box-Modell-Modul, um einem Element zu ermöglichen, intrinsisch dimensioniert zu werden – das Festlegen der Größe eines Elements basierend auf der Größe seines Inhalts.
 
-Die in diesem Modul eingeführten Größenwerte ermöglichen es Elementen mit [Size Containment](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#size_containment), explizite intrinsische Größen anzunehmen, als ob die Breite und Höhe ihres inflow-Inhalts der angegebenen expliziten intrinsischen Größe entsprechen würden, anstatt so dimensioniert zu werden, als wären sie leer.
+Die in diesem Modul eingeführten Werte für die Dimensionierung ermöglichen es Elementen mit [Größeneinschränkung](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#size_containment), explizite intrinsische Größen anzunehmen, als ob die Breite und Höhe ihres fließenden Inhalts der angegebenen expliziten intrinsischen Größe entsprechen würde, anstatt so dimensioniert zu werden, als wären sie leer.
 
-Dieses Modul führte auch die Möglichkeit ein, ein Seitenverhältnis für die Box eines Elements zu definieren, was bedeutet, dass der Browser die Abmessungen eines Elements automatisch anpassen kann, um ein angegebenes Seitenverhältnis beizubehalten, solange eine der Dimensionen automatisch dimensioniert wird.
+Dieses Modul führte auch die Möglichkeit ein, ein Seitenverhältnis für die Box eines Elements zu definieren, was bedeutet, dass der Browser die Dimensionen eines Elements automatisch anpassen kann, um ein angegebenes Seitenverhältnis beizubehalten, solange eine der Dimensionen automatisch dimensioniert wird.
 
-Das [logische Eigenschaften und Werte Modul](/de/docs/Web/CSS/CSS_logical_properties_and_values) erweiterte die im Boxmodell und in den Box-Sizing-Modulen verfügbaren Eigenschaften, um schreibmodusrelative Äquivalente der entsprechenden physischen Boxmodell- und intrinsischen Box-Sizing-Eigenschaften einzuschließen.
+Das [Modul für logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) erweiterte die im Box-Modell und Box-Sizing-Modul verfügbaren Eigenschaften, um schreibmodusz-relative Entsprechungen der entsprechenden physischen Box-Modell- und intrinsischen Box-Sizing-Eigenschaften zu enthalten.
 
 ## Referenz
 
@@ -33,7 +33,7 @@ Das [logische Eigenschaften und Werte Modul](/de/docs/Web/CSS/CSS_logical_proper
 - {{cssxref("min-width")}}
 - {{cssxref("width")}}
 
-Das CSS box sizing Modul führt auch die `min-intrinsic-sizing` Eigenschaft ein. Derzeit wird dieses Feature von keinem Browser unterstützt.
+Das CSS-Box-Sizing-Modul führt auch die Eigenschaft `min-intrinsic-sizing` ein. Derzeit unterstützt kein Browser dieses Feature.
 
 ### Datentypen und Werte
 
@@ -44,7 +44,7 @@ Das CSS box sizing Modul führt auch die `min-intrinsic-sizing` Eigenschaft ein.
 
 ### Funktionen
 
-- [`fit-content()`](/de/docs/Web/CSS/fit-content_function)
+- [`fit-content()`](/de/docs/Web/CSS/Reference/Values/fit-content_function)
 
 ### Glossarbegriffe
 
@@ -53,24 +53,24 @@ Das CSS box sizing Modul führt auch die `min-intrinsic-sizing` Eigenschaft ein.
 
 ## Leitfäden
 
-- [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
-  - : Lernen Sie mehr über die `aspect-ratio` Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige häufige Anwendungsfälle von Seitenverhältnissen.
+- [Verstehen von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
+  - : Erfahren Sie mehr über die `aspect-ratio`-Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige häufige Anwendungsfälle für Seitenverhältnisse.
 
-- [Einführung in das CSS Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-  - : Erklärt eines der grundlegenden Konzepte von CSS: das Boxmodell. Dieses Modell definiert, wie CSS Elemente anordnet, einschließlich ihrer Inhalts-, Innenabstands-, Rahmen- und Randbereiche.
+- [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+  - : Erklärt eines der grundlegenden Konzepte von CSS: das Boxmodell. Dieses Modell definiert, wie CSS Elemente anordnet, einschließlich ihrer Inhalte, Auffüllungs-, Rahmen- und Randbereiche.
 
-- [Beherrschen des Rand-Kollabierens](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
-  - : Manchmal werden zwei benachbarte Ränder zu einem zusammengeführt. Dieser Artikel beschreibt die Regeln, die bestimmen, wann und warum dies geschieht, und wie man es steuern kann.
+- [Beherrschung von Randkollaps](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+  - : Manchmal werden zwei angrenzende Ränder zu einem zusammengelegt. Dieser Artikel beschreibt die Regeln, die bestimmen, wann und warum dies passiert, und wie man es steuert.
 
 - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
   - : Erklärt das visuelle Formatierungsmodell.
 
-- [Steuerung von Verhältnissen von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
-  - : Erklärt die intrinsische Dimensionierung als Vorläufer für das Verständnis, wie die Größe und Flexibilität von Flex-Elementen entlang der Hauptachse mithilfe von {{CSSxRef("flex-grow")}}, {{CSSxRef("flex-shrink")}}, und {{CSSxRef("flex-basis")}} gesteuert werden kann.
+- [Steuerung der Verhältnisse von Flex-Items entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
+  - : Erklärt die intrinsische Dimensionierung als Vorstufe, um zu verstehen, wie man die Größe und Flexibilität von Flex-Items entlang der Hauptachse mit {{CSSxRef("flex-grow")}}, {{CSSxRef("flex-shrink")}} und {{CSSxRef("flex-basis")}} steuert.
 
 ## Verwandte Konzepte
 
-- [CSS logische Eigenschaften](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
+- [CSS-Logische Eigenschaften](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
   - {{CSSxRef("min-inline-size")}}
   - {{CSSxRef("block-size")}}
   - {{CSSxRef("inline-size")}}
@@ -90,7 +90,7 @@ Das CSS box sizing Modul führt auch die `min-intrinsic-sizing` Eigenschaft ein.
   - {{CSSxRef("overflow-inline")}}
   - {{CSSxRef("overscroll-behavior-block")}}
   - {{CSSxRef("overscroll-behavior-inline")}}
-- [CSS Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul
+- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul
   - {{cssxref("margin")}} Kurzform
   - {{cssxref("margin-bottom")}}
   - {{cssxref("margin-left")}}
@@ -102,14 +102,14 @@ Das CSS box sizing Modul führt auch die `min-intrinsic-sizing` Eigenschaft ein.
   - {{cssxref("padding-left")}}
   - {{cssxref("padding-right")}}
   - {{cssxref("padding-top")}}
-- [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS-Hintergründe und -Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
   - {{cssxref("border")}} Kurzform
   - {{cssxref("border-width")}} Kurzform
   - {{cssxref("border-bottom-width")}}
   - {{cssxref("border-left-width")}}
   - {{cssxref("border-right-width")}}
   - {{cssxref("border-top-width")}}
-- [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
   - {{CSSxRef("overflow")}} Kurzform
   - {{CSSxRef("overflow-block")}}
   - {{CSSxRef("overflow-clip-margin")}}
@@ -117,7 +117,7 @@ Das CSS box sizing Modul führt auch die `min-intrinsic-sizing` Eigenschaft ein.
   - {{CSSxRef("overflow-x")}}
   - {{CSSxRef("overflow-y")}}
   - {{CSSxRef("text-overflow")}}
-- [CSS Raster-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+- [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
   - {{CSSxRef("grid")}}
   - {{CSSxRef("grid-auto-columns")}}
   - {{CSSxRef("grid-auto-rows")}}
@@ -125,18 +125,18 @@ Das CSS box sizing Modul führt auch die `min-intrinsic-sizing` Eigenschaft ein.
   - {{CSSxRef("grid-template-rows")}}
   - {{CSSxRef("repeat")}}
   - {{CSSxRef("minmax")}} Funktion
-- [CSS Flexibles Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [CSS-Flexible-Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
   - {{CSSxRef("flex-basis")}}
   - {{CSSxRef("flex")}}
 
 ## Spezifikationen
 
-{{Spezifikationen}}
+{{Specifications}}
 
 ## Siehe auch
 
-- [CSS Anzeige](/de/docs/Web/CSS/CSS_display) Modul
-- [CSS Flexlayout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
-- [CSS Raster-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
-- [CSS Positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
-- [CSS Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul
+- [CSS-Display](/de/docs/Web/CSS/CSS_display) Modul
+- [CSS-Flex-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+- [CSS-Positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul
