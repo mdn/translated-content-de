@@ -1,14 +1,14 @@
 ---
-title: "Element: matches()-Methode"
+title: "Element: matches() Methode"
 short-title: matches()
 slug: Web/API/Element/matches
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("DOM")}}
 
-Die **`matches()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces prüft, ob das Element durch den angegebenen [CSS-Selektor](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) ausgewählt werden würde.
+Die **`matches()`** Methode des [`Element`](/de/docs/Web/API/Element) Interfaces prüft, ob das Element durch den angegebenen [CSS-Selektor](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) ausgewählt werden würde.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ matches(selectors)
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `selectors` nicht als CSS-Selektor-Liste geparst werden kann.
+  - : Wird ausgelöst, wenn `selectors` nicht als Liste von CSS-Selektoren geparst werden kann.
 
 ## Beispiele
 
@@ -54,7 +54,7 @@ for (const bird of birds) {
 }
 ```
 
-Dies wird "The Philippine eagle is endangered!" in die Konsole ausgeben, da das Element tatsächlich ein `class`-Attribut mit dem Wert `endangered` hat.
+Dies wird "The Philippine eagle is endangered!" in die Konsole ausgeben, da das Element tatsächlich ein `class` Attribut mit dem Wert `endangered` hat.
 
 ## Spezifikationen
 
@@ -66,5 +66,5 @@ Dies wird "The Philippine eagle is endangered!" in die Konsole ausgeben, da das 
 
 ## Siehe auch
 
-- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
-- Andere [`Element`](/de/docs/Web/API/Element)-Methoden, die Selektoren verwenden: [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector), [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll) und [`element.closest()`](/de/docs/Web/API/Element/closest).
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
+- Andere [`Element`](/de/docs/Web/API/Element) Methoden, die Selektoren verwenden: [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector), [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll), und [`element.closest()`](/de/docs/Web/API/Element/closest).

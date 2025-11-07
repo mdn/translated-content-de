@@ -11,7 +11,7 @@ Feature Queries werden mit der CSS-Regel [`@supports`](/de/docs/Web/CSS/Referenc
 
 ## Syntax
 
-CSS-Feature Queries sind Teil des [CSS Conditional Rules](/de/docs/Web/CSS/CSS_conditional_rules)-Moduls, das auch die Medienabfrage [`@media`](/de/docs/Web/CSS/Reference/At-rules/@media) at-rule definiert. Feature Queries verhalten sich ähnlich wie [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries). Der Unterschied besteht darin, dass Sie bei einer Medienabfrage etwas über die Umgebung testen, in der die Webseite ausgeführt wird, während Sie mit Feature Queries die Unterstützung von CSS-Funktionen im Browser testen.
+CSS-Feature Queries sind Teil des [CSS Conditional Rules](/de/docs/Web/CSS/Guides/Conditional_rules)-Moduls, das auch die Medienabfrage [`@media`](/de/docs/Web/CSS/Reference/At-rules/@media) at-rule definiert. Feature Queries verhalten sich ähnlich wie [Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries/Using). Der Unterschied besteht darin, dass Sie bei einer Medienabfrage etwas über die Umgebung testen, in der die Webseite ausgeführt wird, während Sie mit Feature Queries die Unterstützung von CSS-Funktionen im Browser testen.
 
 Eine Feature Query besteht aus der `@supports` at-rule, gefolgt von der Support-Bedingung oder einer `supports()`-Funktion und einem Deklarationsparameter innerhalb einer `@import`-at-rule-Deklaration:
 
@@ -65,7 +65,7 @@ body {
 
 {{EmbedLiveSample("simple")}}
 
-Der Wertebereich des Eigenschaft-Wert-Paars ist wichtiger, wenn Sie für neue Werte einer bestimmten Eigenschaft testen. Alle Browser unterstützen `color: red`: Dies reicht bis zu CSS1 zurück. Es gibt jedoch oft zusätzliche Werte, die zu Eigenschaften in CSS hinzugefügt werden, wie [relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors), die möglicherweise nicht unterstützt werden. Feature Queries ermöglichen das Testen von Eigenschafts- und Werte-Paaren, was bedeutet, dass wir die Unterstützung für Werte erkennen können.
+Der Wertebereich des Eigenschaft-Wert-Paars ist wichtiger, wenn Sie für neue Werte einer bestimmten Eigenschaft testen. Alle Browser unterstützen `color: red`: Dies reicht bis zu CSS1 zurück. Es gibt jedoch oft zusätzliche Werte, die zu Eigenschaften in CSS hinzugefügt werden, wie [relative Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors), die möglicherweise nicht unterstützt werden. Feature Queries ermöglichen das Testen von Eigenschafts- und Werte-Paaren, was bedeutet, dass wir die Unterstützung für Werte erkennen können.
 
 Um das obige Beispiel der `color`-Eigenschaft zu erweitern, prüfen wir hier, ob der Browser die `color: AccentColor`-Deklaration unterstützt:
 
@@ -266,7 +266,7 @@ Es ist nicht notwendig, Feature Queries zu verwenden, um neue CSS-Funktionen zu 
 
 ## Siehe auch
 
-- [CSS Conditional Rules](/de/docs/Web/CSS/CSS_conditional_rules) Modul
-- [Verwendung von CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [CSS Conditional Rules](/de/docs/Web/CSS/Guides/Conditional_rules) Modul
+- [Verwendung von CSS-Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries/Using)
 - [Unterstützung älterer Browser: Feature Queries](/de/docs/Learn_web_development/Core/CSS_layout/Supporting_Older_Browsers#feature_queries)
 - [Browser Feature-Erkennung: CSS `@supports`](/de/docs/Learn_web_development/Extensions/Testing/Feature_detection#supports)

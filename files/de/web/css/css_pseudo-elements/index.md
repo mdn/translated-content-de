@@ -59,34 +59,34 @@ Die Spezifikation definiert auch die `::details-content` und `::search-text` Pse
   - {{cssxref("::cue")}}
   - {{cssxref("::cue", "::cue()")}}
 
-- [CSS-Multispalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout)-Modul
+- [CSS-Multispalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout)-Modul
   - {{cssxref("::column")}}
 
-- [CSS Overflow](/de/docs/Web/CSS/CSS_overflow)-Modul
+- [CSS Overflow](/de/docs/Web/CSS/Guides/Overflow)-Modul
   - {{cssxref("::scroll-button()")}}
   - {{cssxref("::scroll-marker")}}
   - {{cssxref("::scroll-marker-group")}}
   - {{cssxref(":target-current")}}
 
-- [CSS Scoping](/de/docs/Web/CSS/CSS_scoping)-Modul
+- [CSS Scoping](/de/docs/Web/CSS/Guides/Scoping)-Modul
   - {{CSSXref(":host")}}
   - {{CSSXref(":host_function", ":host()")}}
   - {{CSSXref(":host-context", ":host-context()")}}
   - {{CSSXref("::slotted", "::slotted()")}}
 
-- [CSS Shadow Parts](/de/docs/Web/CSS/CSS_shadow_parts)-Modul
+- [CSS Shadow Parts](/de/docs/Web/CSS/Guides/Shadow_parts)-Modul
   - {{CSSXref("::part")}}
 
-- [CSS-Ansichten-Übergänge](/de/docs/Web/CSS/CSS_view_transitions)-Modul
+- [CSS-Ansichten-Übergänge](/de/docs/Web/CSS/Guides/View_transitions)-Modul
   - {{cssxref("::view-transition")}} {{Experimental_Inline}}
   - {{cssxref("::view-transition-image-pair()")}} {{Experimental_Inline}}
   - {{cssxref("::view-transition-group()")}} {{Experimental_Inline}}
   - {{cssxref("::view-transition-new()")}} {{Experimental_Inline}}
   - {{cssxref("::view-transition-old()")}} {{Experimental_Inline}}
 
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)
   - [Attributselektoren](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors)
-  - [Kombinatoren](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators#combinators)
+  - [Kombinatoren](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators#combinators)
   - [Klassenselektoren](/de/docs/Web/CSS/Reference/Selectors/Class_selectors)
   - [ID-Selektoren](/de/docs/Web/CSS/Reference/Selectors/ID_selectors)
   - [Typselektoren](/de/docs/Web/CSS/Reference/Selectors/Type_selectors)
@@ -96,7 +96,7 @@ Die Spezifikation definiert auch die `::details-content` und `::search-text` Pse
 - [`placeholder`](/de/docs/Web/HTML/Reference/Elements/input#placeholder)-Attribut des `<input>`-Elements
 - [`:placeholder-shown`](/de/docs/Web/CSS/Reference/Selectors/:placeholder-shown)-Selektor
 
-- [CSS generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content)
+- [CSS generierter Inhalt](/de/docs/Web/CSS/Guides/Generated_content)
   - {{cssxref("content")}}-Eigenschaft
   - {{cssxref("quotes")}}-Eigenschaft
 
@@ -112,9 +112,9 @@ Die Spezifikation definiert auch die `::details-content` und `::search-text` Pse
 
 ## Siehe auch
 
-- [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)-Modul
-- [CSS Shadow-Parts](/de/docs/Web/CSS/CSS_shadow_parts)-Modul
-- [CSS generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content)-Modul
-- [CSS-Positionierungs-Layout](/de/docs/Web/CSS/CSS_positioned_layout)-Modul
+- [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity)
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)-Modul
+- [CSS Shadow-Parts](/de/docs/Web/CSS/Guides/Shadow_parts)-Modul
+- [CSS generierter Inhalt](/de/docs/Web/CSS/Guides/Generated_content)-Modul
+- [CSS-Positionierungs-Layout](/de/docs/Web/CSS/Guides/Positioned_layout)-Modul
 - [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)

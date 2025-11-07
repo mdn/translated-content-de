@@ -6,7 +6,7 @@ l10n:
   sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-Eine einfache Möglichkeit, eine Form zu erstellen, besteht darin, einen Wert aus dem [CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model)-Modul zu verwenden. Dieser Artikel erklärt, wie dies möglich ist.
+Eine einfache Möglichkeit, eine Form zu erstellen, besteht darin, einen Wert aus dem [CSS Box-Modell](/de/docs/Web/CSS/Guides/Box_model)-Modul zu verwenden. Dieser Artikel erklärt, wie dies möglich ist.
 
 Die im {{cssxref("box-edge")}} erlaubten Box-Werte als Formwert sind:
 
@@ -242,4 +242,4 @@ body {
 
 {{EmbedLiveSample("bottom-margin-box", "", "240px")}}
 
-Für komplexere Formen müssen Sie einen der [Grundformen](/de/docs/Web/CSS/CSS_shapes/Basic_shapes) als Wert verwenden oder Ihre Form aus einem Bild definieren, wie in anderen Leitfäden in diesem Abschnitt behandelt.
+Für komplexere Formen müssen Sie einen der [Grundformen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside) als Wert verwenden oder Ihre Form aus einem Bild definieren, wie in anderen Leitfäden in diesem Abschnitt behandelt.

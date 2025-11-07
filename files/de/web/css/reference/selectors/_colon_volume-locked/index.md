@@ -2,13 +2,13 @@
 title: :volume-locked
 slug: Web/CSS/Reference/Selectors/:volume-locked
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Der **`:volume-locked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) Selektor repräsentiert ein Element, das in der Lage ist, Ton wiederzugeben, wie z. B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, aber das Audio-Volumen des Medienelements ist derzeit vom Benutzer "gesperrt".
+Der **`:volume-locked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert ein Element, das in der Lage ist, Ton wiederzugeben, wie z. B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, bei dem jedoch die Lautstärke des Medienelements derzeit vom Benutzer "gesperrt" ist.
 
-Benutzeragenten können Medienwerte [`muted`](/de/docs/Web/API/HTMLMediaElement/muted) oder [`volume`](/de/docs/Web/API/HTMLMediaElement/volume) gemäß den Benutzerpräferenzen festlegen (z. B. das letzte eingestellte Wert über Sitzungen hinweg, standortbezogen oder auf andere Weise merken).
-Ein Element, das `:volume-locked` ist, kann nicht über JavaScript stummgeschaltet, die Stummschaltung aufgehoben oder die Lautstärke geändert werden. Der gesperrte Status ist eine Präferenz des Betriebssystems oder des Benutzeragenten.
+Benutzeragenten können Medienwerte für [`muted`](/de/docs/Web/API/HTMLMediaElement/muted) oder [`volume`](/de/docs/Web/API/HTMLMediaElement/volume) gemäß den Benutzervorlieben festlegen (z. B. das letzte gesetzte Wert über Sitzungen hinweg speichern, pro Webseite oder auf andere Weise).
+Ein `:volume-locked` Element kann nicht über JavaScript stummgeschaltet, die Stummschaltung aufgehoben oder die Lautstärke geändert werden. Der gesperrte Status ist eine Betriebssystem- oder Benutzeragentenpräferenz.
 
 ## Syntax
 
@@ -48,5 +48,5 @@ video:volume-locked {
 - {{cssxref(":playing")}}
 - {{cssxref(":seeking")}}
 - {{cssxref(":stalled")}}
-- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)
 - [`volume`](/de/docs/Web/API/HTMLMediaElement/volume) Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) Objekten

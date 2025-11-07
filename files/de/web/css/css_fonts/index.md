@@ -144,10 +144,10 @@ Das CSS-Schriften-Modul definiert auch den Deskriptor {{cssxref("@font-feature-v
 - [Lernen: Webschriften](/de/docs/Learn_web_development/Core/Text_styling/Web_fonts)
   - : Dieser Anfängerartikel erklärt, wie man benutzerdefinierte Schriften auf Ihrer Webseite verwendet, um eine vielfältigere und angepasste Textstilierung zu ermöglichen.
 
-- [OpenType-Schriftmerkmale](/de/docs/Web/CSS/CSS_fonts/OpenType_fonts_guide)
+- [OpenType-Schriftmerkmale](/de/docs/Web/CSS/Guides/Fonts/OpenType_fonts)
   - : Schriftmerkmale oder Varianten beziehen sich auf verschiedene Glyphen oder Zeichenstile, die in einer OpenType-Schrift enthalten sind. Dazu gehören z.B. Ligaturen (besondere Glyphen, die Zeichen wie 'fi' oder 'ffl' kombinieren), Kerning (Anpassungen des Abstands zwischen bestimmten Buchstabenpaarungen), Brüche, Zahlenstile und viele andere. Dies sind alles OpenType-Eigenschaften, die über spezifische Eigenschaften und eine Low-Level-Kontrolleigenschaft – {{cssxref("font-feature-settings")}} – genutzt werden können. Dieser Artikel bietet alles Wissenswerte zur Verwendung von OpenType-Schriftmerkmalen in CSS.
 
-- [Variable Schriftarten](/de/docs/Web/CSS/CSS_fonts/Variable_fonts_guide)
+- [Variable Schriftarten](/de/docs/Web/CSS/Guides/Fonts/Variable_fonts)
   - : Dieser Artikel hilft Ihnen, den Einstieg in die Verwendung von variablen Schriftarten zu erleichtern.
 
 - [Verbesserung der Schriftleistung](/de/docs/Learn_web_development/Extensions/Performance/CSS#improving_font_performance)
@@ -165,7 +165,7 @@ Das CSS-Schriften-Modul definiert auch den Deskriptor {{cssxref("@font-feature-v
 
 ## Siehe auch
 
-- [CSS-Schriftarten Laden](/de/docs/Web/CSS/CSS_font_loading) Modul
+- [CSS-Schriftarten Laden](/de/docs/Web/CSS/Guides/Font_loading) Modul
 - [CSS-Schriftarten Lade-API](/de/docs/Web/API/CSS_Font_Loading_API)
-- [CSS-Text](/de/docs/Web/CSS/CSS_text) Modul
-- [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) Modul
+- [CSS-Text](/de/docs/Web/CSS/Guides/Text) Modul
+- [CSS-Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes) Modul

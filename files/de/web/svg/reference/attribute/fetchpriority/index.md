@@ -2,12 +2,12 @@
 title: fetchpriority
 slug: Web/SVG/Reference/Attribute/fetchpriority
 l10n:
-  sourceCommit: 707183bfb6cffe53650c03e7e7c369ad089f55ae
+  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
 ---
 
 {{SeeCompatTable}}{{non-standard_header}}
 
-Das `fetchpriority`-Attribut gibt dem Browser einen Hinweis auf die relative Priorität beim Abrufen einer externen Ressource. Dies funktioniert in derselben Weise wie das `fetchpriority`-Attribut für die HTML-{{HTMLElement("img", "", "#fetchpriority")}}- und {{HTMLElement("script", "", "#fetchpriority")}}-Elemente.
+Das `fetchpriority`-Attribut gibt dem Browser einen Hinweis auf die relative Priorität beim Abrufen einer externen Ressource. Dies funktioniert auf die gleiche Weise wie das `fetchpriority`-Attribut für die HTML-{{HTMLElement("img", "", "#fetchpriority")}}- und {{HTMLElement("script", "", "#fetchpriority")}}-Elemente.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -15,7 +15,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGelement("image")}}
 - {{SVGelement("script")}}
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -36,7 +36,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   - : Ruft die externe Ressource mit niedriger Priorität im Vergleich zu anderen externen Ressourcen ab.
 - `auto`
   - : Setzt keine Präferenz für die Abrufpriorität.
-    Wird verwendet, wenn kein Wert oder ein ungültiger Wert festgelegt ist.
+    Es wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt ist.
     Dies ist der Standardwert.
 
 ## Beispiele
@@ -60,5 +60,5 @@ Dieses Beispiel zeigt, wie man die Priorität eines SVG-{{SVGelement("script")}}
 
 ## Siehe auch
 
-- SVG {{SVGelement("script")}}-Element
-- `fetchpriority`-Attribut des HTML-<code>&lt;script&gt;</code>-Elements [`fetchpriority`](/de/docs/Web/HTML/Reference/Elements/script#fetchpriority)
+- SVG-{{SVGelement("script")}}-Element
+- HTML-Attribut [`fetchpriority`](/de/docs/Web/HTML/Reference/Attributes/fetchpriority)

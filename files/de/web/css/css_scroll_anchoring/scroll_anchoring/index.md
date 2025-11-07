@@ -28,7 +28,7 @@ Wenn ein Knoten nicht als geeigneter Anker erscheint, können Sie ihn mit {{cssx
 
 ## Was ist, wenn ich es deaktivieren muss?
 
-Das [CSS-Scroll-Anker-Modul](/de/docs/Web/CSS/CSS_scroll_anchoring) bietet die {{cssxref("overflow-anchor")}}-Eigenschaft, die verwendet werden kann, um das Scroll-Ankern im gesamten oder in Teilen des Dokuments zu deaktivieren. Es ist im Wesentlichen eine Möglichkeit, sich gegen das Verhalten zu entscheiden.
+Das [CSS-Scroll-Anker-Modul](/de/docs/Web/CSS/Guides/Scroll_anchoring) bietet die {{cssxref("overflow-anchor")}}-Eigenschaft, die verwendet werden kann, um das Scroll-Ankern im gesamten oder in Teilen des Dokuments zu deaktivieren. Es ist im Wesentlichen eine Möglichkeit, sich gegen das Verhalten zu entscheiden.
 
 Die einzigen möglichen Werte sind `auto` oder `none`:
 

@@ -16,13 +16,13 @@ Der Anfang einer Zeile ist nicht immer die linke Seite einer Zeile. Verschiedene
 
 Die in diesem Modul definierten logischen Eigenschaften ermöglichen es, Eigenschaften relativ zur Schreibrichtung des Inhalts zu definieren, anstatt zu einer physischen Richtung. Dies bedeutet, dass Inhalte, die in Sprachen mit unterschiedlichen Schreibmodi übersetzt werden, wie beabsichtigt gerendert werden.
 
-Logische Eigenschaften und Werte verwenden die abstrakten Begriffe _block_ und _inline_, um die Richtung zu beschreiben, in der sie fließen. Die physische Bedeutung dieser Begriffe hängt vom [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) ab.
+Logische Eigenschaften und Werte verwenden die abstrakten Begriffe _block_ und _inline_, um die Richtung zu beschreiben, in der sie fließen. Die physische Bedeutung dieser Begriffe hängt vom [Schreibmodus](/de/docs/Web/CSS/Guides/Writing_modes) ab.
 
 Die **Block-Dimension** ist senkrecht zum Fließen des Texts innerhalb einer Zeile, d.h. die vertikale Dimension in horizontalen Schreibmodi und die horizontale Dimension in vertikalen Schreibmodi. Für standardmäßigen englischen Text ist es die vertikale Dimension.
 
 Die **Inline-Dimension** ist parallel zum Fließen des Texts innerhalb einer Zeile, d.h. die horizontale Dimension in horizontalen Schreibmodi und die vertikale Dimension in vertikalen Schreibmodi. Für standardmäßigen englischen Text ist es die horizontale Dimension.
 
-CSS wurde ursprünglich nur mit physischen Koordinaten entwickelt. Das Modul für logische Eigenschaften und Werte definiert flussrelativ äquivalente Werte für viele [Werte](/de/docs/Web/CSS/CSS_values_and_units) und {{Glossary("Property/CSS", "Eigenschaften")}}. Eigenschaften, die früher nur physische Werte (`top`, `bottom`, `left`, `right`) akzeptierten, akzeptieren nun auch flussrelative logische Werte (`block-start`, `block-end`, `inline-start`, `inline-end`).
+CSS wurde ursprünglich nur mit physischen Koordinaten entwickelt. Das Modul für logische Eigenschaften und Werte definiert flussrelativ äquivalente Werte für viele [Werte](/de/docs/Web/CSS/Guides/Values_and_units) und {{Glossary("Property/CSS", "Eigenschaften")}}. Eigenschaften, die früher nur physische Werte (`top`, `bottom`, `left`, `right`) akzeptierten, akzeptieren nun auch flussrelative logische Werte (`block-start`, `block-end`, `inline-start`, `inline-end`).
 
 ## Referenz
 
@@ -102,16 +102,16 @@ CSS wurde ursprünglich nur mit physischen Koordinaten entwickelt. Das Modul fü
 
 ## Leitfäden
 
-- [Grundkonzepte der logischen Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values)
+- [Grundkonzepte der logischen Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts)
   - : Überblick über flussrelative Eigenschaften und Werte.
 
-- [Logische Eigenschaften für Größenanpassung](/de/docs/Web/CSS/CSS_logical_properties_and_values/Sizing)
+- [Logische Eigenschaften für Größenanpassung](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Sizing)
   - : Flussrelative Zuordnungen zwischen physischen Eigenschaften und logischen Eigenschaften, die zur Größenanpassung von Elementen auf der Seite verwendet werden.
 
-- [Logische Eigenschaften für Ränder, Rahmen und Abstände](/de/docs/Web/CSS/CSS_logical_properties_and_values/Margins_borders_padding)
+- [Logische Eigenschaften für Ränder, Rahmen und Abstände](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Margins_borders_padding)
   - : Flussrelative Zuordnungen für die verschiedenen Rand-, Rahmen- und Abstands-Eigenschaften und deren Abkürzungen.
 
-- [Logische Eigenschaften für Schweben und Positionierung](/de/docs/Web/CSS/CSS_logical_properties_and_values/Floating_and_positioning)
+- [Logische Eigenschaften für Schweben und Positionierung](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Floating_and_positioning)
   - : Detaillierte Zuordnungen zwischen den physischen und logischen Werten für `float` und `clear`, {{Glossary("Inset_properties", "Inset-Eigenschaften")}} und `resize`.
 
 ## Verwandte Konzepte
@@ -122,19 +122,19 @@ CSS wurde ursprünglich nur mit physischen Koordinaten entwickelt. Das Modul fü
 - {{CSSxRef("resize")}}
 - {{CSSxRef("text-align")}}
 
-[CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model)
+[CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model)
 
 - {{CSSxRef("margin")}} Abkürzung
 - {{CSSxRef("padding")}} Abkürzung
 
-[CSS-Boxgrößenbestimmung](/de/docs/Web/CSS/CSS_box_sizing)
+[CSS-Boxgrößenbestimmung](/de/docs/Web/CSS/Guides/Box_sizing)
 
 - {{CSSxRef("max-height")}}
 - {{CSSxRef("max-width")}}
 - {{CSSxRef("min-height")}}
 - {{CSSxRef("min-width")}}
 
-[CSS-Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
+[CSS-Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)
 
 - {{CSSxRef("border-color")}}
 - {{CSSxRef("border-style")}}
@@ -142,30 +142,30 @@ CSS wurde ursprünglich nur mit physischen Koordinaten entwickelt. Das Modul fü
 - {{CSSxRef("border")}} Abkürzung
 - {{CSSxRef("border-radius")}}
 
-[CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout)
+[CSS positioniertes Layout](/de/docs/Web/CSS/Guides/Positioned_layout)
 
 - {{CSSxRef("top")}}
 - {{CSSxRef("right")}}
 - {{CSSxRef("bottom")}}
 - {{CSSxRef("left")}}
 
-[CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes)
+[CSS-Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes)
 
 - {{CSSxRef("direction")}}
 - {{CSSxRef("text-orientation")}}
 - {{CSSxRef("writing-mode")}}
 
-[CSS-Containment](/de/docs/Web/CSS/CSS_containment)
+[CSS-Containment](/de/docs/Web/CSS/Guides/Containment)
 
 - {{CSSxRef("contain-intrinsic-block-size")}}
 - {{CSSxRef("contain-intrinsic-inline-size")}}
 
-[CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow)
+[CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow)
 
 - {{CSSxRef("overflow-block")}}
 - {{CSSxRef("overflow-inline")}}
 
-[CSS-Überscrollverhalten](/de/docs/Web/CSS/CSS_overscroll_behavior)
+[CSS-Überscrollverhalten](/de/docs/Web/CSS/Guides/Overscroll_behavior)
 
 - {{CSSxRef("overscroll-behavior-block")}}
 - {{CSSxRef("overscroll-behavior-inline")}}
@@ -176,6 +176,6 @@ CSS wurde ursprünglich nur mit physischen Koordinaten entwickelt. Das Modul fü
 
 ## Siehe auch
 
-- [Flusslayout und Schreibmodi](/de/docs/Web/CSS/CSS_display/Flow_layout_and_writing_modes)
-- [CSS-Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
-- [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+- [Flusslayout und Schreibmodi](/de/docs/Web/CSS/Guides/Display/Flow_layout_and_writing_modes)
+- [CSS-Flexbox-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
+- [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul

@@ -6,7 +6,7 @@ l10n:
   sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-In diesem Leitfaden untersuchen wir die drei Eigenschaften, die die Größe und Flexibilität von Flex-Elementen entlang der Hauptachse steuern: {{CSSxRef("flex-grow")}}, {{CSSxRef("flex-shrink")}} und {{CSSxRef("flex-basis")}}. Das vollständige Verständnis, wie diese Eigenschaften mit wachsenden und schrumpfenden Elementen funktionieren, ist der Schlüssel zur Beherrschung des [CSS Flexible Box Layouts](/de/docs/Web/CSS/CSS_flexible_box_layout).
+In diesem Leitfaden untersuchen wir die drei Eigenschaften, die die Größe und Flexibilität von Flex-Elementen entlang der Hauptachse steuern: {{CSSxRef("flex-grow")}}, {{CSSxRef("flex-shrink")}} und {{CSSxRef("flex-basis")}}. Das vollständige Verständnis, wie diese Eigenschaften mit wachsenden und schrumpfenden Elementen funktionieren, ist der Schlüssel zur Beherrschung des [CSS Flexible Box Layouts](/de/docs/Web/CSS/Guides/Flexible_box_layout).
 
 ## Ein erster Blick
 

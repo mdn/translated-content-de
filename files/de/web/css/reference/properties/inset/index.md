@@ -2,12 +2,12 @@
 title: inset
 slug: Web/CSS/Reference/Properties/inset
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`inset`**-[CSS](/de/docs/Web/CSS) Eigenschaft ist eine Kurzform, die den Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und/oder {{cssxref("left")}} entspricht. Sie hat die gleiche Mehrwert-Syntax wie die Kurzform der {{cssxref("margin")}}-Eigenschaft.
+Die **`inset`**-[CSS](/de/docs/Web/CSS)-Eigenschaft ist eine Kurzform, die den Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und/oder {{cssxref("left")}} entspricht. Sie hat die gleiche Mehrwert-Syntax wie die Kurzform von {{cssxref("margin")}}.
 
-Diese {{Glossary("inset_properties", "inset Properties")}}, einschließlich `inset`, haben keine Wirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "inset properties")}}, einschließlich `inset`, haben keine Wirkung auf nicht positionierte Elemente.
 
 {{InteractiveExample("CSS Demo: inset")}}
 
@@ -64,9 +64,9 @@ inset: 0;
 }
 ```
 
-Obwohl sie Teil des Moduls [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) ist, definiert sie keine _logischen_ Versätze. Sie definiert _physische_ Versätze, unabhängig von der Schreibrichtung, der Richtung und der Textorientierung des Elements.
+Während Teil des Moduls [CSS logical properties and values](/de/docs/Web/CSS/Guides/Logical_properties_and_values), definiert es keine _logischen_ Offsets. Es definiert _physische_ Offsets, unabhängig vom Schreibrichtung, Richtung und Textorientierung des Elements.
 
-## Zusammengehörige Eigenschaften
+## Zusätzliche Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -103,7 +103,7 @@ inset: unset;
 
 ### Werte
 
-Die `inset`-Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("left")}}-Eigenschaft.
+Die `inset`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}}-Eigenschaft an.
 
 ## Formale Definition
 
@@ -115,7 +115,7 @@ Die `inset`-Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("left")}}-
 
 ## Beispiele
 
-### Versätze für ein Element festlegen
+### Offsets für ein Element festlegen
 
 #### HTML
 
@@ -160,5 +160,5 @@ div {
 - {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("inset-block")}} und {{cssxref("inset-inline")}}
 - {{cssxref("position")}}
-- [CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
-- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS positioned layout](/de/docs/Web/CSS/Guides/Positioned_layout) Modul
+- [CSS logical properties and values](/de/docs/Web/CSS/Guides/Logical_properties_and_values)

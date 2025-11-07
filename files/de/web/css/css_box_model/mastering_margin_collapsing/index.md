@@ -16,7 +16,7 @@ Das Zusammenfallen der Ränder tritt in drei grundlegenden Fällen auf:
     - Der {{cssxref("margin-top")}} eines Elternteils kollabiert mit dem {{cssxref("margin-top")}} seines ersten im Dokumentfluss befindlichen Nachkommens, es sei denn, der Elternteil hat einen {{cssxref("border-top")}}, {{cssxref("padding-top")}}, enthält beliebigen Inline-Inhalt (wie Text) oder es wird _[clearance](/de/docs/Web/CSS/Reference/Properties/clear)_ angewendet.
     - Der {{cssxref("margin-bottom")}} eines Elternteils kollabiert mit dem {{cssxref("margin-bottom")}} seines letzten im Dokumentfluss befindlichen Nachkommens, es sei denn, der Elternteil hat eine definierte {{cssxref("height")}} oder {{cssxref("min-height")}}, einen {{cssxref("border-bottom")}} oder {{cssxref("padding-bottom")}}.
 
-    In beiden Fällen verhindert das Erstellen eines neuen [Block-Formatierungskontextes](/de/docs/Web/CSS/CSS_display/Block_formatting_context) beim Elternteil ebenfalls, dass seine Ränder mit denen seiner Kinder kollabieren.
+    In beiden Fällen verhindert das Erstellen eines neuen [Block-Formatierungskontextes](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) beim Elternteil ebenfalls, dass seine Ränder mit denen seiner Kinder kollabieren.
 
 - Leere Blöcke
   - : Wenn es keinen Rand, kein Padding, keinen Inline-Inhalt, {{cssxref("height")}} oder {{cssxref("min-height")}} gibt, um den {{cssxref("margin-top")}} eines Blocks von seinem {{cssxref("margin-bottom")}} zu trennen, kollabieren seine oberen und unteren Ränder.
@@ -77,19 +77,19 @@ p {
 ## Siehe auch
 
 - CSS-Schlüsselkonzepte:
-  - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
-  - [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rules)
-  - [Kommentare](/de/docs/Web/CSS/CSS_syntax/Comments)
-  - [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
-  - [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
-  - [Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+  - [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax/Introduction)
+  - [At-Regeln](/de/docs/Web/CSS/Guides/Syntax/At-rules)
+  - [Kommentare](/de/docs/Web/CSS/Guides/Syntax/Comments)
+  - [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity)
+  - [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance)
+  - [Boxmodell](/de/docs/Web/CSS/Guides/Box_model/Introduction)
   - {{Glossary("Layout_mode", "Layoutmodi")}}
-  - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
+  - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model)
   - Werte
-    - [Initialwerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value)
-    - [Rechenwerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value)
-    - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value)
-    - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value)
-  - [Wertesyntaxdefinition](/de/docs/Web/CSS/CSS_values_and_units/Value_definition_syntax)
-  - [Kurzschreibweise Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
+    - [Initialwerte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value)
+    - [Rechenwerte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value)
+    - [Verwendete Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value)
+    - [Tatsächliche Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#actual_value)
+  - [Wertesyntaxdefinition](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax)
+  - [Kurzschreibweise Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)
   - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

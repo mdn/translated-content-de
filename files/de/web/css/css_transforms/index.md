@@ -707,7 +707,7 @@ Der Würfel im obigen Beispiel besteht aus sechs `<div>`-Elementen, die alle mit
 
 ## Leitfäden
 
-- [CSS-Transformationen verwenden](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
+- [CSS-Transformationen verwenden](/de/docs/Web/CSS/Guides/Transforms/Using)
   - : Schritt-für-Schritt-Anleitung, wie man Elemente mit CSS transformiert.
 - [Koordinatensysteme](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems)
   - : Beschreibt, wie Pixelpositionen im CSS-Objektmodell definiert sind.
@@ -757,5 +757,5 @@ Der Würfel im obigen Beispiel besteht aus sechs `<div>`-Elementen, die alle mit
 ## Siehe auch
 
 - [Grundlegende SVG-Transformationen](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_transformations) Tutorial
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) Modul
-- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) Modul
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul
+- [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions) Modul

@@ -2,10 +2,10 @@
 title: dir
 slug: Web/MathML/Reference/Global_attributes/dir
 l10n:
-  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Das **`dir`** [globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "Aufzählungsattribut")}}, das die Richtung des MathML-Elements angibt.
+Das **`dir`** [globale Attribut](/de/docs/Web/MathML/Reference/Global_attributes) ist ein {{Glossary("Enumerated", "enumeriertes")}} Attribut, das die Leserichtung des MathML-Elements angibt.
 
 ## Beispiel
 
@@ -59,14 +59,14 @@ body {
 
 ### Werte
 
-- `ltr`, was _von links nach rechts_ bedeutet und verwendet wird, um mathematische Ausdrücke von links nach rechts darzustellen (z.B. englischer oder marokkanischer Stil);
-- `rtl`, was _von rechts nach links_ bedeutet und verwendet wird, um mathematische Ausdrücke von rechts nach links darzustellen (z.B. Maghreb- oder Machrek-Stil);
+- `ltr`, was _left to right_ (von links nach rechts) bedeutet und zur Darstellung mathematischer Ausdrücke von links nach rechts verwendet wird (z.B. englischer oder marokkanischer Stil);
+- `rtl`, was _right to left_ (von rechts nach links) bedeutet und zur Darstellung mathematischer Ausdrücke von rechts nach links verwendet wird (z.B. Maghreb- oder Machrek-Stil);
 
 > [!NOTE]
 >
-> - Dieses Attribut kann durch die CSS-Eigenschaft {{ cssxref("direction") }} überschrieben werden, wenn eine CSS-Seite aktiv ist und das Element diese Eigenschaften unterstützt.
-> - Da die Richtung von Mathematik semantisch mit ihrem Inhalt und nicht mit ihrer Darstellung verbunden ist, wird empfohlen, dass Webentwickler dieses Attribut anstelle der verwandten CSS-Eigenschaften verwenden, wann immer möglich. Auf diese Weise werden die Formeln korrekt angezeigt, auch in einem Browser, der CSS nicht unterstützt oder bei dem CSS deaktiviert ist.
-> - Das `dir`-Attribut wird verwendet, um die Richtung von mathematischen Formeln festzulegen, die oft von rechts nach links in der arabischsprachigen Welt ist. Allerdings betten Sprachen, die von rechts nach links geschrieben werden, oft mathematische Inhalte ein, die von links nach rechts geschrieben sind. Folglich wird das `auto`-Schlüsselwort des HTML-Attributs `dir` nicht erkannt und standardmäßig setzt das [Benutzeragent-Stylesheet](/de/docs/Web/CSS/CSS_cascade/Cascade#user-agent_stylesheets) die `direction`-Eigenschaft auf dem [`math`](/de/docs/Web/MathML/Reference/Element/math)-Element zurück.
+> - Dieses Attribut kann von der CSS-Eigenschaft {{ cssxref("direction") }} überschrieben werden, wenn eine CSS-Seite aktiv ist und das Element diese Eigenschaften unterstützt.
+> - Da die Leserichtung der Mathematik semantisch mit ihrem Inhalt und nicht mit ihrer Darstellung zusammenhängt, wird empfohlen, dass Webentwickler möglichst dieses Attribut anstelle der zugehörigen CSS-Eigenschaften verwenden. Auf diese Weise werden die Formeln auch in einem Browser, der CSS nicht unterstützt oder bei dem CSS deaktiviert ist, korrekt angezeigt.
+> - Das `dir`-Attribut wird verwendet, um die Leserichtung von mathematischen Formeln festzulegen, die im arabischsprachigen Raum oft von rechts nach links ist. Allerdings betten von rechts nach links geschriebene Sprachen häufig mathematische Inhalte ein, die von links nach rechts geschrieben sind. Daher wird das `auto`-Schlüsselwort des `dir`-Attributs in HTML nicht erkannt und standardmäßig setzt das [User-Agent-Stylesheet](/de/docs/Web/CSS/Guides/Cascade/Introduction#user-agent_stylesheets) die `direction`-Eigenschaft auf dem [`math`](/de/docs/Web/MathML/Reference/Element/math)-Element zurück.
 
 ## Spezifikationen
 
@@ -80,4 +80,4 @@ body {
 
 - Alle [globalen Attribute](/de/docs/Web/MathML/Reference/Global_attributes).
 - {{cssxref("direction")}}
-- Das HTML-Globale Attribut [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir)
+- Das HTML [`dir`](/de/docs/Web/HTML/Reference/Global_attributes/dir) globale Attribut

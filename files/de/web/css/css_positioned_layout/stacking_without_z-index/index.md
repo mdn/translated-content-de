@@ -110,8 +110,8 @@ div {
 
 ## Siehe auch
 
-- [z-index verstehen](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
-- [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index)
-- [Stapeln von Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- [Stapeln von schwebenden Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
-- [CSS-Positionierungs-Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [z-index verstehen](/de/docs/Web/CSS/Guides/Positioned_layout/Understanding_z-index)
+- [Verwendung von z-index](/de/docs/Web/CSS/Guides/Positioned_layout/Using_z-index)
+- [Stapeln von Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context)
+- [Stapeln von schwebenden Elementen](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_floating_elements)
+- [CSS-Positionierungs-Layout](/de/docs/Web/CSS/Guides/Positioned_layout) Modul

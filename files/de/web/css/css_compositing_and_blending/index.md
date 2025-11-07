@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 6cd62fb4482a2d6927cebd0223bf8d0386095340
 ---
 
-Das **CSS Compositing und Blending**-Modul definiert, wie die Hintergrundschichten eines Elements miteinander vermischt werden können, wie ein Element mit seinem Container vermischt werden kann und ob das Element einen neuen [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) erstellen muss.
+Das **CSS Compositing und Blending**-Modul definiert, wie die Hintergrundschichten eines Elements miteinander vermischt werden können, wie ein Element mit seinem Container vermischt werden kann und ob das Element einen neuen [Stacking-Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context) erstellen muss.
 
 Die Eigenschaften in diesem CSS-Modul können verwendet werden, um den Mischmodus zu definieren, der gegebenenfalls verwendet werden soll, um die Hintergrundbilder und -farben eines Elements zu einem einzigen Hintergrundbild zu vermischen. Dieses Modul bietet 16 Mischmodi. Sie können auch festlegen, wie die Ränder, der Hintergrund und der Inhalt eines Elements, einschließlich Text, Emojis und Bildern, mit dem Hintergrund seines Containers vermischt werden sollen.
 
@@ -108,7 +108,7 @@ Klicken Sie auf "Play" im obigen Beispiel, um den Code für die Animation im MDN
 
 ## Siehe auch
 
-- Eigenschaften im [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul ermöglichen die Anwendung von Filtereffekten, wie Weichzeichnen und Ändern der Farbintensität, auf Bilder, Hintergründe und Ränder.
+- Eigenschaften im [CSS Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects) Modul ermöglichen die Anwendung von Filtereffekten, wie Weichzeichnen und Ändern der Farbintensität, auf Bilder, Hintergründe und Ränder.
 - [Compositing And Blending In CSS](https://www.sarasoueidan.com/blog/compositing-and-blending-in-css/) (2015)
 - [Editing Images in CSS: Blend Modes](https://webdesign.tutsplus.com/editing-images-in-css-blend-modes--cms-26058t) (2022)
 - [web.dev: blend modes](https://web.dev/learn/css/blend-modes) (2021)

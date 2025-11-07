@@ -118,8 +118,8 @@ strong {
 
 ## Siehe auch
 
-- [Understanding z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
-- [Stacking without the `z-index` property](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
-- [Using z-index](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index)
-- [Stacking context](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- Modul für [CSS positioned layout](/de/docs/Web/CSS/CSS_positioned_layout)
+- [Understanding z-index](/de/docs/Web/CSS/Guides/Positioned_layout/Understanding_z-index)
+- [Stacking without the `z-index` property](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_without_z-index)
+- [Using z-index](/de/docs/Web/CSS/Guides/Positioned_layout/Using_z-index)
+- [Stacking context](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context)
+- Modul für [CSS positioned layout](/de/docs/Web/CSS/Guides/Positioned_layout)

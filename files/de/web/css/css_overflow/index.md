@@ -249,7 +249,7 @@ Das CSS overflow Level 4 Modul führt auch die Eigenschaften `block-ellipsis`, `
 
 - [Lernen: Überlaufender Inhalt](/de/docs/Learn_web_development/Core/Styling_basics/Overflow)
   - : Lernen Sie, was Überlauf ist und wie man ihn handhabt.
-- [Erstellung von CSS-Karussellen](/de/docs/Web/CSS/CSS_overflow/CSS_carousels)
+- [Erstellung von CSS-Karussellen](/de/docs/Web/CSS/Guides/Overflow/Carousels)
   - : Erstellen Sie reine CSS-Karussell-Benutzeroberflächen mit Scroll-Schaltflächen, Scroll-Markern und generierten Spalten.
 - [Erstellung einer benannten Scroll-Fortschritts-Timeline-Animation](/de/docs/Web/CSS/Reference/Properties/scroll-timeline-name#creating_a_named_scroll_progress_timeline_animation)
   - : Die CSS-Scroll-Zeitachse {{cssxref('scroll-timeline-name')}} und {{cssxref('scroll-timeline-axis')}} Eigenschaften sowie die {{cssxref('scroll-timeline')}} Kurzschreibweise erstellen Animationen, die an den Scroll-Offset eines Scrollcontainers gebunden sind.
@@ -287,7 +287,7 @@ Das CSS overflow Level 4 Modul führt auch die Eigenschaften `block-ellipsis`, `
 
 ## Siehe auch
 
-- [CSS-Scrollleisten-Styling](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
-- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
-- [CSSOM-Ansicht](/de/docs/Web/CSS/CSSOM_view) Modul
+- [CSS-Scrollleisten-Styling](/de/docs/Web/CSS/Guides/Scrollbars_styling) Modul
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [CSSOM-Ansicht](/de/docs/Web/CSS/Guides/CSSOM_view) Modul
 - Anleitung zum [Debuggen von scrollbarem Überlauf](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/debug_scrollable_overflow/index.html)

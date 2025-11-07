@@ -6,7 +6,7 @@ l10n:
   sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-[CSS-Animationen](/de/docs/Web/CSS/CSS_animations) und [Übergänge](/de/docs/Web/CSS/CSS_transitions) basieren auf dem Konzept von **animierbaren** Eigenschaften, und alle CSS-Eigenschaften sind animierbar, es sei denn, es ist anders angegeben. Der _Animationstyp_ jeder Eigenschaft bestimmt, wie Werte für diese Eigenschaft [kombiniert](https://drafts.csswg.org/css-values/#combining-values) werden - interpolieren, addieren oder akkumulieren. Übergänge beinhalten nur die Interpolation, während Animationen alle drei Kombinationsmethoden verwenden können.
+[CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) und [Übergänge](/de/docs/Web/CSS/Guides/Transitions) basieren auf dem Konzept von **animierbaren** Eigenschaften, und alle CSS-Eigenschaften sind animierbar, es sei denn, es ist anders angegeben. Der _Animationstyp_ jeder Eigenschaft bestimmt, wie Werte für diese Eigenschaft [kombiniert](https://drafts.csswg.org/css-values/#combining-values) werden - interpolieren, addieren oder akkumulieren. Übergänge beinhalten nur die Interpolation, während Animationen alle drei Kombinationsmethoden verwenden können.
 
 > [!NOTE]
 > Der Animationstyp für jede CSS-Eigenschaft ist in ihrer Tabelle „Formale Definition“ aufgeführt (z.B. {{CSSXref("color", "", "#formal_definition")}}).
@@ -45,5 +45,5 @@ Für nicht registrierte benutzerdefinierte Eigenschaften erfolgt der Animationst
 
 ## Siehe auch
 
-- [CSS-Animationen verwenden](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
-- [CSS-Übergänge verwenden](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [CSS-Animationen verwenden](/de/docs/Web/CSS/Guides/Animations/Using)
+- [CSS-Übergänge verwenden](/de/docs/Web/CSS/Guides/Transitions/Using)

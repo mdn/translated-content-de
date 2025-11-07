@@ -34,7 +34,7 @@ Diese werden alle in den untenstehenden Unterabschnitten behandelt.
 
 Wo eine Maßeinheit, auch als Länge bekannt, als Wert für eine Eigenschaft zulässig ist, wird dies als {{cssxref("&lt;length&gt;")}} Typ beschrieben. In CSS gibt es zwei Arten von Längen: relative und absolute. Relative Längeneinheiten geben eine Länge im Verhältnis zu etwas anderem an.
 
-Es gibt zwei Arten von relativen Längen: schriftbezogene Längen und Ansichtsfenster-Prozent-Längen. Diese kommen in zwei Arten vor. Schriftbezogene Längeneinheiten sind entweder lokal schriftbezogen oder wurzelschriftbezogen. Ansichtsfenster-Prozent-Längen beziehen sich entweder auf die Höhe oder Breite des Ansichtsfensters oder, wie im [CSS Containment-Modul](/de/docs/Web/CSS/CSS_containment) definiert, auf einen [Container](/de/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units).
+Es gibt zwei Arten von relativen Längen: schriftbezogene Längen und Ansichtsfenster-Prozent-Längen. Diese kommen in zwei Arten vor. Schriftbezogene Längeneinheiten sind entweder lokal schriftbezogen oder wurzelschriftbezogen. Ansichtsfenster-Prozent-Längen beziehen sich entweder auf die Höhe oder Breite des Ansichtsfensters oder, wie im [CSS Containment-Modul](/de/docs/Web/CSS/Guides/Containment) definiert, auf einen [Container](/de/docs/Web/CSS/Guides/Containment/Container_queries#container_query_length_units).
 
 #### Lokal schriftbezogene Längen
 
@@ -86,7 +86,7 @@ Beispielsweise ist `vw` relativ zur Breite des Ansichtsfensters und `vh` ist rel
 
 #### Container-Einheiten
 
-Längeneinheiten für Container-Abfragen spezifizieren eine Länge relativ zu den Dimensionen eines [Abfrage-Containers](/de/docs/Web/CSS/CSS_containment/Container_queries).
+Längeneinheiten für Container-Abfragen spezifizieren eine Länge relativ zu den Dimensionen eines [Abfrage-Containers](/de/docs/Web/CSS/Guides/Containment/Container_queries).
 Beispielsweise ist `cqw` relativ zur Breite des Abfrage-Containers und `cqh` ist relativ zur Höhe des Abfrage-Containers.
 
 | Einheit | Relativ zu                                   |
@@ -226,7 +226,7 @@ Die Spezifikation definiert auch die `toggle()`-Funktion. Sie wurde bisher noch 
 
 ## Siehe auch
 
-- [Textuelle Datentypen](/de/docs/Web/CSS/CSS_values_and_units/Textual_data_types)
+- [Textuelle Datentypen](/de/docs/Web/CSS/Guides/Values_and_units/Textual_data_types)
 - [CSS-Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types)
-- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_values_and_units) Modul
+- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul
 - [Lernen: Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)

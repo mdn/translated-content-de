@@ -12,9 +12,9 @@ Containerabfragen ermöglichen es Ihnen, einem Element basierend auf bestimmten 
 - Auf den Container angewendete Stile.
 - Der Scroll-Zustand des Containers oder dessen scrollenden Vorfahren.
 
-Containerabfragen sind eine Alternative zu [Media-Queries](/de/docs/Web/CSS/CSS_media_queries), die Stile für Elemente basierend auf der Größe des Viewports oder anderen Gerätemerkmalen anwenden.
+Containerabfragen sind eine Alternative zu [Media-Queries](/de/docs/Web/CSS/Guides/Media_queries), die Stile für Elemente basierend auf der Größe des Viewports oder anderen Gerätemerkmalen anwenden.
 
-Dieser Artikel bietet eine Einführung in die Verwendung von Containerabfragen, wobei speziell auf Größen-Containerabfragen eingegangen wird. Andere Leitfäden diskutieren [Stil-](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries#container_style_queries) und [Scroll-Zustand](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries) Containerabfragen im Detail.
+Dieser Artikel bietet eine Einführung in die Verwendung von Containerabfragen, wobei speziell auf Größen-Containerabfragen eingegangen wird. Andere Leitfäden diskutieren [Stil-](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_style_queries) und [Scroll-Zustand](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries) Containerabfragen im Detail.
 
 ![Zwei verschiedene Abfragearten. Erstens eine Media-Query basierend auf der Breite des Viewports, der die volle Breite des Browsers ist. Zweitens eine Containerabfrage basierend auf der Breite eines Containerelements.](container-query.svg)
 
@@ -26,10 +26,10 @@ Um dies zu tun, verwenden Sie die {{cssxref("container-type")}} Eigenschaft mit 
 Diese Werte haben folgende Auswirkungen:
 
 - `size`
-  - : Die Abfrage basiert auf den [Inline- und Block-](/de/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values#block_and_inline_dimensions) Abmessungen des Containers.
-    Wendet Layout-, Stil- und Größen-[Einschließung](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment) auf den Container an.
+  - : Die Abfrage basiert auf den [Inline- und Block-](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts#block_and_inline_dimensions) Abmessungen des Containers.
+    Wendet Layout-, Stil- und Größen-[Einschließung](/de/docs/Web/CSS/Guides/Containment/Using) auf den Container an.
 - `inline-size`
-  - : Die Abfrage basiert auf den [Inline-](/de/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values#block_and_inline_dimensions) Abmessungen des Containers.
+  - : Die Abfrage basiert auf den [Inline-](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts#block_and_inline_dimensions) Abmessungen des Containers.
     Wendet Layout-, Stil- und Inline-Größeneinschließung auf das Element an.
 - `normal`
   - : Das Element ist kein Abfragecontainer für Containergrößenabfragen, bleibt jedoch ein Abfragecontainer für Containerstilabfragen.
@@ -166,14 +166,14 @@ Wenn Sie ein Einspalten-Layout für Geräte mit einem kleineren Viewport verwend
 
 ## Siehe auch
 
-- [Media-Queries](/de/docs/Web/CSS/CSS_media_queries)
+- [Media-Queries](/de/docs/Web/CSS/Guides/Media_queries)
 - CSS {{Cssxref("@container")}} At-Regel
 - CSS {{Cssxref("contain")}} Eigenschaft
 - CSS {{Cssxref("container")}} Kurzform-Eigenschaft
 - CSS {{Cssxref("container-name")}} Eigenschaft
 - CSS {{cssxref("content-visibility")}} Eigenschaft
-- [Verwendung von Größen- und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
-- [Verwendung von Scroll-Zustandabfragen](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries)
+- [Verwendung von Größen- und Stilabfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)
+- [Verwendung von Scroll-Zustandabfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)
 - [Say Hello to CSS Container Queries](https://ishadeed.com/article/say-hello-to-css-container-queries/) von Ahmad Shadeed
 - [Container Queries: a Quick Start Guide](https://www.oddbird.net/2021/04/05/containerqueries/)
 - [Sammlung von Artikeln zu Containerabfragen](https://github.com/sturobson/Awesome-Container-Queries)

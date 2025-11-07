@@ -6,9 +6,9 @@ l10n:
   sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das [flexible Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul (gewöhnlich als Flexbox bezeichnet) ist ein eindimensionales Layoutmodell zur Verteilung von Raum zwischen Elementen und beinhaltet zahlreiche Ausrichtungsmöglichkeiten. Dieser Artikel gibt einen Überblick über die Hauptmerkmale von Flexbox, die wir in den folgenden Leitfäden detaillierter erkunden werden.
+Das [flexible Box-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul (gewöhnlich als Flexbox bezeichnet) ist ein eindimensionales Layoutmodell zur Verteilung von Raum zwischen Elementen und beinhaltet zahlreiche Ausrichtungsmöglichkeiten. Dieser Artikel gibt einen Überblick über die Hauptmerkmale von Flexbox, die wir in den folgenden Leitfäden detaillierter erkunden werden.
 
-Wenn wir Flexbox als eindimensional beschreiben, beziehen wir uns darauf, dass Flexbox das Layout in einer Dimension behandelt — entweder als Zeile oder als Spalte. Dies kann mit dem zweidimensionalen Modell des [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) kontrastiert werden, das Spalten und Zeilen zusammen steuert.
+Wenn wir Flexbox als eindimensional beschreiben, beziehen wir uns darauf, dass Flexbox das Layout in einer Dimension behandelt — entweder als Zeile oder als Spalte. Dies kann mit dem zweidimensionalen Modell des [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout) kontrastiert werden, das Spalten und Zeilen zusammen steuert.
 
 ## Die beiden Achsen von Flexbox
 
@@ -43,9 +43,9 @@ Wenn Ihre Hauptachse `column` oder `column-reverse` ist, verläuft die Querachse
 
 ## Anfangs- und Endlinien
 
-Ein weiteres wichtiges Verständnisgebiet ist, dass Flexbox keine Annahmen über den Schreibmodus des Dokuments macht. Flexbox geht nicht einfach davon aus, dass alle Textzeilen auf der oberen linken Seite eines Dokuments beginnen und sich zur rechten Seite hin bewegen, wobei neue Zeilen untereinander erscheinen. Vielmehr unterstützt es alle Schreibmodi, wie andere [logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values).
+Ein weiteres wichtiges Verständnisgebiet ist, dass Flexbox keine Annahmen über den Schreibmodus des Dokuments macht. Flexbox geht nicht einfach davon aus, dass alle Textzeilen auf der oberen linken Seite eines Dokuments beginnen und sich zur rechten Seite hin bewegen, wobei neue Zeilen untereinander erscheinen. Vielmehr unterstützt es alle Schreibmodi, wie andere [logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values).
 
-Sie können [mehr über die Beziehung zwischen Flexbox und Schreibmodi lesen](/de/docs/Web/CSS/CSS_flexible_box_layout/Relationship_of_flexbox_to_other_layout_methods#writing_modes) in einem späteren Artikel; die folgende Beschreibung sollte jedoch helfen zu erklären, warum wir nicht von links und rechts oder oben und unten sprechen, wenn wir die Richtung beschreiben, in der sich unsere Flex-Elemente bewegen.
+Sie können [mehr über die Beziehung zwischen Flexbox und Schreibmodi lesen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Relationship_with_other_layout_methods#writing_modes) in einem späteren Artikel; die folgende Beschreibung sollte jedoch helfen zu erklären, warum wir nicht von links und rechts oder oben und unten sprechen, wenn wir die Richtung beschreiben, in der sich unsere Flex-Elemente bewegen.
 
 Wenn `flex-direction` `row` ist und ich auf Englisch arbeite, dann befindet sich die Startkante der Hauptachse auf der linken Seite, die Endkante auf der rechten Seite.
 
@@ -165,7 +165,7 @@ Um ein Umbruchverhalten zu verursachen, fügen Sie die Eigenschaft {{cssxref("fl
 
 {{EmbedLiveSample("flex-wrap")}}
 
-Erfahren Sie mehr über das Umwickeln von Flex-Elementen im Leitfaden [Meistern des Umwickelns von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items).
+Erfahren Sie mehr über das Umwickeln von Flex-Elementen im Leitfaden [Meistern des Umwickelns von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Wrapping_items).
 
 ## Die flex-flow Abkürzung
 
@@ -207,7 +207,7 @@ Um die Inline-Größe jedes Flex-Elements zu steuern, richten wir uns direkt auf
 - {{cssxref("flex-shrink")}}
 - {{cssxref("flex-basis")}}
 
-Wir werden diese Eigenschaften kurz betrachten, aber wenn Sie umfassendere Informationen wünschen, werfen Sie einen Blick auf den Leitfaden [Steuern der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis).
+Wir werden diese Eigenschaften kurz betrachten, aber wenn Sie umfassendere Informationen wünschen, werfen Sie einen Blick auf den Leitfaden [Steuern der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios).
 
 Bevor wir diese Eigenschaften sinnvoll nutzen können, müssen wir das Konzept des **verfügbaren Raums** berücksichtigen. Was wir tun, wenn wir den Wert dieser Flex-Eigenschaften ändern, ist die Art und Weise zu ändern, wie verfügbarer Raum auf unsere Elemente verteilt wird. Dieses Konzept des verfügbaren Raums ist auch wichtig, wenn wir uns mit der Ausrichtung von Elementen befassen.
 
@@ -233,7 +233,7 @@ Jedes Element mit einem positiven Wert verbraucht einen Teil des verfügbaren Ra
 
 Wo die `flex-grow` Eigenschaft mit dem Hinzufügen von Raum in der Hauptachse beschäftigt ist, steuert die `flex-shrink` Eigenschaft, wie er weggenommen wird. Wenn wir nicht genug Platz im Container haben, um unsere Elemente anzuzeigen, und `flex-shrink` auf einen positiven ganzen Wert gesetzt ist, dann kann das Element kleiner als die `flex-basis` werden. Wie bei `flex-grow` können verschiedene Werte zugewiesen werden, um ein Element schneller schrumpfen zu lassen als andere — ein Element mit einem höheren Wert für `flex-shrink` wird schneller schrumpfen als seine Geschwister, die niedrigere Werte haben.
 
-Ein Element kann bis zu seiner {{cssxref("min-content")}} Größe schrumpfen. Diese minimale Größe wird berücksichtigt, während die tatsächliche Menge des Schrumpfens berechnet wird, was bedeutet, dass `flex-shrink` das Potenzial hat, im Verhalten weniger konsistent als `flex-grow` zu erscheinen. Daher werden wir uns diesen Algorithmus in dem Artikel [Steuern der Verhältnisse von Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis) genauer ansehen.
+Ein Element kann bis zu seiner {{cssxref("min-content")}} Größe schrumpfen. Diese minimale Größe wird berücksichtigt, während die tatsächliche Menge des Schrumpfens berechnet wird, was bedeutet, dass `flex-shrink` das Potenzial hat, im Verhalten weniger konsistent als `flex-grow` zu erscheinen. Daher werden wir uns diesen Algorithmus in dem Artikel [Steuern der Verhältnisse von Elementen entlang der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios) genauer ansehen.
 
 > [!NOTE]
 > Diese Werte für `flex-grow` und `flex-shrink` sind Proportionen. Typischerweise, wenn wir alle unsere Elemente auf `flex: 1 1 200px` gesetzt hätten und dann ein Element in doppelter Geschwindigkeit wachsen lassen wollten, würden wir dieses Element auf `flex: 2 1 200px` setzen. Sie könnten jedoch auch `flex: 10 1 200px` und `flex: 20 1 200px` verwenden, wenn Sie möchten.
@@ -425,7 +425,7 @@ Versuchen Sie die folgenden Werte von `justify-content` im Live-Beispiel:
 
 {{EmbedLiveSample("justify-content")}}
 
-Der Artikel [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container) untersucht diese Eigenschaften genauer, um ein besseres Verständnis davon zu bekommen, wie sie funktionieren. Diese grundlegenden Beispiele sind jedoch in den meisten Anwendungsfällen nützlich.
+Der Artikel [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items) untersucht diese Eigenschaften genauer, um ein besseres Verständnis davon zu bekommen, wie sie funktionieren. Diese grundlegenden Beispiele sind jedoch in den meisten Anwendungsfällen nützlich.
 
 ### justify-items
 
@@ -435,8 +435,8 @@ Die [`justify-items`](/de/docs/Web/CSS/Reference/Properties/justify-items) Eigen
 
 Die [`place-items`](/de/docs/Web/CSS/Reference/Properties/place-items) Eigenschaft ist eine Abkürzung für `align-items` und `justify-items`. Wenn sie auf einen Flex-Container gesetzt wird, richtet sie die Elemente aus, jedoch nicht die Rechtfertigung, da `justify-items` in Flexbox ignoriert wird.
 
-Es gibt eine weitere Abkürzungseigenschaft, [`place-content`](/de/docs/Web/CSS/Reference/Properties/place-content), die die {{cssxref("align-content")}} und `justify-content` Eigenschaften definiert. Die `align-content`-Eigenschaft wirkt sich nur auf Flex-Container aus, die umwickelt werden, und wird im Artikel [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container) behandelt.
+Es gibt eine weitere Abkürzungseigenschaft, [`place-content`](/de/docs/Web/CSS/Reference/Properties/place-content), die die {{cssxref("align-content")}} und `justify-content` Eigenschaften definiert. Die `align-content`-Eigenschaft wirkt sich nur auf Flex-Container aus, die umwickelt werden, und wird im Artikel [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items) behandelt.
 
 ## Nächste Schritte
 
-Nach dem Lesen dieses Artikels sollten Sie ein Verständnis der grundlegenden Merkmale von Flexbox haben. Im nächsten Artikel werden wir untersuchen, [wie diese Spezifikation mit anderen Teilen von CSS in Beziehung steht](/de/docs/Web/CSS/CSS_flexible_box_layout/Relationship_of_flexbox_to_other_layout_methods).
+Nach dem Lesen dieses Artikels sollten Sie ein Verständnis der grundlegenden Merkmale von Flexbox haben. Im nächsten Artikel werden wir untersuchen, [wie diese Spezifikation mit anderen Teilen von CSS in Beziehung steht](/de/docs/Web/CSS/Guides/Flexible_box_layout/Relationship_with_other_layout_methods).

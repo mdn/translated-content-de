@@ -6,14 +6,14 @@ l10n:
   sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-**CSS getippte Rechenarten** bezieht sich auf erlaubte Berechnungen, die mit typisierten CSS-Werten über Funktionen wie {{cssxref("calc()")}} durchgeführt werden können. Speziell bezieht sich dies auf das Verhalten, das im Modul [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_values_and_units) definiert ist. CSS getippte Rechenarten ermöglichen es, einen Wert mit einer Einheit durch einen Wert mit einer anderen Einheit desselben Datentyps zu teilen, was zu einheitslosen Quotienten führt.
+**CSS getippte Rechenarten** bezieht sich auf erlaubte Berechnungen, die mit typisierten CSS-Werten über Funktionen wie {{cssxref("calc()")}} durchgeführt werden können. Speziell bezieht sich dies auf das Verhalten, das im Modul [CSS-Werte und -Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) definiert ist. CSS getippte Rechenarten ermöglichen es, einen Wert mit einer Einheit durch einen Wert mit einer anderen Einheit desselben Datentyps zu teilen, was zu einheitslosen Quotienten führt.
 
 Diese Quotienten können dann als {{cssxref("number")}} in den Werten von einheitslosen Eigenschaften verwendet oder in jeden numerischen Datentyp (wie {{cssxref("length")}}, {{cssxref("percentage")}} oder {{cssxref("angle")}}) umgewandelt werden, indem sie mit einem numerisch typisierten Wert multipliziert werden.
 
 Dieses Verhalten von getippten Rechenarten ermöglicht es, Beziehungen zwischen verschiedenen Werten auf einer Seite zu schaffen. Dieser Artikel untersucht getippte Rechenarten und bietet mehrere Beispiele, die deren Nutzung veranschaulichen.
 
 > [!NOTE]
-> Ursprünglich beschränkte das Modul [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_values_and_units) die Argumente der Multiplikations- und Divisionoperationen, um eine Teilung durch Null zur Parse-Zeit erkennbar zu machen und Probleme wie quadrierte Einheiten zu vermeiden. Getippte Rechenarten lockern einige dieser Einschränkungen in [unterstützten Browsern](/de/docs/Web/CSS/Reference/Values/calc#browser_compatibility).
+> Ursprünglich beschränkte das Modul [CSS-Werte und -Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) die Argumente der Multiplikations- und Divisionoperationen, um eine Teilung durch Null zur Parse-Zeit erkennbar zu machen und Probleme wie quadrierte Einheiten zu vermeiden. Getippte Rechenarten lockern einige dieser Einschränkungen in [unterstützten Browsern](/de/docs/Web/CSS/Reference/Values/calc#browser_compatibility).
 
 ## Regeln für CSS getippte Rechenarten
 
@@ -150,7 +150,7 @@ Das HTML enthält einige grundlegende Textinhalte, die in ein {{htmlelement("div
 
 ### CSS
 
-Wir beginnen mit der Definition einer [CSS-Custom Property](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) namens `--width-percentage` auf dem {{cssxref(":root")}}-Element, das das Ergebnis der Berechnung `100vw / 2000px` enthält. Dieser Wert stellt die Viewport-Breite als Prozentsatz von `2000px` dar, den wir später als Alphakanal-Wert verwenden werden. Wenn der Viewport `2000px` breit ist, wird die Berechnung `1` zurückgeben, was `100%` Alpha entspricht. Alles weniger als `2000px` Viewport-Breite resultiert in einem kleineren Wert.
+Wir beginnen mit der Definition einer [CSS-Custom Property](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) namens `--width-percentage` auf dem {{cssxref(":root")}}-Element, das das Ergebnis der Berechnung `100vw / 2000px` enthält. Dieser Wert stellt die Viewport-Breite als Prozentsatz von `2000px` dar, den wir später als Alphakanal-Wert verwenden werden. Wenn der Viewport `2000px` breit ist, wird die Berechnung `1` zurückgeben, was `100%` Alpha entspricht. Alles weniger als `2000px` Viewport-Breite resultiert in einem kleineren Wert.
 
 ```css
 :root {
@@ -274,8 +274,8 @@ Als nächstes setzen wir mehrere Eigenschaften auf dem {{htmlelement("body")}}-E
 
 - Zuerst setzen wir eine `height` von `inherit`, was bedeutet, dass das `<body>` die `100%` Höhe des `:root`-Elements erbt und damit die gesamte Höhe des Viewports einnimmt.
 - Als Nächstes zentrieren wir das `<body>` mit {{cssxref("margin")}} horizontal und geben ihm eine {{cssxref("max-width")}}. Wie Sie später sehen werden, ist diese obere Grenze wichtig, um die maximale Rotation der Fächer-/Kreisform zu steuern.
-- Wir zentrieren das `<div>` mit `class="story-circle"` horizontal und vertikal innerhalb des `<body>` mit [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout).
-- Wir verwenden die {{cssxref("container-type")}}-Eigenschaft, um das `<body>` als Inline-[Größenabfragecontainer](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries#container_size_queries) zu deklarieren. Dies ist wichtig, weil wir die Formdrehung basierend auf der `<body>`-Breite variieren möchten und nicht der Viewport-Breite, wie wir es in früheren Beispielen gemacht haben. Es als Größenabfragecontainer zu setzen, ermöglicht es uns, seine Größe in Berechnungen zu referenzieren.
+- Wir zentrieren das `<div>` mit `class="story-circle"` horizontal und vertikal innerhalb des `<body>` mit [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout).
+- Wir verwenden die {{cssxref("container-type")}}-Eigenschaft, um das `<body>` als Inline-[Größenabfragecontainer](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#container_size_queries) zu deklarieren. Dies ist wichtig, weil wir die Formdrehung basierend auf der `<body>`-Breite variieren möchten und nicht der Viewport-Breite, wie wir es in früheren Beispielen gemacht haben. Es als Größenabfragecontainer zu setzen, ermöglicht es uns, seine Größe in Berechnungen zu referenzieren.
 
 ```css
 body {
@@ -338,5 +338,5 @@ Um das Ergebnis zu sehen, [sehen Sie unser Live-Beispiel für einen animierten G
 ## Siehe auch
 
 - {{cssxref("calc()")}}, {{cssxref("abs()")}}
-- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_values_and_units) Modul
+- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul
 - [CSS Typed Arithmetic](https://css-tricks.com/css-typed-arithmetic/) auf css-tricks.com (2025)

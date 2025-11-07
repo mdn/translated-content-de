@@ -30,7 +30,7 @@ Ein neuer BFC wird in folgenden Situationen erstellt:
 - Elemente mit {{cssxref("contain", "contain: layout", "#layout")}}, `content` oder `strict`
 - {{Glossary("flex_item", "Flex-Elemente")}}
 - Gitter-Elemente
-- [Multicol-Container](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)
+- [Multicol-Container](/de/docs/Web/CSS/Guides/Multicol_layout/Basic_concepts)
 - Elemente mit {{cssxref("column-span")}} auf `all` gesetzt
 
 Dies ist nützlich, da ein neuer BFC sich wie das äußerste Dokument verhält, indem er zu einem Mini-Layout innerhalb des Hauptlayouts wird. Ein BFC enthält alles innerhalb von sich, {{cssxref("float")}} und {{cssxref("clear")}} gelten nur für Elemente im selben Formatierungs-Kontext, und Abstände werden nur zwischen Elementen im selben Formatierungs-Kontext zusammengefasst.
@@ -39,7 +39,7 @@ Dies ist nützlich, da ein neuer BFC sich wie das äußerste Dokument verhält, 
 
 Schauen wir uns ein paar dieser Beispiele an, um den Effekt der Erstellung eines neuen BFC zu sehen.
 
-Im untenstehenden Beispiel haben wir ein schwebendes Element innerhalb eines `<div>` mit einem angewendeten Rahmen. Der Inhalt dieses `<div>` wurde neben das schwebende Element gestellt. Da der Inhalt des Schwebeelements größer ist als der Inhalt daneben, verläuft der Rahmen des `<div>` jetzt durch das Schwebeelement. Wie im [Leitfaden zu Elementen im Fluss und außerhalb des Flusses](/de/docs/Web/CSS/CSS_display/In_flow_and_out_of_flow) erklärt, wurde das Schwebeelement aus dem Fluss genommen, sodass der Hintergrund und der Rahmen des div nur den Inhalt und nicht das Schwebeelement enthalten.
+Im untenstehenden Beispiel haben wir ein schwebendes Element innerhalb eines `<div>` mit einem angewendeten Rahmen. Der Inhalt dieses `<div>` wurde neben das schwebende Element gestellt. Da der Inhalt des Schwebeelements größer ist als der Inhalt daneben, verläuft der Rahmen des `<div>` jetzt durch das Schwebeelement. Wie im [Leitfaden zu Elementen im Fluss und außerhalb des Flusses](/de/docs/Web/CSS/Guides/Display/In_flow_and_out_of_flow) erklärt, wurde das Schwebeelement aus dem Fluss genommen, sodass der Hintergrund und der Rahmen des div nur den Inhalt und nicht das Schwebeelement enthalten.
 
 ```html live-sample___float
 <div class="box">
@@ -180,10 +180,10 @@ Dieser Leitfaden behandelt das Fluss-Layout und bezieht sich daher nicht auf and
 
 ## Zusammenfassung
 
-In diesem Leitfaden haben wir detaillierter die Block- und Inline-Formatierungs-Kontexte und das wichtige Thema der Erstellung eines Block-Formatierungs-Kontextes (BFC) betrachtet. Im nächsten Leitfaden erfahren wir, [wie der normale Fluss mit verschiedenen Schreibmodi interagiert](/de/docs/Web/CSS/CSS_display/Flow_layout_and_writing_modes).
+In diesem Leitfaden haben wir detaillierter die Block- und Inline-Formatierungs-Kontexte und das wichtige Thema der Erstellung eines Block-Formatierungs-Kontextes (BFC) betrachtet. Im nächsten Leitfaden erfahren wir, [wie der normale Fluss mit verschiedenen Schreibmodi interagiert](/de/docs/Web/CSS/Guides/Display/Flow_layout_and_writing_modes).
 
 ## Siehe auch
 
-- [Block-Formatierungs-Kontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context)
-- [Visuelles Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
-- [CSS Box Model](/de/docs/Web/CSS/CSS_box_model)
+- [Block-Formatierungs-Kontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context)
+- [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model)
+- [CSS Box Model](/de/docs/Web/CSS/Guides/Box_model)

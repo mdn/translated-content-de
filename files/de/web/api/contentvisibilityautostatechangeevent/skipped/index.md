@@ -1,18 +1,18 @@
 ---
-title: "ContentVisibilityAutoStateChangeEvent: Eigenschaft skipped"
+title: "ContentVisibilityAutoStateChangeEvent: skipped-Eigenschaft"
 short-title: skipped
 slug: Web/API/ContentVisibilityAutoStateChangeEvent/skipped
 l10n:
-  sourceCommit: 1b9f8e62afc890f2f00d6f9043f3ce0ff2ac4dfb
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSS Containment")}}
 
-Die schreibgeschützte Eigenschaft `skipped` der [`ContentVisibilityAutoStateChangeEvent`](/de/docs/Web/API/ContentVisibilityAutoStateChangeEvent)-Schnittstelle gibt `true` zurück, wenn der Benutzeragent [den Inhalt des Elements überspringt](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents), oder `false`, wenn nicht.
+Die schreibgeschützte `skipped`-Eigenschaft des [`ContentVisibilityAutoStateChangeEvent`](/de/docs/Web/API/ContentVisibilityAutoStateChangeEvent)-Interfaces gibt `true` zurück, wenn der User-Agent [die Inhalte des Elements überspringt](/de/docs/Web/CSS/Guides/Containment/Using#skips_its_contents), andernfalls `false`.
 
 ## Wert
 
-Ein Boolean. Gibt `true` zurück, wenn der Benutzeragent den Inhalt des Elements überspringt, oder `false` andernfalls.
+Ein boolean. Gibt `true` zurück, wenn der User-Agent die Inhalte des Elements überspringt, andernfalls `false`.
 
 ## Beispiele
 
@@ -51,7 +51,7 @@ function stopCanvasUpdates(canvas) {
 
 ## Siehe auch
 
-- Das [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event) Ereignis
-- [CSS Containment](/de/docs/Web/CSS/CSS_containment)
-- Die {{cssxref("content-visibility")}} Eigenschaft
-- Die {{cssxref("contain")}} Eigenschaft
+- Das [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event)-Event
+- [CSS Containment](/de/docs/Web/CSS/Guides/Containment)
+- Die {{cssxref("content-visibility")}}-Eigenschaft
+- Die {{cssxref("contain")}}-Eigenschaft

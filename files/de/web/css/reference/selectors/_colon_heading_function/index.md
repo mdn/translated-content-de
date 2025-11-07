@@ -2,15 +2,15 @@
 title: :heading()
 slug: Web/CSS/Reference/Selectors/:heading_function
 l10n:
-  sourceCommit: be8baea744a06feac9320a19eb9446ff1955af76
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`:heading()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) Funktion repräsentiert alle [Überschriftselemente](/de/docs/Web/HTML/Reference/Elements/Heading_Elements), deren Ebenen mit einer durch Kommas getrennten Liste von ganzen Zahlen übereinstimmen. Dies ermöglicht es, Elemente auf bestimmten Überschriftsebenen gleichzeitig zu stylen, anstatt sie einzeln zu matchen und zu stylen.
+Die **`:heading()`** [CSS](/de/docs/Web/CSS) [Pseudoklassenfunktion](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) repräsentiert alle [Überschriftselemente](/de/docs/Web/HTML/Reference/Elements/Heading_Elements), deren Ebenen einer kommagetrennten Liste von Ganzzahlen entsprechen. Dies ermöglicht es, Elemente auf bestimmten Überschriftsebenen gleichzeitig zu stylen, anstatt sie einzeln abzugleichen und zu stylen.
 
 > [!NOTE]
-> Die `:heading()` funktionale Pseudoklasse hat die gleiche [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity#how_is_specificity_calculated) wie ein Klassenselektor, das heißt, `0-1-0`. Zum Beispiel hat `section:heading()` eine Spezifität von `0-1-1`.
+> Die `:heading()` Funktional-Pseudoklasse hat die gleiche [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity#how_is_specificity_calculated) wie ein Klassenselektor, also `0-1-0`. Zum Beispiel hat `section:heading()` eine Spezifität von `0-1-1`.
 
 ## Syntax
 
@@ -22,19 +22,19 @@ Die **`:heading()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Ref
 
 ### Parameter
 
-Die `:heading()` Pseudoklassen-Funktion nimmt eine durch Kommas getrennte Liste von {{cssxref("&lt;integer&gt;")}}s, die die zu stylenden Überschriftsebenen darstellen.
+Die `:heading()` Pseudoklassenfunktion nimmt eine kommagetrennte Liste von {{cssxref("&lt;integer&gt;")}}s, die die zu stylenden Überschriftsebenen darstellen.
 
 ## Anwendungshinweise
 
-Die `:heading()` funktionale Pseudoklasse matched nur Elemente, die semantisch als Überschriften anerkannt sind. Sie matched keine Elemente, die die Attribute [`role="heading"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/heading_role) oder ['aria-level'](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level) verwenden.
+Die `:heading()` Funktional-Pseudoklasse passt nur zu Elementen, die semantisch als Überschriften erkannt werden. Sie passt nicht zu Elementen, die [`role="heading"`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/heading_role) oder ['aria-level'](/de/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-level) Attribute verwenden.
 
-Die von `:heading()` verwendete Überschriftsebene kann sich von einem [Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) eines Elements unterscheiden, in Fällen, in denen der Browser eine andere exponierte Überschriftsebene berechnet. Zum Beispiel wird `h1:heading(3)` jedes `<h1>` Element matchen, das als Überschrift der Ebene 3 exponiert ist.
+Die von `:heading()` verwendete Überschriftenebene kann von dem [Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) eines Elements abweichen, wenn der Browser eine andere sichtbare Überschriftenebene berechnet. Zum Beispiel wird `h1:heading(3)` jedes `<h1>` Element markieren, das als Überschrift der Ebene 3 dargestellt wird.
 
 ## Beispiele
 
-### Auswahl spezifischer Überschriftsebenen
+### Auswählen spezifischer Überschriftsebenen
 
-In diesem Beispiel wird eine durch Kommas getrennte Liste von Werten verwendet, um Überschriften mit ungeraden Nummern (`<h1>` und `<h3>`) und geraden Nummern (`<h2>` und `<h4>`) zu targetieren.
+In diesem Beispiel wird eine kommagetrennte Liste von Werten verwendet, um Überschriften auf ungeraden Ebenen (`<h1>` und `<h3>`) und geraden Ebenen (`<h2>` und `<h4>`) gezielt anzusprechen.
 
 ```html
 <h1>Heading 1</h1>

@@ -560,10 +560,10 @@ init();
 
 ## Siehe auch
 
-- [Farbe mit CSS-Eigenschaften anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)
-- [CSS-Farbwerte](/de/docs/Web/CSS/CSS_colors/Color_values)
-- [Farbe sinnvoll einsetzen](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
-- [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
+- [Farbe mit CSS-Eigenschaften anwenden](/de/docs/Web/CSS/Guides/Colors/Applying_color)
+- [CSS-Farbwerte](/de/docs/Web/CSS/Guides/Colors/Color_values)
+- [Farbe sinnvoll einsetzen](/de/docs/Web/CSS/Guides/Colors/Using_color_wisely)
+- [Verwendung relativer Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)
 - [Verständnis von Farbe und Helligkeit](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
 - [WCAG 1.4.1: Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)
 - [Lernen: Hintergründe und Rahmen mit CSS gestalten](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)

@@ -33,7 +33,7 @@ Die Spezifikation definiert auch die Eigenschaften `baseline-shift`, `baseline-s
 
 ## Leitfäden
 
-- [Inline-Formatierungskontext](/de/docs/Web/CSS/CSS_inline_layout/Inline_formatting_context)
+- [Inline-Formatierungskontext](/de/docs/Web/CSS/Guides/Inline_layout/Inline_formatting_context)
   - : Erklärt den Inline-Formatierungskontext.
 
 ## Verwandte Konzepte
@@ -51,6 +51,6 @@ Die Spezifikation definiert auch die Eigenschaften `baseline-shift`, `baseline-s
 
 ## Siehe auch
 
-- [CSS Text](/de/docs/Web/CSS/CSS_text) Modul
-- [CSS Schriften](/de/docs/Web/CSS/CSS_fonts) Modul
-- [CSS Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) Modul
+- [CSS Text](/de/docs/Web/CSS/Guides/Text) Modul
+- [CSS Schriften](/de/docs/Web/CSS/Guides/Fonts) Modul
+- [CSS Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes) Modul

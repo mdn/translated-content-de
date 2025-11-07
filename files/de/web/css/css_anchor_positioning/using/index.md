@@ -10,7 +10,7 @@ Das **CSS-Ankerpositionierungsmodul** definiert Funktionen, die es ermöglichen,
 
 Die CSS-Ankerpositionierung bietet auch ausschließlich durch CSS umsetzbare Mechanismen zur Spezifikation mehrerer alternativer Positionen für ein ankerpositioniertes Element. Beispielsweise kann, wenn ein Tooltip an ein Formularfeld angeheftet ist, jedoch aufgrund der Standardeinstellungen für die Positionierung außerhalb des Bildschirms gerendert würde, der Browser versuchen, ihn an einer anderen vorgeschlagenen Position zu rendern, um ihn sichtbar zu machen oder ihn alternativ vollständig auszublenden, wenn gewünscht.
 
-Dieser Artikel erläutert die grundlegenden Konzepte der Ankerpositionierung und wie Sie die Assoziations-, Positionierungs- und Größenmerkmale des Moduls auf einfachem Niveau verwenden können. Wir haben Links zu Referenzseiten mit zusätzlichen Beispielen und Syntaxdetails zu jedem unten diskutierten Konzept beigefügt. Informationen zur Spezifikation alternativer Positionen und zum Ausblenden von ankerpositionierten Elementen finden Sie im [Leitfaden für Fallback-Optionen und bedingtes Ausblenden bei Überlauf](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding).
+Dieser Artikel erläutert die grundlegenden Konzepte der Ankerpositionierung und wie Sie die Assoziations-, Positionierungs- und Größenmerkmale des Moduls auf einfachem Niveau verwenden können. Wir haben Links zu Referenzseiten mit zusätzlichen Beispielen und Syntaxdetails zu jedem unten diskutierten Konzept beigefügt. Informationen zur Spezifikation alternativer Positionen und zum Ausblenden von ankerpositionierten Elementen finden Sie im [Leitfaden für Fallback-Optionen und bedingtes Ausblenden bei Überlauf](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding).
 
 ## Grundlegende Konzepte
 
@@ -25,7 +25,7 @@ Moderne Schnittstellen erfordern häufig die Platzierung von bestimmten Inhalten
 
 Die Position relativ zu ihrem Ankerelement muss beibehalten und angepasst werden, wenn das Ankerelement sich bewegt oder anderweitig konfiguriert wird (z.B. durch Scrollen, Ändern der Größe des Viewports, Drag & Drop etc.). Beispielsweise kann eine Tooltip offscreen enden, wenn ein EHlement wie ein Formularfeld sich nahe am Rand des Viewports befindet. Im Allgemeinen möchte man das Tooltip mit seinem Formularsteuerelement verknüpfen und sicherstellen, dass die Tooltip auf dem Bildschirm sichtbar bleibt, solange das Formularfeld sichtbar ist, und automatisch verschiebt, falls nötig. Dies ist Ihnen möglicherweise als das Standardverhalten Ihres Betriebssystems aufgefallen, wenn Sie Kontextmenüs auf Ihrem Desktop oder Laptop mit einem Rechtsklick (<kbd>Ctrl</kbd> + Klick) aufrufen.
 
-Historisch erforderte die Verknüpfung eines Elements mit einem anderen Element und die dynamische Änderung der Position und Größe eines positionierten Elements auf Basis der Ankerposition JavaScript, was Komplexität und Leistungsprobleme hinzufügte. Es war auch nicht garantiert, dass es in allen Situationen funktionierte. Die im Modul [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) definierten Funktionen ermöglichen es, solche Anwendungsfälle performant und deklarativ mit CSS (und HTML) anstelle von JavaScript zu implementieren.
+Historisch erforderte die Verknüpfung eines Elements mit einem anderen Element und die dynamische Änderung der Position und Größe eines positionierten Elements auf Basis der Ankerposition JavaScript, was Komplexität und Leistungsprobleme hinzufügte. Es war auch nicht garantiert, dass es in allen Situationen funktionierte. Die im Modul [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) definierten Funktionen ermöglichen es, solche Anwendungsfälle performant und deklarativ mit CSS (und HTML) anstelle von JavaScript zu implementieren.
 
 ## Verknüpfung von Anker- und positionierten Elementen
 
@@ -124,10 +124,10 @@ Zum Beispiel, um zu verhindern, dass der Picker eines anpassbaren `<select>`-Ele
 Wie wir oben gesehen haben, ist die Verknüpfung eines positionierten Elements mit einem Anker alleine nicht wirklich von Nutzen. Unser Ziel ist es, das positionierte Element relativ zu seinem zugeordneten Ankerelement zu platzieren. Dies geschieht entweder, indem ein [CSS `anchor()`-Funktionswert](#using_inset_properties_with_anchor_function_values) auf einer {{Glossary("Inset_properties", "Inset-Eigenschaft")}} gesetzt, [eine `position-area` spezifiziert](#setting_a_position-area) oder das positionierte Element mit dem [`anchor-center`-Platzierungswert](#centering_on_the_anchor_using_anchor-center) zentriert wird.
 
 > [!NOTE]
-> Die CSS-Ankerpositionierung bietet auch Mechanismen zur Spezifikation von Fallback-Positionen, wenn die Standardposition des positionierten Elements zu einem Überlaufen des Viewports führt. Weitere Details finden Sie im [Leitfaden für Fallback-Optionen und bedingtes Ausblenden](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding).
+> Die CSS-Ankerpositionierung bietet auch Mechanismen zur Spezifikation von Fallback-Positionen, wenn die Standardposition des positionierten Elements zu einem Überlaufen des Viewports führt. Weitere Details finden Sie im [Leitfaden für Fallback-Optionen und bedingtes Ausblenden](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding).
 
 > [!NOTE]
-> Das Ankerelement muss ein sichtbarer DOM-Knoten sein, damit die Verknüpfung und Positionierung funktionieren. Wenn es ausgeblendet ist (z.B. durch [`display: none`](/de/docs/Web/CSS/Reference/Properties/display#none)), wird das positionierte Element relativ zu seinem nächstgelegenen positionierten Vorfahren positioniert. Wir besprechen, wie man ein ankerpositioniertes Element ausblendet, wenn sein Anker verschwindet, im Abschnitt [Bedingtes Ausblenden mit `position-visibility`](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding#conditionally_hiding_anchor-positioned_elements).
+> Das Ankerelement muss ein sichtbarer DOM-Knoten sein, damit die Verknüpfung und Positionierung funktionieren. Wenn es ausgeblendet ist (z.B. durch [`display: none`](/de/docs/Web/CSS/Reference/Properties/display#none)), wird das positionierte Element relativ zu seinem nächstgelegenen positionierten Vorfahren positioniert. Wir besprechen, wie man ein ankerpositioniertes Element ausblendet, wenn sein Anker verschwindet, im Abschnitt [Bedingtes Ausblenden mit `position-visibility`](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding#conditionally_hiding_anchor-positioned_elements).
 
 ### Verwendung von Inset-Eigenschaften mit `anchor()`-Funktionswerten
 
@@ -282,7 +282,7 @@ Die Rasterkacheln sind in Reihen und Spalten unterteilt:
 - Die drei Reihen werden durch die physikalischen Werte `top`, `center` und `bottom` repräsentiert. Sie haben auch logische Äquivalente wie `start`, `center` und `end`, sowie Koordinatenäquivalente wie `y-start`, `center`, und `y-end`.
 - Die drei Spalten werden durch die physikalischen Werte `left`, `center` und `right` repräsentiert. Sie haben auch logische Äquivalente wie `start`, `center` und `end`, sowie Koordinatenäquivalente wie `x-start`, `center`, und `x-end`.
 
-Die Dimensionen der mittleren Kachel werden durch den [Enthaltenen Block](/de/docs/Web/CSS/CSS_display/Containing_block) des Ankerelements definiert, während der Abstand zwischen der mittleren Kachel und dem äußeren Rand des Rasters durch den Hauptelementblock des positionierten Elements definiert wird.
+Die Dimensionen der mittleren Kachel werden durch den [Enthaltenen Block](/de/docs/Web/CSS/Guides/Display/Containing_block) des Ankerelements definiert, während der Abstand zwischen der mittleren Kachel und dem äußeren Rand des Rasters durch den Hauptelementblock des positionierten Elements definiert wird.
 
 `position-area`-Eigenschaftswerte bestehen aus einem oder zwei Werten basierend auf den oben beschriebenen Reihen- und Spaltenwerten, wobei Spannungsoptionen verfügbar sind, um den Bereich des Rasters zu definieren, in dem das Element positioniert werden soll.
 
@@ -445,7 +445,7 @@ Versuchen Sie, neue `position-area`-Werte aus dem `<select>`-Menü auszuwählen,
 
 Im obigen Beispiel haben wir die Dimensionen des positionierten Elements in keiner Dimension ausdrücklich festgelegt. Wir haben bewusst die Größenangabe weggelassen, damit Sie das Verhalten beobachten können, das dies verursacht.
 
-Wenn ein positioniertes Element ohne explizite Größenangabe in `position-area`-Rasterzellen platziert wird, richtet es sich am angegebenen Rasterbereich aus und verhält sich, als ob {{cssxref("width")}} auf {{cssxref("max-content")}} gesetzt wäre. Es wird in seiner [Enthaltenen Block](/de/docs/Web/CSS/CSS_display/Containing_block)-Größe bemessen, das ist die Breite seines Inhalts. Diese Größe wurde durch das Setzen von `position: fixed` auferlegt. Automatisch dimensionierte absolut und fest positionierte Elemente werden automatisch dimensioniert, erstrecken sich so weit wie nötig, um den Textinhalt zu passen, während sie durch den Rand des Viewports eingeschränkt werden. In diesem Fall wird der Text, wenn er auf der linken Seite des Rasters mit einem Wert von `left` oder `inline-start` platziert ist, umgebrochen. Wenn die `max-content`-Größe des verankerten Elements schmaler oder kürzer als der Anker ist, wachsen sie nicht, um die Größe des Ankers anzupassen.
+Wenn ein positioniertes Element ohne explizite Größenangabe in `position-area`-Rasterzellen platziert wird, richtet es sich am angegebenen Rasterbereich aus und verhält sich, als ob {{cssxref("width")}} auf {{cssxref("max-content")}} gesetzt wäre. Es wird in seiner [Enthaltenen Block](/de/docs/Web/CSS/Guides/Display/Containing_block)-Größe bemessen, das ist die Breite seines Inhalts. Diese Größe wurde durch das Setzen von `position: fixed` auferlegt. Automatisch dimensionierte absolut und fest positionierte Elemente werden automatisch dimensioniert, erstrecken sich so weit wie nötig, um den Textinhalt zu passen, während sie durch den Rand des Viewports eingeschränkt werden. In diesem Fall wird der Text, wenn er auf der linken Seite des Rasters mit einem Wert von `left` oder `inline-start` platziert ist, umgebrochen. Wenn die `max-content`-Größe des verankerten Elements schmaler oder kürzer als der Anker ist, wachsen sie nicht, um die Größe des Ankers anzupassen.
 
 Wenn das positionierte Element vertikal zentriert wird, wie z.B. mit `position-area: bottom center`, richtet es sich mit der angegebenen Rasterzelle aus und die Breite ist die gleiche wie das Ankerelement. In diesem Fall ist seine Mindesthöhe die Enthalteblockgröße des Ankerelements. Es wird nicht überlaufen, da die `min-width` {{cssxref("min-content")}} ist, was bedeutet, dass es mindestens so breit wie sein längstes Wort ist.
 
@@ -803,8 +803,8 @@ Versuchen Sie, zum Anker zu navigieren oder mit der Maus darüberzufahren, und b
 
 ## Siehe auch
 
-- [CSS-Ankerpositionierungsmodul](/de/docs/Web/CSS/CSS_anchor_positioning)
-- [Leitfaden für Fallback-Optionen und bedingtes Ausblenden bei Überlauf](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [CSS-Ankerpositionierungsmodul](/de/docs/Web/CSS/Guides/Anchor_positioning)
+- [Leitfaden für Fallback-Optionen und bedingtes Ausblenden bei Überlauf](/de/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding)
 - [Lernen: Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)
-- [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
+- [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul
 - [Lernen: Größenanpassung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing)

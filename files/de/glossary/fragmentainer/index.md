@@ -2,15 +2,15 @@
 title: Fragmentainer
 slug: Glossary/Fragmentainer
 l10n:
-  sourceCommit: ab0cab3b1b674b6c873af6a7d3d2c53adf9599e3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 Ein **Fragmentainer** wird in der [CSS Fragmentation](https://drafts.csswg.org/css-break/) Spezifikation wie folgt definiert:
 
-> Ein Kasten – wie ein Seitenkasten, Spaltenkasten oder Region –, der einen Teil (oder alles) eines fragmentierten Flusses enthält. Fragmentainer können vordefiniert sein oder nach Bedarf erzeugt werden. Wenn unterteilbarer Inhalt in der Block-Dimension über einen Fragmentainer hinausfließen würde, bricht er stattdessen in den nächsten Container in seinem Fragmentierungskontext um.
+> Eine Box—wie eine Seitenbox, Spaltenbox oder Region—die einen Teil (oder das Ganze) eines fragmentierten Flusses enthält. Fragmentainer können vordefiniert sein oder bei Bedarf erzeugt werden. Wenn zerlegbarer Inhalt in der Blockdimension einen Fragmentainer überlaufen würde, zerbricht er stattdessen in den nächsten Container in seinem Fragmentationskontext.
 
-Fragmentierte Kontexte finden sich in [CSS-Seitenmedien](/de/docs/Web/CSS/CSS_paged_media), wo der Fragmentainer der Kasten wäre, der eine Seite definiert. Im [CSS-Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout) ist der Fragmentainer der Spaltenkasten, der erstellt wird, wenn Spalten auf einem Mehrspalten-Container definiert sind.
+Fragmentierte Kontexte findet man in [CSS Paged Media](/de/docs/Web/CSS/Guides/Paged_media), wo der Fragmentainer die Box wäre, die eine Seite definiert. Im [CSS-Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) ist der Fragmentainer die Spaltenbox, die erstellt wird, wenn Spalten auf einem Multicol-Container definiert werden.
 
 ## Siehe auch
 
-- [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul
+- [CSS-Fragmentation](/de/docs/Web/CSS/Guides/Fragmentation) Modul

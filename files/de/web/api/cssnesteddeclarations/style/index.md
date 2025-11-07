@@ -1,9 +1,9 @@
 ---
-title: "CSSNestedDeclarations: style-Eigenschaft"
+title: "CSSNestedDeclarations: Eigenschaft `style`"
 short-title: style
 slug: Web/API/CSSNestedDeclarations/style
 l10n:
-  sourceCommit: 0145c6497d2f2206dca1326593fe308f7b771a08
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM")}}
@@ -18,7 +18,7 @@ Ein Objekt.
 
 Dieses Stylesheet enthält eine verschachtelte [`cssRules`](/de/docs/Web/API/CSSRule).
 
-Das erste `console.log` zeigt den Stil der obersten Ebene, das zweite zeigt die verschachtelte `@media`-Abfrage mit ihrem verschachtelten Stil und das letzte zeigt den verschachtelten Stil, der nach der `@media`-Abfrage deklariert wurde.
+Das erste `console.log` zeigt den Stil auf oberster Ebene, das zweite zeigt die verschachtelte `@media`-Abfrage mit ihrem verschachtelten Stil und das letzte zeigt den verschachtelten Stil, der nach der `@media`-Abfrage deklariert ist.
 
 ```css
 .foo {
@@ -52,4 +52,4 @@ console.log(myRules[0].cssRules[1].style);
 ## Siehe auch
 
 - [`CSSNestedDeclarations`](/de/docs/Web/API/CSSNestedDeclarations)
-- [Die Regel für verschachtelte Deklarationen](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting#nested_declarations_rule)
+- [Die Regel der verschachtelten Deklarationen](/de/docs/Web/CSS/Guides/Nesting/Using#nested_declarations_rule)

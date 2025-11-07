@@ -6,7 +6,7 @@ l10n:
   sourceCommit: fdaaf0efca6acb1a2547d4e1ac00d867bddf8cb3
 ---
 
-[CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) implementiert die [Ausrichtung von CSS-Boxen](/de/docs/Web/CSS/CSS_box_alignment), was demselben Standard entspricht, den [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) zur Ausrichtung von Elementen in seinem Flex-Container verwendet. Das Ausrichtungsmodul beschreibt, wie die Ausrichtung in allen Layout-Methoden funktionieren sollte.
+[CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) implementiert die [Ausrichtung von CSS-Boxen](/de/docs/Web/CSS/Guides/Box_alignment), was demselben Standard entspricht, den [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) zur Ausrichtung von Elementen in seinem Flex-Container verwendet. Das Ausrichtungsmodul beschreibt, wie die Ausrichtung in allen Layout-Methoden funktionieren sollte.
 
 In diesem Leitfaden betrachten wir, wie die Box-Ausrichtungs-Eigenschaften verwendet werden, um Elemente im Grid-Layout auszurichten.
 
@@ -257,7 +257,7 @@ Wieder ist der Standard `stretch`, außer für Elemente mit einem intrinsischen 
 Wie bei `align-self` und `align-items` können Sie `justify-items` auf den Grid-Container anwenden, um einen `justify-self`-Wert für alle Grid-Elemente im Container festzulegen.
 
 > [!NOTE]
-> Die Eigenschaften `justify-self` und `justify-items` sind in Flexbox nicht implementiert. Dies liegt an der eindimensionalen Natur von [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) und daran, dass es mehrere Elemente entlang der Achse geben kann, was es unmöglich macht, ein einzelnes Element zu rechtfertigen. Um Elemente entlang der Haupt-, Inline-Achse in Flexbox auszurichten, verwenden Sie die {{cssxref("justify-content")}}-Eigenschaft.
+> Die Eigenschaften `justify-self` und `justify-items` sind in Flexbox nicht implementiert. Dies liegt an der eindimensionalen Natur von [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) und daran, dass es mehrere Elemente entlang der Achse geben kann, was es unmöglich macht, ein einzelnes Element zu rechtfertigen. Um Elemente entlang der Haupt-, Inline-Achse in Flexbox auszurichten, verwenden Sie die {{cssxref("justify-content")}}-Eigenschaft.
 
 ### Kurzschreibereigenschaften
 
@@ -684,14 +684,14 @@ Alle diese Beispiele waren in Englisch, einer von links nach rechts verlaufenden
 
 CSS-Grid-Layout und CSS-Box-Ausrichtung funktionieren mit den Schreibrichtungen in CSS. Bei der Anzeige einer von rechts nach links verlaufenden Sprache, wie Arabisch, befindet sich der Start des Grids oben rechts, daher würde der Standard `justify-content: start` bedeuten, dass die Grid-Strecken auf der rechten Seite des Grids beginnen.
 
-Das Setzen von {{Glossary("physical_properties", "physischen Eigenschaften")}}, beispielsweise das Setzen von Auto-Rändern mit {{cssxref("margin-right")}} oder {{cssxref("margin-left")}}, oder das absolute Positionieren von Elementen unter Verwendung der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}}-Offsets respektiert keine Schreibrichtungen. Im [Grid-, logische Werte und Schreibrichtungen](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes) Leitfaden werden wir weiter darauf eingehen, wie CSS-Grid-Layout, Box-Ausrichtung und Schreibrichtungen miteinander interagieren. Dies wird wichtig zu verstehen sein, wenn Sie Websites entwickeln, die dann in mehreren Sprachen angezeigt werden oder wenn Sie Sprachen oder Schreibrichtungen in einem Design mischen möchten.
+Das Setzen von {{Glossary("physical_properties", "physischen Eigenschaften")}}, beispielsweise das Setzen von Auto-Rändern mit {{cssxref("margin-right")}} oder {{cssxref("margin-left")}}, oder das absolute Positionieren von Elementen unter Verwendung der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}}-Offsets respektiert keine Schreibrichtungen. Im [Grid-, logische Werte und Schreibrichtungen](/de/docs/Web/CSS/Guides/Grid_layout/Logical_values_and_writing_modes) Leitfaden werden wir weiter darauf eingehen, wie CSS-Grid-Layout, Box-Ausrichtung und Schreibrichtungen miteinander interagieren. Dies wird wichtig zu verstehen sein, wenn Sie Websites entwickeln, die dann in mehreren Sprachen angezeigt werden oder wenn Sie Sprachen oder Schreibrichtungen in einem Design mischen möchten.
 
 ## Siehe auch
 
-- [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-- [Beziehung des Grid-Layouts zu anderen Layoutmethoden](/de/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods)
-- [Grid-Layout basierend auf Linienplatzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- [Grid-Vorlagenbereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
-- [Grid-Layout mit benannten Grid-Linien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines)
-- [Automatische Platzierung im Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout)
-- [Box-Ausrichtung im CSS-Grid-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
+- [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts)
+- [Beziehung des Grid-Layouts zu anderen Layoutmethoden](/de/docs/Web/CSS/Guides/Grid_layout/Relationship_with_other_layout_methods)
+- [Grid-Layout basierend auf Linienplatzierung](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement)
+- [Grid-Vorlagenbereiche](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas)
+- [Grid-Layout mit benannten Grid-Linien](/de/docs/Web/CSS/Guides/Grid_layout/Named_grid_lines)
+- [Automatische Platzierung im Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout/Auto-placement)
+- [Box-Ausrichtung im CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)

@@ -1,24 +1,26 @@
 ---
-title: "HTMLImageElement: `currentSrc`-Eigenschaft"
+title: "HTMLImageElement: currentSrc-Eigenschaft"
 short-title: currentSrc
 slug: Web/API/HTMLImageElement/currentSrc
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) **`currentSrc`** gibt die URL des Bildes an, das derzeit im {{HTMLElement("img")}}-Element dargestellt wird, das es repräsentiert.
+Die **`currentSrc`**-Eigenschaft der [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die URL des Bildes angibt, das vom Browser zum Laden ausgewählt wurde.
 
 ## Wert
 
-Ein String, der die vollständige URL des Bildes angibt, das aktuell im durch das `HTMLImageElement` repräsentierten {{HTMLElement("img")}}-Element sichtbar ist. Dies ist nützlich, wenn Sie mehrere Bildoptionen mit den Eigenschaften [`sizes`](/de/docs/Web/API/HTMLImageElement/sizes) und/oder [`HTMLImageElement.srcset`](/de/docs/Web/API/HTMLImageElement/srcset) bereitstellen. `currentSrc` ermöglicht es Ihnen zu bestimmen, welches Bild aus der bereitgestellten Menge von Bildern vom Browser ausgewählt wurde.
+Ein String, der die vollständige URL des Bildes angibt, das aktuell vom Browser zum Laden ausgewählt wurde. Wenn das Bild das [`srcset`](/de/docs/Web/API/HTMLImageElement/srcset)-Attribut verwendet, ermöglicht `currentSrc` es Ihnen zu bestimmen, welches Bild aus dem Satz bereitgestellter Bilder vom Browser ausgewählt wurde. Der Wert der Eigenschaft ist unabhängig davon, ob das Bild erfolgreich geladen wurde oder nicht.
 
 ## Beispiele
 
-In diesem Beispiel werden zwei verschiedene Größen für ein Bild einer Uhr bereitgestellt. Eine ist 200px breit und die andere ist 400px breit. Das [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes)-Attribut wird bereitgestellt, um anzugeben, dass das Bild bei einer Breite von 50 % des Dokuments gezeichnet werden soll, wenn der Viewport weniger als 400px breit ist; andernfalls wird das Bild bei 90 % der Breite des Dokuments gezeichnet.
+### Testen, welches Bild geladen wird
 
-### HTML
+In diesem Beispiel werden zwei verschiedene Größen für ein Bild einer Uhr bereitgestellt. Eine ist 200px breit und die andere 400px breit. Das [`sizes`](/de/docs/Web/HTML/Reference/Elements/img#sizes)-Attribut wird bereitgestellt, um anzuzeigen, dass das Bild bei einer Dokumentbreite von 50% gezeichnet werden sollte, wenn der Ansichtsbereich unter 400px breit ist; ansonsten wird das Bild mit 90% der Dokumentbreite gezeichnet.
+
+#### HTML
 
 ```html
 <img
@@ -31,7 +33,7 @@ In diesem Beispiel werden zwei verschiedene Größen für ein Bild einer Uhr ber
   sizes="(width <= 400px) 50%, 90%" />
 ```
 
-### JavaScript
+#### JavaScript
 
 ```js
 const clockImage = document.querySelector("img");
@@ -43,9 +45,9 @@ p.textContent = clockImage.currentSrc.endsWith("200px.png")
 document.body.appendChild(p);
 ```
 
-### Ergebnis
+#### Ergebnis
 
-{{EmbedLiveSample("Examples", 640, 370)}}
+{{EmbedLiveSample("Testing which image is loaded", 640, 370)}}
 
 ## Spezifikationen
 
@@ -54,3 +56,8 @@ document.body.appendChild(p);
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`HTMLImageElement.src`](/de/docs/Web/API/HTMLImageElement/src)
+- [`HTMLImageElement.srcSet`](/de/docs/Web/API/HTMLImageElement/srcset)

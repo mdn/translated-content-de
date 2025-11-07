@@ -1,24 +1,23 @@
 ---
-title: Einführung in das CSS-Layout
+title: Einführung in CSS-Layout
 short-title: Introduction
 slug: Learn_web_development/Core/CSS_layout/Introduction
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{NextMenu("Learn_web_development/Core/CSS_layout/Floats", "Learn_web_development/Core/CSS_layout")}}
 
-Diese Lektion fasst einige der CSS-Layout-Funktionen zusammen, die wir bereits in früheren Modulen behandelt haben, wie die verschiedenen {{cssxref("display")}}-Werte, und führt einige der Konzepte ein, die wir in diesem Modul behandeln werden. Es wird auch das Konzept des normalen Flusses eingehend behandelt.
+Diese Lektion fasst einige der CSS-Layout-Funktionen zusammen, die wir in früheren Modulen bereits angesprochen haben, wie verschiedene {{cssxref("display")}}-Werte, und führt einige der Konzepte ein, die wir in diesem Modul behandeln werden. Es behandelt auch ausführlich das Konzept des normalen Flusses.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        <a href="/de/docs/Learn_web_development/Core/Structuring_content"
-          >Strukturierung von Inhalten mit HTML</a
-        >,
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling-Grundlagen</a>,
+        <a href="/de/docs/Learn_web_development/Core/Structuring_content">
+          Strukturierung von Inhalten mit HTML</a>,
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS Styling Grundlagen</a>,
         <a href="/de/docs/Learn_web_development/Core/Text_styling/Fundamentals">Grundlegende Text- und Schriftgestaltung</a>.
       </td>
     </tr>
@@ -26,42 +25,42 @@ Diese Lektion fasst einige der CSS-Layout-Funktionen zusammen, die wir bereits i
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Erkennen der Methoden zur Implementierung moderner Seitenlayouts.</li>
-          <li>Verständnis, dass der normale Fluss die Standardmethode ist, mit der ein Browser Block- und Inline-Inhalte anordnet.</li>
-          <li>Wissen, dass Eigenschaften wie <code>display</code>, <code>float</code> und <code>position</code> dazu gedacht sind, die Art und Weise zu ändern, wie der Browser Inhalte anordnet.</li>
+          <li>Erkennen Sie die Methoden, die zur Implementierung moderner Seitenlayouts verwendet werden.</li>
+          <li>Verstehen Sie, dass der normale Fluss die Standardmethode ist, mit der ein Browser Block- und Inline-Inhalte anordnet.</li>
+          <li>Kennen Sie Eigenschaften wie <code>display</code>, <code>float</code> und <code>position</code>, die dazu gedacht sind, zu ändern, wie der Browser Inhalte anordnet.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-Techniken zur Layoutgestaltung mit CSS ermöglichen es uns, Elemente auf einer Webseite zu positionieren, in Bezug auf folgende Faktoren: ihre Standardposition im normalen Layoutfluss, die anderen Elemente um sie herum, ihr übergeordnetes Container-Element und das Hauptansichtsfenster/Fenster.
+CSS-Seitenlayout-Techniken ermöglichen es uns, Elemente auf einer Webseite zu positionieren, relativ zu folgenden Faktoren: ihrer Standardposition im normalen Layoutfluss, den anderen Elementen um sie herum, ihrem übergeordneten Container und dem Hauptanzeigebereich/Fenster.
 
-Die im Folgenden erwähnten Seitenlayout-Techniken, die wir im Modul ausführlich behandeln werden, haben ihren Nutzen, ihre Vorteile und Nachteile. Keine Technik ist dafür ausgelegt, isoliert verwendet zu werden. Wenn Sie verstehen, wofür jede Layoutmethode konzipiert ist, sind Sie in einer guten Position zu verstehen, welche Methode für jede Aufgabe am besten geeignet ist.
+Die im Folgenden genannten und im Modul detailliert behandelten Seitenlayout-Techniken haben ihre Anwendungsbereiche, Vorteile und Nachteile. Keine Technik ist dafür gedacht, isoliert verwendet zu werden. Indem Sie verstehen, wofür jede Layout-Methode entwickelt wurde, können Sie besser erkennen, welche Methode für jede Aufgabe am geeignetsten ist.
 
-## Normale Layoutfluss
+## Normaler Layoutfluss
 
-Elemente auf einer Webseite werden im **normalen Fluss** angeordnet, wenn Sie kein CSS angewendet haben, um ihr Verhalten zu ändern. Sie können das Verhalten von Elementen ändern, indem Sie entweder ihre Position im normalen Fluss anpassen oder sie ganz daraus entfernen. Mit einem soliden, gut strukturierten Dokument zu beginnen, das im normalen Fluss lesbar ist, ist der beste Weg, um jede Webseite zu starten. Es stellt sicher, dass Ihre Inhalte lesbar sind, selbst wenn der Benutzer einen sehr limitierten Browser oder ein Gerät wie einen Bildschirmleser verwendet, der die Inhalte der Seite vorliest. Da der normale Fluss darauf ausgelegt ist, ein lesbares Dokument zu erzeugen, arbeiten Sie auf diese Weise mit dem Dokument, anstatt gegen es, wenn Sie Änderungen am Layout vornehmen.
+Elemente auf einer Webseite werden im **normalen Fluss** angeordnet, wenn Sie kein CSS angewendet haben, um ihr Verhalten zu ändern. Sie können das Verhalten von Elementen ändern, indem Sie entweder ihre Position im normalen Fluss anpassen oder sie vollständig daraus entfernen. Ein solider, gut strukturierter Dokumentenanfang, der im normalen Fluss lesbar ist, ist der beste Weg, um jede Webseite zu beginnen. Es stellt sicher, dass Ihre Inhalte lesbar sind, selbst wenn der Benutzer einen sehr eingeschränkten Browser oder ein Gerät wie einen Screenreader verwendet, der den Seiteninhalt vorliest. Da der normale Fluss darauf ausgelegt ist, ein lesbares Dokument zu erstellen, arbeiten Sie, indem Sie so anfangen, _mit_ dem Dokument, anstatt _gegen_ es zu kämpfen, wenn Sie Änderungen am Layout vornehmen.
 
-Bevor wir tiefer in verschiedene Layoutmethoden eintauchen, lohnt es sich, einige der Dinge, die Sie in früheren Modulen in Bezug auf den normalen Dokumentenfluss gelernt haben, zu überdenken.
+Bevor wir uns tiefer mit verschiedenen Layoutmethoden befassen, lohnt es sich, einige der Dinge, die Sie in früheren Modulen im Hinblick auf den normalen Dokumentenfluss gelernt haben, noch einmal zu betrachten.
 
 ## Wie werden Elemente standardmäßig angeordnet?
 
-Der Prozess beginnt damit, dass die Boxen einzelner Elemente so angeordnet werden, dass alle vorhandenen Inhalte durch ihre Polsterung, ihren Rahmen oder ihren Rand ergänzt werden. Dies nennen wir das **Boxmodell**.
+Der Prozess beginnt damit, dass die Boxen der einzelnen Elemente so angeordnet werden, dass jedes Polster, jeder Rand oder jede Marge, die sie zufällig haben, zu ihrem Inhalt hinzugefügt wird. Dies ist, was wir als **Box-Modell** bezeichnen.
 
-Standardmäßig füllt der Inhalt eines {{Glossary("Block-level_content", "Block-Elementes")}} den verfügbaren Inline-Bereich des übergeordneten Elements aus und wächst entlang der Block-Dimension, um seinen Inhalt aufzunehmen. Die Größe von {{Glossary("Inline-level_content", "Inline-Elementen")}} entspricht der Größe ihres Inhalts. Sie können {{cssxref("width")}} oder {{cssxref("height")}} auf einigen Elementen setzen, die einen Standardwert der {{cssxref("display")}}-Eigenschaft von `inline` haben, wie {{HTMLElement("img")}}, aber der `display`-Wert bleibt `inline`.
+Standardmäßig füllt der Inhalt eines {{Glossary("Block-level_content", "Block-Elementes")}} den verfügbaren Inline-Bereich des übergeordneten Elements, das es enthält, aus und wächst entlang der Block-Dimension, um seinen Inhalt aufzunehmen. Die Größe von {{Glossary("Inline-level_content", "Inline-Elementen")}} ist nur die Größe ihres Inhalts. Sie können {{cssxref("width")}} oder {{cssxref("height")}} auf einigen Elementen festlegen, die einen Standardwert der {{cssxref("display")}}-Eigenschaft von `inline` haben, wie zum Beispiel {{HTMLElement("img")}}, aber der `display`-Wert bleibt dennoch `inline`.
 
-Wenn Sie das `display`-Eigenschaftsverhalten eines Inline-Elements auf diese Weise steuern möchten, verwenden Sie CSS, um es wie ein Block-Element verhalten zu lassen (z. B. mit `display: block;` oder `display: inline-block;`, was Merkmale beider mischt).
+Wenn Sie die `display`-Eigenschaft eines Inline-Elements auf diese Weise steuern möchten, verwenden Sie CSS, um es so einzustellen, dass es sich wie ein Block-Element verhält (z.B. mit `display: block;` oder `display: inline-block;`, das Merkmale von beiden mischt).
 
-Das erklärt, wie Elemente individuell strukturiert sind, aber wie sieht es mit der Struktur aus, wenn sie miteinander interagieren? Der normale Layoutfluss (erwähnt im Artikel über die Layout-Einführung) ist das System, mit dem Elemente im Ansichtsfenster des Browsers platziert werden. Standardmäßig werden Block-Elemente in die _Block-Fließrichtung_ gelegt, die auf dem [Schreibmodus](/de/docs/Web/CSS/Reference/Properties/writing-mode) des übergeordneten Elements basiert (_initial_: horizontal-tb). Jedes Element erscheint in einer neuen Zeile unter dem vorherigen, wobei sie durch den spezifizierten Rand getrennt sind. Auf Englisch zum Beispiel (oder einem anderen horizontalen, von oben nach unten Schreibmodus) werden Block-Elemente vertikal angeordnet.
+Das erklärt, wie Elemente individuell strukturiert sind, aber wie sieht es mit der Art aus, wie sie strukturiert sind, wenn sie miteinander interagieren? Der normale Layoutfluss (im Layout-Einführungsartikel erwähnt) ist das System, durch das Elemente innerhalb des Anzeigebereichs des Browsers platziert werden. Standardmäßig werden Block-Elemente in der _Block-Flussrichtung_ angeordnet, die auf dem [Schreibmodus](/de/docs/Web/CSS/Reference/Properties/writing-mode) des übergeordneten Elements basiert (_initial_: horizontal-tb). Jedes Element erscheint auf einer neuen Linie unter dem letzten, wobei jedes durch die angegebene Marge getrennt ist. In Englisch zum Beispiel (oder jedem anderen horizontalen, von oben nach unten verlaufenden Schreibmodus) werden Block-Elemente vertikal angeordnet.
 
-Inline-Elemente verhalten sich anders. Sie erscheinen nicht in neuen Zeilen; stattdessen sitzen sie alle in derselben Zeile zusammen mit jedem benachbarten (oder umgebrochenen) Textinhalt, solange es Platz dafür innerhalb der Breite des übergeordneten Block-Elements gibt. Wenn kein Platz vorhanden ist, wird der überfließende Inhalt in eine neue Zeile verschoben.
+Inline-Elemente verhalten sich anders. Sie erscheinen nicht auf neuen Linien; stattdessen sitzen sie alle in der gleichen Linie zusammen mit jedem benachbarten (oder umgebenden) Textinhalt, solange dafür Platz innerhalb der Breite des übergeordneten Block-Elements vorhanden ist. Wenn kein Platz vorhanden ist, wird der überlaufende Inhalt auf eine neue Linie verschoben.
 
-Wenn zwei vertikal benachbarte Elemente beide einen Rand gesetzt haben und ihre Ränder sich berühren, bleibt der größere der beiden Ränder bestehen und der kleinere verschwindet. Dies wird als [**Randkollaps**](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) bezeichnet. Kollisionen von Margins sind nur in vertikaler Richtung relevant.
+Wenn zwei vertikal angrenzende Elemente beide eine Marge haben und ihre Margen sich berühren, bleibt die größere der beiden Margen bestehen und die kleinere verschwindet. Dies ist bekannt als [**Marge-Zusammenbruch**](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing). Der Margenzusammenbruch ist nur in der **vertikalen Richtung** relevant.
 
-### Beispiel für normalen Fluss
+### Beispiel für normalen Flow
 
-Schauen wir uns ein einfaches Beispiel an, das all dies erklärt:
+Sehen wir uns ein einfaches Beispiel an, das all dies erklärt:
 
 ```html
 <h1>Basic document flow</h1>
@@ -115,36 +114,36 @@ span {
 
 {{ EmbedLiveSample('How_are_elements_laid_out_by_default', '100%', 600) }}
 
-Beachten Sie, wie das HTML in genau der Reihenfolge angezeigt wird, in der es im Quellcode erscheint, wobei Block-Elemente übereinander gestapelt sind.
+Beachten Sie, wie das HTML in der exakten Reihenfolge angezeigt wird, die im Quellcode erscheint, mit Block-Elementen, die übereinander gestapelt sind.
 
-Für viele der Elemente auf Ihrer Seite wird der normale Fluss genau das Layout erstellen, das Sie benötigen. Für komplexere Layouts müssen Sie jedoch dieses Standardverhalten mit einigen der Ihnen in CSS zur Verfügung stehenden Werkzeuge ändern. Mit einem gut strukturierten HTML-Dokument zu beginnen, ist sehr wichtig, da Sie dann mit der Anordnung der Dinge, wie sie standardmäßig angeordnet sind, arbeiten können, anstatt dagegen anzukämpfen.
+Für viele der Elemente auf Ihrer Seite wird der normale Fluss genau das Layout erstellen, das Sie benötigen. Für komplexere Layouts müssen Sie dieses Standardverhalten jedoch mit einigen der Ihnen in CSS zur Verfügung stehenden Werkzeuge ändern. Ein gut strukturiertes HTML-Dokument zu beginnen, ist sehr wichtig, da Sie auf diese Weise mit der Art und Weise arbeiten können, wie Dinge standardmäßig angeordnet sind, anstatt dagegen zu kämpfen.
 
-## Übersteuerung des normalen Flusses
+## Normalen Fluss überschreiben
 
-Die Methoden, die den normalen Fluss übersteuern und ändern können, wie Elemente in CSS angeordnet werden, die wir in diesem Modul im Detail behandeln werden, sind:
+Die Methoden, die den normalen Fluss überschreiben und ändern können, wie Elemente in CSS angeordnet werden, die wir in diesem Modul im Detail behandeln werden, sind:
 
 - Die {{cssxref("display")}}-Eigenschaft
-  - : Standardwerte wie `block`, `inline` oder `inline-block` können das Verhalten von Elementen im normalen Fluss ändern, z. B. indem sie ein Block-Element wie ein Inline-Element verhalten lassen (wir haben diese bereits in der Lektion zum [Boxmodell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#block_and_inline_boxes) behandelt).
+  - : Standardwerte wie `block`, `inline` oder `inline-block` können ändern, wie Elemente sich im normalen Fluss verhalten, indem ein Block-Element beispielsweise wie ein Inline-Element agiert (wir haben diese im [Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#block_and_inline_boxes) Lektion behandelt).
 - Floats
-  - : Das Anwenden eines {{cssxref("float")}}-Werts wie `left` kann dazu führen, dass Block-Elemente entlang einer Seite eines Elements flottieren, ähnlich wie Bilder manchmal in Zeitschriftenlayouts von Text umgeben sind.
+  - : Das Anwenden eines {{cssxref("float")}}-Werts wie `left` kann dazu führen, dass Block-Elemente sich an einer Seite eines Elements entlang wickeln, wie bei Bildern, um die manchmal Text in Magazinlayouts fließt.
 - Positionierung
-  - : Die {{cssxref("position")}}-Eigenschaft ermöglicht es Ihnen, die Platzierung von Boxen innerhalb anderer Boxen präzise zu steuern. `static` ist die Standardpositionierung im normalen Fluss, aber Sie können Elemente mit anderen Werten unterschiedlich anordnen, z. B. sie mit `position: fixed` am oberen Rand des Browserfensters positionieren.
-- Spezifische Layout-Systeme, die über `display` zugänglich sind
-  - : Es gibt auch gesamte Layout-Methoden, die über spezifische `display`-Werte aktiviert werden. Die wichtigsten, die Sie kennen sollten, sind [CSS Grid](/de/docs/Learn_web_development/Core/CSS_layout/Grids) und [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox), die beide beeinflussen, wie Kindelemente innerhalb ihrer Eltern angeordnet werden.
+  - : Die {{cssxref("position")}}-Eigenschaft ermöglicht es Ihnen, die Platzierung von Boxen innerhalb anderer Boxen genau zu kontrollieren. `static` Positionierung ist der Standard im normalen Fluss, aber Sie können Elemente mithilfe anderer Werte anders anordnen lassen, zum Beispiel indem Sie sie mithilfe von `position: fixed` oben im Browser-Anzeigebereich fixieren.
+- Spezifische Layout-Systeme, die über `display` aufgerufen werden
+  - : Wir haben auch gesamte Layout-Methoden, die über spezifische `display`-Werte aktiviert werden. Die wichtigsten, die Sie kennen sollten, sind [CSS-Grid](/de/docs/Learn_web_development/Core/CSS_layout/Grids) und [Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox), die beide ändern, wie untergeordnete Elemente innerhalb ihrer Eltern angeordnet werden.
 - Responsives Design
-  - : Responsives Design bezieht sich auf die Erstellung von Layouts, die sich an verschiedene Geräte anpassen, auf denen die Webseite dargestellt wird (zum Beispiel Desktops und Mobiltelefone). Responsives Design bietet keine spezifischen Layout-Werkzeuge; seine bedeutendste Komponente ist die {{cssxref("@media")}}-Regel, die es Ihnen ermöglicht, je nach Geräteeigenschaften wie Bildschirmbreite oder -auflösung unterschiedliche Layouts anzuwenden.
+  - : Responsives Design bedeutet, Layouts zu erstellen, die sich an verschiedene Geräte anpassen, auf denen die Webseite gerendert wird (zum Beispiel Desktops und Mobiltelefone). Responsives Design bietet keine spezifischen Layout-Werkzeuge; sein wesentlicher Bestandteil ist die {{cssxref("@media")}}-At-Regel, die es Ihnen ermöglicht, je nach Geräteattributen wie Bildschirmbreite oder Auflösung unterschiedliche Layouts anzuwenden.
 
 ### Andere Layout-Techniken
 
-Es gibt andere Layout-Techniken, die weniger häufig verwendet werden und die wir in diesem Modul nicht behandeln werden:
+Es gibt andere Layout-Techniken, die weniger häufig verwendet werden, die wir in diesem Modul nicht abdecken:
 
-- [Tabellenlayout](/de/docs/Web/CSS/CSS_table)
-  - : Funktionen, die für das Styling von Teilen einer HTML-Tabelle entworfen wurden, können auf Nicht-Tabellen-Elemente angewendet werden, indem `display: table` und verwandte Eigenschaften verwendet werden.
-- [Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout)
-  - : Die Eigenschaften des Mehrspaltenlayouts können dazu führen, dass der Inhalt eines Blocks in Spalten angeordnet wird, wie Sie es in einer Zeitung sehen könnten.
+- [Table-Layout](/de/docs/Web/CSS/Guides/Table)
+  - : Funktionen, die entwickelt wurden, um Teile einer HTML-Tabelle zu gestalten, können auf Nicht-Tabellen-Elemente angewendet werden, indem `display: table` und zugehörige Eigenschaften verwendet werden.
+- [Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Multicol_layout)
+  - : Die Mehrspalten-Layout-Eigenschaften können bewirken, dass der Inhalt eines Blocks in Spalten angeordnet wird, wie Sie es in einer Zeitung sehen könnten.
 
 ## Zusammenfassung
 
-Dieser Artikel bietet einen kurzen Überblick über alle Layout-Technologien, die Sie zu diesem Zeitpunkt Ihres Lernens kennen sollten! Lesen Sie weiter für weitere Informationen zu jeder einzelnen Technologie. Als Nächstes schauen wir uns Floats an.
+Dieser Artikel bietet eine kurze Übersicht über alle Layout-Technologien, die Sie an diesem Punkt Ihres Lernprozesses kennen sollten! Lesen Sie weiter, um mehr über jede einzelne Technologie zu erfahren. Als Nächstes werden wir uns mit Floats befassen.
 
 {{NextMenu("Learn_web_development/Core/CSS_layout/Floats", "Learn_web_development/Core/CSS_layout")}}

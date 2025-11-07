@@ -341,5 +341,5 @@ Beim Layout und Styling von DOM-Elementen sind die vier grundlegenden Mathematik
 ## Abschließende Gedanken
 
 - Sie können CSS-Mathematikfunktionen verwenden, um reaktionsfähige Benutzeroberflächen zu erstellen, ohne irgendeinen JavaScript-Code zu schreiben.
-- CSS-Mathematikfunktionen können manchmal anstelle von [CSS-Media-Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) verwendet werden, um Layout-Breakpoints zu definieren.
+- CSS-Mathematikfunktionen können manchmal anstelle von [CSS-Media-Queries](/de/docs/Web/CSS/Guides/Media_queries/Using) verwendet werden, um Layout-Breakpoints zu definieren.
 - Im Jahr 2023 haben Mitglieder des Interop-Projekts [„CSS-Mathematikfunktionen“ als Schwerpunktbereich für Verbesserungen ausgewählt](https://github.com/web-platform-tests/interop/blob/main/2023/README.md#css-math-functions). Dies bedeutet, dass Browseranbieter zusammenarbeiten, um sicherzustellen, dass CSS-Mathematikfunktionen in allen Browsern und auf allen Geräten gleich funktionieren.

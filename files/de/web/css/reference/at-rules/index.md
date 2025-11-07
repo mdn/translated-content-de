@@ -3,12 +3,12 @@ title: CSS-At-Regeln
 short-title: At-rules
 slug: Web/CSS/Reference/At-rules
 l10n:
-  sourceCommit: 0b926fc3e79782401461d389fc9f17d522b39ed3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-**At-Regeln** sind [CSS-Anweisungen](/de/docs/Web/CSS/CSS_syntax/Syntax#css_statements), die CSS Anweisungen geben, wie es sich verhalten soll. Sie werden verwendet, um Stilregeln und andere At-Regeln zu gruppieren und zu strukturieren, Stilinformationen anzugeben, die nicht direkt mit ausgewählten Inhalten verbunden sind, und um syntaktische Konstrukte wie Importe und Schlüsselwortzuordnungen von Namespaces zu verwalten. Sie beginnen mit dem @-Zeichen, `@` (U+0040 COMMERCIAL AT), gefolgt von einem Bezeichner.
+**At-Regeln** sind [CSS-Anweisungen](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_statements), die CSS anweisen, wie es sich verhalten soll. Sie werden verwendet, um Stilregeln und andere At-Regeln zu gruppieren und zu strukturieren, Style-Informationen zu deklarieren, die nicht direkt mit ausgewähltem Inhalt verbunden sind, und um syntaktische Konstrukte wie Importe und Namespaces-Schlüsselwortzuordnungen zu verwalten. Sie beginnen mit einem At-Zeichen, `@` (U+0040 COMMERCIAL AT), gefolgt von einem Bezeichner.
 
-## Index der At-Regeln und At-Regel-Deskriptoren
+## Index der At-Regeln und At-Regel-Beschreibungen
 
 - {{cssxref("@charset")}}
 - {{cssxref("@color-profile")}}
@@ -49,7 +49,7 @@ l10n:
 - {{cssxref("@import")}}
 - {{cssxref("@keyframes")}}
 - {{cssxref("@layer")}}
-- {{cssxref("@media")}} (siehe [Liste der Medieneigenschaften](#index_der_medieneigenschaften) im nächsten Abschnitt)
+- {{cssxref("@media")}} (siehe [Liste der Media-Features](#index_der_media-features) im nächsten Abschnitt)
 - {{cssxref("@namespace")}}
 - {{cssxref("@page")}}
   - {{cssxref("@page/page-orientation")}}
@@ -64,7 +64,7 @@ l10n:
 - {{cssxref("@supports")}}
 - {{cssxref("@view-transition")}}
 
-## Index der Medieneigenschaften
+## Index der Media-Features
 
 - {{cssxref("@media/-moz-device-pixel-ratio")}}
 - {{cssxref("@media/-webkit-animation")}}
@@ -113,7 +113,7 @@ l10n:
 
 ## Siehe auch
 
-- [CSS-At-Regelfunktionen](/de/docs/Web/CSS/Reference/At-rules/At-rule_functions)
-- [Verschachtelung von At-Regeln](/de/docs/Web/CSS/CSS_nesting/Nesting_at-rules)
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax)-Modul
-- [CSS-Bedingungsregeln](/de/docs/Web/CSS/CSS_conditional_rules)-Modul
+- [Funktionen der CSS-At-Regeln](/de/docs/Web/CSS/Reference/At-rules/At-rule_functions)
+- [Verschachtelung von At-Regeln](/de/docs/Web/CSS/Guides/Nesting/At-rules)
+- [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax) Modul
+- [CSS-Bedingungsregeln](/de/docs/Web/CSS/Guides/Conditional_rules) Modul

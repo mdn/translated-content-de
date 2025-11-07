@@ -7,14 +7,14 @@ l10n:
 
 **Container-Scroll-State-Queries** sind eine Art von [Container-Query](/de/docs/Web/CSS/Reference/At-rules/@container). Anstatt selektiv Stile auf Nachfahrelemente basierend auf der Größe des Containers anzuwenden, ermöglichen Scroll-State-Queries die selektive Anwendung von Stilen auf Nachfahrelemente basierend auf dem Scroll-Status des Containers. Dies kann umfassen, ob der Container teilweise gescrollt ist, an einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}} Vorfahren geschnappt ist oder über [`position: sticky`](/de/docs/Web/CSS/Reference/Properties/position) an eine Grenze eines {{Glossary("scroll_container", "Scroll-Containers")}} Vorfahren fixiert ist.
 
-Dieser Artikel erklärt, wie man Container-Scroll-State-Queries verwendet, und führt durch ein Beispiel für jeden Typ. Er setzt voraus, dass Sie die Grundlagen von Container-Queries kennen. Wenn Sie neu bei Container-Queries sind, lesen Sie [CSS-Container-Queries](/de/docs/Web/CSS/CSS_containment/Container_queries), bevor Sie fortfahren.
+Dieser Artikel erklärt, wie man Container-Scroll-State-Queries verwendet, und führt durch ein Beispiel für jeden Typ. Er setzt voraus, dass Sie die Grundlagen von Container-Queries kennen. Wenn Sie neu bei Container-Queries sind, lesen Sie [CSS-Container-Queries](/de/docs/Web/CSS/Guides/Containment/Container_queries), bevor Sie fortfahren.
 
 ## Typen von Container-Scroll-State-Query
 
 Es gibt drei `@container` Deskriptoren, die Sie in einer `scroll-state()` Query verwenden können:
 
 - `scrollable`: Fragt ab, ob ein Container in der angegebenen Richtung durch benutzerinitiiertes Scrollen (z.B. durch Ziehen der Bildlaufleiste oder Verwenden einer Trackpad-Geste) gescrollt werden kann. Mit anderen Worten, gibt es überlaufenden Inhalt in der angegebenen Richtung, zu dem gescrollt werden kann? Dies ist nützlich für die Anwendung von Stilen, die sich auf die Scroll-Position eines Scroll-Containers beziehen. Zum Beispiel könnten Sie einen Hinweis anzeigen, der die Leute ermutigt, nach unten zu scrollen und mehr Inhalt zu sehen, wenn die Bildlaufleiste oben ist, und ihn ausblenden, wenn der Benutzer tatsächlich angefangen hat zu scrollen.
-- `snapped`: Fragt ab, ob ein Container entlang einer angegebenen Achse an einen [Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) Container Vorfahren geschnappt wird. Dies ist nützlich, um Stile anzuwenden, wenn ein Element an einen Scroll-Snap-Container geschnappt ist. Zum Beispiel könnten Sie ein geschnapptes Element auf irgendeine Weise hervorheben oder einen Teil seines Inhalts enthüllen, der zuvor verborgen war.
+- `snapped`: Fragt ab, ob ein Container entlang einer angegebenen Achse an einen [Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Container Vorfahren geschnappt wird. Dies ist nützlich, um Stile anzuwenden, wenn ein Element an einen Scroll-Snap-Container geschnappt ist. Zum Beispiel könnten Sie ein geschnapptes Element auf irgendeine Weise hervorheben oder einen Teil seines Inhalts enthüllen, der zuvor verborgen war.
 - `stuck`: Fragt ab, ob ein Container mit einem {{cssxref("position")}} Wert von `sticky` an einer Kante seines Scroll-Container Vorfahren festhält. Dies ist nützlich, um `position: sticky` Elemente anders zu stylen, wenn sie festhängen — beispielsweise könnten Sie ihnen ein anderes Farbschema oder Layout geben.
 
 ## Syntaxübersicht
@@ -327,7 +327,7 @@ Versuchen Sie, das Dokument nach unten zu scrollen, und beachten Sie, wie der "b
 
 ## Verwendung von `snapped` Queries
 
-Nur relevant, wenn [Scroll-Snapping](/de/docs/Web/CSS/CSS_scroll_snap) implementiert ist, testen Scroll-State [`snapped`](/de/docs/Web/CSS/Reference/At-rules/@container#snapped) Queries (geschrieben als `scroll-state(snapped: value)`), ob ein Container an einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}} Vorfahren entlang der angegebenen Achse geschnappt wird. Wenn nicht, gibt die Query false zurück.
+Nur relevant, wenn [Scroll-Snapping](/de/docs/Web/CSS/Guides/Scroll_snap) implementiert ist, testen Scroll-State [`snapped`](/de/docs/Web/CSS/Reference/At-rules/@container#snapped) Queries (geschrieben als `scroll-state(snapped: value)`), ob ein Container an einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}} Vorfahren entlang der angegebenen Achse geschnappt wird. Wenn nicht, gibt die Query false zurück.
 
 Der `Wert` in diesem Fall gibt die Richtung an, in der Sie die Fähigkeit des Elements testen, zu snappen, zum Beispiel:
 
@@ -840,7 +840,7 @@ Versuchen Sie, das Dokument nach unten und oben zu scrollen, und beachten Sie, w
 - {{Cssxref("container-type")}}
 - {{Cssxref("position")}}
 - {{Cssxref("@container")}}
-- [CSS-Container-Queries](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- [Verwendung von Container-Größen- und Stil-Queries](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
-- Modul [CSS-Bedingte Regeln](/de/docs/Web/CSS/CSS_conditional_rules)
-- Modul [CSS-Positionierung](/de/docs/Web/CSS/CSS_positioned_layout)
+- [CSS-Container-Queries](/de/docs/Web/CSS/Guides/Containment/Container_queries)
+- [Verwendung von Container-Größen- und Stil-Queries](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)
+- Modul [CSS-Bedingte Regeln](/de/docs/Web/CSS/Guides/Conditional_rules)
+- Modul [CSS-Positionierung](/de/docs/Web/CSS/Guides/Positioned_layout)

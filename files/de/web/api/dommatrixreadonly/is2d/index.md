@@ -3,7 +3,7 @@ title: "DOMMatrixReadOnly: is2D-Eigenschaft"
 short-title: is2D
 slug: Web/API/DOMMatrixReadOnly/is2D
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
@@ -40,8 +40,8 @@ console.log(matrix.rotate(10, 20, 1).is2D); // output: false
 
 - [`CSSTransformValue.is2D`](/de/docs/Web/API/CSSTransformValue/is2D)
 - [`CSSTransformComponent.is2D`](/de/docs/Web/API/CSSTransformComponent/is2D)
-- CSS {{cssxref("transform-function")}} Funktionen
-- CSS {{cssxref("transform")}} Eigenschaft
-- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) Modul
-- SVG [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform) Attribut
-- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) Schnittstelle
+- CSS {{cssxref("transform-function")}}-Funktionen
+- CSS {{cssxref("transform")}}-Eigenschaft
+- [CSS-Transforms](/de/docs/Web/CSS/Guides/Transforms)-Modul
+- SVG [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform)-Attribut
+- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Schnittstelle

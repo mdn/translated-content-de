@@ -6,14 +6,14 @@ l10n:
   sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Beim Verwenden von [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) ist es wichtig sicherzustellen, dass ankerpositionierte Elemente immer an einem günstigen Ort erscheinen, an dem der Benutzer mit ihnen interagieren kann, wenn möglich, unabhängig davon, wo der Anker positioniert ist. Zum Beispiel, wenn Sie die Seite nach unten scrollen, bewegen sich Anker und deren zugeordneten positionierten Elemente an den Rand des Viewports. Wenn ein positioniertes Element beginnt, über den Rand des Viewports hinauszulaufen, möchten Sie seine Position ändern, um es wieder auf dem Bildschirm zu platzieren, zum Beispiel auf der gegenüberliegenden Seite des Ankers.
+Beim Verwenden von [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) ist es wichtig sicherzustellen, dass ankerpositionierte Elemente immer an einem günstigen Ort erscheinen, an dem der Benutzer mit ihnen interagieren kann, wenn möglich, unabhängig davon, wo der Anker positioniert ist. Zum Beispiel, wenn Sie die Seite nach unten scrollen, bewegen sich Anker und deren zugeordneten positionierten Elemente an den Rand des Viewports. Wenn ein positioniertes Element beginnt, über den Rand des Viewports hinauszulaufen, möchten Sie seine Position ändern, um es wieder auf dem Bildschirm zu platzieren, zum Beispiel auf der gegenüberliegenden Seite des Ankers.
 
 Alternativ kann es in manchen Situationen vorzuziehen sein, überfließende positionierte Elemente einfach zu verbergen – zum Beispiel, wenn ihre Anker außerhalb des Bildschirms sind, könnte ihr Inhalt keinen Sinn ergeben.
 
 Dieser Leitfaden erklärt, wie Sie die CSS-Ankerpositionierungsmechanismen nutzen können, um diese Probleme zu verwalten – **position-try-Fallback-Optionen** und **bedingtes Verbergen**. Position-try-Fallback-Optionen bieten alternative Positionen, in denen der Browser versucht, die positionierten Elemente zu platzieren, wenn sie beginnen, überzulaufen, um sie auf dem Bildschirm zu halten. Bedingtes Verbergen ermöglicht die Festlegung von Bedingungen, unter denen der Anker oder ein positioniertes Element verborgen wird.
 
 > [!NOTE]
-> Informationen zu den grundlegenden Grundlagen der CSS-Ankerpositionierung finden Sie in [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using).
+> Informationen zu den grundlegenden Grundlagen der CSS-Ankerpositionierung finden Sie in [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using).
 
 ## Funktionsübersicht
 
@@ -266,7 +266,7 @@ Die `descriptor-list` definiert die Eigenschaftswerte für diese einzelne benutz
 - {{cssxref("position-area")}}
 - {{Glossary("Inset_properties", "Inset-Eigenschaften")}}
 - Abstands-Eigenschaften (z. B. {{cssxref("margin-left")}}, {{cssxref("margin-block-start")}})
-- [Self-Alignment](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center) Eigenschaften
+- [Self-Alignment](/de/docs/Web/CSS/Guides/Anchor_positioning/Using#centering_on_the_anchor_using_anchor-center) Eigenschaften
 - Größen-Eigenschaften ({{cssxref("width")}}, {{cssxref("block-size")}}, etc.)
 - {{cssxref("position-anchor")}}
 
@@ -592,8 +592,8 @@ Scrollen Sie die Seite nach unten und beachten Sie, wie das positionierte Elemen
 
 ## Siehe auch
 
-- [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
+- [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul
+- [Verwendung von CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning/Using)
 - [Lernen: CSS-Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)
-- [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
+- [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul
 - [Lernen: Größenanpassung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing)

@@ -653,4 +653,4 @@ Die Breite wird durch das CSS auf `150px` festgelegt. Der `auto`-Wert für die H
 ## Siehe auch
 
 - {{cssxref("background-size")}}
-- [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders)-Modul
+- [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders)-Modul

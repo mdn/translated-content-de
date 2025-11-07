@@ -275,7 +275,7 @@ blockquote p::after {
 {{EmbedLiveSample("multicol", "", "800px")}}
 
 > [!NOTE]
-> Mehrspaltenlayout ist eng verwandt mit [Seitenbasierter Mediengestaltung](/de/docs/Web/CSS/CSS_paged_media). Jede Spaltenbox ist ein Fragment, ähnlich wie jede gedruckte Seite ein Fragment eines Dokuments ist. Durch die Verwendung der im Modul [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) definierten Eigenschaften können Sie steuern, wie Inhalte zwischen Spalten und Seiten aufgeteilt werden.
+> Mehrspaltenlayout ist eng verwandt mit [Seitenbasierter Mediengestaltung](/de/docs/Web/CSS/Guides/Paged_media). Jede Spaltenbox ist ein Fragment, ähnlich wie jede gedruckte Seite ein Fragment eines Dokuments ist. Durch die Verwendung der im Modul [CSS-Fragmentierung](/de/docs/Web/CSS/Guides/Fragmentation) definierten Eigenschaften können Sie steuern, wie Inhalte zwischen Spalten und Seiten aufgeteilt werden.
 
 ## Referenz
 
@@ -301,24 +301,24 @@ blockquote p::after {
 
 ## Leitfäden
 
-- [Grundkonzepte von Mehrspaltenlayouts](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)
+- [Grundkonzepte von Mehrspaltenlayouts](/de/docs/Web/CSS/Guides/Multicol_layout/Basic_concepts)
   - : Überblick über die Mehrspaltenlayout-Spezifikation.
-- [Verwendung von Mehrspaltenlayouts](/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts)
+- [Verwendung von Mehrspaltenlayouts](/de/docs/Web/CSS/Guides/Multicol_layout/Using)
   - : Anleitung zur Verwendung von Mehrspalteneigenschaften zum Textlayout.
-- [Styling von Spalten](/de/docs/Web/CSS/CSS_multicol_layout/Styling_columns)
+- [Styling von Spalten](/de/docs/Web/CSS/Guides/Multicol_layout/Styling_columns)
   - : Anleitung zum Styling von Spalten und zur Verwaltung der Abstände zwischen Spalten.
-- [Spannweite und Ausgleich](/de/docs/Web/CSS/CSS_multicol_layout/Spanning_balancing_columns)
+- [Spannweite und Ausgleich](/de/docs/Web/CSS/Guides/Multicol_layout/Spanning_balancing_columns)
   - : Wie man Elemente über alle Spalten hinweg spannt und die Art und Weise, wie Spalten gefüllt werden, steuert.
-- [Umgang mit Überlauf in Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout/Handling_overflow_in_multicol_layout)
+- [Umgang mit Überlauf in Mehrspaltenlayout](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_overflow)
   - : Was passiert, wenn ein Element die Spalte, in der es sich befindet, überläuft und was passiert, wenn es zu viel spaltigen Inhalt gibt, um einen Behälter zu füllen.
-- [Umgang mit Inhaltsunterbrechungen im Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout/Handling_content_breaks_in_multicol_layout)
+- [Umgang mit Inhaltsunterbrechungen im Mehrspaltenlayout](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_content_breaks)
   - : Einführung in die Fragmentierungs-Spezifikation und wie man steuert, wo der Spalteninhalt gebrochen wird.
-- [Erstellen von CSS-Karussellen](/de/docs/Web/CSS/CSS_overflow/CSS_carousels)
+- [Erstellen von CSS-Karussellen](/de/docs/Web/CSS/Guides/Overflow/Carousels)
   - : Erstellen Sie reine CSS-Karussell-UI-Funktionen mit Scroll-Schaltflächen, Scroll-Markern und generierten Spalten.
 
 ## Verwandte Konzepte
 
-Modul [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation)
+Modul [CSS-Fragmentierung](/de/docs/Web/CSS/Guides/Fragmentation)
 
 - {{cssxref("break-after")}}
 - {{cssxref("break-before")}}
@@ -326,11 +326,11 @@ Modul [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation)
 - {{cssxref("orphans")}}
 - {{cssxref("widows")}}
 
-Modul [CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment)
+Modul [CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment)
 
 - {{cssxref("gap")}}
 
-Modul [CSS-Box-Größenanpassung](/de/docs/Web/CSS/CSS_box_sizing)
+Modul [CSS-Box-Größenanpassung](/de/docs/Web/CSS/Guides/Box_sizing)
 
 - {{cssxref("height")}}
 - {{cssxref("max-height")}}
@@ -338,16 +338,16 @@ Modul [CSS-Box-Größenanpassung](/de/docs/Web/CSS/CSS_box_sizing)
 - {{cssxref("width")}}
 - {{cssxref("max-width")}}
 
-Modul [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow)
+Modul [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow)
 
 - {{cssxref("overflow")}}
 - {{cssxref("::scroll-marker")}}
 - {{cssxref("::scroll-marker-group")}}
 - {{Glossary("Scroll_container", "Scroll-Container")}} Glossar-Begriff
 
-Modul [CSS-Anzeige](/de/docs/Web/CSS/CSS_display)
+Modul [CSS-Anzeige](/de/docs/Web/CSS/Guides/Display)
 
-- [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) Leitfaden
+- [Block-Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) Leitfaden
 
 ## Spezifikationen
 
@@ -356,7 +356,7 @@ Modul [CSS-Anzeige](/de/docs/Web/CSS/CSS_display)
 ## Siehe auch
 
 - [Lernen: Mehrspaltenlayout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
-- Modul [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation)
-- Modul [CSS-Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout)
-- Modul [CSS-Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout)
-- Modul [CSS-seitenbasierte Medien](/de/docs/Web/CSS/CSS_paged_media)
+- Modul [CSS-Fragmentierung](/de/docs/Web/CSS/Guides/Fragmentation)
+- Modul [CSS-Flexbox-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout)
+- Modul [CSS-Rasterlayout](/de/docs/Web/CSS/Guides/Grid_layout)
+- Modul [CSS-seitenbasierte Medien](/de/docs/Web/CSS/Guides/Paged_media)

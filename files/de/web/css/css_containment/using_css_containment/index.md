@@ -60,14 +60,14 @@ article {
 }
 ```
 
-Das Layout bezieht sich normalerweise auf das gesamte Dokument, was bedeutet, dass, wenn Sie ein Element bewegen, das gesamte Dokument so behandelt werden muss, als ob sich Dinge überall hin verschoben haben könnten. Durch die Verwendung von `contain: layout` können Sie dem Browser mitteilen, dass er nur dieses Element überprüfen muss – alles innerhalb des Elements bezieht sich nur auf dieses Element und beeinflusst nicht den Rest der Seite, wobei die beinhaltende Box einen unabhängigen [Formatierungskontext](/de/docs/Web/CSS/CSS_display/Introduction_to_formatting_contexts) bildet.
+Das Layout bezieht sich normalerweise auf das gesamte Dokument, was bedeutet, dass, wenn Sie ein Element bewegen, das gesamte Dokument so behandelt werden muss, als ob sich Dinge überall hin verschoben haben könnten. Durch die Verwendung von `contain: layout` können Sie dem Browser mitteilen, dass er nur dieses Element überprüfen muss – alles innerhalb des Elements bezieht sich nur auf dieses Element und beeinflusst nicht den Rest der Seite, wobei die beinhaltende Box einen unabhängigen [Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Formatting_contexts) bildet.
 
 Zusätzlich:
 
 - {{cssxref("float")}}-Layouts werden unabhängig innerhalb des angegebenen Elements durchgeführt.
 - Ränder kollabieren nicht über eine Layout-Containment-Grenze hinweg.
-- Der Layout-Container ist ein [beinhaltender Block](/de/docs/Web/CSS/CSS_display/Containing_block) für `absolute`- und `fixed`-positionierte Nachfahren.
-- Die beinhaltende Box erstellt einen [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context), daher kann {{cssxref("z-index")}} verwendet werden.
+- Der Layout-Container ist ein [beinhaltender Block](/de/docs/Web/CSS/Guides/Display/Containing_block) für `absolute`- und `fixed`-positionierte Nachfahren.
+- Die beinhaltende Box erstellt einen [Stacking-Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context), daher kann {{cssxref("z-index")}} verwendet werden.
 
 > [!NOTE]
 > Die Werte `style` und `layout` von `contain` werden automatisch angewendet, wenn die Eigenschaften {{cssxref("container-type")}} und {{cssxref("container-name")}} verwendet werden.
@@ -80,7 +80,7 @@ article {
 }
 ```
 
-Farbcontainment clippt im Wesentlichen die Box an die Polsterkante der [Hauptbox](/de/docs/Web/CSS/CSS_display/Visual_formatting_model#the_principal_box). Es kann keinen sichtbaren Überlauf geben. Die gleichen zusätzlichen Hinweise gelten für `paint`-Containment wie für `layout`-Containment (siehe oben).
+Farbcontainment clippt im Wesentlichen die Box an die Polsterkante der [Hauptbox](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model#the_principal_box). Es kann keinen sichtbaren Überlauf geben. Die gleichen zusätzlichen Hinweise gelten für `paint`-Containment wie für `layout`-Containment (siehe oben).
 
 Ein weiterer Vorteil ist, dass, wenn das mit Containment versehene Element außerhalb des Bildschirms ist, der Browser seine Kindelemente nicht zeichnen muss - diese sind ebenfalls außerhalb des Bildschirms, da sie vollständig von dieser Box enthalten sind.
 
@@ -111,7 +111,7 @@ article {
 }
 ```
 
-Trotz des Namens bietet Stil-Containment keine scoping für Stile, wie Sie es vom [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) oder {{cssxref("@scope")}} erhalten würden. Der Hauptanwendungsfall für den `style`-Wert ist das Verhindern von Situationen, in denen ein [CSS-Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) in einem Element geändert werden könnte, was dann den Rest des Baums beeinflussen könnte.
+Trotz des Namens bietet Stil-Containment keine scoping für Stile, wie Sie es vom [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) oder {{cssxref("@scope")}} erhalten würden. Der Hauptanwendungsfall für den `style`-Wert ist das Verhindern von Situationen, in denen ein [CSS-Zähler](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters) in einem Element geändert werden könnte, was dann den Rest des Baums beeinflussen könnte.
 
 Mit `contain: style` wird sichergestellt, dass die Eigenschaften {{cssxref("counter-increment")}} und {{cssxref("counter-set")}} neue Zähler erstellen, die nur auf diesen Teilbaum begrenzt sind.
 
@@ -184,12 +184,12 @@ Wenn ein Element seine Inhalte überspringt:
 Dies geschieht in beiden Fällen, aber bei `content-visibility: auto` können die Inhalte durchsucht, fokussiert und anderweitig von nicht relevant zu relevant verschoben werden. Dies gilt nicht für `content-visibility: hidden`.
 
 > [!NOTE]
-> Um den Übergang von `content-visibility: hidden` zu einem sichtbaren Wert zu animieren, müssen Sie {{cssxref("transition-behavior", "transition-behavior:&nbsp;allow-discrete")}} und {{cssxref("@starting-style")}}-Stile setzen. Siehe [Übergang von `display` und `content-visibility`](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions#transitioning_display_and_content-visibility), um mehr zu erfahren.
+> Um den Übergang von `content-visibility: hidden` zu einem sichtbaren Wert zu animieren, müssen Sie {{cssxref("transition-behavior", "transition-behavior:&nbsp;allow-discrete")}} und {{cssxref("@starting-style")}}-Stile setzen. Siehe [Übergang von `display` und `content-visibility`](/de/docs/Web/CSS/Guides/Transitions/Using#transitioning_display_and_content-visibility), um mehr zu erfahren.
 
 ## Siehe auch
 
-- [CSS Containment-Modul](/de/docs/Web/CSS/CSS_containment)
+- [CSS Containment-Modul](/de/docs/Web/CSS/Guides/Containment)
 - [Lernen: CSS-Leistungsoptimierung](/de/docs/Learn_web_development/Extensions/Performance/CSS)
-- [CSS Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
+- [CSS Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)
 - [Eine Einführung in CSS-Containment](https://blogs.igalia.com/mrego/2019/01/11/an-introduction-to-css-containment/) über Igalia.com (2019)
 - Das [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event)-Ereignis

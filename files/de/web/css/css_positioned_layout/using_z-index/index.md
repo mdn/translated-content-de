@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Der erste Artikel dieses Leitfadens, [Stapeln ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index), erklärt, wie das Stapeln standardmäßig angeordnet ist. Wenn Sie eine benutzerdefinierte Stapelreihenfolge erstellen möchten, können Sie die {{cssxref("z-index")}}-Eigenschaft auf einem [positionierten](/de/docs/Web/CSS/Reference/Properties/position#types_of_positioning) Element verwenden.
+Der erste Artikel dieses Leitfadens, [Stapeln ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_without_z-index), erklärt, wie das Stapeln standardmäßig angeordnet ist. Wenn Sie eine benutzerdefinierte Stapelreihenfolge erstellen möchten, können Sie die {{cssxref("z-index")}}-Eigenschaft auf einem [positionierten](/de/docs/Web/CSS/Reference/Properties/position#types_of_positioning) Element verwenden.
 
 Die `z-index`-Eigenschaft kann mit einem ganzzahligen Wert (positiv, null oder negativ) angegeben werden, der die Position des Elements entlang einer imaginären z-Achse darstellt. Wenn Ihnen der Begriff 'z-Achse' nicht vertraut ist, stellen Sie sich die Seite als Stapel von Schichten vor, von denen jede eine Nummer hat. Schichten werden in numerischer Reihenfolge gerendert, wobei größere Zahlen über kleineren Zahlen liegen (_X_ steht für eine beliebige positive ganze Zahl):
 
@@ -126,8 +126,8 @@ strong {
 
 ## Siehe auch
 
-- [Verständnis von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
-- [Stapeldarstellungskontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- [Stapelung schwebender Elemente](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
-- [Stapeln ohne `z-index`](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
-- Modul [CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout)
+- [Verständnis von z-index](/de/docs/Web/CSS/Guides/Positioned_layout/Understanding_z-index)
+- [Stapeldarstellungskontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context)
+- [Stapelung schwebender Elemente](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_floating_elements)
+- [Stapeln ohne `z-index`](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_without_z-index)
+- Modul [CSS positioniertes Layout](/de/docs/Web/CSS/Guides/Positioned_layout)

@@ -13,7 +13,7 @@ Ein **{{Glossary("replaced_elements", "ersetztes Element")}}** ist ein Element, 
 
 CSS behandelt ersetzte Elemente in bestimmten Fällen speziell, beispielsweise bei der Berechnung von Rändern und einigen `auto`-Werten. Nur ersetzte Elemente können jemals {{Glossary("intrinsic_size", "intrinsische Abmessungen")}} haben. Einige ersetzte Elemente, aber nicht alle, haben intrinsische Abmessungen oder eine definierte Basislinie, die von einigen CSS-Eigenschaften wie {{cssxref("vertical-align")}} verwendet wird.
 
-Obwohl Dokumentstile die Größe und Position ersetzter Elemente festlegen können, beeinflussen Dokumentstile nicht den Inhalt der ersetzten Elemente, mit einigen Ausnahmen: Das [CSS-Bildermodul](/de/docs/Web/CSS/CSS_images) enthält Eigenschaften, die die Positionierung des Inhalts des Elements innerhalb seines Rahmens unterstützen.
+Obwohl Dokumentstile die Größe und Position ersetzter Elemente festlegen können, beeinflussen Dokumentstile nicht den Inhalt der ersetzten Elemente, mit einigen Ausnahmen: Das [CSS-Bildermodul](/de/docs/Web/CSS/Guides/Images) enthält Eigenschaften, die die Positionierung des Inhalts des Elements innerhalb seines Rahmens unterstützen.
 
 ## Steuerung der Objektposition innerhalb des Inhaltsrahmens
 
@@ -142,7 +142,7 @@ Die `object-position`-Eigenschaft funktioniert genauso gut mit `<iframe>`, `<vid
 
 ## Siehe auch
 
-- [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
-- [CSS-Bilder](/de/docs/Web/CSS/CSS_images) Modul
-- [CSS-Display](/de/docs/Web/CSS/CSS_display) Modul
-- [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios)
+- [CSS-Bilder](/de/docs/Web/CSS/Guides/Images) Modul
+- [CSS-Display](/de/docs/Web/CSS/Guides/Display) Modul
+- [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul

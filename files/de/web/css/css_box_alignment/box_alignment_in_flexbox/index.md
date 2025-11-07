@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-Das [Box-Ausrichtungsmodul](/de/docs/Web/CSS/CSS_box_alignment) beschreibt, wie Ausrichtung in verschiedenen Layoutmethoden funktioniert. In diesem Leitfaden untersuchen wir, wie die Box-Ausrichtung im Kontext von [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) funktioniert. Da dieser Leitfaden darauf abzielt, die spezifischen Aspekte von Flexbox und der Box-Ausrichtung zu detaillieren, sollte er in Verbindung mit dem [Box-Ausrichtungsüberblick](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment) gelesen werden, der die gemeinsamen Merkmale der Box-Ausrichtung über Layoutmethoden hinweg beschreibt.
+Das [Box-Ausrichtungsmodul](/de/docs/Web/CSS/Guides/Box_alignment) beschreibt, wie Ausrichtung in verschiedenen Layoutmethoden funktioniert. In diesem Leitfaden untersuchen wir, wie die Box-Ausrichtung im Kontext von [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) funktioniert. Da dieser Leitfaden darauf abzielt, die spezifischen Aspekte von Flexbox und der Box-Ausrichtung zu detaillieren, sollte er in Verbindung mit dem [Box-Ausrichtungsüberblick](/de/docs/Web/CSS/Guides/Box_alignment/Overview) gelesen werden, der die gemeinsamen Merkmale der Box-Ausrichtung über Layoutmethoden hinweg beschreibt.
 
 ## Einfaches Beispiel
 
@@ -143,10 +143,10 @@ Auf der Querachse erstellt die `row-gap`-Eigenschaft Abstände zwischen benachba
 
 ## Siehe auch
 
-- [Box-Ausrichtungsüberblick](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment)
-- [Box-Ausrichtung im CSS-Gitter-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
-- [Box-Ausrichtung im mehrspaltigen Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_multi-column_layout)
-- [Box-Ausrichtung für Block-, absolut positioniertes und Tabellenlayout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_block_abspos_tables)
-- [Ausrichtung in Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
+- [Box-Ausrichtungsüberblick](/de/docs/Web/CSS/Guides/Box_alignment/Overview)
+- [Box-Ausrichtung im CSS-Gitter-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)
+- [Box-Ausrichtung im mehrspaltigen Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_multi-column_layout)
+- [Box-Ausrichtung für Block-, absolut positioniertes und Tabellenlayout](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables)
+- [Ausrichtung in Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
 - {{Glossary("Cross_axis", "Querachse")}}
 - {{Glossary("Main_axis", "Hauptachse")}}

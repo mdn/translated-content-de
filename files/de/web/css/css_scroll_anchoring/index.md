@@ -24,7 +24,7 @@ Für Scroll-Container, die auf ein Element {{Glossary("Scroll_snap", "geschnappt
 
 ## Leitfäden
 
-- [Übersicht über die Scroll-Ankerung](/de/docs/Web/CSS/CSS_scroll_anchoring/Scroll_anchoring)
+- [Übersicht über die Scroll-Ankerung](/de/docs/Web/CSS/Guides/Scroll_anchoring/Overview)
   - : Was ist Scroll-Ankerung, Unterdrückungs-Auslöser, und wann und wie Sie diese Browserfunktion aktivieren und deaktivieren können.
 
 ## Verwandte Konzepte
@@ -37,6 +37,6 @@ Für Scroll-Container, die auf ein Element {{Glossary("Scroll_snap", "geschnappt
 
 ## Siehe auch
 
-- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
-- [CSS-Überscroll-Verhalten](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul
+- [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [CSS-Überscroll-Verhalten](/de/docs/Web/CSS/Guides/Overscroll_behavior) Modul

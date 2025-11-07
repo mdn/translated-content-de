@@ -2,10 +2,10 @@
 title: shape-margin
 slug: Web/CSS/Reference/Properties/shape-margin
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`shape-margin`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt einen Abstand für eine CSS-Form, die mit {{cssxref("shape-outside")}} erstellt wurde.
+Die **`shape-margin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt einen Abstand für eine CSS-Form fest, die mit {{cssxref("shape-outside")}} erstellt wurde.
 
 {{InteractiveExample("CSS Demo: shape-margin")}}
 
@@ -58,7 +58,7 @@ shape-margin: 5%;
 }
 ```
 
-Der Abstand ermöglicht es Ihnen, den Abstand zwischen den Kanten der Form (dem **float-Element**) und dem umgebenden Inhalt anzupassen.
+Der Abstand ermöglicht es Ihnen, den Abstand zwischen den Rändern der Form (dem **Floatelement**) und dem umliegenden Inhalt anzupassen.
 
 ## Syntax
 
@@ -81,7 +81,7 @@ shape-margin: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Setzt den Abstand der Form auf einen {{cssxref("&lt;length&gt;")}} Wert oder auf einen {{cssxref("&lt;percentage&gt;")}} der Breite des enthaltenen Blocks des Elements.
+  - : Setzt den Rand der Form auf einen {{cssxref("&lt;length&gt;")}} Wert oder einen {{cssxref("&lt;percentage&gt;")}} der Breite des enthaltenden Blocks des Elements.
 
 ## Formale Definition
 
@@ -93,7 +93,7 @@ shape-margin: unset;
 
 ## Beispiele
 
-### Hinzufügen eines Abstands zu einem Polygon
+### Einen Rand zu einem Polygon hinzufügen
 
 #### HTML
 
@@ -142,8 +142,8 @@ section {
 
 ## Siehe auch
 
-- [CSS Shapes](/de/docs/Web/CSS/CSS_shapes)
-- [Überblick über CSS Shapes](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
+- [CSS Shapes](/de/docs/Web/CSS/Guides/Shapes)
+- [Überblick über CSS Shapes](/de/docs/Web/CSS/Guides/Shapes/Overview)
 - {{cssxref("shape-outside")}}
 - {{cssxref("shape-image-threshold")}}
 - {{cssxref("&lt;basic-shape&gt;")}}

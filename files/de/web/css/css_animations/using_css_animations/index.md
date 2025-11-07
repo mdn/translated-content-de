@@ -401,7 +401,7 @@ Und hier das Live-Ergebnis.
 
 Dieses Beispiel zeigt, wie [`display`](/de/docs/Web/CSS/Reference/Properties/display) und [`content-visibility`](/de/docs/Web/CSS/Reference/Properties/content-visibility) animiert werden können. Dieses Verhalten ist nützlich, um Ein-/Austritts-Animationen zu erstellen, bei denen beispielsweise ein Container mit `display: none` aus dem DOM entfernt werden soll, jedoch sanft mit [`opacity`](/de/docs/Web/CSS/Reference/Properties/opacity) ausgeblendet werden soll, anstatt sofort zu verschwinden.
 
-Unterstützende Browser animieren `display` und `content-visibility` mit einer Variation des [diskreten Animations-Typs](/de/docs/Web/CSS/CSS_animated_properties#discrete). Dies bedeutet im Allgemeinen, dass Eigenschaften 50% des Weges durch die Animation zwischen den beiden Werten wechseln.
+Unterstützende Browser animieren `display` und `content-visibility` mit einer Variation des [diskreten Animations-Typs](/de/docs/Web/CSS/Guides/Animations/Animatable_properties#discrete). Dies bedeutet im Allgemeinen, dass Eigenschaften 50% des Weges durch die Animation zwischen den beiden Werten wechseln.
 
 Es gibt jedoch eine Ausnahme, wenn von/zu `display: none` oder `content-visibility: hidden` zu einem sichtbaren Wert animiert wird. In diesem Fall schaltet der Browser zwischen den beiden Werten so um, dass der animierte Inhalt während der gesamten Animationsdauer angezeigt wird.
 
@@ -522,5 +522,5 @@ Der Code sieht wie folgt aus:
 ## Siehe auch
 
 - [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
-- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/Guides/Transitions/Using)
 - [Verwendung der Web Animations API](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API)

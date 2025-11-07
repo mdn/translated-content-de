@@ -38,7 +38,7 @@ Die in diesem Modul eingeführten Eigenschaften sind nicht auf die `<table>`-Ele
 - {{cssxref("vertical-align")}} Eigenschaft
 - {{cssxref("text-align")}} Eigenschaft
 
-- [CSS Box-Sizing](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- [CSS Box-Sizing](/de/docs/Web/CSS/Guides/Box_sizing) Modul
   - {{cssxref("box-sizing")}}
   - {{cssxref("height")}}
   - {{cssxref("max-width")}}
@@ -47,7 +47,7 @@ Die in diesem Modul eingeführten Eigenschaften sind nicht auf die `<table>`-Ele
   - {{cssxref("width")}}
   - {{cssxref("min-content")}} Schlüsselwort
 
-- [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
   - {{cssxref("border")}} Kurzform
   - {{cssxref("border-width")}}
   - {{cssxref("border-style")}}
@@ -74,7 +74,7 @@ Die in diesem Modul eingeführten Eigenschaften sind nicht auf die `<table>`-Ele
 
 ## Siehe auch
 
-- [CSS Display](/de/docs/Web/CSS/CSS_display) Modul
-- [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
-- [CSS Flexibles Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
-- [CSS Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul
+- [CSS Display](/de/docs/Web/CSS/Guides/Display) Modul
+- [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
+- [CSS Flexibles Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
+- [CSS Fragmentierung](/de/docs/Web/CSS/Guides/Fragmentation) Modul

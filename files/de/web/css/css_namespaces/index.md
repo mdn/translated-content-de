@@ -56,6 +56,6 @@ Die `@namespace`-Regel wird verwendet, um einen Standardnamensraum zu deklariere
 
 - [`<a>`](/de/docs/Web/SVG/Reference/Element/a#example) SVG-Element
 - [CSS `<url>`-Typ](/de/docs/Web/CSS/Reference/Values/url_value)
-- [CSS-At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rules)
+- [CSS-At-Regeln](/de/docs/Web/CSS/Guides/Syntax/At-rules)
 - [CSS-At-Regel-Funktionen](/de/docs/Web/CSS/Reference/At-rules/At-rule_functions)
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)

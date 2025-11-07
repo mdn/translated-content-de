@@ -5,7 +5,7 @@ l10n:
   sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das Modul **CSS-Ränder und Box-Dekorationen** bietet Eigenschaften zum Hinzufügen von Rändern, geformten Ecken und Box-Schatten zu Elementen. Dieses Modul erweitert die in dem Modul [CSS-Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) eingeführten Ränder und Box-Dekorationen, indem es {{cssxref("corner-shape")}} und `border-shape` Eigenschaften, logische {{cssxref("border-radius")}}-Eigenschaften, Langtexteigenschaften für die {{cssxref("box-shadow")}}-Eigenschaft sowie Eigenschaften zur Erstellung von Teilrändern hinzufügt.
+Das Modul **CSS-Ränder und Box-Dekorationen** bietet Eigenschaften zum Hinzufügen von Rändern, geformten Ecken und Box-Schatten zu Elementen. Dieses Modul erweitert die in dem Modul [CSS-Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) eingeführten Ränder und Box-Dekorationen, indem es {{cssxref("corner-shape")}} und `border-shape` Eigenschaften, logische {{cssxref("border-radius")}}-Eigenschaften, Langtexteigenschaften für die {{cssxref("box-shadow")}}-Eigenschaft sowie Eigenschaften zur Erstellung von Teilrändern hinzufügt.
 
 ## Ränder und Box-Dekorationen in Aktion
 
@@ -223,7 +223,7 @@ Das Modul CSS-Ränder und Box-Dekorationen Level 4 führt auch die Eigenschaften
 - [`<position>`](/de/docs/Web/CSS/Reference/Properties/position) Datentyp
 - [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword) Schlüsselwort
 
-[CSS-Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+[CSS-Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
 
 - {{cssxref("background-attachment")}}
 - {{cssxref("background-clip")}}
@@ -252,6 +252,6 @@ Das Modul CSS-Ränder und Box-Dekorationen Level 4 führt auch die Eigenschaften
 - {{cssxref("filter")}}
 - {{cssxref("backdrop-filter")}}
 - [`drop-shadow()`](/de/docs/Web/CSS/Reference/Values/filter-function/drop-shadow) Filterfunktion
-- [Farbe auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)
-- [Border-Image-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Border-image_generator)
-- [Border-Radius-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Border-radius_generator)
+- [Farbe auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/Guides/Colors/Applying_color)
+- [Border-Image-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-image_generator)
+- [Border-Radius-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-radius_generator)

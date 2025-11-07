@@ -66,7 +66,7 @@ p {
 
 {{EmbedLiveSample('horizontal','auto','320')}}
 
-Sie haben möglicherweise bemerkt, dass die `text-shadow`-Eigenschaft keinen Effekt auf das [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) hat, ähnlich wie die {{cssxref("outline")}}-Eigenschaft. Genau wie {{cssxref("box-shadow")}} wirken sich Textschatten nicht auf das Layout aus, lösen kein Scrollen aus und beeinflussen nicht die Größe des scrollbaren Überflussbereichs. Während Textschatten den Text eines Elements größer erscheinen lassen können, haben sie keinen tatsächlichen Einfluss auf die Breite (oder Höhe) des Inhalts.
+Sie haben möglicherweise bemerkt, dass die `text-shadow`-Eigenschaft keinen Effekt auf das [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model/Introduction) hat, ähnlich wie die {{cssxref("outline")}}-Eigenschaft. Genau wie {{cssxref("box-shadow")}} wirken sich Textschatten nicht auf das Layout aus, lösen kein Scrollen aus und beeinflussen nicht die Größe des scrollbaren Überflussbereichs. Während Textschatten den Text eines Elements größer erscheinen lassen können, haben sie keinen tatsächlichen Einfluss auf die Breite (oder Höhe) des Inhalts.
 
 ### Vertikaler Offset
 

@@ -6,11 +6,11 @@ l10n:
   sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-[CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) wurde entwickelt, um mit den anderen Teilen von CSS zusammenzuarbeiten, als Teil eines vollständigen Systems für die Gestaltung von Layouts. Dieser Leitfaden erklärt, wie das Grid-Layout mit anderen Techniken zusammenpasst.
+[CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout) wurde entwickelt, um mit den anderen Teilen von CSS zusammenzuarbeiten, als Teil eines vollständigen Systems für die Gestaltung von Layouts. Dieser Leitfaden erklärt, wie das Grid-Layout mit anderen Techniken zusammenpasst.
 
 ## Grid und Flexbox
 
-Der grundlegende Unterschied zwischen CSS Grid Layout und [CSS Flexbox Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) besteht darin, dass Flexbox für das Layout in einer Dimension entwickelt wurde - entweder einer Zeile _oder_ einer Spalte. Grid wurde für ein zweidimensionales Layout entwickelt - Zeilen und Spalten gleichzeitig. Beide Spezifikationen verwenden die Funktionen der [CSS Box Alignment](/de/docs/Web/CSS/CSS_box_alignment). Wenn Sie bereits gelernt haben, wie man Flexbox verwendet, sollten die Ähnlichkeiten Ihnen helfen, sich auch mit Grid vertraut zu machen.
+Der grundlegende Unterschied zwischen CSS Grid Layout und [CSS Flexbox Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) besteht darin, dass Flexbox für das Layout in einer Dimension entwickelt wurde - entweder einer Zeile _oder_ einer Spalte. Grid wurde für ein zweidimensionales Layout entwickelt - Zeilen und Spalten gleichzeitig. Beide Spezifikationen verwenden die Funktionen der [CSS Box Alignment](/de/docs/Web/CSS/Guides/Box_alignment). Wenn Sie bereits gelernt haben, wie man Flexbox verwendet, sollten die Ähnlichkeiten Ihnen helfen, sich auch mit Grid vertraut zu machen.
 
 ### Eindimensionales vs. zweidimensionales Layout
 
@@ -125,9 +125,9 @@ Wenn Sie Flexbox verwenden und einige der Flexibilität deaktivieren, sollten Si
 
 ### Box-Ausrichtung
 
-Die meisten Grid-Ausrichtungsfunktionen wurden ursprünglich im [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) definiert. Diese Funktionen boten erstmals eine ordnungsgemäße Ausrichtungssteuerung und machten es einfach, eine Box auf der Seite zu zentrieren. Flex-Elemente können sich auf die Höhe des Flex-Containers strecken, was bedeutet, dass gleich hohe Spalten möglich waren. Diese Eigenschaften sind jetzt im [CSS Box Alignment](/de/docs/Web/CSS/CSS_box_alignment) Modul definiert und werden in mehreren Layoutmodi verwendet, einschließlich Grid-Layout.
+Die meisten Grid-Ausrichtungsfunktionen wurden ursprünglich im [CSS Flexible Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) definiert. Diese Funktionen boten erstmals eine ordnungsgemäße Ausrichtungssteuerung und machten es einfach, eine Box auf der Seite zu zentrieren. Flex-Elemente können sich auf die Höhe des Flex-Containers strecken, was bedeutet, dass gleich hohe Spalten möglich waren. Diese Eigenschaften sind jetzt im [CSS Box Alignment](/de/docs/Web/CSS/Guides/Box_alignment) Modul definiert und werden in mehreren Layoutmodi verwendet, einschließlich Grid-Layout.
 
-Wir werden uns später ausführlich mit dem [Ausrichten von Elementen im CSS Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout) beschäftigen. Für jetzt hier ein Vergleich zwischen Beispielen von Flexbox und Grid.
+Wir werden uns später ausführlich mit dem [Ausrichten von Elementen im CSS Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout/Box_alignment) beschäftigen. Für jetzt hier ein Vergleich zwischen Beispielen von Flexbox und Grid.
 
 Im ersten Beispiel, das Flexbox verwendet, haben wir einen Container mit drei Elementen darin. Die {{cssxref("min-height")}} des Containers ist festgelegt, um die Höhe des Flex-Containers zu definieren. Wir haben {{cssxref("align-items")}} auf dem Flex-Container auf `flex-end` gesetzt, damit sich die Elemente am Ende des Flex-Containers ausrichten. Wir haben auch die Eigenschaft {{cssxref("align-self")}} auf `box1` gesetzt, um die Standardeinstellung zu überschreiben und sich auf die Höhe des Containers zu strecken, und auf `box2`, damit es sich am Anfang des Flex-Containers ausrichtet.
 
@@ -326,7 +326,7 @@ Grid interagiert mit [absolut positionierten](/de/docs/Web/CSS/Reference/Propert
 
 ### Ein Grid-Container als enthaltender Block
 
-Um den Grid-Container zu einem [enthaltenden Block](/de/docs/Web/CSS/CSS_display/Containing_block) zu machen, müssen Sie die Eigenschaft {{cssxref("position")}} zum Container mit einem Wert von `relative` hinzufügen, genauso wie Sie einen enthaltenden Block für andere absolut positionierte Elemente erstellen würden. Sobald Sie dies getan haben, nimmt ein Grid-Element mit `position: absolute` den Grid-Container oder, wenn das Element auch eine Grid-Position hat, den Bereich auf dem Grid, in den es platziert ist, als enthaltenden Block.
+Um den Grid-Container zu einem [enthaltenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block) zu machen, müssen Sie die Eigenschaft {{cssxref("position")}} zum Container mit einem Wert von `relative` hinzufügen, genauso wie Sie einen enthaltenden Block für andere absolut positionierte Elemente erstellen würden. Sobald Sie dies getan haben, nimmt ein Grid-Element mit `position: absolute` den Grid-Container oder, wenn das Element auch eine Grid-Position hat, den Bereich auf dem Grid, in den es platziert ist, als enthaltenden Block.
 
 Im untenstehenden Beispiel haben wir einen Wrapper, der vier Child-Elemente enthält. Das dritte Element ist absolut positioniert und auch auf dem Grid unter Verwendung einer linearen Platzierung platziert. Der Grid-Container hat `position: relative` und wird so zum Positionierungskontext dieses Elements.
 
@@ -467,7 +467,7 @@ Wir haben `box3` die Position relativ eingestellt und dann das Unterelement mit 
 
 ## Grid und display: contents
 
-Eine letzte erwähnenswerte Interaktion ist die Interaktion zwischen CSS Grid Layout und `display: contents`, die im [CSS Display](/de/docs/Web/CSS/CSS_display) Modul definiert ist. Wenn die Eigenschaft {{cssxref("display")}} auf `contents` gesetzt ist, erzeugt das Element selbst keine Boxen, aber seine Kinder und Pseudoelemente erzeugen wie gewohnt Boxen. Dies bedeutet, dass das Element für die Zwecke der Boxen-Generierung und des Layouts so behandelt wird, als ob es durch seine Kinder und Pseudoelemente im Dokumentenbaum ersetzt worden wäre.
+Eine letzte erwähnenswerte Interaktion ist die Interaktion zwischen CSS Grid Layout und `display: contents`, die im [CSS Display](/de/docs/Web/CSS/Guides/Display) Modul definiert ist. Wenn die Eigenschaft {{cssxref("display")}} auf `contents` gesetzt ist, erzeugt das Element selbst keine Boxen, aber seine Kinder und Pseudoelemente erzeugen wie gewohnt Boxen. Dies bedeutet, dass das Element für die Zwecke der Boxen-Generierung und des Layouts so behandelt wird, als ob es durch seine Kinder und Pseudoelemente im Dokumentenbaum ersetzt worden wäre.
 
 Wenn Sie ein Element auf `display: contents` setzen, verschwindet die Box, die es normalerweise erzeugen würde, und die Boxen der Kindelemente erscheinen, als ob sie eine Ebene höher gestiegen wären. Das bedeutet, dass Kinder eines Grid-Elements zu Grid-Elementen werden können. Klingt seltsam? Hier ein Beispiel.
 
@@ -595,4 +595,4 @@ Wie Sie aus diesem Leitfaden sehen können, ist CSS Grid Layout nur ein Teil Ihr
 ## Siehe auch
 
 - [Flexbox-Leitfäden](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox)
-- [Mehrspaltige Layout-Leitfäden](/de/docs/Web/CSS/CSS_multicol_layout)
+- [Mehrspaltige Layout-Leitfäden](/de/docs/Web/CSS/Guides/Multicol_layout)

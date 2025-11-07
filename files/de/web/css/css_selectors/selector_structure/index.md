@@ -12,7 +12,7 @@ Diese Selektoren können zu einer kommagetrennten [Selektorliste](#selektorliste
 
 ### Einfacher Selektor
 
-Ein **einfacher Selektor** ist ein Selektor mit einer einzigen Komponente, wie einem Typselektor, Attributselektor oder einer Pseudoklasse, die nicht in Kombination mit oder enthaltend mit einer anderen Selektorkomponente oder einem Kombinator verwendet wird. Ein gegebenes Element stimmt mit einem einfachen Selektor überein, wenn dieser einfache Selektor das Element genau beschreibt. Jeder Selektor, der einen [grundlegenden Selektor](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators#basic_selectors), einen [Attributselektor](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors), eine [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) oder einen [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) -Selektor enthält, ist ein einfacher Selektor.
+Ein **einfacher Selektor** ist ein Selektor mit einer einzigen Komponente, wie einem Typselektor, Attributselektor oder einer Pseudoklasse, die nicht in Kombination mit oder enthaltend mit einer anderen Selektorkomponente oder einem Kombinator verwendet wird. Ein gegebenes Element stimmt mit einem einfachen Selektor überein, wenn dieser einfache Selektor das Element genau beschreibt. Jeder Selektor, der einen [grundlegenden Selektor](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators#basic_selectors), einen [Attributselektor](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors), eine [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) oder einen [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) -Selektor enthält, ist ein einfacher Selektor.
 
 ```css
 #myId {
@@ -24,7 +24,7 @@ Ein **einfacher Selektor** ist ein Selektor mit einer einzigen Komponente, wie e
 
 ### Zusammengesetzter Selektor
 
-Ein **zusammengesetzter Selektor** ist eine Sequenz von [einfachen Selektoren](#einfacher_selektor), die nicht durch einen [Kombinator](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators#combinators) getrennt sind. Ein zusammengesetzter Selektor repräsentiert einen Satz gleichzeitiger Bedingungen für ein einzelnes Element. Ein gegebenes Element wird als mit einem zusammengesetzten Selektor übereinstimmend bezeichnet, wenn das Element mit allen einfachen Selektoren im zusammengesetzten Selektor übereinstimmt.
+Ein **zusammengesetzter Selektor** ist eine Sequenz von [einfachen Selektoren](#einfacher_selektor), die nicht durch einen [Kombinator](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators#combinators) getrennt sind. Ein zusammengesetzter Selektor repräsentiert einen Satz gleichzeitiger Bedingungen für ein einzelnes Element. Ein gegebenes Element wird als mit einem zusammengesetzten Selektor übereinstimmend bezeichnet, wenn das Element mit allen einfachen Selektoren im zusammengesetzten Selektor übereinstimmt.
 
 ```css
 a#selected {
@@ -97,9 +97,9 @@ dt:has(+ img) ~ dd {
 
 ## Siehe auch
 
-- [CSS-Selektoren und Kombinatoren](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators)
+- [CSS-Selektoren und Kombinatoren](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators)
 - [Tolerante Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list#forgiving_selector_list)
 - [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector)
 - [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll)
-- Modul [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- Modul [CSS-Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements)
+- Modul [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)
+- Modul [CSS-Pseudoelemente](/de/docs/Web/CSS/Guides/Pseudo-elements)

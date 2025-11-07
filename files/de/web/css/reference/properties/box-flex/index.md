@@ -2,15 +2,15 @@
 title: box-flex
 slug: Web/CSS/Reference/Properties/box-flex
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{Non-standard_Header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft zur Steuerung von Teilen des XUL-Box-Modells. Es stimmt weder mit den alten CSS-Flexbox-Layout-Entwurfentwürfen für `box-flex` überein (die auf dieser Eigenschaft basierten) noch mit dem Verhalten von `-webkit-box-flex` (das auf jenen Entwürfen basiert). Siehe [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) für Informationen über den aktuellen Standard.
+> Dies ist eine Eigenschaft zur Steuerung von Teilen des XUL-Box-Modells. Sie entspricht weder den alten CSS flexible box layout Modulentwürfen für `box-flex` (die auf dieser Eigenschaft basierten) noch dem Verhalten von `-webkit-box-flex` (das auf diesen Entwürfen basiert). Siehe [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) für Informationen über den aktuellen Standard.
 
-Die **`-moz-box-flex`** und **`-webkit-box-flex`** [CSS](/de/docs/Web/CSS) Eigenschaften legen fest, wie ein `-moz-box` oder `-webkit-box` wächst, um die Box auszufüllen, die ihn im Layout des umgebenden Containers enthält.
+Die **`-moz-box-flex`** und **`-webkit-box-flex`** [CSS](/de/docs/Web/CSS)-Eigenschaften geben an, wie eine `-moz-box` oder `-webkit-box` in der Richtung des Layouts der enthaltenden Box wächst, um diese zu füllen.
 
 ## Syntax
 
@@ -36,23 +36,23 @@ Die **`-moz-box-flex`** und **`-webkit-box-flex`** [CSS](/de/docs/Web/CSS) Eigen
 -webkit-box-flex: unset;
 ```
 
-Die `box-flex` Eigenschaft wird als ein {{CSSxRef("&lt;number&gt;")}} angegeben. Wenn der Wert 0 ist, wächst die Box nicht. Wenn er größer als 0 ist, wächst die Box, um einen Anteil des verfügbaren Raums auszufüllen.
+Die `box-flex`-Eigenschaft wird als {{CSSxRef("&lt;number&gt;")}} angegeben. Wenn der Wert 0 ist, wächst die Box nicht. Wenn er größer als 0 ist, wächst die Box, um einen Anteil des verfügbaren Raums zu füllen.
 
 ## Hinweise
 
-Die umgebende Box verteilt den verfügbaren zusätzlichen Raum im Verhältnis zum Flex-Wert jedes Inhalts-Elements.
+Die enthaltende Box verteilt den verfügbaren zusätzlichen Raum proportional zum Flex-Wert jedes der Inhaltselemente.
 
-Inhalts-Elemente, die Flex-Wert null haben, wachsen nicht.
+Inhaltselemente mit einem Flex-Wert von null wachsen nicht.
 
-Wenn nur ein Inhalts-Element einen nicht-null Flex-Wert hat, wächst es, um den verfügbaren Raum auszufüllen.
+Wenn nur ein Inhaltselement einen Flex-Wert ungleich null hat, wächst es, um den verfügbaren Raum zu füllen.
 
-Inhalts-Elemente mit dem gleichen Flex-Wert wachsen um den gleichen absoluten Betrag.
+Inhaltselemente mit dem gleichen Flex-Wert wachsen um denselben absoluten Betrag.
 
-Wenn der Flex-Wert über das `flex` Attribut des Elements festgelegt wird, wird der Stil ignoriert.
+Wenn der Flex-Wert über das `flex`-Attribut des Elements gesetzt wird, wird der Stil ignoriert.
 
-Um XUL-Elemente in einer umgebenden Box gleich groß zu machen, setzen Sie das `equalsize` Attribut der umgebenden Box auf den Wert `always`. Dieses Attribut hat keine entsprechende CSS-Eigenschaft.
+Um XUL-Elemente in einer enthaltenden Box gleich groß zu machen, setzen Sie das `equalsize`-Attribut der enthaltenden Box auf den Wert `always`. Dieses Attribut hat keine entsprechende CSS-Eigenschaft.
 
-Ein Trick, um alle Inhalts-Elemente in einer umgebenden Box gleich groß zu machen, besteht darin, ihnen alle eine feste Größe zu geben (z.B. `height: 0`), und den gleichen `box-flex` Wert größer als null (z.B. `-moz-box-flex: 1`).
+Ein Trick, um alle Inhaltselemente in einer enthaltenden Box gleich groß zu machen, besteht darin, ihnen alle eine feste Größe zu geben (z. B. `height: 0`) und denselben `box-flex`-Wert größer als null (z. B. `-moz-box-flex: 1`).
 
 ## Formale Definition
 
@@ -64,7 +64,7 @@ Ein Trick, um alle Inhalts-Elemente in einer umgebenden Box gleich groß zu mach
 
 ## Beispiele
 
-### Festlegen von box-flex
+### Box-Flex einstellen
 
 ```html
 <div class="example">
@@ -94,7 +94,7 @@ div.example > p:nth-child(2) {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 

@@ -9,7 +9,7 @@ Das **CSS-Positionierungs-Layout**-Modul definiert die auf Koordinaten basierend
 
 Das Positionierungs-Layout-Modul definiert die physischen, logischen und abgekürzten {{Glossary("inset_properties", "Einsetz-Eigenschaften")}}. Die logischen Eigenschaften ermöglichen die Entwicklung mit Blick auf Internationalisierung und Reaktionsfähigkeit.
 
-Wie alle CSS-Module beeinflusst dieses Modul andere Module und wird von ihnen beeinflusst. Dieses Modul beschreibt, wie die Positionierung mit anderen Layout-Modulen wie dem [CSS-Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) und dem [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) interagiert. Andere Module, wie z.B. die [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning), bauen auf diesem Modul auf, um eine Positionierung von Elementen relativ zu anderen Elementen und Ebenen zu ermöglichen.
+Wie alle CSS-Module beeinflusst dieses Modul andere Module und wird von ihnen beeinflusst. Dieses Modul beschreibt, wie die Positionierung mit anderen Layout-Modulen wie dem [CSS-Flexbox-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) und dem [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) interagiert. Andere Module, wie z.B. die [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning), bauen auf diesem Modul auf, um eine Positionierung von Elementen relativ zu anderen Elementen und Ebenen zu ermöglichen.
 
 ## Referenz
 
@@ -36,7 +36,7 @@ Wie alle CSS-Module beeinflusst dieses Modul andere Module und wird von ihnen be
 ### Glossarbegriffe und Definitionen
 
 - {{Glossary("Flow_relative_values#block_direction", "Blockrichtung")}}
-- [Umschließender Block](/de/docs/Web/CSS/CSS_display/Containing_block)
+- [Umschließender Block](/de/docs/Web/CSS/Guides/Display/Containing_block)
 - {{Glossary("Flow_relative_values", "Fluss relative Werte")}}
 - {{Glossary("Flow_relative_values#inline_direction", "Inline-Richtung")}}
 - {{Glossary("Inset_properties", "Einsetz-Eigenschaften")}}
@@ -48,15 +48,15 @@ Wie alle CSS-Module beeinflusst dieses Modul andere Module und wird von ihnen be
 
 ## Leitfäden
 
-- [Z-Index verstehen](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
+- [Z-Index verstehen](/de/docs/Web/CSS/Guides/Positioned_layout/Understanding_z-index)
   - : Stellt das Konzept des Stapelkontexts vor und erklärt die Funktionsweise des Z-Ordering anhand mehrerer Beispiele.
-- [Stapeln ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
+- [Stapeln ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_without_z-index)
   - : Die Stapelregeln, die gelten, wenn `z-index` nicht verwendet wird.
-- [Stapeln von schwebenden Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
+- [Stapeln von schwebenden Elementen](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_floating_elements)
   - : Wie schwebende Elemente beim Stapeln behandelt werden.
-- [Verwendung von `z-index`](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index)
+- [Verwendung von `z-index`](/de/docs/Web/CSS/Guides/Positioned_layout/Using_z-index)
   - : Wie man `z-index` verwendet, um das Standard-Stapeln zu ändern.
-- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
+- [Stapelkontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context)
   - : CSS-Stapelkontext, die CSS-Funktionen, die neue Stapelkontexte erstellen, und verschachtelte Stapelkontexte.
 - [Lernen: Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)
   - : Die verschiedenen Positionswerte und deren Verwendung.
@@ -70,7 +70,7 @@ Wie alle CSS-Module beeinflusst dieses Modul andere Module und wird von ihnen be
 - [Popover API](/de/docs/Web/API/Popover_API)
 - {{htmlelement("dialog")}}-Element
 
-- [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
+- [CSS-Ankerpositionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) Modul
   - {{cssxref("position-anchor")}}
   - {{cssxref("position-area")}}
   - {{cssxref("position-try-fallbacks")}}
@@ -78,7 +78,7 @@ Wie alle CSS-Module beeinflusst dieses Modul andere Module und wird von ihnen be
   - {{cssxref("position-try")}} Abkürzung
   - {{cssxref("position-visibility")}}
 
-- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) Modul
+- [CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms) Modul
   - {{cssxref("transform")}}
   - {{cssxref("transform-origin")}}
   - {{cssxref("translate")}}
@@ -107,5 +107,5 @@ Wie alle CSS-Module beeinflusst dieses Modul andere Module und wird von ihnen be
   - {{cssxref("content-position")}}
   - {{cssxref("overflow-position")}}
   - {{cssxref("self-position")}}
-- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+- [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
   - {{Glossary("Snap_positions", "Schnapp-Positionen")}}

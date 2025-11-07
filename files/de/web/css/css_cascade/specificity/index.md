@@ -8,7 +8,7 @@ l10n:
 **Spezifität** ist der Algorithmus, den Browser verwenden, um die [CSS-Deklaration](/de/docs/Learn_web_development/Core/Styling_basics/What_is_CSS#css_syntax_basics) zu bestimmen, die am relevantesten für ein Element ist und somit den Eigenschaftswert festlegt, der auf das Element angewendet wird. Der Spezifitätsalgorithmus berechnet das Gewicht eines [CSS-Selektors](/de/docs/Web/CSS/Reference#selectors), um zu bestimmen, welche Regel aus konkurrierenden CSS-Deklarationen auf ein Element angewendet wird.
 
 > [!NOTE]
-> Browser berücksichtigen die Spezifität **nachdem** sie [die Herkunft der Kaskade und die Wichtigkeit](/de/docs/Web/CSS/CSS_cascade/Cascade) bestimmt haben. Mit anderen Worten, bei konkurrierenden Eigenschaftsdeklarationen ist die Spezifität nur zwischen Selektoren relevant und wird verglichen, die aus der einen [Kaskadenherkunft und Ebene](/de/docs/Web/CSS/Reference/At-rules/@layer) stammen, die für die Eigenschaft Vorrang hat. [Nähe der Ausrichtung](/de/docs/Web/CSS/Reference/At-rules/@scope#how_scope_conflicts_are_resolved) und Reihenfolge des Erscheinens werden relevant, wenn die Spezifitäten der konkurrierenden Deklarationen in der Kaskadenschicht mit Vorrang gleich sind.
+> Browser berücksichtigen die Spezifität **nachdem** sie [die Herkunft der Kaskade und die Wichtigkeit](/de/docs/Web/CSS/Guides/Cascade/Introduction) bestimmt haben. Mit anderen Worten, bei konkurrierenden Eigenschaftsdeklarationen ist die Spezifität nur zwischen Selektoren relevant und wird verglichen, die aus der einen [Kaskadenherkunft und Ebene](/de/docs/Web/CSS/Reference/At-rules/@layer) stammen, die für die Eigenschaft Vorrang hat. [Nähe der Ausrichtung](/de/docs/Web/CSS/Reference/At-rules/@scope#how_scope_conflicts_are_resolved) und Reihenfolge des Erscheinens werden relevant, wenn die Spezifitäten der konkurrierenden Deklarationen in der Kaskadenschicht mit Vorrang gleich sind.
 
 ## Wie wird die Spezifität berechnet?
 
@@ -167,7 +167,7 @@ div:not(.inner, #fakeId) p {
 
 Im obigen CSS-Codeblock haben wir `#fakeId` in die Selektoren aufgenommen. Dieses `#fakeId` fügt jedem Absatz `1-0-0` zum Spezifitätsgewicht hinzu.
 
-Beim Erstellen komplexer Selektorlisten mit [CSS-Verschachtelung](/de/docs/Web/CSS/CSS_nesting) verhält sich dies genauso wie die `:is()` Pseudo-Klasse.
+Beim Erstellen komplexer Selektorlisten mit [CSS-Verschachtelung](/de/docs/Web/CSS/Guides/Nesting) verhält sich dies genauso wie die `:is()` Pseudo-Klasse.
 
 ```css
 p,
@@ -212,7 +212,7 @@ Stellen Sie sicher, dass Sie mit jeder Verwendung der wichtigen Flagge einen Kom
 
 ### Die `!important` Ausnahme
 
-CSS-Deklarationen, die als wichtig markiert sind, überschreiben alle anderen Deklarationen innerhalb derselben Kaskadenschicht und Herkunft. Obwohl technisch gesehen [`!important`](/de/docs/Web/CSS/Reference/Values/important) nichts mit Spezifität zu tun hat, interagiert es direkt mit Spezifität und der Kaskade. Es kehrt die Reihenfolge der [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) von Stylesheets um.
+CSS-Deklarationen, die als wichtig markiert sind, überschreiben alle anderen Deklarationen innerhalb derselben Kaskadenschicht und Herkunft. Obwohl technisch gesehen [`!important`](/de/docs/Web/CSS/Reference/Values/important) nichts mit Spezifität zu tun hat, interagiert es direkt mit Spezifität und der Kaskade. Es kehrt die Reihenfolge der [Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction) von Stylesheets um.
 
 Wenn Deklarationen aus derselben Herkunft und Kaskadenschicht in Konflikt stehen und ein Eigenschaftswert das `!important`-Flag gesetzt hat, wird die wichtige Deklaration unabhängig von der Spezifität angewendet. Wenn konkurrierende Deklarationen aus derselben Herkunft und Kaskadenschicht mit dem `!important`-Flag auf dasselbe Element angewendet werden, wird die Deklaration mit der höheren Spezifität angewendet.
 
@@ -457,7 +457,7 @@ Wenn mehrere Deklarationen die gleiche Spezifität haben, wird die letzte Deklar
 
 Ein paar Dinge, die Sie über Spezifität im Gedächtnis behalten sollten:
 
-1. Spezifität gilt nur, wenn dasselbe Element von mehreren Deklarationen in derselben Kaskadenschicht oder Herkunft anvisiert wird. Spezifität ist nur für Deklarationen von gleicher Bedeutung und gleicher Herkunft und [Kaskadenschicht](/de/docs/Web/CSS/Reference/At-rules/@layer) von Belang. Wenn übereinstimmende Selektoren in verschiedenen Ursprüngen sind, bestimmt die [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade), welche Deklaration Vorrang hat.
+1. Spezifität gilt nur, wenn dasselbe Element von mehreren Deklarationen in derselben Kaskadenschicht oder Herkunft anvisiert wird. Spezifität ist nur für Deklarationen von gleicher Bedeutung und gleicher Herkunft und [Kaskadenschicht](/de/docs/Web/CSS/Reference/At-rules/@layer) von Belang. Wenn übereinstimmende Selektoren in verschiedenen Ursprüngen sind, bestimmt die [Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction), welche Deklaration Vorrang hat.
 
 2. Wenn zwei Selektoren in derselben Kaskadenschicht und Herkunft die gleiche Spezifität haben, wird die Nähe der Ausrichtung berechnet; das Regelset mit der niedrigsten Nähe der Ausrichtung gewinnt. Siehe [Wie `@scope`-Konflikte gelöst werden](/de/docs/Web/CSS/Reference/At-rules/@scope#how_scope_conflicts_are_resolved) für weitere Details und ein Beispiel.
 
@@ -477,9 +477,9 @@ Ein paar Dinge, die Sie über Spezifität im Gedächtnis behalten sollten:
 - [SpeciFISHity](https://specifishity.com/)
 - [Specificity Calculator](https://specificity.keegan.st/): Eine interaktive Website zum Testen und Verstehen Ihrer eigenen CSS-Regeln
 - [_ID-CLASS-TYPE_ Übung](https://estelle.github.io/CSS/selectors/exercises/specificity.html) ein Spezifitäts-Quiz
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax) Leitfaden
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax) Modul
-- [Fehlerbehandlung in CSS](/de/docs/Web/CSS/CSS_syntax/Error_handling)
-- [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rules)
-- [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
-- [Initial](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value), [berechnet](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value), [verwendet](/de/docs/Web/CSS/C
+- [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax/Introduction) Leitfaden
+- [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax) Modul
+- [Fehlerbehandlung in CSS](/de/docs/Web/CSS/Guides/Syntax/Error_handling)
+- [At-Regeln](/de/docs/Web/CSS/Guides/Syntax/At-rules)
+- [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance)
+- [Initial](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value), [berechnet](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value), [verwendet](/de/docs/Web/CSS/C

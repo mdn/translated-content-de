@@ -5,7 +5,7 @@ l10n:
   sourceCommit: bb52c01c1534149f1e3e4755e2576ef7828ecc0f
 ---
 
-Das [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap)-Modul definiert zwei **Scroll Snap-Ereignisse**: [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event) und [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event). Diese ermöglichen die Ausführung von JavaScript als Reaktion darauf, dass der Browser feststellt, dass neue [Scroll Snap-Ziele](/de/docs/Web/CSS/CSS_scroll_snap/Basic_concepts) anstehen bzw. ausgewählt wurden.
+Das [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Modul definiert zwei **Scroll Snap-Ereignisse**: [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event) und [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event). Diese ermöglichen die Ausführung von JavaScript als Reaktion darauf, dass der Browser feststellt, dass neue [Scroll Snap-Ziele](/de/docs/Web/CSS/Guides/Scroll_snap/Basic_concepts) anstehen bzw. ausgewählt wurden.
 
 Dieser Leitfaden bietet einen Überblick über diese Ereignisse, zusammen mit vollständigen Beispielen.
 
@@ -307,7 +307,7 @@ h2 {
 
 Das CSS für dieses Beispiel ist dem CSS im vorherigen Beispiel ähnlich. Die bedeutendsten Unterschiede sind folgende.
 
-Lassen Sie uns zunächst den `<main>`-Element-Stil betrachten. Wir möchten, dass die `<section>`-Elemente als Raster angezeigt werden, daher verwenden wir das [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout), um anzugeben, dass wir sie in sieben Spalten anzeigen möchten, indem wir einen {{cssxref("grid-template-columns")}}-Wert von `repeat(7, 1fr)` verwenden. Wir geben auch den Abstand um die `<section>`-Elemente durch `padding` und einen {{cssxref("gap")}} auf dem `<main>`-Element an, anstelle von `margin` auf den `<section>`-Elementen.
+Lassen Sie uns zunächst den `<main>`-Element-Stil betrachten. Wir möchten, dass die `<section>`-Elemente als Raster angezeigt werden, daher verwenden wir das [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout), um anzugeben, dass wir sie in sieben Spalten anzeigen möchten, indem wir einen {{cssxref("grid-template-columns")}}-Wert von `repeat(7, 1fr)` verwenden. Wir geben auch den Abstand um die `<section>`-Elemente durch `padding` und einen {{cssxref("gap")}} auf dem `<main>`-Element an, anstelle von `margin` auf den `<section>`-Elementen.
 
 Schließlich, da wir in beide Richtungen in diesem Beispiel scrollen, setzen wir {{cssxref("scroll-snap-type")}} auf `both mandatory`, damit Snap-Ziele sowohl in der Block- als auch in der Inline-Richtung immer eingeschnappt werden.
 
@@ -525,5 +525,5 @@ window.addEventListener("scrollsnapchange", (event) => {
 - [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event) Ereignis
 - [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event) Ereignis
 - [`SnapEvent`](/de/docs/Web/API/SnapEvent)
-- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+- [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
 - [Scroll Snap Events](https://developer.chrome.com/blog/scroll-snap-events) auf developer.chrome.com (2024)

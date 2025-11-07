@@ -2,22 +2,22 @@
 title: ::highlight()
 slug: Web/CSS/Reference/Selectors/::highlight
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 Das **`::highlight()`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) wendet Stile auf ein benutzerdefiniertes Highlight an.
 
 Ein benutzerdefiniertes Highlight ist eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten und wird auf einer Webseite mithilfe des [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) registriert.
 
-Das `::highlight()`-Pseudoelement folgt einem speziellen Vererbungsmodell, das allen Highlight-Pseudoelementen gemein ist. Für weitere Details darüber, wie diese Vererbung funktioniert, siehe den Abschnitt [Highlight-Pseudo-Elemente-Vererbung](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
+Das `::highlight()`-Pseudoelement folgt einem speziellen Vererbungsmuster, das allen Highlight-Pseudoelementen gemeinsam ist. Für mehr Details, wie diese Vererbung funktioniert, siehe den Abschnitt [Highlight-Pseudoelemente-Vererbung](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements#highlight_pseudo-elements_inheritance).
 
-## Zulässige Eigenschaften
+## Erlaubte Eigenschaften
 
 Nur bestimmte CSS-Eigenschaften können mit `::highlight()` verwendet werden:
 
 - {{CSSxRef("color")}}
 - {{CSSxRef("background-color")}}
-- {{CSSxRef("text-decoration")}} und die zugehörigen Eigenschaften
+- {{CSSxRef("text-decoration")}} und die dazugehörigen Eigenschaften
 - {{CSSxRef("text-shadow")}}
 - {{CSSxRef("-webkit-text-stroke-color")}}, {{CSSxRef("-webkit-text-fill-color")}} und {{CSSxRef("-webkit-text-stroke-width")}}
 
@@ -31,7 +31,7 @@ Insbesondere wird {{CSSxRef("background-image")}} ignoriert.
 
 ## Beispiele
 
-### Hervorhebung von Zeichen
+### Zeichen hervorheben
 
 #### HTML
 
@@ -125,6 +125,6 @@ for (let i = 0; i < textNode.textContent.length; i++) {
 
 ## Siehe auch
 
-- [CSS Custom Highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API) Modul
+- [CSS Custom Highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API)-Modul
 - [CSS Custom Highlight](/de/docs/Web/API/CSS_Custom_Highlight_API) API
-- [CSS-Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
+- [CSS Pseudoelemente](/de/docs/Web/CSS/Guides/Pseudo-elements)-Modul

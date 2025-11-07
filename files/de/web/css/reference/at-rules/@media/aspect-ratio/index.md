@@ -2,20 +2,20 @@
 title: aspect-ratio
 slug: Web/CSS/Reference/At-rules/@media/aspect-ratio
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`aspect-ratio`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des {{Glossary("viewport", "Ansichtsfensters")}} zu testen.
+Die **`aspect-ratio`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des {{Glossary("viewport", "Viewports")}} zu testen.
 
 ## Syntax
 
-Die `aspect-ratio`-Funktion wird als ein {{cssxref("&lt;ratio&gt;")}} Wert spezifiziert, der das Breite-zu-Höhe-Verhältnis des Ansichtsfensters darstellt. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die Varianten **`min-aspect-ratio`** und **`max-aspect-ratio`** verwenden können, um Mindest- und Höchstwerte abzufragen.
+Die `aspect-ratio` Funktion wird als ein {{cssxref("&lt;ratio&gt;")}} Wert angegeben, der das Breite-zu-Höhe Seitenverhältnis des Viewports darstellt. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die Präfixe **`min-aspect-ratio`** und **`max-aspect-ratio`** verwenden können, um jeweils Mindest- und Höchstwerte abzufragen.
 
 ## Beispiele
 
-Im folgenden Beispiel ist ein {{HTMLElement("div")}}-Element in einem {{HTMLElement("iframe")}} enthalten. Das iframe erstellt sein eigenes Ansichtsfenster. Ändern Sie die Größe des `<iframe>`, um `aspect-ratio` in Aktion zu sehen.
+Im folgenden Beispiel ist ein {{HTMLElement("div")}}-Element in einem {{HTMLElement("iframe")}} enthalten. Das iframe erstellt seinen eigenen Viewport. Ändern Sie die Größe des `<iframe>`, um `aspect-ratio` in Aktion zu sehen.
 
-Beachten Sie, dass, wenn keine der Bedingungen der Medienabfrage zutrifft, der Hintergrund weiß wird, da keine der unten stehenden Regeln auf das `<div>` innerhalb des `<iframe>` angewendet werden. Sehen Sie, ob Sie herausfinden können, welche Breiten- und Höhenwerte dies auslösen!
+Beachten Sie, dass der Hintergrund weiß wird, wenn keine der Bedingungen der Medienabfrage zutrifft, da keine der unten stehenden Regeln auf das `<div>` innerhalb des `<iframe>` angewendet wird. Können Sie herausfinden, welche Breiten- und Höhenwerte dies auslösen?
 
 ### HTML
 
@@ -97,9 +97,9 @@ h.onchange = h.oninput = () => {
 
 {{ EmbedLiveSample('Result', '300px', '350px') }}
 
-Beachten Sie, dass `min-aspect-ratio: 8/5` die _untere_ Grenze auf 1,6 setzt, so dass diese Medienabfrage Elemente mit Seitenverhältnissen von 1,6 und höher auswählt. Die `max-aspect-ratio: 3/2` setzt die _obere_ Grenze, so dass diese Medienabfrage Elemente mit Seitenverhältnissen von 1,5 und darunter auswählt. Die `aspect-ratio: 1/1` überschreibt die Regel für das maximale Seitenverhältnis, da sie danach deklariert wurde und wählt Elemente mit einem Seitenverhältnis von genau `1`.
+Beachten Sie, dass `min-aspect-ratio: 8/5` die _untere_ Grenze auf 1.6 setzt, sodass diese Medienabfrage Elemente mit Seitenverhältnissen ab 1.6 auswählt. Die `max-aspect-ratio: 3/2` setzt die _obere_ Grenze, sodass diese Medienabfrage Elemente mit Seitenverhältnissen bis 1.5 auswählt. Die `aspect-ratio: 1/1` überschreibt die Regel für das maximale Seitenverhältnis, da sie später deklariert wurde und Elemente mit einem Seitenverhältnis von genau `1` auswählt.
 
-Vom Anfangszustand aus, je mehr Sie die Höhe reduzieren, desto mehr beginnt das Seitenverhältnis von eins zu steigen. Dadurch ändert sich die Hintergrundfarbe des div von rot(1) < grün(1.5) < weiß < blau(1.6).
+Aus dem Ausgangszustand heraus beginnt das Seitenverhältnis zu steigen, wenn Sie die Höhe verringern. Somit ändert sich die Hintergrundfarbe des div von rot (1) < grün (1.5) < weiß < blau (1.6).
 
 ## Spezifikationen
 
@@ -111,6 +111,6 @@ Vom Anfangszustand aus, je mehr Sie die Höhe reduzieren, desto mehr beginnt das
 
 ## Siehe auch
 
-- [Verstehen von `aspect-ratio`](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
-- [Verwendung von Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verstehen von `aspect-ratio`](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios)
+- [Media Queries verwenden](/de/docs/Web/CSS/Guides/Media_queries/Using)
 - [@media](/de/docs/Web/CSS/Reference/At-rules/@media)

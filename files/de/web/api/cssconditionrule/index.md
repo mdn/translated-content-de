@@ -2,12 +2,12 @@
 title: CSSConditionRule
 slug: Web/API/CSSConditionRule
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{ APIRef("CSSOM") }}
 
-Ein Objekt, das die **`CSSConditionRule`**-Schnittstelle implementiert, repräsentiert eine einzelne bedingte CSS-[At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rules), die aus einer Bedingung und einem Anweisungsblock besteht.
+Ein Objekt, das die **`CSSConditionRule`**-Schnittstelle implementiert, repräsentiert eine einzelne Bedingung in einer CSS-[At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules), die aus einer Bedingung und einem Anweisungsblock besteht.
 
 Drei Objekte leiten sich von `CSSConditionRule` ab: [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule), [`CSSContainerRule`](/de/docs/Web/API/CSSContainerRule) und [`CSSSupportsRule`](/de/docs/Web/API/CSSSupportsRule).
 
@@ -34,4 +34,4 @@ _Erbt Methoden von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGrou
 
 ## Siehe auch
 
-- [Verwendung dynamischer Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [Verwendung dynamischer Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

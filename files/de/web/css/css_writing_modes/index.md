@@ -33,14 +33,14 @@ Das CSS-Schreibmodul behandelt die Ausrichtungen aller Schreibmodi. Andere Modul
 
 ## Leitfäden
 
-- [Erstellen vertikaler Formularelemente](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)
+- [Erstellen vertikaler Formularelemente](/de/docs/Web/CSS/Guides/Writing_modes/Vertical_controls)
   - : Der Artikel erklärt, wie die CSS-Eigenschaften {{cssxref("writing-mode")}} und {{cssxref("direction")}} verwendet werden können, um vertikale Formularelemente zu erstellen und zu konfigurieren.
-- [Einführung in Schreibmodus-Systeme](/de/docs/Web/CSS/CSS_writing_modes/Writing_mode_systems)
+- [Einführung in Schreibmodus-Systeme](/de/docs/Web/CSS/Guides/Writing_modes/Writing_mode_systems)
   - : Ein kurzer Überblick über Schreibmodus-Systeme und deren Richtungen.
 
 ## Verwandte Konzepte
 
-[CSS-Text](/de/docs/Web/CSS/CSS_text) Modul
+[CSS-Text](/de/docs/Web/CSS/Guides/Text) Modul
 
 - {{cssxref("hanging-punctuation")}}
 - {{cssxref("hyphens")}}
@@ -54,7 +54,7 @@ Das CSS-Schreibmodul behandelt die Ausrichtungen aller Schreibmodi. Andere Modul
 - {{cssxref("word-break")}}
 - {{cssxref("word-spacing")}}
 
-[CSS-Inline-Layout](/de/docs/Web/CSS/CSS_inline_layout) Modul
+[CSS-Inline-Layout](/de/docs/Web/CSS/Guides/Inline_layout) Modul
 
 - {{cssxref("alignment-baseline")}}
 - {{cssxref("dominant-baseline")}}
@@ -64,20 +64,20 @@ Das CSS-Schreibmodul behandelt die Ausrichtungen aller Schreibmodi. Andere Modul
 - {{cssxref("text-box")}} Shorthand
 - {{cssxref("text-edge")}}
 
-[CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
+[CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul
 
 - {{Glossary("Flow_relative_values", "Fluss-relative Werte")}}
 - {{Glossary("Inset_properties", "Inset-Eigenschaften")}}
 - {{Glossary("Logical_properties", "Logische Eigenschaften")}}
 - {{Glossary("Physical_properties", "Physische Eigenschaften")}}
 
-[CSS-Display](/de/docs/Web/CSS/CSS_display) Modul
+[CSS-Display](/de/docs/Web/CSS/Guides/Display) Modul
 
 - {{cssxref("display")}}
 - {{CSSxRef("&lt;display-internal&gt;")}}
-- [Visuelles Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
+- [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model)
 
-[CSS generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content)
+[CSS generierter Inhalt](/de/docs/Web/CSS/Guides/Generated_content)
 
 - {{CSSxRef("quotes")}}
 
@@ -109,11 +109,11 @@ Das CSS-Schreibmodul behandelt die Ausrichtungen aller Schreibmodi. Andere Modul
 
 ## Siehe auch
 
-- [CSS-Schriftarten](/de/docs/Web/CSS/CSS_fonts) Modul
-- [CSS-Ruby-Layout](/de/docs/Web/CSS/CSS_ruby_layout) Modul
-- [CSS-Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) Modul
-- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
-- [CSS-Listen](/de/docs/Web/CSS/CSS_lists) Modul
-- [CSS-Containment](/de/docs/Web/CSS/CSS_containment) Modul: {{CSSxRef("contain-intrinsic-block-size")}} und {{CSSxRef("contain-intrinsic-inline-size")}}
-- [CSS-Overflow](/de/docs/Web/CSS/CSS_overflow) Modul: {{CSSxRef("overflow-block")}} und {{CSSxRef("overflow-inline")}}
-- [CSS-Overscroll-Verhalten](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul: {{CSSxRef("overscroll-behavior-block")}} und {{CSSxRef("overscroll-behavior-inline")}}
+- [CSS-Schriftarten](/de/docs/Web/CSS/Guides/Fonts) Modul
+- [CSS-Ruby-Layout](/de/docs/Web/CSS/Guides/Ruby_layout) Modul
+- [CSS-Textdekoration](/de/docs/Web/CSS/Guides/Text_decoration) Modul
+- [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Modul
+- [CSS-Listen](/de/docs/Web/CSS/Guides/Lists) Modul
+- [CSS-Containment](/de/docs/Web/CSS/Guides/Containment) Modul: {{CSSxRef("contain-intrinsic-block-size")}} und {{CSSxRef("contain-intrinsic-inline-size")}}
+- [CSS-Overflow](/de/docs/Web/CSS/Guides/Overflow) Modul: {{CSSxRef("overflow-block")}} und {{CSSxRef("overflow-inline")}}
+- [CSS-Overscroll-Verhalten](/de/docs/Web/CSS/Guides/Overscroll_behavior) Modul: {{CSSxRef("overscroll-behavior-block")}} und {{CSSxRef("overscroll-behavior-inline")}}

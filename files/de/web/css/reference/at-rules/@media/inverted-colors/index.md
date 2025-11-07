@@ -2,12 +2,12 @@
 title: inverted-colors
 slug: Web/CSS/Reference/At-rules/@media/inverted-colors
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`inverted-colors`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) wird verwendet, um zu testen, ob der {{Glossary("user_agent", "User-Agent")}} oder das zugrunde liegende Betriebssystem alle Farben invertiert hat.
+Die **`inverted-colors`** [CSS](/de/docs/Web/CSS) [Media-Eigenschaft](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) wird verwendet, um zu testen, ob der {{Glossary("user_agent", "User Agent")}} oder das zugrunde liegende Betriebssystem alle Farben invertiert hat.
 
-Die Inversion von Farben kann unangenehme Nebeneffekte haben, wie zum Beispiel, dass Schatten zu Hervorhebungen werden, was die Lesbarkeit des Inhalts verringern kann. Mit dieser Medienfunktion können Sie erkennen, ob eine Inversion stattfindet, und den Inhalt entsprechend der Benutzerpräferenz gestalten.
+Die Inversion von Farben kann unangenehme Nebeneffekte haben, wie Schatten, die zu Hervorhebungen werden, was die Lesbarkeit der Inhalte reduzieren kann. Mit dieser Media-Eigenschaft können Sie erkennen, ob eine Inversion stattfindet, und die Inhalte entsprechend gestalten, während Sie die Benutzerpräferenz respektieren.
 
 ## Syntax
 
@@ -18,18 +18,18 @@ Die Inversion von Farben kann unangenehme Nebeneffekte haben, wie zum Beispiel, 
 }
 ```
 
-Die `inverted-colors`-Funktion wird als einer der folgenden Schlüsselwort-Werte angegeben:
+Die `inverted-colors`-Eigenschaft wird als einer der folgenden Schlüsselwortwerte angegeben:
 
 - `none`
-  - : Gibt an, dass die Farben normal angezeigt werden und keine Inversion der Farben stattgefunden hat. Dieser Schlüsselwort-Wert wird als falsch bewertet.
+  - : Gibt an, dass die Farben normal angezeigt werden und keine Inversion der Farben stattgefunden hat. Dieser Schlüsselwortwert wird als falsch bewertet.
 - `inverted`
-  - : Gibt an, dass alle Pixel im angezeigten Bereich invertiert wurden. Dieser Schlüsselwort-Wert wird als wahr bewertet.
+  - : Gibt an, dass alle Pixel im angezeigten Bereich invertiert wurden. Dieser Schlüsselwortwert wird als wahr bewertet.
 
 ## Beispiele
 
-### Anwenden von Stilen, wenn die Farbinversion erkannt wird
+### Anwenden von Stilen, wenn eine Farbinversion festgestellt wird
 
-Dieses Beispiel demonstriert die Auswirkungen der Schlüsselwortwerte der `inverted-colors`-Medienfunktion und wenn die `inverted-colors`-Medienfunktion nicht unterstützt wird.
+Dieses Beispiel zeigt die Auswirkungen beider `inverted-colors` Media-Eigenschafts-Schlüsselwortwerte und wenn die `inverted-colors` Media-Eigenschaft nicht unterstützt wird.
 
 #### HTML
 
@@ -85,5 +85,5 @@ p {
 ## Siehe auch
 
 - [@media](/de/docs/Web/CSS/Reference/At-rules/@media)
-- [CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) Modul
-- [Verwendung von Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [CSS Media Queries](/de/docs/Web/CSS/Guides/Media_queries) Modul
+- [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)

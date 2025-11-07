@@ -10,7 +10,7 @@ l10n:
 
 Komplexe Webseiten enthalten oft sehr große Mengen an CSS, was häufig zu vielen sich wiederholenden CSS-Werten führt. Beispielsweise ist es üblich, dieselbe Farbe an Hunderten von verschiedenen Stellen in den Stylesheets zu sehen. Eine Farbe zu ändern, die an vielen Stellen dupliziert wurde, erfordert ein Suchen und Ersetzen über alle Regeln und CSS-Dateien. Custom-Properties erlauben es, einen Wert an einer Stelle zu definieren und dann an mehreren anderen Stellen zu referenzieren, was die Arbeit erleichtert. Ein weiterer Vorteil ist die Lesbarkeit und Semantik. Zum Beispiel ist `--main-text-color` leichter zu verstehen als die hexadezimale Farbe `#00ff00`, besonders wenn die Farbe in verschiedenen Kontexten verwendet wird.
 
-Custom-Properties, die [mit zwei Bindestrichen (`--`) definiert](/de/docs/Web/CSS/Reference/Properties/--*) wurden, unterliegen der [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) und erben ihren Wert von ihrem Elternteil.
+Custom-Properties, die [mit zwei Bindestrichen (`--`) definiert](/de/docs/Web/CSS/Reference/Properties/--*) wurden, unterliegen der [Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction) und erben ihren Wert von ihrem Elternteil.
 Die {{cssxref("@property")}} Regel ermöglicht mehr Kontrolle über die Custom-Property und lässt Sie angeben, ob sie ihren Wert von einem Elternteil erbt, welcher Anfangswert gilt und welche Typbeschränkungen angewendet werden sollten.
 
 > [!NOTE]
@@ -477,7 +477,7 @@ Wenn jedoch die Werte von Custom-Properties analysiert werden, weiß der Browser
 Leider können diese gültigen Werte mittels der `var()` funktionalen Notation in einem Kontext verwendet werden, in dem sie möglicherweise keinen Sinn ergeben.
 Eigenschaften und benutzerdefinierte Variablen können zu ungültigen CSS-Deklarationen führen, was zum Konzept von _gültig zur Berechnungszeit_ führt.
 
-Wenn der Browser auf eine ungültige `var()` Substitution trifft, wird der [Standard-](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value) oder [geerbte](/de/docs/Web/CSS/CSS_cascade/Inheritance) Wert der Eigenschaft verwendet.
+Wenn der Browser auf eine ungültige `var()` Substitution trifft, wird der [Standard-](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value) oder [geerbte](/de/docs/Web/CSS/Guides/Cascade/Inheritance) Wert der Eigenschaft verwendet.
 Dieses Beispiel ist wie das letzte, außer dass wir eine Custom-Property verwenden.
 
 Der Browser ersetzt den Wert von `--text-color` anstelle von `var(--text-color)`, aber `16px` ist kein gültiger Eigenschaftswert für {{cssxref("color")}}.
@@ -557,4 +557,4 @@ element.style.setProperty("--my-var", jsVar + 4);
 - {{cssxref("@property")}} Regel
 - [`var()`](/de/docs/Web/CSS/Reference/Values/var)
 - [CSS Properties and Values API](/de/docs/Web/API/CSS_Properties_and_Values_API)
-- [CSS-Custom-Properties für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul
+- [CSS-Custom-Properties für kaskadierende Variablen](/de/docs/Web/CSS/Guides/Cascading_variables) Modul

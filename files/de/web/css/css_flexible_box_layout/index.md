@@ -67,33 +67,33 @@ body {
 
 ## Leitfäden
 
-- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
   - : Ein Überblick über die Eigenschaften von Flexbox.
-- [Beziehung von Flexbox zu anderen Layout-Methoden](/de/docs/Web/CSS/CSS_flexible_box_layout/Relationship_of_flexbox_to_other_layout_methods)
+- [Beziehung von Flexbox zu anderen Layout-Methoden](/de/docs/Web/CSS/Guides/Flexible_box_layout/Relationship_with_other_layout_methods)
   - : Wie Flexbox im Verhältnis zu anderen Layout-Methoden und CSS-Spezifikationen steht.
-- [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
+- [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
   - : Wie die Box-Ausrichtungseigenschaften mit Flexbox funktionieren.
-- [Anordnen von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)
+- [Anordnen von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items)
   - : Erklärung der verschiedenen Möglichkeiten, die Reihenfolge und Richtung von Elementen zu ändern, und Behandlung der potenziellen Probleme dabei.
-- [Verhältnissteuerung von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
+- [Verhältnissteuerung von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios)
   - : Erklärung der Eigenschaften flex-grow, flex-shrink und flex-basis.
-- [Beherrschen des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
+- [Beherrschen des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Wrapping_items)
   - : Wie man Flex-Container mit mehreren Zeilen erstellt und die Darstellung der Elemente in diesen Zeilen steuert.
-- [Typische Anwendungsfälle von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Typical_use_cases_of_flexbox)
+- [Typische Anwendungsfälle von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Use_cases)
   - : Häufige Designmuster, die typische Anwendungsfälle für Flexbox darstellen.
 - [CSS-Layout: Flexbox](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox)
   - : Lernen Sie, wie man mit Flexbox-Layout Weblayouts erstellt.
-- [Box-Ausrichtung in Flexbox](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox)
-  - : Details zu den Funktionen der [CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment), die spezifisch für Flexbox sind.
+- [Box-Ausrichtung in Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox)
+  - : Details zu den Funktionen der [CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment), die spezifisch für Flexbox sind.
 
 ## Verwandte Konzepte
 
-[CSS-Anzeigemodul](/de/docs/Web/CSS/CSS_display)
+[CSS-Anzeigemodul](/de/docs/Web/CSS/Guides/Display)
 
 - {{cssxref("display")}}
 - {{cssxref("order")}}
 
-[CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul
+[CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Modul
 
 - {{cssxref("align-content")}}
 - {{cssxref("align-items")}}
@@ -105,7 +105,7 @@ body {
 - {{cssxref("place-items")}}
 - {{cssxref("row-gap")}}
 
-[CSS-Box-Größenbestimmung](/de/docs/Web/CSS/CSS_box_sizing) Modul
+[CSS-Box-Größenbestimmung](/de/docs/Web/CSS/Guides/Box_sizing) Modul
 
 - {{cssxref("aspect-ratio")}}
 - {{cssxref("max-content")}} Wert
@@ -119,6 +119,6 @@ body {
 
 ## Siehe auch
 
-- [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
-- [CSS-Schreibrichtungen](/de/docs/Web/CSS/CSS_writing_modes) Modul
-- [Verwendung der Mehrfach-Schlüsselwort-Syntax mit CSS-Display](/de/docs/Web/CSS/CSS_display/multi-keyword_syntax_of_display)
+- [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul
+- [CSS-Schreibrichtungen](/de/docs/Web/CSS/Guides/Writing_modes) Modul
+- [Verwendung der Mehrfach-Schlüsselwort-Syntax mit CSS-Display](/de/docs/Web/CSS/Guides/Display/Multi-keyword_syntax)

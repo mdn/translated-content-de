@@ -2,10 +2,10 @@
 title: place-content
 slug: Web/CSS/Reference/Properties/place-content
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`place-content`** [CSS](/de/docs/Web/CSS) [Kurzschrift-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) ermöglicht es Ihnen, Inhalte gleichzeitig entlang der Block- und Inline-Richtungen in einem relevanten Layoutsystem, wie [Grid](/de/docs/Web/CSS/CSS_grid_layout) oder [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout), auszurichten (d.h. die {{CSSxRef("align-content")}}- und {{CSSxRef("justify-content")}}-Eigenschaften).
+Die **`place-content`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) ermöglicht es Ihnen, Inhalte sowohl in Block- als auch Inline-Richtung gleichzeitig auszurichten (d.h. die {{CSSxRef("align-content")}} und {{CSSxRef("justify-content")}} Eigenschaften) in einem relevanten Layout-System wie [Grid](/de/docs/Web/CSS/Guides/Grid_layout) oder [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout).
 
 {{InteractiveExample("CSS Demo: place-content")}}
 
@@ -59,7 +59,7 @@ place-content: end;
 
 ## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschrift für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - [`align-content`](/de/docs/Web/CSS/Reference/Properties/align-content)
 - [`justify-content`](/de/docs/Web/CSS/Reference/Properties/justify-content)
@@ -95,44 +95,44 @@ place-content: revert-layer;
 place-content: unset;
 ```
 
-Der erste Wert ist der Wert der {{CSSxRef("align-content")}}-Eigenschaft, der zweite ist der der {{CSSxRef("justify-content")}}-Eigenschaft.
+Der erste Wert ist der Wert der {{CSSxRef("align-content")}}-Eigenschaft, der zweite der von {{CSSxRef("justify-content")}}.
 
 > [!NOTE]
-> Wenn der zweite Wert nicht vorhanden ist, wird der erste Wert für beide verwendet, vorausgesetzt, dass er für beide ein gültiger Wert ist. Ist er für eine der beiden ungültig, ist der gesamte Wert ungültig.
+> Wenn der zweite Wert nicht vorhanden ist, wird der erste Wert für beide verwendet, sofern er ein gültiger Wert für beide ist. Ist er für eine oder die andere ungültig, ist der gesamte Wert ungültig.
 
 ### Werte
 
 - `start`
-  - : Die Elemente sind bündig aneinander zum Anfangsrand des Ausrichtungscontainers in der entsprechenden Achse gepackt.
+  - : Die Elemente werden bündig zueinander zum Start-Rand des Ausrichtungscontainers in der entsprechenden Achse verpackt.
 - `end`
-  - : Die Elemente sind bündig aneinander zum Endrand des Ausrichtungscontainers in der entsprechenden Achse gepackt.
+  - : Die Elemente werden bündig zueinander zum End-Rand des Ausrichtungscontainers in der entsprechenden Achse verpackt.
 - `flex-start`
-  - : Die Elemente sind bündig aneinander zu dem Rand des Ausrichtungscontainers gepackt, je nach der main-start- oder cross-start-Seite des Flex-Containers.
-    Dies gilt nur für Flex-Layout-Elemente. Bei Elementen, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `start` behandelt.
+  - : Die Elemente werden bündig zueinander zum Rand des Ausrichtungscontainers verpackt, je nach Haupt- oder Quer-Startseite des Flex-Containers.
+    Dies gilt nur für Elemente im Flex-Layout. Bei Elementen, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `start` behandelt.
 - `flex-end`
-  - : Die Elemente sind bündig aneinander zu dem Rand des Ausrichtungscontainers gepackt, je nach der main-end- oder cross-end-Seite des Flex-Containers.
-    Dies gilt nur für Flex-Layout-Elemente. Bei Elementen, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `end` behandelt.
+  - : Die Elemente werden bündig zueinander zum Rand des Ausrichtungscontainers verpackt, je nach Haupt- oder Quer-Endseite des Flex-Containers.
+    Dies gilt nur für Elemente im Flex-Layout. Bei Elementen, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `end` behandelt.
 - `center`
-  - : Die Elemente sind bündig aneinander zur Mitte des Ausrichtungscontainers gepackt.
+  - : Die Elemente werden bündig zueinander zur Mitte des Ausrichtungscontainers verpackt.
 - `left`
-  - : Die Elemente sind bündig aneinander zum linken Rand des Ausrichtungscontainers gepackt. Wenn die Achse der Eigenschaft nicht parallel zur Inline-Achse ist, verhält sich dieser Wert wie `start`.
+  - : Die Elemente werden bündig zueinander zum linken Rand des Ausrichtungscontainers verpackt. Wenn die Achse der Eigenschaft nicht parallel zur Inline-Achse ist, verhält sich dieser Wert wie `start`.
 - `right`
-  - : Die Elemente sind bündig aneinander zum rechten Rand des Ausrichtungscontainers in der entsprechenden Achse gepackt. Wenn die Achse der Eigenschaft nicht parallel zur Inline-Achse ist, verhält sich dieser Wert wie `start`.
+  - : Die Elemente werden bündig zueinander zum rechten Rand des Ausrichtungscontainers in der entsprechenden Achse verpackt. Wenn die Achse der Eigenschaft nicht parallel zur Inline-Achse ist, verhält sich dieser Wert wie `start`.
 - `space-between`
-  - : Die Elemente sind gleichmäßig im Ausrichtungscontainer verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente ist derselbe. Das erste Element ist bündig mit dem main-start-Rand, und das letzte Element ist bündig mit dem main-end-Rand.
+  - : Die Elemente sind gleichmäßig innerhalb des Ausrichtungscontainers verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente ist gleich. Das erste Element ist mit dem Haupt-Start-Rand bündig, und das letzte Element ist mit dem Haupt-End-Rand bündig.
 - `baseline`, `first baseline`, `last baseline`
-  - : Gibt die Teilnahme an der ersten oder letzten Baseline-Ausrichtung an: richtet die Ausrichtungsbasislinie des Box ersten oder letzten Baseline-Sets mit der entsprechenden Baseline im geteilten ersten oder letzten Baseline-Set aller Boxen in seiner Baseline-Sharing-Gruppe aus.
-    Die Rückfallausrichtung für `first baseline` ist `start`, die für `last baseline` ist `end`.
+  - : Gibt die Teilnahme an der ersten oder letzten Basislinienausrichtung an: richtet die Ausrichtungsbasislinie des ersten oder letzten Basisliniensatzes der Box mit der entsprechenden Basislinie im gemeinsamen ersten oder letzten Basisliniensatz aller Boxen in ihrer Basislinienfreigabe-Gruppe aus.
+    Die Fallback-Ausrichtung für `first baseline` ist `start`, für `last baseline` ist sie `end`.
 - `space-around`
-  - : Die Elemente sind gleichmäßig im Ausrichtungscontainer verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente ist derselbe. Der Leerraum vor dem ersten und nach dem letzten Element entspricht der Hälfte des Abstands zwischen jedem Paar benachbarter Elemente.
+  - : Die Elemente sind gleichmäßig innerhalb des Ausrichtungscontainers verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente ist gleich. Der Leerraum vor dem ersten und nach dem letzten Element entspricht der Hälfte des Abstands zwischen jedem Paar benachbarter Elemente.
 - `space-evenly`
-  - : Die Elemente sind gleichmäßig im Ausrichtungscontainer verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente, dem main-start-Rand und dem ersten Element sowie dem main-end-Rand und dem letzten Element ist genau derselbe.
+  - : Die Elemente sind gleichmäßig innerhalb des Ausrichtungscontainers verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente, dem Haupt-Start-Rand und dem ersten Element sowie dem Haupt-End-Rand und dem letzten Element ist überall genau gleich.
 - `stretch`
-  - : Wenn die kombinierte Größe der Elemente kleiner als die des Ausrichtungscontainers ist, wird die Größe aller `auto`-Größen-Elemente gleichmäßig (nicht proportional) vergrößert, während die durch {{CSSxRef("max-height")}}/{{CSSxRef("max-width")}} (oder gleichwertige Funktionalität) auferlegten Einschränkungen respektiert werden, sodass die kombinierte Größe genau den Ausrichtungscontainer füllt.
+  - : Wenn die kombinierte Größe der Elemente kleiner ist als die Größe des Ausrichtungscontainers, wird die Größe der Elemente mit `auto` vergrößert (nicht proportional), wobei die durch {{CSSxRef("max-height")}}/{{CSSxRef("max-width")}} (oder gleichwertige Funktionalität) auferlegten Einschränkungen respektiert werden, so dass die kombinierte Größe genau den Ausrichtungscontainer ausfüllt.
 - `safe`
-  - : Wird zusammen mit einem Ausrichtungs-Schlüsselwort verwendet. Wenn das gewählte Schlüsselwort bedeutet, dass das Element über den Ausrichtungscontainer hinausgeht und Datenverluste verursacht, wird das Element stattdessen so ausgerichtet, als ob der Ausrichtungsmodus `start` wäre.
+  - : Wird zusammen mit einem Ausrichtungs-Stichwort verwendet. Wenn das gewählte Stichwort bedeutet, dass das Element den Ausrichtungscontainer überläuft und dadurch Datenverlust verursacht, wird das Element stattdessen so ausgerichtet, als wäre der Ausrichtungsmodus `start`.
 - `unsafe`
-  - : Wird zusammen mit einem Ausrichtungs-Schlüsselwort verwendet. Unabhängig von den relativen Größen des Elements und des Ausrichtungscontainers, und unabhängig davon, ob ein Überlauf, der Datenverlust verursacht, auftreten könnte, wird der angegebene Ausrichtungswert berücksichtigt.
+  - : Wird zusammen mit einem Ausrichtungs-Stichwort verwendet. Unabhängig von den relativen Größen des Elements und des Ausrichtungscontainers und unabhängig davon, ob Überlauf, der Datenverlust verursachen könnte, auftreten könnte, wird der angegebene Ausrichtungswert beibehalten.
 
 ## Formale Definition
 
@@ -284,7 +284,7 @@ div > div {
 
 - {{cssxref("align-content")}}
 - {{cssxref("justify-content")}}
-- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-- [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
-- [CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment)-Modul
+- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items)
+- [Box-Ausrichtung im Grid-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)
+- [CSS Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Modul

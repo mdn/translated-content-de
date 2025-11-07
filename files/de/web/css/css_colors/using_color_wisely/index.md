@@ -99,10 +99,10 @@ Bei dieser Einstellung wird der Browser das Aussehen des Elements, auf das diese
 
 ## Siehe auch
 
-- [Anwenden von Farben auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color)
-- [CSS-Farbwerte](/de/docs/Web/CSS/CSS_colors/Color_values)
-- [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
-- [CSS-Farbmodul](/de/docs/Web/CSS/CSS_colors)
+- [Anwenden von Farben auf HTML-Elemente mit CSS](/de/docs/Web/CSS/Guides/Colors/Applying_color)
+- [CSS-Farbwerte](/de/docs/Web/CSS/Guides/Colors/Color_values)
+- [Verwendung relativer Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)
+- [CSS-Farbmodul](/de/docs/Web/CSS/Guides/Colors)
 - [Verständnis von Farben und Leuchtkraft](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
 - [WCAG 1.4.1: Farbkontrast](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)
 - [Paletton](https://paletton.com/)

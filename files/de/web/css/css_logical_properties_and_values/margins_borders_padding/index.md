@@ -5,9 +5,9 @@ l10n:
   sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-Das Modul [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert flussbezogene Zuordnungen für die verschiedenen Eigenschaften von Margins, Borders und Padding und deren Kurzformen. In diesem Leitfaden werfen wir einen Blick auf diese.
+Das Modul [CSS logical properties and values](/de/docs/Web/CSS/Guides/Logical_properties_and_values) definiert flussbezogene Zuordnungen für die verschiedenen Eigenschaften von Margins, Borders und Padding und deren Kurzformen. In diesem Leitfaden werfen wir einen Blick auf diese.
 
-Wenn Sie sich das Modul [logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) ansehen, werden Sie möglicherweise feststellen, dass die Liste der Moduleigenschaften sehr lang ist. Dies liegt vor allem daran, dass es jeweils vier Langformen für jede Seitenrand-, Rand- und Auffüllungseigenschaft gibt, plus alle Abkürzungswerte.
+Wenn Sie sich das Modul [logical properties and values](/de/docs/Web/CSS/Guides/Logical_properties_and_values) ansehen, werden Sie möglicherweise feststellen, dass die Liste der Moduleigenschaften sehr lang ist. Dies liegt vor allem daran, dass es jeweils vier Langformen für jede Seitenrand-, Rand- und Auffüllungseigenschaft gibt, plus alle Abkürzungswerte.
 
 ## Zuordnungen für Margins, Borders und Padding
 

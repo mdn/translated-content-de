@@ -6,7 +6,7 @@ l10n:
   sourceCommit: 9944f7b12ef1a6aecd54d4b2f0c188a82fdeaaf0
 ---
 
-Das [CSS Shapes Modul](/de/docs/Web/CSS/CSS_shapes) beschreibt geometrische Formen in CSS. Dieser Artikel bietet einen Überblick darüber, wie Sie Formen verwenden können, um Text um gefloatete Elemente zu wickeln, die nicht unbedingt rechteckig sind.
+Das [CSS Shapes Modul](/de/docs/Web/CSS/Guides/Shapes) beschreibt geometrische Formen in CSS. Dieser Artikel bietet einen Überblick darüber, wie Sie Formen verwenden können, um Text um gefloatete Elemente zu wickeln, die nicht unbedingt rechteckig sind.
 
 Wenn Sie ein Element nach links fließen lassen, wickelt sich der Text auf rechteckige Weise um die rechte und untere Seite des Elements. Mit CSS-Formen können Sie beispielsweise eine Kreisform anwenden, und der Text wickelt sich um die Linie des Kreises.
 
@@ -77,7 +77,7 @@ Drei dieser Funktionen definieren nur Rechtecke. Mit der Funktion `inset()` defi
 
 Wir haben bereits gesehen, wie `circle()` eine Kreisform erzeugt. Eine `ellipse()` ist im Wesentlichen ein gestauchter Kreis. Wenn keine dieser grundlegenden Formen ausreicht, können Sie mit der Funktion `polygon()` komplexere Formen erstellen, die die Definition einer Reihe von Linien ermöglichen. Die Funktionen `path()` und `shape()` können verwendet werden, um JEDER Form über eine Serie von Linien-, Kurven- und Bewegungskommandos zu erstellen.
 
-In unserem [Leitfaden zu grundlegenden Formen](/de/docs/Web/CSS/CSS_shapes/Basic_shapes) erforschen wir jede der möglichen Grundformen und wie man sie erstellt.
+In unserem [Leitfaden zu grundlegenden Formen](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside) erforschen wir jede der möglichen Grundformen und wie man sie erstellt.
 
 ### Formen aus dem Box-Wert
 
@@ -126,7 +126,7 @@ body {
 
 {{EmbedLiveSample("box", "", "320px")}}
 
-Um die Box-Werte genauer zu erforschen, siehe unseren Leitfaden über [Formen aus Box-Werten](/de/docs/Web/CSS/CSS_shapes/From_box_values).
+Um die Box-Werte genauer zu erforschen, siehe unseren Leitfaden über [Formen aus Box-Werten](/de/docs/Web/CSS/Guides/Shapes/From_box_values).
 
 ### Formen aus Bildern
 
@@ -218,7 +218,7 @@ body {
 
 {{EmbedLiveSample("threshold", "", "280px")}}
 
-Um mehr über das Erstellen von Formen aus Bildern zu erfahren, lesen Sie den [Leitfaden Formen aus Bildern](/de/docs/Web/CSS/CSS_shapes/Shapes_from_images).
+Um mehr über das Erstellen von Formen aus Bildern zu erfahren, lesen Sie den [Leitfaden Formen aus Bildern](/de/docs/Web/CSS/Guides/Shapes/From_images).
 
 ## Die `shape-margin` Eigenschaft
 
@@ -345,4 +345,4 @@ Es gibt einen [Shape Path Editor](https://firefox-source-docs.mozilla.org/devtoo
 
 ## Weitere CSS Shapes Funktionen
 
-In diesem Leitfaden haben wir das Einwickeln von Text um gefloatete Formen besprochen. Sehen Sie sich das [CSS Shapes Modul](/de/docs/Web/CSS/CSS_shapes) an, um Links zu allen Modul-Funktionen sowie zusätzliche verwandte Funktionen zu finden. Dazu gehören alle Formenfunktionen und relevante Leitfäden.
+In diesem Leitfaden haben wir das Einwickeln von Text um gefloatete Formen besprochen. Sehen Sie sich das [CSS Shapes Modul](/de/docs/Web/CSS/Guides/Shapes) an, um Links zu allen Modul-Funktionen sowie zusätzliche verwandte Funktionen zu finden. Dazu gehören alle Formenfunktionen und relevante Leitfäden.

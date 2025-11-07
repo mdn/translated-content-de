@@ -53,4 +53,4 @@ Zusammen mit den {{CSSxRef("@media")}}-Funktionen {{cssxref("@media/prefers-colo
 
 ## Siehe auch
 
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS-Farben](/de/docs/Web/CSS/Guides/Colors) Modul

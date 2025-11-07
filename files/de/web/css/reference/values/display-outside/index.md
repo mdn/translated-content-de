@@ -2,31 +2,31 @@
 title: <display-outside>
 slug: Web/CSS/Reference/Values/display-outside
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die `<display-outside>` Schlüsselwörter bestimmen den äußeren {{CSSxRef("display")}}-Typ des Elements, was im Wesentlichen seine Rolle im Flusslayout definiert. Diese Schlüsselwörter werden als Werte der `display`-Eigenschaft verwendet und können aus Kompatibilitätsgründen als einzelnes Schlüsselwort oder, wie in der Spezifikation der Level 3 neben einem Wert aus den {{CSSxRef("&lt;display-inside&gt;")}}-Schlüsselwörtern, verwendet werden.
+Die `<display-outside>`-Schlüsselwörter geben den äußeren {{CSSxRef("display")}}-Typ des Elements an, was im Wesentlichen seine Rolle im Flusslayout ist. Diese Schlüsselwörter werden als Werte der `display`-Eigenschaft verwendet und können aus Kompatibilitätsgründen als einzelnes Schlüsselwort oder wie in der Level-3-Spezifikation definiert zusammen mit einem Wert aus den {{CSSxRef("&lt;display-inside&gt;")}}-Schlüsselwörtern verwendet werden.
 
 ## Syntax
 
-Gültige `<display-outside>` Werte:
+Gültige `<display-outside>`-Werte:
 
 - `block`
-  - : Das Element erzeugt ein Blockelement-Box, das sowohl vor als auch nach dem Element Zeilenumbrüche generiert, wenn es im normalen Fluss ist.
+  - : Das Element erzeugt eine Blockelementbox, die sowohl vor als auch nach dem Element im normalen Fluss Zeilenumbrüche erzeugt.
 - `inline`
-  - : Das Element erzeugt eine oder mehrere Inline-Elementboxen, die vor oder nach sich selbst keine Zeilenumbrüche generieren. Im normalen Fluss wird das nächste Element auf derselben Zeile sein, falls Platz vorhanden ist.
+  - : Das Element erzeugt eine oder mehrere Inline-Elementboxen, die vor oder nach sich selbst keine Zeilenumbrüche erzeugen. Im normalen Fluss wird das nächste Element in der gleichen Zeile sein, wenn Platz vorhanden ist.
 
 > [!NOTE]
-> Wenn Browser eine `display`-Eigenschaft mit nur einem **äußeren** `display`-Wert (z.B. `display: block` oder `display: inline`) vorfinden, wird der innere Wert auf `flow` voreingestellt (z.B. `display: block flow` und `display: inline flow`).
-> Dies ist abwärtskompatibel mit der Eingabe eines Einzel-Schlüsselwortes.
+> Wenn Browser auf eine `display`-Eigenschaft mit nur einem **äußeren** `display`-Wert treffen (z.B. `display: block` oder `display: inline`), wird der innere Wert standardmäßig auf `flow` gesetzt (z.B. `display: block flow` und `display: inline flow`).
+> Dies ist rückwärtskompatibel mit der Syntax für ein Schlüsselwort.
 
-## Formale Syntax
+## Formal syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-Im folgenden Beispiel werden `span`-Elemente (die normalerweise als Inline-Elemente angezeigt werden) auf `display: block` gesetzt und brechen somit in neue Zeilen um und erweitern sich, um ihren Container in der Inline-Dimension auszufüllen.
+Im folgenden Beispiel werden Span-Elemente (normalerweise als Inline-Elemente angezeigt) auf `display: block` gesetzt, wodurch sie auf neue Zeilen brechen und sich im Inline-Dimension in ihrem Container ausdehnen.
 
 ### HTML
 
@@ -58,11 +58,12 @@ span {
 ## Siehe auch
 
 - {{CSSxRef("display")}}
+
   - {{CSSxRef("&lt;display-inside&gt;")}}
   - {{CSSxRef("&lt;display-listitem&gt;")}}
   - {{CSSxRef("&lt;display-internal&gt;")}}
   - {{CSSxRef("&lt;display-box&gt;")}}
   - {{CSSxRef("&lt;display-legacy&gt;")}}
 
-- [Block- und Inline-Layout im normalen Fluss](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow)
-- [Einführung in Formatierungskontexte](/de/docs/Web/CSS/CSS_display/Introduction_to_formatting_contexts)
+- [Block- und Inline-Layout im normalen Fluss](/de/docs/Web/CSS/Guides/Display/Block_and_inline_layout)
+- [Einführung in Formatierungskontexte](/de/docs/Web/CSS/Guides/Display/Formatting_contexts)

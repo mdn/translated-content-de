@@ -2,12 +2,12 @@
 title: min-content
 slug: Web/CSS/Reference/Values/min-content
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Das Schlüsselwort `min-content` für die Größenbestimmung repräsentiert die {{Glossary("Intrinsic_Size#minimum_intrinsic_size", "minimale intrinsische Größe")}} eines Elements. Dieses Schlüsselwort verkleinert das Element auf die kleinstmögliche Größe, ohne vermeidbare Überlappungen seines Inhalts zu verursachen. Bei Textinhalten bewirkt dieses Schlüsselwort, dass der Inhalt bei jeder Gelegenheit (wie z.B. bei Leerzeichen zwischen Wörtern) umbrechen kann, und das Element wird nur so breit wie das längste Wort.
+Das `min-content`-Größen-Schlüsselwort repräsentiert die {{Glossary("Intrinsic_Size#minimum_intrinsic_size", "minimale intrinsische Größe")}} eines Elements. Das Schlüsselwort verkleinert das Element auf die kleinstmögliche Größe, ohne dass ein vermeidbares Überlaufen seines Inhalts auftritt. Bei Textinhalt sorgt dieses Schlüsselwort dafür, dass der Inhalt bei jeder Gelegenheit (wie zum Beispiel bei Leerzeichen zwischen Wörtern) umbrochen wird, und das Element wird nur so breit sein wie das längste Wort.
 
-Die {{cssxref("interpolate-size")}} Eigenschaft und die {{cssxref("calc-size()")}} Funktion können verwendet werden, um Animationen zu `min-content` und von `min-content` zu ermöglichen.
+Die {{cssxref("interpolate-size")}}-Eigenschaft und die {{cssxref("calc-size()")}}-Funktion können verwendet werden, um Animationen zu und von `min-content` zu ermöglichen.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ grid-template-columns: 200px 1fr min-content;
 
 ## Beispiele
 
-### Größenbestimmung von Boxen mit min-content
+### Boxen mit min-content dimensionieren
 
 #### HTML
 
@@ -48,7 +48,7 @@ grid-template-columns: 200px 1fr min-content;
 
 {{EmbedLiveSample("Using_min-content_for_box_sizing", "100%", 200)}}
 
-### Größenbestimmung von Grid-Spalten mit min-content
+### Rasterspalten mit min-content dimensionieren
 
 #### HTML
 
@@ -94,5 +94,5 @@ grid-template-columns: 200px 1fr min-content;
 
 ## Siehe auch
 
-- Verwandte Schlüsselwörter zur Größenbestimmung: {{cssxref("max-content")}}, {{cssxref("fit-content")}}
-- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- Verwandte Größenschlüsselwörter: {{cssxref("max-content")}}, {{cssxref("fit-content")}}
+- [CSS Boxmodell](/de/docs/Web/CSS/Guides/Box_sizing) Modul

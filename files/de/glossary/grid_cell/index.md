@@ -1,19 +1,19 @@
 ---
-title: Gitterzelle
+title: Grid-Zelle
 slug: Glossary/Grid_Cell
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-In einem [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) ist eine **Gitterzelle** die kleinste Einheit, die Sie in Ihrem CSS-Grid haben können. Es ist der Raum zwischen vier sich kreuzenden {{Glossary("grid_lines", "Gitterlinien")}} und konzeptionell sehr ähnlich einer Tabellenzelle.
+In einem [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) ist eine **Grid-Zelle** die kleinste Einheit, die Sie in Ihrem CSS-Grid haben können. Sie ist der Raum zwischen vier sich kreuzenden {{Glossary("grid_lines", "Gitterlinien")}} und konzeptionell sehr ähnlich einer Tabellenzelle.
 
-![Diagramm, das eine einzelne Zelle im Gitter zeigt.](1_grid_cell.png)
+![Diagramm, das eine einzelne Zelle im Raster zeigt.](1_grid_cell.png)
 
-Wenn Sie keine Elemente mit einer der Grid-Platzierungsmethoden platzieren, werden direkte Kinder des Grid-Containers vom Auto-Platzierungs-Algorithmus in jede einzelne Gitterzelle platziert. Zusätzliche Zeilen- oder Spuren-{{Glossary("grid_tracks", "Tracks")}} werden erstellt, um genug Zellen zu schaffen, die alle Elemente aufnehmen können.
+Wenn Sie Elemente nicht mit einer der Grid-Platzierungsmethoden platzieren, werden die direkten Kinder des Grid-Containers mithilfe des Auto-Platzierungsalgorithmus je eine in jede einzelne Grid-Zelle platziert. Zusätzliche Zeilen- oder Spalten-{{Glossary("grid_tracks", "Spuren")}} werden erstellt, um genügend Zellen zu schaffen, die alle Elemente aufnehmen.
 
 ## Beispiel
 
-Im Beispiel haben wir ein Gitter mit drei Spuren erstellt. Die fünf Elemente werden in Gitterzellen platziert, indem eine Anfangszeile von drei Gitterzellen entlanggearbeitet und anschließend für die verbleibenden zwei eine neue Zeile erstellt wird.
+Im Beispiel haben wir ein Grid mit drei Spuren erstellt. Die fünf Elemente werden in Grid-Zellen entlang einer ersten Zeile von drei Grid-Zellen platziert, dann wird eine neue Zeile für die verbleibenden zwei erstellt.
 
 ```css hidden
 * {
@@ -57,7 +57,7 @@ Im Beispiel haben wir ein Gitter mit drei Spuren erstellt. Die fünf Elemente we
 
 ## Siehe auch
 
-### Eigenschaftenreferenz
+### Eigenschaftsreferenz
 
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-rows")}}
@@ -66,5 +66,5 @@ Im Beispiel haben wir ein Gitter mit drei Spuren erstellt. Die fünf Elemente we
 
 ### Weiterführende Literatur
 
-- [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-- [Definition von Gitterzellen in der CSS-Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-track-concept)
+- [Grundlegende Konzepte des Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts)
+- [Definition von Grid-Zellen in der CSS Grid Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-track-concept)

@@ -2,10 +2,10 @@
 title: fit-content()
 slug: Web/CSS/Reference/Values/fit-content_function
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`fit-content()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) begrenzt eine gegebene Größe auf eine verfügbare Größe gemäß der Formel `min(maximum size, max(minimum size, argument))`.
+Die **`fit-content()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) klemmt eine gegebene Größe auf eine verfügbare Größe gemäß der Formel `min(maximum size, max(minimum size, argument))`.
 
 {{InteractiveExample("CSS Demo: fit-content()")}}
 
@@ -50,11 +50,11 @@ grid-template-columns: fit-content(40%) fit-content(40%) 1fr;
 }
 ```
 
-Die Funktion kann als Spurgröße in [CSS-Grid](/de/docs/Web/CSS/CSS_grid_layout) Eigenschaften verwendet werden, wobei die maximale Größe durch `max-content` und die minimale Größe durch `auto` definiert ist. Diese wird ähnlich wie `auto` berechnet (d.h., [`minmax(auto, max-content)`](/de/docs/Web/CSS/Reference/Values/minmax)), außer dass die Spurgröße am _Argument_ begrenzt wird, wenn es größer als das `auto` Minimum ist.
+Die Funktion kann als Spurgröße in [CSS grid](/de/docs/Web/CSS/Guides/Grid_layout)-Eigenschaften verwendet werden, wobei die maximale Größe durch `max-content` und die minimale Größe durch `auto` definiert sind, was ähnlich wie `auto` berechnet wird (z.B. [`minmax(auto, max-content)`](/de/docs/Web/CSS/Reference/Values/minmax)), außer dass die Spurgröße auf _argument_ geklammert wird, wenn es größer als das `auto`-Minimum ist.
 
-Mehr Informationen zu den Schlüsselwörtern `max-content` und `auto` finden Sie auf der Seite {{cssxref("grid-template-columns")}}.
+Weitere Informationen zu den `max-content`- und `auto`-Schlüsselwörtern finden Sie auf der Seite {{cssxref("grid-template-columns")}}.
 
-Die `fit-content()` Funktion kann auch als ausgelegte Box-Größe für {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("min-width")}}, {{cssxref("min-height")}}, {{cssxref("max-width")}} und {{cssxref("max-height")}} verwendet werden, wobei sich die maximale und minimale Größe auf die Inhaltsgröße bezieht.
+Die `fit-content()`-Funktion kann auch als ausgelegte Box-Größe für {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("min-width")}}, {{cssxref("min-height")}}, {{cssxref("max-width")}} und {{cssxref("max-height")}} verwendet werden, wobei die maximalen und minimalen Größen sich auf die Inhaltsgröße beziehen.
 
 ## Syntax
 
@@ -74,9 +74,10 @@ fit-content(40%)
 - {{cssxref("&lt;length&gt;")}}
   - : Eine absolute Länge.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ein Prozentsatz relativ zum verfügbaren Platz in der gegebenen Achse.
 
-    In Gittereigenschaften ist es relativ zur Inline-Größe des Gittercontainers in Spuren und zur Blockgröße des Gittercontainers für Zeilenspuren. Ansonsten ist es relativ zur verfügbaren Inline-Größe oder Blockgröße der ausgelegten Box, abhängig vom Schreibmodus.
+  - : Ein Prozentsatz relativ zum verfügbaren Raum in der gegebenen Achse.
+
+    In Gittereigenschaften bezieht es sich auf die Inline-Größe des Gittercontainers in Spuren und auf die Blockgröße des Gittercontainers für Zeilenspuren. Andernfalls bezieht es sich auf die verfügbare Inline-Größe oder Blockgröße der ausgelegten Box, abhängig vom Schreibmodus.
 
 ## Formale Syntax
 
@@ -84,7 +85,7 @@ fit-content(40%)
 
 ## Beispiele
 
-### Größenanpassung von Gitterspalten mit fit-content
+### Auf Größen anpassen von Gitterspalten mit fit-content
 
 #### HTML
 
@@ -135,7 +136,7 @@ fit-content(40%)
 
 - {{cssxref("min-content")}} Schlüsselbegriff
 - {{cssxref("max-content")}} Schlüsselbegriff
-- [CSS Box Sizing](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- [CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_sizing) Modul
 - {{cssxref("grid-template")}}
 - {{cssxref("grid-template-rows")}}
 - {{cssxref("grid-template-columns")}}
@@ -143,5 +144,5 @@ fit-content(40%)
 - {{cssxref("grid-auto-columns")}}
 - {{cssxref("grid-auto-rows")}}
 - {{cssxref("grid-auto-flow")}}
-- [Linienbasierte Platzierung mit CSS-Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- [Gitter Template Areas: Gitterdefintion Kurzformen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)
+- [Linienbasierte Platzierung mit CSS-Grid](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement)
+- [Grid-Template-Bereiche: Gitterdefinition-Kurzformen](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas#grid_definition_shorthands)

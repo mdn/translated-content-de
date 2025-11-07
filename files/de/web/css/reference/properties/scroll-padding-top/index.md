@@ -2,10 +2,10 @@
 title: scroll-padding-top
 slug: Web/CSS/Reference/Properties/scroll-padding-top
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die Eigenschaft **`scroll-padding-top`** definiert Versatzwerte für den oberen Rand des _optimalen Anzeigebereichs_ des Scrollports: den Bereich, der als Zielregion dient, um Elemente im Sichtbereich des Benutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die **`scroll-padding-top`** Eigenschaft definiert Versätze für den oberen Rand der _optimalen Anzeigeregion_ des Scrollports: die Region, die als Zielregion verwendet wird, um Dinge in den Blick des Benutzers zu bringen. Dadurch kann der Autor Bereiche des Scrollports ausschließen, die durch andere Inhalte (wie fixe Toolbars oder Seitenleisten) verdeckt werden, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-top")}}
 
@@ -91,11 +91,11 @@ scroll-padding-top: unset;
 ### Werte
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein nach innen gerichteter Versatz vom oberen Rand des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein interner Versatz vom oberen Rand des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies wird allgemein 0px sein, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
+  - : Der Versatz wird vom Benutzeragenten bestimmt. In der Regel wird dies 0px sein, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
 
-## Formaler Definition
+## Formale Definition
 
 {{cssinfo}}
 
@@ -113,5 +113,5 @@ scroll-padding-top: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
 - [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

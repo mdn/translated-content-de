@@ -2,18 +2,18 @@
 title: font-weight
 slug: Web/CSS/Reference/At-rules/@font-face/font-weight
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Der **`font-weight`** [CSS](/de/docs/Web/CSS) {{cssxref("@font-face")}} Deskriptor ermöglicht es Autoren, ein einzelnes Schriftgewicht oder einen Bereich von Schriftgewichten für die im At-Regel {{cssxref("@font-face")}} spezifizierte Schriftart festzulegen. Dies wird dann vom Browser verwendet, um die geeignete Schriftart auszuwählen, wenn eine CSS-Regel ein gewünschtes [Schriftgewicht](/de/docs/Web/CSS/Reference/Properties/font-weight) festlegt.
+Der **`font-weight`** [CSS](/de/docs/Web/CSS) {{cssxref("@font-face")}}-Deskriptor ermöglicht es den Autoren, ein einzelnes Schriftgewicht oder einen Bereich von Schriftgewichten für die im {{cssxref("@font-face")}}-Regel angegebene Schriftart zu spezifizieren. Dies wird dann vom Browser verwendet, um die passende Schriftart auszuwählen, wenn eine CSS-Regel ein gewünschtes [Schriftgewicht](/de/docs/Web/CSS/Reference/Properties/font-weight) festlegt.
 
-Typischerweise möchte ein Entwickler Schriften aus einer einzigen Schriftfamilie in einer Reihe unterschiedlicher Gewichte verwenden. Bei traditionellen oder _statischen_ Schriften enthält eine einzelne Schriftdatei Zeichen aus einer Schriftfamilie in einem bestimmten Gewicht und Stil: z.B. "Helvetica bold italic". Um die Anzeige von leichten, normalen, fetten oder extra-fetten Schriften zu ermöglichen, wenn die `font-weight` Eigenschaft ein spezifisches Gewicht aufruft, können Sie mehrere {{cssxref("@font-face")}} At-Regeln für dieselbe Familie definieren (alle mit demselben Wert für das {{cssxref("@font-face/font-family", "font-family")}} Deskriptor), eine für jedes Gewicht oder Gewichtsbereich.
+In der Regel möchte ein Entwickler Schriften aus einer einzigen Schriftfamilie in verschiedenen Gewichten verwenden. Bei traditionellen oder _statischen_ Schriften enthält eine einzelne Schriftdatei Zeichen einer Schriftfamilie in einem bestimmten Gewicht und Stil: zum Beispiel "Helvetica fett kursiv". Um die Anzeige von leichten, regulären, fetten oder extra-fetten Schriften zu ermöglichen, wenn die Eigenschaft `font-weight` ein spezifisches Gewicht anfordert, können Sie mehrere {{cssxref("@font-face")}}-Regeln für dieselbe Familie definieren (alle mit demselben {{cssxref("@font-face/font-family", "font-family")}}-Deskriptionswert), eine für jedes Gewicht oder jeden Gewichtsbereich.
 
-Um die Schriftart für einen Bereich von Schriftgewichten zu deklarieren, deklarieren Sie ein durch Leerzeichen getrenntes Paar von Schriftgewichtswerten als den Wert für den `font-weight` Deskriptor. Wenn CSS-Regeln ein Schriftgewicht durch Setzen der {{cssxref("font-weight")}}-Eigenschaft oder der {{cssxref("font")}}-Kurzschreibweise festlegen, wird die entsprechende Schriftart verwendet.
+Um die für einen Bereich von Schriftgewichten zu verwendende Schriftart zu deklarieren, deklarieren Sie ein durch Leerzeichen getrenntes Paar von Schriftgewicht-Werten als Wert für den `font-weight`-Deskriptor. Wenn CSS-Regeln ein Schriftgewicht durch das Setzen der {{cssxref("font-weight")}}-Eigenschaft oder der {{cssxref("font")}}-Kurzform festlegen, wird dann die passende Schriftart verwendet.
 
-Zum Beispiel, wenn der Deskriptor `font-weight: 400 600;` ist, wird bei der Eigenschaft `font-weight: 450` oder `font-weight: 550` diese Schriftart für diese Schriftfamilie verwendet. Ob die Schriftart statisch oder eine [variable Schriftart](/de/docs/Web/CSS/CSS_fonts/Variable_fonts_guide) ist, die zu dem Bereich passende Schriftart wird verwendet. In diesem Fall erscheinen `450` und `550` bei statischen Schriftarten gleich. Wenn die Schriftart eine variable Schriftart ist, wird die letztere fetter erscheinen.
+Beispielsweise, wenn der Deskriptor `font-weight: 400 600;` lautet, wird bei der Eigenschaft `font-weight: 450` oder `font-weight: 550` diese Schriftart für diese Schriftfamilie verwendet. Ob die Schrift eine statische oder eine [variable Schrift](/de/docs/Web/CSS/Guides/Fonts/Variable_fonts) ist, die der Bandbreite entsprechende Schrift wird verwendet. In diesem Fall werden, wenn die Schrift eine statische Schrift ist, `450` und `550` gleich erscheinen. Wenn die Schrift eine variable Schrift ist, wird die letztere fetter sein.
 
-Der Deskriptor ist für alle Schriftarten gleich, aber der Bereich, den Sie für eine variable Schriftart setzen werden, wird im Allgemeinen größer sein, möglicherweise sogar `1 1000`, um dieselbe Schriftart für alle Schriftgewichtseigenschaftswerte zu verwenden.
+Der Deskriptor ist für alle Schriften gleich, aber der Bereich, den Sie für eine variable Schrift setzen, wird im Allgemeinen größer sein, möglicherweise sogar `1 1000`, um dieselbe Schrift für alle Schriftgewicht-Eigenschaftswerte zu nutzen.
 
 ## Syntax
 
@@ -30,11 +30,11 @@ font-weight: 300 500;
 
 ### Werte
 
-Der `font-weight` Deskriptor nimmt eine der folgenden Formen an:
+Der `font-weight`-Deskriptor nimmt eine der folgenden Formen an:
 
-- Das Schlüsselwort `auto`.
-- Ein einzelner `<font-weight-absolute>` Wert.
-- Ein Paar von `<font-weight-absolute>` Werten, getrennt durch ein Leerzeichen.
+- Das Stichwort `auto`.
+- Ein einzelner `<font-weight-absolute>`-Wert.
+- Ein Paar von `<font-weight-absolute>`-Werten, getrennt durch ein Leerzeichen.
 
 Jeder `<font-weight-absolute>` kann einer der folgenden sein:
 
@@ -43,36 +43,36 @@ Jeder `<font-weight-absolute>` kann einer der folgenden sein:
 - `bold`
   - : Fettes Schriftgewicht. Entspricht `700`.
 - `<number>`
-  - : Ein {{cssxref("&lt;number&gt;")}} Wert zwischen 1 und 1000, inklusive. Höhere Zahlen repräsentieren stärkere Gewichte als (oder genauso stark wie) niedrigere Zahlen. Bestimmte häufig verwendete Werte entsprechen gebräuchlichen Gewichtsnamen, wie in der unten beschriebenen [Mapping von gebräuchlichen Gewichtsnamen](#mapping_von_gebräuchlichen_gewichtsnamen).
+  - : Ein {{cssxref("&lt;number&gt;")}}-Wert zwischen 1 und 1000, einschließlich. Höhere Zahlen repräsentieren Gewichte, die fetter oder genauso fett wie niedrigere Zahlen sind. Bestimmte häufig verwendete Werte entsprechen gängigen Gewichtsnamen, wie im Abschnitt [Übliche Gewichtsnamen-Zuordnung](#übliche_gewichtsnamen-zuordnung) unten beschrieben.
 
-### Mapping von gebräuchlichen Gewichtsnamen
+### Übliche Gewichtsnamen-Zuordnung
 
-Die numerischen Werte `100` bis `900` entsprechen in etwa den folgenden gebräuchlichen Gewichtsnamen:
+Die numerischen Werte `100` bis `900` entsprechen ungefähr den folgenden gebräuchlichen Gewichtsnamen:
 
-| Wert | Gebräuchlicher Gewichtsname |
-| ----- | --------------------------- |
-| 100   | Dünn (Haarlinie)            |
-| 200   | Extra Leicht (Ultra Leicht) |
-| 300   | Leicht                      |
-| 400   | Normal                      |
-| 500   | Mittel                      |
-| 600   | Halbfett (Demi Fett)        |
-| 700   | Fett                        |
-| 800   | Extra Fett (Ultra Fett)     |
-| 900   | Schwarz (Schwer)            |
+| Wert | Gebräuchlicher Gewichtsnamen |
+| ---- | ---------------------------- |
+| 100  | Dünn (Haarlinie)             |
+| 200  | Extra Leicht (Ultra Leicht)  |
+| 300  | Leicht                       |
+| 400  | Normal                       |
+| 500  | Mittel                       |
+| 600  | Halb Fett (Demi Fett)        |
+| 700  | Fett                         |
+| 800  | Extra Fett (Ultra Fett)      |
+| 900  | Schwarz (Schwer)             |
 
-### Variable Schriftarten
+### Variable Schriften
 
-Die meisten Schriftarten haben ein bestimmtes Gewicht, das einem der Zahlen in [Mapping von gebräuchlichen Gewichtsnamen](#mapping_von_gebräuchlichen_gewichtsnamen) entspricht. Einige Schriftarten, sogenannte variable Schriften, können jedoch einen Bereich von Gewichten mit mehr oder weniger feiner Granularität unterstützen, was dem Designer eine viel genauere Kontrolle über das gewählte Gewicht geben kann.
+Die meisten Schriften haben ein bestimmtes Gewicht, das einem der Zahlen in der [Üblichen Gewichtsnamen-Zuordnung](#übliche_gewichtsnamen-zuordnung) entspricht. Es gibt jedoch einige Schriften, sogenannte variable Schriften, die einen Bereich von Gewichten mit mehr oder weniger feiner Granularität unterstützen können, und dies kann dem Designer ein viel näher liegendes Maß an Kontrolle über das gewählte Gewicht bieten.
 
-Für TrueType- oder OpenType-variable Schriftarten wird die "wght"-Variante verwendet, um unterschiedliche Gewichtungen zu implementieren.
+Für TrueType- oder OpenType-variable Schriften wird die "wght"-Variation verwendet, um variierende Gewichte zu implementieren.
 
 ## Barrierefreiheit
 
-Menschen mit eingeschränkter Sicht können Schwierigkeiten haben, Text zu lesen, der mit einem `font-weight` Wert von `100` (Dünn/Haarlinie) oder `200` (Extra Leicht) gesetzt ist, besonders wenn die Schriftart ein [geringes Kontrastverhältnis in der Farbe](/de/docs/Web/CSS/Reference/Properties/color#accessibility) hat.
+Menschen mit Sehbehinderungen können Schwierigkeiten haben, Text zu lesen, der mit einem `font-weight`-Wert von `100` (Dünn/Haarlinie) oder `200` (Extra Leicht) gesetzt ist, insbesondere wenn die Schrift ein [niedriges Kontrastverhältnis](/de/docs/Web/CSS/Reference/Properties/color#accessibility) aufweist.
 
-- [MDN Verständnis von WCAG, Erklärung der Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.8 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
+- [MDN Verständnis WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.8 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html)
 
 ## Formale Definition
 
@@ -84,11 +84,11 @@ Menschen mit eingeschränkter Sicht können Schwierigkeiten haben, Text zu lesen
 
 ## Beispiele
 
-### Normale und fette Schriften auswählen
+### Auswahl normaler und fetter Schriften
 
-In diesem Beispiel fügen wir zwei Schriften aus der ["Fira Sans"](https://fonts.google.com/specimen/Fira+Sans) Schriftfamilie ein, eine mit normalem Gewicht, eine mit fettem Gewicht, und verwenden zwei `@font-face` At-Regeln. Wir setzen `font-weight` Deskriptoren, um das Gewicht der Schriften zu entsprechen.
+In diesem Beispiel schließen wir zwei Schriften ein, eine mit normalem Gewicht, eine mit fettem Gewicht, aus der ["Fira Sans"](https://fonts.google.com/specimen/Fira+Sans)-Schriftfamilie, indem wir zwei `@font-face`-Regeln verwenden. Wir setzen `font-weight`-Deskriptoren, um das Gewicht der Schriften zu bestimmen.
 
-Nach diesem Schritt können CSS-Regeln die normale oder fette Schrift der "Fira Sans" Familie einfach durch das Setzen der {{cssxref("font-weight")}} Eigenschaft auswählen. Beachten Sie, dass das {{htmlelement("strong")}} HTML-Element ebenfalls die fette Schrift auswählt, da `<strong>` Elemente standardmäßig einen CSS `font-weight` Eigenschaftswert von `bold` haben.
+Anschließend können mit CSS-Regeln die normale oder die fette Schrift für die „Fira Sans“-Familie einfach durch Einstellen der {{cssxref("font-weight")}}-Eigenschaft ausgewählt werden. Beachten Sie, dass das {{htmlelement("strong")}} HTML-Element auch die fette Schrift auswählt, weil `<strong>`-Elemente standardmäßig einen CSS `font-weight`-Eigenschaftswert von `bold` haben.
 
 #### HTML
 
@@ -131,9 +131,9 @@ p.two {
 
 {{embedlivesample("Selecting normal and bold fonts", "", 300)}}
 
-### Festlegen von Schriftgewichtsranges
+### Einstellen von Schriftgewicht-Bereichen
 
-Dieses Beispiel demonstriert, wie Autoren mehrere Schriften für verschiedene Schriftgewichte (und Schriftstile) einbeziehen können, indem sie mehrere `@font-face`-Deklarationen mit demselben `font-family`-Wert nutzen. Indem Sie die `font-weight` Deskriptoren mit Bereichen von 1 bis 1000 festlegen, können Sie in den restlichen Stilen ein `font-weight` (oder `font-style`) deklarieren und wissen, dass die entsprechende Schriftart verwendet wird.
+Dieses Beispiel zeigt, wie Autoren mehrere Schriften für mehrere Schriftgewichte (und Schriftstile) einbinden können, indem sie mehrere `@font-face`-Erklärungen mit demselben `font-family`-Wert einbinden. Indem Sie die `font-weight`-Deskriptoren mit Bereichen von 1 bis 1000 festlegen, können Sie im Rest Ihrer Stylesheets ein `font-weight` (oder `font-style`) deklarieren und sicher sein, dass die entsprechende Schrift verwendet wird.
 
 #### HTML
 
@@ -148,17 +148,17 @@ Dieses Beispiel demonstriert, wie Autoren mehrere Schriften für verschiedene Sc
 
 #### CSS
 
-Wir fügen vier `@font-face` Deklarationen für vier verschiedene Schriften aus der `FireSans` Schriftfamilie hinzu, wie im vorherigen Beispiel zu sehen. Jede Deklaration ist auf einen unterschiedlichen Bereich von Schriftgewichtswerten gesetzt, aber alle verwenden denselben Schriftartnamen.
+Wir fügen vier `@font-face`-Erklärungen für vier verschiedene Schriften aus der `FireSans`-Schriftfamilie ein, wie im vorherigen Beispiel beschrieben. Jede Erklärung ist auf einen anderen Bereich von Schriftgewicht-Werten eingestellt, aber alle verwenden denselben Schriftartnamen.
 
-Die erste Deklaration verwendet `FiraSans-Regular` und ihr zugeordneter `font-weight` Bereich umfasst den gesamten möglichen Bereich von Schriftgewichtswerten.
+Die erste Erklärung verwendet `FiraSans-Regular` und der zugehörige `font-weight`-Bereich umfasst den gesamten möglichen Bereich von Schriftgewicht-Werten.
 
-Die anderen drei Deklarationen verwenden die leichte, fette und extra-fette Versionen der Schriftart, und ihre zugeordneten `font-weight` Bereiche definieren Teilmengen des Bereichs wie folgt:
+Die anderen drei Erklärungen verwenden die leichten, fetten und extra-fetten Versionen der Schrift, und ihre zugehörigen `font-weight`-Bereiche definieren Teilmengen des Bereichs wie folgt:
 
-- die leichte Schriftart wird dem Bereich 1-300 zugeordnet
-- die fette Schriftart wird dem Bereich 500-700 zugeordnet
-- die extra-fette Schriftart wird dem Bereich 700-1000 zugeordnet
+- die leichte Schrift ist dem Bereich 1-300 zugeordnet
+- die fette Schrift ist dem Bereich 500-700 zugeordnet
+- die extra-fette Schrift ist dem Bereich 700-1000 zugeordnet
 
-Die CSS [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) stellt sicher, dass die drei letzteren Deklarationen Teile des Bereichs überschreiben, die in der `FiraSans-Regular` Deklaration festgelegt wurden.
+Das CSS-[Kaskadensystem](/de/docs/Web/CSS/Guides/Cascade/Introduction) stellt sicher, dass die drei letzteren Erklärungen Teile des Bereichs überschreiben, der in der `FiraSans-Regular`-Erklärung festgelegt wurde.
 
 ```css
 @font-face {
@@ -219,21 +219,21 @@ p.nine {
 
 {{embedlivesample("Setting font-weight ranges", "", 500)}}
 
-Der `seven` Absatz verwendet die extra fette Schrift. Während `font-weight: 700` sowohl die `FiraSans-Bold` als auch `FiraSans-ExtraBold` Deklarationen trifft, überschreibt `FiraSans-ExtraBold` aufgrund der späteren Deklaration die `FiraSans-Bold` für diesen Wert.
+Der `seven`-Absatz verwendet die extra-fette Schrift. Auch wenn `font-weight: 700` sowohl mit den `FiraSans-Bold`- als auch `FiraSans-ExtraBold`-Erklärungen übereinstimmt, überschreibt `FiraSans-ExtraBold`, da es später deklariert wird, `FiraSans-Bold` für diesen Wert.
 
-Ähnlich verwenden `100` und `300` beide die leichte Schriftart; obwohl `FiraSans-Regular` und `FiraSans-Light` beide `300` in ihren Bereichen enthalten, wird `FiraSans-Light` später deklariert. Alternativ könnten wir `FiraSans-Regular` nach `FiraSans-Light` deklarieren, aber wir müssten den `font-weight` Deskriptorbereich ändern, wenn wir dies tun.
+Ähnlich verwenden `100` und `300` beide die leichte Schrift; obwohl sowohl `FiraSans-Regular` als auch `FiraSans-Light` `300` in ihren Bereichen einschließen, wird `FiraSans-Light` später deklariert. Alternativ hätten wir `FiraSans-Regular` nach `FiraSans-Light` deklarieren können, müssten jedoch den `font-weight`-Deskriptorbereich ändern, wenn wir das tun.
 
-### Festlegen eines Bereichs für eine variable Schriftart
+### Einstellen eines Bereichs für eine variable Schriftart
 
-In diesem Beispiel verwenden wir den `font-weight` Deskriptor, um den Bereich der Gewichte einzuschränken, die beim Verwenden einer variablen Schriftart eingestellt werden können.
+In diesem Beispiel verwenden wir den `font-weight`-Deskriptor, um den Bereich der Gewichtungen zu beschränken, die festgelegt werden können, wenn eine variable Schrift verwendet wird.
 
-Wir fügen eine variable Schriftart, ["League Mono"](https://www.theleagueofmoveabletype.com/league-mono), unter Verwendung einer einzelnen `@font-face` At-Regel hinzu. Wir verwenden einen `font-weight: 300 700` Wert, um den Bereich der verfügbaren Gewichte effektiv zu begrenzen. Wenn eine CSS-Regel unsere "League Mono" Schrift verwendet und ein Gewicht außerhalb dieses Bereichs angibt, wird das Gewicht auf den Bereich geklammert.
+Wir fügen eine variable Schriftart, ["League Mono"](https://www.theleagueofmoveabletype.com/league-mono), mit einer einzelnen `@font-face`-Regel ein. Wir verwenden einen `font-weight: 300 700`-Wert, um den verfügbaren Bereich der Gewichte effektiv zu begrenzen. Wenn eine CSS-Regel unsere "League Mono"-Schrift verwendet und ein Gewicht außerhalb dieses Bereichs angibt, wird das Gewicht auf den Bereich geklammert.
 
 #### HTML
 
-Wir fügen einen Absatz mit `<output>` ein, der ursprünglich auf `400` gesetzt ist, da dies das Standard-Schriftgewicht für nicht-gestalteten Absatztext ist. Dieser Absatz ist zwischen zwei anderen Absätzen eingebettet, sodass Sie gerenderte gegenüber deklarierte Schriftgewichtswerte vergleichen können.
+Wir fügen einen Absatz mit `<output>` ein, der zunächst auf `400` gesetzt ist, da dies das Standard-Schriftgewicht für ungestaltetem Absatztext ist. Dieser Absatz befindet sich zwischen zwei weiteren Absätzen, damit Sie die gerenderten Schriftgewichtwerte mit den deklarierten vergleichen können.
 
-Wir fügen einen {{htmlelement("input/range")}} vom Typ `range` hinzu, der in einem {{htmlelement("label")}} geschachtelt ist, und setzen den `step` auf `50`.
+Wir fügen ein {{htmlelement("input/range")}} vom Typ `range` in ein {{htmlelement("label")}} ein und setzen den `step` auf `50`.
 
 ```html
 <p>LeagueMono, font-weight: 300 (comparison)</p>
@@ -247,7 +247,7 @@ Wir fügen einen {{htmlelement("input/range")}} vom Typ `range` hinzu, der in ei
 
 #### CSS
 
-Wir setzen den `font-weight` Deskriptorbereich auf `300 700`, um die variable Schriftart auf diesen Bereich zu beschränken.
+Wir setzen den `font-weight`-Deskriptorbereich auf `300 700`, um die variable Schrift auf diesen Bereich zu begrenzen.
 
 ```css
 @font-face {
@@ -272,7 +272,7 @@ p:last-of-type {
 
 #### JavaScript
 
-Wir fügen einen Ereignishandler ein, der den `font-weight` Eigenschaftswert des Absatzes aktualisiert und den Text so anpasst, dass er die Änderung widerspiegelt:
+Wir fügen einen Ereignis-Handler ein, der den `font-weight`-Eigenschaftswert des Absatzes aktualisiert und den Text anpasst, um die Änderung widerzuspiegeln:
 
 ```js
 const text = document.querySelector("#example");
@@ -290,7 +290,7 @@ range.addEventListener("change", () => {
 {{embedlivesample("Setting a range for a variable font", "", "400")}}
 
 Ändern Sie das Schriftgewicht des Absatzes über den Bereich.
-Beachten Sie, dass der Beispielabsatz nicht leichter als der obere `300` oder fetter als der untere `700` Absatz wird; das Schriftgewicht wird auf den durch den `font-weight` Deskriptor definierten Bereich geklemmt.
+Beachten Sie, dass der Beispielabsatz nicht leichter wird als der `300`-Absatz darüber oder fetter als der `700`-Absatz darunter; das Schriftgewicht wird auf den Bereich geklammert, der durch den `font-weight`-Deskriptor definiert ist.
 
 ## Spezifikationen
 

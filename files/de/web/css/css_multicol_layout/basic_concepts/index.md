@@ -10,9 +10,9 @@ Mehrspaltenlayout, oft als Multicol-Layout bezeichnet, ist eine Spezifikation zu
 
 ## Wichtige Eigenschaften
 
-Das Multicol-Layout unterscheidet sich von anderen Layoutmethoden in CSS; es fragmentiert den Inhalt, einschließlich aller nachgelagerten Elemente, in Spalten. Dies geschieht ähnlich wie die Fragmentierung von Inhalten in Seiten, wenn wir mit [CSS-Seitenmedien](/de/docs/Web/CSS/CSS_paged_media) arbeiten, indem wir ein Druckstilblatt erstellen.
+Das Multicol-Layout unterscheidet sich von anderen Layoutmethoden in CSS; es fragmentiert den Inhalt, einschließlich aller nachgelagerten Elemente, in Spalten. Dies geschieht ähnlich wie die Fragmentierung von Inhalten in Seiten, wenn wir mit [CSS-Seitenmedien](/de/docs/Web/CSS/Guides/Paged_media) arbeiten, indem wir ein Druckstilblatt erstellen.
 
-In diesem und den darauf folgenden Leitfäden werden wir die folgenden, im [CSS Mehrspaltenlayout-Modul](/de/docs/Web/CSS/CSS_multicol_layout) definierten Eigenschaften besprechen:
+In diesem und den darauf folgenden Leitfäden werden wir die folgenden, im [CSS Mehrspaltenlayout-Modul](/de/docs/Web/CSS/Guides/Multicol_layout) definierten Eigenschaften besprechen:
 
 - {{cssxref("column-width")}}
 - {{cssxref("column-count")}}
@@ -72,7 +72,7 @@ body {
 
 {{EmbedLiveSample("column-count", "", "280px")}}
 
-Im obigen Beispiel ist der Inhalt innerhalb der Paragraphen `<p>`-Tags mit der Standardformatierung umschlossen. Daher gibt es einen Rand über jedem Paragraphen. Sie können sehen, wie dieser Rand die erste Textzeile nach unten schiebt. Das liegt daran, dass ein Multicol-Container einen [Blockformatierungskontext (BFC)](/de/docs/Web/CSS/CSS_display/Block_formatting_context) erstellt, wodurch die Ränder von Kinderlementen nicht mit einem Rand des Containers zusammenfallen.
+Im obigen Beispiel ist der Inhalt innerhalb der Paragraphen `<p>`-Tags mit der Standardformatierung umschlossen. Daher gibt es einen Rand über jedem Paragraphen. Sie können sehen, wie dieser Rand die erste Textzeile nach unten schiebt. Das liegt daran, dass ein Multicol-Container einen [Blockformatierungskontext (BFC)](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) erstellt, wodurch die Ränder von Kinderlementen nicht mit einem Rand des Containers zusammenfallen.
 
 ### Breite der Spalten festlegen
 
@@ -189,4 +189,4 @@ Dieses CSS würde dasselbe Ergebnis wie [das dritte Beispiel](#sowohl_anzahl_als
 
 ## Nächste Schritte
 
-In diesem Leitfaden haben wir die grundlegende Verwendung von Mehrspaltenlayouts kennengelernt. Im nächsten Leitfaden werden wir uns ansehen, wie wir [die Spalten selbst gestalten können](/de/docs/Web/CSS/CSS_multicol_layout/Styling_columns).
+In diesem Leitfaden haben wir die grundlegende Verwendung von Mehrspaltenlayouts kennengelernt. Im nächsten Leitfaden werden wir uns ansehen, wie wir [die Spalten selbst gestalten können](/de/docs/Web/CSS/Guides/Multicol_layout/Styling_columns).

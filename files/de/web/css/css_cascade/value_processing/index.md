@@ -6,19 +6,19 @@ l10n:
   sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Für jedes Element in einem Dokumentbaum weist der Browser jedem CSS-Attribut, das auf dieses Element angewendet wird, einen Wert zu. Der gerenderte Wert jeder CSS-Eigenschaft für ein bestimmtes Element oder eine Box ist das Ergebnis einer Berechnung basierend auf Stylesheet-Definitionen, Vererbung, dem [Cascade](/de/docs/Web/CSS/CSS_cascade/Cascade), Abhängigkeiten, Einheitenumwandlung und der Anzeigumgebung. Dieser Leitfaden bietet einen Überblick über die Verarbeitungsschritte, die angewendet werden, um zu definieren, wie jeder CSS-Wert letztendlich durch die Untersuchung von Schlüsselkonzepten wie spezifizierte, berechnete, verwendete und tatsächliche Werte gerendert wird.
+Für jedes Element in einem Dokumentbaum weist der Browser jedem CSS-Attribut, das auf dieses Element angewendet wird, einen Wert zu. Der gerenderte Wert jeder CSS-Eigenschaft für ein bestimmtes Element oder eine Box ist das Ergebnis einer Berechnung basierend auf Stylesheet-Definitionen, Vererbung, dem [Cascade](/de/docs/Web/CSS/Guides/Cascade/Introduction), Abhängigkeiten, Einheitenumwandlung und der Anzeigumgebung. Dieser Leitfaden bietet einen Überblick über die Verarbeitungsschritte, die angewendet werden, um zu definieren, wie jeder CSS-Wert letztendlich durch die Untersuchung von Schlüsselkonzepten wie spezifizierte, berechnete, verwendete und tatsächliche Werte gerendert wird.
 
 ## Eigenschaftswerte
 
-Jeder Stil, der auf ein Element oder Pseudoelement angewendet wird, basiert auf einer einzigen CSS-Eigenschaftserklärung. Jede CSS-Eigenschaft hat nur einen Wert. Der angewendete Wert wird durch die [Kaskadierungswerte](#kaskadierter_wert) aller Deklarationen dieser Eigenschaft bestimmt, die auf dieses Element oder Pseudoelement angewendet werden, wobei der einzige angewendete Wert von der Eigenschaftserklärung stammt, die im [Kaskadierungssortierauftrag](/de/docs/Web/CSS/CSS_cascade/Cascade#cascading_order) auf der Grundlage des [Kaskadenalgorithmus](/de/docs/Web/CSS/CSS_cascade/Cascade) am höchsten gereiht ist.
+Jeder Stil, der auf ein Element oder Pseudoelement angewendet wird, basiert auf einer einzigen CSS-Eigenschaftserklärung. Jede CSS-Eigenschaft hat nur einen Wert. Der angewendete Wert wird durch die [Kaskadierungswerte](#kaskadierter_wert) aller Deklarationen dieser Eigenschaft bestimmt, die auf dieses Element oder Pseudoelement angewendet werden, wobei der einzige angewendete Wert von der Eigenschaftserklärung stammt, die im [Kaskadierungssortierauftrag](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascading_order) auf der Grundlage des [Kaskadenalgorithmus](/de/docs/Web/CSS/Guides/Cascade/Introduction) am höchsten gereiht ist.
 
 Wenn es mehrere [erklärte Werte](#erklärter_wert) gibt, bei denen mehrere Deklarationen dieselben oder unterschiedliche Eigenschaftswerte für dasselbe Element bereitstellen, muss jeder Eigenschaftswert weiterhin aus einem einzigen Eigenschaftsname-Wert-Paar stammen, da nur ein einzelner Wert aus jeder Eigenschaft angewendet wird, selbst wenn der Wert eine durch Kommas getrennte Liste von Werten ist.
 
 Um zu bestimmen, welcher [erklärte Wert](#erklärter_wert) angewendet wird, sammelt und verarbeitet der Benutzeragent alle Stile aus verschiedenen Quellen, wie z.B. Inline-Stile und interne und externe Stylesheets.
 
-Die [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) bestimmt, welcher Wert angewendet werden soll, wenn mehrere widersprüchliche Stile dasselbe Element anvisieren. Der [Kaskadenalgorithmus](/de/docs/Web/CSS/CSS_cascade/Cascade#cascading_order) definiert, wie Benutzeragenten Eigenschaftswerte kombinieren, die aus verschiedenen Quellen, Bereichen und/oder [Schichten](/de/docs/Web/CSS/CSS_cascade/Cascade#cascade_layers) stammen. Wenn ein Selektor ein Element trifft, wird der [erklärte Wert](#erklärter_wert) dieser Eigenschaft aus dem [Ursprung](/de/docs/Web/CSS/CSS_cascade/Cascade#origin_types) mit der höchsten Priorität angewendet, selbst wenn ein Selektor aus einem niedrigeren Prioritätsursprung oder [Schichten](/de/docs/Web/CSS/CSS_cascade/Cascade#cascade_layers) eine höhere {{cssxref("specificity")}} hat.
+Die [Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction) bestimmt, welcher Wert angewendet werden soll, wenn mehrere widersprüchliche Stile dasselbe Element anvisieren. Der [Kaskadenalgorithmus](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascading_order) definiert, wie Benutzeragenten Eigenschaftswerte kombinieren, die aus verschiedenen Quellen, Bereichen und/oder [Schichten](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascade_layers) stammen. Wenn ein Selektor ein Element trifft, wird der [erklärte Wert](#erklärter_wert) dieser Eigenschaft aus dem [Ursprung](/de/docs/Web/CSS/Guides/Cascade/Introduction#origin_types) mit der höchsten Priorität angewendet, selbst wenn ein Selektor aus einem niedrigeren Prioritätsursprung oder [Schichten](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascade_layers) eine höhere {{cssxref("specificity")}} hat.
 
-Bestimmte Eigenschaften erben Werte von ihren Elternelementen, es sei denn, sie werden ausdrücklich überschrieben. [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance) kann auftreten, wenn keine Stilinformationen für eine bestimmte Eigenschaft auf einem Element vorhanden sind. Wenn die Eigenschaft geerbt wird, wird der Wert auf den [berechneten Wert](#berechneter_wert) des Elternelements gesetzt. Wenn die Eigenschaft nicht geerbt wird, wird ihr Wert auf den [Anfangswert](#anfangswert) für dieses Element gesetzt.
+Bestimmte Eigenschaften erben Werte von ihren Elternelementen, es sei denn, sie werden ausdrücklich überschrieben. [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance) kann auftreten, wenn keine Stilinformationen für eine bestimmte Eigenschaft auf einem Element vorhanden sind. Wenn die Eigenschaft geerbt wird, wird der Wert auf den [berechneten Wert](#berechneter_wert) des Elternelements gesetzt. Wenn die Eigenschaft nicht geerbt wird, wird ihr Wert auf den [Anfangswert](#anfangswert) für dieses Element gesetzt.
 
 Nach der Anwendung der [Kaskadierungs](#kaskadieren)-Regeln und der schrittweisen Festlegung von Standardwerten stellt der Browser sicher, dass die visuelle Darstellung mit dem verarbeiteten CSS übereinstimmt.
 
@@ -31,13 +31,13 @@ Bevor wir in die einzelnen Wertstufen eintauchen, ist es wichtig, die drei Haupt
 **Filtern** ist der Prozess der Identifizierung aller Deklarationen, die auf jedes Element angewendet werden. Eine Deklaration gilt für ein Element nur, wenn:
 
 - Die Deklaration gehört zu einem Stylesheet, das aktuell für dieses Dokument gilt
-- Alle [Bedingungsregeln](/de/docs/Web/CSS/CSS_conditional_rules) (wie {{cssxref("@media")}} oder {{cssxref("@supports")}}), die die Deklaration enthalten, derzeit wahr sind.
+- Alle [Bedingungsregeln](/de/docs/Web/CSS/Guides/Conditional_rules) (wie {{cssxref("@media")}} oder {{cssxref("@supports")}}), die die Deklaration enthalten, derzeit wahr sind.
 - Die Deklaration gehört zu einer Stilregel, deren Selektor mit dem Element übereinstimmt
 - Die Deklaration ist syntaktisch gültig: Der Eigenschaftsname wird vom Browser erkannt, und der Wert entspricht der erwarteten Syntax für diese Eigenschaft
 
-Nur gültige Deklarationen werden zu deklarierten Werten. Deklarationen mit ungültigen Eigenschaftsnamen oder ungültigen Werten werden gemäß [CSS-Fehlerbehandlungsregeln](/de/docs/Web/CSS/CSS_syntax/Error_handling) herausgefiltert.
+Nur gültige Deklarationen werden zu deklarierten Werten. Deklarationen mit ungültigen Eigenschaftsnamen oder ungültigen Werten werden gemäß [CSS-Fehlerbehandlungsregeln](/de/docs/Web/CSS/Guides/Syntax/Error_handling) herausgefiltert.
 
-In diesem Beispiel werden nur die {{cssxref("font-size")}} und {{cssxref("font-weight")}} Deklarationen verarbeitet. Der [CSS-Parser filtert Fehler aus](/de/docs/Web/CSS/CSS_syntax/Error_handling#css_parser_errors), indem er die Deklaration mit dem ungültigen Eigenschaftsnamen ignoriert oder "aussiebt":
+In diesem Beispiel werden nur die {{cssxref("font-size")}} und {{cssxref("font-weight")}} Deklarationen verarbeitet. Der [CSS-Parser filtert Fehler aus](/de/docs/Web/CSS/Guides/Syntax/Error_handling#css_parser_errors), indem er die Deklaration mit dem ungültigen Eigenschaftsnamen ignoriert oder "aussiebt":
 
 ```css
 p {
@@ -51,7 +51,7 @@ Wenn das Filtern abgeschlossen ist, hat jedes Element null oder mehr [erklärte 
 
 ### Kaskadieren
 
-Die [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) löst Konflikte, wenn mehrere Deklarationen auf dieselbe Eigenschaft auf demselben Element angewendet werden. Die Kaskade sortiert Deklarationen mit Hilfe des [Kaskadensortieralgorithmus](/de/docs/Web/CSS/CSS_cascade/Cascade#cascading_order).
+Die [Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction) löst Konflikte, wenn mehrere Deklarationen auf dieselbe Eigenschaft auf demselben Element angewendet werden. Die Kaskade sortiert Deklarationen mit Hilfe des [Kaskadensortieralgorithmus](/de/docs/Web/CSS/Guides/Cascade/Introduction#cascading_order).
 
 Zum Beispiel passen beide {{cssxref("font-size")}}-Deklarationen zu `<p class="large">CSS is fun!</p>`, aber die zweite Deklaration wird angewendet, weil sie eine höhere {{cssxref("specificity")}} hat. Beide Deklarationen haben den Autors-Ursprung, aber der zweite Selektor hat eine Spezifität von `0-1-1`, während der erste `0-0-1` hat:
 
@@ -72,8 +72,8 @@ Nach dem Kaskadieren bestimmt der Browser den [**Kaskadierungswert**](#kaskadier
 **Standardisierung** stellt sicher, dass jede Eigenschaft auf jedem Element einen Wert hat. Dies beinhaltet die Anwendung von Standardwerteigenschaften, wenn keine CSS-Deklarationen diesen Eigenschaftswert explizit festlegen.
 Dies beinhaltet:
 
-- Setzen von **geerbten Werten** für [geerbte Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Inheritance#inherited_properties)
-- Setzen von **Anfangswerten** für [nicht geerbte Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Inheritance#non-inherited_properties)
+- Setzen von **geerbten Werten** für [geerbte Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#inherited_properties)
+- Setzen von **Anfangswerten** für [nicht geerbte Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#non-inherited_properties)
 
 Ergebnis der Standardisierung ist, dass jede Eigenschaft garantiert einen [spezifizierten Wert](#spezifizierter_wert) hat.
 
@@ -135,7 +135,7 @@ Wenn es keine erklärten Werte für eine Eigenschaft gibt, gibt es keinen kaskad
 Der **spezifizierte Wert** ist das Ergebnis des [Standardisierungs](#standardisierung)-Prozesses. Es ist garantiert, dass er für jede Eigenschaft auf jedem Element existiert. Der spezifizierte Wert wird wie folgt bestimmt:
 
 1. Wenn es einen [kaskadierten Wert](#kaskadierter_wert) gibt, ist der kaskadierte Wert der spezifizierte Wert.
-2. Wenn es _keinen_ kaskadierten Wert gibt und die Eigenschaft [geerbt](/de/docs/Web/CSS/CSS_cascade/Inheritance) wird, ist der spezifizierte Wert der [berechnete Wert](#berechneter_wert) des Elternelements.
+2. Wenn es _keinen_ kaskadierten Wert gibt und die Eigenschaft [geerbt](/de/docs/Web/CSS/Guides/Cascade/Inheritance) wird, ist der spezifizierte Wert der [berechnete Wert](#berechneter_wert) des Elternelements.
 3. Wenn es _keinen_ kaskadierten Wert gibt und die Eigenschaft _nicht_ geerbt wird, ist der spezifizierte Wert der [Anfangswert](#anfangswert) der Eigenschaft.
 
 In unserem Beispiel, da wir einen [kaskadierten Wert](#kaskadierter_wert) von `2em` haben, wird dies zum spezifizierten Wert:
@@ -144,7 +144,7 @@ In unserem Beispiel, da wir einen [kaskadierten Wert](#kaskadierter_wert) von `2
 font-size: 2em;
 ```
 
-Für Eigenschaften ohne kaskadierte Werte bestimmt der Standardisierungsprozess den Wert. Zum Beispiel, wenn `color` nicht spezifiziert ist, wird `color` vom berechneten Wert des Elternteils geerbt, da es eine geerbte Eigenschaft ist. Wenn `margin` nicht spezifiziert ist, wird der `initial` Wert von `0` verwendet, da `margin` keine [geerbte Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Inheritance#inherited_properties) ist:
+Für Eigenschaften ohne kaskadierte Werte bestimmt der Standardisierungsprozess den Wert. Zum Beispiel, wenn `color` nicht spezifiziert ist, wird `color` vom berechneten Wert des Elternteils geerbt, da es eine geerbte Eigenschaft ist. Wenn `margin` nicht spezifiziert ist, wird der `initial` Wert von `0` verwendet, da `margin` keine [geerbte Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Inheritance#inherited_properties) ist:
 
 ```css
 color: inherit;
@@ -155,8 +155,8 @@ margin: 0;
 
 Ein **Anfangswert** einer Eigenschaft ist der Standardwert, wie er in der Definitionstabelle der Spezifikation aufgeführt ist. Der Anfangswert wird während der Standardisierung verwendet, wenn:
 
-- Bei [geerbten Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Inheritance#inherited_properties) wird der Anfangswert nur auf dem _Wurzelelement_ verwendet, das kein Elternelement hat, wenn kein kaskadierter Wert existiert.
-- Bei [nicht geerbten Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Inheritance#non-inherited_properties) wird der Anfangswert auf _alle Elemente_ angewendet, wenn kein kaskadierter Wert existiert.
+- Bei [geerbten Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#inherited_properties) wird der Anfangswert nur auf dem _Wurzelelement_ verwendet, das kein Elternelement hat, wenn kein kaskadierter Wert existiert.
+- Bei [nicht geerbten Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Inheritance#non-inherited_properties) wird der Anfangswert auf _alle Elemente_ angewendet, wenn kein kaskadierter Wert existiert.
 
 Sie können den Anfangswert explizit durch Verwendung des {{cssxref("initial")}} Schlüsselworts setzen.
 
@@ -257,7 +257,7 @@ Der **tatsächliche Wert** einer Eigenschaft ist der [verwendete Wert](#verwende
 
 Die Berechnung umfasst diese Schritte:
 
-1. Zuerst wird der [spezifizierte Wert](#spezifizierter_wert) basierend auf dem Ergebnis der [Kaskadierung](/de/docs/Web/CSS/CSS_cascade/Cascade), [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance) oder anhand des [Anfangswerts](#anfangswert) bestimmt.
+1. Zuerst wird der [spezifizierte Wert](#spezifizierter_wert) basierend auf dem Ergebnis der [Kaskadierung](/de/docs/Web/CSS/Guides/Cascade/Introduction), [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance) oder anhand des [Anfangswerts](#anfangswert) bestimmt.
 2. Als nächstes wird der [berechnete Wert](#berechneter_wert) gemäß der Spezifikation berechnet (zum Beispiel wird ein `span` mit `position: absolute` sein berechneter `display` auf `block` geändert).
 3. Dann wird das Layout berechnet, was zum [verwendeten Wert](#verwendeter_wert) führt.
 4. Schließlich wird der verwendete Wert entsprechend den Einschränkungen der lokalen Umgebung transformiert, was zum tatsächlichen Wert führt.
@@ -283,5 +283,5 @@ CSS 2.0 definierte _berechneter Wert_ als den letzten Schritt in der Berechnung 
 ## Siehe auch
 
 - CSS-Werte zur Steuerung der Vererbung: [`inherit`](/de/docs/Web/CSS/Reference/Values/inherit), [`initial`](/de/docs/Web/CSS/Reference/Values/initial), [`revert`](/de/docs/Web/CSS/Reference/Values/revert), [`revert-layer`](/de/docs/Web/CSS/Reference/Values/revert-layer), und [`unset`](/de/docs/Web/CSS/Reference/Values/unset)
-- Modul [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade)
-- Modul [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax)
+- Modul [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/Guides/Cascade)
+- Modul [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax)

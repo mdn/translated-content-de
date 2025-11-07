@@ -2,12 +2,12 @@
 title: :current
 slug: Web/CSS/Reference/Selectors/:current
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Der **`:current`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) Selektor ist eine zeitdimensionale Pseudoklasse, die ein Element oder einen Vorfahren eines Elements darstellt, das derzeit angezeigt wird. Beispielsweise kann diese Pseudoklasse verwendet werden, um ein Video darzustellen, das mit Untertiteln durch [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt wird.
+Der **`:current`** [CSS](/de/docs/Web/CSS) [Pseudo-Class-Selektor](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) ist eine zeitliche Pseudo-Klasse, die ein Element oder den Vorfahren eines Elements darstellt, das derzeit angezeigt wird. Zum Beispiel kann diese Pseudo-Klasse verwendet werden, um ein Video zu repräsentieren, das mit Untertiteln durch [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt wird.
 
 ```css
 :current(p, span) {
@@ -83,4 +83,4 @@ Derzeit unterstützen keine Browser dieses Feature.
 - [Web Video Text Tracks Format (WebVTT)](/de/docs/Web/API/WebVTT_API)
 - {{cssxref(":past")}}
 - {{cssxref(":future")}}
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul

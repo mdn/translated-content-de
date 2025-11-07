@@ -1,16 +1,17 @@
 ---
-title: "Element: getClientRects()-Methode"
+title: "Element: getClientRects() Methode"
 short-title: getClientRects()
 slug: Web/API/Element/getClientRects
 l10n:
-  sourceCommit: be1922d62a0d31e4e3441db0e943aed8df736481
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("DOM")}}
 
-Die **`getClientRects()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt eine Sammlung von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten zurück, die die Begrenzungsrechtecke für jede [CSS-Border-Box](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) in einem Client anzeigen.
+Die **`getClientRects()`** Methode des [`Element`](/de/docs/Web/API/Element)
+Interfaces gibt eine Sammlung von [`DOMRect`](/de/docs/Web/API/DOMRect) Objekten zurück, die die Begrenzungsrechtecke für jedes [CSS-Border-Box](/de/docs/Web/CSS/Guides/Box_model/Introduction) in einem Client angeben.
 
-Die meisten Elemente haben jeweils nur eine Border-Box, aber ein mehrzeiliges [Inline-Level-Element](/de/docs/Glossary/Inline-level_content) (wie ein mehrzeiliges {{HTMLElement("span")}}-Element) hat standardmäßig eine Border-Box um jede Zeile.
+Die meisten Elemente haben jeweils nur eine Border-Box, aber ein mehrzeiliges {{Glossary("Inline-level_content", "Inline-Level-Element")}} (wie ein mehrzeiliges {{HTMLElement("span")}}-Element, standardmäßig) hat eine Border-Box um jede Zeile.
 
 ## Syntax
 
@@ -24,15 +25,15 @@ Keine.
 
 ### Rückgabewert
 
-Der zurückgegebene Wert ist eine Sammlung von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten, eines für jede mit dem Element assoziierte CSS-Border-Box. Jedes [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt beschreibt die Border-Box in Pixeln, wobei die obere linke Ecke relativ zur oberen linken Ecke des Viewports ist. Bei Tabellen mit Überschriften ist die Überschrift enthalten, auch wenn sie außerhalb der Border-Box der Tabelle liegt. Wird die Methode auf SVG-Elementen aufgerufen, die nicht das äußere `<svg>` sind, so ist der „Viewport“, auf den sich die resultierenden Rechtecke beziehen, der Viewport, den das äußere `<svg>`-Element erstellt (um klarzustellen: die Rechtecke werden auch durch die `viewBox`-Transformation des äußeren `<svg>`-Elements transformiert, falls vorhanden).
+Der zurückgegebene Wert ist eine Sammlung von [`DOMRect`](/de/docs/Web/API/DOMRect) Objekten, jeweils eine für jede mit dem Element verbundene CSS-Border-Box. Jedes [`DOMRect`](/de/docs/Web/API/DOMRect) Objekt beschreibt die Border-Box in Pixeln, wobei die obere linke Ecke relativ zur oberen linken Ecke des Viewports liegt. Bei Tabellen mit Überschriften ist die Überschrift eingeschlossen, obwohl sie sich außerhalb der Border-Box der Tabelle befindet. Wenn sie auf SVG-Elementen aufgerufen wird, die nicht ein äußeres-`<svg>` sind, bezieht sich der "Viewport", relativ zu dem die resultierenden Rechtecke sind, auf den Viewport, den das äußere-`<svg>` Element festlegt (und um klar zu sein, die Rechtecke werden auch durch die `viewBox`-Transformation des äußeren-`<svg>` transformiert, falls vorhanden).
 
-Der durchgeführte Scrollvorgang des Viewport-Bereichs (oder eines anderen scrollbaren Elements) wird bei der Berechnung der Rechtecke berücksichtigt.
+Die Menge des Scrollens, das im Viewport-Bereich (oder einem anderen scrollbaren Element) durchgeführt wurde, wird bei der Berechnung der Rechtecke berücksichtigt.
 
-Die zurückgegebenen Rechtecke schließen die Grenzen von Kind-Elementen, die möglicherweise überlaufen, nicht ein.
+Die zurückgegebenen Rechtecke enthalten nicht die Grenzen von Kind-Elementen, die möglicherweise überlaufen.
 
-Für HTML {{HtmlElement("area")}}-Elemente, SVG-Elemente, die selbst nichts rendern, `display:none`-Elemente und allgemein alle Elemente, die nicht direkt gerendert werden, wird eine leere Liste zurückgegeben.
+Für HTML {{HtmlElement("area")}} Elemente, SVG-Elemente, die selbst nichts rendern, `display:none` Elemente und allgemein alle Elemente, die nicht direkt gerendert werden, wird eine leere Liste zurückgegeben.
 
-Rechtecke werden auch für CSS-Boxen zurückgegeben, die leere Border-Boxen haben. Die `left`, `top`, `right` und `bottom`-Koordinaten können dennoch aussagekräftig sein.
+Rechtecke werden sogar für CSS-Boxen zurückgegeben, die leere Border-Boxen haben. Die `left`, `top`, `right` und `bottom` Koordinaten können dennoch bedeutungsvoll sein.
 
 Bruchteile von Pixelversätzen sind möglich.
 
@@ -42,7 +43,7 @@ Diese Beispiele zeichnen Client-Rechtecke in verschiedenen Farben. Beachten Sie,
 
 ### HTML
 
-Beispiel 1: Dieses HTML erstellt drei Absätze mit einem `<span>`-Element darin, jeweils eingebettet in einem `<div>`-Block. Client-Rechtecke werden für den Absatz im zweiten Block und für das `<span>`-Element im dritten Block gezeichnet.
+Beispiel 1: Dieses HTML erstellt drei Absätze mit einem `<span>` darin, die jeweils in einem `<div>` Block eingebettet sind. Client-Rechtecke werden für den Absatz im zweiten Block und für das `<span>` Element im dritten Block gezeichnet.
 
 ```html
 <h3>A paragraph with a span inside</h3>
@@ -76,7 +77,7 @@ Beispiel 1: Dieses HTML erstellt drei Absätze mit einem `<span>`-Element darin,
 </div>
 ```
 
-Beispiel 2: Dieses HTML erstellt drei geordnete Listen. Client-Rechtecke werden für die `<ol>` im zweiten Block und für jedes `<li>`-Element im dritten Block gezeichnet.
+Beispiel 2: Dieses HTML erstellt drei geordnete Listen. Client-Rechtecke werden für das `<ol>` im zweiten Block und für jedes `<li>` Element im dritten Block gezeichnet.
 
 ```html
 <h3>A list</h3>
@@ -160,7 +161,7 @@ Beispiel 3: Dieses HTML erstellt zwei Tabellen mit Überschriften. Client-Rechte
 
 ### CSS
 
-Das CSS zieht Rahmen um den Absatz und das `<span>`-Element in jedem `<div>`-Block für das erste Beispiel, um die `<ol>` und `<li>` für das zweite Beispiel sowie um `<table>`, `<th>` und `<td>`-Elemente für das dritte Beispiel.
+Das CSS zieht Rahmen um den Absatz und das `<span>` innerhalb jedes `<div>` Blocks im ersten Beispiel, um das `<ol>` und `<li>` im zweiten Beispiel, und um `<table>`, `<th>`, und `<td>` Elemente im dritten Beispiel.
 
 ```css
 strong {

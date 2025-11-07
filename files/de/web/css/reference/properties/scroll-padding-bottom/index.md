@@ -2,10 +2,10 @@
 title: scroll-padding-bottom
 slug: Web/CSS/Reference/Properties/scroll-padding-bottom
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die Eigenschaft `scroll-padding-bottom` definiert Offsets für den unteren Rand des _optimalen Sichtbereichs_ des Scrollports: der Bereich, der als Zielregion genutzt wird, um Objekte im Sichtfeld des Nutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderem Inhalt verdeckt werden (wie beispielsweise Werkzeugleisten oder Seitenleisten mit fester Position) oder mehr Abstand zwischen einem Ziel-Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-bottom` definiert Versätze für den unteren Rand des _optimalen Betrachtungsbereichs_ des Scrollport: der Bereich, der als Zielregion verwendet wird, um Elemente in das Sichtfeld des Nutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderem Inhalt verdeckt werden (wie z.B. fest positionierte Werkzeugleisten oder Seitenleisten) oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-bottom")}}
 
@@ -91,9 +91,9 @@ scroll-padding-bottom: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Offset vom unteren Rand des Scrollports, entweder als gültige Länge oder als Prozentsatz.
+  - : Ein innerer Versatz vom unteren Rand des Scrollports, als gültige Länge oder ein Prozentsatz.
 - `auto`
-  - : Der Offset wird durch den User-Agent bestimmt. Im Allgemeinen wird dies 0px sein, aber ein User-Agent kann etwas Anderes bestimmen, wenn ein Wert ungleich Null angemessener ist.
+  - : Der Versatz wird durch den User-Agent bestimmt. Dies ist in der Regel 0px, ein User-Agent kann jedoch erkennen und etwas anderes tun, wenn ein Wert ungleich null angemessener ist.
 
 ## Formale Definition
 
@@ -113,5 +113,5 @@ scroll-padding-bottom: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
 - [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

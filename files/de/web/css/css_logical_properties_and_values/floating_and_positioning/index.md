@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-Das [CSS-Modul für logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) enthält logische Zuordnungen für die physikalischen Werte von {{cssxref("float")}} und {{cssxref("clear")}}, sowie für die Positionierungseigenschaften, die bei [positioniertem Layout](/de/docs/Web/CSS/CSS_positioned_layout) verwendet werden. Dieser Leitfaden zeigt, wie diese verwendet werden können.
+Das [CSS-Modul für logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) enthält logische Zuordnungen für die physikalischen Werte von {{cssxref("float")}} und {{cssxref("clear")}}, sowie für die Positionierungseigenschaften, die bei [positioniertem Layout](/de/docs/Web/CSS/Guides/Positioned_layout) verwendet werden. Dieser Leitfaden zeigt, wie diese verwendet werden können.
 
 ## Zuordnungen von Eigenschaften und Werten
 

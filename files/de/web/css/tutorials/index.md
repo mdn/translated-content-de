@@ -2,46 +2,60 @@
 title: CSS-Tutorials
 slug: Web/CSS/Tutorials
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Das Lernen von CSS kann eine entmutigende Aufgabe sein. Um Ihnen zu helfen, haben wir zahlreiche **Tutorials über CSS** geschrieben. Einige richten sich an komplette Anfänger, während andere komplexe Funktionen vorstellen, die von erfahreneren Nutzern verwendet werden können.
+CSS zu lernen kann eine einschüchternde Aufgabe sein.
+Um Ihnen zu helfen, haben wir zahlreiche **Tutorials über CSS** verfasst.
+Einige richten sich an absolute Anfänger, während andere komplexe Funktionen präsentieren, die von erfahrenen Benutzern genutzt werden können.
 
-Diese Seite listet alle auf, mit einer kurzen Beschreibung. Sie sind nach Komplexität gruppiert, damit Sie das für Ihr Niveau am besten geeignete auswählen können.
+Diese Seite listet sie alle mit einer kurzen Beschreibung auf.
+Sie sind nach Komplexität gruppiert, sodass Sie das am besten geeignete für Ihr Niveau auswählen können.
 
 ## CSS-Tutorials für Anfänger
 
 - [CSS-Grundlagen](/de/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content)
-  - : Dieser Leitfaden richtet sich an komplette Anfänger: Sie haben noch keine einzige Zeile CSS geschrieben? — dann ist dies für Sie. Es erklärt die grundlegenden Konzepte der Sprache und leitet Sie an, grundlegende Stylesheets zu schreiben.
-- [Verwendung mehrerer Hintergrundbilder](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds)
-  - : Hintergründe sind grundlegend für ein schönes Styling: CSS ermöglicht es Ihnen, mehrere davon auf jede Box zu setzen. Dieses Tutorial erklärt, wie sie interagieren und wie man schöne Effekte erzielt.
-- [Hintergrundbilder skalieren](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Resizing_background_images)
-  - : CSS ermöglicht es Ihnen, Bilder, die als Hintergrund eines Elements verwendet werden, zu skalieren. Dieses Tutorial beschreibt, wie man dies erreicht.
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-  - : Die Größe der Bildschirme oder die Art der Geräte, wie Touchscreens oder gedruckte Bögen, variiert heutzutage stark. Media Queries sind die grundlegenden Bausteine beim Erstellen von Websites, die überall in bester Qualität angezeigt werden.
-- [Verständnis von CSS z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
-  - : Die Kontrolle über die Überlagerung von Boxen ist ein grundlegendes Feature, das von Webentwicklern schnell benötigt wird. Obwohl es nicht so schwierig ist, erfordert es grundlegende CSS-Kenntnisse.
+  - : Dieser Leitfaden richtet sich an absolute Anfänger: Sie haben noch keine einzige Zeile CSS geschrieben? — dann ist dies für Sie.
+    Er erklärt die grundlegenden Konzepte der Sprache und führt Sie in das Schreiben einfacher Stylesheets ein.
+- [Verwendung mehrerer Hintergründe](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Using_multiple_backgrounds)
+  - : Hintergründe sind grundlegend für eine schöne Gestaltung: CSS ermöglicht es Ihnen, mehrere davon auf jedem Box zu setzen. Dieses Tutorial erklärt, wie sie interagieren und wie man schöne Effekte erzielt.
+- [Anpassen von Hintergrundbildern](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Resizing_background_images)
+  - : CSS ermöglicht es Ihnen, Bilder, die als Hintergrund eines Elements verwendet werden, zu ändern.
+    Dieses Tutorial beschreibt, wie man dies erreicht.
+- [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
+  - : Die Größe der Bildschirme oder die Art von Geräten wie Touchscreens oder gedruckte Seiten variieren heutzutage stark.
+    Media Queries sind die grundlegenden Bausteine beim Erstellen von Websites, die überall in ihrer besten Qualität dargestellt werden.
+- [Verstehen des CSS z-index](/de/docs/Web/CSS/Guides/Positioned_layout/Understanding_z-index)
+  - : Die Steuerung der Überlagerung von Boxen ist eine grundlegende Funktion, die von Webentwicklern sehr schnell benötigt wird.
+    Obwohl nicht so schwierig, erfordert es grundlegende Kenntnisse in CSS.
 
 ## CSS-Tutorials für Fortgeschrittene
 
-Nach der Veröffentlichung von CSS 2 (Level 1) wurden dem CSS neue Features hinzugefügt. Einige davon sind _fancy_ und ziemlich eigenständig. Sie sind für jeden mit fairen Kenntnissen der Grundkonzepte leicht zu verwenden.
+Nach der Veröffentlichung von CSS 2 (Level 1) wurden CSS neue Funktionen hinzugefügt.
+Einige davon sind _schick_ und ziemlich in sich geschlossen.
+Sie sind einfach zu benutzen für jeden, der über ein solides Wissen der grundlegenden Konzepte verfügt.
 
-- [CSS Counter Styles](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)
-  - : Das Zählen von Elementen und Seiten ist eine einfache Aufgabe in CSS. Lernen Sie die Verwendung von {{cssxref("counter-reset")}}, {{cssxref("counter-increment")}}, {{cssxref("counters", "counters()")}} und {{cssxref("counter", "counter()")}}.
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
-  - : CSS-Animationen ermöglichen es Ihnen, Stilkonfigurationen als [keyframes](/de/docs/Web/CSS/Reference/At-rules/@keyframes) festzulegen und zwischen ihnen eine Animation zu definieren.
-- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
-  - : CSS-Übergänge ermöglichen es Ihnen, eine Animation zwischen mehreren Stilen zu definieren und zu kontrollieren, wie dieser Übergang erfolgt.
-- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
-  - : Transformationen ermöglichen es Ihnen, die Position von Elementen durch Änderung ihrer Koordinatenebenen zu ändern: es erlaubt das Übersetzen, Drehen und Verformen in den 2D- oder 3D-Räumen.
-- [CSS-Verläufe](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
-  - : Verläufe sind Bilder, die nahtlos von einer Farbe zur anderen übergehen. Es gibt mehrere Arten von Verläufen in CSS: linear oder radial, sich wiederholend oder nicht. Dieses Tutorial beschreibt, wie man sie verwendet.
+- [CSS-Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters)
+  - : Das Zählen von Elementen und Seiten ist eine einfache Aufgabe in CSS. Lernen Sie, {{cssxref("counter-reset")}}, {{cssxref("counter-increment")}}, {{cssxref("counters", "counters()")}} und {{cssxref("counter", "counter()")}} zu verwenden.
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
+  - : CSS-Animationen ermöglichen es Ihnen, Stilkonfigurationen, wie [keyframes](/de/docs/Web/CSS/Reference/At-rules/@keyframes), zu definieren und Übergänge zwischen ihnen zu gestalten, indem eine Animation definiert wird.
+- [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions/Using)
+  - : CSS-Übergänge ermöglichen es Ihnen, eine Animation zwischen mehreren Stilen zu definieren und den Ablauf dieser Übergänge zu steuern.
+- [CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms/Using)
+  - : Transformationen ermöglichen es Ihnen, die Position von Elementen zu ändern, indem Sie ihren Koordinatenraum modifizieren: es erlaubt das Verschieben, Drehen und Verformen in 2D- oder 3D-Räumen.
+- [CSS-Verläufe](/de/docs/Web/CSS/Guides/Images/Using_gradients)
+  - : Verläufe sind Bilder, die sich sanft von einer Farbe zu einer anderen bewegen.
+    Es gibt mehrere Arten von Verläufen in CSS: linear oder radial, wiederholend oder nicht.
+    Dieses Tutorial beschreibt, wie man sie verwendet.
 
-## Fortgeschrittene CSS-Tutorials
+## CSS-Tutorials für Experten
 
-CSS hat auch neue Funktionen erhalten, die es Ihnen ermöglichen, komplexe Layouts zu erstellen. Obwohl der einfachste Weg, solch ein Layout zu erreichen, sie für Personen ohne allzu viel Erfahrung komplexer zu verwenden sind.
+CSS hat auch neue Funktionen erhalten, die Ihnen ermöglichen, komplexe Layouts zu erstellen.
+Obwohl der einfachste Weg, solch ein Layout zu erstellen, sind sie komplexer in der Anwendung für Personen ohne allzu viel Erfahrung.
 
-- [CSS-Mehrspalten-Layouts](/de/docs/Web/CSS/CSS_multicol_layout)
-  - : CSS3 führt ein neues Layout ein, das es Ihnen ermöglicht, mehrere Spalten in einem Element einfach zu definieren. Obwohl Mehrspaltentext auf Geräten wie Bildschirmen nicht so häufig vorkommt, ist dies besonders nützlich auf gedruckten Seiten oder für Indizes.
-- [CSS Flexible Boxen-Layouts](/de/docs/Web/CSS/CSS_flexible_box_layout)
-  - : Dieses neue Layout ermöglicht es Ihnen, Boxen Flexibilität zu geben, so dass sie nahtlos skaliert werden können. Es ist eine leistungsstarke Möglichkeit, komplexe Benutzeroberflächen zu beschreiben.
+- [CSS-Mehrspalten-Layouts](/de/docs/Web/CSS/Guides/Multicol_layout)
+  - : CSS3 führt ein neues Layout ein, das es Ihnen ermöglicht, einfach mehrere Spalten in einem Element zu definieren.
+    Obwohl mehrspaltiger Text auf Geräten wie Bildschirmen nicht so häufig vorkommt, ist dies besonders nützlich auf gedruckten Seiten oder für Indizes.
+- [CSS-flexible Boxen-Layouts](/de/docs/Web/CSS/Guides/Flexible_box_layout)
+  - : Dieses neue Layout erlaubt es Ihnen, Boxen Flexibilität zu geben, sodass sie sich sanft anpassen können.
+    Es ist eine mächtige Methode, um komplexe Schnittstellen zu beschreiben.

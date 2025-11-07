@@ -102,7 +102,7 @@ Aber nicht:
 
 ### Doppelstrich
 
-Das Trennen von zwei oder mehr Komponenten durch einen _doppelten Strich_, `||`, bedeutet, dass alle Entitäten Optionen sind: **mindestens eine muss vorhanden sein, und sie dürfen in beliebiger Reihenfolge erscheinen**. Typischerweise wird dies verwendet, um die verschiedenen Werte einer [Kurzform-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) zu definieren.
+Das Trennen von zwei oder mehr Komponenten durch einen _doppelten Strich_, `||`, bedeutet, dass alle Entitäten Optionen sind: **mindestens eine muss vorhanden sein, und sie dürfen in beliebiger Reihenfolge erscheinen**. Typischerweise wird dies verwendet, um die verschiedenen Werte einer [Kurzform-Eigenschaft](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) zu definieren.
 
 {{CSSSyntaxRaw(`example = <number> || <length> || <color>`)}}
 
@@ -413,19 +413,19 @@ Hier sind einige weitere Beispiele:
 ## Siehe auch
 
 - CSS-Schlüsselkonzepte:
-  - [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
-  - [Kommentare](/de/docs/Web/CSS/CSS_syntax/Comments)
-  - [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
-  - [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
-  - [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+  - [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax/Introduction)
+  - [Kommentare](/de/docs/Web/CSS/Guides/Syntax/Comments)
+  - [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity)
+  - [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance)
+  - [Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction)
   - {{Glossary("Layout_mode", "Layout-Modi")}}
-  - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
-  - [Margins-Zusammenfallen](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+  - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model)
+  - [Margins-Zusammenfallen](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing)
   - Werte
-    - [Anfangswerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value)
-    - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value)
-    - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value)
-    - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value)
+    - [Anfangswerte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value)
+    - [Berechnete Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value)
+    - [Verwendete Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value)
+    - [Tatsächliche Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#actual_value)
   - **Wertdefinition Syntax**
-  - [Kurzform-Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
+  - [Kurzform-Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)
   - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

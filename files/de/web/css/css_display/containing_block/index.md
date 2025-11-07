@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-Die Größe und Position eines Elements werden häufig von seinem **enthaltenden Block** beeinflusst. Meistens ist der enthaltende Block der [Inhaltsbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area) des nächstgelegenen {{Glossary("Block-level_content", "Block-Level-")}} Vorfahren des Elements, aber das ist nicht immer der Fall. In diesem Artikel untersuchen wir die Faktoren, die den enthaltenden Block eines Elements bestimmen.
+Die Größe und Position eines Elements werden häufig von seinem **enthaltenden Block** beeinflusst. Meistens ist der enthaltende Block der [Inhaltsbereich](/de/docs/Web/CSS/Guides/Box_model/Introduction#content_area) des nächstgelegenen {{Glossary("Block-level_content", "Block-Level-")}} Vorfahren des Elements, aber das ist nicht immer der Fall. In diesem Artikel untersuchen wir die Faktoren, die den enthaltenden Block eines Elements bestimmen.
 
 Wenn ein User Agent (wie Ihr Browser) ein Dokument darstellt, wird für jedes Element eine Box generiert. Jede Box ist in vier Bereiche unterteilt:
 
@@ -256,13 +256,13 @@ p {
 - {{cssxref("box-sizing")}} Eigenschaft
 - {{cssxref("min-content")}} und {{cssxref("max-content")}} Größenwerte
 - [Lernen: Größenänderung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing)
-- [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul
+- [Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction)
+- [CSS-Box-Modell](/de/docs/Web/CSS/Guides/Box_model) Modul
 - {{Glossary("Layout_mode", "Layout-Modi")}}
-- [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
-- [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context)
-- [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- [Randzusammenführung](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
-- [Initiale](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value), [berechnete](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value), [genutzte](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value) und [tatsächliche](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value) Werte
+- [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model)
+- [Block-Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context)
+- [Stacking-Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context)
+- [Randzusammenführung](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing)
+- [Initiale](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value), [berechnete](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value), [genutzte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) und [tatsächliche](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#actual_value) Werte
 - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}
 - {{Glossary("Intrinsic_size", "Intrinsische Größe")}}

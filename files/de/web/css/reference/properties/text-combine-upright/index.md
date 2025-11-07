@@ -2,12 +2,12 @@
 title: text-combine-upright
 slug: Web/CSS/Reference/Properties/text-combine-upright
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`text-combine-upright`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Kombination von Zeichen in den Raum eines einzelnen Zeichens. Wenn der kombinierte Text breiter als 1em ist, muss der Benutzeragent den Inhalt innerhalb von 1em anpassen. Die resultierende Komposition wird als ein einzelnes aufrechtes Glyph für Layout und Dekoration behandelt. Diese Eigenschaft hat nur in vertikalen Schreibmodi Wirkung.
+Die **`text-combine-upright`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Kombination von Zeichen in den Raum eines einzelnen Zeichens. Wenn der kombinierte Text breiter als 1em ist, muss die Benutzerschnittstelle den Inhalt innerhalb von 1em anpassen. Die resultierende Komposition wird für Layout und Dekoration als einzelnes aufrecht stehendes Glyph behandelt. Diese Eigenschaft hat nur in vertikalen Schreibmodi eine Wirkung.
 
-Dies wird verwendet, um einen Effekt zu erzeugen, der in Japanisch als tate-chū-yoko <q lang="ja">縦中横</q> bekannt ist, oder als <q lang="zh-Hant">橫向文字</q> in Chinesisch.
+Dies wird verwendet, um einen Effekt zu erzielen, der im Japanischen als tate-chū-yoko <q lang="ja">縦中横</q> bekannt ist oder im Chinesischen als <q lang="zh-Hant">橫向文字</q>.
 
 {{InteractiveExample("CSS Demo: text-combine-upright")}}
 
@@ -55,12 +55,12 @@ text-combine-upright: unset;
 ### Werte
 
 - `none`
-  - : Es gibt keine spezielle Verarbeitung.
+  - : Es gibt keine besondere Verarbeitung.
 - `all`
-  - : Versucht, alle aufeinanderfolgenden Zeichen innerhalb des Kastens horizontal zu setzen, sodass sie den Raum eines einzelnen Zeichens innerhalb der vertikalen Linie des Kastens einnehmen.
+  - : Versucht, alle aufeinanderfolgenden Zeichen innerhalb der Box horizontal zu setzen, sodass sie den Raum eines einzelnen Zeichens innerhalb der vertikalen Linie der Box einnehmen.
 
 > [!NOTE]
-> Das [CSS writing modes](/de/docs/Web/CSS/CSS_writing_modes) Modul definiert einen `digits <integer>` Wert für die `text-combine-upright` Eigenschaft, um zwei bis vier aufeinanderfolgende {{Glossary("ASCII", "ASCII")}} Ziffern (U+0030–U+0039) anzuzeigen, sodass sie den Raum eines einzelnen Zeichens innerhalb des vertikalen Linienkastens einnehmen. Dies wird jedoch von keinem Browser unterstützt.
+> Das [CSS-Schreibmodul](/de/docs/Web/CSS/Guides/Writing_modes) definiert einen `digits <integer>` Wert für die `text-combine-upright` Eigenschaft, um zwei bis vier aufeinanderfolgende {{Glossary("ASCII", "ASCII")}} Ziffern (U+0030–U+0039) anzuzeigen, sodass sie den Raum eines einzigen Zeichens innerhalb der vertikalen Linienbox einnehmen. Allerdings wird dies von keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -74,7 +74,7 @@ text-combine-upright: unset;
 
 ### Verwendung von 'all' mit horizontalem Text
 
-Der `all` Wert erfordert ein Markup um jedes Stück horizontalen Text, wird aber derzeit von mehr Browsern unterstützt als der `digits` Wert.
+Der all-Wert erfordert Auszeichnung um jedes Stück horizontalen Textes, wird jedoch derzeit von mehr Browsern als der digits-Wert unterstützt.
 
 #### HTML
 
@@ -101,7 +101,7 @@ html {
 
 #### Ergebnisse
 
-{{EmbedLiveSample('Example using "all"', 250, 200)}}
+{{EmbedLiveSample('Beispiel unter Verwendung von "all"', 250, 200)}}
 
 ## Spezifikationen
 

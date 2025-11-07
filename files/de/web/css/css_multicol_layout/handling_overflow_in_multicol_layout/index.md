@@ -137,7 +137,7 @@ body {
 
 Ein Problem mit Multicol im Web ist, dass, wenn die Spalten höher als der Viewport sind, der Leser die Seite nach oben und unten scrollen muss, um zu lesen, was keine gute Benutzererfahrung ist. Eine Möglichkeit, dies zu vermeiden, besteht darin, die Spalteneigenschaften nur anzuwenden, wenn Sie wissen, dass genug vertikaler Raum zur Verfügung steht.
 
-Im untenstehenden Beispiel haben wir eine `height` [@media query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) verwendet, um sicherzustellen, dass genügend vertikaler Raum vorhanden ist, bevor die Spalteneigenschaften angewendet werden.
+Im untenstehenden Beispiel haben wir eine `height` [@media query](/de/docs/Web/CSS/Guides/Media_queries/Using) verwendet, um sicherzustellen, dass genügend vertikaler Raum vorhanden ist, bevor die Spalteneigenschaften angewendet werden.
 
 ```html hidden live-sample___min-height
 <div class="container">
@@ -175,4 +175,4 @@ body {
 
 ## Nächste Schritte
 
-Im abschließenden Leitfaden dieser Serie werden wir sehen, [wie Fragmentierung mit Multicol-Layouts funktioniert](/de/docs/Web/CSS/CSS_multicol_layout/Handling_content_breaks_in_multicol_layout), um uns Kontrolle darüber zu geben, wie der Inhalt zwischen den Spalten getrennt wird.
+Im abschließenden Leitfaden dieser Serie werden wir sehen, [wie Fragmentierung mit Multicol-Layouts funktioniert](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_content_breaks), um uns Kontrolle darüber zu geben, wie der Inhalt zwischen den Spalten getrennt wird.

@@ -6,7 +6,7 @@ l10n:
   sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Die Eigenschaften im Modul [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap) ermöglichen es Ihnen, festzulegen, wie das Scrollen zu bestimmten Punkten schnappt, während ein Benutzer durch ein Dokument scrollt.
+Die Eigenschaften im Modul [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) ermöglichen es Ihnen, festzulegen, wie das Scrollen zu bestimmten Punkten schnappt, während ein Benutzer durch ein Dokument scrollt.
 
 Die {{Glossary("Scroll_snap", "Scroll Snap")}}-Funktion ermöglicht es Ihnen, die Snap-Positionen zu definieren, an denen das {{Glossary("Scroll_container", "Scroll-Container")}}-Viewport nach Abschluss eines Scrollvorgangs enden oder "schnappen" kann.
 
@@ -410,7 +410,7 @@ Mit dieser Eigenschaftsdefinition können Sie sicherstellen, dass Benutzer jeden
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
 - [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2021)
 - [Praktisches CSS Scroll Snapping](https://css-tricks.com/practical-css-scroll-snapping/) auf CSS-Tricks (2020)
 - [CSS scroll snap](https://12daysofweb.dev/2022/css-scroll-snap/) am 12 Days of Web (2019)

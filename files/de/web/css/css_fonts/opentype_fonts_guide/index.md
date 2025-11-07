@@ -1109,7 +1109,7 @@ checkBox2.addEventListener("change", () => {
 
 ## Schriftmerkmaleinstellungen
 
-{{cssxref("font-feature-settings")}} ist die 'Low-Level-Syntax', die expliziten Zugriff auf jede benannte verfügbare OpenType-Funktion ermöglicht. Dies gibt viel Kontrolle, hat jedoch einige Nachteile hinsichtlich der Auswirkung auf die Vererbung und — wie oben erwähnt — wenn Sie eine Einstellung ändern möchten, müssen Sie den gesamten String neu deklarieren (es sei denn, Sie verwenden [CSS-Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties), um die Werte festzulegen). Aus diesem Grund ist es am besten, wo immer möglich die oben gezeigten Standardeigenschaften zu verwenden.
+{{cssxref("font-feature-settings")}} ist die 'Low-Level-Syntax', die expliziten Zugriff auf jede benannte verfügbare OpenType-Funktion ermöglicht. Dies gibt viel Kontrolle, hat jedoch einige Nachteile hinsichtlich der Auswirkung auf die Vererbung und — wie oben erwähnt — wenn Sie eine Einstellung ändern möchten, müssen Sie den gesamten String neu deklarieren (es sei denn, Sie verwenden [CSS-Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties), um die Werte festzulegen). Aus diesem Grund ist es am besten, wo immer möglich die oben gezeigten Standardeigenschaften zu verwenden.
 
 Es gibt eine große Anzahl möglicher Funktionen. Sie können Beispiele für eine Reihe davon oben sehen, und es gibt mehrere Ressourcen, um mehr davon zu finden.
 

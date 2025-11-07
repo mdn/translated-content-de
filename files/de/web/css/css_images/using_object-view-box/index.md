@@ -12,7 +12,7 @@ Die Eigenschaft {{cssxref("object-view-box")}} kann verwendet werden, um einen S
 
 Jedes ersetzte Element hat zwei Größen: eine {{Glossary("extrinsic_size", "extrinsische Größe")}} und eine {{Glossary("intrinsic_size", "intrinsische Größe")}}.
 
-Die extrinsische Größe ist die Dimension des HTML-Elements, in dem der Inhalt basierend auf den Box- und visuellen Formatierungsmodellen dargestellt wird. Das [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) und das [visuelle Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model) bestimmen die Größe der dargestellten Elemente basierend auf Inhalt, HTML-Attributen, auf die Elemente und ihre Vorfahren angewendeten CSS und der Größe des Ansichtsfensters.
+Die extrinsische Größe ist die Dimension des HTML-Elements, in dem der Inhalt basierend auf den Box- und visuellen Formatierungsmodellen dargestellt wird. Das [Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction) und das [visuelle Formatierungsmodell](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model) bestimmen die Größe der dargestellten Elemente basierend auf Inhalt, HTML-Attributen, auf die Elemente und ihre Vorfahren angewendeten CSS und der Größe des Ansichtsfensters.
 
 Die intrinsische Größe ist die tatsächliche Größe des Inhalts selbst; die Größe, die das Element hat, wenn keine Styles angewendet und ohne Layoutbeschränkungen. Während die intrinsischen und extrinsischen Größen nicht gleich sein müssen, ist es im Allgemeinen wichtig, das intrinsische {{Glossary("aspect_ratio", "Seitenverhältnis")}} eines ersetzten Elements beizubehalten.
 
@@ -188,4 +188,4 @@ Bewegen Sie den Schieberegler. Beachten Sie, wie das Erhöhen und Verringern des
 - {{cssxref("object-fit")}}
 - {{cssxref("object-position")}}
 - {{cssxref("background-size")}}
-- [Verstehen des Seitenverhältnisses](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
+- [Verstehen des Seitenverhältnisses](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios)

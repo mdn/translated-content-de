@@ -50,7 +50,7 @@ Manchmal ist es nützlich, einen Host aus dem Kontext des Shadow-Trees aus zu st
 
 - {{Glossary("Shadow_tree", "Shadow tree")}}-Glossarbegriff
 - {{Glossary("DOM", "DOM")}}-Glossarbegriff
-- [Zusammengesetzter Selektor](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector)-Begriff
+- [Zusammengesetzter Selektor](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#compound_selector)-Begriff
 - [Selector-Liste](/de/docs/Web/CSS/Reference/Selectors/Selector_list)-Begriff
 
 - [Webkomponenten](/de/docs/Web/API/Web_components)-Schnittstellen, Eigenschaften und Methoden
@@ -64,7 +64,7 @@ Manchmal ist es nützlich, einen Host aus dem Kontext des Shadow-Trees aus zu st
   - [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle
 
 > [!NOTE]
-> Trotz des Namens ist die {{CSSXref(":scope")}}-Pseudoklasse, die Elemente darstellt, die als Referenzpunkt (oder Scope) dienen, damit Selektoren übereinstimmen, im [Selektoren](/de/docs/Web/CSS/CSS_selectors)-Modul definiert. Sie ist sonst nicht mit dem CSS-Scoping-Modul verwandt, das sich auf Scoping im Zusammenhang mit dem Shadow-DOM-Scoping-Mechanismus konzentriert.
+> Trotz des Namens ist die {{CSSXref(":scope")}}-Pseudoklasse, die Elemente darstellt, die als Referenzpunkt (oder Scope) dienen, damit Selektoren übereinstimmen, im [Selektoren](/de/docs/Web/CSS/Guides/Selectors)-Modul definiert. Sie ist sonst nicht mit dem CSS-Scoping-Modul verwandt, das sich auf Scoping im Zusammenhang mit dem Shadow-DOM-Scoping-Mechanismus konzentriert.
 
 ## Spezifikationen
 
@@ -72,9 +72,9 @@ Manchmal ist es nützlich, einen Host aus dem Kontext des Shadow-Trees aus zu st
 
 ## Siehe auch
 
-- [CSS-Selectoren](/de/docs/Web/CSS/CSS_selectors)-Modul
-- [CSS-Pseudo-Elemente](/de/docs/Web/CSS/CSS_pseudo-elements)-Modul
-- [CSS-Namensräume](/de/docs/Web/CSS/CSS_namespaces)-Modul
-- [CSS-Shadow-Parts](/de/docs/Web/CSS/CSS_shadow_parts)-Modul
+- [CSS-Selectoren](/de/docs/Web/CSS/Guides/Selectors)-Modul
+- [CSS-Pseudo-Elemente](/de/docs/Web/CSS/Guides/Pseudo-elements)-Modul
+- [CSS-Namensräume](/de/docs/Web/CSS/Guides/Namespaces)-Modul
+- [CSS-Shadow-Parts](/de/docs/Web/CSS/Guides/Shadow_parts)-Modul
 - [Template, Slot und Shadow](https://web.dev/learn/html/template/) auf web.dev (2023)
 - [Best Practices für benutzerdefinierte Elemente](https://web.dev/articles/custom-elements-best-practices) auf web.dev (2019)

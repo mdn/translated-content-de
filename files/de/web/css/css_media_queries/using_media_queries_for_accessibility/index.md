@@ -5,7 +5,7 @@ l10n:
   sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
-[**CSS-Media-Queries**](/de/docs/Web/CSS/CSS_media_queries) können verwendet werden, um Menschen mit Behinderungen eine bessere Nutzung Ihrer Website zu ermöglichen.
+[**CSS-Media-Queries**](/de/docs/Web/CSS/Guides/Media_queries) können verwendet werden, um Menschen mit Behinderungen eine bessere Nutzung Ihrer Website zu ermöglichen.
 
 ## Reduzierte Bewegung
 

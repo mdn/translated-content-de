@@ -6,7 +6,7 @@ l10n:
   sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-Flexbox wurde als eindimensionales Layout-Tool entwickelt – es befasst sich damit, Elemente als Reihe oder Spalte anzuordnen, aber nicht beides gleichzeitig. Es ist jedoch möglich, Flex-Items in neue Zeilen umzubrechen, sodass neue Reihen entstehen, wenn {{cssxref("flex-direction")}} auf `row` gesetzt ist und neue Spalten, wenn `flex-direction` auf `column` gesetzt ist. Dieser Leitfaden erklärt das Umbrechen bei Flexbox, wofür es entwickelt wurde und in welchen Situationen das [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) anstelle von Flexbox verwendet werden sollte.
+Flexbox wurde als eindimensionales Layout-Tool entwickelt – es befasst sich damit, Elemente als Reihe oder Spalte anzuordnen, aber nicht beides gleichzeitig. Es ist jedoch möglich, Flex-Items in neue Zeilen umzubrechen, sodass neue Reihen entstehen, wenn {{cssxref("flex-direction")}} auf `row` gesetzt ist und neue Spalten, wenn `flex-direction` auf `column` gesetzt ist. Dieser Leitfaden erklärt das Umbrechen bei Flexbox, wofür es entwickelt wurde und in welchen Situationen das [CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) anstelle von Flexbox verwendet werden sollte.
 
 ## Dinge umbrechen lassen
 

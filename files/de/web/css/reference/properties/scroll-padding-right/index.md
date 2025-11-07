@@ -2,10 +2,10 @@
 title: scroll-padding-right
 slug: Web/CSS/Reference/Properties/scroll-padding-right
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die Eigenschaft `scroll-padding-right` definiert Versätze für den rechten Rand der _optimalen Anzeigeregion_ des Scrollbereichs: die Region, die als Zielregion verwendet wird, um Elemente in die Sicht des Benutzers zu bringen. Dies ermöglicht es dem Autor, Regionen des Scrollbereichs auszuschließen, die durch anderen Inhalt verdeckt werden (wie z.B. fest positionierte Werkzeugleisten oder Seitenleisten) oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollbereichs zu schaffen.
+Die Eigenschaft `scroll-padding-right` definiert Offsets für die rechte Seite des _optimalen Ansichtsbereichs_ des Scrollports: den Bereich, der als Zielregion für das Platzieren von Inhalten im Sichtbereich des Nutzers verwendet wird. Dies ermöglicht es dem Autor, Regionen des Scrollports auszuschließen, die durch andere Inhalte verdeckt sind (wie zum Beispiel fest positionierte Toolbars oder Seitenleisten), oder mehr Platz zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-right")}}
 
@@ -94,9 +94,9 @@ scroll-padding-right: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Versatz vom oberen Rand des Scrollbereichs, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Offset vom oberen Rand des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies wird in der Regel 0px sein, aber ein Benutzeragent ist in der Lage, etwas anderes zu erkennen und zu tun, wenn ein nicht-nuller Wert passender ist.
+  - : Der Offset wird durch den User-Agent bestimmt. Dieser Wert ist in der Regel 0px, aber ein User-Agent kann erkennen und etwas anderes tun, wenn ein von null verschiedener Wert angemessener ist.
 
 ## Formale Definition
 
@@ -116,5 +116,5 @@ scroll-padding-right: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Präzise Kontrolle über das Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
+- [Gesteuertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

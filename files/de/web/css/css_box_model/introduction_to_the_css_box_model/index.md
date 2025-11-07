@@ -34,29 +34,29 @@ Die Dicke der Rahmen wird durch die Eigenschaften {{cssxref("border-width")}} un
 
 Der **Randbereich**, begrenzt durch die Randkante, erweitert den Rahmenbereich, um einen leeren Bereich einzuschließen, der verwendet wird, um das Element von seinen Nachbarn zu trennen. Seine Abmessungen sind die _Randbox-Breite_ und die _Randbox-Höhe_.
 
-Die Größe des Randbereichs wird durch die Eigenschaften {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, {{cssxref("margin-left")}}, und die Kurzform {{cssxref("margin")}} bestimmt. Wenn [Margin Collapsing](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) auftritt, ist der Randbereich nicht klar definiert, da Ränder zwischen Kästen geteilt werden.
+Die Größe des Randbereichs wird durch die Eigenschaften {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, {{cssxref("margin-left")}}, und die Kurzform {{cssxref("margin")}} bestimmt. Wenn [Margin Collapsing](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing) auftritt, ist der Randbereich nicht klar definiert, da Ränder zwischen Kästen geteilt werden.
 
 Schließlich ist zu beachten, dass für nicht ersetzte Inline-Elemente der Platzbedarf (der Beitrag zur Höhe der Zeile) durch die Eigenschaft {{cssxref('line-height')}} bestimmt wird, obwohl die Rahmen und Abstände noch immer um den Inhalt herum angezeigt werden.
 
 ## Siehe auch
 
-- [Layout und der beinhaltende Block](/de/docs/Web/CSS/CSS_display/Containing_block)
-- [Einführung in die CSS-Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade)
+- [Layout und der beinhaltende Block](/de/docs/Web/CSS/Guides/Display/Containing_block)
+- [Einführung in die CSS-Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction)
 - [Lernen: Konflikte bearbeiten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
 - Wichtige CSS-Konzepte:
-  - [CSS Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
-  - [At-rules](/de/docs/Web/CSS/CSS_syntax/At-rules)
-  - [Kommentare](/de/docs/Web/CSS/CSS_syntax/Comments)
-  - [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
-  - [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
+  - [CSS Syntax](/de/docs/Web/CSS/Guides/Syntax/Introduction)
+  - [At-rules](/de/docs/Web/CSS/Guides/Syntax/At-rules)
+  - [Kommentare](/de/docs/Web/CSS/Guides/Syntax/Comments)
+  - [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity)
+  - [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance)
   - {{Glossary("Layout_mode", "Layout-Modi")}}
-  - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
-  - [Margin Collapsing](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+  - [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model)
+  - [Margin Collapsing](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing)
   - Werte
-    - [Initialwerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value)
-    - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value)
-    - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value)
-    - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value)
-  - [Wertedefinitionssyntax](/de/docs/Web/CSS/CSS_values_and_units/Value_definition_syntax)
-  - [Kurzschreib-Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
+    - [Initialwerte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value)
+    - [Berechnete Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value)
+    - [Verwendete Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value)
+    - [Tatsächliche Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#actual_value)
+  - [Wertedefinitionssyntax](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax)
+  - [Kurzschreib-Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)
   - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

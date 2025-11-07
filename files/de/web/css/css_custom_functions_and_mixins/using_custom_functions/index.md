@@ -85,7 +85,7 @@ CSS-Funktionsparameter werden als durch Kommas getrennte benutzerdefinierte Eige
 }
 ```
 
-Diese Funktion hat den Namen `--transparent` und nimmt zwei benutzerdefinierte Eigenschaften als Parameter, `--color` und `--alpha`, die lokal innerhalb des Funktionskörpers verwendet werden können. Der Körper enthält einen `result`-Deskriptor, der die [CSS-relative Farbsyntax](/de/docs/Web/CSS/CSS_colors/Relative_colors) verwendet, um den Eingabewert `--color` in eine [`oklch()`](/de/docs/Web/CSS/Reference/Values/color_value/oklch)-Farbe mit einem Alpha-Kanal-Wert wie im Eingabewert `--alpha` angegeben, umwandelt.
+Diese Funktion hat den Namen `--transparent` und nimmt zwei benutzerdefinierte Eigenschaften als Parameter, `--color` und `--alpha`, die lokal innerhalb des Funktionskörpers verwendet werden können. Der Körper enthält einen `result`-Deskriptor, der die [CSS-relative Farbsyntax](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors) verwendet, um den Eingabewert `--color` in eine [`oklch()`](/de/docs/Web/CSS/Reference/Values/color_value/oklch)-Farbe mit einem Alpha-Kanal-Wert wie im Eingabewert `--alpha` angegeben, umwandelt.
 
 Sie können diese Funktion dann überall aufrufen, wo Sie eine halbtransparente Version einer bestehenden Farbe erzeugen möchten.
 
@@ -288,7 +288,7 @@ Mit dieser Funktion können wir nun Varianten dieses Hintergrundwerts mit unters
 ## Siehe auch
 
 - [CSS-Custom-Properties](/de/docs/Web/CSS/Reference/Properties/--*)
-- Modul [CSS custom functions and mixins](/de/docs/Web/CSS/CSS_custom_functions_and_mixins)
+- Modul [CSS custom functions and mixins](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins)
 - [Custom CSS Functions im Browser](https://www.oddbird.net/2025/04/11/custom-functions/) von Miriam Suzanne (2025)
 - [CSS @function + CSS if()](https://www.bram.us/2025/02/18/css-at-function-and-css-if/) von Bramus (2025)
 - [5 nützliche CSS-Funktionen mithilfe der neuen @function-Regel](https://una.im/5-css-functions/) von Una Kravets (2025)

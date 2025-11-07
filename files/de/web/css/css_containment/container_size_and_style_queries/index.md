@@ -5,9 +5,9 @@ l10n:
   sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-[Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries) ermöglichen es Ihnen, Stile für Elemente, die in einem bestimmten Container verschachtelt sind, basierend auf den Eigenschaften dieses Containers anzuwenden. Die Abfrage gibt wahr oder falsch zurück, je nachdem, ob die Abfragebedingung für den Container zutrifft.
+[Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries) ermöglichen es Ihnen, Stile für Elemente, die in einem bestimmten Container verschachtelt sind, basierend auf den Eigenschaften dieses Containers anzuwenden. Die Abfrage gibt wahr oder falsch zurück, je nachdem, ob die Abfragebedingung für den Container zutrifft.
 
-Container-Abfragen sind ähnlich wie [Media Queries](/de/docs/Web/CSS/CSS_media_queries). Mit der {{cssxref("@media")}} At-Regel können Sie Stile für Elemente basierend auf der Größe des Ansichtsfensters oder anderen Gerätemerkmalen anwenden. Ebenso ermöglicht die {{cssxref("@container")}} At-Regel das Anwenden von Stilen auf Elemente basierend auf der Größe oder anderen Stilmerkmalen eines enthaltenden Elements, anstatt auf die des Ansichtsfensters. Container-Abfragen haben dieselben Syntaxregeln und logischen Operatoren wie Media Queries.
+Container-Abfragen sind ähnlich wie [Media Queries](/de/docs/Web/CSS/Guides/Media_queries). Mit der {{cssxref("@media")}} At-Regel können Sie Stile für Elemente basierend auf der Größe des Ansichtsfensters oder anderen Gerätemerkmalen anwenden. Ebenso ermöglicht die {{cssxref("@container")}} At-Regel das Anwenden von Stilen auf Elemente basierend auf der Größe oder anderen Stilmerkmalen eines enthaltenden Elements, anstatt auf die des Ansichtsfensters. Container-Abfragen haben dieselben Syntaxregeln und logischen Operatoren wie Media Queries.
 
 ```css
 @container <container-condition># {
@@ -21,9 +21,9 @@ Es gibt drei Arten von Container-Abfragen:
   - : Größenabfragen ermöglichen es, Stile für Elemente basierend auf der aktuellen [Größe](/de/docs/Web/CSS/Reference/At-rules/@container#descriptors) eines enthaltenden Elements anzuwenden, einschließlich der Ausrichtung und des {{Glossary("aspect_ratio", "Seitenverhältnisses")}}. Die enthaltenden Elemente müssen explizit als _Größenabfrage-Container_ deklariert werden.
 
 - **Containerstil-Abfragen**
-  - : Stilabfragen ermöglichen es, Stile für Elemente basierend auf den Stilmerkmalen eines enthaltenden Elements anzuwenden. Jedes nicht-leere Element kann ein Stilabfrage-Container sein. Derzeit ist das einzige von Stilabfragen unterstützte Stilmerkmal die CSS [benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties). In diesem Fall gibt die Abfrage wahr oder falsch zurück, je nachdem, wie der berechnete Wert der benutzerdefinierten Eigenschaften des enthaltenen Elements ist. Sobald Containerstilabfragen vollständig unterstützt werden, können Sie Stile auf die Nachfahren jedes Elements basierend auf beliebigen Eigenschaften, Deklarationen oder berechneten Werten anwenden – zum Beispiel, wenn der Container `display: inline flex` oder eine nicht-transparente Hintergrundfarbe hat.
+  - : Stilabfragen ermöglichen es, Stile für Elemente basierend auf den Stilmerkmalen eines enthaltenden Elements anzuwenden. Jedes nicht-leere Element kann ein Stilabfrage-Container sein. Derzeit ist das einzige von Stilabfragen unterstützte Stilmerkmal die CSS [benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties). In diesem Fall gibt die Abfrage wahr oder falsch zurück, je nachdem, wie der berechnete Wert der benutzerdefinierten Eigenschaften des enthaltenen Elements ist. Sobald Containerstilabfragen vollständig unterstützt werden, können Sie Stile auf die Nachfahren jedes Elements basierend auf beliebigen Eigenschaften, Deklarationen oder berechneten Werten anwenden – zum Beispiel, wenn der Container `display: inline flex` oder eine nicht-transparente Hintergrundfarbe hat.
 
-- **[Container-Scrollzustands-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries)**
+- **[Container-Scrollzustands-Abfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)**
   - : Scrollzustands-Abfragen ermöglichen es Ihnen, CSS-Regeln selektiv auf die Nachfahren eines Containers basierend auf Scrollzustands-Bedingungen anzuwenden, beispielsweise ob das abgefragte Element teilweise gescrollt ist oder ob der Container an einen Scroll-Snap-Container gefügt ist. Die enthaltenden Elemente müssen explizit als _Scrollzustands-Abfrage-Container_ deklariert werden.
 
 In diesem Leitfaden lernen wir die Grundlagen von Container-Abfragen anhand von:
@@ -32,7 +32,7 @@ In diesem Leitfaden lernen wir die Grundlagen von Container-Abfragen anhand von:
 2. [Benennung von Containern](#benennung_von_containern) zur Einschränkung ihres Anwendungsbereichs und
 3. der Verwendung der `style()` funktionalen Notation innerhalb der {{cssxref("@container")}} At-Regel`s `<container-condition>`, um [Stilabfragen mit benutzerdefinierten Eigenschaften](#stilabfragen_für_benutzerdefinierte_eigenschaften) zu erstellen.
 
-Scrollzustands-Abfragen werden in [Verwenden von Container-Scrollzustands-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries) behandelt.
+Scrollzustands-Abfragen werden in [Verwenden von Container-Scrollzustands-Abfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries) behandelt.
 
 ## Containergrößen-Abfragen
 
@@ -50,7 +50,7 @@ Elemente werden als _Größenabfrage-Container_ deklariert, indem ihre {{cssxref
 }
 ```
 
-Das Deklarieren von Größenabfrage-Containern fügt ihnen [Einschließung](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment) hinzu. Dies ist eine Leistungsanforderung — die Abfrage der Größe jedes Elements im DOM die ganze Zeit wäre schlecht für die Leistung und Benutzererfahrung. Darüber hinaus könnte es zu einer Endlosschleife kommen, wenn ein Nachfahrstil die Größe des Container-Elements änderte.
+Das Deklarieren von Größenabfrage-Containern fügt ihnen [Einschließung](/de/docs/Web/CSS/Guides/Containment/Using) hinzu. Dies ist eine Leistungsanforderung — die Abfrage der Größe jedes Elements im DOM die ganze Zeit wäre schlecht für die Leistung und Benutzererfahrung. Darüber hinaus könnte es zu einer Endlosschleife kommen, wenn ein Nachfahrstil die Größe des Container-Elements änderte.
 
 In einer Containergrößen-Abfrage enthält das `<container-condition>` eine oder mehrere `<size-query>`s. Jede Größenabfrage umfasst einen Größenmerkmalnamen, einen Vergleichsoperator und einen Wert. Die Größenmerkmale, die abgefragt werden können, sind auf `width`, `height`, `inline-size`, `block-size`, `aspect-ratio` und `orientation` beschränkt. Die boolesche Syntax und Logik zur Kombination eines oder mehrerer `<size-query>`s entspricht der von [`@media`](/de/docs/Web/CSS/Reference/At-rules/@media) Größenmerkmalabfragen.
 
@@ -116,7 +116,7 @@ Mit Container-Abfragen sind wir nicht nur auf Größenabfragen beschränkt! Sie 
 
 ## Containerstil-Abfragen
 
-Eine _Containerstil-Abfrage_ ist eine `@container` Abfrage, die berechnete Stile des Container-Elements auswertet, wie in einem oder mehreren `style()` funktionalen Notationen definiert. Die boolesche Syntax und Logik zur Kombination von Stilmerkmalen in einer Stilabfrage entspricht der in [CSS Feature Queries](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries). Der einzige Unterschied ist der Funktionsname — `style()` innerhalb eines `<style-feature>` anstelle von `supports()` innerhalb eines `<support-condition>`:
+Eine _Containerstil-Abfrage_ ist eine `@container` Abfrage, die berechnete Stile des Container-Elements auswertet, wie in einem oder mehreren `style()` funktionalen Notationen definiert. Die boolesche Syntax und Logik zur Kombination von Stilmerkmalen in einer Stilabfrage entspricht der in [CSS Feature Queries](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries). Der einzige Unterschied ist der Funktionsname — `style()` innerhalb eines `<style-feature>` anstelle von `supports()` innerhalb eines `<support-condition>`:
 
 ```css
 @container style(<style-feature>),
@@ -127,7 +127,7 @@ Eine _Containerstil-Abfrage_ ist eine `@container` Abfrage, die berechnete Stile
 }
 ```
 
-Der Parameter jeder `style()` Funktion ist ein einziger **`<style-feature>`**. Nach der CSS-Einschließungsspezifikation kann ein `<style-feature>` eine gültige CSS-[Deklaration](/de/docs/Web/CSS/CSS_syntax/Syntax#css_declarations), ein CSS-Eigenschaft oder ein [`<custom-property-name>`](/de/docs/Web/CSS/Reference/Values/var#values) sein. Derzeit wird nur das Stilmerkmal benutzerdefinierte Eigenschaften unterstützt, mit oder ohne Wert. Siehe die [Browser-Kompatibilitätstabelle für `@container`](/de/docs/Web/CSS/Reference/At-rules/@container#browser_compatibility).
+Der Parameter jeder `style()` Funktion ist ein einziger **`<style-feature>`**. Nach der CSS-Einschließungsspezifikation kann ein `<style-feature>` eine gültige CSS-[Deklaration](/de/docs/Web/CSS/Guides/Syntax/Introduction#css_declarations), ein CSS-Eigenschaft oder ein [`<custom-property-name>`](/de/docs/Web/CSS/Reference/Values/var#values) sein. Derzeit wird nur das Stilmerkmal benutzerdefinierte Eigenschaften unterstützt, mit oder ohne Wert. Siehe die [Browser-Kompatibilitätstabelle für `@container`](/de/docs/Web/CSS/Reference/At-rules/@container#browser_compatibility).
 
 Wenn das `<style-feature>` einen Wert enthält, ergibt die Stilabfrage wahr, wenn der berechnete Wert der benutzerdefinierten Eigenschaft (oder in Zukunft der CSS-Deklaration), die als `style()` Argument übergeben wird, für den abgefragten Container zutrifft. Andernfalls wird es zu falsch aufgelöst. Ein Stilmerkmal ohne Wert ergibt wahr, wenn der berechnete Wert von dem [Anfangswert](#registrierte_eigenschaften) für die gegebene Eigenschaft abweicht.
 
@@ -165,7 +165,7 @@ Nun, lassen Sie uns einen Blick auf die verschiedenen `<style-feature>` Arten we
 
 ### Stilabfragen für benutzerdefinierte Eigenschaften
 
-Stilabfragen für benutzerdefinierte Eigenschaften erlauben es Ihnen, die [benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties), auch "CSS-Variablen" genannt, eines Elternelements abzufragen. Sie sind in einer `<style-query>` enthalten, genau wie Sie eine reguläre CSS-Eigenschaft innerhalb einer Feature-Abfrage einfügen würden: entweder mit oder ohne einen Wert.
+Stilabfragen für benutzerdefinierte Eigenschaften erlauben es Ihnen, die [benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties), auch "CSS-Variablen" genannt, eines Elternelements abzufragen. Sie sind in einer `<style-query>` enthalten, genau wie Sie eine reguläre CSS-Eigenschaft innerhalb einer Feature-Abfrage einfügen würden: entweder mit oder ohne einen Wert.
 
 #### Eigenständige benutzerdefinierte Eigenschaftsabfragen
 
@@ -222,7 +222,7 @@ Wenn eine Stilabfrage einen Wert für die benutzerdefinierte Eigenschaft enthäl
 }
 ```
 
-Diese Containerstil-Abfrage stimmt mit jedem Element überein, das `blue` als [berechneter Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) der `--accent-color` benutzerdefinierten Eigenschaft hat.
+Diese Containerstil-Abfrage stimmt mit jedem Element überein, das `blue` als [berechneter Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value) der `--accent-color` benutzerdefinierten Eigenschaft hat.
 
 In diesem Fall stimmen andere Farbwerte, die dem sRGB `blue` entsprechen (wie der hexadezimale Code `#0000ff`), nur überein, wenn die `--accent-color` Eigenschaft als Farbe mit `@property` oder `CSS.registerProperty()` definiert wurde, zum Beispiel:
 
@@ -344,7 +344,7 @@ Die zweite Stilabfrage besagt, dass wenn `--theme` gleich `red` ist, der Inhalt 
 
 Versuchen Sie, verschiedene Farbwerte in das Textfeld einzugeben. Sie werden möglicherweise feststellen, dass Werte, die sRGB-Äquivalente von `red` sind, das `<output>` rot machen — da es `style(--theme: red)` erfüllt — während die Umrandung entfernt wird, weil `style(--theme)` falsch zurückgibt, wenn der Wert des Elements für `--theme` derselbe wie der Anfangswert für `--theme` ist, der durch die `@property` At-Regel definiert wurde. Jeder nicht rote sRGB-gültige Farbwert, einschließlich `currentColor` oder `hsl(180 100% 50%)` usw., lässt die erste Stilabfrage wahr werden; es sind Werte, die sich von dem `initial-value` unterscheiden.
 
-Da wir `syntax: "<color>";` gesetzt haben, kann der CSS-Variable nur gültige `<color>` Werte zugewiesen werden. Gültige Werte für die {{cssxref("color")}} Eigenschaft, die keine Wert-`<color>` Werte sind, wie `unset` oder `inherit`, sind [ungültig](/de/docs/Web/CSS/CSS_syntax/Error_handling) für diese benutzerdefinierte Eigenschaft und werden ignoriert.
+Da wir `syntax: "<color>";` gesetzt haben, kann der CSS-Variable nur gültige `<color>` Werte zugewiesen werden. Gültige Werte für die {{cssxref("color")}} Eigenschaft, die keine Wert-`<color>` Werte sind, wie `unset` oder `inherit`, sind [ungültig](/de/docs/Web/CSS/Guides/Syntax/Error_handling) für diese benutzerdefinierte Eigenschaft und werden ignoriert.
 
 Wenn Sie `unset` oder `Kuddelmuddel` eingeben, aktualisiert das JavaScript den `style` auf dem {{HTMLElement("body")}} zu `--theme: unset` oder `--theme: Kuddelmuddel`. Keine dieser Werte sind Farben. Beide sind ungültig und werden ignoriert. Dies bedeutet, dass der Anfangswert vererbt und unverändert bleibt, wobei `style(--theme)` falsch und `style(--theme: red)` wahr ergibt.
 
@@ -406,12 +406,12 @@ Diese Funktionen werden in keinem Browser unterstützt.
 
 ## Siehe auch
 
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries)
+- [Media Queries](/de/docs/Web/CSS/Guides/Media_queries)
 - CSS {{Cssxref("@container")}} At-Regel
 - CSS {{Cssxref("contain")}} Eigenschaft
 - CSS {{Cssxref("container")}} Kurzform-Eigenschaft
 - CSS {{Cssxref("container-name")}} Eigenschaft
-- [Verwenden von Container-Scrollzustands-Abfragen](/de/docs/Web/CSS/CSS_conditional_rules/Container_scroll-state_queries)
-- [Verstehen von `aspect-ratio`](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
+- [Verwenden von Container-Scrollzustands-Abfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries)
+- [Verstehen von `aspect-ratio`](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios)
 - [Getting Started with Style Queries](https://developer.chrome.com/docs/css-ui/style-queries) (2022)
 - [Style queries](https://una.im/style-queries/) über una.im (2022)

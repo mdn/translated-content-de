@@ -7,9 +7,9 @@ l10n:
 
 Das **CSS Paged Media** Modul definiert die Eigenschaften, die die Darstellung von Inhalten für den Druck oder andere Medien, die Inhalte in diskrete Seiten aufteilen, steuern. Es ermöglicht Ihnen, Seitenumbrüche zu setzen, druckbare Bereiche zu kontrollieren und linke und rechte Seiten unterschiedlich zu gestalten.
 
-Das CSS Paged Media Modul spezifiziert, wie Seiten erstellt und layoutet werden, um fragmentierte Inhalte in einer seitenbasierten Präsentation zu halten, einschließlich Inhalten, die gedruckt oder als Druckvorschau dargestellt werden. Das Modul definiert Funktionen zur Steuerung von Seitenrändern, Größe, Ausrichtung sowie Kopf- und Fußzeilen. Es erweitert [Generated Content](/de/docs/Web/CSS/CSS_generated_content), um Funktionen zum Generieren von Seitenzahlen sowie laufende Kopf- und Fußzeilen bereitzustellen.
+Das CSS Paged Media Modul spezifiziert, wie Seiten erstellt und layoutet werden, um fragmentierte Inhalte in einer seitenbasierten Präsentation zu halten, einschließlich Inhalten, die gedruckt oder als Druckvorschau dargestellt werden. Das Modul definiert Funktionen zur Steuerung von Seitenrändern, Größe, Ausrichtung sowie Kopf- und Fußzeilen. Es erweitert [Generated Content](/de/docs/Web/CSS/Guides/Generated_content), um Funktionen zum Generieren von Seitenzahlen sowie laufende Kopf- und Fußzeilen bereitzustellen.
 
-Der Prozess des Seitentrennens von Inhalten in generierte Seiten und das Steuern von Umbrüchen innerhalb von Elementen wird im [CSS Fragmentations-Modul](/de/docs/Web/CSS/CSS_fragmentation) behandelt.
+Der Prozess des Seitentrennens von Inhalten in generierte Seiten und das Steuern von Umbrüchen innerhalb von Elementen wird im [CSS Fragmentations-Modul](/de/docs/Web/CSS/Guides/Fragmentation) behandelt.
 
 ## Referenz
 
@@ -36,12 +36,12 @@ Das CSS Paged Media Modul führt auch die Deskriptoren `bleeds` und `marks` der 
 
 ## Leitfäden
 
-- [Drucken](/de/docs/Web/CSS/CSS_media_queries/Printing)
+- [Drucken](/de/docs/Web/CSS/Guides/Media_queries/Printing)
   - : Tipps und Techniken zur Verbesserung der Druckerausgabe von Webinhalten.
 
 ## Verwandte Konzepte
 
-- [CSS Fragmentation](/de/docs/Web/CSS/CSS_fragmentation) Modul
+- [CSS Fragmentation](/de/docs/Web/CSS/Guides/Fragmentation) Modul
   - {{cssxref("break-after")}} Eigenschaft
   - {{cssxref("break-before")}} Eigenschaft
   - {{cssxref("break-inside")}} Eigenschaft
@@ -54,5 +54,5 @@ Das CSS Paged Media Modul führt auch die Deskriptoren `bleeds` und `marks` der 
 
 ## Siehe auch
 
-- [CSS Fragmentation](/de/docs/Web/CSS/CSS_fragmentation) Modul
-- [CSS Media Queries](/de/docs/Web/CSS/CSS_media_queries) Modul
+- [CSS Fragmentation](/de/docs/Web/CSS/Guides/Fragmentation) Modul
+- [CSS Media Queries](/de/docs/Web/CSS/Guides/Media_queries) Modul

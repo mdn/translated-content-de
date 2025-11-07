@@ -6,7 +6,7 @@ l10n:
   sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das [CSS display Modul](/de/docs/Web/CSS/CSS_display) definiert eine Multi-Keyword-Syntax für die CSS [`display`](/de/docs/Web/CSS/Reference/Properties/display) Eigenschaft. Dieser Leitfaden erklärt die Multi-Keyword-Syntax.
+Das [CSS display Modul](/de/docs/Web/CSS/Guides/Display) definiert eine Multi-Keyword-Syntax für die CSS [`display`](/de/docs/Web/CSS/Reference/Properties/display) Eigenschaft. Dieser Leitfaden erklärt die Multi-Keyword-Syntax.
 
 > [!NOTE]
 > Die Multi-Keyword-Syntax wird auch als "Zwei-Wert-Syntax" oder "Multi-Wert-Syntax" bezeichnet.
@@ -21,7 +21,7 @@ h1 {
 }
 ```
 
-Die `display`-Eigenschaft ermöglicht es uns auch, [CSS-Gitterlayout](/de/docs/Web/CSS/CSS_grid_layout) und [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) zu verwenden, wenn `display: grid` oder `display: flex` gesetzt ist. Das wichtige Konzept, das zu verstehen ist, ist, dass das Ändern des `display`-Wertes eines Elements den Formatierungskontext seiner direkten Kinder ändern kann. Wenn Sie `display: flex` oder `display: grid` verwenden, werden die Kinder des Elements zu Flex- oder Gitterelementen und reagieren auf die Eigenschaften in den Gitter- und Flexbox-Spezifikationen.
+Die `display`-Eigenschaft ermöglicht es uns auch, [CSS-Gitterlayout](/de/docs/Web/CSS/Guides/Grid_layout) und [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) zu verwenden, wenn `display: grid` oder `display: flex` gesetzt ist. Das wichtige Konzept, das zu verstehen ist, ist, dass das Ändern des `display`-Wertes eines Elements den Formatierungskontext seiner direkten Kinder ändern kann. Wenn Sie `display: flex` oder `display: grid` verwenden, werden die Kinder des Elements zu Flex- oder Gitterelementen und reagieren auf die Eigenschaften in den Gitter- und Flexbox-Spezifikationen.
 
 Was Gitter und Flexbox jedoch demonstrieren, ist, dass ein Element sowohl eine **äußere** als auch eine **innere** Anzeigeart hat. Die äußere Anzeigeart beschreibt, ob das Element ein Block-Level oder Inline-Level ist. Die innere Anzeigeart beschreibt, wie die Kinder dieser Box sich verhalten.
 
@@ -142,14 +142,14 @@ Es gibt Zuordnungen für alle bestehenden Werte von `display`; die häufigsten s
 
 ## display: block flow-root und display: inline flow-root
 
-In Bezug darauf, wie diese Mehrwertsyntax zur Klärung des CSS-Layouts beiträgt, können wir uns einige Werte in der obigen Tabelle ansehen, die Ihnen vielleicht weniger vertraut sind. Die Multi-Keyword-Syntax `display: block flow-root` entspricht einem Einzelwert; `display: flow-root`. Der einzige Zweck dieses Wertes ist die Erstellung eines neuen [Block-Formatierungskontextes](/de/docs/Web/CSS/CSS_display/Block_formatting_context) (BFC). Ein BFC sorgt dafür, dass alles innerhalb Ihrer Box bleibt und Dinge außerhalb der Box nicht in sie eindringen können.
+In Bezug darauf, wie diese Mehrwertsyntax zur Klärung des CSS-Layouts beiträgt, können wir uns einige Werte in der obigen Tabelle ansehen, die Ihnen vielleicht weniger vertraut sind. Die Multi-Keyword-Syntax `display: block flow-root` entspricht einem Einzelwert; `display: flow-root`. Der einzige Zweck dieses Wertes ist die Erstellung eines neuen [Block-Formatierungskontextes](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) (BFC). Ein BFC sorgt dafür, dass alles innerhalb Ihrer Box bleibt und Dinge außerhalb der Box nicht in sie eindringen können.
 
 Im folgenden Beispiel zeigen zwei `<p>`-Elemente, eines innerhalb eines `<div>`, wie `display`-Werte Formatierungskontexte beeinflussen.
 Das erste `<div>`-Element mit den Demo-Steuerelementen ist ausgeblendet, sodass wir uns stattdessen auf die folgenden Elemente konzentrieren können.
 Die Elemente, auf die wir uns konzentrieren sollten, sind die `<div>`- und `<p>`-Elemente mit den IDs "parent", "child" und "sibling", die Sie anhand ihrer IDs unterscheiden können.
 
 Bemerkenswert an diesem Layout ist, dass es keinen Inhalt zwischen den Elternelementen und den Kindelementen gibt und das Kindelement einen oberen Rand hat.
-Man könnte erwarten, dass der obere Rand das Kindelement innerhalb des Elternelements nach unten drückt, aber stattdessen passiert etwas, das [_margin collapse_](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) genannt wird.
+Man könnte erwarten, dass der obere Rand das Kindelement innerhalb des Elternelements nach unten drückt, aber stattdessen passiert etwas, das [_margin collapse_](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing) genannt wird.
 In diesem Fall erstreckt sich der Rand des Kindelements weit über die Begrenzungsbox des Elternteils hinaus und drückt das Elternelement weiter nach unten auf der Seite.
 Dies ist leichter zu sehen, wenn Sie das Boxmodell des Kindelements [in den Entwicklerwerkzeugen Ihres Browsers](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#using_browser_devtools_to_view_the_box_model) inspizieren.
 

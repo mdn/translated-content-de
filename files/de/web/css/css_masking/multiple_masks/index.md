@@ -15,7 +15,7 @@ CSS-Masken bestehen aus einer oder mehreren Maskenschichten. In diesem Leitfaden
 
 Sie können Maskierung auf alle HTML-Elemente und die meisten SVG-Elemente anwenden. Eine Maske kann aus einer oder mehreren zusammengesetzten Maskenschichten bestehen. Sie definieren mehrere Schichten, indem Sie kommagetrennte Werte in der {{cssxref("mask")}} Kurzschreibweise oder der {{cssxref("mask-image")}} Eigenschaft verwenden – selbst ein auf `none` gesetzter Wert zählt als Schicht.
 
-Jede Maskenschicht kann ein [mask image](/de/docs/Web/CSS/Reference/Properties/mask-image) enthalten, das relativ zu der Ursprungsbox der Maske positioniert ist. Das Bild kann skaliert, wiederholt und beschnitten werden. Wenn Sie mehr als ein Maskenbild einfügen, können Sie die Art und Weise definieren, wie die Maskenschichten zusammengesetzt oder kombiniert werden. (Diese Funktionen werden in diesem Leitfaden kurz vorgestellt. Weitere Details und Beispiele finden Sie im [Maskierungs-Eigenschaften-Leitfaden](/de/docs/Web/CSS/CSS_masking/Mask_properties).)
+Jede Maskenschicht kann ein [mask image](/de/docs/Web/CSS/Reference/Properties/mask-image) enthalten, das relativ zu der Ursprungsbox der Maske positioniert ist. Das Bild kann skaliert, wiederholt und beschnitten werden. Wenn Sie mehr als ein Maskenbild einfügen, können Sie die Art und Weise definieren, wie die Maskenschichten zusammengesetzt oder kombiniert werden. (Diese Funktionen werden in diesem Leitfaden kurz vorgestellt. Weitere Details und Beispiele finden Sie im [Maskierungs-Eigenschaften-Leitfaden](/de/docs/Web/CSS/Guides/Masking/Mask_properties).)
 
 ### Syntax für mehrere Maskenschichten
 
@@ -46,7 +46,7 @@ mask-border-width: auto;
 
 ### Definieren von Maskenschichten mit `mask-image`
 
-Solange eine kommagetrennte {{cssxref("mask-image")}} Eigenschaftsdeklaration mindestens einen Wert enthält, der nicht `none` ist, wird für jeden Wert in der Deklaration eine Maskenschicht erstellt, selbst für die `none` Werte. Dieses Verhalten gilt, unabhängig davon, ob Sie die `mask-image` Eigenschaft oder die `mask` Kurzschreibweise verwenden. Diese Maskenbilder können Verläufe, Bilder oder SVG-Quellen sein. Sie können sie mithilfe eines [CSS-Gradienten](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients), eines Rasterbilds (wie PNGs) oder eines SVG {{svgelement("mask")}} Elements definieren.
+Solange eine kommagetrennte {{cssxref("mask-image")}} Eigenschaftsdeklaration mindestens einen Wert enthält, der nicht `none` ist, wird für jeden Wert in der Deklaration eine Maskenschicht erstellt, selbst für die `none` Werte. Dieses Verhalten gilt, unabhängig davon, ob Sie die `mask-image` Eigenschaft oder die `mask` Kurzschreibweise verwenden. Diese Maskenbilder können Verläufe, Bilder oder SVG-Quellen sein. Sie können sie mithilfe eines [CSS-Gradienten](/de/docs/Web/CSS/Guides/Images/Using_gradients), eines Rasterbilds (wie PNGs) oder eines SVG {{svgelement("mask")}} Elements definieren.
 
 ```css
 .gradient-mask {
@@ -62,7 +62,7 @@ Solange eine kommagetrennte {{cssxref("mask-image")}} Eigenschaftsdeklaration mi
 }
 ```
 
-Der [einführende Leitfaden zur Maskierung](/de/docs/Web/CSS/CSS_masking) stellt die verschiedenen Arten von Maskenbildern und ihre Modi vor.
+Der [einführende Leitfaden zur Maskierung](/de/docs/Web/CSS/Guides/Masking) stellt die verschiedenen Arten von Maskenbildern und ihre Modi vor.
 
 Die `mask-image` Eigenschaft ist analog zur {{cssxref("background-image")}} Eigenschaft. Genau wie bei der `background-image` Eigenschaft, um mehrere Maskenbilder einzubeziehen, werden die Bildwerte durch Kommas getrennt.
 
@@ -120,7 +120,7 @@ Wenn ein Wert in der kommagetrennten Liste ein leeres Bild ist, das Herunterlade
 
 Es erfolgt keine Maskierung, wenn die gesamte Eigenschaft sich zu `none` auflöst, was das Element vollständig sichtbar macht. Andererseits, wenn der Wert mehrere Schichten umfasst und mindestens eine davon nicht `none` ist, legen die `none` Schichten keinen Teil des Elements frei (oder machen keinen Teil des Elements sichtbar). In diesem Beispiel löst sich der Wert nicht zu `none` auf; Da jedoch alle nicht-`none` Bilder ungültig sind, erfolgt eine Maskierung und das Element wird vollständig verborgen.
 
-Ein berechneter Wert, der nicht `none` ist, erstellt einen [CSS-Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context).
+Ein berechneter Wert, der nicht `none` ist, erstellt einen [CSS-Stapelkontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context).
 
 ### Wie Maskenschichten `mask-*` Eigenschaften beeinflussen
 
@@ -144,7 +144,7 @@ Die `mask-*` Eigenschaften umfassen:
 
 Jeder `mask-*` Wert in einer kommagetrennten Liste von `mask` Komponentenwerten wird auf eine separate Maskenschicht angewendet. Wie zuvor erwähnt, kann ein Element mehrere Maskenschichten haben — die Anzahl der Schichten wird durch die Anzahl der kommagetrennten Werte in den `mask-image` oder `mask` Eigenschaften bestimmt. Jeder `mask-*` Wert wird der Reihe nach einer Maskenschicht zugeordnet. Wenn die Anzahl der Werte in der `mask-*` Eigenschaft größer ist als die Anzahl der Maskenschichten, werden überschüssige Werte ignoriert. Wenn die Maskenkomponenteneigenschaft weniger Werte als die Anzahl der Maskenschichten hat, werden die `mask-*` Werte wiederholt.
 
-Um mehr über diese einzelnen Eigenschaften zu erfahren, siehe [CSS-Maskeneigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties).
+Um mehr über diese einzelnen Eigenschaften zu erfahren, siehe [CSS-Maskeneigenschaften](/de/docs/Web/CSS/Guides/Masking/Mask_properties).
 
 ## Reihenfolge der Kurzschreibkomponenteneigenschaften
 
@@ -202,7 +202,7 @@ Um eine `mask-size` in einer Maskenschicht mithilfe der `mask` Kurzschreibweise 
 
 ## Siehe auch
 
-- [Einführung in CSS-Masking](/de/docs/Web/CSS/CSS_masking/Masking)
-- [CSS-Maskeneigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties)
-- [Einführung in CSS-Zuschnitt](/de/docs/Web/CSS/CSS_masking/Clipping)
-- [CSS-Masking](/de/docs/Web/CSS/CSS_masking) Modul
+- [Einführung in CSS-Masking](/de/docs/Web/CSS/Guides/Masking/Introduction)
+- [CSS-Maskeneigenschaften](/de/docs/Web/CSS/Guides/Masking/Mask_properties)
+- [Einführung in CSS-Zuschnitt](/de/docs/Web/CSS/Guides/Masking/Clipping)
+- [CSS-Masking](/de/docs/Web/CSS/Guides/Masking) Modul

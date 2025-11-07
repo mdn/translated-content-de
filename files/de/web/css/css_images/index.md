@@ -40,19 +40,19 @@ Das CSS images Modul definiert auch die {{CSSxRef("image/image", "image()")}} Fu
 
 ## Leitfäden
 
-- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
+- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/Guides/Images/Using_gradients)
   - : Stellt einen bestimmten Typ von CSS-Bildern vor, _Verläufe_, und wie diese erstellt und verwendet werden können.
 
-- [Implementierung von Bildspriten in CSS](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
+- [Implementierung von Bildspriten in CSS](/de/docs/Web/CSS/Guides/Images/Implementing_image_sprites)
   - : Beschreibt die gängige Technik, mehrere Bilder in einem einzigen Dokument zu gruppieren, um Download-Anfragen zu sparen und die Verfügbarkeit einer Seite zu beschleunigen.
 
-- [Stil von ersetzten Elementen](/de/docs/Web/CSS/CSS_images/Replaced_element_properties)
+- [Stil von ersetzten Elementen](/de/docs/Web/CSS/Guides/Images/Replaced_element_properties)
   - : Führt in die Eigenschaften ein, die nur für _ersetzte Elemente_ gelten.
 
-- [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
+- [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/Guides/Box_sizing/Aspect_ratios)
   - : Erfahren Sie mehr über die `aspect-ratio` Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige gebräuchliche Anwendungsfälle für Seitenverhältnisse.
 
-- [Verwendung der CSS-Eigenschaft `object-view-box`](/de/docs/Web/CSS/CSS_images/Using_object-view-box)
+- [Verwendung der CSS-Eigenschaft `object-view-box`](/de/docs/Web/CSS/Guides/Images/Using_object-view-box)
   - : Lernen Sie die CSS-Eigenschaft `object-view-box`, einschließlich wie man Bilder ein- oder auszoomt und wie man über sie hinweg schwenkt.
 
 ## Verwandte Konzepte
@@ -67,7 +67,7 @@ Das CSS images Modul definiert auch die {{CSSxRef("image/image", "image()")}} Fu
 
 ## Siehe auch
 
-- [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
-- [CSS-Komposition und -Mischung](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul
-- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul
-- [CSS Werte und Einheiten](/de/docs/Web/CSS/CSS_values_and_units) Modul
+- [CSS Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects) Modul
+- [CSS-Komposition und -Mischung](/de/docs/Web/CSS/Guides/Compositing_and_blending) Modul
+- [CSS Farben](/de/docs/Web/CSS/Guides/Colors) Modul
+- [CSS Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul

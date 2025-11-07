@@ -3,28 +3,26 @@ title: "HTMLImageElement: sizes-Eigenschaft"
 short-title: sizes
 slug: Web/API/HTMLImageElement/sizes
 l10n:
-  sourceCommit: 7615562a3689a3e23a2b6b623597f4391740a53e
+  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Eigenschaft **`sizes`** ermöglicht es Ihnen, die Layoutbreite des [Bildes](/de/docs/Web/HTML/Reference/Elements/img) für jede Liste von Medienbedingungen anzugeben. Dies bietet die Möglichkeit, automatisch zwischen verschiedenen Bildern zu wählen – sogar Bildern mit unterschiedlichen Ausrichtungen oder Seitenverhältnissen – wenn sich der Dokumentzustand ändert, um verschiedenen Medienbedingungen zu entsprechen.
-
-Jede Bedingung wird mit demselben bedingten Format angegeben, das auch von [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) verwendet wird.
+Die **`sizes`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces ermöglicht es Ihnen, die Layoutbreite des [Bildes](/de/docs/Web/HTML/Reference/Elements/img) für jede aus einer Liste von [Media Queries](/de/docs/Web/CSS/Guides/Media_queries) anzugeben. Dies bietet die Möglichkeit, automatisch zwischen verschiedenen Bildern zu wählen – sogar zwischen Bildern mit unterschiedlichen Ausrichtungen oder Seitenverhältnissen –, sobald sich der Dokumentenzustand ändert, um unterschiedliche Medienbedingungen zu erfüllen. Sie spiegelt das `sizes`-Inhaltsattribut des `<img>`-Elements wider.
 
 ## Wert
 
-Ein String, der eine durch Kommas getrennte Liste von Quellgrößenbeschreibungen enthält, gefolgt von einer optionalen Rückfallgröße. Jede Quellgrößenbeschreibung besteht aus einer Medienbedingung, dann mindestens einem Leerzeichen, dann dem Quellgrößenwert, der für das Bild verwendet werden soll, wenn die Medienbedingung als `true` bewertet wird. Sie können den Wert `auto` verwenden, um die gesamte Liste der Größen oder den ersten Eintrag in der Liste zu ersetzen. Für weitere Informationen zur Syntax des `sizes`-Attributs, siehe [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#sizes).
+Ein String. Weitere Informationen zur Syntax des `sizes`-Attributs finden Sie in der HTML-Referenz für das [`<img>`](/de/docs/Web/HTML/Reference/Elements/img#sizes)-Element.
 
 ## Beispiele
 
-### Auswahl eines Bildes, das zur Fensterbreite passt
+### Auswahl eines Bildes passend zur Fensterbreite
 
-In diesem Beispiel wird ein blogartiges Layout erstellt, das einige Texte und ein Bild anzeigt, für welches drei Größenpunkte je nach Fensterbreite angegeben werden. Drei Versionen des Bildes stehen ebenfalls zur Verfügung, mit ihren Breiten angegeben. Der Browser nimmt all diese Informationen und wählt ein Bild und eine Breite aus, die am besten zu den angegebenen Werten passt.
+In diesem Beispiel wird ein blog-ähnliches Layout erstellt, das einige Texte und ein Bild anzeigt, für das drei Größenpunkte festgelegt sind, abhängig von der Breite des Fensters. Drei Versionen des Bildes stehen ebenfalls zur Verfügung, mit festgelegten Breiten. Der Browser nimmt all diese Informationen und wählt ein Bild und eine Breite, die am besten zu den angegebenen Werten passen.
 
-Wie genau die Bilder verwendet werden, kann vom Browser und der Pixeldichte des Displays des Benutzers abhängen.
+Wie genau die Bilder verwendet werden, kann vom Browser und der Pixeldichte des Displays des Nutzers abhängen.
 
-Schaltflächen am unteren Ende des Beispiels erlauben es Ihnen, die `sizes`-Eigenschaft tatsächlich leicht zu ändern, indem Sie die größte der drei Breiten für das Bild zwischen 40em und 50em umschalten.
+Schaltflächen am unteren Rand des Beispiels ermöglichen es Ihnen tatsächlich, die `sizes`-Eigenschaft leicht zu ändern, indem Sie die größte der drei Breiten für das Bild zwischen 40em und 50em umschalten.
 
 #### HTML
 
@@ -86,7 +84,7 @@ article img {
 
 #### JavaScript
 
-Der JavaScript-Code behandelt die beiden Schaltflächen, die es Ihnen ermöglichen, die dritte Breitenoption zwischen 40em und 50em umzuschalten; dies wird durch die Behandlung des [`click`](/de/docs/Web/API/Element/click_event) Ereignisses erreicht, wobei die JavaScript-String-Methode {{jsxref("String.replace", "replace()")}} verwendet wird, um den relevanten Teil des `sizes`-Strings zu ersetzen.
+Der JavaScript-Code behandelt die beiden Schaltflächen, mit denen Sie die dritte Breitenoption zwischen 40em und 50em umschalten; dies wird durch die Handhabung des [`click`](/de/docs/Web/API/Element/click_event)-Ereignisses erreicht, mithilfe der JavaScript-String-Methode {{jsxref("String.replace", "replace()")}}, um den relevanten Teil des `sizes`-Strings zu ersetzen.
 
 ```js
 const image = document.querySelector("article img");
@@ -108,7 +106,7 @@ break50.addEventListener(
 
 {{EmbedLiveSample("Selecting an image to fit window width", "", 1050)}}
 
-Die Seite ist am besten {{LiveSampleLink('Selecting an image to fit window width', 'in einem eigenen Fenster zu betrachten')}}, sodass Sie die Größen vollständig anpassen können.
+Die Seite ist am besten {{LiveSampleLink('Selecting an image to fit window width', 'in einem eigenen Fenster anzusehen')}}, damit Sie die Größen vollständig anpassen können.
 
 ## Spezifikationen
 
@@ -120,8 +118,11 @@ Die Seite ist am besten {{LiveSampleLink('Selecting an image to fit window width
 
 ## Siehe auch
 
-- [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries)
-- [Verwendung von Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Media Queries](/de/docs/Web/CSS/Guides/Media_queries)
+- [Media Queries verwenden](/de/docs/Web/CSS/Guides/Media_queries/Using)
 - [HTML-Bilder](/de/docs/Learn_web_development/Core/Structuring_content/HTML_images)
 - [Responsive Bilder](/de/docs/Web/HTML/Guides/Responsive_images)
 - [Verwendung der `srcset`- und `sizes`-Attribute](/de/docs/Web/HTML/Reference/Elements/img#using_the_srcset_and_sizes_attributes)
+- [`HTMLImageElement.currentSrc`](/de/docs/Web/API/HTMLImageElement/currentSrc)
+- [`HTMLImageElement.src`](/de/docs/Web/API/HTMLImageElement/src)
+- [`HTMLImageElement.srcset`](/de/docs/Web/API/HTMLImageElement/srcset)

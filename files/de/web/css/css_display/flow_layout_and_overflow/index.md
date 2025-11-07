@@ -161,7 +161,7 @@ body {
 
 {{EmbedLiveSample("auto", "", "370px")}}
 
-Wie wir bereits gelernt haben, wird durch die Verwendung eines dieser Werte, mit Ausnahme des Standardwertes `visible`, ein neuer [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) erstellt.
+Wie wir bereits gelernt haben, wird durch die Verwendung eines dieser Werte, mit Ausnahme des Standardwertes `visible`, ein neuer [Block-Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) erstellt.
 
 `overflow: clip` verhält sich wie `overflow: hidden`, erlaubt jedoch kein programmatisches Scrollen; die Box wird nicht-scrollbar. Es erstellt auch keinen Block-Formatierungskontext.
 
@@ -204,7 +204,7 @@ body {
 
 ## Fluss-relative Eigenschaften
 
-Im Leitfaden zu [Schreibmodi und Fließlayout](/de/docs/Web/CSS/CSS_display/Flow_layout_and_writing_modes) haben wir uns die Eigenschaften `block-size` und `inline-size` angesehen, die mehr Sinn machen, wenn man mit verschiedenen Schreibmodi arbeitet, anstatt unser Layout an die physischen Abmessungen des Bildschirms zu binden. Das [CSS Overflow-Modul](/de/docs/Web/CSS/CSS_overflow) enthält auch fluss-relative Eigenschaften für Überlauf - [`overflow-block`](/de/docs/Web/CSS/Reference/At-rules/@media/overflow-block) und [`overflow-inline`](/de/docs/Web/CSS/Reference/At-rules/@media/overflow-inline). Diese entsprechen `overflow-x` und `overflow-y`, aber die Zuordnung hängt vom Schreibmodus des Dokuments ab.
+Im Leitfaden zu [Schreibmodi und Fließlayout](/de/docs/Web/CSS/Guides/Display/Flow_layout_and_writing_modes) haben wir uns die Eigenschaften `block-size` und `inline-size` angesehen, die mehr Sinn machen, wenn man mit verschiedenen Schreibmodi arbeitet, anstatt unser Layout an die physischen Abmessungen des Bildschirms zu binden. Das [CSS Overflow-Modul](/de/docs/Web/CSS/Guides/Overflow) enthält auch fluss-relative Eigenschaften für Überlauf - [`overflow-block`](/de/docs/Web/CSS/Reference/At-rules/@media/overflow-block) und [`overflow-inline`](/de/docs/Web/CSS/Reference/At-rules/@media/overflow-inline). Diese entsprechen `overflow-x` und `overflow-y`, aber die Zuordnung hängt vom Schreibmodus des Dokuments ab.
 
 ## Überlauf anzeigen
 
@@ -267,5 +267,5 @@ Unabhängig davon, ob Sie sich in kontinuierlichen Medien im Internet oder in ei
 ## Siehe auch
 
 - [Überlaufender Inhalt](/de/docs/Learn_web_development/Core/Styling_basics/Overflow) Leitfaden
-- [CSS Overflow](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Containment](/de/docs/Web/CSS/CSS_containment) Modul
+- [CSS Overflow](/de/docs/Web/CSS/Guides/Overflow) Modul
+- [CSS Containment](/de/docs/Web/CSS/Guides/Containment) Modul

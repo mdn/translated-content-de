@@ -144,9 +144,9 @@ div {
 
 ## Siehe auch
 
-- [Stapelung ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index): Die Stapelregeln, die gelten, wenn `z-index` nicht verwendet wird.
-- [Stapelung schwebender Elemente](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements): Wie schwebende Elemente mit dem Stapeln behandelt werden.
-- [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index): Wie `z-index` verwendet wird, um die Standardstapelung zu ändern.
-- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context): Hinweise zum Stapelkontext.
-- [Beispiel für Stapelkontext 1](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_1): 2-stufige HTML-Hierarchie, `z-index` auf der letzten Ebene
-- [Beispiel für Stapelkontext 2](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_2): 2-stufige HTML-Hierarchie, `z-index` auf allen Ebenen
+- [Stapelung ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_without_z-index): Die Stapelregeln, die gelten, wenn `z-index` nicht verwendet wird.
+- [Stapelung schwebender Elemente](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_floating_elements): Wie schwebende Elemente mit dem Stapeln behandelt werden.
+- [Verwendung von z-index](/de/docs/Web/CSS/Guides/Positioned_layout/Using_z-index): Wie `z-index` verwendet wird, um die Standardstapelung zu ändern.
+- [Stapelkontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context): Hinweise zum Stapelkontext.
+- [Beispiel für Stapelkontext 1](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context/Example_1): 2-stufige HTML-Hierarchie, `z-index` auf der letzten Ebene
+- [Beispiel für Stapelkontext 2](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context/Example_2): 2-stufige HTML-Hierarchie, `z-index` auf allen Ebenen

@@ -102,15 +102,15 @@ In diesen Farbfeldern wird die {{cssxref("background-color")}} mit der {{cssxref
 
 ## Leitfäden
 
-- [Verwendung von CSS benutzerdefinierten Eigenschaften (Variablen)](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties)
+- [Verwendung von CSS benutzerdefinierten Eigenschaften (Variablen)](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties)
   - : Erklärt, wie man benutzerdefinierte Eigenschaften in CSS und JavaScript verwendet, mit Hinweisen zum Umgang mit undefinierten und ungültigen Werten, Fallbacks und Vererbung.
 
-- [Ungültige benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/CSS_syntax/Error_handling#invalid_custom_properties)
+- [Ungültige benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Guides/Syntax/Error_handling#invalid_custom_properties)
   - : Erklärt, wie Browser mit Eigenschaftswerten umgehen, wenn der Wert einer benutzerdefinierten Eigenschaft ein ungültiger Datentyp für diese Eigenschaft ist.
 
 ## Verwandte Konzepte
 
-- [CSS Properties and Values API](/de/docs/Web/CSS/CSS_properties_and_values_API) Modul
+- [CSS Properties and Values API](/de/docs/Web/CSS/Guides/Properties_and_values_API) Modul
   - [`@property`](/de/docs/Web/CSS/Reference/At-rules/@property) At-Regel
   - [`CSS.registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) Methode
 
@@ -120,7 +120,7 @@ In diesen Farbfeldern wird die {{cssxref("background-color")}} mit der {{cssxref
 
 ## Siehe auch
 
-- [CSS Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
+- [CSS Kaskadierung und Vererbung](/de/docs/Web/CSS/Guides/Cascade) Modul
 - [CSS `env()`](/de/docs/Web/CSS/Reference/Values/env) Funktion
 - [CSS `calc()`](/de/docs/Web/CSS/Reference/Values/calc) Funktion
 - [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue) Methode

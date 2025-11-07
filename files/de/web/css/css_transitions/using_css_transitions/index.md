@@ -16,7 +16,7 @@ CSS-Übergänge ermöglichen es Ihnen zu entscheiden, welche Eigenschaften animi
 
 ## Welche CSS-Eigenschaften können übergangen werden?
 
-Der Webentwickler kann festlegen, welche Eigenschaft animiert werden soll und wie. Dies ermöglicht die Erstellung komplexer Übergänge. Allerdings sind einige Eigenschaften [nicht animierbar](/de/docs/Web/CSS/CSS_animated_properties), da es keinen Sinn macht, sie zu animieren.
+Der Webentwickler kann festlegen, welche Eigenschaft animiert werden soll und wie. Dies ermöglicht die Erstellung komplexer Übergänge. Allerdings sind einige Eigenschaften [nicht animierbar](/de/docs/Web/CSS/Guides/Animations/Animatable_properties), da es keinen Sinn macht, sie zu animieren.
 
 > [!NOTE]
 > Der Wert `auto` ist oft ein sehr komplexer Fall. Die Spezifikation empfiehlt, nicht von und zu `auto` zu animieren. Einige User Agents, wie solche auf der Basis von Gecko, implementieren diese Anforderung, während andere, wie solche auf der Basis von WebKit, weniger strikt sind. Die Verwendung von Animationen mit `auto` kann zu unvorhersehbaren Ergebnissen führen, abhängig vom Browser und seiner Version, und sollte vermieden werden.
@@ -187,7 +187,7 @@ Dieses CSS legt das Erscheinungsbild des Menüs fest, wobei sowohl die Hintergru
 
 Dieses Beispiel demonstriert, wie [`display`](/de/docs/Web/CSS/Reference/Properties/display) und [`content-visibility`](/de/docs/Web/CSS/Reference/Properties/content-visibility) übergangen werden können. Dieses Verhalten ist nützlich für das Erstellen von Ein-/Ausblenden-Animationen, bei denen Sie beispielsweise einen Container mit `display: none` aus dem DOM entfernen möchten, aber mit [`opacity`](/de/docs/Web/CSS/Reference/Properties/opacity) ausblenden möchten, anstatt sofort zu verschwinden.
 
-Unterstützende Browser übergehen `display` und `content-visibility` mit einer Variation des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete). Dies bedeutet im Allgemeinen, dass Eigenschaften zwischen zwei Werten wechseln, während sie zu 50 % zwischen den beiden animieren.
+Unterstützende Browser übergehen `display` und `content-visibility` mit einer Variation des [diskreten Animationstyps](/de/docs/Web/CSS/Guides/Animations/Animatable_properties#discrete). Dies bedeutet im Allgemeinen, dass Eigenschaften zwischen zwei Werten wechseln, während sie zu 50 % zwischen den beiden animieren.
 
 Es gibt jedoch eine Ausnahme, nämlich wenn zu/von `display: none` oder `content-visibility: hidden` animiert wird. In diesem Fall wechselt der Browser zwischen den beiden Werten, sodass der übergehende Inhalt während der gesamten Animationsdauer angezeigt wird.
 
@@ -389,4 +389,4 @@ el.addEventListener("transitionstart", signalStart);
 ## Siehe auch
 
 - Das [`TransitionEvent`](/de/docs/Web/API/TransitionEvent) Interface und das [`transitionend`](/de/docs/Web/API/Element/transitionend_event) Ereignis
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)

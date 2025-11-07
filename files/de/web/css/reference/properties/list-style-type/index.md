@@ -2,10 +2,10 @@
 title: list-style-type
 slug: Web/CSS/Reference/Properties/list-style-type
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`list-style-type`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Marker (wie zum Beispiel eine Scheibe, ein Zeichen oder ein benutzerdefinierter Zählerstil) eines Listenelement-Elements fest.
+Die **`list-style-type`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Markierungssymbol (wie eine Scheibe, ein Zeichen oder ein benutzerdefinierter Zählerstil) eines Listenelement-Elements fest.
 
 {{InteractiveExample("CSS Demo: list-style-type")}}
 
@@ -86,9 +86,9 @@ hr {
 }
 ```
 
-Der Marker wird [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword) sein, der gleiche wie die berechnete [Farbe](/de/docs/Web/CSS/Reference/Values/color_value) des Elements, auf das er angewendet wird.
+Das Markierungssymbol wird [`currentColor`](/de/docs/Web/CSS/Reference/Values/color_value#currentcolor_keyword) sein, dieselbe berechnete [Farbe](/de/docs/Web/CSS/Reference/Values/color_value) des Elements, auf das es angewendet wird.
 
-Nur wenige Elemente ({{HTMLElement("li")}} und {{HTMLElement("summary")}}) haben einen Standardwert von `display: list-item`. Die `list-style-type` Eigenschaft kann jedoch auf jedes Element angewendet werden, dessen {{cssxref("display")}} Wert auf `list-item` gesetzt ist. Zudem kann diese Eigenschaft, da sie vererbt wird, auf einem Elternelement (üblicherweise {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}) gesetzt werden, um auf alle Listenelemente anzuwenden.
+Nur einige wenige Elemente ({{HTMLElement("li")}} und {{HTMLElement("summary")}}) haben einen Standardwert von `display: list-item`. Die `list-style-type` Eigenschaft kann jedoch auf jedes Element angewendet werden, dessen {{cssxref("display")}} Wert auf `list-item` gesetzt ist. Da diese Eigenschaft vererbt wird, kann sie auf einem Elternelement (häufig {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}) gesetzt werden, um sie auf alle Listenelemente anzuwenden.
 
 ## Syntax
 
@@ -119,28 +119,28 @@ list-style-type: revert-layer;
 list-style-type: unset;
 ```
 
-Die `list-style-type` Eigenschaft kann als einer der folgenden definiert werden:
+Die `list-style-type` Eigenschaft kann als eine der folgenden definiert werden:
 
 - ein `<custom-ident>` Wert,
 - ein `symbols()` Wert,
-- ein `<string>` Wert, oder
-- das Schlüsselwort `none`.
+- ein `<string>` Wert oder
+- das Stichwort `none`.
 
 Beachten Sie, dass:
 
-- Einige Typen eine geeignete Schriftart erfordern, um wie erwartet angezeigt zu werden.
-- Die `cjk-ideographic` ist identisch mit `trad-chinese-informal`; sie existiert aus historischen Gründen.
+- Einige Typen ein geeignetes installiertes Schriftbild benötigen, um wie erwartet angezeigt zu werden.
+- Der `cjk-ideographic` ist identisch mit `trad-chinese-informal`; er existiert aus historischen Gründen.
 
 ### Werte
 
 - {{cssxref("custom-ident", "&lt;custom-ident&gt;")}}
-  - : Ein Bezeichner, der dem Wert eines {{cssxref("@counter-style")}} oder einem der vordefinierten Stile entspricht:
+  - : Ein Bezeichner, der mit dem Wert von einem {{cssxref("@counter-style")}} oder einem der vordefinierten Stile übereinstimmt:
 - {{cssxref("symbols", "symbols()")}}
   - : Definiert einen anonymen Stil der Liste.
 - {{cssxref("&lt;string&gt;")}}
-  - : Die angegebene Zeichenkette wird als Marker des Eintrags verwendet.
+  - : Der angegebene String wird als Markierung des Elements verwendet.
 - `none`
-  - : Kein Eintragsmarker wird angezeigt.
+  - : Keine Elementmarkierung wird angezeigt.
 - `disc`
   - : Ein gefüllter Kreis (Standardwert).
 - `circle`
@@ -150,105 +150,105 @@ Beachten Sie, dass:
 - `decimal`
   - : Dezimalzahlen, beginnend mit 1.
 - `cjk-decimal`
-  - : Han-Dekimalzahlen.
+  - : Han-Dezimalzahlen.
 - `decimal-leading-zero`
-  - : Dezimalzahlen, mit führenden Nullen gepolstert.
+  - : Dezimalzahlen, gefüllt mit führenden Nullen.
 - `lower-roman`
-  - : Kleinbuchstaben römische Ziffern.
+  - : Römische Kleinbuchstaben.
 - `upper-roman`
-  - : Großbuchstaben römische Ziffern.
+  - : Römische Großbuchstaben.
 - `lower-greek`
-  - : Kleinbuchstaben des klassischen Griechisch.
+  - : Griechische Kleinbuchstaben.
 - `lower-alpha`, `lower-latin`
-  - : Kleinbuchstaben {{Glossary("ASCII", "ASCII")}}.
+  - : Kleinbuchstaben des {{Glossary("ASCII", "ASCII")}}.
 - `upper-alpha`, `upper-latin`
-  - : Großbuchstaben ASCII.
+  - : Großbuchstaben des ASCII.
 - `arabic-indic`, `-moz-arabic-indic`
-  - : Arabisch-Indische Zahlen.
+  - : Arabisch-indische Zahlen.
 - `armenian`
-  - : Traditionelle Armenische Nummerierung.
+  - : Traditionelle armenische Nummerierung.
 - `bengali`, `-moz-bengali`
-  - : Bengalische Nummerierung.
+  - : Bengali-Nummerierung.
 - `cambodian`/`khmer`
-  - : Kambodschanische/Khmer-Nummerierung.
+  - : Khmer-Nummerierung.
 - `cjk-earthly-branch`, `-moz-cjk-earthly-branch`
-  - : Han "Earthly Branch" Ordnungszahlen.
+  - : Han-"Erdzweig"-Ordnungszahlen.
 - `cjk-heavenly-stem`, `-moz-cjk-heavenly-stem`
-  - : Han "Heavenly Stem" Ordnungszahlen.
+  - : Han-"Himmlischer Stamm"-Ordnungszahlen.
 - `cjk-ideographic`
   - : Identisch mit `trad-chinese-informal`.
 - `devanagari`, `-moz-devanagari`
-  - : Devanagari Nummerierung.
+  - : Devanagari-Nummerierung.
 - `ethiopic-numeric`
   - : Äthiopische Nummerierung.
 - `georgian`
-  - : Traditionelle Georgische Nummerierung.
+  - : Traditionelle georgische Nummerierung.
 - `gujarati`, `-moz-gujarati`
-  - : Gujarati Nummerierung.
+  - : Gujarati-Nummerierung.
 - `gurmukhi`, `-moz-gurmukhi`
-  - : Gurmukhi Nummerierung.
+  - : Gurmukhi-Nummerierung.
 - `hebrew`
-  - : Traditionelle Hebräische Nummerierung.
+  - : Traditionelle hebräische Nummerierung.
 - `hiragana`
-  - : Wörterbuch-Reihenfolge Hiragana-Buchstaben.
+  - : Wörterbuchsortierung Hiragana-Buchstaben.
 - `hiragana-iroha`
-  - : [Iroha-Reihenfolge](https://en.wikipedia.org/wiki/Iroha) Hiragana-Buchstaben.
+  - : [Iroha-Ordnung](https://en.wikipedia.org/wiki/Iroha) Hiragana-Buchstaben.
 - `japanese-formal`
-  - : Japanische formelle Nummerierung zur Verwendung in rechtlichen oder finanziellen Dokumenten. Die Kanjis sind so gestaltet, dass sie nicht in einen anderen korrekten Kanji umgewandelt werden können.
+  - : Japanische formale Nummerierung, die in rechtlichen oder finanziellen Dokumenten verwendet wird. Die Kanjis sind so gestaltet, dass sie nicht modifiziert werden können, um wie ein anderer korrekt zu erscheinen.
 - `japanese-informal`
   - : Japanische informelle Nummerierung.
 - `kannada`, `-moz-kannada`
-  - : Kannada Nummerierung.
+  - : Kannada-Nummerierung.
 - `katakana`
-  - : Wörterbuch-Reihenfolge Katakana-Buchstaben.
+  - : Wörterbuchsortierung Katakana-Buchstaben.
 - `katakana-iroha`
-  - : [Iroha-Reihenfolge](https://en.wikipedia.org/wiki/Iroha) Katakana-Buchstaben.
+  - : [Iroha-Ordnung](https://en.wikipedia.org/wiki/Iroha) Katakana-Buchstaben.
 - `korean-hangul-formal`
-  - : Koreanische Hangul Nummerierung.
+  - : Koreanische Hangul-Nummerierung.
 - `korean-hanja-formal`
-  - : Formelle Koreanische Han Nummerierung.
+  - : Formale koreanische Han-Nummerierung.
 - `korean-hanja-informal`
-  - : Koreanische Hanja Nummerierung.
+  - : Koreanische Hanja-Nummerierung.
 - `lao`, `-moz-lao`
   - : Laotische Nummerierung.
 - `lower-armenian`
-  - : Kleinbuchstaben Armenische Nummerierung.
+  - : Kleinbuchstaben der armenischen Nummerierung.
 - `malayalam`, `-moz-malayalam`
-  - : Malayalam Nummerierung.
+  - : Malayalam-Nummerierung.
 - `mongolian`
   - : Mongolische Nummerierung.
 - `myanmar`, `-moz-myanmar`
-  - : Myanmar (Burmesische) Nummerierung.
+  - : Myanmarische (Burmesische) Nummerierung.
 - `oriya`, `-moz-oriya`
-  - : Oriya Nummerierung.
+  - : Oriya-Nummerierung.
 - `persian`, `-moz-persian`
   - : Persische Nummerierung.
 - `simp-chinese-formal`
-  - : Vereinfachte Chinesische formelle Nummerierung.
+  - : Vereinfachte chinesische formale Nummerierung.
 - `simp-chinese-informal`
-  - : Vereinfachte Chinesische informelle Nummerierung.
+  - : Vereinfachte chinesische informelle Nummerierung.
 - `tamil`, `-moz-tamil`
-  - : Tamilische Nummerierung.
+  - : Tamil Nummerierung.
 - `telugu`, `-moz-telugu`
-  - : Telugu Nummerierung.
+  - : Telugu-Nummerierung.
 - `thai`, `-moz-thai`
   - : Thailändische Nummerierung.
 - `tibetan`
   - : Tibetische Nummerierung.
 - `trad-chinese-formal`
-  - : Traditionelle Chinesische formelle Nummerierung.
+  - : Traditionelle chinesische formale Nummerierung.
 - `trad-chinese-informal`
-  - : Traditionelle Chinesische informelle Nummerierung.
+  - : Traditionelle chinesische informelle Nummerierung.
 - `upper-armenian`
-  - : Traditionelle Großbuchstaben Armenische Nummerierung.
+  - : Traditionelle Großbuchstaben der armenischen Nummerierung.
 - `disclosure-open`
-  - : Symbol, das anzeigt, dass ein Offenlegungswerkzeug wie {{HTMLElement("details")}} geöffnet ist.
+  - : Symbol, das anzeigt, dass ein Offenlegungs-Widget wie {{HTMLElement("details")}} geöffnet ist.
 - `disclosure-closed`
-  - : Symbol, das anzeigt, dass ein Offenlegungswerkzeug, wie {{HTMLElement("details")}}, geschlossen ist.
+  - : Symbol, das anzeigt, dass ein Offenlegungs-Widget wie {{HTMLElement("details")}} geschlossen ist.
 
-Beziehen Sie sich auf das [Alle List-Stiltypen](#alle_list-stiltypen) Beispiel, um die oben genannten Werte in Aktion zu sehen. Details zu allen verfügbaren Zählerstilen, die von verschiedenen Kulturen auf der ganzen Welt verwendet werden, finden Sie in [Vorgefertigte Zählerstile](https://w3c.github.io/predefined-counter-styles/).
+Siehe das Beispiel [Alle Listentil-Typen](#alle_listendtypen), um die oben genannten Werte in Aktion zu sehen. Details zu allen verfügbaren Zählerstilen, die von verschiedenen Kulturen weltweit verwendet werden, finden Sie unter [Vordefinierte Zählerstile](https://w3c.github.io/predefined-counter-styles/).
 
-### Nicht-standardisierte Erweiterungen
+### Nicht standardmäßige Erweiterungen
 
 Einige vordefinierte Typen werden von Mozilla (Firefox) mit einem `-moz-` Präfix unterstützt.
 
@@ -261,11 +261,11 @@ Einige vordefinierte Typen werden von Mozilla (Firefox) mit einem `-moz-` Präfi
 - `hangul-consonant`: `-moz-hangul-consonant`
 - `urdu`: `-moz-urdu`
 
-Siehe die [Kompatibilitätstabelle](#browser-kompatibilität), um zu prüfen, welche Browser welche Erweiterung unterstützen.
+Siehe die [Kompatibilitätstabelle](#browser-kompatibilität), um zu überprüfen, welche Browser welche Erweiterungen unterstützen.
 
 ## Barrierefreiheit
 
-Safari erkennt eine geordnete oder ungeordnete Liste nicht als Liste im Barrierefreiheitsbaum, wenn diese einen `list-style-type` Wert von `none` hat. Dies kann behoben werden, indem `role="list"` zum Eröffnungs-Tag der Liste hinzugefügt wird. Um mehr über dieses Thema und mögliche Umgehungsmöglichkeiten zu erfahren, siehe [`list-style`](/de/docs/Web/CSS/Reference/Properties/list-style#accessibility).
+Safari erkennt eine geordnete oder ungeordnete Liste nicht als Liste im Barrierefreiheit-Baum, wenn sie einen `list-style-type` Wert von `none` hat. Dies kann behoben werden, indem dem öffnenden Tag der Liste `role="list"` hinzugefügt wird. Um mehr darüber zu erfahren und über mögliche Workarounds, siehe [`list-style`](/de/docs/Web/CSS/Reference/Properties/list-style#accessibility).
 
 ## Formale Definition
 
@@ -277,7 +277,7 @@ Safari erkennt eine geordnete oder ungeordnete Liste nicht als Liste im Barriere
 
 ## Beispiele
 
-### Setzen von Listenelement-Markern
+### Festlegen von Listenelementmarkierungen
 
 #### HTML
 
@@ -315,7 +315,7 @@ ol.shortcut {
 
 {{EmbedLiveSample("Setting_list_item_markers","200","300")}}
 
-### Alle List-Stiltypen
+### Alle Listendtypen
 
 #### HTML
 
@@ -776,7 +776,7 @@ container.addEventListener("change", (event) => {
 
 {{EmbedLiveSample("All_list_style_types", "600", "800")}}
 
-Wir sind nicht auf die List-Stiltypen beschränkt, die auf dieser Seite oder in der Spezifikation definiert sind. Die {{cssxref("@counter-style")}} at-rule ermöglicht das Erstellen von [Zählern mit jedem Alphabet](https://r12a.github.io/app-counters/).
+Wir sind nicht auf die auf dieser Seite oder in der Spezifikation definierten Listenty-Stile beschränkt. Die {{cssxref("@counter-style")}} At-Regel ermöglicht das Erstellen von [Zählern mit jedem Alphabet](https://r12a.github.io/app-counters/).
 
 ## Spezifikationen
 
@@ -788,9 +788,9 @@ Wir sind nicht auf die List-Stiltypen beschränkt, die auf dieser Seite oder in 
 
 ## Siehe auch
 
-- {{Cssxref("list-style")}} Kurzschreibweise
+- {{Cssxref("list-style")}} Kurzform Eigenschaft
 - {{Cssxref("list-style-image")}} Eigenschaft
 - {{Cssxref("list-style-position")}} Eigenschaft
 - {{Cssxref("::marker")}} Pseudo-Element
-- [CSS Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
-- [CSS Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [CSS Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Module
+- [CSS Zählerstile](/de/docs/Web/CSS/Guides/Counter_styles) Module

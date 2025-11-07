@@ -20,8 +20,8 @@ Ein Block-Formatting-Kontext wird durch mindestens eines der folgenden Elemente 
 - Elemente mit {{cssxref("display", "display: flow-root")}}.
 - {{htmlelement("button")}}-Elemente und Schaltflächen {{htmlelement("input")}}-Typen mit dem Standard `display: flow-root`.
 - Elemente mit {{cssxref("contain", "contain: layout")}}, `content` oder `paint`.
-- Flex-Items (direkte Nachkommen des Elements mit {{cssxref("display", "display: flex")}} oder `inline-flex`), wenn sie selbst weder {{Glossary("Flex_Container", "Flex")}} noch {{Glossary("Grid_Container", "Grid")}} noch [Tabellen](/de/docs/Web/CSS/CSS_table) Container sind.
-- Grid-Items (direkte Nachkommen des Elements mit {{cssxref("display", "display: grid")}} oder `inline-grid`), wenn sie selbst weder {{Glossary("Flex_Container", "Flex")}} noch {{Glossary("Grid_Container", "Grid")}} noch [Tabellen](/de/docs/Web/CSS/CSS_table) Container sind.
+- Flex-Items (direkte Nachkommen des Elements mit {{cssxref("display", "display: flex")}} oder `inline-flex`), wenn sie selbst weder {{Glossary("Flex_Container", "Flex")}} noch {{Glossary("Grid_Container", "Grid")}} noch [Tabellen](/de/docs/Web/CSS/Guides/Table) Container sind.
+- Grid-Items (direkte Nachkommen des Elements mit {{cssxref("display", "display: grid")}} oder `inline-grid`), wenn sie selbst weder {{Glossary("Flex_Container", "Flex")}} noch {{Glossary("Grid_Container", "Grid")}} noch [Tabellen](/de/docs/Web/CSS/Guides/Table) Container sind.
 - Multicol-Container (Elemente, bei denen {{ cssxref("column-count") }} oder {{ cssxref("column-width") }} nicht `auto` ist, einschließlich Elemente mit `column-count: 1`).
 - {{cssxref("column-span", "column-span: all")}}, selbst wenn das `column-span: all` Element nicht von einem Multicol-Container enthalten ist.
 
@@ -29,7 +29,7 @@ Formatierungskontexte beeinflussen das Layout, da ein Element, das einen neuen B
 
 - Enthält interne Floats.
 - Schließt externe Floats aus.
-- Unterdrückt das [Zusammenfallen von Rändern](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing).
+- Unterdrückt das [Zusammenfallen von Rändern](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing).
 
 Flex- und Grid-Container, die durch die Einstellung von ({{ cssxref("display") }} auf `flex`, `grid`, `inline-flex` oder `inline-grid` definiert werden, etablieren einen neuen Flex- oder Grid-Formatting-Kontext. Diese sind ähnlich dem Block-Formatting-Kontext, außer dass es keine schwebenden Kinder innerhalb eines Flex- oder Grid-Containers gibt; jedoch schließen diese Formatierungskontexte externe Floats aus und unterdrücken das Zusammenfallen von Rändern.
 
@@ -39,7 +39,7 @@ Schauen wir uns einige dieser Möglichkeiten an, um die Auswirkungen der Erstell
 
 ### Interne Floats enthalten
 
-Im folgenden Beispiel haben wir schwimmende Inhalte, die die gleiche Höhe wie die Inhalte daneben haben. Wir haben ein schwebendes Element in einem `<div>` mit einem `border`. Der Inhalt dieses `<div>` wurde neben dem schwebenden Element platziert. Da der Inhalt des Floats höher ist als der Inhalt daneben, verläuft der Rand des `<div>` nun durch den Float. Wie im [Leitfaden zu in-flow und out-of-flow Elementen](/de/docs/Web/CSS/CSS_display/In_flow_and_out_of_flow) erklärt, wurde der Float aus dem Fluss entfernt, so dass der `background` und der `border` des `<div>` nur den Inhalt enthalten und nicht den Float.
+Im folgenden Beispiel haben wir schwimmende Inhalte, die die gleiche Höhe wie die Inhalte daneben haben. Wir haben ein schwebendes Element in einem `<div>` mit einem `border`. Der Inhalt dieses `<div>` wurde neben dem schwebenden Element platziert. Da der Inhalt des Floats höher ist als der Inhalt daneben, verläuft der Rand des `<div>` nun durch den Float. Wie im [Leitfaden zu in-flow und out-of-flow Elementen](/de/docs/Web/CSS/Guides/Display/In_flow_and_out_of_flow) erklärt, wurde der Float aus dem Fluss entfernt, so dass der `background` und der `border` des `<div>` nur den Inhalt enthalten und nicht den Float.
 
 **Verwendung von `overflow: auto`**
 
@@ -164,7 +164,7 @@ section {
 
 ### Verhindern von Randzusammenstürzen
 
-Sie können einen neuen BFC erstellen, um [Randzusammenstürzen](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) zwischen zwei benachbarten Elementen zu vermeiden.
+Sie können einen neuen BFC erstellen, um [Randzusammenstürzen](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing) zwischen zwei benachbarten Elementen zu vermeiden.
 
 #### Beispiel für Randzusammenstürzen
 
@@ -233,13 +233,13 @@ In diesem Beispiel umwickeln wir das zweite `<div>` in einem äußeren `<div>` u
 
 ## Siehe auch
 
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
-- [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
-- [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
-- [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax/Introduction)
+- [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity)
+- [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance)
+- [Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction)
 - {{Glossary("Layout_mode", "Layout-Modi")}}
-- [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
-- [Randzusammenstürzen](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
-- [Initialwert](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value), [berechnete](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value), [verwendete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value) und [tatsächliche](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value) Werte
-- [Wertedefinitionssyntax](/de/docs/Web/CSS/CSS_values_and_units/Value_definition_syntax)
+- [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model)
+- [Randzusammenstürzen](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing)
+- [Initialwert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value), [berechnete](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value), [verwendete Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) und [tatsächliche](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#actual_value) Werte
+- [Wertedefinitionssyntax](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax)
 - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

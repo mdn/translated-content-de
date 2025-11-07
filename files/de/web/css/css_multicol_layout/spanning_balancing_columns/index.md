@@ -161,7 +161,7 @@ Darüber hinaus kann ein später im Inhalt auftretendes spannendes Element unerw
 
 Ein ausgewogenes Set von Spalten ist eines, bei dem alle Spalten ungefähr die gleiche Menge an Inhalt haben. Das Füllen und Ausbalancieren ist relevant, wenn die Menge an Inhalt nicht mit dem verfügbaren Platz übereinstimmt, wie wenn eine {{CSSXref("height")}} am Container deklariert ist.
 
-Der Anfangswert für {{cssxref("column-fill")}} ist `balance`. Der Wert `balance` bedeutet, dass alle Spalten so gleichmäßig wie möglich ausbalanciert sind. In fragmentierten Kontexten, wie [paginierte Medien](/de/docs/Web/CSS/CSS_paged_media), wird nur das letzte Fragment ausbalanciert. Das bedeutet, dass auf der letzten Seite die letzte Reihe von Spaltenboxen ausbalanciert ist.
+Der Anfangswert für {{cssxref("column-fill")}} ist `balance`. Der Wert `balance` bedeutet, dass alle Spalten so gleichmäßig wie möglich ausbalanciert sind. In fragmentierten Kontexten, wie [paginierte Medien](/de/docs/Web/CSS/Guides/Paged_media), wird nur das letzte Fragment ausbalanciert. Das bedeutet, dass auf der letzten Seite die letzte Reihe von Spaltenboxen ausbalanciert ist.
 
 Der andere Balancewert, `balance-all`, balanciert alle Spalten in fragmentierten Kontexten.
 
@@ -244,4 +244,4 @@ img {
 
 ## Nächste Schritte
 
-Im nächsten Leitfaden lernen Sie, [wie Multicol Überlauf handhabt](/de/docs/Web/CSS/CSS_multicol_layout/Handling_overflow_in_multicol_layout) innerhalb von Spalten und wenn es mehr Spalten gibt, als in den Container passen.
+Im nächsten Leitfaden lernen Sie, [wie Multicol Überlauf handhabt](/de/docs/Web/CSS/Guides/Multicol_layout/Handling_overflow) innerhalb von Spalten und wenn es mehr Spalten gibt, als in den Container passen.

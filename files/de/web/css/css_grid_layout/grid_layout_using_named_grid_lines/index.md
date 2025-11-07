@@ -6,13 +6,13 @@ l10n:
   sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-In den vorherigen Leitfäden haben wir uns angesehen, wie man Elemente auf den Linien platziert, die durch das [Definieren von Gitternetz-Spuren](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) erstellt werden, und auch, wie man Elemente [mit benannten Vorlagenbereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) platziert. In diesem Leitfaden schauen wir uns an, wie diese beiden Dinge zusammenarbeiten, wenn wir benannte Linien verwenden.
+In den vorherigen Leitfäden haben wir uns angesehen, wie man Elemente auf den Linien platziert, die durch das [Definieren von Gitternetz-Spuren](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement) erstellt werden, und auch, wie man Elemente [mit benannten Vorlagenbereichen](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas) platziert. In diesem Leitfaden schauen wir uns an, wie diese beiden Dinge zusammenarbeiten, wenn wir benannte Linien verwenden.
 
 Das Benennen von Linien ist unglaublich nützlich, aber einige der verwirrendsten Gitternetz-Syntaxen entstehen aus dieser Kombination von Namen und Spurgrößen. Sobald Sie einige Beispiele durchgearbeitet haben, sollte es klarer und einfacher werden, damit zu arbeiten.
 
 ## Linien benennen, wenn ein Gitter definiert wird
 
-Sie können einigen oder allen Linien in Ihrem Gitter einen Namen zuweisen, wenn Sie Ihr Gitter mit den Eigenschaften {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} definieren. Um dies zu demonstrieren, verwenden wir das grundlegende Layout, das im Leitfaden über [linienbasiertes Platzieren](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) erstellt wurde. Dieses Mal erstellen wir das Gitter mit benannten Linien.
+Sie können einigen oder allen Linien in Ihrem Gitter einen Namen zuweisen, wenn Sie Ihr Gitter mit den Eigenschaften {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} definieren. Um dies zu demonstrieren, verwenden wir das grundlegende Layout, das im Leitfaden über [linienbasiertes Platzieren](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement) erstellt wurde. Dieses Mal erstellen wir das Gitter mit benannten Linien.
 
 ```css hidden
 * {
@@ -84,7 +84,7 @@ Sobald die Linien Namen haben, können wir den von uns definierten Namen verwend
 
 {{ EmbedLiveSample('Naming_lines_when_defining_a_grid', '500', '330') }}
 
-Alles andere über die linienbasierte Platzierung funktioniert weiterhin auf die gleiche Weise. In unserem Gitterlayout haben wir jeder numerischen Linie einen Aliasnamen zugewiesen. In unseren Gitterelementen verweisen wir auf einen Namen statt auf eine Nummer. Das Benennen von Linien auf diese Weise ist nützlich — bei der Erstellung eines responsiven Designs können wir die Gittereigenschaften des Containers aktualisieren, anstatt die Gitterelemente innerhalb jeder [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) zu aktualisieren.
+Alles andere über die linienbasierte Platzierung funktioniert weiterhin auf die gleiche Weise. In unserem Gitterlayout haben wir jeder numerischen Linie einen Aliasnamen zugewiesen. In unseren Gitterelementen verweisen wir auf einen Namen statt auf eine Nummer. Das Benennen von Linien auf diese Weise ist nützlich — bei der Erstellung eines responsiven Designs können wir die Gittereigenschaften des Containers aktualisieren, anstatt die Gitterelemente innerhalb jeder [Media Query](/de/docs/Web/CSS/Guides/Media_queries/Using) zu aktualisieren.
 
 ### Linien mehrere Namen geben
 
@@ -141,7 +141,7 @@ Wir müssen nicht definieren, wo sich unsere Bereiche befinden, mit {{cssxref("g
 
 ## Implizite Gitterlinien aus benannten Bereichen
 
-Wir haben gesehen, wie benannte Linien einen benannten Bereich erstellen, und dies funktioniert auch umgekehrt. Benannte Vorlagenbereiche erstellen benannte Linien, die Sie verwenden können, um Ihre Elemente zu platzieren. Wenn wir das Layout aus dem Leitfaden zu [Grid-Vorlagenbereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) betrachten, können wir die Linien sehen, die durch unsere Bereiche erstellt wurden, um zu verstehen, wie dies funktioniert.
+Wir haben gesehen, wie benannte Linien einen benannten Bereich erstellen, und dies funktioniert auch umgekehrt. Benannte Vorlagenbereiche erstellen benannte Linien, die Sie verwenden können, um Ihre Elemente zu platzieren. Wenn wir das Layout aus dem Leitfaden zu [Grid-Vorlagenbereichen](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas) betrachten, können wir die Linien sehen, die durch unsere Bereiche erstellt wurden, um zu verstehen, wie dies funktioniert.
 
 In diesem Beispiel haben wir ein zusätzliches `<div>` mit einer Klasse `overlay` hinzugefügt. Wir haben benannte Bereiche erstellt, indem wir die Eigenschaft {{cssxref("grid-area")}} verwendet haben, dann ein Layout in `grid-template-areas` erstellt. Die Bereichenamen sind:
 
@@ -386,7 +386,7 @@ Mit einer Spurliste können wir das Schlüsselwort `span` verwenden, um eine Anz
 
 ### Zwölf-Spalten-Gitter-Framework
 
-Nachdem wir über numerische und benannte linienbasierte Platzierung und [Gittervorlagenbereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) gelernt haben, wissen wir jetzt, dass es mehrere Möglichkeiten gibt, Elemente mit dem CSS-Gitterlayout zu platzieren. Dies mag übermäßig komplex erscheinen, aber Sie müssen nicht alle verwenden. In der Praxis funktioniert die Verwendung von benannten Vorlagenbereichen gut für einfache Layouts, da diese Methode eine gute visuelle Darstellung dessen bietet, wie Ihr Layout aussieht, und es intuitiver macht, Dinge im Raster zu bewegen. Zum Beispiel, wenn Sie mit einem strengen Mehrspaltenlayout arbeiten, funktioniert die Demonstration der benannten Linien im letzten Teil dieses Leitfadens gut.
+Nachdem wir über numerische und benannte linienbasierte Platzierung und [Gittervorlagenbereiche](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas) gelernt haben, wissen wir jetzt, dass es mehrere Möglichkeiten gibt, Elemente mit dem CSS-Gitterlayout zu platzieren. Dies mag übermäßig komplex erscheinen, aber Sie müssen nicht alle verwenden. In der Praxis funktioniert die Verwendung von benannten Vorlagenbereichen gut für einfache Layouts, da diese Methode eine gute visuelle Darstellung dessen bietet, wie Ihr Layout aussieht, und es intuitiver macht, Dinge im Raster zu bewegen. Zum Beispiel, wenn Sie mit einem strengen Mehrspaltenlayout arbeiten, funktioniert die Demonstration der benannten Linien im letzten Teil dieses Leitfadens gut.
 
 Alte Gitter-Systeme wie Foundation oder Bootstrap basieren auf einem 12-Spalten-Gitter. Diese Frameworks importieren Code, um Berechnungen durchzuführen, die sicherstellen, dass die Spalten 100% ergeben. Frameworks sind nicht nötig! Das einzige CSS, das wir für ein 12-Spalten-Gitter-"Framework" benötigen, ist:
 
@@ -464,4 +464,4 @@ Ein weiteres Mal ist der Gitterhervorheber der Entwicklerwerkzeuge nützlich, um
 
 Das ist alles, was wir brauchen. Wir müssen keine Berechnungen durchführen! Das CSS-Gitterlayout hat unsere 10-Pixel-Spur vor dem Zuweisen des Platzes zu den `1fr`-Spaltenspuren automatisch entfernt.
 
-Als nächstes werden wir uns ansehen, wie das CSS-Gitterlayout Elemente automatisch positionieren kann, ohne dass Platzierungseigenschaften erforderlich sind, in der [Automatische Platzierung im Gitterlayout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout) Anleitung.
+Als nächstes werden wir uns ansehen, wie das CSS-Gitterlayout Elemente automatisch positionieren kann, ohne dass Platzierungseigenschaften erforderlich sind, in der [Automatische Platzierung im Gitterlayout](/de/docs/Web/CSS/Guides/Grid_layout/Auto-placement) Anleitung.

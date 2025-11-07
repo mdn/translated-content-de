@@ -27,7 +27,7 @@ Dokumente wie dieser Artikel können sehr lang sein. Ihr Viewport ist alles, was
 - Auf den meisten mobilen Geräten und wenn sich der Browser im Vollbildmodus befindet, ist der Viewport der gesamte Bildschirm.
 - Im Vollbildmodus ist der Viewport der Geräteschirm, das Fenster ist das Browserfenster, das so groß wie der Viewport oder kleiner sein kann, und das Dokument ist die Webseite, die viel höher oder breiter als der Viewport sein kann.
 
-Für [Paginierte Medien](/de/docs/Web/CSS/CSS_paged_media) basiert der initiale umschließende Block auf dem Seitenbereich. Der Seitenbereich kann durch {{cssxref("@page")}}-Regeln festgelegt werden.
+Für [Paginierte Medien](/de/docs/Web/CSS/Guides/Paged_media) basiert der initiale umschließende Block auf dem Seitenbereich. Der Seitenbereich kann durch {{cssxref("@page")}}-Regeln festgelegt werden.
 
 Zusammengefasst ist der Viewport im Wesentlichen der Teil des Dokuments, der gerade sichtbar ist.
 
@@ -100,13 +100,13 @@ Für eine Seite mit Iframes, Objekten oder externem SVG haben sowohl die umgeben
 
 Der oben beschriebene Layout-Viewport und visuelle Viewport sind nicht die einzigen Viewports, denen Sie begegnen werden. Jeder Teilausschnitt, der innerhalb des Layout-Viewports ganz oder teilweise angezeigt wird, wird als visueller Viewport betrachtet.
 
-Im Allgemeinen denken wir, dass [`width`](/de/docs/Web/CSS/Reference/At-rules/@media/width)- und [`height`](/de/docs/Web/CSS/Reference/At-rules/@media/height)-Media-Abfragen relativ zur Breite und Höhe des Browserfensters sind. Tatsächlich sind sie relativ zum Viewport, der das Fenster im Hauptdokument ist, jedoch die intrinsische Größe des Elternelements in einem geschachtelten Browsing-Kontext wie Objekten, Iframes und SVG. In CSS haben wir auch [Längeneinheiten basierend auf der Viewport-Größe](/de/docs/Web/CSS/CSS_values_and_units/Numeric_data_types#viewport_units). Eine `vh`-Einheit ist 1 % der Höhe des Layout-Viewports. Ebenso ist die `vw`-Einheit 1 % der Breite des Layout-Viewports.
+Im Allgemeinen denken wir, dass [`width`](/de/docs/Web/CSS/Reference/At-rules/@media/width)- und [`height`](/de/docs/Web/CSS/Reference/At-rules/@media/height)-Media-Abfragen relativ zur Breite und Höhe des Browserfensters sind. Tatsächlich sind sie relativ zum Viewport, der das Fenster im Hauptdokument ist, jedoch die intrinsische Größe des Elternelements in einem geschachtelten Browsing-Kontext wie Objekten, Iframes und SVG. In CSS haben wir auch [Längeneinheiten basierend auf der Viewport-Größe](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#viewport_units). Eine `vh`-Einheit ist 1 % der Höhe des Layout-Viewports. Ebenso ist die `vw`-Einheit 1 % der Breite des Layout-Viewports.
 
 #### `<iframe>`
 
 Innerhalb eines {{htmlelement("iframe")}} ist der visuelle Viewport die Größe der inneren Breite und Höhe des Iframes und nicht des übergeordneten Dokuments. Sie können jede Höhe und Breite in einem Iframe festlegen, aber das gesamte Dokument ist möglicherweise nicht sichtbar.
 
-Wenn Sie [Viewport-Längeneinheiten](/de/docs/Web/CSS/CSS_values_and_units/Numeric_data_types#viewport_units) in Ihrem CSS innerhalb des Iframe-Dokuments verwenden, wird `1vh` als 1 % der Höhe des Iframes definiert und `1vw` als 1 % der Breite des Dokuments.
+Wenn Sie [Viewport-Längeneinheiten](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types#viewport_units) in Ihrem CSS innerhalb des Iframe-Dokuments verwenden, wird `1vh` als 1 % der Höhe des Iframes definiert und `1vw` als 1 % der Breite des Dokuments.
 
 ```css
 iframe {
@@ -168,9 +168,9 @@ Die `width`-Eigenschaft steuert die Größe des Viewports. Sie sollte vorzugswei
 
 ## Siehe auch
 
-- [CSSOM-View](/de/docs/Web/CSS/CSSOM_view)-Modul
+- [CSSOM-View](/de/docs/Web/CSS/Guides/CSSOM_view)-Modul
 - [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API)
 - {{HTMLElement("meta")}}, insbesondere [`<meta name="viewport">`](/de/docs/Web/HTML/Reference/Elements/meta/name/viewport)
 - [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API)
-- [CSS-Viewport](/de/docs/Web/CSS/CSS_viewport)-Modul
-- [CSSOM-View](/de/docs/Web/CSS/CSSOM_view)-Modul
+- [CSS-Viewport](/de/docs/Web/CSS/Guides/Viewport)-Modul
+- [CSSOM-View](/de/docs/Web/CSS/Guides/CSSOM_view)-Modul

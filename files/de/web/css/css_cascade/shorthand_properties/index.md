@@ -167,7 +167,7 @@ Genau wie Ränder und Abstände werden die Einfügewerte im Uhrzeigersinn geordn
 
 CSS bietet eine universelle Kurzschreibweise, {{cssxref("all")}}, die ihren Wert auf jede Eigenschaft im Dokument anwendet. Sein Zweck ist es, das Vererbungsmodell der Eigenschaften zu ändern.
 
-Siehe [Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts) oder [Einführung in die CSS-Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade) für weitere Informationen darüber, wie Vererbung in CSS funktioniert.
+Siehe [Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts) oder [Einführung in die CSS-Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction) für weitere Informationen darüber, wie Vererbung in CSS funktioniert.
 
 ## Kurzschreibweisen
 
@@ -245,14 +245,14 @@ Siehe [Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics
 
 ## Siehe auch
 
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
-- [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rules)
-- [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
-- [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
-- [Einführung in die CSS-Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade)
+- [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax/Introduction)
+- [At-Regeln](/de/docs/Web/CSS/Guides/Syntax/At-rules)
+- [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity)
+- [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance)
+- [Einführung in die CSS-Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction)
 - [Lernen: Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
 - [Lernen: Kaskadenschichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
-- [CSS-Kaskade und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
-- [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
-- [Initial](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value), [errechnet](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value), [verwendet](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value), und [tatsächliche](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value) Werte
-- [Wertedefinitionssyntax](/de/docs/Web/CSS/CSS_values_and_units/Value_definition_syntax)
+- [CSS-Kaskade und Vererbung](/de/docs/Web/CSS/Guides/Cascade) Modul
+- [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model)
+- [Initial](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value), [errechnet](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value), [verwendet](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value), und [tatsächliche](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#actual_value) Werte
+- [Wertedefinitionssyntax](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax)

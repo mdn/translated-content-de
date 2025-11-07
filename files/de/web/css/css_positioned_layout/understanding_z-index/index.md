@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-In den einfachsten Fällen, wenn Text, Bilder und andere Elemente auf der Seite ohne Überlappung angeordnet sind, können [HTML](/de/docs/Web/HTML)-Seiten als zweidimensional betrachtet werden. In solchen Fällen gibt es einen einzigen Rendering-Fluss, und alle Elemente sind sich des von anderen belegten Raumes bewusst. So einfach ist CSS jedoch nicht — CSS-Positionierung, Transformation, Containment und andere Funktionen können dazu führen, dass sich Elemente überlappen. In diesem Leitfaden führen wir die {{cssxref("z-index")}}-Eigenschaft ein, die Ihnen ermöglicht, Elemente vor oder hinter anderen Elementen im gleichen [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) zu platzieren.
+In den einfachsten Fällen, wenn Text, Bilder und andere Elemente auf der Seite ohne Überlappung angeordnet sind, können [HTML](/de/docs/Web/HTML)-Seiten als zweidimensional betrachtet werden. In solchen Fällen gibt es einen einzigen Rendering-Fluss, und alle Elemente sind sich des von anderen belegten Raumes bewusst. So einfach ist CSS jedoch nicht — CSS-Positionierung, Transformation, Containment und andere Funktionen können dazu führen, dass sich Elemente überlappen. In diesem Leitfaden führen wir die {{cssxref("z-index")}}-Eigenschaft ein, die Ihnen ermöglicht, Elemente vor oder hinter anderen Elementen im gleichen [Stacking-Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context) zu platzieren.
 
 ## Schichten auf der z-Achse
 
@@ -119,7 +119,7 @@ Das Element mit dem niedrigsten `z-index`-Wert erscheint in der untersten Schich
 
 Die Verwendung von `z-index` mag zunächst recht einfach erscheinen: eine einzelne Eigenschaft, die einer ganzen Zahl mit einem scheinbar verständlichen Verhalten zugewiesen wird. Wenn `z-index` auf komplexe Hierarchien von HTML-Elementen angewendet wird, finden viele das resultierende Verhalten schwer zu verstehen oder vorherzusagen.
 
-Wenn die Elemente nicht Geschwister sind, kann das Stapelverhalten komplizierter werden, da jedes Element zu einem anderen [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) gehören kann. Dies wird im folgenden Beispiel gezeigt.
+Wenn die Elemente nicht Geschwister sind, kann das Stapelverhalten komplizierter werden, da jedes Element zu einem anderen [Stacking-Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context) gehören kann. Dies wird im folgenden Beispiel gezeigt.
 
 ```html live-sample___example4
 <section>
@@ -138,16 +138,16 @@ section {
 
 {{EmbedLiveSample("Example4", 600, 130)}}
 
-Obwohl der `z-index`-Wert von `#div3` (`0`) größer ist als der von `#div2` (`-9`), erscheint `#div2` über `#div3`, da `#div1` und `#div2` in einem separaten Stacking-Kontext, der durch `<section>` erstellt wird, verschachtelt sind. Das `<section>`-Element und `#div3` sind Geschwister, und da der z-index des `<section>`-Elements größer ist als der von `#div3` (`2` gegenüber `0`), wird `#div3` hinter `<section>` und all seinen Inhalten platziert. Für detailliertere Informationen zu diesem Thema, sehen Sie sich unseren [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)-Leitfaden an.
+Obwohl der `z-index`-Wert von `#div3` (`0`) größer ist als der von `#div2` (`-9`), erscheint `#div2` über `#div3`, da `#div1` und `#div2` in einem separaten Stacking-Kontext, der durch `<section>` erstellt wird, verschachtelt sind. Das `<section>`-Element und `#div3` sind Geschwister, und da der z-index des `<section>`-Elements größer ist als der von `#div3` (`2` gegenüber `0`), wird `#div3` hinter `<section>` und all seinen Inhalten platziert. Für detailliertere Informationen zu diesem Thema, sehen Sie sich unseren [Stacking-Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context)-Leitfaden an.
 
 ## Fazit
 
-Wie wir in diesem Leitfaden gesehen haben, bietet `z-index` eine Möglichkeit, wie Elemente entlang der z-Achse gestapelt werden. Sie haben gelernt, wie die ganzzahligen Werte der `z-index`-Eigenschaft verwendet werden können, um die Stapelreihenfolge zu ändern. Wie im letzten Beispiel gezeigt, können Stapelreihenfolgen jedoch komplex sein. Stapelreihenfolgen folgen einer Reihe von komplexen Stapelregeln, um sicherzustellen, dass alle Browser denselben Inhalt auf die gleiche Weise stapeln und Konsistenz und Vorhersehbarkeit bieten. Es ist wichtig, die [Eigenschaften, die Stacking-Kontexte erstellen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context#features_creating_stacking_contexts) und wie [verschachtelte Stacking-Kontexte](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context#nested_stacking_contexts) die Schichtreihenfolge beeinflussen, zu verstehen.
+Wie wir in diesem Leitfaden gesehen haben, bietet `z-index` eine Möglichkeit, wie Elemente entlang der z-Achse gestapelt werden. Sie haben gelernt, wie die ganzzahligen Werte der `z-index`-Eigenschaft verwendet werden können, um die Stapelreihenfolge zu ändern. Wie im letzten Beispiel gezeigt, können Stapelreihenfolgen jedoch komplex sein. Stapelreihenfolgen folgen einer Reihe von komplexen Stapelregeln, um sicherzustellen, dass alle Browser denselben Inhalt auf die gleiche Weise stapeln und Konsistenz und Vorhersehbarkeit bieten. Es ist wichtig, die [Eigenschaften, die Stacking-Kontexte erstellen](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context#features_creating_stacking_contexts) und wie [verschachtelte Stacking-Kontexte](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context#nested_stacking_contexts) die Schichtreihenfolge beeinflussen, zu verstehen.
 
 ## Siehe auch
 
-- [Stapeln ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
-- [Stapeln von floating-Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
-- [Verwendung von `z-index`](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index)
-- [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- [CSS-Positionierungslayout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [Stapeln ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_without_z-index)
+- [Stapeln von floating-Elementen](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_floating_elements)
+- [Verwendung von `z-index`](/de/docs/Web/CSS/Guides/Positioned_layout/Using_z-index)
+- [Stacking-Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context)
+- [CSS-Positionierungslayout](/de/docs/Web/CSS/Guides/Positioned_layout) Modul

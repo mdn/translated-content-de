@@ -2,18 +2,18 @@
 title: sibling-index()
 slug: Web/CSS/Reference/Values/sibling-index
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`sibling-index()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) gibt eine ganze Zahl zurück, die die Position des aktuellen Elements im DOM-Baum relativ zu allen seinen Geschwisterelementen darstellt. Der zurückgegebene Wert ist die Indexnummer der Position des kontextuellen Kindes unter allen Geschwisterelementen innerhalb eines Elternelements, wobei das erste Kind `1` zurückgibt und das letzte Kind die `length` von [`Element.children`](/de/docs/Web/API/Element/children) zurückgibt.
+Die **`sibling-index()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) gibt eine Ganzzahl zurück, die die Position des aktuellen Elements im DOM-Baum relativ zu allen seinen Geschwisterelementen darstellt. Der zurückgegebene Wert ist die Indexnummer der Position des Kontextkindes unter allen Geschwisterelementen innerhalb eines Elternelements, wobei das erste Kind `1` zurückgibt und das letzte Kind die `Länge` von [`Element.children`](/de/docs/Web/API/Element/children) zurückgibt.
 
 > [!NOTE]
-> Wie die {{CSSxRef(":nth-child()")}} Pseudoklasse beginnt `sibling-index()` bei 1, nicht bei 0.
+> Wie die {{CSSxRef(":nth-child()")}} Pseudo-Klasse beginnt `sibling-index()` bei 1, nicht bei 0.
 
 > [!NOTE]
-> Die {{CSSxRef("counter()")}} Funktion liefert ein ähnliches Ergebnis, aber sie gibt einen `<string>` zurück (was besser für [generierten Inhalt](/de/docs/Web/CSS/CSS_generated_content) geeignet ist), während `sibling-index()` einen `<integer>` zurückgibt (der für Berechnungen verwendet werden kann).
+> Die {{CSSxRef("counter()")}} Funktion liefert ein ähnliches Ergebnis, gibt jedoch einen `<string>` zurück (was besser für [generierte Inhalte](/de/docs/Web/CSS/Guides/Generated_content) geeignet ist), während `sibling-index()` einen `<integer>` zurückgibt (was für Berechnungen verwendet werden kann).
 
 {{InteractiveExample("CSS Demo: sibling-index()")}}
 
@@ -83,13 +83,13 @@ Die `sibling-index()` Funktion akzeptiert keine Parameter.
 
 ### Rückgabewert
 
-Eine ganze Zahl; die Position des aktuellen Elements in der Geschwisterreihenfolge im DOM-Baum.
+Eine Ganzzahl; die Position des aktuellen Elements in der Geschwisterreihenfolge des DOM-Baums.
 
 ## Beispiele
 
 ### Dynamische Listenbreite
 
-Dieses Beispiel zeigt, wie Sie die Breite jedes {{htmlelement("li")}} Elements in der {{htmlelement("ul")}} dynamisch um `50px` erhöhen.
+Dieses Beispiel demonstriert, wie die Breite jedes {{htmlelement("li")}} Elements in der {{htmlelement("ul")}} um `50px` dynamisch erhöht wird.
 
 #### HTML
 
@@ -117,11 +117,11 @@ li {
 
 ### Sequentielle Animationen
 
-Durch die Kombination von `sibling-index()` mit CSS-Animationen eröffnen sich neue Möglichkeiten. In diesem Beispiel wird die Deckkraft der Elemente in sequentieller Reihenfolge eingestellt, indem eine {{cssxref("animation-delay")}} basierend auf ihrer Reihenfolge im DOM gesetzt wird.
+Die Kombination von `sibling-index()` mit CSS-Animationen eröffnet neue Möglichkeiten. In diesem Beispiel wird die Opazität von Elementen in sequentieller Reihenfolge geändert, indem eine {{cssxref("animation-delay")}} basierend auf ihrer Reihenfolge im DOM festgelegt wird.
 
 #### HTML
 
-Wir fügen ein Containerelement mit vier Kindern ein:
+Wir fügen ein Container-Element mit vier Kindern hinzu:
 
 ```html
 <ul>
@@ -134,7 +134,7 @@ Wir fügen ein Containerelement mit vier Kindern ein:
 
 #### CSS
 
-Wir wenden die `fade-in` Animation auf jedes Element an. Wir verwenden die `sibling-index()` Funktion innerhalb einer {{cssxref("calc()")}} Funktion, um die Dauer der `animation-delay` basierend auf der Position des Quellenelements in der Quellreihenfolge festzulegen. Das {{cssxref("animation-fill-mode")}} wendet das `0%` Keyframe der Animation an, bis die `animation-duration` abläuft.
+Wir wenden die `fade-in` Animation auf jedes Element an. Wir nutzen die `sibling-index()` Funktion innerhalb einer {{cssxref("calc()")}} Funktion, um die Dauer der `animation-delay` basierend auf der Position des Quellentelements in der Quelldatei festzulegen. Der {{cssxref("animation-fill-mode")}} wendet das `0%` Schlüsselbild der Animation an, bis die `animation-duration` abläuft.
 
 ```css
 ul {

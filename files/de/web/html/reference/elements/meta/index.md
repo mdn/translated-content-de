@@ -1,47 +1,47 @@
 ---
-title: "<meta>: Das Metadaten-Element"
+title: "<meta>: Das Metadata-Element"
 slug: Web/HTML/Reference/Elements/meta
 l10n:
-  sourceCommit: c7a8b2584452bcd5d2c135b637f4ec659ff74b99
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Das **`<meta>`** [HTML](/de/docs/Web/HTML) Element repräsentiert {{Glossary("Metadata", "Metadaten")}}, die nicht durch andere metabezogene Elemente dargestellt werden können, wie z.B. {{HTMLElement("base")}}, {{HTMLElement("link")}}, {{HTMLElement("script")}}, {{HTMLElement("style")}}, oder {{HTMLElement("title")}}.
+Das **`<meta>`** [HTML](/de/docs/Web/HTML) Element repräsentiert {{Glossary("Metadata", "Metadaten")}}, die nicht durch andere metabezogene Elemente wie {{HTMLElement("base")}}, {{HTMLElement("link")}}, {{HTMLElement("script")}}, {{HTMLElement("style")}} oder {{HTMLElement("title")}} dargestellt werden können.
 
-Die Art der durch das `<meta>`-Element bereitgestellten Metadaten kann eine der folgenden sein:
+Der Typ der Metadaten, die durch das `<meta>` Element bereitgestellt werden, kann einer der folgenden sein:
 
-- Wenn das [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name) Attribut gesetzt ist, bietet das `<meta>`-Element _Dokumenten-Metadaten_ auf Seitenebene, die für die gesamte Seite gelten.
-- Wenn das [`http-equiv`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv) Attribut gesetzt ist, fungiert das `<meta>`-Element als _Pragma-Direktive_, um Direktiven zu simulieren, die ansonsten durch einen HTTP-Header gegeben werden könnten.
-- Wenn das [`charset`](#charset) Attribut gesetzt ist, ist das `<meta>`-Element eine _Charset-Deklaration_, die die Zeichenkodierung angibt, in der das Dokument kodiert ist.
-- Wenn das [`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop) Attribut gesetzt ist, bietet das `<meta>`-Element _benutzerdefinierte Metadaten_.
+- Wenn das [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name) Attribut gesetzt ist, liefert das `<meta>` Element _dokumentweite Metadaten_, die für die gesamte Seite gelten.
+- Wenn das [`http-equiv`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv) Attribut gesetzt ist, agiert das `<meta>` Element als _Pragma-Direktive_, um Direktiven zu simulieren, die andernfalls durch einen HTTP-Header gegeben werden könnten.
+- Wenn das [`charset`](#charset) Attribut gesetzt ist, ist das `<meta>` Element eine _Zeichensatzdeklaration_, die die Zeichenkodierung angibt, in der das Dokument kodiert ist.
+- Wenn das [`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop) Attribut gesetzt ist, liefert das `<meta>` Element _benutzerdefinierte Metadaten_.
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 > [!NOTE]
 > Das [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name) Attribut hat eine spezifische Bedeutung für das `<meta>` Element.
-> Das [`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop) Attribut darf nicht auf einem `<meta>`-Element gesetzt werden, das ein [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name), [`http-equiv`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv), oder [`charset`](#charset) Attribut enthält.
+> Das [`itemprop`](/de/docs/Web/HTML/Reference/Global_attributes/itemprop) Attribut darf nicht auf ein `<meta>` Element gesetzt werden, das ein [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name), [`http-equiv`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv) oder [`charset`](#charset) Attribut enthält.
 
 - `charset`
-  - : Dieses Attribut deklariert die Zeichenkodierung des Dokuments. Wenn das Attribut vorhanden ist, muss sein Wert eine ASCII-fallunempfindliche Übereinstimmung mit dem String `"utf-8"` sein, da UTF-8 die einzige gültige Kodierung für HTML5-Dokumente ist. `<meta>`-Elemente, die eine Zeichenkodierung deklarieren, müssen sich vollständig innerhalb der ersten 1024 Bytes des Dokuments befinden.
+  - : Dieses Attribut deklariert die Zeichenkodierung des Dokuments. Wenn das Attribut vorhanden ist, muss sein Wert eine ASCII-fallunempfindliche Übereinstimmung für den String `"utf-8"` sein, da UTF-8 die einzige gültige Kodierung für HTML5-Dokumente ist. `<meta>` Elemente, die eine Zeichenkodierung deklarieren, müssen vollständig innerhalb der ersten 1024 Bytes des Dokuments platziert werden.
 - [`content`](/de/docs/Web/HTML/Reference/Attributes/content)
-  - : Dieses Attribut enthält den Wert für das [`http-equiv`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv) oder [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name) Attribut, je nach Verwendung.
+  - : Dieses Attribut enthält den Wert für das [`http-equiv`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv) oder [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name) Attribut, abhängig davon, welches verwendet wird.
 - [`http-equiv`](/de/docs/Web/HTML/Reference/Elements/meta/http-equiv)
-  - : Definiert eine Pragma-Direktive, welche Anweisungen für den Browser zur Verarbeitung des Dokuments sind.
-    Der Name des Attributs ist eine Abkürzung für `http-equivalent`, da die erlaubten Werte die Namen gleichwertiger HTTP-Header sind.
+  - : Definiert eine Pragma-Direktive, die Anweisungen für den Browser zur Verarbeitung des Dokuments sind.
+    Der Name des Attributs ist eine Abkürzung für `http-equivalent`, weil die erlaubten Werte Namen von gleichwertigen HTTP-Headern sind.
 - `media`
-  - : Das `media` Attribut definiert, auf welche Medien die im `content` Attribut definierte Themenfarbe angewendet werden soll.
-    Sein Wert ist eine [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries), die standardmäßig auf `all` gesetzt ist, wenn das Attribut fehlt.
+  - : Das `media` Attribut definiert, auf welche Medien die im `content` Attribut definierte Designfarbe angewendet werden soll.
+    Sein Wert ist eine [media query](/de/docs/Web/CSS/Guides/Media_queries/Using), die standardmäßig auf `all` gesetzt ist, wenn das Attribut fehlt.
     Dieses Attribut ist nur relevant, wenn das [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name) Attribut des Elements auf [`theme-color`](/de/docs/Web/HTML/Reference/Elements/meta/name/theme-color) gesetzt ist.
     Andernfalls hat es keine Wirkung und sollte nicht enthalten sein.
 - [`name`](/de/docs/Web/HTML/Reference/Elements/meta/name)
-  - : Die Attribute `name` und `content` können zusammen verwendet werden, um Dokument-Metadaten in Form von Namens-Wert-Paaren bereitzustellen, wobei das `name` Attribut den Metadatennamen und das `content` Attribut den Wert angibt.
+  - : Die `name` und `content` Attribute können zusammen verwendet werden, um Dokument-Metadaten in Form von Name-Wert-Paaren bereitzustellen, wobei das `name` Attribut den Metadaten-Namen und das `content` Attribut den Wert angibt.
 
 ## Beispiele
 
-### Setzen einer Meta-Beschreibung
+### Festlegung einer Meta-Beschreibung
 
-Der folgende `<meta>` Tag bietet eine `description` als Metadaten für die Webseite:
+Das folgende `<meta>` Tag liefert eine `description` als Metadaten für die Webseite:
 
 ```html
 <meta
@@ -49,10 +49,10 @@ Der folgende `<meta>` Tag bietet eine `description` als Metadaten für die Webse
   content="The HTML reference describes all elements and attributes of HTML, including global attributes that apply to all elements." />
 ```
 
-### Setzen einer Seitenumleitung
+### Festlegung einer Seitenweiterleitung
 
-Das folgende Beispiel verwendet `http-equiv="refresh"`, um den Browser anzuweisen, eine Weiterleitung durchzuführen.
-Das Attribut `content="3;url=https://www.mozilla.org"` leitet die Seite nach 3 Sekunden zu `https://www.mozilla.org` um:
+Das folgende Beispiel verwendet `http-equiv="refresh"`, um den Browser zu veranlassen, eine Weiterleitung durchzuführen.
+Das `content="3;url=https://www.mozilla.org"` Attribut wird die Seite nach 3 Sekunden nach `https://www.mozilla.org` umleiten:
 
 ```html
 <meta http-equiv="refresh" content="3;url=https://www.mozilla.org" />
@@ -70,56 +70,53 @@ Das Attribut `content="3;url=https://www.mozilla.org"` leitet die Seite nach 3 S
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#metadata_content"
-          >Metadaten-Inhalte</a
-        >. Wenn das <a href="/de/docs/Web/HTML/Reference/Global_attributes/itemprop"><code>itemprop</code></a> Attribut vorhanden ist:
+          >Metadaten-Inhalt</a
+        >. Falls das <a href="/de/docs/Web/HTML/Reference/Global_attributes/itemprop"><code>itemprop</code></a> Attribut vorhanden ist:
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#phrasing_content"
-          >Phrasierungs-Inhalt</a
+          >Formulierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th>Erlaubte Inhalte</th>
-      <td>Keine; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
+      <th>Erlaubter Inhalt</th>
+      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
     </tr>
     <tr>
       <th>Tag-Auslassung</th>
-      <td>Muss einen Start-Tag haben und darf keinen End-Tag haben.</td>
+      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
     </tr>
     <tr>
-      <th>Zulässige Elternteile</th>
+      <th>Erlaubte Eltern</th>
       <td>
         <ul>
           <li>
             <code>&#x3C;meta charset></code>,
             <code>&#x3C;meta http-equiv></code>: ein
             {{HTMLElement("head")}} Element. Wenn das
-            <a href="/de/docs/Web/HTML/Reference/Elements/meta/http-equiv"><code>http-equiv</code></a> keine
-            Kodierungsdeklaration ist, kann es auch in einem
-            {{HTMLElement("noscript")}} Element enthalten sein, das sich selbst in einem
-            <code>&#x3C;head></code> Element befindet.
+            <a href="/de/docs/Web/HTML/Reference/Elements/meta/http-equiv"><code>http-equiv</code></a> keine Kodierungserklärung ist, kann es auch in einem
+            {{HTMLElement("noscript")}} Element enthalten sein, das sich innerhalb eines
+            <code>&#x3C;head></code> Elements befindet.
           </li>
           <li>
             <code>&#x3C;meta name></code>: jedes Element, das
             <a
               href="/de/docs/Web/HTML/Guides/Content_categories#metadata_content"
-              >Metadaten-Inhalte</a
-            >
-            akzeptiert.
+              >Metadaten-Inhalt</a
+            > akzeptiert.
           </li>
           <li>
             <code>&#x3C;meta itemprop></code>: jedes Element, das
             <a
               href="/de/docs/Web/HTML/Guides/Content_categories#metadata_content"
-              >Metadaten-Inhalte</a
+              >Metadaten-Inhalt</a
             >
             oder
             <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-              >Fluss-Inhalte</a
-            >
-            akzeptiert.
+              >fließenden Inhalt</a
+            > akzeptiert.
           </li>
         </ul>
       </td>
@@ -133,8 +130,8 @@ Das Attribut `content="3;url=https://www.mozilla.org"` leitet die Seite nach 3 S
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Kein <code>role</code> erlaubt</td>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <td>Keine <code>role</code> zulässig</td>
     </tr>
     <tr>
       <th>DOM-Schnittstelle</th>

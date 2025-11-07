@@ -26,7 +26,7 @@ Fügen Sie das Folgende zu Ihrem {{HTMLElement("head")}}-Tag hinzu.
 
 Sie können die CSS-At-Regel {{cssxref("@media")}} verwenden, um verschiedene Stile für Ihre Webseite festzulegen, wenn sie auf Papier oder als PDF gedruckt wird, im Gegensatz zur Anzeige auf dem Bildschirm. Der `print` [Medientyp](/de/docs/Web/CSS/Reference/At-rules/@media#media_types) legt die Stile für gedruckte Medien fest; diese Stile werden nur für gedruckte Inhalte verwendet.
 
-Fügen Sie dies am Ende Ihres Stylesheets hinzu. Beachten Sie, dass die [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) und Vorrangregeln weiterhin gelten:
+Fügen Sie dies am Ende Ihres Stylesheets hinzu. Beachten Sie, dass die [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) und Vorrangregeln weiterhin gelten:
 
 ```css
 @media print {
@@ -93,6 +93,6 @@ document.getElementById("print_external").addEventListener("click", () => {
 - [`window.print`](/de/docs/Web/API/Window/print)
 - [`beforeprint`](/de/docs/Web/API/Window/beforeprint_event) Ereignis
 - [`afterprint`](/de/docs/Web/API/Window/afterprint_event) Ereignis
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
 - {{cssxref("@media")}}
-- [CSS Seitenmedien](/de/docs/Web/CSS/CSS_paged_media) Modul
+- [CSS Seitenmedien](/de/docs/Web/CSS/Guides/Paged_media) Modul

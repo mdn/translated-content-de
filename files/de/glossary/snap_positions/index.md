@@ -1,14 +1,14 @@
 ---
-title: Einrastpositionen
+title: Snap-Punkte
 slug: Glossary/Snap_positions
 l10n:
-  sourceCommit: 2547f622337d6cbf8c3794776b17ed377d6aad57
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Einrastpositionen sind Punkte, an denen der {{Glossary("scroll_container", "Rollbereich")}} nach Abschluss des Scrollvorgangs anhält. Durch das Einrichten von Einrastpositionen können Sie ein Scroll-Erlebnis schaffen, bei dem der Inhalt seitenweise durchgeblättert wird, anstatt den Inhalt ins Blickfeld ziehen zu müssen.
+Snap-Punkte sind Stellen, an denen der {{Glossary("scroll_container", "Scroll-Container")}} nach Abschluss des Scrollvorgangs anhält. Das Einrichten von Snap-Punkten ermöglicht ein Scrolling-Erlebnis, bei dem durch den Inhalt geblättert wird, anstatt den Inhalt in den sichtbaren Bereich ziehen zu müssen.
 
-Einrastpositionen werden auf einem {{Glossary("scroll_container", "Rollcontainer")}} eingerichtet. Siehe die [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Eigenschaften.
+Snap-Punkte werden in einem {{Glossary("scroll_container", "Scroll-Container")}} eingerichtet. Siehe die [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap)-Eigenschaften.
 
 ## Siehe auch
 
-- {{Glossary("Scroll_snap", "Scroll Snap")}}
+- {{Glossary("Scroll_snap", "Scroll-Snap")}}

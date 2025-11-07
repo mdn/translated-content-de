@@ -216,4 +216,4 @@ Es gibt einen Abstand zwischen den Spalten. Die empfohlene Standardeinstellung i
 
 ## Fazit
 
-CSS-Spalten sind ein Layout-Primitiv, das dazu beitragen kann, große Textblöcke leichter lesbar zu machen, wenn responsiver Inhalt auf breiten Ansichtsfenstern betrachtet wird. Kreative Entwickler können viele Verwendungen dafür finden, insbesondere in Kombination mit [Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries) und mit der automatischen Höhenausgleichsfunktion.
+CSS-Spalten sind ein Layout-Primitiv, das dazu beitragen kann, große Textblöcke leichter lesbar zu machen, wenn responsiver Inhalt auf breiten Ansichtsfenstern betrachtet wird. Kreative Entwickler können viele Verwendungen dafür finden, insbesondere in Kombination mit [Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries) und mit der automatischen Höhenausgleichsfunktion.

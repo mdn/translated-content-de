@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 0b926fc3e79782401461d389fc9f17d522b39ed3
 ---
 
-Das **CSS Scroll-getriebene Animationen** Modul bietet Funktionalitäten, die auf dem [CSS-Animations-Modul](/de/docs/Web/CSS/CSS_animations) und der [Web Animations API](/de/docs/Web/API/Web_Animations_API) aufbauen. Es ermöglicht, Eigenschaftswerte entlang einer Scroll-basierten Zeitleiste zu animieren, anstatt der standardmäßigen, zeitbasierten Dokumentzeitleiste. Dies bedeutet, dass Sie ein Element animieren können, indem Sie das Element, seinen Scroll-Container oder sein Wurzelelement scrollen, anstatt nur durch den Zeitverlauf.
+Das **CSS Scroll-getriebene Animationen** Modul bietet Funktionalitäten, die auf dem [CSS-Animations-Modul](/de/docs/Web/CSS/Guides/Animations) und der [Web Animations API](/de/docs/Web/API/Web_Animations_API) aufbauen. Es ermöglicht, Eigenschaftswerte entlang einer Scroll-basierten Zeitleiste zu animieren, anstatt der standardmäßigen, zeitbasierten Dokumentzeitleiste. Dies bedeutet, dass Sie ein Element animieren können, indem Sie das Element, seinen Scroll-Container oder sein Wurzelelement scrollen, anstatt nur durch den Zeitverlauf.
 
 ## Scroll-getriebene Animationen in Aktion
 
@@ -144,15 +144,15 @@ Scrollen Sie das Element in die Inline-Richtung, um zu sehen, wie sich seine Hin
 
 ## Leitfäden
 
-- [Scroll-getriebene Animationszeitleisten](/de/docs/Web/CSS/CSS_scroll-driven_animations/Timelines)
+- [Scroll-getriebene Animationszeitleisten](/de/docs/Web/CSS/Guides/Scroll-driven_animations/Timelines)
   - : Scroll-getriebene Animationszeitleisten und das Erstellen von scroll-getriebenen Animationen.
 
 ## Verwandte Konzepte
 
-- [CSS-Animations-Modul](/de/docs/Web/CSS/CSS_animations)
+- [CSS-Animations-Modul](/de/docs/Web/CSS/Guides/Animations)
   - {{cssxref("animation-timeline")}}
   - {{cssxref("@keyframes")}}
-- [CSS Overflow-Modul](/de/docs/Web/CSS/CSS_overflow)
+- [CSS Overflow-Modul](/de/docs/Web/CSS/Guides/Overflow)
   - {{Glossary("Scroll_container", "Scroll-Container")}}
   - {{Glossary("Scroll_container#scrollport", "Scrollport")}}
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)

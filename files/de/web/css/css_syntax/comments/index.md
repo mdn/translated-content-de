@@ -47,6 +47,6 @@ Die `/* */` Kommentarsyntax wird sowohl für einzeilige als auch mehrzeilige Kom
 
 ## Siehe auch
 
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax) Modul
-- [Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax) Leitfaden
-- [CSS-Fehlerbehandlung](/de/docs/Web/CSS/CSS_syntax/Error_handling)
+- [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax) Modul
+- [Syntax](/de/docs/Web/CSS/Guides/Syntax/Introduction) Leitfaden
+- [CSS-Fehlerbehandlung](/de/docs/Web/CSS/Guides/Syntax/Error_handling)

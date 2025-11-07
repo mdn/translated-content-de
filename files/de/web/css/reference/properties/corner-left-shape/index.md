@@ -2,16 +2,16 @@
 title: corner-left-shape
 slug: Web/CSS/Reference/Properties/corner-left-shape
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-left-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Form beider Ecken auf der linken Seite eines Boxes innerhalb ihres {{cssxref("border-radius")}} Bereichs an.
+Die **`corner-left-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form beider Ecken an der linken Kante eines Kastens innerhalb ihres {{cssxref("border-radius")}}-Bereichs.
 
-Für eine vollständige Beschreibung des Eckenverhaltens und mehrere Beispiele, siehe die Seite zur {{cssxref("corner-shape")}} Kurzschreibweise.
+Für eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele, siehe die Seite zur Kurzschreibweise {{cssxref("corner-shape")}}.
 
-## Bestandteileigenschaften
+## Bestandeigenschaften
 
 Die `corner-left-shape` Eigenschaft ist eine Kurzschreibweise für die folgenden physischen Eigenschaften:
 
@@ -43,28 +43,28 @@ corner-left-shape: unset;
 
 ### Werte
 
-Die `corner-left-shape` Eigenschaft wird mit einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
+Die `corner-left-shape` Eigenschaft wird durch ein oder zwei {{cssxref("&lt;corner-shape-value>")}}-Werte spezifiziert:
 
-- Wenn **ein Wert** verwendet wird, bestimmt er die Form **beider linker Ecken**.
-- Wenn **zwei Werte** verwendet werden, bestimmt der erste die Form der **oberen linken** Ecke, und der zweite die Form der **unteren linken** Ecke.
+- Wenn **ein Wert** verwendet wird, spezifiziert er die Form **beider linken Ecken**.
+- Wenn **zwei Werte** verwendet werden, spezifiziert der erste die Form der **oberen linken** Ecke und der zweite die Form der **unteren linken** Ecke.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formaler Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-Sie können weitere verwandte Beispiele auf der {{cssxref("corner-shape")}} Referenzseite finden.
+Sie finden weitere verwandte Beispiele auf der Referenzseite zu {{cssxref("corner-shape")}}.
 
 ### Grundlegende Verwendung von `corner-left-shape`
 
 #### HTML
 
-Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} Element.
+Der Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}}-Element.
 
 ```html live-sample___basic-usage
 <div></div>
@@ -72,7 +72,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben der Box einige grundlegende Stile, die wir der Kürze halber ausgelassen haben. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `20px 40px / 60px 80px`, und eine `corner-left-shape` von `notch bevel` an.
+Wir geben dem Kasten einige grundlegende Stile, die der Kürze halber versteckt sind. Wir wenden auch einen {{cssxref("box-shadow")}}, einen `border-radius` von `20px 40px / 60px 80px` und eine `corner-left-shape` von `notch bevel` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -125,5 +125,5 @@ Das gerenderte Ergebnis sieht so aus:
 - {{cssxref("corner-block-start-shape")}}, {{cssxref("corner-block-end-shape")}}, {{cssxref("corner-inline-start-shape")}}, und {{cssxref("corner-inline-end-shape")}}
 - {{cssxref("border-radius")}} Kurzschreibweise
 - {{cssxref("border-top-left-radius")}} und {{cssxref("border-bottom-left-radius")}}
-- [CSS borders and box decorations](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
-- [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS borders and box decorations](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
+- [CSS backgrounds and borders](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul

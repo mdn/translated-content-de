@@ -3,19 +3,19 @@ title: Grundlegende CSS Selektoren
 short-title: Grundlegende Selektoren
 slug: Learn_web_development/Core/Styling_basics/Basic_selectors
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Styling_a_bio_page", "Learn_web_development/Core/Styling_basics/Attribute_selectors", "Learn_web_development/Core/Styling_basics")}}
 
-Sie haben bereits gesehen, wie in {{Glossary("CSS", "CSS")}} Selektoren verwendet werden, um die {{Glossary("HTML", "HTML")}}-Elemente auf unserer Webseite auszuwählen, die wir stylen möchten. Es gibt eine Vielzahl von CSS-Selektoren, die eine feingranulare Präzision beim Auswählen der zu stylenden Elemente ermöglichen, und in den nächsten Artikeln werden wir die verschiedenen Typen detailliert betrachten. In diesem Artikel fassen wir einige Grundlagen der Selektoren zusammen, einschließlich der grundlegenden Typ-, Klassen- und ID-Selektoren sowie Selektorenlisten. Wir werden auch den universellen Selektor vorstellen.
+Sie haben bereits gesehen, wie Selektoren in {{Glossary("CSS", "CSS")}} verwendet werden, um die {{Glossary("HTML", "HTML")}} Elemente auf unseren Webseiten anzusprechen, die wir stylen möchten. Es gibt eine Vielzahl von CSS Selektoren, die es ermöglichen, Elemente mit großer Präzision auszuwählen, und in den nächsten Artikeln werden wir die verschiedenen Typen ausführlich betrachten. In diesem Artikel fassen wir einige Grundlagen der Selektoren zusammen, einschließlich der grundlegenden Typ-, Klassen- und ID-Selektoren sowie Selektorenlisten. Wir führen auch den Universalselektor ein.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlagen von HTML (studieren Sie
+        Grundlegende HTML-Kenntnisse (studieren Sie
         <a href="/de/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax"
           >Grundlegende HTML-Syntax</a
         >).
@@ -26,10 +26,10 @@ Sie haben bereits gesehen, wie in {{Glossary("CSS", "CSS")}} Selektoren verwende
       <td>
         <ul>
           <li>Die grundlegenden Selektortypen — Elementtyp, Klasse, ID.</li>
-          <li>Verstehen, dass IDs pro Dokument eindeutig sind — Sie sollten eine ID verwenden, um ein spezifisches Element auszuwählen.</li>
-          <li>Verstehen, dass Sie mehrere Klassen pro Element haben können, und diese verwendet werden können, um bei Bedarf zusätzliche Stile hinzuzufügen.</li>
-          <li>Selektorlisten.</li>
-          <li>Universeller Selektor.</li>
+          <li>Verstehen, dass IDs pro Dokument einzigartig sind — Sie sollten eine ID verwenden, um ein bestimmtes Element auszuwählen.</li>
+          <li>Verstehen, dass Sie mehrere Klassen pro Element haben können und diese verwenden können, um Styles nach Bedarf übereinander zu legen.</li>
+          <li>Selektorenlisten.</li>
+          <li>Universalselektor.</li>
         <ul>
       </td>
     </tr>
@@ -38,17 +38,17 @@ Sie haben bereits gesehen, wie in {{Glossary("CSS", "CSS")}} Selektoren verwende
 
 ## Was ist ein Selektor?
 
-Ein CSS-Selektor ist der erste Teil einer CSS-Regel. Es ist ein Muster von Elementen und anderen Begriffen, die dem Browser mitteilen, welche HTML-Elemente ausgewählt werden sollen, um die CSS-Eigenschaftswerte innerhalb der Regel auf sie anzuwenden. Das oder die Elemente, die vom Selektor ausgewählt werden, werden als _Subject des Selektors_ bezeichnet.
+Ein CSS Selektor ist der erste Teil einer CSS-Regel. Es ist ein Muster von Elementen und anderen Begriffen, die dem Browser mitteilen, welche HTML-Elemente ausgewählt werden sollen, um die CSS-Eigenschaftswerte innerhalb der Regel auf sie anzuwenden. Das oder die Elemente, die durch den Selektor ausgewählt werden, werden als das _Subjekt des Selektors_ bezeichnet.
 
-![Einige Codezeilen mit hervorgehobenem h1.](selector.png)
+![Ein Code mit dem hervorgehobenen h1.](selector.png)
 
-In früheren Artikeln haben Sie möglicherweise einige verschiedene Selektoren kennengelernt und erfahren, dass es Selektoren gibt, die das Dokument auf unterschiedliche Weise ansprechen — zum Beispiel durch Auswahl eines Elements wie `h1` oder einer Klasse wie `.special`. Beginnen wir damit, die Hauptselektoren, die Sie bereits gesehen haben, zusammenzufassen.
+In früheren Artikeln haben Sie möglicherweise einige verschiedene Selektoren kennengelernt und erfahren, dass es Selektoren gibt, die das Dokument auf unterschiedliche Weise ansprechen — zum Beispiel durch das Auswählen eines Elements wie `h1` oder einer Klasse wie `.special`. Beginnen wir damit, die Hauptselektoren zusammenzufassen, die Sie bereits kennengelernt haben.
 
-## Typsselektoren
+## Typselektoren
 
-Ein **Typsselektor** wird manchmal als _Tag-Name-Selektor_ oder _Elementselektor_ bezeichnet, da er ein HTML-Tag/Element in Ihrem Dokument auswählt. Im folgenden Beispiel haben wir die Selektoren `span`, `em` und `strong` verwendet.
+Ein **Typselektor** wird manchmal auch als _Tagname-Selektor_ oder _Elementselektor_ bezeichnet, da er ein HTML-Tag/Element in Ihrem Dokument auswählt. Im folgenden Beispiel haben wir die Selektoren `span`, `em` und `strong` verwendet.
 
-Versuchen Sie, das folgende Beispiel zu bearbeiten (klicken Sie auf **"Play"**, um es im MDN Playground zu öffnen), um eine CSS-Regel hinzuzufügen, die das `<h1>`-Element auswählt und seine Farbe auf blau ändert:
+Versuchen Sie, das folgende Beispiel zu bearbeiten (klicken Sie auf **"Play"**, um es im MDN Playground zu öffnen), um eine CSS-Regel hinzuzufügen, die das `<h1>`-Element auswählt und seine Farbe auf Blau ändert:
 
 ```html live-sample___type
 <h1>Type selectors</h1>
@@ -93,7 +93,7 @@ em {
 
 ## Klassenselektoren
 
-Der groß-/kleinschreibungsempfindliche Klassenselektor beginnt mit einem Punkt (`.`) Zeichen. Er wählt alles im Dokument aus, dem diese Klasse zugeordnet ist. Im folgenden Live-Beispiel haben wir eine Klasse namens `highlight` erstellt und diese an mehreren Stellen in meinem Dokument angewendet. Alle Elemente, auf die die Klasse angewendet wurde, sind hervorgehoben.
+Der groß-/kleinschreibungssensitive Klassenselektor beginnt mit einem Punkt (`.`) und wählt alles im Dokument aus, dem diese Klasse zugewiesen wurde. Im Live-Beispiel unten haben wir eine Klasse namens `highlight` erstellt und sie an mehreren Stellen in meinem Dokument angewendet. Alle Elemente, denen die Klasse zugewiesen wurde, sind hervorgehoben.
 
 ```html live-sample___class
 <h1 class="highlight">Class selectors</h1>
@@ -122,17 +122,17 @@ body {
 
 {{EmbedLiveSample("class", "", "220px")}}
 
-### Experimentieren mit Klassenselektoren
+### Spielen mit Klassenselektoren
 
-Versuchen Sie, das obige Beispiel zu bearbeiten (unter Verwendung des MDN Playground), um die folgenden Änderungen vorzunehmen:
+Versuchen Sie, das obige Beispiel (im MDN Playground) zu bearbeiten, um die folgenden Änderungen vorzunehmen:
 
-1. Bearbeiten Sie das HTML, um den Inhalt zu ändern, auf den die `.highlight`-Stile angewendet werden. Sie könnten beispielsweise einige `<span>`-Elemente hinzufügen, um verschiedene Teile des vorhandenen Inhalts zu umschließen und die `highlight`-Klasse darauf anzuwenden. Löschen Sie einige bestehende `highlight`-Klassen oder fügen Sie neuen Inhalt hinzu, um die `highlight`-Klasse darauf anzuwenden.
-2. Bearbeiten Sie das CSS, um die Deklarationen innerhalb der `.highlight`-Regel zu ändern, fügen Sie gegebenenfalls neue hinzu, und beobachten Sie, wie sich dies auf das Styling aller Elemente auswirkt, auf die die `highlight`-Klasse angewendet wird.
-3. Erstellen Sie eine neue Klassenregel im CSS mit verschiedenen Deklarationen darin (z. B. mit einem Selektor von `.highlight2`), und versuchen Sie dann, diese auf einige Ihrer HTML-Elemente anzuwenden.
+1. Bearbeiten Sie das HTML, um den Inhalt zu ändern, dem die `.highlight`-Stile zugewiesen sind. Sie könnten beispielsweise einige `<span>`-Elemente hinzufügen, um verschiedene Teile des vorhandenen Inhalts zu umgeben und die `highlight`-Klasse darauf anzuwenden, einige vorhandene `highlight`-Klassen entfernen oder neuen Inhalt hinzufügen, dem die `highlight`-Klasse zugewiesen wird.
+2. Bearbeiten Sie das CSS, um die Deklarationen innerhalb der `.highlight`-Regel zu ändern und bei Bedarf neue hinzuzufügen, und beobachten Sie, wie sich dies auf das Styling aller Elemente auswirkt, auf die die `highlight`-Klasse angewendet wurde.
+3. Erstellen Sie eine neue Klassenregel im CSS mit anderen Deklarationen darin (zum Beispiel mit einem Selektor von `.highlight2`), und versuchen Sie dann, dies auf einen Ihrer HTML-Inhalte anzuwenden.
 
-### Klassen an bestimmten Elementen ansprechen
+### Zielen auf bestimmte Elemente mit Klassen
 
-Sie können einen Selektor erstellen, der bestimmte Elemente mit der angewendeten Klasse ansprechen wird. Im nächsten Beispiel werden wir ein `<span>` mit einer Klasse von `highlight` anders hervorheben als eine `<h1>`-Überschrift mit einer Klasse von `highlight`. Wir tun dies, indem wir den Typsselektor für das Element, das wir ansprechen möchten, mit der Klasse anhängen, wobei kein Leerzeichen dazwischen ist.
+Sie können einen Selektor erstellen, der bestimmte Elemente mit der Klasse anspricht. Im nächsten Beispiel heben wir ein `<span>` mit der Klasse `highlight` anders hervor als eine `<h1>`-Überschrift mit der Klasse `highlight`. Dazu verwenden wir den Typselektor für das Element, das wir ansprechen möchten, und hängen die Klasse mit einem Punkt an, ohne dazwischenliegenden Leerraum.
 
 ```html live-sample___class-type
 <h1 class="highlight">Class selectors</h1>
@@ -165,15 +165,15 @@ h1.highlight {
 
 {{EmbedLiveSample("class-type", "", "200px")}}
 
-Dieser Ansatz reduziert den Umfang einer Regel. Die Regel gilt nur für die spezielle Kombination von Element und Klasse. Sie müssten einen weiteren Selektor hinzufügen, wenn die Regel auch auf andere Elemente angewendet werden soll.
+Dieser Ansatz reduziert den Anwendungsbereich einer Regel. Die Regel wird nur auf diese bestimmte Element-Klassen-Kombination angewendet. Sie müssten einen weiteren Selektor hinzufügen, wenn Sie entscheiden, dass die Regel auch auf andere Elemente angewendet werden soll.
 
-### Ein Element ansprechen, wenn es mehr als eine Klasse hat
+### Ein Element ansprechen, wenn ihm mehr als eine Klasse zugewiesen ist
 
-Sie können mehrere Klassen zu einem Element hinzufügen und sie individuell ansprechen oder das jeweilige Element nur auswählen, wenn alle im Selektor angegebenen Klassen vorhanden sind. Dies kann hilfreich sein, um Komponenten zu erstellen, die auf Ihrer Seite auf unterschiedliche Weise kombiniert werden können.
+Sie können einem Element mehrere Klassen zuweisen und diese einzeln ansprechen oder das Element nur auswählen, wenn alle Klassen im Selektor vorhanden sind. Das kann hilfreich sein, wenn Sie Komponenten erstellen, die auf Ihrer Seite in unterschiedlicher Weise kombiniert werden können.
 
-Im Beispiel unten haben wir ein `<div>`, das eine Notiz enthält. Der graue Rahmen wird angewandt, wenn die Box eine Klasse von `notebox` hat. Wenn sie auch eine Klasse von `warning` oder `danger` hat, ändern wir die {{cssxref("border-color")}}.
+Im folgenden Beispiel haben wir ein `<div>`, das eine Notiz enthält. Der graue Rand wird angewendet, wenn das Kästchen die Klasse `notebox` hat. Wenn es auch die Klasse `warning` oder `danger` hat, ändern wir die {{cssxref("border-color")}}.
 
-Wir können dem Browser mitteilen, dass wir das Element nur dann auswählen möchten, wenn es zwei Klassen zugewiesen hat, indem wir sie ohne Leerzeichen zwischen ihnen aneinanderreihen. Sie werden sehen, dass das letzte `<div>` keinerlei Stil angewendet bekommt, da es nur die `danger`-Klasse hat; es benötigt auch `notebox`, um eine Anwendung zu erhalten.
+Wir können dem Browser sagen, dass wir das Element nur dann abgleichen möchten, wenn ihm zwei Klassen zugewiesen sind, indem wir sie ohne Leerzeichen dazwischen zusammenketten. Sie werden sehen, dass auf das letzte `<div>` kein Stil angewendet wird, da es nur die `danger`-Klasse hat; es benötigt auch `notebox`, um etwas angewendet zu bekommen.
 
 ```html live-sample___class-many
 <div class="notebox">This is an informational note.</div>
@@ -211,9 +211,9 @@ body {
 
 {{EmbedLiveSample("class-many", "", "200px")}}
 
-## ID-Sselektoren
+## ID-Selektoren
 
-Der groß-/kleinschreibungsempfindliche ID-Sselektor beginnt mit einem `#` anstelle eines Punktes, wird jedoch auf die gleiche Weise wie ein Klassenselektor verwendet. Der Unterschied besteht darin, dass eine ID nur einmal pro Seite verwendet werden kann und Elemente nur einen einzigen `id`-Wert haben können. Er kann ein Element auswählen, dem die `id` zugeordnet ist, und Sie können die ID mit einem Typsselektor versehen, um das Element nur dann auszuwählen, wenn sowohl das Element als auch die ID übereinstimmt. Im folgenden Beispiel sehen Sie beide Anwendungen:
+Der groß-/kleinschreibungssensitive ID-Selektor beginnt mit einem `#` statt einem Punktzeichen, wird jedoch auf die gleiche Weise wie ein Klassenselektor verwendet. Der Unterschied besteht darin, dass eine ID nur einmal pro Seite verwendet werden kann und Elementen nur ein einziges `id`-Wert zugewiesen werden kann. Es kann ein Element auswählen, dem die `id` zugewiesen ist, und Sie können die ID einem Typselektor voranstellen, um das Element nur dann anzusprechen, wenn sowohl das Element als auch die ID übereinstimmen. Sie können beide Verwendungen im folgenden Beispiel sehen:
 
 ```html live-sample___id
 <h1 id="heading">ID selector</h1>
@@ -246,18 +246,18 @@ h1#heading {
 {{EmbedLiveSample("id", "", "200px")}}
 
 > [!WARNING]
-> Die Verwendung derselben ID mehrmals in einem Dokument kann aus Styling-Zwecken möglicherweise funktionieren, aber tun Sie dies nicht. Es führt zu ungültigem Code und wird in vielen Situationen zu seltsamem Verhalten führen.
+> Die gleiche ID mehrmals in einem Dokument zu verwenden, mag für Styling-Zwecke funktionieren, aber tun Sie dies nicht. Es führt zu ungültigem Code und wird an vielen Stellen seltsames Verhalten verursachen.
 
-### Experimentieren mit ID-Sselektoren
+### Spielen mit ID-Selektoren
 
 Versuchen Sie, das obige Beispiel zu bearbeiten, um die folgenden Änderungen vorzunehmen:
 
-1. Bearbeiten Sie das HTML, um die `#one`-Stile auf den ersten Absatz anstelle des zweiten anzuwenden.
-2. Bearbeiten Sie das CSS, um die Deklarationen innerhalb der ID-Sselektoren zu ändern, und beobachten Sie, wie sich dies auf das Erscheinungsbild des HTML auswirkt.
+1. Bearbeiten Sie das HTML, um die `#one`-Stile auf den ersten Absatz statt auf den zweiten anzuwenden.
+2. Bearbeiten Sie das CSS, um die Deklarationen innerhalb der ID-Selektoren zu ändern, und beobachten Sie, wie sich dies auf das Aussehen des HTML auswirkt.
 
-## Selektorlisten
+## Selektorenlisten
 
-Wenn Sie mehr als eine Sache haben, die denselben CSS verwendet, dann können die individuellen Selektoren zu einer _Selektorliste_ kombiniert werden, sodass die Regel auf alle individuellen Selektoren angewendet wird. Zum Beispiel, wenn ich denselben CSS für ein `h1` und auch eine Klasse von `.special` habe, könnte ich dies als zwei separate Regeln schreiben.
+Wenn Sie mehrere Elemente haben, die das gleiche CSS verwenden, können die einzelnen Selektoren in eine _Selektorenliste_ kombiniert werden, sodass die Regel auf alle individuellen Selektoren angewendet wird. Wenn ich beispielsweise dasselbe CSS für ein `h1` und auch eine Klasse von `.special` habe, könnte ich dies als zwei separate Regeln schreiben.
 
 ```css
 h1 {
@@ -269,7 +269,7 @@ h1 {
 }
 ```
 
-Ich könnte dies auch in eine Selektorliste kombinieren, indem ich ein Komma zwischen ihnen setze.
+Ich könnte sie auch in einer Selektorenliste kombinieren, indem ich ein Komma dazwischen setze.
 
 ```css-nolint
 h1, .special {
@@ -277,7 +277,7 @@ h1, .special {
 }
 ```
 
-Leerzeichen ist vor oder nach dem Komma gültig. Sie könnten die Selektoren auch übersichtlicher schreiben, wenn jeder auf einer neuen Zeile steht.
+Leerzeichen vor oder nach dem Komma sind gültig. Möglicherweise finden Sie die Selektoren auch lesbarer, wenn jeder in einer neuen Zeile steht.
 
 ```css
 h1,
@@ -286,9 +286,9 @@ h1,
 }
 ```
 
-### Experimentieren mit Selektorlisten
+### Spielen mit Selektorenlisten
 
-Im folgenden Beispiel versuchen Sie, die beiden Selektoren zu kombinieren, die identische Deklarationen haben. Die visuelle Darstellung sollte nach dem Kombinieren dieselbe sein.
+Im folgenden Beispiel versuchen Sie, die beiden Selektoren zu kombinieren, die identische Deklarationen haben. Die visuelle Anzeige sollte nach dem Kombinieren gleich bleiben.
 
 ```html live-sample___selector-list
 <h1>Type selectors</h1>
@@ -330,11 +330,11 @@ em {
 
 {{EmbedLiveSample("selector-list", "", "280px")}}
 
-### Ungültige Selektoren in Selektorlisten
+### Ungültige Selektoren in Selektorenlisten
 
-Wenn Sie Selektoren auf diese Weise gruppieren und einer der Selektoren syntaktisch ungültig ist, wird die gesamte Regel ignoriert.
+Wenn Sie Selektoren auf diese Weise gruppieren, wird die gesamte Regel ignoriert, wenn ein Selektor syntaktisch ungültig ist.
 
-Im folgenden Beispiel wird die ungültige Klassenselektorenregel ignoriert, während das `h1` weiterhin gestylt würde.
+Im folgenden Beispiel wird die Regel `h1` weiterhin gestylt, während die ungültige Klassen-Selektorregel ignoriert wird.
 
 ```css-nolint
 h1 {
@@ -346,7 +346,7 @@ h1 {
 }
 ```
 
-Wenn sie jedoch kombiniert werden, wird weder das `h1` noch die Klasse gestylt, da die gesamte Regel als ungültig erachtet wird.
+Wenn sie jedoch kombiniert werden, wird weder das `h1` noch die Klasse gestylt, da die gesamte Regel als ungültig angesehen wird.
 
 ```css-nolint
 h1, ..special {
@@ -354,11 +354,11 @@ h1, ..special {
 }
 ```
 
-## Der universelle Selektor
+## Der Universalselektor
 
-Der universelle Selektor wird durch ein Sternchen (`*`) angezeigt. Er wählt alles im Dokument aus. Wenn `*` mit einem [Descendant Combinator](/de/docs/Web/CSS/Reference/Selectors/Descendant_combinator) verknüpft wird, wählt es alles innerhalb des übergeordneten Elements aus. Zum Beispiel wählt `p *` alle verschachtelten Elemente innerhalb des `<p>`-Elements aus.
+Der Universalselektor wird durch ein Sternchen (`*`) angezeigt. Er wählt alles im Dokument aus. Wenn `*` mit einem [Nachkommen-Kombinator](/de/docs/Web/CSS/Reference/Selectors/Descendant_combinator) verkettet wird, wählt es alles innerhalb des übergeordneten Elements aus. Beispielsweise wählt `p *` alle verschachtelten Elemente innerhalb des `<p>`-Elements aus.
 
-Im folgenden Beispiel verwenden wir den universellen Selektor, um die Ränder aller Elemente zu entfernen. Anstatt des Standardstylings des Browsers, welches Überschriften und Absätze mit Rändern auseinanderhält, ist alles nah beieinander.
+Im folgenden Beispiel verwenden wir den Universalselektor, um die Randabstände aller Elemente zu entfernen. Anstelle des standardmäßigen Browser-Stylings, das Überschriften und Absätze mit Randabständen versieht, wird alles eng zusammengezogen.
 
 ```html live-sample___universal
 <h1>Universal selector</h1>
@@ -387,11 +387,11 @@ body {
 
 {{EmbedLiveSample("universal")}}
 
-Diese Art von Verhalten kann manchmal in "Reset-Stylesheets" gesehen werden, welche alle Browser-Styles entfernen. Da der universelle Selektor globale Änderungen vornimmt, verwenden wir ihn für sehr spezifische Situationen, wie die unten beschriebene.
+Ein solches Verhalten ist manchmal in "Reset-Stylesheets" zu sehen, die das gesamte Browser-Styling entfernen. Da der Universalselektor globale Änderungen vornimmt, verwenden wir ihn für sehr spezifische Situationen, wie die unten beschriebene.
 
-### Den universellen Selektor verwenden, um Ihre Selektoren leichter lesbar zu machen
+### Den Universalselektor verwenden, um Ihre Selektoren lesbarer zu machen
 
-Eine Verwendung des universellen Selektors besteht darin, Selektoren leichter lesbar zu machen und klarer darzustellen, was sie tun. Zum Beispiel, wenn wir alle Nachkommenelemente eines `<article>`-Elements auswählen möchten, die das erste Kind ihres Elternteils sind, einschließlich direkter Kinder, und diese fett machen möchten, könnten wir die {{cssxref(":first-child")}} Pseudo-Klasse benutzen. Wir werden mehr darüber in der Lektion über [Pseudo-Klassen und Pseudo-Elemente](/de/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements) lernen:
+Eine Verwendung des Universalselektors besteht darin, Selektoren lesbarer und offensichtlicher zu machen, was sie tun. Wenn wir beispielsweise alle Nachkommelemente eines `<article>`-Elements, die das erste Kind ihres Elternteils sind, einschließlich direkter Kinder, auswählen und fett machen wollten, könnten wir die Pseudoklasse {{cssxref(":first-child")}} verwenden. Wir werden mehr darüber in der Lektion zu [Pseudoklassen und Pseudoelementen](/de/docs/Learn_web_development/Core/Styling_basics/Pseudo_classes_and_elements) lernen:
 
 ```css
 article :first-child {
@@ -399,9 +399,9 @@ article :first-child {
 }
 ```
 
-Dieser Selektor könnte jedoch mit `article:first-child` verwechselt werden, was jedes `<article>`-Element auswählt, das das erste Kind eines anderen Elements ist.
+Dieser Selektor könnte jedoch mit `article:first-child` verwechselt werden, der ein `<article>`-Element auswählt, das das erste Kind eines anderen Elements ist.
 
-Um diese Verwirrung zu vermeiden, können wir den universellen Selektor zur `:first-child` Pseudo-Klasse hinzufügen, damit es offensichtlicher ist, was der Selektor tut. Es wählt _jedes_ Element aus, das das erste Kind eines `<article>`-Elements oder das erste Kind eines Nachkommenelements von `<article>` ist:
+Um diese Verwirrung zu vermeiden, können wir den Universalselektor zur `:first-child` Pseudoklasse hinzufügen, sodass klarer wird, was der Selektor tut. Er wählt _jedes_ Element aus, das das erste Kind eines `<article>`-Elements oder das erste Kind eines Nachkommelements von `<article>` ist:
 
 ```css
 article *:first-child {
@@ -409,18 +409,18 @@ article *:first-child {
 }
 ```
 
-Obwohl beide dasselbe tun, ist die Lesbarkeit erheblich verbessert.
+Obwohl beide dasselbe bewirken, ist die Lesbarkeit deutlich verbessert.
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir CSS-Sselektoren zusammengefasst, die es Ihnen ermöglichen, bestimmte HTML-Elemente auszuwählen, wobei die Typ-, Klassen- und ID-Sselektoren etwas ausführlicher betrachtet wurden als zuvor. Im nächsten Artikel werden wir uns mit Attributselektoren befassen.
+In diesem Artikel haben wir CSS Selektoren wiederholt, die es Ihnen ermöglichen, bestimmte HTML-Elemente auszuwählen, und die Typ-, Klassen- und ID-Selektoren etwas ausführlicher betrachtet als zuvor. Im nächsten Artikel werden wir uns mit Attributselektoren beschäftigen.
 
 > [!NOTE]
-> Für eine vollständige Liste der Selektoren siehe unser [CSS-Selektoren-Referenz](/de/docs/Web/CSS/CSS_selectors).
+> Für eine vollständige Liste der Selektoren siehe unser [CSS Selektor-Referenz](/de/docs/Web/CSS/Guides/Selectors).
 
 ## Siehe auch
 
 - [CSS-Klassen](https://scrimba.com/the-frontend-developer-career-path-c0j/~01d?via=mdn), Scrimba <sup>[_MDN Lernpartner_](/de/docs/MDN/Writing_guidelines/Learning_content#partner_links_and_embeds)</sup>
-  - : Eine interaktive Lektion, die Anleitung zu CSS-Klassen gibt.
+  - : Eine interaktive Lektion, die einige Anleitungen zu CSS-Klassen bietet.
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Styling_a_bio_page", "Learn_web_development/Core/Styling_basics/Attribute_selectors", "Learn_web_development/Core/Styling_basics")}}

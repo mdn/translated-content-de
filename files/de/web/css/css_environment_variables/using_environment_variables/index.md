@@ -5,7 +5,7 @@ l10n:
   sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
-Das [CSS-Umgebungsvariablenmodul](/de/docs/Web/CSS/CSS_environment_variables) führt das Konzept der Umgebungsvariablen in CSS ein und definiert die {{cssxref("env")}}-Funktion, um die Verwendung von Umgebungsvariablen zu ermöglichen. In diesem Leitfaden betrachten wir [was Umgebungsvariablen sind](#what_are_environment_variables), die [vom Browser definierten Umgebungsvariablen](#vom_browser_definierte_umgebungsvariablen), und [wie man Umgebungsvariablen verwendet](#using_environment_variables_with_env_example) mit [der `env()`-Funktion](#the_env_function).
+Das [CSS-Umgebungsvariablenmodul](/de/docs/Web/CSS/Guides/Environment_variables) führt das Konzept der Umgebungsvariablen in CSS ein und definiert die {{cssxref("env")}}-Funktion, um die Verwendung von Umgebungsvariablen zu ermöglichen. In diesem Leitfaden betrachten wir [was Umgebungsvariablen sind](#what_are_environment_variables), die [vom Browser definierten Umgebungsvariablen](#vom_browser_definierte_umgebungsvariablen), und [wie man Umgebungsvariablen verwendet](#using_environment_variables_with_env_example) mit [der `env()`-Funktion](#the_env_function).
 
 ## Was sind Umgebungsvariablen?
 
@@ -35,7 +35,7 @@ Die CSS-Umgebungsvariablen-Spezifikation definiert einige case-sensitive Variabl
   - : Die `preferred-text-scale`-Umgebungsvariable repräsentiert den bevorzugten Textskalierungsfaktor des Benutzers. Dies ist die Anpassung, die an der "Standard"-Schriftgröße des Betriebssystems oder Benutzeragenten vorgenommen wird. Auf Geräten und Browsern, wo {{cssxref("text-size-adjust")}} wirksam ist, ist dies der Skalierungsfaktor, der durch `text-size-adjust: auto` angewendet wird. Wenn zum Beispiel `text-size-adjust: auto` die Schriftgröße verdoppeln würde, würde `env(preferred-text-scale)` auf `2` auflösen.
 
 - `safe-area-inset-*`
-  - : Die vier sicheren Bereichs-Umgebungsvariablen — `safe-area-inset-top`, `safe-area-inset-right`, `safe-area-inset-bottom` und `safe-area-inset-left` — definieren einen rechteckigen sicheren Bereich durch seine oberen, rechten, unteren und linken Einrückungen vom Rand des Viewports. Es ist sicher, Inhalte innerhalb dieses Bereichs zu platzieren, ohne dass sie durch die Form eines nicht-rechteckigen Displays abgeschnitten werden. Bei rechteckigen, unbehinderten Viewports, wie regulären Desktop- und Laptop-Monitoren, sind diese vier Werte alle gleich `0`. Bei nicht-rechteckigen Displays — einschließlich Geräte mit abgerundeten Ecken und vollständig großen Bildschirmen sowie abgerundeten oder [runden](/de/docs/Web/CSS/CSS_round_display) Smartwatches — bilden diese vier vom Benutzeragenten festgelegten Werte ein Rechteck, so dass der gesamte Inhalt innerhalb des Rechtecks sichtbar und unbehindert ist.
+  - : Die vier sicheren Bereichs-Umgebungsvariablen — `safe-area-inset-top`, `safe-area-inset-right`, `safe-area-inset-bottom` und `safe-area-inset-left` — definieren einen rechteckigen sicheren Bereich durch seine oberen, rechten, unteren und linken Einrückungen vom Rand des Viewports. Es ist sicher, Inhalte innerhalb dieses Bereichs zu platzieren, ohne dass sie durch die Form eines nicht-rechteckigen Displays abgeschnitten werden. Bei rechteckigen, unbehinderten Viewports, wie regulären Desktop- und Laptop-Monitoren, sind diese vier Werte alle gleich `0`. Bei nicht-rechteckigen Displays — einschließlich Geräte mit abgerundeten Ecken und vollständig großen Bildschirmen sowie abgerundeten oder [runden](/de/docs/Web/CSS/Guides/Round_display) Smartwatches — bilden diese vier vom Benutzeragenten festgelegten Werte ein Rechteck, so dass der gesamte Inhalt innerhalb des Rechtecks sichtbar und unbehindert ist.
 
 - `safe-area-max-inset-*`
   - : Die vier sicheren maximalen Einrückungs-Umgebungsvariablen — `safe-area-max-inset-top`, `safe-area-max-inset-right`, `safe-area-max-inset-bottom` und `safe-area-max-inset-left` — repräsentieren den statischen Maximalwert ihrer dynamischen `safe-area-inset-*`-Gegenstücke. Sie repräsentieren den Maximalwert ihres `safe-area-inset-*`-Gegenstücks, wenn alle dynamischen Benutzeroberflächenmerkmale eingefahren sind. Zum Beispiel kann auf einigen Plattformen eine Schaltflächenleiste angezeigt werden, wenn nach oben oder unten gescrollt wird, wodurch sich die `safe-area-inset-*`-Werte ändern. Während die `safe-area-inset-*`-Werte sich ändern, während sich der aktuell sichtbare Inhaltsbereich ändert, bleiben die `safe-area-max-inset-*`-Werte immer gleich.
@@ -109,7 +109,7 @@ main {
 }
 ```
 
-Das `<footer>` ist so positioniert, dass es am unteren Rand des Viewports haftet. Die Deklaration [`position: sticky`](/de/docs/Web/CSS/Reference/Properties/position#sticky) versetzt das Element relativ zum `<body>` (seinem scrollenden Vorfahren und [einschließenden Block](/de/docs/Web/CSS/CSS_display/Containing_block)) basierend auf dem {{cssxref("bottom")}}-Wert von `0`. Wir geben dem `<footer>` einen {{cssxref("padding")}}-Wert von `1em` auf allen vier Seiten. Wir fügen dann den `safe-area-inset-bottom`-Wert zu den `1em` des unteren Paddings hinzu, mit einem Fallback von `1em`.
+Das `<footer>` ist so positioniert, dass es am unteren Rand des Viewports haftet. Die Deklaration [`position: sticky`](/de/docs/Web/CSS/Reference/Properties/position#sticky) versetzt das Element relativ zum `<body>` (seinem scrollenden Vorfahren und [einschließenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block)) basierend auf dem {{cssxref("bottom")}}-Wert von `0`. Wir geben dem `<footer>` einen {{cssxref("padding")}}-Wert von `1em` auf allen vier Seiten. Wir fügen dann den `safe-area-inset-bottom`-Wert zu den `1em` des unteren Paddings hinzu, mit einem Fallback von `1em`.
 
 ```css
 footer {
@@ -154,6 +154,6 @@ In Zukunft könnten wir Unterstützung für vom Entwickler definierte Umgebungsv
 
 - {{cssxref("var")}}
 - [`@media` `shape` Deskriptor](/de/docs/Web/CSS/Reference/At-rules/@media/shape)
-- [CSS Umgebungsvariablen](/de/docs/Web/CSS/CSS_environment_variables) Modul
-- [CSS rundes Display](/de/docs/Web/CSS/CSS_round_display) Modul
-- [CSS benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul
+- [CSS Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables) Modul
+- [CSS rundes Display](/de/docs/Web/CSS/Guides/Round_display) Modul
+- [CSS benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/Guides/Cascading_variables) Modul

@@ -2,10 +2,10 @@
 title: padding-top
 slug: Web/CSS/Reference/Properties/padding-top
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`padding-top`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Höhe des [Padding-Bereichs](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#padding_area) oben in einem Element fest.
+Die **`padding-top`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die Höhe des [Innenabstandsbereichs](/de/docs/Web/CSS/Guides/Box_model/Introduction#padding_area) oben in einem Element.
 
 {{InteractiveExample("CSS Demo: padding-top")}}
 
@@ -52,12 +52,12 @@ padding-top: 0;
 }
 ```
 
-Der Padding-Bereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rahmen.
+Der Innenabstandsbereich eines Elements ist der Raum zwischen seinem Inhalt und seinem Rand.
 
-![Die Wirkung der CSS-Eigenschaft padding-top auf das Element-Box-Modell](padding-top.svg)
+![Die Wirkung der CSS-Eigenschaft padding-top auf das Element-Boxmodell](padding-top.svg)
 
 > [!NOTE]
-> Die {{cssxref("padding")}} Eigenschaft kann verwendet werden, um die Abstände auf allen vier Seiten eines Elements mit einer einzigen Deklaration festzulegen.
+> Die {{cssxref("padding")}} Eigenschaft kann verwendet werden, um Abstände an allen vier Seiten eines Elements mit einer einzigen Deklaration festzulegen.
 
 ## Syntax
 
@@ -78,14 +78,14 @@ padding-top: revert-layer;
 padding-top: unset;
 ```
 
-Die `padding-top` Eigenschaft wird als ein einzelner Wert angegeben, der aus der unten stehenden Liste ausgewählt wird. Im Gegensatz zu Abständen sind negative Werte für Padding nicht erlaubt.
+Die `padding-top` Eigenschaft wird als ein einzelner Wert angegeben, der aus der nachstehenden Liste ausgewählt wird. Im Gegensatz zu Rändern sind negative Werte für Innenabstände nicht erlaubt.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Paddings als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Innenabstands als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Paddings als Prozentsatz, relativ zur Inline-Größe (_width_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Innenabstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [Umgebungsblocks](/de/docs/Web/CSS/Guides/Display/Containing_block). Muss nicht negativ sein.
 
 ## Formale Definition
 
@@ -97,7 +97,7 @@ Die `padding-top` Eigenschaft wird als ein einzelner Wert angegeben, der aus der
 
 ## Beispiele
 
-### Festlegen des oberen Paddings mit Pixeln und Prozentangaben
+### Festlegung des oberen Innenabstands mit Pixeln und Prozentsätzen
 
 ```css
 .content {
@@ -119,8 +119,8 @@ Die `padding-top` Eigenschaft wird als ein einzelner Wert angegeben, der aus der
 ## Siehe auch
 
 - {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, {{cssxref("padding-left")}}
-- {{cssxref("padding")}} Kurzform
+- {{cssxref("padding")}} Kurzschreibweise
 - {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}
-- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzformen
-- [Einführung in das CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) Leitfaden
-- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul
+- {{cssxref("padding-block")}} und {{cssxref("padding-inline")}} Kurzschreibweisen
+- [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model/Introduction) Leitfaden
+- [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model) Modul

@@ -78,13 +78,13 @@ Dies ist eine grundlegende Demonstration der Probleme, die auftreten können, we
 
 ## Block und Inline
 
-Wenn wir logische statt physische Eigenschaften verwenden, sehen wir die Welt nicht als links nach rechts und von oben nach unten. Wir haben einen anderen Bezugspunkt. Dies ist der Punkt, an dem das Verständnis der _Block- und Inline-Achsen_, die im [Leitfaden zur Rasterausrichtung](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout) eingeführt wurden, sehr nützlich wird. Wenn Sie das Layout in Bezug auf Block und Inline denken, wird der Arbeitsablauf im CSS-Rasterlayout verständlich.
+Wenn wir logische statt physische Eigenschaften verwenden, sehen wir die Welt nicht als links nach rechts und von oben nach unten. Wir haben einen anderen Bezugspunkt. Dies ist der Punkt, an dem das Verständnis der _Block- und Inline-Achsen_, die im [Leitfaden zur Rasterausrichtung](/de/docs/Web/CSS/Guides/Grid_layout/Box_alignment) eingeführt wurden, sehr nützlich wird. Wenn Sie das Layout in Bezug auf Block und Inline denken, wird der Arbeitsablauf im CSS-Rasterlayout verständlich.
 
 ![Ein Bild, das die Standardrichtung der Block- und Inline-Achsen zeigt.](8-horizontal-tb.png)
 
 ## CSS-Schreibrichtungen
 
-Das Modul [CSS-Schreibrichtungen](/de/docs/Web/CSS/CSS_writing_modes) beschreibt, wie Schreibrichtungen in CSS funktionieren. Diese Funktionen dienen nicht nur zur Unterstützung von Sprachen mit einer anderen Schreibrichtung als Englisch; sie können auch für kreative Zwecke verwendet werden. Die Beispiele in diesem Abschnitt verwenden die Eigenschaft {{cssxref("writing-mode")}}, um Änderungen am angewendeten Schreibrichtung auf unseren Raster vorzunehmen und dabei zu demonstrieren, wie logische Werte funktionieren.
+Das Modul [CSS-Schreibrichtungen](/de/docs/Web/CSS/Guides/Writing_modes) beschreibt, wie Schreibrichtungen in CSS funktionieren. Diese Funktionen dienen nicht nur zur Unterstützung von Sprachen mit einer anderen Schreibrichtung als Englisch; sie können auch für kreative Zwecke verwendet werden. Die Beispiele in diesem Abschnitt verwenden die Eigenschaft {{cssxref("writing-mode")}}, um Änderungen am angewendeten Schreibrichtung auf unseren Raster vorzunehmen und dabei zu demonstrieren, wie logische Werte funktionieren.
 
 ### `writing-mode`
 
@@ -420,7 +420,7 @@ Wenn wir die Eigenschaft {{cssxref("direction")}} mit dem Wert `rtl` zum Raster-
 
 {{ EmbedLiveSample('Line-based_placement_with_right_to_left_text', '500', '240') }}
 
-Wenn Sie die Richtung Ihres Textes ändern, entweder für ganze Seiten oder für Teile von Seiten, und Zeilen verwenden, möchten Sie möglicherweise [Ihre Zeilen benennen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines), um zu vermeiden, dass das Layout vollständig die Richtung wechselt. Für einige Dinge, zum Beispiel, wenn ein Raster Textinhalte enthält, könnte diese Umstellung genau das sein, was Sie wollen. Für andere Verwendungen möglicherweise nicht.
+Wenn Sie die Richtung Ihres Textes ändern, entweder für ganze Seiten oder für Teile von Seiten, und Zeilen verwenden, möchten Sie möglicherweise [Ihre Zeilen benennen](/de/docs/Web/CSS/Guides/Grid_layout/Named_grid_lines), um zu vermeiden, dass das Layout vollständig die Richtung wechselt. Für einige Dinge, zum Beispiel, wenn ein Raster Textinhalte enthält, könnte diese Umstellung genau das sein, was Sie wollen. Für andere Verwendungen möglicherweise nicht.
 
 ### Die seltsame Reihenfolge der Werte in der `grid-area`-Eigenschaft
 
@@ -506,6 +506,6 @@ nav a {
 
 ## Physische Werte und logische Eigenschaften
 
-Wenn Sie logische Rastereigenschaften mit physischen Eigenschaften kombinieren, denken Sie daran, dass physische Eigenschaften sich nicht entsprechend der Schreibrichtung ändern. In unserem [Ausrichten von Elementen im CSS-Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout) Leitfaden verwenden wir automatische Ränder, um ein Element von den anderen wegzuschieben; das verwendet physische Eigenschaften. Es gibt für die meisten physischen Eigenschaften logische Äquivalente, die Schreibrichtungen auf die gleiche Weise respektieren wie die Platzierungs- und Ausrichtungseigenschaften und -werte im Raster.
+Wenn Sie logische Rastereigenschaften mit physischen Eigenschaften kombinieren, denken Sie daran, dass physische Eigenschaften sich nicht entsprechend der Schreibrichtung ändern. In unserem [Ausrichten von Elementen im CSS-Rasterlayout](/de/docs/Web/CSS/Guides/Grid_layout/Box_alignment) Leitfaden verwenden wir automatische Ränder, um ein Element von den anderen wegzuschieben; das verwendet physische Eigenschaften. Es gibt für die meisten physischen Eigenschaften logische Äquivalente, die Schreibrichtungen auf die gleiche Weise respektieren wie die Platzierungs- und Ausrichtungseigenschaften und -werte im Raster.
 
-Ebenso können Sie beim Verwenden von absoluter Positionierung innerhalb eines Rasterbereichs logische {{Glossary("inset_properties", "inset properties")}} verwenden, um Elemente innerhalb des Rasterbereichs zu platzieren. Beim Mischen von logischen und physischen Eigenschaften oder Werten sollten Sie die Spannung zwischen ihnen beachten. Beispielsweise müssen Sie möglicherweise Ihr CSS ändern, um eine Umstellung von `ltr` auf `rtl` zu bewältigen. Ihr Verständnis von Block und Inline durch Raster wird Ihnen helfen, [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) zu verstehen.
+Ebenso können Sie beim Verwenden von absoluter Positionierung innerhalb eines Rasterbereichs logische {{Glossary("inset_properties", "inset properties")}} verwenden, um Elemente innerhalb des Rasterbereichs zu platzieren. Beim Mischen von logischen und physischen Eigenschaften oder Werten sollten Sie die Spannung zwischen ihnen beachten. Beispielsweise müssen Sie möglicherweise Ihr CSS ändern, um eine Umstellung von `ltr` auf `rtl` zu bewältigen. Ihr Verständnis von Block und Inline durch Raster wird Ihnen helfen, [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) zu verstehen.

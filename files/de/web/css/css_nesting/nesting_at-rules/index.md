@@ -6,7 +6,7 @@ l10n:
   sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
-Jede [At-Rule](/de/docs/Web/CSS/CSS_syntax/At-rules), deren Körper Stilregeln enthält, kann unter Verwendung von CSS-Nesting in eine andere Stilregel verschachtelt werden. Stilregeln, die in At-Rules verschachtelt sind, übernehmen ihre Nesting-Selektor-Definition von der nächstgelegenen übergeordneten Stilregel. Eigenschaften können direkt in eine verschachtelte At-Rule aufgenommen werden und wirken so, als wären sie in einem `& {...}`-Block verschachtelt.
+Jede [At-Rule](/de/docs/Web/CSS/Guides/Syntax/At-rules), deren Körper Stilregeln enthält, kann unter Verwendung von CSS-Nesting in eine andere Stilregel verschachtelt werden. Stilregeln, die in At-Rules verschachtelt sind, übernehmen ihre Nesting-Selektor-Definition von der nächstgelegenen übergeordneten Stilregel. Eigenschaften können direkt in eine verschachtelte At-Rule aufgenommen werden und wirken so, als wären sie in einem `& {...}`-Block verschachtelt.
 
 ## At-Rules, die verschachtelt werden können
 
@@ -145,8 +145,8 @@ Hier weist der `.foo`-Selektor seine Regeln der **Basis**-`@layer` zu. Die versc
 
 ## Siehe auch
 
-- [CSS-Nesting](/de/docs/Web/CSS/CSS_nesting) Modul
+- [CSS-Nesting](/de/docs/Web/CSS/Guides/Nesting) Modul
 - [`&`-Nesting-Selektor](/de/docs/Web/CSS/Reference/Selectors/Nesting_selector)
-- [Verwendung von CSS-Nesting](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
-- [Nesting und Spezifität](/de/docs/Web/CSS/CSS_nesting/Nesting_and_specificity)
-- [Verschachtelung von Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries#nested_queries)
+- [Verwendung von CSS-Nesting](/de/docs/Web/CSS/Guides/Nesting/Using)
+- [Nesting und Spezifität](/de/docs/Web/CSS/Guides/Nesting/Nesting_and_specificity)
+- [Verschachtelung von Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries#nested_queries)

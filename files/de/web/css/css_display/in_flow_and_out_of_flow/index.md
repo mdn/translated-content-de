@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Der [vorherige Leitfaden](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow) erklärte Block- und Inline-Layout im normalen Fluss. Alle Elemente, die im Fluss sind, werden mit dieser Methode layoutet.
+Der [vorherige Leitfaden](/de/docs/Web/CSS/Guides/Display/Block_and_inline_layout) erklärte Block- und Inline-Layout im normalen Fluss. Alle Elemente, die im Fluss sind, werden mit dieser Methode layoutet.
 
 ## Beispiel für Elemente im Fluss
 
@@ -61,7 +61,7 @@ Alle Elemente befinden sich im Fluss, außer:
 - Elemente mit `position: absolute` (einschließlich `position: fixed`, das auf gleiche Weise wirkt)
 - das Wurzelelement (`html`)
 
-Elemente außerhalb des Flusses erstellen einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) (BFC), und daher kann alles innerhalb von ihnen als ein Mini-Layout betrachtet werden, das vom Rest der Seite getrennt ist. Das Wurzelelement ist daher außerhalb des Flusses, da es der Container für alles in unserem Dokument ist und den Block-Formatierungskontext für das Dokument etabliert.
+Elemente außerhalb des Flusses erstellen einen neuen [Block-Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) (BFC), und daher kann alles innerhalb von ihnen als ein Mini-Layout betrachtet werden, das vom Rest der Seite getrennt ist. Das Wurzelelement ist daher außerhalb des Flusses, da es der Container für alles in unserem Dokument ist und den Block-Formatierungskontext für das Dokument etabliert.
 
 ### Gefloatete Elemente
 
@@ -211,7 +211,7 @@ Wenn Sie etwas tun, um ein Element von dem Ort zu entfernen oder zu verschieben,
 
 ## Zusammenfassung
 
-In diesem Leitfaden haben wir erklärt, wie man ein Element aus dem Fluss nimmt, um sehr spezifische Arten der Positionierung zu erreichen. Im nächsten Leitfaden werden wir uns mit einem verwandten Thema befassen, der Erstellung eines [Block-Formatierungskontexts](/de/docs/Web/CSS/CSS_display/Block_formatting_context), in [Einführung in Formatierungskontexte](/de/docs/Web/CSS/CSS_display/Introduction_to_formatting_contexts).
+In diesem Leitfaden haben wir erklärt, wie man ein Element aus dem Fluss nimmt, um sehr spezifische Arten der Positionierung zu erreichen. Im nächsten Leitfaden werden wir uns mit einem verwandten Thema befassen, der Erstellung eines [Block-Formatierungskontexts](/de/docs/Web/CSS/Guides/Display/Block_formatting_context), in [Einführung in Formatierungskontexte](/de/docs/Web/CSS/Guides/Display/Formatting_contexts).
 
 ## Siehe auch
 

@@ -1,11 +1,11 @@
 ---
-title: "<ol>: Das Ordered List-Element"
+title: "<ol>: Das geordnete Listenelement"
 slug: Web/HTML/Reference/Elements/ol
 l10n:
-  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Das **`<ol>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine geordnete Liste von Elementen – typischerweise als nummerierte Liste dargestellt.
+Das **`<ol>`**-[HTML](/de/docs/Web/HTML)-Element steht für eine geordnete Liste von Elementen, die typischerweise als nummerierte Liste gerendert wird.
 
 {{InteractiveExample("HTML Demo: &lt;ol&gt;", "tabbed-shorter")}}
 
@@ -33,37 +33,39 @@ li {
 Dieses Element akzeptiert auch die [globalen Attribute](/de/docs/Web/HTML/Reference/Global_attributes).
 
 - `compact` {{Deprecated_inline}} {{non-standard_inline}}
-  - : Dieses Boolean-Attribut deutet darauf hin, dass die Liste in einem kompakten Stil dargestellt werden sollte. Die Interpretation dieses Attributs ist browserspezifisch. Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS): Um einen ähnlichen Effekt wie das `compact`-Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.
+  - : Dieses boolesche Attribut deutet darauf hin, dass die Liste in einem kompakten Stil gerendert werden sollte. Die Interpretation dieses Attributs ist browserspezifisch. Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS): Um einen ähnlichen Effekt wie das `compact`-Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.
 - `reversed`
-  - : Dieses Boolean-Attribut gibt an, dass die Elemente der Liste in umgekehrter Reihenfolge dargestellt werden. Die Elemente werden von hoch nach niedrig nummeriert.
+  - : Dieses boolesche Attribut gibt an, dass die Listenelemente in umgekehrter Reihenfolge vorliegen. Die Elemente werden von hoch zu niedrig nummeriert.
 - `start`
-  - : Eine Ganzzahl, ab der das Zählen für die Listenelemente beginnt. Immer eine arabische Zahl (1, 2, 3, etc.), selbst wenn der Nummerierungstyp Buchstaben oder römische Ziffern sind. Zum Beispiel, um die Nummerierung ab dem Buchstaben "d" oder der römischen Ziffer "iv" zu beginnen, verwenden Sie `start="4"`.
+  - : Eine ganze Zahl, ab der die Listenelemente gezählt werden sollen. Immer eine arabische Zahl (1, 2, 3, etc.), auch wenn der Nummerierungstyp Buchstaben oder römische Zahlen sind. Zum Beispiel, um nummerierte Elemente von dem Buchstaben "d" oder der römischen Zahl "iv" zu starten, verwenden Sie `start="4"`.
 - `type`
+
   - : Legt den Nummerierungstyp fest:
+
     - `a` für Kleinbuchstaben
     - `A` für Großbuchstaben
-    - `i` für römische Kleinbuchstaben
-    - `I` für römische Großbuchstaben
+    - `i` für kleine römische Zahlen
+    - `I` für große römische Zahlen
     - `1` für Zahlen (Standard)
 
-    Der angegebene Typ wird für die gesamte Liste verwendet, es sei denn, ein anderes [`type`](/de/docs/Web/HTML/Reference/Elements/li#type)-Attribut wird auf einem eingeschlossenen {{HTMLElement("li")}}-Element verwendet.
+    Der angegebene Typ wird für die gesamte Liste verwendet, es sei denn, es wird ein anderes [`type`](/de/docs/Web/HTML/Reference/Elements/li#type)-Attribut auf einem eingeschlossenen {{HTMLElement("li")}} Element verwendet.
 
     > [!NOTE]
-    > Sofern der Typ der Listennummer keine Bedeutung hat (wie in rechtlichen oder technischen Dokumenten, wo Elemente nach ihrer Nummer/Buchstabe referenziert werden), sollten Sie die CSS-Eigenschaft {{CSSxRef("list-style-type")}} verwenden.
+    > Sofern der Typ der Listennummer wichtig ist (wie in rechtlichen oder technischen Dokumenten, in denen Elemente nach ihrer Nummer/Buchstabe referenziert werden), verwenden Sie die CSS-Eigenschaft {{CSSxRef("list-style-type")}} stattdessen.
 
-## Anmerkungen zur Verwendung
+## Nutzungshinweise
 
-Typischerweise werden geordnete Listenelemente mit einem vorangestellten [Marker](/de/docs/Web/CSS/Reference/Selectors/::marker) angezeigt, wie etwa einer Zahl oder einem Buchstaben.
+Typischerweise werden geordnete Listenelemente mit einem vorangestellten [Markierungssymbol](/de/docs/Web/CSS/Reference/Selectors/::marker), wie einer Zahl oder einem Buchstaben, angezeigt.
 
-Die `<ol>` und {{HTMLElement("ul")}} (oder das Synonym {{HTMLElement("menu")}}) Elemente können beliebig tief verschachtelt werden, wobei nach Bedarf zwischen `<ol>`, `<ul>` (oder `<menu>`) abgewechselt wird.
+Die Elemente `<ol>` und {{HTMLElement("ul")}} (oder das Synonym {{HTMLElement("menu")}}) können beliebig tief verschachtelt werden, indem sie zwischen `<ol>`, `<ul>` (oder `<menu>`) nach Bedarf wechseln.
 
-Die `<ol>` und {{HTMLElement("ul")}} Elemente repräsentieren beide eine Liste von Elementen. Der Unterschied ist, dass beim `<ol>`-Element die Reihenfolge bedeutungsvoll ist. Zum Beispiel:
+Die Elemente `<ol>` und {{HTMLElement("ul")}} stellen beide eine Liste von Elementen dar. Der Unterschied besteht darin, dass bei dem `<ol>`-Element die Reihenfolge wichtig ist. Zum Beispiel:
 
 - Schritte in einem Rezept
-- Schritt-für-Schritt Anweisungen
-- Die Liste der Zutaten in abnehmender Menge auf Nährwertkennzeichnungen
+- Schritt-für-Schritt-Anweisungen
+- Die Zutatenliste in abnehmender Proportion auf Nährwertinformationstabellen
 
-Um zu bestimmen, welche Liste verwendet werden soll, ändern Sie die Reihenfolge der Listenelemente; wenn sich die Bedeutung ändert, verwenden Sie das `<ol>`-Element – andernfalls können Sie {{HTMLElement("ul")}} verwenden, oder {{HTMLElement("menu")}}, wenn Ihre Liste ein Menü ist.
+Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge der Listenelemente zu ändern; wenn sich die Bedeutung ändert, verwenden Sie das `<ol>`-Element – andernfalls können Sie {{HTMLElement("ul")}} verwenden, oder {{HTMLElement("menu")}}, wenn Ihre Liste ein Menü ist.
 
 ## Beispiele
 
@@ -82,7 +84,7 @@ Um zu bestimmen, welche Liste verwendet werden soll, ändern Sie die Reihenfolge
 
 {{EmbedLiveSample("Basic_example", 400, 100)}}
 
-### Verwendung des römischen Zifferntyps
+### Verwenden des römischen Zifferntyps
 
 ```html
 <ol type="i">
@@ -96,7 +98,7 @@ Um zu bestimmen, welche Liste verwendet werden soll, ändern Sie die Reihenfolge
 
 {{EmbedLiveSample("Using_Roman_Numeral_type", 400, 100)}}
 
-### Verwendung des start-Attributs
+### Verwenden des Start-Attributs
 
 ```html
 <p>Finishing places of contestants not in the winners' circle:</p>
@@ -170,11 +172,11 @@ Um zu bestimmen, welche Liste verwendet werden soll, ändern Sie die Reihenfolge
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >Fließender Inhalt</a
-        > und wenn die Kinder des <code>&#x3C;ol></code>-Elements mindestens ein
-        {{HTMLElement("li")}}-Element beinhalten,
+          >Fließinhalte</a
+        >, und wenn die Kinder des <code>&#x3C;ol></code>-Elements mindestens
+        ein {{HTMLElement("li")}}-Element enthalten,
         <a href="/de/docs/Web/HTML/Guides/Content_categories#palpable_content"
-          >greifbarer Inhalt</a
+          >spürbare Inhalte</a
         >.
       </td>
     </tr>
@@ -187,20 +189,20 @@ Um zu bestimmen, welche Liste verwendet werden soll, ändern Sie die Reihenfolge
       </td>
     </tr>
     <tr>
-      <th scope="row">Mark-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Guides/Content_categories#flow_content"
-          >fließenden Inhalt</a
+          >Fließinhalte</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Reference/Roles/list_role"
@@ -237,9 +239,9 @@ Um zu bestimmen, welche Liste verwendet werden soll, ändern Sie die Reihenfolge
 
 ## Siehe auch
 
-- Andere listebezogene HTML-Elemente: {{HTMLElement("ul")}}, {{HTMLElement("li")}}, {{HTMLElement("menu")}}
+- Andere Listen-bezogene HTML-Elemente: {{HTMLElement("ul")}}, {{HTMLElement("li")}}, {{HTMLElement("menu")}}
 - CSS-Eigenschaften, die besonders nützlich sein können, um das `<ol>`-Element zu stylen:
-  - die {{CSSxRef("list-style")}}-Eigenschaft, um die Darstellungsweise der Ordinals zu wählen
-  - [CSS-Counter](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters), um komplex verschachtelte Listen zu handhaben
+  - die {{CSSxRef("list-style")}}-Eigenschaft, um die Anzeige der Ordnungsnummer zu wählen
+  - [CSS-Zähler](/de/docs/Web/CSS/Guides/Counter_styles/Using_counters), um komplexe verschachtelte Listen zu behandeln
   - die {{CSSxRef("line-height")}}-Eigenschaft, um das veraltete `compact`-Attribut zu simulieren
   - die {{CSSxRef("margin")}}-Eigenschaft, um die Einrückung der Liste zu steuern

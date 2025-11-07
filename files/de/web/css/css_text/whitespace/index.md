@@ -101,7 +101,7 @@ Das `<h1>`-Element enthält:
 - Ein Inline-Element (`<span>`, das ein Leerzeichen und das Wort "World!" enthält).
 - Einen weiteren Textknoten (mit einem Tabulator und Leerzeichen nach dem `<span>`).
 
-Da dieses `<h1>`-Element nur Inline-Elemente enthält, erstellt es einen [Inline-Formatierungskontext](/de/docs/Web/CSS/CSS_inline_layout/Inline_formatting_context). Dies ist einer der mehreren Layout-Rendering-Kontexte, die von Browser-Engines verwendet werden, um Inhalte auf der Seite anzuordnen.
+Da dieses `<h1>`-Element nur Inline-Elemente enthält, erstellt es einen [Inline-Formatierungskontext](/de/docs/Web/CSS/Guides/Inline_layout/Inline_formatting_context). Dies ist einer der mehreren Layout-Rendering-Kontexte, die von Browser-Engines verwendet werden, um Inhalte auf der Seite anzuordnen.
 
 Innerhalb dieses Inline-Formatierungskontexts werden Leerzeichen wie folgt verarbeitet:
 
@@ -174,7 +174,7 @@ In Kürze werden verschiedene Leerzeichen-Zeichen wie folgt kollabiert und trans
 
 ### Kürzen und Positionieren
 
-In sowohl [Inline](/de/docs/Web/CSS/CSS_inline_layout/Inline_formatting_context) als auch [Block](/de/docs/Web/CSS/CSS_display/Block_formatting_context) Formatierungskontexten werden Elemente in _Zeilen_ angeordnet. In einem Inline-Formatierungskontext werden Zeilen durch Textumbruch erstellt. In einem Block-Formatierungskontext hingegen bildet jeder Block seine eigene Zeile. Während jede Zeile ausgelegt wird, werden Leerzeichen weiter verarbeitet. Schauen wir uns ein Beispiel an, um zu erklären, wie das funktioniert.
+In sowohl [Inline](/de/docs/Web/CSS/Guides/Inline_layout/Inline_formatting_context) als auch [Block](/de/docs/Web/CSS/Guides/Display/Block_formatting_context) Formatierungskontexten werden Elemente in _Zeilen_ angeordnet. In einem Inline-Formatierungskontext werden Zeilen durch Textumbruch erstellt. In einem Block-Formatierungskontext hingegen bildet jeder Block seine eigene Zeile. Während jede Zeile ausgelegt wird, werden Leerzeichen weiter verarbeitet. Schauen wir uns ein Beispiel an, um zu erklären, wie das funktioniert.
 
 In diesem Beispiel, wie zuvor, haben wir die Leerzeichen-Zeichen in einem Kommentar markiert. Wir haben drei Textknoten, die nur Leerzeichen enthalten: einen vor dem ersten `<div>`, einen zwischen den 2 `<div>`s und einen nach dem zweiten `<div>`.
 

@@ -5,7 +5,7 @@ l10n:
   sourceCommit: f3bf4e2bd456159093d3820253be9f266ace070a
 ---
 
-Im [Leitfaden zur Gitterlayout-Verwendung anhand von linienbasiertem Placement](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) haben wir uns die Gitterlinien und deren Verwendung zur Positionierung von Elementen angesehen. Bei der Verwendung des CSS-Gitterlayouts haben Sie immer Linien, was eine unkomplizierte Möglichkeit bietet, Elemente auf Ihrem Gitter zu platzieren. Es gibt jedoch eine alternative Methode zum Positionieren von Elementen auf dem Gitter, die Sie allein oder in Kombination mit dem linienbasierten Placement verwenden können. Diese Methode beinhaltet das Platzieren unserer Elemente mit benannten Template-Bereichen. Sie werden schnell sehen, warum wir diese Methode manchmal die ASCII-Art-Methode des Gitterlayouts nennen!
+Im [Leitfaden zur Gitterlayout-Verwendung anhand von linienbasiertem Placement](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement) haben wir uns die Gitterlinien und deren Verwendung zur Positionierung von Elementen angesehen. Bei der Verwendung des CSS-Gitterlayouts haben Sie immer Linien, was eine unkomplizierte Möglichkeit bietet, Elemente auf Ihrem Gitter zu platzieren. Es gibt jedoch eine alternative Methode zum Positionieren von Elementen auf dem Gitter, die Sie allein oder in Kombination mit dem linienbasierten Placement verwenden können. Diese Methode beinhaltet das Platzieren unserer Elemente mit benannten Template-Bereichen. Sie werden schnell sehen, warum wir diese Methode manchmal die ASCII-Art-Methode des Gitterlayouts nennen!
 
 ## Benennung eines Gitterbereichs
 
@@ -286,7 +286,7 @@ Für unser oben genanntes Layout möchten wir vielleicht ein sehr einfaches Layo
 }
 ```
 
-Wir können dann dieses Layout innerhalb von [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) neu definieren, um zu unserem zweispaltigen Layout zu wechseln und möglicherweise zu einem dreispaltigen Layout, wenn der verfügbare Platz noch größer ist. Beachten Sie, dass wir für das breite Layout das neunkolonige Track-Gitter beibehalten und die Positionierung der Elemente mit `grid-template-areas` neu definieren.
+Wir können dann dieses Layout innerhalb von [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using) neu definieren, um zu unserem zweispaltigen Layout zu wechseln und möglicherweise zu einem dreispaltigen Layout, wenn der verfügbare Platz noch größer ist. Beachten Sie, dass wir für das breite Layout das neunkolonige Track-Gitter beibehalten und die Positionierung der Elemente mit `grid-template-areas` neu definieren.
 
 ```css
 @media (width >= 30em) {
@@ -480,8 +480,8 @@ Sie können diese Syntax auf exakt die gleiche Weise wie den {{cssxref("grid-tem
 }
 ```
 
-Wir werden die andere durch diesen Shorthand angebotene Funktionalität erneut betrachten, wenn wir uns die [automatische Platzierung im Gitterlayout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout) und die `grid-auto-flow`-Eigenschaft ansehen.
+Wir werden die andere durch diesen Shorthand angebotene Funktionalität erneut betrachten, wenn wir uns die [automatische Platzierung im Gitterlayout](/de/docs/Web/CSS/Guides/Grid_layout/Auto-placement) und die `grid-auto-flow`-Eigenschaft ansehen.
 
 ## Nächste Schritte
 
-Wenn Sie den [Gitter-Leitfäden](/de/docs/Web/CSS/CSS_grid_layout#guides) gefolgt sind, sollten Sie in der Lage sein, Gitterlayouts mit [linienbasierten Placements](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) oder [benannten Bereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) zu erstellen. Lassen Sie uns nun einen Blick darauf werfen, [Gitterlayouts mit benannten Gitterlinien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) zu erstellen.
+Wenn Sie den [Gitter-Leitfäden](/de/docs/Web/CSS/Guides/Grid_layout#guides) gefolgt sind, sollten Sie in der Lage sein, Gitterlayouts mit [linienbasierten Placements](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement) oder [benannten Bereichen](/de/docs/Web/CSS/Guides/Grid_layout/Named_grid_lines) zu erstellen. Lassen Sie uns nun einen Blick darauf werfen, [Gitterlayouts mit benannten Gitterlinien](/de/docs/Web/CSS/Guides/Grid_layout/Named_grid_lines) zu erstellen.

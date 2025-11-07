@@ -38,7 +38,7 @@ Die Spezifikation definiert auch die Eigenschaften `hyphenate-limit-last`, `hyph
 
 ### Leitfäden
 
-- [Umbruch und Trennung von Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
+- [Umbruch und Trennung von Text](/de/docs/Web/CSS/Guides/Text/Wrapping_breaking_text)
   - : Ein Leitfaden zu den verschiedenen Möglichkeiten, wie überlaufender Text in CSS verwaltet werden kann.
 
 ## Verwandte Konzepte
@@ -73,8 +73,8 @@ Die Spezifikation definiert auch die Eigenschaften `hyphenate-limit-last`, `hyph
 
 ## Siehe auch
 
-- [CSS Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) Modul
-- [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Schriften](/de/docs/Web/CSS/CSS_fonts) Modul
-- [CSS Ruby-Layout](/de/docs/Web/CSS/CSS_ruby_layout) Modul
-- [CSS Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) Modul
+- [CSS Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes) Modul
+- [CSS Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul
+- [CSS Schriften](/de/docs/Web/CSS/Guides/Fonts) Modul
+- [CSS Ruby-Layout](/de/docs/Web/CSS/Guides/Ruby_layout) Modul
+- [CSS Textdekoration](/de/docs/Web/CSS/Guides/Text_decoration) Modul

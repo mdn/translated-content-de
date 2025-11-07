@@ -108,7 +108,7 @@ In Bezug auf Stacking-Kontexte werden DIV #1 und DIV #3 in das Root-Element assi
 
 ## Siehe auch
 
-- [Beispiel: 2-stufige HTML-Hierarchie, `z-index` auf allen Ebenen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_2)
-- [Beispiel: 3-stufige HTML-Hierarchie, `z-index` auf der zweiten Ebene](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_3)
-- [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context)
-- [CSS-positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [Beispiel: 2-stufige HTML-Hierarchie, `z-index` auf allen Ebenen](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context/Example_2)
+- [Beispiel: 3-stufige HTML-Hierarchie, `z-index` auf der zweiten Ebene](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context/Example_3)
+- [Stacking-Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context)
+- [CSS-positioniertes Layout](/de/docs/Web/CSS/Guides/Positioned_layout) Modul

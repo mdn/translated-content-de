@@ -2,10 +2,10 @@
 title: overscroll-behavior-y
 slug: Web/CSS/Reference/Properties/overscroll-behavior-y
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`overscroll-behavior-y`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten des Browsers fest, wenn die vertikale Grenze eines Scrollbereichs erreicht wird.
+Die **`overscroll-behavior-y`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten des Browsers fest, wenn der vertikale Rand eines Scrollbereichs erreicht wird.
 
 Siehe {{cssxref("overscroll-behavior")}} für eine vollständige Erklärung.
 
@@ -25,16 +25,16 @@ overscroll-behavior-y: revert-layer;
 overscroll-behavior-y: unset;
 ```
 
-Die Eigenschaft `overscroll-behavior-y` wird als ein Schlüsselwort aus der untenstehenden Liste von Werten angegeben.
+Die Eigenschaft `overscroll-behavior-y` wird als Schlüsselwort aus der unten stehenden Werteliste angegeben.
 
 ### Werte
 
 - `auto`
-  - : Das Standardverhalten für Überlauf beim Scrollen tritt wie gewohnt auf.
+  - : Das Standardverhalten für das Überlauf-Scrolling tritt wie gewohnt auf.
 - `contain`
-  - : Das Standardverhalten für Überlauf beim Scrollen (z.B. "Bounce"-Effekte) wird innerhalb des Elements beobachtet, in dem dieser Wert festgelegt ist. Es tritt jedoch keine {{Glossary("Scroll_chaining", "Scroll-Verkettung")}} in benachbarten Scroll-Bereichen auf; die darunter liegenden Elemente werden nicht scrollen. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen "Pull-to-refresh"-Geste und der horizontalen Wischnavigation.
+  - : Das Standardverhalten für das Überlauf-Scrolling (z. B. "Bounce"-Effekte) wird innerhalb des Elements beobachtet, wo dieser Wert festgelegt ist. Es tritt jedoch kein {{Glossary("Scroll_chaining", "Scroll Chaining")}} in benachbarten Scrollbereichen auf; die zugrunde liegenden Elemente werden nicht gescrollt. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Swipe-Navigation.
 - `none`
-  - : Es tritt keine Scroll-Verkettung zu benachbarten Scroll-Bereichen auf, und das Standardverhalten für Überlauf beim Scrollen wird verhindert.
+  - : Es tritt kein Scroll Chaining zu benachbarten Scrollbereichen auf und das Standardverhalten für das Überlauf-Scrolling wird verhindert.
 
 ## Formale Definition
 
@@ -46,7 +46,7 @@ Die Eigenschaft `overscroll-behavior-y` wird als ein Schlüsselwort aus der unte
 
 ## Beispiele
 
-### Verhindern, dass ein darunter liegendes Element vertikal scrollt
+### Verhindern, dass ein zugrunde liegendes Element vertikal scrollt
 
 ```css
 .messages {
@@ -72,4 +72,4 @@ Siehe {{cssxref("overscroll-behavior")}} für ein vollständiges Beispiel und Er
 - {{cssxref("overscroll-behavior-x")}}
 - {{cssxref("overscroll-behavior-inline")}}
 - {{cssxref("overscroll-behavior-block")}}
-- [CSS overscroll behavior](/de/docs/Web/CSS/CSS_overscroll_behavior) module
+- [CSS Overscroll-Verhalten](/de/docs/Web/CSS/Guides/Overscroll_behavior) Modul

@@ -2,12 +2,12 @@
 title: ::scroll-marker
 slug: Web/CSS/Reference/Selectors/::scroll-marker
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Das **`::scroll-marker`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) kann in jedes Element eingefügt werden und repräsentiert dessen Scroll-Marker. Alle Elemente können ein `::scroll-marker`-Pseudoelement haben, das in die {{cssxref("::scroll-marker-group")}} des nächstgelegenen {{Glossary("scroll_container", "Scroll-Container")}} Vorfahren eingefügt wird. Ein Scroll-Marker verhält sich wie ein Anker ({{htmlelement("a")}} Element), dessen Scroll-Ziel das ursprüngliche Element des Markers ist — und scrollt den Scroll-Container zu diesem Element, wenn er aktiviert wird.
+Das **`::scroll-marker`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) kann in jedem Element generiert werden und repräsentiert dessen Scroll-Marker. Alle Elemente können ein `::scroll-marker`-Pseudoelement haben, das in die {{cssxref("::scroll-marker-group")}} des nächsten {{Glossary("scroll_container", "Scroll-Containers")}} Vorfahren eingefügt wird. Ein Scroll-Marker verhält sich wie ein Anker ({{htmlelement("a")}} Element), dessen Scroll-Ziel das Ursprungselement des Markers ist — und scrollt den Scroll-Container zu diesem Element, wenn er aktiviert wird.
 
 ## Syntax
 
@@ -19,26 +19,26 @@ Das **`::scroll-marker`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/C
 
 ## Beschreibung
 
-Ein `::scroll-marker` wird auf einem Element erzeugt, wenn die `::scroll-marker`-{{cssxref("content")}}-Eigenschaft auf einen von `none` verschiedenen Wert gesetzt ist und es einen Vorfahren-Scroll-Container mit einem von `none` verschiedenen Wert der {{cssxref("scroll-marker-group")}}-Eigenschaft gibt (was bedeutet, dass ein {{cssxref("::scroll-marker-group")}}-Pseudoelement erzeugt wird).
+Ein `::scroll-marker` wird auf einem Element generiert, wenn die `::scroll-marker`-{{cssxref("content")}}-Eigenschaft auf einen Wert ungleich `none` gesetzt wird und es einen Vorfahren-Scroll-Container mit einem Wert ungleich `none` der {{cssxref("scroll-marker-group")}}-Eigenschaft gibt (was bedeutet, dass ein {{cssxref("::scroll-marker-group")}}-Pseudoelement generiert wird).
 
-Das `::scroll-marker-group`-Pseudoelement des Scroll-Containers enthält automatisch alle `::scroll-marker`-Pseudoelemente, die auf dem Scroll-Container oder seinen Nachfahren generiert werden. Dadurch können sie als Gruppe positioniert und angeordnet werden und wird typischerweise verwendet, um bei der Erstellung eines CSS-Karussells einen Scroll-Positionsanzeiger zu erstellen. Die einzelnen Scroll-Marker können verwendet werden, um zu ihren zugehörigen Inhaltselementen zu navigieren.
+Das `::scroll-marker-group`-Pseudoelement des Scroll-Containers enthält automatisch alle `::scroll-marker`-Pseudoelemente, die auf dem Scroll-Container oder seinen Nachkommen generiert werden. Dadurch können sie als Gruppe positioniert und gestaltet werden und werden typischerweise verwendet, um in einem CSS-Karussell einen Scroll-Positions-Indikator zu erstellen. Die einzelnen Scroll-Marker können verwendet werden, um zu ihren zugehörigen Inhaltsobjekten zu navigieren.
 
 > [!NOTE]
-> Alternativ kann ein Container für Scroll-Marker-Gruppen aus einem vorhandenen Elementcontainer mit {{cssxref("scroll-target-group")}} erstellt werden; alle enthaltenen {{htmlelement("a")}}-Elemente mit Fragmentidentifikatoren, die auf Abschnitte der Seite verlinken, verhalten sich automatisch wie Scroll-Marker.
+> Alternativ kann ein Container für Scroll-Marker-Gruppen aus einem vorhandenen Element-Container mithilfe von {{cssxref("scroll-target-group")}} erstellt werden; alle enthaltenen {{htmlelement("a")}}-Elemente mit Fragment-Identifikatoren, die auf Abschnitte der Seite verlinken, verhalten sich automatisch wie Scroll-Marker.
 
-Wenn ein Container für Scroll-Marker-Gruppen auf einem Scroll-Container mit der `scroll-marker-group`-Eigenschaft erstellt wird, wird der Scroll-Container mit [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)/[`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)-Semantik gerendert. Sie können mit der Tastatur zu ihm wechseln, dann zwischen den verschiedenen "Seiten" mit den Pfeilen nach links und rechts (oder nach oben und unten) navigieren, was auch den Zustand der zugehörigen Scroll-Marker und Scroll-Buttons wie erwartet ändert. Die Scroll-Marker können ebenfalls normal zwischenzeitlich angesteuert werden.
+Wenn auf einem Scroll-Container ein Container für Scroll-Marker-Gruppen mit der Eigenschaft `scroll-marker-group` erstellt wird, wird der Scroll-Container mit [`tablist`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tablist_role)/[`tab`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role)-Semantik gerendert. Sie können mit der Tastatur <kbd>Tab</kbd> dazu wechseln und dann zwischen den verschiedenen "Seiten" mit den linken und rechten (oder oben und unten) Pfeiltasten wechseln, was auch den Zustand der zugehörigen Scroll-Marker und Scroll-Tasten wie erwartet ändert. Die Scroll-Marker können auch normal zwischen den einzelnen Elementen angesprungen werden.
 
 ## Beispiele
 
-Sehen Sie sich [Creating CSS carousels](/de/docs/Web/CSS/CSS_overflow/CSS_carousels) für andere Beispiele an, die das `::scroll-marker`-Pseudoelement verwenden.
+Andere Beispiele, die das `::scroll-marker`-Pseudoelement verwenden, finden Sie unter [Erstellen von CSS-Karussellen](/de/docs/Web/CSS/Guides/Overflow/Carousels).
 
-### Scroll-Marker in einem Karussell erstellen
+### Erstellen von Scroll-Marker für Karussell
 
-In diesem Beispiel demonstrieren wir, wie man Scroll-Marker in einem CSS-Karussell erstellt.
+In diesem Beispiel zeigen wir, wie man Scroll-Marker auf einem CSS-Karussell erstellt.
 
 #### HTML
 
-Wir haben eine grundlegende HTML-{{htmlelement("ul")}}-Liste mit mehreren {{htmlelement("li")}}-Listenelementen.
+Wir haben eine einfache HTML-{{htmlelement("ul")}}-Liste mit mehreren {{htmlelement("li")}}-Listenelementen.
 
 ```html live-sample___creating-scroll-markers live-sample___custom-numbering
 <ul>
@@ -55,9 +55,9 @@ Wir haben eine grundlegende HTML-{{htmlelement("ul")}}-Liste mit mehreren {{html
 
 #### CSS
 
-Wir verwandeln unsere `<ul>` in einen Scroll-Snapping-Overflow-Container, indem wir das {{cssxref("display")}} auf `flex` setzen, um eine einzelne, nicht-umhüllende Zeile von `<li>`-Elementen zu erstellen. Die {{cssxref("overflow-x")}}-Eigenschaft wird auf `auto` gesetzt, was bedeutet, dass, wenn die Elemente ihren Container auf der x-Achse überfluten, der Inhalt horizontal scrollt. Dann verwandeln wir die `<ul>` in einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}}, um sicherzustellen, dass die Elemente immer an ihrem Platz einrasten, wenn der Container mit einem {{cssxref("scroll-snap-type")}}-Wert von `mandatory` gescrollt wird.
+Wir konvertieren unser `<ul>` in einen Scroll-Snapping-Überlaufcontainer, indem wir das {{cssxref("display")}} auf `flex` setzen und eine einzelne, nicht umbruchende Zeile von `<li>`-Elementen erstellen. Die {{cssxref("overflow-x")}}-Eigenschaft wird auf `auto` gesetzt, was bedeutet, dass, wenn die Elemente ihren Container auf der x-Achse überlaufen, der Inhalt horizontal scrollt. Wir konvertieren dann das `<ul>` in einen {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}}, wodurch sichergestellt wird, dass die Elemente immer einrasten, wenn der Container mit einem {{cssxref("scroll-snap-type")}}-Wert von `mandatory` gescrollt wird.
 
-Wir erstellen einen Container für Scroll-Marker-Gruppen mit der `scroll-marker-group`-Eigenschaft, indem wir ihn nach dem gesamten Inhalt platzieren.
+Wir erstellen einen Container für Scroll-Marker-Gruppen mit der Eigenschaft `scroll-marker-group` und platzieren ihn hinter allen Inhalten.
 
 ```css live-sample___creating-scroll-markers live-sample___custom-numbering
 ul {
@@ -71,7 +71,7 @@ ul {
 }
 ```
 
-Als nächstes gestalten wir die `<li>`-Elemente, indem wir die {{cssxref("flex")}}-Eigenschaft verwenden, um sie auf `33%` der Breite des Containers festzulegen. Der {{cssxref("scroll-snap-align")}}-Wert von `start` bewirkt, dass die linke Seite des am weitesten links sichtbaren Elements bei einem Scrollen des Inhalts an die linke Kante des Containers schnappt.
+Anschließend gestalten wir die `<li>`-Elemente, indem wir die {{cssxref("flex")}}-Eigenschaft verwenden, um sie auf `33%` der Breite des Containers einzustellen. Der {{cssxref("scroll-snap-align")}}-Wert von `start` bewirkt, dass die linke Seite des am weitesten links sichtbaren Elements an die linke Kante des Containers schnappt, wenn der Inhalt gescrollt wird.
 
 ```css live-sample___creating-scroll-markers live-sample___custom-numbering
 li {
@@ -85,7 +85,7 @@ li {
 }
 ```
 
-Wir verwenden dann das `::scroll-marker`-Pseudoelement, um einen quadratischen Marker für jedes Listenelement mit einem roten Rand zu erstellen:
+Dann verwenden wir das `::scroll-marker`-Pseudoelement, um für jedes Listenelement einen quadratischen Marker mit einem roten Rand zu erstellen:
 
 ```css live-sample___creating-scroll-markers
 li::scroll-marker {
@@ -96,7 +96,7 @@ li::scroll-marker {
 }
 ```
 
-Wir wenden auch Styles auf das {{cssxref("::scroll-marker-group")}}-Pseudoelement an, um die Scroll-Marker in der Mitte der Reihe mit einem Abstand von `0.4em` zwischen jedem zu positionieren:
+Wir wenden auch Stile auf das {{cssxref("::scroll-marker-group")}}-Pseudoelement an, um die Scroll-Marker in der Mitte der Zeile mit einem `0.4em`-Abstand zwischen jedem Marker anzuordnen:
 
 ```css live-sample___creating-scroll-markers live-sample___custom-numbering
 ::scroll-marker-group {
@@ -106,7 +106,7 @@ Wir wenden auch Styles auf das {{cssxref("::scroll-marker-group")}}-Pseudoelemen
 }
 ```
 
-Schließlich gestalten wir den Marker des aktuell gescrollten Elements anders als die anderen, indem wir den Marker mit der {{cssxref(":target-current")}}-Pseudoklasse anvisieren.
+Schließlich gestalten wir den Marker des aktuell gescrollten Elements anders als die anderen und richten uns an den Marker mit der {{cssxref(":target-current")}}-Pseudoklasse.
 
 ```css live-sample___creating-scroll-markers
 ::scroll-marker:target-current {
@@ -118,13 +118,13 @@ Schließlich gestalten wir den Marker des aktuell gescrollten Elements anders al
 
 {{EmbedLiveSample("creating-scroll-markers", '', '200')}}
 
-### Individuelle Nummerierung und Stile für Scroll-Marker
+### Benutzerdefinierte Scroll-Marker-Nummerierung und Stil
 
-Dieses Beispiel ist das gleiche wie das vorherige, außer dass wir einige unterschiedliche Stile auf die Scroll-Marker angewendet und [CSS-Zähler](/de/docs/Web/CSS/CSS_lists) verwendet haben, um die Nummerierung auf jedem Marker zu erhöhen. Die CSS-Unterschiede werden im nächsten Abschnitt erläutert.
+Dieses Beispiel ist dasselbe wie das vorherige, außer dass wir etwas andere Stile auf die Scroll-Marker angewendet haben und [CSS-Zähler](/de/docs/Web/CSS/Guides/Lists) verwendet haben, um die auf jedem Marker angezeigte Nummer zu inkrementieren. Die Unterschiede in der CSS werden im nächsten Abschnitt erklärt.
 
 ### CSS
 
-In diesem Beispiel setzen wir einen Namen für einen Zähler, den wir bei jedem `<li>` erhöhen möchten — `markers` — mit der {{cssxref("counter-increment")}}-Eigenschaft:
+In diesem Beispiel legen wir einen Namen eines Zählers fest, den wir bei jedem `<li>` inkrementieren möchten — `markers` — und verwenden dazu die {{cssxref("counter-increment")}}-Eigenschaft:
 
 ```css live-sample___custom-numbering
 li {
@@ -132,7 +132,7 @@ li {
 }
 ```
 
-Dann setzen wir die {{cssxref("content")}}-Eigenschaft des `::scroll-marker`-Pseudoelements auf die {{cssxref("counter()")}}-Funktion, indem wir der Funktion den `markers`-Zählernamen als Argument übergeben. Dies hat den Effekt, dass eine Nummer in jeden Marker eingefügt wird, die sich automatisch erhöht. Der Rest der Stile ist grundlegend, aber es veranschaulicht, wie die Marker vollständig gestylt werden können.
+Dann setzen wir die `::scroll-marker`-Pseudoelement-{{cssxref("content")}}-Eigenschaft auf die {{cssxref("counter()")}}-Funktion und übergeben den `markers`-Zählername als Argument. Dies hat den Effekt, dass eine Nummer in jeden Marker eingefügt wird, die automatisch inkrementiert wird. Der Rest der Gestaltung ist rudimentär, zeigt jedoch, wie die Marker vollständig gestaltet werden können.
 
 ```css live-sample___custom-numbering
 li::scroll-marker {
@@ -149,7 +149,7 @@ li::scroll-marker {
 }
 ```
 
-Für eine weitere interessante Anpassung fügen wir zwei Regeln hinzu, um den Marker des ersten und letzten Listenelements zu selektieren, indem wir {{cssxref(":first-child")}} und {{cssxref(":last-child")}} in die Selektorenkette einfügen. Wir geben dem ersten Marker den Textinhalt "First" und dem letzten Marker den Textinhalt "Last".
+Für eine weitere interessante Anpassung fügen wir zwei Regeln hinzu, um den Marker des ersten und letzten Listenelements auszuwählen, indem wir {{cssxref(":first-child")}} und {{cssxref(":last-child")}} in die Selektorkette einfügen. Wir geben dem ersten Marker den Textinhalt "First" und dem letzten den Textinhalt "Last".
 
 ```css live-sample___custom-numbering
 li:first-child::scroll-marker {
@@ -161,7 +161,7 @@ li:last-child::scroll-marker {
 }
 ```
 
-Um die Benutzererfahrung zu verbessern, setzen wir eine andere Farbe auf die Marker bei {{cssxref(":hover")}} und verwenden die `:target-current`-Pseudoklasse, um auf dem Marker des aktuell gescrollten Elements eine andere {{cssxref("color")}} und {{cssxref("background-color")}} festzulegen, damit die Benutzer wissen, welches Element gerade angezeigt wird:
+Um die Benutzererfahrung zu verbessern, setzen wir eine andere Farbe auf die Marker bei {{cssxref(":hover")}} und verwenden die `:target-current`-Pseudoklasse, um eine andere {{cssxref("color")}} und {{cssxref("background-color")}} auf den Marker des aktuell gescrollten Elements zu setzen, damit Benutzer wissen, welches Objekt gerade angezeigt wird:
 
 ```css live-sample___custom-numbering
 ::scroll-marker:hover {
@@ -193,7 +193,7 @@ Um die Benutzererfahrung zu verbessern, setzen wir eine andere Farbe auf die Mar
 - {{cssxref("::scroll-button()")}}
 - {{cssxref("::scroll-marker-group")}}
 - {{cssxref(":target-current")}}
-- [Creating CSS carousels](/de/docs/Web/CSS/CSS_overflow/CSS_carousels)
-- [CSS lists and counters](/de/docs/Web/CSS/CSS_lists) Modul
-- [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul
+- [Erstellen von CSS-Karussellen](/de/docs/Web/CSS/Guides/Overflow/Carousels)
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul
+- [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul
 - [CSS Carousel Gallery](https://chrome.dev/carousel/) über chrome.dev (2025)

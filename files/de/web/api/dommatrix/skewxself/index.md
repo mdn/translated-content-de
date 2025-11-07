@@ -1,14 +1,14 @@
 ---
-title: "DOMMatrix: skewXSelf()-Methode"
+title: "DOMMatrix: Methode skewXSelf()"
 short-title: skewXSelf()
 slug: Web/API/DOMMatrix/skewXSelf
 l10n:
-  sourceCommit: 1b88b4d62918f6f13d1155825e3881f52d90206e
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die `skewXSelf()`-Methode der [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Schnittstelle ist eine veränderbare Transformationsmethode, die eine Matrix verändert. Sie schert die Quellmatrix, indem sie die angegebene Schertransformation entlang der X-Achse anwendet und die gescherten Matrix zurückgibt.
+Die `skewXSelf()`-Methode der [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Schnittstelle ist eine veränderbare Transformationsmethode, die eine Matrix modifiziert. Sie schert die Quellmatrix, indem die angegebene Schertransformation entlang der X-Achse angewendet wird, und gibt die verzerrte Matrix zurück.
 
 Um eine Matrix entlang der X-Achse zu scheren, ohne sie zu verändern, siehe [`DOMMatrixReadOnly.skewX()`](/de/docs/Web/API/DOMMatrixReadOnly/skewX).
 
@@ -26,7 +26,7 @@ skewXSelf(sX)
 
 ### Rückgabewert
 
-Gibt sich selbst zurück; die [`DOMMatrix`](/de/docs/Web/API/DOMMatrix), die entlang der X-Achse um den angegebenen Winkel geschert wird.
+Gibt sich selbst zurück; die entlang der X-Achse um den angegebenen Winkel verzerrte [`DOMMatrix`](/de/docs/Web/API/DOMMatrix).
 
 ## Beispiele
 
@@ -53,7 +53,7 @@ console.log(matrix); // output: "matrix(1, 0, 0.25, 1, 0, 0)"
   - {{cssxref("transform-function/skew", "skew()")}}
   - {{cssxref("transform-function/skewX", "skewX()")}}
   - {{cssxref("transform-function/skewY", "skewY()")}}
-- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms)-Modul
+- [CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms)-Modul
 - SVG [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform)-Attribut
 - [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Schnittstellenmethoden
   - [`CanvasRenderingContext2D.transform()`](/de/docs/Web/API/CanvasRenderingContext2D/transform)

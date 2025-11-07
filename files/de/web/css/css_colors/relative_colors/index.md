@@ -5,7 +5,7 @@ l10n:
   sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das [CSS-Farbmodul](/de/docs/Web/CSS/CSS_colors) definiert die **relative Farbsyntax**, die es erlaubt, einen CSS-{{cssxref("&lt;color&gt;")}}-Wert relativ zu einer anderen Farbe zu definieren. Dies ist eine leistungsstarke Funktion, die es ermöglicht, leicht Komplementärfarben zu bestehenden Farben zu erstellen – wie hellere, dunklere, gesättigte, halbtransparente oder invertierte Varianten – und somit eine effektivere Farbpaltettenerstellung ermöglicht.
+Das [CSS-Farbmodul](/de/docs/Web/CSS/Guides/Colors) definiert die **relative Farbsyntax**, die es erlaubt, einen CSS-{{cssxref("&lt;color&gt;")}}-Wert relativ zu einer anderen Farbe zu definieren. Dies ist eine leistungsstarke Funktion, die es ermöglicht, leicht Komplementärfarben zu bestehenden Farben zu erstellen – wie hellere, dunklere, gesättigte, halbtransparente oder invertierte Varianten – und somit eine effektivere Farbpaltettenerstellung ermöglicht.
 
 Dieser Artikel erklärt die relative Farbsyntax, zeigt die verschiedenen Optionen und betrachtet einige anschauliche Beispiele.
 
@@ -22,12 +22,12 @@ color(from origin-color colorspace channel1 channel2 channel3)
 color(from origin-color colorspace channel1 channel2 channel3 / alpha)
 ```
 
-Relative Farben werden mit denselben [Farb-Funktionen](/de/docs/Web/CSS/CSS_colors#functions) wie absolute Farben erstellt, jedoch mit unterschiedlichen Parametern:
+Relative Farben werden mit denselben [Farb-Funktionen](/de/docs/Web/CSS/Guides/Colors#functions) wie absolute Farben erstellt, jedoch mit unterschiedlichen Parametern:
 
 1. Verwenden Sie eine grundlegende Farb-Funktion (oben dargestellt durch _`color-function()`_) wie [`rgb()`](/de/docs/Web/CSS/Reference/Values/color_value/rgb), [`hsl()`](/de/docs/Web/CSS/Reference/Values/color_value/hsl) usw. Welche Sie wählen, hängt von dem Farbmodell ab, das Sie für die Erstellung der relativen Farbe (die **Ausgabefarbe**) verwenden möchten.
-2. Geben Sie die **Ursprungsfarbe** an (oben dargestellt durch _`origin-color`_), auf der Ihre relative Farbe basieren wird, und geben Sie sie mit dem Schlüsselwort `from` an. Dies kann jeder gültige {{cssxref("&lt;color&gt;")}}-Wert sein, der mit jedem verfügbaren Farbmodell, einschließlich eines in einer [CSS-Custom-Property](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) enthaltenen Farbwertes, Systemfarben, `currentColor` oder sogar einer anderen relativen Farbe, verwendet wird.
+2. Geben Sie die **Ursprungsfarbe** an (oben dargestellt durch _`origin-color`_), auf der Ihre relative Farbe basieren wird, und geben Sie sie mit dem Schlüsselwort `from` an. Dies kann jeder gültige {{cssxref("&lt;color&gt;")}}-Wert sein, der mit jedem verfügbaren Farbmodell, einschließlich eines in einer [CSS-Custom-Property](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) enthaltenen Farbwertes, Systemfarben, `currentColor` oder sogar einer anderen relativen Farbe, verwendet wird.
 3. Im Fall der [`color()`](/de/docs/Web/CSS/Reference/Values/color_value/color)-Funktion geben Sie den _[`colorspace`](/de/docs/Web/CSS/Reference/Values/color_value/color#colorspace)_ der Ausgabefarbe an.
-4. Definieren Sie einen Ausgabe-Wert für jedes einzelne Kanal. Die Ausgabefarbe wird nach der Ursprungsfarbe definiert – dargestellt oben durch die Platzhalter _`channel1`_, _`channel2`_ und _`channel3`_. Die hier definierten Kanäle hängen von der [Farb-Funktion](/de/docs/Web/CSS/CSS_colors#functions) ab, die Sie für Ihre relative Farbe verwenden. Wenn Sie beispielsweise [`hsl()`](/de/docs/Web/CSS/Reference/Values/color_value/hsl) verwenden, müssen Sie die Werte für Farbton, Sättigung und Helligkeit definieren. Jeder Kanalwert kann ein neuer Wert, derselbe wie der ursprüngliche Wert oder ein Wert relativ zu dem Kanalwert der Ursprungsfarbe sein.
+4. Definieren Sie einen Ausgabe-Wert für jedes einzelne Kanal. Die Ausgabefarbe wird nach der Ursprungsfarbe definiert – dargestellt oben durch die Platzhalter _`channel1`_, _`channel2`_ und _`channel3`_. Die hier definierten Kanäle hängen von der [Farb-Funktion](/de/docs/Web/CSS/Guides/Colors#functions) ab, die Sie für Ihre relative Farbe verwenden. Wenn Sie beispielsweise [`hsl()`](/de/docs/Web/CSS/Reference/Values/color_value/hsl) verwenden, müssen Sie die Werte für Farbton, Sättigung und Helligkeit definieren. Jeder Kanalwert kann ein neuer Wert, derselbe wie der ursprüngliche Wert oder ein Wert relativ zu dem Kanalwert der Ursprungsfarbe sein.
 5. Optional kann ein `alpha`-Kanalwert des Typs {{CSSXref("&lt;alpha-value&gt;")}} für die Ausgabefarbe definiert werden, getrennt durch einen Schrägstrich (`/`). Wenn der `alpha`-Kanalwert nicht explizit angegeben wird, wird er standardmäßig auf den `alpha`-Kanalwert der _`origin-color`_ gesetzt (nicht 100 %, wie dies bei absoluten Farbwerten der Fall ist).
 
 Der Browser konvertiert die Ursprungsfarbe in eine Syntax, die mit der Farb-Funktion kompatibel ist, und zerlegt sie in die Komponentenfarbkanäle (plus den `alpha`-Kanal, wenn die Ursprungsfarbe einen hat). Diese stehen als entsprechend benannte Werte innerhalb der Farb-Funktion zur Verfügung — `r`, `g`, `b` und `alpha` im Fall der `rgb()`-Funktion, `l`, `a`, `b` und `alpha` im Fall der `lab()`-Funktion, `h`, `w`, `b` und `alpha` im Fall von `hwb()` usw. — die zur Berechnung neuer Ausgabe-Kanalwerte verwendet werden können.
@@ -186,7 +186,7 @@ Es ist erneut erwähnenswert, dass das Farbsystem der Ursprungsfarbe nicht mit d
 
 ## Verwendung von benutzerdefinierten Eigenschaften
 
-Bei der Erstellung einer relativen Farbe können sowohl für die Ursprungsfarbe als auch innerhalb der Definition von Ausgabefarbkanalwerten Werte verwendet werden, die in [CSS-Custom-Properties](/de/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) definiert sind. Lassen Sie uns ein Beispiel betrachten.
+Bei der Erstellung einer relativen Farbe können sowohl für die Ursprungsfarbe als auch innerhalb der Definition von Ausgabefarbkanalwerten Werte verwendet werden, die in [CSS-Custom-Properties](/de/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties) definiert sind. Lassen Sie uns ein Beispiel betrachten.
 
 Im unten stehenden CSS definieren wir zwei Custom-Properties:
 
@@ -341,7 +341,7 @@ Um Kanalwertberechnungen in relativen Farben zu ermöglichen, werden alle Urspru
 - Kanalwerte, die ursprünglich als `<percentage>` spezifiziert wurden, lösen sich zu einem `<number>` auf, das angemessen für die Ausgabefarb-Funktion ist.
 - Kanalwerte, die ursprünglich als {{cssxref("&lt;hue&gt;")}}-Winkel spezifiziert wurden, lösen sich in eine Anzahl von Grad innerhalb eines Bereichs von `0` bis `360`, einschließlich, auf.
 
-Überprüfen Sie die verschiedenen [Seiten zu Farb-Funktionen](/de/docs/Web/CSS/CSS_colors#functions) für die spezifischen Details, in was sich ihre Ursprungs-Kanalwerte auflösen.
+Überprüfen Sie die verschiedenen [Seiten zu Farb-Funktionen](/de/docs/Web/CSS/Guides/Colors#functions) für die spezifischen Details, in was sich ihre Ursprungs-Kanalwerte auflösen.
 
 ## Überprüfung der Browser-Unterstützung
 
@@ -827,7 +827,7 @@ Das Ergebnis wird unten angezeigt. Relative CSS-Farben werden hier verwendet, um
 ## Siehe auch
 
 - Der {{CSSXref("&lt;color&gt;")}}-Datentyp
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS-Farben](/de/docs/Web/CSS/Guides/Colors) Modul
 - [sRGB](https://de.wikipedia.org/wiki/SRGB) auf Wikipedia
 - [CIELAB](https://de.wikipedia.org/wiki/CIELAB-Farbraum) auf Wikipedia
 - [CSS relative Farbsyntax](https://developer.chrome.com/blog/css-relative-color-syntax) auf developer.chrome.com (2023)

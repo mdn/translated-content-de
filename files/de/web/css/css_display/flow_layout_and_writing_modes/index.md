@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-Die CSS 2.1-Spezifikation, die beschreibt, wie der normale Fluss funktioniert, geht von einem horizontalen Schreibrichtung aus. [Layout](/de/docs/Web/CSS/CSS_display/Block_and_inline_layout_in_normal_flow)-Eigenschaften sollten auf die gleiche Weise in vertikalen Schreibrichtungen funktionieren. In diesem Leitfaden untersuchen wir, wie sich das Fluss-Layout verhält, wenn es mit verschiedenen Dokument-Schreibrichtungen verwendet wird.
+Die CSS 2.1-Spezifikation, die beschreibt, wie der normale Fluss funktioniert, geht von einem horizontalen Schreibrichtung aus. [Layout](/de/docs/Web/CSS/Guides/Display/Block_and_inline_layout)-Eigenschaften sollten auf die gleiche Weise in vertikalen Schreibrichtungen funktionieren. In diesem Leitfaden untersuchen wir, wie sich das Fluss-Layout verhält, wenn es mit verschiedenen Dokument-Schreibrichtungen verwendet wird.
 
 Dies ist kein umfassender Leitfaden zur Verwendung von Schreibrichtungen in CSS. Ziel ist es, die Bereiche zu dokumentieren, in denen das Fluss-Layout in möglicherweise unerwarteter Weise mit Schreibrichtungen interagiert. Der Abschnitt [Siehe auch](#siehe_auch) bietet Links zu weiteren Ressourcen über Schreibrichtungen.
 
@@ -317,7 +317,7 @@ body {
 
 {{EmbedLiveSample("inline-size", "", "200px")}}
 
-Das [CSS-Modul "logische Eigenschaften und Werte"](/de/docs/Web/CSS/CSS_logical_properties_and_values) enthält logische Versionen der Eigenschaften, die Randabstände, Abstände und Rahmen steuern sowie andere Zuordnungen für Dinge, die wir normalerweise mit physischen Richtungen spezifizieren.
+Das [CSS-Modul "logische Eigenschaften und Werte"](/de/docs/Web/CSS/Guides/Logical_properties_and_values) enthält logische Versionen der Eigenschaften, die Randabstände, Abstände und Rahmen steuern sowie andere Zuordnungen für Dinge, die wir normalerweise mit physischen Richtungen spezifizieren.
 
 ## Zusammenfassung
 
@@ -325,6 +325,6 @@ In den meisten Fällen funktioniert das Fluss-Layout so, wie Sie es erwarten wü
 
 ## Siehe auch
 
-- [Schreibrichtungen](/de/docs/Web/CSS/CSS_writing_modes)
+- [Schreibrichtungen](/de/docs/Web/CSS/Guides/Writing_modes)
 - [Schreibrichtungen und CSS-Layout](https://www.smashingmagazine.com/2019/08/writing-modes-layout/) auf Smashing Magazine (2019)
 - [CSS Schreibrichtungen](https://24ways.org/2016/css-writing-modes/) auf 24ways.org (2016)

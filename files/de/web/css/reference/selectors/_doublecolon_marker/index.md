@@ -2,10 +2,10 @@
 title: ::marker
 slug: Web/CSS/Reference/Selectors/::marker
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Das **`::marker`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) wählt das Markerfeld eines Listenelements aus, das typischerweise ein Aufzählungszeichen oder eine Nummer enthält. Es funktioniert bei jedem Element oder Pseudoelement, das auf [`display: list-item`](/de/docs/Web/CSS/Reference/Properties/display) gesetzt ist, wie die {{HTMLElement("li")}}- und {{HTMLElement("summary")}}-Elemente.
+Der **`::marker`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements) selektiert das Markierungsfeld eines Listenelements, das typischerweise ein Aufzählungszeichen oder eine Nummer enthält. Es funktioniert bei jedem Element oder Pseudo-Element, das auf [`display: list-item`](/de/docs/Web/CSS/Reference/Properties/display) gesetzt ist, wie zum Beispiel die {{HTMLElement("li")}} und {{HTMLElement("summary")}} Elemente.
 
 {{InteractiveExample("CSS Demo: ::marker", "tabbed-shorter")}}
 
@@ -31,17 +31,17 @@ li::marker {
 
 ## Erlaubte Eigenschaften
 
-Das `::marker`-Pseudoelement unterstützt eine begrenzte Anzahl von CSS-Eigenschaften, einschließlich:
+Das `::marker` Pseudo-Element unterstützt eine begrenzte Anzahl von CSS-Eigenschaften, einschließlich:
 
-- Alle [Schrifteigenschaften](/de/docs/Web/CSS/CSS_fonts)
-- Die {{CSSxRef("white-space")}}-Eigenschaft
+- Aller [Schrift-Eigenschaften](/de/docs/Web/CSS/Guides/Fonts)
+- Der {{CSSxRef("white-space")}} Eigenschaft
 - {{CSSxRef("color")}}
-- {{CSSxRef("text-combine-upright")}}, {{CSSxRef("unicode-bidi")}}, und die {{CSSxRef("direction")}}-Eigenschaften
-- Die {{CSSxRef("content")}}-Eigenschaft
-- Alle [Animation](/de/docs/Web/CSS/CSS_animations#properties)- und [Transition](/de/docs/Web/CSS/CSS_transitions#properties)-Eigenschaften
+- {{CSSxRef("text-combine-upright")}}, {{CSSxRef("unicode-bidi")}}, und {{CSSxRef("direction")}} Eigenschaften
+- Der {{CSSxRef("content")}} Eigenschaft
+- Aller [Animation](/de/docs/Web/CSS/Guides/Animations#properties) und [Übergang](/de/docs/Web/CSS/Guides/Transitions#properties) Eigenschaften
 
 > [!NOTE]
-> Die Spezifikation besagt, dass in Zukunft weitere CSS-Eigenschaften unterstützt werden können.
+> Die Spezifikation gibt an, dass in Zukunft zusätzliche CSS-Eigenschaften unterstützt werden könnten.
 
 ## Syntax
 
@@ -87,6 +87,6 @@ ul li::marker {
 ## Siehe auch
 
 - HTML-Elemente, die standardmäßig Markierungsfelder haben: {{HTMLElement("ol")}}, {{HTMLElement("li")}}, {{HTMLElement("summary")}}
-- [CSS-generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content) Modul
-- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
-- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [CSS generierter Inhalt](/de/docs/Web/CSS/Guides/Generated_content) Modul
+- [CSS Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul
+- [CSS Zähler-Stile](/de/docs/Web/CSS/Guides/Counter_styles) Modul

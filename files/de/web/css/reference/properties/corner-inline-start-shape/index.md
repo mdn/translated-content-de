@@ -2,18 +2,18 @@
 title: corner-inline-start-shape
 slug: Web/CSS/Reference/Properties/corner-inline-start-shape
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-inline-start-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Form beider Ecken an der inline-start Kante eines Kastens, innerhalb ihres {{cssxref("border-radius")}} Bereiches.
+Die **`corner-inline-start-shape`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die Form beider Ecken an der inline-start Kante einer Box innerhalb ihres {{cssxref("border-radius")}} Bereichs.
 
-Für eine vollständige Beschreibung des Verhaltens von Eckformen und mehrere Beispiele, siehe die Seite der {{cssxref("corner-shape")}} Kurzschreibweise.
+Für eine vollständige Beschreibung des Eckverhaltens und mehrere Beispiele lesen Sie bitte die Seite zur {{cssxref("corner-shape")}} Kurzschreibweise.
 
-## Bestandteil-Eigenschaften
+## Zusammengesetzte Eigenschaften
 
-Die `corner-inline-start-shape` Eigenschaft ist eine Kurzschreibweise für die folgenden physischen Eigenschaften:
+Die Eigenschaft `corner-inline-start-shape` ist eine Kurzschreibweise für die folgenden physikalischen Eigenschaften:
 
 - {{cssxref("corner-start-start-shape")}}
 - {{cssxref("corner-end-start-shape")}}
@@ -43,10 +43,10 @@ corner-inline-start-shape: unset;
 
 ### Werte
 
-Die `corner-inline-start-shape` Eigenschaft wird unter Verwendung von einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
+Die Eigenschaft `corner-inline-start-shape` wird mit einem oder zwei {{cssxref("&lt;corner-shape-value>")}} Werten angegeben:
 
-- Wenn **ein Wert** verwendet wird, spezifiziert er die Form **beider inline-start** Ecken.
-- Wenn **zwei Werte** verwendet werden, spezifiziert der erste die Form der **block-start/inline-start** Ecke und der zweite die Form der **block-end/inline-start** Ecke.
+- Wenn **ein Wert** verwendet wird, bestimmt dieser die Form **beider inline-start** Ecken.
+- Wenn **zwei Werte** verwendet werden, bestimmt der erste die Form der **block-start/inline-start** Ecke und der zweite die Form der **block-end/inline-start** Ecke.
 
 ## Formale Definition
 
@@ -58,7 +58,7 @@ Die `corner-inline-start-shape` Eigenschaft wird unter Verwendung von einem oder
 
 ## Beispiele
 
-Sie finden weitere verwandte Beispiele auf der {{cssxref("corner-shape")}} Referenzseite.
+Weitere verwandte Beispiele finden Sie auf der {{cssxref("corner-shape")}} Referenzseite.
 
 ### Grundlegende Verwendung von `corner-inline-start-shape`
 
@@ -72,7 +72,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten einige grundlegende Stile, die wir der Kürze halber verborgen haben. Außerdem wenden wir einen {{cssxref("box-shadow")}}, einen `border-radius` von 60 Pixeln und ein `corner-inline-start-shape` von `square bevel` an.
+Wir geben der Box einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben. Wir wenden außerdem einen {{cssxref("box-shadow")}}, einen `border-radius` von 60 Pixeln und ein `corner-inline-start-shape` von `square bevel` an.
 
 ```css hidden live-sample___basic-usage
 body {
@@ -106,7 +106,7 @@ div {
 
 #### Ergebnis
 
-Das gerenderte Ergebnis sieht so aus:
+Das gerenderte Ergebnis sieht folgendermaßen aus:
 
 {{EmbedLiveSample("basic-usage", "100%", "240")}}
 
@@ -125,5 +125,5 @@ Das gerenderte Ergebnis sieht so aus:
 - {{cssxref("corner-top-shape")}}, {{cssxref("corner-bottom-shape")}}, {{cssxref("corner-left-shape")}}, und {{cssxref("corner-right-shape")}}
 - {{cssxref("border-radius")}} Kurzschreibweise
 - {{cssxref("border-start-start-radius")}} und {{cssxref("border-end-start-radius")}}
-- [CSS borders and box decorations](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
-- [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS borders and box decorations](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
+- [CSS backgrounds and borders](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul

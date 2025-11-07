@@ -11,9 +11,9 @@ Das **CSS-Masking-Modul** definiert Maskierung und das Abschneiden, zwei verschi
 
 Die **Masking-Eigenschaften** von CSS werden verwendet, um ein Element oder dessen Rahmen zu maskieren. Ein grafisches Objekt wird dann auf den Hintergrund oder Rahmen gemalt, wobei Teile des Elements oder seines Rahmens je nach Opazität oder Leuchtdichte der Maske vollständig oder teilweise ausgeblendet werden.
 
-Das Bild, das als Maske verwendet wird, wird durch die Eigenschaften {{cssxref("mask-image")}} oder {{cssxref("mask-border-source")}} angegeben. Die angegebene Maske kann ein {{cssxref("image")}}, ein {{cssxref("gradient")}} oder ein SVG-{{SVGElement("mask")}}-Element sein. Die Maske kann ähnlich wie [Hintergrund- und Rahmenbilder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) skaliert und positioniert werden.
+Das Bild, das als Maske verwendet wird, wird durch die Eigenschaften {{cssxref("mask-image")}} oder {{cssxref("mask-border-source")}} angegeben. Die angegebene Maske kann ein {{cssxref("image")}}, ein {{cssxref("gradient")}} oder ein SVG-{{SVGElement("mask")}}-Element sein. Die Maske kann ähnlich wie [Hintergrund- und Rahmenbilder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) skaliert und positioniert werden.
 
-Das Abschneiden und Maskieren in CSS verhält sich genauso wie bei SVG: Zuerst wird das Element ohne Filtereffekte, Maskierung, Abschneiden und Opazität gestaltet. Dann werden die Effekte in folgender Reihenfolge auf das Element angewendet: [Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects), Abschneiden, Maskieren und Opazität.
+Das Abschneiden und Maskieren in CSS verhält sich genauso wie bei SVG: Zuerst wird das Element ohne Filtereffekte, Maskierung, Abschneiden und Opazität gestaltet. Dann werden die Effekte in folgender Reihenfolge auf das Element angewendet: [Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects), Abschneiden, Maskieren und Opazität.
 
 Während Maskierung mehr Kontrolle und Optionen bietet, kann das Abschneiden besser performen, wenn nur eine einfache Form benötigt wird - sie sind einfacher zu interpolieren.
 
@@ -58,16 +58,16 @@ Während Maskierung mehr Kontrolle und Optionen bietet, kann das Abschneiden bes
 
 ## Leitfäden
 
-- [Einführung in das CSS-Abschneiden](/de/docs/Web/CSS/CSS_masking/Clipping)
+- [Einführung in das CSS-Abschneiden](/de/docs/Web/CSS/Guides/Masking/Clipping)
   - : Einführung in das Abschneiden in CSS, einschließlich der `clip-path`-Eigenschaft mit Beispielen.
 
-- [Einführung in das CSS-Masking](/de/docs/Web/CSS/CSS_masking/Masking)
+- [Einführung in das CSS-Masking](/de/docs/Web/CSS/Guides/Masking/Introduction)
   - : Einführung in das Maskieren in CSS, die verschiedenen Typen von Maskenbildern und die Effekte von Leuchtdichte und Alphatransparenz bei der Maskierung.
 
-- [Deklarieren mehrerer Masken](/de/docs/Web/CSS/CSS_masking/Multiple_masks)
+- [Deklarieren mehrerer Masken](/de/docs/Web/CSS/Guides/Masking/Multiple_masks)
   - : Einführung in Maskenebenen und wie man mehrere Maskenbilder deklariert.
 
-- [CSS-Maskeneigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties)
+- [CSS-Maskeneigenschaften](/de/docs/Web/CSS/Guides/Masking/Mask_properties)
   - : Eine Erkundung des CSS-Maskierens und der `mask`-Kurzformkomponenteneigenschaften mit Erklärungen und Beispielen.
 
 ## Verwandte Konzepte
@@ -77,7 +77,7 @@ Während Maskierung mehr Kontrolle und Optionen bietet, kann das Abschneiden bes
 - {{cssxref("&lt;position&gt;")}}
 - {{cssxref("&lt;url&gt;")}}
 
-- [CSS-Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [CSS-Hintergründe und Ränder](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
   - {{cssxref("background")}} Kurzform
   - {{cssxref("background-origin")}}
   - {{cssxref("background-position")}}
@@ -90,7 +90,7 @@ Während Maskierung mehr Kontrolle und Optionen bietet, kann das Abschneiden bes
   - {{cssxref("border-image-width")}}
   - [`<repeat-style>`](/de/docs/Web/CSS/Reference/Properties/background-repeat#values) Datentyp
 
-- [CSS-Formen](/de/docs/Web/CSS/CSS_shapes) Modul
+- [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes) Modul
   - {{cssxref("&lt;basic-shape&gt;")}} Datentyp
   - {{cssxref("basic-shape/polygon","polygon()")}} Funktion
   - [`<shape-box>`](/de/docs/Web/CSS/Reference/Properties/shape-outside#shape-box) Datentyp
@@ -102,7 +102,7 @@ Während Maskierung mehr Kontrolle und Optionen bietet, kann das Abschneiden bes
 ## Siehe auch
 
 - {{cssxref("background-clip")}}
-- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
+- [CSS-Filtereffekte](/de/docs/Web/CSS/Guides/Filter_effects) Modul
 - [SVG-Tutorial: Clipping und Masking](/de/docs/Web/SVG/Tutorials/SVG_from_scratch/Clipping_and_masking)
 - [`CanvasRenderingContext2D.clip()`](/de/docs/Web/API/CanvasRenderingContext2D/clip)
 - [`WebGLRenderingContext.colorMask()`](/de/docs/Web/API/WebGLRenderingContext/colorMask)

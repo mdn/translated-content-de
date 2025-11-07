@@ -41,7 +41,7 @@ Das Modul CSS-Benutzerdefinierte Funktionen und Mixins führt auch die `@mixin`,
 
 ## Leitfäden
 
-- [Verwendung von CSS-Benutzerdefinierten Funktionen](/de/docs/Web/CSS/CSS_custom_functions_and_mixins/Using_custom_functions)
+- [Verwendung von CSS-Benutzerdefinierten Funktionen](/de/docs/Web/CSS/Guides/Custom_functions_and_mixins/Using_custom_functions)
   - : Dieser Leitfaden zeigt Ihnen, wie Sie CSS-Benutzerdefinierte Funktionen verwenden und stellt einige typische Anwendungsfälle vor.
 
 ## Spezifikationen

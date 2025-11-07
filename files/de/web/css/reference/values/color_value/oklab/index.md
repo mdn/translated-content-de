@@ -2,18 +2,18 @@
 title: oklab()
 slug: Web/CSS/Reference/Values/color_value/oklab
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`oklab()`** funktionale Notation drückt eine gegebene Farbe im Oklab-{{Glossary("color_space", "Farbraum")}} aus, der versucht, nachzuahmen, wie Farbe vom menschlichen Auge wahrgenommen wird.
+Die **`oklab()`** Funktionsnotation beschreibt eine gegebene Farbe im Oklab-{{Glossary("color_space", "Farbraum")}}, der versucht nachzuahmen, wie Farben vom menschlichen Auge wahrgenommen werden.
 
-Oklab ist ein wahrnehmungsbasierter Farbraum und ist nützlich zum:
+Oklab ist ein perzeptueller Farbraum und nützlich für:
 
-- Transformieren eines Bildes in Graustufen, ohne seine Helligkeit zu verändern.
-- Modifizieren der Sättigung von Farben, während die Nutzerwahrnehmung von Farbton und Helligkeit erhalten bleibt.
-- Erstellen glatter und einheitlicher Farbverläufe (wenn manuell interpoliert, zum Beispiel in einem {{HTMLElement("canvas")}}-Element).
+- Die Umwandlung eines Bildes in Graustufen, ohne dessen Helligkeit zu verändern.
+- Die Modifikation der Farbsättigung, während die Benutzerwahrnehmung von Farbton und Helligkeit beibehalten wird.
+- Die Erstellung von sanften und gleichmäßigen Farbverläufen (wenn z. B. manuell interpoliert in einem {{HTMLElement("canvas")}}-Element).
 
-`oklab()` arbeitet mit einem kartesischen Koordinatensystem im Oklab-Farbraum — a- und b-Achsen. Es kann ein breiteres Farbspektrum als RGB darstellen, einschließlich Wide-Gamut- und P3-Farben. Wenn Sie ein polares Farbsystem, Chroma und Farbton wünschen, verwenden Sie {{cssxref("color_value/oklch", "oklch()")}}.
+`oklab()` arbeitet mit einem kartesischen Koordinatensystem im Oklab-Farbraum — a- und b-Achsen. Es kann ein breiteres Farbspektrum als RGB darstellen, einschließlich Wide-Gamut- und P3-Farben. Wenn Sie ein polarer Farbsystem, Chroma und Farbton wünschen, verwenden Sie {{cssxref("color_value/oklch", "oklch()")}}.
 
 ## Syntax
 
@@ -31,9 +31,9 @@ oklab(from hsl(180 100% 50%) calc(l - 0.1) a b)
 
 ### Werte
 
-Nachfolgend sind Beschreibungen der zulässigen Werte für sowohl absolute als auch [relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors) aufgeführt.
+Nachfolgend sind Beschreibungen der zulässigen Werte sowohl für absolute als auch [relative Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors) aufgeführt.
 
-#### Syntax absoluter Werte
+#### Absolute Wertsyntax
 
 ```plain
 oklab(L a b[ / A])
@@ -42,18 +42,18 @@ oklab(L a b[ / A])
 Die Parameter sind wie folgt:
 
 - `L`
-  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `0` und `1`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert gibt die wahrgenommene Helligkeit der Farbe an. Die Zahl `0` entspricht `0%` (schwarz) und die Zahl `1` entspricht `100%` (weiß).
+  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `0` und `1`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%`, oder das Schlüsselwort `none` (äquivalent zu `0%` in diesem Fall). Dieser Wert gibt die wahrgenommene Helligkeit der Farbe an. Die Zahl `0` entspricht `0%` (schwarz) und die Zahl `1` entspricht `100%` (weiß).
 - `a`
-  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `-0.4` und `0.4`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert gibt den Abstand der Farbe entlang der `a`-Achse im Oklab-Farbraum an, die bestimmt, wie grün (Richtung `-0.4`) oder rot (Richtung `+0.4`) die Farbe ist. Beachten Sie, dass diese Werte signiert sind (sowohl positive als auch negative Werte zulassen) und theoretisch nicht begrenzt sind, was bedeutet, dass Werte außerhalb der `±0.4` (`±100%`) Grenzen gesetzt werden können. Tatsächlich können Werte jedoch `±0.5` nicht überschreiten.
+  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `-0.4` und `0.4`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%`, oder das Schlüsselwort `none` (äquivalent zu `0%` in diesem Fall). Dieser Wert gibt die Entfernung der Farbe entlang der `a`-Achse im Oklab-Farbraum an, was definiert, wie grün (in Richtung `-0.4`) oder rot (in Richtung `+0.4`) die Farbe ist. Beachten Sie, dass diese Werte Vorzeichen haben (sowohl positive als auch negative Werte sind möglich) und theoretisch unbeschränkt sind, sodass Sie Werte außerhalb der Grenzwerte von `±0.4` (`±100%`) einstellen können. In der Praxis können Werte `±0.5` nicht überschreiten.
 - `b`
-  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `-0.4` und `0.4`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert gibt den Abstand der Farbe entlang der `b`-Achse im Oklab-Farbraum an, die bestimmt, wie blau (Richtung `-0.4`) oder gelb (Richtung `+0.4`) die Farbe ist. Beachten Sie, dass diese Werte signiert sind (sowohl positive als auch negative Werte zulassen) und theoretisch nicht begrenzt sind, was bedeutet, dass Werte außerhalb der `±0.4` (`±100%`) Grenzen gesetzt werden können. Tatsächlich können Werte jedoch `±0.5` nicht überschreiten.
+  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `-0.4` und `0.4`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%`, oder das Schlüsselwort `none` (äquivalent zu `0%` in diesem Fall). Dieser Wert gibt die Entfernung der Farbe entlang der `b`-Achse im Oklab-Farbraum an, was definiert, wie blau (in Richtung `-0.4`) oder gelb (in Richtung `+0.4`) die Farbe ist. Beachten Sie, dass diese Werte Vorzeichen haben (sowohl positive als auch negative Werte sind möglich) und theoretisch unbeschränkt sind, sodass Sie Werte außerhalb der Grenzwerte von `±0.4` (`±100%`) einstellen können. In der Praxis können Werte `±0.5` nicht überschreiten.
 - `A` {{optional_inline}}
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}} das den Alpha-Kanal-Wert der Farbe repräsentiert, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig deckend) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alpha-Kanal anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben ist, beträgt der Standardwert 100%. Falls enthalten, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}-Wert, der den Alpha-Kanal-Wert der Farbe darstellt. Die Zahl `0` entspricht `0%` (vollständig transparent) und `1` entspricht `100%` (vollständig opak). Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alpha-Kanal anzugeben. Wird der `A`-Kanal-Wert nicht explizit angegeben, wird er standardmäßig auf 100% gesetzt. Wenn enthalten, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
 
 > [!NOTE]
-> Weitere Informationen zur Wirkung von `none` finden Sie unter [Fehlende Farbkomponenten](/de/docs/Web/CSS/Reference/Values/color_value#missing_color_components).
+> Siehe [Fehlende Farbkomponenten](/de/docs/Web/CSS/Reference/Values/color_value#missing_color_components) für weitere Informationen über die Wirkung von `none`.
 
-#### Syntax relativer Werte
+#### Relative Wertsyntax
 
 ```plain
 oklab(from <color> L a b[ / A])
@@ -62,45 +62,45 @@ oklab(from <color> L a b[ / A])
 Die Parameter sind wie folgt:
 
 - `from <color>`
-  - : Das Schlüsselwort `from` wird immer bei der Definition einer relativen Farbe angegeben, gefolgt von einem {{cssxref("&lt;color&gt;")}} Wert, der die **Ursprungsfarbe** darstellt. Dies ist die Originalfarbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann _jede_ gültige {{cssxref("&lt;color&gt;")}} Syntax sein, einschließlich einer anderen relativen Farbe.
+  - : Das Schlüsselwort `from` wird immer eingeschlossen, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}}-Wert, der die **Ursprungsfarbe** darstellt. Dies ist die Originalfarbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann _jede_ gültige {{cssxref("&lt;color&gt;")}}-Syntax sein, einschließlich einer anderen relativen Farbe.
 - `L`
-  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `0` und `1`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert repräsentiert die Helligkeit der Ausgabefarbe. Die Zahl `0` entspricht `0%` (schwarz) und die Zahl `1` entspricht `100%` (weiß).
+  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `0` und `1`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%`, oder das Schlüsselwort `none` (äquivalent zu `0%` in diesem Fall). Dieser Wert repräsentiert die Helligkeit der Ausgabefarbe. Die Zahl `0` entspricht `0%` (schwarz) und die Zahl `1` entspricht `100%` (weiß).
 - `a`
-  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `-0.4` und `0.4`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert stellt den Abstand der Ausgabefarbe entlang der `a`-Achse im Oklab-Farbraum dar, der bestimmt, wie grün (Richtung `-0.4`) oder rot (Richtung `+0.4`) die Farbe ist. Beachten Sie, dass diese Werte signiert sind (sowohl positive als auch negative Werte zulassen) und theoretisch nicht begrenzt sind, was bedeutet, dass Werte außerhalb der `±0.4` (`±100%`) Grenzen gesetzt werden können. Tatsächlich können Werte jedoch `±0.5` nicht überschreiten.
+  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `-0.4` und `0.4`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%`, oder das Schlüsselwort `none` (äquivalent zu `0%` in diesem Fall). Dieser Wert repräsentiert die Entfernung der Ausgabefarbe entlang der `a`-Achse im Oklab-Farbraum, was definiert, wie grün (in Richtung `-0.4`) oder rot (in Richtung `+0.4`) die Farbe ist. Beachten Sie, dass diese Werte Vorzeichen haben (sowohl positive als auch negative Werte sind möglich) und theoretisch unbeschränkt sind, sodass Sie Werte außerhalb der Grenzwerte von `±0.4` (`±100%`) einstellen können. In der Praxis können Werte `±0.5` nicht überschreiten.
 - `b`
-  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `-0.4` und `0.4`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%`, oder das Schlüsselwort `none` (entspricht in diesem Fall `0%`). Dieser Wert stellt den Abstand der Ausgabefarbe entlang der `b`-Achse im Oklab-Farbraum dar, der bestimmt, wie blau (Richtung `-0.4`) oder gelb (Richtung `+0.4`) die Farbe ist. Beachten Sie, dass diese Werte signiert sind (sowohl positive als auch negative Werte zulassen) und theoretisch nicht begrenzt sind, was bedeutet, dass Werte außerhalb der `±0.4` (`±100%`) Grenzen gesetzt werden können. Tatsächlich können Werte jedoch `±0.5` nicht überschreiten.
+  - : Ein {{CSSXref("&lt;number&gt;")}} zwischen `-0.4` und `0.4`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `-100%` und `100%`, oder das Schlüsselwort `none` (äquivalent zu `0%` in diesem Fall). Dieser Wert repräsentiert die Entfernung der Ausgabefarbe entlang der `b`-Achse im Oklab-Farbraum, was definiert, wie blau (in Richtung `-0.4`) oder gelb (in Richtung `+0.4`) die Farbe ist. Beachten Sie, dass diese Werte Vorzeichen haben (sowohl positive als auch negative Werte sind möglich) und theoretisch unbeschränkt sind, sodass Sie Werte außerhalb der Grenzwerte von `±0.4` (`±100%`) einstellen können. In der Praxis können Werte `±0.5` nicht überschreiten.
 - `A` {{optional_inline}}
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}} das den Alpha-Kanal-Wert der Ausgabefarbe repräsentiert, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig deckend) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alpha-Kanal anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben ist, beträgt der Standardwert des Alpha-Kanals den Wert des Ausgangsfarbkanals. Falls enthalten, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}-Wert, der den Alpha-Kanal-Wert der Ausgabefarbe darstellt. Die Zahl `0` entspricht `0%` (vollständig transparent) und `1` entspricht `100%` (vollständig opak). Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alpha-Kanal anzugeben. Wenn der `A`-Kanalwert nicht explizit angegeben wird, wird er auf den Alpha-Kanalwert der Ursprungsfarbe standardmäßig gesetzt. Wenn enthalten, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
 
-#### Definieren der Ausgabekanalbestandteile bei relativen Farben
+#### Definition der Kanal-Komponenten der relativen Farbausgabe
 
-Wenn Sie die relative Farbsyntax innerhalb einer `oklab()`-Funktion verwenden, wandelt der Browser die Ursprungsfarbe in eine gleichwertige Oklab-Farbe um (falls sie nicht bereits als solche angegeben ist). Die Farbe wird als drei unterschiedliche Farbkanalwerte definiert — `l` (Helligkeit), `a` (grün/rot-Achse) und `b` (blau/gelb-Achse) — plus einen Alpha-Kanal-Wert (`alpha`). Diese Kanalwerte stehen innerhalb der Funktion zur Verfügung, um sie bei der Definition der Ausgabefarbkanalwerte zu verwenden:
+Bei der Verwendung der relativen Farbsyntax in einer `oklab()`-Funktion konvertiert der Browser die Ursprungsfarbe in eine äquivalente Oklab-Farbe (sofern sie nicht bereits als solche angegeben ist). Die Farbe wird als drei unterschiedliche Farbkanalwerte definiert — `l` (Helligkeit), `a` (grün/rot-Achse) und `b` (blau/gelb-Achse) — plus einem Alpha-Kanalwert (`alpha`). Diese Kanalwerte stehen innerhalb der Funktion zur Verfügung, um bei der Definition der Ausgabefarbkanalwerte verwendet zu werden:
 
-- Der `l`-Kanalwert löst sich zu einer `<number>` zwischen `0` und `1` auf, einschließlich.
-- Die `a`- und `b`-Kanäle lösen sich jeweils zu einer `<number>` zwischen `-0.4` und `0.4` auf, einschließlich.
-- Der `alpha`-Kanal löst sich zu einer `<number>` zwischen `0` und `1` auf, einschließlich.
+- Der `l`-Kanalwert wird auf ein `<number>` zwischen `0` und `1`, inklusive, aufgelöst.
+- Die `a` und `b` Kanäle werden jeweils auf ein `<number>` zwischen `-0.4` und `0.4`, inklusive, aufgelöst.
+- Der `alpha`-Kanal wird auf ein `<number>` zwischen `0` und `1`, inklusive, aufgelöst.
 
-Bei der Definition einer relativen Farbe können die verschiedenen Kanäle der Ausgabefarbe auf unterschiedliche Weise ausgedrückt werden. Im Folgenden werden einige Beispiele vorgestellt, um diese zu veranschaulichen.
+Bei der Definition einer relativen Farbe können die verschiedenen Kanäle der Ausgabefarbe auf mehrere verschiedene Arten ausgedrückt werden. Unten werden wir einige Beispiele untersuchen, um diese zu veranschaulichen.
 
-In den ersten beiden Beispielen unten verwenden wir die relative Farbsyntax. Trotzdem gibt das erste Beispiel die gleiche Farbe wie die Ursprungsfarbe aus und das zweite Beispiel erzeugt eine Farbe, die überhaupt nicht auf der Ursprungsfarbe basiert. Sie schaffen wirklich keine relativen Farben! Es ist unwahrscheinlich, dass Sie diese jemals in einer echten Codebasis verwenden würden, und wahrscheinlich würden Sie stattdessen einfach einen absoluten Farbwert verwenden. Wir haben diese Beispiele als Ausgangspunkt zum Erlernen der relativen `oklab()`-Syntax aufgenommen.
+In den ersten beiden Beispielen unten verwenden wir die relative Farbsyntax. Allerdings gibt das erste Beispiel dieselbe Farbe wie die Ursprungsfarbe aus und das zweite gibt eine Farbe aus, die überhaupt nicht auf der Ursprungsfarbe basiert. Sie erzeugen eigentlich keine relativen Farben! Sie würden diese wahrscheinlich nie in einem echten Codebase verwenden und stattdessen wahrscheinlich nur einen absoluten Farbwert verwenden. Wir haben diese Beispiele als Ausgangspunkt zum Erlernen der relativen `oklab()`-Syntax aufgenommen.
 
-Beginnen wir mit einer Ursprungsfarbe von `hsl(0 100% 50%)` (entspricht `red`). Die folgende Funktion gibt die gleiche Farbe wie die Ursprungsfarbe aus — sie verwendet die `l`-, `a`- und `b`-Kanalwerte der Ursprungsfarbe (`0.627966`, `0.22488` und `0.125859`) als die Ausgabekanalwerte:
+Beginnen wir mit einer Ursprungsfarbe von `hsl(0 100% 50%)` (äquivalent zu `rot`). Die folgende Funktion gibt die gleiche Farbe wie die Ursprungsfarbe aus — sie verwendet die `l`, `a` und `b`-Kanalwerte der Ursprungsfarbe (`0.627966`, `0.22488` und `0.125859`) als Ausgabekanalwerte:
 
 ```css
 oklab(from hsl(0 100% 50%) l a b)
 ```
 
-Die Ausgabe dieser Funktion ist die Farbe `oklab(0.627966 0.22488 0.125859)`.
+Diese Funktion gibt die Farbe `oklab(0.627966 0.22488 0.125859)` aus.
 
-Die nächste Funktion verwendet absolute Werte für die Ausgabefarbkanalwerte und gibt eine völlig andere Farbe aus, die nicht auf der Ursprungsfarbe basiert:
+Die nächste Funktion verwendet absolute Werte für die Ausgabefarbkanalwerte, was eine völlig andere Farbe ausgibt, die nicht auf der Ursprungsfarbe basiert:
 
 ```css
 oklab(from hsl(0 100% 50%) 42.1% 0.165 -0.101)
 ```
 
-Im obigen Fall ist die Ausgabefarbe `oklab(0.421 0.165 -0.101)`.
+In diesem Fall ist die Ausgabefarbe `oklab(0.421 0.165 -0.101)`.
 
-Die folgende Funktion erzeugt eine relative Farbe, die auf der Ursprungsfarbe basiert:
+Die folgende Funktion erstellt eine relative Farbe basierend auf der Ursprungsfarbe:
 
 ```css
 oklab(from hsl(0 100% 50%) l -0.3 b)
@@ -108,18 +108,18 @@ oklab(from hsl(0 100% 50%) l -0.3 b)
 
 Dieses Beispiel:
 
-- Konvertiert die `hsl()` Ursprungsfarbe in eine gleichwertige `oklab()`-Farbe — `oklab(0.627966 0.22488 0.125859)`.
-- Setzt die `L`- und `b`-Kanalwerte für die Ausgabefarbe auf diejenigen der `oklab()`-Äquivalenten der Ursprungsfarbe — Diese Werte sind `0.627966` und `0.125859` jeweils.
+- Konvertiert die `hsl()`-Ursprungsfarbe in eine äquivalente `oklab()`-Farbe — `oklab(0.627966 0.22488 0.125859)`.
+- Setzt die `L` und `b`-Kanalwerte der Ausgabefarbe auf die der äquivalenten Ursprungs-`oklab()`-Kanalwerte — diese Werte sind `0.627966` und `0.125859`.
 - Setzt den `a`-Kanalwert der Ausgabefarbe auf einen neuen Wert, der nicht auf der Ursprungsfarbe basiert: `-0.3`.
 
 Die endgültige Ausgabefarbe ist `oklab(0.627966 -0.3 0.125859)`.
 
 > [!NOTE]
-> Wie oben erwähnt, wenn die Ausgabefarbe ein anderes Farbmodell als das der Ursprungsfarbe verwendet, wird die Ursprungsfarbe im Hintergrund in das gleiche Modell wie die Ausgabefarbe umgewandelt, damit sie auf eine Weise dargestellt werden kann, die kompatibel ist (d.h. unter Verwendung der gleichen Kanäle).
+> Wie oben erwähnt, wenn die Ausgabefarbe ein anderes Farbmodell als die Ursprungsfarbe verwendet, wird die Ursprungsfarbe im Hintergrund in dasselbe Modell wie die Ausgabefarbe konvertiert, sodass sie auf eine Weise dargestellt werden kann, die kompatibel ist (d.h. mit denselben Kanälen).
 
-In den Beispielen, die wir bisher in diesem Abschnitt gesehen haben, wurden die Alpha-Kanäle weder für die Ursprungs- noch für die Ausgabefarben explizit angegeben. Wenn der Alphakanal der Ausgabefarbe nicht angegeben ist, beträgt der Standardwert den gleichen Wert wie der des Alphakanals der Ursprungsfarbe. Wenn der Alpha-Kanal der Ursprungsfarbe nicht spezifiziert ist (und es sich nicht um eine relative Farbe handelt), beträgt der Standardwert `1`. Daher beträgt der Ursprungs- und Ausgabewert des Alpha-Kanals `1` für die obigen Beispiele.
+In den bisher in diesem Abschnitt gesehenen Beispielen wurden die Alpha-Kanäle weder für die Ursprungs- noch für die Ausgabefarben explizit angegeben. Wenn der Alpha-Kanal der Ausgabefarbe nicht angegeben ist, wird er standardmäßig auf denselben Wert wie der Alpha-Kanal der Ursprungsfarbe gesetzt. Ist der Alpha-Kanal der Ursprungsfarbe nicht angegeben (und handelt es sich nicht um eine relative Farbe), wird er auf `1` gesetzt. Daher sind die Alpha-Kanal-Werte der Ursprung- und Ausgabefarbe `1` für die obigen Beispiele.
 
-Sehen wir uns einige Beispiele an, die Ursprungs- und Ausgabewerte der Alpha-Kanäle angeben. Das erste Beispiel gibt den Ausgabewert des Alpha-Kanals als den gleichen wie den Ursprungswert des Alpha-Kanals an, während das zweite einen anderen Ausgabewert des Alpha-Kanals angibt, der nicht mit dem Ursprungswert des Alpha-Kanals zusammenhängt.
+Schauen wir uns einige Beispiele an, die Alpha-Kanal-Werte für Ursprung- und Ausgabekanal-Werte spezifizieren. Das erste Beispiel spezifiziert den Alpha-Kanal-Wert der Ausgabefarbe als gleich dem Alpha-Kanal-Wert der Ursprungsfarbe, während das zweite Beispiel einen anderen Alpha-Kanal-Wert für die Ausgabefarbe angibt, der nicht mit dem Alpha-Kanal-Wert der Ursprungsfarbe in Verbindung steht.
 
 ```css
 oklab(from hsl(0 100% 50% / 0.8) l a b / alpha)
@@ -129,14 +129,14 @@ oklab(from hsl(0 100% 50% / 0.8) l a b / 0.5)
 /* Computed output color: oklab(0.627966 0.22488 0.125859 / 0.5) */
 ```
 
-Im folgenden Beispiel wird die `hsl()` Ursprungsfarbe erneut in das `oklab()`-Äquivalent konvertiert — `oklab(0.627966 0.22488 0.125859)`. {{cssxref("calc")}} Berechnungen werden auf die `L`-, `a`-, `b`- und `A`-Werte angewendet, was zu einer Ausgabefarbe von `oklab(0.827966 0.14488 -0.0741406 / 0.9)` führt:
+Im folgenden Beispiel wird die `hsl()`-Ursprungsfarbe erneut in die `oklab()`-äquivalente Farbe konvertiert — `oklab(0.627966 0.22488 0.125859)`. {{cssxref("calc")}}-Berechnungen werden auf die `L`, `a`, `b` und `A` Werte angewendet, was eine Ausgabefarbe von `oklab(0.827966 0.14488 -0.0741406 / 0.9)` ergibt:
 
 ```css
 oklab(from hsl(0 100% 50%) calc(l + 0.2) calc(a - 0.08) calc(b - 0.2) / calc(alpha - 0.1))
 ```
 
 > [!NOTE]
-> Da die Ursprungsfarbkanalwerte zu `<number>` Werten aufgelöst werden, müssen Sie diesen hinzugefügte Zahlen bei Berechnungen hinzufügen, selbst in Fällen, bei denen ein Kanal normalerweise `<percentage>`, `<angle>` oder andere Wertetypen akzeptieren würde. Das Hinzufügen eines `<percentage>` zu einer `<number>` funktioniert zum Beispiel nicht.
+> Da die Ursprungsfarbkanalwerte auf `<number>`-Werte aufgelöst werden, müssen Sie Zahlen zu ihnen hinzufügen, wenn Sie sie in Berechnungen verwenden, selbst in Fällen, in denen ein Kanal normalerweise `<percentage>`, `<angle>` oder andere Werttypen akzeptieren würde. Zum Beispiel funktioniert das Hinzufügen eines `<percentage>` zu einem `<number>` nicht.
 
 ## Formale Syntax
 
@@ -146,7 +146,7 @@ oklab(from hsl(0 100% 50%) calc(l + 0.2) calc(a - 0.08) calc(b - 0.2) / calc(alp
 
 ### Anpassung der Helligkeit
 
-Das folgende Beispiel zeigt die Wirkung der Variation der Helligkeit, der a-Achse und der b-Achse während der Verwendung der `oklab()`-Funktion.
+Das folgende Beispiel zeigt die Auswirkungen von variierenden Werten für Helligkeit, a-Achse und b-Achse der `oklab()` Funktion.
 
 #### HTML
 
@@ -217,9 +217,9 @@ div {
 
 ### Anpassung der Deckkraft
 
-Das folgende Beispiel zeigt die Wirkung der Variation des `A` (Alpha)-Wertes der `oklab()`-Funktion.
-Die `red` und `red-alpha` Elemente überlappen das `#background-div` Element, um die Wirkung der Deckkraft zu demonstrieren.
-Dem `red-alpha`-Element eine Deckkraft von `0.4` zu geben, lässt es transparenter erscheinen als das `red`-Element.
+Das folgende Beispiel zeigt die Auswirkungen von variierenden `A` (Alpha)-Werten der `oklab()` Funktion.
+Die `red`- und `red-alpha`-Elemente überlappen das `#background-div` Element, um den Effekt der Deckkraft zu demonstrieren.
+Indem dem `red-alpha` Element eine Deckkraft von `0.4` zugewiesen wird, erscheint es transparenter als das `red` Element.
 
 #### HTML
 
@@ -263,7 +263,7 @@ div {
 
 ### Anpassung der Farbachsen
 
-Dieses Beispiel demonstriert die Effekte des Einstellens der `a`- und `b`-Werte der `oklab()`-Funktion auf die Enden und Mittelpunkte der a-Achse und b-Achse. Die a-Achse reicht von grün (`-0.4`) bis rot (`0.4`) und die b-Achse von gelb (`-0.4`) bis blau (`0.4`).
+Dieses Beispiel demonstriert die Effekte beim Setzen der `a` und `b`-Werte der `oklab()` Funktion auf die End- und Mittelpunkte der a-Achse und b-Achse. Die a-Achse verläuft von Grün (`-0.4`) zu Rot (`0.4`), und die b-Achse verläuft von Gelb (`-0.4`) zu Blau (`0.4`).
 
 #### HTML
 
@@ -283,7 +283,7 @@ Dieses Beispiel demonstriert die Effekte des Einstellens der `a`- und `b`-Werte 
 
 #### CSS
 
-Verwendung der CSS-{{cssxref("background-color")}}-Eigenschaft, um die `a`- und `b`-Werte der `oklab()`-Farbfunktions entlang der a-Achse und b-Achse variieren zu lassen, wodurch die Effekte von maximalen, mittleren und minimalen Werten in jedem Fall gezeigt werden.
+Unter Verwendung der CSS {{cssxref("background-color")}}-Eigenschaft variieren wir die `a` und `b`-Werte der `oklab()` Farbfunktions entlang der a-Achse und b-Achse und zeigen die Effekte der maximalen, mittleren und minimalen Werte in jedem Fall.
 
 ```css hidden
 body {
@@ -337,11 +337,11 @@ div {
 
 {{EmbedLiveSample("Adjusting_color_axes", "", "200")}}
 
-Die linke Spalte ist am gelben Ende (`-0.4`) der b-Achse und die rechte Spalte am blauen Ende (`0.4`). Die obere Reihe zeigt die Farben am roten Ende der a-Achse (`-0.4`) und die untere Reihe am grünen Ende (`0.4`). Die mittlere Spalte und Zeile liegen an den Mittelpunkten jeder Achse, wobei die mittlere Zelle grau ist; sie enthält keinen Rot, Grün, Gelb oder Blau, mit einem `0`-Wert für beide Achsen.
+Die linke Spalte befindet sich am gelben Ende (`-0.4`) der b-Achse und die rechte Spalte am blauen Ende (`0.4`). Die obere Reihe zeigt Farben am roten Ende der a-Achse (`-0.4`) und die untere Reihe am grünen Ende (`0.4`). Die mittlere Spalte und Reihe liegen an den Mittelpunkten jeder Achse, wobei die mittlere Zelle grau ist; sie enthält weder Rot, Grün, Gelb noch Blau mit einem Wert von `0` für beide Achsen.
 
 ### Lineare Verläufe entlang der a-Achse und b-Achse
 
-Dieses Beispiel enthält lineare Verläufe, um die Werte des `oklab()`-Funktion entlang der a-Achse (von rot zu grün) und entlang der b-Achse (von gelb zu blau) zu demonstrieren. In jedem Gradientenbild bleibt eine Achse statisch, während die andere Achse von niedrigen zu hohen Werten fortschreitet.
+Dieses Beispiel enthält lineare Verläufe, um die Wertverläufe der `oklab()` Funktion entlang der a-Achse (von Rot zu Grün) und entlang der b-Achse (von Gelb zu Blau) zu demonstrieren. In jedem Verlaufbild bleibt eine Achse statisch, während die andere Achse von niedrigen zu hohen Werten fortschreitet.
 
 ```html hidden
 <div data-color="red-to-green-yellow">
@@ -413,9 +413,9 @@ span {
 
 ### Verwendung relativer Farben mit oklab()
 
-Dieses Beispiel stylt drei {{htmlelement("div")}}-Elemente mit unterschiedlichen Hintergrundfarben. Das mittlere bekommt die unmodifizierte `--base-color`, während die linken und rechten eine aufgehellte und eine abgedunkelte Variante dieser `--base-color` bekommen.
+Dieses Beispiel stilisiert drei {{htmlelement("div")}} Elemente mit verschiedenen Hintergrundfarben. Dem mittleren wird die unveränderte `--base-color` zugewiesen, während den linken und rechten aufgehellte und verdunkelte Varianten dieser `--base-color` zugewiesen werden.
 
-Diese Varianten werden unter Verwendung relativer Farben definiert — die `--base-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) wird in eine `oklab()`-Funktion übergeben, und die Ausgabefarben haben ihren Helligkeitskanal verändert, um den gewünschten Effekt durch eine `calc()`-Funktion zu erzielen. Die aufgehellte Farbe hat `0.15` (15%) zum Helligkeitskanal hinzugefügt, und die abgedunkelte Farbe hat `0.15` (15%) vom Helligkeitskanal subtrahiert.
+Diese Varianten werden unter Verwendung relativer Farben definiert — die `--base-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Reference/Properties/--*) wird in eine `oklab()` Funktion übergeben, und die Ausgabefarben haben ihren Helligkeitskanal modifiziert, um den gewünschten Effekt über eine `calc()` Funktion zu erreichen. Der aufgehellte Farbton hat `0.15` (15%) zum Helligkeitskanal hinzugefügt und der verdunkelte Farbton hat `0.15` (15%) vom Helligkeitskanal abgezogen.
 
 ```html hidden
 <div id="container">
@@ -461,7 +461,7 @@ Diese Varianten werden unter Verwendung relativer Farben definiert — die `--ba
 
 #### Ergebnis
 
-Der Output ist wie folgt:
+Die Ausgabe ist wie folgt:
 
 {{ EmbedLiveSample("Using relative colors with oklab()", "100%", "200") }}
 
@@ -475,9 +475,9 @@ Der Output ist wie folgt:
 
 ## Siehe auch
 
-- Der [`<color>`-Datentyp](/de/docs/Web/CSS/Reference/Values/color_value) für eine Liste aller Farbnomenklaturen
+- Der [`<color>` Datentyp](/de/docs/Web/CSS/Reference/Values/color_value) für eine Liste aller Farbnotationen
 - {{cssxref("color_value/lab","lab()")}} und {{cssxref("color_value/oklch","oklch()")}} Farb-Funktionen
-- [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
-- [Ein wahrnehmungsbasierter Farbraum zur Bildverarbeitung](https://bottosson.github.io/posts/oklab/) auf bottosson.github.io (2023)
+- [Verwendung von relativen Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)
+- [CSS Farben](/de/docs/Web/CSS/Guides/Colors) Modul
+- [Ein perzeptueller Farbraum für die Bildverarbeitung](https://bottosson.github.io/posts/oklab/) auf bottosson.github.io (2023)
 - [OKLAB Farbkreis](https://observablehq.com/@shan/oklab-color-wheel) auf observablehq.com

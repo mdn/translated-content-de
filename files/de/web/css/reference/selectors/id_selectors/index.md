@@ -2,10 +2,10 @@
 title: ID-Selektoren
 slug: Web/CSS/Reference/Selectors/ID_selectors
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Der CSS-**ID-Selektor** wählt ein Element basierend auf dem Wert des [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributs des Elements aus. Damit das Element ausgewählt wird, muss sein `id`-Attribut genau mit dem im Selektor angegebenen Wert übereinstimmen.
+Der CSS **ID-Selektor** wählt ein Element basierend auf dem Wert des [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id)-Attributs des Elements aus. Damit das Element ausgewählt wird, muss sein `id`-Attribut exakt mit dem im Selektor angegebenen Wert übereinstimmen.
 
 ```css
 /* The element with id="demo" */
@@ -22,7 +22,7 @@ Der CSS-**ID-Selektor** wählt ein Element basierend auf dem Wert des [`id`](/de
 }
 ```
 
-Beachten Sie, dass dies syntaktisch (aber nicht hinsichtlich der Spezifität) dem folgenden [Attributselektor](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) entspricht:
+Beachten Sie, dass dies syntaktisch (aber nicht bezüglich der Spezifität) dem folgenden [Attributselektor](/de/docs/Web/CSS/Reference/Selectors/Attribute_selectors) entspricht:
 
 ```css
 [id="id_value"] {
@@ -30,7 +30,7 @@ Beachten Sie, dass dies syntaktisch (aber nicht hinsichtlich der Spezifität) de
 }
 ```
 
-Der Wert `id_value` muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/Reference/Values/ident) sein. HTML-`id`-Attribute, die keine gültigen CSS-Identifier sind, müssen [escaped](/de/docs/Web/CSS/Reference/Values/ident#escaping_characters) werden, bevor sie in ID-Selektoren verwendet werden können.
+Der Wert `id_value` muss ein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/Reference/Values/ident) sein. HTML `id`-Attribute, die keine gültigen CSS-Bezeichner sind, müssen [escaped](/de/docs/Web/CSS/Reference/Values/ident#escaping_characters) werden, bevor sie in ID-Selektoren verwendet werden können.
 
 ## Beispiele
 
@@ -77,7 +77,7 @@ that contain characters which must be escaped in CSS -->
 
 ### Ungültige ID-Selektoren
 
-Die ID-Selektoren in den folgenden Regeln sind keine gültigen CSS-Identifier und werden ignoriert.
+Die ID-Selektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichner und werden ignoriert.
 
 ```css example-bad
 #item?one {
@@ -99,5 +99,5 @@ Die ID-Selektoren in den folgenden Regeln sind keine gültigen CSS-Identifier un
 
 ## Siehe auch
 
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [CSS lernen: Basis-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)
+- [CSS lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

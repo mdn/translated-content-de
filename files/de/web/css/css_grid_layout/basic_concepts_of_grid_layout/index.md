@@ -6,7 +6,7 @@ l10n:
   sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-[CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) führt ein zweidimensionales Rastersystem in CSS ein. Grids können verwendet werden, um große Seitenbereiche oder kleine Benutzeroberflächenelemente anzuordnen. Dieser Leitfaden führt in das CSS-Grid-Layout und die Terminologie ein, die Teil der CSS-Grid-Layout-Spezifikation ist. Die in dieser Übersicht gezeigten Funktionen werden dann in den anderen Leitfäden dieser Serie ausführlicher erklärt.
+[CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) führt ein zweidimensionales Rastersystem in CSS ein. Grids können verwendet werden, um große Seitenbereiche oder kleine Benutzeroberflächenelemente anzuordnen. Dieser Leitfaden führt in das CSS-Grid-Layout und die Terminologie ein, die Teil der CSS-Grid-Layout-Spezifikation ist. Die in dieser Übersicht gezeigten Funktionen werden dann in den anderen Leitfäden dieser Serie ausführlicher erklärt.
 
 ## Was ist ein Grid?
 
@@ -26,13 +26,13 @@ Sie können ein explizites Grid mit dem Grid-Layout definieren. Die im Grid-Layo
 
 ### Ausrichtungssteuerung
 
-CSS-Grid-Layout und [CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Funktionen ermöglichen es uns, zu steuern, wie die Elemente ausgerichtet werden, sobald sie in einen Grid-Bereich platziert wurden, und wie das gesamte Grid ausgerichtet wird.
+CSS-Grid-Layout und [CSS-Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Funktionen ermöglichen es uns, zu steuern, wie die Elemente ausgerichtet werden, sobald sie in einen Grid-Bereich platziert wurden, und wie das gesamte Grid ausgerichtet wird.
 
 ### Steuerung überlappender Inhalte
 
 Mehr als ein Element kann in eine Grid-Zelle oder einen Bereich platziert werden und sie können sich teilweise überlappen. Diese Schichtbildung kann dann mit der {{cssxref("z-index")}}-Eigenschaft gesteuert werden.
 
-Grid ist eine leistungsstarke Layout-Methode, die in Kombination mit anderen Teilen von CSS, wie [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout), Ihnen helfen kann, Layouts zu erstellen, die reaktionsschnell, flexibel und zugänglich sind. Alles beginnt mit der Erstellung eines Grids in Ihrem **{{Glossary("grid_container", "grid container")}}**.
+Grid ist eine leistungsstarke Layout-Methode, die in Kombination mit anderen Teilen von CSS, wie [flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout), Ihnen helfen kann, Layouts zu erstellen, die reaktionsschnell, flexibel und zugänglich sind. Alles beginnt mit der Erstellung eines Grids in Ihrem **{{Glossary("grid_container", "grid container")}}**.
 
 ## Grid-Container
 
@@ -416,11 +416,11 @@ Es sollte beachtet werden, dass wir, wenn wir ein Grid definieren, die Grid-Spur
 
 ![Diagramm, das nummerierte Grid-Linien zeigt.](1_diagram_numbered_grid_lines.png)
 
-Linien werden entsprechend dem Schreibmodus des Dokuments nummeriert. In einer Sprache von links nach rechts befindet sich Linie 1 auf der linken Seite des Grids. In einer Sprache von rechts nach links befindet es sich auf der rechten Seite des Grids. Linien können auch benannt werden, was im [Grid-Layout unter Verwendung benannter Grid-Linien](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) Leitfaden diskutiert wird.
+Linien werden entsprechend dem Schreibmodus des Dokuments nummeriert. In einer Sprache von links nach rechts befindet sich Linie 1 auf der linken Seite des Grids. In einer Sprache von rechts nach links befindet es sich auf der rechten Seite des Grids. Linien können auch benannt werden, was im [Grid-Layout unter Verwendung benannter Grid-Linien](/de/docs/Web/CSS/Guides/Grid_layout/Named_grid_lines) Leitfaden diskutiert wird.
 
 ### Platzieren von Elementen an Linien
 
-Das folgende Beispiel zeigt eine grundlegende Linie-basierte Platzierung; beim Platzieren eines Elements zielen wir auf die Linie anstelle der Spur. Wir erkunden dies ausführlicher im [Grid-Layout unter Verwendung von linienbasierter Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) Leitfaden.
+Das folgende Beispiel zeigt eine grundlegende Linie-basierte Platzierung; beim Platzieren eines Elements zielen wir auf die Linie anstelle der Spur. Wir erkunden dies ausführlicher im [Grid-Layout unter Verwendung von linienbasierter Platzierung](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement) Leitfaden.
 
 In diesem Beispiel werden die ersten beiden Elemente in unserem dreispaltigen Spur-Grid mit den Eigenschaften {{cssxref("grid-column-start")}}, {{cssxref("grid-column-end")}}, {{cssxref("grid-row-start")}} und {{cssxref("grid-row-end")}} platziert. Von links nach rechts wird das erste Element an Spaltenlinie 1 platziert und erstreckt sich bis zur Spaltenlinie 4, die in unserem Fall die äußerste rechte Linie im Grid ist. Es beginnt an der Zeilenlinie 1 und endet an der Zeilenlinie 3, was bedeutet, dass es sich über zwei Spuren erstreckt.
 
@@ -780,4 +780,4 @@ Wir können die Reihenfolge, in der sich die Elemente stapeln, mit der `z-index`
 
 ## Nächste Schritte
 
-In dieser Übersicht haben wir einen sehr schnellen Blick auf die Möglichkeiten von Grid-Layouts geworfen. Erkunden und experimentieren Sie mit den Codebeispielen, und fahren Sie dann mit dem Leitfaden fort, [Beziehung des Grid-Layouts zu anderen Layout-Methoden](/de/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods), in dem wir wirklich beginnen, in die Details des CSS-Grid-Layouts einzutauchen.
+In dieser Übersicht haben wir einen sehr schnellen Blick auf die Möglichkeiten von Grid-Layouts geworfen. Erkunden und experimentieren Sie mit den Codebeispielen, und fahren Sie dann mit dem Leitfaden fort, [Beziehung des Grid-Layouts zu anderen Layout-Methoden](/de/docs/Web/CSS/Guides/Grid_layout/Relationship_with_other_layout_methods), in dem wir wirklich beginnen, in die Details des CSS-Grid-Layouts einzutauchen.

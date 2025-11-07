@@ -2,16 +2,16 @@
 title: corner-shape
 slug: Web/CSS/Reference/Properties/corner-shape
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`corner-shape`** [Shorthand-Eigenschaft](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) spezifiziert die Form der Ecken eines Kastens innerhalb des Bereichs, der durch den Wert der {{cssxref("border-radius")}} Eigenschaft angegeben wird.
+Die **`corner-shape`** [Kurzschreibweise](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die Form der Ecken eines Rahmens fest, innerhalb des durch den Wert der {{cssxref("border-radius")}} Eigenschaft angegebenen Bereichs.
 
-## Bestandteileigenschaften
+## Zusammengesetzte Eigenschaften
 
-Die `corner-shape` Eigenschaft ist eine Kurzform für die folgenden physischen Eigenschaften:
+Die `corner-shape` Eigenschaft ist eine Kurzschreibweise für die folgenden physischen Eigenschaften:
 
 - {{cssxref("corner-top-left-shape")}}
 - {{cssxref("corner-top-right-shape")}}
@@ -41,67 +41,67 @@ corner-shape: revert-layer;
 corner-shape: unset;
 ```
 
-Die `corner-shape` Eigenschaft kann mithilfe von einem, zwei, drei oder vier {{cssxref("&lt;corner-shape-value>")}} Werten angegeben werden:
+Die `corner-shape` Eigenschaft kann mit einem, zwei, drei oder vier {{cssxref("&lt;corner-shape-value>")}} Werten angegeben werden:
 
-- Wird **ein** Wert verwendet, gibt er die Form **aller vier Ecken** an.
-- Bei **zwei** Werten gilt der erste Formwert für die **obere linke und untere rechte** Ecke, und der zweite für die **obere rechte und untere linke Ecke**.
-- Bei **drei** Werten definiert der erste Wert die Form der **oberen linken Ecke**, der zweite Wert die **obere rechte und untere linke Ecke**, und der dritte die **untere rechte Ecke**.
-- Bei vier Werten definieren sie der Reihe nach (im Uhrzeigersinn) die Form der **oberen linken**, **oberen rechten**, **unteren rechten** und **unteren linken** Ecke.
+- Wenn **ein** Wert verwendet wird, legt er die Form **aller vier Ecken** fest.
+- Wenn **zwei** Werte verwendet werden, gilt die erste Form für die **obere linke und untere rechte** Ecke, und die zweite für die **obere rechte und untere linke Ecke**.
+- Wenn **drei** Werte verwendet werden, legt die erste Form die Form der **oberen linken Ecke** fest, die zweite für die **oberen rechten und unteren linken Ecken**, und die dritte für die **untere rechte Ecke**.
+- Bei vier Werten legen diese die Form der **oberen linken**, **oberen rechten**, **unteren rechten** und **unteren linken** Ecken fest, in dieser Reihenfolge (im Uhrzeigersinn).
 
 ### Werte
 
 - {{cssxref("corner-shape-value")}}
-  - : Ein {{cssxref("superellipse()")}} oder ein gleichwertiges Schlüsselwort, das die Form der Ecke beschreibt.
+  - : Ein {{cssxref("superellipse()")}} oder ein Schlüsselwortäquivalent, das die Form der Ecke beschreibt.
 
 ## Beschreibung
 
-Die `corner-shape` Eigenschaft wird verwendet, um die Form abgerundeter Ecken zu modifizieren, die durch die {{cssxref("border-radius")}} Eigenschaft und ihre verbundenen Langformen erstellt wurden. Bereits abgerundete Ecken können weiter in Bezug auf den Grad der Rundung angepasst werden, was die Erstellung von beispielsweise abgeschrägten, gekerbten und quadratischen Ecken ermöglicht. Grenzen, Umrisse, Schatten und Hintergrundeffekte, die auf das Container-Element angewendet werden, folgen der definierten Form der Ecken.
+Die `corner-shape` Eigenschaft wird verwendet, um die Form von abgerundeten Ecken, die durch die {{cssxref("border-radius")}} Eigenschaft und ihre zugehörigen Langformen erstellt werden, zu modifizieren. Bereits abgerundete Ecken können weiter angepasst werden hinsichtlich des Grades der Rundung, der auf sie angewendet wird, was die Erstellung von beispielsweise abgeschrägten, ausgeschnittenen und quatratischen Ecken ermöglicht. Ränder, Umrisse, Schatten und Hintergrundeffekte, die auf das Container-Element angewendet werden, folgen der definierten Eckform.
 
-Wenn ein `border-radius` nicht angewendet wird oder der `border-radius` auf `0` aufgelöst wird, hat `corner-shape` keine Wirkung.
+Wenn eine `border-radius` nicht auf ein Container-Element angewendet wird oder die `border-radius` zu `0` aufgelöst wird, hat `corner-shape` keinen Effekt.
 
-Die `corner-shape` Kurzform und ihre zugehörigen [`corner-*-shape` Kurzformen und Langformen](#corner--shape_shorthands_and_longhands) akzeptieren ein bis vier {{cssxref("&lt;corner-shape-value>")}} Werte. Jeder wird direkt als {{cssxref("superellipse()")}} Funktion oder ein Schlüsselwort für eine häufige Form angegeben. Jedes Schlüsselwort entspricht einem spezifischen `superellipse()` Wert.
+Die `corner-shape` Kurzschreibweise und ihre zugehörigen [`corner-*-shape` Kurz- und Langformen](#corner--shape_shorthands_and_longhands) akzeptieren ein bis vier {{cssxref("&lt;corner-shape-value>")}} Werte. Jeder wird direkt als {{cssxref("superellipse()")}} Funktion oder ein Schlüsselwort, das eine übliche Form beschreibt, angegeben. Jedes Schlüsselwort entspricht einem bestimmten `superellipse()` Wert.
 
-Der Standardwert (Initialwert) von `corner-shape` ist `round`, was den gleichen Effekt hat wie die Verwendung von `border-radius` alleine, ohne `corner-shape`. Es gibt auch den Schlüsselwortwert `square`, der den Effekt von standardmäßigen quadratischen Ecken hat und effektiv jeglichen angewendeten `border-radius` entfernt. Der `bevel` Wert hat den Effekt, eine gerade Linie zwischen den beiden Enden eines `border-radius` zu ziehen.
+Der Standardwert (Initialwert) von `corner-shape` ist `round`, was denselben Effekt hat, wie die alleinige Verwendung von `border-radius` ohne `corner-shape`. Es gibt auch einen Schlüsselwortwert `square`, der denselben Effekt wie Standardrechteckecken hat und effektiv jede angewendete `border-radius` entfernt. Der Wert `bevel` hat den Effekt, eine gerade Linie zwischen den beiden Enden eines `border-radius` zu zeichnen.
 
-Unterschiedliche `corner-shape` Werte können flüssig animiert werden, da die `superellipse()` Entsprechungen der Schlüsselwortwerte als Interpolationswerte verwendet werden.
+Unterschiedliche `corner-shape` Werte können flüssig animiert werden, da die `superellipse()` Äquivalente der Schlüsselwortwerte als Interpolationswerte verwendet werden.
 
-Die `corner-shape` Kurzform ist besonders nützlich, wenn alle vier Ecken gleich sein sollen, oder unterschiedliche Werte mit einer einzigen Deklaration gesetzt werden sollen. Um nur eine oder zwei Ecken gleichzeitig festzulegen, verwenden Sie die `corner-*-shape` Kurz- und Langformen.
+Die `corner-shape` Kurzschreibweise ist besonders nützlich, wenn Sie alle vier Ränder gleich haben möchten oder unterschiedliche Werte mit einer einzigen Deklaration festlegen möchten. Um nur ein oder zwei Eckformen gleichzeitig festzulegen, verwenden Sie die `corner-*-shape` Kurz- und Langformen.
 
 ### `corner-*-shape` Kurz- und Langformen
 
-Die `corner-shape` Kurzform definiert die Formen aller vier Ecken in einer Erklärung.
+Die `corner-shape` Kurzschreibweise definiert die Formen aller vier Ecken in einer Erklärung.
 
-Um jeweils nur eine Ecke zu definieren, verwenden Sie die Langformen der Ecken:
+Um nur eine Eckform gleichzeitig festzulegen, verwenden Sie die Langformen der Eckform:
 
-- Physikalische Langformen für Ecken:
+- Physikalische Langform-Eckform-Eigenschaften:
   - {{cssxref("corner-bottom-left-shape")}}
   - {{cssxref("corner-bottom-right-shape")}}
   - {{cssxref("corner-top-left-shape")}}
   - {{cssxref("corner-top-right-shape")}}
-- Logische Langformen für Ecken:
+- Logische Langform-Eckform-Eigenschaften:
   - {{cssxref("corner-start-start-shape")}}
   - {{cssxref("corner-start-end-shape")}}
   - {{cssxref("corner-end-start-shape")}}
   - {{cssxref("corner-end-end-shape")}}
 
-Um zwei Ecken gleichzeitig festzulegen, verwenden Sie die Seitenkurzformen:
+Um zwei Eckformen gleichzeitig festzulegen, verwenden Sie die Seiten-Kurzschreibweisen:
 
-- Physikalische Seitenkurzformen:
+- Physikalische Seiten-Kurzform-Eigenschaften:
   - {{cssxref("corner-top-shape")}}
   - {{cssxref("corner-right-shape")}}
   - {{cssxref("corner-bottom-shape")}}
   - {{cssxref("corner-left-shape")}}
-- Logische Seitenkurzformen:
+- Logische Seiten-Kurzform-Eigenschaften:
   - {{cssxref("corner-block-start-shape")}}
   - {{cssxref("corner-block-end-shape")}}
   - {{cssxref("corner-inline-start-shape")}}
   - {{cssxref("corner-inline-end-shape")}}
 
-### Einschränkung der gegenüberliegenden Eckenradien
+### Einschränkung der Radien gegenüberliegender Eckformen
 
-Wenn gegenüberliegende Ecken `border-radius` und `corner-shape` Werte haben, die dazu führen würden, dass sich die Formen überlappen, beschränkt der Browser die Werte, um das Überlappen zu verhindern.
+Wenn gegenüberliegende Ecken `border-radius` und `corner-shape` Werte gesetzt haben, die die Formen überlappen würden, schränkt der Browser die Werte ein, um die Überlappung zu verhindern.
 
-Zum Beispiel würden die folgenden Werte dazu führen, dass sich die obere linke und untere rechte Ecke überlappen, daher passt der Browser die erste `border-radius` Komponente an einen Wert an, der dies verhindert.
+Zum Beispiel würden die folgenden Werte verursachen, dass die oberen linken und unteren rechten Ecken sich überlappen, daher passt der Browser die erste `border-radius` Komponente auf einen Wert an, der dies verhindert.
 
 ```css
 div {
@@ -113,9 +113,9 @@ div {
 }
 ```
 
-### Eigenschaften, die der Form der Ecke folgen
+### Eigenschaften, die der Eckform folgen
 
-Die folgenden Eigenschaften folgen alle der Form der Ecke, wenn sie auf das Container-Element gesetzt werden:
+Die folgenden Eigenschaften folgen alle der Form der Ecke, wenn sie auf das Container-Element gesetzt sind:
 
 - {{cssxref("background-color")}}
 - {{cssxref("background-image")}}
@@ -125,7 +125,7 @@ Die folgenden Eigenschaften folgen alle der Form der Ecke, wenn sie auf das Cont
 - {{cssxref("overflow")}}
 - {{cssxref("backdrop-filter")}}
 
-Weitere Informationen finden Sie in der [Demonstration der Eigenschaften, die der `corner-shape` folgen](#demonstration_of_properties_that_follow_the_corner-shape).
+Siehe [Demonstration von Eigenschaften, die der `corner-shape` folgen](#demonstration_of_properties_that_follow_the_corner-shape) für einige Beispiele.
 
 ## Formale Definition
 
@@ -137,7 +137,7 @@ Weitere Informationen finden Sie in der [Demonstration der Eigenschaften, die de
 
 ## Beispiele
 
-### Grundlegende Verwendung von `corner-shape`
+### Grundlegende `corner-shape` Nutzung
 
 #### HTML
 
@@ -149,7 +149,7 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Wir geben dem Kasten eine feste {{cssxref("height")}}, einen {{cssxref("box-shadow")}}, einen `border-radius` von 30 Pixeln und eine `corner-shape` von `scoop` sowie einige zusätzliche Stile, die wir zur Übersichtlichkeit weggelassen haben.
+Wir geben der Box eine feste {{cssxref("height")}}, einen {{cssxref("box-shadow")}}, einen `border-radius` von 30 Pixeln und einen `corner-shape` von `scoop`, zusammen mit einigen zusätzlichen Stilen, die wir der Kürze halber ausgeblendet haben.
 
 ```css hidden live-sample___basic-corner-shape
 body {
@@ -206,9 +206,9 @@ Das gerenderte Ergebnis sieht so aus:
 
 {{EmbedLiveSample("basic-corner-shape", "100%", "240")}}
 
-Beachten Sie, wie der `corner-shape` Wert von `scoop` das Element konkave Ecken gibt — die Kurve ist eine Inversion der Standard-`border-radius` Kurve. Beachten Sie auch, wie der Hintergrund, die Grenze und der Box-Schatten der Form der Kurve folgen.
+Beachten Sie, wie der `corner-shape` Wert von `scoop` den Container konkave Ecken gibt — die Kurve ist eine Inversion der Standard-`border-radius` Kurve. Beachten Sie auch, wie der Hintergrund, der Rand und der Box-Schatten der Form der Kurve folgen.
 
-### Demonstration der Eigenschaften, die der `corner-shape` folgen
+### Demonstration von Eigenschaften, die der `corner-shape` folgen
 
 #### HTML
 
@@ -225,16 +225,16 @@ Das Markup für dieses Beispiel enthält ein einzelnes {{htmlelement("div")}} El
 
 #### CSS
 
-Um zu demonstrieren, wie einige Stile der Form der Ecken eines Containers folgen, wenden wir ein {{cssxref("background-image")}} auf das Dokument `<body>` an, dann setzen wir einen `border-radius` von `40px` und ein `corner-shape` von `scoop notch` auf das `<div>`.
+Um zu demonstrieren, wie einige Stile der Form der Ecken eines Containers folgen, verwenden wir ein {{cssxref("background-image")}} für das Dokument `<body>`, und dann wenden wir ein `border-radius` von `40px` und eine `corner-shape` von `scoop notch` auf das `<div>` an.
 
-Dann wenden wir auf das `<div>` das Folgende an:
+Dann wenden wir folgendes auf das `<div>` an:
 
 - Eine halbtransparente {{cssxref("background-color")}}.
-- Eine andere Farbe und Art von {{cssxref("border")}} auf jeder Kante.
-- Einen {{cssxref("backdrop-filter")}}, der das auf das `<body>` gesetzte `background-image` invertiert.
-- Einen `:hover` Stil, sodass Sie sehen können, dass der klickbare Inhaltsbereich außerhalb der Eckform liegt.
+- Eine andere Farbe und Stil von {{cssxref("border")}} an jeder Kante.
+- Ein {{cssxref("backdrop-filter")}}, der das auf das `<body>` gesetzte `background-image` invertiert.
+- Einen `:hover` Stil, damit Sie sehen können, dass der anklickbare Inhaltsbereich außerhalb der Eckform fällt.
 
-Weitere Setup-Stile wurden zur Übersichtlichkeit weggelassen.
+Zusätzliche Einrichtungsstile wurden der Kürze halber ausgeblendet.
 
 ```css hidden live-sample___styles-following-corner-shape
 html {
@@ -305,15 +305,15 @@ Das gerenderte Ergebnis sieht so aus:
 
 {{EmbedLiveSample("styles-following-corner-shape", "100%", "240")}}
 
-Beachten Sie, wie die meisten der gesetzten Stile der Form des `<div>`, die durch seine `corner-shape` Stile resultiert, folgen, aber nicht alle. Der Inhalt wird relativ zur ursprünglichen Box angezeigt, und der Hover-Effekt wird trotzdem angewendet, wenn Sie über den Text fahren, der über den oberen und unteren linken Ecken hinausragt.
+Beachten Sie, wie die meisten der festgelegten Stile der Form des `<div>` folgen, resultierend aus seinen `corner-shape` Stilen, aber nicht alle. Der Inhalt wird relativ zur ursprünglichen Box angezeigt, und der Hover-Effekt wird immer noch angewendet, wenn Sie über den Text fahren, der über die oberen und unteren linken Ecken hinausragt.
 
 ### Vergleich der `corner-shape` Werte
 
-In dieser Demonstration können Sie verschiedene `corner-shape` Werte auswählen und verschiedene {{cssxref("border-radius")}} Werte auf einen Container setzen und die Effekte vergleichen.
+In dieser Demonstration können Sie verschiedene `corner-shape` Werte auswählen und unterschiedliche {{cssxref("border-radius")}} Werte auf einen Container setzen und die Effekte vergleichen.
 
 #### HTML
 
-Das Markup für dieses Beispiel enthält einen {{htmlelement("select")}} Picker, aus dem verschiedene `corner-shape` Werte ausgewählt werden können, einen [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range) Schieberegler, um verschiedene `border-radius` Werte auszuwählen, und ein {{htmlelement("section")}} Element, auf das diese Werte angewendet werden können. Die `select` {{htmlelement("option")}} Elemente bieten mehrere Schlüsselwort- und {{cssxref("superellipse()")}} Wertoptionen, unterteilt in zwei Gruppen mit {{htmlelement("optgroup")}} Elementen. Bei den Schlüsselwortwerten haben wir auch den `superellipse()` Wertäquivalent für jeden hinzugefügt, getrennt durch ein Pipe-Zeichen.
+Das Markup für dieses Beispiel enthält einen {{htmlelement("select")}} Picker, aus dem verschiedene `corner-shape` Werte ausgewählt werden können, ein [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range) Schieberegler, um unterschiedliche `border-radius` Werte auszuwählen, und ein {{htmlelement("section")}} Element, um diese Werte darauf anzuwenden. Die ausgewählten {{htmlelement("option")}} Elemente bieten mehrere Schlüsselwort- und {{cssxref("superellipse()")}} Wertoptionen, die in zwei Gruppen mit {{htmlelement("optgroup")}} Elementen unterteilt sind. Im Falle der Schlüsselwortwerte haben wir auch den `superellipse()` Wertäquivalent für jeden hinzugefügt, getrennt durch ein Pipe-Zeichen.
 
 ```html live-sample___corner-shape-select
 <form>
@@ -354,7 +354,7 @@ Das Markup für dieses Beispiel enthält einen {{htmlelement("select")}} Picker,
 
 #### CSS
 
-Wir wenden einen {{cssxref("box-shadow")}} auf die `<section>` an. Wir geben auch der `<section>` und den Formularelementen einige grundlegende Stile, die zur Übersichtlichkeit weggelassen wurden.
+Wir wenden einen {{cssxref("box-shadow")}} auf das `<section>` an. Wir geben dem `<section>` und den Formelementen einige grundlegende Stile, die wir der Kürze halber ausgeblendet haben.
 
 ```css hidden live-sample___corner-shape-select
 html {
@@ -437,7 +437,7 @@ range.addEventListener("input", setCorners);
 setCorners();
 ```
 
-Das JavaScript, das die vom Benutzer ausgewählten Werte auf die `<section>` anwendet, wurde zur Übersichtlichkeit weggelassen.
+Das JavaScript, das die vom Benutzer ausgewählten Werte auf das `<section>` anwendet, wurde der Kürze halber ausgeblendet.
 
 #### Ergebnis
 
@@ -445,15 +445,15 @@ Das gerenderte Ergebnis sieht so aus:
 
 {{EmbedLiveSample("corner-shape-select", "100%", "300")}}
 
-Versuchen Sie, verschiedene Werte auszuwählen, um zu sehen, wie sich dies auf die Form der Ecken auswirkt.
+Versuchen Sie, unterschiedliche Werte auszuwählen, um zu sehen, wie sich dies auf die Form der Ecken auswirkt.
 
-### Vergleich der `superellipse()` Werte
+### `superellipse()` Wertvergleich
 
-In diesem Beispiel bieten wir zwei [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range) Schieberegler an, mit denen Sie durch viele verschiedene `corner-shape` {{cssxref("superellipse()")}} Werte und {{cssxref("border-radius")}} Werte blättern können, um die Effekte jedes auf einen Container zu vergleichen.
+In diesem Beispiel stellen wir zwei [`<input type="range">`](/de/docs/Web/HTML/Reference/Elements/input/range) Schieberegler bereit, die es Ihnen ermöglichen, durch viele verschiedene `corner-shape` {{cssxref("superellipse()")}} Werte und {{cssxref("border-radius")}} Werte zu wechseln, um die Effekte von jedem auf einen Container zu vergleichen.
 
 #### HTML
 
-Das Markup für dieses Beispiel enthält zwei `<input type="range">` Elemente, aus denen verschiedene `corner-shape` `superellipse()` und `border-radius` Werte ausgewählt werden können, und ein {{htmlelement("section")}} Element, auf das diese Werte angewendet werden können.
+Das Markup für dieses Beispiel enthält zwei `<input type="range">` Elemente, aus denen unterschiedliche `corner-shape` `superellipse()` und `border-radius` Werte ausgewählt werden können, und ein {{htmlelement("section")}} Element, um diese Werte darauf anzuwenden.
 
 ```html live-sample___superellipse-slider
 <form>
@@ -483,7 +483,7 @@ Das Markup für dieses Beispiel enthält zwei `<input type="range">` Elemente, a
 
 #### CSS
 
-Wir wenden einen {{cssxref("box-shadow")}} auf das `<section>` Element an. Zusätzliche grundlegende Stile wurden zur Übersichtlichkeit weggelassen.
+Wir wenden einen {{cssxref("box-shadow")}} auf das `<section>` Element an. Zusätzliche grundlegende Stile wurden der Kürze halber ausgeblendet.
 
 ```css hidden live-sample___superellipse-slider
 html {
@@ -563,7 +563,7 @@ borderRadiusRange.addEventListener("input", setCorners);
 setCorners();
 ```
 
-Das JavaScript, das die vom Benutzer ausgewählten Werte auf die `<section>` anwendet, wurde zur Übersichtlichkeit weggelassen.
+Das JavaScript, das die vom Benutzer ausgewählten Werte auf das `<section>` anwendet, wurde der Kürze halber ausgeblendet.
 
 #### Ergebnis
 
@@ -571,9 +571,9 @@ Das gerenderte Ergebnis sieht so aus:
 
 {{EmbedLiveSample("superellipse-slider", "100%", "300")}}
 
-Versuchen Sie, verschiedene Werte auszuwählen, um zu sehen, wie sich dies auf die Form der Ecken auswirkt.
+Versuchen Sie, unterschiedliche Werte auszuwählen, um zu sehen, wie sich dies auf die Form der Ecken auswirkt.
 
-### Animation der `corner-shape`
+### Animation von `corner-shape`
 
 In diesem Beispiel demonstrieren wir, wie die `corner-shape` Eigenschaft animiert werden kann.
 
@@ -585,7 +585,7 @@ In diesem Beispiel demonstrieren wir, wie die `corner-shape` Eigenschaft animier
 
 #### CSS
 
-Wir erstellen eine Reihe von {{cssxref("@keyframes")}}, die sanft zwischen den `corner-shape` Werten von `square` und `notch` animieren. Dann wenden wir eine {{cssxref("animation")}} an, die auf diese `@keyframes` basiert, wenn das enthaltende `<html>` Element überfahren oder fokussiert wird. Zusätzliche grundlegende `<div>` Stile wurden zur Übersichtlichkeit weggelassen.
+Wir erstellen eine Reihe von {{cssxref("@keyframes")}}, die flüssig zwischen den `corner-shape` Werten `square` und `notch` animieren. Wir wenden dann eine {{cssxref("animation")}} basierend auf diesen `@keyframes` auf das `<div>` an, wenn sein enthaltendes `<html>` Element umfährt oder fokussiert wird. Zusätzliche grundlegende `<div>` Stile wurden der Kürze halber ausgeblendet.
 
 ```css hidden live-sample___corner-shape-animation
 body {
@@ -668,6 +668,6 @@ Das gerenderte Ergebnis sieht so aus:
 ## Siehe auch
 
 - {{Cssxref("border-radius")}}
-- [CSS Grenzen und Box-Dekorationen](/de/docs/Web/CSS/CSS_borders_and_box_decorations) Modul
-- [CSS Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
-- [CSS Animationen](/de/docs/Web/CSS/CSS_animations) Modul
+- [CSS-Befehle und Kasten-Dekorationen](/de/docs/Web/CSS/Guides/Borders_and_box_decorations) Modul
+- [CSS-Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul

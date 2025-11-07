@@ -9,9 +9,9 @@ l10n:
 
 Media Queries werden für Folgendes verwendet:
 
-- Bedingtes Anwenden von Stilen mit den [CSS](/de/docs/Web/CSS) {{cssxref("@media")}} und {{cssxref("@import")}} [at-rules](/de/docs/Web/CSS/CSS_syntax/At-rules).
+- Bedingtes Anwenden von Stilen mit den [CSS](/de/docs/Web/CSS) {{cssxref("@media")}} und {{cssxref("@import")}} [at-rules](/de/docs/Web/CSS/Guides/Syntax/At-rules).
 - Anvisieren spezifischer Medien für die {{HTMLElement("style")}}, {{HTMLElement("link")}}, {{HTMLElement("source")}}, und andere [HTML](/de/docs/Web/HTML) Elemente mit den Attributen `media=` oder `sizes="`.
-- Um [Medienzustände zu testen und zu überwachen](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries) mithilfe der Methoden [`Window.matchMedia()`](/de/docs/Web/API/Window/matchMedia) und [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
+- Um [Medienzustände zu testen und zu überwachen](/de/docs/Web/CSS/Guides/Media_queries/Testing) mithilfe der Methoden [`Window.matchMedia()`](/de/docs/Web/API/Window/matchMedia) und [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
 
 > [!NOTE]
 > Die Beispiele auf dieser Seite verwenden `@media` von CSS zu Illustrationszwecken, aber die grundlegende Syntax bleibt für alle Arten von Media Queries gleich.
@@ -318,8 +318,8 @@ Zum Beispiel sind die folgenden Abfragen beide gültig:
 ## Siehe auch
 
 - [@media](/de/docs/Web/CSS/Reference/At-rules/@media)
-- [Containment Queries](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- [Medienabfragen programmatisch testen](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [Containment Queries](/de/docs/Web/CSS/Guides/Containment/Container_queries)
+- [Medienabfragen programmatisch testen](/de/docs/Web/CSS/Guides/Media_queries/Testing)
 - [CSS-Animationen zwischen Media Queries](https://davidwalsh.name/animate-media-queries)
 - [Erweiterte Mozilla-Media-Features](/de/docs/Web/CSS/Reference/Mozilla_extensions#media_features)
 - [Erweiterte WebKit-Media-Features](/de/docs/Web/CSS/Reference/Webkit_extensions#media_features)

@@ -2,10 +2,10 @@
 title: Klassenselektoren
 slug: Web/CSS/Reference/Selectors/Class_selectors
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Der [CSS](/de/docs/Web/CSS) **Klassenselektor** selektiert Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attributs.
+Der [CSS](/de/docs/Web/CSS) **Klassenselektor** stimmt mit Elementen basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class)-Attributs überein.
 
 ```css
 /* All elements with class="spacious" */
@@ -41,7 +41,7 @@ Beachten Sie, dass dies dem folgenden [Attributselektor](/de/docs/Web/CSS/Refere
 }
 ```
 
-Der Wert `class_name` muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/Reference/Values/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Identifier sind, müssen [maskiert](/de/docs/Web/CSS/Reference/Values/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
+Der Wert `class_name` muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/Reference/Values/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Identifier sind, müssen [entkommt](/de/docs/Web/CSS/Reference/Values/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
 
 ## Beispiele
 
@@ -123,5 +123,5 @@ Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Identifie
 
 ## Siehe auch
 
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [CSS lernen: Basis-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)
+- [Lernen Sie CSS: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

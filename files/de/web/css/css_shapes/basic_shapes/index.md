@@ -6,7 +6,7 @@ l10n:
   sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-CSS-Formen können mit dem Typ {{cssxref("&lt;basic-shape&gt;")}} definiert werden. In diesem Leitfaden besprechen wir die Erstellung von Rechtecken, Kreisen, Ellipsen und Polygonen mit der Eigenschaft {{cssxref("shape-outside")}}. Diese sind in dem [CSS-Shape-Modul](/de/docs/Web/CSS/CSS_shapes) definiert.
+CSS-Formen können mit dem Typ {{cssxref("&lt;basic-shape&gt;")}} definiert werden. In diesem Leitfaden besprechen wir die Erstellung von Rechtecken, Kreisen, Ellipsen und Polygonen mit der Eigenschaft {{cssxref("shape-outside")}}. Diese sind in dem [CSS-Shape-Modul](/de/docs/Web/CSS/Guides/Shapes) definiert.
 
 Bevor wir uns den Formen zuwenden, ist es sinnvoll, zwei Informationen zu verstehen, die zusammen diese Formen möglich machen:
 
@@ -21,7 +21,7 @@ Die akzeptierten Argumente variieren je nach Form, die Sie erstellen. Wir werden
 
 ## Die Referenzbox
 
-Das Verständnis der von CSS-Formen verwendeten Referenzbox ist wichtig, wenn Sie Grundformen verwenden, da sie das Koordinatensystem jeder Form definiert. Sie haben die Referenzbox bereits im [Leitfaden zum Erstellen von Formen aus Boxwerten](/de/docs/Web/CSS/CSS_shapes/From_box_values) kennengelernt, der die Referenzbox direkt verwendet, um die Form zu erstellen.
+Das Verständnis der von CSS-Formen verwendeten Referenzbox ist wichtig, wenn Sie Grundformen verwenden, da sie das Koordinatensystem jeder Form definiert. Sie haben die Referenzbox bereits im [Leitfaden zum Erstellen von Formen aus Boxwerten](/de/docs/Web/CSS/Guides/Shapes/From_box_values) kennengelernt, der die Referenzbox direkt verwendet, um die Form zu erstellen.
 
 Der untenstehende Screenshot zeigt den Firefox Shapes Inspector, der die Referenzbox eines Kreises anzeigt, der mit `shape-outside: circle(50%)` erstellt wurde. Dem Element wurden 20 Pixel Padding, Border und Margin angewendet. Der Shapes Inspector hebt diese Referenzboxen hervor.
 

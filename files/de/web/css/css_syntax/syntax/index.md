@@ -40,7 +40,7 @@ Ein CSS-Deklarationsblock wird im folgenden Diagramm visualisiert.
 
 Wenn Stylesheets nur eine Deklaration auf jedes Element einer Webseite anwenden könnten, wären sie ziemlich nutzlos. Das eigentliche Ziel besteht darin, unterschiedliche Deklarationen auf verschiedene Teile des Dokuments anzuwenden.
 
-CSS erlaubt dies, indem Bedingungen mit Deklarationsblöcken verknüpft werden. Jeder (gültige) Deklarationsblock wird von einem oder mehreren durch Komma getrennten [**Selektoren**](/de/docs/Web/CSS/CSS_selectors) vorangestellt, die Bedingungen sind, die einige Elemente der Seite auswählen. Eine [Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list) und ein zugehöriger Deklarationsblock werden zusammen als **Regelset** oder oft als **Regel** bezeichnet.
+CSS erlaubt dies, indem Bedingungen mit Deklarationsblöcken verknüpft werden. Jeder (gültige) Deklarationsblock wird von einem oder mehreren durch Komma getrennten [**Selektoren**](/de/docs/Web/CSS/Guides/Selectors) vorangestellt, die Bedingungen sind, die einige Elemente der Seite auswählen. Eine [Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list) und ein zugehöriger Deklarationsblock werden zusammen als **Regelset** oder oft als **Regel** bezeichnet.
 
 Ein CSS-Regelset (oder eine Regel) wird im folgenden Diagramm visualisiert.
 
@@ -63,28 +63,28 @@ Eine **Anweisung** ist ein Baustein, der mit einem beliebigen Nicht-Leerzeichen-
 
 Es gibt zwei Arten von Anweisungen:
 
-- **Regelsets** (oder _Regeln_), die, wie gesehen, eine Sammlung von CSS-Deklarationen einer Bedingung zuordnen, die durch einen [Selektor](/de/docs/Web/CSS/CSS_selectors) beschrieben wird.
-- **At-Regeln**, die mit einem At-Zeichen, `@` (U+0040 COMMERCIAL AT), beginnen, gefolgt von einem Bezeichner und dann bis zum Ende der Anweisung fortgesetzt werden, das heißt bis zum nächsten Semikolon (;) außerhalb eines Blocks oder dem Ende des nächsten Blocks. Jeder Typ von [At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rules), definiert durch den Bezeichner, kann seine eigene interne Syntax und natürlich Semantik haben. Sie werden verwendet, um Metadateninformationen (wie {{ cssxref("@layer") }} oder {{ cssxref("@import") }}), bedingte Informationen (wie {{ cssxref("@media") }} oder {{ cssxref("@document") }}), oder beschreibende Informationen (wie {{ cssxref("@font-face") }}) zu vermitteln.
+- **Regelsets** (oder _Regeln_), die, wie gesehen, eine Sammlung von CSS-Deklarationen einer Bedingung zuordnen, die durch einen [Selektor](/de/docs/Web/CSS/Guides/Selectors) beschrieben wird.
+- **At-Regeln**, die mit einem At-Zeichen, `@` (U+0040 COMMERCIAL AT), beginnen, gefolgt von einem Bezeichner und dann bis zum Ende der Anweisung fortgesetzt werden, das heißt bis zum nächsten Semikolon (;) außerhalb eines Blocks oder dem Ende des nächsten Blocks. Jeder Typ von [At-Regeln](/de/docs/Web/CSS/Guides/Syntax/At-rules), definiert durch den Bezeichner, kann seine eigene interne Syntax und natürlich Semantik haben. Sie werden verwendet, um Metadateninformationen (wie {{ cssxref("@layer") }} oder {{ cssxref("@import") }}), bedingte Informationen (wie {{ cssxref("@media") }} oder {{ cssxref("@document") }}), oder beschreibende Informationen (wie {{ cssxref("@font-face") }}) zu vermitteln.
 
 Jede Anweisung, die kein Regelset oder eine At-Regel ist, ist ungültig und wird ignoriert.
 
 ### Verschachtelte Anweisungen
 
-Es gibt eine weitere Gruppe von Anweisungen – die **verschachtelten Anweisungen**. Diese sind Anweisungen, die in einem bestimmten Subset von At-Regeln verwendet werden können – den _konditionalen Gruppierungsregeln_. Diese Anweisungen gelten nur, wenn eine spezifische Bedingung erfüllt ist: der Inhalt der `@media`-At-Regel wird nur angewendet, wenn das Gerät, auf dem der Browser läuft, die angegebene Bedingung erfüllt; der Inhalt der `@document`-At-Regel wird nur angewendet, wenn die aktuelle Seite einige Bedingungen erfüllt, und so weiter. In CSS1 und CSS2.1 konnten innerhalb von konditionalen Gruppierungsregeln nur _Regelsets_ verwendet werden. Diese Einschränkung war sehr restriktiv und wurde in [_CSS Conditionals Level 3_](/de/docs/Web/CSS/CSS_conditional_rules) aufgehoben. Jetzt, obwohl noch experimentell und nicht von jedem Browser unterstützt, können konditionale Gruppierungsregeln eine breitere Palette von Inhalten enthalten: Regelsets, aber auch einige, jedoch nicht alle, At-Regeln.
+Es gibt eine weitere Gruppe von Anweisungen – die **verschachtelten Anweisungen**. Diese sind Anweisungen, die in einem bestimmten Subset von At-Regeln verwendet werden können – den _konditionalen Gruppierungsregeln_. Diese Anweisungen gelten nur, wenn eine spezifische Bedingung erfüllt ist: der Inhalt der `@media`-At-Regel wird nur angewendet, wenn das Gerät, auf dem der Browser läuft, die angegebene Bedingung erfüllt; der Inhalt der `@document`-At-Regel wird nur angewendet, wenn die aktuelle Seite einige Bedingungen erfüllt, und so weiter. In CSS1 und CSS2.1 konnten innerhalb von konditionalen Gruppierungsregeln nur _Regelsets_ verwendet werden. Diese Einschränkung war sehr restriktiv und wurde in [_CSS Conditionals Level 3_](/de/docs/Web/CSS/Guides/Conditional_rules) aufgehoben. Jetzt, obwohl noch experimentell und nicht von jedem Browser unterstützt, können konditionale Gruppierungsregeln eine breitere Palette von Inhalten enthalten: Regelsets, aber auch einige, jedoch nicht alle, At-Regeln.
 
 ## Siehe auch
 
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax)-Modul
-- [Selektoren und Kombinatoren](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators)
-- [Selektorstruktur](/de/docs/Web/CSS/CSS_selectors/Selector_structure)
-- [Fehlerbehandlung](/de/docs/Web/CSS/CSS_syntax/Error_handling)
-- [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
-- [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
-- [Kaskade](/de/docs/Web/CSS/CSS_cascade/Cascade)
-- [Syntax der Wertdefinition](/de/docs/Web/CSS/CSS_values_and_units/Value_definition_syntax)
+- [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax)-Modul
+- [Selektoren und Kombinatoren](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators)
+- [Selektorstruktur](/de/docs/Web/CSS/Guides/Selectors/Selector_structure)
+- [Fehlerbehandlung](/de/docs/Web/CSS/Guides/Syntax/Error_handling)
+- [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity)
+- [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance)
+- [Kaskade](/de/docs/Web/CSS/Guides/Cascade/Introduction)
+- [Syntax der Wertdefinition](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax)
 - Werte
-  - [Anfangswerte](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value)
-  - [Berechnete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value)
-  - [Verwendete Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value)
-  - [Tatsächliche Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value)
-- [Kurzformen von Eigenschaften](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties)
+  - [Anfangswerte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value)
+  - [Berechnete Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value)
+  - [Verwendete Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value)
+  - [Tatsächliche Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#actual_value)
+- [Kurzformen von Eigenschaften](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)

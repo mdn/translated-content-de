@@ -98,7 +98,7 @@ div::before {
 
 {{EmbedLiveSample("generated_content", "", "400px")}}
 
-Das HTML für dieses Beispiel besteht aus einem einzigen, leeren {{HTMLElement("div")}} in einem ansonsten leeren {{HTMLElement("body")}}. Der Schneemann wurde mit [CSS-Bildern](/de/docs/Web/CSS/CSS_images) und [CSS-Hintergründen und -Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) erstellt. Die Karottennase wurde unter Verwendung von generiertem Inhalt hinzugefügt: Eine leere Box mit einer breiten orangen [linken Umrandung](/de/docs/Web/CSS/Reference/Properties/border-left) wurde dem {{cssxref("::before")}} Pseudoelement hinzugefügt. Der Text ist ebenfalls generierter Inhalt: "only one &lt;div>" wurde mit der {{cssxref("content")}}-Eigenschaft auf das {{cssxref("::after")}} Pseudoelement angewendet generiert.
+Das HTML für dieses Beispiel besteht aus einem einzigen, leeren {{HTMLElement("div")}} in einem ansonsten leeren {{HTMLElement("body")}}. Der Schneemann wurde mit [CSS-Bildern](/de/docs/Web/CSS/Guides/Images) und [CSS-Hintergründen und -Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) erstellt. Die Karottennase wurde unter Verwendung von generiertem Inhalt hinzugefügt: Eine leere Box mit einer breiten orangen [linken Umrandung](/de/docs/Web/CSS/Reference/Properties/border-left) wurde dem {{cssxref("::before")}} Pseudoelement hinzugefügt. Der Text ist ebenfalls generierter Inhalt: "only one &lt;div>" wurde mit der {{cssxref("content")}}-Eigenschaft auf das {{cssxref("::after")}} Pseudoelement angewendet generiert.
 
 Klicken Sie auf "Play" im obigen Beispiel, um den Code im MDN Playground zu sehen oder zu bearbeiten.
 
@@ -134,23 +134,23 @@ Das CSS generierter Inhalt-Modul führt sechs noch nicht umgesetzte CSS-Funktion
 
 ## Verwandte Konzepte
 
-- [CSS-Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
+- [CSS-Pseudoelemente](/de/docs/Web/CSS/Guides/Pseudo-elements) Modul
   - {{cssxref("::before")}} Pseudoelement
   - {{cssxref("::after")}} Pseudoelement
   - {{cssxref("::marker")}} Pseudoelement
 
-- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul
   - {{cssxref("counter", "counter()")}} Funktion
   - {{cssxref("counters", "counters()")}} Funktion
   - {{cssxref("counter-increment")}} Eigenschaft
   - {{cssxref("counter-reset")}} Eigenschaft
 
-- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul
   - {{cssxref("::scroll-button()")}} Pseudoelement
   - {{cssxref("::scroll-marker")}} Pseudoelement
   - {{cssxref(":target-current")}} Pseudoklasse
 
-- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_values_and_units) Modul
+- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul
   - {{cssxref("attr", "attr()")}} Funktion
   - {{cssxref("string")}} Datentyp
   - {{cssxref("image")}} Datentyp
@@ -161,6 +161,6 @@ Das CSS generierter Inhalt-Modul führt sechs noch nicht umgesetzte CSS-Funktion
 
 ## Siehe auch
 
-- [CSS-Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
-- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- [CSS-Pseudoelemente](/de/docs/Web/CSS/Guides/Pseudo-elements) Modul
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/Guides/Lists) Modul
 - {{Glossary("Replaced_elements", "Ersetzte Elemente")}}

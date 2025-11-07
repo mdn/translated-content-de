@@ -2,32 +2,32 @@
 title: Spaltenlayouts
 slug: Web/CSS/How_to/Layout_cookbook/Column_layouts
 l10n:
-  sourceCommit: f3bf4e2bd456159093d3820253be9f266ace070a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Es ist oft erforderlich, ein Layout mit mehreren Spalten zu erstellen, und CSS bietet hierfür verschiedene Möglichkeiten. Ob Sie das [Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout), [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) oder [Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) verwenden, hängt davon ab, was Sie erreichen möchten. In diesem Rezept erkunden wir diese Optionen.
+Sie werden oft ein Layout erstellen müssen, das aus mehreren Spalten besteht, und CSS bietet dafür verschiedene Möglichkeiten. Ob Sie [Multi-column](/de/docs/Web/CSS/Guides/Multicol_layout), [Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout) oder [Grid](/de/docs/Web/CSS/Guides/Grid_layout) Layout verwenden, hängt davon ab, was Sie erreichen möchten. In diesem Rezept erkunden wir diese Optionen.
 
-![Drei verschiedene Layoutstile, die zwei Spalten im Container enthalten.](cookbook-multiple-columns.png)
+![drei verschiedene Layoutstile, die zwei Spalten im Container haben.](cookbook-multiple-columns.png)
 
 ## Anforderungen
 
-Es gibt verschiedene Designmuster, die Sie mit Ihren Spalten erreichen möchten:
+Es gibt eine Reihe von Designmustern, die Sie mit Ihren Spalten erreichen möchten:
 
-- [Ein kontinuierlicher Strom von Inhalten, aufgeteilt in spaltenartige Zeitungen](#ein_kontinuierlicher_strom_von_inhalten_—_mehrspaltenlayout).
+- [Ein kontinuierlicher Datenstrom, der in zeitungsähnliche Spalten unterteilt ist](#ein_kontinuierlicher_datenstrom_—_multi-column_layout).
 - [Eine einzelne Reihe von Elementen, die als Spalten angeordnet sind, wobei alle Höhen gleich sind](#eine_einzelne_reihe_von_elementen_mit_gleicher_höhe_—_flexbox).
-- [Mehrere Reihen von Spalten, die in Zeilen und Spalten ausgerichtet sind](#elemente_in_reihen_und_spalten_anordnen_—_grid-layout).
+- [Mehrere Reihen von Spalten, die in Reihen und Spalten ausgerichtet sind](#elemente_in_reihen_und_spalten_ausrichten_—_grid_layout).
 
 ## Die Rezepte
 
-Um Ihre Anforderungen zu erfüllen, müssen Sie unterschiedliche Layoutmethoden wählen.
+Sie müssen verschiedene Layoutmethoden wählen, um Ihre Anforderungen zu erfüllen.
 
-### Ein kontinuierlicher Strom von Inhalten — Mehrspaltenlayout
+### Ein kontinuierlicher Datenstrom — Multi-Column Layout
 
-Wenn Sie Spalten mit dem Mehrspaltenlayout erstellen, bleibt Ihr Text als kontinuierlicher Strom erhalten, der jede Spalte der Reihe nach füllt. Die Spalten müssen alle die gleiche Größe haben, und Sie können keine einzelne Spalte oder den Inhalt einer einzelnen Spalte gezielt ansprechen.
+Wenn Sie Spalten mit dem Multi-Column Layout erstellen, bleibt Ihr Text als kontinuierlicher Fluss, der jede Spalte nacheinander füllt. Die Spalten müssen alle gleich groß sein, und Sie können keine einzelne Spalte oder den Inhalt einer einzelnen Spalte anvisieren.
 
-Sie können die Abstände zwischen den Spalten mit den Eigenschaften {{cssxref("column-gap")}} oder {{cssxref("gap")}} steuern und mit {{cssxref("column-rule")}} eine Linie zwischen den Spalten hinzufügen.
+Sie können die Abstände zwischen den Spalten mit den Eigenschaften {{cssxref("column-gap")}} oder {{cssxref("gap")}} steuern und eine Linie zwischen den Spalten mit {{cssxref("column-rule")}} hinzufügen.
 
-Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie auf "Play" in den untenstehenden Codeblöcken, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___multi-column-layout-example
 <div class="container">
@@ -62,19 +62,19 @@ Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playgro
 
 {{EmbedLiveSample("multi-column-layout-example", "", "350px")}}
 
-In diesem Beispiel haben wir die Eigenschaft {{cssxref("column-width")}} verwendet, um eine Mindestbreite festzulegen, die die Spalten haben müssen, bevor der Browser eine zusätzliche Spalte hinzufügt. Die Kurzformeigenschaft {{cssxref("columns")}} kann verwendet werden, um die Eigenschaften `column-width` und {{cssxref("column-count")}} festzulegen, von denen eine die maximale Anzahl der zulässigen Spalten definieren kann.
+In diesem Beispiel haben wir die Eigenschaft {{cssxref("column-width")}} verwendet, um eine Mindestbreite festzulegen, die die Spalten haben müssen, bevor der Browser eine zusätzliche Spalte hinzufügt. Die Kurzform-Eigenschaft {{cssxref("columns")}} kann verwendet werden, um die Eigenschaften `column-width` und {{cssxref("column-count")}} festzulegen, von denen eine die maximale Anzahl der zulässigen Spalten definieren kann.
 
-Verwenden Sie das Mehrspaltenlayout, wenn:
+Verwenden Sie Multicol, wenn:
 
-- Sie möchten, dass Ihr Text in spaltenähnlichen Zeitungen angezeigt wird.
+- Sie möchten, dass Ihr Text in zeitungsähnlichen Spalten angezeigt wird.
 - Sie eine Reihe kleiner Elemente haben, die Sie in Spalten aufteilen möchten.
-- Sie keine individuellen Spaltenboxen für das Styling ansprechen müssen.
+- Sie keine einzelnen Spaltenboxen für das Styling anvisieren müssen.
 
 ### Eine einzelne Reihe von Elementen mit gleicher Höhe — Flexbox
 
-Flexbox kann verwendet werden, um Inhalt in Spalten aufzuteilen, indem {{cssxref("display", "display: flex;")}} gesetzt wird, um ein Elternelement zu einem Flex-Container zu machen. Nur durch Hinzufügen dieser einen Eigenschaft werden alle untergeordneten Elemente (Kindelemente, Pseudo-Elemente und Textknoten) in Flex-Elemente entlang einer einzigen Linie umgewandelt. Durch das Festlegen der gleichen Kurzformeigenschaft {{cssxref("flex")}} mit einem einzigen numerischen Wert wird der gesamte verfügbare Platz gleichmäßig verteilt, sodass alle Flex-Elemente in der Regel die gleiche Größe haben, sofern keine Elemente nicht umbrochenen Inhalt enthalten, der das Element größer zwingt.
+Flexbox kann verwendet werden, um Inhalte in Spalten aufzuteilen, indem {{cssxref("display", "display: flex;")}} festgelegt wird, um ein übergeordnetes Element zu einem Flex-Container zu machen. Das Hinzufügen dieser einen Eigenschaft verwandelt alle Kinder (untergeordnete Elemente, Pseudoelemente und Textknoten) in Flex-Elemente entlang einer einzigen Linie. Durch das Festlegen der gleichen {{cssxref("flex")}} Kurzform-Eigenschaft mit einem einzelnen numerischen Wert wird der gesamte verfügbare Platz gleichmäßig verteilt, was im Allgemeinen alle Flex-Elemente gleich groß macht, solange keines nicht umbrechenden Inhalt hat, der das Element größer zwingt.
 
-Ränder oder die Eigenschaft `gap` können verwendet werden, um Abstände zwischen Elementen zu schaffen, jedoch gibt es derzeit keine CSS-Eigenschaft, die Linien zwischen Flex-Elementen hinzufügt.
+Ränder oder die `gap` Eigenschaft können verwendet werden, um Abstände zwischen den Elementen zu schaffen, aber es gibt derzeit keine CSS-Eigenschaft, die Linien zwischen Flex-Elementen hinzufügt.
 
 ```html live-sample___columns-flexbox-example
 <div class="container">
@@ -120,7 +120,7 @@ Ränder oder die Eigenschaft `gap` können verwendet werden, um Abstände zwisch
 
 {{EmbedLiveSample("columns-flexbox-example", "", "400px")}}
 
-Um ein Layout mit Flex-Elementen zu erstellen, die auf neue Reihen umgebrochen werden, setzen Sie die Eigenschaft {{cssxref("flex-wrap")}} auf dem Container auf `wrap`. Beachten Sie, dass jede Flex-Linie den Platz nur für diese Linie verteilt. Elemente in einer Linie werden nicht unbedingt mit Elementen in anderen Linien ausgerichtet, wie Sie im folgenden Beispiel sehen werden. Deshalb wird Flexbox als eindimensional beschrieben. Es ist für die Steuerung des Layouts als Reihe oder Spalte konzipiert, jedoch nicht beides gleichzeitig.
+Um ein Layout mit Flex-Elementen zu erstellen, das in neue Zeilen umbricht, setzen Sie die Eigenschaft {{cssxref("flex-wrap")}} auf dem Container auf `wrap`. Beachten Sie, dass jede Flex-Linie nur Platz für diese Linie verteilt. Elemente in einer Zeile werden nicht unbedingt mit Elementen in anderen Zeilen ausgerichtet sein, wie Sie im Beispiel unten sehen werden. Dies ist der Grund, warum Flexbox als eindimensional beschrieben wird. Es ist dafür ausgelegt, das Layout als Reihe oder Spalte zu steuern, aber nicht beides gleichzeitig.
 
 ```html live-sample___columns-flexbox-wrapping-example
 <div class="container">
@@ -171,14 +171,14 @@ Um ein Layout mit Flex-Elementen zu erstellen, die auf neue Reihen umgebrochen w
 Verwenden Sie Flexbox:
 
 - Für einzelne Reihen oder Spalten von Elementen.
-- Wenn Sie eine Ausrichtung auf der Querachse nach dem Layout Ihrer Elemente wünschen.
-- Wenn es Ihnen nichts ausmacht, dass umbrochene Elemente den Platz nur entlang ihrer Linie teilen und nicht mit Elementen in anderen Linien ausgerichtet werden.
+- Wenn Sie nach der Anordnung Ihrer Elemente eine Ausrichtung auf der Querachse vornehmen möchten.
+- Wenn Sie damit einverstanden sind, dass umgebrochene Elemente nur Platz entlang ihrer Linie teilen und nicht mit Elementen in anderen Linien ausgerichtet sind.
 
-### Elemente in Reihen und Spalten anordnen — Grid-Layout
+### Elemente in Reihen und Spalten ausrichten — Grid Layout
 
-Wenn Sie ein zweidimensionales Raster wünschen, bei dem Elemente in Reihen _und_ Spalten ausgerichtet sind, sollten Sie das CSS-Grid-Layout wählen. Ähnlich wie Flexbox für die direkten Kinder des Flex-Containers funktioniert, arbeitet das Grid-Layout mit den direkten Kindern des Grid-Containers. Setzen Sie einfach {{cssxref("display", "display: grid;")}} auf den Container. Eigenschaften, die auf diesem Container festgelegt sind — wie {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} — definieren, wie die Elemente entlang von Reihen und Spalten verteilt werden.
+Wenn Sie ein zweidimensionales Raster wünschen, bei dem Elemente in Reihen _und_ Spalten ausgerichtet sind, sollten Sie das CSS Grid Layout wählen. Ähnlich wie Flexbox auf die direkten Kinder des Flex-Containers wirkt, arbeitet das Grid Layout auf den direkten Kindern des Grid-Containers. Setzen Sie einfach {{cssxref("display", "display: grid;")}} auf dem Container. Auf diesem Container festgelegte Eigenschaften — wie {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} — bestimmen, wie die Elemente entlang der Reihen und Spalten verteilt werden.
 
-Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie auf "Play" in den untenstehenden Codeblöcken, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___grid-layout-example
 <div class="container">
@@ -226,11 +226,11 @@ Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playgro
 Verwenden Sie Grid:
 
 - Für mehrere Reihen oder Spalten von Elementen.
-- Wenn Sie die Möglichkeit haben möchten, die Elemente auf den Block- und Inline-Achsen auszurichten.
-- Wenn Sie möchten, dass sich Elemente in Reihen und Spalten ausrichten.
+- Wenn Sie in der Lage sein möchten, die Elemente auf den Block- und Inline-Achsen auszurichten.
+- Wenn Sie möchten, dass die Elemente in Reihen und Spalten ausgerichtet sind.
 
 ## Ressourcen auf MDN
 
-- [Leitfaden zum Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout)
-- [Leitfaden zu Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout)
-- [Leitfaden zum CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout)
+- [Leitfaden zu Multi-column Layout](/de/docs/Web/CSS/Guides/Multicol_layout)
+- [Leitfaden zu Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout)
+- [Leitfaden zu CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout)

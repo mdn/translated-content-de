@@ -132,13 +132,13 @@ Das CSS backgrounds module level 4 führt auch die Eigenschaften `background-pos
 
 ## Leitfäden
 
-- [Verwendung mehrerer Hintergründe](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds)
+- [Verwendung mehrerer Hintergründe](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Using_multiple_backgrounds)
   - : Ein oder mehrere Hintergründe auf einem Element einstellen.
-- [Größe von Hintergrundbildern anpassen](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Resizing_background_images)
+- [Größe von Hintergrundbildern anpassen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Resizing_background_images)
   - : Änderung der Größe und des Wiederholungsverhaltens von Hintergrundbildern.
-- [Skalierung von SVG-Hintergründen](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Scaling_of_SVG_backgrounds)
+- [Skalierung von SVG-Hintergründen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Scaling_SVG_backgrounds)
   - : Wie das SVG-Seitenverhältnis, SVG-Dimensionswerte und die CSS-`background-size`-Eigenschaft die Skalierung von SVG-Hintergrundbildern beeinflussen.
-- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
+- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/Guides/Images/Using_gradients)
   - : Erstellen von CSS-Verläufen und deren Verwendung als Hintergrundbilder.
 - [CSS lernen: Hintergründe und Rahmen](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
   - : Lernen, wie dekorative Bilder mit CSS-Hintergrundbildern implementiert werden.
@@ -181,6 +181,6 @@ Das CSS backgrounds module level 4 führt auch die Eigenschaften `background-pos
 - {{cssxref("filter")}}
 - {{cssxref("backdrop-filter")}}
 - [`drop-shadow()`](/de/docs/Web/CSS/Reference/Values/filter-function/drop-shadow) Filterfunktion
-- [Farbe auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)
-- [Rahmenbild-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Border-image_generator)
-- [Rahmenradius-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Border-radius_generator)
+- [Farbe auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/Guides/Colors/Applying_color)
+- [Rahmenbild-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-image_generator)
+- [Rahmenradius-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-radius_generator)

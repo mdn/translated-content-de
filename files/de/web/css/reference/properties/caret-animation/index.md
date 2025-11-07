@@ -2,14 +2,14 @@
 title: caret-animation
 slug: Web/CSS/Reference/Properties/caret-animation
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`caret-animation`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um das Blinkverhalten des **Einfügemarkers** zu aktivieren oder zu deaktivieren. Dieser sichtbare Marker erscheint in bearbeitbaren Elementen, um anzuzeigen, wo das nächste Zeichen eingefügt oder gelöscht wird.
+Die **`caret-animation`**-Eigenschaft in [CSS](/de/docs/Web/CSS) wird verwendet, um das Blinken des **Einfügemarkers** zu aktivieren oder zu deaktivieren. Der Einfügemarker ist das sichtbare Zeichen in editierbaren Elementen, das anzeigt, wo das nächste Zeichen eingefügt oder gelöscht wird.
 
-Wenn Sie eine benutzerdefinierte Animation auf den Einfügemarker anwenden, sollten Sie das standardmäßige Blinken stoppen, damit es nicht mit der Animation interferiert.
+Wenn Sie eine benutzerdefinierte Animation auf den Einfügemarker anwenden, sollten Sie das standardmäßige Blinken deaktivieren, damit es die Animation nicht stört.
 
 ## Syntax
 
@@ -28,12 +28,12 @@ caret-animation: unset;
 
 ### Werte
 
-Die `caret-animation` Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
+Die Eigenschaft `caret-animation` wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
 
 - `auto`
-  - : Der Cursor blinkt an und aus. Dies ist der Standardwert.
+  - : Der Einfügemarker blinkt ein- und aus. Dies ist der Standardwert.
 - `manual`
-  - : Der Cursor blinkt nicht an und aus.
+  - : Der Einfügemarker blinkt nicht ein- und aus.
 
 ## Formale Definition
 
@@ -45,13 +45,13 @@ Die `caret-animation` Eigenschaft wird als eines der unten aufgeführten Schlüs
 
 ## Beispiele
 
-### Grundlegende `caret-animation` Verwendung
+### Grundlegende Verwendung von `caret-animation`
 
-Dieses Beispiel zeigt den Unterschied zwischen `caret-animation` auf `auto` und `manual` bei einem bearbeitbaren Element.
+Dieses Beispiel zeigt den Unterschied zwischen `caret-animation` auf `auto` und `manual` bei einem editierbaren Element.
 
 #### HTML
 
-Das Markup enthält zwei {{htmlelement("p")}} Elemente mit [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable), um sie bearbeitbar zu machen.
+Der Markup enthält zwei {{htmlelement("p")}}-Elemente mit dem Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable), um sie editierbar zu machen.
 
 ```html live-sample___caret-animation-basic
 <p contenteditable="true">
@@ -66,7 +66,7 @@ Das Markup enthält zwei {{htmlelement("p")}} Elemente mit [`contenteditable`](/
 
 #### CSS
 
-Das CSS setzt den {{cssxref("caret-color")}} Wert auf `red`. Es gibt dann dem ersten Absatz einen `caret-animation` Wert von `auto` und dem zweiten Absatz einen Wert von `manual`.
+Das CSS setzt den {{cssxref("caret-color")}}-Wert auf `red`. Es gibt dem ersten Absatz einen `caret-animation`-Wert von `auto` und dem zweiten Absatz einen `caret-animation`-Wert von `manual`.
 
 ```css live-sample___caret-animation-basic
 p {
@@ -88,15 +88,15 @@ Das gerenderte Ergebnis sieht wie folgt aus:
 
 {{EmbedLiveSample('caret-animation-basic', 'auto', 100)}}
 
-Versuchen Sie, die beiden Absätze zu fokussieren, um den Unterschied im Verhalten des Cursors zu sehen.
+Versuchen Sie, die beiden Absätze zu fokussieren, um den Unterschied im Verhalten des Einfügemarkers zu sehen.
 
-### Erstellen einer benutzerdefinierten Cursoranimation
+### Erstellen einer benutzerdefinierten Einfügemarker-Animation
 
-In diesem Beispiel wird eine benutzerdefinierte Cursoranimation auf einen bearbeitbaren Absatz und ein Texteingabefeld angewendet.
+In diesem Beispiel wird eine benutzerdefinierte Einfügemarker-Animation auf einen bearbeitbaren Absatz und ein Texteingabefeld angewendet.
 
 #### HTML
 
-Das Markup enthält ein {{htmlelement("p")}} Element und zwei Text-{{htmlelement("input")}} Elemente. Das `<p>` Element hat das [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable) Attribut, um es editierbar zu machen. Der Absatz und das erste Texteingabefeld haben die `class` `custom-caret`.
+Der Markup enthält ein {{htmlelement("p")}}-Element und zwei Text-{{htmlelement("input")}}-Elemente. Das `<p>`-Element hat das Attribut [`contenteditable`](/de/docs/Web/HTML/Reference/Global_attributes/contenteditable), um es bearbeitbar zu machen. Der Absatz und das erste Texteingabefeld haben eine `class` von `custom-caret`.
 
 ```html live-sample___caret-animation-custom
 <p contenteditable="true" class="custom-caret">
@@ -129,7 +129,7 @@ Zuerst definieren wir eine Reihe von {{cssxref("@keyframes")}}, die die {{cssxre
 }
 ```
 
-Wir stylen dann das `<p>` und das erste `<input>` mit der benutzerdefinierten `@keyframes` Animation, einer {{cssxref("caret-color")}}, und einem `caret-animation` Wert von `manual`, um das standardmäßige Blinken des Cursors zu deaktivieren.
+Dann stylen wir das `<p>`- und das erste `<input>`-Element mit der benutzerdefinierten `@keyframes`-Animation, einer {{cssxref("caret-color")}} und einem `caret-animation`-Wert von `manual`, um das standardmäßige Einfügemarker-Blinkverhalten auszuschalten.
 
 ```css hidden live-sample___caret-animation-custom
 body {
@@ -161,7 +161,7 @@ Das gerenderte Ergebnis sieht wie folgt aus:
 
 {{EmbedLiveSample('caret-aniamtion-custom', 'auto', 260)}}
 
-Versuchen Sie, die ersten beiden Elemente zu fokussieren, um zu sehen, wie die benutzerdefinierte Cursoranimation aussieht. Um sie mit dem standardmäßig blinkenden Cursor zu vergleichen, können Sie das dritte Element fokussieren.
+Versuchen Sie, die ersten beiden Elemente zu fokussieren, um die benutzerdefinierte Einfügemarker-Animation zu sehen. Um den Vergleich mit dem standardmäßigen blinkenden Einfügemarker zu sehen, können Sie das dritte Element fokussieren.
 
 ## Spezifikationen
 
@@ -174,5 +174,5 @@ Versuchen Sie, die ersten beiden Elemente zu fokussieren, um zu sehen, wie die b
 ## Siehe auch
 
 - {{cssxref("caret-color")}}, {{cssxref("caret-shape")}}
-- {{cssxref("caret")}} Shorthand
-- [CSS Basic User Interface](/de/docs/Web/CSS/CSS_basic_user_interface) Modul
+- {{cssxref("caret")}} abgekürzt
+- [CSS basic user interface](/de/docs/Web/CSS/Guides/Basic_user_interface) Modul

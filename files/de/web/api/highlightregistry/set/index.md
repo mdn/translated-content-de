@@ -3,14 +3,14 @@ title: "HighlightRegistry: set() Methode"
 short-title: set()
 slug: Web/API/HighlightRegistry/set
 l10n:
-  sourceCommit: 6afd6f5230eb0735348582b3519efce8994116ad
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`set()`** Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle fügt ein [`Highlight`](/de/docs/Web/API/Highlight)-Objekt mit dem angegebenen Namen dem Registry hinzu oder aktualisiert es.
+Die **`set()`**-Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle fügt ein [`Highlight`](/de/docs/Web/API/Highlight)-Objekt mit dem angegebenen Namen zum Register hinzu oder aktualisiert es.
 
-`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Map.set()")}}.
+`HighlightRegistry` ist ein dem {{jsxref("Map")}}-ähnliches Objekt, daher ist dies vergleichbar mit der Nutzung von {{jsxref("Map.set()")}}.
 
 ## Syntax
 
@@ -31,16 +31,16 @@ Das `HighlightRegistry`-Objekt.
 
 ## Beispiele
 
-### Verwendung von set()
+### Nutzung von set()
 
 ```js
 const fooHighlight = new Highlight();
 CSS.highlights.set("foo", fooHighlight);
 ```
 
-### Verwendung von set() mit Verkettung
+### Nutzung von set() mit Verkettung
 
-Da die `set()`-Methode die Registry zurückgibt, können Sie den Methodenaufruf wie unten gezeigt verketten:
+Da die `set()`-Methode das Register zurückgibt, können Sie den Methodenaufruf wie unten gezeigt verketten:
 
 ```js
 const fooHighlight = new Highlight();
@@ -64,5 +64,5 @@ CSS.highlights
 ## Siehe auch
 
 - [Die CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)
-- [CSS custom highlight API](/de/docs/Web/CSS/CSS_custom_highlight_API) Modul
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [CSS Custom Highlight API](/de/docs/Web/CSS/Guides/Custom_highlight_API) Modul
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

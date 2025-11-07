@@ -41,7 +41,7 @@ Um ein Element visuell zu clippen, wird die `clip-path`-Eigenschaft entweder auf
 
 Die `clip-path`-Eigenschaft verbirgt alles außerhalb des geclippten Bereichs. Das einfachste Clipping erfolgt über eine Geometrie-Box. Sie können ein Element basierend auf seinem Rand, seiner Grenze, seinem Polster oder Inhalt clippen. Die Effekte dieser visuellen Boxenwerte können über andere CSS-Eigenschaften erzielt werden, wie das Setzen der {{cssxref("border-color")}} auf transparent und des {{cssxref("background-origin")}} auf die gewünschte visuelle Box. Wir betrachten diese Werte vor allem, weil diese Werte in Verbindung mit den Form-Funktionen verwendet werden, die wir später betrachten werden, um den Ursprung des Form-Clippingpfads zu definieren.
 
-[Das Verständnis der Referenz-Box](/de/docs/Web/CSS/CSS_shapes/Basic_shapes#the_reference_box), die von CSS-Formen verwendet wird, ist wichtig bei der Verwendung von `clip-path`, insbesondere mit [einfachen Formen](#clipping_auf_einfache_formen), da die Referenz-Box das Koordinatensystem einer Form definiert.
+[Das Verständnis der Referenz-Box](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside#the_reference_box), die von CSS-Formen verwendet wird, ist wichtig bei der Verwendung von `clip-path`, insbesondere mit [einfachen Formen](#clipping_auf_einfache_formen), da die Referenz-Box das Koordinatensystem einer Form definiert.
 
 #### Visuelle Box-Werte
 
@@ -234,7 +234,7 @@ body:has([value="content-box"]:checked) {
 
 Ein weiteres Beispiel finden Sie bei [`clip-path`-Formen und Geometrie-Boxen](/de/docs/Web/CSS/Reference/Properties/clip-path#shapes_and_geometry_boxes).
 
-Selbst Werte wie `clip-path: margin-box` können nützlich sein. Zusätzlich zu kreativen visuellen Effekten, die durch das Platzieren des Clip-Path-Rands an der Margin-Box-Kante erzeugt werden, führt jeder berechnete Wert für `clip-path`, außer `none`, zur Erstellung eines neuen [Stacking-Kontexts](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context) auf die gleiche Weise wie CSS {{cssxref("opacity")}} für Werte außer `1`.
+Selbst Werte wie `clip-path: margin-box` können nützlich sein. Zusätzlich zu kreativen visuellen Effekten, die durch das Platzieren des Clip-Path-Rands an der Margin-Box-Kante erzeugt werden, führt jeder berechnete Wert für `clip-path`, außer `none`, zur Erstellung eines neuen [Stacking-Kontexts](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context) auf die gleiche Weise wie CSS {{cssxref("opacity")}} für Werte außer `1`.
 
 ## Clipping auf einfache Formen
 
@@ -543,9 +543,9 @@ Zusätzlich zur Anwendung der gleichen Form sowohl für die `clip-shape`- als au
 - {{cssxref("basic-shape")}}
 - {{cssxref("shape-image-threshold")}}
 - {{cssxref("shape-margin")}}
-- [Überblick über Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
-- [Einführung in CSS-Masking](/de/docs/Web/CSS/CSS_masking/Masking)
-- [CSS-`mask`-Eigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties)
-- [Deklarieren mehrerer Masken](/de/docs/Web/CSS/CSS_masking/Multiple_masks)
-- [CSS-Masking](/de/docs/Web/CSS/CSS_masking) Modul
-- [CSS-Formen](/de/docs/Web/CSS/CSS_shapes) Modul
+- [Überblick über Formen](/de/docs/Web/CSS/Guides/Shapes/Overview)
+- [Einführung in CSS-Masking](/de/docs/Web/CSS/Guides/Masking/Introduction)
+- [CSS-`mask`-Eigenschaften](/de/docs/Web/CSS/Guides/Masking/Mask_properties)
+- [Deklarieren mehrerer Masken](/de/docs/Web/CSS/Guides/Masking/Multiple_masks)
+- [CSS-Masking](/de/docs/Web/CSS/Guides/Masking) Modul
+- [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes) Modul

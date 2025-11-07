@@ -9,7 +9,7 @@ Da Spaltenboxen, die innerhalb von Multi-Column-(_multicol_)-Containern erstellt
 
 ## Spaltenabstände
 
-Der Abstand zwischen Spalten wird mit der Eigenschaft {{CSSXref("column-gap")}} oder {{CSSXref("gap")}} gesteuert. Die Eigenschaft `column-gap` ist im [Multi-Column-Layout](/de/docs/Web/CSS/CSS_multicol_layout) Modul definiert. Die Eigenschaft `gap` ist im [Box-Alignment](/de/docs/Web/CSS/CSS_box_alignment) Modul definiert. Dies ist eine einheitliche Eigenschaft zur Definition von Abständen zwischen Boxen in allen Layouts, die Abstände unterstützen, einschließlich [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout) und [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items).
+Der Abstand zwischen Spalten wird mit der Eigenschaft {{CSSXref("column-gap")}} oder {{CSSXref("gap")}} gesteuert. Die Eigenschaft `column-gap` ist im [Multi-Column-Layout](/de/docs/Web/CSS/Guides/Multicol_layout) Modul definiert. Die Eigenschaft `gap` ist im [Box-Alignment](/de/docs/Web/CSS/Guides/Box_alignment) Modul definiert. Dies ist eine einheitliche Eigenschaft zur Definition von Abständen zwischen Boxen in allen Layouts, die Abstände unterstützen, einschließlich [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout/Box_alignment) und [CSS Flexible Box Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout/Wrapping_items).
 
 Der Anfangswert von `column-gap` ist `1em`, was verhindert, dass Spalten ineinanderlaufen. In anderen Layout-Methoden wird `column-gap` als Synonym für `gap` unterstützt, jedoch mit einem Anfangswert von `0`. Der Schlüsselwortwert `normal` setzt `column-gap` auf den Anfangswert.
 
@@ -133,4 +133,4 @@ body {
 
 ## Nächste Schritte
 
-Dieser Artikel beschreibt alle aktuellen Möglichkeiten, wie Spaltenboxen gestylt werden können. Im nächsten Leitfaden sehen wir uns an, wie man Elemente innerhalb eines Containers [über alle Spalten hinweg erstreckt](/de/docs/Web/CSS/CSS_multicol_layout/Spanning_balancing_columns).
+Dieser Artikel beschreibt alle aktuellen Möglichkeiten, wie Spaltenboxen gestylt werden können. Im nächsten Leitfaden sehen wir uns an, wie man Elemente innerhalb eines Containers [über alle Spalten hinweg erstreckt](/de/docs/Web/CSS/Guides/Multicol_layout/Spanning_balancing_columns).

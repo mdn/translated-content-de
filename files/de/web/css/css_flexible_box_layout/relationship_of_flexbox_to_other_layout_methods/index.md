@@ -12,11 +12,11 @@ In diesem Artikel werden wir uns ansehen, wie Flexbox in all die anderen CSS-Mod
 
 Viele Personen befassen sich zuerst mit Flexbox, wenn sie Flex-Elemente innerhalb eines Flex-Containers richtig ausrichten möchten. Flexbox bietet Zugriff auf Eigenschaften, die die Ausrichtung von Elementen auf ihrer Querausgabe und die Rechtfertigung von Elementen auf der Hauptachse ermöglichen.
 
-Flexbox wurde ursprünglich in seinem eigenen [flexiblen Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout)-Modul definiert, aber die Eigenschaften und Werte, die anderen Layout-Methoden gemeinsam sind, sind im [CSS-Box-Ausrichtungs](/de/docs/Web/CSS/CSS_box_alignment)-Modul definiert. Dieses Modul beschreibt, wie Ausrichtung, Rechtfertigung, Abstände und Rinnen in allen Layout-Systemen funktionieren – nicht nur in Flexbox. Wenn eine Funktion in beiden Spezifikationen definiert ist, beachten Sie, dass das Box-Ausrichtungsmodul das flexible Box-Layout-Modul ersetzt.
+Flexbox wurde ursprünglich in seinem eigenen [flexiblen Box-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout)-Modul definiert, aber die Eigenschaften und Werte, die anderen Layout-Methoden gemeinsam sind, sind im [CSS-Box-Ausrichtungs](/de/docs/Web/CSS/Guides/Box_alignment)-Modul definiert. Dieses Modul beschreibt, wie Ausrichtung, Rechtfertigung, Abstände und Rinnen in allen Layout-Systemen funktionieren – nicht nur in Flexbox. Wenn eine Funktion in beiden Spezifikationen definiert ist, beachten Sie, dass das Box-Ausrichtungsmodul das flexible Box-Layout-Modul ersetzt.
 
 ## Schreibmodi
 
-Im Artikel [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) wird darauf hingewiesen, dass Flexbox **schreibmodusbewusst** ist. Schreibmodi werden ausführlich im [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes)-Modul beschrieben, das erläutert, wie CSS die verschiedenen international vorhandenen Schreibmodi unterstützt. Wir müssen uns bewusst sein, wie sich dies auf unsere Flex-Layouts auswirkt, da der Schreibmodus die Richtung ändert, in der Blöcke in unserem Dokument angeordnet sind. Das Verständnis von **Block**- und **Inline**-Richtungen ist entscheidend für neue Layout-Methoden.
+Im Artikel [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) wird darauf hingewiesen, dass Flexbox **schreibmodusbewusst** ist. Schreibmodi werden ausführlich im [CSS-Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes)-Modul beschrieben, das erläutert, wie CSS die verschiedenen international vorhandenen Schreibmodi unterstützt. Wir müssen uns bewusst sein, wie sich dies auf unsere Flex-Layouts auswirkt, da der Schreibmodus die Richtung ändert, in der Blöcke in unserem Dokument angeordnet sind. Das Verständnis von **Block**- und **Inline**-Richtungen ist entscheidend für neue Layout-Methoden.
 
 Es ist erwähnenswert, dass wir den Schreibmodus unseres Dokuments aus Gründen ändern möchten, die nichts mit der Veröffentlichung von Inhalten in einer Sprache zu tun haben, die einen anderen Schreibmodus verwendet. Das CSS-Schreibmodi-Modul definiert, wie Text horizontal, von links nach rechts und von rechts nach links sowie vertikal, von oben nach unten, geschrieben werden kann. Dies ist wichtig für die Internationalisierung und Übersetzungen, aber diese Funktionalitäten können auch für kreative Designs verwendet werden.
 
@@ -94,13 +94,13 @@ In diesem nächsten Live-Beispiel wurden die Kind-Elemente gefloatet, und dann w
 
 ## Flexbox und Grid-Layout
 
-[CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) und Flexbox teilen viele Eigenschaften und Werte. Bei abweichenden Eigenschaften, wenn ein Flex-Element zu einem Grid-Element wird, werden alle den Kindelementen zugewiesenen `flex`-Werte, wie `flex-end`, ignoriert. Wie oben erwähnt, ersetzen Werte, die im Box-Ausrichtungsmodul definiert sind, die über beide Layout-Methoden hinweg arbeiten, diejenigen, die nur in Flexbox definiert sind.
+[CSS-Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) und Flexbox teilen viele Eigenschaften und Werte. Bei abweichenden Eigenschaften, wenn ein Flex-Element zu einem Grid-Element wird, werden alle den Kindelementen zugewiesenen `flex`-Werte, wie `flex-end`, ignoriert. Wie oben erwähnt, ersetzen Werte, die im Box-Ausrichtungsmodul definiert sind, die über beide Layout-Methoden hinweg arbeiten, diejenigen, die nur in Flexbox definiert sind.
 
 ### Flex und Grid — was ist der Unterschied?
 
 Eine häufig gestellte Frage ist, was der Unterschied zwischen Flexbox und CSS-Grid-Layout ist – warum haben wir zwei Spezifikationen, die manchmal dasselbe tun zu scheinen?
 
-Die einfachste Antwort auf diese Frage ist in den Spezifikationen selbst definiert. Flexbox ist eine eindimensionale Layout-Methode, während das Grid-Layout eine zweidimensionale Layout-Methode ist. Das folgende Beispiel hat ein Flex-Layout. Wie im Artikel [Grundkonzepte](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) beschrieben, können Flex-Elemente zum Umbrechen gebracht werden, aber sobald sie dies tun, verhält sich jede Zeile, als wäre es ein Flex-Container für sich. Wenn der Raum verteilt wird, betrachtet Flexbox nicht die Platzierung von Elementen in anderen Zeilen und versucht nicht, Dinge mit einander auszurichten.
+Die einfachste Antwort auf diese Frage ist in den Spezifikationen selbst definiert. Flexbox ist eine eindimensionale Layout-Methode, während das Grid-Layout eine zweidimensionale Layout-Methode ist. Das folgende Beispiel hat ein Flex-Layout. Wie im Artikel [Grundkonzepte](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) beschrieben, können Flex-Elemente zum Umbrechen gebracht werden, aber sobald sie dies tun, verhält sich jede Zeile, als wäre es ein Flex-Container für sich. Wenn der Raum verteilt wird, betrachtet Flexbox nicht die Platzierung von Elementen in anderen Zeilen und versucht nicht, Dinge mit einander auszurichten.
 
 ```html live-sample___flex-layout
 <div class="box">
@@ -173,7 +173,7 @@ Als allgemeine Regel gilt: Wenn Sie Breiten auf Flex-Elementen festlegen, um Ele
 
 Es gibt keine festen Regeln wie "Sie sollten Flexbox für kleine Komponenten und Grid-Layout für größere verwenden." Eine winzige Komponente kann zweidimensional sein, und ein großes Layout kann besser mit Layout in einer Dimension dargestellt werden. Probieren Sie Dinge aus - Sie haben eine Auswahl an Layout-Methoden, also nutzen Sie sie.
 
-Für weitere Vergleiche von Grid und Flexbox siehe den Artikel [Beziehung des Grid-Layouts zu anderen Layout-Methoden](/de/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods). Dieser Artikel beschreibt viele der Unterschiede zwischen Grid-Layout und Flex-Layout und zeigt einige der zusätzlichen Funktionalitäten, die Sie bei der Verwendung von Grid-Layout erhalten, wie das Schichten von Elementen auf dem Grid. Dies kann Ihnen auch bei der Entscheidung helfen, welche Layout-Methode zu verwenden ist.
+Für weitere Vergleiche von Grid und Flexbox siehe den Artikel [Beziehung des Grid-Layouts zu anderen Layout-Methoden](/de/docs/Web/CSS/Guides/Grid_layout/Relationship_with_other_layout_methods). Dieser Artikel beschreibt viele der Unterschiede zwischen Grid-Layout und Flex-Layout und zeigt einige der zusätzlichen Funktionalitäten, die Sie bei der Verwendung von Grid-Layout erhalten, wie das Schichten von Elementen auf dem Grid. Dies kann Ihnen auch bei der Entscheidung helfen, welche Layout-Methode zu verwenden ist.
 
 ## Flexbox und display: contents
 

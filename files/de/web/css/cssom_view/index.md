@@ -40,7 +40,7 @@ Für die von diesem Modul definierte JavaScript-API siehe die [CSSOM view API](/
 
 - [Koordinatensysteme](/de/docs/Web/API/CSSOM_view_API/Coordinate_systems)
   - : Die Koordinatensysteme, die verwendet werden, um eine Position in einem Anzeigezusammenhang anzugeben, wie z. B. ein Fenster auf einem Monitor, ein Viewport auf einem mobilen Gerät oder eine Position auf einem Blatt Papier beim Drucken.
-- [Viewport-Konzepte](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts)
+- [Viewport-Konzepte](/de/docs/Web/CSS/Guides/CSSOM_view/Viewport_concepts)
   - : Das Konzept des Viewports — was er ist, seine Auswirkungen in Bezug auf CSS, SVG und mobile Geräte — und der Unterschied zwischen dem visuellen Viewport und dem Layout-Viewport.
 
 ## Verwandte Konzepte
@@ -62,7 +62,7 @@ Für die von diesem Modul definierte JavaScript-API siehe die [CSSOM view API](/
 
 - [CSS Objekt-Modell (CSSOM)](/de/docs/Web/API/CSS_Object_Model) API
 - [CSSOM view API](/de/docs/Web/API/CSSOM_view_API)
-- [CSS Viewport](/de/docs/Web/CSS/CSS_viewport) Modul
-- [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Overscroll-Verhalten](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul
-- [CSS Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+- [CSS Viewport](/de/docs/Web/CSS/Guides/Viewport) Modul
+- [CSS Überlauf](/de/docs/Web/CSS/Guides/Overflow) Modul
+- [CSS Overscroll-Verhalten](/de/docs/Web/CSS/Guides/Overscroll_behavior) Modul
+- [CSS Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul

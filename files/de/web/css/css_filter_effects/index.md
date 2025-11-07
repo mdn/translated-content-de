@@ -255,7 +255,7 @@ function sepia() {
 
 ## Leitfäden
 
-- [Verwendung von CSS-Filtereffekten](/de/docs/Web/CSS/CSS_filter_effects/Using_filter_effects)
+- [Verwendung von CSS-Filtereffekten](/de/docs/Web/CSS/Guides/Filter_effects/Using)
   - : Überblick über die Konzepte im Zusammenhang mit CSS-Filtereffekten, einschließlich Eigenschaften, Filterfunktionen und SVG-Filter, mit einer Erklärung der Filterwerte, Quellreihenfolge und Wertinteraktionen.
 
 ## Verwandte Konzepte
@@ -277,5 +277,5 @@ function sepia() {
 
 ## Siehe auch
 
-- Die Eigenschaften im [CSS-Compositing und Blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul ermöglichen das Mischen der Hintergrundebenen eines Elements miteinander und das Mischen eines Elements mit seinem Container
+- Die Eigenschaften im [CSS-Compositing und Blending](/de/docs/Web/CSS/Guides/Compositing_and_blending) Modul ermöglichen das Mischen der Hintergrundebenen eines Elements miteinander und das Mischen eines Elements mit seinem Container
 - Das SVG {{SVGElement("filter")}} Element und die SVG-Filterprimitiven: {{SVGElement("feSpotLight")}}, {{SVGElement("feBlend")}}, {{SVGElement("feColorMatrix")}}, {{SVGElement("feComponentTransfer")}}, {{SVGElement("feComposite")}}, {{SVGElement("feConvolveMatrix")}}, {{SVGElement("feDiffuseLighting")}}, {{SVGElement("feDisplacementMap")}}, {{SVGElement("feDropShadow")}}, {{SVGElement("feFlood")}}, {{SVGElement("feGaussianBlur")}}, {{SVGElement("feImage")}}, {{SVGElement("feMerge")}}, {{SVGElement("feMorphology")}}, {{SVGElement("feOffset")}}, {{SVGElement("feSpecularLighting")}}, {{SVGElement("feTile")}}, {{SVGElement("feTurbulence")}}

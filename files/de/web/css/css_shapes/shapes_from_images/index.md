@@ -168,7 +168,7 @@ body {
 
 ## Formen mit einem Gradienten erstellen
 
-Da ein [CSS-Gradient](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients) als Bild behandelt wird, können Sie einen Gradienten verwenden, um eine Form zu erzeugen, indem Sie transparente oder halbtransparente Bereiche als Teil des Gradienten haben.
+Da ein [CSS-Gradient](/de/docs/Web/CSS/Guides/Images/Using_gradients) als Bild behandelt wird, können Sie einen Gradienten verwenden, um eine Form zu erzeugen, indem Sie transparente oder halbtransparente Bereiche als Teil des Gradienten haben.
 
 Das nächste Beispiel verwendet generierten Inhalt. Der Inhalt wurde geschwebt und hat ein Hintergrundbild eines linearen Gradienten. Ich verwende denselben Wert als Wert von {{cssxref("shape-outside")}}. Der lineare Gradient geht von lila zu transparent. Durch Ändern des Wertes von {{cssxref("shape-image-threshold")}} können Sie entscheiden, wie transparent die Pixel sein müssen, die die Form erstellen. Sie können mit diesem Wert im folgenden Beispiel spielen, um zu sehen, wie sich die diagonale Linie je nach diesem Wert über die Form bewegt.
 

@@ -74,15 +74,15 @@ Das CSS-Farben-Modul führt auch die `CSSColorProfileRule` Schnittstelle ein. De
 
 ## Leitfäden
 
-- [Anwenden von Farbe auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color)
+- [Anwenden von Farbe auf HTML-Elemente mit CSS](/de/docs/Web/CSS/Guides/Colors/Applying_color)
   - : Ein Leitfaden zur Verwendung von CSS, um Farbe auf verschiedene Inhaltstypen anzuwenden, einschließlich aller CSS-Eigenschaften, die `<color>` als Wert akzeptieren.
-- [CSS-Farbwerte](/de/docs/Web/CSS/CSS_colors/Color_values)
+- [CSS-Farbwerte](/de/docs/Web/CSS/Guides/Colors/Color_values)
   - : Ein Überblick über Farbräume und die verschiedenen `<color>` funktionalen Notationen, die in CSS verfügbar sind.
-- [Verwendung von Farben mit Bedacht](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
+- [Verwendung von Farben mit Bedacht](/de/docs/Web/CSS/Guides/Colors/Using_color_wisely)
   - : Farbtheorie und -ressourcen, einschließlich der Suche nach den richtigen Farben, um eine zugängliche Farbpalette, Kontrast und Farbdruck zu erstellen.
-- [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
+- [Verwendung relativer Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)
   - : Dieser Artikel erklärt relative CSS-Farbsyntax, zeigt die verschiedenen Optionen und gibt einige anschauliche Beispiele.
-- [Farbformat-Konverter](/de/docs/Web/CSS/CSS_colors/Color_format_converter)
+- [Farbformat-Konverter](/de/docs/Web/CSS/Guides/Colors/Color_format_converter)
   - : Ein Tool, das es Ihnen ermöglicht, eine Farbe einzugeben oder auszuwählen und deren entsprechenden Wert in jedem CSS-[Farbformat](/de/docs/Web/CSS/Reference/Values/color_value) zu kopieren.
 - [Verständnis von Farbe und Luminanz](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
   - : Farbwahrnehmung und Verwendung von Farben im Zusammenhang mit farbunempfindlichen (farbenblinden) Nutzern, Nutzern mit eingeschränkter Sicht und Nutzern mit vestibulären Störungen oder anderen neurologischen Störungen.
@@ -127,8 +127,8 @@ Das CSS-Farben-Modul führt auch die `CSSColorProfileRule` Schnittstelle ein. De
 
 ## Siehe auch
 
-- [CSS-Farbanpassung](/de/docs/Web/CSS/CSS_color_adjustment) Modul und die {{cssxref("print-color-adjust")}} Eigenschaft.
-- [CSS-Bilder](/de/docs/Web/CSS/CSS_images) Modul, wo CSS [`<gradient>`](/de/docs/Web/CSS/Reference/Values/gradient) Bilder definiert sind.
+- [CSS-Farbanpassung](/de/docs/Web/CSS/Guides/Color_adjustment) Modul und die {{cssxref("print-color-adjust")}} Eigenschaft.
+- [CSS-Bilder](/de/docs/Web/CSS/Guides/Images) Modul, wo CSS [`<gradient>`](/de/docs/Web/CSS/Reference/Values/gradient) Bilder definiert sind.
 - Die [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace) Schnittstelle
 - Das SVG [`<feColorMatrix>`](/de/docs/Web/SVG/Reference/Element/feColorMatrix) Element
 - [Canvas API: Anwendungsstile und -farben](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors#colors)

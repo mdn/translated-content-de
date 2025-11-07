@@ -2,10 +2,10 @@
 title: Flex-Element
 slug: Glossary/Flex_Item
 l10n:
-  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die direkten Kinder eines {{Glossary("Flex_Container", "Flex-Containers")}} (Elemente mit `display: flex` oder `display: inline-flex`) werden zu **Flex-Elementen**.
+Die direkten Kinder eines {{Glossary("Flex_Container", "Flex Containers")}} (Elemente mit `display: flex` oder `display: inline-flex` darauf gesetzt) werden zu **Flex-Elementen**.
 
 Laufende Textabschnitte innerhalb von Flex-Containern werden ebenfalls zu Flex-Elementen.
 
@@ -21,6 +21,6 @@ Laufende Textabschnitte innerhalb von Flex-Containern werden ebenfalls zu Flex-E
 
 ### Weiterführende Literatur
 
-- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Anordnung von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)
-- [Steuerung der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis)
+- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts)
+- [Anordnung von Flex-Elementen](/de/docs/Web/CSS/Guides/Flexible_box_layout/Ordering_items)
+- [Steuerung der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios)

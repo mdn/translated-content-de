@@ -32,10 +32,10 @@ Das CSS Ruby-Layout-Modul fügt der {{cssxref("display")}} Eigenschaft die folge
 
 ## Verwandte Konzepte
 
-- [CSS Display](/de/docs/Web/CSS/CSS_display) Modul
+- [CSS Display](/de/docs/Web/CSS/Guides/Display) Modul
   - {{cssxref("display")}}
   - {{CSSxRef("&lt;display-internal&gt;")}}
-- [CSS Textdekoration](/de/docs/Web/CSS/CSS_text_decoration) Modul
+- [CSS Textdekoration](/de/docs/Web/CSS/Guides/Text_decoration) Modul
   - {{cssxref("text-emphasis-color")}}
   - {{cssxref("text-emphasis-position")}}
   - {{cssxref("text-emphasis-style")}}

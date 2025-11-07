@@ -9,7 +9,7 @@ Das **CSS-Formen**-Modul beschreibt geometrische Formen. Es definiert auch CSS-E
 
 Die Spezifikation definiert mehrere Möglichkeiten, Formen zu erstellen. Inhalte können um oder innerhalb einer Form fließen, anstatt der standardmäßigen rechteckigen Form des Box-Modells des Elements zu folgen.
 
-Formen definieren Geometrien, die als CSS-Werte verwendet werden können. Dieses Modul bietet Funktionen zur Erstellung von Ellipsen, Polygonen und beliebigen Geometrien. Andere CSS-Module können die in dieser Spezifikation definierten Formen verwenden, einschließlich [CSS motion path](/de/docs/Web/CSS/CSS_motion_path) und [CSS masking](/de/docs/Web/CSS/CSS_masking).
+Formen definieren Geometrien, die als CSS-Werte verwendet werden können. Dieses Modul bietet Funktionen zur Erstellung von Ellipsen, Polygonen und beliebigen Geometrien. Andere CSS-Module können die in dieser Spezifikation definierten Formen verwenden, einschließlich [CSS motion path](/de/docs/Web/CSS/Guides/Motion_path) und [CSS masking](/de/docs/Web/CSS/Guides/Masking).
 
 ## CSS-Formen in Aktion
 
@@ -73,26 +73,26 @@ Das CSS-Formen-Modul führt auch die Eigenschaften `shape-inside` und `shape-pad
 
 ### Begriffe
 
-- [Referenzbox](/de/docs/Web/CSS/CSS_shapes/Basic_shapes#the_reference_box)
+- [Referenzbox](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside#the_reference_box)
 
 ## Leitfäden
 
-- [Übersicht über Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
+- [Übersicht über Formen](/de/docs/Web/CSS/Guides/Shapes/Overview)
   - : Definieren von Grundformen mit den Eigenschaften `shape-margin` und `clip-path`, und Debugging von Grundformen mit
     Developer Tools.
 
-- [Formen aus Box-Werten](/de/docs/Web/CSS/CSS_shapes/From_box_values)
+- [Formen aus Box-Werten](/de/docs/Web/CSS/Guides/Shapes/From_box_values)
   - : Verwendung von `border-radius`-Krümmungen und CSS-Boxmodellwerten zur Erzeugung von Formen.
 
-- [Grundformen mit `shape-outside`](/de/docs/Web/CSS/CSS_shapes/Basic_shapes)
+- [Grundformen mit `shape-outside`](/de/docs/Web/CSS/Guides/Shapes/Using_shape-outside)
   - : Erstellen von Rechtecken, Kreisen, Ellipsen und Polygonen mit CSS-Formen, der Referenzbox und der Eigenschaft `shape-outside`.
 
-- [Formen aus Bildern](/de/docs/Web/CSS/CSS_shapes/Shapes_from_images)
+- [Formen aus Bildern](/de/docs/Web/CSS/Guides/Shapes/From_images)
   - : Erstellen von Formen aus halbtransparenten Bilddateien und CSS-Verläufen.
 
 ## Verwandte Konzepte
 
-[CSS motion path](/de/docs/Web/CSS/CSS_motion_path) Modul
+[CSS motion path](/de/docs/Web/CSS/Guides/Motion_path) Modul
 
 - {{cssxref("offset")}}
 - {{cssxref("offset-anchor")}}
@@ -102,7 +102,7 @@ Das CSS-Formen-Modul führt auch die Eigenschaften `shape-inside` und `shape-pad
 - {{cssxref("offset-rotate")}}
 - {{cssxref("ray")}} Funktion
 
-[CSS masking](/de/docs/Web/CSS/CSS_masking) Modul
+[CSS masking](/de/docs/Web/CSS/Guides/Masking) Modul
 
 - {{cssxref("clip")}}
 - {{cssxref("clip-path")}}
@@ -111,11 +111,11 @@ Das CSS-Formen-Modul führt auch die Eigenschaften `shape-inside` und `shape-pad
 - {{cssxref("mask-origin")}}
 - {{cssxref("mask-position")}}
 
-[CSS Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+[CSS Hintergründe und Rahmen](/de/docs/Web/CSS/Guides/Backgrounds_and_borders) Modul
 
 - {{cssxref("border-radius")}} Kurzform
 
-[CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul
+[CSS Box-Modell](/de/docs/Web/CSS/Guides/Box_model) Modul
 
 - {{cssxref("box-edge")}} Datentyp
 
@@ -125,7 +125,7 @@ Das CSS-Formen-Modul führt auch die Eigenschaften `shape-inside` und `shape-pad
 
 ## Siehe auch
 
-- [Formengenerator](/de/docs/Web/CSS/CSS_shapes/Shape_generator)
+- [Formengenerator](/de/docs/Web/CSS/Guides/Shapes/Shape_generator)
 - [CSS-Formen-Ressourcen](https://codepen.io/KristopherVanSant/post/css-shapes-resources)
 - [CSS Shapes 101](https://alistapart.com/article/css-shapes-101/) via alistapart.com (2014)
 - [Erstellen von nicht-rechteckigen Layouts mit CSS-Formen](https://www.sarasoueidan.com/blog/css-shapes/) via sarasoueidan.com (2013)

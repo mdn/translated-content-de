@@ -2,10 +2,10 @@
 title: scroll-padding-inline-end
 slug: Web/CSS/Reference/Properties/scroll-padding-inline-end
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die Eigenschaft `scroll-padding-inline-end` definiert Versätze für die Endkante in der Inline-Dimension des _optimalen Betrachtungsbereichs_ des Scrollport: der Bereich, der als Zielbereich verwendet wird, um Dinge im Sichtbereich des Benutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Symbolleisten oder Seitenleisten) verdeckt sind, oder um mehr Freiraum zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-inline-end` definiert Versätze für die Endkante in der Inline-Dimension der _optimalen Betrachtungsregion_ des Scrollports: die Region, die als Zielregion für die Platzierung von Elementen im Sichtfeld des Benutzers dient. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Symbolleisten oder Seitenleisten) verdeckt werden, oder mehr Abstand zwischen einem fokussierten Element und den Rändern des Scrollports zu schaffen.
 
 {{InteractiveExample("CSS Demo: scroll-padding-inline-end")}}
 
@@ -94,9 +94,9 @@ scroll-padding-inline-end: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Versatz von der Inline-Endkante des Scrollports, als gültige Länge oder als Prozentsatz.
+  - : Ein innerer Versatz von der Inline-Endkante des Scrollports, angegeben als gültige Länge oder Prozentangabe.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, jedoch kann ein Benutzeragent erkennen und etwas anderes tun, wenn ein von Null abweichender Wert angemessener ist.
+  - : Der Versatz wird vom Nutzeragenten festgelegt. Dies ist im Allgemeinen 0px, aber ein Nutzeragent kann etwas anderes erkennen und tun, wenn ein Wert ungleich Null angemessener ist.
 
 ## Formale Definition
 
@@ -116,5 +116,5 @@ scroll-padding-inline-end: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut gesteuertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap)
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

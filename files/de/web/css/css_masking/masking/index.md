@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-CSS-Masking ermöglicht es, Teile eines Elements selektiv zu zeigen oder zu verbergen, indem eine oder mehrere Maskenbilder darauf angewendet werden. Diese Maskenbilder können Verläufe, Bilder oder SVG-Quellen sein. Im Gegensatz zum [CSS-Clipping](/de/docs/Web/CSS/CSS_masking/Clipping), das entweder vollständig Bereiche eines Elements auf Basis der Form eines einzelnen Pfades zeigt oder verbirgt, erlaubt Masking nuancierte Transparenz- und Blending-Effekte basierend auf der Alpha-Transparenz und optional auch der Luminanz der Maskenbilder.
+CSS-Masking ermöglicht es, Teile eines Elements selektiv zu zeigen oder zu verbergen, indem eine oder mehrere Maskenbilder darauf angewendet werden. Diese Maskenbilder können Verläufe, Bilder oder SVG-Quellen sein. Im Gegensatz zum [CSS-Clipping](/de/docs/Web/CSS/Guides/Masking/Clipping), das entweder vollständig Bereiche eines Elements auf Basis der Form eines einzelnen Pfades zeigt oder verbirgt, erlaubt Masking nuancierte Transparenz- und Blending-Effekte basierend auf der Alpha-Transparenz und optional auch der Luminanz der Maskenbilder.
 
 Dieser Leitfaden führt in das Konzept des Masking, die verschiedenen Maskenbildtypen und wie die Luminanz und Alpha-Transparenz der Maske die Bereiche des Elements beeinflussen, die maskiert (sichtbar gemacht) versus geclippt (oder verborgen) werden.
 
@@ -22,7 +22,7 @@ Bei Alpha-Masken ist die Farbe der Maske irrelevant. Nur die Opazität der Maske
 
 Masken können mit CSS-Verläufen, Rasterbildern (wie PNGs) und SVG-{{svgelement("mask")}}-Elementen definiert werden. In diesem Leitfaden stellen wir die verschiedenen Maskenbildtypen vor, während wir [Undurchsichtigkeit und Transparenz](#undurchsichtigkeit_versus_transparenz), [Luminanz](#alpha-transparenz_versus_luminanz) und [Masking versus CSS-Clipping](#svg_mask_as_mask_source) besprechen.
 
-Jede Maskenschicht besteht aus einem {{cssxref("mask-image")}}, das relativ zu einem Ursprungsfeld [positioniert](/de/docs/Web/CSS/Reference/Properties/mask-position) ist. Die Maskenbilder können [skaliert](/de/docs/Web/CSS/Reference/Properties/mask-size), [wiederholt](/de/docs/Web/CSS/Reference/Properties/mask-repeat) und [geclippt](/de/docs/Web/CSS/Reference/Properties/mask-clip) werden. In Fällen, in denen mehrere Maskenbilder deklariert sind, kann die Art, wie die [Maskenschichten zusammengesetzt](/de/docs/Web/CSS/Reference/Properties/mask-composite) oder kombiniert werden, festgelegt werden. Diese Themen werden im [Leitfaden zu Maskeneigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties) behandelt.
+Jede Maskenschicht besteht aus einem {{cssxref("mask-image")}}, das relativ zu einem Ursprungsfeld [positioniert](/de/docs/Web/CSS/Reference/Properties/mask-position) ist. Die Maskenbilder können [skaliert](/de/docs/Web/CSS/Reference/Properties/mask-size), [wiederholt](/de/docs/Web/CSS/Reference/Properties/mask-repeat) und [geclippt](/de/docs/Web/CSS/Reference/Properties/mask-clip) werden. In Fällen, in denen mehrere Maskenbilder deklariert sind, kann die Art, wie die [Maskenschichten zusammengesetzt](/de/docs/Web/CSS/Reference/Properties/mask-composite) oder kombiniert werden, festgelegt werden. Diese Themen werden im [Leitfaden zu Maskeneigenschaften](/de/docs/Web/CSS/Guides/Masking/Mask_properties) behandelt.
 
 > [!NOTE]
 > Alle Beispiele verwenden das folgende Bild als darunterliegendes Element, auf das Masken angewendet werden:
@@ -292,7 +292,7 @@ Wenn Sie nur Formen benötigen, könnte Clipping ausreichen. Aber wenn Sie Fadin
 
 ## Siehe auch
 
-- [Einführung in das CSS-Clipping](/de/docs/Web/CSS/CSS_masking/Clipping)
-- [CSS-`mask`-Eigenschaften](/de/docs/Web/CSS/CSS_masking/Mask_properties)
-- [Deklarieren mehrerer Masken](/de/docs/Web/CSS/CSS_masking/Multiple_masks)
-- [CSS-Masking](/de/docs/Web/CSS/CSS_masking) Modul
+- [Einführung in das CSS-Clipping](/de/docs/Web/CSS/Guides/Masking/Clipping)
+- [CSS-`mask`-Eigenschaften](/de/docs/Web/CSS/Guides/Masking/Mask_properties)
+- [Deklarieren mehrerer Masken](/de/docs/Web/CSS/Guides/Masking/Multiple_masks)
+- [CSS-Masking](/de/docs/Web/CSS/Guides/Masking) Modul

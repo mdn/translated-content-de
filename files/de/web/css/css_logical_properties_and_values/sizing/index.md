@@ -7,7 +7,7 @@ l10n:
 
 In diesem Leitfaden erklären wir die flussbezogenen Zuordnungen zwischen physikalischen Dimensionseigenschaften und logischen Eigenschaften, die zur Größenbestimmung von Elementen auf unseren Seiten verwendet werden.
 
-Beim Festlegen der Größe eines Elements ermöglicht Ihnen das Modul [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values), die Größenbestimmung in Bezug auf den Textfluss (inline und block) zu definieren, anstatt auf physikalische Größen, die sich auf die physikalischen Dimensionen von horizontal und vertikal (z. B. links und rechts) beziehen. Während diese flussbezogenen Zuordnungen für viele von uns durchaus der Standard werden könnten, können in einem Design sowohl physikalische als auch logische Größen verwendet werden. Möglicherweise möchten Sie, dass einige Merkmale unabhängig vom Schreibmodus immer auf die physikalischen Dimensionen bezogen sind.
+Beim Festlegen der Größe eines Elements ermöglicht Ihnen das Modul [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values), die Größenbestimmung in Bezug auf den Textfluss (inline und block) zu definieren, anstatt auf physikalische Größen, die sich auf die physikalischen Dimensionen von horizontal und vertikal (z. B. links und rechts) beziehen. Während diese flussbezogenen Zuordnungen für viele von uns durchaus der Standard werden könnten, können in einem Design sowohl physikalische als auch logische Größen verwendet werden. Möglicherweise möchten Sie, dass einige Merkmale unabhängig vom Schreibmodus immer auf die physikalischen Dimensionen bezogen sind.
 
 ## Zuordnungen für Dimensionen
 

@@ -1,29 +1,29 @@
 ---
-title: "HTMLImageElement: naturalHeight Eigenschaft"
+title: "HTMLImageElement: naturalHeight-Eigenschaft"
 short-title: naturalHeight
 slug: Web/API/HTMLImageElement/naturalHeight
 l10n:
-  sourceCommit: f4372ac9926fc2a1cbe408dae02b381b7f1909da
+  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`naturalHeight`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces ist ein schreibgeschützter Wert, der die intrinsische (natürliche), dichte-korrigierte Höhe des Bildes in {{Glossary("CSS_pixel", "CSS-Pixeln")}} zurückgibt.
+Die schreibgeschützte **`naturalHeight`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt die intrinsische (natürliche), dichte-korrigierte Höhe des Bildes in {{Glossary("CSS_pixel", "CSS-Pixel")}} zurück.
 
-Dies ist die Höhe des Bildes, wenn es ohne Einschränkung seiner Höhe gezeichnet wird; wenn Sie keine Höhe für das Bild angeben oder das Bild in einen Container einfügen, der entweder die Bildhöhe begrenzt oder ausdrücklich festlegt, wird es in dieser Höhe gerendert.
+Dies ist die Höhe, die das Bild hat, wenn nichts seine Höhe einschränkt; wenn Sie weder eine Höhe für das Bild angeben noch das Bild in einen Container platzieren, der die Bildhöhe begrenzt oder ausdrücklich festlegt, wird es in dieser Größe gerendert.
 
 > [!NOTE]
-> Meistens ist die natürliche Höhe die tatsächliche Höhe des vom Server gesendeten Bildes. Dennoch können Browser ein Bild modifizieren, bevor sie es zum Renderer schicken. Zum Beispiel, Chrome [verringert die Auflösung von Bildern auf Geräten mit niedriger Leistung](https://crbug.com/1187043#c7). In solchen Fällen berücksichtigt `naturalHeight` die von solchen Browser-Eingriffen modifizierte Höhe des Bildes als natürliche Höhe und gibt diesen Wert zurück.
+> Die natürliche Höhe ist meist die tatsächliche Höhe des vom Server gesendeten Bildes. Dennoch können Browser ein Bild ändern, bevor es an den Renderer übermittelt wird. Zum Beispiel [reduziert Chrome die Auflösung von Bildern auf Geräten mit niedriger Leistung](https://crbug.com/1187043#c7). In solchen Fällen wird die `naturalHeight`-Eigenschaft die durch solche Browsereingriffe modifizierte Höhe des Bildes als natürliche Höhe betrachten und diesen Wert zurückgeben.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die intrinsische Höhe des Bildes in CSS-Pixeln angibt. Dies ist die Höhe, in der das Bild natürlich gezeichnet wird, wenn kein Zwang oder spezifischer Wert für das Bild festgelegt ist. Diese natürliche Höhe wird für die Pixeldichte des Geräts, auf dem es präsentiert wird, korrigiert, im Gegensatz zu [`height`](/de/docs/Web/API/HTMLImageElement/height).
+Ein ganzzahliger Wert, der die intrinsische Höhe des Bildes in CSS-Pixel angibt. Dies ist die Höhe, in der das Bild auf natürliche Weise gezeichnet wird, wenn keine Einschränkung oder spezifischer Wert für das Bild festgelegt ist. Diese natürliche Höhe wird für die Pixeldichte des Geräts, auf dem es dargestellt wird, korrigiert, im Gegensatz zur [`height`](/de/docs/Web/API/HTMLImageElement/height).
 
-Ist die intrinsische Höhe nicht verfügbar – entweder weil das Bild keine intrinsische Höhe angibt oder weil die Bilddaten nicht verfügbar sind, um diese Informationen zu erhalten – gibt `naturalHeight` den Wert 0 zurück.
+Wenn die intrinsische Höhe nicht verfügbar ist – entweder weil das Bild keine intrinsische Höhe angibt oder weil die Bilddaten nicht verfügbar sind, um diese Information zu erhalten, gibt `naturalHeight` den Wert 0 zurück.
 
 ## Beispiele
 
-Dieses Beispiel zeigt sowohl die natürliche, dichte-korrigierte Größe eines Bildes als auch seine durch das CSS der Seite und andere Faktoren veränderte Rendergröße.
+Dieses Beispiel zeigt sowohl die natürliche, dichte-korrigierte Größe eines Bildes als auch seine durch CSS und andere Faktoren der Seite veränderte Rendergröße.
 
 ### HTML
 
@@ -37,7 +37,7 @@ Dieses Beispiel zeigt sowohl die natürliche, dichte-korrigierte Größe eines B
 <pre></pre>
 ```
 
-Das HTML enthält ein 400x398 Pixel großes Bild, das in einem {{HTMLElement("div")}} platziert ist.
+Das HTML enthält ein Bild mit 400x398 Pixel, das in einem {{HTMLElement("div")}} platziert ist.
 
 ### CSS
 
@@ -52,7 +52,7 @@ Das HTML enthält ein 400x398 Pixel großes Bild, das in einem {{HTMLElement("di
 }
 ```
 
-Das Hauptaugenmerk im obigen CSS liegt darauf, dass der Stil des Containers, in dem das Bild gezeichnet wird, 200px breit ist und das Bild so gezeichnet wird, dass es seine Breite (100%) ausfüllt.
+Das Hauptmerkmal im obigen CSS ist, dass der Stil des Containers, in dem das Bild gezeichnet wird, 200px breit ist und das Bild so gezeichnet wird, dass es seine Breite (100%) ausfüllt.
 
 ### JavaScript
 
@@ -69,7 +69,7 @@ Displayed size: ${width} x ${height} pixels
 });
 ```
 
-Der JavaScript-Code gibt die natürliche und die angezeigte Größe in das {{HTMLElement("pre")}} aus. Dies geschieht als Reaktion auf den [`load`](/de/docs/Web/API/HTMLElement/load_event)-Ereignishandler des Bildes, um sicherzustellen, dass das Bild verfügbar ist, bevor versucht wird, seine Breite und Höhe zu untersuchen.
+Der JavaScript-Code gibt die natürliche und die angezeigte Größe in das {{HTMLElement("pre")}} aus. Dies geschieht in Reaktion auf den [`load`](/de/docs/Web/API/HTMLElement/load_event)-Event-Handler des Bildes, um sicherzustellen, dass das Bild verfügbar ist, bevor versucht wird, seine Breite und Höhe zu prüfen.
 
 ### Ergebnis
 
@@ -82,3 +82,8 @@ Der JavaScript-Code gibt die natürliche und die angezeigte Größe in das {{HTM
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`HTMLImageElement.height`](/de/docs/Web/API/HTMLImageElement/height)
+- [`HTMLImageElement.naturalWidth`](/de/docs/Web/API/HTMLImageElement/naturalWidth)

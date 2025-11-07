@@ -7,13 +7,13 @@ l10n:
 
 Ein gebräuchliches UI-Muster beinhaltet Elemente, die animiert werden, während der Benutzer vertikal oder horizontal über eine Seite scrollt. Diese _scroll-gesteuerten Animationen_ treten in direkter Reaktion auf das Scrollen der Seite oder einen überlaufenden Scroll-Container innerhalb einer Seite auf.
 
-Die im [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) Modul definierten Eigenschaften erweitern [CSS-Animationen](/de/docs/Web/CSS/CSS_animations), indem sie es ermöglichen, animierte Eigenschaftswerte in {{cssxref("@keyframes")}} Animationen in Reaktion auf Benutzerinteraktionen zu definieren.
+Die im [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul definierten Eigenschaften erweitern [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations), indem sie es ermöglichen, animierte Eigenschaftswerte in {{cssxref("@keyframes")}} Animationen in Reaktion auf Benutzerinteraktionen zu definieren.
 
 Dieser Leitfaden bietet einen Überblick über die Verwendung von CSS zum Erstellen von scroll-gesteuerten Animationszeitleisten und Animationen.
 
 ## Was ist scroll-gesteuerte Animation?
 
-Das [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) Modul definiert Eigenschaften, die es ermöglichen, [CSS-Keyframe-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#defining_an_animation_sequence_using_keyframes) mit dem Scrollen zu verknüpfen.
+Das [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul definiert Eigenschaften, die es ermöglichen, [CSS-Keyframe-Animationen](/de/docs/Web/CSS/Guides/Animations/Using#defining_an_animation_sequence_using_keyframes) mit dem Scrollen zu verknüpfen.
 
 ### Fortschritt der Zeitleiste
 
@@ -25,7 +25,7 @@ CSS-Scroll-gesteuerte Animationen sind leistungsfähig. JavaScript-Scroll-gesteu
 
 ## Grundlagen
 
-Scroll-gesteuerte Animationen bauen auf [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) und der [Web Animations API](/de/docs/Web/API/Web_Animations_API) auf. Bevor Sie scroll-gesteuerte Animationen erstellen, müssen Sie ein Verständnis von CSS {{cssxref("@keyframes")}} Animationen haben. Siehe den [Leitfaden zur Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations), um mehr zu erfahren.
+Scroll-gesteuerte Animationen bauen auf [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) und der [Web Animations API](/de/docs/Web/API/Web_Animations_API) auf. Bevor Sie scroll-gesteuerte Animationen erstellen, müssen Sie ein Verständnis von CSS {{cssxref("@keyframes")}} Animationen haben. Siehe den [Leitfaden zur Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using), um mehr zu erfahren.
 
 In CSS werden Animationen erstellt, indem Keyframe-Animationen mit einem Element über die {{cssxref("animation-name")}} Eigenschaft (oder den {{cssxref("animation")}} Kurzbefehl) verbunden werden. Standardmäßig laufen Animationen auf der standardmäßigen Dokumenten-Zeitleiste ab, indem sie sich von der `from` Keyframe zur `to` Keyframe bewegen, während die Zeit vergeht, wobei die Animation so lange dauert wie die im Wert der {{cssxref("animation-duration")}} Eigenschaft definierte Zeit. Wenn Sie auf der standardmäßigen Dokumenten-Zeitleiste eingestellt sind, spielen die Animationen bis zum Abschluss, es sei denn, sie werden daran gehindert, z. B. indem der {{cssxref("animation-play-state")}} auf `paused` gesetzt wird oder der `animation-name` vom Element entfernt wird.
 
@@ -33,9 +33,9 @@ Scroll-gesteuerte Animationen sind CSS-Animationen, die nicht auf der standardm�
 
 ## Animationszeitleisten
 
-Die {{cssxref("animation-timeline")}} Eigenschaft, die im [CSS-Animationsmodul](/de/docs/Web/CSS/CSS_animations) definiert ist, wird verwendet, um die Zeitleiste für die Animation festzulegen.
+Die {{cssxref("animation-timeline")}} Eigenschaft, die im [CSS-Animationsmodul](/de/docs/Web/CSS/Guides/Animations) definiert ist, wird verwendet, um die Zeitleiste für die Animation festzulegen.
 
-Das [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) Modul definiert Funktionen zum Setzen der `animation-timeline` als Scroll-Fortschritt- oder Sichtbarkeits-Fortschritt-Zeitleiste. Sie können explizit [ein Element als Zeitleisten-Controller benennen](#benannte_scroll-fortschritt-zeitleisten) mithilfe der `scroll-timeline-*` und `view-timeline-*` Eigenschaften und diesen Namen dann als `animation-timeline` eines untergeordneten Elements festlegen. Sie können auch _anonyme Scroll-Fortschritt-Zeitleisten_ und _anonyme Sichtbarkeits-Fortschritt-Zeitleisten_ mit den Funktionen [`scroll()`](#scroll-fortschritt-zeitleisten) und [`view()`](#sichtbarkeits-fortschritt-zeitleisten)) definieren.
+Das [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul definiert Funktionen zum Setzen der `animation-timeline` als Scroll-Fortschritt- oder Sichtbarkeits-Fortschritt-Zeitleiste. Sie können explizit [ein Element als Zeitleisten-Controller benennen](#benannte_scroll-fortschritt-zeitleisten) mithilfe der `scroll-timeline-*` und `view-timeline-*` Eigenschaften und diesen Namen dann als `animation-timeline` eines untergeordneten Elements festlegen. Sie können auch _anonyme Scroll-Fortschritt-Zeitleisten_ und _anonyme Sichtbarkeits-Fortschritt-Zeitleisten_ mit den Funktionen [`scroll()`](#scroll-fortschritt-zeitleisten) und [`view()`](#sichtbarkeits-fortschritt-zeitleisten)) definieren.
 
 Alternativ kann die `animation-timeline` Eigenschaft verwendet werden, um explizit anzugeben, dass die [standardmäßige Dokumenten-Zeitleiste verwendet werden soll](#regular_css_animations_default_document_timeline) oder um zu spezifizieren, dass die [Animation keine Zeitleiste hat](#removing_an_animations_timeline), und daher überhaupt nicht stattfinden sollte.
 
@@ -177,7 +177,7 @@ Bevor ein Scrollen erfolgt, befindet sich die Position des Containers oben im Sc
 
 #### Animationsdauer
 
-Vielleicht haben Sie bemerkt, dass die {{cssxref("animation-duration")}} Komponente des `animation` Kurzbefehl auf `1ms` gesetzt wurde. Bei der Erstellung von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) wirkt sich ein `animation-duration` Wert nicht auf die Dauer der Animation aus und sollte nicht notwendig sein. Allerdings können sich Dauern auf nichtlineare Sichtbarkeits-Fortschritt-Animationszeitleisten auswirken, und Firefox erfordert eine nicht-nullwertige `animation-duration`, um eine Animation auf ein Element anzuwenden. Aus diesen Gründen ist es gängige Praxis, die `animation-duration` auf `1ms` zu setzen.
+Vielleicht haben Sie bemerkt, dass die {{cssxref("animation-duration")}} Komponente des `animation` Kurzbefehl auf `1ms` gesetzt wurde. Bei der Erstellung von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) wirkt sich ein `animation-duration` Wert nicht auf die Dauer der Animation aus und sollte nicht notwendig sein. Allerdings können sich Dauern auf nichtlineare Sichtbarkeits-Fortschritt-Animationszeitleisten auswirken, und Firefox erfordert eine nicht-nullwertige `animation-duration`, um eine Animation auf ein Element anzuwenden. Aus diesen Gründen ist es gängige Praxis, die `animation-duration` auf `1ms` zu setzen.
 
 Das Setzen von `animation-duration: 1ms` stellt sicher, dass die Animation in Firefox funktioniert, der Animationseffekt in allen Browsern konsistent ist, und die Animation versteckt ist, wenn ein Browser keine Sichtbarkeits-Fortschritt-Animationszeitleisten unterstützt. Wenn der Browser Schlüsselbildanimationen unterstützt, ist die Animation für den Benutzer nicht sichtbar. Die Animation findet jedoch trotzdem statt, und Animationsereignisse werden ausgelöst.
 
@@ -360,5 +360,5 @@ Da die `animation` Kurzschreibweise die `animation-timeline` auf `auto` setzt, v
 
 ## Siehe auch
 
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)

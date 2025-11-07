@@ -2,16 +2,16 @@
 title: grid
 slug: Web/CSS/Reference/At-rules/@media/grid
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Das **`grid`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, ob das Ausgabegerät einen rasterbasierten Bildschirm verwendet.
+Das **`grid`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um zu testen, ob das Ausgabegerät einen rasterbasierten Bildschirm verwendet.
 
-Die meisten modernen Computer und Smartphones haben bitmap-basierte Bildschirme. Beispiele für rasterbasierte Geräte sind Text-only-Terminals und einfache Telefone mit nur einer festen Schriftart.
+Die meisten modernen Computer und Smartphones haben bitmap-basierte Bildschirme. Beispiele für rasterbasierte Geräte sind textbasierte Terminals und einfache Telefone mit nur einem festen Schriftfont.
 
 ## Syntax
 
-Das `grid`-Feature wird als {{cssxref("CSS_media_queries/Using_media_queries", "&lt;mq-boolean&gt;")}} Wert (`0` oder `1`) angegeben, der darstellt, ob das Ausgabegerät rasterbasiert ist oder nicht.
+Das `grid`-Feature wird als ein {{cssxref("CSS_media_queries/Using_media_queries", "&lt;mq-boolean&gt;")}} Wert (`0` oder `1`) angegeben, der angibt, ob das Ausgabegerät rasterbasiert ist oder nicht.
 
 ## Beispiele
 
@@ -67,5 +67,5 @@ Das `grid`-Feature wird als {{cssxref("CSS_media_queries/Using_media_queries", "
 
 ## Siehe auch
 
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
 - [@media](/de/docs/Web/CSS/Reference/At-rules/@media)

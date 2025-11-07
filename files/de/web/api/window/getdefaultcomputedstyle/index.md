@@ -1,14 +1,14 @@
 ---
-title: "Fenster: Methode getDefaultComputedStyle()"
+title: "Window: getDefaultComputedStyle() Methode"
 short-title: getDefaultComputedStyle()
 slug: Web/API/Window/getDefaultComputedStyle
 l10n:
-  sourceCommit: cd22b9f18cf2450c0cc488379b8b780f0f343397
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM")}}{{Non-standard_Header}}
 
-Die **`getDefaultComputedStyle()`**-Methode liefert die Standard-[berechneten Werte](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value) aller CSS-Eigenschaften eines Elements, wobei die Autoren-Styles ignoriert werden. Das bedeutet, dass nur Benutzeragent- und Benutzer-Styles berücksichtigt werden.
+Die **`getDefaultComputedStyle()`**-Methode gibt die Standard-[berechneten Werte](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value) aller CSS-Eigenschaften eines Elements zurück und ignoriert dabei Autoren-Styling. Das bedeutet, dass nur Benutzeragent- und Benutzerstile berücksichtigt werden.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ getDefaultComputedStyle(element, pseudoElt)
 ### Parameter
 
 - `element`
-  - : Das [`Element`](/de/docs/Web/API/Element), für das der berechnete Style ermittelt werden soll.
+  - : Das [`Element`](/de/docs/Web/API/Element), für das der berechnete Stil abgerufen werden soll.
 - `pseudoElt` {{optional_inline}}
-  - : Ein Zeichenfolgenwert, der das zu berücksichtigende Pseudo-Element angibt. Muss `null` sein (oder nicht angegeben), wenn es sich um reguläre Elemente handelt.
+  - : Ein String, der das Pseudo-Element angibt, das übereinstimmen soll. Muss `null` sein (oder nicht spezifiziert) für normale Elemente.
 
 ### Rückgabewert
 
-Der zurückgegebene `style` ist ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt. Dieses Objekt ist vom gleichen Typ wie das Objekt, das von [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) zurückgegeben wird, berücksichtigt jedoch nur Benutzeragent- und Benutzerregeln.
+Der zurückgegebene `style` ist ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt. Das Objekt ist vom gleichen Typ wie das Objekt, das von [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) zurückgegeben wird, aber es werden nur Benutzeragenten- und Benutzerregeln berücksichtigt.
 
 ## Beispiele
 
@@ -61,7 +61,7 @@ document.getElementById("output").textContent = theCSSprop; // outputs "static"
 
 ### Verwendung mit Pseudo-Elementen
 
-Die `getDefaultComputedStyle()`-Methode kann Style-Informationen von Pseudo-Elementen abrufen (z.B. {{cssxref("::before")}} oder {{cssxref("::after")}}).
+Die `getDefaultComputedStyle()`-Methode kann Stilinformationen von Pseudo-Elementen abrufen (z.B. {{cssxref("::before")}} oder {{cssxref("::after")}}).
 
 ```html
 <h3>generated content</h3>
@@ -80,13 +80,13 @@ const result = getDefaultComputedStyle(h3, "::after").content;
 console.log("the generated content is: ", result); // returns 'none'
 ```
 
-## Anmerkungen
+## Hinweise
 
-Der zurückgegebene Wert ist in bestimmten bekannten Fällen bewusst inkorrekt, und zwar aus Sicherheitsgründen. Speziell um das sogenannte CSS-Verlaufsleck-Sicherheitsproblem zu vermeiden, können Browser bewusst "lügen" über den verwendeten Wert für einen Link und immer Werte zurückgeben, als ob ein Benutzer die verlinkte Seite nie besucht hätte, und/oder die Styles einschränken, die mit dem `:visited`-Pseudoselektor angewandt werden können. Details zur Implementierung dieser Beispiele finden Sie unter <https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/> und <https://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/>.
+Der zurückgegebene Wert ist in bestimmten bekannten Fällen absichtlich falsch. Insbesondere, um das sogenannte CSS History Leak-Sicherheitsproblem zu vermeiden, können Browser ausdrücklich "lügen" über den tatsächlichen Wert für einen Link und immer Werte zurückgeben, als ob ein Benutzer die verlinkte Seite nie besucht hat, und/oder die Stile begrenzen, die mit dem `:visited` Pseudo-Selektor angewendet werden können. Siehe <https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/> und <https://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/> für Details zu Beispielen, wie dies implementiert wird.
 
 ## Spezifikationen
 
-Vorgeschlagen für die CSS-Arbeitsgruppe.
+Dem CSS-Arbeitsgruppe vorgeschlagen.
 
 ## Browser-Kompatibilität
 

@@ -38,8 +38,8 @@ Dieses Modul definiert das Overscroll-Verhalten und ermöglicht es Ihnen, die Ak
 ## Verwandte Konzepte
 
 - [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Reference/Roles/scrollbar_role) ARIA-Rolle
-- [Container-Block](/de/docs/Web/CSS/CSS_display/Containing_block) Konzept
-- [CSS Overflow](/de/docs/Web/CSS/CSS_overflow) Modul:
+- [Container-Block](/de/docs/Web/CSS/Guides/Display/Containing_block) Konzept
+- [CSS Overflow](/de/docs/Web/CSS/Guides/Overflow) Modul:
   - {{cssxref("overflow")}} Kurzform-Eigenschaft
     - {{Cssxref("overflow-x")}}
     - {{Cssxref("overflow-y")}}
@@ -50,14 +50,14 @@ Dieses Modul definiert das Overscroll-Verhalten und ermöglicht es Ihnen, die Ak
   - {{CSSxRef("text-overflow")}} Eigenschaft
 - {{Glossary("Scroll_container", "Scroll-Container")}} und {{Glossary("Scroll_container#scrollport", "scrollport")}} Glossarbegriffe
 
-- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul:
+- [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul:
   - {{cssxref("scroll-padding")}} Kurzform-Eigenschaft
   - {{cssxref("scroll-snap-type")}} Eigenschaft
   - {{cssxref("scroll-margin")}} Kurzform-Eigenschaft
   - {{cssxref("scroll-snap-stop")}} Eigenschaft
   - {{cssxref("scroll-snap-align")}} Eigenschaft
 
-- [CSSOM View](/de/docs/Web/CSS/CSSOM_view) Modul:
+- [CSSOM View](/de/docs/Web/CSS/Guides/CSSOM_view) Modul:
   - [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect) Methode
   - [`Element.scroll()`](/de/docs/Web/API/Element/scroll) Methode
   - [`Element.scrollBy()`](/de/docs/Web/API/Element/scrollBy) Methode
@@ -71,7 +71,7 @@ Dieses Modul definiert das Overscroll-Verhalten und ermöglicht es Ihnen, die Ak
 
 ## Siehe auch
 
-- [CSS Scroll Anchoring](/de/docs/Web/CSS/CSS_scroll_anchoring) Modul
-- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
-- [CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul
-- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
+- [CSS Scroll Anchoring](/de/docs/Web/CSS/Guides/Scroll_anchoring) Modul
+- [CSS Scroll Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
+- [CSS Box-Modell](/de/docs/Web/CSS/Guides/Box_model) Modul
+- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values) Modul

@@ -3,14 +3,14 @@ title: "DOMMatrixReadOnly: scale3d() Methode"
 short-title: scale3d()
 slug: Web/API/DOMMatrixReadOnly/scale3d
 l10n:
-  sourceCommit: c2fd97474834e061404b992c8397d4ccc4439a71
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`scale3d()`** Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly) Schnittstelle erzeugt eine neue Matrix, die das Ergebnis einer 3D-Skalentransformation darstellt, die auf die Matrix angewendet wird. Sie gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Skalieren der Quell-3D-Matrix mit dem angegebenen Skalierungsfaktor erzeugt wurde. Dieser ist zentriert auf den Ursprungskoordinaten, die durch die Ursprungsparameter angegeben werden, mit einem Standardursprung `(0, 0, 0)`. Die Originalmatrix wird nicht verändert.
+Die **`scale3d()`** Methode des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly) Interfaces erstellt eine neue Matrix, die das Ergebnis einer 3D-Skalierungstransformation ist, die auf die Matrix angewendet wird. Sie gibt eine neue [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die durch Skalierung der Quell-3D-Matrix mit dem angegebenen Skalierungsfaktor erzeugt wird. Die Skalierung erfolgt zentriert um den Ursprungspunkt, der durch die Ursprungsparameter angegeben wird, wobei der Standardursprung `(0, 0, 0)` ist. Die ursprüngliche Matrix wird nicht verändert.
 
-Um die Matrix zu verändern, während Sie sie 3D-skalieren, siehe [`DOMMatrix.scale3dSelf()`](/de/docs/Web/API/DOMMatrix/scale3dSelf).
+Um die Matrix während der 3D-Skalierung zu ändern, siehe [`DOMMatrix.scale3dSelf()`](/de/docs/Web/API/DOMMatrix/scale3dSelf).
 
 ## Syntax
 
@@ -25,13 +25,13 @@ scale3d(scale, originX, originY, originZ)
 ### Parameter
 
 - `scale`
-  - : Ein Multiplikator; der Skalenwert. Wenn keine Skala angegeben wird, ist der Standardwert `1`.
+  - : Ein Multiplikator; der Skalierungswert. Wenn keine Skalierung angegeben ist, beträgt der Standardwert `1`.
 - `originX` {{optional_inline}}
-  - : Eine x-Koordinate für den Ursprung der Transformation. Wenn kein Ursprung angegeben wird, ist der Standardwert `0`.
+  - : Eine x-Koordinate für den Ursprung der Transformation. Wenn kein Ursprung angegeben ist, beträgt der Standardwert `0`.
 - `originY` {{optional_inline}}
-  - : Eine y-Koordinate für den Ursprung der Transformation. Wenn kein Ursprung angegeben wird, ist der Standardwert `0`.
+  - : Eine y-Koordinate für den Ursprung der Transformation. Wenn kein Ursprung angegeben ist, beträgt der Standardwert `0`.
 - `originZ` {{optional_inline}}
-  - : Eine z-Koordinate für den Ursprung der Transformation. Wenn dieser Wert `0` ist, was der Standardwert ist, wenn nichts angegeben ist, kann die resultierende Matrix möglicherweise nicht 3D sein.
+  - : Eine z-Koordinate für den Ursprung der Transformation. Wenn dieser Wert `0` ist, was der Standardwert bei Weglassen ist, könnte die resultierende Matrix nicht 3D sein.
 
 ### Rückgabewert
 
@@ -72,7 +72,7 @@ console.log(matrix.toString()); // original matrix is unchanged
 
 - [`DOMMatrix.scale3dSelf()`](/de/docs/Web/API/DOMMatrix/scale3dSelf)
 - [`DOMMatrixReadOnly.scale()`](/de/docs/Web/API/DOMMatrixReadOnly/scale)
-- CSS {{cssxref("transform")}} Eigenschaft und {{cssxref("transform-function/scale3d", "scale3d()")}} und {{cssxref("transform-function/matrix3d", "matrix3d()")}} Funktionen
-- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) Modul
+- Die CSS {{cssxref("transform")}} Eigenschaft und die {{cssxref("transform-function/scale3d", "scale3d()")}} und {{cssxref("transform-function/matrix3d", "matrix3d()")}} Funktionen
+- [CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms) Modul
 - SVG [`transform`](/de/docs/Web/SVG/Reference/Attribute/transform) Attribut
-- Methode [`CanvasRenderingContext2D.transform()`](/de/docs/Web/API/CanvasRenderingContext2D/transform) der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) Schnittstelle
+- Die [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) Schnittstelle und die [`CanvasRenderingContext2D.transform()`](/de/docs/Web/API/CanvasRenderingContext2D/transform) Methode

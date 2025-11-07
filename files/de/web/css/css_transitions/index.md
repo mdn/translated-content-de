@@ -43,7 +43,7 @@ In bestimmten Fällen gibt es keinen ursprünglichen "von"-Wert für einen Über
 
 ## Leitfäden
 
-- [CSS-Übergänge verwenden](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [CSS-Übergänge verwenden](/de/docs/Web/CSS/Guides/Transitions/Using)
   - : Schritt-für-Schritt-Anleitung, die erklärt, wie man Übergänge mit CSS erstellt. Dieser Artikel beschreibt jede relevante CSS-Eigenschaft und erklärt, wie sie miteinander interagieren.
 - [Animation von `display`](/de/docs/Web/CSS/Reference/Properties/display#animating_display)
   - : Übergang zu und von dem `none`-Wert der diskret animierten {{cssxref("display")}}-Eigenschaft.
@@ -56,10 +56,10 @@ In bestimmten Fällen gibt es keinen ursprünglichen "von"-Wert für einen Über
 - {{cssxref("calc-size()")}}-Funktion
 - {{Glossary("Intrinsic_size", "Intrinsic size")}} Glossarbegriff
 
-- [CSS-Easing-Funktionen](/de/docs/Web/CSS/CSS_easing_functions) Modul
+- [CSS-Easing-Funktionen](/de/docs/Web/CSS/Guides/Easing_functions) Modul
   - [`<easing-function>`](/de/docs/Web/CSS/Reference/Values/easing-function)-Datentyp
 
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) Modul.
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul.
   - {{cssxref("animation")}}-Kurzform
   - {{cssxref("animation-delay")}}
   - {{cssxref("animation-direction")}}
@@ -70,13 +70,13 @@ In bestimmten Fällen gibt es keinen ursprünglichen "von"-Wert für einen Über
   - {{cssxref("animation-play-state")}}
   - {{cssxref("animation-timing-function")}}
 
-- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) Modul.
+- [CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms) Modul.
   - {{cssxref("transform")}}
   - {{cssxref("transform-box")}}
   - {{cssxref("transform-origin")}}
   - {{cssxref("transform-style")}}
 
-- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/Guides/Scroll_snap) Modul
   - {{cssxref("scroll-snap-type")}}
   - {{cssxref("scroll-padding")}}
   - {{cssxref("scroll-snap-align")}}

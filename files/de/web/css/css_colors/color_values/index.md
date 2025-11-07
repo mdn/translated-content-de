@@ -517,11 +517,11 @@ Zum Beispiel, wenn Sie die `display-p3 0 0 1`-Farbe anzeigen möchten, die auße
 
 Das Verständnis von `color()` ist wichtig, wenn es um relative Farben geht, die als Nächstes besprochen werden. Die älteren sRGB-Farbnotationen, die oben besprochen wurden — `hsl()`, `hwb()` und `rgb()`— drücken nicht das volle Spektrum der sichtbaren Farben aus, während die `color()`-Funktion ein viel breiteres Farbspektrum unterstützt. Daher wird bei der Verwendung älterer Funktionstypen zur Definition relativer Farben, die Ausgabe der Farbe, die durch Abfragen der [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft oder der [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue)-Methode zurückgegeben wird, ein `color(srgb ...)`-Wert sein.
 
-Um ein Beispiel für die Umwandlung der Formate `rgb()`, `hsl()`, `hwb()` und anderer [Farbformate](/de/docs/Web/CSS/Reference/Values/color_value) zu sehen, schauen Sie sich unser [Farbformat-Umwandlungstool](/de/docs/Web/CSS/CSS_colors/Color_format_converter) an.
+Um ein Beispiel für die Umwandlung der Formate `rgb()`, `hsl()`, `hwb()` und anderer [Farbformate](/de/docs/Web/CSS/Reference/Values/color_value) zu sehen, schauen Sie sich unser [Farbformat-Umwandlungstool](/de/docs/Web/CSS/Guides/Colors/Color_format_converter) an.
 
 ### Relative Farben
 
-Jede der oben aufgeführten Farbfunktionsmodellen kann verwendet werden, um [**relative Farben**](/de/docs/Web/CSS/CSS_colors/Relative_colors) zu definieren, was es ermöglicht, {{cssxref("&lt;color&gt;")}}-Werte relativ zu anderen bestehenden Farben anstatt einen Farbwert jedes Mal von Grund auf neu zu definieren. Diese leistungsstarke Funktion ermöglicht die Erstellung von Komplementärfarben zu bestehenden Farben — wie hellere, dunklere, gesättigtere, halbdurchsichtige oder invertierte Varianten einer Originalfarbe. Relative Farben bieten einen effektiven Mechanismus zur Erstellung von Paletten und zur Definition von Farbanpassungen. Siehe jede Farbfunktionsseite, um mehr über ihre relativen Syntaxen zu erfahren.
+Jede der oben aufgeführten Farbfunktionsmodellen kann verwendet werden, um [**relative Farben**](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors) zu definieren, was es ermöglicht, {{cssxref("&lt;color&gt;")}}-Werte relativ zu anderen bestehenden Farben anstatt einen Farbwert jedes Mal von Grund auf neu zu definieren. Diese leistungsstarke Funktion ermöglicht die Erstellung von Komplementärfarben zu bestehenden Farben — wie hellere, dunklere, gesättigtere, halbdurchsichtige oder invertierte Varianten einer Originalfarbe. Relative Farben bieten einen effektiven Mechanismus zur Erstellung von Paletten und zur Definition von Farbanpassungen. Siehe jede Farbfunktionsseite, um mehr über ihre relativen Syntaxen zu erfahren.
 
 Wie oben erwähnt, wird bei der Verwendung von `rgb()`, `hsl()` oder `hwb()` zur Ausgabe einer relativen Farbe die Ausgabe der Farbe eine `color()`-Funktion im `srgb`-Farbraum sein.
 
@@ -535,9 +535,9 @@ Die {{cssxref("color_value/light-dark", "light-dark()")}}-Funktion ermöglicht e
 
 ## Siehe auch
 
-- [Farbe auf HTML-Elemente anwenden mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color)
-- [Farbe weisen anwenden](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
-- [Relative Farben verwenden](/de/docs/Web/CSS/CSS_colors/Relative_colors)
+- [Farbe auf HTML-Elemente anwenden mit CSS](/de/docs/Web/CSS/Guides/Colors/Applying_color)
+- [Farbe weisen anwenden](/de/docs/Web/CSS/Guides/Colors/Using_color_wisely)
+- [Relative Farben verwenden](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)
 - [Das Verständnis von Farbe und Leuchtkraft](/de/docs/Web/Accessibility/Guides/Colors_and_Luminance)
 - [WCAG 1.4.1: Kontrast von Farben](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast)
-- [CSS Farbmodul](/de/docs/Web/CSS/CSS_colors)
+- [CSS Farbmodul](/de/docs/Web/CSS/Guides/Colors)

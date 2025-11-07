@@ -23,14 +23,14 @@ div {
 }
 ```
 
-Die {{cssxref("display")}}-Eigenschaft akzeptiert sowohl die alte einzelne Wert- als auch die [Multi-Keyword-Syntax](/de/docs/Web/CSS/CSS_display/multi-keyword_syntax_of_display). Browser rendern die alte Syntax, bis sie die neue Syntax als gültig erkennen, zu welchem Zeitpunkt die neue Syntax die alte überschreibt. Wenn ein Benutzer einen alten Browser hat, wird das gültige Fallback nicht von der neuen CSS überschrieben, da der Browser diese als ungültig ansieht.
+Die {{cssxref("display")}}-Eigenschaft akzeptiert sowohl die alte einzelne Wert- als auch die [Multi-Keyword-Syntax](/de/docs/Web/CSS/Guides/Display/Multi-keyword_syntax). Browser rendern die alte Syntax, bis sie die neue Syntax als gültig erkennen, zu welchem Zeitpunkt die neue Syntax die alte überschreibt. Wenn ein Benutzer einen alten Browser hat, wird das gültige Fallback nicht von der neuen CSS überschrieben, da der Browser diese als ungültig ansieht.
 
 Der Typ und die Menge an CSS, die ein Browser aufgrund eines Fehlers ignoriert, hängt von der Art des Fehlers ab. Einige häufige Fehlerkonstellationen sind unten aufgeführt:
 
 - Bei [Fehlern in At-Regeln](#at-regel_fehler) hängt es von der At-Regel und der Art des Fehlers ab, ob eine einzelne Zeile oder die gesamte At-Regel ignoriert (fehlschlägt) wird.
 - Wenn der [Fehler ein ungültiger Selektor](#fehler_in_selektorenlisten) ist, wird der gesamte Deklarationsblock ignoriert.
 - Ein [Fehler aufgrund eines fehlenden Semikolons](#fehler_innerhalb_von_css-deklarationsblöcken) zwischen Eigenschaftsdeklarationen führt zu einem ungültigen Wert, wobei mehrere Eigenschafts-Wert-Deklarationen ignoriert werden.
-- Wenn der [Fehler ein Eigenschaftsname oder -wert](#fehler_innerhalb_von_css-deklarationsblöcken) ist, wie ein nicht erkannter Eigenschaftsname oder ungültiger Datentyp, wird die Eigenschafts-Wert-Deklaration ignoriert. Während der [Filterstufe](/de/docs/Web/CSS/CSS_cascade/Value_processing#filtering) werden solche syntaktisch ungültigen Deklarationen beseitigt.
+- Wenn der [Fehler ein Eigenschaftsname oder -wert](#fehler_innerhalb_von_css-deklarationsblöcken) ist, wie ein nicht erkannter Eigenschaftsname oder ungültiger Datentyp, wird die Eigenschafts-Wert-Deklaration ignoriert. Während der [Filterstufe](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#filtering) werden solche syntaktisch ungültigen Deklarationen beseitigt.
 - Wenn der [Fehler aufgrund eines fehlenden Endzeichens](#fehler_mit_automatisch_geschlossenen_enden) ist, hängt das Ausmaß dessen, was ignoriert wird, von der Fähigkeit des Browsers ab, den Fehler als verschachteltes CSS zu analysieren.
 
 Nach jeder Deklaration, Stilregel, At-Regel usw. überprüft der Browser den analysierten Inhalt anhand der erwarteten [Grammatik](#grammatiküberprüfung) für diese Konstruktion. Wenn der Inhalt nicht der erwarteten Grammatik für diese Konstruktion entspricht, betrachtet der Browser ihn als ungültig und ignoriert ihn.
@@ -39,16 +39,16 @@ Nach jeder Deklaration, Stilregel, At-Regel usw. überprüft der Browser den ana
 
 Das `@`-Symbol, in CSS-Spezifikationen als `<at-keyword-token>` bekannt, zeigt den Beginn einer CSS-{{cssxref("at-rule")}} an. Sobald eine At-Regel mit dem `@`-Symbol beginnt, wird nichts vom Standpunkt des Parsers als ungültig angesehen. Alles bis zum ersten Semikolon (`;`) oder der öffnenden geschweiften Klammer (`{`) gehört zur Präambel der At-Regel. Der Inhalt jeder At-Regel wird gemäß den Grammatiken für diese bestimmte At-Regel interpretiert.
 
-Statement-At-Regeln, wie {{cssxref("@import")}} und {{cssxref("@namespace")}}-Deklaredquenzen, enthalten nur eine Präambel. Das Semikolon beendet die At-Regel sofort für [Statement-At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rules#statement_at-rules). Wenn der Inhalt der Präambel gemäß der Grammatik für diese At-Regel ungültig ist, wird die At-Regel ignoriert, und der Browser setzt die Analyse des CSS nach dem nächsten Semikolon fort. Beispielsweise wird eine `@import`-At-Regel ignoriert, wenn sie nach einer beliebigen CSS-Deklaration außer `@charset`, `@layer` oder anderen `@import`-Anweisungen erfolgt.
+Statement-At-Regeln, wie {{cssxref("@import")}} und {{cssxref("@namespace")}}-Deklaredquenzen, enthalten nur eine Präambel. Das Semikolon beendet die At-Regel sofort für [Statement-At-Regeln](/de/docs/Web/CSS/Guides/Syntax/At-rules#statement_at-rules). Wenn der Inhalt der Präambel gemäß der Grammatik für diese At-Regel ungültig ist, wird die At-Regel ignoriert, und der Browser setzt die Analyse des CSS nach dem nächsten Semikolon fort. Beispielsweise wird eine `@import`-At-Regel ignoriert, wenn sie nach einer beliebigen CSS-Deklaration außer `@charset`, `@layer` oder anderen `@import`-Anweisungen erfolgt.
 
 ```css
 @import "assets/fonts.css" layer(fonts);
 @namespace svg url("http://www.w3.org/2000/svg");
 ```
 
-Wenn der Parser eine geschweifte Klammer (`{`) vor einem Semikolon antrifft, wird die At-Regel als Block-At-Regel analysiert. [Block-At-Regeln](/de/docs/Web/CSS/CSS_syntax/At-rules#block_at-rules), wie {{cssxref("@font-face")}} und {{cssxref("@keyframes")}}, enthalten einen Block von Deklarationen, der von geschweiften Klammern (`{}`) umschlossen ist. Die öffnende geschweifte Klammer zeigt dem Browser an, wo die Präambel der At-Regel endet und der Körper der At-Regel beginnt. Der Parser geht weiter und sucht nach passenden Blöcken (Inhalt, der von `()`, `{}`, oder `[]` eingeschlossen ist), bis er eine schließende geschweifte Klammer (`}`) findet, die nicht von anderen geschweiften Klammern abgeglichen wird: Diese schließt den Körper der At-Regel.
+Wenn der Parser eine geschweifte Klammer (`{`) vor einem Semikolon antrifft, wird die At-Regel als Block-At-Regel analysiert. [Block-At-Regeln](/de/docs/Web/CSS/Guides/Syntax/At-rules#block_at-rules), wie {{cssxref("@font-face")}} und {{cssxref("@keyframes")}}, enthalten einen Block von Deklarationen, der von geschweiften Klammern (`{}`) umschlossen ist. Die öffnende geschweifte Klammer zeigt dem Browser an, wo die Präambel der At-Regel endet und der Körper der At-Regel beginnt. Der Parser geht weiter und sucht nach passenden Blöcken (Inhalt, der von `()`, `{}`, oder `[]` eingeschlossen ist), bis er eine schließende geschweifte Klammer (`}`) findet, die nicht von anderen geschweiften Klammern abgeglichen wird: Diese schließt den Körper der At-Regel.
 
-Verschiedene At-Regeln haben unterschiedliche Grammatiken, unterschiedliche (oder keine) Deskriptoren und unterschiedliche Regeln dafür, was, wenn überhaupt, die gesamte At-Regel ungültig machen wird. Die erwartete Grammatik für [jede At-Regel](/de/docs/Web/CSS/CSS_syntax/At-rules) und wie Fehler gehandhabt werden, sind auf der jeweiligen At-Regel-Seite dokumentiert. Die Behandlung ungültigen Inhalts hängt vom Fehler ab.
+Verschiedene At-Regeln haben unterschiedliche Grammatiken, unterschiedliche (oder keine) Deskriptoren und unterschiedliche Regeln dafür, was, wenn überhaupt, die gesamte At-Regel ungültig machen wird. Die erwartete Grammatik für [jede At-Regel](/de/docs/Web/CSS/Guides/Syntax/At-rules) und wie Fehler gehandhabt werden, sind auf der jeweiligen At-Regel-Seite dokumentiert. Die Behandlung ungültigen Inhalts hängt vom Fehler ab.
 
 Beispielsweise erfordert die `@font-face`-Regel sowohl einen [`font-family`](/de/docs/Web/CSS/Reference/At-rules/@font-face/font-family)- als auch einen [`src`](/de/docs/Web/CSS/Reference/At-rules/@font-face/src)-Deskriptor. Wenn einer dieser fehlt oder ungültig ist, ist die gesamte `@font-face`-Regel ungültig. Das Einschließen eines nicht zusammenhängenden Deskriptors, eines anderen gültigen Schriftdeskriptors mit einem ungültigen Wert oder einer Eigenschaftsstildeklaration innerhalb des `@font-face`-verschachtelten Blocks macht die Schrifterklärung nicht ungültig. Solange der Schriftname und die Schriftquelle enthalten und gültig sind, wird jede ungültige CSS innerhalb der At-Regel ignoriert, aber der `@font-face`-Block wird trotzdem analysiert.
 
@@ -171,7 +171,7 @@ Benutzerdefinierte Eigenschaften werden im Allgemeinen als gültig angesehen, we
 
 Im Allgemeinen wird, wenn ein Eigenschaftswert ungültig ist, die Deklaration ignoriert und die Eigenschaft fällt auf den zuletzt gültigen Wert zurück. Ungültige berechnete benutzerdefinierte Werte arbeiten jedoch etwas anders.
 
-Wenn eine `var()`-Substitution ungültig ist, wird die Deklaration nicht ignoriert und der [initiale](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value) oder [vererbte](/de/docs/Web/CSS/CSS_cascade/Inheritance) Wert der Eigenschaft wird stattdessen verwendet. Die Eigenschaft wird auf einen neuen Wert gesetzt, möglicherweise jedoch nicht auf den erwarteten.
+Wenn eine `var()`-Substitution ungültig ist, wird die Deklaration nicht ignoriert und der [initiale](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value) oder [vererbte](/de/docs/Web/CSS/Guides/Cascade/Inheritance) Wert der Eigenschaft wird stattdessen verwendet. Die Eigenschaft wird auf einen neuen Wert gesetzt, möglicherweise jedoch nicht auf den erwarteten.
 
 Betrachten wir ein Beispiel, um dieses Verhalten zu veranschaulichen:
 
@@ -198,6 +198,6 @@ Um die Art und Weise, wie benutzerdefinierte Eigenschaften zurückfallen, besser
 
 ## Siehe auch
 
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax) Modul
-- [Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax) Leitfaden
-- [Wertdefinition Syntax](/de/docs/Web/CSS/CSS_values_and_units/Value_definition_syntax)
+- [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax) Modul
+- [Syntax](/de/docs/Web/CSS/Guides/Syntax/Introduction) Leitfaden
+- [Wertdefinition Syntax](/de/docs/Web/CSS/Guides/Values_and_units/Value_definition_syntax)

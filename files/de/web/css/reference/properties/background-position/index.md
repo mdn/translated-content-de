@@ -2,10 +2,10 @@
 title: background-position
 slug: Web/CSS/Reference/Properties/background-position
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`background-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Anfangsposition für jedes Hintergrundbild fest. Die Position ist relativ zur durch {{cssxref("background-origin")}} festgelegten Positionsebene.
+Die **`background-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Anfangsposition für jedes Hintergrundbild fest. Die Position bezieht sich auf die durch {{cssxref("background-origin")}} festgelegte Positionsebene.
 
 {{InteractiveExample("CSS Demo: background-position")}}
 
@@ -90,47 +90,52 @@ Die `background-position` Eigenschaft wird als ein oder mehrere `<position>` Wer
 ### Werte
 
 - `<position>`
-  - : Ein {{cssxref("&lt;position&gt;")}}. Eine Position definiert eine X/Y-Koordinate, um ein Element relativ zu den Kanten eines Elementrahmens zu platzieren. Sie kann mithilfe von ein bis vier Werten definiert werden. Wenn zwei Nicht-Schlüsselwort-Werte verwendet werden, repräsentiert der erste Wert die horizontale Position und der zweite Wert die vertikale Position. Wird nur ein Wert angegeben, wird der zweite Wert als `center` angenommen. Bei drei oder vier Werten sind die Längen-Prozent-Werte Offsets für den vorangehenden Schlüsselwort-Wert.
+
+  - : Ein {{cssxref("&lt;position&gt;")}}. Eine Position definiert eine X/Y-Koordinate, um ein Element relativ zu den Rändern eines Elementboxen zu platzieren. Es kann mit einem bis vier Werten definiert werden. Wenn zwei nicht-schlüsselwortliche Werte verwendet werden, stellt der erste Wert die horizontale Position dar und der zweite den vertikalen. Wenn nur ein Wert angegeben ist, wird der zweite Wert als `center` angenommen. Bei drei oder vier Werten sind die Längen-Prozentwerte Versätze für die vorangehenden Schlüsselwortwerte.
 
     **1-Wert-Syntax:** Der Wert kann sein:
+
     - Der Schlüsselwortwert `center`, der das Bild zentriert.
-    - Einer der Schlüsselwortwerte `top`, `left`, `bottom` oder `right`. Dies gibt eine Kante an, gegen die das Element platziert werden soll. Die andere Dimension wird dann auf 50% gesetzt, sodass das Element in der Mitte der angegebenen Kante platziert wird.
-    - Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Dies gibt die X-Koordinate relativ zur linken Kante an, wobei die Y-Koordinate auf 50% gesetzt wird.
+    - Einer der Schlüsselwortwerte `top`, `left`, `bottom` oder `right`. Dies gibt eine Kante an, an der das Element platziert wird. Die andere Dimension wird dann auf 50 % gesetzt, sodass das Element in der Mitte der angegebenen Kante platziert wird.
+    - Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Dies gibt die X-Koordinate relativ zum linken Rand an, wobei die Y-Koordinate auf 50 % gesetzt wird.
 
     **2-Wert-Syntax:** Ein Wert definiert X und der andere definiert Y. Jeder Wert kann sein:
-    - Einer der Schlüsselwortwerte `top`, `left`, `bottom` oder `right`. Wenn `left` oder `right` angegeben ist, definiert dies X und der andere angegebene Wert definiert Y. Wenn `top` oder `bottom` angegeben ist, definiert dies Y und der andere Wert definiert X.
-    - Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Wenn der andere Wert `left` oder `right` ist, definiert dieser Wert Y, relativ zur oberen Kante. Wenn der andere Wert `top` oder `bottom` ist, definiert dieser Wert X, relativ zur linken Kante. Wenn beide Werte `<length>` oder `<percentage>`-Werte sind, definiert der erste X und der zweite Y.
-    - Beachten Sie: Wenn ein Wert `top` oder `bottom` ist, darf der andere Wert nicht `top` oder `bottom` sein. Wenn ein Wert `left` oder `right` ist, darf der andere Wert nicht `left` oder `right` sein. Dies bedeutet z.B., dass `top top` und `left right` nicht gültig sind.
-    - Reihenfolge: Bei der Paarung von Schlüsselwörtern ist die Platzierung nicht wichtig, da der Browser sie umsortieren kann; die Werte `top left` und `left top` ergeben dasselbe Ergebnis. Bei der Paarung von {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} mit einem Schlüsselwort ist die Platzierung wichtig: der Wert, der X definiert, sollte zuerst kommen, gefolgt von Y. Beispielsweise ist der Wert `right 20px` gültig, während `20px right` ungültig ist. Die Werte `left 20%` und `20% bottom` sind gültig, da X- und Y-Werte klar definiert sind und die Platzierung korrekt ist.
+
+    - Einer der Schlüsselwortwerte `top`, `left`, `bottom` oder `right`. Wenn `left` oder `right` angegeben ist, dann definiert dies X und der andere angegebene Wert definiert Y. Wenn `top` oder `bottom` angegeben ist, dann definiert dies Y und der andere Wert definiert X.
+    - Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Wenn der andere Wert `left` oder `right` ist, dann definiert dieser Wert Y, relativ zur oberen Kante. Wenn der andere Wert `top` oder `bottom` ist, dann definiert dieser Wert X, relativ zur linken Kante. Wenn beide Werte `<length>` oder `<percentage>` Werte sind, dann definiert der erste X und der zweite Y.
+    - Beachten Sie, dass: Wenn ein Wert `top` oder `bottom` ist, dann darf der andere Wert nicht `top` oder `bottom` sein. Wenn ein Wert `left` oder `right` ist, dann darf der andere Wert nicht `left` oder `right` sein. Dies bedeutet z.B., dass `top top` und `left right` nicht gültig sind.
+    - Reihenfolge: Beim Paaren von Schlüsselwörtern ist die Platzierung nicht wichtig, da der Browser sie neu ordnen kann; die Werte `top left` und `left top` führen zum gleichen Ergebnis. Beim Paaren von {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} mit einem Schlüsselwort ist die Platzierung wichtig: Der X definierende Wert sollte zuerst kommen, gefolgt von Y, so dass zum Beispiel der Wert `right 20px` gültig ist, während `20px right` ungültig ist. Die Werte `left 20%` und `20% bottom` sind gültig, da X- und Y-Werte klar definiert sind und die Platzierung korrekt ist.
     - Der Standardwert ist `left top` oder `0% 0%`.
 
-    **3-Wert-Syntax:** Zwei Werte sind Schlüsselwortwerte und der dritte ist der Offset für den vorherigen Wert:
-    - Der erste Wert ist einer der Schlüsselwortwerte `top`, `left`, `bottom`, `right` oder `center`. Wenn `left` oder `right` hier angegeben sind, wird X definiert. Wenn `top` oder `bottom` angegeben sind, wird Y definiert und der andere Schlüsselwortwert definiert X.
-    - Der {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Wert, wenn er der zweite Wert ist, ist der Offset für den ersten Wert. Wenn er der dritte Wert ist, ist er der Offset für den zweiten Wert.
-    - Der einzelne Längen- oder Prozentwert ist ein Offset für den Schlüsselwortwert, der ihm vorausgeht. Die Kombination eines Schlüsselworts mit zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werten ist nicht gültig.
+    **3-Wert-Syntax:** Zwei Werte sind Schlüsselwortwerte, und der dritte ist der Versatz für den vorangehenden Wert:
 
-    **4-Wert-Syntax:** Die ersten und dritten Werte sind Schlüsselwortwerte, die X und Y definieren. Die zweiten und vierten Werte sind Offsets für die vorhergehenden X- und Y-Schlüsselwertwerte:
-    - Die ersten und dritten Werte entsprechen einem der Schlüsselwortwerte `top`, `left`, `bottom` oder `right`. Wenn `left` oder `right` für den ersten Wert angegeben ist, definiert dies X und der andere Wert definiert Y. Wenn `top` oder `bottom` für den ersten Wert angegeben ist, definiert dies Y und der andere Schlüsselwert definiert X.
-    - Die zweiten und vierten Werte sind {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werte. Der zweite Wert ist der Offset für das erste Schlüsselwort. Der vierte Wert ist der Offset für das zweite Schlüsselwort.
+    - Der erste Wert ist einer der Schlüsselwortwerte `top`, `left`, `bottom`, `right` oder `center`. Wenn `left` oder `right` hier angegeben sind, dann definiert dies X. Wenn `top` oder `bottom` angegeben sind, dann definiert dies Y und der andere Schlüsselwortwert definiert X.
+    - Der {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Wert, wenn er der zweite Wert ist, ist der Versatz für den ersten Wert. Wenn es der dritte Wert ist, ist es der Versatz für den zweiten Wert.
+    - Der einzelne Längen- oder Prozentwert ist ein Versatz für den vorangehenden Schlüsselwortwert. Die Kombination eines Schlüsselworts mit zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werten ist nicht gültig.
 
-### Bezüglich Prozentsätze
+    **4-Wert-Syntax:** Die ersten und dritten Werte sind Schlüsselwortwerte, die X und Y definieren. Die zweiten und vierten Werte sind Versätze für die vorangehenden X- und Y-Schlüsselwortwerte:
 
-Der prozentuale Offset der angegebenen Hintergrundbildposition ist relativ zum Container. Ein Wert von 0% bedeutet, dass der linke (oder obere) Rand des Hintergrundbilds mit dem entsprechenden linken (oder oberen) Rand des Containers übereinstimmt oder die 0%-Marke des Bildes auf der 0%-Marke des Containers liegt. Ein Wert von 100% bedeutet, dass der _rechte_ (oder _untere_) Rand des Hintergrundbilds mit dem _rechten_ (oder _unteren_) Rand des Containers übereinstimmt oder die 100%-Marke des Bildes auf der 100%-Marke des Containers liegt. Somit zentriert ein Wert von 50% horizontal oder vertikal das Hintergrundbild, da die 50% des Bildes an der 50%-Marke des Containers liegen. Ähnlich bedeutet `background-position: 25% 75%`, dass die Stelle auf dem Bild, die 25% von links und 75% von oben entfernt ist, an der Stelle des Containers platziert wird, die 25% von der linken Kante und 75% von der oberen Kante des Containers entfernt ist.
+    - Die ersten und dritten Werte entsprechen einem der Schlüsselwortwerte `top`, `left`, `bottom` oder `right`. Wenn `left` oder `right` für den ersten Wert angegeben ist, dann definiert dies X und der andere Wert definiert Y. Wenn `top` oder `bottom` für den ersten Wert angegeben ist, dann definiert dies Y und der andere Schlüsselwortwert definiert X.
+    - Die zweiten und vierten Werte sind {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werte. Der zweite Wert ist der Versatz für das erste Schlüsselwort. Der vierte Wert ist der Versatz für das zweite Schlüsselwort.
 
-Im Wesentlichen wird die Dimension des Hintergrundbildes von der entsprechenden Dimension des Containers _abgezogen_ und dann ein Prozentsatz des resultierenden Wertes als direkter Offset vom linken (oder oberen) Rand verwendet.
+### Bezüglich Prozentsätzen
+
+Der prozentuale Versatz der angegebenen Position des Hintergrundbildes bezieht sich auf den Container. Ein Wert von 0% bedeutet, dass die linke (oder obere) Kante des Hintergrundbildes mit der entsprechenden linken (oder oberen) Kante des Containers ausgerichtet ist, oder die 0%-Marke des Bildes wird auf der 0%-Marke des Containers sein. Ein Wert von 100% bedeutet, dass die _rechte_ (oder _untere_) Kante des Hintergrundbildes mit der _rechten_ (oder _unteren_) Kante des Containers ausgerichtet ist, oder die 100%-Marke des Bildes wird auf der 100%-Marke des Containers sein. Daher zentriert ein Wert von 50% horizontal oder vertikal das Hintergrundbild, da die 50% des Bildes an der 50%-Marke des Containers sein werden. Ebenso bedeutet `background-position: 25% 75%`, dass der Punkt auf dem Bild, der 25% von links und 75% von oben entfernt ist, an dem Punkt des Containers platziert wird, der 25% vom linken und 75% vom oberen Rand des Containers entfernt ist.
+
+Im Wesentlichen wird die Dimension des Hintergrundbildes von der entsprechenden Dimension des Containers _subtrahiert_, und dann wird ein Prozentsatz des resultierenden Wertes als direkter Versatz von der linken (oder oberen) Kante verwendet.
 
 ```plain
 (container width - image width) * (position x%) = (x offset value)
 (container height - image height) * (position y%) = (y offset value)
 ```
 
-Verwenden wir die X-Achse als Beispiel, nehmen wir an, wir haben ein Bild, das 300px breit ist und wir verwenden es in einem Container, der 100px breit ist, mit `background-size` auf auto gesetzt:
+Nehmen wir für ein Beispiel die X-Achse, sagen wir, wir haben ein Bild, das 300px breit ist und wir verwenden es in einem Container, der 100px breit ist, mit `background-size` auf auto gesetzt:
 
 ```plain
 100px - 300px = -200px (container & image difference)
 ```
 
-So dass wir mit Positionsprozenten von -25%, 0%, 50%, 100%, 125% diese Bild-zu-Container-Kanten-Offset-Werte erhalten:
+Sodass wir mit Positionsprozenten von -25%, 0%, 50%, 100%, 125% folgende Bild-zum-Container-Kantenoffset-Werte erhalten:
 
 ```plain
 -200px * -25% = 50px
@@ -140,15 +145,15 @@ So dass wir mit Positionsprozenten von -25%, 0%, 50%, 100%, 125% diese Bild-zu-C
 -200px * 125% = -250px
 ```
 
-Mit diesen resultierenden Werten für unser Beispiel ist die **linke Kante** des **Bildes** von der **linken Kante** des **Containers** durch folgende Werte versetzt:
+Mit diesen resultierenden Werten für unser Beispiel ist der **linke Rand** des **Bildes** vom **linken Rand** des **Containers**:
 
-- \+ 50px (die linke Bildkante wird in die Mitte des 100-Pixel-breiten Containers gesetzt)
-- 0px (linke Bildkante deckungsgleich mit der linken Containerkante)
-- \-100px (linke Bildkante 100px links des Containers, in diesem Beispiel ist der mittlere 100px-Bildbereich zentriert im Container)
-- \-200px (linke Bildkante 200px links des Containers, in diesem Beispiel ist die rechte Bildkante deckungsgleich mit der rechten Containerkante)
-- \-250px (linke Bildkante 250px links des Containers, in diesem Beispiel wird die rechte Kante des 300px breiten Bildes in die Mitte des Containers gesetzt)
+- \+ 50px (was den linken Bildrand in die Mitte des 100-Pixel-breiten Containers setzt)
+- 0px (linker Bildrand fällt mit dem linken Containerrand zusammen)
+- \-100px (linker Bildrand 100px links vom Container, in diesem Beispiel bedeutet das, dass der mittlere 100px große Bildbereich im Container zentriert ist)
+- \-200px (linker Bildrand 200px links vom Container, in diesem Beispiel bedeutet das, dass der rechte Bildrand mit dem rechten Containerrand zusammenfällt)
+- \-250px (linker Bildrand 250px links vom Container, in diesem Beispiel setzt das den rechten Rand des 300px breiten Bildes in die Mitte des Containers)
 
-Es sei erwähnt, dass wenn Ihre `background-size` gleich der Containergröße für eine gegebene Achse ist, ein _prozentualer_ Positionswert für diese Achse keine Wirkung hat, da der "Container-Bild-Unterschied" null sein wird. Sie müssen mit absoluten Werten versetzen.
+Es sei erwähnt, dass wenn Ihre `background-size` für eine gegebene Achse der Containergröße entspricht, dann wird eine _Prozentposition_ für diese Achse keinen Effekt haben, weil die "Container-Bild-Differenz" null sein wird. Sie müssen mit absoluten Werten ausgleichen.
 
 ## Formale Definition
 
@@ -160,9 +165,9 @@ Es sei erwähnt, dass wenn Ihre `background-size` gleich der Containergröße f�
 
 ## Beispiele
 
-### Platzierung von Hintergrundbildern
+### Positionierung von Hintergrundbildern
 
-Jedes dieser drei Beispiele verwendet die {{cssxref("background")}} Eigenschaft, um ein gelbes, rechteckiges Element zu erstellen, das ein Sternbild enthält. In jedem Beispiel befindet sich der Stern an einer anderen Position. Im dritten Beispiel wird erläutert, wie Positionen für zwei verschiedene Hintergrundbilder innerhalb eines Elements angegeben werden.
+Jedes dieser drei Beispiele verwendet die {{cssxref("background")}} Eigenschaft, um ein gelbes, rechteckiges Element zu erstellen, das ein Sternbild enthält. In jedem Beispiel befindet sich der Stern an einer anderen Position. Das dritte Beispiel zeigt, wie Positionen für zwei unterschiedliche Hintergrundbilder innerhalb eines Elements angegeben werden.
 
 #### HTML
 
@@ -218,5 +223,5 @@ div {
 
 - {{cssxref("background-position-x")}}
 - {{cssxref("background-position-y")}}
-- [Verwendung mehrerer Hintergründe](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds)
+- [Verwendung mehrerer Hintergründe](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Using_multiple_backgrounds)
 - {{cssxref("transform-origin")}}

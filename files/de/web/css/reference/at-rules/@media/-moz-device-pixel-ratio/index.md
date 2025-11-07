@@ -2,32 +2,32 @@
 title: -moz-device-pixel-ratio
 slug: Web/CSS/Reference/At-rules/@media/-moz-device-pixel-ratio
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{Non-standard_header}} {{Deprecated_header}}
 
-Der Gecko-exklusive **`-moz-device-pixel-ratio`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) kann verwendet werden, um Styles basierend auf der Anzahl der Geräte-Pixel pro CSS-Pixel anzuwenden.
+Die nur in Gecko verfügbare CSS-[Medienfunktion](/de/docs/Web/CSS/Reference/At-rules/@media#media_features) **`-moz-device-pixel-ratio`** kann verwendet werden, um Stile basierend auf der Anzahl der Gerätepixel pro CSS-Pixel anzuwenden.
 
 > [!WARNING]
-> Verwenden Sie dieses Feature nicht. Verwenden Sie stattdessen das [`resolution`](/de/docs/Web/CSS/Reference/At-rules/@media/resolution) Feature mit der Einheit `dppx`.
+> Verwenden Sie diese Funktion nicht. Verwenden Sie stattdessen die [`resolution`](/de/docs/Web/CSS/Reference/At-rules/@media/resolution)-Funktion mit der Einheit `dppx`.
 
 > [!NOTE]
-> Dieses Media-Feature wird auch von WebKit als `-webkit-device-pixel-ratio` implementiert. Die `min`- und `max`-Präfixe wie von Gecko implementiert heißen `min--moz-device-pixel-ratio` und `max--moz-device-pixel-ratio`; aber die gleichen Präfixe, wie sie von WebKit implementiert sind, heißen `-webkit-min-device-pixel-ratio` und `-webkit-max-device-pixel-ratio`.
+> Diese Medienfunktion wird auch von WebKit als `-webkit-device-pixel-ratio` implementiert. Die von Gecko implementierten Präfixe min und max werden als `min--moz-device-pixel-ratio` und `max--moz-device-pixel-ratio` bezeichnet; die gleichen Präfixe von WebKit werden jedoch als `-webkit-min-device-pixel-ratio` und `-webkit-max-device-pixel-ratio` bezeichnet.
 
 ## Syntax
 
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Anzahl der Geräte-Pixel pro CSS-Pixel.
+  - : Die Anzahl der Gerätepixel pro CSS-Pixel.
 
-**Media:** {{cssxref("@media")}}
-**Unterstützt min/max Präfixe:** ja
+**Medien:** {{cssxref("@media")}}
+**Akzeptiert min/max-Präfixe:** ja
 
 ## Beispiele
 
 ### Grundlegendes Kompatibilitätsbeispiel
 
-`-moz-device-pixel-ratio` kann für die Kompatibilität mit Firefox-Versionen älter als 16 verwendet werden und zusammen mit `-webkit-device-pixel-ratio` für die Kompatibilität mit WebKit-basierten Browsern, die `dppx` nicht unterstützen.
+`-moz-device-pixel-ratio` kann zur Kompatibilität mit Firefox-Versionen älter als 16 verwendet werden und in Verbindung mit `-webkit-device-pixel-ratio` für Kompatibilität mit WebKit-basierten Browsern, die `dppx` nicht unterstützen.
 
 Beispiel:
 
@@ -40,7 +40,7 @@ Beispiel:
 ```
 
 > [!NOTE]
-> Lesen Sie diesen [CSSWG-Artikel](https://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/) für bewährte Praktiken bezüglich der Kompatibilität mit `resolution` und `dppx`.
+> Siehe diesen [CSSWG-Artikel](https://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/) für bewährte Praktiken zur Kompatibilität bezüglich `resolution` und `dppx`.
 
 ## Spezifikationen
 
@@ -52,5 +52,5 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
 - [@media](/de/docs/Web/CSS/Reference/At-rules/@media)

@@ -5,13 +5,13 @@ l10n:
   sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-Das [CSS Box Alignment](/de/docs/Web/CSS/CSS_box_alignment) Modul beschreibt, wie Ausrichtung in verschiedenen Layout-Methoden funktioniert. Auf dieser Seite untersuchen wir, wie Box-Ausrichtung im Kontext von [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) funktioniert.
+Das [CSS Box Alignment](/de/docs/Web/CSS/Guides/Box_alignment) Modul beschreibt, wie Ausrichtung in verschiedenen Layout-Methoden funktioniert. Auf dieser Seite untersuchen wir, wie Box-Ausrichtung im Kontext von [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout) funktioniert.
 
-Da dieser Leitfaden darauf abzielt, Dinge im Zusammenhang mit CSS Grid Layout und Box-Ausrichtung zu detaillieren, sollte er in Verbindung mit dem [Box-Ausrichtungsüberblick](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment) Leitfaden gelesen werden, der die gemeinsamen Merkmale der Box-Ausrichtung über Layout-Methoden hinweg beschreibt.
+Da dieser Leitfaden darauf abzielt, Dinge im Zusammenhang mit CSS Grid Layout und Box-Ausrichtung zu detaillieren, sollte er in Verbindung mit dem [Box-Ausrichtungsüberblick](/de/docs/Web/CSS/Guides/Box_alignment/Overview) Leitfaden gelesen werden, der die gemeinsamen Merkmale der Box-Ausrichtung über Layout-Methoden hinweg beschreibt.
 
 ## Einfaches Beispiel
 
-In diesem Beispiel unter Verwendung des [Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout) gibt es zusätzlichen Raum im {{Glossary("grid_container", "Grid-Container")}}, nachdem die Festbreitentracks auf der inline {{Glossary("main_axis", "Hauptachse")}} angelegt wurden. Dieser Raum wird mit {{cssxref("justify-content")}} verteilt. Auf der block {{Glossary("cross_axis", "Querachse")}} wird die Ausrichtung der Elemente innerhalb ihrer Grid-Bereiche mit {{cssxref("align-items")}} gesteuert. Das erste Element überschreibt den `align-items`-Wert, der auf die Gruppe gesetzt wurde, indem es {{cssxref("align-self")}} auf `center` setzt.
+In diesem Beispiel unter Verwendung des [Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts) gibt es zusätzlichen Raum im {{Glossary("grid_container", "Grid-Container")}}, nachdem die Festbreitentracks auf der inline {{Glossary("main_axis", "Hauptachse")}} angelegt wurden. Dieser Raum wird mit {{cssxref("justify-content")}} verteilt. Auf der block {{Glossary("cross_axis", "Querachse")}} wird die Ausrichtung der Elemente innerhalb ihrer Grid-Bereiche mit {{cssxref("align-items")}} gesteuert. Das erste Element überschreibt den `align-items`-Wert, der auf die Gruppe gesetzt wurde, indem es {{cssxref("align-self")}} auf `center` setzt.
 
 ```html live-sample___grid-align-items
 <div class="box">
@@ -105,9 +105,9 @@ Die Grid-Spezifikation enthielt ursprünglich die Definition für die Eigenschaf
 
 ## Siehe auch
 
-- [Box-Ausrichtungsüberblick](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment)
-- [Box-Ausrichtung in Flexbox](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox)
-- [Box-Ausrichtung im Mehrspalten-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_multi-column_layout)
-- [Box-Ausrichtung für Block-, absolut positioniertes und Tabellen-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_block_abspos_tables)
+- [Box-Ausrichtungsüberblick](/de/docs/Web/CSS/Guides/Box_alignment/Overview)
+- [Box-Ausrichtung in Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox)
+- [Box-Ausrichtung im Mehrspalten-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_multi-column_layout)
+- [Box-Ausrichtung für Block-, absolut positioniertes und Tabellen-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_block_abspos_tables)
 
-- [Ausrichtung von Elementen im CSS Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)
+- [Ausrichtung von Elementen im CSS Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout/Box_alignment)

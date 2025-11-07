@@ -2,10 +2,10 @@
 title: max-width
 slug: Web/CSS/Reference/Properties/max-width
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`max-width`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt die maximale Breite eines Elements fest. Sie verhindert, dass der [benutzte Wert](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value) der {{cssxref("width")}}-Eigenschaft größer als der durch `max-width` angegebene Wert wird.
+Die **`max-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die maximale Breite eines Elements fest. Sie verhindert, dass der [verwendete Wert](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value) der {{cssxref("width")}}-Eigenschaft größer wird als der durch `max-width` angegebene Wert.
 
 {{InteractiveExample("CSS Demo: max-width")}}
 
@@ -80,27 +80,28 @@ max-width: unset;
 - {{cssxref("&lt;percentage&gt;")}}
   - : Definiert die `max-width` als Prozentsatz der Breite des umgebenden Blocks.
 - `none`
-  - : Keine Begrenzung der Box-Größe.
+  - : Keine Größenbeschränkung der Box.
 - {{cssxref("max-content")}}
   - : Die intrinsische bevorzugte `max-width`.
 - {{cssxref("min-content")}}
   - : Die intrinsische minimale `max-width`.
 - {{cssxref("fit-content")}}
-  - : Verwendet den zur Verfügung stehenden Platz, aber nicht mehr als [max-content](/de/docs/Web/CSS/Reference/Values/max-content), d.h. `min(max-content, max(min-content, stretch))`.
+  - : Nutzt den verfügbaren Platz, aber nicht mehr als [max-content](/de/docs/Web/CSS/Reference/Values/max-content), d.h. `min(max-content, max(min-content, stretch))`.
 - [`fit-content(<length-percentage>)`](/de/docs/Web/CSS/Reference/Values/fit-content_function)
-  - : Verwendet die `fit-content`-Formel mit dem zur Verfügung stehenden Platz, der durch das angegebene Argument ersetzt wird, d.h. `min(max-content, max(min-content, argument))`.
+  - : Verwendet die `fit-content`-Formel mit dem angegebenen Argument anstelle des verfügbaren Raums, d.h. `min(max-content, max(min-content, argument))`.
 - `stretch`
-  - : Begrenzen Sie die maximale Breite der [Randbox](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [umgebenden Blocks](/de/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block). Es versucht, die Randbox in den verfügbaren Raum des umgebenden Blocks zu füllen, verhält sich also in gewissem Maße ähnlich wie `100%`, wendet die resultierende Größe aber auf die Randbox an und nicht auf die durch [box-sizing](/de/docs/Web/CSS/Reference/Properties/box-sizing) bestimmte Box.
+
+  - : Begrenzt die maximale Breite der [margin box](/de/docs/Learn_web_development/Core/Styling_basics/Box_model#parts_of_a_box) des Elements auf die Breite seines [Containerelements](/de/docs/Web/CSS/Guides/Display/Containing_block#identifying_the_containing_block). Es versucht, die Margin-Box den verfügbaren Platz im Containerelement ausfüllen zu lassen, verhält sich also in gewisser Weise ähnlich wie `100%`, jedoch wird die resultierende Größe auf die Margin-Box anstatt auf die Box angewendet, die durch [box-sizing](/de/docs/Web/CSS/Reference/Properties/box-sizing) bestimmt wird.
 
     > [!NOTE]
-    > Um die von Browsern verwendeten Aliase für den Wert `stretch` und dessen Implementierungsstatus zu überprüfen, lesen Sie den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität).
+    > Um Aliase zu überprüfen, die von Browsern für den `stretch`-Wert verwendet werden, und um den Implementierungsstatus zu sehen, lesen Sie den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Barrierefreiheit
 
-Stellen Sie sicher, dass Elemente mit einer `max-width` nicht abgeschnitten werden und/oder nicht andere Inhalte verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
+Stellen Sie sicher, dass Elemente, die mit einer `max-width` versehen sind, nicht abgeschnitten werden und/oder keinen anderen Inhalt verdecken, wenn die Seite vergrößert wird, um die Textgröße zu erhöhen.
 
-- [MDN Verständnis WCAG, Erläuterungen zur Richtlinie 1.4](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.4 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN Erklärung zu WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Erklärung zum Erfolgskriterium 1.4.4 | W3C Verständnis zu WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Formale Definition
 
@@ -112,9 +113,9 @@ Stellen Sie sicher, dass Elemente mit einer `max-width` nicht abgeschnitten werd
 
 ## Beispiele
 
-### Festlegen einer maximalen Breite in Pixel
+### Maximale Breite in Pixeln festlegen
 
-In diesem Beispiel wird das "child" entweder 150 Pixel breit sein oder die Breite des "parent", je nachdem, welcher Wert kleiner ist.
+In diesem Beispiel wird das "child" entweder 150 Pixel breit sein oder die Breite des "parent", je nachdem, was kleiner ist.
 
 #### HTML
 
@@ -160,5 +161,5 @@ In diesem Beispiel wird das "child" entweder 150 Pixel breit sein oder die Breit
 - {{cssxref("max-inline-size")}}
 - {{cssxref("max-block-size")}}
 - {{cssxref("box-sizing")}}
-- [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) Leitfaden
-- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul
+- [Einführung in das CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model/Introduction) Leitfaden
+- [CSS-Boxmodell](/de/docs/Web/CSS/Guides/Box_model) Modul

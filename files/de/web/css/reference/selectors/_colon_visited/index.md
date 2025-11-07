@@ -2,10 +2,10 @@
 title: :visited
 slug: Web/CSS/Reference/Selectors/:visited
 l10n:
-  sourceCommit: 4cb9d89a204a9532370693b982e8a3b274a874b1
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`:visited`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wird angewendet, sobald der Link vom Benutzer besucht wurde. Aus Datenschutzgründen sind die Stile, die mit diesem Selektor geändert werden können, sehr eingeschränkt. Die `:visited` Pseudoklasse gilt nur für {{htmlelement("a")}} und {{htmlelement("area")}} Elemente, die ein `href` Attribut haben.
+Die **`:visited`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes) wird angewendet, sobald der Benutzer den Link besucht hat. Aus Datenschutzgründen sind die Styles, die mit diesem Selektor geändert werden können, sehr begrenzt. Die `:visited` Pseudoklasse gilt nur für {{htmlelement("a")}} und {{htmlelement("area")}} Elemente, die ein `href` Attribut haben.
 
 {{InteractiveExample("CSS Demo: :visited", "tabbed-shorter")}}
 
@@ -41,21 +41,21 @@ a:visited {
 </ul>
 ```
 
-Die von den `:visited` und unbesuchten [`:link`](/de/docs/Web/CSS/Reference/Selectors/:link) Pseudoklassen definierten Stile können durch jede nachfolgende Benutzeraktions-Pseudoklasse ({{cssxref(":hover")}} oder {{cssxref(":active")}}) überschrieben werden, die mindestens die gleiche Spezifität aufweisen. Um Links entsprechend zu gestalten, setzen Sie die `:visited` Regel nach der `:link` Regel, aber vor den `:hover` und `:active` Regeln, wie durch die _LVHA-Reihenfolge_ definiert: `:link` — `:visited` — `:hover` — `:active`. Die Pseudoklassen `:visited` und `:link` schließen sich gegenseitig aus.
+Styles, die durch die `:visited` und nicht besuchte [`:link`](/de/docs/Web/CSS/Reference/Selectors/:link) Pseudoklassen definiert sind, können durch nachfolgende Benutzeraktionspseudoklassen ({{cssxref(":hover")}} oder {{cssxref(":active")}}) überschrieben werden, die mindestens die gleiche Spezifität haben. Um Links angemessen zu stylen, platzieren Sie die `:visited` Regel nach der `:link` Regel, aber vor den `:hover` und `:active` Regeln, wie durch die _LVHA-Reihenfolge_ definiert: `:link` — `:visited` — `:hover` — `:active`. Die `:visited` Pseudoklasse und die `:link` Pseudoklasse schließen sich gegenseitig aus.
 
 ## Datenschutzbeschränkungen
 
-Aus Datenschutzgründen beschränken Browser streng, welche Stile Sie mit dieser Pseudoklasse anwenden können, und wie sie verwendet werden können:
+Aus Datenschutzgründen begrenzen Browser streng, welche Styles Sie mit dieser Pseudoklasse anwenden können und wie sie verwendet werden können:
 
 - Erlaubte CSS-Eigenschaften sind {{ cssxref("color") }}, {{ cssxref("background-color") }}, {{ cssxref("border-color") }}, {{ cssxref("border-bottom-color") }}, {{ cssxref("border-left-color") }}, {{ cssxref("border-right-color") }}, {{ cssxref("border-top-color") }}, {{ cssxref("column-rule-color") }}, {{ cssxref("outline-color") }}, {{ cssxref("text-decoration-color") }} und {{ cssxref("text-emphasis-color") }}.
 - Erlaubte SVG-Attribute sind {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}.
-- Die Alphakomponente der erlaubten Stile wird ignoriert. Stattdessen wird die Alphakomponente des nicht-`:visited` Zustands des Elements verwendet. In Firefox, wenn die Alphakomponente `0` beträgt, wird der im `:visited` gesetzte Stil vollständig ignoriert.
-- Obwohl diese Stile das Erscheinungsbild der Farben für den Endbenutzer ändern können, wird die [`window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle) Methode falsch informieren und immer den Wert der nicht-`:visited` Farbe zurückgeben.
-- Das [`<link>`](/de/docs/Web/HTML/Reference/Elements/link) Element wird niemals durch `:visited` erfasst.
-- DOM-Methoden, die Elemente über CSS-Selektoren abgleichen — wie [`querySelector()`](/de/docs/Web/API/Document/querySelector) und [`querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) — werden immer ein "leeres" Ergebnis zurückgeben, auch wenn es besuchte Links in einem Dokument gibt. Für die genannten Methoden wird dies `null` oder eine leere [`NodeList`](/de/docs/Web/API/NodeList) sein.
+- Der Alphakomponente der erlaubten Styles wird ignoriert. Stattdessen wird der Alphawert des Nicht-`:visited`-Zustands des Elements verwendet. In Firefox wird, wenn der Alphawert `0` ist, der im `:visited` gesetzte Stil vollständig ignoriert.
+- Auch wenn diese Styles das Aussehen von Farben für den Endbenutzer ändern können, wird die Methode [`window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle) lügen und immer den Wert der Nicht-`:visited`-Farbe zurückgeben.
+- Das [`<link>`](/de/docs/Web/HTML/Reference/Elements/link) Element wird niemals durch `:visited` gematcht.
+- DOM-Methoden, die Elemente mittels CSS-Selektoren abgleichen — wie [`querySelector()`](/de/docs/Web/API/Document/querySelector) und [`querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll) — geben immer ein "leeres" Ergebnis zurück, selbst wenn im Dokument besuchte Links vorhanden sind. Für die genannten Methoden wird dies `null` oder ein leeres [`NodeList`](/de/docs/Web/API/NodeList) sein.
 
 > [!NOTE]
-> Weitere Informationen zu diesen Einschränkungen und den dahinter stehenden Gründen finden Sie unter [Datenschutz und der :visited Selektor](/de/docs/Web/CSS/CSS_selectors/Privacy_and_the_visited_selector).
+> Für weitere Informationen zu diesen Einschränkungen und den dahinterliegenden Gründen, siehe [Privatsphäre und der :visited Selektor](/de/docs/Web/CSS/Guides/Selectors/Privacy_and_:visited).
 
 ## Syntax
 
@@ -67,7 +67,7 @@ Aus Datenschutzgründen beschränken Browser streng, welche Stile Sie mit dieser
 
 ## Beispiele
 
-Eigenschaften, die sonst keine Farbe haben oder transparent sind, können mit `:visited` nicht modifiziert werden. Von den Eigenschaften, die mit dieser Pseudoklasse festgelegt werden können, hat Ihr Browser wahrscheinlich nur einen Standardwert für `color` und `column-rule-color`. Daher müssen Sie, wenn Sie die anderen Eigenschaften ändern möchten, ihnen einen Basiswert außerhalb des `:visited` Selektors geben.
+Eigenschaften, die sonst keine Farbe hätten oder transparent wären, können mit `:visited` nicht verändert werden. Von den Eigenschaften, die mit dieser Pseudoklasse festgelegt werden können, hat Ihr Browser wahrscheinlich nur für `color` und `column-rule-color` einen Standardwert. Wenn Sie die anderen Eigenschaften ändern möchten, müssen Sie ihnen außerhalb des `:visited` Selektors einen Basiswert geben.
 
 ### HTML
 
@@ -107,5 +107,5 @@ a:visited {
 
 ## Siehe auch
 
-- [Datenschutz und der :visited Selektor](/de/docs/Web/CSS/CSS_selectors/Privacy_and_the_visited_selector)
-- Linkbezogene Pseudoklassen: {{cssxref(":link")}}, {{cssxref(":active")}}, {{cssxref(":hover")}}
+- [Privatsphäre und der :visited Selektor](/de/docs/Web/CSS/Guides/Selectors/Privacy_and_:visited)
+- Link-bezogene Pseudoklassen: {{cssxref(":link")}}, {{cssxref(":active")}}, {{cssxref(":hover")}}

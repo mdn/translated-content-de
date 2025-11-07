@@ -14,7 +14,7 @@ Der Inline-Formatierungskontext ist Teil der visuellen Darstellung einer Webseit
 - In einem horizontalen Schreibmodus werden Boxen horizontal, beginnend auf der linken Seite, angeordnet.
 - In einem vertikalen Schreibmodus würden sie vertikal, beginnend oben, angeordnet.
 
-Im folgenden Beispiel sind die zwei {{HTMLElement("div")}}-Elemente mit den schwarzen Rändern Teil eines [Block-Formatierungskontexts](/de/docs/Web/CSS/CSS_display/Block_formatting_context), während innerhalb jeder Box die Wörter an einem Inline-Formatierungskontext teilnehmen. Die Wörter im horizontalen Schreibmodus verlaufen horizontal, während die Wörter im vertikalen Schreibmodus vertikal verlaufen.
+Im folgenden Beispiel sind die zwei {{HTMLElement("div")}}-Elemente mit den schwarzen Rändern Teil eines [Block-Formatierungskontexts](/de/docs/Web/CSS/Guides/Display/Block_formatting_context), während innerhalb jeder Box die Wörter an einem Inline-Formatierungskontext teilnehmen. Die Wörter im horizontalen Schreibmodus verlaufen horizontal, während die Wörter im vertikalen Schreibmodus vertikal verlaufen.
 
 ```html live-sample___inline
 <div class="example horizontal">One Two Three</div>
@@ -107,7 +107,7 @@ span {
 {{EmbedLiveSample("mbp", "", "340px")}}
 
 > [!NOTE]
-> Ich verwende die logischen, flussrelativen Eigenschaften — {{cssxref("padding-inline-start")}} anstelle von {{cssxref("padding-left")}} — damit sie in der Inline-Dimension funktionieren, unabhängig davon, ob der Text horizontal oder vertikal ist. Lesen Sie mehr über diese Eigenschaften in [Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values).
+> Ich verwende die logischen, flussrelativen Eigenschaften — {{cssxref("padding-inline-start")}} anstelle von {{cssxref("padding-left")}} — damit sie in der Inline-Dimension funktionieren, unabhängig davon, ob der Text horizontal oder vertikal ist. Lesen Sie mehr über diese Eigenschaften in [Logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values).
 
 ## Ausrichtung in der Block-Dimension
 
@@ -226,5 +226,5 @@ body {
 
 ## Siehe auch
 
-- [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context)
-- [Visuelles Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model)
+- [Block-Formatierungskontext](/de/docs/Web/CSS/Guides/Display/Block_formatting_context)
+- [Visuelles Formatierungsmodell](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model)

@@ -2,10 +2,10 @@
 title: appearance
 slug: Web/CSS/Reference/Properties/appearance
 l10n:
-  sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`appearance`**-Eigenschaft in [CSS](/de/docs/Web/CSS) gibt das gerenderte Aussehen von ersetzten UI-Widget-Elementen wie Formularsteuerungen an. Solche Elemente erhalten meist eine native, plattformspezifische Gestaltung basierend auf dem Thema des Betriebssystems oder ein primitives Aussehen mit Stilen, die mit CSS überschrieben werden können.
+Die **`appearance`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt das gerenderte Erscheinungsbild von ersetzten UI-Widget-Elementen wie Formularsteuerungen. Solche Elemente erhalten meistens ein natives, plattformspezifisches Styling, basierend auf dem Betriebssystem-Thema oder ein primitives Erscheinungsbild mit Stilen, die durch CSS überschrieben werden können.
 
 {{InteractiveExample("CSS Demo: appearance")}}
 
@@ -63,60 +63,65 @@ appearance: checkbox;
 
 ### Werte
 
-Die `appearance`-Eigenschaft kann auf alle Elemente und Pseudo-Elemente angewendet werden, aber die Wirkung des angegebenen Werts, falls vorhanden, hängt von dem Element ab, auf das sie angewendet wird.
+Die `appearance` Eigenschaft kann auf alle Elemente und Pseudo-Elemente angewendet werden, aber die Wirkung des angegebenen Wertes, falls vorhanden, hängt vom Element ab, auf das sie angewendet wird.
 
 - `none`
-  - : Verleiht dem Widget ein _primitives_ Aussehen, sodass es über CSS stilisiert werden kann, während die native Funktionalität des Widgets beibehalten wird. Dieser Wert beeinflusst keine Nicht-Widgets.
+
+  - : Verleiht dem Widget ein _primitives_ Erscheinungsbild, das durch CSS stilisierbar ist, während die native Funktionalität des Widgets erhalten bleibt. Dieser Wert beeinflusst keine Nicht-Widgets.
 
 - `auto`
-  - : Setzt interaktive Widgets, um mit ihrem _OS-nativen_ Aussehen gerendert zu werden. Verhält sich wie `none` auf Elementen ohne OS-natives Styling.
+
+  - : Setzt interaktive Widgets so, dass sie mit ihrem _OS-nativen_ Erscheinungsbild gerendert werden. Verhält sich wie `none` bei Elementen ohne OS-natives Styling.
 
 - `base-select`
-  - : Nur relevant für das {{htmlelement("select")}}-Element und das {{cssxref("::picker()", "::picker(select)")}}-Pseudo-Element, sodass sie gestylt werden können.
+
+  - : Nur relevant für das {{htmlelement("select")}} Element und das {{cssxref("::picker()", "::picker(select)")}} Pseudo-Element, wodurch sie gestylt werden können.
 
 - `<compat-special>`
-  - : Hat eine ähnliche Wirkung wie `auto` auf bestimmten Elementen.
+
+  - : Hat einen Effekt ähnlich wie `auto` bei bestimmten Elementen.
     - `textfield`
-      - : Verursacht, dass das Aussehen bestimmter `<input>`-Typen [dem Aussehen des `text`-Typs entspricht](#try_it).
+      - : Führt dazu, dass das Erscheinungsbild bestimmter `<input>` Typen [dem Erscheinungsbild des `text` Typs entspricht](#try_it).
     - `menulist-button`
-      - : Wenn es auf das `<select>`-Element gesetzt wird, entspricht der Stil des Dropdown-Pickers [seinem Standardzustand](#setzen_des_aussehens_von_select).
+      - : Wenn auf das `<select>` Element gesetzt, passt sich der Stil des Dropdown-Pickers [dem seines Standardzustands an](#das_erscheinungsbild_eines_select_festlegen).
 
 - `<compat-auto>`
-  - : Enthalten für rückwärtskompatible Zwecke; mögliche Werte sind `button`, `checkbox`, `listbox`, `menulist`, `meter`, `progress-bar`, `push-button`, `radio`, `searchfield`, `slider-horizontal`, `square-button` und `textarea`. Alle Werte verhalten sich wie `auto`: verwenden Sie stattdessen `auto`.
+  - : Eingeschlossen für Rückwärtskompatibilität; mögliche Werte sind `button`, `checkbox`, `listbox`, `menulist`, `meter`, `progress-bar`, `push-button`, `radio`, `searchfield`, `slider-horizontal`, `square-button` und `textarea`. Alle Werte verhalten sich wie `auto`: Verwenden Sie stattdessen `auto`.
 
 > [!NOTE]
-> Die Spezifikation definiert auch einen `base`-Wert. Dieser wird von keinem Browser unterstützt.
+> Die Spezifikation definiert auch einen `base` Wert. Dieser wird von keinem Browser unterstützt.
 
-#### Nicht standardisierte Werte
+#### Nicht-standardmäßige Werte
 
-Einige nicht standardisierte Werte werden auch in einigen Browsern unterstützt:
+Einige nicht-standardmäßige Werte werden in einigen Browsern unterstützt:
 
 - `slider-vertical`
-  - : Macht den Schieberegler vertikal, wenn er auf `<input type="range">`-Elemente angewendet wird. Um [einen vertikalen Schieberegler zu erstellen](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls), sollten Sie stattdessen den {{cssxref("writing-mode")}} auf `vertical-lr` und die {{cssxref("direction")}} auf `rtl` setzen.
+
+  - : Macht den Slider vertikal, wenn auf `<input type="range">` Elemente angewendet. Um einen [vertikalen Slider zu erstellen](/de/docs/Web/CSS/Guides/Writing_modes/Vertical_controls) sollten Sie stattdessen den {{cssxref("writing-mode")}} auf `vertical-lr` und die {{cssxref("direction")}} auf `rtl` setzen.
 
 - `-apple-pay-button`
-  - : Zeigt das Apple Pay-Logo an, wenn es auf ein {{htmlelement("button")}}, {{htmlelement("a")}}, oder {{htmlelement("input")}}-Element vom Typ `button` oder `reset` gesetzt wird.
+  - : Zeigt das Apple Pay-Logo an, wenn es auf ein {{htmlelement("button")}}, {{htmlelement("a")}}, oder ein {{htmlelement("input")}} Element des Typs `button` oder `reset` gesetzt ist.
 
 ## Beschreibung
 
-Die `appearance`-Eigenschaft ermöglicht das Anzeigen von Elementen im Stil des Betriebssystems basierend auf dem Thema des Betriebssystems sowie das Entfernen von plattformnativen Stilen mit dem Wert `none`. Das Setzen von `appearance: none` oder das Ändern des Erscheinungsbildes von UI-Widgets verändert nicht die Funktionalität des Elements.
+Die `appearance` Eigenschaft ermöglicht das Anzeigen von Elementen im OS-nativen Stil basierend auf dem Thema des Betriebssystems sowie die Entfernung von jedwedem plattformspezifischen Styling mit dem Wert `none`. Das Setzen von `appearance: none` oder das anderweitige Ändern des Erscheinungsbildes von UI-Widgets ändert nicht die Funktionalität des Elements.
 
-Während die meisten Elemente in einem Dokument vollständig durch CSS gestylt werden können, werden UI-Steuerelemente (_Widgets_) typischerweise vom Browser unter Verwendung nativer UI-Stile des Betriebssystems gerendert. Dieses _native_ Erscheinungsbild unterscheidet sich zwischen Betriebssystemen und Browsern. In diesem Standardzustand haben Widgets nur begrenzte, wenn überhaupt, funktionale Stile, die mit CSS angepasst werden können. Welche Elemente dieses native UI-Erscheinungsbild haben, wird in HTML definiert.
+Während die meisten Elemente in einem Dokument vollständig durch CSS gestylt werden können, werden UI-Steuerelemente (_Widgets_) typischerweise vom Browser gerendert, indem die nativen UI-Stile des Betriebssystems verwendet werden. Dieses _native_ Erscheinungsbild unterscheidet sich zwischen Betriebssystemen und Browsern. In diesem Standardzustand haben Widgets begrenzte, wenn überhaupt, Merkmale, die mit CSS gestylt werden können. Welche Elemente dieses native UI-Erscheinungsbild haben, wird in HTML definiert.
 
-Die `appearance`-Eigenschaft bietet einige Kontrolle über das Erscheinungsbild von HTML-Widgets, die standardmäßig wie native Betriebssystemsteuerungen aussehen. Am bemerkenswertesten ist, dass der Wert `none` einen Teil des nativen Erscheinungsbilds eines Widgets unterdrückt. Dies führt zu einem _primitiven_ Aussehen, das über CSS gestylt werden kann, während die Funktionalität und die Unterstützung für native Benutzerinteraktionen erhalten bleiben.
+Die `appearance` Eigenschaft bietet eine gewisse Kontrolle über das Erscheinungsbild von HTML-Widgets, die standardmäßig wie native Betriebssystemsteuerungen aussehen. Besonders bemerkenswert ist der Wert `none`, der einen Teil des nativen Erscheinungsbildes eines Widgets unterdrückt. Dies führt zu einem _primitiven_ Aussehen, das über CSS gestylt werden kann, während die Funktionalität und die Unterstützung nativer Benutzerinteraktionen erhalten bleiben.
 
-Einige Widgets verschwinden vollständig, wenn sie auf `appearance: none` gesetzt werden. Die versteckten Steuerelemente bleiben jedoch interaktiv. Beispielsweise wird das Klicken auf ein {{htmlelement("label")}}, das mit einem `appearance: none`-Checkbox verbunden ist, den geprüften Status der Checkbox umschalten.
+Einige Widgets verschwinden vollständig, wenn sie auf `appearance: none` gesetzt sind. Die versteckten Steuerelemente bleiben jedoch interaktiv. Zum Beispiel wird das Klicken auf ein {{htmlelement("label")}}, das mit einem `appearance: none` Checkbox verknüpft ist, den überprüften Zustand der Checkbox umschalten.
 
-Da `none` dazu führen kann, dass ein Widget verborgen wird, wird der `base`-Wert hinzugefügt, um Widgets ein Grundaussehen zu verleihen. Wenn es unterstützt wird, stellt der `base`-Wert sicher, dass Widgets ihr natives Erscheinungsbild beibehalten, während CSS verwendet werden kann, um die Styles eines Widgets zu ändern, die standardmäßig nicht änderbar sind. Im Gegensatz zu `none`, was Radio-Schaltflächen und Kontrollkästchen zum Verschwinden bringen kann, verleiht `base` dem Widget ein primitives Aussehen mit nativen Standardstilen, die benutzbar und interoperabel sind, und ermöglicht zudem ein hohes Maß an Anpassung über CSS. Zwar wird dieser `base`-Wert noch nicht unterstützt, aber die verschiedenen `<compat-auto>`-Werte bieten ähnliche Funktionalität, sind jedoch typenspezifisch und nicht global.
+Da `none` dazu führen kann, dass ein Widget verborgen wird, wird der `base` Wert hinzugefügt, um Widgets ein Basis-Erscheinungsbild zu geben. Wenn unterstützt, wird der `base` Wert sicherstellen, dass Widgets ihr natives Erscheinungsbild beibehalten, während CSS verwendet werden kann, um einen Widget-Stil zu ändern, der standardmäßig nicht änderbar ist. Im Gegensatz zu `none`, das Radio Buttons und Checkboxen verschwinden lassen kann, gibt `base` dem Widget ein primitives Erscheinungsbild mit standardmäßigen nativen Stilen, die benutzbar und interoperabel sind und ein hohes Maß an Anpassung über CSS ermöglichen. Während dieser `base` Wert noch nicht unterstützt wird, bieten die vielen `<compat-auto>` Werte ähnliche Funktionen, sind aber typspezifisch und nicht global.
 
-Der `base-select`-Wert, der nur für das {{htmlelement("select")}}-Element und das {{cssxref("::picker()", "::picker(select)")}}-Pseudo-Element relevant ist, ermöglicht [das Styling von `<select>`-Elementen und dem Auswahlelement](#setzen_des_aussehens_von_select) (das die `<option>`-Elemente enthält). Das Auswahlelement wird in der obersten Ebene gerendert, ähnlich wie ein Popover. Wenn `base-select` gesetzt ist, kann der Picker relativ zum Select (oder anderen Elementen) unter Verwendung von [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) positioniert werden. Außerdem verursacht der `base-select`-Wert, dass das `<select>`-Element nicht außerhalb des Browserfensters gerendert wird oder eingebauten mobilen Betriebssystemkomponenten ausgelöst zu werden. Es wird auch nicht mehr basierend auf der Breite der breitesten `<option>` bemessen.
+Der `base-select` Wert, der nur für das {{htmlelement("select")}} Element und das {{cssxref("::picker()", "::picker(select)")}} Pseudo-Element relevant ist, ermöglicht [die Gestaltung von `<select>` Elementen und dem Select-Picker](#das_erscheinungsbild_eines_select_festlegen) (welches die `<option>` Elemente enthält). Der Picker wird in der obersten Schicht gerendert, ähnlich einem Popover. Wenn `base-select` gesetzt ist, kann der Picker relativ zum Select (oder anderen Elementen) mit [CSS Anker-Positionierung](/de/docs/Web/CSS/Guides/Anchor_positioning) positioniert werden. Zusätzlich verursacht der `base-select` Wert, dass das `<select>` nicht außerhalb des Browserfensters gerendert wird oder eingebaute mobile Betriebssystemkomponenten ausgelöst werden. Es wird auch nicht mehr basierend auf der Breite der breitesten `<option>` skaliert.
 
-### Mit Präfix versehene nicht standardisierte Werte
+### Vorangestellte nicht-standardmäßige Werte
 
-Vor der Standardisierung ermöglichten die mit Präfix versehenen Eigenschaften **`-moz-appearance`** und **`-webkit-appearance`**, dass Elemente als Widgets wie Buttons oder Checkboxen angezeigt werden. Die folgenden nicht standardisierten Werte könnten in legacy Stylesheets auftreten, am häufigsten als Werte von Shadow DOM-Komponenten [mit Präfix versehenen Pseudo-Elementen](/de/docs/Web/CSS/Reference/Webkit_extensions#pseudo-elements).
+Vor der Standardisierung erlaubten die vorangestellten Eigenschaften **`-moz-appearance`** und **`-webkit-appearance`**, dass Elemente als Widgets wie Buttons oder Checkboxen dargestellt werden. Die folgenden nicht-standardmäßigen Werte können in alten Stylesheets angetroffen werden, am häufigsten als Werte von Shadow DOM Komponenten [vorangestellten Pseudo-Elementen](/de/docs/Web/CSS/Reference/Webkit_extensions#pseudo-elements).
 
 <details>
-<summary>Nicht standardisierte Werte</summary>
+<summary>Nicht-standardmäßige Werte</summary>
 
 - `attachment`
 - `borderless-attachment`
@@ -192,7 +197,7 @@ Vor der Standardisierung ermöglichten die mit Präfix versehenen Eigenschaften 
 
 </details>
 
-Autoren werden ermutigt, nur standardisierte Schlüsselwörter zu verwenden.
+Autoren werden ermutigt, nur Standard-Schlüsselwörter zu verwenden.
 
 ## Formale Definition
 
@@ -206,11 +211,11 @@ Autoren werden ermutigt, nur standardisierte Schlüsselwörter zu verwenden.
 
 ### Einfaches Beispiel
 
-Dieses Beispiel demonstriert die grundlegende Verwendung der `appearance`-Eigenschaft, um das Erscheinungsbild eines {{htmlelement("input")}}-Elements in einigen Browsern zu ändern.
+Dieses Beispiel zeigt die grundlegende Verwendung der `appearance`-Eigenschaft, um das Erscheinungsbild eines {{htmlelement("input")}} Elements in einigen Browsern zu ändern.
 
 #### HTML
 
-Wir fügen zwei `number`-Formularsteuerungen sowie deren Labels ein.
+Wir fügen zwei `number` Formularfelder zusammen mit ihren Beschriftungen hinzu.
 
 ```html
 <p>
@@ -237,15 +242,15 @@ Wir setzen das Element mit der Klasse `text` so, dass es wie ein Textfeld aussie
 
 {{EmbedLiveSample("Basic example", 600, 100)}}
 
-Abhängig vom Browser kann der Spinner visuell entfernt werden, wenn die Steuerung so eingestellt ist, dass sie wie ein Textfeld aussieht. Die `appearance`-Eigenschaft hat keinen Einfluss auf die Funktionalität: Zum Beispiel werden die Auf- und Abwärtspfeiltasten die Werte weiterhin erhöhen und verringern, auch wenn es keinen sichtbaren Spinner mehr gibt.
+Abhängig vom Browser kann der Spinner visuell entfernt werden, wenn die Steuerung so eingestellt ist, dass sie wie ein Textfeld aussieht. Die `appearance`-Eigenschaft hat keine Auswirkungen auf die Funktionalität: Beispielsweise werden die Auf- und Ab-Pfeiltasten weiterhin den Wert inkrementieren und dekrementieren, auch wenn es keinen klickbaren Spinner mehr gibt.
 
-### Aussehen auf `none` gesetzt
+### Appearance auf `none` setzen
 
-Das folgende Beispiel zeigt, wie das Standard-Styling von einer Checkbox, einem Radio-Button und einem {{htmlelement("select")}}-Element entfernt und benutzerdefiniertes Styling angewendet wird.
+Das folgende Beispiel zeigt, wie das Standardstyling von einer Checkbox, einem Radiobutton und einem {{htmlelement("select")}}-Element entfernt und ein benutzerdefiniertes Styling angewendet wird.
 
 #### HTML
 
-Wir fügen Paare von Check-und Radio-Schaltflächen sowie `<select>`-Elemente mit ihren zugehörigen Labels ein:
+Wir fügen Paare von Checkboxen, Radiobuttons und `<select>` Elementen zusammen mit deren zugehörigen Beschriftungen hinzu:
 
 ```html
 <label><input type="checkbox" /> Default unchecked </label>
@@ -284,7 +289,7 @@ label {
 }
 ```
 
-Wir wenden Stile auf beide {{htmlelement("input")}}-Elemente vom Typ `checkbox` an; diese Stile erzeugen ein rotes Quadrat, wenn das Element stilisierbar ist. Wir setzen `appearance: none` im {{cssxref(":checked")}} UI-Staat für alle Eingaben (`checkbox` und `radio`) sowie auf Elemente mit der Klasse `.none`. Dies entfernt jegliche Style der Radio-Schaltfläche und Checkbox, abgesehen von den Rändern, und ermöglicht das Anwenden der festgelegten Styles. Es gibt keine alternativen Styles für die Radio-Schaltflächen oder `<select>`-Elemente, wenn `none` gesetzt ist.
+Wir wenden Stile auf beide {{htmlelement("input")}} Elemente des Typs `checkbox` an; diese Stile erzeugen ein rotes Quadrat, wenn das Element stilisierbar ist. Wir setzen `appearance: none` auf den {{cssxref(":checked")}} UI-Zustand für alle Eingaben (`checkbox` und `radio`), sowie auf Elemente mit der Klasse `.none`. Dies entfernt alle Stile des Radiobuttons und der Checkbox, außer den Außenabständen, und erlaubt jegliche gesetzten Stile anzuwenden. Es gibt keine alternativen Stile für die Radiobuttons oder `<select>` Elemente, wenn `none` gesetzt wird.
 
 ```css
 [type="checkbox"] {
@@ -303,17 +308,17 @@ input:checked,
 
 {{EmbedLiveSample("Appearance set to none", 600, 220)}}
 
-Das Setzen von `appearance: none` ermöglicht das Styling von UI-Elementen, birgt jedoch auch das Risiko, das Widget zu verstecken. Die ungeprüfte Checkbox, deren `appearance` auf `auto` zurückgesetzt ist, sieht aus wie eine Checkbox. Das Setzen von `appearance: none` im `:checked`-Staat ermöglicht es, dass es gestylt wird.
+Das Setzen von `appearance: none` ermöglicht es, UI-Elemente zu stylen, birgt aber auch das Risiko, das Widget zu verbergen. Die nicht überprüfte Checkbox, bei der ihr `appearance` auf `auto` standardmäßig, sieht aus wie eine Checkbox. Das Setzen von `appearance: none` im `:checked` Zustand erlaubt es, sie zu stylen.
 
-Wie die ungeprüfte Checkbox sieht die ungeprüfte Radio-Schaltfläche wie das native UI-Widget aus, weil sie es ist. Im geprüften Zustand, mit `appearance: none` angewendet, verschwindet die Radio-Schaltfläche; die Funktionalität bleibt erhalten, und nur ihre Ränder beeinflussen das Seiten-Rendering.
+Wie die nicht überprüfte Checkbox sieht der nicht überprüfte Radiobutton aus wie das native UI-Widget, weil es so ist. Wenn im überprüften Zustand mit `appearance: none` angewendet, verschwindet der Radiobutton; seine Funktionalität bleibt erhalten und nur seine Außenabstände beeinflussen das Seitenrendering.
 
-### Setzen des Aussehens von Select
+### Das Erscheinungsbild eines select festlegen
 
-Wir können die `appearance`-Eigenschaft verwenden, um benutzerdefinierte Select-Funktionalität zu aktivieren, die das Styling des `<select>`-Elements und seines Pickers ermöglicht, der den Teil des Formularsteuerelements darstellt, der aus der Seite herausspringt.
+Wir können die `appearance`-Eigenschaft nutzen, um benutzerdefinierte Select-Funktionalität einzuführen, die es ermöglicht, das `<select>` Element und seinen Picker, der den Teil der Formularsteuerung darstellt, der aus der Seite herausspringt, zu stylen.
 
 #### HTML
 
-Wir fügen drei `<select>`-Elemente mit denselben mehrfachen {{htmlelement("option")}}-Kindern ein. Wie bei jedem `<select>` fügen wir auch zugehörige {{htmlelement("label")}}-Elemente ein. Die dritte Option hat mehr Text, um den Effekt von `base-select` auf die Breite des `<select>` zu demonstrieren:
+Wir fügen drei `<select>`-Elemente mit denselben mehrfachen {{htmlelement("option")}}-Kindern hinzu. Wie bei jedem `<select>` fügen wir auch zugehörige {{htmlelement("label")}}-Elemente hinzu. Die dritte Option hat mehr Text, um die Wirkung von `base-select` auf die Breite des `<select>` zu demonstrieren:
 
 ```html
 <label for="ice-cream1"
@@ -344,7 +349,7 @@ Wir fügen drei `<select>`-Elemente mit denselben mehrfachen {{htmlelement("opti
 
 #### CSS
 
-Wir wählen die Picker aller `<select>`-Elemente mit dem {{cssxref("::picker()")}}-Pseudo-Element mit dem `select`-Parameter aus. Wir setzen den `appearance`-Wert aller Picker und eines `<select>`-Elements auf `base-select`. Wir setzen das letzte `<select>` auf `menulist-button`. Das erste `<select>` hat standardmäßig den `auto`-Zustand:
+Wir wählen die Picker aller `<select>`-Elemente mit dem {{cssxref("::picker()")}} Pseudo-Element und dem Parameter `select` aus. Wir setzen den `appearance`-Wert aller Picker und eines `<select>`-Elements auf `base-select`. Wir setzen das letzte `<select>` auf `menulist-button`. Das erste `<select>` besitzt standardmäßig den `auto` Zustand:
 
 ```css
 .baseSelect,
@@ -362,7 +367,7 @@ label {
 }
 ```
 
-Wir setzen Werte für die {{cssxref("background-color")}} und {{cssxref("border")}}-Eigenschaften der `<select>`-Elemente und ihrer Picker, um die Effekte der `appearance`-Werte zu demonstrieren:
+Wir setzen Werte für die {{cssxref("background-color")}} und {{cssxref("border")}} Eigenschaften der `<select>` und seiner Picker, um die Effekte der `appearance`-Werte zu demonstrieren:
 
 ```css
 select {
@@ -380,9 +385,9 @@ select {
 
 {{EmbedLiveSample("Setting the appearance of a select", 1050, 80)}}
 
-Obwohl die {{cssxref("background-color")}} und {{cssxref("border")}}-Stile auf allen `<select>`-Elementen und ihren Pickern definiert sind, wirken die `::picker(select)`-Stile nur auf den Picker, bei dem sowohl select als auch der Picker die `appearance`-Eigenschaft auf `base-select` gesetzt haben. Die ersten und dritten selects sehen gleich aus, da `menulist-button` ein Kompatibilitätsschlüsselwort ist.
+Während die {{cssxref("background-color")}} und {{cssxref("border")}} Stile auf allen `<select>` Elementen und ihren Pickern definiert sind, wirken sich die `::picker(select)` Stile nur auf den Picker aus, bei dem sowohl das Select als auch der Picker die `appearance` Eigenschaft auf `base-select` gesetzt haben. Die ersten und dritten Selects sehen gleich aus, weil `menulist-button` ein Kompatibilitäts-Schlüsselwort ist.
 
-Beachten Sie, dass standardmäßig die Inline-Größe des `<select>` im Allgemeinen die Inline-Größe der `<option>` mit dem meisten Text ist und dass der Dropdown-Picker über der gerenderten Seite erscheint, wenn er geöffnet ist, wodurch er nicht von der umgebenden Seite eingeschränkt wird und daher vollständig sichtbar ist. Diese Aussagen gelten nicht mehr, wenn `base-select` gesetzt ist.
+Beachten Sie, dass standardmäßig die Inline-Größe des `<select>` normalerweise der Inline-Größe der `<option>` mit dem meisten Text entspricht und dass der Dropdown-Picker über dem gerenderten Seiteninhalt erscheint, wenn er geöffnet ist, wodurch er nicht durch die umliegende Seite begrenzt ist und daher vollständig sichtbar bleibt. Diese Aussagen stimmen nicht mehr, wenn `base-select` gesetzt wird.
 
 ## Spezifikationen
 

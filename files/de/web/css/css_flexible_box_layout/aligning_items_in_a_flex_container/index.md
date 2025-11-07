@@ -547,7 +547,7 @@ Die {{cssxref("gap")}}-Eigenschaft ist eine Kurzform, die sowohl `row-gap` als a
 
 ## Siehe auch
 
-- [CSS-Kasten-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul
-- [CSS-flexibles Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
-- [Kasten-Ausrichtung in Flexbox](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox)
-- [Kasten-Ausrichtung im Raster-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
+- [CSS-Kasten-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) Modul
+- [CSS-flexibles Box-Layout](/de/docs/Web/CSS/Guides/Flexible_box_layout) Modul
+- [Kasten-Ausrichtung in Flexbox](/de/docs/Web/CSS/Guides/Box_alignment/In_flexbox)
+- [Kasten-Ausrichtung im Raster-Layout](/de/docs/Web/CSS/Guides/Box_alignment/In_grid_layout)

@@ -6,9 +6,9 @@ l10n:
   sourceCommit: 0cc9980e3b21c83d1800a428bc402ae1865326b2
 ---
 
-Im [Leitfaden zu den grundlegenden Konzepten des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout) haben wir einen kurzen Blick auf die Positionierung von Elementen in einem Raster mit Liniennummern geworfen. In diesem Leitfaden werden wir vollständig erkunden, wie dieses grundlegende Merkmal der Spezifikation funktioniert.
+Im [Leitfaden zu den grundlegenden Konzepten des Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts) haben wir einen kurzen Blick auf die Positionierung von Elementen in einem Raster mit Liniennummern geworfen. In diesem Leitfaden werden wir vollständig erkunden, wie dieses grundlegende Merkmal der Spezifikation funktioniert.
 
-Die Erkundung des Grids mit nummerierten Linien zu beginnen, ist der logischste Ausgangspunkt, weil Sie bei der Verwendung von Grid-Layout immer nummerierte Linien haben. Die Linien sind für Spalten und Zeilen nummeriert und werden ab `1` indiziert. Beachten Sie, dass das Grid entsprechend dem Schreibmodus des Dokuments indiziert ist. In einer Sprache, die von links nach rechts verläuft, wie Englisch, befindet sich Linie 1 auf der linken Seite des Grids. Wenn Sie in einer von rechts nach links verlaufenden Sprache arbeiten, wie Arabisch, befindet sich Linie 1 auf der rechten Seite des Grids. Wir werden im [Leitfaden zu Grids, logischen Werten und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes) mehr über die Interaktion zwischen Schreibmodi und Grids lernen.
+Die Erkundung des Grids mit nummerierten Linien zu beginnen, ist der logischste Ausgangspunkt, weil Sie bei der Verwendung von Grid-Layout immer nummerierte Linien haben. Die Linien sind für Spalten und Zeilen nummeriert und werden ab `1` indiziert. Beachten Sie, dass das Grid entsprechend dem Schreibmodus des Dokuments indiziert ist. In einer Sprache, die von links nach rechts verläuft, wie Englisch, befindet sich Linie 1 auf der linken Seite des Grids. Wenn Sie in einer von rechts nach links verlaufenden Sprache arbeiten, wie Arabisch, befindet sich Linie 1 auf der rechten Seite des Grids. Wir werden im [Leitfaden zu Grids, logischen Werten und Schreibmodi](/de/docs/Web/CSS/Guides/Grid_layout/Logical_values_and_writing_modes) mehr über die Interaktion zwischen Schreibmodi und Grids lernen.
 
 ## Ein einfaches Beispiel
 
@@ -72,7 +72,7 @@ Wir können die linienbasierte Platzierung verwenden, um zu steuern, wo diese El
 }
 ```
 
-Während Sie einige Elemente positionieren, werden andere Elemente im Grid weiterhin gemäß den Auto-Platzierungsregeln angeordnet. Dieses Verhalten wird im [Autoplatzierung im Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout) Leitfaden erklärt. Beobachten Sie vorerst, wie das Grid nicht platzierte Elemente in leere Zellen des Grids anordnet.
+Während Sie einige Elemente positionieren, werden andere Elemente im Grid weiterhin gemäß den Auto-Platzierungsregeln angeordnet. Dieses Verhalten wird im [Autoplatzierung im Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout/Auto-placement) Leitfaden erklärt. Beobachten Sie vorerst, wie das Grid nicht platzierte Elemente in leere Zellen des Grids anordnet.
 
 Indem wir jedes Element individuell mit denselben Eigenschaften, aber unterschiedlichen Werten ansprechen, platzieren wir alle vier Elemente und spannen auf Zeilen- und Spuren-Tracks.
 
@@ -141,7 +141,7 @@ Beachten Sie, dass wir Zellen leer lassen können, wenn wir möchten. Ein sehr s
 
 ## Die Kurzformen `grid-column` und `grid-row`
 
-Das vorherige Beispiel hatte ziemlich viel Code, um jedes Element zu positionieren. Es wird Sie nicht überraschen zu erfahren, dass es eine [Kurzform](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) gibt. Die Eigenschaften {{cssxref("grid-column-start")}} und {{cssxref("grid-column-end")}} können in {{cssxref("grid-column")}}, und {{cssxref("grid-row-start")}} und {{cssxref("grid-row-end")}} in {{cssxref("grid-row")}} kombiniert werden. In diesem Beispiel replizieren wir das obige Beispiel unter Verwendung dieser Kurzformen:
+Das vorherige Beispiel hatte ziemlich viel Code, um jedes Element zu positionieren. Es wird Sie nicht überraschen zu erfahren, dass es eine [Kurzform](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties) gibt. Die Eigenschaften {{cssxref("grid-column-start")}} und {{cssxref("grid-column-end")}} können in {{cssxref("grid-column")}}, und {{cssxref("grid-row-start")}} und {{cssxref("grid-row-end")}} in {{cssxref("grid-row")}} kombiniert werden. In diesem Beispiel replizieren wir das obige Beispiel unter Verwendung dieser Kurzformen:
 
 ```css hidden
 * {
@@ -375,7 +375,7 @@ Wir können einen Schritt weiter gehen und jeden Bereich mit einer einzigen Eige
 
 {{ EmbedLiveSample('The_grid-area_property', '300', '330') }}
 
-Diese Reihenfolge der Werte für `grid-area` kann etwas seltsam erscheinen – sie ist das Gegenteil der Richtung, in der wir beispielsweise Margins und Padding als Kurzform angeben. Es könnte hilfreich sein, sich klarzumachen, dass dies darauf zurückzuführen ist, dass das CSS-Grid-Layout die flussrelativen Richtungen verwendet, die in den [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) definiert sind. Wir erkunden, wie Grids mit Schreibmodi funktionieren, in [Grids, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes). Betrachten Sie vorerst das Konzept von vier {{Glossary("Flow_relative_values", "fluss-relativen")}} Richtungen:
+Diese Reihenfolge der Werte für `grid-area` kann etwas seltsam erscheinen – sie ist das Gegenteil der Richtung, in der wir beispielsweise Margins und Padding als Kurzform angeben. Es könnte hilfreich sein, sich klarzumachen, dass dies darauf zurückzuführen ist, dass das CSS-Grid-Layout die flussrelativen Richtungen verwendet, die in den [CSS-Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes) definiert sind. Wir erkunden, wie Grids mit Schreibmodi funktionieren, in [Grids, logische Werte und Schreibmodi](/de/docs/Web/CSS/Guides/Grid_layout/Logical_values_and_writing_modes). Betrachten Sie vorerst das Konzept von vier {{Glossary("Flow_relative_values", "fluss-relativen")}} Richtungen:
 
 - `block-start`
 - `block-end`

@@ -1,18 +1,18 @@
 ---
-title: Visueller Viewport
+title: Visual Viewport
 slug: Glossary/Visual_Viewport
 l10n:
-  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Der Teil des {{Glossary("viewport", "Viewports")}}, der derzeit sichtbar ist, wird als **visueller Viewport** bezeichnet. Dieser kann kleiner sein als der {{Glossary("layout_viewport", "Layout-Viewport")}}, zum Beispiel wenn der Benutzer per Pinch-Zoom hereingezoomt hat. Der visuelle Viewport ist der sichtbare Teil eines Bildschirms, ausgenommen Bildschirmtastaturen, Bereiche außerhalb eines Pinch-Zoom-Bereichs und alle anderen Bildschirmartefakte, die nicht mit den Abmessungen einer Seite skalieren.
+Der Teil des {{Glossary("viewport", "Viewports")}}, der derzeit sichtbar ist, wird als **Visual Viewport** bezeichnet. Dieser kann kleiner sein als der {{Glossary("layout_viewport", "Layout-Viewport")}}, zum Beispiel, wenn der Benutzer einen Pinch-Zoom durchgeführt hat. Der Visual Viewport ist der sichtbare Teil eines Bildschirms, der Bildschirmtastaturen, Bereiche außerhalb eines Pinch-Zoom-Bereichs und andere Bildschirmartefakte ausschließt, die nicht mit den Abmessungen einer Seite skaliert werden.
 
 ## Siehe auch
 
 - {{Glossary("Viewport", "Viewport")}}
 - {{Glossary("Layout_viewport", "Layout-Viewport")}}
-- [Viewport-Konzepte](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts)
-- [CSSOM View](/de/docs/Web/CSS/CSSOM_view)-Modul
+- [Viewport-Konzepte](/de/docs/Web/CSS/Guides/CSSOM_view/Viewport_concepts)
+- [CSSOM View](/de/docs/Web/CSS/Guides/CSSOM_view)-Modul
 - [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API)
 - [Viewport](https://en.wikipedia.org/wiki/Viewport) auf Wikipedia
 - [A tale of two viewports](https://www.quirksmode.org/mobile/viewports.html) (Quirksmode)

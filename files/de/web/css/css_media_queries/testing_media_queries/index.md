@@ -5,7 +5,7 @@ l10n:
   sourceCommit: ad9776a6cf53eaf570ac0515402247e82ecefcfe
 ---
 
-Das {{Glossary("DOM", "DOM")}} bietet Funktionen, mit denen die Ergebnisse einer {{Glossary("media_query", "Media Query")}} programmatisch über das [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Interface und dessen Methoden und Eigenschaften getestet werden können. Sobald Sie ein `MediaQueryList`-Objekt erstellt haben, können Sie das Ergebnis der [Abfrage](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) überprüfen oder Benachrichtigungen erhalten, wenn sich das Ergebnis ändert.
+Das {{Glossary("DOM", "DOM")}} bietet Funktionen, mit denen die Ergebnisse einer {{Glossary("media_query", "Media Query")}} programmatisch über das [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Interface und dessen Methoden und Eigenschaften getestet werden können. Sobald Sie ein `MediaQueryList`-Objekt erstellt haben, können Sie das Ergebnis der [Abfrage](/de/docs/Web/CSS/Guides/Media_queries/Using) überprüfen oder Benachrichtigungen erhalten, wenn sich das Ergebnis ändert.
 
 ## Erstellen einer Media Query-Liste
 
@@ -83,8 +83,8 @@ mediaQueryList.removeEventListener("change", handleOrientationChange);
 
 ## Siehe auch
 
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [CSS Media Queries](/de/docs/Web/CSS/CSS_media_queries) Modul
+- [Media Queries](/de/docs/Web/CSS/Guides/Media_queries/Using)
+- [CSS Media Queries](/de/docs/Web/CSS/Guides/Media_queries) Modul
 - [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model) Modul
 - [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
 - [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)

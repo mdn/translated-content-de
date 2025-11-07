@@ -1,19 +1,19 @@
 ---
-title: Gitternetz-Bereiche
+title: Gridbereiche
 slug: Glossary/Grid_Areas
 l10n:
-  sourceCommit: 13839b2979cc244034ffb1fe243240778b0cd23f
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Ein **Gitternetz-Bereich** besteht aus einem oder mehreren {{Glossary("grid_cell", "Gitterzellen")}}, die zusammen einen rechteckigen Bereich im Gitternetz bilden. Gitternetz-Bereiche werden erstellt, wenn Sie ein Element mithilfe der [linienbasierten Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) positionieren oder wenn Sie Bereiche unter Verwendung von [benannten Gitternetz-Bereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) definieren.
+Ein **Gridbereich** besteht aus einer oder mehreren {{Glossary("grid_cell", "Gridzellen")}}, die zusammen einen rechteckigen Bereich im Grid bilden. Gridbereiche werden erstellt, wenn Sie ein Element mit [linienbasierter Platzierung](/de/docs/Web/CSS/Guides/Grid_layout/Line-based_placement) positionieren oder wenn Sie Bereiche mit [benannten Gridbereichen](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas) definieren.
 
-![Bild, das einen hervorgehobenen Gitternetz-Bereich zeigt](1_grid_area.png)
+![Bild mit hervorgehobenem Gridbereich](1_grid_area.png)
 
-Gitternetz-Bereiche _müssen_ rechteckig sein; es ist nicht möglich, z.B. einen T- oder L-förmigen Gitternetz-Bereich zu erstellen.
+Gridbereiche _müssen_ rechteckig sein; es ist nicht möglich, zum Beispiel einen T- oder L-förmigen Gridbereich zu erstellen.
 
 ## Beispiel
 
-Im Beispiel unten habe ich einen Gitternetz-Container mit zwei Gitternetz-Elementen. Ich habe diese mit der {{cssxref("grid-area")}} Eigenschaft benannt und sie dann auf dem Gitternetz mit {{cssxref("grid-template-areas")}} angeordnet. Dadurch entstehen zwei Gitternetz-Bereiche, einer, der vier Gitterzellen abdeckt, und ein anderer, der zwei abdeckt.
+Im folgenden Beispiel habe ich einen Grid-Container mit zwei Grid-Elementen. Ich habe diese mit der {{cssxref("grid-area")}}-Eigenschaft benannt und sie dann mithilfe von {{cssxref("grid-template-areas")}} im Grid angeordnet. Dies erzeugt zwei Gridbereiche, einen der vier Gridzellen abdeckt und einen weiteren mit zwei.
 
 ```css hidden
 * {
@@ -63,7 +63,7 @@ Im Beispiel unten habe ich einen Gitternetz-Container mit zwei Gitternetz-Elemen
 
 ## Siehe auch
 
-### Eigenschaftsreferenz
+### Eigenschaftenreferenz
 
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-rows")}}
@@ -75,6 +75,6 @@ Im Beispiel unten habe ich einen Gitternetz-Container mit zwei Gitternetz-Elemen
 ### Weiterführende Literatur
 
 - CSS-Grid-Layout-Leitfaden:
-  - [Grundlegende Konzepte des Gitternetz-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-  - [Gitternetz-Bereichsvorlagen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
-- [Definition von Gitternetz-Bereichen in der CSS-Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-area-concept)
+  - [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts)
+  - [Grid-Template-Bereiche](/de/docs/Web/CSS/Guides/Grid_layout/Grid_template_areas)
+- [Definition von Gridbereichen in der CSS-Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-area-concept)

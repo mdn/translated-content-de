@@ -12,7 +12,7 @@ Durch das Variieren von Farbe, Stil und Dicke der Textdekoration mittels Pseudok
 Mehrere Funktionen können die Lesbarkeit von Text verbessern:
 
 - {{cssxref("text-decoration-skip-ink")}} kann die Lesbarkeit erhöhen, indem Unterlängen umgangen werden.
-- {{cssxref("text-underline-offset")}} ermöglicht es Ihnen, die Platzierung der Unterstreichung fein abzustimmen, um besser zu den Schriftmetrikwerten oder dem Design zu passen, was besonders nützlich für einzigartige [Schriftarten](/de/docs/Web/CSS/CSS_fonts) sein kann.
+- {{cssxref("text-underline-offset")}} ermöglicht es Ihnen, die Platzierung der Unterstreichung fein abzustimmen, um besser zu den Schriftmetrikwerten oder dem Design zu passen, was besonders nützlich für einzigartige [Schriftarten](/de/docs/Web/CSS/Guides/Fonts) sein kann.
 - {{cssxref("text-shadow")}}-Farben, die mit dem Text {{cssxref("color")}} kontrastieren, können den Text optisch hervorheben, wenn er auf einem Hintergrund mit unzureichendem Kontrast platziert ist.
 
 Diese Funktionen helfen alle dabei, die Lesbarkeit und somit die Zugänglichkeit zu verbessern. Das Reduzieren von visuellen Störungen und das Verbessern der Textklarheit ist besonders hilfreich für Benutzer mit [Legasthenie](https://de.wikipedia.org/wiki/Legasthenie) oder Sehschwäche.
@@ -90,7 +90,7 @@ Die Spezifikation definiert auch die Eigenschaften `text-decoration-skip-box`, `
 
 ## Leitfäden
 
-- [Einführung in Textschatten](/de/docs/Web/CSS/CSS_text_decoration/Text_shadows)
+- [Einführung in Textschatten](/de/docs/Web/CSS/Guides/Text_decoration/Text_shadows)
   - : Überblick über die Komponenten der {{cssxref("text-shadow")}}-Eigenschaft und das Erstellen von mehreren Textschatten
 
 ## Verwandte Konzepte
@@ -114,8 +114,8 @@ Die Spezifikation definiert auch die Eigenschaften `text-decoration-skip-box`, `
 - {{HTMLElement("rp")}}
 - {{HTMLElement("sup")}}
 - {{HTMLElement("sub")}}
-- [Inline-Formatierungskontext](/de/docs/Web/CSS/CSS_inline_layout/Inline_formatting_context)
-- [Einführung in Formatierungskontexte](/de/docs/Web/CSS/CSS_display/Introduction_to_formatting_contexts#inline_formatting_contexts)
+- [Inline-Formatierungskontext](/de/docs/Web/CSS/Guides/Inline_layout/Inline_formatting_context)
+- [Einführung in Formatierungskontexte](/de/docs/Web/CSS/Guides/Display/Formatting_contexts#inline_formatting_contexts)
 
 ## Spezifikationen
 
@@ -123,9 +123,9 @@ Die Spezifikation definiert auch die Eigenschaften `text-decoration-skip-box`, `
 
 ## Siehe auch
 
-- [CSS-Schriftarten](/de/docs/Web/CSS/CSS_fonts)-Modul
-- [CSS-Ruby-Layout](/de/docs/Web/CSS/CSS_ruby_layout)-Modul
-- [CSS-Text](/de/docs/Web/CSS/CSS_text)-Modul
-- [CSS-Schreibrichtungen](/de/docs/Web/CSS/CSS_writing_modes)-Modul
-- [CSS-Überlauf](/de/docs/Web/CSS/CSS_overflow)-Modul
-- [CSS-Schriftarten](/de/docs/Web/CSS/CSS_fonts)-Modul
+- [CSS-Schriftarten](/de/docs/Web/CSS/Guides/Fonts)-Modul
+- [CSS-Ruby-Layout](/de/docs/Web/CSS/Guides/Ruby_layout)-Modul
+- [CSS-Text](/de/docs/Web/CSS/Guides/Text)-Modul
+- [CSS-Schreibrichtungen](/de/docs/Web/CSS/Guides/Writing_modes)-Modul
+- [CSS-Überlauf](/de/docs/Web/CSS/Guides/Overflow)-Modul
+- [CSS-Schriftarten](/de/docs/Web/CSS/Guides/Fonts)-Modul

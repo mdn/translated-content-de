@@ -5,7 +5,7 @@ l10n:
   sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Jedes Element, das auf der Seite gerendert wird, hat eine Höhe und eine Breite und damit ein {{Glossary("aspect_ratio", "Seitenverhältnis")}}, welches das Verhältnis zwischen Breite und Höhe ist. Die natürlichen Abmessungen eines Medienobjekts, also seine Größe ohne jegliche Größenanpassung, Skalierung, Zoom oder angewandte Rahmen, bezeichnet man als seine natürliche oder {{Glossary("intrinsic_size", "intrinsische Größe")}}. Die intrinsische Größe eines Elements wird durch das Element selbst bestimmt und nicht durch das Anwenden von Formatierungen wie [Boxsizing](/de/docs/Web/CSS/CSS_box_sizing) oder das Setzen von Rahmen-, Rand- oder Polsterbreiten.
+Jedes Element, das auf der Seite gerendert wird, hat eine Höhe und eine Breite und damit ein {{Glossary("aspect_ratio", "Seitenverhältnis")}}, welches das Verhältnis zwischen Breite und Höhe ist. Die natürlichen Abmessungen eines Medienobjekts, also seine Größe ohne jegliche Größenanpassung, Skalierung, Zoom oder angewandte Rahmen, bezeichnet man als seine natürliche oder {{Glossary("intrinsic_size", "intrinsische Größe")}}. Die intrinsische Größe eines Elements wird durch das Element selbst bestimmt und nicht durch das Anwenden von Formatierungen wie [Boxsizing](/de/docs/Web/CSS/Guides/Box_sizing) oder das Setzen von Rahmen-, Rand- oder Polsterbreiten.
 
 Beim Entwickeln von Websites möchte man oft die Breite eines Elements als Prozentsatz der Größe des Ansichtsfensters oder des übergeordneten Containers festlegen und die Höhe proportional ändern, um so ein spezifisches Seitenverhältnis je nach Größe des Ansichtsfensters beizubehalten. Für ersetzte Elemente wie Bilder und Videos ist es nicht nur notwendig, ein spezifisches Seitenverhältnis aufrechtzuerhalten, um ein {{Glossary("responsive_web_design", "responsives Webdesign")}} zu erstellen, sondern es ist auch ein wesentlicher Bestandteil eines guten Nutzererlebnisses. Die Festlegung des Seitenverhältnisses eines Assets verhindert Lade- [Ruckeln](/de/docs/Learn_web_development/Extensions/Performance/Multimedia#rendering_strategy_preventing_jank_when_loading_images) — die Layoutverschiebung, die auftritt, wenn Medien geladen werden, nachdem die Seite bereits gezeichnet wurde, was zu einem Neufluss führt, weil der Platz für das Asset nicht reserviert wurde.
 
@@ -587,4 +587,4 @@ Damit der Inhalt eines Rasterelements nicht über die bevorzugte Höhenbeschrän
 
 ## Siehe auch
 
-- [CSS Boxsizing](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- [CSS Boxsizing](/de/docs/Web/CSS/Guides/Box_sizing) Modul

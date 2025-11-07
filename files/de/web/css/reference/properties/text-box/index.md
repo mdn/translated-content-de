@@ -2,12 +2,12 @@
 title: text-box
 slug: Web/CSS/Reference/Properties/text-box
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`text-box`**-[CSS](/de/docs/Web/CSS) Eigenschaft ist eine Kurzform, die den Eigenschaften {{cssxref("text-box-trim")}} und {{cssxref("text-box-edge")}} entspricht. Diese spezifizieren zusammen den Abstand, der vom Blockanfang und Blockende eines Textelements innerhalb seines Blockcontainers entfernt werden soll.
+Die **`text-box`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine Kurzform, die den Eigenschaften {{cssxref("text-box-trim")}} und {{cssxref("text-box-edge")}} entspricht, welche zusammen die Menge an Platz angeben, die vom Blockanfang und Blockende eines Blockcontainers eines Textelements abgeschnitten werden soll.
 
-## Bestandteile
+## Bestandteil Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -38,11 +38,11 @@ text-box: unset;
 
 ### Werte
 
-Der `text-box` Wert kann aus einem {{cssxref("text-box-trim")}} Wert und einem {{cssxref("text-box-edge")}} Wert bestehen, die durch ein Leerzeichen getrennt sind. Siehe diese Seiten für eine Beschreibung der Werte.
+Der `text-box` Wert kann aus einem {{cssxref("text-box-trim")}} Wert und einem {{cssxref("text-box-edge")}} Wert, getrennt durch ein Leerzeichen, bestehen. Siehe diese Seiten für Wertbeschreibungen.
 
-Die `text-box` Eigenschaft kann auch das Schlüsselwort `normal` annehmen, was gleichbedeutend mit `text-box: none auto;` ist.
+Die `text-box` Eigenschaft kann auch das Schlüsselwort `normal` annehmen, was gleichbedeutend ist mit `text-box: none auto;`
 
-Wenn `text-box-trim` ausgelassen wird, ist es auf `trim-both` gesetzt. Wenn `text-box-edge` weggelassen wird, ist es auf `auto` gesetzt.
+Wenn `text-box-trim` ausgelassen wird, ist es auf `trim-both` gesetzt. Wenn `text-box-edge` ausgelassen wird, ist es auf `auto` gesetzt.
 
 ## Formale Definition
 
@@ -54,19 +54,19 @@ Wenn `text-box-trim` ausgelassen wird, ist es auf `trim-both` gesetzt. Wenn `tex
 
 ## Beschreibung
 
-Die Höhe von ausschließlich Textinhalt ist relativ zur Höhe der Schriftart. In digitalen Schriftdateien umfasst die Höhe alle Zeichen, einschließlich Großbuchstaben, Oberlängen, Unterlängen usw. Verschiedene Schriftarten haben unterschiedliche Grundzeilenhöhen, was bedeutet, dass Textzeilen mit derselben `font-size` Höhen von Zeilenkästen unterschiedlicher Höhe erzeugen, die das Erscheinungsbild des Abstands zwischen den Zeilen beeinflussen.
+Die Höhe von textbezogenem Inhalt bezieht sich auf die Höhe der Schriftart. In digitalen Schriftart-Dateien enthält die Höhe alle Zeichen, einschließlich Großbuchstaben, Ober- und Unterlängen usw. Verschiedene Schriftarten haben unterschiedliche Basislinienhöhen, was bedeutet, dass Textzeilen mit derselben `font-size` Zeilenboxen unterschiedlicher Höhen erzeugen, die das Erscheinungsbild des Abstands zwischen den Zeilen beeinflussen.
 
-Die `text-box`-Eigenschaften ermöglichen das Abschneiden von zusätzlichem Abstand vom Blockanfang und Blockende eines Textelements im Blockcontainer, was den {{Glossary("leading", "Durchschuss")}} am Anfängs- und Endrand des Textes und den Abständen, die innerhalb der Schriftart definiert sind (wie oben beschrieben), einschließen kann. Dies erleichtert die Kontrolle des Textabstands in Blockrichtung erheblich.
+Die `text-box` Eigenschaften ermöglichen das Abschneiden von zusätzlichem Platz am Blockanfang und Blockende eines Blockcontainers eines Textelements, was das {{Glossary("leading", "führende")}} am Blockanfang und Blockende des Textes und den innerhalb der Schriftart definierten Abstand (wie oben beschrieben) umfassen kann. Dies erleichtert die Steuerung des Textabstands in Blockrichtung erheblich.
 
 ## Beispiele
 
-### Grundlegende Verwendung von `text-box`
+### Grundlegende Nutzung von `text-box`
 
 Im folgenden Beispiel haben wir zwei `<p>` Elemente mit den Klassen `one` und `two`.
 
-Wir wenden einen `text-box` Wert von `trim-end cap alphabetic` auf den ersten Absatz an. Der {{cssxref("text-box-edge")}} Wert von `cap alphabetic` spezifiziert das Abschneiden des oberen Randes bis zur Oberkante der Großbuchstaben und den unteren Rand bündig mit der Grundlinie des Textes. Da der {{cssxref("text-box-trim")}} Wert auf `trim-end` gesetzt ist, wird nur der untere Rand des Absatzes abgeschnitten.
+Wir wenden einen `text-box` Wert von `trim-end cap alphabetic` auf den ersten Absatz an. Der {{cssxref("text-box-edge")}} Wert von `cap alphabetic` gibt an, dass der obere Rand an den oberen Rand der Großbuchstaben und der untere Rand bündig mit der Textgrundlinie abgeschnitten wird. Da der {{cssxref("text-box-trim")}} Wert auf `trim-end` gesetzt ist, wird nur der untere Rand des Absatzes abgeschnitten.
 
-Wir wenden einen `text-box` Wert von `trim-both ex alphabetic` auf den zweiten Absatz an. Der {{cssxref("text-box-edge")}} Wert von `ex alphabetic` gibt das Abschneiden des oberen Randes bis zur X-Höhe der Schrift (die Oberkante der kurzen Kleinbuchstaben) und den unteren Rand bündig mit der Grundlinie des Textes an. Da der {{cssxref("text-box-trim")}} Wert auf `trim-both` gesetzt ist, werden sowohl der obere _als auch_ der untere Rand des Absatzes abgeschnitten.
+Wir wenden einen `text-box` Wert von `trim-both ex alphabetic` auf den zweiten Absatz an. Der {{cssxref("text-box-edge")}} Wert von `ex alphabetic` gibt an, dass der obere Rand auf die x-Höhe der Schriftart (den oberen Rand der kurzen Kleinbuchstaben) und der untere Rand bündig mit der Textgrundlinie abgeschnitten wird. Da der {{cssxref("text-box-trim")}} Wert auf `trim-both` gesetzt ist, werden sowohl der obere _als auch_ der untere Rand des Absatzes abgeschnitten.
 
 ```html hidden
 <p class="one">This is .one</p>
@@ -112,7 +112,7 @@ p {
 
 #### Ergebnis
 
-Die Ausgabe ist wie folgt. Beachten Sie, wie wir auf jeden Absatz eine obere und untere Begrenzungslinie hinzugefügt haben, damit Sie sehen können, wie der Platz in jedem Fall abgeschnitten wurde.
+Das Ergebnis ist wie folgt. Beachten Sie, dass wir oben und unten an jedem Absatz einen Rand eingefügt haben, damit Sie sehen können, wie der Platz in jedem Fall abgeschnitten wurde.
 
 {{EmbedLiveSample("Basic `text-box` usage","100%","360")}}
 
@@ -128,5 +128,5 @@ Die Ausgabe ist wie folgt. Beachten Sie, wie wir auf jeden Absatz eine obere und
 
 - {{cssxref("text-box-edge")}}, {{cssxref("text-box-trim")}}
 - {{cssxref("&lt;text-edge&gt;")}} Datentyp
-- [CSS Inline-Layout](/de/docs/Web/CSS/CSS_inline_layout) Modul
+- [CSS Inline-Layout](/de/docs/Web/CSS/Guides/Inline_layout) Modul
 - [CSS text-box-edge](https://developer.chrome.com/blog/css-text-box-trim) auf developer.chrome.com (2025)

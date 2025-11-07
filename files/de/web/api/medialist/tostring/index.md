@@ -1,14 +1,14 @@
 ---
-title: "MediaList: toString()-Methode"
+title: "MediaList: toString() Methode"
 short-title: toString()
 slug: Web/API/MediaList/toString
 l10n:
-  sourceCommit: 63cbf204323f117a2a80c7aa6273e50253ab9d07
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`toString()`**-Methode des [`MediaList`](/de/docs/Web/API/MediaList)-Interfaces gibt einen String zurück, der die Werte des Objekts repräsentiert. Der Wert ist eine durch Kommas getrennte Liste von Medienwerten im selben Format wie die [`MediaList.mediaText`](/de/docs/Web/API/MediaList/mediaText)-Eigenschaft.
+Die **`toString()`** {{Glossary("stringifier", "Stringifizierer")}} Methode der [`MediaList`](/de/docs/Web/API/MediaList) Schnittstelle gibt einen String zurück, der die Werte des Objekts darstellt. Der Wert ist eine kommaseparierte Liste von Medienwerten im gleichen Format wie die [`MediaList.mediaText`](/de/docs/Web/API/MediaList/mediaText) Eigenschaft.
 
 ## Syntax
 
@@ -55,5 +55,5 @@ console.log(mediaList.toString());
 
 - [`MediaList.mediaText`](/de/docs/Web/API/MediaList/mediaText)
 - [`MediaList.appendMedium()`](/de/docs/Web/API/MediaList/appendMedium)
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries)
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries)
+- [Verwenden von Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries/Using)

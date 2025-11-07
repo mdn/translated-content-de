@@ -2,10 +2,10 @@
 title: <gradient>
 slug: Web/CSS/Reference/Values/gradient
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Der **`<gradient>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) ist ein spezieller Typ von {{cssxref("&lt;image&gt;")}}, der aus einem progressiven Übergang zwischen zwei oder mehreren Farben besteht.
+Der **`<gradient>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/Reference/Values/Data_types) ist ein spezieller Typ von {{cssxref("&lt;image&gt;")}}, der aus einem progressiven Übergang zwischen zwei oder mehr Farben besteht.
 
 {{InteractiveExample("CSS Demo: &lt;gradient&gt;")}}
 
@@ -41,31 +41,31 @@ background: conic-gradient(#f69d3c, #3f87a6);
 }
 ```
 
-Ein CSS-Gradient hat [keine intrinsischen Dimensionen](/de/docs/Web/CSS/Reference/Values/image#description); d.h., er hat keine natürliche oder bevorzugte Größe und kein bevorzugtes Verhältnis. Seine konkrete Größe wird an die Größe des Elements angepasst, auf das er angewendet wird.
+Ein CSS-Gradient hat [keine intrinsischen Dimensionen](/de/docs/Web/CSS/Reference/Values/image#description); d.h. es gibt keine natürliche oder bevorzugte Größe oder ein bevorzugtes Verhältnis. Seine konkrete Größe entspricht der Größe des Elements, auf das er angewendet wird.
 
 ## Syntax
 
-Der `<gradient>` Datentyp wird mit einer der unten aufgeführten Funktionstypen definiert.
+Der `<gradient>`-Datentyp wird mit einer der unten aufgeführten Funktionstypen definiert.
 
-### Linearer Verlauf
+### Linearer Gradient
 
-Lineare Verläufe ändern Farben progressiv entlang einer imaginären Linie. Sie werden mit der {{cssxref("gradient/linear-gradient", "linear-gradient()")}} Funktion erzeugt.
+Lineare Gradienten wechseln Farben progressiv entlang einer imaginären Linie. Sie werden mit der {{cssxref("gradient/linear-gradient", "linear-gradient()")}} Funktion erzeugt.
 
-### Radialer Verlauf
+### Radialer Gradient
 
-Radiale Verläufe ändern Farben progressiv von einem Mittelpunkt (Ursprung) aus. Sie werden mit der {{cssxref("gradient/radial-gradient", "radial-gradient()")}} Funktion erzeugt.
+Radiale Gradienten wechseln Farben progressiv von einem Mittelpunkt (Ursprung) aus. Sie werden mit der {{cssxref("gradient/radial-gradient", "radial-gradient()")}} Funktion erzeugt.
 
-### Kegelförmiger Verlauf
+### Kegelförmiger Gradient
 
-Kegelförmige Verläufe ändern Farben progressiv um einen Kreis. Sie werden mit der {{cssxref("gradient/conic-gradient", "conic-gradient()")}} Funktion erzeugt.
+Kegelförmige Gradienten wechseln Farben progressiv um einen Kreis herum. Sie werden mit der {{cssxref("gradient/conic-gradient", "conic-gradient()")}} Funktion erzeugt.
 
-### Wiederholender Verlauf
+### Wiederholender Gradient
 
-Wiederholende Verläufe duplizieren einen Verlauf so oft wie nötig, um ein gegebenes Gebiet zu füllen. Sie werden mit den Funktionen {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}, und {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}} erzeugt.
+Wiederholende Gradienten duplizieren einen Gradient so oft wie notwendig, um einen bestimmten Bereich zu füllen. Sie werden mit den Funktionen {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}} und {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}} erzeugt.
 
 ## Interpolation
 
-Wie bei jeder Interpolation, die Farben umfasst, werden Verläufe im alpha-vormultiplizierten Farbraum berechnet. Dies verhindert unerwartete Grauschattierungen, wenn sowohl die Farbe als auch die Transparenz sich ändern. (Beachten Sie, dass ältere Browser dieses Verhalten möglicherweise nicht nutzen, wenn das [Schlüsselwort transparent](/de/docs/Web/CSS/Reference/Values/named-color#transparent) verwendet wird.)
+Wie bei jeder Interpolation, die Farben betrifft, werden Gradienten im alpha-prä-multiplizierten Farbraum berechnet. Dies verhindert, dass unerwartete Grautöne erscheinen, wenn sowohl die Farbe als auch die Deckkraft sich ändern. (Beachten Sie, dass ältere Browser möglicherweise dieses Verhalten nicht verwenden, wenn das [Transparente Schlüsselwort](/de/docs/Web/CSS/Reference/Values/named-color#transparent) verwendet wird.)
 
 ## Formale Syntax
 
@@ -73,9 +73,9 @@ Wie bei jeder Interpolation, die Farben umfasst, werden Verläufe im alpha-vormu
 
 ## Beispiele
 
-### Beispiel für einen linearen Verlauf
+### Beispiel für einen linearen Gradient
 
-Ein linearer Verlauf.
+Ein linearer Gradient.
 
 ```html hidden
 <div class="linear-gradient">Linear gradient</div>
@@ -105,9 +105,9 @@ div {
 
 {{EmbedLiveSample('Linear_gradient_example', 240, 120)}}
 
-### Beispiel für einen radialen Verlauf
+### Beispiel für einen radialen Gradient
 
-Ein radialer Verlauf.
+Ein radialer Gradient.
 
 ```html hidden
 <div class="radial-gradient">Radial gradient</div>
@@ -128,9 +128,9 @@ div {
 
 {{EmbedLiveSample('Radial_gradient_example', 240, 120)}}
 
-### Beispiel für einen kegelförmigen Verlauf
+### Beispiel für einen kegelförmigen Gradient
 
-Ein Beispiel für einen kegelförmigen Verlauf.
+Ein Beispiel für einen kegelförmigen Gradient.
 
 ```html hidden
 <div class="conic-gradient">Conic gradient</div>
@@ -151,9 +151,9 @@ div {
 
 {{EmbedLiveSample('Conic_gradient_example', 240, 240)}}
 
-### Beispiele für wiederholende Verläufe
+### Beispiele für wiederholende Gradienten
 
-Beispiele für wiederholende lineare und radiale Verläufe.
+Beispiele für wiederholende lineare und radiale Gradienten.
 
 ```html hidden
 <div class="linear-repeat"></div>
@@ -216,8 +216,8 @@ span {
 
 ## Siehe auch
 
-- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
-- Verlaufsfunktionen: {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}, {{cssxref("gradient/conic-gradient", "conic-gradient()")}}, {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
-- [CSS Basisdatentypen](/de/docs/Web/CSS/Reference/Values/Data_types)
-- Modul für [CSS Werte und Einheiten](/de/docs/Web/CSS/CSS_values_and_units)
+- [Verwendung von CSS-Gradienten](/de/docs/Web/CSS/Guides/Images/Using_gradients)
+- Gradientfunktionen: {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}, {{cssxref("gradient/conic-gradient", "conic-gradient()")}}, {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
+- [CSS Grundlegende Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types)
+- [CSS Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul
 - [Lernen: Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)

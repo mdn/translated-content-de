@@ -11,7 +11,7 @@ Dieses Werkzeug kann verwendet werden, um CSS-{{cssxref("border-image")}}-Werte 
 
 ## Siehe auch
 
-- [Border-Radius-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Border-radius_generator)
+- [Border-Radius-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-radius_generator)
   - : Dieses interaktive Werkzeug ermöglicht es Ihnen, abgerundete Ecken visuell zu erstellen (die {{cssxref("border-radius")}}-Eigenschaft).
-- [Box-Shadow-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Box-shadow_generator)
+- [Box-Shadow-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Box-shadow_generator)
   - : Dieses interaktive Werkzeug ermöglicht es Ihnen, visuell Schatten hinter Elementen zu erstellen (die {{cssxref("box-shadow")}}-Eigenschaft).

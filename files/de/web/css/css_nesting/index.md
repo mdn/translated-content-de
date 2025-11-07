@@ -19,16 +19,16 @@ CSS-Verschachtelung verbessert die Lesbarkeit, Modularität und Wartbarkeit von 
 
 ## Leitfäden
 
-- [Verwendung von CSS-Verschachtelung](/de/docs/Web/CSS/CSS_nesting/Using_CSS_nesting)
+- [Verwendung von CSS-Verschachtelung](/de/docs/Web/CSS/Guides/Nesting/Using)
   - : Erklärt, wie man CSS-Verschachtelung verwendet.
-- [CSS-Verschachtelungs-Regeln](/de/docs/Web/CSS/CSS_nesting/Nesting_at-rules)
+- [CSS-Verschachtelungs-Regeln](/de/docs/Web/CSS/Guides/Nesting/At-rules)
   - : Erklärt, wie man Regelanweisungen verschachtelt.
-- [CSS-Verschachtelung und Spezifität](/de/docs/Web/CSS/CSS_nesting/Nesting_and_specificity)
+- [CSS-Verschachtelung und Spezifität](/de/docs/Web/CSS/Guides/Nesting/Nesting_and_specificity)
   - : Erklärt die Unterschiede in der Spezifität bei der Verschachtelung von CSS.
 
 ## Verwandte Konzepte
 
-- [Selektoren und Kombinatoren](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators)
+- [Selektoren und Kombinatoren](/de/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators)
 - [Pseudoklassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes)
 - {{Glossary("CSS_preprocessor", "CSS-Präprozessor")}}
 
@@ -38,6 +38,6 @@ CSS-Verschachtelung verbessert die Lesbarkeit, Modularität und Wartbarkeit von 
 
 ## Siehe auch
 
-- [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
-- [CSS-Kaskadierungs- und Vererbungsmodul](/de/docs/Web/CSS/CSS_cascade)
-- [CSS-Selektormodul](/de/docs/Web/CSS/CSS_selectors)
+- [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity)
+- [CSS-Kaskadierungs- und Vererbungsmodul](/de/docs/Web/CSS/Guides/Cascade)
+- [CSS-Selektormodul](/de/docs/Web/CSS/Guides/Selectors)

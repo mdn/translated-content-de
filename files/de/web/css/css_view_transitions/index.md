@@ -50,14 +50,14 @@ Das **CSS-Ansichtsübergänge**-Modul definiert das Verhalten der [Ansichtsüber
 - [`pageswap`](/de/docs/Web/API/PageSwapEvent)-Ereignis
 - [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState)
 
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)-Modul
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations)-Modul
   - {{cssxref("animation")}}
   - {{cssxref("@keyframes")}}
   - [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)
   - [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)
   - [Web-Animationen-API](/de/docs/Web/API/Web_Animations_API)
 
-- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms)-Modul
+- [CSS-Transformationen](/de/docs/Web/CSS/Guides/Transforms)-Modul
   - {{cssxref("transform")}}
   - {{cssxref("transform-function")}}
 

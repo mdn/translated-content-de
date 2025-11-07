@@ -2,14 +2,14 @@
 title: container
 slug: Web/CSS/Reference/Properties/container
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **container** [Kurzform](/de/docs/Web/CSS/CSS_cascade/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt das Element als Abfrage-Container fest und spezifiziert den Namen und den Typ des verwendeten [Containment-Kontextes](/de/docs/Web/CSS/CSS_containment/Container_queries#naming_containment_contexts) in einer [Container-Abfrage](/de/docs/Web/CSS/CSS_containment/Container_queries).
+Die **container** [Shorthand](/de/docs/Web/CSS/Guides/Cascade/Shorthand_properties)-[CSS](/de/docs/Web/CSS)-Eigenschaft etabliert das Element als ein Abfrage-Container und bestimmt den Namen und den Typ des [Einschlusskontexts](/de/docs/Web/CSS/Guides/Containment/Container_queries#naming_containment_contexts), der in einer [Container-Abfrage](/de/docs/Web/CSS/Guides/Containment/Container_queries) verwendet wird.
 
-## Bestandeigenschaften
+## Bestandteile der Eigenschaft
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{Cssxref("container-name")}}
 - {{Cssxref("container-type")}}
@@ -34,11 +34,11 @@ container: unset;
 ### Werte
 
 - `<container-name>`
-  - : Ein case-sensitiver Name für den Containment-Kontext.
-    Weitere Details zur Syntax finden Sie auf der Seite der Eigenschaft {{cssxref("container-name")}}.
+  - : Ein Case-sensitiver Name für den Einschlusskontext.
+    Mehr Details zur Syntax sind auf der {{cssxref("container-name")}} Eigenschaftsseite beschrieben.
 - `<container-type>`
-  - : Der Typ des Containment-Kontextes.
-    Weitere Details zur Syntax finden Sie auf der Seite der Eigenschaft {{cssxref("container-type")}}.
+  - : Der Typ des Einschlusskontexts.
+    Mehr Details zur Syntax sind auf der {{cssxref("container-type")}} Eigenschaftsseite beschrieben.
 
 ## Formale Definition
 
@@ -50,7 +50,7 @@ container: unset;
 
 ## Beispiele
 
-### Etablierung der Inline-Größenkontainment
+### Festlegung der Inline-Größen-Einschließung
 
 Angenommen, das folgende HTML-Beispiel ist eine Kartenkomponente mit einem Bild, einem Titel und etwas Text:
 
@@ -63,7 +63,7 @@ Angenommen, das folgende HTML-Beispiel ist eine Kartenkomponente mit einem Bild,
 </div>
 ```
 
-Die explizite Art, einen Container-Kontext zu erstellen, besteht darin, einen `container-type` mit einem optionalen `container-name` zu deklarieren:
+Die explizite Methode zur Erstellung eines Container-Kontexts besteht darin, einen `container-type` mit einem optionalen `container-name` zu deklarieren:
 
 ```css
 .post {
@@ -72,7 +72,7 @@ Die explizite Art, einen Container-Kontext zu erstellen, besteht darin, einen `c
 }
 ```
 
-Die Kurzform `container` soll es einfacher machen, dies in einer einzigen Deklaration zu definieren:
+Die `container`-Kurzschreibweise soll dies in einer einzigen Deklaration einfacher definieren:
 
 ```css
 .post {
@@ -80,7 +80,7 @@ Die Kurzform `container` soll es einfacher machen, dies in einer einzigen Deklar
 }
 ```
 
-Sie können dann diesen Container mit Namen unter Verwendung der {{cssxref("@container")}} at-rule anvisieren:
+Sie können dann diesen Container mittels Namen mit der {{cssxref("@container")}} At-Regel ansprechen:
 
 ```css
 @container sidebar (width >= 400px) {
@@ -98,9 +98,9 @@ Sie können dann diesen Container mit Namen unter Verwendung der {{cssxref("@con
 
 ## Siehe auch
 
-- [CSS Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- [Verwendung von Container-Größen- und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
-- {{Cssxref("@container")}} at-rule
+- [CSS-Container-Abfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)
+- [Verwendung von Containergrößen- und Stilabfragen](/de/docs/Web/CSS/Guides/Containment/Container_size_and_style_queries)
+- {{Cssxref("@container")}} At-Regel
 - CSS {{Cssxref("contain")}} Eigenschaft
 - CSS {{Cssxref("container-type")}} Eigenschaft
 - CSS {{Cssxref("container-name")}} Eigenschaft

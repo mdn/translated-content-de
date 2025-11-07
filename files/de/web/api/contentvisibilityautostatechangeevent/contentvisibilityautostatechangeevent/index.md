@@ -1,14 +1,14 @@
 ---
-title: "ContentVisibilityAutoStateChangeEvent: ContentVisibilityAutoStateChangeEvent()-Konstruktor"
+title: "ContentVisibilityAutoStateChangeEvent: ContentVisibilityAutoStateChangeEvent() Konstruktor"
 short-title: ContentVisibilityAutoStateChangeEvent()
 slug: Web/API/ContentVisibilityAutoStateChangeEvent/ContentVisibilityAutoStateChangeEvent
 l10n:
-  sourceCommit: 1b9f8e62afc890f2f00d6f9043f3ce0ff2ac4dfb
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{APIRef("CSS Containment")}}
 
-Der **`ContentVisibilityAutoStateChangeEvent()`**-Konstruktor erstellt eine neue [`ContentVisibilityAutoStateChangeEvent`](/de/docs/Web/API/ContentVisibilityAutoStateChangeEvent)-Objektinstanz.
+Der **`ContentVisibilityAutoStateChangeEvent()`** Konstruktor erstellt eine neue Instanz eines [`ContentVisibilityAutoStateChangeEvent`](/de/docs/Web/API/ContentVisibilityAutoStateChangeEvent) Objekt.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ new ContentVisibilityAutoStateChangeEvent(type, options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `skipped`
-      - : Ein boolescher Wert, der auf `true` gesetzt wird, wenn der User-Agent [den Inhalt des Elements überspringt](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents), andernfalls `false`.
+      - : Ein boolescher Wert, der auf `true` gesetzt ist, wenn der User Agent [den Inhalt des Elements überspringt](/de/docs/Web/CSS/Guides/Containment/Using#skips_its_contents), oder `false` andernfalls.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `ContentVisibilityAutoStateChangeEvent`-Objekt wird erstellt, wenn ein Handler als Ergebnis des Auslösens des [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event)-Ereignisses aufgerufen wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `ContentVisibilityAutoStateChangeEvent` Objekt wird erstellt, wenn ein Handler als Ergebnis des [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event) Ereignisses ausgelöst wird.
 
 ```js
 canvasElem.addEventListener("contentvisibilityautostatechange", (event) => {
@@ -45,7 +45,7 @@ canvasElem.addEventListener("contentvisibilityautostatechange", (event) => {
 
 ## Siehe auch
 
-- Das [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event)-Ereignis
-- [CSS Containment](/de/docs/Web/CSS/CSS_containment)
-- Die {{cssxref("content-visibility")}}-Eigenschaft
-- Die {{cssxref("contain")}}-Eigenschaft
+- Das [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event) Ereignis
+- [CSS Containment](/de/docs/Web/CSS/Guides/Containment)
+- Die {{cssxref("content-visibility")}} Eigenschaft
+- Die {{cssxref("contain")}} Eigenschaft

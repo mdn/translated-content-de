@@ -49,4 +49,4 @@ Das **CSS-Schriftartenladen**-Modul beschreibt Ereignisse und Schnittstellen, di
 
 ## Siehe auch
 
-- [CSS-Schriften](/de/docs/Web/CSS/CSS_fonts)-Modul
+- [CSS-Schriften](/de/docs/Web/CSS/Guides/Fonts)-Modul

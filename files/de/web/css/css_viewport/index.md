@@ -26,15 +26,15 @@ Der {{Glossary("viewport", "Viewport")}} anfänglich enthaltene Block für konti
 ### Glossarbegriffe und Definitionen
 
 - {{Glossary("Viewport", "Viewport")}}
-- [Tatsächlicher Viewport](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts#actual_viewport)
-- [Anfänglicher Viewport](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts#initial_viewport)
+- [Tatsächlicher Viewport](/de/docs/Web/CSS/Guides/CSSOM_view/Viewport_concepts#actual_viewport)
+- [Anfänglicher Viewport](/de/docs/Web/CSS/Guides/CSSOM_view/Viewport_concepts#initial_viewport)
 
 ## Leitfäden
 
-- [Viewport-Konzepte](/de/docs/Web/CSS/CSSOM_view/Viewport_concepts)
+- [Viewport-Konzepte](/de/docs/Web/CSS/Guides/CSSOM_view/Viewport_concepts)
   - : Das Konzept des Viewports — was es ist, seine Auswirkungen in Bezug auf CSS, SVG und mobile Geräte — und der Unterschied zwischen dem visuellen Viewport und dem Layout-Viewport.
 
-- [Verwendung von Umgebungsvariablen](/de/docs/Web/CSS/CSS_environment_variables/Using_environment_variables)
+- [Verwendung von Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables/Using)
   - : Ein Überblick darüber, was Umgebungsvariablen sind, browserdefinierte Umgebungsvariablen und wie man die `env()`-Funktion verwendet.
 
 - [Verwendung der Viewport-Segmente-API](/de/docs/Web/API/Viewport_segments_API/Using)
@@ -42,14 +42,14 @@ Der {{Glossary("viewport", "Viewport")}} anfänglich enthaltene Block für konti
 
 ## Verwandte Konzepte
 
-- [CSS-Media-Queries](/de/docs/Web/CSS/CSS_media_queries) Modul
+- [CSS-Media-Queries](/de/docs/Web/CSS/Guides/Media_queries) Modul
   - {{cssxref("@media")}}
   - {{cssxref("@media/horizontal-viewport-segments", "horizontal-viewport-segments")}} Deskriptor
   - {{cssxref("@media/vertical-viewport-segments", "vertical-viewport-segments")}} Deskriptor
 
-- [CSS-Umgebungsvariablen](/de/docs/Web/CSS/CSS_environment_variables)
+- [CSS-Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables)
   - {{cssxref("env()")}}
-  - [`<environment-variable-name>`](/de/docs/Web/CSS/CSS_environment_variables/Using_environment_variables#browser-defined_environment_variables)
+  - [`<environment-variable-name>`](/de/docs/Web/CSS/Guides/Environment_variables/Using#browser-defined_environment_variables)
 
 - [Device Posture API](/de/docs/Web/API/Device_Posture_API)
 
@@ -59,4 +59,4 @@ Der {{Glossary("viewport", "Viewport")}} anfänglich enthaltene Block für konti
 
 ## Siehe auch
 
-- [CSSOM-Ansicht](/de/docs/Web/CSS/CSSOM_view) Modul
+- [CSSOM-Ansicht](/de/docs/Web/CSS/Guides/CSSOM_view) Modul

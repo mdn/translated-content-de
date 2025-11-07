@@ -17,16 +17,16 @@ Umgebungsvariablen liefern Werte, die basierend auf Informationen, auf die der U
 
 ### Datentypen
 
-- [`<environment-variable-name>`](/de/docs/Web/CSS/CSS_environment_variables/Using_environment_variables#browser-defined_environment_variables)
+- [`<environment-variable-name>`](/de/docs/Web/CSS/Guides/Environment_variables/Using#browser-defined_environment_variables)
 
 ## Leitfäden
 
-- [Verwendung von Umgebungsvariablen](/de/docs/Web/CSS/CSS_environment_variables/Using_environment_variables)
+- [Verwendung von Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables/Using)
   - : Ein Überblick darüber, was Umgebungsvariablen sind, browserdefinierte Umgebungsvariablen und wie die `env()`-Funktion verwendet wird.
 
 ## Verwandte Konzepte
 
-- [CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) Modul
+- [CSS-Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries) Modul
 - [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Reference/Properties/--*)
 - {{cssxref("var")}}
 - [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard)-Schnittstelle
@@ -40,5 +40,5 @@ Umgebungsvariablen liefern Werte, die basierend auf Informationen, auf die der U
 ## Siehe auch
 
 - [CSS-Wertfunktionen](/de/docs/Web/CSS/Reference/Values/Functions) Leitfaden
-- [CSS Properties und Values API](/de/docs/Web/CSS/CSS_properties_and_values_API) Modul
-- [CSS-benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul
+- [CSS Properties und Values API](/de/docs/Web/CSS/Guides/Properties_and_values_API) Modul
+- [CSS-benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/Guides/Cascading_variables) Modul

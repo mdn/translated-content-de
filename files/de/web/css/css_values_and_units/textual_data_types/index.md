@@ -91,8 +91,8 @@ Der Parameter für `url()` kann entweder in Anführungszeichen oder nicht in Anf
 
 ## Siehe auch
 
-- [Numerische Datentypen](/de/docs/Web/CSS/CSS_values_and_units/Numeric_data_types)
+- [Numerische Datentypen](/de/docs/Web/CSS/Guides/Values_and_units/Numeric_data_types)
 - [CSS-Datentypen](/de/docs/Web/CSS/Reference/Values/Data_types)
-- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_values_and_units) Modul
+- [CSS-Werte und Einheiten](/de/docs/Web/CSS/Guides/Values_and_units) Modul
 - [Lernen: Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
-- [CSS-Kaskade und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
+- [CSS-Kaskade und Vererbung](/de/docs/Web/CSS/Guides/Cascade) Modul

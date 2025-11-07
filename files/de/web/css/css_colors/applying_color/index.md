@@ -9,9 +9,9 @@ l10n:
 Mit [CSS](/de/docs/Web/CSS) gibt es viele Möglichkeiten, Ihren [HTML](/de/docs/Web/HTML)-[Elementen](/de/docs/Web/HTML/Reference/Elements) Farben hinzuzufügen, um das gewünschte Aussehen zu erzeugen. Dieser Leitfaden ist eine Einführung, wie CSS verwendet werden kann, um Farben auf HTML-Elemente anzuwenden. Dieser Leitfaden enthält [Listen der CSS-Eigenschaften, die Farbe in ihren Werten setzen](#eigenschaften,_die_farben_haben_können) und wie Farben sowohl [in Stylesheets](#farben_in_stylesheets_als_werte_angeben) als auch [auf andere Weise](#andere_möglichkeiten,_farben_zu_verwenden) verwendet werden.
 
 > [!NOTE]
-> Es ist wichtig, [Farben weise zu verwenden](/de/docs/Web/CSS/CSS_colors/Using_color_wisely). Wählen Sie immer geeignete Farben aus und stellen Sie sicher, dass der Kontrast zwischen Text und Hintergrund ausreichend ist, um die Lesbarkeit zu gewährleisten. Berücksichtigen Sie immer die Bedürfnisse von Menschen mit unterschiedlichen visuellen Fähigkeiten.
+> Es ist wichtig, [Farben weise zu verwenden](/de/docs/Web/CSS/Guides/Colors/Using_color_wisely). Wählen Sie immer geeignete Farben aus und stellen Sie sicher, dass der Kontrast zwischen Text und Hintergrund ausreichend ist, um die Lesbarkeit zu gewährleisten. Berücksichtigen Sie immer die Bedürfnisse von Menschen mit unterschiedlichen visuellen Fähigkeiten.
 
-Um mehr über CSS-Farben als Datentyp zu erfahren, sehen Sie sich die Referenz zum [CSS `<color>`-Datentyp](/de/docs/Web/CSS/Reference/Values/color_value) und den [Leitfaden zu CSS-Farbwerten](/de/docs/Web/CSS/CSS_colors/Color_values) an.
+Um mehr über CSS-Farben als Datentyp zu erfahren, sehen Sie sich die Referenz zum [CSS `<color>`-Datentyp](/de/docs/Web/CSS/Reference/Values/color_value) und den [Leitfaden zu CSS-Farbwerten](/de/docs/Web/CSS/Guides/Colors/Color_values) an.
 
 ## Eigenschaften, die Farben haben können
 
@@ -55,7 +55,7 @@ Jedes Element ist eine Box mit irgendeiner Art von Inhalt und hat zusätzlich zu
   - : Konfiguriert Schattierungseffekte innerhalb und außerhalb der Box. Unter den Optionen für jeden Schatten ist die Basisfarbe des Schattens (die dann aufgrund anderer Parameter mit einem Hintergrund verschwommen und vermischt wird).
 
 - {{cssxref("column-rule-color")}}
-  - : Die Farbe, die beim Zeichnen der Linie verwendet wird, die Textspalten bei Verwendung des [CSS-Mehrspalten-Layouts](/de/docs/Web/CSS/CSS_multicol_layout) trennt.
+  - : Die Farbe, die beim Zeichnen der Linie verwendet wird, die Textspalten bei Verwendung des [CSS-Mehrspalten-Layouts](/de/docs/Web/CSS/Guides/Multicol_layout) trennt.
 
 - {{cssxref("outline-color")}}
   - : Die Farbe, die verwendet wird, um eine Umrandung um das Element zu zeichnen. Diese Umrandung unterscheidet sich vom Rand, da sie keinen Platz im Dokument reserviert. Umrandungen beteiligen sich nicht am [Boxmodell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) und überlappen andere Inhalte. Umrandungen werden im Allgemeinen als Fokusanzeiger verwendet, um anzuzeigen, welches Element aktuell den Fokus hat und Tastatureingaben erhält.
@@ -108,7 +108,7 @@ Hier haben wir einen Wrapper {{HTMLElement("div")}}, der zwei untergeordnete `<d
 Schauen wir uns das CSS, das das oben gezeigte Ergebnis erzeugt, Stück für Stück an.
 
 > [!NOTE]
-> Wir verwenden in diesem Beispiel mehrere [verschiedene CSS-Farbwerttypen](/de/docs/Web/CSS/CSS_colors/Color_values), um deren Verwendung zu demonstrieren. Dies wird für Produktionscode nicht empfohlen. Verwenden Sie beim Schreiben von CSS den intuitivsten Werttyp für Sie und Ihr Team.
+> Wir verwenden in diesem Beispiel mehrere [verschiedene CSS-Farbwerttypen](/de/docs/Web/CSS/Guides/Colors/Color_values), um deren Verwendung zu demonstrieren. Dies wird für Produktionscode nicht empfohlen. Verwenden Sie beim Schreiben von CSS den intuitivsten Werttyp für Sie und Ihr Team.
 
 ```css
 .wrapper {
@@ -164,7 +164,7 @@ Die `.boxLeft`-Klasse, die verwendet wird, um die Box auf der linken Seite zu st
 > [!NOTE]
 > Wir haben die `text-decoration-*`-Styles separat hinzugefügt, weil Safari {{cssxref("text-decoration")}} nicht als Kurzschreibweise unterstützt.
 
-Schließlich setzt die `.boxRight`-Klasse mehrere Styles auf der Box, die rechts gezeichnet wird. Dann werden die folgenden Farben festgelegt (mit fünf verschiedenen Möglichkeiten zur Deklaration von [Farbwerten](/de/docs/Web/CSS/CSS_colors/Color_values)):
+Schließlich setzt die `.boxRight`-Klasse mehrere Styles auf der Box, die rechts gezeichnet wird. Dann werden die folgenden Farben festgelegt (mit fünf verschiedenen Möglichkeiten zur Deklaration von [Farbwerten](/de/docs/Web/CSS/Guides/Colors/Color_values)):
 
 - Die `background-color` wird mithilfe der {{CSSXref("color_value/hwb", "hwb()")}}-Funktionsnotation festgelegt — `hwb(270deg 63% 13%)`. Dies ist eine mittelviolette Farbe.
 - Die `outline` der Box wird genutzt, um anzugeben, dass die Box in einer vier Pixel dicken gestrichelten Linie umschlossen werden soll, deren Farbe ein etwas tieferes Violett mit dem sechsstelligen {{cssxref("hex-color")}} `#6e1478` ist.
@@ -191,7 +191,7 @@ CSS ist nicht die einzige Webtechnologie, die Farben unterstützt. Andere Beispi
 ## Siehe auch
 
 - [`<color>`](/de/docs/Web/CSS/Reference/Values/color_value) Datentyp
-- [CSS-Farbwerte](/de/docs/Web/CSS/CSS_colors/Color_values) Leitfaden
-- [Farben weise verwenden](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
-- [CSS-Farbmodul](/de/docs/Web/CSS/CSS_colors)
+- [CSS-Farbwerte](/de/docs/Web/CSS/Guides/Colors/Color_values) Leitfaden
+- [Farben weise verwenden](/de/docs/Web/CSS/Guides/Colors/Using_color_wisely)
+- [CSS-Farbmodul](/de/docs/Web/CSS/Guides/Colors)
 - [Grafiken zeichnen](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Drawing_graphics)

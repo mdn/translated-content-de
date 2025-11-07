@@ -2,10 +2,10 @@
 title: empty-cells
 slug: Web/CSS/Reference/Properties/empty-cells
 l10n:
-  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`empty-cells`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob Rahmen und Hintergründe um {{htmlelement("table")}}-Zellen erscheinen, die keinen sichtbaren Inhalt haben.
+Die **`empty-cells`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Rahmen und Hintergründe um {{htmlelement("table")}}-Zellen angezeigt werden, die keinen sichtbaren Inhalt haben.
 
 {{InteractiveExample("CSS Demo: empty-cells")}}
 
@@ -54,7 +54,7 @@ td {
 }
 ```
 
-Diese Eigenschaft hat nur dann eine Wirkung, wenn die {{cssxref("border-collapse")}}-Eigenschaft auf `separate` gesetzt ist.
+Diese Eigenschaft hat nur dann eine Wirkung, wenn die {{cssxref("border-collapse")}} Eigenschaft auf `separate` gesetzt ist.
 
 ## Syntax
 
@@ -71,14 +71,14 @@ empty-cells: revert-layer;
 empty-cells: unset;
 ```
 
-Die Eigenschaft `empty-cells` wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `empty-cells` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `show`
   - : Rahmen und Hintergründe werden wie bei normalen Zellen gezeichnet.
 - `hide`
-  - : Es werden keine Rahmen oder Hintergründe gezeichnet.
+  - : Keine Rahmen oder Hintergründe werden gezeichnet.
 
 ## Formale Definition
 
@@ -155,5 +155,5 @@ th {
 ## Siehe auch
 
 - {{cssxref("border-collapse")}}
-- [Lernen: Tabellen gestalten](/de/docs/Learn_web_development/Core/Styling_basics/Tables)
-- [CSS-Table](/de/docs/Web/CSS/CSS_table)-Modul
+- [Erfahren Sie: Tabellenstile](/de/docs/Learn_web_development/Core/Styling_basics/Tables)
+- [CSS table](/de/docs/Web/CSS/Guides/Table) Modul

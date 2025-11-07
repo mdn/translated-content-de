@@ -5,7 +5,7 @@ l10n:
   sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Diese Lektion soll Ihnen eine Einführung in [Cascade-Ebenen](/de/docs/Web/CSS/Reference/At-rules/@layer) geben, ein fortgeschrittenes Feature, das auf den grundlegenden Konzepten der [CSS Cascade](/de/docs/Web/CSS/CSS_cascade/Cascade) und der [CSS-Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) aufbaut.
+Diese Lektion soll Ihnen eine Einführung in [Cascade-Ebenen](/de/docs/Web/CSS/Reference/At-rules/@layer) geben, ein fortgeschrittenes Feature, das auf den grundlegenden Konzepten der [CSS Cascade](/de/docs/Web/CSS/Guides/Cascade/Introduction) und der [CSS-Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) aufbaut.
 
 Wenn Sie neu in CSS sind, mag diese Lektion zunächst weniger direkt relevant und etwas theoretischer erscheinen als einige andere Teile des Kurses. Dennoch ist es hilfreich, die Grundlagen von Cascade-Ebenen zu kennen, falls Sie diesen in Ihren Projekten begegnen. Je mehr Sie mit CSS arbeiten, desto mehr wird das Verständnis von Cascade-Ebenen und das Wissen, wie man ihre Kraft nutzt, Ihnen helfen, viele Schwierigkeiten beim Verwalten eines Code-Basises mit CSS von verschiedenen Parteien, Plugins und Entwicklungsteams zu vermeiden.
 
@@ -46,7 +46,7 @@ Das 'C' in CSS steht für "Cascading". Dies ist die Methode, durch die Stile zus
 2. **Wichtigkeit:** Sortieren Sie die Regeln basierend darauf, ob sie normal oder wichtig sind. Wichtige Stile sind diejenigen, die das [`!important`](/de/docs/Web/CSS/Reference/Values/important)-Flag gesetzt haben.
 3. **Ursprung:** Sortieren Sie innerhalb jedes der beiden Wichtigkeits-Buckets die Regeln nach Herkunft von Autor, Benutzer oder Benutzeragent.
 4. **Cascade-Ebenen:** Sortieren Sie innerhalb jedes der sechs Ursprungs-Wichtigkeits-Buckets nach Cascade-Ebene. Die Schichtreihenfolge für normale Deklarationen geht von der zuerst erstellten Ebene zur letzten, gefolgt von nicht geschichteten normalen Stilen. Diese Reihenfolge ist für wichtige Stile invertiert, wobei nicht geschichtete wichtige Stile die niedrigste Priorität haben.
-5. **Spezifität:** Sortieren Sie Deklarationen nach [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) für konkurrierende Stile in der Ursprungs-Ebene mit Vorrang.
+5. **Spezifität:** Sortieren Sie Deklarationen nach [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) für konkurrierende Stile in der Ursprungs-Ebene mit Vorrang.
 6. **Scope-Nähe:** Wenn zwei Selektoren in der Ursprungs-Ebene mit Vorrang die gleiche Spezifität haben, gewinnt der Eigenschaftswert innerhalb des geschachtelten Regelbereichs mit der geringsten Anzahl von Hops in der DOM-Hierarchie zur Scope-Wurzel. Weitere Details und ein Beispiel finden Sie unter [Wie `@scope`-Konflikte gelöst werden](/de/docs/Web/CSS/Reference/At-rules/@scope#how_scope_conflicts_are_resolved).
 7. **Reihenfolge des Erscheinens:** Wenn zwei Selektoren in der Ursprungs-Ebene mit Vorrang die gleiche Spezifität und Scopenähe haben, gewinnt der Eigenschaftswert vom zuletzt deklarierten Selektor mit der höchsten Spezifität.
 
@@ -54,7 +54,7 @@ Für jeden Schritt bewegen sich nur die Deklarationen "im Rennen" zu ihrer "Konk
 
 ### Ursprung und Cascade
 
-Es gibt drei [Cascade-Ursprungstypen](/de/docs/Web/CSS/CSS_cascade/Cascade#origin_types): Benutzeragent-Stylesheets, Benutzer-Stylesheets und Autor-Stylesheets. Der Browser sortiert jede Deklaration in sechs Ursprungs-Buckets nach Ursprung und Wichtigkeit. Es gibt acht Ebenen der Priorität: die sechs Ursprungs-Buckets, Eigenschaften, die sich im Übergang befinden, und Eigenschaften, die animiert werden. Die Reihenfolge der Priorität reicht von normalen Benutzeragent-Stilen, die die niedrigste Priorität haben, über Stile in aktuell angewendeten Animationen, zu wichtigen Benutzeragent-Stilen und dann Stilen, die sich im Übergang befinden, die die höchste Priorität haben:
+Es gibt drei [Cascade-Ursprungstypen](/de/docs/Web/CSS/Guides/Cascade/Introduction#origin_types): Benutzeragent-Stylesheets, Benutzer-Stylesheets und Autor-Stylesheets. Der Browser sortiert jede Deklaration in sechs Ursprungs-Buckets nach Ursprung und Wichtigkeit. Es gibt acht Ebenen der Priorität: die sechs Ursprungs-Buckets, Eigenschaften, die sich im Übergang befinden, und Eigenschaften, die animiert werden. Die Reihenfolge der Priorität reicht von normalen Benutzeragent-Stilen, die die niedrigste Priorität haben, über Stile in aktuell angewendeten Animationen, zu wichtigen Benutzeragent-Stilen und dann Stilen, die sich im Übergang befinden, die die höchste Priorität haben:
 
 1. normale Benutzeragent-Stile
 2. normale Benutzer-Stile
@@ -69,9 +69,9 @@ Der "Benutzeragent" ist der Browser. Der "Benutzer" ist der Seitenbesucher. Der 
 
 ### Ursprung und Spezifität
 
-Für jede Eigenschaft ist die "gewinnende" Deklaration diejenige aus dem Ursprung mit Priorität, basierend auf dem Gewicht (normal oder wichtig). Wenn man die Schichten vorerst ignoriert, wird der Wert aus dem Ursprung mit der höchsten Priorität angewendet. Wenn der gewinnende Ursprung mehr als eine Eigenschaftsdeklaration für ein Element hat, wird die [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) der Selektoren für diese konkurrierenden Eigenschaftswerte verglichen. Die Spezifität wird niemals zwischen Selektoren aus verschiedenen Ursprüngen verglichen.
+Für jede Eigenschaft ist die "gewinnende" Deklaration diejenige aus dem Ursprung mit Priorität, basierend auf dem Gewicht (normal oder wichtig). Wenn man die Schichten vorerst ignoriert, wird der Wert aus dem Ursprung mit der höchsten Priorität angewendet. Wenn der gewinnende Ursprung mehr als eine Eigenschaftsdeklaration für ein Element hat, wird die [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) der Selektoren für diese konkurrierenden Eigenschaftswerte verglichen. Die Spezifität wird niemals zwischen Selektoren aus verschiedenen Ursprüngen verglichen.
 
-Im folgenden Beispiel gibt es zwei Links. Der erste hat keine Autor-Stile angewendet, sodass nur Benutzeragent-Stile (und Ihre persönlichen Benutzer-Stile, falls vorhanden) angewendet werden. Der zweite Link hat [`text-decoration`](/de/docs/Web/CSS/Reference/Properties/text-decoration) und [`color`](/de/docs/Web/CSS/Reference/Properties/color), die durch Autor-Stile gesetzt sind, obwohl der Selektor im Autor-Stylesheet eine Spezifität von [`0-0-0`](/de/docs/Web/CSS/CSS_cascade/Specificity#selector_weight_categories) hat. Der Grund, warum Autor-Stile "gewinnen", liegt daran, dass, wenn es Konflikte aus verschiedenen Ursprüngen gibt, die Regeln aus dem Ursprung mit Priorität angewendet werden, unabhängig von der Spezifität im Ursprung, der keine Priorität hat.
+Im folgenden Beispiel gibt es zwei Links. Der erste hat keine Autor-Stile angewendet, sodass nur Benutzeragent-Stile (und Ihre persönlichen Benutzer-Stile, falls vorhanden) angewendet werden. Der zweite Link hat [`text-decoration`](/de/docs/Web/CSS/Reference/Properties/text-decoration) und [`color`](/de/docs/Web/CSS/Reference/Properties/color), die durch Autor-Stile gesetzt sind, obwohl der Selektor im Autor-Stylesheet eine Spezifität von [`0-0-0`](/de/docs/Web/CSS/Guides/Cascade/Specificity#selector_weight_categories) hat. Der Grund, warum Autor-Stile "gewinnen", liegt daran, dass, wenn es Konflikte aus verschiedenen Ursprüngen gibt, die Regeln aus dem Ursprung mit Priorität angewendet werden, unabhängig von der Spezifität im Ursprung, der keine Priorität hat.
 
 ```html live-sample___basic-cascade
 <p><a href="https://example.org">User agent styles</a></p>
@@ -87,7 +87,7 @@ Im folgenden Beispiel gibt es zwei Links. Der erste hat keine Autor-Stile angewe
 
 {{EmbedLiveSample("basic-cascade")}}
 
-Der "konkurrierende" Selektor im Benutzeragent-Stylesheet zum Zeitpunkt des Schreibens ist `a:any-link`, der ein Spezifitätsgewicht von `0-1-1` hat. Obwohl dies größer ist als der `0-0-0` Selektor im Autor-Stylesheet, spielt es keine Rolle: Die Spezifitätsgewichte aus dem Autor- und Benutzeragent-Ursprung werden niemals verglichen. Erfahren Sie mehr darüber, [wie das Spezifitätsgewicht berechnet wird](/de/docs/Web/CSS/CSS_cascade/Specificity#how_is_specificity_calculated).
+Der "konkurrierende" Selektor im Benutzeragent-Stylesheet zum Zeitpunkt des Schreibens ist `a:any-link`, der ein Spezifitätsgewicht von `0-1-1` hat. Obwohl dies größer ist als der `0-0-0` Selektor im Autor-Stylesheet, spielt es keine Rolle: Die Spezifitätsgewichte aus dem Autor- und Benutzeragent-Ursprung werden niemals verglichen. Erfahren Sie mehr darüber, [wie das Spezifitätsgewicht berechnet wird](/de/docs/Web/CSS/Guides/Cascade/Specificity#how_is_specificity_calculated).
 
 Ursprungsvorrang gewinnt immer über die Selektor-Spezifität. Wenn eine Element-Eigenschaft mit einer normalen Stil-Deklaration in mehreren Ursprüngen gestylt wird, überschreibt das Autor-Stylesheet immer die redundanten normalen Eigenschaften, die in einem Benutzer- oder Benutzeragent-Stylesheet deklariert sind. Wenn der Stil wichtig ist, wird das Benutzeragent-Stylesheet immer über Autor- und Benutzer-Stile gewinnen. Die Vorrangigkeit des Cascade-Ursprungs sorgt dafür, dass Spezifitätskonflikte zwischen Ursprüngen niemals auftreten.
 
@@ -264,7 +264,7 @@ Versuchen Sie, die letzte Zeile `@layer site, page;` zu verschieben, um sie zur 
 
 #### Schichtenerstellung und Medienabfragen
 
-Wenn Sie eine Schicht mit [Medien](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)- oder [Feature-](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries)-Abfragen definieren und das Medium nicht übereinstimmt oder das Feature nicht unterstützt wird, wird die Schicht nicht erstellt. Das folgende Beispiel zeigt, wie sich die Schichtenreihenfolge durch das Ändern der Größe Ihres Geräts oder Browsers ändern kann. In diesem Beispiel erstellen wir die `site`-Schicht nur in größeren Browsern. Danach weisen wir die Stile den `page`- und `site`-Ebenen in dieser Reihenfolge zu.
+Wenn Sie eine Schicht mit [Medien](/de/docs/Web/CSS/Guides/Media_queries/Using)- oder [Feature-](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries)-Abfragen definieren und das Medium nicht übereinstimmt oder das Feature nicht unterstützt wird, wird die Schicht nicht erstellt. Das folgende Beispiel zeigt, wie sich die Schichtenreihenfolge durch das Ändern der Größe Ihres Geräts oder Browsers ändern kann. In diesem Beispiel erstellen wir die `site`-Schicht nur in größeren Browsern. Danach weisen wir die Stile den `page`- und `site`-Ebenen in dieser Reihenfolge zu.
 
 ```html live-sample___media-order
 <h1>Is this heading underlined?</h1>
@@ -315,7 +315,7 @@ Sie können mehr als eine CSS-Datei in eine einzelne Ebene importieren. Die folg
 @import "sm-icons.css" layer(social);
 ```
 
-Sie können Stile importieren und Ebenen basierend auf spezifischen Bedingungen unter Verwendung von [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) und [Featureabfragen](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries) erstellen. Das folgende Beispiel importiert ein Stylesheet in eine `international`-Ebene nur, wenn der Browser `display: ruby` unterstützt und die importierte Datei von der Bildschirmbreite abhängt.
+Sie können Stile importieren und Ebenen basierend auf spezifischen Bedingungen unter Verwendung von [Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries/Using) und [Featureabfragen](/de/docs/Web/CSS/Guides/Conditional_rules/Using_feature_queries) erstellen. Das folgende Beispiel importiert ein Stylesheet in eine `international`-Ebene nur, wenn der Browser `display: ruby` unterstützt und die importierte Datei von der Bildschirmbreite abhängt.
 
 ```css
 @import "ruby-narrow.css" layer(international) supports(display: ruby)

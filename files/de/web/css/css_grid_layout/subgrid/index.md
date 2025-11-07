@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
 ---
 
-Das [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul enthält einen `subgrid`-Wert für {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}}. Dieser Leitfaden erklärt, was Subgrid macht, und bietet einige Anwendungsfälle und Designmuster, die durch diese Funktion gelöst werden.
+Das [CSS Grid Layout](/de/docs/Web/CSS/Guides/Grid_layout) Modul enthält einen `subgrid`-Wert für {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}}. Dieser Leitfaden erklärt, was Subgrid macht, und bietet einige Anwendungsfälle und Designmuster, die durch diese Funktion gelöst werden.
 
 ## Einführung in Subgrid
 
@@ -15,7 +15,7 @@ Sie können Grids "verschachteln", indem Sie ein Grid-Element zu einem Grid-Cont
 
 Wenn Sie den Wert `subgrid` bei `grid-template-columns`, `grid-template-rows` oder beidem festlegen, wird anstelle einer neuen Track-Liste das verschachtelte Grid die Tracks verwenden, die auf dem Elterngrid definiert sind.
 
-Zum Beispiel: Wenn Sie `grid-template-columns: subgrid` verwenden und das verschachtelte Grid drei Spaltentracks des Elterngrid überspannt, wird das verschachtelte Grid über drei Spaltentracks der gleichen Größe wie das Elterngrid verfügen. Während [Abstände](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#gutters) geerbt werden, können sie mit einem anderen {{cssxref("gap")}}-Wert überschrieben werden. [Liniennamen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) können vom Elterngrid an das Subgrid übergeben werden, und das Subgrid kann auch seine eigenen Liniennamen deklarieren.
+Zum Beispiel: Wenn Sie `grid-template-columns: subgrid` verwenden und das verschachtelte Grid drei Spaltentracks des Elterngrid überspannt, wird das verschachtelte Grid über drei Spaltentracks der gleichen Größe wie das Elterngrid verfügen. Während [Abstände](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts#gutters) geerbt werden, können sie mit einem anderen {{cssxref("gap")}}-Wert überschrieben werden. [Liniennamen](/de/docs/Web/CSS/Guides/Grid_layout/Named_grid_lines) können vom Elterngrid an das Subgrid übergeben werden, und das Subgrid kann auch seine eigenen Liniennamen deklarieren.
 
 ## Subgrid für Spalten
 
@@ -408,7 +408,7 @@ Wenn Sie dies in Ihrem Developer-Tools-Grid-Inspector prüfen, werden Sie festst
 
 ## Benannte Linien im Grid
 
-Wenn Sie CSS Grid verwenden, können Sie [Linien auf Ihrem Grid benennen](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_named_grid_lines) und dann Elemente basierend auf diesen Namen anstatt der Linienneummer positionieren. Die Liniennamen auf dem Elterngrid werden in das Subgrid übergeben, und Sie können Elemente mit ihnen platzieren. Im Beispiel unten werden die benannten Linien des Elterngrid `col-start` und `col-end` verwendet, um das Subitem zu platzieren.
+Wenn Sie CSS Grid verwenden, können Sie [Linien auf Ihrem Grid benennen](/de/docs/Web/CSS/Guides/Grid_layout/Named_grid_lines) und dann Elemente basierend auf diesen Namen anstatt der Linienneummer positionieren. Die Liniennamen auf dem Elterngrid werden in das Subgrid übergeben, und Sie können Elemente mit ihnen platzieren. Im Beispiel unten werden die benannten Linien des Elterngrid `col-start` und `col-end` verwendet, um das Subitem zu platzieren.
 
 ```html live-sample___line-names
 <div class="grid">

@@ -19,7 +19,7 @@ Für Elemente mit einem Inline-Formatierungskontext:
 
 > "In einem Inline-Formatierungskontext werden Boxen horizontal nacheinander layoutet, beginnend am oberen Rand eines umgebenden Blocks. Horizontale Ränder, Rahmen und Abstände werden zwischen diesen Boxen berücksichtigt. Die Boxen können auf verschiedene Weise vertikal ausgerichtet werden: ihre Unterseiten oder Oberseiten können ausgerichtet werden, oder die Grundlinien des Textes innerhalb von ihnen können ausgerichtet werden. Der rechteckige Bereich, der die Boxen, die eine Zeile bilden, enthält, wird als Linienbox bezeichnet." - 9.4.2
 
-Beachten Sie, dass die CSS 2.1-Spezifikation Dokumente als in einem horizontalen, von oben nach unten verlaufenden Schreibmodus beschreibt. Zum Beispiel, indem sie den vertikalen Abstand zwischen Block-Boxen beschreibt. Das Verhalten bei Block- und Inline-Elementen ist im vertikalen Schreibmodus dasselbe; wir erkunden dies in unserem [Leitfaden zu Flusslayout und Schreibmodi](/de/docs/Web/CSS/CSS_display/Flow_layout_and_writing_modes).
+Beachten Sie, dass die CSS 2.1-Spezifikation Dokumente als in einem horizontalen, von oben nach unten verlaufenden Schreibmodus beschreibt. Zum Beispiel, indem sie den vertikalen Abstand zwischen Block-Boxen beschreibt. Das Verhalten bei Block- und Inline-Elementen ist im vertikalen Schreibmodus dasselbe; wir erkunden dies in unserem [Leitfaden zu Flusslayout und Schreibmodi](/de/docs/Web/CSS/Guides/Display/Flow_layout_and_writing_modes).
 
 ## Elemente, die an einem Block-Formatierungskontext teilnehmen
 
@@ -152,7 +152,7 @@ p {
 
 {{EmbedLiveSample("normal-flow-collapsing", "", "230px")}}
 
-Sie können mehr über Rand-Kollaps in unserem Artikel [Mastering Margin Collapsing](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) lesen.
+Sie können mehr über Rand-Kollaps in unserem Artikel [Mastering Margin Collapsing](/de/docs/Web/CSS/Guides/Box_model/Margin_collapsing) lesen.
 
 > [!NOTE]
 > Wenn Sie sich nicht sicher sind, ob Ränder kollabieren, überprüfen Sie die Box-Modell-Werte in den DevTools Ihres Browsers. Dies gibt Ihnen die tatsächliche Größe des Randes an und kann Ihnen helfen, zu identifizieren, was passiert.
@@ -195,7 +195,7 @@ strong {
 
 {{EmbedLiveSample("line-box")}}
 
-Erfahren Sie mehr darüber, wie Block- und Inline-Boxen in unserem Leitfaden zum [visuellen Formatierungsmodell](/de/docs/Web/CSS/CSS_display/Visual_formatting_model) funktionieren.
+Erfahren Sie mehr darüber, wie Block- und Inline-Boxen in unserem Leitfaden zum [visuellen Formatierungsmodell](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model) funktionieren.
 
 ## Die display-Eigenschaft und Flusslayout
 
@@ -259,7 +259,7 @@ In diesem Leitfaden haben wir untersucht, wie Elemente im normalen Fluss als Blo
 
 ## Siehe auch
 
-- [CSS Basis-Boxmodell](/de/docs/Web/CSS/CSS_box_model)
+- [CSS Basis-Boxmodell](/de/docs/Web/CSS/Guides/Box_model)
 - [Lernen: Normaler Fluss](/de/docs/Learn_web_development/Core/CSS_layout/Introduction#normal_layout_flow)
 - {{Glossary("Inline-level_content", "Inline-Level-Elemente")}}
 - {{Glossary("Block-level_content", "Block-Level-Elemente")}}

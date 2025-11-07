@@ -1,11 +1,11 @@
 ---
-title: Typselektoren
+title: Typ-Selektoren
 slug: Web/CSS/Reference/Selectors/Type_selectors
 l10n:
-  sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Der CSS-**Typselektor** stimmt mit Elementen anhand des Knotennamens überein. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
+Der CSS **Typ-Selektor** wählt Elemente anhand des Knotennamens aus. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
 
 ```css
 /* All <a> elements. */
@@ -14,11 +14,11 @@ a {
 }
 ```
 
-Typselektoren können namespaced werden, wenn {{CSSXref("@namespace")}} verwendet wird. Dies ist nützlich bei Dokumenten, die mehrere Namespaces enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
+Typ-Selektoren können mit Namespaces versehen werden, wenn {{CSSXref("@namespace")}} verwendet wird. Dies ist nützlich, wenn man mit Dokumenten arbeitet, die mehrere Namespaces wie HTML mit eingebettetem SVG oder MathML enthalten, oder XML, das mehrere Vokabulare mischt.
 
-- `ns|h1` - entspricht `<h1>`-Elementen im Namespace _ns_
-- `*|h1` - entspricht allen `<h1>`-Elementen
-- `|h1` - entspricht allen `<h1>`-Elementen ohne deklarierten Namespace
+- `ns|h1` - wählt `<h1>`-Elemente im Namespace _ns_
+- `*|h1` - wählt alle `<h1>`-Elemente
+- `|h1` - wählt alle `<h1>`-Elemente ohne einen deklarierten Namespace
 
 ## Syntax
 
@@ -50,7 +50,7 @@ span {
 
 ### Namespaces
 
-In diesem Beispiel wird der Selektor nur `<h1>`-Elemente im Beispiel-Namespace übereinstimmen.
+In diesem Beispiel wird der Selektor nur `<h1>`-Elemente im Beispiel-Namespace auswählen.
 
 ```css
 @namespace example url("http://www.example.com/");
@@ -69,5 +69,5 @@ example|h1 {
 
 ## Siehe auch
 
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors)
 - [CSS lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

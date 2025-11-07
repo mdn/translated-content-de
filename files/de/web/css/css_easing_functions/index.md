@@ -38,11 +38,11 @@ Alternativ möchten Sie vielleicht, dass sich eine Animation in deutlichen Schri
 
 ## Verwandte Konzepte
 
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) Modul
+- [CSS-Animationen](/de/docs/Web/CSS/Guides/Animations) Modul
   - {{cssxref("animation-timing-function")}}
   - {{cssxref("animation")}} Kurzform
 
-- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) Modul
+- [CSS-Übergänge](/de/docs/Web/CSS/Guides/Transitions) Modul
   - {{cssxref("transition-timing-function")}}
   - {{cssxref("transition")}} Kurzform
 

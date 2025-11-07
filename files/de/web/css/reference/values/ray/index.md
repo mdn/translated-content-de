@@ -2,10 +2,10 @@
 title: ray()
 slug: Web/CSS/Reference/Values/ray
 l10n:
-  sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`ray()`**-Funktion definiert das Liniensegment des [`offset-path`](/de/docs/Web/CSS/Reference/Properties/offset-path), dem ein animiertes Element folgen kann. Das Liniensegment wird als "ray" bezeichnet. Der Ray beginnt von einer {{cssxref("offset-position")}} und erstreckt sich in die Richtung des angegebenen Winkels. Die Länge eines Rays kann durch Angabe einer Größe und Verwendung des `contain`-Schlüsselworts begrenzt werden.
+Die **`ray()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/Reference/Values/Functions) definiert das Liniensegment des [`offset-path`](/de/docs/Web/CSS/Reference/Properties/offset-path), das ein animiertes Element verfolgen kann. Das Liniensegment wird als "Ray" bezeichnet. Der Ray beginnt von einer {{cssxref("offset-position")}} und erstreckt sich in die Richtung des angegebenen Winkels. Die Länge eines Rays kann durch die Angabe einer Größe und die Verwendung des `contain`-Schlüsselworts begrenzt werden.
 
 ## Syntax
 
@@ -25,35 +25,38 @@ offset-path: ray(45deg);
 Die Parameter können in beliebiger Reihenfolge angegeben werden.
 
 - [`<angle>`](/de/docs/Web/CSS/Reference/Values/angle)
-  - : Gibt die Richtung an, in die sich das Liniensegment von der Offset-Ausgangsposition erstreckt. Der Winkel `0deg` liegt auf der y-Achse, die nach oben zeigt, und positive Winkel nehmen im Uhrzeigersinn zu.
+
+  - : Gibt die Richtung an, in die sich das Liniensegment von der Offset-Startposition aus erstreckt. Der Winkel `0deg` liegt auf der y-Achse nach oben zeigend, und positive Winkel nehmen im Uhrzeigersinn zu.
 
 - `<size>`
-  - : Gibt die Länge des Liniensegments an, das die Distanz zwischen {{cssxref("offset-distance")}} `0%` und `100%` relativ zum Begrenzungskasten ist. Dies ist ein optionaler Parameter (`closest-side` wird verwendet, wenn keine `<size>` angegeben ist). Es akzeptiert einen der folgenden Schlüsselwortwerte:
 
-    `closest-side`: Entfernung zwischen dem Startpunkt des Rays und der nächsten Seite des [Containing Block](/de/docs/Web/CSS/CSS_display/Containing_block) des Elements. Liegt der Startpunkt des Rays auf einem Rand des Containing Blocks, ist die Länge des Liniensegments null. Befindet sich der Startpunkt des Rays außerhalb des Containing Blocks, wird angenommen, dass sich der Rand des Containing Blocks bis ins Unendliche erstreckt. Dies ist der Standardwert.
+  - : Gibt die Länge des Liniensegments an, das den Abstand zwischen {{cssxref("offset-distance")}} `0%` und `100%` relativ zur umgebenden Box darstellt. Dies ist ein optionaler Parameter (`closest-side` wird verwendet, wenn keine `<size>` angegeben ist). Es akzeptiert einen der folgenden Schlüsselwortwerte:
 
-    `closest-corner`: Entfernung zwischen dem Startpunkt des Rays und der nächsten Ecke im Containing Block des Elements. Liegt der Startpunkt des Rays auf einer Ecke des Containing Blocks, ist die Länge des Liniensegments null.
+    `closest-side`: Abstand zwischen dem Startpunkt des Rays und der nächsten Seite des [enthältenden Block](/de/docs/Web/CSS/Guides/Display/Containing_block) des Elements. Liegt der Startpunkt des Rays auf einem Rand des enthältenden Blocks, ist die Länge des Liniensegments null. Liegt der Startpunkt des Rays außerhalb des enthältenden Blocks, wird der Rand des enthältenden Blocks als unendlich angesehen. Dies ist der Standardwert.
 
-    `farthest-side`: Entfernung zwischen dem Startpunkt des Rays und der am weitesten entfernten Seite des Containing Blocks des Elements. Befindet sich der Startpunkt des Rays außerhalb des Containing Blocks, wird angenommen, dass sich der Rand des Containing Blocks bis ins Unendliche erstreckt.
+    `closest-corner`: Abstand zwischen dem Startpunkt des Rays und der nächsten Ecke im enthältenden Block des Elements. Liegt der Startpunkt des Rays auf einer Ecke des enthältenden Blocks, ist die Länge des Liniensegments null.
 
-    `farthest-corner`: Entfernung zwischen dem Startpunkt des Rays und der am weitesten entfernten Ecke im Containing Block des Elements.
+    `farthest-side`: Abstand zwischen dem Startpunkt des Rays und der am weitesten entfernten Seite des enthältenden Blocks des Elements. Liegt der Startpunkt des Rays außerhalb des enthältenden Blocks, wird der Rand des enthältenden Blocks als unendlich angesehen.
 
-    `sides`: Entfernung zwischen dem Startpunkt des Rays und dem Punkt, an dem das Liniensegment die Grenze des Containing Blocks schneidet. Befindet sich der Startpunkt auf oder außerhalb der Grenze des Containing Blocks, ist die Länge des Liniensegments null.
+    `farthest-corner`: Abstand zwischen dem Startpunkt des Rays und der am weitesten entfernten Ecke im enthältenden Block des Elements.
+
+    `sides`: Abstand zwischen dem Startpunkt des Rays und dem Punkt, an dem das Liniensegment die Begrenzung des enthältenden Blocks schneidet. Befindet sich der Startpunkt auf oder außerhalb der Begrenzung des enthältenden Blocks, ist die Länge des Liniensegments null.
 
 - `contain`
-  - : Reduziert die Länge des Liniensegments, sodass das Element auch bei `offset-distance: 100%` innerhalb des Containing Blocks bleibt. Insbesondere wird die Länge des Segments um die Hälfte der Breite oder Höhe des Umrandungsrechtecks des Elements reduziert, je nachdem, welcher Wert größer ist, und nie weniger als null. Dies ist ein optionaler Parameter.
+
+  - : Reduziert die Länge des Liniensegments, damit das Element auch bei `offset-distance: 100%` innerhalb des enthältenden Blocks bleibt. Insbesondere wird die Länge des Segments um die Hälfte der Breite oder die Hälfte der Höhe der Border-Box des Elements reduziert, je nachdem, welches größer ist, und niemals weniger als null. Dies ist ein optionaler Parameter.
 
 - `at <position>`
-  - : Gibt den Punkt an, an dem der Ray beginnt und wo das Element in seinem Containing Block platziert ist. Dies ist ein optionaler Parameter. Wenn eingeschlossen, muss der `<position>`-Wert durch das `at`-Schlüsselwort vorangestellt werden. Wenn weggelassen, wird der `offset-position`-Wert des Elements verwendet. Wenn weggelassen und das Element keinen `offset-position`-Wert hat, wird der für die Startposition des Rays verwendete Wert `offset-position: normal` sein, der das Element im Zentrum (oder `50% 50%`) des Containing Blocks platziert.
+  - : Gibt den Punkt an, an dem der Ray beginnt und an dem das Element im enthältenden Block platziert wird. Dies ist ein optionaler Parameter. Wenn er enthalten ist, muss der `<position>`-Wert durch das `at` Schlüsselwort vorangestellt werden. Wenn er weggelassen wird, wird der Wert der `offset-position` des Elements verwendet. Wenn er weggelassen wird und das Element keinen `offset-position`-Wert hat, wird `offset-position: normal` verwendet, wodurch das Element in der Mitte (oder `50% 50%`) des enthältenden Blocks platziert wird.
 
 ## Beschreibung
 
-Die `ray()`-Funktion positioniert ein Element entlang eines Pfades, indem es seinen Ort in einem zweidimensionalen Raum durch einen Winkel und eine Entfernung von einem Referenzpunkt angibt (Polarkoordinaten). Diese Funktion macht die `ray()`-Funktion nützlich für die Erstellung von 2D-Raumübergängen. Zum Vergleich unterscheidet sich dieser Ansatz von der Methode, einen Punkt durch seine horizontalen und vertikalen Abstände von einem festen Ursprung anzugeben (Rechteckkoordinaten), die von der {{cssxref("translate","translate()")}}-Funktion verwendet wird, und von der Bewegung eines Elements entlang eines definierten Pfades durch Animation.
+Die Funktion `ray()` positioniert ein Element entlang eines Pfades, indem sie seine Position in einem zweidimensionalen Raum durch einen Winkel und einen Abstand von einem Referenzpunkt (polare Koordinaten) angibt. Diese Funktionalität macht die `ray()`-Funktion nützlich für die Erstellung von 2D-Räumlichen Übergängen. Zum Vergleich: Dieser Ansatz unterscheidet sich von der Methode, bei der ein Punkt durch seine horizontalen und vertikalen Abstände von einem festen Ursprungspunkt (rechtwinklige Koordinaten) angegeben wird, die von der {{cssxref("translate","translate()")}}-Funktion verwendet wird, und von der Verschiebung eines Elements entlang eines definierten Pfades durch Animation.
 
-Da `ray()` im 2D-Raum arbeitet, ist es wichtig, sowohl die Anfangsposition als auch die Ausrichtung des Elements zu berücksichtigen. Wenn die `ray()`-Funktion als `offset-path`-Wert auf ein Element angewendet wird, können Sie diese Aspekte wie folgt steuern:
+Da `ray()` im 2D-Raum arbeitet, ist es wichtig, sowohl die anfängliche Position als auch die Orientierung des Elements zu berücksichtigen. Wenn die Funktion `ray()` als `offset-path`-Wert auf ein Element angewendet wird, können Sie diese Aspekte wie folgt steuern:
 
-- Das Element wird zunächst positioniert, indem der [`offset-anchor`](/de/docs/Web/CSS/Reference/Properties/offset-anchor)-Punkt des Elements zur Ausgangsposition des Offset verschoben wird. Standardmäßig wird die Startposition des Rays durch den {{cssxref("offset-position")}}-Wert bestimmt. Wenn `offset-position` explizit als `normal` angegeben wird (oder weggelassen und auf `normal` zurückgesetzt wird), wird das Element im `center` (oder `50% 50%`) seines Containing Blocks positioniert. Wird `offset-position: auto` angegeben, wird die Startposition in der oberen linken Ecke (`0 0`) der Position des Elements festgelegt.
-- Das Element wird zunächst so gedreht, dass seine [Inline-Achse](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout#the_two_axes_of_a_grid_layout) — seine Textflussrichtung — mit dem von `ray()` angegebenen Winkel übereinstimmt. Zum Beispiel wird bei einem `ray()`-Winkel von `0deg`, der auf der y-Achse nach oben zeigt, die Inline-Achse des Elements so gedreht, dass sie vertikal mit dem Winkel des Rays übereinstimmt. Das Element behält diese Rotation während seines Pfades bei. Um dieses Verhalten anzupassen, verwenden Sie die {{cssxref("offset-rotate")}}-Eigenschaft, die es Ihnen ermöglicht, einen anderen Rotationswinkel oder eine andere Richtung für das Element anzugeben und somit eine genauere Kontrolle über sein Erscheinungsbild zu ermöglichen, während es dem Pfad folgt. Zum Beispiel wird durch Setzen von `offset-rotate: 0deg` jegliche von `ray()` angewendete Rotation entfernt, die Inline-Achse des Elements wieder mit der Textflussrichtung ausgerichtet.
+- Das Element wird zunächst positioniert, indem der [`offset-anchor`](/de/docs/Web/CSS/Reference/Properties/offset-anchor)-Punkt des Elements zur Offset-Startposition des Elements verschoben wird. Standardmäßig wird die Startposition des Rays durch den {{cssxref("offset-position")}} Wert bestimmt. Wenn `offset-position` explizit als `normal` angegeben ist (oder weggelassen und erlaubt ist, auf `normal` zurückzufallen), wird das Element in der `center` (oder `50% 50%`) seines enthältenden Blocks positioniert. Wenn `offset-position: auto` angegeben ist, wird die Startposition auf der linken oberen Ecke (`0 0`) der Elementposition festgelegt.
+- Das Element wird zunächst so gedreht, dass seine [Inline-Achse](/de/docs/Web/CSS/Guides/Grid_layout/Box_alignment#the_two_axes_of_a_grid_layout) — also die Richtung des Textflusses — mit dem durch `ray()` angegebenen Winkel übereinstimmt. Beispielsweise wird bei einem `ray()`-Winkel von `0deg`, der auf der y-Achse nach oben zeigt, die Inline-Achse des Elements vertikal gedreht, um den Winkel des Rays zu treffen. Das Element behält diese Rotation entlang seines Pfades bei. Um dieses Verhalten anzupassen, verwenden Sie die {{cssxref("offset-rotate")}}-Eigenschaft, die es Ihnen ermöglicht, einen anderen Rotationswinkel oder eine andere Richtung für das Element festzulegen und so eine präzisere Kontrolle über sein Erscheinungsbild während des Pfadverlaufs zu erhalten. Wenn Sie beispielsweise `offset-rotate: 0deg` einstellen, wird jede von `ray()` angewendete Rotation aufgehoben, sodass die Inline-Achse des Elements wieder mit der Richtung des Textflusses übereinstimmt.
 
 ## Formale Syntax
 
@@ -61,9 +64,9 @@ Da `ray()` im 2D-Raum arbeitet, ist es wichtig, sowohl die Anfangsposition als a
 
 ## Beispiele
 
-### Definieren des Winkels und der Startposition für einen Ray
+### Den Winkel und die Startposition für einen Ray definieren
 
-Dieses Beispiel zeigt, wie man mit der Startposition eines Elements arbeitet und wie die Ausrichtung des Elements durch den angegebenen Winkel des Rays beeinflusst wird.
+Dieses Beispiel zeigt, wie man mit der Startposition eines Elements arbeitet und wie die Orientierung des Elements durch den angegebenen Ray-Winkel beeinflusst wird.
 
 #### CSS
 
@@ -188,27 +191,27 @@ pre {
 </div>
 ```
 
-Ähnlich wie {{cssxref("transform-origin")}} liegt der Standardankerpunkt in der Mitte eines Elements. Dieser Ankerpunkt kann mit der [`offset-anchor`](/de/docs/Web/CSS/Reference/Properties/offset-anchor)-Eigenschaft modifiziert werden.
+Ähnlich wie bei {{cssxref("transform-origin")}} befindet sich der Standardverankerungspunkt in der Mitte eines Elements. Dieser Verankerungspunkt kann über die [`offset-anchor`](/de/docs/Web/CSS/Reference/Properties/offset-anchor)-Eigenschaft modifiziert werden.
 
-In diesem Beispiel werden verschiedenen Kästchen mit den Nummern `1` bis `5` `offset-path: ray()`-Werte zugewiesen. Der "Containing Block" jedes Kästchens wird mit einer gestrichelten Grenze dargestellt. Ein verblasstes Kästchen in der oberen linken Ecke zeigt die Standardposition jedes Kästchens ohne angewendetes `offset-position` oder `offset-path`, um einen direkten Vergleich zu ermöglichen. Die Oberseite jedes Kästchens ist mit einer `solid` Grenze hervorgehoben, um Abweichungen in den Startpunkten und Ausrichtungen des Rays zu veranschaulichen. Nachdem das Kästchen am Startpunkt des Rays positioniert ist, richtet es sich in die Richtung des angegebenen Ray-Winkels aus. Wenn {{cssxref("offset-position")}} nicht spezifiziert ist, ist die Standard-Offset-Startposition des Rays das Zentrum (oder `50% 50%`) des Containing Blocks des Kästchens.
+In diesem Beispiel werden verschiedene `offset-path: ray()`-Werte auf die Boxen `1` bis `5` angewendet. Der "enthältende Block" jeder Box wird durch eine gestrichelte Grenze dargestellt. Eine verblasste Box in der oberen linken Ecke zeigt die Standardposition jeder Box ohne angewendete `offset-position` oder `offset-path`, was einen Vergleich nebeneinander ermöglicht. Der obere Rand jeder Box ist mit einer `soliden` Linie hervorgehoben, um Variationen in den Ray-Startpunkten und Ausrichtungen zu veranschaulichen. Nach dem Positionieren am Startpunkt des Rays richtet sich eine Box in die Richtung des angegebenen Ray-Winkels aus. Wenn {{cssxref("offset-position")}} nicht angegeben ist, ist die Standard-Offset-Startposition des Rays die Mitte (oder `50% 50%`) des enthältenden Blocks der Box.
 
 #### Ergebnis
 
-{{EmbedLiveSample('Giving an angle to the ray', '100%', 1100)}}
+{{EmbedLiveSample('Defining the angle to the ray', '100%', 1100)}}
 
-- `box1` wird so initial positioniert, dass sein Ankerpunkt (seine Mitte) an der Standard-Offset-Startposition (`50% 50%` des Containing Block) liegt. `box1` wird ebenfalls gedreht, um es in Richtung des `0deg`-Winkels des Rays auszurichten. Dies wird nun der Startpunkt des Pfades sein. Sie können die Änderung der Position und Rotation des Kästchens beobachten, indem Sie es mit dem verblassten `box0` auf der linken Seite vergleichen. Das Kästchen wird gedreht, um den `0deg`-Winkel entlang der y-Achse, der nach oben zeigt, auszurichten. Die Box-Rotation ist deutlich anhand der Orientierung der Zahl im Inneren des Kästchens zu erkennen.
+- `box1` wird zunächst so positioniert, dass sich ihr Ankerpunkt (ihre Mitte) an der Standard-Offset-Startposition befindet (`50% 50%` des enthältenden Blocks). `box1` wird auch gedreht, um sich in Richtung des `0deg` Winkels des Rays auszurichten. Dies ist nun der Startpunkt des Pfades. Sie können die Änderung der Position und Drehung der Box beobachten, indem Sie sie mit der verblassten `box0` links vergleichen. Die Box wird gedreht, um den `0deg`-Winkel entlang der y-Achse zu treffen, der nach oben zeigt. Die Boxdrehung ist aus der Ausrichtung der Zahl im Inneren der Box ersichtlich.
 
-- In `box2` wird ein größerer positiver Winkel von `150deg` auf den Ray angewendet, um zu zeigen, wie der Ray-Winkel funktioniert. Ausgehend von der oberen linken Ecke wird das Kästchen im Uhrzeigersinn gedreht, um den angegebenen Winkel von `150deg` zu erreichen.
+- Bei `box2` wird ein größerer positiver Winkel von `150deg` auf den Ray angewendet, um zu zeigen, wie der Ray-Winkel funktioniert. Ausgehend von der oberen linken Ecke wird die Box im Uhrzeigersinn gedreht, um den festgelegten Winkel von `150deg` zu erreichen.
 
-- `box2` und `box3` haben die gleichen `offset-path`-Werte. In `box3` wird zusätzlich ein [`offset-rotate`](/de/docs/Web/CSS/Reference/Properties/offset-rotate) von `0deg` auf das Element angewendet. Dadurch bleibt das Element entlang des Pfades in diesem spezifischen Winkel gedreht und wird sich nicht in Richtung des Pfades drehen. Beachten Sie in `box3`, dass der Ray-Pfad auf `150deg` liegt, aber die Box-Orientierung sich entlang des Pfades nicht ändert aufgrund von `offset-rotate`. Außerdem beachten Sie, dass die `offset-path`-Eigenschaft von `box3` keine anfängliche `<position>` angibt, sodass die Startposition des Rays von der `offset-position` des Elements abgeleitet wird, die in diesem Fall `top 20% left 40%` ist.
+- `box2` und `box3` haben die gleichen `offset-path`-Werte. In `box3` wird außerdem ein [`offset-rotate`](/de/docs/Web/CSS/Reference/Properties/offset-rotate) von `0deg` auf das Element angewendet. Infolgedessen bleibt das Element entlang des Ray-Pfads in diesem spezifischen Winkel gedreht, und das Element wird sich nicht in Richtung des Pfads drehen. Beachten Sie in `box3`, dass der Ray-Pfad bei `150deg` liegt, aber die Orientierung der Box sich entlang des Pfades nicht ändert, weil `offset-rotate angewendet ist`. Beachten Sie auch, dass die `offset-path`-Eigenschaft von `box3` keine Start-`<position>` spezifiziert, sodass die Startposition des Rays aus der `offset-position` des Elements abgeleitet wird, die in diesem Fall `top 20% left 40%` beträgt.
 
-- Die `offset-position` von `box4` ist auf die obere linke Ecke (`0 0`) des Containing Blocks gesetzt, und als Ergebnis fallen der Ankerpunkt des Elements und die Offset-Startposition zusammen. Der Ray-Winkel von `0deg` wird auf das Element an diesem Startpunkt angewendet.
+- Die `offset-position` von `box4` ist auf die obere linke Ecke (`0 0`) des enthältenden Blocks gesetzt, und als Ergebnis fallen der Ankerpunkt des Elements und die Offset-Startposition zusammen. Der Ray-Winkel von `0deg` wird an diesem Startpunkt auf das Element angewendet.
 
-- In `box5` gibt die `offset-path`-Eigenschaft den `at <position>`-Wert an, der die Box an der `bottom` und `right` Kante des Containing Blocks des Elements platziert, und es wird ein Winkel von `60deg` auf den Ray angewendet.
+- In `box5` spezifiziert die `offset-path`-Eigenschaft den Wert `at <position>`, der die Box am `bottom` und `right` Rand des enthältenden Blocks des Elements platziert, und `60deg` wird auf den Ray-Winkel angewendet.
 
-### Animation eines Elements entlang des Rays
+### Ein Element entlang des Rays animieren
 
-In diesem Beispiel wird die erste Form als Referenz für ihre Position und Ausrichtung gezeigt. Ein Ray-Bewegungspfad ist auf die anderen Formen angewendet.
+In diesem Beispiel wird das erste Shape als Referenz für seine Position und Orientierung gezeigt. Ein Ray-Bewegungspfad wird auf die anderen Shapes angewendet.
 
 #### CSS
 
@@ -322,9 +325,9 @@ offset-rotate: 0deg;
 
 #### Ergebnis
 
-{{EmbedLiveSample('Animating an element along the ray', '100%', 750)}}
+{{EmbedLiveSample('Animieren eines Elements entlang des Strahls', '100%', 750)}}
 
-In den ersten beiden Beispiel, in denen `offset-path` angewendet wird, beachten Sie die Ausrichtung der Form ohne {{cssxref("offset-rotate")}} und mit `offset-rotate`. Beide diese Beispiele verwenden den Standardwert `normal` von {{cssxref("offset-position")}}, und daher beginnt die Pfadbewegung bei `50% 50%`. Die letzten beiden `offset-path`-Beispiele zeigen den Einfluss von `<size>`-Eckwerten: `closest-corner` und `farthest-corner`. Der `closest-corner`-Wert erzeugt einen sehr kurzen Offset-Pfad, da die Form bereits an der Ecke (`offset-position: auto`) ist. Der `farthest-corner`-Wert erzeugt den längsten Offset-Pfad, der von der oberen linken Ecke des Containing Blocks zur unteren rechten Ecke führt.
+In den ersten beiden Beispielen, in denen `offset-path` angewendet wird, beachten Sie die Orientierung des Shapes ohne {{cssxref("offset-rotate")}} und mit `offset-rotate`. Beide diese Beispiele verwenden den Standard-{{cssxref("offset-position")}}-Wert `normal`, und daher beginnt die Pfadbewegung von `50% 50%`. Die letzten beiden `offset-path`-Beispiele zeigen die Auswirkungen von Eck-`<size>`-Werten: `closest-corner` und `farthest-corner`. Der `closest-corner`-Wert erzeugt einen sehr kurzen Offset-Pfad, da das Shape bereits an der Ecke ist (`offset-position: auto`). Der `farthest-corner`-Wert erzeugt den längsten Offset-Pfad, der von der oberen linken Ecke des enthältenden Blocks bis zur unteren rechten Ecke reicht.
 
 ## Spezifikationen
 

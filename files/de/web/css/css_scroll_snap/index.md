@@ -288,9 +288,9 @@ Um Scroll-Snapping mit regulärem Scrollen zu vergleichen, aktivieren Sie die Ch
 
 ## Leitfäden
 
-- [Grundlegende Konzepte von CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap/Basic_concepts)
+- [Grundlegende Konzepte von CSS scroll snap](/de/docs/Web/CSS/Guides/Scroll_snap/Basic_concepts)
   - : Ein Überblick und Beispiele zu den Funktionen von CSS scroll snap.
-- [Verwendung von Scroll-Snap-Ereignissen](/de/docs/Web/CSS/CSS_scroll_snap/Using_scroll_snap_events)
+- [Verwendung von Scroll-Snap-Ereignissen](/de/docs/Web/CSS/Guides/Scroll_snap/Using_scroll_snap_events)
   - : Ein Leitfaden zur Verwendung der [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event) und [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event) Scroll-Snap-Ereignisse, die ausgelöst werden, wenn der Browser feststellt, dass ein neues Schnappziel ansteht oder ausgewählt wurde.
 
 ## Verwandte Konzepte
@@ -312,9 +312,9 @@ Um Scroll-Snapping mit regulärem Scrollen zu vergleichen, aktivieren Sie die Ch
 
 ## Siehe auch
 
-- [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS scrollbars styling](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
-- [CSS scroll anchoring](/de/docs/Web/CSS/CSS_scroll_anchoring) Modul
+- [CSS overflow](/de/docs/Web/CSS/Guides/Overflow) Modul
+- [CSS scrollbars styling](/de/docs/Web/CSS/Guides/Scrollbars_styling) Modul
+- [CSS scroll anchoring](/de/docs/Web/CSS/Guides/Scroll_anchoring) Modul
 - [Nur mit Tastatur steuerbare Scrollbereiche](https://adrianroselli.com/2022/06/keyboard-only-scrolling-areas.html) auf adrianroselli.com (2022)
 - [Scroll-Snap-Beispiele](https://codepen.io/collection/KpqBGW) auf CodePen (2022)
 - [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2021)

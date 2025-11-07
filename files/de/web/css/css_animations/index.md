@@ -266,7 +266,7 @@ Alle Animationen, auch solche mit 0 Sekunden Dauer, lösen Animationsereignisse 
 
 ## Leitfäden
 
-- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/Guides/Animations/Using)
   - : Schritt-für-Schritt-Anleitung zur Erstellung von Animationen mit CSS. Dieser Artikel beschreibt die animationbezogenen CSS-Eigenschaften und At-Regeln und wie sie miteinander interagieren.
 - [Verwendung der Web Animations API](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API)
   - : Häufige Animationsanforderungen, die mit wenigen Zeilen JavaScript gelöst werden können.
@@ -284,7 +284,7 @@ Alle Animationen, auch solche mit 0 Sekunden Dauer, lösen Animationsereignisse 
 
 ## Siehe auch
 
-- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) Modul.
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/Guides/Scroll-driven_animations) Modul.
 - Eigenschaften im CSS-Transitions-Modul, um Animationen basierend auf Benutzeraktionen auszulösen.
 - Die {{cssxref("interpolate-size")}} Eigenschaft und {{cssxref("calc-size()")}} Funktion, um Animationen zu und von {{Glossary("Intrinsic_Size", "intrinsischen Größenwerten")}} zu ermöglichen.
 - Das {{htmlelement("canvas")}} HTML-Element zusammen mit der [Canvas API](/de/docs/Web/API/Canvas_API) und [WebGL API](/de/docs/Web/API/WebGL_API), um Grafiken und Animationen zu zeichnen.

@@ -2,10 +2,10 @@
 title: transition-property
 slug: Web/CSS/Reference/Properties/transition-property
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`transition-property`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die CSS-Eigenschaften fest, auf die ein [Übergangseffekt](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) angewendet werden soll.
+Die **`transition-property`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, auf welche CSS-Eigenschaften ein [Übergangseffekt](/de/docs/Web/CSS/Guides/Transitions/Using) angewendet werden soll.
 
 {{InteractiveExample("CSS Demo: transition-property")}}
 
@@ -49,7 +49,7 @@ transition-property: none;
 }
 ```
 
-Wenn Sie eine Kurzform-Eigenschaft (z. B. {{cssxref("background")}}) angeben, werden alle zugehörigen Langform-Teil-Eigenschaften, die animiert werden können, berücksichtigt.
+Wenn Sie eine Kurzschreibweise angeben (z.B. {{cssxref("background")}}), werden alle zugehörigen Langform-Eigenschaften, die animiert werden können, berücksichtigt.
 
 ## Syntax
 
@@ -82,9 +82,9 @@ transition-property: unset;
 ### Werte
 
 - `none`
-  - : Es werden keine Eigenschaften übertragen.
+  - : Es werden keine Eigenschaften übergangen.
 - `all`
-  - : Alle Eigenschaften, die übertragen werden können, werden es sein.
+  - : Alle Eigenschaften, die übergangen werden können, werden es.
 - {{cssxref("&lt;custom-ident&gt;")}}
   - : Ein String, der die Eigenschaft identifiziert, auf die ein Übergangseffekt angewendet werden soll, wenn sich ihr Wert ändert.
 
@@ -100,7 +100,7 @@ transition-property: unset;
 
 ### Einfaches Beispiel
 
-Wenn der Button fokussiert oder darauf gezeigt wird, erfolgt ein einsekündiger Farbübergang; die `transition-property` ist [`background-color`](/de/docs/Web/CSS/Reference/Properties/background-color).
+Beim Überfahren oder Fokussieren des Buttons erfolgt ein einsekündiger Farbübergang; die `transition-property` ist [`background-color`](/de/docs/Web/CSS/Reference/Properties/background-color).
 
 #### HTML
 
@@ -139,7 +139,7 @@ button {
 
 {{EmbedLiveSample('Basic_example', 600, 100)}}
 
-Siehe unseren [Leitfaden zur Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) für weitere Beispiele zur `transition-property`.
+Sehen Sie in unserem [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/Guides/Transitions/Using) Leitfaden weitere Beispiele für `transition-property`.
 
 ## Spezifikationen
 
@@ -151,7 +151,7 @@ Siehe unseren [Leitfaden zur Verwendung von CSS-Übergängen](/de/docs/Web/CSS/C
 
 ## Siehe auch
 
-- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/Guides/Transitions/Using)
 - {{cssxref('transition')}}
 - {{cssxref('transition-duration')}}
 - {{cssxref('transition-timing-function')}}

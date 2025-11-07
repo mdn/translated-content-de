@@ -31,7 +31,7 @@ Das Feld unten rechts enthält das CSS für das Element und alle `::before` oder
 
 ## Siehe auch
 
-- [Border-Image-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Border-image_generator)
+- [Border-Image-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-image_generator)
   - : Dieses interaktive Tool ermöglicht es Ihnen, Randbilder (die {{cssxref("border-image")}} Eigenschaft) visuell zu erstellen.
-- [Border-Radius-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Border-radius_generator)
+- [Border-Radius-Generator](/de/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-radius_generator)
   - : Dieses interaktive Tool ermöglicht es Ihnen, abgerundete Ecken (die {{cssxref("border-radius")}} Eigenschaft) visuell zu erstellen.

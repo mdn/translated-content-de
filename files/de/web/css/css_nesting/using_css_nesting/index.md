@@ -6,9 +6,9 @@ l10n:
   sourceCommit: c52ed787442db9d65b21f5c2874fa6bfd08a253a
 ---
 
-Das [CSS-Nesting-Modul](/de/docs/Web/CSS/CSS_nesting) ermöglicht es Ihnen, Ihre Stylesheets so zu schreiben, dass sie leichter lesbar, modularer und wartungsfreundlicher sind. Da Sie nicht ständig Selektoren wiederholen, kann auch die Dateigröße reduziert werden.
+Das [CSS-Nesting-Modul](/de/docs/Web/CSS/Guides/Nesting) ermöglicht es Ihnen, Ihre Stylesheets so zu schreiben, dass sie leichter lesbar, modularer und wartungsfreundlicher sind. Da Sie nicht ständig Selektoren wiederholen, kann auch die Dateigröße reduziert werden.
 
-CSS-Verschachtelung unterscheidet sich von CSS-Präprozessoren wie [Sass](https://sass-lang.com/), da sie vom Browser geparst wird und nicht von einem CSS-Präprozessor vorkompiliert wird. In CSS-Verschachtelung ist auch die [Spezifität des `&`-Verschachtelungsselektors](/de/docs/Web/CSS/CSS_nesting/Nesting_and_specificity) ähnlich der {{cssxref(':is', ':is()')}}-Funktion; sie wird unter Verwendung der höchsten Spezifität in der zugehörigen Selektorliste berechnet.
+CSS-Verschachtelung unterscheidet sich von CSS-Präprozessoren wie [Sass](https://sass-lang.com/), da sie vom Browser geparst wird und nicht von einem CSS-Präprozessor vorkompiliert wird. In CSS-Verschachtelung ist auch die [Spezifität des `&`-Verschachtelungsselektors](/de/docs/Web/CSS/Guides/Nesting/Nesting_and_specificity) ähnlich der {{cssxref(':is', ':is()')}}-Funktion; sie wird unter Verwendung der höchsten Spezifität in der zugehörigen Selektorliste berechnet.
 
 Dieser Leitfaden zeigt verschiedene Möglichkeiten zur Anordnung von Verschachtelungen in CSS.
 
@@ -188,7 +188,7 @@ h2 {
 
 ## Zusammengesetzte Selektoren
 
-Bei der Verwendung von [zusammengesetzten Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) in verschachteltem CSS **müssen** Sie den `&`-Verschachtelungsselektor verwenden. Dies liegt daran, dass der Browser automatisch Leerzeichen zwischen Selektoren einfügt, die den `&`-Verschachtelungsselektor nicht verwenden.
+Bei der Verwendung von [zusammengesetzten Selektoren](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#compound_selector) in verschachteltem CSS **müssen** Sie den `&`-Verschachtelungsselektor verwenden. Dies liegt daran, dass der Browser automatisch Leerzeichen zwischen Selektoren einfügt, die den `&`-Verschachtelungsselektor nicht verwenden.
 
 Um ein Element mit `class="a b"` anzusprechen, wird der `&`-Verschachtelungsselektor benötigt, da sonst das Leerzeichen den zusammengesetzten Selektor unterbricht.
 
@@ -242,7 +242,7 @@ In diesem Beispiel wird der `&`-Verschachtelungsselektor verwendet, um zusammeng
 
 ##### CSS
 
-Stile für die `.notices`, um eine Spalte unter Verwendung des [Flexbox-Layouts](/de/docs/Web/CSS/CSS_flexible_box_layout) zu erstellen.
+Stile für die `.notices`, um eine Spalte unter Verwendung des [Flexbox-Layouts](/de/docs/Web/CSS/Guides/Flexible_box_layout) zu erstellen.
 
 ```css
 .notices {
@@ -440,7 +440,7 @@ In CSS-Präprozessoren wie [Sass](https://sass-lang.com/) ist es möglich, Versc
 > [!WARNING]
 > Dies ist in CSS-Verschachtelung nicht möglich: Wenn ein [Kombinator](/de/docs/Learn_web_development/Core/Styling_basics/Combinators) nicht verwendet wird, wird der verschachtelte Selektor als [Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) behandelt. Eine Verkettung würde dies brechen.
 
-In [zusammengesetzten Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) muss der Typselektor zuerst kommen. Wenn `&Element` (ein [Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors)) geschrieben wird, wird der CSS-Selektor und der gesamte Selektorblock ungültig. Da der Typselektor zuerst kommen muss, muss der zusammengesetzte Selektor als `Element&` geschrieben werden.
+In [zusammengesetzten Selektoren](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#compound_selector) muss der Typselektor zuerst kommen. Wenn `&Element` (ein [Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors)) geschrieben wird, wird der CSS-Selektor und der gesamte Selektorblock ungültig. Da der Typselektor zuerst kommen muss, muss der zusammengesetzte Selektor als `Element&` geschrieben werden.
 
 ```css example-good
 .my-class {
@@ -475,9 +475,9 @@ Im folgenden Beispiel gibt es einen ungültigen Selektor (`%` ist kein gültiges
 
 ## Siehe auch
 
-- [CSS-Nesting-Modul](/de/docs/Web/CSS/CSS_nesting)
+- [CSS-Nesting-Modul](/de/docs/Web/CSS/Guides/Nesting)
 - [`&`-Verschachtelungsselektor](/de/docs/Web/CSS/Reference/Selectors/Nesting_selector)
-- [Verschachteln von `@`-Regeln](/de/docs/Web/CSS/CSS_nesting/Nesting_at-rules)
-- [Verschachtelung und Spezifität](/de/docs/Web/CSS/CSS_nesting/Nesting_and_specificity)
+- [Verschachteln von `@`-Regeln](/de/docs/Web/CSS/Guides/Nesting/At-rules)
+- [Verschachtelung und Spezifität](/de/docs/Web/CSS/Guides/Nesting/Nesting_and_specificity)
 - [`CSSNestedDeclarations`](/de/docs/Web/API/CSSNestedDeclarations)
 - [Die verschachtelte Deklarationsregel](https://drafts.csswg.org/css-nesting-1/#nested-declarations-rule)

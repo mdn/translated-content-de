@@ -19,13 +19,13 @@ Das CSS round display Modul führt die Eigenschaften `border-boundary` und `shap
 
 ## Leitfäden
 
-- [Medienabfragen verwenden](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Medienabfragen verwenden](/de/docs/Web/CSS/Guides/Media_queries/Using)
   - : Einführung in Medienabfragen, deren Syntax sowie die Operatoren und Medienfunktionen, die zur Konstruktion von Medienabfrageausdrücken verwendet werden.
 
-- [Übersicht über CSS-Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
+- [Übersicht über CSS-Formen](/de/docs/Web/CSS/Guides/Shapes/Overview)
   - : Definiert grundlegende Formen und wie man diese mit Entwicklerwerkzeugen debuggen kann.
 
-- [Umgebungsvariablen verwenden](/de/docs/Web/CSS/CSS_environment_variables/Using_environment_variables)
+- [Umgebungsvariablen verwenden](/de/docs/Web/CSS/Guides/Environment_variables/Using)
   - : Überblick darüber, was Umgebungsvariablen sind, browserdefinierte Umgebungsvariablen und wie die `env()`-Funktion verwendet wird.
 
 ## Verwandte Konzepte
@@ -44,6 +44,6 @@ Das CSS round display Modul führt die Eigenschaften `border-boundary` und `shap
 
 - {{cssxref("basic-shape")}} Datentyp
 - {{cssxref("shape-outside")}} Eigenschaft
-- [CSS-Formen](/de/docs/Web/CSS/CSS_shapes) Modul
-- [CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) Modul
-- [CSS-Umgebungsvariablen](/de/docs/Web/CSS/CSS_environment_variables) Modul
+- [CSS-Formen](/de/docs/Web/CSS/Guides/Shapes) Modul
+- [CSS-Medienabfragen](/de/docs/Web/CSS/Guides/Media_queries) Modul
+- [CSS-Umgebungsvariablen](/de/docs/Web/CSS/Guides/Environment_variables) Modul

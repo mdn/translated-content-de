@@ -20,7 +20,7 @@ Wenn wir eine Reihe von Elementen haben, die wir horizontal anzeigen möchten, k
 
 ### Platz außerhalb der Elemente verteilt
 
-Um den Platz zwischen oder um die Elemente zu verteilen, verwenden wir die Ausrichtungs-Eigenschaften in Flexbox und die {{cssxref("justify-content")}}-Eigenschaft. Mehr darüber können Sie im Abschnitt [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container) lesen, der sich mit der Ausrichtung von Elementen auf der Hauptachse befasst.
+Um den Platz zwischen oder um die Elemente zu verteilen, verwenden wir die Ausrichtungs-Eigenschaften in Flexbox und die {{cssxref("justify-content")}}-Eigenschaft. Mehr darüber können Sie im Abschnitt [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items) lesen, der sich mit der Ausrichtung von Elementen auf der Hauptachse befasst.
 
 In diesem Beispiel zeigen wir die Elemente in ihrer natürlichen Größe an und verwenden `justify-content: space-between`, um die Elemente gleichmäßig zu verteilen. Sie können ändern, wie der Platz verteilt wird, indem Sie die Werte `space-around` oder `space-evenly` verwenden. Sie könnten auch `start` verwenden, um den Platz am Ende der Elemente zu platzieren, `end`, um ihn davor zu platzieren, oder `center`, um die Navigationselemente zu zentrieren.
 
@@ -63,7 +63,7 @@ nav ul {
 
 ### Platz innerhalb der Elemente verteilt
 
-Ein anderes Muster für Navigation wäre es, den verfügbaren Platz innerhalb der Elemente selbst zu verteilen, anstatt Platz zwischen ihnen zu schaffen. Mit den {{cssxref("flex")}}-Eigenschaften können Elemente proportional zueinander wachsen und schrumpfen, wie in [Steuerung der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis) beschrieben.
+Ein anderes Muster für Navigation wäre es, den verfügbaren Platz innerhalb der Elemente selbst zu verteilen, anstatt Platz zwischen ihnen zu schaffen. Mit den {{cssxref("flex")}}-Eigenschaften können Elemente proportional zueinander wachsen und schrumpfen, wie in [Steuerung der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios) beschrieben.
 
 Wenn Sie die Größen-Eigenschaft Ihrer Navigationselemente respektieren, aber den verfügbaren Platz gleichmäßig unter ihnen aufteilen möchten, könnten Sie `flex: auto` verwenden, was die Kurzform für `flex: 1 1 auto` ist — alle Elemente wachsen und schrumpfen von einer Flex-Grundlage von `auto`. Das würde bedeuten, dass das längere Element mehr Platz hätte, da es von einer größeren Größe aus startet, selbst wenn ihm der gleiche verfügbare Raum wie den anderen zugewiesen wird.
 
@@ -110,7 +110,7 @@ nav li {
 
 ## Geteilte Navigation
 
-Eine andere Möglichkeit, Elemente auf der Hauptachse auszurichten, besteht darin, automatische Ränder zu verwenden. Das ermöglicht ein Designmuster einer Navigationsleiste, bei der eine Gruppe von Elementen links und eine andere rechts ausgerichtet ist. Hier verwenden wir die Technik der automatischen Ränder, wie im Abschnitt [Verwendung von automatischen Rändern zur Ausrichtung auf der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container#using_auto_margins_for_main_axis_alignment) beschrieben.
+Eine andere Möglichkeit, Elemente auf der Hauptachse auszurichten, besteht darin, automatische Ränder zu verwenden. Das ermöglicht ein Designmuster einer Navigationsleiste, bei der eine Gruppe von Elementen links und eine andere rechts ausgerichtet ist. Hier verwenden wir die Technik der automatischen Ränder, wie im Abschnitt [Verwendung von automatischen Rändern zur Ausrichtung auf der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items#using_auto_margins_for_main_axis_alignment) beschrieben.
 
 Die Elemente sind auf der Hauptachse mit `normal` ausgerichtet, was sich wie `start` verhält, da dies das Initialverhalten von Flexbox ist. Mit der [`gap`](/de/docs/Web/CSS/Reference/Properties/gap)-Eigenschaft werden die Abstände zwischen den Elementen erzeugt. Und wir richten das letzte Element durch Zuweisung eines `margin-left`-Werts von `auto` nach rechts aus. Sie können die Klasse von einem Element zu einem anderen verschieben, um zu ändern, wo die Teilung stattfindet.
 
@@ -187,7 +187,7 @@ Klicken Sie auf **"Play"** und versuchen Sie, die Ausrichtung zu ändern, beispi
 
 {{EmbedLiveSample("center", "", "320px")}}
 
-Mit den Eigenschaften der [CSS Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) können Sie ein Element innerhalb eines anderen auch ohne Flexbox vertikal zentrieren. Im obigen Beispiel versuchen Sie, die Flex-Eigenschaften aus dem Container zu entfernen und `align-content: center` hinzuzufügen. Fügen Sie dann `margin: auto` zu dem Element hinzu, das Sie horizontal zentrieren möchten.
+Mit den Eigenschaften der [CSS Box-Ausrichtung](/de/docs/Web/CSS/Guides/Box_alignment) können Sie ein Element innerhalb eines anderen auch ohne Flexbox vertikal zentrieren. Im obigen Beispiel versuchen Sie, die Flex-Eigenschaften aus dem Container zu entfernen und `align-content: center` hinzuzufügen. Fügen Sie dann `margin: auto` zu dem Element hinzu, das Sie horizontal zentrieren möchten.
 
 ## Kartenlayout mit nach unten gedrücktem Footer
 
@@ -313,7 +313,7 @@ Sie könnten auch beide Seiten proportional wachsen und schrumpfen lassen. Wenn 
 }
 ```
 
-Sie könnten auch jeder Seite unterschiedliche {{cssxref("flex-grow")}}-Faktoren geben, z.B. die Seite mit dem Bild auf `flex: 1` und die Inhaltsseite auf `flex: 3` setzen. Dies bedeutet, dass sie eine `flex-basis` von `0` verwenden, aber diesen Raum mit unterschiedlichen Raten gemäß dem zugewiesenen `flex-grow`-Faktor verteilen. Die Flex-Eigenschaften, die wir dafür verwenden, werden im Leitfaden [Steuerung der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis) ausführlich beschrieben.
+Sie könnten auch jeder Seite unterschiedliche {{cssxref("flex-grow")}}-Faktoren geben, z.B. die Seite mit dem Bild auf `flex: 1` und die Inhaltsseite auf `flex: 3` setzen. Dies bedeutet, dass sie eine `flex-basis` von `0` verwenden, aber diesen Raum mit unterschiedlichen Raten gemäß dem zugewiesenen `flex-grow`-Faktor verteilen. Die Flex-Eigenschaften, die wir dafür verwenden, werden im Leitfaden [Steuerung der Verhältnisse von Flex-Elementen entlang der Hauptachse](/de/docs/Web/CSS/Guides/Flexible_box_layout/Controlling_flex_item_ratios) ausführlich beschrieben.
 
 ```css
 .media .content {

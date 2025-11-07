@@ -2,10 +2,10 @@
 title: z-index
 slug: Web/CSS/Reference/Properties/z-index
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`z-index`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Z-Reihenfolge eines [positionierten](/de/docs/Web/CSS/Reference/Properties/position) Elements und seiner Nachkommen oder Flex- und Grid-Items fest. Überlappende Elemente mit einem höheren z-index verdecken diejenigen mit einem kleineren.
+Die **`z-index`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Z-Reihenfolge eines [positionierten](/de/docs/Web/CSS/Reference/Properties/position) Elements und seiner Nachfahren oder Flex- und Grid-Elemente fest. Überlappende Elemente mit einem größeren z-index überdecken diejenigen mit einem kleineren.
 
 {{InteractiveExample("CSS Demo: z-index")}}
 
@@ -120,10 +120,10 @@ z-index: 7;
 }
 ```
 
-Für ein positioniertes Box-Element (d.h. eines mit einer anderen `position` als `static`) legt die `z-index` Eigenschaft fest:
+Für ein positioniertes Feld (also eines mit einer `position`, die nicht `static` ist) gibt die `z-index` Eigenschaft Folgendes an:
 
-1. Die Stapelreihenfolge der Box im aktuellen [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context).
-2. Ob die Box einen lokalen Stacking-Kontext etabliert.
+1. Die Stapel-Ebene des Feldes im aktuellen [Stacking-Kontext](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context).
+2. Ob das Feld einen lokalen Stacking-Kontext erstellt.
 
 ## Syntax
 
@@ -145,14 +145,14 @@ z-index: revert-layer;
 z-index: unset;
 ```
 
-Die `z-index` Eigenschaft wird entweder als Schlüsselwort `auto` oder als `<integer>` angegeben.
+Die `z-index` Eigenschaft wird entweder als das Schlüsselwort `auto` oder als `<integer>` angegeben.
 
 ### Werte
 
 - `auto`
-  - : Die Box etabliert keinen neuen lokalen Stacking-Kontext. Die Stapelreihenfolge der generierten Box im aktuellen Stacking-Kontext ist `0`.
+  - : Das Feld erstellt keinen neuen lokalen Stacking-Kontext. Die Stapel-Ebene des generierten Feldes im aktuellen Stacking-Kontext ist `0`.
 - `<integer>`
-  - : Dieses {{cssxref("&lt;integer&gt;")}} ist die Stapelreihenfolge der generierten Box im aktuellen Stacking-Kontext. Die Box etabliert auch einen lokalen Stacking-Kontext. Das bedeutet, dass die z-indexes der Nachkommen nicht mit denen von Elementen außerhalb dieses Elements verglichen werden.
+  - : Dieses {{cssxref("&lt;integer&gt;")}} ist die Stapel-Ebene des generierten Feldes im aktuellen Stacking-Kontext. Das Feld erstellt auch einen lokalen Stacking-Kontext. Dies bedeutet, dass die z-indexe der Nachfahren nicht mit den z-indexen der Elemente außerhalb dieses Elements verglichen werden.
 
 ## Formale Definition
 
@@ -226,4 +226,4 @@ Die `z-index` Eigenschaft wird entweder als Schlüsselwort `auto` oder als `<int
 ## Siehe auch
 
 - CSS {{Cssxref("position")}} Eigenschaft
-- [Verständnis von CSS z-indexes](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
+- [Verständnis von CSS z-indexes](/de/docs/Web/CSS/Guides/Positioned_layout/Understanding_z-index)

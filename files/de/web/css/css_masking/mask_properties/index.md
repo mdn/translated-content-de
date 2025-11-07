@@ -7,7 +7,7 @@ l10n:
 
 CSS-Maskierung ist eine Technik, die es Ihnen ermöglicht, sichtbare Teile eines Elements durch Anwenden einer Maske zu definieren. Dies ermöglicht selektives Offenlegen oder Verbergen von Teilen des Elements basierend auf den Alphakanälen und optional den Farben der angewendeten Maskenbilder.
 
-Der [Einführungsleitfaden zur Maskierung](/de/docs/Web/CSS/CSS_masking) stellt die verschiedenen Arten von Maskenbildern und ihre Modi vor. Der Leitfaden zum [Deklarieren mehrerer Masken](/de/docs/Web/CSS/CSS_masking/Multiple_masks) erörtert die [Maskenschichten](/de/docs/Web/CSS/CSS_masking/Multiple_masks#understanding_mask_layers) und die {{cssxref("mask")}} Kurzschreibweise und bietet eine kurze Einführung in die Komponenten dieser Kurzschreibweise. In diesem Leitfaden erkunden wir diese Komponenteneigenschaften im Detail und schauen, wie sie zusammenwirken. Wir erklären auch, wie bei der Deklaration mehrerer Maskenbilder die [Maskenschichten kombiniert werden](#the_mask-composite_property), oder kombiniert.
+Der [Einführungsleitfaden zur Maskierung](/de/docs/Web/CSS/Guides/Masking) stellt die verschiedenen Arten von Maskenbildern und ihre Modi vor. Der Leitfaden zum [Deklarieren mehrerer Masken](/de/docs/Web/CSS/Guides/Masking/Multiple_masks) erörtert die [Maskenschichten](/de/docs/Web/CSS/Guides/Masking/Multiple_masks#understanding_mask_layers) und die {{cssxref("mask")}} Kurzschreibweise und bietet eine kurze Einführung in die Komponenten dieser Kurzschreibweise. In diesem Leitfaden erkunden wir diese Komponenteneigenschaften im Detail und schauen, wie sie zusammenwirken. Wir erklären auch, wie bei der Deklaration mehrerer Maskenbilder die [Maskenschichten kombiniert werden](#the_mask-composite_property), oder kombiniert.
 
 CSS-Masken bestehen aus einer oder mehreren Maskenschichten, wobei für jeden Wert in der kommagetrennten Liste von `mask` oder `mask-image` Werten eine Maskenschicht erstellt wird, ganz gleich, ob die Werte Bilder, Maskenquellen oder das Schlüsselwort `none` sind. Jedes {{cssxref("mask-image")}} wird relativ zu einer [Ursprungsbox](#the_mask-origin_property) [positioniert](#the_mask-position_property). Die Maskenbilder können [skaliert](#the_mask-size_property), [wiederholt](#the_mask-repeat_property) und [beschnitten](#the_mask-clip_property) werden, und dann zusammen mit vorherigen Schichten kombiniert werden, um die endgültige visuelle Maske auf dem Element zu erstellen.
 
@@ -15,7 +15,7 @@ CSS-Masken bestehen aus einer oder mehreren Maskenschichten, wobei für jeden We
 
 Die Mindestanforderung, um eine Maske zu erstellen, ist eine {{cssxref("mask-image")}} Eigenschaft, die auf einen Wert ungleich `none` eingestellt ist. Das Schlüsselwort `none` innerhalb einer Liste von Maskenquellen erstellt eine Maskenschicht. Wenn `none` jedoch der einzige Wert der `mask-image` Eigenschaft ist, erfolgt keine Maskierung.
 
-Das Maskenbild kann ein [CSS-Verlauf](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients), ein [importiertes Bild](/de/docs/Web/CSS/CSS_masking/Masking#with_imported_images) (wie ein PNG, SVG usw.) oder ein SVG {{svgelement("mask")}} Element sein.
+Das Maskenbild kann ein [CSS-Verlauf](/de/docs/Web/CSS/Guides/Images/Using_gradients), ein [importiertes Bild](/de/docs/Web/CSS/Guides/Masking/Introduction#with_imported_images) (wie ein PNG, SVG usw.) oder ein SVG {{svgelement("mask")}} Element sein.
 
 In diesem Beispiel erstellen wir fünf Maskenschichten, darunter ein importiertes Bild, zwei Verläufe, eine Schicht ohne Bild und eine SVG `<mask>` Quelle als Maskenbild.
 
@@ -52,7 +52,7 @@ Wenn eine `mask-*` Eigenschaft einen einzelnen Wert hat, wird dieser Wert auf al
 
 In diesem Fall wird jede ungerade Schicht entlang der x-Achse wiederholt, während jede gerade Schicht entlang der y-Achse wiederholt wird. Die Bilder der ersten und vierten Schicht werden zentriert, während die der zweiten und fünften in der oberen linken Ecke positioniert werden. Das `none` bedeutet, dass das Bild der fünften Schicht `#svg-mask` entlang der x-Achse ab der oberen linken Ecke wiederholt wird.
 
-Erfahren Sie mehr über [Maskenschichten und das `none` Schlüsselwort](/de/docs/Web/CSS/CSS_masking/Multiple_masks#mask_layers_and_the_none_keyword).
+Erfahren Sie mehr über [Maskenschichten und das `none` Schlüsselwort](/de/docs/Web/CSS/Guides/Masking/Multiple_masks#mask_layers_and_the_none_keyword).
 
 ## Die `mask-mode` Eigenschaft
 
@@ -64,7 +64,7 @@ Jede Maske ist entweder eine `alpha`- oder `luminance`-Maske.
 
 Bei `alpha`-Masken ist die Alphatransparenz jedes Maskenpixels wichtig. Wo immer die Maske undurchsichtig ist, sind die entsprechenden Teile des Elements sichtbar. Wo die Maske transparent ist, werden die entsprechenden Teile des Elements verborgen. Wo die Maske halbtransparent ist, ist das Element genauso halbtransparent. Die Farbe der Maske spielt keine Rolle, nur die Alphatransparenz der Farben.
 
-Bei `luminance`-Masken bestimmen sowohl die [Helligkeit der Maskenfarben](/de/docs/Web/CSS/CSS_masking/Masking#alpha_transparency_versus_luminance) als auch der Alphakanal die Deckkraft der maskierten Bereiche.
+Bei `luminance`-Masken bestimmen sowohl die [Helligkeit der Maskenfarben](/de/docs/Web/CSS/Guides/Masking/Introduction#alpha_transparency_versus_luminance) als auch der Alphakanal die Deckkraft der maskierten Bereiche.
 
 > [!NOTE]
 > Alle folgenden Beispiele verwenden das folgende Bild als `background-image` auf einem Element, auf das Masken angewendet werden:
@@ -148,7 +148,7 @@ Wir setzen für jedes Bild unterschiedliche Werte für die `mask-mode` Eigenscha
 
 {{EmbedLiveSample("mode", "", "270px")}}
 
-Im `alpha`-Fall ist nur die Transparenz der Farben des Verlaufs wichtig. Wo der Verlauf undurchsichtig rot ist, ist das Bild undurchsichtig. Wo der Verlauf transparent ist, ist das Bild verborgen. Wo der Verlauf 50% undurchsichtig ist, ist das Bild 50% undurchsichtig. Im `luminance`-Fall spielt die Helligkeit der Farben eine Rolle! Sehen Sie unter [Alpha-Transparenz versus Luminanz](/de/docs/Web/CSS/CSS_masking/Masking#alpha_transparency_versus_luminance) mehr über die Gleichung, die die R, G, B und A Kanäle der Farbe verwendet, um die Opazität der Maske zu bestimmen.
+Im `alpha`-Fall ist nur die Transparenz der Farben des Verlaufs wichtig. Wo der Verlauf undurchsichtig rot ist, ist das Bild undurchsichtig. Wo der Verlauf transparent ist, ist das Bild verborgen. Wo der Verlauf 50% undurchsichtig ist, ist das Bild 50% undurchsichtig. Im `luminance`-Fall spielt die Helligkeit der Farben eine Rolle! Sehen Sie unter [Alpha-Transparenz versus Luminanz](/de/docs/Web/CSS/Guides/Masking/Introduction#alpha_transparency_versus_luminance) mehr über die Gleichung, die die R, G, B und A Kanäle der Farbe verwendet, um die Opazität der Maske zu bestimmen.
 
 ### Der Standardwert von `mask-mode`: `match-source`
 
@@ -182,7 +182,7 @@ Oder, mit der `mask` Kurzschreibweise:
 
 Die erste Maskenschicht, `url("alphaImage.png")`, referenziert ein Bild. Da dies kein `<mask>` Element innerhalb eines `<svg>` ist, wird der `mask-mode` zu `alpha` aufgelöst, wobei die undurchsichtigen Teile dieses Bildes die entsprechenden Teile des Elements sichtbar machen, während die transparenten oder halbtransparenten Teile unsichtbar oder teilweise sichtbar sind.
 
-Der `linear-gradient(to right, black, transparent)` ist die zweite Maskenschicht und `radial-gradient(circle, white 50%, transparent 75%)` ist die dritte. Auch hier sind dies keine `<mask>` Elemente, also wird der `match-source` Wert auf `alpha` aufgelöst. Der Maskierungseffekt dieser Schichten wird standardmäßig durch die [Opazität des Verlaufsmaskenbildes](/de/docs/Web/CSS/CSS_masking/Masking#opaqueness_versus_transparency) bestimmt.
+Der `linear-gradient(to right, black, transparent)` ist die zweite Maskenschicht und `radial-gradient(circle, white 50%, transparent 75%)` ist die dritte. Auch hier sind dies keine `<mask>` Elemente, also wird der `match-source` Wert auf `alpha` aufgelöst. Der Maskierungseffekt dieser Schichten wird standardmäßig durch die [Opazität des Verlaufsmaskenbildes](/de/docs/Web/CSS/Guides/Masking/Introduction#opaqueness_versus_transparency) bestimmt.
 
 Die vierte Maskenschicht hat `none` deklariert, was bedeutet, dass die Maske für diese Schicht transparentes Schwarz ist. Die `.masked-element` Klasse setzt `mask-mode: match-source;`. Wäre `mask-mode` stattdessen eine kommagetrennte Liste von fünf verschiedenen Werten gewesen, wäre der vierte Wert auf diese `none` Schicht angewendet worden, was den fünften Wert erlaubt hätte, auf die fünfte Schicht angewendet zu werden.
 
@@ -870,6 +870,6 @@ Wie wir bei allen anderen Komponenteneigenschaften gesehen haben, könnten wir d
 
 ## Siehe auch
 
-- [Einführung in CSS Maskierung](/de/docs/Web/CSS/CSS_masking/Masking)
-- [Einführung in CSS Clipping](/de/docs/Web/CSS/CSS_masking/Clipping)
-- [CSS Maskierung](/de/docs/Web/CSS/CSS_masking) Modul
+- [Einführung in CSS Maskierung](/de/docs/Web/CSS/Guides/Masking/Introduction)
+- [Einführung in CSS Clipping](/de/docs/Web/CSS/Guides/Masking/Clipping)
+- [CSS Maskierung](/de/docs/Web/CSS/Guides/Masking) Modul

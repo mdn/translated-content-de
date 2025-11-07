@@ -2,12 +2,12 @@
 title: reading-order
 slug: Web/CSS/Reference/Properties/reading-order
 l10n:
-  sourceCommit: 2d78abb3e793352e24e976ce0e68c08d817bd7f3
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{SeeCompatTable}}
 
-Die **`reading-order`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es, die Reihenfolge zu ändern, in der ein Kind eines {{Glossary("Reading_order#reading_flow_container", "Leseflusscontainers")}} relativ zu seinen Elementgeschwistern gelesen wird.
+Die **`reading-order`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es, die Reihenfolge zu ändern, in der ein Kind eines {{Glossary("Reading_order#reading_flow_container", "Lesefluss-Containers")}} relativ zu seinen Element-Geschwistern gelesen wird.
 
 ## Syntax
 
@@ -27,23 +27,23 @@ reading-order: unset;
 ### Wert
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Repräsentiert die Ordnungsgruppe, zu der das Element gehört.
+  - : Repräsentiert die ordinale Gruppe, zu der das Element gehört.
 
 ## Beschreibung
 
-Wenn ein Element's {{Glossary("Block/CSS", "Block")}}-, [Flex](/de/docs/Web/CSS/CSS_flexible_box_layout)- oder [Grid](/de/docs/Web/CSS/CSS_grid_layout)-Elterncontainer eine {{cssxref("reading-flow")}} Eigenschaft hat, die auf einen anderen Wert als `normal` gesetzt ist, kann die `reading-order` Eigenschaft verwendet werden, um die Position des Elements im {{Glossary("Reading_order#reading_flow", "Lesefluss")}} relativ zu der seiner Geschwister festzulegen.
+Wenn ein {{Glossary("Block/CSS", "Block")}}-, [Flex](/de/docs/Web/CSS/Guides/Flexible_box_layout) oder [Grid-](/de/docs/Web/CSS/Guides/Grid_layout) Elterncontainer eines Elements eine {{cssxref("reading-flow")}} Eigenschaft auf einen Wert ungleich `normal` gesetzt hat, kann die `reading-order` Eigenschaft verwendet werden, um die {{Glossary("Reading_order#reading_flow", "Lesefluss-")}} Position des Elements relativ zu seinen Geschwistern festzulegen.
 
-Für das Lesen und die Navigation werden Elemente innerhalb eines Block-, Flex- oder Grid-Containers nach aufsteigendem `reading-order`-Wert sortiert. Wenn mehrere Geschwister denselben `reading-order`-Wert haben, werden diese Elemente gemäß des `reading-flow` des Containers sortiert. Geschwister, denen kein expliziter `reading-order`-Wert zugewiesen wurde, erhalten den Standardwert `0`, was alle Kinder eines Leseflusscontainers von vornherein in derselben Ordnungsgruppe platziert.
+Für das Lesen und Navigieren werden Elemente innerhalb eines Block-, Flex- oder Grid-Containers nach aufsteigendem `reading-order`-Wert sortiert. Haben mehrere Geschwister denselben `reading-order`-Wert, werden diese Elemente gemäß dem `reading-flow` des Containers sortiert. Geschwister ohne expliziten `reading-order` Wert erhalten den Standardwert `0`, was alle Kinder eines Lesefluss-Containers standardmäßig in dieselbe ordinale Gruppe einordnet.
 
-Geschwisterelemente werden beginnend mit der niedrigsten Ordnungsgruppe bis zur höchsten geordnet. Um ein Element nach seinen Geschwistern lesen zu lassen, könnte man ihm einen `reading-order`-Wert von `1` oder mehr zuweisen. Um ein Element vor seinen Geschwistern lesen zu lassen, könnte man ihm einen `reading-order`-Wert von `-1` oder weniger zuweisen.
+Geschwisterelemente werden beginnend mit der niedrigsten nummerierten ordinalen Gruppe bis zur höchsten geordnet. Um ein Element nach seinen Geschwistern auslesen zu lassen, kann man ihm einen `reading-order`-Wert von `1` oder mehr zuweisen. Um ein Element vor seinen Geschwistern auslesen zu lassen, kann man ihm einen `reading-order`-Wert von `-1` oder weniger zuweisen.
 
-Der `reading-order` definiert die Lese- und Tab-Reihenfolge, hat jedoch keinen Einfluss auf die visuelle Reihenfolge.
+Der `reading-order` definiert die Lese- und Tab-Ordnung, hat aber keinen Einfluss auf die visuelle Ordnung.
 
 ### Interaktion mit `tabindex`
 
-Wenn eine Gruppe von Leseflusscontainer-Kindelementen, die normalerweise nicht fokussierbar sind, mit [`tabindex="0"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex) fokussierbar gemacht wird, wird ihre Leserichtung wie erwartet durch die Eigenschaften `reading-flow` und `reading-order` geändert, genauso wie bei interaktiven Elementen wie {{htmlelement("a")}} oder {{htmlelement("button")}}.
+Wenn eine Gruppe von nicht-fokussierbaren Kind-Elementen eines Lesefluss-Containers mit [`tabindex="0"`](/de/docs/Web/HTML/Reference/Global_attributes/tabindex)-Attributen fokussierbar gemacht wird, wird deren Leseordnung wie erwartet durch die Eigenschaften `reading-flow` und `reading-order` modifiziert, ähnlich wie bei interaktiven Elementen wie {{htmlelement("a")}} oder {{htmlelement("button")}}.
 
-Jedoch wird jeder Versuch, die Tab-Reihenfolge des Inhalts eines Leseflusscontainers mit positiven `tabindex`-Werten zu ändern, ignoriert — überschrieben durch die Effekte von `reading-flow` und `reading-order`. Sie sollten diese im Allgemeinen ohnehin nicht verwenden; siehe [Don't Use Tabindex Greater than 0](https://adrianroselli.com/2014/11/dont-use-tabindex-greater-than-0.html). Die Eigenschaften `reading-flow` und `reading-order` bieten eine weitaus bessere Möglichkeit, die Tab-Reihenfolge bei Bedarf zu ändern.
+Jedoch wird jeder Versuch, die Tab-Reihenfolge von Inhalten eines Lesefluss-Containers mithilfe positiver `tabindex`-Werte zu ändern, ignoriert — überschrieben durch die Effekte von `reading-flow` und `reading-order`. Sie sollten diese ohnehin generell nicht verwenden; siehe [Don't Use Tabindex Greater than 0](https://adrianroselli.com/2014/11/dont-use-tabindex-greater-than-0.html). Die Eigenschaften `reading-flow` und `reading-order` bieten einen weit besseren Weg, die Tab-Reihenfolge zu ändern, falls erforderlich.
 
 ## Formale Definition
 
@@ -53,11 +53,11 @@ Jedoch wird jeder Versuch, die Tab-Reihenfolge des Inhalts eines Leseflusscontai
 
 ### Grid-Reihenfolge
 
-Dieses Beispiel demonstriert die Verwendung von `reading-order`, um die Positionen einzelner Gitterelemente innerhalb der Lesereihenfolge eines Gittercontainers zu steuern. Ein Gitterelement hat einen `reading-order`-Wert, der niedriger ist als der Standardwert `0`, daher wird es vor seinen Geschwistern gelesen. Ein anderes hat einen höheren `reading-order`-Wert festgelegt, somit wird es nach den anderen gelesen, unabhängig von Quell- oder Anzeigereihenfolge.
+Dieses Beispiel demonstriert die Verwendung von `reading-order`, um die Positionen einzelner Gitterelemente innerhalb der Leseordnung eines Grid-Containers zu steuern. Ein Grid-Element hat einen `reading-order`-Wert, der niedriger als der Standardwert `0` ist, daher wird es vor seinen Geschwisterelementen ausgelesen. Ein anderes hat einen höheren `reading-order`-Wert, daher wird es nach den anderen ausgelesen, unabhängig von Quell- oder Anzeigereihenfolge.
 
 #### HTML
 
-In unserem Markup befinden sich sechs {{htmlelement("a")}} Elemente in einem umschließenden {{htmlelement("div")}}.
+In unserem Markup haben wir sechs {{htmlelement("a")}} Elemente, eingeschlossen in einem Wrapper {{htmlelement("div")}}.
 
 ```html
 <div class="wrapper">
@@ -72,7 +72,7 @@ In unserem Markup befinden sich sechs {{htmlelement("a")}} Elemente in einem ums
 
 #### CSS
 
-Auf dem `<div>` setzen wir die [grid-auto-flow](/de/docs/Web/CSS/Reference/Properties/grid-auto-flow) Eigenschaft auf `dense`, daher können Elemente außerhalb der Quellreihenfolge angezeigt werden. Die `reading-order` Eigenschaft auf dem `<a>`-Element mit der Klasse `top` ist auf `-1` gesetzt, daher wird "Item 4" das erste Element im Lesefluss sein. Die `reading-order` Eigenschaft auf dem `<a>`-Element mit der Klasse `bottom` ist auf `21` gesetzt, daher wird "Item 4" das letzte Element in der Lesereihenfolge sein. Die restlichen Elemente werden dazwischen, in der Gitter-Reihenfolge besucht, da die {{cssxref("reading-flow")}} Eigenschaft des `<div>`-Elements auf [grid-rows](/de/docs/Web/CSS/Reference/Properties/grid-row) gesetzt ist.
+Auf dem `<div>` setzen wir die [grid-auto-flow](/de/docs/Web/CSS/Reference/Properties/grid-auto-flow) Eigenschaft auf `dense`, daher können Elemente außerhalb der Quell-Reihenfolge angezeigt werden. Die `reading-order` Eigenschaft auf dem `<a>` Element mit der Klasse `top` ist auf `-1` gesetzt, daher wird "Item 4" das erste Element im Lesefluss sein. Die `reading-order` Eigenschaft auf dem `<a>` Element mit der Klasse `bottom` ist auf `21` gesetzt, daher wird "Item 4" das letzte Element in der Leseordnung sein. Die restlichen Elemente werden dazwischen besucht, in Grid-Reihenfolge, da die {{cssxref("reading-flow")}} Eigenschaft des `<div>` Elements auf [grid-rows](/de/docs/Web/CSS/Reference/Properties/grid-row) gesetzt ist.
 
 ```css
 .wrapper {
@@ -93,19 +93,19 @@ Auf dem `<div>` setzen wir die [grid-auto-flow](/de/docs/Web/CSS/Reference/Prope
 
 #### Ergebnis
 
-Die obige Demo rendert sich wie folgt:
+Das obige Demo rendert wie folgt:
 
 {{EmbedLiveSample('Grid row order', '100%', '100px')}}
 
-Versuchen Sie, durch die Links zu tabben. Beachten Sie, dass "Item 4" zuerst getabt wird und "Item 2" zuletzt, aufgrund ihrer geänderten `reading-order`-Werte. Dazwischen werden die Elemente in der Gitter-Reihenfolge getabt.
+Versuchen Sie, durch die Links zu tabben. Beachten Sie, wie "Item 4" zuerst getabbt wird und "Item 2" zuletzt, aufgrund ihrer modifizierten `reading-order` Werte. Dazwischen werden die Elemente in Grid-Reihenfolge getabbt.
 
-### Quellreihenfolge-Override
+### Quellreihenfolge überschreiben
 
-In diesem Beispiel haben die ungeraden Elemente einen niedrigeren `reading-order`-Wert festgelegt, daher werden sie innerhalb einer Gruppe vor den anderen gelesen, unabhängig von Quell- oder Anzeigereihenfolge.
+In diesem Beispiel haben die ungeradzahligen Elemente einen niedrigen `reading-order`-Wert, so dass sie vor den anderen in einer Gruppe ausgelesen werden, unabhängig von Quell- oder Anzeigereihenfolge.
 
 #### HTML
 
-In unserem Markup haben wir fünf `<a>` Elemente in einem umschließenden {{htmlelement("div")}}.
+In unserem Markup haben wir fünf `<a>` Elemente, eingeschlossen in einem Wrapper {{htmlelement("div")}}.
 
 ```html
 <div class="wrapper">
@@ -119,7 +119,7 @@ In unserem Markup haben wir fünf `<a>` Elemente in einem umschließenden {{html
 
 #### CSS
 
-Die `reading-flow` Eigenschaft des `<div>`-Elements ist auf `source-order` gesetzt, was ermöglicht, dass `reading-order` verwendet wird, um die standardmäßige Quellenreihenfolge zu überschreiben. Die ungeraden `<a>` Elemente haben einen `reading-order`-Wert von `-1`, daher werden sie vor den geraden Elementen gelesen.
+Die `reading-flow` Eigenschaft des `<div>` Elements ist auf `source-order` gesetzt, was es ermöglicht, die `reading-order` zu verwenden, um die Standard-Quellleseordnung zu überschreiben. Die ungeradzahligen `<a>` Elemente haben einen `reading-order`-Wert von `-1`, daher werden sie vor den geradzahligen Elementen ausgelesen.
 
 ```css
 .wrapper {
@@ -137,11 +137,11 @@ Die `reading-flow` Eigenschaft des `<div>`-Elements ist auf `source-order` geset
 
 #### Ergebnis
 
-Die obige Demo rendert sich wie folgt:
+Das obige Demo rendert wie folgt:
 
 {{EmbedLiveSample('Source order override', '100%', '100px')}}
 
-Versuchen Sie, durch die Links zu tabben, und beachten Sie, wie "Item 1", "Item 3" und "Item 5" zuerst getabt werden, wegen ihrer geänderten `reading-order`. Danach werden die Elemente in der Quellreihenfolge getabt.
+Versuchen Sie, durch die Links zu tabben, und beachten Sie, wie "Item 1", "Item 3" und "Item 5" zuerst getabbt werden, wegen ihrer modifizierten `reading-order`. Danach werden die Elemente in Quellreihenfolge getabbt.
 
 ## Spezifikationen
 
@@ -154,4 +154,4 @@ Versuchen Sie, durch die Links zu tabben, und beachten Sie, wie "Item 1", "Item 
 ## Siehe auch
 
 - {{cssxref("reading-flow")}}
-- [CSS `reading-flow` Beispiele](https://chrome.dev/reading-flow-examples/) via chrome.dev
+- [CSS `reading-flow` Beispiele](https://chrome.dev/reading-flow-examples/) über chrome.dev

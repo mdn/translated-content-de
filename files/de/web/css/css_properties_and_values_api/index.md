@@ -5,9 +5,9 @@ l10n:
   sourceCommit: f69b6693212029ce4b9fa0c753729044577af548
 ---
 
-Das **CSS properties and values API**-Modul definiert eine Methode zur Registrierung neuer CSS-Eigenschaften, zur Definition des Datentyps der Eigenschaft, ihres Vererbungsverhaltens und optional eines Anfangswertes. Diese API erweitert das Modul [CSS Custom Properties für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables), das es Autoren ermöglicht, benutzerdefinierte Eigenschaften in CSS mit der [Zwei-Strich-Syntax (`--`)](/de/docs/Web/CSS/Reference/Properties/--*) zu definieren. Die CSS properties and values API ist Teil der [CSS Houdini](/de/docs/Web/API/Houdini_APIs) API-Sammlung.
+Das **CSS properties and values API**-Modul definiert eine Methode zur Registrierung neuer CSS-Eigenschaften, zur Definition des Datentyps der Eigenschaft, ihres Vererbungsverhaltens und optional eines Anfangswertes. Diese API erweitert das Modul [CSS Custom Properties für kaskadierende Variablen](/de/docs/Web/CSS/Guides/Cascading_variables), das es Autoren ermöglicht, benutzerdefinierte Eigenschaften in CSS mit der [Zwei-Strich-Syntax (`--`)](/de/docs/Web/CSS/Reference/Properties/--*) zu definieren. Die CSS properties and values API ist Teil der [CSS Houdini](/de/docs/Web/API/Houdini_APIs) API-Sammlung.
 
-Benutzerdefinierte Eigenschaften ermöglichen die Wiederverwendung von Werten in einem Projekt, um komplexe oder sich wiederholende Stylesheets zu vereinfachen. Grundlegende benutzerdefinierte Eigenschaften werden im Modul [CSS Custom Properties für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) definiert. Die CSS properties and values API erweitert dieses Modul, indem Metadaten zu benutzerdefinierten Eigenschaften mit CSS durch die [`@property`](/de/docs/Web/CSS/Reference/At-rules/@property)-At-Regel oder alternativ mittels der JavaScript-Methode [`CSS.registerProperty`](/de/docs/Web/API/CSS/registerProperty_static) hinzugefügt werden können.
+Benutzerdefinierte Eigenschaften ermöglichen die Wiederverwendung von Werten in einem Projekt, um komplexe oder sich wiederholende Stylesheets zu vereinfachen. Grundlegende benutzerdefinierte Eigenschaften werden im Modul [CSS Custom Properties für kaskadierende Variablen](/de/docs/Web/CSS/Guides/Cascading_variables) definiert. Die CSS properties and values API erweitert dieses Modul, indem Metadaten zu benutzerdefinierten Eigenschaften mit CSS durch die [`@property`](/de/docs/Web/CSS/Reference/At-rules/@property)-At-Regel oder alternativ mittels der JavaScript-Methode [`CSS.registerProperty`](/de/docs/Web/API/CSS/registerProperty_static) hinzugefügt werden können.
 
 Unabhängig davon, ob sie mit CSS oder JavaScript registriert sind, ermöglicht das Setzen von Metadaten zu benutzerdefinierten Eigenschaften einen erwarteten Datentyp, den der Browser je nach Kontext verwenden kann, definiert einen Anfangswert und gibt Ihnen die Kontrolle über die Vererbung.
 
@@ -75,7 +75,7 @@ Das Feld hat einen [Hintergrund](/de/docs/Web/CSS/Reference/Properties/backgroun
 
 - [Verwendung der CSS properties and values API](/de/docs/Web/API/CSS_Properties_and_Values_API/guide)
   - : Erklärt, wie benutzerdefinierte Eigenschaften in CSS und JavaScript registriert werden, mit Hinweisen zum Umgang mit undefinierten und ungültigen Werten, Fallbacks und Vererbung.
-- [CSS Houdini](/de/docs/Web/CSS/CSS_properties_and_values_API/Houdini)
+- [CSS Houdini](/de/docs/Web/CSS/Guides/Properties_and_values_API/Houdini)
   - : Referenzleitfaden zu Houdini-Ressourcen einschließlich der CSS-Module, API-Leitfäden und externen Ressourcen.
 - [Houdini APIs](/de/docs/Web/API/Houdini_APIs)
   - : Erklärt, was CSS Houdini ist und seine Vorteile, zusammen mit einer Liste verfügbarer APIs und deren Status.
@@ -85,7 +85,7 @@ Das Feld hat einen [Hintergrund](/de/docs/Web/CSS/Reference/Properties/backgroun
 - {{cssxref("var")}}
 - [CSSRule](/de/docs/Web/API/CSSRule)
 - [CSSStyleValue](/de/docs/Web/API/CSSStyleValue)
-- [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping)
+- [CSS-Scoping](/de/docs/Web/CSS/Guides/Scoping)
 - [Using shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)
 - [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)
@@ -97,8 +97,8 @@ Das Feld hat einen [Hintergrund](/de/docs/Web/CSS/Reference/Properties/backgroun
 
 ## Siehe auch
 
-- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade)
-- [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping)-Modul
+- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/Guides/Cascade)
+- [CSS-Scoping](/de/docs/Web/CSS/Guides/Scoping)-Modul
 - [Using shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)
 - [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)-Modul
 - [Worklet](/de/docs/Web/API/Worklet)-Schnittstelle

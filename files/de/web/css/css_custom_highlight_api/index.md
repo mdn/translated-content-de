@@ -99,5 +99,5 @@ Dieses Modul fügt Eigenschaften und Methoden zu Schnittstellen hinzu, die in an
 
 ## Siehe auch
 
-- [CSS-Pseudo-Element-Modul](/de/docs/Web/CSS/CSS_pseudo-elements)
+- [CSS-Pseudo-Element-Modul](/de/docs/Web/CSS/Guides/Pseudo-elements)
 - [CSS Objektmodell (CSSOM)](/de/docs/Web/API/CSS_Object_Model) APIs

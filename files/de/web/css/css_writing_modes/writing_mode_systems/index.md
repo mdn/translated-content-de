@@ -19,11 +19,11 @@ In einem englischen Dokument, bei dem der Text horizontal von links nach rechts 
 
 ### Inline- und Block-Boxen
 
-Der _Außentyp der Darstellung_ von Boxen in einem [normalen Fluss-Layout](/de/docs/Web/CSS/CSS_display/Visual_formatting_model#normal_flow) bestimmt, wie sich die Box neben anderen Elementen auf der Seite verhält. _Inline-Boxen_ umfassen jede Textzeile und werden entlang der Inline-Dimension angeordnet.
+Der _Außentyp der Darstellung_ von Boxen in einem [normalen Fluss-Layout](/de/docs/Web/CSS/Guides/Display/Visual_formatting_model#normal_flow) bestimmt, wie sich die Box neben anderen Elementen auf der Seite verhält. _Inline-Boxen_ umfassen jede Textzeile und werden entlang der Inline-Dimension angeordnet.
 
 _Block-Boxen_ repräsentieren Container auf der Seite, die andere Block- und Inline-Elemente enthalten können. Sie werden entlang der Block-Dimension angeordnet und erstrecken sich in der Inline-Dimension, um den gesamten verfügbaren Raum in ihrem Container zu füllen (vorausgesetzt, es ist keine spezifische Größe in der Inline-Dimension mit einer Eigenschaft wie {{cssxref("inline-size")}} festgelegt). Block-Boxen werden nur von oben nach unten auf der Seite dargestellt, wenn Sie einen Schreibmodus verwenden, der Text horizontal darstellt, wie im Englischen.
 
-Das [CSS-Modul für logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values#properties) definiert {{Glossary("flow_relative_values", "fluss-relative Zuordnungen")}} für viele der {{Glossary("physical_properties", "physischen Eigenschaften")}} und Werte in CSS, was hilfreich ist, um die [grundlegenden Konzepte der logischen Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values) zu verstehen.
+Das [CSS-Modul für logische Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values#properties) definiert {{Glossary("flow_relative_values", "fluss-relative Zuordnungen")}} für viele der {{Glossary("physical_properties", "physischen Eigenschaften")}} und Werte in CSS, was hilfreich ist, um die [grundlegenden Konzepte der logischen Eigenschaften und Werte](/de/docs/Web/CSS/Guides/Logical_properties_and_values/Basic_concepts) zu verstehen.
 
 ### Basisrichtung von Inline- und Block-Flussrichtungen
 
@@ -96,4 +96,4 @@ Die `text-orientation`-Komponente des Schreibmodus steuert die Glyphenausrichtun
 
 ## Siehe auch
 
-- [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) Modul
+- [CSS-Schreibmodi](/de/docs/Web/CSS/Guides/Writing_modes) Modul

@@ -6,11 +6,11 @@ l10n:
   sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-Inhalte zwischen Spaltenkästen in einem Mehrspaltenlayout brechen auf die gleiche Weise, wie sie zwischen Seiten in Medien mit Seitenumbruch brechen. In beiden Kontexten können Sie steuern, wo und wie Inhalte mit den Eigenschaften des [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Moduls brechen. In diesem Leitfaden sehen wir, wie Fragmentierung in einem _Mehrspalten-Container_ oder einfach _multicol-Container_ funktioniert.
+Inhalte zwischen Spaltenkästen in einem Mehrspaltenlayout brechen auf die gleiche Weise, wie sie zwischen Seiten in Medien mit Seitenumbruch brechen. In beiden Kontexten können Sie steuern, wo und wie Inhalte mit den Eigenschaften des [CSS-Fragmentierung](/de/docs/Web/CSS/Guides/Fragmentation) Moduls brechen. In diesem Leitfaden sehen wir, wie Fragmentierung in einem _Mehrspalten-Container_ oder einfach _multicol-Container_ funktioniert.
 
 ## Grundlagen der Fragmentierung
 
-Das CSS-Fragmentierungsmodul liefert Details darüber, wie Inhalte zwischen den Fragmentierungscontainenern oder _Fragmentaineren_ brechen. Das [Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout) Modul definiert hingegen die {{cssxref("break-after")}}, {{cssxref("break-before")}} und {{cssxref("break-inside")}} Eigenschaften, die eine gewisse Kontrolle innerhalb und zwischen den Spalten bieten. In einem Mehrspaltenlayout ist ein Spaltenkasten ein Fragmentierungscontainer.
+Das CSS-Fragmentierungsmodul liefert Details darüber, wie Inhalte zwischen den Fragmentierungscontainenern oder _Fragmentaineren_ brechen. Das [Mehrspaltenlayout](/de/docs/Web/CSS/Guides/Multicol_layout) Modul definiert hingegen die {{cssxref("break-after")}}, {{cssxref("break-before")}} und {{cssxref("break-inside")}} Eigenschaften, die eine gewisse Kontrolle innerhalb und zwischen den Spalten bieten. In einem Mehrspaltenlayout ist ein Spaltenkasten ein Fragmentierungscontainer.
 
 Ein Spaltenkasten kann andere Markups enthalten, und es gibt viele Stellen, an denen ein Umbruch nicht ideal wäre. Beispielsweise würden wir im Allgemeinen bevorzugen, dass die Bildunterschrift eines Bildes nicht in eine neue Spalte von dem Bild, auf das sie sich bezieht, verschoben wird. Auch das Beenden einer Spalte mit einer Überschrift sieht merkwürdig aus. Die Multicol-Fragmentierungseigenschaften bieten uns Möglichkeiten, um dies zu steuern.
 

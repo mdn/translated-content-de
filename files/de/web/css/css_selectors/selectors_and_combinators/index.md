@@ -18,11 +18,11 @@ Der [Typselektor](/de/docs/Web/CSS/Reference/Selectors/Type_selectors) wählt al
 
 Der [Klassenselektor](/de/docs/Web/CSS/Reference/Selectors/Class_selectors) wählt alle Elemente aus, die das angegebene `class`-Attribut haben, dargestellt durch den Klassennamen, der mit einem Punkt (`.`) vorangestellt ist. Zum Beispiel wird `.index` jedes Element auswählen, das `class="index"` hat. Der [ID-Selektor](/de/docs/Web/CSS/Reference/Selectors/ID_selectors) wählt ein Element basierend auf dem Wert seines `id`-Attributs aus. Der Selektor ist die `id`, die mit einem "number sign" (U+0023, `#`) vorangestellt ist. Zum Beispiel wird `#toc` das Element auswählen, das `id="toc"` hat. Sowohl [`class`](/de/docs/Web/HTML/Reference/Global_attributes/class) als auch [`id`](/de/docs/Web/HTML/Reference/Global_attributes/id) sind globale Attribute. Es sollte nur ein Element mit einer gegebenen `id` in einem Dokument geben; aber wenn es mehr als eines gibt, wird der ID-Selektor alle Elemente mit dieser `id` auswählen.
 
-Wenn Sie einen Typ- oder universellen Selektor mit einem Klassen- oder ID-Selektor kombinieren, um einen [zusammengesetzten Selektor](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) zu erstellen, muss der Typ- oder universelle Selektor der Klasse oder ID vorangestellt werden.
+Wenn Sie einen Typ- oder universellen Selektor mit einem Klassen- oder ID-Selektor kombinieren, um einen [zusammengesetzten Selektor](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#compound_selector) zu erstellen, muss der Typ- oder universelle Selektor der Klasse oder ID vorangestellt werden.
 
 #### CSS
 
-In diesem Beispiel deklarieren wir vier [einfache Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#simple_selector) und einen [zusammengesetzten Selektor](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) unter Verwendung der vier grundlegenden Selektortypen, wie oben beschrieben.
+In diesem Beispiel deklarieren wir vier [einfache Selektoren](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#simple_selector) und einen [zusammengesetzten Selektor](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#compound_selector) unter Verwendung der vier grundlegenden Selektortypen, wie oben beschrieben.
 
 ```css
 * {
@@ -55,7 +55,7 @@ p.myClass#myId {
 
 ## Kombinatoren
 
-Mithilfe von CSS-Kombinatoren können wir Selektoren kombinieren, um DOM-Knoten basierend auf ihrer Beziehung zu anderen Elementen innerhalb des Dokumentknotenhierarchiebaums auszuwählen. Diese Kombination von Selektoren mit Kombinatoren erzeugt [komplexe Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector).
+Mithilfe von CSS-Kombinatoren können wir Selektoren kombinieren, um DOM-Knoten basierend auf ihrer Beziehung zu anderen Elementen innerhalb des Dokumentknotenhierarchiebaums auszuwählen. Diese Kombination von Selektoren mit Kombinatoren erzeugt [komplexe Selektoren](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#complex_selector).
 
 ### Nachfahrenselektor
 
@@ -83,7 +83,7 @@ Der [Namespace-Trenner](/de/docs/Web/CSS/Reference/Selectors/Namespace_separator
 
 #### CSS
 
-In diesem Beispiel deklarieren wir fünf [relative Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#relative_selector) unter Verwendung von [einfachen Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#simple_selector), kombiniert mit Kombinatoren.
+In diesem Beispiel deklarieren wir fünf [relative Selektoren](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#relative_selector) unter Verwendung von [einfachen Selektoren](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#simple_selector), kombiniert mit Kombinatoren.
 
 ```css
 h2 + p ~ p {
@@ -127,7 +127,7 @@ h2 + p + p {
 
 ### Erstellung komplexer Selektoren mit CSS-Nesting
 
-Die oben genannten komplexen Selektoren können auch unter Verwendung einfacher Selektoren, Kombinatoren und [CSS-Nesting](/de/docs/Web/CSS/CSS_nesting) definiert werden, mit oder ohne den [`&`-Nesting-Selektor](/de/docs/Web/CSS/Reference/Selectors/Nesting_selector).
+Die oben genannten komplexen Selektoren können auch unter Verwendung einfacher Selektoren, Kombinatoren und [CSS-Nesting](/de/docs/Web/CSS/Guides/Nesting) definiert werden, mit oder ohne den [`&`-Nesting-Selektor](/de/docs/Web/CSS/Reference/Selectors/Nesting_selector).
 
 #### CSS
 
@@ -191,15 +191,15 @@ Die Groß- und Kleinschreibung des Attributs hängt von der Sprache ab. Im Allge
 
 ## Pseudo-Klassen-Selektoren
 
-Das Modul [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) definiert über 60 [Pseudo-Klassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes). Pseudo-Klassen sind [einfache Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#simple_selector), die mit einem Doppelpunkt (`:`) versehen sind und die Auswahl von Elementen basierend auf Statusinformationen ermöglichen, die nicht im Dokumentbaum enthalten sind. {{CSSxRef("pseudo-classes")}} können verwendet werden, um ein Element basierend auf seinem _Zustand_ zu stylen. Zum Beispiel zielt der einfache {{cssxref(":target")}}-Selektor auf ein Element einer URL, die einen Fragmentkennzeichner enthält, und der [`a:visited`](/de/docs/Web/CSS/Reference/Selectors/:visited) [zusammengesetzter Selektor](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) wählt alle {{HTMLElement("a")}}-Elemente aus, die von einem Benutzer besucht wurden.
+Das Modul [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) definiert über 60 [Pseudo-Klassen](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes). Pseudo-Klassen sind [einfache Selektoren](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#simple_selector), die mit einem Doppelpunkt (`:`) versehen sind und die Auswahl von Elementen basierend auf Statusinformationen ermöglichen, die nicht im Dokumentbaum enthalten sind. {{CSSxRef("pseudo-classes")}} können verwendet werden, um ein Element basierend auf seinem _Zustand_ zu stylen. Zum Beispiel zielt der einfache {{cssxref(":target")}}-Selektor auf ein Element einer URL, die einen Fragmentkennzeichner enthält, und der [`a:visited`](/de/docs/Web/CSS/Reference/Selectors/:visited) [zusammengesetzter Selektor](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#compound_selector) wählt alle {{HTMLElement("a")}}-Elemente aus, die von einem Benutzer besucht wurden.
 
 Die Pseudo-Klassen können als [Elementanzeigezustand](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#element_display_state_pseudo-classes), [Eingabe](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#input_pseudo-classes), [linguistisch](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#linguistic_pseudo-classes), [Standort](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#location_pseudo-classes), [Ressourcenzustand](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#resource_state_pseudo-classes), [zeitdimensional](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#time-dimensional_pseudo-classes), [baumstrukturell](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#tree-structural_pseudo-classes), [Benutzeraktion](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#user_action_pseudo-classes) und [funktional](/de/docs/Web/CSS/Reference/Selectors/Pseudo-classes#functional_pseudo-classes) kategorisiert werden.
 
-Mehrere Pseudo-Klassen können kombiniert werden, um [zusammengesetzte Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) zu erstellen. Bei der Kombination einer Pseudo-Klasse in einen zusammengesetzten Selektor mit einem Typ- oder universellen Selektor muss die Pseudo-Klasse dem Typselektor oder universellen Selektor folgen, falls vorhanden.
+Mehrere Pseudo-Klassen können kombiniert werden, um [zusammengesetzte Selektoren](/de/docs/Web/CSS/Guides/Selectors/Selector_structure#compound_selector) zu erstellen. Bei der Kombination einer Pseudo-Klasse in einen zusammengesetzten Selektor mit einem Typ- oder universellen Selektor muss die Pseudo-Klasse dem Typselektor oder universellen Selektor folgen, falls vorhanden.
 
 ## Pseudo-Element-Selektoren
 
-Nicht alle CSS-Selektoren sind im [CSS-Selektormodul](/de/docs/Web/CSS) definiert. CSS-Pseudo-Element-Selektoren sind im [CSS-Pseudo-Elemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul definiert.
+Nicht alle CSS-Selektoren sind im [CSS-Selektormodul](/de/docs/Web/CSS) definiert. CSS-Pseudo-Element-Selektoren sind im [CSS-Pseudo-Elemente](/de/docs/Web/CSS/Guides/Pseudo-elements) Modul definiert.
 
 CSS [Pseudo-Elemente](/de/docs/Web/CSS/Reference/Selectors/Pseudo-elements), die mit zwei Doppelpunkten (`::`) versehen sind, stellen Entitäten dar, die nicht im HTML enthalten sind. Zum Beispiel wählt der einfache {{cssxref("::marker")}}-Selektor Listenelement-Bullets aus, und der zusammengesetzte Selektor [`p::first-line`](/de/docs/Web/CSS/Reference/Selectors/::first-line) wählt die erste Zeile aller {{HTMLElement("p")}}-Elemente aus.
 
@@ -212,6 +212,6 @@ Siehe die Spezifikationstabellen für [Pseudo-Klassen](/de/docs/Web/CSS/Referenc
 ## Siehe auch
 
 - [Selektorliste](/de/docs/Web/CSS/Reference/Selectors/Selector_list)
-- [CSS-Selektorstruktur](/de/docs/Web/CSS/CSS_selectors/Selector_structure)
-- [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
-- [CSS-Nesting-Modul](/de/docs/Web/CSS/CSS_nesting)
+- [CSS-Selektorstruktur](/de/docs/Web/CSS/Guides/Selectors/Selector_structure)
+- [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity)
+- [CSS-Nesting-Modul](/de/docs/Web/CSS/Guides/Nesting)

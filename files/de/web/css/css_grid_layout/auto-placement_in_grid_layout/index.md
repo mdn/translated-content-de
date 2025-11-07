@@ -6,7 +6,7 @@ l10n:
   sourceCommit: 06639598f7805417a0331fe403304af9c7ecc2de
 ---
 
-[CSS Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) enthält Regeln, die steuern, was passiert, wenn Sie ein Raster erstellen und einige oder alle Kind-Elemente nicht explizit im Raster platzieren. Wenn Sie keine explizite Kontrolle über die Platzierung von Inhalten benötigen, ist diese "automatische Platzierung" der einfachste Weg, ein Raster für eine Reihe von Elementen zu erstellen.
+[CSS Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout) enthält Regeln, die steuern, was passiert, wenn Sie ein Raster erstellen und einige oder alle Kind-Elemente nicht explizit im Raster platzieren. Wenn Sie keine explizite Kontrolle über die Platzierung von Inhalten benötigen, ist diese "automatische Platzierung" der einfachste Weg, ein Raster für eine Reihe von Elementen zu erstellen.
 
 ## Standardmäßige Platzierung
 
@@ -57,7 +57,7 @@ body {
 
 ## Standardregeln für die automatische Platzierung
 
-Wie Sie im obigen Beispiel sehen können, legen sich die Kind-Elemente an, wenn Sie ein Raster ohne Platzierung von Elementen erstellen, wobei ein Rasterelement in jeder Rasterzelle in der Quellcode-Reihenfolge angeordnet wird. Der Standardfluss ist, die Elemente zeilenweise anzuordnen. Grid legt ein Element in jede Zelle der ersten Zeile. Wenn Sie zusätzliche Zeilen mit der Eigenschaft {{cssxref("grid-template-rows")}} erstellt haben, wird Grid weiterhin Elemente in diesen Zeilen platzieren. Wenn das Raster nicht genügend Zeilen im [expliziten Raster](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#implicit_and_explicit_grids) hat, um alle Elemente zu platzieren, werden neue _implizite_ Zeilen erstellt.
+Wie Sie im obigen Beispiel sehen können, legen sich die Kind-Elemente an, wenn Sie ein Raster ohne Platzierung von Elementen erstellen, wobei ein Rasterelement in jeder Rasterzelle in der Quellcode-Reihenfolge angeordnet wird. Der Standardfluss ist, die Elemente zeilenweise anzuordnen. Grid legt ein Element in jede Zelle der ersten Zeile. Wenn Sie zusätzliche Zeilen mit der Eigenschaft {{cssxref("grid-template-rows")}} erstellt haben, wird Grid weiterhin Elemente in diesen Zeilen platzieren. Wenn das Raster nicht genügend Zeilen im [expliziten Raster](/de/docs/Web/CSS/Guides/Grid_layout/Basic_concepts#implicit_and_explicit_grids) hat, um alle Elemente zu platzieren, werden neue _implizite_ Zeilen erstellt.
 
 ### Zeilen im impliziten Raster dimensionieren
 
@@ -411,7 +411,7 @@ Bisher, außer bei den speziell platzierten Elementen, bewegt sich Grid immer vo
 
 Um dies zu tun, fügen Sie der Eigenschaft {{cssxref("grid-auto-flow")}} den Wert `dense` hinzu. Dies ist die gleiche Eigenschaft, die Sie verwenden, um die Flussreihenfolge auf `column` zu ändern, so dass, wenn Sie mit Spalten arbeiten, Sie beide Werte `grid-auto-flow: column dense` hinzufügen würden.
 
-Nachdem dies geschehen ist, wird Grid nun die Lücken zurückfüllen, da es sich durch das Raster bewegt, Lücken wie zuvor hinterlässt, aber dann, wenn es ein Element findet, das in eine frühere Lücke passt, wird es aufgenommen und aus der DOM-Reihenfolge genommen, um es in die Lücke zu platzieren. Wie bei jeder anderen Neuordnung in Grid ändert dies nicht die logische Reihenfolge. Die Tab-Reihenfolge folgt beispielsweise weiterhin der Dokumentenreihenfolge. Wir werden uns die potenziellen Zugänglichkeitsprobleme des Grid-Layouts im [Leitfaden Grid-Layout und Zugänglichkeit](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_and_accessibility) ansehen, aber Sie sollten vorsichtig sein, wenn Sie diese Trennung zwischen der visuellen und der Anzeigereihenfolge erstellen.
+Nachdem dies geschehen ist, wird Grid nun die Lücken zurückfüllen, da es sich durch das Raster bewegt, Lücken wie zuvor hinterlässt, aber dann, wenn es ein Element findet, das in eine frühere Lücke passt, wird es aufgenommen und aus der DOM-Reihenfolge genommen, um es in die Lücke zu platzieren. Wie bei jeder anderen Neuordnung in Grid ändert dies nicht die logische Reihenfolge. Die Tab-Reihenfolge folgt beispielsweise weiterhin der Dokumentenreihenfolge. Wir werden uns die potenziellen Zugänglichkeitsprobleme des Grid-Layouts im [Leitfaden Grid-Layout und Zugänglichkeit](/de/docs/Web/CSS/Guides/Grid_layout/Accessibility) ansehen, aber Sie sollten vorsichtig sein, wenn Sie diese Trennung zwischen der visuellen und der Anzeigereihenfolge erstellen.
 
 ```css hidden
 body {

@@ -109,5 +109,5 @@ p:target i {
 
 ## Siehe auch
 
-- [Verwendung der :target-Pseudoklasse in Selektoren](/de/docs/Web/CSS/CSS_selectors/Using_the_:target_pseudo-class_in_selectors)
+- [Verwendung der :target-Pseudoklasse in Selektoren](/de/docs/Web/CSS/Guides/Selectors/Using_:target)
 - {{cssxref("::target-text")}} (zum Hervorheben von Textfragmenten)

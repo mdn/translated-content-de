@@ -8,7 +8,7 @@ l10n:
 
 Die **Kaskade** ist ein Algorithmus, der definiert, wie Benutzeragenten Eigenschaftswerte aus verschiedenen Quellen kombinieren. Die Kaskade definiert den Ursprung und die Ebene, die Vorrang hat, wenn Deklarationen in mehr als einem [Ursprung](#ursprungstypen), einer [Kaskadenschicht](/de/docs/Web/CSS/Reference/At-rules/@layer) oder einem {{CSSxRef("@scope")}}-Block einen Wert für eine Eigenschaft eines Elements festlegen.
 
-Die Kaskade ist der Kern von CSS, wie der Name betont: _**Cascading**_ Style Sheets. Wenn ein [Selektor](/de/docs/Web/CSS/CSS_selectors) mit einem Element übereinstimmt, wird der Eigenschaftswert vom Ursprung mit der höchsten Priorität angewendet, selbst wenn der Selektor von einem Ursprung mit niedrigerer Priorität oder Ebene eine höhere [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) aufweist.
+Die Kaskade ist der Kern von CSS, wie der Name betont: _**Cascading**_ Style Sheets. Wenn ein [Selektor](/de/docs/Web/CSS/Guides/Selectors) mit einem Element übereinstimmt, wird der Eigenschaftswert vom Ursprung mit der höchsten Priorität angewendet, selbst wenn der Selektor von einem Ursprung mit niedrigerer Priorität oder Ebene eine höhere [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) aufweist.
 
 Dieser Artikel erklärt, was die Kaskade ist und in welcher Reihenfolge {{Glossary("CSS", "CSS")}}-[Deklarationen](/de/docs/Web/API/CSSStyleDeclaration) kaskadieren und behandelt Kaskadenschichten und Ursprungstypen. Das Verstehen der Ursprungsvorrangigkeit ist entscheidend, um die Kaskade zu verstehen.
 
@@ -26,7 +26,7 @@ Einige Browser erlauben es den Benutzern, das Benutzeragent-Stylesheet zu änder
 
 Obwohl einige Einschränkungen für Benutzeragent-Stylesheets in der HTML-Spezifikation festgelegt sind, haben die Browser viel Spielraum: Das bedeutet, dass es einige Unterschiede zwischen Browsern gibt. Um den Entwicklungsprozess zu vereinfachen, können Webentwickler ein CSS-Reset-Stylesheet wie [normalize.css](https://github.com/necolas/normalize.css) verwenden, das allgemeine Eigenschaftswerte für alle Browser auf einen bekannten Zustand setzt, bevor sie Änderungen vornehmen, die ihren spezifischen Anforderungen entsprechen.
 
-Solange das Benutzeragent-Stylesheet kein [`!important`](/de/docs/Web/CSS/CSS_cascade/Specificity#the_!important_exception) neben einer Eigenschaft enthält, wodurch es "wichtig" wird, haben von Autor-Styles deklarierte Styles, einschließlich eines Reset-Stylesheets, Vorrang vor den Benutzeragent-Stilen, unabhängig von der Spezifität des zugehörigen Selektors.
+Solange das Benutzeragent-Stylesheet kein [`!important`](/de/docs/Web/CSS/Guides/Cascade/Specificity#the_!important_exception) neben einer Eigenschaft enthält, wodurch es "wichtig" wird, haben von Autor-Styles deklarierte Styles, einschließlich eines Reset-Stylesheets, Vorrang vor den Benutzeragent-Stilen, unabhängig von der Spezifität des zugehörigen Selektors.
 
 ### Autor-Stylesheets
 
@@ -60,7 +60,7 @@ Der Kaskadenalgorithmus bestimmt, wie der anzuwendende Wert für jede Eigenschaf
    | 7                                 | Benutzeragent (Browser)  | `!important` |
    | 8                                 | CSS-Übergänge            |              |
 
-3. **Spezifität**: Bei Gleichheit mit einem Ursprung wird die [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity) einer Regel herangezogen, um einen Wert zu wählen. Die Spezifität der Selektoren wird verglichen und die Deklaration mit der höchsten Spezifität gewinnt.
+3. **Spezifität**: Bei Gleichheit mit einem Ursprung wird die [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity) einer Regel herangezogen, um einen Wert zu wählen. Die Spezifität der Selektoren wird verglichen und die Deklaration mit der höchsten Spezifität gewinnt.
 4. **Scoping-Nähe**: Wenn zwei Selektoren in der Ursprungsschicht mit Vorrang die gleiche Spezifität aufweisen, gewinnt der Eigenschaftswert innerhalb von Scoped-Regeln mit der geringsten Anzahl von Schritten in der DOM-Hierarchie zur Ursprung. Details und ein Beispiel finden Sie unter [Wie `@scope`-Konflikte gelöst werden](/de/docs/Web/CSS/Reference/At-rules/@scope#how_scope_conflicts_are_resolved).
 5. **Erscheinungsreihenfolge**: Im Ursprung mit Vorrang, wenn es konkurrierende Werte für eine Eigenschaft gibt, die zu Stilblöcken gehören, die Selektoren mit gleicher Spezifität und Scoping-Nähe haben, wird die letzte Deklaration in der Stilreihenfolge verwendet.
 
@@ -73,7 +73,7 @@ Die Kaskade ist in aufsteigender Reihenfolge, was bedeutet:
 > [!NOTE]
 > **Übergänge und Animationen**
 >
-> Eigenschaftswerte, die durch Animationen mittels {{cssxref('@keyframes')}} gesetzt werden, sind wichtiger als alle normalen Stile (solche, bei denen kein [`!important`](/de/docs/Web/CSS/CSS_cascade/Specificity#the_!important_exception) gesetzt ist).
+> Eigenschaftswerte, die durch Animationen mittels {{cssxref('@keyframes')}} gesetzt werden, sind wichtiger als alle normalen Stile (solche, bei denen kein [`!important`](/de/docs/Web/CSS/Guides/Cascade/Specificity#the_!important_exception) gesetzt ist).
 >
 > Eigenschaftswerte, die in einem {{cssxref('transition')}} gesetzt werden, haben Vorrang vor allen anderen gesetzten Werten, sogar denen mit `!important`.
 
@@ -336,7 +336,7 @@ Nur CSS-Eigenschafts/Werte-Paar-Deklarationen nehmen an der Kaskade teil. CSS-At
 
 ### At-rules
 
-CSS-[At-rules](/de/docs/Web/CSS/CSS_syntax/At-rules), die andere Einheiten als Deklarationen enthalten, wie z.B. eine {{ cssxref("@font-face")}}-Regel, die _Deskriptoren_ enthält, nehmen nicht an der Kaskade teil.
+CSS-[At-rules](/de/docs/Web/CSS/Guides/Syntax/At-rules), die andere Einheiten als Deklarationen enthalten, wie z.B. eine {{ cssxref("@font-face")}}-Regel, die _Deskriptoren_ enthält, nehmen nicht an der Kaskade teil.
 
 Im Allgemeinen nehmen die in At-rules definierten Eigenschaften und Deskriptoren nicht an der Kaskade teil. Nur At-rules als Ganzes nehmen an der Kaskade teil. Zum Beispiel, innerhalb einer `@font-face`-Regel, werden Schriftnamen durch [`font-family`](/de/docs/Web/CSS/Reference/At-rules/@font-face/font-family) Deskriptoren identifiziert. Wenn mehrere `@font-face`-Regeln mit demselben Deskriptor definiert sind, wird nur die am besten geeignete `@font-face` als Ganzes berücksichtigt. Wenn mehrere gleich geeignet sind, werden die gesamten `@font-face`-Deklarationen mithilfe der Schritte 1, 2 und 4 des Algorithmus verglichen (es gibt keine Spezifizität, wenn es um At-rules geht).
 
@@ -358,7 +358,7 @@ Präsentationsattribute können nicht als `!important` deklariert werden.
 
 ## CSS-Animationen und die Kaskade
 
-[CSS-Animationen](/de/docs/Web/CSS/CSS_animations), die {{cssxref("@keyframes")}}-At-Rules verwenden, definieren Animationen zwischen Zuständen. `@keyframes` kaskadieren nicht, was bedeutet, dass CSS zu einem bestimmten Zeitpunkt nur Werte aus einem einzigen Satz von `@keyframes` übernimmt und niemals mehrere mischt. Wenn mehrere Sätze von `@keyframes` mit demselben Animationsnamen definiert sind, wird der zuletzt definierte Satz im Ursprung und der Schicht mit dem größten Vorrang verwendet. Andere `@keyframes` werden ignoriert, selbst wenn sie andere Eigenschaften animieren.
+[CSS-Animationen](/de/docs/Web/CSS/Guides/Animations), die {{cssxref("@keyframes")}}-At-Rules verwenden, definieren Animationen zwischen Zuständen. `@keyframes` kaskadieren nicht, was bedeutet, dass CSS zu einem bestimmten Zeitpunkt nur Werte aus einem einzigen Satz von `@keyframes` übernimmt und niemals mehrere mischt. Wenn mehrere Sätze von `@keyframes` mit demselben Animationsnamen definiert sind, wird der zuletzt definierte Satz im Ursprung und der Schicht mit dem größten Vorrang verwendet. Andere `@keyframes` werden ignoriert, selbst wenn sie andere Eigenschaften animieren.
 
 ```css
 p {
@@ -416,9 +416,9 @@ Nachdem Ihr Inhalt die Stile fertiggestellt hat, kann es vorkommen, dass es sie 
 
 - [Lernen: Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
 - [Lernen: Kaskadenschichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
-- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax/Syntax)
-- [Spezifität](/de/docs/Web/CSS/CSS_cascade/Specificity)
-- [Vererbung](/de/docs/Web/CSS/CSS_cascade/Inheritance)
-- [At-Rules](/de/docs/Web/CSS/CSS_syntax/At-rules)
-- [Ursprünglicher](/de/docs/Web/CSS/CSS_cascade/Value_processing#initial_value), [berechneter](/de/docs/Web/CSS/CSS_cascade/Value_processing#computed_value), [verwendeter](/de/docs/Web/CSS/CSS_cascade/Value_processing#used_value), und [tatsächlicher](/de/docs/Web/CSS/CSS_cascade/Value_processing#actual_value) Wert
+- [CSS-Kaskadierung und Vererbung](/de/docs/Web/CSS/Guides/Cascade) Modul
+- [CSS-Syntax](/de/docs/Web/CSS/Guides/Syntax/Introduction)
+- [Spezifität](/de/docs/Web/CSS/Guides/Cascade/Specificity)
+- [Vererbung](/de/docs/Web/CSS/Guides/Cascade/Inheritance)
+- [At-Rules](/de/docs/Web/CSS/Guides/Syntax/At-rules)
+- [Ursprünglicher](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#initial_value), [berechneter](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#computed_value), [verwendeter](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#used_value), und [tatsächlicher](/de/docs/Web/CSS/Guides/Cascade/Property_value_processing#actual_value) Wert

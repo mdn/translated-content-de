@@ -40,7 +40,7 @@ Standardmäßig können Elemente in einem Schattendom nur innerhalb ihrer jeweil
 - [`Element.shadowRoot`](/de/docs/Web/API/Element/shadowRoot)-Eigenschaft
 - [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow)-Methode
 - [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle
-- [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping) Modul
+- [CSS-Scoping](/de/docs/Web/CSS/Guides/Scoping) Modul
   - {{CSSXref(":host")}}
   - {{CSSXref(":host_function", ":host()")}}
   - {{CSSXref(":host-context", ":host-context()")}}
@@ -52,7 +52,7 @@ Standardmäßig können Elemente in einem Schattendom nur innerhalb ihrer jeweil
 
 ## Siehe auch
 
-- [CSS-Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
+- [CSS-Pseudoelemente](/de/docs/Web/CSS/Guides/Pseudo-elements) Modul
+- [CSS-Selektoren](/de/docs/Web/CSS/Guides/Selectors) Modul
 - [Verwendung von Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)
 - [Vorlagen: Stylen außerhalb des aktuellen Bereichs](https://web.dev/learn/html/template/#styling_outside_of_the_current_scope) auf web.dev (2023)

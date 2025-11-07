@@ -2,10 +2,10 @@
 title: border-collapse
 slug: Web/CSS/Reference/Properties/border-collapse
 l10n:
-  sourceCommit: 0b5859108411e47d228a4bb9f30a5556ab17f63c
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
-Die **`border-collapse`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, ob Zellen innerhalb einer {{htmlElement("table")}} gemeinsame oder separate Ränder haben.
+Die **`border-collapse`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Zellen innerhalb einer {{htmlElement("table")}} gemeinsame oder getrennte Ränder haben.
 
 {{InteractiveExample("CSS Demo: border-collapse")}}
 
@@ -51,9 +51,9 @@ td {
 }
 ```
 
-Wenn Zellen zusammengelegt sind, verhält sich der {{cssxref("border-style")}}-Wert von `inset` wie `ridge` und `outset` wie `groove`.
+Wenn Zellen zusammengeführt werden, verhält sich der `border-style`-Wert von `inset` wie `ridge`, und `outset` wie `groove`.
 
-Wenn Zellen getrennt sind, wird der Abstand zwischen den Zellen durch die Eigenschaft {{cssxref("border-spacing")}} definiert.
+Wenn Zellen getrennt sind, wird der Abstand zwischen den Zellen durch die {{cssxref("border-spacing")}} Eigenschaft definiert.
 
 ## Syntax
 
@@ -70,14 +70,14 @@ border-collapse: revert-layer;
 border-collapse: unset;
 ```
 
-Die `border-collapse`-Eigenschaft wird als einzelnes Schlüsselwort angegeben, das aus der unten stehenden Liste ausgewählt werden kann.
+Die `border-collapse` Eigenschaft wird als Schlüsselwort angegeben, das aus der untenstehenden Liste ausgewählt werden kann.
 
 ### Werte
 
 - `collapse`
-  - : Benachbarte Zellen haben gemeinsame Ränder (das Modell der zusammengelegten Ränder).
+  - : Angrenzende Zellen haben gemeinsame Grenzen (das Renderingmodell für zusammengeschlossene Ränder).
 - `separate`
-  - : Benachbarte Zellen haben unterschiedliche Ränder (das Modell der getrennten Ränder).
+  - : Angrenzende Zellen haben unterschiedliche Grenzen (das Renderingmodell für getrennte Ränder).
 
 ## Formale Definition
 
@@ -224,5 +224,5 @@ table td {
 ## Siehe auch
 
 - {{cssxref("border-spacing")}}, {{cssxref("border-style")}}
-- Die `border-collapse`-Eigenschaft verändert das Erscheinungsbild des {{htmlelement("table")}} HTML-Elements.
-- [CSS Table](/de/docs/Web/CSS/CSS_table)-Modul
+- Die `border-collapse` Eigenschaft ändert das Erscheinungsbild des {{htmlelement("table")}} HTML-Elements.
+- [CSS-Tabellen](/de/docs/Web/CSS/Guides/Table) Modul

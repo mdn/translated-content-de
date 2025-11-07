@@ -108,7 +108,7 @@ Die Funktion {{cssxref("counter", "counter()")}} hat zwei Formen: `counter(<coun
 
 Die Funktion {{cssxref("counters", "counters()")}} hat ebenfalls zwei Formen: `counters(<counter-name>, <separator>)` und `counters(<counter-name>, <separator>, <counter-style>)`. Der generierte Text ist der Wert aller Zähler mit dem gegebenen Namen im Gültigkeitsbereich des angegebenen Pseudo-Elements, von äußerster zur innersten Ebene, getrennt durch die angegebene Zeichenfolge (`<separator>`).
 
-Der Zähler wird im angegebenen `<counter-style>` für beide Methoden gerendert (`decimal` standardmäßig). Sie können jeden der {{cssxref("list-style-type")}} Werte oder Ihre eigenen [benutzerdefinierten Stile](/de/docs/Web/CSS/CSS_counter_styles) verwenden.
+Der Zähler wird im angegebenen `<counter-style>` für beide Methoden gerendert (`decimal` standardmäßig). Sie können jeden der {{cssxref("list-style-type")}} Werte oder Ihre eigenen [benutzerdefinierten Stile](/de/docs/Web/CSS/Guides/Counter_styles) verwenden.
 
 Beispiele, die die Verwendung von `counter()` und `counters()` zeigen, finden Sie unten im [einfachen Beispiel](#einfaches_beispiel) und im [Beispiel für einen verschachtelten Zähler](#beispiel_für_einen_verschachtelten_zähler).
 
@@ -456,5 +456,5 @@ li::before {
 - {{cssxref("counter-set")}}
 - {{cssxref("counter-increment")}}
 - {{cssxref("@counter-style")}}
-- [CSS counter styles](/de/docs/Web/CSS/CSS_counter_styles) Modul
-- [CSS lists and counters](/de/docs/Web/CSS/CSS_lists) Modul
+- [CSS counter styles](/de/docs/Web/CSS/Guides/Counter_styles) Modul
+- [CSS lists and counters](/de/docs/Web/CSS/Guides/Lists) Modul

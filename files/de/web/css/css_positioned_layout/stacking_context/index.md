@@ -22,8 +22,8 @@ Ein Stapelkontext wird an jeder beliebigen Stelle im Dokument von jedem Element 
 - Root-Element des Dokuments (`<html>`).
 - Element mit einem {{cssxref("position")}}-Wert `absolute` oder `relative` und einem {{cssxref("z-index")}}-Wert ungleich `auto`.
 - Element mit einem {{cssxref("position")}}-Wert `fixed` oder `sticky`.
-- Element mit einem {{cssxref("container-type")}}-Wert `size` oder `inline-size` gesetzt (siehe [Container-Anfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)).
-- Element, das ein [Flex-Element](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) mit einem {{cssxref("z-index")}}-Wert ungleich `auto` ist.
+- Element mit einem {{cssxref("container-type")}}-Wert `size` oder `inline-size` gesetzt (siehe [Container-Anfragen](/de/docs/Web/CSS/Guides/Containment/Container_queries)).
+- Element, das ein [Flex-Element](/de/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts) mit einem {{cssxref("z-index")}}-Wert ungleich `auto` ist.
 - Element, das ein [Grid-Element]() mit einem {{cssxref("z-index")}}-Wert ungleich `auto` ist.
 - Element mit einem {{cssxref("opacity")}}-Wert kleiner als `1`.
 - Element mit einem {{cssxref("mix-blend-mode")}}-Wert ungleich `normal`.
@@ -48,7 +48,7 @@ Ein Stapelkontext wird an jeder beliebigen Stelle im Dokument von jedem Element 
 
 Stapelkontexte können in anderen Stapelkontexten enthalten sein, und sie können zusammen eine Hierarchie von Stapelkontexten bilden.
 
-Das Root-Element eines Dokuments ist ein Stapelkontext, der in den meisten Fällen verschachtelte Stapelkontexte enthält, von denen viele zusätzliche Stapelkontexte enthalten werden. Innerhalb jedes Stapelkontextes werden Kind-Elemente nach den gleichen Regeln gestapelt, die in [Verwenden von `z-index`](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index) erklärt werden. Wichtig ist, dass die `z-index`-Werte seiner Kind-Stapelkontexte nur innerhalb des Stapelkontextes der Eltern Bedeutung haben. Stapelkontexte werden in dem übergeordneten Stapelkontext als eine einzelne Einheit atomar behandelt.
+Das Root-Element eines Dokuments ist ein Stapelkontext, der in den meisten Fällen verschachtelte Stapelkontexte enthält, von denen viele zusätzliche Stapelkontexte enthalten werden. Innerhalb jedes Stapelkontextes werden Kind-Elemente nach den gleichen Regeln gestapelt, die in [Verwenden von `z-index`](/de/docs/Web/CSS/Guides/Positioned_layout/Using_z-index) erklärt werden. Wichtig ist, dass die `z-index`-Werte seiner Kind-Stapelkontexte nur innerhalb des Stapelkontextes der Eltern Bedeutung haben. Stapelkontexte werden in dem übergeordneten Stapelkontext als eine einzelne Einheit atomar behandelt.
 
 Um die _Renderreihenfolge_ der entlang der z-Achse gestapelten Elemente zu ermitteln, betrachten Sie jeden Indexwert als eine Art "Versionsnummer", wobei die Kindelemente das Nebenversionsnummer unter der Hauptversionsnummer ihrer Eltern darstellen.
 
@@ -188,7 +188,7 @@ article {
 }
 ```
 
-Die CSS-Eigenschaften für Farben, Schriftarten, Ausrichtung und [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) wurden der Kürze halber ausgeblendet.
+Die CSS-Eigenschaften für Farben, Schriftarten, Ausrichtung und [Box-Modell](/de/docs/Web/CSS/Guides/Box_model/Introduction) wurden der Kürze halber ausgeblendet.
 
 {{ EmbedLiveSample('Nested stacking contexts', '100%', '396') }}
 
@@ -229,13 +229,13 @@ In unserem Beispiel (sortiert nach der endgültigen Renderreihenfolge):
 
 ## Zusätzliche Beispiele
 
-Zusätzliche Beispiele umfassen eine [2-Ebenen-Hierarchie mit `z-index` auf der letzten Ebene](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_1), eine [2-Ebenen-HTML-Hierarchie, `z-index` auf allen Ebenen](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_2) und eine [3-Ebenen-HTML-Hierarchie, `z-index` auf der zweiten Ebene](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_context/Stacking_context_example_3).
+Zusätzliche Beispiele umfassen eine [2-Ebenen-Hierarchie mit `z-index` auf der letzten Ebene](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context/Example_1), eine [2-Ebenen-HTML-Hierarchie, `z-index` auf allen Ebenen](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context/Example_2) und eine [3-Ebenen-HTML-Hierarchie, `z-index` auf der zweiten Ebene](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_context/Example_3).
 
 ## Siehe auch
 
-- [z-index verstehen](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
-- [Stapelung ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_without_z-index)
-- [Stapelung schwebender Elemente](/de/docs/Web/CSS/CSS_positioned_layout/Stacking_floating_elements)
-- [Verwenden von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Using_z-index)
+- [z-index verstehen](/de/docs/Web/CSS/Guides/Positioned_layout/Understanding_z-index)
+- [Stapelung ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_without_z-index)
+- [Stapelung schwebender Elemente](/de/docs/Web/CSS/Guides/Positioned_layout/Stacking_floating_elements)
+- [Verwenden von z-index](/de/docs/Web/CSS/Guides/Positioned_layout/Using_z-index)
 - {{Glossary("Top_layer", "Top-Ebene")}}
-- [CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout)-Modul
+- [CSS positioniertes Layout](/de/docs/Web/CSS/Guides/Positioned_layout)-Modul

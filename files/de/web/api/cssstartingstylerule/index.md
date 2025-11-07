@@ -2,12 +2,12 @@
 title: CSSStartingStyleRule
 slug: Web/API/CSSStartingStyleRule
 l10n:
-  sourceCommit: aa1c6876fb3cea003dda92f02c9bac93fd3370b2
+  sourceCommit: 85fccefc8066bd49af4ddafc12c77f35265c7e2d
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die **`CSSStartingStyleRule`**-Schnittstelle des [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) repräsentiert eine CSS-{{CSSxRef("@starting-style")}}-At-Regel.
+Das **`CSSStartingStyleRule`**-Interface des [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) repräsentiert eine CSS-{{CSSxRef("@starting-style")}}-At-Regel.
 
 {{InheritanceDiagram}}
 
@@ -30,5 +30,5 @@ _Erbt Methoden von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGrou
 ## Siehe auch
 
 - {{CSSxRef("@starting-style")}}
-- [CSS-Transitions](/de/docs/Web/CSS/CSS_transitions)-Modul
-- [Verwendung dynamischer Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [CSS-Transitions](/de/docs/Web/CSS/Guides/Transitions)-Modul
+- [Verwendung dynamischer Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

@@ -888,4 +888,4 @@ init();
 - {{CSSXref("&lt;color&gt;")}}
 - {{CSSXref("&lt;color-interpolation-method&gt;")}}
 - {{cssxref("&lt;hue&gt;")}}
-- [CSS relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
+- [CSS relative Farben](/de/docs/Web/CSS/Guides/Colors/Using_relative_colors)

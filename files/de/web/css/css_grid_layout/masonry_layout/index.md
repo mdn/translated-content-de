@@ -7,7 +7,7 @@ l10n:
 
 {{SeeCompatTable}}
 
-Stufe 3 der [CSS Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout)-Spezifikation enthält einen `masonry`-Wert für {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}}. Dieser Leitfaden beschreibt, was ein Mauerwerk-Layout ist und wie es verwendet wird.
+Stufe 3 der [CSS Grid-Layout](/de/docs/Web/CSS/Guides/Grid_layout)-Spezifikation enthält einen `masonry`-Wert für {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}}. Dieser Leitfaden beschreibt, was ein Mauerwerk-Layout ist und wie es verwendet wird.
 
 Ein Mauerwerk-Layout ist eine Layout-Methode, bei der eine Achse ein typisches striktes Grid-Layout verwendet, meist Spalten, und die andere ein Mauerwerk-Layout. Auf der Mauerwerk-Achse, anstatt an einem strikten Raster festzuhalten, bei dem Lücken nach kürzeren Elementen bleiben, steigen die Elemente in der folgenden Reihe auf, um die Lücken vollständig zu füllen.
 
