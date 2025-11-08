@@ -3,23 +3,23 @@ title: "Dokument: activeViewTransition-Eigenschaft"
 short-title: activeViewTransition
 slug: Web/API/Document/activeViewTransition
 l10n:
-  sourceCommit: 011212609ed5fa7cf7e7994fc974d1bbab90c68e
+  sourceCommit: 1889aacdd5cb4dd3e6e5a5ef2f305fda0985c89b
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("DOM")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`activeViewTransition`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt eine [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Instanz zurück, die die derzeit auf dem Dokument aktive [View-Übergang](/de/docs/Web/API/View_Transition_API) darstellt.
+Die schreibgeschützte Eigenschaft **`activeViewTransition`** der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt eine [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Instanz zurück, die die derzeit auf dem Dokument aktive [Ansichtsübergang](/de/docs/Web/API/View_Transition_API) repräsentiert.
 
-Der aktuelle [`ViewTransition`](/de/docs/Web/API/ViewTransition) kann auf andere Weise abgerufen werden:
+Der aktuelle [`ViewTransition`](/de/docs/Web/API/ViewTransition) kann auf andere Weise zugänglich gemacht werden:
 
-- Der Rückgabewert von [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) im Falle von View-Übergängen innerhalb desselben Dokuments.
-- Die `viewTransition`-Eigenschaft der [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)- und [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignisobjekte im Falle von View-Übergängen über Dokumentgrenzen hinweg.
+- Der Rückgabewert von [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) im Fall von gleichseitigen Ansichtsübergängen.
+- Die `viewTransition`-Eigenschaft der [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)- und [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignisobjekte im Fall von dokumentübergreifenden Ansichtsübergängen.
 
-Jedoch bietet die `activeViewTransition`-Eigenschaft eine konsistente Möglichkeit, auf den aktiven View-Übergang in jedem Kontext zuzugreifen, ohne sich später um das Speichern für einen einfachen Zugriff kümmern zu müssen.
+Jedoch bietet die `activeViewTransition`-Eigenschaft eine konsistente Möglichkeit, auf den aktiven Ansichtsübergang in jedem Kontext zuzugreifen, ohne sich später Gedanken darüber machen zu müssen, wie man ihn leicht zugänglich speichert.
 
 ## Wert
 
-Eine [`ViewTransition`](/de/docs/Web/API/ViewTransition) oder `null`, wenn kein aktiver View-Übergang vorhanden ist.
+Eine [`ViewTransition`](/de/docs/Web/API/ViewTransition) oder `null`, wenn kein aktiver Ansichtsübergang vorhanden ist.
 
 ## Beispiele
 

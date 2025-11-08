@@ -3,18 +3,16 @@ title: "HTML-Attribut: fetchpriority"
 short-title: fetchpriority
 slug: Web/HTML/Reference/Attributes/fetchpriority
 l10n:
-  sourceCommit: 1f00512e3c9a20b5bb927db529bb5d639e346d96
+  sourceCommit: 1889aacdd5cb4dd3e6e5a5ef2f305fda0985c89b
 ---
 
-{{SeeCompatTable}}{{non-standard_header}}
+Das **`fetchpriority`**-Attribut ermöglicht es einem Entwickler, zu signalisieren, dass das Abrufen eines bestimmten Bildes früh im Ladeprozess mehr oder weniger Einfluss auf die Benutzererfahrung hat, als ein Browser vernünftigerweise ableiten kann, wenn er eine interne Priorität zuweist. Dies erlaubt es dem Browser, die Priorität zu erhöhen oder zu verringern und das Bild potenziell früher oder später zu laden, als es sonst der Fall wäre.
 
-Das **`fetchpriority`**-Attribut ermöglicht es einem Entwickler, anzugeben, dass das frühzeitige Laden eines bestimmten Bildes einen größeren oder geringeren Einfluss auf die Benutzererfahrung hat, als ein Browser vernünftigerweise ableiten kann, wenn er eine interne Priorität zuweist. Dies ermöglicht es dem Browser, die Priorität zu erhöhen oder zu verringern und das Bild möglicherweise früher oder später zu laden, als es sonst der Fall wäre.
+Dieses Attribut kann auf {{HTMLElement("img")}}, {{HTMLElement("link")}} und {{HTMLElement("script")}}-Elemente angewendet werden. Es hat auch ein [SVG-Pendant](/de/docs/Web/SVG/Reference/Attribute/fetchpriority).
 
-Dieses Attribut kann auf die {{HTMLElement("img")}}, {{HTMLElement("link")}} und {{HTMLElement("script")}} Elemente angewendet werden. Es gibt auch ein [SVG-Pendant](/de/docs/Web/SVG/Reference/Attribute/fetchpriority).
+Die Abrufpriorität kann verwendet werden, um das [Preloading](/de/docs/Web/HTML/Reference/Attributes/rel/preload) zu ergänzen. Dadurch kann ein Entwickler die Priorität über weniger einflussreiche Ressourcen hinaus erhöhen, die eine höhere Standardpriorität haben. Wenn ein Entwickler beispielsweise weiß, dass ein bestimmtes Bild erheblich zum {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint")}} (LCP) der Website beiträgt, könnte er [`<link rel="preload">`](/de/docs/Web/HTML/Reference/Attributes/rel/preload) für das Bild hinzufügen und dann die Priorität weiter mit dem `fetchpriority`-Attribut erhöhen.
 
-Die Abrufpriorität kann genutzt werden, um das [Preloading](/de/docs/Web/HTML/Reference/Attributes/rel/preload) zu ergänzen, was es einem Entwickler ermöglicht, die Priorität gegenüber weniger wichtigen Ressourcen mit einer höheren Standardpriorität zu erhöhen. Zum Beispiel, wenn ein Entwickler weiß, dass ein bestimmtes Bild entscheidend zum {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint")}} (LCP) der Website beiträgt, könnte er `<link rel="preload">` für das Bild hinzufügen und dann die Priorität mithilfe des `fetchpriority`-Attributs weiter erhöhen.
-
-Beachten Sie, dass sowohl die interne Priorität eines jeden Abrufvorgangs als auch der Einfluss von `fetchpriority` auf die Priorität ausschließlich vom Browser abhängen.
+Beachten Sie, dass sowohl die interne Priorität einer Abrufoperation als auch der Einfluss von `fetchpriority` auf die Priorität vollständig vom Browser abhängig sind.
 
 Dieses Attribut ist {{Glossary("Enumerated", "enumeriert")}} und kann einen der folgenden Werte haben:
 
@@ -24,12 +22,16 @@ Dieses Attribut ist {{Glossary("Enumerated", "enumeriert")}} und kann einen der 
   - : Ruft die externe Ressource mit niedriger Priorität im Vergleich zu anderen externen Ressourcen ab.
 - `auto`
   - : Setzt keine Präferenz für die Abrufpriorität.
-    Es wird verwendet, wenn kein Wert oder ein ungültiger Wert gesetzt ist.
+    Es wird verwendet, wenn kein oder ein ungültiger Wert gesetzt ist.
     Dies ist der Standard.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Das Attribut sollte sparsam verwendet werden, da übermäßige oder falsche Priorisierungen die Leistung beeinträchtigen können.
+Das Attribut sollte sparsam eingesetzt werden, da übermäßige oder falsche Priorisierung die Leistung beeinträchtigen kann.
+
+## Spezifikationen
+
+{{Specifications}}
 
 ## Browser-Kompatibilität
 
@@ -37,4 +39,4 @@ Das Attribut sollte sparsam verwendet werden, da übermäßige oder falsche Prio
 
 ## Siehe auch
 
-- SVG-Attribut [`fetchpriority`](/de/docs/Web/SVG/Reference/Attribute/fetchpriority)
+- SVG [`fetchpriority`](/de/docs/Web/SVG/Reference/Attribute/fetchpriority)-Attribut
